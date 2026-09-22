@@ -132,6 +132,15 @@ tool-free application inference and retains readable transport metadata. It
 requires an independently admitted local provider; the default workflows never
 make model calls. See [live executor qualification](docs/live-executor.md).
 
+The [Gateway example](examples/gateway-study.ts) instead reuses ALGAL's built-in
+Vercel AI Gateway executor. It requires explicit model/provider selection and
+authorized Gateway credentials, retains token usage when reported, and uses the
+same twelve-slot smoke acceptance. See [Gateway inference](docs/gateway-executor.md)
+and its [frozen transport plan](docs/gateway-smoke-plan.md).
+The [first live findings](docs/gateway-smoke-findings.md) retain all twelve
+completed generations, the rejected budget-violating proposal, and the failed
+strict acceptance result.
+
 ## Scope and development
 
 ALGAL supplies typed execution and receipts. Algal Lab owns experimental

@@ -86,8 +86,16 @@ passed; the smoke inspector correctly failed because no proposals were measured
 and no peer artifact was inherited. Separate capability observations reported
 the account busy during concurrent XCB operations; the receipt error alone only
 establishes unavailability. This is admission evidence, not evidence about model
-quality. Live acceptance remains pending. A subsequent attempt must preserve
+quality. XCB live acceptance remains pending. A subsequent attempt must preserve
 this archive; see [the live executor procedure](live-executor.md).
+
+The subsequent [Gateway smoke](gateway-smoke-findings.md) used ALGAL's existing
+executor with Luna. Twelve generations completed, eleven proposals passed host
+validation, and offline reproduction passed. The strict researcher acceptance
+failed because one proposal violated the edge budget. Three valid proposals
+cited earlier peers while changing their graphs. All conditions selected the
+same champion, with exact random AUC 0.794643; this is operational evidence and a
+single descriptive search result, not evidence of a sharing advantage.
 
 ## Architectural implications
 

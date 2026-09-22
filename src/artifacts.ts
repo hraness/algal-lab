@@ -54,7 +54,7 @@ export class ArtifactStore {
   }
 }
 export async function sourceIdentities(): Promise<{ instrumentDigest: `sha256:${string}`; applicationDigest: `sha256:${string}` }> {
-  const names = ["network.ts", "contracts.ts", "researcher.ts", "study.ts", "artifacts.ts", "oracle.ts", "qualification.ts", "xcb-executor.ts", "../examples/xcb-study.ts", "../cli.ts", "../package.json", "../bun.lock"];
+  const names = ["network.ts", "contracts.ts", "researcher.ts", "study.ts", "artifacts.ts", "oracle.ts", "qualification.ts", "xcb-executor.ts", "gateway-executor.ts", "../examples/xcb-study.ts", "../examples/gateway-study.ts", "../cli.ts", "../package.json", "../bun.lock"];
   const sources = await Promise.all(names.map(async (name) => [name, await readFile(new URL(name, import.meta.url), "utf8")] as const));
   return { instrumentDigest: digest({ source: sources[0]![1], version: "network.v1" }), applicationDigest: digest(Object.fromEntries(sources)) };
 }
