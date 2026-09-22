@@ -4,13 +4,14 @@ import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ArtifactStore, digest, digestString, readJsonFile } from "../src/artifacts";
-import { CONDITIONS, equal, integer, object, parseProtocol, text } from "../src/contracts";
-import { GATEWAY_FAILURE_CODES, GATEWAY_SCHEMA_DIGEST } from "../src/gateway-executor";
+import { CONDITIONS, equal, integer, object, parseProtocol, proposalContractSchema, text, PROPOSAL_CONTRACT } from "../src/contracts";
+import { GATEWAY_FAILURE_CODES } from "../src/gateway-executor";
 import { exactRandomAuc } from "../src/oracle";
 import { verifyStudy, type Attempt, type StudyReport } from "../src/study";
 
-// This inspector qualifies the first frozen Gateway smoke, not any twelve-call
-// study. Keep the committed plan here rather than trusting a mutable input file.
+// This inspector qualifies the frozen bounded Gateway smoke under its declared
+// plans, not any twelve-call study. Keep the committed plan here rather than
+// trusting a mutable input file.
 const FROZEN_PROTOCOL = {
   contract: "algal.lab.study.v1", name: "network-model-smoke", replicateSeeds: [2903], researchers: 2, rounds: 2,
   nodes: 8, edges: 10, failureSteps: 3, discoverySeeds: [71, 139], holdoutSeeds: [2063, 4127, 8263],
@@ -24,7 +25,7 @@ const USAGE_KEYS = ["tokensIn", "tokensOut", "totalTokens", "reasoningTokens", "
 type UsageKey = typeof USAGE_KEYS[number];
 type Usage = Partial<Record<UsageKey, number>>;
 type Observation = {
-  attempt: number; requestDigest: string; elapsedMs: number; status: "completed" | "failed";
+  attempt: number; requestDigest: string; schemaDigest?: string; elapsedMs: number; status: "completed" | "failed";
   dispatched: boolean; uncertain: boolean; httpStatus?: number; requestId?: string; responseId?: string;
   model?: string; finishReason?: string; usage?: Usage; code?: string;
 };
@@ -35,9 +36,11 @@ function optionalObject(value: unknown, required: string[], optional: readonly s
 }
 
 function configuration(value: unknown) {
-  const c = object(value, ["contract", "adapterVersion", "model", "provider", "baseUrl", "schemaDigest", "timeoutMs", "maxCalls", "maxOutputBytes", "maxResponseBytes", "maxInputBytes", "maxTokens", "temperature", "reasoningEffort", "zeroTools", "noFallback", "responseModelForms"], "gateway configuration");
-  if (c.contract !== "algal.lab.gateway-executor.v1" || c.adapterVersion !== 1 || c.baseUrl !== "https://ai-gateway.vercel.sh/v1" ||
-      c.schemaDigest !== GATEWAY_SCHEMA_DIGEST || c.temperature !== 0 || c.reasoningEffort !== "low" || c.zeroTools !== true ||
+  const c = object(value, ["contract", "adapterVersion", "model", "provider", "baseUrl", "proposalContract",
+    "timeoutMs", "maxCalls", "maxOutputBytes", "maxResponseBytes", "maxInputBytes", "maxTokens", "temperature", "reasoningEffort",
+    "zeroTools", "noFallback", "responseModelForms"], "gateway configuration");
+  if (c.contract !== "algal.lab.gateway-executor.v2" || c.adapterVersion !== 2 || c.baseUrl !== "https://ai-gateway.vercel.sh/v1" ||
+      c.proposalContract !== PROPOSAL_CONTRACT || c.temperature !== 0 || c.reasoningEffort !== "low" || c.zeroTools !== true ||
       c.noFallback !== true || c.responseModelForms !== "canonical-or-direct-slug" || c.maxInputBytes !== 131072) throw new Error("invalid Gateway configuration");
   const model = text(c.model, 128, "model");
   const provider = text(c.provider, 64, "provider");
@@ -46,7 +49,7 @@ function configuration(value: unknown) {
   const maxOutputBytes = integer(c.maxOutputBytes, 1, 8192, "output bytes");
   integer(c.maxResponseBytes, 1, 65536, "response bytes");
   if (c.maxTokens !== Math.ceil(maxOutputBytes / 4)) throw new Error("invalid Gateway token budget");
-  return { value: c, model, provider, executor: `algal-lab:gateway.v1:${model}` };
+  return { value: c, model, provider, executor: `algal-lab:gateway.v2:${model}` };
 }
 
 function usage(value: unknown): Usage {
@@ -64,12 +67,13 @@ function usage(value: unknown): Usage {
 
 function observation(value: unknown): Observation {
   const o = optionalObject(value, ["attempt", "requestDigest", "elapsedMs", "status", "dispatched", "uncertain"],
-    ["httpStatus", "requestId", "responseId", "model", "finishReason", "usage", "code"], "gateway observation");
+    ["schemaDigest", "httpStatus", "requestId", "responseId", "model", "finishReason", "usage", "code"], "gateway observation");
   const attempt = integer(o.attempt, 1, 12, "observation attempt");
   const requestDigest = digestString(o.requestDigest);
   const elapsedMs = integer(o.elapsedMs, 0, Number.MAX_SAFE_INTEGER, "elapsed time");
   if ((o.status !== "completed" && o.status !== "failed") || typeof o.dispatched !== "boolean" || typeof o.uncertain !== "boolean") throw new Error("invalid Gateway observation");
   const parsed: Observation = { attempt, requestDigest, elapsedMs, status: o.status, dispatched: o.dispatched, uncertain: o.uncertain };
+  if (Object.hasOwn(o, "schemaDigest")) parsed.schemaDigest = digestString(o.schemaDigest);
   if (Object.hasOwn(o, "httpStatus")) parsed.httpStatus = integer(o.httpStatus, 100, 599, "HTTP status");
   for (const key of ["requestId", "responseId"] as const) {
     if (!Object.hasOwn(o, key)) continue;
@@ -141,7 +145,10 @@ export async function inspectGatewaySmoke(directory: string) {
   const controls = { frozenPlanMatches, boundedTwelveCallStudy: shape, everyProposalMeasured: verification.experiments === 12,
     transportReportsCompleted: transportMatches, receiptConfigurationMatches: configurationMatches, receiptUsageMatches: usageMatches,
     distinctGenerationRequests: generationIds.every((id) => id !== undefined) && new Set(generationIds).size === generationIds.length,
-    notCancelled: sidecar.cancelled === false, changedDesignFromVisiblePeer: inherited.length > 0 };
+    notCancelled: sidecar.cancelled === false, changedDesignFromVisiblePeer: inherited.length > 0,
+    // v2 dispatches the exact-budget proposal contract for the run's protocol.
+    exactBudgetContract: observations.length > 0 &&
+      observations.every((o) => o.schemaDigest === digest(proposalContractSchema(report.protocol.nodes, report.protocol.edges))) };
   // Do not turn omitted provider usage or a partial/mismatched archive into zero.
   const completeAccounting = transportMatches && configurationMatches && usageMatches && controls.distinctGenerationRequests;
   const total = (key: UsageKey): number | null => completeAccounting && observations.every((o) => o.usage?.[key] !== undefined)

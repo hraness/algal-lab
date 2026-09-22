@@ -7,6 +7,8 @@ import {
   json,
   parseProposal,
   parseProtocol,
+  proposalContractSchema,
+  PROPOSAL_CONTRACT,
   type Protocol,
   type Proposal,
   type ResearchContext,
@@ -147,6 +149,34 @@ describe("research proposal admission", () => {
     for (const prediction of [NaN, Infinity, -Infinity, -0.01, 1.01, "0.5", null]) {
       expect(() => parseProposal({ ...proposal, prediction }, context)).toThrow(/prediction/);
     }
+  });
+});
+
+describe("versioned proposal contract schema", () => {
+  test("encodes the exact admitted node and edge budgets", () => {
+    const schema = proposalContractSchema(8, 10);
+    const view = JSON.parse(JSON.stringify(schema)) as {
+      properties: { graph: { properties: { nodes: { type: string; minimum: number; maximum: number };
+        edges: { minItems: number; maxItems: number; items: { items: { type: string; minimum: number; maximum: number } } } } } } };
+    expect(PROPOSAL_CONTRACT).toBe("algal.lab.proposal.v2");
+    expect(view.properties.graph.properties.nodes).toEqual({ type: "integer", minimum: 8, maximum: 8 });
+    expect(view.properties.graph.properties.edges.minItems).toBe(10);
+    expect(view.properties.graph.properties.edges.maxItems).toBe(10);
+    expect(view.properties.graph.properties.edges.items.items).toEqual({ type: "integer", minimum: 0, maximum: 7 });
+    expect(proposalContractSchema(8, 10)).toEqual(schema);
+    expect(proposalContractSchema(8, 10)).not.toEqual(proposalContractSchema(8, 11));
+    expect(proposalContractSchema(8, 10)).not.toEqual(proposalContractSchema(9, 10));
+    const edges = ((schema.properties as Record<string, JsonValue>).graph as Record<string, JsonValue>).properties as Record<string, JsonValue>;
+    expect(Object.isFrozen(edges.edges)).toBe(true);
+  });
+
+  test("rejects budgets outside protocol bounds", () => {
+    for (const [nodes, edges] of [[3, 2], [17, 16], [8, 6], [8, 29], [8, 10.5], [8, -1]] as const) {
+      expect(() => proposalContractSchema(nodes, edges)).toThrow();
+    }
+    expect(() => proposalContractSchema("8" as unknown as number, 10)).toThrow();
+    proposalContractSchema(4, 3);
+    proposalContractSchema(16, 48);
   });
 });
 

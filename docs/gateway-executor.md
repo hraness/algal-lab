@@ -29,16 +29,24 @@ bun scripts/inspect-gateway-smoke.ts runs/gateway-smoke
 ```
 
 The [first recorded run](gateway-smoke-findings.md) completed twelve generations
-and eleven valid experiments; its strict acceptance correctly failed.
+and eleven valid experiments; its strict acceptance correctly failed. The
+[v2 plan](proposal-contract-v2-plan.md) freezes the exact-budget contract and
+the next smoke's acceptance before further inference.
 
 The example limits a study to twelve proposal slots. Each request uses the fixed
 Gateway origin, a selected model and provider, zero temperature, low reasoning
 effort, a sixty-second deadline, an 8 KiB proposal limit, and no tools. The lab
-wrapper supplies a full provider JSON schema while preserving the original VM
-manifest and host graph admission. ALGAL's Gateway adapter wraps the proposal in
-`value` on the wire and extracts it before measurement.
+wrapper supplies a provider JSON schema while preserving the original VM
+manifest and host graph admission. Under `algal.lab.gateway-executor.v2` that
+schema is the versioned `algal.lab.proposal.v2` contract built per request: it
+encodes the admitted context's exact node and edge budgets, each transport
+observation records the dispatched schema digest, and a response outside the
+budget is rejected as `invalid_response` before measurement. ALGAL's Gateway
+adapter wraps the proposal in `value` on the wire and extracts it before
+measurement.
 
-The configuration digest covers schema, provider selection, and request limits.
+The configuration digest covers the contract version, provider selection, and
+request limits.
 Every request remains stateless and receives only its bounded research context.
 The wrapper performs no client retries or alternate-model fallback. A timeout
 cannot establish that remote inference stopped, so uncertain transport completion
@@ -53,7 +61,9 @@ Credentials and raw upstream error bodies are never retained in these files.
 
 The inspector reconstructs the study offline, checks the exact frozen first-smoke
 protocol, model, provider, and settings, matches transport observations to effect
-receipts, and applies the same peer-inheritance acceptance as the XCB smoke.
+receipts, and applies the same peer-inheritance acceptance as the XCB smoke. It
+requires the v2 executor configuration and checks that every observation carried
+the exact-budget schema digest (`exactBudgetContract`).
 Other models or protocols need their own declared acceptance plan. The metadata
 is not independently authenticated, and
 HTTP completion does not provide XCB's native process-custody evidence. A passing

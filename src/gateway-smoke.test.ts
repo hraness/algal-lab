@@ -62,6 +62,7 @@ test("Gateway smoke inspects real-wrapper fake-fetch receipts, inheritance, and 
   expect(f.calls).toBe(12);
   expect(result.passed).toBe(true);
   expect(result.controls.frozenPlanMatches).toBe(true);
+  expect(result.controls.exactBudgetContract).toBe(true);
   expect(result.inheritance.length).toBeGreaterThan(0);
   expect(result.inheritance.every((item) => item.researcher !== item.parentResearcher && item.round > 0)).toBe(true);
   expect(result.champions).toHaveLength(3);
@@ -140,6 +141,10 @@ test("Gateway smoke rejects unknown metadata and mismatched intent, model, ident
   expect((await inspectGatewaySmoke(f.root)).controls.transportReportsCompleted).toBe(false);
   await f.writeSidecar(observations, { cancelled: true });
   expect((await inspectGatewaySmoke(f.root)).controls.notCancelled).toBe(false);
+  await f.writeSidecar(observations.map((o, index) => index === 0 ? { ...o, schemaDigest: "sha256:" + "0".repeat(64) } : o));
+  expect((await inspectGatewaySmoke(f.root)).controls.exactBudgetContract).toBe(false);
+  await f.writeSidecar(observations.map(({ schemaDigest: _dropped, ...o }) => o));
+  expect((await inspectGatewaySmoke(f.root)).controls.exactBudgetContract).toBe(false);
 });
 
 test("Gateway smoke requires a changed peer design, not an unchanged citation", async () => {

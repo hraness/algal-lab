@@ -4,8 +4,8 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { digestCanonical, effectRequestDigest, type EffectRequest, type GatewayFetch } from "@hraness/algal";
 import { ArtifactStore } from "./artifacts";
-import { json } from "./contracts";
-import { createGatewayExecutor, GATEWAY_PROPOSAL_SCHEMA, GATEWAY_SCHEMA_DIGEST } from "./gateway-executor";
+import { json, proposalContractSchema, PROPOSAL_CONTRACT } from "./contracts";
+import { createGatewayExecutor } from "./gateway-executor";
 import { runStudy, verifyStudy, type Attempt } from "./study";
 
 const roots: string[] = [];
@@ -18,6 +18,7 @@ const request: EffectRequest = {
   context: { inputs: { context: { contract: "algal.lab.context.v1", nodes: 4, edges: 4, evidence: [], messages: [] } } },
   budget: { maxContextBytes: 65536, maxOutputBytes: 8192 },
 };
+const schema = proposalContractSchema(4, 4);
 function response(overrides: Record<string, unknown> = {}, headers: Record<string, string> = {}): Response {
   return Response.json({
     id: "chatcmpl-fixture", model: "gpt-6-luna",
@@ -43,25 +44,24 @@ test("native ALGAL Gateway execution sends the full bounded schema and retains o
     const body = JSON.parse(init!.body as string);
     expect(Object.keys(body).sort()).toEqual(["max_tokens", "messages", "model", "providerOptions", "reasoning_effort", "response_format", "temperature"]);
     expect(body).toMatchObject({ model: selection.model, max_tokens: 2048, temperature: 0, reasoning_effort: "low", providerOptions: { gateway: { only: [selection.provider] } } });
-    expect(body.response_format).toEqual({ type: "json_schema", json_schema: { name: "algal_cell_output", strict: true, schema: { type: "object", additionalProperties: false, required: ["value"], properties: { value: GATEWAY_PROPOSAL_SCHEMA } } } });
+    expect(body.response_format).toEqual({ type: "json_schema", json_schema: { name: "algal_cell_output", strict: true, schema: { type: "object", additionalProperties: false, required: ["value"], properties: { value: schema } } } });
     const context = JSON.parse(body.messages[1].content);
     expect(context.context).toEqual(request.context);
-    expect(context.output.schema).toEqual(GATEWAY_PROPOSAL_SCHEMA);
+    expect(context.output.schema).toEqual(schema);
     return response();
   };
   const executor = createGatewayExecutor({ ...selection, fetch, maxCalls: 1 });
   const result = await executor.executeEffect!(request);
   expect(result.output).toEqual(proposal);
   expect(result.metadata).toEqual({ executor: executor.id, configurationDigest: executor.configurationDigest, retryable: false, usage: { model: "gpt-6-luna", tokensIn: 10, tokensOut: 20 } });
-  expect(executor.id).toBe(`algal-lab:gateway.v1:${selection.model}`);
+  expect(executor.id).toBe(`algal-lab:gateway.v2:${selection.model}`);
   expect(executor.cacheable).toBe(false);
   expect(executor.retryable).toBe(false);
   expect(request).toEqual(before);
-  expect(executor.configuration.schemaDigest).toBe(GATEWAY_SCHEMA_DIGEST);
-  expect(GATEWAY_SCHEMA_DIGEST).toBe(digestCanonical(GATEWAY_PROPOSAL_SCHEMA));
+  expect(executor.configuration.proposalContract).toBe(PROPOSAL_CONTRACT);
   expect(executor.configurationDigest).toBe(digestCanonical(json(executor.configuration)));
   expect(executor.observations).toHaveLength(1);
-  expect(executor.observations[0]).toMatchObject({ attempt: 1, requestDigest: effectRequestDigest(request), status: "completed", dispatched: true, uncertain: false, httpStatus: 200, requestId: "req_fixture", responseId: "chatcmpl-fixture", model: "gpt-6-luna", finishReason: "stop", usage: { tokensIn: 10, tokensOut: 20, totalTokens: 30, reasoningTokens: 2, cachedTokens: 3, cost: 0.001 } });
+  expect(executor.observations[0]).toMatchObject({ attempt: 1, requestDigest: effectRequestDigest(request), schemaDigest: digestCanonical(schema), status: "completed", dispatched: true, uncertain: false, httpStatus: 200, requestId: "req_fixture", responseId: "chatcmpl-fixture", model: "gpt-6-luna", finishReason: "stop", usage: { tokensIn: 10, tokensOut: 20, totalTokens: 30, reasoningTokens: 2, cachedTokens: 3, cost: 0.001 } });
   expect(executor.observations[0]).not.toHaveProperty("code");
   expect(JSON.stringify(executor.observations)).not.toContain(selection.credential);
   await expect(executor.execute(request)).rejects.toThrow("call_budget_exhausted");
@@ -78,7 +78,7 @@ test("configuration identity changes for relevant bounds and selection but exclu
   for (const change of [{ maxCalls: 13 }, { maxCalls: 0 }, { timeoutMs: 60001 }, { maxOutputBytes: 8193 }, { maxResponseBytes: 65537 }, { maxCalls: NaN }, { model: "auto" }, { provider: "openai/other" }, { retries: 1 }, { signal: {} }, { fetch: "url" }]) {
     expect(() => createGatewayExecutor({ ...selection, ...change } as never)).toThrow();
   }
-  expect(Object.isFrozen(GATEWAY_PROPOSAL_SCHEMA)).toBe(true);
+  expect(Object.isFrozen(schema)).toBe(true);
   expect(Object.isFrozen(normal.configuration)).toBe(true);
   expect(JSON.stringify(normal.configuration)).not.toContain(selection.credential);
 });
@@ -122,6 +122,39 @@ test("credential echoes in proposal text or keys are rejected before durable ALG
   const escaped = createGatewayExecutor({ ...selection, credential: escapedCredential, fetch: async () => response({ choices: failureChoice({}, { content: JSON.stringify({ value: { ...proposal, rationale: escapedCredential } }) }) }) });
   await expect(escaped.execute(request)).rejects.toThrow("invalid_response");
   expect(JSON.stringify(escaped.observations)).not.toContain(escapedCredential);
+});
+
+test("provider output outside the exact budget contract is rejected before the host sees it", async () => {
+  const violations = [
+    { ...proposal, graph: { nodes: 4, edges: [...proposal.graph.edges, [0, 2]] } },
+    { ...proposal, graph: { nodes: 4, edges: proposal.graph.edges.slice(1) } },
+    { ...proposal, graph: { nodes: 5, edges: proposal.graph.edges } },
+    { ...proposal, graph: { nodes: 4, edges: [[0, 1], [1, 2], [2, 3], [0, 4]] } },
+    { ...proposal, graph: { nodes: 4, edges: [[0, 1], [1, 2], [2, 3], [0, 3.5]] } },
+    { ...proposal, graph: { nodes: 4 } },
+    { ...proposal, graph: "connected" },
+  ];
+  for (const bad of violations) {
+    let calls = 0;
+    const executor = createGatewayExecutor({ ...selection, fetch: async () => { calls++; return response({ choices: failureChoice({}, { content: JSON.stringify({ value: bad }) }) }); } });
+    await expect(executor.execute(request)).rejects.toThrow("invalid_response");
+    expect(calls).toBe(1);
+    expect(executor.observations[0]).toMatchObject({ status: "failed", code: "invalid_response", dispatched: true, schemaDigest: digestCanonical(schema) });
+    await executor.settle();
+  }
+});
+
+test("contexts outside the protocol bounds reject before dispatch", async () => {
+  let calls = 0;
+  const executor = createGatewayExecutor({ ...selection, fetch: async () => { calls++; return response(); } });
+  const base = (request.context.inputs as Record<string, unknown>).context as Record<string, unknown>;
+  for (const patch of [{ nodes: 3 }, { nodes: 17 }, { edges: 2 }, { edges: 7 }, { nodes: "4" }, { edges: 4.5 }]) {
+    const context = { ...base, ...patch };
+    await expect(executor.execute({ ...request, context: { inputs: { context } } })).rejects.toThrow("invalid_context");
+  }
+  expect(calls).toBe(0);
+  expect(executor.observations.every((item) => item.dispatched === false && item.code === "invalid_context")).toBe(true);
+  expect(executor.observations.every((item) => item.schemaDigest === undefined)).toBe(true);
 });
 
 test("completed provider failures are retained without retry, fallback, or raw error text", async () => {
