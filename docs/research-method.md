@@ -149,6 +149,12 @@ this separation is a workflow boundary, not secrecy from the machine's operator.
 Reusing those results to tune a later protocol turns them into development data;
 choose a new holdout for that later study.
 
+Before evaluation, each portfolio also selects one champion by highest discovery
+score, breaking ties by canonical graph digest. This selection does not see
+evaluation outcomes. The v2 report separates its sampled random AUC from its
+deterministic targeted AUC; portfolio-wide aggregates remain descriptive. Model
+requests omit condition labels while preserving the treatment's information.
+
 ## Reading the report
 
 The report presents descriptive statistics for each replicate/condition:
@@ -157,6 +163,8 @@ The report presents descriptive statistics for each replicate/condition:
 | --- | --- |
 | Valid experiments | Completed attempts, including repeated graphs. |
 | Designs | Distinct normalized labeled graphs in the frozen portfolio. |
+| Champion random AUC | Mean on the sampled unseen random schedules for the discovery-selected champion. |
+| Champion targeted AUC | The champion's repeated, seed-independent targeted control. |
 | Prediction MAE | Mean absolute difference between each successful proposal's prediction and its mean discovery AUC. |
 | Mean holdout AUC | Mean of the designs' final-evaluation mean AUC values, including the repeated targeted control; each unique design receives equal weight. |
 | Best holdout AUC | Largest final-evaluation mean AUC among frozen designs, reported after evaluation. It does not select or deploy a policy. |
@@ -174,3 +182,33 @@ measurements. It neither repeats the model's stochastic thought process nor
 validates this graph model against a real system. Broader claims need a declared
 analysis plan, more independent replicates, suitable baselines, and external
 domain validation. See the staged [roadmap](roadmap.md).
+
+## Independent qualification
+
+The [frozen qualification plan](qualification-plan.md) evaluates a different,
+explicit endpoint: exact expected random-failure AUC of the discovery-selected
+champion. At each removal count it enumerates every remaining-node subset and
+averages service, then integrates those expectations. This removes finite
+schedule sampling noise, but includes all states in the failure distribution,
+including discovery states. It is not an exclusively held-out sample.
+
+The oracle is bounded to ten nodes and independently implements admission and
+disjoint-set connectivity. Analytical examples and complete removal-permutation
+comparisons validate it. The standalone instrument probe checks all connected
+labeled graphs with four, five, and six nodes against an independent reference,
+and documents graph-generator bias and node-label sensitivity.
+
+The qualification compares adaptive search and random search under matched
+proposal seeds/budgets, reporting paired differences at whole-replicate level.
+It evaluates a fixed ring/chord topology as an a-priori reference. Targeted scores
+remain a separate control. All raw differences and failed selections remain in
+the report; an empty selection receives zero comparison utility and is still
+shown as absent, rather than being dropped. Observed minima/maxima are not
+confidence intervals. No p-value or superiority claim is produced.
+
+Each substudy freezes before its sampled holdouts. Exact population analysis
+begins only after all substudies complete, with no feedback into generation.
+The scripted message treatment and random-search treatments are null controls:
+their numerical graph sequences must remain identical where the policy ignores
+the changed information. Passing those controls qualifies the measurement path,
+not an advantage for sharing or intelligence of the scripted researchers.

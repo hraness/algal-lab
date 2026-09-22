@@ -97,6 +97,41 @@ version does not resume them.
 See the [proposal contract](src/contracts.ts), [researcher manifest](src/researcher.ts),
 and [security boundary](SECURITY.md) before connecting an executor.
 
+## Qualify the approach
+
+The [frozen qualification plan](docs/qualification-plan.md) separates numerical
+correctness from search usefulness. Its independent oracle computes expected
+random-failure AUC over every removed-node subset on graphs with at most ten
+nodes. It evaluates the full failure distribution, including discovery states.
+Each condition selects one champion from discovery results before evaluation;
+targeted attack remains a separately reported control. Researcher requests omit
+condition names, while the host archive retains assignment metadata.
+
+```sh
+bun run qualify:instrument
+bun run qualify
+bun run lab verify-qualification runs/qualification
+```
+
+The instrument check exhaustively compares small graphs against an independent
+connectivity implementation. The qualification runs three graph regimes and
+16 search seeds against equal-opportunity random search, preserving all paired
+differences and checking that the scripted controls ignore message prose.
+Read `runs/qualification/report.md`. Qualification needs a fresh directory;
+use `bun run lab qualify --plan examples/qualification-plan.json --out runs/qualification-2`
+for another run. A null sharing result is a valid outcome.
+
+The random-search policy is also available for individual studies:
+
+```sh
+bun run lab study --protocol examples/network-study.json --out runs/random --policy random
+```
+
+The optional [XCB example](examples/xcb-study.ts) uses qualified, ephemeral,
+tool-free application inference and retains readable transport metadata. It
+requires an independently admitted local provider; the default workflows never
+make model calls. See [live executor qualification](docs/live-executor.md).
+
 ## Scope and development
 
 ALGAL supplies typed execution and receipts. Algal Lab owns experimental

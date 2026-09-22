@@ -9,6 +9,9 @@ bun install --frozen-lockfile
 bun run check
 bun run demo
 bun run lab verify runs/demo
+bun run qualify:instrument
+bun run qualify
+bun run lab verify-qualification runs/qualification
 ```
 
 The demo needs no credentials or paid inference. Studies require a new output
