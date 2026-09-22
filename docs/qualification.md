@@ -77,10 +77,17 @@ qualification for the installed XCB bytes. Independent native boundary tests
 passed for an isolated helper, while a concurrent XCB deployment produced
 different source/build/installed identities. That evidence cannot qualify a
 different executable. Provider pins and account state were preserved. The XCB
-owner subsequently deployed and qualified the matching runtime. The latest
-preflight admits Devin SWE-2 but reports the account busy in another session;
-the smoke remains pending until that session releases it. See
-[the live executor procedure](live-executor.md).
+owner subsequently deployed and qualified the matching runtime.
+
+The first smoke attempt passed initial admission, then recorded twelve
+`account_unavailable` failures before any inference was issued. It retained all
+twelve attempt receipts and zero generation requests. Offline archive reproduction
+passed; the smoke inspector correctly failed because no proposals were measured
+and no peer artifact was inherited. Separate capability observations reported
+the account busy during concurrent XCB operations; the receipt error alone only
+establishes unavailability. This is admission evidence, not evidence about model
+quality. Live acceptance remains pending. A subsequent attempt must preserve
+this archive; see [the live executor procedure](live-executor.md).
 
 ## Architectural implications
 
