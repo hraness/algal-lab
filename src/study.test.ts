@@ -41,9 +41,14 @@ test("complete studies reproduce, retain portfolios, and separate visibility by 
   }
   expect(attempts.filter((a) => a.context.condition === CONDITIONS[2] && a.context.round > 0).every((a) => a.context.messages.length > 0)).toBe(true);
   for (const summary of report.summaries) {
-    const portfolio = await store.get(summary.portfolioDigest) as { members: string[] };
+    const portfolio = await store.get(summary.portfolioDigest) as { members: string[]; champion: string };
     expect(portfolio.members).toHaveLength(summary.uniqueDesigns);
     expect(summary.validExperiments).toBe(6);
+    expect(portfolio.champion).toBe(summary.selectedAttempt!);
+    const champion = await store.get(portfolio.champion) as unknown as Attempt;
+    expect(attempts.filter((a) => a.context.condition === summary.condition).every((a) => a.measurement!.score <= champion.measurement!.score)).toBe(true);
+    expect(summary.selectedRandomAuc).toBeGreaterThan(0);
+    expect(summary.selectedTargetedAuc).toBeGreaterThan(0);
   }
   const verified = await verifyStudy(directory);
   expect(verified.ok).toBe(true);
@@ -51,6 +56,36 @@ test("complete studies reproduce, retain portfolios, and separate visibility by 
   expect(verified.reportDigest).toBe(digest(report));
   const second = await runStudy(protocol, await location());
   expect(second).toEqual(report);
+});
+
+test("random-search controls ignore visibility, and champion selection cannot depend on holdouts", async () => {
+  const directory = await location();
+  const random = await runStudy(protocol, directory, { policy: "random" });
+  const store = new ArtifactStore(directory);
+  const graphs = await Promise.all(random.attempts.map(async (id) => (await store.get(id) as unknown as Attempt).measurement!.proposal.graph));
+  expect(graphs.slice(0, 6)).toEqual(graphs.slice(6, 12));
+  expect(graphs.slice(0, 6)).toEqual(graphs.slice(12));
+  expect(random.backend).toBe("random");
+  expect((await verifyStudy(directory)).experiments).toBe(18);
+  const other = await runStudy({ ...protocol, holdoutSeeds: [999, 777] }, await location(), { policy: "random" });
+  expect(random.summaries.map((s) => s.selectedAttempt)).toEqual(other.summaries.map((s) => s.selectedAttempt));
+  expect(random.summaries.map((s) => s.portfolioDigest)).toEqual(other.summaries.map((s) => s.portfolioDigest));
+});
+
+test("live researcher requests omit assignment labels and evaluation data while retaining prior evidence", async () => {
+  let sawEvidence = false;
+  const executor: Executor = { id: "blinding-check", execute: async (request) => {
+    const context = (request.context.inputs as { context: unknown }).context as ResearchContext;
+    expect(context).not.toHaveProperty("condition");
+    expect(context).not.toHaveProperty("holdoutSeeds");
+    sawEvidence ||= context.evidence.length > 0;
+    return scriptedProposal(context);
+  } };
+  const directory = await location();
+  const report = await runStudy({ ...protocol, rounds: 2 }, directory, { executor });
+  expect(sawEvidence).toBe(true);
+  expect(report.summaries.every((s) => s.validExperiments === 4)).toBe(true);
+  expect((await verifyStudy(directory)).experiments).toBe(12);
 });
 
 test("scripted sharing variants have identical graphs and scores; condition hashes cannot steer selection", async () => {

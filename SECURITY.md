@@ -45,6 +45,13 @@ report.
 
 ## Reporting
 
+The optional XCB adapter accepts only a separately qualified application route
+with no tools or hooks and ephemeral requests. It binds the installed executable
+and repeats admission before each call. It never uses an unqualified account,
+refreshes credentials, or substitutes a coding-agent command. Its provider
+transport sidecar is supplementary evidence outside offline study verification.
+See [live executor qualification](docs/live-executor.md).
+
 Report suspected boundary crossings, unbounded work, command injection, or
 verification bypass privately. Use the repository's Security tab if GitHub
 private vulnerability reporting is enabled. Otherwise contact a repository

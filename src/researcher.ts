@@ -62,6 +62,18 @@ export function scriptedResearcher(context: ResearchContext): Executor {
     execute: async () => json(scriptedProposal(context)) };
 }
 
+/** Matched proposal seeds and graph generator, without access to search history. */
+export function randomResearcher(context: ResearchContext): Executor {
+  return { id: "algal-lab:random-network.v1", capabilities: { effects: ["agent"] }, cacheable: false, retryable: false,
+    execute: async () => json(scriptedProposal({ ...context, evidence: [], messages: [] })) };
+}
+
+/** Keep assignment metadata in the host archive, not the researcher prompt. */
+export function researcherView(context: ResearchContext): Omit<ResearchContext, "condition"> {
+  const { condition: _condition, ...view } = context;
+  return view;
+}
+
 /** Leave structural headroom for embedding foreign output inside a run receipt.
  * Rejections become bounded ALGAL effect errors instead of breaking archival. */
 export function boundedResearcher(executor: Executor): Executor {

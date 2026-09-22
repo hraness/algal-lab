@@ -54,6 +54,13 @@ The [research method](research-method.md) defines what the measurements mean.
 
 ## Proposed follow-up stages
 
+The [initial qualification plan](qualification-plan.md) now supplies an
+independent exact oracle, exhaustive instrument checks, discovery-selected
+champions, matched random search, and paired descriptive comparisons. See
+[qualification findings](qualification.md) for measured results and remaining
+live-model requirements. These are acceptance evidence for a research substrate,
+not completion of the scientific claims below.
+
 1. **Qualify the research protocol.** Run more independent study seeds, record
    actual inference usage for model runs, compare with random search and other
    explicit budget-matched policies, and preregister portfolio-level outcomes.

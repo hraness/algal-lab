@@ -96,8 +96,10 @@ These are distinct checks:
 
 Verification requires the recorded source identities. The instrument identity
 binds `network.ts` and `network.v1`; the application identity binds `network.ts`,
-`contracts.ts`, `researcher.ts`, `study.ts`, `artifacts.ts`, and the root `cli.ts`,
-`package.json`, and `bun.lock`. Use the recorded source revision and pinned
+`contracts.ts`, `researcher.ts`, `study.ts`, `artifacts.ts`, `oracle.ts`, and
+`qualification.ts`, `xcb-executor.ts`, and `examples/xcb-study.ts`, plus the root
+`cli.ts`, `package.json`, and `bun.lock`.
+Use the recorded source revision and pinned
 dependency when verifying an older run. The digest field named
 `applicationDigest` is not a hash of every repository file.
 
@@ -106,6 +108,30 @@ that no unrecorded trial occurred. An operator who controls the files can replac
 an entire internally consistent history. Precommitment and portfolio freezing
 are enforced within this application workflow, not by an external notarization
 service.
+
+## Qualification boundary
+
+Reports use `algal.lab.report.v2`. Frozen portfolios use
+`algal.lab.portfolio.v2`, adding a champion reference selected by highest
+discovery mean AUC, with graph-digest tie breaking. Its sampled random evaluation
+and deterministic targeted control are separate summary fields. Retain the
+original source checkout to verify earlier v1 archives.
+
+`qualification.ts` runs bounded adaptive and random-search substudies from a
+frozen plan, verifies their full archives, and binds each interpreted report to
+its exact verified digest. Each substudy freezes before its sampled evaluation;
+no outcomes feed a later substudy. After all substudies finish, an independent
+`oracle.ts` evaluates discovery-selected champions over the full uniform
+random-failure distribution. The oracle uses subset enumeration and disjoint-set
+connectivity rather than the simulator's seeded trajectories and adjacency BFS.
+
+Qualification retains a frozen plan, complete substudy directories, a canonical
+`qualification.json` report and digest, and human-readable `report.md`.
+`verify-qualification` reconstructs every study and then recomputes the oracle,
+fixed references, controls, and paired descriptions. It never calls an executor.
+The independent instrument probe separately fingerprints its own source,
+simulator, and oracle. These checks still establish consistency within a
+discrete graph model, not physical validity or a collective intelligence result.
 
 ## Executor boundary
 
@@ -122,6 +148,13 @@ provider interaction. The lab admits only bounded proposal data from that
 response; it never turns a proposed command into host authority. The wrapper
 itself is ordinary host code, not sandboxed generated code. See
 [security](../SECURITY.md).
+
+Researcher requests omit the host's condition label. The archive retains it for
+assignment checks; the information available can still reveal which treatment a
+researcher received. The optional [XCB adapter](live-executor.md) requires a
+separately qualified tool-free application provider and records its configuration
+digest in effect metadata. Provider transport evidence is not a scientific
+measurement.
 
 This version has no persistent service, browser UI, distributed workers, resume
 workflow, automatic instrument installation, or autonomous generator evolution.
