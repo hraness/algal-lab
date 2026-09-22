@@ -1,5 +1,9 @@
 # Live application inference
 
+This page covers XCB. [Vercel AI Gateway](gateway-executor.md) is a separate
+optional route using ALGAL's existing HTTP executor and the same scientific
+smoke acceptance.
+
 The default demo and qualification commands never contact a model. The optional
 [XCB entry point](../examples/xcb-study.ts) uses an already qualified local XCB
 installation for bounded, ephemeral application inference. It does not use a
