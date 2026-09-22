@@ -1,0 +1,23 @@
+{
+  "name": "@hraness/algal-lab",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Reproducible research environments and artifact ecologies built on ALGAL",
+  "type": "module",
+  "license": "MIT",
+  "engines": { "bun": ">=1.3.14" },
+  "scripts": {
+    "lab": "bun cli.ts",
+    "demo": "bun cli.ts study --protocol examples/network-study.json --out runs/demo",
+    "typecheck": "tsc --noEmit",
+    "test": "bun test",
+    "check": "bun run typecheck && bun run test"
+  },
+  "dependencies": {
+    "@hraness/algal": "github:hraness/algal#f899456e497656eb292d97d7c0aef5e06f1437dc"
+  },
+  "devDependencies": {
+    "@types/bun": "1.3.14",
+    "typescript": "5.9.3"
+  }
+}
