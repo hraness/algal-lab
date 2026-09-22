@@ -28,6 +28,9 @@ bun run lab verify runs/gateway-smoke/study
 bun scripts/inspect-gateway-smoke.ts runs/gateway-smoke
 ```
 
+The [first recorded run](gateway-smoke-findings.md) completed twelve generations
+and eleven valid experiments; its strict acceptance correctly failed.
+
 The example limits a study to twelve proposal slots. Each request uses the fixed
 Gateway origin, a selected model and provider, zero temperature, low reasoning
 effort, a sixty-second deadline, an 8 KiB proposal limit, and no tools. The lab
