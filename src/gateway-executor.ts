@@ -1,40 +1,9 @@
 import { AlgalError, canonicalize, digestCanonical, effectRequestDigest, vercelGatewayExecutor, VERCEL_AI_GATEWAY_BASE_URL, type EffectRequest, type Executor, type ExecutorMetadata, type ExecutorResult, type GatewayFetch, type JsonObject } from "@hraness/algal";
-import { json } from "./contracts";
+import { freeze, json, proposalContractSchema, PROPOSAL_CONTRACT } from "./contracts";
 
 const MAX_INPUT_BYTES = 131072;
 const TOKEN_LIMIT = 1_000_000_000;
 const FINISH_REASONS = ["stop", "length", "tool_calls", "function_call", "content_filter"];
-
-function freeze<T>(value: T): T {
-  if (value !== null && typeof value === "object") {
-    for (const child of Object.values(value)) freeze(child);
-    Object.freeze(value);
-  }
-  return value;
-}
-
-/** Provider-side structural hints. Host parseProposal remains authoritative for
- * byte limits, connectedness, exact budgets, and visible parent references. This
- * lives outside the manifest because ALGAL deliberately limits schema depth. */
-export const GATEWAY_PROPOSAL_SCHEMA: JsonObject = freeze({
-  type: "object", additionalProperties: false,
-  required: ["graph", "hypothesis", "prediction", "rationale", "parents", "message"],
-  properties: {
-    graph: {
-      type: "object", additionalProperties: false, required: ["nodes", "edges"],
-      properties: {
-        nodes: { type: "integer", minimum: 4, maximum: 16 },
-        edges: { type: "array", minItems: 3, maxItems: 48, items: { type: "array", minItems: 2, maxItems: 2, items: { type: "integer", minimum: 0, maximum: 15 } } },
-      },
-    },
-    hypothesis: { type: "string", minLength: 1, maxLength: 1000 },
-    prediction: { type: "number", minimum: 0, maximum: 1 },
-    rationale: { type: "string", minLength: 1, maxLength: 1000 },
-    parents: { type: "array", maxItems: 8, items: { type: "string", pattern: "^sha256:[a-f0-9]{64}$", maxLength: 71 } },
-    message: { type: "string", minLength: 1, maxLength: 500 },
-  },
-});
-export const GATEWAY_SCHEMA_DIGEST = digestCanonical(GATEWAY_PROPOSAL_SCHEMA);
 
 export const GATEWAY_FAILURE_CODES = [
   "invalid_options", "invalid_selection", "unsupported_effect", "invalid_context", "input_limit", "output_limit", "response_limit", "invalid_response", "model_mismatch", "incomplete_response", "tool_calls_forbidden", "redirect_forbidden", "provider_error", "credential_unavailable", "transport_error", "cancelled", "deadline", "completion_uncertain", "call_budget_exhausted", "executor_busy",
@@ -54,12 +23,12 @@ export type GatewayExecutorOptions = {
   signal?: AbortSignal;
 };
 export type GatewayConfiguration = Readonly<{
-  contract: "algal.lab.gateway-executor.v1";
-  adapterVersion: 1;
+  contract: "algal.lab.gateway-executor.v2";
+  adapterVersion: 2;
   model: string;
   provider: string;
   baseUrl: typeof VERCEL_AI_GATEWAY_BASE_URL;
-  schemaDigest: `sha256:${string}`;
+  proposalContract: typeof PROPOSAL_CONTRACT;
   timeoutMs: number;
   maxCalls: number;
   maxOutputBytes: number;
@@ -84,6 +53,7 @@ export type GatewayUsage = Readonly<{
 export type GatewayObservation = Readonly<{
   attempt: number;
   requestDigest: `sha256:${string}`;
+  schemaDigest?: `sha256:${string}`;
   elapsedMs: number;
   status: "completed" | "failed";
   dispatched: boolean;
@@ -120,6 +90,18 @@ function bound(value: unknown, max: number): number {
 }
 function token(value: unknown): number | undefined {
   return typeof value === "number" && Number.isSafeInteger(value) && value >= 0 && value <= TOKEN_LIMIT ? value : undefined;
+}
+/** Exact-budget conformance the dispatched schema already describes: precise
+ * node count, precise edge count, integer endpoints in range. Anything deeper
+ * (loops, duplicates, connectivity, parent visibility) stays with the host. */
+function withinContract(value: unknown, nodes: number, edges: number): boolean {
+  if (value === null || typeof value !== "object" || Array.isArray(value)) return false;
+  const graph = (value as Record<string, unknown>).graph;
+  if (graph === null || typeof graph !== "object" || Array.isArray(graph)) return false;
+  const candidate = graph as Record<string, unknown>;
+  if (candidate.nodes !== nodes || !Array.isArray(candidate.edges) || candidate.edges.length !== edges) return false;
+  return candidate.edges.every((edge) => Array.isArray(edge) && edge.length === 2 &&
+    edge.every((node) => Number.isInteger(node) && node >= 0 && node < nodes));
 }
 function usage(value: unknown): GatewayUsage | undefined {
   if (value === undefined) return undefined;
@@ -192,13 +174,13 @@ export function createGatewayExecutor(input: GatewayExecutorOptions): GatewayExe
       typeof provider !== "string" || provider.length > 64 || !/^[a-z0-9][a-z0-9-]*$/.test(provider)) throw new GatewayError("invalid_selection");
   const maxOutputBytes = bound(input.maxOutputBytes ?? 8192, 8192);
   const configuration: GatewayConfiguration = Object.freeze({
-    contract: "algal.lab.gateway-executor.v1", adapterVersion: 1, model, provider, baseUrl: VERCEL_AI_GATEWAY_BASE_URL, schemaDigest: GATEWAY_SCHEMA_DIGEST,
+    contract: "algal.lab.gateway-executor.v2", adapterVersion: 2, model, provider, baseUrl: VERCEL_AI_GATEWAY_BASE_URL, proposalContract: PROPOSAL_CONTRACT,
     timeoutMs: bound(input.timeoutMs ?? 60000, 60000), maxCalls: bound(input.maxCalls ?? 12, 12), maxOutputBytes,
     maxResponseBytes: bound(input.maxResponseBytes ?? 65536, 65536), maxInputBytes: MAX_INPUT_BYTES,
     maxTokens: Math.ceil(maxOutputBytes / 4), temperature: 0, reasoningEffort: "low", zeroTools: true, noFallback: true, responseModelForms: "canonical-or-direct-slug",
   });
   const configurationDigest = digestCanonical(json(configuration));
-  const id = `algal-lab:gateway.v1:${model}`;
+  const id = `algal-lab:gateway.v2:${model}`;
   const metadata: ExecutorMetadata = { executor: id, configurationDigest, retryable: false };
   const fetcher = input.fetch ?? globalThis.fetch;
   const observations: GatewayObservation[] = [];
@@ -231,7 +213,14 @@ export function createGatewayExecutor(input: GatewayExecutorOptions): GatewayExe
       if (controller.signal.aborted) throw aborted();
       if (request.contract !== "algal.effect.v1" || request.kind !== "agent" || request.output.kind !== "json") throw new GatewayError("unsupported_effect");
       const context = record(request.context.inputs);
-      if (record(context.context).contract !== "algal.lab.context.v1") throw new GatewayError("invalid_context");
+      const lab = record(context.context);
+      if (lab.contract !== "algal.lab.context.v1") throw new GatewayError("invalid_context");
+      let nodes: number, edges: number, schema: JsonObject;
+      try {
+        nodes = lab.nodes as number; edges = lab.edges as number;
+        schema = proposalContractSchema(nodes, edges);
+      } catch { throw new GatewayError("invalid_context"); }
+      observed.schemaDigest = digestCanonical(schema);
       if (typeof request.prompt !== "string" || Buffer.byteLength(request.prompt) > 8192 ||
           Buffer.byteLength(canonicalize(request.context)) > bound(request.budget.maxContextBytes, 65536)) throw new GatewayError("input_limit");
       const outputLimit = Math.min(maxOutputBytes, bound(request.budget.maxOutputBytes, 8192));
@@ -278,6 +267,9 @@ export function createGatewayExecutor(input: GatewayExecutorOptions): GatewayExe
           try { structured = record(json(JSON.parse(message.content))); }
           catch { throw new GatewayError("invalid_response"); }
           if (Object.keys(structured).length !== 1 || !Object.hasOwn(structured, "value")) throw new GatewayError("invalid_response");
+          // Verify the provider satisfied the dispatched exact-budget contract.
+          // Host parseProposal still judges loops, duplicates, and connectedness.
+          if (!withinContract(structured.value, nodes, edges)) throw new GatewayError("invalid_response");
           const proposed = canonicalize(json(structured.value));
           // The provider sees the bearer credential at the transport boundary.
           // Never let an exact echo enter ALGAL's durable effect output, including
@@ -294,7 +286,7 @@ export function createGatewayExecutor(input: GatewayExecutorOptions): GatewayExe
         }
       };
       const inner = vercelGatewayExecutor({ model, credential, fetch: boundedFetch, maxResponseBytes: configuration.maxResponseBytes });
-      const adapted: EffectRequest = { ...request, output: { kind: "json", schema: GATEWAY_PROPOSAL_SCHEMA }, budget: { ...request.budget, maxOutputBytes: outputLimit } };
+      const adapted: EffectRequest = { ...request, output: { kind: "json", schema }, budget: { ...request.budget, maxOutputBytes: outputLimit } };
       const result = await inner.executeEffect!(adapted, controller.signal);
       if (controller.signal.aborted) throw aborted();
       observed.status = "completed";

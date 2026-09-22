@@ -1,10 +1,19 @@
-import { canonicalize, type JsonValue } from "@hraness/algal";
+import { canonicalize, type JsonObject, type JsonValue } from "@hraness/algal";
 import { parseGraph, type Graph } from "./network";
 
 export const CONDITIONS = ["isolated", "shared-artifacts", "shared-artifacts-and-messages"] as const;
 export type Condition = typeof CONDITIONS[number];
 export const ALGAL_REVISION = "f899456e497656eb292d97d7c0aef5e06f1437dc";
 export const MAX_ATTEMPTS = 288;
+export const PROPOSAL_CONTRACT = "algal.lab.proposal.v2";
+
+export function freeze<T>(value: T): T {
+  if (value !== null && typeof value === "object") {
+    for (const child of Object.values(value)) freeze(child);
+    Object.freeze(value);
+  }
+  return value;
+}
 
 export type Protocol = {
   contract: "algal.lab.study.v1";
@@ -100,6 +109,34 @@ export function parseProposal(value: unknown, context: ResearchContext): Proposa
   });
   return { graph, hypothesis: text(p.hypothesis, 1000, "hypothesis"), prediction: p.prediction,
     rationale: text(p.rationale, 1000, "rationale"), parents, message: text(p.message, 500, "message") };
+}
+
+/** Provider-facing proposal schema for structured-output routes. Unlike the
+ * retired generic v1 schema, it encodes the exact node and edge budgets from the
+ * admitted context, so an over- or under-budget graph cannot be expressed. Host
+ * parseProposal remains authoritative for every admission rule. */
+export function proposalContractSchema(nodes: number, edges: number): JsonObject {
+  integer(nodes, 4, 16, "contract.nodes");
+  integer(edges, nodes - 1, Math.min(48, nodes * (nodes - 1) / 2), "contract.edges");
+  return freeze({
+    type: "object", additionalProperties: false,
+    required: ["graph", "hypothesis", "prediction", "rationale", "parents", "message"],
+    properties: {
+      graph: {
+        type: "object", additionalProperties: false, required: ["nodes", "edges"],
+        properties: {
+          nodes: { type: "integer", minimum: nodes, maximum: nodes },
+          edges: { type: "array", minItems: edges, maxItems: edges,
+            items: { type: "array", minItems: 2, maxItems: 2, items: { type: "integer", minimum: 0, maximum: nodes - 1 } } },
+        },
+      },
+      hypothesis: { type: "string", minLength: 1, maxLength: 1000 },
+      prediction: { type: "number", minimum: 0, maximum: 1 },
+      rationale: { type: "string", minLength: 1, maxLength: 1000 },
+      parents: { type: "array", maxItems: 8, items: { type: "string", pattern: "^sha256:[a-f0-9]{64}$", maxLength: 71 } },
+      message: { type: "string", minLength: 1, maxLength: 500 },
+    },
+  }) as JsonObject;
 }
 
 /** Bound foreign JSON before hashing, traversing, or passing to ALGAL. */
