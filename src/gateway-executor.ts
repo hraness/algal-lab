@@ -1,12 +1,21 @@
-import { AlgalError, canonicalize, digestCanonical, effectRequestDigest, vercelGatewayExecutor, VERCEL_AI_GATEWAY_BASE_URL, type EffectRequest, type Executor, type ExecutorMetadata, type ExecutorResult, type GatewayFetch, type JsonObject } from "@hraness/algal";
-import { freeze, json, proposalContractSchema, PROPOSAL_CONTRACT } from "./contracts";
+import { AlgalError, canonicalize, digestCanonical, effectRequestDigest, vercelGatewayExecutor, VERCEL_AI_GATEWAY_BASE_URL, type EffectRequest, type Executor, type ExecutorMetadata, type ExecutorResult, type GatewayFetch, type JsonObject, type JsonValue } from "@hraness/algal";
+import { CONTEXT_CONTRACTS, freeze, json, proposalContractSchema, PROPOSAL_CONTRACT } from "./contracts";
 
 const MAX_INPUT_BYTES = 131072;
 const TOKEN_LIMIT = 1_000_000_000;
 const FINISH_REASONS = ["stop", "length", "tool_calls", "function_call", "content_filter"];
+/** Default call budget: the frozen twelve-call smoke. Replicated comparisons may
+ * raise it explicitly up to GATEWAY_MAX_CALLS; nothing raises it implicitly. */
+export const GATEWAY_DEFAULT_MAX_CALLS = 12;
+export const GATEWAY_MAX_CALLS = 400;
 
+/** `invalid_response` is malformed transport or JSON with nothing admissible to
+ * retain. `contract_violation` is syntactically valid JSON whose wrapper broke
+ * the dispatched strict schema; its bounded `value` is retained in the
+ * observation. Budget failures keep their own codes (`input_limit`,
+ * `output_limit`, `response_limit`, `call_budget_exhausted`). */
 export const GATEWAY_FAILURE_CODES = [
-  "invalid_options", "invalid_selection", "unsupported_effect", "invalid_context", "input_limit", "output_limit", "response_limit", "invalid_response", "model_mismatch", "incomplete_response", "tool_calls_forbidden", "redirect_forbidden", "provider_error", "credential_unavailable", "transport_error", "cancelled", "deadline", "completion_uncertain", "call_budget_exhausted", "executor_busy",
+  "invalid_options", "invalid_selection", "unsupported_effect", "invalid_context", "input_limit", "output_limit", "response_limit", "invalid_response", "contract_violation", "model_mismatch", "incomplete_response", "tool_calls_forbidden", "redirect_forbidden", "provider_error", "credential_unavailable", "transport_error", "cancelled", "deadline", "completion_uncertain", "call_budget_exhausted", "executor_busy",
 ] as const;
 type FailureCode = typeof GATEWAY_FAILURE_CODES[number];
 
@@ -65,6 +74,13 @@ export type GatewayObservation = Readonly<{
   finishReason?: string;
   usage?: GatewayUsage;
   code?: FailureCode;
+  /** Bounded (at most 8 KiB canonical, credential-free) copy of the `value` a
+   * `contract_violation` rejected, so the proposed design survives rejection. */
+  rejected?: JsonValue;
+  /** The attempt whose uncertain outcome latched this executor. Present only on
+   * `completion_uncertain` observations, which never dispatch: the failure is
+   * inherited from that earlier attempt, not caused by this call. */
+  latchedBy?: number;
 }>;
 export type GatewayExecutor = Executor & {
   readonly configuration: GatewayConfiguration;
@@ -80,8 +96,8 @@ class GatewayError extends AlgalError {
     super(["deadline", "cancelled", "call_budget_exhausted"].includes(failureCode) ? "BUDGET_EXHAUSTED" : "EFFECT_FAILED", `gateway application: ${failureCode}`, undefined, { uncertain });
   }
 }
-function record(value: unknown): Record<string, unknown> {
-  if (value === null || typeof value !== "object" || Array.isArray(value)) throw new GatewayError("invalid_response");
+function record(value: unknown, code: FailureCode = "invalid_response"): Record<string, unknown> {
+  if (value === null || typeof value !== "object" || Array.isArray(value)) throw new GatewayError(code);
   return value as Record<string, unknown>;
 }
 function bound(value: unknown, max: number): number {
@@ -91,20 +107,10 @@ function bound(value: unknown, max: number): number {
 function token(value: unknown): number | undefined {
   return typeof value === "number" && Number.isSafeInteger(value) && value >= 0 && value <= TOKEN_LIMIT ? value : undefined;
 }
-/** Exact-budget conformance the dispatched schema already describes: precise
- * node count, precise edge count, integer endpoints in range. Anything deeper
- * (loops, duplicates, connectivity, parent visibility) stays with the host. */
-function withinContract(value: unknown, nodes: number, edges: number): boolean {
-  if (value === null || typeof value !== "object" || Array.isArray(value)) return false;
-  const graph = (value as Record<string, unknown>).graph;
-  if (graph === null || typeof graph !== "object" || Array.isArray(graph)) return false;
-  const candidate = graph as Record<string, unknown>;
-  if (candidate.nodes !== nodes || !Array.isArray(candidate.edges) || candidate.edges.length !== edges) return false;
-  return candidate.edges.every((edge) => Array.isArray(edge) && edge.length === 2 &&
-    edge.every((node) => Number.isInteger(node) && node >= 0 && node < nodes));
-}
+/** Providers report `usage: null` on some completed generations; like ALGAL's
+ * own adapter (`usage ?? {}`), treat it as absent rather than malformed. */
 function usage(value: unknown): GatewayUsage | undefined {
-  if (value === undefined) return undefined;
+  if (value === undefined || value === null) return undefined;
   const raw = record(value);
   const details = (value: unknown): Record<string, unknown> => value !== null && typeof value === "object" && !Array.isArray(value) ? value as Record<string, unknown> : {};
   const output: Record<string, number> = {};
@@ -135,10 +141,13 @@ function abortable<T>(work: Promise<T>, signal: AbortSignal, failure: () => Gate
     if (signal.aborted) abort();
   });
 }
+/** An HTTP status has already been received here, so exceeding the byte bound is
+ * a definite failure of this call, never completion uncertainty. Only a deadline,
+ * cancellation, or network error after dispatch remains uncertain. */
 async function responseBytes(response: Response, limit: number, signal: AbortSignal, aborted: () => GatewayError): Promise<Uint8Array> {
   if (Number(response.headers.get("content-length")) > limit) {
     void response.body?.cancel().catch(() => {});
-    throw new GatewayError("response_limit", true);
+    throw new GatewayError("response_limit");
   }
   if (!response.body) return new Uint8Array();
   const reader = response.body.getReader();
@@ -149,7 +158,7 @@ async function responseBytes(response: Response, limit: number, signal: AbortSig
       const part = await abortable(reader.read(), signal, aborted);
       if (part.done) break;
       length += part.value.byteLength;
-      if (length > limit) throw new GatewayError("response_limit", true);
+      if (length > limit) throw new GatewayError("response_limit");
       chunks.push(part.value);
     }
   } catch (error) {
@@ -175,7 +184,7 @@ export function createGatewayExecutor(input: GatewayExecutorOptions): GatewayExe
   const maxOutputBytes = bound(input.maxOutputBytes ?? 8192, 8192);
   const configuration: GatewayConfiguration = Object.freeze({
     contract: "algal.lab.gateway-executor.v2", adapterVersion: 2, model, provider, baseUrl: VERCEL_AI_GATEWAY_BASE_URL, proposalContract: PROPOSAL_CONTRACT,
-    timeoutMs: bound(input.timeoutMs ?? 60000, 60000), maxCalls: bound(input.maxCalls ?? 12, 12), maxOutputBytes,
+    timeoutMs: bound(input.timeoutMs ?? 60000, 60000), maxCalls: bound(input.maxCalls ?? GATEWAY_DEFAULT_MAX_CALLS, GATEWAY_MAX_CALLS), maxOutputBytes,
     maxResponseBytes: bound(input.maxResponseBytes ?? 65536, 65536), maxInputBytes: MAX_INPUT_BYTES,
     maxTokens: Math.ceil(maxOutputBytes / 4), temperature: 0, reasoningEffort: "low", zeroTools: true, noFallback: true, responseModelForms: "canonical-or-direct-slug",
   });
@@ -185,7 +194,8 @@ export function createGatewayExecutor(input: GatewayExecutorOptions): GatewayExe
   const fetcher = input.fetch ?? globalThis.fetch;
   const observations: GatewayObservation[] = [];
   let attempts = 0;
-  let uncertain = false;
+  /** Attempt number of the first uncertain outcome; set once, never cleared. */
+  let latchedBy: number | undefined;
   let active: Promise<ExecutorResult> | undefined;
 
   const perform = async (request: EffectRequest, signal?: AbortSignal): Promise<ExecutorResult> => {
@@ -209,12 +219,12 @@ export function createGatewayExecutor(input: GatewayExecutorOptions): GatewayExe
     const timer = setTimeout(() => { expired = true; cancel(); }, configuration.timeoutMs);
     let failure: GatewayError | undefined;
     try {
-      if (uncertain) throw new GatewayError("completion_uncertain", true);
+      if (latchedBy !== undefined) { observed.latchedBy = latchedBy; throw new GatewayError("completion_uncertain", true); }
       if (controller.signal.aborted) throw aborted();
       if (request.contract !== "algal.effect.v1" || request.kind !== "agent" || request.output.kind !== "json") throw new GatewayError("unsupported_effect");
-      const context = record(request.context.inputs);
-      const lab = record(context.context);
-      if (lab.contract !== "algal.lab.context.v1") throw new GatewayError("invalid_context");
+      const context = record(request.context.inputs, "invalid_context");
+      const lab = record(context.context, "invalid_context");
+      if (!(CONTEXT_CONTRACTS as readonly unknown[]).includes(lab.contract)) throw new GatewayError("invalid_context");
       let nodes: number, edges: number, schema: JsonObject;
       try {
         nodes = lab.nodes as number; edges = lab.edges as number;
@@ -266,16 +276,21 @@ export function createGatewayExecutor(input: GatewayExecutorOptions): GatewayExe
           let structured: Record<string, unknown>;
           try { structured = record(json(JSON.parse(message.content))); }
           catch { throw new GatewayError("invalid_response"); }
-          if (Object.keys(structured).length !== 1 || !Object.hasOwn(structured, "value")) throw new GatewayError("invalid_response");
-          // Verify the provider satisfied the dispatched exact-budget contract.
-          // Host parseProposal still judges loops, duplicates, and connectedness.
-          if (!withinContract(structured.value, nodes, edges)) throw new GatewayError("invalid_response");
-          const proposed = canonicalize(json(structured.value));
+          if (!Object.hasOwn(structured, "value")) throw new GatewayError("invalid_response");
+          const value = json(structured.value);
+          const proposed = canonicalize(value);
           // The provider sees the bearer credential at the transport boundary.
-          // Never let an exact echo enter ALGAL's durable effect output, including
-          // echoes in object keys or JSON-escaped text.
+          // Never let an exact echo enter ALGAL's durable effect output or this
+          // sidecar, including echoes in object keys or JSON-escaped text.
           if (proposed.includes(credential) || proposed.includes(JSON.stringify(credential).slice(1, -1))) throw new GatewayError("invalid_response");
           if (Buffer.byteLength(proposed) > outputLimit) throw new GatewayError("output_limit");
+          // The dispatched wrapper schema admits exactly one key. Extra keys are a
+          // provider contract violation the host cannot receive; the bounded,
+          // credential-free value (at most outputLimit <= 8 KiB) is retained here.
+          if (Object.keys(structured).length !== 1) { observed.rejected = value; throw new GatewayError("contract_violation"); }
+          // Proposal admission (exact budgets, loops, duplicates, connectivity,
+          // parent visibility) belongs to host parseProposal, which records a
+          // rejected design inside the effect receipt instead of discarding it.
           // Preserve ALGAL's parser and executeEffect usage while admitting only
           // the bounded usage fields represented by the sidecar.
           raw.usage = { ...(reportedUsage?.tokensIn !== undefined ? { prompt_tokens: reportedUsage.tokensIn } : {}), ...(reportedUsage?.tokensOut !== undefined ? { completion_tokens: reportedUsage.tokensOut } : {}) };
@@ -295,7 +310,7 @@ export function createGatewayExecutor(input: GatewayExecutorOptions): GatewayExe
       const safe = failure ?? (error instanceof GatewayError ? error : controller.signal.aborted ? aborted() : new GatewayError("invalid_response"));
       observed.code = safe.failureCode;
       observed.uncertain = safe.uncertain;
-      if (safe.uncertain) uncertain = true;
+      if (safe.uncertain && latchedBy === undefined) latchedBy = attempt;
       throw safe;
     } finally {
       clearTimeout(timer);
@@ -317,6 +332,6 @@ export function createGatewayExecutor(input: GatewayExecutorOptions): GatewayExe
     receiptFor: () => ({ ...metadata }),
     executeEffect,
     execute: async (request, signal) => (await executeEffect(request, signal)).output,
-    settle: async () => { await active?.catch(() => {}); if (uncertain) throw new GatewayError("completion_uncertain", true); },
+    settle: async () => { await active?.catch(() => {}); if (latchedBy !== undefined) throw new GatewayError("completion_uncertain", true); },
   };
 }

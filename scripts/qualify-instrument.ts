@@ -1,13 +1,18 @@
-/** Fixed, bounded numerical qualification; prints compact JSON evidence.
- * Run with `bun scripts/qualify-instrument.ts`. No provider, credentials, or
- * generated fixture corpus is needed. The subject instrument remains unchanged.
+/** Fixed, bounded numerical qualification; emits compact JSON evidence.
+ * Run with `bun scripts/qualify-instrument.ts [output.json]`. With no argument the
+ * evidence is printed to stdout; with a path it is written to a new file that is
+ * never overwritten. No provider, credentials, or generated fixture corpus is
+ * needed. The subject instrument remains unchanged.
  */
 import { createHash } from "node:crypto";
-import { readFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { dirname } from "node:path";
 import { simulate, randomGraph, mutateGraph, type Graph } from "../src/network";
 import { exactRandomAuc } from "../src/oracle";
 
-if (process.argv.length !== 2) throw new Error("qualification takes no arguments; exhaustive scope is fixed at n=4,5,6");
+if (process.argv.length > 3) throw new Error("qualification takes at most one output path; exhaustive scope is fixed at n=4,5,6");
+const outputPath = process.argv[2];
+if (outputPath !== undefined && (outputPath.length === 0 || outputPath.startsWith("--"))) throw new Error("output path must be a file path");
 const sha = (source: string): string => createHash("sha256").update(source).digest("hex");
 const sources = {
   instrument: await readFile(new URL("../src/network.ts", import.meta.url), "utf8"),
@@ -197,7 +202,7 @@ for (const [nodes, edges] of [[5, 4], [5, 6], [6, 5], [6, 7]] as const) {
 
 require(sources.instrument === await readFile(new URL("../src/network.ts", import.meta.url), "utf8"), "instrument changed during qualification");
 require(sources.oracle === await readFile(new URL("../src/oracle.ts", import.meta.url), "utf8"), "oracle changed during qualification");
-console.log(JSON.stringify({
+const evidence = JSON.stringify({
   contract: "algal.lab.network-qualification.v1", runtime: { bun: Bun.version },
   sourceSha256: Object.fromEntries(Object.entries(sources).map(([name, source]) => [name, sha(source)])),
   connectedGraphs: counts, totalGraphs: Object.values(counts).reduce((a, b) => a + b, 0), trajectoryComparisons: comparisons,
@@ -206,4 +211,15 @@ console.log(JSON.stringify({
   smallGraphOptima: [...budgets.values()].filter((row) => row.nodes >= 5 && row.edges <= row.nodes + 1).map(({ signatures: _omit, ...row }) => row),
   sixCycleLabelSensitivity: labelSensitivity, sampling,
   limits: "Discrete-model numerical consistency, not physical validity. Uniform-random optima use the independently tested full-distribution oracle, not finite discovery seeds. Construction frequencies assume independent uniform choices; empirical frequencies use the listed deterministic seed range. Degree-distribution distance is not a complete topology-distribution distance.",
-}, null, 2));
+}, null, 2) + "\n";
+if (outputPath === undefined) process.stdout.write(evidence);
+else {
+  // Like run directories, evidence files are never overwritten: choose a new path to rerun.
+  await mkdir(dirname(outputPath), { recursive: true });
+  try { await writeFile(outputPath, evidence, { flag: "wx", mode: 0o600 }); }
+  catch (error) {
+    if ((error as NodeJS.ErrnoException).code === "EEXIST") throw new Error(`${outputPath} already exists; choose a new output path (evidence files are never overwritten)`);
+    throw error;
+  }
+  console.error(`instrument qualification written to ${outputPath}`);
+}

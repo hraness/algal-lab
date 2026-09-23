@@ -1,8 +1,9 @@
 import { afterEach, expect, test } from "bun:test";
-import { mkdir, mkdtemp, readFile, readdir, rm, writeFile } from "node:fs/promises";
+import { access, mkdir, mkdtemp, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { verifyComparison } from "./comparison";
 import { verifyStudy } from "./study";
 
 const roots: string[] = [];
@@ -12,11 +13,11 @@ const project = fileURLToPath(new URL("../", import.meta.url));
 async function fixture() {
   const root = await mkdtemp(join(tmpdir(), "algal-gateway-entrypoint-")); roots.push(root);
   const output = join(root, "archive");
-  const run = async (model = "openai/gpt-6-luna") => {
+  const run = async (model = "openai/gpt-6-luna", env: Record<string, string> = {}) => {
     // An explicit environment prevents local dotenv files or operator credentials
     // from turning these failure-path checks into paid model calls.
     const child = Bun.spawn([process.execPath, "--no-env-file", "examples/gateway-study.ts", "--protocol", "examples/network-model-smoke.json", "--out", output], {
-      cwd: project, env: { PATH: process.env.PATH ?? "", GATEWAY_MODEL: model, GATEWAY_PROVIDER: "openai" }, stdout: "pipe", stderr: "pipe",
+      cwd: project, env: { PATH: process.env.PATH ?? "", GATEWAY_MODEL: model, GATEWAY_PROVIDER: "openai", ...env }, stdout: "pipe", stderr: "pipe",
     });
     const [exitCode, stdout, stderr] = await Promise.all([child.exited, new Response(child.stdout).text(), new Response(child.stderr).text()]);
     return { exitCode, stdout, stderr };
@@ -51,3 +52,79 @@ test("Gateway entry point preserves all missing-credential failures with no disp
   const verified = await verifyStudy(join(f.output, "study"));
   expect(verified.experiments).toBe(0);
 });
+
+test("Gateway entry point keeps the twelve-call default and records an explicit call budget only when configured", async () => {
+  const explicit = await fixture();
+  const result = await explicit.run(undefined, { ALGAL_LAB_GATEWAY_MAX_CALLS: "24" });
+  expect(result.exitCode).toBe(0);
+  const configuration = JSON.parse(await readFile(join(explicit.output, "executor.json"), "utf8"));
+  expect(Object.keys(configuration).sort()).toEqual(["configuration", "configurationDigest", "maxCallsLimit"]);
+  expect(configuration.maxCallsLimit).toBe(24);
+  // The executor budget stays the study's exact slot count; the limit only admits larger studies.
+  expect(configuration.configuration.maxCalls).toBe(12);
+  expect(JSON.parse(await readFile(join(explicit.output, "intent.json"), "utf8")).maxCalls).toBe(12);
+  const transport = JSON.parse(await readFile(join(explicit.output, "gateway.json"), "utf8"));
+  expect(Object.keys(transport).sort()).toEqual(["cancelled", "configuration", "configurationDigest", "observations"]);
+  expect(transport.observations).toHaveLength(12);
+
+  const implicit = await fixture();
+  expect((await implicit.run()).exitCode).toBe(0);
+  expect(Object.keys(JSON.parse(await readFile(join(implicit.output, "executor.json"), "utf8"))).sort()).toEqual(["configuration", "configurationDigest"]);
+
+  // An unparseable, out-of-range, or too-small budget fails before any archive exists.
+  for (const value of ["abc", "0", "401", "12.0", "6", " 12", ""]) {
+    const rejected = await fixture();
+    const outcome = await rejected.run(undefined, { ALGAL_LAB_GATEWAY_MAX_CALLS: value });
+    expect(outcome.exitCode).not.toBe(0);
+    expect(outcome.stderr).toContain("ALGAL_LAB_GATEWAY_MAX_CALLS");
+    await expect(access(rejected.output)).rejects.toThrow();
+  }
+});
+
+async function compareFixture() {
+  const root = await mkdtemp(join(tmpdir(), "algal-gateway-compare-")); roots.push(root);
+  const output = join(root, "archive");
+  const plan = join(root, "plan.json");
+  // 4 replicate seeds x 3 conditions x 2 researchers x 1 round = a 24-call live arm.
+  await writeFile(plan, JSON.stringify({ contract: "algal.lab.comparison-plan.v1", name: "mini-compare",
+    replicateSeeds: [101, 202, 303, 404], researchers: 2, rounds: 1, primedDesigns: 1,
+    primary: { nodes: 6, edges: 7, failureSteps: 2 }, transferRegimes: [],
+    discoverySeeds: [11], holdoutSeeds: [13], margin: 0.01 }) + "\n", { mode: 0o600 });
+  const run = async (env: Record<string, string> = {}) => {
+    const child = Bun.spawn([process.execPath, "--no-env-file", "examples/gateway-compare.ts", "--plan", plan, "--out", output], {
+      cwd: project, env: { PATH: process.env.PATH ?? "", GATEWAY_MODEL: "openai/gpt-6-luna", GATEWAY_PROVIDER: "openai", ...env }, stdout: "pipe", stderr: "pipe",
+    });
+    const [exitCode, stdout, stderr] = await Promise.all([child.exited, new Response(child.stdout).text(), new Response(child.stderr).text()]);
+    return { exitCode, stdout, stderr };
+  };
+  return { output, run };
+}
+
+test("Gateway comparison refuses a plan whose live slots exceed the operator limit before creating the archive", async () => {
+  const f = await compareFixture();
+  const outcome = await f.run();
+  expect(outcome.exitCode).not.toBe(0);
+  expect(outcome.stderr).toContain("24 model calls");
+  await expect(access(f.output)).rejects.toThrow();
+
+  const tooSmall = await compareFixture();
+  const rejected = await tooSmall.run({ ALGAL_LAB_GATEWAY_MAX_CALLS: "12" });
+  expect(rejected.exitCode).not.toBe(0);
+  await expect(access(tooSmall.output)).rejects.toThrow();
+});
+
+test("Gateway comparison runs the live arm under the exact slot budget and verifies offline without credentials", async () => {
+  const f = await compareFixture();
+  const result = await f.run({ ALGAL_LAB_GATEWAY_MAX_CALLS: "24" });
+  expect(result.exitCode).toBe(0);
+  const intent = JSON.parse(await readFile(join(f.output, "intent.json"), "utf8"));
+  expect(intent.maxCalls).toBe(24);
+  const transport = JSON.parse(await readFile(join(f.output, "gateway.json"), "utf8"));
+  expect(transport.observations).toHaveLength(24);
+  expect(transport.observations.every((o: { dispatched: boolean; status: string; code: string }) =>
+    !o.dispatched && o.status === "failed" && o.code === "credential_unavailable")).toBe(true);
+  const verified = await verifyComparison(join(f.output, "comparison"));
+  expect(verified.studies).toBe(3);
+  const report = JSON.parse(await readFile(join(f.output, "comparison", "comparison.json"), "utf8"));
+  expect(report.report.arms).toEqual(["adaptive", "random", "live"]);
+}, 30000);

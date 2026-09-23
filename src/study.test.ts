@@ -4,8 +4,8 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { commandExecutor, type Executor, type JsonValue } from "@hraness/algal";
 import { ArtifactStore, digest, readJsonFile } from "./artifacts";
-import { CONDITIONS, type ResearchContext } from "./contracts";
-import { scriptedProposal } from "./researcher";
+import { CONDITIONS, json, type ResearchContext } from "./contracts";
+import { primedProposal, scriptedProposal } from "./researcher";
 import { runStudy, verifyStudy, type Attempt } from "./study";
 
 const roots: string[] = [];
@@ -186,3 +186,117 @@ test("the largest admitted portfolio completes and verifies with bounded per-des
   expect(report.summaries.every((s) => s.validExperiments === 96)).toBe(true);
   expect((await verifyStudy(directory)).experiments).toBe(288);
 }, 30000);
+
+const protocolV2 = {
+  contract: "algal.lab.study.v2", name: "test-v2", replicateSeeds: [7, 23], researchers: 2, rounds: 2,
+  nodes: 6, edges: 7, failureSteps: 2, discoverySeeds: [11], holdoutSeeds: [101],
+  primedDesigns: 2, counterbalance: true, transferRegimes: [{ nodes: 7, edges: 9, failureSteps: 2 }],
+};
+
+test("v2 protocols prime identical designs across conditions, rotate condition order, and run transfer budgets", async () => {
+  const directory = await location();
+  const report = await runStudy(protocolV2, directory);
+  const store = new ArtifactStore(directory);
+  const attempts = await Promise.all(report.attempts.map(async (id) => await store.get(id) as unknown as Attempt));
+  // 2 seeds × 3 conditions × (2 researchers × 2 primed + 2 × 2 discovery + 2 × 1 transfer)
+  expect(report.attempts).toHaveLength(2 * 3 * (4 + 4 + 2));
+  expect(report.conditionOrders).toEqual([
+    { replicate: 7, conditions: ["isolated", "shared-artifacts", "shared-artifacts-and-messages"] },
+    { replicate: 23, conditions: ["shared-artifacts", "shared-artifacts-and-messages", "isolated"] },
+  ]);
+  const phase = (a: Attempt) => a.context.contract === "algal.lab.context.v2" ? a.context.phase : "discovery";
+  for (const attempt of attempts) expect(attempt.context.contract).toBe("algal.lab.context.v2");
+  const primed = attempts.filter((a) => phase(a) === "primed");
+  expect(primed).toHaveLength(2 * 3 * 4);
+  for (const attempt of primed) {
+    expect(attempt.context.round).toBe(-1);
+    expect(attempt.context.evidence).toEqual([]);
+    expect(attempt.receipt.effects[0]?.executor).toBe("algal-lab:primed-design.v1");
+    expect(attempt.measurement).not.toBeNull();
+  }
+  // Identical primed graphs per (replicate, researcher, index) in every condition.
+  for (const replicate of [7, 23]) for (const condition of CONDITIONS) {
+    const graphs = primed.filter((a) => a.context.replicate === replicate && a.context.condition === condition).map((a) => a.measurement!.proposal.graph);
+    const reference = primed.filter((a) => a.context.replicate === replicate && a.context.condition === "isolated").map((a) => a.measurement!.proposal.graph);
+    expect(graphs).toEqual(reference);
+  }
+  // Discovery round zero sees primed evidence; isolated researchers see only their own primed designs.
+  for (const attempt of attempts.filter((a) => phase(a) === "discovery" && a.context.round === 0)) {
+    expect(attempt.context.evidence.length).toBe(attempt.context.condition === "isolated" ? 2 : 4);
+  }
+  // Transfer contexts carry the transfer budget while evidence stays at the primary budget.
+  const transfers = attempts.filter((a) => phase(a) === "transfer");
+  expect(transfers).toHaveLength(2 * 3 * 2);
+  for (const attempt of transfers) {
+    expect(attempt.context.round).toBe(2);
+    expect(attempt.context.nodes).toBe(7);
+    expect(attempt.context.edges).toBe(9);
+    expect(attempt.context.evidence.length).toBeGreaterThan(0);
+    expect(attempt.context.evidence.every((e) => e.graph.nodes === 6)).toBe(true);
+    expect(attempt.measurement?.proposal.graph.nodes).toBe(7);
+    expect(attempt.measurement?.proposal.graph.edges).toHaveLength(9);
+    expect(attempt.measurement?.proposal.parents).toEqual([]); // the scripted policy has no transferable rule
+  }
+  for (const summary of report.summaries) {
+    expect(summary.primedDesigns).toBe(4);
+    expect(summary.validExperiments).toBe(4);
+    expect(summary.attempts).toBe(4);
+    expect(summary.transfers).toHaveLength(1);
+    expect(summary.transfers[0]!.validExperiments).toBe(2);
+    expect(summary.transfers[0]!.regime).toEqual({ nodes: 7, edges: 9, failureSteps: 2 });
+    const portfolio = await store.get(summary.portfolioDigest) as { members: string[] };
+    // Primed designs join the primary portfolio; transfer designs never do.
+    expect(portfolio.members.some((id) => primed.some((a) => report.attempts[attempts.indexOf(a)] === id))).toBe(true);
+    for (const member of portfolio.members) expect(transfers.some((a) => report.attempts[attempts.indexOf(a)] === member)).toBe(false);
+    const transferPortfolio = await store.get(summary.transfers[0]!.portfolioDigest) as { regime: unknown; members: string[] };
+    expect(transferPortfolio.regime).toEqual({ nodes: 7, edges: 9, failureSteps: 2 });
+    expect(transferPortfolio.members.length).toBe(summary.transfers[0]!.uniqueDesigns);
+  }
+  const verified = await verifyStudy(directory);
+  expect(verified.attempts).toBe(60);
+  expect(verified.experiments).toBe(6 * 4 + 6 * 2);
+  expect(await runStudy(protocolV2, await location())).toEqual(report);
+});
+
+test("a tampered primed design fails reconstruction, and v2 protocol bounds hold", async () => {
+  const directory = await location();
+  const report = await runStudy({ ...protocolV2, replicateSeeds: [7], transferRegimes: [] }, directory);
+  const store = new ArtifactStore(directory);
+  const id = report.attempts[0]!;
+  const attempt = await store.get(id) as unknown as Attempt;
+  expect(attempt.context.round).toBe(-1);
+  // Forge a different valid graph into the primed attempt's recorded effect and
+  // measurement, then re-address the artifact and report so every digest matches.
+  const forged = JSON.parse(JSON.stringify(attempt)) as Attempt;
+  const graph = { nodes: 6, edges: [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [0, 5], [0, 3]] } as unknown as Attempt["context"]["evidence"][number]["graph"];
+  (forged.receipt.effects[0] as unknown as { output: { graph: unknown } }).output.graph = graph;
+  forged.measurement!.proposal.graph = graph;
+  const forgedId = await new ArtifactStore(directory).put(forged);
+  const rewritten = { ...report, attempts: report.attempts.map((item) => item === id ? forgedId : item) };
+  await writeFile(join(directory, "study.json"), JSON.stringify({ report: rewritten, digest: digest(rewritten) }));
+  // Verification regenerates primed attempts on the host instead of replaying
+  // them, so the forged artifact can never be reproduced and the report fails.
+  await expect(verifyStudy(directory)).rejects.toThrow("report differs from reproduced study");
+  expect(forged.receipt.effects[0]?.executor).toBe("algal-lab:primed-design.v1");
+  // A command archive relabelled as a scripted baseline is recomputed, not replayed.
+  const relabel = await location();
+  const hand = { id: "hand-picked", capabilities: { effects: ["agent"] }, cacheable: false, retryable: false,
+    execute: async () => json({ ...primedProposal({ ...attempt.context, replicate: 99 }, 0), prediction: 0.7 }) } as Executor;
+  const command = await runStudy({ ...protocolV2, replicateSeeds: [7], transferRegimes: [] }, relabel, { executor: hand });
+  expect(command.backend).toBe("command");
+  await expect(verifyStudy(relabel)).resolves.toMatchObject({ ok: true });
+  const relabelled = { ...command, backend: "scripted" };
+  await writeFile(join(relabel, "study.json"), JSON.stringify({ report: relabelled, digest: digest(relabelled) }));
+  await expect(verifyStudy(relabel)).rejects.toThrow("report differs from reproduced study");
+  // The reverse relabelling is caught by executor identity before replay.
+  const scripted = await location();
+  const baseline = await runStudy({ ...protocolV2, replicateSeeds: [7], transferRegimes: [] }, scripted);
+  const asCommand = { ...baseline, backend: "command" };
+  await writeFile(join(scripted, "study.json"), JSON.stringify({ report: asCommand, digest: digest(asCommand) }));
+  await expect(verifyStudy(scripted)).rejects.toThrow("host policy executor");
+  await expect(runStudy({ ...protocolV2, transferRegimes: [{ nodes: 6, edges: 7, failureSteps: 2 }] }, await location())).rejects.toThrow("must differ");
+  await expect(runStudy({ ...protocolV2, primedDesigns: 5 }, await location())).rejects.toThrow("primedDesigns");
+  await expect(runStudy({ ...protocolV2, counterbalance: "yes" }, await location())).rejects.toThrow("counterbalance");
+  await expect(runStudy({ ...protocolV2, transferRegimes: [{ nodes: 7, edges: 9, failureSteps: 2 }, { nodes: 7, edges: 9, failureSteps: 2 }] }, await location())).rejects.toThrow("repeated");
+  await expect(runStudy({ ...protocolV2, extra: 1 }, await location())).rejects.toThrow("unknown field");
+});

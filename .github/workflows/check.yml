@@ -13,7 +13,7 @@ jobs:
   check:
     name: Check
     runs-on: ubuntu-24.04
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
@@ -26,3 +26,5 @@ jobs:
       - run: bun run qualify:instrument
       - run: bun run qualify
       - run: bun run lab verify-qualification runs/qualification
+      - run: bun run compare
+      - run: bun run lab verify-comparison runs/comparison

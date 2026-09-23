@@ -106,9 +106,14 @@ configurations and explicit counterexamples.
 ## Evidence identities
 
 Generated archives remain local under `runs/`. Reproduction uses the recorded
-application source; it does not call a provider.
+application source; it does not call a provider. These archives verify only at
+the source revision that produced them: at later commits the report contract
+and application identity have changed, `verify` rejects the archive, and the
+inspector (which now requires the v2 executor configuration) fails on the v1
+configuration. Check out the recorded revision first:
 
 ```sh
+git checkout 811ba84 && bun install --frozen-lockfile
 bun run lab verify runs/gateway-smoke/study
 bun scripts/inspect-gateway-smoke.ts runs/gateway-smoke
 # The inspector intentionally exits 1 for this failed acceptance result.

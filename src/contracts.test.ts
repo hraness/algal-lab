@@ -1,8 +1,11 @@
 import { describe, expect, test } from "bun:test";
 import type { JsonValue } from "@hraness/algal";
 import {
+  ALGAL_REVISION,
   CONDITIONS,
   MAX_ATTEMPTS,
+  effectiveSeedCollisions,
+  effectiveSeeds,
   equal,
   json,
   parseProposal,
@@ -26,6 +29,8 @@ const protocol: Protocol = {
   discoverySeeds: [101, 102],
   holdoutSeeds: [201, 202],
 };
+
+const protocolV2 = { ...protocol, contract: "algal.lab.study.v2" as const, primedDesigns: 1, counterbalance: true, transferRegimes: [] };
 
 const graph = { nodes: 4, edges: [[0, 1], [1, 2], [2, 3]] as [number, number][] };
 
@@ -86,6 +91,45 @@ describe("study protocol admission", () => {
     expect(() => parseProtocol({ ...atLimit, replicateSeeds: [17, 18] })).toThrow(/proposal slots/);
   });
 
+  test("effective seeds list every replicate's XOR-derived discovery and holdout schedule", () => {
+    expect(effectiveSeeds({ replicateSeeds: [223, 613], discoverySeeds: [331], holdoutSeeds: [1009] })).toEqual([
+      { replicate: 223, phase: "discovery", seed: 331, effective: 404 }, { replicate: 223, phase: "holdout", seed: 1009, effective: 814 },
+      { replicate: 613, phase: "discovery", seed: 331, effective: 814 }, { replicate: 613, phase: "holdout", seed: 1009, effective: 404 },
+    ]);
+    expect(effectiveSeeds({ replicateSeeds: [0xffffffff], discoverySeeds: [1], holdoutSeeds: [] })[0]!.effective).toBe(0xfffffffe);
+    expect(effectiveSeedCollisions(protocolV2)).toEqual([]);
+    expect(effectiveSeedCollisions({ replicateSeeds: [223, 613], discoverySeeds: [331], holdoutSeeds: [1009] }).map(([a, b]) => [a.effective, a.replicate, b.replicate]))
+      .toEqual([[814, 223, 613], [404, 223, 613]]);
+  });
+
+  test("v2 protocols reject effective schedule seeds that collide across replicates", () => {
+    expect(parseProtocol(protocolV2)).toEqual(protocolV2);
+    // Raw lists are disjoint, yet replicate 223's holdout and replicate 613's discovery both simulate seed 814.
+    const holdoutLeak = { ...protocolV2, replicateSeeds: [223, 613], discoverySeeds: [331], holdoutSeeds: [1009] };
+    expect(() => parseProtocol(holdoutLeak)).toThrow(/effective seed 814 .*holdout seed 1009 of replicate 223 .*discovery seed 331 of replicate 613/);
+    // Two replicates sharing discovery schedules is also a collision, not just holdout leakage.
+    const sharedDiscovery = { ...protocolV2, replicateSeeds: [1709, 1999], discoverySeeds: [41, 331], holdoutSeeds: [1009] };
+    expect(() => parseProtocol(sharedDiscovery)).toThrow(/effective seed/);
+    // Any single replicate is collision-free because XOR with a fixed replicate is a bijection.
+    expect(parseProtocol({ ...holdoutLeak, replicateSeeds: [223] }).replicateSeeds).toEqual([223]);
+    expect(parseProtocol({ ...sharedDiscovery, replicateSeeds: [1709] }).replicateSeeds).toEqual([1709]);
+  });
+
+  test("v1 protocols keep only the raw disjointness rule so frozen archives stay admissible", () => {
+    const archived = { ...protocol, replicateSeeds: [223, 613], discoverySeeds: [331], holdoutSeeds: [1009] };
+    expect(effectiveSeedCollisions(archived)).toHaveLength(2);
+    expect(parseProtocol(archived)).toEqual(archived);
+    expect(() => parseProtocol({ ...archived, holdoutSeeds: [331] })).toThrow(/disjoint/);
+  });
+
+  test("the shipped comparison plan admits as v2 protocols without effective seed collisions", async () => {
+    const plan = await Bun.file(new URL("../examples/comparison-plan.json", import.meta.url)).json() as Record<string, unknown>;
+    expect(plan.replicateSeeds).toEqual([5003, 5009, 5011, 5021, 5023, 5039, 5051, 5059]);
+    expect(effectiveSeedCollisions(plan as Parameters<typeof effectiveSeedCollisions>[0])).toEqual([]);
+    const { primary, margin: _margin, ...rest } = plan as { primary: Record<string, unknown>; margin: number } & Record<string, unknown>;
+    expect(parseProtocol({ ...rest, ...primary, contract: "algal.lab.study.v2", counterbalance: true }).replicateSeeds).toEqual(plan.replicateSeeds as number[]);
+  });
+
   test("impossible graph and failure budgets reject before execution", () => {
     for (const patch of [
       { nodes: 3 }, { nodes: 17 }, { nodes: 4.5 }, { edges: 2 }, { edges: 7 },
@@ -94,6 +138,10 @@ describe("study protocol admission", () => {
     ]) expect(() => parseProtocol({ ...protocol, ...patch })).toThrow();
     expect(parseProtocol({ ...protocol, nodes: 16, edges: 48, failureSteps: 14 }).edges).toBe(48);
   });
+});
+
+describe("runtime revision", () => {
+  test("ALGAL_REVISION is a full commit sha", () => { expect(ALGAL_REVISION).toMatch(/^[0-9a-f]{40}$/); });
 });
 
 describe("research proposal admission", () => {

@@ -151,9 +151,21 @@ choose a new holdout for that later study.
 
 Before evaluation, each portfolio also selects one champion by highest discovery
 score, breaking ties by canonical graph digest. This selection does not see
-evaluation outcomes. The v2 report separates its sampled random AUC from its
-deterministic targeted AUC; portfolio-wide aggregates remain descriptive. Model
-requests omit condition labels while preserving the treatment's information.
+evaluation outcomes. The report separates the champion's sampled random AUC
+from its deterministic targeted AUC; portfolio-wide aggregates remain
+descriptive. Model requests omit condition labels while preserving the
+treatment's information.
+
+The discovery score is the mean AUC over the discovery schedules with equal
+weight on random and targeted failure (50% each). Both champion selection and
+the adaptive scripted policy's parent ranking use this discovery mean. The
+primary qualification and comparison endpoint is different: the champion's
+exact expected random-failure AUC only. Adaptive search therefore optimizes an
+objective that differs from the one it is judged on, and a champion that wins
+on the mixed score need not maximize the exact random endpoint. This mismatch
+was pre-declared in the [qualification plan](qualification-plan.md) and has not
+been changed since; changing the selection score or the endpoint would be a new
+instrument or plan version, never a retrospective adjustment.
 
 ## Reading the report
 
@@ -165,17 +177,26 @@ The report presents descriptive statistics for each replicate/condition:
 | Designs | Distinct normalized labeled graphs in the frozen portfolio. |
 | Champion random AUC | Mean on the sampled unseen random schedules for the discovery-selected champion. |
 | Champion targeted AUC | The champion's repeated, seed-independent targeted control. |
-| Prediction MAE | Mean absolute difference between each successful proposal's prediction and its mean discovery AUC. |
-| Mean holdout AUC | Mean of the designs' final-evaluation mean AUC values, including the repeated targeted control; each unique design receives equal weight. |
-| Best holdout AUC | Largest final-evaluation mean AUC among frozen designs, reported after evaluation. It does not select or deploy a policy. |
+| Prediction MAE | Mean absolute difference between each successful proposal's prediction and its mean discovery AUC. Host-primed designs are excluded. |
+| Portfolio mean AUC | Mean of the designs' final-evaluation mean AUC values, where each design's mean mixes the unseen random schedules and the repeated targeted control; each unique design receives equal weight. |
+| Post-hoc best AUC | Largest final-evaluation mean AUC among frozen designs, reported after evaluation. It does not select or deploy a policy. |
 | Coverage ≥ 0.75 | Fraction of final-evaluation schedule entries for which at least one frozen design has AUC at least 0.75. |
+
+Portfolio mean AUC and post-hoc best AUC both mix random and targeted
+trajectories, while champion random AUC uses the random schedules alone.
+Post-hoc best AUC can therefore be lower than champion random AUC in the same
+row; that is a difference in what is averaged, not an error.
 
 Coverage describes alternatives in a portfolio, not interacting graphs or a
 system that can choose the right design before a failure. Repeated targeted
-entries count as schedule entries but remain the same observation. An empty
-portfolio has zero coverage and no mean/best AUC; prediction MAE is absent when
-there are no successful attempts. The threshold is a fixed descriptive choice,
-not a validated real-world service target.
+entries count as schedule entries but remain the same observation. In the demo
+this column is uninformative: it is 0.5 in every row because the three random
+holdout schedules always reach the threshold and the three repeated targeted
+entries never do, so it separates failure rules rather than portfolios. It is
+not an acceptance criterion anywhere in the lab. An empty portfolio has zero
+coverage and no mean/best AUC; prediction MAE is absent when there are no
+successful attempts. The threshold is a fixed descriptive choice, not a
+validated real-world service target.
 
 Offline verification reproduces execution evidence and the instrument's
 measurements. It neither repeats the model's stochastic thought process nor

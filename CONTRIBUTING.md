@@ -15,8 +15,10 @@ bun run lab verify-qualification runs/qualification
 ```
 
 The demo needs no credentials or paid inference. Studies require a new output
-directory; they do not overwrite or resume earlier evidence. To keep another
-run, select an unused path:
+directory; they do not overwrite or resume earlier evidence, and
+`qualify:instrument` likewise refuses to overwrite `runs/instrument-qualification.json`
+(pass another path to `bun scripts/qualify-instrument.ts`, or no path for
+stdout). To keep another run, select an unused path:
 
 ```sh
 bun run lab study --protocol examples/network-study.json --out runs/custom

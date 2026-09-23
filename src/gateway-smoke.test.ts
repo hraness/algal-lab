@@ -99,6 +99,15 @@ test("Gateway smoke leaves each incompletely reported usage total unknown", asyn
   const missing = await inspectGatewaySmoke(absent.root);
   expect(missing.passed).toBe(true);
   expect(missing.usage).toEqual({ tokensIn: null, tokensOut: null, totalTokens: null, reasoningTokens: null, cachedTokens: null, cost: null });
+  // A provider that reports `usage: null` still completed and billed the generation; the archive keeps it with unknown usage.
+  const nulled = await fixture({ usage: (index) => index === 5 ? null : fullUsage });
+  const withNull = await inspectGatewaySmoke(nulled.root);
+  expect(nulled.calls).toBe(12);
+  expect(nulled.executor.observations[5]).toMatchObject({ status: "completed" });
+  expect(nulled.executor.observations[5]).not.toHaveProperty("usage");
+  expect(withNull.passed).toBe(true);
+  expect(withNull.proposals).toBe(12);
+  expect(withNull.usage).toEqual({ tokensIn: null, tokensOut: null, totalTokens: null, reasoningTokens: null, cachedTokens: null, cost: null });
 });
 
 test("Gateway smoke rejects unknown metadata and mismatched intent, model, identity, order, or usage", async () => {
@@ -145,7 +154,9 @@ test("Gateway smoke rejects unknown metadata and mismatched intent, model, ident
   expect((await inspectGatewaySmoke(f.root)).controls.exactBudgetContract).toBe(false);
   await f.writeSidecar(observations.map(({ schemaDigest: _dropped, ...o }) => o));
   expect((await inspectGatewaySmoke(f.root)).controls.exactBudgetContract).toBe(false);
-});
+// Sixteen offline inspections, each re-verifying the study and re-hashing the
+// laboratory and installed runtime sources, exceed bun's five-second default.
+}, 60000);
 
 test("Gateway smoke requires a changed peer design, not an unchanged citation", async () => {
   const f = await fixture({ changePeer: false });

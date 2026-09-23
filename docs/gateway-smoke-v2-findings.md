@@ -106,9 +106,12 @@ mechanically for this run and should move into the analysis path for that plan.
 ## Evidence identities
 
 Generated archives remain local under `runs/`. Reproduction uses the recorded
-application source; it does not call a provider.
+application source; it does not call a provider. Later commits change the
+report contract and application identity, so check out the recorded revision
+first:
 
 ```sh
+git checkout 0742398 && bun install --frozen-lockfile
 bun run lab verify runs/gateway-smoke-v2/study
 bun scripts/inspect-gateway-smoke.ts runs/gateway-smoke-v2
 bun run lab verify runs/gateway-v2-controls-adaptive

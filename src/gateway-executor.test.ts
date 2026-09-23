@@ -5,7 +5,7 @@ import { join } from "node:path";
 import { digestCanonical, effectRequestDigest, type EffectRequest, type GatewayFetch } from "@hraness/algal";
 import { ArtifactStore } from "./artifacts";
 import { json, proposalContractSchema, PROPOSAL_CONTRACT } from "./contracts";
-import { createGatewayExecutor } from "./gateway-executor";
+import { createGatewayExecutor, GATEWAY_DEFAULT_MAX_CALLS, GATEWAY_MAX_CALLS } from "./gateway-executor";
 import { runStudy, verifyStudy, type Attempt } from "./study";
 
 const roots: string[] = [];
@@ -72,15 +72,46 @@ test("native ALGAL Gateway execution sends the full bounded schema and retains o
 test("configuration identity changes for relevant bounds and selection but excludes credentials", () => {
   const normal = createGatewayExecutor(selection);
   expect(createGatewayExecutor({ ...selection, credential: "different-fixture-secret" }).configurationDigest).toBe(normal.configurationDigest);
-  for (const change of [{ provider: "azure-openai" }, { model: "openai/catalog-fixture" }, { maxCalls: 1 }, { timeoutMs: 5000 }, { maxOutputBytes: 4096 }, { maxResponseBytes: 32768 }]) {
+  for (const change of [{ provider: "azure-openai" }, { model: "openai/catalog-fixture" }, { maxCalls: 1 }, { maxCalls: 400 }, { timeoutMs: 5000 }, { maxOutputBytes: 4096 }, { maxResponseBytes: 32768 }]) {
     expect(createGatewayExecutor({ ...selection, ...change }).configurationDigest).not.toBe(normal.configurationDigest);
   }
-  for (const change of [{ maxCalls: 13 }, { maxCalls: 0 }, { timeoutMs: 60001 }, { maxOutputBytes: 8193 }, { maxResponseBytes: 65537 }, { maxCalls: NaN }, { model: "auto" }, { provider: "openai/other" }, { retries: 1 }, { signal: {} }, { fetch: "url" }]) {
+  for (const change of [{ maxCalls: 401 }, { maxCalls: 0 }, { timeoutMs: 60001 }, { maxOutputBytes: 8193 }, { maxResponseBytes: 65537 }, { maxCalls: NaN }, { maxCalls: 12.5 }, { model: "auto" }, { provider: "openai/other" }, { retries: 1 }, { signal: {} }, { fetch: "url" }]) {
     expect(() => createGatewayExecutor({ ...selection, ...change } as never)).toThrow();
   }
   expect(Object.isFrozen(schema)).toBe(true);
   expect(Object.isFrozen(normal.configuration)).toBe(true);
   expect(JSON.stringify(normal.configuration)).not.toContain(selection.credential);
+});
+
+test("the call budget defaults to the twelve-call smoke and is configurable only up to the replicated-comparison cap", async () => {
+  expect(GATEWAY_DEFAULT_MAX_CALLS).toBe(12);
+  expect(GATEWAY_MAX_CALLS).toBe(400);
+  expect(createGatewayExecutor(selection).configuration.maxCalls).toBe(12);
+  expect(createGatewayExecutor({ ...selection, maxCalls: 12 }).configurationDigest).toBe(createGatewayExecutor(selection).configurationDigest);
+  let calls = 0;
+  const wide = createGatewayExecutor({ ...selection, maxCalls: 400, fetch: async () => { calls++; return response({ id: `chatcmpl-${calls}` }); } });
+  expect(wide.configuration.maxCalls).toBe(400);
+  for (let index = 0; index < 14; index++) await expect(wide.execute({ ...request, cellId: `cell-${index}` })).resolves.toEqual(proposal);
+  expect(calls).toBe(14);
+  expect(wide.observations).toHaveLength(14);
+  expect(wide.observations[13]).toMatchObject({ attempt: 14, status: "completed" });
+  await wide.settle();
+});
+
+test("null usage in a completed generation is treated as absent and the billed generation is retained", async () => {
+  let calls = 0;
+  const executor = createGatewayExecutor({ ...selection, fetch: async () => { calls++; return response({ usage: null }); } });
+  const result = await executor.executeEffect!(request);
+  expect(calls).toBe(1);
+  expect(result.output).toEqual(proposal);
+  expect(result.metadata?.usage).toEqual({ model: "gpt-6-luna" });
+  expect(executor.observations[0]).toMatchObject({ status: "completed", dispatched: true, uncertain: false, httpStatus: 200, responseId: "chatcmpl-fixture", finishReason: "stop" });
+  expect(executor.observations[0]).not.toHaveProperty("usage");
+  expect(executor.observations[0]).not.toHaveProperty("code");
+  // A malformed usage record is still not a usage record; usage stays absent without failing the generation.
+  const malformed = createGatewayExecutor({ ...selection, fetch: async () => response({ usage: "unknown" }) });
+  await expect(malformed.execute(request)).rejects.toThrow("invalid_response");
+  await executor.settle();
 });
 
 test("missing token usage stays absent and unsupported numeric/identifier metadata never leaks", async () => {
@@ -124,24 +155,84 @@ test("credential echoes in proposal text or keys are rejected before durable ALG
   expect(JSON.stringify(escaped.observations)).not.toContain(escapedCredential);
 });
 
-test("provider output outside the exact budget contract is rejected before the host sees it", async () => {
-  const violations = [
-    { ...proposal, graph: { nodes: 4, edges: [...proposal.graph.edges, [0, 2]] } },
-    { ...proposal, graph: { nodes: 4, edges: proposal.graph.edges.slice(1) } },
-    { ...proposal, graph: { nodes: 5, edges: proposal.graph.edges } },
-    { ...proposal, graph: { nodes: 4, edges: [[0, 1], [1, 2], [2, 3], [0, 4]] } },
-    { ...proposal, graph: { nodes: 4, edges: [[0, 1], [1, 2], [2, 3], [0, 3.5]] } },
-    { ...proposal, graph: { nodes: 4 } },
-    { ...proposal, graph: "connected" },
-  ];
+const violations = [
+  { ...proposal, graph: { nodes: 4, edges: [...proposal.graph.edges, [0, 2]] } },
+  { ...proposal, graph: { nodes: 4, edges: proposal.graph.edges.slice(1) } },
+  { ...proposal, graph: { nodes: 5, edges: proposal.graph.edges } },
+  { ...proposal, graph: { nodes: 4, edges: [[0, 1], [1, 2], [2, 3], [0, 4]] } },
+  { ...proposal, graph: { nodes: 4, edges: [[0, 1], [1, 2], [2, 3], [0, 3.5]] } },
+  { ...proposal, graph: { nodes: 4 } },
+  { ...proposal, graph: "connected" },
+];
+
+test("provider output outside the exact budget contract reaches host admission as data instead of being discarded", async () => {
   for (const bad of violations) {
     let calls = 0;
     const executor = createGatewayExecutor({ ...selection, fetch: async () => { calls++; return response({ choices: failureChoice({}, { content: JSON.stringify({ value: bad }) }) }); } });
-    await expect(executor.execute(request)).rejects.toThrow("invalid_response");
+    // The executor is transport: it hands over the bounded value and lets host parseProposal judge it.
+    await expect(executor.execute(request)).resolves.toEqual(bad);
     expect(calls).toBe(1);
-    expect(executor.observations[0]).toMatchObject({ status: "failed", code: "invalid_response", dispatched: true, schemaDigest: digestCanonical(schema) });
+    expect(executor.observations[0]).toMatchObject({ status: "completed", dispatched: true, uncertain: false, schemaDigest: digestCanonical(schema) });
+    expect(executor.observations[0]).not.toHaveProperty("code");
+    expect(executor.observations[0]).not.toHaveProperty("rejected");
     await executor.settle();
   }
+});
+
+test("a rejected proposal stays inside the recorded effect receipt and the study still verifies offline", async () => {
+  const root = await mkdtemp(join(tmpdir(), "algal-lab-gateway-rejected-")); roots.push(root);
+  const directory = join(root, "study");
+  let calls = 0;
+  const served: unknown[] = [];
+  const executor = createGatewayExecutor({ ...selection, maxCalls: 6, fetch: async () => {
+    const bad = violations[calls++ % 2]!; // over budget, then under budget
+    served.push(bad);
+    return response({ id: `chatcmpl-${calls}`, choices: failureChoice({}, { content: JSON.stringify({ value: bad }) }) });
+  } });
+  const report = await runStudy({ contract: "algal.lab.study.v1", name: "gateway-rejected", replicateSeeds: [7], researchers: 2, rounds: 1, nodes: 4, edges: 4, failureSteps: 1, discoverySeeds: [11], holdoutSeeds: [101] }, directory, { executor });
+  expect(calls).toBe(6);
+  expect(report.summaries.every((summary) => summary.validExperiments === 0)).toBe(true);
+  const store = new ArtifactStore(directory);
+  for (const [index, reference] of report.attempts.entries()) {
+    const attempt = await store.get(reference) as unknown as Attempt;
+    expect(attempt.measurement).toBeNull();
+    expect(attempt.receipt.outcome).not.toBe("complete");
+    const effect = attempt.receipt.effects.find((item) => item.executor === executor.id)!;
+    expect(effect.output).toEqual(served[index] as never);
+    expect(effect).not.toHaveProperty("error");
+    expect(effect.usage).toEqual({ model: "gpt-6-luna", tokensIn: 10, tokensOut: 20 });
+    expect(JSON.stringify(attempt.receipt)).toContain("proposal must preserve protocol node and edge budgets");
+  }
+  expect(executor.observations.every((item) => item.status === "completed" && item.code === undefined)).toBe(true);
+  expect(await verifyStudy(directory)).toMatchObject({ attempts: 6, experiments: 0 });
+  expect(calls).toBe(6);
+  await executor.settle();
+});
+
+test("a wrapper outside the strict schema is a contract violation whose bounded value is retained without wrapper chatter", async () => {
+  let calls = 0;
+  const executor = createGatewayExecutor({ ...selection, fetch: async () => { calls++; return response({ choices: failureChoice({}, { content: JSON.stringify({ value: proposal, private: "wrapper chatter" }) }) }); } });
+  await expect(executor.execute(request)).rejects.toThrow("gateway application: contract_violation");
+  expect(calls).toBe(1);
+  expect(executor.observations[0]).toMatchObject({ status: "failed", code: "contract_violation", dispatched: true, uncertain: false, httpStatus: 200, rejected: proposal });
+  expect(Object.isFrozen(executor.observations[0]!.rejected)).toBe(true);
+  expect(JSON.stringify(executor.observations)).not.toContain("wrapper chatter");
+  expect(JSON.stringify(executor.observations)).not.toContain("private");
+  // The retained value is bounded by the same byte limit as admitted output, so it never exceeds 8 KiB.
+  const oversized = createGatewayExecutor({ ...selection, maxOutputBytes: 64, fetch: async () => response({ choices: failureChoice({}, { content: JSON.stringify({ value: proposal, private: "wrapper chatter" }) }) }) });
+  await expect(oversized.execute(request)).rejects.toThrow("output_limit");
+  expect(oversized.observations[0]).toMatchObject({ code: "output_limit" });
+  expect(oversized.observations[0]).not.toHaveProperty("rejected");
+  // A credential echo is never retained, whatever else is wrong with the response.
+  const echoed = createGatewayExecutor({ ...selection, fetch: async () => response({ choices: failureChoice({}, { content: JSON.stringify({ value: { ...proposal, rationale: selection.credential }, private: "wrapper chatter" }) }) }) });
+  await expect(echoed.execute(request)).rejects.toThrow("invalid_response");
+  expect(echoed.observations[0]).not.toHaveProperty("rejected");
+  expect(JSON.stringify(echoed.observations)).not.toContain(selection.credential);
+  // Malformed transport that leaves nothing admissible stays invalid_response, distinct from a contract violation.
+  const malformed = createGatewayExecutor({ ...selection, fetch: async () => response({ choices: failureChoice({}, { content: JSON.stringify({ result: proposal }) }) }) });
+  await expect(malformed.execute(request)).rejects.toThrow("invalid_response");
+  expect(malformed.observations[0]).not.toHaveProperty("rejected");
+  await executor.settle();
 });
 
 test("contexts outside the protocol bounds reject before dispatch", async () => {
@@ -152,6 +243,7 @@ test("contexts outside the protocol bounds reject before dispatch", async () => 
     const context = { ...base, ...patch };
     await expect(executor.execute({ ...request, context: { inputs: { context } } })).rejects.toThrow("invalid_context");
   }
+  await expect(executor.execute({ ...request, context: { inputs: { context: null } } })).rejects.toThrow("invalid_context");
   expect(calls).toBe(0);
   expect(executor.observations.every((item) => item.dispatched === false && item.code === "invalid_context")).toBe(true);
   expect(executor.observations.every((item) => item.schemaDigest === undefined)).toBe(true);
@@ -181,7 +273,9 @@ test("requires one complete response from the explicitly selected model without 
     [{ choices: failureChoice({ finish_reason: "length" }) }, "incomplete_response"],
     [{ choices: failureChoice({}, { tool_calls: [{ id: "unexpected", type: "function" }] }) }, "tool_calls_forbidden"],
     [{ choices: failureChoice({}, { function_call: { name: "unexpected" } }) }, "tool_calls_forbidden"],
-    [{ choices: failureChoice({}, { content: JSON.stringify({ value: proposal, private: "extra" }) }) }, "invalid_response"],
+    [{ choices: failureChoice({}, { content: JSON.stringify({ value: proposal, private: "extra" }) }) }, "contract_violation"],
+    [{ choices: failureChoice({}, { content: JSON.stringify({ private: "output" }) }) }, "invalid_response"],
+    [{ choices: failureChoice({}, { content: JSON.stringify([proposal]) }) }, "invalid_response"],
     [{ choices: failureChoice({}, { content: "not valid JSON: private output" }) }, "invalid_response"],
     [{ choices: failureChoice({}, { content: '{"value":1e999}' }) }, "invalid_response"],
   ];
@@ -208,23 +302,47 @@ test("redirects are rejected without following a changed origin", async () => {
   expect(executor.observations[0]).toMatchObject({ httpStatus: 307, code: "redirect_forbidden", uncertain: false });
 });
 
-test("response overflow and interrupted transport block all later dispatch and retain original failures", async () => {
+test("interrupted transport after dispatch latches later calls, which record the latching attempt rather than their own failure", async () => {
+  const fetchers: [GatewayFetch, string][] = [
+    [async () => { throw new Error(`private transport ${selection.credential}`); }, "transport_error"],
+    [async () => new Response(new ReadableStream({ start(controller) { controller.enqueue(new Uint8Array([123])); controller.error(new Error(`private stream ${selection.credential}`)); } })), "transport_error"],
+    [async () => new Promise<Response>(() => {}), "deadline"],
+  ];
+  for (const [fetch, code] of fetchers) {
+    let calls = 0;
+    const executor = createGatewayExecutor({ ...selection, maxResponseBytes: 1024, timeoutMs: 50, fetch: async (...args) => { calls++; return fetch(...args); } });
+    await expect(executor.execute(request)).rejects.toThrow(code);
+    await expect(executor.execute({ ...request, cellId: "next" })).rejects.toThrow("completion_uncertain");
+    await expect(executor.execute({ ...request, cellId: "later" })).rejects.toThrow("completion_uncertain");
+    expect(calls).toBe(1);
+    expect(executor.observations).toHaveLength(3);
+    expect(executor.observations[0]).toMatchObject({ attempt: 1, code, uncertain: true, dispatched: true, status: "failed" });
+    expect(executor.observations[0]).not.toHaveProperty("latchedBy");
+    expect(executor.observations[1]).toMatchObject({ attempt: 2, uncertain: true, dispatched: false, code: "completion_uncertain", latchedBy: 1 });
+    expect(executor.observations[2]).toMatchObject({ attempt: 3, uncertain: true, dispatched: false, code: "completion_uncertain", latchedBy: 1 });
+    expect(JSON.stringify(executor.observations)).not.toContain(selection.credential);
+    await expect(executor.settle()).rejects.toThrow("completion_uncertain");
+  }
+});
+
+test("an oversized response after a received status fails only its own call and does not latch later dispatch", async () => {
   const fetchers: GatewayFetch[] = [
-    async () => { throw new Error(`private transport ${selection.credential}`); },
-    async () => new Response("x".repeat(1025)),
-    async () => new Response("small", { headers: { "content-length": "1025" } }),
+    async () => new Response("x".repeat(1025), { headers: { "x-request-id": "req_overflow" } }),
+    async () => new Response("small", { headers: { "content-length": "1025", "x-request-id": "req_overflow" } }),
+    async () => new Response(new ReadableStream({ start(controller) { controller.enqueue(new Uint8Array(600)); controller.enqueue(new Uint8Array(600)); controller.close(); } })),
   ];
   for (const fetch of fetchers) {
     let calls = 0;
-    const executor = createGatewayExecutor({ ...selection, maxResponseBytes: 1024, fetch: async (...args) => { calls++; return fetch(...args); } });
-    await expect(executor.execute(request)).rejects.toThrow(/transport_error|response_limit/);
-    await expect(executor.execute({ ...request, cellId: "next" })).rejects.toThrow("completion_uncertain");
-    expect(calls).toBe(1);
-    expect(executor.observations).toHaveLength(2);
-    expect(executor.observations[0]).toMatchObject({ uncertain: true, dispatched: true, status: "failed" });
-    expect(executor.observations[1]).toMatchObject({ attempt: 2, uncertain: true, dispatched: false, code: "completion_uncertain" });
-    expect(JSON.stringify(executor.observations)).not.toContain(selection.credential);
-    await expect(executor.settle()).rejects.toThrow("completion_uncertain");
+    const executor = createGatewayExecutor({ ...selection, maxResponseBytes: 1024, fetch: async (...args) => calls++ === 0 ? fetch(...args) : response() });
+    await expect(executor.execute(request)).rejects.toThrow("gateway application: response_limit");
+    expect(executor.observations[0]).toMatchObject({ attempt: 1, code: "response_limit", uncertain: false, dispatched: true, status: "failed", httpStatus: 200 });
+    expect(executor.observations[0]).not.toHaveProperty("latchedBy");
+    await executor.settle();
+    await expect(executor.execute({ ...request, cellId: "next" })).resolves.toEqual(proposal);
+    expect(calls).toBe(2);
+    expect(executor.observations[1]).toMatchObject({ attempt: 2, status: "completed", uncertain: false, dispatched: true });
+    expect(executor.observations[1]).not.toHaveProperty("latchedBy");
+    await executor.settle();
   }
 });
 
