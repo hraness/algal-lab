@@ -69,7 +69,7 @@ also has exact Python certificates, run by CI in addition to `bun run check`:
 ```sh
 python3 research/spikes/structural/verify.py
 python3 research/spikes/weighted-tree/verify.py
-python3 -m unittest research.test_tree_certificate research.test_certify_policy_results research.test_terminal_tree research.test_terminal_sampling research.test_terminal_hybrid research.test_survivor_order research.test_ordered_pairing research.test_frugal_experiment research.test_rank_selection research.test_two_failure_groups research.test_intact_groups research.test_context_certificate research.test_stochastic_groups research.test_robust_stochastic_groups
+python3 -m unittest research.test_tree_certificate research.test_certify_policy_results research.test_terminal_tree research.test_terminal_sampling research.test_terminal_hybrid research.test_survivor_order research.test_ordered_pairing research.test_frugal_experiment research.test_rank_selection research.test_two_failure_groups research.test_intact_groups research.test_context_certificate research.test_stochastic_groups research.test_robust_stochastic_groups research.test_mixture_stochastic_groups
 python3 -m research.spikes.ordered.verify
 python3 -m research.spikes.rank.verify
 python3 -m research.spikes.groups.verify
