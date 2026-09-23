@@ -244,6 +244,15 @@ covers families with no stochastic ordering at all. Its histogram optimizer
 checks affine collinearity exactly and evaluates no joint probabilities.
 The proof uses an established squared-CDF discrepancy; priority of the
 rank-grouping application remains unresolved.
+
+The [hazard-mixture counterexample](docs/hazard-mixture-counterexample.md)
+gives an exact negative answer to a higher-dimensional extension posed in a
+2022 paper, and contradicts a specified theorem in a 2026 accepted manuscript.
+It proves a unique hazard crossing in every dimension above two, supplies a
+variant with strict weights and distinct rates, and explains why a shared slow
+component can destroy hazard ordering. Priority and final-version checks are
+recorded separately from the proof.
+
 The [two-threshold certificate](docs/two-threshold-certificate.md)
 characterizes quartet inequalities against arbitrary backgrounds, with an
 exact linear scan for histogram clocks and counterexample witnesses. The

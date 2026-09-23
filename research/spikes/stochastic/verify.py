@@ -19,6 +19,7 @@ from research.spikes.stochastic.tails import verify as verify_tails
 from research.spikes.stochastic.block_triples import verify as verify_block_triples
 from research.spikes.stochastic.scope_witnesses import verify as verify_scope_witnesses
 from research.spikes.stochastic.mixtures import verify as verify_mixtures
+from research.spikes.stochastic.hazard_mixtures import verify as verify_hazard_mixtures
 from research.stochastic_groups import optimal_histogram_groups
 from research.test_rank_selection import categorical_oracle
 
@@ -81,7 +82,8 @@ def verify() -> dict[str, int | str | tuple[str, ...]]:
     assert (2 - pair_sums[1]) - (2 - pair_sums[2]) == Fraction(1, 675)
 
     return {**verify_factorization(), **verify_tails(), **verify_block_triples(),
-            **verify_scope_witnesses(), **verify_mixtures(), "polynomialIdentityCases": identities,
+            **verify_scope_witnesses(), **verify_mixtures(), **verify_hazard_mixtures(),
+            "polynomialIdentityCases": identities,
             "nonnegativeDensityCoefficients": positive_coefficients,
             "universalQuartetComparisons": 2 * len(fixtures),
             "independentSlowMinima": 4, "strictRedundancyCounterexamples": 1}
