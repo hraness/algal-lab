@@ -5,6 +5,7 @@ not a certificate that no equivalent result exists. Proofs are in the
 [ordered-survival note](ordered-survival-discovery.md), the
 [rank-selection and groups note](rank-selection-and-triples.md),
 [all-horizon group proof](intact-groups-all-horizons.md),
+[stochastic-order group theorem](stochastic-intact-groups.md),
 [two-threshold certificate](two-threshold-certificate.md),
 [context reduction and ordered sharpness](rank-context-compression.md), and
 [minimal rank contexts](minimal-rank-contexts.md).
@@ -13,9 +14,10 @@ not a certificate that no equivalent result exists. Proofs are in the
 |---|---|---|
 | Exponential representation and pair-inclusion integrals | Used and reproduced | Established prior art; no novelty claim |
 | Four-point chain for second-order successive-sampling inclusion | Proved at every fixed size | Exact chain not located; priority unresolved |
-| General clock gap identity and reversed-hazard sufficient condition | Proved; weaker assumptions have exact counterexamples | Candidate extension; broader stochastic-order comparison needed |
+| General clock gap identity and reversed-hazard sufficient condition | Proved; stochastic order alone can fail the crossing-versus-nested comparison | Candidate extension; broader stochastic-order comparison needed |
 | Adjacent/extreme optimal pairing once the chain is available | Proved | Standard exchange consequence |
-| Consecutive equal groups maximize intact count at every survivor horizon | Proved using a positive outside-failure integral; ordinary-hazard extension | General assembly/supermodular sorting is established prior art; priority of the random-rank application unresolved |
+| Consecutive equal groups stochastically maximize intact count at every survivor horizon | Proved for independent atomless clocks under ordinary stochastic order; arbitrary independent background vector allowed; atoms permitted with uniform or aligned ties | General assembly/supermodular sorting is established prior art; priority of the FOSD random-rank application unresolved |
+| Cut-separated quartet comparison remains valid with nonnegative outside selection factors | Proved by a positive integral and conditional rank counting; gives the all-size grouping theorem by product factorization | Precise rank-cutoff implication not located; conditioning and telescoping are established methods |
 | Universal quartet inequalities reduce exactly to two background thresholds | Proved even with dependence within the quartet | Specific characterization not located; conditioning is standard and priority remains unresolved |
 | Two backgrounds are necessary even under strict stochastic ordering and positive densities | Exact seven-bin examples and a general positive/negative/positive block construction | Stronger sharpness result; exact prior-art comparison remains open |
 | Any reward supported on one focal cardinality reduces pathwise to two backgrounds | Proved without distributional assumptions; universal-expectation corollary permits dependent focal scores | Elementary rank-counting method; no priority claim for the general technique |
@@ -86,6 +88,13 @@ were checked against the rendered scan. It maximizes the sum of a common joint-C
 reliability function by aligned component ranks. The footnote identifies its
 assignment inequality as a rediscovery of a special case of Lorentz's work.
 This explicitly rules out novelty for the general CDF assembly principle.
+At a deterministic mission time, the four-component product specialization
+gives the nonnegative CDF product `D`. The new positive integral establishes
+an additional term needed for a cutoff chosen by the same scores' ranks.
+The report's §3, Theorem 4 (printed page 10, checked visually), already gives
+a stochastic comparison of functioning
+module counts in its static series-assembly setting. Distributional rather
+than merely mean optimality is therefore also established method precedent.
 
 **El-Neweihi, Proschan and Sethuraman (1987), Optimal assembly of systems
 using Schur functions and majorization.**
@@ -95,11 +104,66 @@ was retrieved and §§2–4 read; the hypotheses and Theorem 4.1 on printed page
 series-system assembly and maximal expected working-system count. Section 3
 extends this across deterministic mission times. Theorem 4.1 uses a monotone,
 lattice-supermodular common reliability function, the same general exchange
-principle used here. Our positive outside-failure integral supplies an extra
-step for the dependent **component-rank** cutoff; deterministic-time
-optimality alone does not justify evaluating at that cutoff. The inspected
-statements do not directly supply that step. This is a specific hypothesis
+principle used here. Our earlier outside-failure integral supplies an extra
+step for the dependent **component-rank** cutoff under hazard order. The new
+quartet integral and outside-factor lift supply that step under ordinary
+stochastic order alone. Deterministic-time optimality does not by itself
+justify evaluating at a cutoff chosen by the components' ranks. The inspected
+statements do not directly supply either step. This is a specific hypothesis
 comparison, not proof that no published result supplies it.
+
+**Hwang and Rothblum (2006), A Polytope Approach to the Optimal Assembly
+Problem.** [University full PDF](https://ir.lib.nycu.edu.tw/server/api/core/bitstreams/0c781947-b25a-4b0a-b436-814780b5c44d/content),
+[DOI](https://doi.org/10.1007/s10898-005-3844-2).
+Sections 1–2, Lemmas 4.1–4.2, Theorems 4.3–4.4 and 5.1, and §6 were
+read; printed pages 388 and 394 were checked visually. Theorem 4.4 gives
+monotone optimal assembly for series modules and prescribed part counts;
+Theorem 5.1 allows size bounds. This is stronger general assembly precedent.
+The reliability model explicitly assumes independent operative states and
+uses product module and system probabilities in (1.2)–(1.3). Fixed-size
+rank membership does not meet that assumption. Section 6's abstract extension
+requires an asymmetric Schur-convex objective of module sums; a reduction of
+the arbitrary-FOSD rank problem to that representation has not been supplied.
+These observations rule out direct substitution, not every indirect reduction.
+
+**Li and You (2015), Permutation Monotone Functions of Random Vectors with
+Applications in Financial and Actuarial Risk Management.**
+[Official full PDF](https://resolve.cambridge.org/core/services/aop-cambridge-core/content/view/4261A1C17437AC957A015E36CAE29454/S0001867800007801a.pdf/permutation_monotone_functions_of_random_vectors_with_applications_in_financial_and_actuarial_risk_management.pdf),
+[DOI](https://doi.org/10.1239/aap/1427814591).
+Definition 2.2, Theorems 3.1–3.3, Corollaries 3.2 and 3.4, and relevant
+appendices were inspected. Their density/tail permutation premises or
+hazard-order specializations do not follow from a heterogeneous independent
+FOSD chain. Our strict three-bin example has `f_a/f_b=1/10,9,20/19` across
+its bins, violating likelihood-ratio order. At `t=3/2`, ordinary hazards
+`h_a=18/49>2/39=h_b` and reversed hazards `r_c=2/39<18/49=r_d`
+also violate the corresponding ordered hypotheses. The respective tail
+density differences have the wrong sign. This excludes direct use of those
+full-chain premises for the entire admitted class, not a specialized reduction
+through other rearrangement machinery.
+
+**Khaledi and Kochar (2000), Stochastic Comparisons and Dependence among
+Concomitants of Order Statistics.**
+[Author-hosted full paper](https://web.pdx.edu/~kochar/Papers/d_papers/jmva2000.pdf).
+Theorems 3.1, 3.3 and 4.2 were inspected. They concern the second coordinates
+of independent identically distributed bivariate observations, reordered by
+their first coordinates. Label-specific inclusion indicators of heterogeneous
+scores are different objects. Even with four identical continuous scores and
+top-two selection, two distinct inclusion indicators have covariance `−1/12`;
+the association conclusion for concomitants cannot be substituted here.
+
+**Later stock-grouping comparisons (2017 and 2023).**
+[Hazra, Finkelstein and Cha (2017)](https://doi.org/10.1016/j.jmva.2017.06.006),
+§2 and Lemma 4, were read in indexed primary text; complete text and some
+later formulas remained unavailable.
+[Balakrishnan et al. (2023)](https://doi.org/10.3390/math11173718),
+§3 and Theorems 1 and 4, were read in a public reproduction of the paper
+with fragmented mathematical typography; its upload provenance was not
+independently verified. These models vary how many components share a
+randomly chosen stock, or the stock-selection probabilities. They change
+the joint sampling law. The inspected formulas have no decision variable
+for partitioning a fixed list of heterogeneous labels under common rank
+selection. Equal group sizes give the same formula input for every such
+partition. This is a model comparison, with the access limitations retained.
 
 **Belzunce, Ortega, Pellerey and Ruiz (2005), On ranking and top choice orderings
 for random utility models with dependent utilities.**
@@ -216,12 +280,17 @@ derivation or application. An exact reduction from a broader published theorem
 would do the same, even if its wording and application domain differ. The
 full-report comparisons above close several earlier abstract-only gaps and
 explicitly assign the rearrangement method to prior art. Full Ng–Donadio,
-Ng et al. and Joe comparisons remain outstanding, as do later versions/extensions of
+Ng et al. and Joe comparisons remain outstanding. A particularly close
+unread lead is [Chan, D'Abadie and Proschan (1987), Stochastic rearrangement
+inequalities](https://doi.org/10.1016/0047-259X(87)90156-4): its abstract
+explicitly includes ranking and optimal assembly, but full primary text was
+not obtained. Its kernel hypotheses need inspection. There are also later versions/extensions of
 the retrieved reports and a specialist review of the exact random-rank
 representation and two-threshold characterization. These gaps qualify
 priority claims; they do not invalidate the proofs or executable examples.
 
-The strongest current candidate is the uniform block construction: it
+Two current candidates warrant the closest comparison. The uniform block
+construction
 preserves independent, CDF-ordered marginals while hiding any eligible
 negative no-background gap from all zero/one-background tests, yet exposing
 it with two backgrounds. None of the inspected rank-conditioning, harmonic,
@@ -229,6 +298,16 @@ AI-ranking or random-threshold theorems supplies that closure statement.
 That is a specific non-subsumption assessment, not a certificate of absence
 from the wider literature. The strict positive-density example removes
 degenerate ordering as an explanation for the separation.
+
+The all-size intact-group theorem now assumes only independent atomless
+clocks in ordinary stochastic order. Its positive quartet integral remains
+valid with a nonnegative function of the other selected labels, which is the
+bridge to larger group exchanges. The inspected deterministic-time assembly
+theorems do not directly supply this rank-cutoff bridge. Full comparison
+against broader stochastic rearrangement and allocation results remains
+necessary before describing this theorem as literature-first. The two
+candidates are compatible: the hidden ordered violation concerns the second
+quartet gap, whereas intact-group optimality uses the first.
 
 Searches were bounded and exploratory across sampling, reversed-hazard order,
 arrangement, component assignment, quadratic partition, rank-selection

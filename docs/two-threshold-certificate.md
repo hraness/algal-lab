@@ -19,6 +19,12 @@ backgrounds remain necessary even under strict stochastic ordering and positive
 densities on a common support. The CDF formula
 and histogram algorithm here retain their independent-quartet assumption.
 
+The [stochastic-order sequel](stochastic-intact-groups.md) proves that the
+first gap is automatically nonnegative under a CDF cut separating `a,b`
+from `c,d`. In particular, for a fully CDF-ordered quartet, only the second
+gap can obstruct the full chain. The generic unordered certificate below
+continues to test both gaps.
+
 ## Model and the two gaps
 
 Fix four independent, proper, absolutely continuous real random variables

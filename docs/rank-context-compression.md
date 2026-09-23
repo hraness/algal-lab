@@ -207,6 +207,11 @@ CDF-ordered no-background violation can be made invisible to every test
 with at most one background clock. Checking those tests cannot replace
 the two-threshold condition, even with stochastic ordering.
 
+The later [positive-integral theorem](stochastic-intact-groups.md) proves
+that a CDF-ordered independent quartet never has a negative first gap.
+Consequently every eligible ordered failure used here is a second-gap
+failure; the construction and its two-gap checks remain valid.
+
 There is also a fixed choice that works for **every** qualifying `N`:
 `β=1/6` and `α=γ=5/12`. To see this, let `Y` be the second-largest
 focal value and `h_ℓ(T₂)` its signed pair reward. The no-background signed

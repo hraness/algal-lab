@@ -6,6 +6,12 @@ independent-clock model and records bounded reproducible checks. It does not
 establish literature priority; reliability rearrangement results may subsume
 the statement or its proof method.
 
+The [stochastic-order sequel](stochastic-intact-groups.md) now proves the
+optimality conclusion for independent atomless clocks under ordinary
+stochastic dominance alone, with arbitrary independent background scores.
+The exponential uniqueness statement and the outside-failure proof below
+remain useful special-case results.
+
 ## Model and theorem
 
 Let `n=mr` with `m,r≥2`. Give component `i` an independent exponential clock
