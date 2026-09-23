@@ -179,7 +179,7 @@ function weightedOrderExpectation(graph: Graph, env: FailureEnvironment, steps: 
 const heterogeneous = {
   graphsChecked: 0, flatReductions: 0, trajectoryChecks: 0, oracleComparisons: 0,
   maxReductionError: 0, maxServiceError: 0, maxAucError: 0, maxCeilingSlack: 0,
-  environments: { seeds: [7, 8], spreadFloor: 3, rejected: 0 },
+  environments: { seedsChecked: [7, 8], nodeCountsChecked: [4, 8, 10], spreadFloor: 3, sample: environmentFor(4, 7) },
 };
 for (const nodes of [4, 5]) {
   const flat: FailureEnvironment = { weights: Array(nodes).fill(1), values: Array(nodes).fill(1) };

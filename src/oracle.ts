@@ -115,6 +115,9 @@ export function serviceAucCeiling(nodes: number, steps: number): number {
 export type WeightedEnvironment = { weights: readonly number[]; values: readonly number[] };
 
 function admitEnvironment(value: WeightedEnvironment, nodes: number): WeightedEnvironment {
+  if (value === null || typeof value !== "object" || Array.isArray(value)) throw new Error("oracle environment: expected object");
+  const keys = Object.keys(value as object);
+  if (keys.length !== 2 || !keys.includes("weights") || !keys.includes("values")) throw new Error("oracle environment: requires exactly weights and values");
   const read = (input: readonly number[], label: string): number[] => {
     if (!Array.isArray(input) || input.length !== nodes) throw new Error(`oracle ${label}: expected ${nodes} entries`);
     return input.map((entry) => {

@@ -46,7 +46,7 @@ export type ComparisonRow = {
 export type ContrastRow = { arm: Arm; scope: string; contrast: Contrast; inference: PairedInference };
 export type ArmContrastRow = { scope: string; condition: Condition; contrast: ArmContrast; inference: PairedInference };
 export type ComparisonReport = {
-  contract: "algal.lab.comparison.v1"; plan: ComparisonPlan; arms: Arm[]; instrumentDigest: string; applicationDigest: string;
+  contract: "algal.lab.comparison.v2"; plan: ComparisonPlan; arms: Arm[]; instrumentDigest: string; applicationDigest: string;
   studies: { id: string; arm: Arm; chunk: number; reportDigest: string }[];
   references: { scope: string; budget: Budget; graph: Graph; topologyDigest: string; exactRandomAuc: number; targetedAuc: number; ceiling: number;
     perReplicate: { replicate: number; exactRandomAuc: number; targetedAuc: number; ceiling: number }[] }[];
@@ -72,7 +72,7 @@ export function parseComparisonPlan(value: unknown): ComparisonPlan {
   const keys = ["contract", "name", "replicateSeeds", "researchers", "rounds", "primedDesigns", "primary", "transferRegimes", "discoverySeeds", "holdoutSeeds", "margin"];
   // instrument defaults under the v1 contract; every other unknown field still rejects.
   const filled = value !== null && typeof value === "object" && !Array.isArray(value)
-    ? { ...(value as Record<string, unknown>), instrument: (value as Record<string, unknown>).instrument ?? "network.v1" } : value;
+    ? { ...(value as Record<string, unknown>), instrument: ("instrument" in value ? (value as Record<string, unknown>).instrument : "network.v1") } : value;
   const p = object(filled, [...keys, "instrument"], "comparison plan");
   const expected = version === "algal.lab.comparison-plan.v2" ? "network.v2" : "network.v1";
   if (p.instrument !== expected) throw new Error(`instrument must be ${expected}`);
@@ -246,7 +246,7 @@ async function reconstruct(plan: ComparisonPlan, arms: Arm[], directory: string)
     scriptedIgnoresMessages &&= controlled(find("adaptive", seed, "shared-artifacts"), find("adaptive", seed, "shared-artifacts-and-messages"));
   }
   const allSlotsRetained = rows.every((r) => r.attempts === plan.researchers * plan.rounds && r.primed === plan.researchers * plan.primedDesigns && r.transfers.every((t) => t.attempts === plan.researchers));
-  return { contract: "algal.lab.comparison.v1", plan, arms, ...identities, studies, references, rows, contrasts, armContrasts,
+  return { contract: "algal.lab.comparison.v2", plan, arms, ...identities, studies, references, rows, contrasts, armContrasts,
     controls: { allSlotsRetained, primedIdenticalAcrossConditions, primedIdenticalAcrossArms, randomIgnoresSharing, scriptedIgnoresMessages, counterbalanced, transferBudgetsHonored, championsSelectedBeforeHoldout: true } };
 }
 

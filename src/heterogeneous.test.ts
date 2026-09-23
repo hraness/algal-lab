@@ -21,13 +21,13 @@ describe("heterogeneous environment", () => {
   });
 
   test("rejects malformed environments and out-of-range parameters", () => {
-    expect(() => environmentFor(1, 0)).toThrow();
-    expect(() => environmentFor(17, 0)).toThrow();
-    expect(() => parseEnvironment({ weights: [1, 1], values: [1] }, 2)).toThrow();
-    expect(() => parseEnvironment({ weights: [1, 1], values: [1, 1], extra: 0 }, 2)).toThrow();
-    expect(() => parseEnvironment({ weights: [0, 1], values: [1, 1] }, 2)).toThrow();
-    expect(() => parseEnvironment({ weights: [1.5, 1], values: [1, 1] }, 2)).toThrow();
-    expect(() => parseEnvironment({ weights: [1, 1], values: [1, 1] }, 3)).toThrow();
+    expect(() => environmentFor(3, 0)).toThrow();
+    expect(() => environmentFor(25, 0)).toThrow();
+    expect(() => parseEnvironment({ weights: [1, 1, 1, 1], values: [1, 1] }, 4)).toThrow();
+    expect(() => parseEnvironment({ weights: [1, 1, 1, 1], values: [1, 1, 1, 1], extra: 0 }, 4)).toThrow();
+    expect(() => parseEnvironment({ weights: [0, 1, 1, 1], values: [1, 1, 1, 1] }, 4)).toThrow();
+    expect(() => parseEnvironment({ weights: [1.5, 1, 1, 1], values: [1, 1, 1, 1] }, 4)).toThrow();
+    expect(() => parseEnvironment({ weights: [1, 1, 1, 1], values: [1, 1, 1, 1] }, 5)).toThrow();
   });
 });
 

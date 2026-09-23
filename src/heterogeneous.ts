@@ -20,11 +20,11 @@ export type HeterogeneousResult = {
 
 function count(value: unknown, min: number, max: number, label: string): number {
   if (typeof value !== "number" || !Number.isInteger(value) || value < min || value > max) throw new Error(`${label}: expected integer ${min}..${max}`);
-  return value;
+  return value === 0 ? 0 : value;
 }
 
 export function parseEnvironment(value: unknown, nodes: number): FailureEnvironment {
-  const nodesBound = count(nodes, 2, 16, "environment.nodes");
+  const nodesBound = count(nodes, 4, 24, "environment.nodes");
   if (value === null || typeof value !== "object" || Array.isArray(value)) throw new Error("environment: expected object");
   const keys = Object.keys(value as object).sort();
   if (keys.length !== 2 || keys[0] !== "values" || keys[1] !== "weights") throw new Error("environment: requires exactly weights and values");
@@ -40,16 +40,19 @@ const spread = (entries: number[]): number => Math.max(...entries) - Math.min(..
 
 /** The registered generator: weights and values i.i.d. uniform on 1..5, redrawn
  * with seed+1 until both spreads are at least 3, so every admitted environment
- * is non-degenerate. Deterministic per (nodes, seed). */
+ * is non-degenerate. The candidate stream is seeded by seed mixed with the
+ * node count, so different budgets derive independent environments.
+ * Deterministic per (nodes, seed). */
 export function environmentFor(nodes: number, seed: number): FailureEnvironment {
-  count(nodes, 2, 16, "environment.nodes");
+  count(nodes, 4, 24, "environment.nodes");
   count(seed, 0, 0xffffffff, "environment.seed");
-  for (let candidate = seed >>> 0; ; candidate = (candidate + 1) >>> 0) {
+  for (let candidate = (seed ^ Math.imul(nodes, 0x9e3779b1)) >>> 0, attempt = 0; attempt < 1024; candidate = (candidate + 1) >>> 0, attempt++) {
     const next = mulberry32(candidate);
     const weights = Array.from({ length: nodes }, () => 1 + Math.floor(next() * 5));
     const values = Array.from({ length: nodes }, () => 1 + Math.floor(next() * 5));
     if (spread(weights) >= 3 && spread(values) >= 3) return { weights, values };
   }
+  throw new Error("environment: no admissible profile within 1024 redraws");
 }
 
 function adjacency(graph: Graph): number[][] {

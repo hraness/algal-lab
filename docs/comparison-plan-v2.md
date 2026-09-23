@@ -50,9 +50,11 @@ exactly the gap a live arm is measured against.
   these are fresh rather than the v1 set's >5000 primes.
 - Environments: per replicate, derived deterministically as
   `environmentFor(nodes, replicateSeed)` — weights and values i.i.d. uniform
-  on 1..5, redrawn with seed+1 until both spreads are ≥3. Each replicate is
-  an independent problem; conditions within a replicate share one world.
-  Researchers see the environment; it is the skill being measured.
+  on 1..5, redrawn with seed+1 until both spreads are ≥3, and seeded by the
+  replicate seed mixed with the node count so different budgets draw
+  independent environments. Each replicate is an independent problem;
+  conditions within a replicate share one world. Researchers see the
+  environment; it is the skill being measured.
 - Researchers 2, rounds 4, host-primed designs 1 per researcher, identical
   across conditions and arms by construction.
 - Primary budget: 8 nodes / 8 edges / 3 failure steps.

@@ -47,6 +47,7 @@ export const researchManifestV2 = parseOrganismManifest({
 export type Measurement = { proposal: Proposal; results: (NetworkResult | HeterogeneousResult)[]; score: number; predictionError: number };
 export function measure(proposal: unknown, context: ResearchContext): Measurement {
   const parsed = parseProposal(proposal, context);
+  if (context.contract === "algal.lab.context.v3" && context.environment === undefined) throw new Error("v3 context lacks environment");
   const environment = context.contract === "algal.lab.context.v3" ? context.environment : undefined;
   const results = evaluateGraph(parsed.graph, context.replicate, context.discoverySeeds, context.failureSteps, environment);
   const score = mean(results.map((result) => result.metrics.auc));

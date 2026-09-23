@@ -22,8 +22,9 @@ expected service at step k = Σ_{|S|=k} f(S)·service(V\S). O(2^n · n), exact.
 - Reduces to `exactRandomAuc` when w=v=1: max |Δ| ≤ 3.3e-16 across 150 graphs
   at six budgets; sampled simulator reproduces v1 `simulate` on 200 graphs
   with 0 mismatches.
-- Monte Carlo at 200k sampled schedules per graph: |MC − exact| ≤ 0.0006,
-  within ±2 standard errors on all five checked (graph, profile) pairs.
+- Monte Carlo in the spike at 200k sampled schedules per graph: |MC − exact|
+  ≤ 0.0006, within ±2 standard errors on all five checked (graph, profile)
+  pairs.
 - Label dependence: over all 40,320 relabelings of a fixed 8-node profile and
   reference graph, 4,710 distinct AUC values in [0.7869, 0.8252]; every
   non-(w,v)-preserving permutation changes the AUC. Flat profile is invariant.
