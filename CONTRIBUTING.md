@@ -69,8 +69,10 @@ also has exact Python certificates, run by CI in addition to `bun run check`:
 ```sh
 python3 research/spikes/structural/verify.py
 python3 research/spikes/weighted-tree/verify.py
-python3 -m unittest research.test_tree_certificate research.test_certify_policy_results research.test_terminal_tree research.test_terminal_sampling research.test_terminal_hybrid research.test_survivor_order research.test_ordered_pairing research.test_frugal_experiment
+python3 -m unittest research.test_tree_certificate research.test_certify_policy_results research.test_terminal_tree research.test_terminal_sampling research.test_terminal_hybrid research.test_survivor_order research.test_ordered_pairing research.test_frugal_experiment research.test_rank_selection research.test_two_failure_groups
 python3 -m research.spikes.ordered.verify
+python3 -m research.spikes.rank.verify
+python3 -m research.spikes.groups.verify
 ```
 
 Proof text, finite exhaustive checks, policy holdouts, and novelty claims are
@@ -90,3 +92,11 @@ its protocol and source frozen before inference, records provider failures,
 and compares against a zero-model enumeration control. Offline CI uses mocked
 transport and never performs paid inference. Model receipts cannot establish
 literature priority or credit a model with investigator-supplied ideas.
+
+The [rank-selection and group results](docs/rank-selection-and-triples.md)
+add independent polynomial and categorical probability calculations, exact
+countermodels, and bounded examples of a complexity reduction. The two-failure
+group oracle computes a universal additive regret bound; this is a proved bound,
+not a measured regret. Keep the unbounded theorem distinct from executable
+input caps and finite checks. Track source-reading coverage in the
+[novelty ledger](docs/novelty-ledger.md).

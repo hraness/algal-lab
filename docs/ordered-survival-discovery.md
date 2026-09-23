@@ -13,6 +13,12 @@ the four-point ordering for second-order inclusion probabilities of successive
 sampling. The probability representation and the matching exchange argument
 have established precedents.
 
+The [next research note](rank-selection-and-triples.md) extends the proof to
+independent continuous clocks under a reversed-hazard condition, gives exact
+counterexamples to weaker assumptions, and proves a complexity boundary for
+larger groups after two failures. The [novelty ledger](novelty-ledger.md)
+records the deeper source audit and remaining priority questions.
+
 ## Model and theorem
 
 There are `n` vertices with positive real rates `w_i`. At each deletion, choose

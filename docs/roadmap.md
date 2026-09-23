@@ -159,3 +159,15 @@ no-feedback arm, while a zero-model enumeration control found both additive
 laws. Prefer exact enumeration within a small admitted grammar; future model
 experiments should test useful grammar expansion or proof construction with
 fresh questions, not count investigator-supplied laws as model discoveries.
+
+The [next result](rank-selection-and-triples.md) moves to general independent
+rank selection under a reversed-hazard condition and identifies a tractability
+boundary after two weighted failures: sorting solves intact equal-size groups,
+but exact majority-triple optimization is strongly NP-complete. A quadratic
+spread bound certifies small additive regret near uniform rates. Exact
+counterexamples delimit stochastic-order and order-only generalizations.
+Full-source novelty checks and specialist comparison remain higher priority
+than further inference in the old conjecture grammar; the
+[source ledger](novelty-ledger.md) makes those gaps explicit. An all-horizon
+intact-group theorem and useful search outside the near-uniform regime remain
+open research questions, not delivered claims.
