@@ -43,9 +43,24 @@ necessary-and-sufficient condition exactly in linear work for histogram
 distributions. A negative certificate gives six clocks whose top-three
 selection violates the inequality. There are quartets for which every
 zero- and one-background test passes but two backgrounds expose a failure,
-so the two-threshold reduction is sharp in general. The
+even when all four distributions have positive densities and are strictly
+stochastically ordered. The
 [certificate note](two-threshold-certificate.md) supplies the formulas and
 exact examples.
+
+The ordered counterexample revealed a general construction. Put a bad region
+between two positive regions: their contributions make every test with one
+background clock pass, while two clocks isolate the hidden failure. Fixed
+block masses work for any ordered quartet with a negative no-background gap.
+The [construction and proof](rank-context-compression.md) explain why. The
+same note separates the rank argument from the probability formula: any
+reward supported on one focal cardinality reduces to two backgrounds, even
+when the focal scores depend on one another. This gives a precise boundary
+for what a small test population can certify. A further
+[minimum-context theorem](minimal-rank-contexts.md) identifies exactly how many
+background entries preserve an arbitrary set reward for every possible focal
+score vector. It distinguishes that preservation problem from finding a
+negative expected value for a particular probability law.
 
 A majority triple has the opposite preference: one failure in each of two
 triples leaves both useful, while two failures in one triple disable it.

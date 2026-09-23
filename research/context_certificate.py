@@ -184,6 +184,22 @@ TWO_BACKGROUND_NECESSARY = [
     [1, 9, 2, 4],
 ]
 
+# P + N + P, with common block mass 1/3. The CDFs are weakly ordered,
+# every zero/single-background test passes, and B_2(2,5) = -1/1458.
+ORDERED_TWO_BACKGROUND_NECESSARY = [
+    [0, 3, 0, 1, 2, 0, 3],
+    [1, 2, 1, 0, 2, 1, 2],
+    [2, 1, 2, 0, 1, 2, 1],
+    [3, 0, 2, 1, 0, 3, 0],
+]
+
+# Mixing with a strictly ordered positive-density profile removes all zero
+# bins and interior CDF equalities while retaining the need for two clocks.
+STRICT_ORDERED_TWO_BACKGROUND_NECESSARY = [
+    [12 * mass + extra for mass, extra in zip(row, [1 + i, 1, 1, 1, 1, 1, 4 - i])]
+    for i, row in enumerate(ORDERED_TWO_BACKGROUND_NECESSARY)
+]
+
 # One common increasing change of time sends the original breakpoints
 # 0,1,7/4,2,9/4,3,4 to six unit bins. The last two clocks correspond to
 # independent Uniform[7/4,9/4] backgrounds before that change of time.
@@ -199,8 +215,12 @@ if __name__ == "__main__":
     for name, rows in (("reversed-hazard sufficient", ORDERED_EXAMPLE),
                        ("CDF order alone", STOCHASTIC_ONLY_EXAMPLE),
                        ("universal beyond both hazard orders", UNIVERSAL_BEYOND_HAZARD_ORDERS),
-                       ("two backgrounds necessary", TWO_BACKGROUND_NECESSARY)):
+                       ("two backgrounds necessary", TWO_BACKGROUND_NECESSARY),
+                       ("two backgrounds necessary under CDF order", ORDERED_TWO_BACKGROUND_NECESSARY),
+                       ("strict CDF order and positive densities", STRICT_ORDERED_TWO_BACKGROUND_NECESSARY)):
         print(name)
         print("universal minima", universal_gap_minima(rows))
         print("zero/one-background minima", small_background_minima(rows))
-        print("two backgrounds at 2,2", threshold_gaps(rows, 2, 2))
+        lower, upper = ((2, 5) if rows in (ORDERED_TWO_BACKGROUND_NECESSARY,
+                                          STRICT_ORDERED_TWO_BACKGROUND_NECESSARY) else (2, 2))
+        print(f"two backgrounds at {lower},{upper}", threshold_gaps(rows, lower, upper))

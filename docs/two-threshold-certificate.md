@@ -13,6 +13,12 @@ quadratic-minimization techniques are standard. Literature priority of the
 specific rank-selection characterization is not established; see the
 [source comparison](novelty-ledger.md).
 
+The [context-reduction sequel](rank-context-compression.md) proves that the
+rank reduction itself permits dependence within the quartet, and that two
+backgrounds remain necessary even under strict stochastic ordering and positive
+densities on a common support. The CDF formula
+and histogram algorithm here retain their independent-quartet assumption.
+
 ## Model and the two gaps
 
 Fix four independent, proper, absolutely continuous real random variables
@@ -180,8 +186,10 @@ using common unit bins, apply one increasing piecewise-linear time change
 that sends `0,1,7/4,2,9/4,3,4` to `0,1,2,3,4,5,6`. A quartet row
 `[a,b,c,d]` then becomes `[4a,3b,b,c,3c,4d]`, and each background row is
 `[0,0,1,1,0,0]`. Ranks are invariant under this common transformation.
-The example has crossing CDFs; it does not establish minimality within the
-CDF-ordered subclass.
+This example has crossing CDFs. The
+[seven-bin ordered construction](rank-context-compression.md#a-seven-bin-exact-witness)
+strengthens the result to the CDF-ordered subclass, with all zero/single
+tests passing but `B₂(2,5)=−1/1458`.
 
 **Neither hazard order is necessary.** A separate quartet has these masses
 on the five unit bins of `[0,5]`, each row totaling 40:
@@ -255,14 +263,19 @@ The checks use an independent reference based on interval assignments and
 exact combinatorial cutoff probabilities, and a slower global critical-point
 enumeration to check the linear scan. They exercise rational thresholds,
 background ties, boundary horizons, zero densities, and misordered labels.
-The verifier covers 261 conditional cases and nine quartet profiles against
+The verifier covers 319 conditional cases and eleven quartet profiles against
 both slower universal and one-background minimizers. Unit tests additionally
 compare the fully continuous six-clock witness against an independent
-categorical integration. Two named fixtures have negative minima at rational
+categorical integration and integrate the ordered continuous witness exactly
+from direct rank probabilities. The verifier also checks the pathwise
+reduction independently of probability formulas. Two named fixtures have negative minima at rational
 thresholds strictly inside a bin, including an off-diagonal stationary pair.
 The existing CDF-order counterexample has a universal second-gap minimum
 `−1/54`, witnessed by `L=0,U=2`. Negative witnesses can be evaluated directly
 with `threshold_gaps`.
+
+The same verifier runs the [general minimum-context check](minimal-rank-contexts.md),
+including the exact finite-family minimum search and harmonic counterexample.
 
 The public checks require no credentials or model inference. They validate
 finite implementations of the formulas. The universal conclusion follows

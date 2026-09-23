@@ -2,10 +2,12 @@
 
 Last audited 23 September 2026. This records claim scope and source coverage,
 not a certificate that no equivalent result exists. Proofs are in the
-[ordered-survival note](ordered-survival-discovery.md) and the
+[ordered-survival note](ordered-survival-discovery.md), the
 [rank-selection and groups note](rank-selection-and-triples.md),
-[all-horizon group proof](intact-groups-all-horizons.md), and
-[two-threshold certificate](two-threshold-certificate.md).
+[all-horizon group proof](intact-groups-all-horizons.md),
+[two-threshold certificate](two-threshold-certificate.md),
+[context reduction and ordered sharpness](rank-context-compression.md), and
+[minimal rank contexts](minimal-rank-contexts.md).
 
 | Claim | Status within this lab | Priority assessment |
 |---|---|---|
@@ -14,7 +16,10 @@ not a certificate that no equivalent result exists. Proofs are in the
 | General clock gap identity and reversed-hazard sufficient condition | Proved; weaker assumptions have exact counterexamples | Candidate extension; broader stochastic-order comparison needed |
 | Adjacent/extreme optimal pairing once the chain is available | Proved | Standard exchange consequence |
 | Consecutive equal groups maximize intact count at every survivor horizon | Proved using a positive outside-failure integral; ordinary-hazard extension | General assembly/supermodular sorting is established prior art; priority of the random-rank application unresolved |
-| Universal quartet inequalities reduce exactly to two background thresholds | Proved; two backgrounds are necessary in general | Specific characterization not located; conditioning is standard and priority remains unresolved |
+| Universal quartet inequalities reduce exactly to two background thresholds | Proved even with dependence within the quartet | Specific characterization not located; conditioning is standard and priority remains unresolved |
+| Two backgrounds are necessary even under strict stochastic ordering and positive densities | Exact seven-bin examples and a general positive/negative/positive block construction | Stronger sharpness result; exact prior-art comparison remains open |
+| Any reward supported on one focal cardinality reduces pathwise to two backgrounds | Proved without distributional assumptions; universal-expectation corollary permits dependent focal scores | Elementary rank-counting method; no priority claim for the general technique |
+| Minimum deterministic context preserving any fixed set reward is the span of its feasible active ranks | Proved; exhaustive Boolean-reward comparison; harmonic consequences use lowest nonconstant degree | Exact formulation not located; rank trimming and harmonic algebra are established ingredients |
 | Exact histogram certificate in linear rational-arithmetic work | Implemented and independently checked, including rational counterexample witnesses | Specific certificate not located; quadratic minimization is standard |
 | Universal quartet outside both ordinary- and reversed-hazard orders | Exact five-bin example | Demonstrates that the sufficient hazard assumptions are unnecessary; no separate priority claim |
 | Strong NP-completeness of majority triples after two successive failures, with nearly equal rates | Proved with finite error and rounded threshold | Candidate restriction; generic reliability hardness is known |
@@ -99,11 +104,89 @@ comparison, not proof that no published result supplies it.
 **Belzunce, Ortega, Pellerey and Ruiz (2005), On ranking and top choice orderings
 for random utility models with dependent utilities.**
 [Institutional preprint](https://cio.umh.es/files/2011/12/CIO_2005_15.pdf).
-The extracted introduction, definitions and theorem 3.10/proof were inspected.
-They concern alternative preference and ranking comparisons under stochastic
-orders. They reinforce the need to compare against general random-utility
-theory, not only graph or failure terminology. This audit does not establish
-a reduction of the four-point chain from those results.
+Definitions 2.2–2.8, Theorems 3.10, 3.12, 3.13, Corollary 3.14 and their
+proofs were read. They give alternative/subset preferences and improving-rank
+transposition comparisons through joint stochastic or likelihood-ratio
+orders; Theorem 3.12 identifies the relevant likelihood-ratio condition
+with an arrangement-increasing (AI) joint density. The existing dependent
+countermodel also meets that density premise: on each order cone of the unit
+cube give density `24` times its order probability. Those probabilities pass
+all improving transpositions, but give an adjacent pair sum `3/11` below the
+crossing sum `4/11`. Thus the broad AI premise alone does not imply the
+target additive quartet comparison. This distinguishes the inspected result;
+it does not exclude a stronger theorem using independence. The inspected
+source is the 2005 preprint, not an assumed identical 2007 final version.
+
+**Joe (2000; 2002), independent random-utility inequalities and orders.**
+The [2000 publisher abstract](https://link.springer.com/article/10.1023/A:1010058117460)
+describes inequalities proved through association, with equality conditions.
+Its PDF route returns a subscription preview. The
+[2002 DOI](https://doi.org/10.1016/S0165-4896(02)00018-5) and publisher routes
+did not supply theorem text; the author-university bibliography lists the DOI
+without a manuscript. Neither original was read in full. Belzunce's equations
+(1.2)–(1.3) and Definition 2.2 restate a Joe implication from independent
+FOSD order to ordered marginal top-size membership probabilities. An independent
+categorical calculation confirms that the strict seven-bin example has those
+ordered marginals while its second quartet gap is `−5/410758`. This refutes
+deduction from that specific weaker conclusion. It does not clear unread
+Joe theorems; the fixture also does not satisfy likelihood-ratio order.
+
+**Regenwetter, Marley and Joe (1998), Random Utility Threshold Models of
+Subset Choice.**
+[Author-uploaded full paper](https://www.researchgate.net/profile/A-A-J-Marley/publication/233046765_Random_Utility_Threshold_Models_of_Subset_Choice/links/58a8910092851cf0e3bfa7b3/Random-Utility-Threshold-Models-of-Subset-Choice.pdf),
+[DOI](https://doi.org/10.1080/00049539808258794).
+Theorem 1(ii), Theorem 2 and Appendix Examples 4–5 were read in the extracted
+text. Some displays were missing and screenshot retrieval failed, so the
+formula audit is incomplete. The top-size/random-threshold representation
+uses a threshold that may depend on the utilities. Example 5 obstructs an
+independent common-threshold representation. These are direct precedents;
+neither is the same operation as retaining top ranks with two independent
+outsiders. The inspected statements do not give the marginal-concatenation
+construction that hides a violation from every one-background test.
+
+**Cohen and Kaplan (2008), Tighter Estimation using Bottom-k Sketches.**
+[Conference full paper](https://www.vldb.org/pvldb/vol1/1453884.pdf).
+Section 5 and Appendix B, Lemma B.1, were inspected. They condition on
+outside order statistics for single-item and pair inclusion, with a stated
+subset-product extension. This is direct precedent for rank conditioning.
+Their event is inclusion of a fixed subset; ours requires exactly a specified
+number of focal labels and retains their identity. The two adjacent outside
+boundaries follow by a short extension of that familiar idea. The inspected
+lemma does not state the universal two-background equivalence or the ordered
+zero/one-versus-two separation. Conditioning itself is not a novelty claim.
+
+**Filmus and Mossel, Harmonicity and Invariance on Slices of the Boolean Cube.**
+[Author full version, 21 December 2018](https://yuvalfilmus.cs.technion.ac.il/Papers/2slice.pdf).
+Definitions 3.1–3.2, Theorem 3.6 and Lemma 3.7 were inspected. Zero row sums
+of a homogeneous quadratic are precisely harmonicity; the quartet rewards
+factor into disjoint coordinate differences. This is established algebra,
+with earlier representation work credited to Dunkl. The new context notes
+use it rather than claim a new harmonic representation. The inspected slice
+statements do not themselves replace a background ranking population.
+
+**Bairamov and Eryilmaz (2008), Joint Behaviour of Precedences and Exceedances
+in Random Threshold Models.**
+[Author-hosted full paper](https://dm.ieu.edu.tr/Ism/anzj.pdf),
+[DOI](https://doi.org/10.1111/j.1467-842X.2008.00512.x).
+Theorem 1 on printed pages 210–211 and §3 were inspected. They give a joint
+count law relative to two random thresholds, including thresholds that are
+order statistics of another sample. This is explicit two-threshold precedent.
+The focal sample is independent and identically distributed; the formula
+does not retain a nonidentical labeled top subset or construct a failure
+hidden from every one-background test. Under identical focal laws the
+quartet gaps vanish by symmetry. This is a hypothesis comparison, not a
+claim that all random-threshold literature has been cleared.
+
+**Kalmanson (1975), Edgeconvex Circuits and the Traveling Salesman Problem.**
+[Full primary article](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00016291).
+The four-point statements on printed pages 1000–1001 were inspected. The
+sign-reversed quartet chain is the Supnick chain, credited there to Supnick
+(1957); the original 1957 paper was not read. More concretely, rank-membership
+indicators define a disagreement pseudometric
+`d_ij=P(I_i≠I_j)=q_i+q_j−2q_ij`. Marginal terms cancel in quartet sums,
+so our chain for `q` becomes the established Supnick chain for `d`. Its
+matrix structure and exchange consequences are prior art; establishing that
+a particular sampling law has that structure is the probability question.
 
 **Ng, Barketau, Cheng and Kovalyov (2010), “Product Partition” and related
 problems of scheduling and systems reliability: Computational complexity and
@@ -113,7 +196,9 @@ Primary abstract and metadata read. It already gives strong hardness for
 Product Partition variants and a series–parallel reliability-design problem.
 Further bounded DOI, author-repository, bibliographic-API and exact-objective
 searches did not retrieve full text; a university issue-contents PDF was not
-the article. The actual reliability
+the article. Following the official repository handle
+[10397/29613](https://hdl.handle.net/10397/29613) returned a withdrawn-item
+notice, not the paper. The actual reliability
 model has therefore not been compared theorem by theorem. Its abstract cannot
 justify claiming either direct subsumption or a proved distinction from every
 restriction in the majority-triple result.
@@ -130,11 +215,20 @@ A matching prior theorem would downgrade the relevant claim to an independent
 derivation or application. An exact reduction from a broader published theorem
 would do the same, even if its wording and application domain differ. The
 full-report comparisons above close several earlier abstract-only gaps and
-explicitly assign the rearrangement method to prior art. Full Ng–Donadio and
-Ng et al. comparisons remain outstanding, as do later versions/extensions of
+explicitly assign the rearrangement method to prior art. Full Ng–Donadio,
+Ng et al. and Joe comparisons remain outstanding, as do later versions/extensions of
 the retrieved reports and a specialist review of the exact random-rank
 representation and two-threshold characterization. These gaps qualify
 priority claims; they do not invalidate the proofs or executable examples.
+
+The strongest current candidate is the uniform block construction: it
+preserves independent, CDF-ordered marginals while hiding any eligible
+negative no-background gap from all zero/one-background tests, yet exposing
+it with two backgrounds. None of the inspected rank-conditioning, harmonic,
+AI-ranking or random-threshold theorems supplies that closure statement.
+That is a specific non-subsumption assessment, not a certificate of absence
+from the wider literature. The strict positive-density example removes
+degenerate ordering as an explanation for the separation.
 
 Searches were bounded and exploratory across sampling, reversed-hazard order,
 arrangement, component assignment, quadratic partition, rank-selection

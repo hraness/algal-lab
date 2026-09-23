@@ -231,6 +231,11 @@ consecutive equal-size groups maximize intact count at every fixed survivor
 count. The [two-threshold certificate](docs/two-threshold-certificate.md)
 characterizes quartet inequalities against arbitrary backgrounds, with an
 exact linear scan for histogram clocks and counterexample witnesses. The
+[context-reduction sequel](docs/rank-context-compression.md) permits dependent
+focal scores and proves two backgrounds necessary even under strict stochastic
+ordering with positive densities, through a general construction that hides a
+local failure. The [minimum-context theorem](docs/minimal-rank-contexts.md)
+extends preservation to arbitrary set rewards with an exact background bound. The
 [short account](docs/discovery-story.md) explains the results; the
 [novelty ledger](docs/novelty-ledger.md) records what prior art has actually
 been checked and where priority remains unresolved.
