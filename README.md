@@ -222,6 +222,15 @@ optimal equal-value cooperative or redundant pairs. Its bounded Qwen3-14B pilot
 measures conjecture selection against a zero-model enumeration control; it
 does not establish a model discovery advantage or literature-first priority.
 
+The [rank-selection and groups note](docs/rank-selection-and-triples.md)
+extends the pairing theorem beyond exponential clocks. After two failures,
+consecutive equal-size groups maximize intact-group count, while exact
+majority-triple optimization is strongly NP-hard. A quadratic regret bound
+explains why nearly equal rates still admit easy approximations. The
+[short account](docs/discovery-story.md) explains the results; the
+[novelty ledger](docs/novelty-ledger.md) records what prior art has actually
+been checked and where priority remains unresolved.
+
 ALGAL supplies typed execution and receipts. Algal Lab owns experimental
 protocols, instruments, artifact retention, and interpretation. The dependency
 is pinned to an exact public ALGAL source commit; this repository is distributed
