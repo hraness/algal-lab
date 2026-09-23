@@ -9,8 +9,8 @@ extends from exponential clocks to independent continuous clocks ordered by
 their CDFs and reversed hazards. We give an exact nonnegative integral for
 each four-point difference, an example outside the common exponential
 time-change model, and a continuous counterexample to replacing the hypotheses
-by ordinary stochastic order. The resulting optimal pairing rules still need
-only an ordering of components.
+by ordinary stochastic order for the full crossing-versus-nested chain. The
+resulting optimal pairing rules still need only an ordering of components.
 
 For larger groups we identify a separate tractability boundary. After exactly
 two successive rate-proportional failures, sorting into consecutive equal-size
@@ -168,7 +168,7 @@ This is more than a common time change of independent exponentials. Such a
 change would make ordinary hazard ratios constant. For the first two rows,
 their ratio starts at `1/2` and approaches `7/15` at the left limit of 1.
 
-**Stochastic order alone fails.** Instead use interval masses
+**Stochastic order alone can fail the second gap.** Instead use interval masses
 
 \[
  \frac13\begin{pmatrix}0&1&2\\1&0&2\\2&0&1\\2&1&0\end{pmatrix}.
@@ -178,7 +178,11 @@ The CDFs still satisfy the same order everywhere, and the variables are
 independent and continuous. At `k=2`, the three matching sums are
 `85/162,37/162,40/162`; the second gap is `-1/54`. A common 10% uniform mixture
 makes every interval mass positive and preserves a negative gap. Thus ordinary
-stochastic dominance is insufficient, even without atoms or ties.
+stochastic dominance is insufficient for the full chain, even without atoms
+or ties. The [stochastic-order group theorem](stochastic-intact-groups.md)
+now proves that the first gap, and adjacent intact-pair optimality, hold under
+ordinary stochastic order alone. It extends intact-group optimality to every
+equal group size and every fixed survivor horizon.
 
 ## 3. Completely intact groups after two failures
 
@@ -410,8 +414,9 @@ that a small model originated the full contribution. The earlier
 [Qwen3-14B pilot](../research/spikes/frugal/findings.md) remains a negative
 selection experiment, with its original cost and limits unchanged.
 
-Exploratory failures are retained in the public examples above. Strictness for
-disjoint supports and stochastic order alone remain unsupported. Subsequent
-work proves an [all-horizon intact-group theorem](intact-groups-all-horizons.md)
-and a [complete two-threshold criterion](two-threshold-certificate.md) for
+Exploratory failures are retained in the public examples above. Strict
+full-chain inequalities for disjoint supports are not asserted. Subsequent
+work proves an [all-horizon intact-group theorem](intact-groups-all-horizons.md),
+strengthens it to [ordinary stochastic order](stochastic-intact-groups.md),
+and gives a [complete two-threshold criterion](two-threshold-certificate.md) for
 quartet inequalities against arbitrary independent backgrounds.

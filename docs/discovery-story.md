@@ -23,18 +23,25 @@ Our latest proof extends the inequality to a wider class of independent
 continuous rankings. Memoryless exponential failure clocks are one example;
 they are not essential to the argument.
 
-The extension has a precise limit. Merely knowing that one lifetime
-distribution stochastically dominates another's is insufficient. Four simple
-continuous distributions give an exact counterexample. A stronger condition
-involving reversed hazards makes the proof work. The full
-[research note](rank-selection-and-triples.md) states that condition and gives
-the counterexample in rational arithmetic.
+The newest result separates the two pairing objectives. Ordinary stochastic
+dominance alone suffices when **both members must survive**: adjacent pairs
+are optimal. It also suffices for equal-size groups of any size when **every
+member must survive**, at every fixed survivor count. The clocks must be
+independent and atomless. A positive four-clock integral survives conditioning
+on all other scores; a product factorization then builds every larger
+regrouping from those four-clock comparisons. The
+[proof and histogram optimizer](stochastic-intact-groups.md) remove the
+hazard-order assumption from the [earlier argument](intact-groups-all-horizons.md).
+The conclusion covers more than the average: consecutive groups maximize the
+chance of having at least any specified number of intact groups. The same
+proof also covers discrete scores with uniform random tie-breaking.
 
-For larger groups, the same sorted grouping now has a proof at **every**
-survivor count. The useful step is to condition on a failure outside the group.
-That exposes a sum of positive terms to which a classical rearrangement
-argument applies. The [proof](intact-groups-all-horizons.md) also works for a
-class of ordered hazards beyond exponential clocks.
+For pairs that work when **either member survives**, stochastic dominance
+does not suffice. Four strictly ordered continuous distributions with positive
+densities make crossing pairs outperform opposite-end pairs by exactly
+`1/675` in expected working-pair count. The stronger reversed-hazard condition
+in the [rank-selection note](rank-selection-and-triples.md) still gives the
+full adjacent–crossing–nested inequality and the opposite-end rule.
 
 Another result removes the need to test indefinitely many surrounding
 components. For any fixed quartet of independent clock distributions, every

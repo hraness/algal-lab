@@ -226,9 +226,13 @@ The [rank-selection and groups note](docs/rank-selection-and-triples.md)
 extends the pairing theorem beyond exponential clocks and proves strong
 hardness for exact majority-triple optimization after two failures. A quadratic
 regret bound explains why nearly equal rates still admit easy approximations.
-The [all-horizon group theorem](docs/intact-groups-all-horizons.md) proves that
-consecutive equal-size groups maximize intact count at every fixed survivor
-count. The [two-threshold certificate](docs/two-threshold-certificate.md)
+The [stochastic-order group theorem](docs/stochastic-intact-groups.md) proves
+that consecutive equal-size groups maximize every tail probability of intact
+group count at every fixed survivor count, for independent atomless clocks
+ordered by ordinary stochastic dominance. A bounded histogram optimizer
+constructs the groups without evaluating inclusion probabilities. This removes the hazard-order assumption
+from the [earlier group proof](docs/intact-groups-all-horizons.md).
+The [two-threshold certificate](docs/two-threshold-certificate.md)
 characterizes quartet inequalities against arbitrary backgrounds, with an
 exact linear scan for histogram clocks and counterexample witnesses. The
 [context-reduction sequel](docs/rank-context-compression.md) permits dependent
