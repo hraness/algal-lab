@@ -17,6 +17,12 @@ preserve service as nodes fail? It compares isolated researchers, researchers
 sharing artifacts, and researchers sharing artifacts plus messages. Every
 condition gets the same number of proposal slots and paired failure schedules.
 
+The [weighted-tree research](docs/weighted-tree-discovery.md) adds proved
+optimal-design cases, exact counterexamples, and a bounded experiment evolving
+reusable proposal policies. Its mathematical proofs, exhaustive numerical
+certificates, and measured search results support different claims; none is a
+claim of literature priority or broad LLM superiority.
+
 ## Try it
 
 Tested with [Bun 1.3.14](https://bun.sh) (CI-pinned; `engines` requires

@@ -127,3 +127,18 @@ for a research substrate, not completion of the scientific claims below.
 Each stage needs its own acceptance evidence and reviewed scope. Population
 size, richer conversation, and recursion are experimental variables, not
 substitutes for a validated instrument or an honest comparison.
+
+## Structural discovery checkpoint
+
+The [weighted-tree continuation](weighted-tree-discovery.md) now establishes
+two exact design rules, a four-node phase diagram, and a counterexample to
+unrestricted star optimality. These are proved for the stated mathematical
+model and independently checked with rational arithmetic; their literature
+priority remains unresolved. A separate frozen experiment tests evolution of
+bounded reusable construction/search parameters. It does not activate arbitrary
+generated code, change the instrument, or establish recursive LLM improvement.
+
+Use the proved cases as controls. Concentrate further design search on
+conflicting value/reliability profiles and budgets outside those cases. The
+evaluator must remain fixed while the generator evolves, and the cost of
+selecting a generator must be reported separately from deployment search.
