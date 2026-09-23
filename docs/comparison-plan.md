@@ -19,13 +19,17 @@ Three arms run the same protocol v2 study:
   machinery, not evidence of intelligence.
 - **random**: independently sampled connected graphs in the same slots; a
   control for the value of search over priming and reuse.
-- **live**: one model configuration through an operator-owned
-  `--executor-command` wrapper. The wrapper receives the `algal.effect.v1`
-  request on stdin and returns bounded proposal JSON on stdout; it owns model
-  selection, authentication, and provider interaction. Credentials live in the
-  operator environment, never in the plan, artifacts, or Git. The model gets no
-  tools and no repository access, and condition names are omitted from
-  model-visible context.
+- **live**: one model configuration through the pinned ALGAL Gateway executor
+  (`examples/gateway-compare.ts`, the same `algal.lab.gateway-executor.v2`
+  contract that passed the second smoke). `GATEWAY_MODEL`/`GATEWAY_PROVIDER`
+  are selected from the current catalog at run time and recorded in
+  `intent.json` next to the transport observations and reported usage; the
+  exact selection for the first run is fixed before its first call. An
+  operator-owned `--executor-command` wrapper remains the generic seam for
+  other providers; a different executor, model, or settings requires a new
+  registration. Credentials live in the operator environment, never in the
+  plan, artifacts, or Git. The model gets no tools and no repository access,
+  and condition names are omitted from model-visible context.
 
 Each replicate primes every researcher with 1 host-seeded design, identical
 across conditions and arms by construction. Condition order is counterbalanced

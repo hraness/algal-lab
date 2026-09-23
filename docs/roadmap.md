@@ -85,7 +85,9 @@ for a research substrate, not completion of the scientific claims below.
    replicate seeds (exact sign-flip, percentile bootstrap, and Wilcoxon
    signed-rank) against a preregistered practical margin, and exact
    topology (isomorphism) classes tracked separately from labeled graphs.
-   Scripted arms are controls; a live arm requires `--executor-command`. The
+   Scripted arms are controls; a live arm requires an admitted executor
+   (`--executor-command`, or the pinned Gateway route in
+   [`gateway-compare.ts`](../examples/gateway-compare.ts)). The
    [frozen plan](comparison-plan.md) registers seeds, budgets, contrasts, the
    practical margin, and the live call budget before the first live run, and
    no comparison result is claimed yet.

@@ -92,7 +92,7 @@ export async function readRuntimeSources(root: URL = RUNTIME_ROOT): Promise<[str
  * laboratory sources and the installed ALGAL runtime; the lockfile must pin that
  * runtime to ALGAL_REVISION so the recorded revision names the hashed code. */
 export async function sourceIdentities(): Promise<{ instrumentDigest: `sha256:${string}`; applicationDigest: `sha256:${string}` }> {
-  const names = ["network.ts", "contracts.ts", "researcher.ts", "study.ts", "artifacts.ts", "oracle.ts", "qualification.ts", "xcb-executor.ts", "gateway-executor.ts", "statistics.ts", "topology.ts", "comparison.ts", "../examples/xcb-study.ts", "../examples/gateway-study.ts", "../cli.ts", "../package.json", "../bun.lock"];
+  const names = ["network.ts", "contracts.ts", "researcher.ts", "study.ts", "artifacts.ts", "oracle.ts", "qualification.ts", "xcb-executor.ts", "gateway-executor.ts", "statistics.ts", "topology.ts", "comparison.ts", "../examples/xcb-study.ts", "../examples/gateway-study.ts", "../examples/gateway-compare.ts", "../cli.ts", "../package.json", "../bun.lock"];
   const [sources, runtime] = await Promise.all([
     Promise.all(names.map(async (name) => [name, await readFile(new URL(name, import.meta.url), "utf8")] as const)),
     readRuntimeSources(),

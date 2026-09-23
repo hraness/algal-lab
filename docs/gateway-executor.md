@@ -120,8 +120,24 @@ rejects unknown fields and studies above twelve calls, keeps qualifying the
 frozen smoke exactly as before. Runs above twelve calls need their own declared
 acceptance plan and inspector.
 
+The [comparison entry point](../examples/gateway-compare.ts) applies the same
+boundary to a full replicated comparison:
+
+```sh
+ALGAL_LAB_GATEWAY_MAX_CALLS=240 GATEWAY_MODEL=openai/gpt-6-luna GATEWAY_PROVIDER=openai \
+  bun examples/gateway-compare.ts --plan examples/comparison-plan.json --out runs/live-comparison
+bun run lab verify-comparison runs/live-comparison/comparison
+```
+
+Its executor budget is the plan's exact live slot count from
+[`liveCallBudget`](../src/comparison.ts) — every discovery and transfer slot,
+no priming — and it refuses a plan whose slots exceed the configured limit.
+The [frozen comparison plan](comparison-plan.md) registers 240 calls for the
+first run.
+
 The outer archive retains `intent.json`, `executor.json`, and `gateway.json`, with
-the study under `study/`. It keeps failures and cancellation observations even
+the study under `study/` (or the comparison under `comparison/`). It keeps
+failures and cancellation observations even
 when the study cannot finish. Gateway response metadata supplements ordinary
 ALGAL effect receipts: observed generation IDs, model names, finish reasons,
 token counts, and reported cost when supplied. Missing usage remains unknown.

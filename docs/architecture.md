@@ -99,7 +99,7 @@ binds `src/network.ts` under the `network.v1` version label. The application
 identity binds the exact file list in
 [`sourceIdentities()`](../src/artifacts.ts): every `src/*.ts` module that
 takes part in a study, comparison, or live executor route (not the tests), the
-two live entry points under `examples/`, and the root `cli.ts`, `package.json`,
+live entry points under `examples/`, and the root `cli.ts`, `package.json`,
 and `bun.lock` (the pinned runtime). Changing any bound file, including a
 runtime upgrade through the lockfile, invalidates verification of older
 archives by design: they must then be verified at their recorded source
