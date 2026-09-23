@@ -8,8 +8,9 @@ fixed survivor count, and hence its expectation, including with any finite
 background vector independent of the input clocks.
 
 Across consecutive groups, every CDF in the earlier group must lie below every
-CDF in the later group. CDFs may cross within a group when forming pairs or at
-most two groups. Otherwise all CDFs must form a componentwise ordered chain.
+CDF in the later group. CDFs may cross within a group when forming pairs, at
+most two groups, or exactly three triples. The last case has a separate exact
+finite proof. Otherwise all CDFs must form a componentwise ordered chain.
 Exact endpoint checks suffice because CDF differences are affine within each
 common unit bin.
 Construction takes O(n B log n) rational operations and O(n B) storage, with
@@ -80,13 +81,15 @@ def optimal_histogram_groups(histograms: object, group_size: object) -> dict:
                     f"cannot certify CDF block cut {cut} at bin endpoint {endpoint}"
                 )
 
-    crossings_allowed = group_size == 2 or len(groups) <= 2
+    crossings_allowed = (group_size == 2 or len(groups) <= 2
+                         or (group_size == 3 and len(groups) == 3))
     if not crossings_allowed:
         for left, right in zip(ordered, ordered[1:]):
             if any(a > b for a, b in zip(cdfs[left], cdfs[right])):
                 raise ValueError(
-                    "more than two groups of size greater than two require a "
-                    "componentwise ordered CDF chain; within-group crossings are uncertified"
+                    "this group configuration requires a componentwise ordered CDF chain; "
+                    "within-group crossings are certified only for pairs, at most two "
+                    "groups, or exactly three triples"
                 )
 
     return {

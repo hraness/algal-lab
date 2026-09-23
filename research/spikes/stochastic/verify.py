@@ -16,6 +16,8 @@ from research.rank_selection import ORDERED_EXAMPLE, STOCHASTIC_ONLY_EXAMPLE
 from research.spikes.context.verify import slow_minima
 from research.spikes.stochastic.factorization import verify as verify_factorization
 from research.spikes.stochastic.tails import verify as verify_tails
+from research.spikes.stochastic.block_triples import verify as verify_block_triples
+from research.spikes.stochastic.scope_witnesses import verify as verify_scope_witnesses
 from research.stochastic_groups import optimal_histogram_groups
 from research.test_rank_selection import categorical_oracle
 
@@ -77,7 +79,8 @@ def verify() -> dict[str, int | tuple[str, ...]]:
     # working redundant-pair count is 2 minus the matching's pair sum.
     assert (2 - pair_sums[1]) - (2 - pair_sums[2]) == Fraction(1, 675)
 
-    return {**verify_factorization(), **verify_tails(), "polynomialIdentityCases": identities,
+    return {**verify_factorization(), **verify_tails(), **verify_block_triples(),
+            **verify_scope_witnesses(), "polynomialIdentityCases": identities,
             "nonnegativeDensityCoefficients": positive_coefficients,
             "universalQuartetComparisons": 2 * len(fixtures),
             "independentSlowMinima": 4, "strictRedundancyCounterexamples": 1}

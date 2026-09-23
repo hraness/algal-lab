@@ -232,6 +232,11 @@ group count at every fixed survivor count, for independent atomless clocks
 ordered by ordinary stochastic dominance. A bounded histogram optimizer
 constructs the groups without evaluating inclusion probabilities. This removes the hazard-order assumption
 from the [earlier group proof](docs/intact-groups-all-horizons.md).
+An [exact finite certificate](docs/block-separated-triples.md) extends this
+to three triples whose CDFs may cross within each target group. A separate
+[robust approximation](docs/robust-stochastic-groups.md) handles arbitrary
+histogram CDFs with explicit count and tail regret bounds, using established
+isotonic regression and no joint-probability evaluations.
 The [two-threshold certificate](docs/two-threshold-certificate.md)
 characterizes quartet inequalities against arbitrary backgrounds, with an
 exact linear scan for histogram clocks and counterexample witnesses. The

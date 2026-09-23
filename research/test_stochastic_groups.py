@@ -17,6 +17,7 @@ from research.stochastic_groups import (
 )
 from research.test_intact_groups import partitions
 from research.test_rank_selection import categorical_oracle
+from research.spikes.stochastic.tails import _selection_laws, _tails
 
 
 WITHIN_PAIR_CROSSING = [[0, 2, 0, 4], [1, 0, 2, 3], [3, 3, 0, 0], [4, 0, 2, 0]]
@@ -155,7 +156,7 @@ class StochasticGroupsTests(unittest.TestCase):
             self.assertLess(min(differences), 0)
             self.assertGreater(max(differences), 0)
 
-    def test_three_separated_crossing_blocks_require_pairs(self):
+    def test_three_separated_crossing_triples_are_admitted(self):
         # Each group occupies its own disjoint three-bin interval. The cuts
         # are ordered, but [0,2,1] and [1,0,2] cross inside each interval.
         blocks = []
@@ -167,12 +168,50 @@ class StochasticGroupsTests(unittest.TestCase):
                                 <= min(sum(row[:end]) for row in right)
                                 for end in range(10)))
         triples = [row for block in blocks for row in block]
-        with self.assertRaisesRegex(ValueError, "componentwise ordered CDF chain"):
-            optimal_histogram_groups(triples, 3)
+        result = optimal_histogram_groups(triples, 3)
+        self.assertEqual([sorted(group) for group in result["groups"]],
+                         [[0, 1, 2], [3, 4, 5], [6, 7, 8]])
+        self.assertEqual(result["certificate"]["withinGroupCdfOrder"], "unrestricted")
         pairs = [row for block in blocks for row in block[:2]]
         result = optimal_histogram_groups(pairs, 2)
         self.assertEqual(result["groups"], [[0, 1], [2, 3], [4, 5]])
         self.assertEqual(result["certificate"]["withinGroupCdfOrder"], "unrestricted")
+
+    def test_overlapping_positive_crossing_triples_dominate_all_partition_tails(self):
+        # Within each target block the first two CDFs cross. Every density
+        # is positive, so all score orders and survivor subsets are possible.
+        rows = ((10, 20, 70), (11, 18, 71), (12, 19, 69),
+                (30, 30, 40), (31, 28, 41), (32, 29, 39),
+                (60, 20, 20), (61, 18, 21), (62, 19, 19))
+        result = optimal_histogram_groups([list(row) for row in rows], 3)
+        self.assertEqual(result["groups"], [[0, 1, 2], [3, 4, 5], [6, 7, 8]])
+        for a, b in ((0, 1), (3, 4), (6, 7)):
+            self.assertLess(rows[a][0], rows[b][0])
+            self.assertGreater(sum(rows[a][:2]), sum(rows[b][:2]))
+        horizons = (3, 4, 5, 6, 7)
+        laws, _, _, _ = _selection_laws(rows, horizons)
+        alternatives = [tuple(sum(1 << label for label in group) for group in partition)
+                        for partition in partitions(list(range(9)), 3)]
+        candidate = (7, 56, 448)
+        comparisons = 0
+        for k in horizons:
+            best_tails = _tails(laws[k], candidate)
+            for partition in alternatives:
+                for actual, best in zip(_tails(laws[k], partition), best_tails):
+                    self.assertLessEqual(actual, best)
+                    comparisons += 1
+        self.assertEqual(comparisons, 4200)
+
+    def test_larger_crossing_block_configurations_remain_uncertified(self):
+        for size, count in ((3, 4), (4, 3)):
+            rows = []
+            for offset in reversed(range(0, 3 * count, 3)):
+                patterns = ([0, 2, 1], [1, 0, 2], [0, 1, 2], [1, 1, 1])[:size]
+                rows.extend([0] * offset + list(row) + [0] * (3 * count - offset - 3)
+                            for row in patterns)
+            with self.subTest(group_size=size, group_count=count):
+                with self.assertRaisesRegex(ValueError, "componentwise ordered CDF chain"):
+                    optimal_histogram_groups(rows, size)
 
     def test_cdf_order_suffices_despite_crossing_nested_reversal(self):
         result = optimal_histogram_groups(STRICT_STOCHASTIC_EXAMPLE, 2)
@@ -246,6 +285,9 @@ class StochasticGroupsTests(unittest.TestCase):
         self.assertEqual(result["certificate"]["cutCount"], 0)
         result = optimal_histogram_groups([[i, 9 - i] for i in range(9)], 3)
         self.assertEqual(result["groups"], [[0, 1, 2], [3, 4, 5], [6, 7, 8]])
+        self.assertEqual(result["certificate"]["criterion"], "separated CDF blocks of equal size")
+        self.assertEqual(result["certificate"]["withinGroupCdfOrder"], "unrestricted")
+        result = optimal_histogram_groups([[i, 12 - i] for i in range(12)], 3)
         self.assertEqual(result["certificate"]["criterion"], "componentwise ordered CDF chain")
         self.assertEqual(result["certificate"]["withinGroupCdfOrder"], "componentwise ordered")
 
