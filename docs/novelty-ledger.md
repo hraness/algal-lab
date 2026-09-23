@@ -6,6 +6,7 @@ not a certificate that no equivalent result exists. Proofs are in the
 [rank-selection and groups note](rank-selection-and-triples.md),
 [all-horizon group proof](intact-groups-all-horizons.md),
 [stochastic-order group theorem](stochastic-intact-groups.md),
+[mixture-line grouping theorem](mixture-rank-grouping.md),
 [three-triple extension](block-separated-triples.md),
 [CDF robustness](robust-stochastic-groups.md),
 [two-threshold certificate](two-threshold-certificate.md),
@@ -20,6 +21,8 @@ not a certificate that no equivalent result exists. Proofs are in the
 | Adjacent/extreme optimal pairing once the chain is available | Proved | Standard exchange consequence |
 | Consecutive equal groups stochastically maximize intact count at every survivor horizon | Proved for independent atomless clocks under ordinary stochastic order; arbitrary independent background vector allowed; atoms permitted with uniform or aligned ties | General assembly/supermodular sorting is established prior art; priority of the FOSD random-rank application unresolved |
 | Cut-separated quartet comparison remains valid with nonnegative outside selection factors | Proved by a positive integral and conditional rank counting; gives the all-size grouping theorem by product factorization | Precise rank-cutoff implication not located; conditioning and telescoping are established methods |
+| Consecutive mixture weights stochastically maximize intact count for a common two-base mixture family | Proved for all equal group sizes, arbitrary crossing base CDFs, all fixed horizons and independent backgrounds; extreme pairs minimize intact and maximize redundant count; exact affine-line histogram admission implemented | The squared-CDF discrepancy is established; mixture factorization and the rank-assembly application have unresolved priority |
+| Three common histogram bins are necessary and sufficient for a FOSD crossing-versus-nested reversal | Two-bin laws lie on a mixture line and cannot reverse; a positive three-bin fixture does | Exact scope boundary; no separate priority claim |
 | Three target triples need only between-group CDF order | Exact finite proof covers all 280 partitions, all Boolean selection states and all count tails, with arbitrary independent backgrounds | Scope extension; precise priority unresolved; nonnegative-cone certificates are an established technique |
 | CDF perturbations bound the entire intact-count tail vector and grouping regret | Proved with sharp linear constants 1 for stability and 2 for transfer regret | Elementary stability argument; no separate novelty claim |
 | Midpoint CDF projection supplies an approximation certificate when CDFs cross | Implemented using exact rational errors and fixed-order minimax radius | Projection is precisely the established Basic L∞ isotonic regression; no regression-algorithm novelty claim |
@@ -179,6 +182,61 @@ a special series-module occupancy representation. That representation
 still needs an inequality comparing the different occupancy laws induced
 by different partitions. The inspected theorems do not supply that comparison.
 This is a scoped distinction, not literature-priority clearance.
+
+**Marichal, Mathonet and Waldhauser (2011), On signature-based expressions
+of system reliability.** The [institutional manuscript](https://orbi.uliege.be/bitstream/2268/92356/1/SignatureBasedReliability-elsarticle.pdf)
+was inspected at Theorems 4/6, equation (14) and Remarks 3/4. Theorem 6
+characterizes when the probability-signature lifetime mixture holds for
+every coherent structure: at each time, the conditional survivor-set law
+given its size must equal the corresponding relative-quality law.
+Our positive strict-FOSD three-bin fixture violates this: at time `3/2`,
+the conditional probability of `ab` is `31213/49838`, but its top-two
+probability is `989/2025`. The mixture fails even for the target `ab/cd`
+structure, with reliability residual `87714073/1458000000`.
+The [exact verifier](../research/spikes/stochastic/scope_witnesses.py)
+checks the full subset laws. The rank-signature identity itself remains
+established; failure of this mixture does not exclude all signature methods.
+
+**Samaniego and Navarro (2016), On comparing coherent systems with
+heterogeneous components.** The [university-deposited full paper](https://escholarship.org/content/qt1t51s46v/qt1t51s46v.pdf)
+was inspected at Definition 2.1, Theorems 2.1/2.2/3.1/3.2/4.1 and the
+ordered-region remark on printed page 104. With each heterogeneous label
+its own type, Theorem 2.1 needs pointwise structure domination, which
+different pair partitions lack. Theorem 4.1 does prove a genuine static
+comparison: crossing minus nested reliability is
+`(p_a-p_b)(p_c-p_d)≥0` for ordered survival probabilities. Nevertheless
+our strict-FOSD fixture reverses the top-two comparison by `1/675`.
+This refutes wholesale transfer from deterministic-time to fixed-rank
+comparison inside the independent class. It does not exclude a specialized
+derivation of the consecutive optimum. Navarro–Samaniego–Balakrishnan
+(2011) and Navarro–Rubio (2010), cited there, remain unread leads.
+
+**Curry, Dang and Sang (2018), A rank-based Cramér–von-Mises-type test
+for two samples.** [Full arXiv v2 manuscript](https://arxiv.org/pdf/1802.06332v2),
+Theorem 2.1 and equation (7), inspected. The population squared-CDF
+discrepancy and its positivity are established. Our
+[mixture proof](mixture-rank-grouping.md) credits this explicitly, including
+the finite-window consequence obtained by replacing both outside tails
+with common buffers. Neither that positivity nor the distance is claimed new.
+
+**Chen, Liu, Liu and Wang (2021 manuscript), Ordering and Inequalities
+for Mixtures on Risk Aggregation.** The [institutional manuscript](https://repository.essex.ac.uk/30525/1/aggregationMF_revision_R1final.pdf)
+was inspected at the aggregation-set definition, Lemma 1, Theorem 1 and
+Corollary 2, including proofs. Theorem 1 compares sets of laws over **all
+couplings** for fully symmetric functions under doubly stochastic mixing.
+Its common-selector construction need not preserve independence, and a
+fixed partition's intact count is not fully symmetric in individual labels.
+This is distribution-mixing precedent, not a direct independent rank-grouping
+comparison. An indirect derivation remains possible.
+
+**Shojaee, Asadi and Finkelstein (2022), Stochastic properties of generalized
+finite alpha-mixtures.** The [full publisher paper](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/D81AA9C7EA4636774C4F553F1C9D4827/S0269964821000243a.pdf/stochastic-properties-of-generalized-finite-mixtures.pdf)
+was inspected at Section 2.2, Definition 6.1 and Theorem 6.1 with proof.
+The latter compares one generalized mixture survival function under
+monotone-convex baseline and parameter-majorization hypotheses. It does not
+compare partitions of fixed heterogeneous independent observations; our
+crossing-base family also lacks its monotone-parameter premise. This
+bounded comparison does not clear the broader mixture-order literature.
 
 **Stout (2018), Weighted L∞ isotonic regression.**
 [Author-hosted paper](https://web.eecs.umich.edu/~qstout/pap/LinfinityIsoReg.pdf),

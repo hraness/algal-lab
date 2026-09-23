@@ -237,6 +237,13 @@ to three triples whose CDFs may cross within each target group. A separate
 [robust approximation](docs/robust-stochastic-groups.md) handles arbitrary
 histogram CDFs with explicit count and tail regret bounds, using established
 isotonic regression and no joint-probability evaluations.
+A [mixture-family theorem](docs/mixture-rank-grouping.md) gives another exact
+rule: when all independent score laws mix the same two distributions, sort
+their mixture weights and group consecutively. The bases may cross, so this
+covers families with no stochastic ordering at all. Its histogram optimizer
+checks affine collinearity exactly and evaluates no joint probabilities.
+The proof uses an established squared-CDF discrepancy; priority of the
+rank-grouping application remains unresolved.
 The [two-threshold certificate](docs/two-threshold-certificate.md)
 characterizes quartet inequalities against arbitrary backgrounds, with an
 exact linear scan for histogram clocks and counterexample witnesses. The

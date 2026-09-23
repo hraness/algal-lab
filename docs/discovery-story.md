@@ -23,7 +23,7 @@ Our latest proof extends the inequality to a wider class of independent
 continuous rankings. Memoryless exponential failure clocks are one example;
 they are not essential to the argument.
 
-The newest result separates the two pairing objectives. Ordinary stochastic
+A further result separates the two pairing objectives. Ordinary stochastic
 dominance alone suffices when **both members must survive**: adjacent pairs
 are optimal. It also suffices for equal-size groups of any size when **every
 member must survive**, at every fixed survivor count. The clocks must be
@@ -42,6 +42,18 @@ identities for every partition and selection state, then applies the
 four-clock inequality. A [robustness result](robust-stochastic-groups.md)
 also bounds grouping regret when the distributions depart from an ordered
 reference model. Its projection step is established isotonic regression.
+
+Stochastic ordering is not the only tractable structure. If every independent
+score mixes the same two distributions, [sorting the mixture weights](mixture-rank-grouping.md)
+also gives optimal consecutive groups at every fixed survivor count. The
+two base distributions may cross, and all distinct score CDFs may cross with
+them. A four-clock comparison factors into differences of mixture weights
+times a nonnegative squared-CDF integral. That integral is an established
+Cramér–von Mises discrepancy; the rank-window and grouping deductions are
+the application being investigated. Exact histogram collinearity supplies
+a directly checkable algorithm with no probability estimation. This also
+explains a sharp boundary: two common histogram bins cannot produce the
+crossing-versus-nested reversal below, while three can.
 
 For pairs that work when **either member survives**, stochastic dominance
 does not suffice. Four strictly ordered continuous distributions with positive
