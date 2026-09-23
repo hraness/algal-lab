@@ -216,6 +216,12 @@ integer-rate solver, and a sampled optimizer with a finite-sample regret
 certificate. Its endpoint is separate from trajectory AUC; the frozen
 comparison, independent checks, and prior-art limits are retained.
 
+The [ordered-survival result](docs/ordered-survival-discovery.md) proves an
+additive four-point inequality at every failure horizon. Sorting alone gives
+optimal equal-value cooperative or redundant pairs. Its bounded Qwen3-14B pilot
+measures conjecture selection against a zero-model enumeration control; it
+does not establish a model discovery advantage or literature-first priority.
+
 ALGAL supplies typed execution and receipts. Algal Lab owns experimental
 protocols, instruments, artifact retention, and interpretation. The dependency
 is pinned to an exact public ALGAL source commit; this repository is distributed
