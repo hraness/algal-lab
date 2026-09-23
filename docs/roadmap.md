@@ -142,3 +142,10 @@ Use the proved cases as controls. Concentrate further design search on
 conflicting value/reliability profiles and budgets outside those cases. The
 evaluator must remain fixed while the generator evolves, and the cost of
 selecting a generator must be reported separately from deployment search.
+
+A separate [terminal-tree study](terminal-tree-discovery.md) develops the
+two-survivor endpoint: a proved dominance-frontier construction, exact
+integer-rate evaluation, and a sampled construction with a checked confidence
+bound on regret. It provides a tractable setting for measuring the work/error
+tradeoff against a known optimum. It does not replace the AUC objective or
+establish literature priority or an advantage from model-generated proposals.

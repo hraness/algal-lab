@@ -210,6 +210,12 @@ selected the same champion graph in both runs.
 
 ## Scope and development
 
+The [terminal-tree result](docs/terminal-tree-discovery.md) gives a proved
+frontier construction for optimal trees when two vertices survive, an exact
+integer-rate solver, and a sampled optimizer with a finite-sample regret
+certificate. Its endpoint is separate from trajectory AUC; the frozen
+comparison, independent checks, and prior-art limits are retained.
+
 ALGAL supplies typed execution and receipts. Algal Lab owns experimental
 protocols, instruments, artifact retention, and interpretation. The dependency
 is pinned to an exact public ALGAL source commit; this repository is distributed
