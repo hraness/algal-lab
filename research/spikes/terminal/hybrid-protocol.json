@@ -1,0 +1,27 @@
+{
+  "contract": "algal.lab.terminal-hybrid-plan.v1",
+  "endpoint": "normalized expected largest component value after exactly n-2 weighted deletions; not trajectory AUC",
+  "environmentSeeds": [2026092401, 2026092407, 2026092411, 2026092419],
+  "sampleSeeds": [53, 71],
+  "samples": 2048,
+  "methods": ["frontier-v1", "hybrid-v2"],
+  "familyDelta": 0.05,
+  "deltaAllocation": 384,
+  "exactTimingRepeats": 3,
+  "regimes": [
+    {"name": "small-rates-24", "nodes": 24, "rateCeiling": 5, "profile": "independent"},
+    {"name": "small-rates-64", "nodes": 64, "rateCeiling": 5, "profile": "independent"},
+    {"name": "wide-rates-24", "nodes": 24, "rateCeiling": 99, "profile": "independent"},
+    {"name": "wide-rates-64", "nodes": 64, "rateCeiling": 99, "profile": "independent"},
+    {"name": "frontier-24", "nodes": 24, "rateCeiling": 99, "profile": "full-frontier"},
+    {"name": "frontier-64", "nodes": 64, "rateCeiling": 99, "profile": "full-frontier"}
+  ],
+  "primary": {
+    "regimes": ["wide-rates-64", "frontier-64"],
+    "method": "hybrid-v2",
+    "maximumMeanExactRegret": 0.001,
+    "maximumEveryConfidenceBound": 0.01,
+    "minimumMedianSpeedup": 2
+  },
+  "interpretation": "Fresh cases after the retained failed v1 experiment. Same N and per-certificate delta as v1; 96 maximum certificates spend at most 0.0125 by union bound under ideal IID draws. Both algorithms receive the same seeded ticket stream unless the hybrid theorem permits zero draws. Primary success requires all three fixed thresholds. A fixed seed supplies numerical reproduction, not an IID proof. Timings are local implementation comparisons. No optional stopping or literature-first claim."
+}

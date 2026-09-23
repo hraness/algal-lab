@@ -23,7 +23,7 @@ jobs:
       - run: bun run check
       - run: python3 research/spikes/structural/verify.py
       - run: python3 research/spikes/weighted-tree/verify.py
-      - run: python3 -m unittest research.test_tree_certificate research.test_certify_policy_results
+      - run: python3 -m unittest research.test_tree_certificate research.test_certify_policy_results research.test_terminal_tree research.test_terminal_sampling research.test_terminal_hybrid
       - run: bun run demo
       - run: bun run lab verify runs/demo
       - run: bun run qualify:instrument

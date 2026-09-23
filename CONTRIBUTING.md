@@ -69,10 +69,15 @@ also has exact Python certificates, run by CI in addition to `bun run check`:
 ```sh
 python3 research/spikes/structural/verify.py
 python3 research/spikes/weighted-tree/verify.py
-python3 -m unittest research.test_tree_certificate research.test_certify_policy_results
+python3 -m unittest research.test_tree_certificate research.test_certify_policy_results research.test_terminal_tree research.test_terminal_sampling research.test_terminal_hybrid
 ```
 
 Proof text, finite exhaustive checks, policy holdouts, and novelty claims are
 separate evidence. Keep research TypeScript in the aggregate typecheck and tests.
 Keep generated experimental archives under ignored `runs/` directories; commit
 the reproducible protocol, source, and an honest findings report.
+
+The [terminal-tree optimizer](docs/terminal-tree-discovery.md) is a separate
+two-survivor endpoint. Its exact and sampling algorithms use the Python standard
+library and are covered by the same CI unit-test command. Its frozen experiment
+is reproducible separately; local timing thresholds are not CI performance gates.

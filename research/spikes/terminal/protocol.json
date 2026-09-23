@@ -1,0 +1,31 @@
+{
+  "contract": "algal.lab.terminal-comparison-plan.v1",
+  "endpoint": "normalized expected largest component value after exactly n-2 weighted deletions; not trajectory AUC",
+  "environmentSeeds": [2026092301, 2026092307, 2026092311, 2026092319],
+  "sampleSeeds": [31, 47],
+  "sampleBudgets": [128, 512, 2048, 8192],
+  "methods": ["kruskal", "frontier"],
+  "familyDelta": 0.05,
+  "regimes": [
+    {"name": "small-rates-24", "nodes": 24, "rateCeiling": 5, "profile": "independent"},
+    {"name": "small-rates-64", "nodes": 64, "rateCeiling": 5, "profile": "independent"},
+    {"name": "wide-rates-24", "nodes": 24, "rateCeiling": 99, "profile": "independent"},
+    {"name": "wide-rates-64", "nodes": 64, "rateCeiling": 99, "profile": "independent"},
+    {"name": "frontier-24", "nodes": 24, "rateCeiling": 99, "profile": "full-frontier"},
+    {"name": "frontier-64", "nodes": 64, "rateCeiling": 99, "profile": "full-frontier"}
+  ],
+  "exactTimingRepeats": 3,
+  "randomTreeReferences": 32,
+  "referenceNodes": [8, 12, 16],
+  "referenceSeeds": [2026092329, 2026092333],
+  "referenceTimingRepeats": 2,
+  "primary": {
+    "regimes": ["wide-rates-64", "frontier-64"],
+    "method": "frontier",
+    "samples": 2048,
+    "maximumMeanExactRegret": 0.001,
+    "maximumEveryConfidenceBound": 0.01,
+    "minimumMedianSpeedup": 2
+  },
+  "interpretation": "All arms and budgets are fixed before this panel. Primary success requires all three thresholds. Timings are descriptive local Python implementation comparisons. Per-call delta divides familyDelta by every reported algorithm certificate. The coverage theorem assumes ideal IID draws; seeded trials only provide reproducible numerical evidence. No optional stopping, model intelligence, token efficiency, or publication-level novelty claim."
+}
