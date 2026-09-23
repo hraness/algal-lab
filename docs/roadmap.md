@@ -86,7 +86,8 @@ for a research substrate, not completion of the scientific claims below.
    signed-rank) against a preregistered practical margin, and exact
    topology (isomorphism) classes tracked separately from labeled graphs.
    Scripted arms are controls; a live arm requires `--executor-command`. The
-   frozen plan document for the first live comparison is still to follow, and
+   [frozen plan](comparison-plan.md) registers seeds, budgets, contrasts, the
+   practical margin, and the live call budget before the first live run, and
    no comparison result is claimed yet.
 3. **Develop reusable scientific memory.** Add typed claims with supporting and
    contradicting experiments, exact lineage, failed hypotheses, and targeted

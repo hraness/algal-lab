@@ -152,7 +152,8 @@ bun run compare
 bun run lab verify-comparison runs/comparison
 ```
 
-`compare` runs the frozen comparison plan (`examples/comparison-plan.json`):
+`compare` runs the [frozen comparison plan](docs/comparison-plan.md)
+(`examples/comparison-plan.json`):
 the scripted control arms `adaptive` and `random`, an optional live arm when
 `--executor-command` is supplied, and paired inference over replicate seeds
 against a preregistered margin. `verify-comparison` reconstructs every arm's
