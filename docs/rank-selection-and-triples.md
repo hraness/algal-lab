@@ -223,8 +223,9 @@ increases on a finite set of partitions, so the process terminates at the
 consecutive blocks. Tied rates follow by continuity, perturbing them in the
 chosen sorted order. Equation (6) proves both objective statements.
 
-This is an `O(n log n)` construction for the two-failure horizon. We do not
-claim here that consecutive groups optimize intact service at every horizon.
+This is an `O(n log n)` construction for the two-failure horizon. The subsequent
+[outside-failure proof](intact-groups-all-horizons.md) extends the intact-count
+result to every fixed survivor count; the majority objective remains separate.
 
 ## 4. Majority triples are strongly NP-complete to optimize exactly
 
@@ -409,7 +410,8 @@ that a small model originated the full contribution. The earlier
 [Qwen3-14B pilot](../research/spikes/frugal/findings.md) remains a negative
 selection experiment, with its original cost and limits unchanged.
 
-Exploratory failures are retained in the public examples above. In particular,
-we do not extend pair universality to triples, strictness to disjoint supports,
-or stochastic order to reversed-hazard order. An all-horizon theorem for
-larger completely intact groups remains open in this study.
+Exploratory failures are retained in the public examples above. Strictness for
+disjoint supports and stochastic order alone remain unsupported. Subsequent
+work proves an [all-horizon intact-group theorem](intact-groups-all-horizons.md)
+and a [complete two-threshold criterion](two-threshold-certificate.md) for
+quartet inequalities against arbitrary independent backgrounds.

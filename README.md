@@ -223,10 +223,14 @@ measures conjecture selection against a zero-model enumeration control; it
 does not establish a model discovery advantage or literature-first priority.
 
 The [rank-selection and groups note](docs/rank-selection-and-triples.md)
-extends the pairing theorem beyond exponential clocks. After two failures,
-consecutive equal-size groups maximize intact-group count, while exact
-majority-triple optimization is strongly NP-hard. A quadratic regret bound
-explains why nearly equal rates still admit easy approximations. The
+extends the pairing theorem beyond exponential clocks and proves strong
+hardness for exact majority-triple optimization after two failures. A quadratic
+regret bound explains why nearly equal rates still admit easy approximations.
+The [all-horizon group theorem](docs/intact-groups-all-horizons.md) proves that
+consecutive equal-size groups maximize intact count at every fixed survivor
+count. The [two-threshold certificate](docs/two-threshold-certificate.md)
+characterizes quartet inequalities against arbitrary backgrounds, with an
+exact linear scan for histogram clocks and counterexample witnesses. The
 [short account](docs/discovery-story.md) explains the results; the
 [novelty ledger](docs/novelty-ledger.md) records what prior art has actually
 been checked and where priority remains unresolved.
