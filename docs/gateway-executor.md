@@ -30,8 +30,10 @@ bun scripts/inspect-gateway-smoke.ts runs/gateway-smoke
 
 The [first recorded run](gateway-smoke-findings.md) completed twelve generations
 and eleven valid experiments; its strict acceptance correctly failed. The
-[v2 plan](proposal-contract-v2-plan.md) freezes the exact-budget contract and
-the next smoke's acceptance before further inference.
+[v2 plan](proposal-contract-v2-plan.md) froze the exact-budget contract and the
+next smoke's acceptance before further inference; the
+[second run](gateway-smoke-v2-findings.md) measured all twelve proposals and
+passed.
 
 The example limits a study to twelve proposal slots. Each request uses the fixed
 Gateway origin, a selected model and provider, zero temperature, low reasoning
