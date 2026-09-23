@@ -300,3 +300,23 @@ test("a tampered primed design fails reconstruction, and v2 protocol bounds hold
   await expect(runStudy({ ...protocolV2, transferRegimes: [{ nodes: 7, edges: 9, failureSteps: 2 }, { nodes: 7, edges: 9, failureSteps: 2 }] }, await location())).rejects.toThrow("repeated");
   await expect(runStudy({ ...protocolV2, extra: 1 }, await location())).rejects.toThrow("unknown field");
 });
+
+test("v3 studies run the heterogeneous instrument per replicate and reproduce offline", async () => {
+  const directory = await location();
+  const protocolV3 = { contract: "algal.lab.study.v3", instrument: "network.v2", name: "v3-study", replicateSeeds: [7], researchers: 2, rounds: 1,
+    nodes: 5, edges: 4, failureSteps: 2, discoverySeeds: [11], holdoutSeeds: [101], primedDesigns: 1, counterbalance: true, transferRegimes: [] };
+  const report = await runStudy(protocolV3, directory);
+  expect(report.attempts).toHaveLength(12);
+  const store = new ArtifactStore(directory);
+  const attempts = await Promise.all(report.attempts.map(async (id) => await store.get(id) as unknown as Attempt));
+  for (const attempt of attempts) {
+    expect(attempt.context.contract).toBe("algal.lab.context.v3");
+    if (attempt.context.contract !== "algal.lab.context.v3") throw new Error("expected v3 context");
+    expect(attempt.context.environment.weights).toHaveLength(5);
+    expect(attempt.context.environment.values).toHaveLength(5);
+    expect(attempt.measurement?.results.every((r) => r.contract === "algal.lab.network-result.v2" && r.instrument === "network.v2")).toBe(true);
+  }
+  const verified = await verifyStudy(directory);
+  expect(verified.ok).toBe(true);
+  expect(verified.attempts).toBe(12);
+});

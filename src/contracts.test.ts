@@ -7,10 +7,12 @@ import {
   effectiveSeedCollisions,
   effectiveSeeds,
   equal,
+  instrumentOf,
   json,
   parseProposal,
   parseProtocol,
   proposalContractSchema,
+  protocolSettings,
   PROPOSAL_CONTRACT,
   type Protocol,
   type Proposal,
@@ -31,6 +33,7 @@ const protocol: Protocol = {
 };
 
 const protocolV2 = { ...protocol, contract: "algal.lab.study.v2" as const, primedDesigns: 1, counterbalance: true, transferRegimes: [] };
+const protocolV3 = { ...protocolV2, contract: "algal.lab.study.v3" as const, instrument: "network.v2" as const };
 
 const graph = { nodes: 4, edges: [[0, 1], [1, 2], [2, 3]] as [number, number][] };
 
@@ -115,11 +118,37 @@ describe("study protocol admission", () => {
     expect(parseProtocol({ ...sharedDiscovery, replicateSeeds: [1709] }).replicateSeeds).toEqual([1709]);
   });
 
+  test("v3 protocols require the named heterogeneous instrument and keep the v2 controls", () => {
+    const parsed = parseProtocol(protocolV3);
+    expect(parsed).toEqual(protocolV3);
+    expect(instrumentOf(parsed)).toBe("network.v2");
+    expect(instrumentOf(parseProtocol(protocol))).toBe("network.v1");
+    expect(instrumentOf(parseProtocol(protocolV2))).toBe("network.v1");
+    expect(protocolSettings(parsed)).toEqual({ primedDesigns: 1, counterbalance: true, transferRegimes: [] });
+    expect(() => parseProtocol({ ...protocolV3, instrument: "network.v1" })).toThrow("network.v2");
+    expect(() => parseProtocol({ ...protocolV3, instrument: "algal" })).toThrow("network.v2");
+    const { instrument: _instrument, ...missing } = protocolV3;
+    expect(() => parseProtocol(missing)).toThrow();
+    expect(() => parseProtocol({ ...protocolV3, environment: {} })).toThrow("unknown field");
+    // v3 applies the same effective-seed collision rule as v2.
+    const holdoutLeak = { ...protocolV3, replicateSeeds: [223, 613], discoverySeeds: [331], holdoutSeeds: [1009] };
+    expect(() => parseProtocol(holdoutLeak)).toThrow(/effective seed/);
+  });
+
   test("v1 protocols keep only the raw disjointness rule so frozen archives stay admissible", () => {
     const archived = { ...protocol, replicateSeeds: [223, 613], discoverySeeds: [331], holdoutSeeds: [1009] };
     expect(effectiveSeedCollisions(archived)).toHaveLength(2);
     expect(parseProtocol(archived)).toEqual(archived);
     expect(() => parseProtocol({ ...archived, holdoutSeeds: [331] })).toThrow(/disjoint/);
+  });
+
+  test("the shipped v2 comparison plan admits as v3 protocols without effective seed collisions", async () => {
+    const plan = await Bun.file(new URL("../examples/comparison-plan-v2.json", import.meta.url)).json() as Record<string, unknown>;
+    expect(plan.instrument).toBe("network.v2");
+    expect(plan.replicateSeeds).toEqual([6007, 6011, 6029, 6037, 6043, 6067, 6073, 6079]);
+    expect(effectiveSeedCollisions(plan as Parameters<typeof effectiveSeedCollisions>[0])).toEqual([]);
+    const { primary, margin: _margin, instrument: _i, ...rest } = plan as { primary: Record<string, unknown>; margin: number } & Record<string, unknown>;
+    expect(parseProtocol({ ...rest, ...primary, contract: "algal.lab.study.v3", instrument: "network.v2", counterbalance: true }).replicateSeeds).toEqual(plan.replicateSeeds as number[]);
   });
 
   test("the shipped comparison plan admits as v2 protocols without effective seed collisions", async () => {

@@ -53,6 +53,17 @@ definition determine its observations. Requested designs and realized graphs
 are retained separately so an instrument or generator discrepancy can be
 investigated rather than hidden by a summary score.
 
+A second instrument, `network.v2` ([heterogeneous.ts](../src/heterogeneous.ts)),
+keeps the same trajectory shape under heterogeneous failure: each node has an
+integer failure weight and value, random failure removes survivors with
+probability proportional to weight, and service is the most valuable
+surviving component's share of total value. Its environment derives
+deterministically from the replicate seed (`environmentFor`: uniform 1..5
+entries, redrawn until both spreads are ≥3), so a v3 study protocol
+reproduces it exactly and a v3 research context exposes it to the researcher.
+Exact evaluation is an independently implemented subset DP
+(`exactWeightedAuc`, `weightedServiceAucCeiling`), bounded to ten nodes.
+
 ## Artifact boundary
 
 Each run has a new output directory:
@@ -95,7 +106,8 @@ These are distinct checks:
 | Scientific validation | Requires additional domain evidence; none of the checks above establishes it. |
 
 Verification requires the recorded source identities. The instrument identity
-binds `src/network.ts` under the `network.v1` version label. The application
+binds `src/network.ts` under the `network.v1` version label, or
+`src/heterogeneous.ts` under `network.v2` for v3 protocols. The application
 identity binds the exact file list in
 [`sourceIdentities()`](../src/artifacts.ts): every `src/*.ts` module that
 takes part in a study, comparison, or live executor route (not the tests), the

@@ -143,7 +143,7 @@ export function parseSchedule(value: unknown, nodes: number): FailureSchedule {
 }
 
 /** Mulberry32; all state is the admitted uint32 seed, never ambient randomness. */
-function random(seed: number): () => number {
+export function mulberry32(seed: number): () => number {
   let state = integer(seed, 0, UINT32_MAX, "seed");
   return () => {
     state = (state + 0x6d2b79f5) >>> 0;
@@ -167,7 +167,7 @@ export function simulate(inputGraph: Graph, inputSchedule: FailureSchedule): Net
   const schedule = parseSchedule(inputSchedule, graph.nodes);
   const neighbors = adjacency(graph);
   const live = Array<boolean>(graph.nodes).fill(true);
-  const next = random(schedule.seed);
+  const next = mulberry32(schedule.seed);
   const trajectory: NetworkResult["trajectory"] = [{
     step: 0,
     removed: null,
@@ -222,7 +222,7 @@ export function simulate(inputGraph: Graph, inputSchedule: FailureSchedule): Net
 export function randomGraph(inputNodes: number, edgeCount: number, seed: number): Graph {
   const nodes = nodeCount(inputNodes);
   const count = integer(edgeCount, nodes - 1, maximumEdges(nodes), "edgeCount");
-  const next = random(seed);
+  const next = mulberry32(seed);
   const order = Array.from({ length: nodes }, (_, node) => node);
   shuffle(order, next);
   const edges: [number, number][] = [];
@@ -248,7 +248,7 @@ export function randomGraph(inputNodes: number, edgeCount: number, seed: number)
 /** One connected edge replacement; unchanged output is an allowed failure. */
 export function mutateGraph(inputGraph: Graph, seed: number): Graph {
   const graph = parseGraph(inputGraph);
-  const next = random(seed);
+  const next = mulberry32(seed);
   const used = new Set(graph.edges.map(([a, b]) => a * graph.nodes + b));
   const absent: [number, number][] = [];
   for (let a = 0; a < graph.nodes; a++) {

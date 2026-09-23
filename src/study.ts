@@ -2,8 +2,9 @@ import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { MemoryStore, builtinRegistry, canonicalize, manifestToJson, parseRunReceipt, replayExecutor, runOrganism, type Executor, type RunReceipt } from "@hraness/algal";
 import { ArtifactStore, digest, readJsonFile, sourceIdentities, digestString } from "./artifacts";
-import { ALGAL_REVISION, CONDITIONS, conditionOrder, contextPhase, equal, json, object, parseProtocol, proposalSlots, protocolSettings, type Budget, type Condition, type Phase, type Protocol, type ResearchContext } from "./contracts";
-import { boundedResearcher, evaluateGraph, laboratoryTools, mean, measure, primedProposal, primedResearcher, randomResearcher, researcherView, researchManifest, scriptedResearcher, type Measurement } from "./researcher";
+import { ALGAL_REVISION, CONDITIONS, conditionOrder, contextPhase, equal, instrumentOf, json, object, parseProtocol, proposalSlots, protocolSettings, type Budget, type Condition, type Phase, type Protocol, type ResearchContext } from "./contracts";
+import { environmentFor, type FailureEnvironment } from "./heterogeneous";
+import { boundedResearcher, evaluateGraph, laboratoryTools, mean, measure, primedProposal, primedResearcher, randomResearcher, researcherView, researchManifest, researchManifestV2, scriptedResearcher, type Measurement } from "./researcher";
 
 export type Attempt = {
   contract: "algal.lab.attempt.v1";
@@ -54,6 +55,7 @@ function contextFor(protocol: Protocol, replicate: number, condition: Condition,
     evidence: visible.map((item) => ({ id: item.id, graph: item.measurement.proposal.graph, score: item.measurement.score })),
     messages: condition === "shared-artifacts-and-messages" ? prior.slice(-12).map((item) => ({ id: item.id, text: item.measurement.proposal.message })) : [],
   };
+  if (protocol.contract === "algal.lab.study.v3") return { contract: "algal.lab.context.v3", phase, environment: environmentFor(budget.nodes, replicate), ...base };
   return protocol.contract === "algal.lab.study.v2" ? { contract: "algal.lab.context.v2", phase, ...base } : { contract: "algal.lab.context.v1", ...base };
 }
 
@@ -75,8 +77,9 @@ async function evaluatePortfolio(engine: Engine, protocol: Protocol, instrumentD
   const designs: { evaluation: string; meanAuc: number; aucs: number[] }[] = [];
   let selectedRandomAuc: number | null = null;
   let selectedTargetedAuc: number | null = null;
+  const environment: FailureEnvironment | undefined = instrumentOf(protocol) === "network.v2" ? environmentFor(budget.nodes, replicate) : undefined;
   for (const item of frozen.portfolio) {
-    const results = evaluateGraph(item.measurement.proposal.graph, replicate, protocol.holdoutSeeds, budget.failureSteps);
+    const results = evaluateGraph(item.measurement.proposal.graph, replicate, protocol.holdoutSeeds, budget.failureSteps, environment);
     const meanAuc = mean(results.map((r) => r.metrics.auc));
     if (item.id === frozen.champion?.id) {
       selectedRandomAuc = mean(results.filter((r) => r.schedule.kind === "random").map((r) => r.metrics.auc));
@@ -92,9 +95,9 @@ async function evaluatePortfolio(engine: Engine, protocol: Protocol, instrumentD
 }
 
 async function core(protocol: Protocol, backend: StudyReport["backend"], engine: Engine): Promise<StudyReport> {
-  const identities = await sourceIdentities();
+  const identities = await sourceIdentities(instrumentOf(protocol));
   const settings = protocolSettings(protocol);
-  const manifest = manifestToJson(researchManifest);
+  const manifest = manifestToJson(instrumentOf(protocol) === "network.v2" ? researchManifestV2 : researchManifest);
   const researcherManifest = await engine.put(manifest);
   const attempts: string[] = [];
   const conditionOrders: StudyReport["conditionOrders"] = [];
@@ -102,7 +105,7 @@ async function core(protocol: Protocol, backend: StudyReport["backend"], engine:
   const budget: Budget = { nodes: protocol.nodes, edges: protocol.edges, failureSteps: protocol.failureSteps };
   const attempt = async (context: ResearchContext, executor: Executor, observed: Observed[], expected?: Measurement["proposal"]["graph"]): Promise<void> => {
     const receipt = await runOrganism({
-      manifest: researchManifest, args: { input: { context: json(researcherView(context)) } },
+      manifest: instrumentOf(protocol) === "network.v2" ? researchManifestV2 : researchManifest, args: { input: { context: json(researcherView(context)) } },
       fns: builtinRegistry(), store: new MemoryStore(), executors: [boundedResearcher(executor)],
       tools: laboratoryTools(context, identities.instrumentDigest),
     });
@@ -211,7 +214,7 @@ export async function verifyStudy(directory: string): Promise<{ ok: true; attemp
   if (raw.contract !== "algal.lab.report.v3" || raw.algalRevision !== ALGAL_REVISION || !["scripted", "random", "command"].includes(raw.backend as string)) throw new Error("unsupported report identity");
   const protocol = parseProtocol(raw.protocol);
   if (!equal(protocol, await readJsonFile(join(directory, "protocol.json")))) throw new Error("protocol intent mismatch");
-  const identities = await sourceIdentities();
+  const identities = await sourceIdentities(instrumentOf(protocol));
   if (raw.instrumentDigest !== identities.instrumentDigest || raw.applicationDigest !== identities.applicationDigest) throw new Error("source identity changed; verify with the exact recorded source version");
   const total = protocol.replicateSeeds.length * CONDITIONS.length * (proposalSlots(protocol) + protocolSettings(protocol).primedDesigns * protocol.researchers);
   if (!Array.isArray(raw.attempts) || raw.attempts.length !== total) throw new Error("attempt count violates protocol");

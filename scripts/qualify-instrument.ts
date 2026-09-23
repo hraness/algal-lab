@@ -8,7 +8,8 @@ import { createHash } from "node:crypto";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname } from "node:path";
 import { simulate, randomGraph, mutateGraph, type Graph } from "../src/network";
-import { exactRandomAuc } from "../src/oracle";
+import { environmentFor, simulateHeterogeneous, type FailureEnvironment } from "../src/heterogeneous";
+import { exactRandomAuc, exactWeightedAuc, weightedServiceAucCeiling } from "../src/oracle";
 
 if (process.argv.length > 3) throw new Error("qualification takes at most one output path; exhaustive scope is fixed at n=4,5,6");
 const outputPath = process.argv[2];
@@ -16,6 +17,7 @@ if (outputPath !== undefined && (outputPath.length === 0 || outputPath.startsWit
 const sha = (source: string): string => createHash("sha256").update(source).digest("hex");
 const sources = {
   instrument: await readFile(new URL("../src/network.ts", import.meta.url), "utf8"),
+  heterogeneous: await readFile(new URL("../src/heterogeneous.ts", import.meta.url), "utf8"),
   oracle: await readFile(new URL("../src/oracle.ts", import.meta.url), "utf8"),
   probe: await readFile(new URL(import.meta.url), "utf8"),
 };
@@ -138,6 +140,100 @@ for (const nodes of [4, 5, 6]) {
 }
 require(counts[4] === 38 && counts[5] === 728 && counts[6] === 26704, "connected graph enumeration sanity count");
 
+// ---------------- network.v2: heterogeneous failure ----------------
+
+// Value-weighted component on the same independent disjoint-set implementation.
+function largestValue(graph: Graph, live: number, values: readonly number[]): number {
+  const parent = Array.from({ length: graph.nodes }, (_, id) => id);
+  const root = (initial: number): number => {
+    let node = initial;
+    while (parent[node] !== node) node = parent[node]!;
+    return node;
+  };
+  for (const [a, b] of graph.edges) if ((live & (1 << a)) && (live & (1 << b))) parent[root(b)] = root(a);
+  const sums = new Map<number, number>();
+  for (let id = 0; id < graph.nodes; id++) if (live & (1 << id)) sums.set(root(id), (sums.get(root(id)) ?? 0) + values[id]!);
+  return Math.max(0, ...sums.values());
+}
+
+/** Every weighted removal order independently: P(order) multiplies each
+ * removed node's weight over the remaining total weight. */
+function weightedOrderExpectation(graph: Graph, env: FailureEnvironment, steps: number): number {
+  const totalValue = env.values.reduce((a, b) => a + b, 0);
+  const totalWeight = env.weights.reduce((a, b) => a + b, 0);
+  let total = 0;
+  const visit = (removed: number[], removedWeight: number, probability: number, partial: number): void => {
+    const k = removed.length;
+    const live = ((1 << graph.nodes) - 1) & ~removed.reduce((mask, node) => mask | (1 << node), 0);
+    const service = largestValue(graph, live, env.values) / totalValue;
+    const coefficient = k === 0 || k === steps ? 0.5 : 1;
+    if (k === steps) { total += probability * (partial + coefficient * service); return; }
+    for (let node = 0; node < graph.nodes; node++) if (!removed.includes(node)) {
+      visit([...removed, node], removedWeight + env.weights[node]!, probability * env.weights[node]! / (totalWeight - removedWeight), partial + coefficient * service);
+    }
+  };
+  visit([], 0, 1, 0);
+  return total / steps;
+}
+
+const heterogeneous = {
+  graphsChecked: 0, flatReductions: 0, trajectoryChecks: 0, oracleComparisons: 0,
+  maxReductionError: 0, maxServiceError: 0, maxAucError: 0, maxCeilingSlack: 0,
+  environments: { seeds: [7, 8], spreadFloor: 3, rejected: 0 },
+};
+for (const nodes of [4, 5]) {
+  const flat: FailureEnvironment = { weights: Array(nodes).fill(1), values: Array(nodes).fill(1) };
+  const env = environmentFor(nodes, 7);
+  const universe = pairs(nodes);
+  for (let mask = 0; mask < (1 << universe.length); mask++) {
+    const graph = { nodes, edges: universe.filter((_edge, index) => mask & (1 << index)) };
+    if (!connected(graph)) continue;
+    heterogeneous.graphsChecked++;
+    // Flat profiles must reproduce the v1 instrument exactly, at every horizon.
+    for (const seed of randomSeeds) for (const kind of ["random", "targeted"] as const) {
+      const v2 = simulateHeterogeneous(graph, flat, { kind, seed, steps: nodes - 2 });
+      const v1 = simulate(graph, { kind, seed, steps: nodes - 2 });
+      heterogeneous.maxReductionError = Math.max(heterogeneous.maxReductionError, Math.abs(v2.metrics.auc - v1.metrics.auc));
+      require(JSON.stringify(v2.trajectory.map((p) => [p.removed, p.service])) === JSON.stringify(v1.trajectory.map((p) => [p.removed, p.service])), "flat reduction trajectory mismatch");
+      heterogeneous.flatReductions++;
+    }
+    // Heterogeneous trajectories stay legal and track value-fraction service.
+    const het = simulateHeterogeneous(graph, env, { kind: "random", seed: 11, steps: nodes - 2 });
+    const totalValue = env.values.reduce((a, b) => a + b, 0);
+    let live = (1 << nodes) - 1;
+    for (const [index, point] of het.trajectory.entries()) {
+      require(point.step === index, "v2 step mismatch");
+      if (index > 0) require((live & (1 << point.removed!)) !== 0, "v2 node removed twice");
+      if (index > 0) live &= ~(1 << point.removed!);
+      const expected = largestValue(graph, live, env.values);
+      const error = Math.abs(point.service - expected / totalValue);
+      heterogeneous.maxServiceError = Math.max(heterogeneous.maxServiceError, error);
+      require(error <= 1e-14, "v2 service mismatch");
+      heterogeneous.trajectoryChecks++;
+    }
+    // The subset DP agrees with exhaustive weighted-order enumeration.
+    for (let steps = 1; steps <= nodes - 2; steps++) {
+      const error = Math.abs(exactWeightedAuc(graph, env, steps) - weightedOrderExpectation(graph, env, steps));
+      heterogeneous.maxAucError = Math.max(heterogeneous.maxAucError, error);
+      require(error <= 1e-12, "weighted oracle disagrees with order enumeration");
+      heterogeneous.oracleComparisons++;
+      heterogeneous.maxCeilingSlack = Math.max(heterogeneous.maxCeilingSlack, weightedServiceAucCeiling(env, nodes, steps) - exactWeightedAuc(graph, env, steps));
+      require(exactWeightedAuc(graph, env, steps) <= weightedServiceAucCeiling(env, nodes, steps) + 1e-12, "weighted ceiling violated");
+    }
+  }
+}
+for (const seed of [7, 8]) for (const nodes of [4, 8, 10]) {
+  const env = environmentFor(nodes, seed);
+  require(env.weights.length === nodes && env.values.length === nodes, "environment size");
+  for (const entries of [env.weights, env.values]) {
+    require(entries.every((v) => Number.isInteger(v) && v >= 1 && v <= 5), "environment bounds");
+    require(Math.max(...entries) - Math.min(...entries) >= 3, "environment spread guard");
+  }
+}
+const envSample = environmentFor(6, 7);
+require(JSON.stringify(envSample) === JSON.stringify(environmentFor(6, 7)), "environment derivation unstable");
+require(JSON.stringify(envSample) !== JSON.stringify(environmentFor(6, 8)), "environment seed ignored");
+
 function permutations(values: number[]): number[][] {
   if (values.length === 0) return [[]];
   return values.flatMap((value, index) => permutations(values.filter((_v, i) => i !== index)).map((tail) => [value, ...tail]));
@@ -201,16 +297,18 @@ for (const [nodes, edges] of [[5, 4], [5, 6], [6, 5], [6, 7]] as const) {
 }
 
 require(sources.instrument === await readFile(new URL("../src/network.ts", import.meta.url), "utf8"), "instrument changed during qualification");
+require(sources.heterogeneous === await readFile(new URL("../src/heterogeneous.ts", import.meta.url), "utf8"), "heterogeneous instrument changed during qualification");
 require(sources.oracle === await readFile(new URL("../src/oracle.ts", import.meta.url), "utf8"), "oracle changed during qualification");
 const evidence = JSON.stringify({
-  contract: "algal.lab.network-qualification.v1", runtime: { bun: Bun.version },
+  contract: "algal.lab.network-qualification.v2", runtime: { bun: Bun.version },
   sourceSha256: Object.fromEntries(Object.entries(sources).map(([name, source]) => [name, sha(source)])),
   connectedGraphs: counts, totalGraphs: Object.values(counts).reduce((a, b) => a + b, 0), trajectoryComparisons: comparisons,
   maxAucError, maxServiceError, randomSeeds,
-  scope: "Independent union-find validates all targeted horizons and five random trajectories per connected labeled n=4..6 graph. Random removal validity and numerical consequences are checked; its PRNG sequence is not independently derived.",
+  heterogeneous,
+  scope: "Independent union-find validates all targeted horizons and five random trajectories per connected labeled n=4..6 graph. Under network.v2, flat profiles reproduce v1 trajectories exhaustively at n=4,5; value-fraction service is checked against an independent value-weighted disjoint set; and the weighted subset-DP oracle agrees with exhaustive weighted removal-order enumeration at n=4,5. Random removal validity and numerical consequences are checked; its PRNG sequence is not independently derived.",
   smallGraphOptima: [...budgets.values()].filter((row) => row.nodes >= 5 && row.edges <= row.nodes + 1).map(({ signatures: _omit, ...row }) => row),
   sixCycleLabelSensitivity: labelSensitivity, sampling,
-  limits: "Discrete-model numerical consistency, not physical validity. Uniform-random optima use the independently tested full-distribution oracle, not finite discovery seeds. Construction frequencies assume independent uniform choices; empirical frequencies use the listed deterministic seed range. Degree-distribution distance is not a complete topology-distribution distance.",
+  limits: "Discrete-model numerical consistency, not physical validity. Uniform-random optima use the independently tested full-distribution oracle, not finite discovery seeds; weighted optima likewise use the independently enumerated subset DP. Construction frequencies assume independent uniform choices; empirical frequencies use the listed deterministic seed range. Degree-distribution distance is not a complete topology-distribution distance.",
 }, null, 2) + "\n";
 if (outputPath === undefined) process.stdout.write(evidence);
 else {

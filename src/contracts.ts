@@ -1,4 +1,5 @@
 import { canonicalize, type JsonObject, type JsonValue } from "@hraness/algal";
+import type { FailureEnvironment } from "./heterogeneous";
 import { parseGraph, type Graph } from "./network";
 
 export const CONDITIONS = ["isolated", "shared-artifacts", "shared-artifacts-and-messages"] as const;
@@ -37,15 +38,27 @@ export type ProtocolV2 = Omit<ProtocolV1, "contract"> & {
   counterbalance: boolean;
   transferRegimes: Budget[];
 };
-export type Protocol = ProtocolV1 | ProtocolV2;
+/** v3 keeps the v2 controls and names the instrument. The first heterogeneous
+ * instrument is network.v2: weighted random node failure and value-fraction
+ * service under a seeded per-replicate environment. */
+export type ProtocolV3 = Omit<ProtocolV2, "contract"> & {
+  contract: "algal.lab.study.v3";
+  instrument: "network.v2";
+};
+export type Protocol = ProtocolV1 | ProtocolV2 | ProtocolV3;
+export type Instrument = "network.v1" | "network.v2";
+export function instrumentOf(protocol: Protocol): Instrument {
+  return protocol.contract === "algal.lab.study.v3" ? protocol.instrument : "network.v1";
+}
 export const MAX_PRIMED_DESIGNS = 4;
 export const MAX_TRANSFER_REGIMES = 2;
 export type Phase = "primed" | "discovery" | "transfer";
 
-/** Normalized v2 view of any protocol; v1 has no priming, transfer, or rotation. */
+/** Normalized view of any protocol's sharing controls; v1 has no priming,
+ * transfer, or rotation. v3 shares the v2 control surface. */
 export function protocolSettings(protocol: Protocol): { primedDesigns: number; counterbalance: boolean; transferRegimes: Budget[] } {
-  return protocol.contract === "algal.lab.study.v2"
-    ? { primedDesigns: protocol.primedDesigns, counterbalance: protocol.counterbalance, transferRegimes: protocol.transferRegimes }
+  return protocol.contract !== "algal.lab.study.v1"
+    ? { primedDesigns: (protocol as ProtocolV2).primedDesigns, counterbalance: (protocol as ProtocolV2).counterbalance, transferRegimes: (protocol as ProtocolV2).transferRegimes }
     : { primedDesigns: 0, counterbalance: false, transferRegimes: [] };
 }
 /** Condition execution order for a replicate. Counterbalancing rotates the
@@ -113,8 +126,9 @@ export function parseBudget(value: unknown, label: string): Budget {
 export function parseProtocol(value: unknown): Protocol {
   const common = ["contract", "name", "replicateSeeds", "researchers", "rounds", "nodes", "edges", "failureSteps", "discoverySeeds", "holdoutSeeds"];
   const version = value !== null && typeof value === "object" && !Array.isArray(value) ? (value as Record<string, unknown>).contract : undefined;
-  if (version !== "algal.lab.study.v1" && version !== "algal.lab.study.v2") throw new Error("unsupported protocol");
-  const p = object(value, version === "algal.lab.study.v2" ? [...common, "primedDesigns", "counterbalance", "transferRegimes"] : common, "protocol");
+  if (version !== "algal.lab.study.v1" && version !== "algal.lab.study.v2" && version !== "algal.lab.study.v3") throw new Error("unsupported protocol");
+  const keys = version === "algal.lab.study.v1" ? common : version === "algal.lab.study.v2" ? [...common, "primedDesigns", "counterbalance", "transferRegimes"] : [...common, "primedDesigns", "counterbalance", "transferRegimes", "instrument"];
+  const p = object(value, keys, "protocol");
   const name = text(p.name, 64, "protocol.name");
   if (!/^[a-z0-9][a-z0-9-]*$/.test(name)) throw new Error("protocol.name: use lowercase letters, digits, and hyphens");
   const budget = parseBudget({ nodes: p.nodes, edges: p.edges, failureSteps: p.failureSteps }, "protocol");
@@ -129,16 +143,18 @@ export function parseProtocol(value: unknown): Protocol {
   };
   if (base.discoverySeeds.some((seed) => base.holdoutSeeds.includes(seed))) throw new Error("discovery and holdout seeds must be disjoint");
   let result: Protocol = base;
-  if (version === "algal.lab.study.v2") {
+  if (version === "algal.lab.study.v2" || version === "algal.lab.study.v3") {
     if (typeof p.counterbalance !== "boolean") throw new Error("counterbalance must be a boolean");
     if (!Array.isArray(p.transferRegimes) || p.transferRegimes.length > MAX_TRANSFER_REGIMES) throw new Error(`transferRegimes must list at most ${MAX_TRANSFER_REGIMES} budgets`);
     const transferRegimes = p.transferRegimes.map((regime, index) => parseBudget(regime, `transferRegimes[${index}]`));
-    const keys = transferRegimes.map((r) => `${r.nodes}:${r.edges}:${r.failureSteps}`);
-    if (new Set(keys).size !== keys.length) throw new Error("repeated transfer regime");
+    const regimeKeys = transferRegimes.map((r) => `${r.nodes}:${r.edges}:${r.failureSteps}`);
+    if (new Set(regimeKeys).size !== regimeKeys.length) throw new Error("repeated transfer regime");
     // Transfer tests generalization, so a transfer budget must differ from the primary budget.
     if (transferRegimes.some((r) => r.nodes === budget.nodes && r.edges === budget.edges)) throw new Error("transfer regime must differ from the primary node/edge budget");
-    result = { ...base, contract: "algal.lab.study.v2", primedDesigns: integer(p.primedDesigns, 0, MAX_PRIMED_DESIGNS, "primedDesigns"),
-      counterbalance: p.counterbalance, transferRegimes };
+    if (version === "algal.lab.study.v3" && p.instrument !== "network.v2") throw new Error("instrument must be network.v2");
+    result = version === "algal.lab.study.v2"
+      ? { ...base, contract: "algal.lab.study.v2", primedDesigns: integer(p.primedDesigns, 0, MAX_PRIMED_DESIGNS, "primedDesigns"), counterbalance: p.counterbalance, transferRegimes }
+      : { ...base, contract: "algal.lab.study.v3", instrument: "network.v2", primedDesigns: integer(p.primedDesigns, 0, MAX_PRIMED_DESIGNS, "primedDesigns"), counterbalance: p.counterbalance, transferRegimes };
     // Raw disjointness is not enough: two replicates can XOR different raw seeds
     // onto the same effective schedule, so one holdout could be a peer's
     // discovery schedule. v1 protocols and their frozen archives keep the raw rule.
@@ -168,9 +184,12 @@ export type ResearchContextV1 = {
  * by the host; transfer attempts use round = protocol.rounds and carry a
  * transfer budget while their evidence stays at the primary budget. */
 export type ResearchContextV2 = Omit<ResearchContextV1, "contract"> & { contract: "algal.lab.context.v2"; phase: Phase };
-export type ResearchContext = ResearchContextV1 | ResearchContextV2;
-export const CONTEXT_CONTRACTS = ["algal.lab.context.v1", "algal.lab.context.v2"] as const;
-export function contextPhase(context: ResearchContext): Phase { return context.contract === "algal.lab.context.v2" ? context.phase : "discovery"; }
+/** v3 contexts expose the replicate's failure environment: adapting a design
+ * to the visible weights and values is the measured skill under network.v2. */
+export type ResearchContextV3 = Omit<ResearchContextV2, "contract"> & { contract: "algal.lab.context.v3"; environment: FailureEnvironment };
+export type ResearchContext = ResearchContextV1 | ResearchContextV2 | ResearchContextV3;
+export const CONTEXT_CONTRACTS = ["algal.lab.context.v1", "algal.lab.context.v2", "algal.lab.context.v3"] as const;
+export function contextPhase(context: ResearchContext): Phase { return context.contract === "algal.lab.context.v1" ? "discovery" : (context as ResearchContextV2).phase; }
 export type Proposal = {
   graph: Graph;
   hypothesis: string;

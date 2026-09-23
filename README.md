@@ -76,9 +76,15 @@ flowchart LR
   the original provider command.
 
 The instrument measures the largest surviving connected component divided by the
-original node count, across random and targeted node-removal trajectories. This
-is a toy graph model. It does not simulate traffic, physical materials, or actual
-infrastructure. Two demo seeds are not evidence of statistical superiority.
+original node count, across random and targeted node-removal trajectories
+(`network.v1`). A second instrument (`network.v2`, `src/heterogeneous.ts`)
+gives each node a failure weight and value: random failure removes survivors
+with probability proportional to weight, and service is the most valuable
+surviving component's share of total value under a seeded per-replicate
+environment. The v2 oracle is an exact subset dynamic program over
+removal-set probabilities, bounded to ten nodes. This is a toy graph model.
+It does not simulate traffic, physical materials, or actual infrastructure.
+Two demo seeds are not evidence of statistical superiority.
 
 ## Connect a model
 
@@ -159,6 +165,18 @@ the scripted control arms `adaptive` and `random`, an optional live arm when
 against a preregistered margin. `verify-comparison` reconstructs every arm's
 studies offline and recomputes the whole analysis. Without a live arm the result
 is a scripted control run, not model evidence.
+
+```sh
+bun run compare:v2
+bun run lab verify-comparison runs/comparison-v2
+```
+
+`compare:v2` runs the [network.v2 plan](docs/comparison-plan-v2.md)
+(`examples/comparison-plan-v2.json`), where each replicate poses a different
+seeded environment and the endpoint is label-dependent by construction —
+the regime the headroom study showed has real headroom for a live arm. The
+first live run uses the pinned Gateway executor through
+`examples/gateway-compare.ts` with the same plan and a 240-call budget.
 
 The random-search policy is also available for individual studies:
 

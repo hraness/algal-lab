@@ -110,3 +110,27 @@ test("a live arm is paired against both controls and a hand-picked executor cann
   await writeFile(join(directory, "studies", "adaptive-0", "study.json"), JSON.stringify({ report: forged, digest: digest(forged) }));
   await expect(verifyComparison(directory)).rejects.toThrow();
 }, 120000);
+
+test("v2 plans run the heterogeneous instrument with per-replicate environments and verify offline", async () => {
+  const directory = await location();
+  const planV2 = { contract: "algal.lab.comparison-plan.v2", instrument: "network.v2", name: "small-v2", replicateSeeds: [101, 202, 303, 404], researchers: 2, rounds: 1, primedDesigns: 1,
+    primary: { nodes: 5, edges: 4, failureSteps: 2 }, transferRegimes: [], discoverySeeds: [1, 2], holdoutSeeds: [3, 4], margin: 0.02 };
+  const parsed = parseComparisonPlan(planV2);
+  expect(parsed.instrument).toBe("network.v2");
+  for (const descriptor of comparisonStudies(parsed, ["adaptive"])) expect(descriptor.protocol.contract).toBe("algal.lab.study.v3");
+  const report = await runComparison(planV2, directory);
+  expect(report.arms).toEqual(["adaptive", "random"]);
+  expect(report.rows).toHaveLength(2 * 4 * 3);
+  expect(report.controls.counterbalanced).toBe(true);
+  expect(report.references).toHaveLength(1);
+  const reference = report.references[0]!;
+  expect(reference.perReplicate).toHaveLength(4);
+  expect(reference.perReplicate.map((row) => row.replicate)).toEqual([101, 202, 303, 404]);
+  // Per-replicate environments make the fixed reference's exact AUC vary by seed.
+  expect(new Set(reference.perReplicate.map((row) => row.exactRandomAuc)).size).toBeGreaterThan(1);
+  expect(reference.perReplicate.every((row) => row.exactRandomAuc <= row.ceiling)).toBe(true);
+  const verified = await verifyComparison(directory);
+  expect(verified.ok).toBe(true);
+  expect(verified.studies).toBe(2);
+  expect(verified.rows).toBe(24);
+}, 30000);

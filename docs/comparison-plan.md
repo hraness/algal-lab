@@ -11,6 +11,13 @@ The machine-readable plan is [examples/comparison-plan.json](../examples/compari
 (`algal.lab.comparison-plan.v1`). The scripted control run under the same plan
 is a control measurement, not the subject of this registration.
 
+> **Superseded for the live arm.** The independent review and the headroom
+> spike showed the network.v1 objective is saturated at these budgets (the
+> ring/chord reference is optimal at 8/12/3). The first live run therefore
+> registers the heterogeneous-failure instrument under
+> [comparison-plan-v2.md](comparison-plan-v2.md) instead. This v1 plan stays
+> frozen as the scripted-control baseline and regression input.
+
 ## Design
 
 Three arms run the same protocol v2 study:
