@@ -15,7 +15,8 @@ export function freeze<T>(value: T): T {
   return value;
 }
 
-export type Protocol = {
+export type Budget = { nodes: number; edges: number; failureSteps: number };
+export type ProtocolV1 = {
   contract: "algal.lab.study.v1";
   name: string;
   replicateSeeds: number[];
@@ -27,6 +28,37 @@ export type Protocol = {
   discoverySeeds: number[];
   holdoutSeeds: number[];
 };
+/** v2 adds the replicated-comparison controls: host-primed initial designs that
+ * are identical across conditions by construction, counterbalanced condition
+ * order, and held-out transfer budgets proposed after discovery. */
+export type ProtocolV2 = Omit<ProtocolV1, "contract"> & {
+  contract: "algal.lab.study.v2";
+  primedDesigns: number;
+  counterbalance: boolean;
+  transferRegimes: Budget[];
+};
+export type Protocol = ProtocolV1 | ProtocolV2;
+export const MAX_PRIMED_DESIGNS = 4;
+export const MAX_TRANSFER_REGIMES = 2;
+export type Phase = "primed" | "discovery" | "transfer";
+
+/** Normalized v2 view of any protocol; v1 has no priming, transfer, or rotation. */
+export function protocolSettings(protocol: Protocol): { primedDesigns: number; counterbalance: boolean; transferRegimes: Budget[] } {
+  return protocol.contract === "algal.lab.study.v2"
+    ? { primedDesigns: protocol.primedDesigns, counterbalance: protocol.counterbalance, transferRegimes: protocol.transferRegimes }
+    : { primedDesigns: 0, counterbalance: false, transferRegimes: [] };
+}
+/** Condition execution order for a replicate. Counterbalancing rotates the
+ * fixed order by replicate index so no condition always runs first. */
+export function conditionOrder(protocol: Protocol, replicateIndex: number): Condition[] {
+  const shift = protocolSettings(protocol).counterbalance ? replicateIndex % CONDITIONS.length : 0;
+  return CONDITIONS.map((_, index) => CONDITIONS[(index + shift) % CONDITIONS.length]!);
+}
+/** Model-call slots per replicate/condition: discovery rounds plus one transfer
+ * proposal per researcher per transfer regime. Priming is host work. */
+export function proposalSlots(protocol: Protocol): number {
+  return protocol.researchers * (protocol.rounds + protocolSettings(protocol).transferRegimes.length);
+}
 
 export function object(value: unknown, keys: readonly string[], label: string): Record<string, unknown> {
   if (value === null || typeof value !== "object" || Array.isArray(value)) throw new Error(`${label}: expected object`);
@@ -53,29 +85,48 @@ function seeds(value: unknown, max: number, label: string): number[] {
   return result;
 }
 
+export function parseBudget(value: unknown, label: string): Budget {
+  const b = object(value, ["nodes", "edges", "failureSteps"], label);
+  const nodes = integer(b.nodes, 4, 16, `${label}.nodes`);
+  return { nodes, edges: integer(b.edges, nodes - 1, Math.min(48, nodes * (nodes - 1) / 2), `${label}.edges`),
+    failureSteps: integer(b.failureSteps, 1, nodes - 2, `${label}.failureSteps`) };
+}
 export function parseProtocol(value: unknown): Protocol {
-  const p = object(value, ["contract", "name", "replicateSeeds", "researchers", "rounds", "nodes", "edges", "failureSteps", "discoverySeeds", "holdoutSeeds"], "protocol");
-  if (p.contract !== "algal.lab.study.v1") throw new Error("unsupported protocol");
+  const common = ["contract", "name", "replicateSeeds", "researchers", "rounds", "nodes", "edges", "failureSteps", "discoverySeeds", "holdoutSeeds"];
+  const version = value !== null && typeof value === "object" && !Array.isArray(value) ? (value as Record<string, unknown>).contract : undefined;
+  if (version !== "algal.lab.study.v1" && version !== "algal.lab.study.v2") throw new Error("unsupported protocol");
+  const p = object(value, version === "algal.lab.study.v2" ? [...common, "primedDesigns", "counterbalance", "transferRegimes"] : common, "protocol");
   const name = text(p.name, 64, "protocol.name");
   if (!/^[a-z0-9][a-z0-9-]*$/.test(name)) throw new Error("protocol.name: use lowercase letters, digits, and hyphens");
-  const nodes = integer(p.nodes, 4, 16, "nodes");
-  const result: Protocol = {
+  const budget = parseBudget({ nodes: p.nodes, edges: p.edges, failureSteps: p.failureSteps }, "protocol");
+  const base: ProtocolV1 = {
     contract: "algal.lab.study.v1", name,
     replicateSeeds: seeds(p.replicateSeeds, 8, "replicateSeeds"),
     researchers: integer(p.researchers, 2, 8, "researchers"),
     rounds: integer(p.rounds, 1, 12, "rounds"),
-    nodes, edges: integer(p.edges, nodes - 1, Math.min(48, nodes * (nodes - 1) / 2), "edges"),
-    failureSteps: integer(p.failureSteps, 1, nodes - 2, "failureSteps"),
+    ...budget,
     discoverySeeds: seeds(p.discoverySeeds, 4, "discoverySeeds"),
     holdoutSeeds: seeds(p.holdoutSeeds, 8, "holdoutSeeds"),
   };
-  if (result.discoverySeeds.some((seed) => result.holdoutSeeds.includes(seed))) throw new Error("discovery and holdout seeds must be disjoint");
-  if (result.replicateSeeds.length * result.researchers * result.rounds * CONDITIONS.length > MAX_ATTEMPTS) throw new Error(`study exceeds ${MAX_ATTEMPTS} proposal slots`);
+  if (base.discoverySeeds.some((seed) => base.holdoutSeeds.includes(seed))) throw new Error("discovery and holdout seeds must be disjoint");
+  let result: Protocol = base;
+  if (version === "algal.lab.study.v2") {
+    if (typeof p.counterbalance !== "boolean") throw new Error("counterbalance must be a boolean");
+    if (!Array.isArray(p.transferRegimes) || p.transferRegimes.length > MAX_TRANSFER_REGIMES) throw new Error(`transferRegimes must list at most ${MAX_TRANSFER_REGIMES} budgets`);
+    const transferRegimes = p.transferRegimes.map((regime, index) => parseBudget(regime, `transferRegimes[${index}]`));
+    const keys = transferRegimes.map((r) => `${r.nodes}:${r.edges}:${r.failureSteps}`);
+    if (new Set(keys).size !== keys.length) throw new Error("repeated transfer regime");
+    // Transfer tests generalization, so a transfer budget must differ from the primary budget.
+    if (transferRegimes.some((r) => r.nodes === budget.nodes && r.edges === budget.edges)) throw new Error("transfer regime must differ from the primary node/edge budget");
+    result = { ...base, contract: "algal.lab.study.v2", primedDesigns: integer(p.primedDesigns, 0, MAX_PRIMED_DESIGNS, "primedDesigns"),
+      counterbalance: p.counterbalance, transferRegimes };
+  }
+  if (result.replicateSeeds.length * proposalSlots(result) * CONDITIONS.length > MAX_ATTEMPTS) throw new Error(`study exceeds ${MAX_ATTEMPTS} proposal slots`);
   return result;
 }
 
 export type EvidenceView = { id: string; graph: Graph; score: number };
-export type ResearchContext = {
+export type ResearchContextV1 = {
   contract: "algal.lab.context.v1";
   replicate: number;
   condition: Condition;
@@ -88,6 +139,13 @@ export type ResearchContext = {
   evidence: EvidenceView[];
   messages: { id: string; text: string }[];
 };
+/** v2 contexts name the phase. Primed attempts use round -1 and are generated
+ * by the host; transfer attempts use round = protocol.rounds and carry a
+ * transfer budget while their evidence stays at the primary budget. */
+export type ResearchContextV2 = Omit<ResearchContextV1, "contract"> & { contract: "algal.lab.context.v2"; phase: Phase };
+export type ResearchContext = ResearchContextV1 | ResearchContextV2;
+export const CONTEXT_CONTRACTS = ["algal.lab.context.v1", "algal.lab.context.v2"] as const;
+export function contextPhase(context: ResearchContext): Phase { return context.contract === "algal.lab.context.v2" ? context.phase : "discovery"; }
 export type Proposal = {
   graph: Graph;
   hypothesis: string;

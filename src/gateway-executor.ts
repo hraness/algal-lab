@@ -1,5 +1,5 @@
 import { AlgalError, canonicalize, digestCanonical, effectRequestDigest, vercelGatewayExecutor, VERCEL_AI_GATEWAY_BASE_URL, type EffectRequest, type Executor, type ExecutorMetadata, type ExecutorResult, type GatewayFetch, type JsonObject } from "@hraness/algal";
-import { freeze, json, proposalContractSchema, PROPOSAL_CONTRACT } from "./contracts";
+import { CONTEXT_CONTRACTS, freeze, json, proposalContractSchema, PROPOSAL_CONTRACT } from "./contracts";
 
 const MAX_INPUT_BYTES = 131072;
 const TOKEN_LIMIT = 1_000_000_000;
@@ -214,7 +214,7 @@ export function createGatewayExecutor(input: GatewayExecutorOptions): GatewayExe
       if (request.contract !== "algal.effect.v1" || request.kind !== "agent" || request.output.kind !== "json") throw new GatewayError("unsupported_effect");
       const context = record(request.context.inputs);
       const lab = record(context.context);
-      if (lab.contract !== "algal.lab.context.v1") throw new GatewayError("invalid_context");
+      if (!(CONTEXT_CONTRACTS as readonly unknown[]).includes(lab.contract)) throw new GatewayError("invalid_context");
       let nodes: number, edges: number, schema: JsonObject;
       try {
         nodes = lab.nodes as number; edges = lab.edges as number;

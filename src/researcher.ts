@@ -46,20 +46,45 @@ export function scriptedProposal(context: ResearchContext): Proposal {
   const seed = (context.replicate ^ Math.imul(context.researcher + 1, 2654435761) ^ Math.imul(context.round + 1, 2246822519)) >>> 0;
   const ranked = [...context.evidence].sort((a, b) => b.score - a.score || digestCanonical(json(a.graph)).localeCompare(digestCanonical(json(b.graph))));
   const parent = ranked.length ? ranked[(context.researcher + context.round) % Math.min(3, ranked.length)] : undefined;
-  const explore = context.round % 3 === 0 || parent === undefined;
-  const graph = explore ? randomGraph(context.nodes, context.edges, seed) : mutateGraph(parent.graph, seed);
+  // A transfer request carries a different budget from its evidence. The scripted
+  // policy has no transferable rule, so it samples afresh: the null transfer baseline.
+  const transferable = parent !== undefined && parent.graph.nodes === context.nodes && parent.graph.edges.length === context.edges;
+  const explore = context.round % 3 === 0 || !transferable;
+  const graph = !explore && transferable ? mutateGraph(parent.graph, seed) : randomGraph(context.nodes, context.edges, seed);
   return {
     graph,
     hypothesis: explore ? "Alternative connected topologies may distribute failure costs differently." : "A connected one-edge rewire may preserve service better under node failure.",
     prediction: parent?.score ?? 0.65,
     rationale: explore ? "Sample a connected design at the same material budget." : "Probe a local structural intervention on an observed design.",
-    parents: explore || !parent ? [] : [parent.id],
+    parents: !explore && transferable ? [parent.id] : [],
     message: "Compare node concentration and alternative paths; this suggestion is not a measured result.",
   };
 }
 export function scriptedResearcher(context: ResearchContext): Executor {
   return { id: "algal-lab:scripted-network.v1", capabilities: { effects: ["agent"] }, cacheable: false, retryable: false,
     execute: async () => json(scriptedProposal(context)) };
+}
+
+/** Host-generated initial designs for v2 protocols. The seed depends only on
+ * the replicate, researcher, and index, so every condition starts from the same
+ * designs by construction. The placeholder prediction is excluded from MAE. */
+export const PRIMED_PREDICTION = 0.5;
+export function primedSeed(replicate: number, researcher: number, index: number): number {
+  return (replicate ^ Math.imul(researcher + 1, 0x9e3779b1) ^ Math.imul(index + 1, 0x85ebca77)) >>> 0;
+}
+export function primedProposal(context: ResearchContext, index: number): Proposal {
+  return {
+    graph: randomGraph(context.nodes, context.edges, primedSeed(context.replicate, context.researcher, index)),
+    hypothesis: "Host-primed initial design; no researcher hypothesis.",
+    prediction: PRIMED_PREDICTION,
+    rationale: "Seeded connected design shared identically across conditions.",
+    parents: [],
+    message: "Primed design; not a researcher message.",
+  };
+}
+export function primedResearcher(context: ResearchContext, index: number): Executor {
+  return { id: "algal-lab:primed-design.v1", capabilities: { effects: ["agent"] }, cacheable: false, retryable: false,
+    execute: async () => json(primedProposal(context, index)) };
 }
 
 /** Matched proposal seeds and graph generator, without access to search history. */
