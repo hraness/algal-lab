@@ -275,7 +275,11 @@ def check_fosd_countermodel() -> dict[str, object]:
 
 
 def check_ai_countermodel() -> dict[str, int | Fraction]:
-    """Complete finite verifier for AI rank probabilities plus endpoint order."""
+    """Dependent AI law satisfying every improving same-size subset swap.
+
+    This refutes inference from those conclusions alone, not a theorem with
+    additional independence or conditional joint-order premises.
+    """
     labels = range(4)
     subset_probability = {
         pair: (Fraction(1, 11) if pair == (2, 3) else Fraction(2, 11))
@@ -302,6 +306,24 @@ def check_ai_countermodel() -> dict[str, int | Fraction]:
 
     orders = list(permutations(labels))
     assert sum((order_probability(order) for order in orders), Fraction(0)) == 1
+    subset_swaps = marginal_comparisons = 0
+    for size in range(1, 4):
+        law = {subset: Fraction(0) for subset in combinations(labels, size)}
+        for order in orders:
+            law[tuple(sorted(order[:size]))] += order_probability(order)
+        assert sum(law.values(), Fraction(0)) == 1
+        for better, worse in combinations(labels, 2):
+            remaining = [label for label in labels if label not in (better, worse)]
+            for common in combinations(remaining, size - 1):
+                assert law[tuple(sorted((*common, better)))] >= law[
+                    tuple(sorted((*common, worse)))]
+                subset_swaps += 1
+            assert sum(p for subset, p in law.items() if better in subset) >= sum(
+                p for subset, p in law.items() if worse in subset)
+            marginal_comparisons += 1
+        if size == 2:
+            assert law == subset_probability
+    assert subset_swaps == 24 and marginal_comparisons == 18
     transpositions = 0
     for order in orders:
         for r, s in combinations(range(4), 2):
@@ -313,6 +335,8 @@ def check_ai_countermodel() -> dict[str, int | Fraction]:
     assert sum(subset_probability.values(), Fraction(0)) == 1
     return {
         "commonEndpointChecks": common_endpoint_checks,
+        "sameSizeSubsetSwaps": subset_swaps,
+        "marginalComparisons": marginal_comparisons,
         "orders": len(orders),
         "transpositions": transpositions,
         "adjacent": adjacent,
