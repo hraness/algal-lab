@@ -44,7 +44,17 @@ trajectory, failure rule, seed, and horizon alongside the aggregate. The
 instrument's exact tie-breaking and AUC implementation are part of its versioned
 contract, not a choice made by the researcher.
 
-The seeded connected-graph baseline starts from a random recursive spanning tree
+A second instrument, `network.v2` ([heterogeneous.ts](../src/heterogeneous.ts)),
+runs the same trajectory under heterogeneous failure: each node carries an
+integer failure weight and value, random failure removes survivors with
+probability proportional to weight, and service is the most valuable surviving
+component's share of total value. Its environment is seeded per replicate
+(`environmentFor`, uniform 1..5 with a ≥3 spread guard) and is visible in the
+v3 research context — adapting a design to the environment is the measured
+skill, and the objective is deliberately label-dependent. Studies select it by
+contract: `algal.lab.study.v3` requires `instrument: "network.v2"`, and its
+exact endpoint is a bounded subset DP (`exactWeightedAuc`, ten nodes) checked
+against exhaustive weighted-order enumeration. The seeded connected-graph baseline starts from a random recursive spanning tree
 on a shuffled vertex order, then adds edges. It is not a uniform sample of all
 connected graphs with the specified counts. Generator bias limits which design
 families the baseline explores.

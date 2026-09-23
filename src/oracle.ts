@@ -109,3 +109,125 @@ export function serviceAucCeiling(nodes: number, steps: number): number {
   bounds(nodes, steps);
   return 1 - steps / (2 * nodes);
 }
+
+// ---------------- heterogeneous failure (network.v2) ----------------
+
+export type WeightedEnvironment = { weights: readonly number[]; values: readonly number[] };
+
+function admitEnvironment(value: WeightedEnvironment, nodes: number): WeightedEnvironment {
+  if (value === null || typeof value !== "object" || Array.isArray(value)) throw new Error("oracle environment: expected object");
+  const keys = Object.keys(value as object);
+  if (keys.length !== 2 || !keys.includes("weights") || !keys.includes("values")) throw new Error("oracle environment: requires exactly weights and values");
+  const read = (input: readonly number[], label: string): number[] => {
+    if (!Array.isArray(input) || input.length !== nodes) throw new Error(`oracle ${label}: expected ${nodes} entries`);
+    return input.map((entry) => {
+      if (typeof entry !== "number" || !Number.isInteger(entry) || entry < 1 || entry > 99) throw new Error(`oracle ${label}: expected integers in 1..99`);
+      return entry;
+    });
+  };
+  return { weights: read(value.weights, "weights"), values: read(value.values, "values") };
+}
+
+/** Value sum of the most valuable component among `active`, by union-find. */
+function largestValue(graph: Graph, active: number, values: readonly number[]): number {
+  const parent = Array.from({ length: graph.nodes }, (_, node) => node);
+  const root = (initial: number): number => {
+    let node = initial;
+    while (parent[node] !== node) node = parent[node]!;
+    return node;
+  };
+  for (const [a, b] of graph.edges) {
+    if ((active & (1 << a)) !== 0 && (active & (1 << b)) !== 0) parent[root(b)] = root(a);
+  }
+  const sums = new Map<number, number>();
+  for (let node = 0; node < graph.nodes; node++) {
+    if ((active & (1 << node)) !== 0) sums.set(root(node), (sums.get(root(node)) ?? 0) + values[node]!);
+  }
+  return Math.max(0, ...sums.values());
+}
+
+/**
+ * Exact expectation under weighted sequential removal without replacement.
+ * f(S) = P(the removed set after |S| steps is exactly S), by subset DP:
+ * f(S) = sum_{i in S} f(S\{i}) * w_i / (W - w(S\{i})). Expected service at
+ * step k = sum_{|S|=k} f(S) * (best component value of V\S) / V_total,
+ * integrated as a trapezoid over k = 0..steps.
+ */
+export function exactWeightedAuc(input: Graph, environment: WeightedEnvironment, steps: number): number {
+  const graph = admit(input, steps);
+  const env = admitEnvironment(environment, graph.nodes);
+  const size = 1 << graph.nodes;
+  const full = size - 1;
+  const totalWeight = env.weights.reduce((a, b) => a + b, 0);
+  const totalValue = env.values.reduce((a, b) => a + b, 0);
+  // Removed-set probabilities, popcount order.
+  const weightOf = new Float64Array(size);
+  for (let mask = 1; mask < size; mask++) {
+    const bit = mask & -mask;
+    const node = 31 - Math.clz32(bit);
+    weightOf[mask] = weightOf[mask & ~bit]! + env.weights[node]!;
+  }
+  const probability = new Float64Array(size);
+  probability[0] = 1;
+  for (let mask = 1; mask < size; mask++) {
+    let acc = 0, rest = mask;
+    while (rest) {
+      const bit = rest & -rest;
+      const node = 31 - Math.clz32(bit);
+      const prev = mask & ~bit;
+      acc += probability[prev]! * env.weights[node]! / (totalWeight - weightOf[prev]!);
+      rest &= ~bit;
+    }
+    probability[mask] = acc;
+  }
+  let weighted = 0;
+  for (let mask = 0; mask < size; mask++) {
+    const removed = popcount(mask);
+    if (removed > steps) continue;
+    const service = largestValue(graph, full & ~mask, env.values) / totalValue;
+    const coefficient = removed === 0 || removed === steps ? 1 : 2;
+    weighted += coefficient * probability[mask]! * service;
+  }
+  return weighted / (2 * steps);
+}
+
+/** Maximum possible weighted AUC when every surviving graph stays connected:
+ * service then equals the surviving value fraction. Tight upper bound. */
+export function weightedServiceAucCeiling(environment: WeightedEnvironment, nodes: number, steps: number): number {
+  bounds(nodes, steps);
+  const env = admitEnvironment(environment, nodes);
+  const size = 1 << nodes;
+  const totalWeight = env.weights.reduce((a, b) => a + b, 0);
+  const totalValue = env.values.reduce((a, b) => a + b, 0);
+  const weightOf = new Float64Array(size);
+  for (let mask = 1; mask < size; mask++) {
+    const bit = mask & -mask;
+    weightOf[mask] = weightOf[mask & ~bit]! + env.weights[31 - Math.clz32(bit)]!;
+  }
+  const valueOf = new Float64Array(size);
+  for (let mask = 1; mask < size; mask++) {
+    const bit = mask & -mask;
+    valueOf[mask] = valueOf[mask & ~bit]! + env.values[31 - Math.clz32(bit)]!;
+  }
+  const probability = new Float64Array(size);
+  probability[0] = 1;
+  for (let mask = 1; mask < size; mask++) {
+    let acc = 0, rest = mask;
+    while (rest) {
+      const bit = rest & -rest;
+      const node = 31 - Math.clz32(bit);
+      const prev = mask & ~bit;
+      acc += probability[prev]! * env.weights[node]! / (totalWeight - weightOf[prev]!);
+      rest &= ~bit;
+    }
+    probability[mask] = acc;
+  }
+  let weighted = 0;
+  for (let mask = 0; mask < size; mask++) {
+    const removed = popcount(mask);
+    if (removed > steps) continue;
+    const coefficient = removed === 0 || removed === steps ? 1 : 2;
+    weighted += coefficient * probability[mask]! * (1 - valueOf[mask]! / totalValue);
+  }
+  return weighted / (2 * steps);
+}

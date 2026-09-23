@@ -91,14 +91,14 @@ export async function readRuntimeSources(root: URL = RUNTIME_ROOT): Promise<[str
 /** Source identities recorded in every report. applicationDigest binds the
  * laboratory sources and the installed ALGAL runtime; the lockfile must pin that
  * runtime to ALGAL_REVISION so the recorded revision names the hashed code. */
-export async function sourceIdentities(): Promise<{ instrumentDigest: `sha256:${string}`; applicationDigest: `sha256:${string}` }> {
-  const names = ["network.ts", "contracts.ts", "researcher.ts", "study.ts", "artifacts.ts", "oracle.ts", "qualification.ts", "xcb-executor.ts", "gateway-executor.ts", "statistics.ts", "topology.ts", "comparison.ts", "../examples/xcb-study.ts", "../examples/gateway-study.ts", "../examples/gateway-compare.ts", "../cli.ts", "../package.json", "../bun.lock"];
+export async function sourceIdentities(instrument: "network.v1" | "network.v2" = "network.v1"): Promise<{ instrumentDigest: `sha256:${string}`; applicationDigest: `sha256:${string}` }> {
+  const names = ["network.ts", "heterogeneous.ts", "contracts.ts", "researcher.ts", "study.ts", "artifacts.ts", "oracle.ts", "qualification.ts", "xcb-executor.ts", "gateway-executor.ts", "statistics.ts", "topology.ts", "comparison.ts", "../examples/xcb-study.ts", "../examples/gateway-study.ts", "../examples/gateway-compare.ts", "../cli.ts", "../package.json", "../bun.lock"];
   const [sources, runtime] = await Promise.all([
     Promise.all(names.map(async (name) => [name, await readFile(new URL(name, import.meta.url), "utf8")] as const)),
     readRuntimeSources(),
   ]);
   const source = (name: string) => sources.find((entry) => entry[0] === name)![1];
   assertRuntimePinned(source("../bun.lock"), source("../package.json"));
-  return { instrumentDigest: digest({ source: sources[0]![1], version: "network.v1" }),
+  return { instrumentDigest: digest({ source: source(instrument === "network.v2" ? "heterogeneous.ts" : "network.ts"), version: instrument }),
     applicationDigest: digest({ ...Object.fromEntries(sources), [`node_modules/${RUNTIME_PACKAGE}`]: runtimeDigest(runtime) }) };
 }

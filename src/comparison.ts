@@ -2,9 +2,10 @@ import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { canonicalize, type Executor } from "@hraness/algal";
 import { ArtifactStore, digest, digestString, readJsonFile, sourceIdentities } from "./artifacts";
-import { CONDITIONS, conditionOrder, contextPhase, effectiveSeedCollisions, equal, integer, json, object, parseBudget, parseProtocol, proposalSlots, text, type Budget, type Condition, type ProtocolV2 } from "./contracts";
+import { CONDITIONS, conditionOrder, contextPhase, effectiveSeedCollisions, equal, integer, json, object, parseBudget, parseProtocol, proposalSlots, protocolSettings, text, type Budget, type Condition, type Instrument, type Protocol } from "./contracts";
+import { environmentFor, simulateHeterogeneous, type FailureEnvironment } from "./heterogeneous";
 import { simulate, type Graph } from "./network";
-import { exactRandomAuc, serviceAucCeiling } from "./oracle";
+import { exactRandomAuc, exactWeightedAuc, serviceAucCeiling, weightedServiceAucCeiling } from "./oracle";
 import { referenceGraph } from "./qualification";
 import { pairedInference, type PairedInference } from "./statistics";
 import { runStudy, verifyStudy, type Attempt, type StudyReport, type Summary } from "./study";
@@ -27,7 +28,8 @@ export const ARM_CONTRASTS = ["live-minus-random", "live-minus-adaptive", "adapt
 export type ArmContrast = typeof ARM_CONTRASTS[number];
 
 export type ComparisonPlan = {
-  contract: "algal.lab.comparison-plan.v1"; name: string; replicateSeeds: number[]; researchers: number; rounds: number;
+  contract: "algal.lab.comparison-plan.v1" | "algal.lab.comparison-plan.v2"; name: string; instrument: Instrument;
+  replicateSeeds: number[]; researchers: number; rounds: number;
   primedDesigns: number; primary: Budget; transferRegimes: Budget[]; discoverySeeds: number[]; holdoutSeeds: number[]; margin: number;
 };
 export type TransferRow = {
@@ -44,9 +46,10 @@ export type ComparisonRow = {
 export type ContrastRow = { arm: Arm; scope: string; contrast: Contrast; inference: PairedInference };
 export type ArmContrastRow = { scope: string; condition: Condition; contrast: ArmContrast; inference: PairedInference };
 export type ComparisonReport = {
-  contract: "algal.lab.comparison.v1"; plan: ComparisonPlan; arms: Arm[]; instrumentDigest: string; applicationDigest: string;
+  contract: "algal.lab.comparison.v2"; plan: ComparisonPlan; arms: Arm[]; instrumentDigest: string; applicationDigest: string;
   studies: { id: string; arm: Arm; chunk: number; reportDigest: string }[];
-  references: { scope: string; budget: Budget; graph: Graph; topologyDigest: string; exactRandomAuc: number; targetedAuc: number; ceiling: number }[];
+  references: { scope: string; budget: Budget; graph: Graph; topologyDigest: string; exactRandomAuc: number; targetedAuc: number; ceiling: number;
+    perReplicate: { replicate: number; exactRandomAuc: number; targetedAuc: number; ceiling: number }[] }[];
   rows: ComparisonRow[]; contrasts: ContrastRow[]; armContrasts: ArmContrastRow[];
   controls: { allSlotsRetained: boolean; primedIdenticalAcrossConditions: boolean; primedIdenticalAcrossArms: boolean; randomIgnoresSharing: boolean;
     scriptedIgnoresMessages: boolean; counterbalanced: boolean; transferBudgetsHonored: boolean; championsSelectedBeforeHoldout: true };
@@ -64,8 +67,16 @@ function oracleBudget(value: unknown, label: string): Budget {
   return budget;
 }
 export function parseComparisonPlan(value: unknown): ComparisonPlan {
-  const p = object(value, ["contract", "name", "replicateSeeds", "researchers", "rounds", "primedDesigns", "primary", "transferRegimes", "discoverySeeds", "holdoutSeeds", "margin"], "comparison plan");
-  if (p.contract !== "algal.lab.comparison-plan.v1") throw new Error("unsupported comparison plan");
+  const version = value !== null && typeof value === "object" && !Array.isArray(value) ? (value as Record<string, unknown>).contract : undefined;
+  if (version !== "algal.lab.comparison-plan.v1" && version !== "algal.lab.comparison-plan.v2") throw new Error("unsupported comparison plan");
+  const keys = ["contract", "name", "replicateSeeds", "researchers", "rounds", "primedDesigns", "primary", "transferRegimes", "discoverySeeds", "holdoutSeeds", "margin"];
+  // instrument defaults under the v1 contract; every other unknown field still rejects.
+  const filled = value !== null && typeof value === "object" && !Array.isArray(value)
+    ? { ...(value as Record<string, unknown>), instrument: ("instrument" in value ? (value as Record<string, unknown>).instrument : "network.v1") } : value;
+  const p = object(filled, [...keys, "instrument"], "comparison plan");
+  const expected = version === "algal.lab.comparison-plan.v2" ? "network.v2" : "network.v1";
+  if (p.instrument !== expected) throw new Error(`instrument must be ${expected}`);
+  const instrument = p.instrument as Instrument;
   if (!Array.isArray(p.replicateSeeds) || p.replicateSeeds.length < 4 || p.replicateSeeds.length > 16) throw new Error("comparison requires 4..16 replicate seeds");
   const replicateSeeds = p.replicateSeeds.map((seed) => integer(seed, 0, 0xffffffff, "replicate seed"));
   if (new Set(replicateSeeds).size !== replicateSeeds.length) throw new Error("repeated replicate seed");
@@ -76,26 +87,28 @@ export function parseComparisonPlan(value: unknown): ComparisonPlan {
   const [collision] = effectiveSeedCollisions({ replicateSeeds, discoverySeeds: p.discoverySeeds as number[], holdoutSeeds: p.holdoutSeeds as number[] });
   if (collision) throw new Error(`effective seed ${collision[0].effective} repeats across the plan's replicates`);
   const transferRegimes = p.transferRegimes.map((regime, index) => oracleBudget(regime, `transferRegimes[${index}]`));
-  // Every chunk must admit as a v2 protocol; the first chunk's protocol carries the shared seed bounds.
-  const protocol = parseProtocol({ contract: "algal.lab.study.v2", name: "admission", replicateSeeds: replicateSeeds.slice(0, CHUNK),
+  // Every chunk must admit as a study protocol; the first chunk carries the shared seed bounds.
+  const admission = { contract: instrument === "network.v2" ? "algal.lab.study.v3" : "algal.lab.study.v2", name: "admission", replicateSeeds: replicateSeeds.slice(0, CHUNK),
     researchers: integer(p.researchers, 2, 3, "researchers"), rounds: integer(p.rounds, 1, 6, "rounds"), ...primary,
     discoverySeeds: p.discoverySeeds, holdoutSeeds: p.holdoutSeeds, primedDesigns: integer(p.primedDesigns, 1, 4, "primedDesigns"),
-    counterbalance: true, transferRegimes }) as ProtocolV2;
-  return { contract: "algal.lab.comparison-plan.v1", name: slug(p.name), replicateSeeds, researchers: protocol.researchers, rounds: protocol.rounds,
-    primedDesigns: protocol.primedDesigns, primary, transferRegimes: protocol.transferRegimes, discoverySeeds: protocol.discoverySeeds,
+    counterbalance: true, transferRegimes, ...(instrument === "network.v2" ? { instrument: "network.v2" } : {}) };
+  const protocol = parseProtocol(admission);
+  return { contract: version, name: slug(p.name), instrument, replicateSeeds, researchers: protocol.researchers, rounds: protocol.rounds,
+    primedDesigns: protocolSettings(protocol).primedDesigns, primary, transferRegimes: protocolSettings(protocol).transferRegimes, discoverySeeds: protocol.discoverySeeds,
     holdoutSeeds: protocol.holdoutSeeds, margin: p.margin };
 }
 
-type Descriptor = { id: string; arm: Arm; chunk: number; protocol: ProtocolV2 };
+type Descriptor = { id: string; arm: Arm; chunk: number; protocol: Protocol };
 export function comparisonStudies(plan: ComparisonPlan, arms: readonly Arm[]): Descriptor[] {
   const result: Descriptor[] = [];
   for (const arm of arms) {
     for (let offset = 0; offset < plan.replicateSeeds.length; offset += CHUNK) {
       const chunk = offset / CHUNK;
       const id = `${arm}-${chunk}`;
-      result.push({ id, arm, chunk, protocol: parseProtocol({ contract: "algal.lab.study.v2", name: id, replicateSeeds: plan.replicateSeeds.slice(offset, offset + CHUNK),
+      result.push({ id, arm, chunk, protocol: parseProtocol({ contract: plan.instrument === "network.v2" ? "algal.lab.study.v3" : "algal.lab.study.v2", name: id, replicateSeeds: plan.replicateSeeds.slice(offset, offset + CHUNK),
         researchers: plan.researchers, rounds: plan.rounds, ...plan.primary, discoverySeeds: plan.discoverySeeds, holdoutSeeds: plan.holdoutSeeds,
-        primedDesigns: plan.primedDesigns, counterbalance: true, transferRegimes: plan.transferRegimes }) as ProtocolV2 });
+        primedDesigns: plan.primedDesigns, counterbalance: true, transferRegimes: plan.transferRegimes,
+        ...(plan.instrument === "network.v2" ? { instrument: "network.v2" as const } : {}) }) });
     }
   }
   return result;
@@ -115,12 +128,35 @@ function targetedAuc(graph: Graph, steps: number): number { return simulate(grap
 const scopeOf = (index: number) => index < 0 ? "primary" : `transfer-${index}`;
 
 async function reconstruct(plan: ComparisonPlan, arms: Arm[], directory: string): Promise<ComparisonReport> {
-  const identities = await sourceIdentities();
+  const identities = await sourceIdentities(plan.instrument);
   const budgets = [plan.primary, ...plan.transferRegimes];
+  // Under network.v2 each replicate poses a different environment; fixed-design
+  // references and every champion endpoint are evaluated per replicate.
+  const env = (nodes: number, replicate: number): FailureEnvironment | undefined =>
+    plan.instrument === "network.v2" ? environmentFor(nodes, replicate) : undefined;
+  const exactAuc = (graph: Graph, replicate: number, steps: number): number => {
+    const environment = env(graph.nodes, replicate);
+    return environment === undefined ? exactRandomAuc(graph, steps) : exactWeightedAuc(graph, environment, steps);
+  };
+  const targetedOf = (graph: Graph, replicate: number, steps: number): number => {
+    const environment = env(graph.nodes, replicate);
+    return environment === undefined ? targetedAuc(graph, steps) : simulateHeterogeneous(graph, environment, { kind: "targeted", seed: 0, steps }).metrics.auc;
+  };
+  const ceilingOf = (nodes: number, replicate: number, steps: number): number => {
+    const environment = env(nodes, replicate);
+    return environment === undefined ? serviceAucCeiling(nodes, steps) : weightedServiceAucCeiling(environment, nodes, steps);
+  };
+  const meanOf = (values: number[]) => values.reduce((a, b) => a + b, 0) / values.length;
   const references = budgets.map((budget, index) => {
     const graph = referenceGraph(budget.nodes, budget.edges);
-    return { scope: scopeOf(index - 1), budget, graph, topologyDigest: topologyDigest(graph), exactRandomAuc: exactRandomAuc(graph, budget.failureSteps),
-      targetedAuc: targetedAuc(graph, budget.failureSteps), ceiling: serviceAucCeiling(budget.nodes, budget.failureSteps) };
+    const perReplicate = plan.replicateSeeds.map((replicate) => ({ replicate,
+      exactRandomAuc: exactAuc(graph, replicate, budget.failureSteps),
+      targetedAuc: targetedOf(graph, replicate, budget.failureSteps),
+      ceiling: ceilingOf(budget.nodes, replicate, budget.failureSteps) }));
+    return { scope: scopeOf(index - 1), budget, graph, topologyDigest: topologyDigest(graph),
+      exactRandomAuc: meanOf(perReplicate.map((row) => row.exactRandomAuc)),
+      targetedAuc: meanOf(perReplicate.map((row) => row.targetedAuc)),
+      ceiling: meanOf(perReplicate.map((row) => row.ceiling)), perReplicate };
   });
   const referenceTopology = (scope: string) => references.find((r) => r.scope === scope)!.topologyDigest;
   const studies: ComparisonReport["studies"] = [];
@@ -153,11 +189,11 @@ async function reconstruct(plan: ComparisonPlan, arms: Arm[], directory: string)
       const seen = primedByReplicate.get(summary.replicate);
       if (seen === undefined) primedByReplicate.set(summary.replicate, primedGraphs);
       else if (seen !== primedGraphs) { if (descriptor.arm === rows.find((r) => r.replicate === summary.replicate)?.arm) primedIdenticalAcrossConditions = false; else primedIdenticalAcrossArms = false; }
-      const bestPrimedExactAuc = Math.max(0, ...primed.flatMap((a) => a.measurement ? [exactRandomAuc(a.measurement.proposal.graph, plan.primary.failureSteps)] : []));
+      const bestPrimedExactAuc = Math.max(0, ...primed.flatMap((a) => a.measurement ? [exactAuc(a.measurement.proposal.graph, summary.replicate, plan.primary.failureSteps)] : []));
       const members = await portfolioOf(summary);
       const champion = summary.selectedAttempt ? attempts.get(summary.selectedAttempt) : undefined;
       const graph = champion?.measurement?.proposal.graph;
-      const championExactAuc = graph ? exactRandomAuc(graph, plan.primary.failureSteps) : null;
+      const championExactAuc = graph ? exactAuc(graph, summary.replicate, plan.primary.failureSteps) : null;
       const sequence = own.filter((a) => contextPhase(a.context) !== "transfer").map((a) => a.measurement ? digest(a.measurement.proposal.graph) : null);
       const transfers: TransferRow[] = [];
       for (const [index, transfer] of summary.transfers.entries()) {
@@ -171,7 +207,7 @@ async function reconstruct(plan: ComparisonPlan, arms: Arm[], directory: string)
         transfers.push({ regime, attempts: transfer.attempts, valid: transfer.validExperiments, uniqueDesigns: transfer.uniqueDesigns, topologyClasses: classes,
           citedParents: proposals.filter((a) => (a.measurement?.proposal.parents.length ?? 0) > 0).length,
           championAttempt: transfer.selectedAttempt, championGraphDigest: selected ? digest(selected) : null, championTopologyDigest: selected ? topologyDigest(selected) : null,
-          championExactAuc: selected ? exactRandomAuc(selected, regime.failureSteps) : null, championTargetedAuc: transfer.selectedTargetedAuc,
+          championExactAuc: selected ? exactAuc(selected, summary.replicate, regime.failureSteps) : null, championTargetedAuc: transfer.selectedTargetedAuc,
           matchesReferenceTopology: selected ? topologyDigest(selected) === referenceTopology(scopeOf(index)) : false });
       }
       rows.push({ arm: descriptor.arm, replicate: summary.replicate, condition: summary.condition, attempts: summary.attempts, valid: summary.validExperiments,
@@ -210,7 +246,7 @@ async function reconstruct(plan: ComparisonPlan, arms: Arm[], directory: string)
     scriptedIgnoresMessages &&= controlled(find("adaptive", seed, "shared-artifacts"), find("adaptive", seed, "shared-artifacts-and-messages"));
   }
   const allSlotsRetained = rows.every((r) => r.attempts === plan.researchers * plan.rounds && r.primed === plan.researchers * plan.primedDesigns && r.transfers.every((t) => t.attempts === plan.researchers));
-  return { contract: "algal.lab.comparison.v1", plan, arms, ...identities, studies, references, rows, contrasts, armContrasts,
+  return { contract: "algal.lab.comparison.v2", plan, arms, ...identities, studies, references, rows, contrasts, armContrasts,
     controls: { allSlotsRetained, primedIdenticalAcrossConditions, primedIdenticalAcrossArms, randomIgnoresSharing, scriptedIgnoresMessages, counterbalanced, transferBudgetsHonored, championsSelectedBeforeHoldout: true } };
 }
 
@@ -255,7 +291,7 @@ export function renderComparison(report: ComparisonReport): string {
   const live = report.arms.includes("live");
   return `# ${report.plan.name}\n\n` +
     `Replicated comparison under the frozen plan in [plan.json](plan.json): ${report.plan.replicateSeeds.length} replicate seeds, ${report.plan.researchers} researchers, ${report.plan.rounds} discovery rounds, ${report.plan.primedDesigns} host-primed design(s) per researcher (identical across conditions and arms by construction), counterbalanced condition order, primary budget ${budget(report.plan.primary)}${report.plan.transferRegimes.length ? `, transfer budgets ${report.plan.transferRegimes.map(budget).join(" and ")}` : ""}. Arms: ${report.arms.join(", ")}${live ? "" : " (no live arm: this is a scripted control run, not model evidence)"}.\n\n` +
-    `The endpoint is the discovery-selected champion's exact expected random-failure AUC (full uniform removal distribution, oracle-computed, label-invariant). Champions are selected before any holdout measurement. A condition without a valid champion scores zero (failure-inclusive). Intervals are 95% percentile bootstrap intervals over paired replicate differences; p-values are exact two-sided sign-flip and Wilcoxon signed-rank tests. The preregistered practical margin is ${report.plan.margin} AUC points; a verdict of exceeds-margin requires the whole interval above it.\n\n` +
+    `The endpoint is the discovery-selected champion's exact expected random-failure AUC (${report.plan.instrument === "network.v2" ? "full weighted removal distribution under each replicate's seeded environment, oracle-computed, label-dependent; per-replicate values are reported per environment" : "full uniform removal distribution, oracle-computed, label-invariant"}). Champions are selected before any holdout measurement. A condition without a valid champion scores zero (failure-inclusive). Intervals are 95% percentile bootstrap intervals over paired replicate differences; p-values are exact two-sided sign-flip and Wilcoxon signed-rank tests. The preregistered practical margin is ${report.plan.margin} AUC points; a verdict of exceeds-margin requires the whole interval above it.\n\n` +
     `## Mean champion exact AUC by arm and condition\n\n| Scope | Arm | Isolated | Shared artifacts | Shared artifacts and messages | Fixed reference | Ceiling |\n| --- | --- | ---: | ---: | ---: | ---: | ---: |\n` +
     scopes.flatMap((scope) => report.arms.map((arm) => { const ref = report.references[scope + 1]!; return `| ${scopeOf(scope)} | ${arm} | ${f(armMean(arm, "isolated", scope))} | ${f(armMean(arm, "shared-artifacts", scope))} | ${f(armMean(arm, "shared-artifacts-and-messages", scope))} | ${f(ref.exactRandomAuc)} | ${f(ref.ceiling)} |`; })).join("\n") +
     `\n\n## Information-sharing contrasts (paired by seed within an arm)\n\n| Scope | Arm | Contrast | Mean | 95% bootstrap | Sign-flip p | Wilcoxon p | W/T/L | Verdict |\n| --- | --- | --- | ---: | --- | ---: | ---: | --- | --- |\n` +

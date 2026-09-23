@@ -87,10 +87,15 @@ for a research substrate, not completion of the scientific claims below.
    topology (isomorphism) classes tracked separately from labeled graphs.
    Scripted arms are controls; a live arm requires an admitted executor
    (`--executor-command`, or the pinned Gateway route in
-   [`gateway-compare.ts`](../examples/gateway-compare.ts)). The
-   [frozen plan](comparison-plan.md) registers seeds, budgets, contrasts, the
-   practical margin, and the live call budget before the first live run, and
-   no comparison result is claimed yet.
+   [`gateway-compare.ts`](../examples/gateway-compare.ts)). The headroom spike
+   showed the network.v1 objective saturated at the registered budgets, so the
+   first live run registers the heterogeneous-failure instrument
+   (`network.v2`, `src/heterogeneous.ts`: weighted random removal,
+   value-fraction service, exact subset-DP oracle, seeded per-replicate
+   environments) in the [v2 plan](comparison-plan-v2.md) at sparse budgets
+   that clear the preregistered 0.03 headroom bar. The v1
+   [frozen plan](comparison-plan.md) remains the scripted-control baseline,
+   and no comparison result is claimed yet.
 3. **Develop reusable scientific memory.** Add typed claims with supporting and
    contradicting experiments, exact lineage, failed hypotheses, and targeted
    replication requests. Separate a researcher's explanation from measured

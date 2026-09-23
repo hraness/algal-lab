@@ -5,5 +5,5 @@ import type { ResearchContext } from "../src/contracts";
 const input = await Bun.stdin.text();
 if (Buffer.byteLength(input) > 131072) throw new Error("request exceeds bound");
 const request = JSON.parse(input);
-if (request.contract !== "algal.effect.v1" || request.kind !== "agent" || request.context?.inputs?.context?.contract !== "algal.lab.context.v1") throw new Error("unexpected ALGAL request");
+if (request.contract !== "algal.effect.v1" || request.kind !== "agent" || !["algal.lab.context.v1", "algal.lab.context.v2", "algal.lab.context.v3"].includes((request.context?.inputs?.context as { contract?: string })?.contract ?? "")) throw new Error("unexpected ALGAL request");
 console.log(JSON.stringify(scriptedProposal(request.context.inputs.context as ResearchContext)));
