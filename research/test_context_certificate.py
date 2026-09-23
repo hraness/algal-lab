@@ -5,6 +5,8 @@ import unittest
 from research.context_certificate import (
     CONTINUOUS_TWO_BACKGROUND_WITNESS,
     GapMinimum,
+    ORDERED_TWO_BACKGROUND_NECESSARY,
+    STRICT_ORDERED_TWO_BACKGROUND_NECESSARY,
     TWO_BACKGROUND_NECESSARY,
     UNIVERSAL_BEYOND_HAZARD_ORDERS,
     small_background_minima,
@@ -123,6 +125,52 @@ class ContextCertificateTests(unittest.TestCase):
         self.assertEqual(q, categorical_oracle(rows, 3))
         self.assertEqual(q[0, 2] + q[1, 3] - q[0, 3] - q[1, 2],
                          Fraction(-4531, 1572864))
+
+    def test_two_backgrounds_necessary_under_cdf_order(self):
+        rows = ORDERED_TWO_BACKGROUND_NECESSARY
+        for endpoint in range(8):
+            cdfs = [Fraction(sum(row[:endpoint]), sum(row)) for row in rows]
+            self.assertEqual(cdfs, sorted(cdfs))
+        self.assertEqual(small_background_minima(rows),
+                         ((Fraction(26, 729), Fraction(0), Fraction(0)),
+                          (Fraction(11, 1458), Fraction(0), Fraction(0))))
+        self.assertEqual(universal_gap_minima(rows),
+                         (GapMinimum(Fraction(0), Fraction(0), Fraction(0)),
+                          GapMinimum(Fraction(-1, 1458), Fraction(2), Fraction(4))))
+        self.assertEqual(threshold_gaps(rows, 2, 5), (Fraction(8, 729), Fraction(-1, 1458)))
+        self.assertEqual(direct_gaps(rows, [2, 5], 3), (Fraction(8, 729), Fraction(-1, 1458)))
+
+    def test_ordered_continuous_witness(self):
+        from research.spikes.context.continuous import verify
+
+        result = verify()
+        self.assertEqual(result["gaps"], (Fraction(133, 11664), Fraction(-7, 11664)))
+        self.assertEqual(result["totalProbability"], 1)
+
+    def test_strict_order_and_positive_densities(self):
+        rows = STRICT_ORDERED_TWO_BACKGROUND_NECESSARY
+        self.assertEqual([sum(row) for row in rows], [118] * 4)
+        self.assertTrue(all(mass > 0 for row in rows for mass in row))
+        # CDF differences are affine per bin: strict interior endpoints,
+        # and strict slopes on the first/last bins, establish strict order.
+        for endpoint in range(1, 7):
+            cdfs = [sum(row[:endpoint]) for row in rows]
+            self.assertTrue(all(a < b for a, b in zip(cdfs, cdfs[1:])))
+        self.assertEqual(small_background_minima(rows),
+                         ((Fraction(7671, 205379), Fraction(0), Fraction(0)),
+                          (Fraction(1723, 205379), Fraction(0), Fraction(0))))
+        self.assertEqual(universal_gap_minima(rows),
+                         (GapMinimum(Fraction(0), Fraction(0), Fraction(0)),
+                          GapMinimum(Fraction(-5, 410758), Fraction(2), Fraction(5))))
+        self.assertEqual(direct_gaps(rows, [2, 5], 3),
+                         (Fraction(4989, 410758), Fraction(-5, 410758)))
+
+    def test_pathwise_reduction_with_focal_dependence_and_ties(self):
+        from research.spikes.context.pathwise import check_case
+
+        for scores in ([1, 1, 3, 3, 0, 2, 2], [3, 3, 1, 1, 0, 4],
+                       [0, 1, 2, 3], [1, 3, 5, 7, -2, 8]):
+            self.assertGreater(check_case(scores, 4), 0)
 
     def test_admission_and_cap(self):
         invalid_rows = (

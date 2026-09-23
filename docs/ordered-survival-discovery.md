@@ -201,6 +201,11 @@ comparisons.
 The adjacent-versus-crossing half makes the cost matrix `-q` a Demidenko
 matrix in rate order; see [Çela, Deineko and Woeginger (2023), definition 2.1](https://arxiv.org/abs/2302.05191).
 The full chain has an additional orientation not supplied by that definition.
+In established matrix terminology, the sign-reversed full chain is Supnick's
+four-point condition. Equivalently, the disagreement pseudometric
+`d_ij=P(I_i≠I_j)=q_i+q_j−2q_ij` satisfies the Supnick chain, because
+the marginal terms cancel. See [Kalmanson (1975), p. 1001](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00016291)
+and the expanded [source comparison](novelty-ledger.md).
 Matching exchanges and reliability rearrangements themselves are established
 methods; see [Boland, Proschan and Tong (1989)](https://doi.org/10.1002/1520-6750(198912)36:6%3C807::AID-NAV3220360606%3E3.0.CO;2-I).
 

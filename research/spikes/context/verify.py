@@ -12,6 +12,8 @@ from itertools import combinations, product
 from math import comb
 
 from research.context_certificate import (
+    ORDERED_TWO_BACKGROUND_NECESSARY,
+    STRICT_ORDERED_TWO_BACKGROUND_NECESSARY,
     TWO_BACKGROUND_NECESSARY,
     UNIVERSAL_BEYOND_HAZARD_ORDERS,
     small_background_minima,
@@ -173,6 +175,8 @@ def verify() -> dict[str, int]:
     fixtures = (ORDERED_EXAMPLE, STOCHASTIC_ONLY_EXAMPLE, VERTEX_EXAMPLE,
                 DIAGONAL_EXAMPLE, DEGENERATE_EXAMPLE,
                 UNIVERSAL_BEYOND_HAZARD_ORDERS, TWO_BACKGROUND_NECESSARY,
+                ORDERED_TWO_BACKGROUND_NECESSARY,
+                STRICT_ORDERED_TWO_BACKGROUND_NECESSARY,
                 [ORDERED_EXAMPLE[i] for i in (0, 2, 1, 3)],
                 list(reversed(ORDERED_EXAMPLE)))
     conditional_checks = 0
@@ -208,4 +212,9 @@ def verify() -> dict[str, int]:
 
 
 if __name__ == "__main__":
+    from research.spikes.context.pathwise import verify as verify_pathwise
+    from research.spikes.context.support_width import verify as verify_support_width
+
     print("context certificate:", verify())
+    print("pathwise context reduction:", verify_pathwise())
+    print("minimal rank contexts:", verify_support_width())
