@@ -49,8 +49,9 @@ property specific to successive sampling.
 
 **Rudys (2012), Inclusion probabilities for successive sampling.**
 [Full six-page workshop paper](https://www.statistikuasociacija.lv/workshop2012/papers/W2012_CP_RUDYS_TOMAS.pdf).
-Full extracted text read. Equation 7 supplies second-order order-sampling
-inclusion integrals. This is representation precedent.
+Full extracted text read. Section 4, equation (6), gives the general
+second-order inclusion integral for independent order sampling; equation (7)
+specializes it to exponential scores. This is representation precedent.
 
 **Rosén (1998), On inclusion probabilities for order sampling, R&D Report
 1998:2.** [Official Statistics Sweden full report](https://www.scb.se/contentassets/14f5e346f4814dd0acd52d10b23286c6/rnd-report-1998-02-green.pdf).
@@ -69,6 +70,20 @@ of first- and second-order inclusion probabilities under order sampling. A full
 comparison with its formulas and identities remains outstanding. Its
 [OpenAlex record](https://openalex.org/W2048491060) was also checked for public
 copies and supplied no open PDF; that metadata is not proof that none exists.
+Further bounded searches of author, Melbourne/ABS and thesis routes did
+not recover the original. Its accuracy-check identities remain unread;
+they must not be assumed to be just the familiar fixed-sample-size identities.
+
+**Matei (2005), Computational aspects of sample surveys.**
+The [complete Neuchâtel dissertation](https://libra.unine.ch/server/api/core/bitstreams/93669154-3cd3-4ce4-8a12-48765e2e27f2/content)
+was recovered. Sections 1.3.1 and 2.2, the Chapter 2 introduction and the
+bibliography were inspected. Equation (2.2) expresses first inclusion using
+an outside order statistic; equation (2.3), credited to Cao–West (1997),
+recursively evaluates a nonidentical independent order statistic's CDF.
+The thesis cites the forthcoming Ng–Donadio paper as another method but
+does not reproduce its algorithm. Its coordinated-sample joint probability
+concerns one unit on two occasions, rather than two units in one sample.
+This is additional method precedent, not clearance of the unread original.
 
 **Boland, Proschan and Tong (1989), Optimal arrangement of components via
 pairwise rearrangements.**
@@ -220,13 +235,20 @@ for random utility models with dependent utilities.**
 Definitions 2.2–2.8, Theorems 3.10, 3.12, 3.13, Corollary 3.14 and their
 proofs were read. They give alternative/subset preferences and improving-rank
 transposition comparisons through joint stochastic or likelihood-ratio
-orders; Theorem 3.12 identifies the relevant likelihood-ratio condition
+orders. In particular, the proof of Theorem 3.10, printed page 6, compares
+individual top-`t` sets: `P_t(A∪{j})≥P_t(A∪{k})` for every common
+`(t−1)`-subset `A`, under conditional joint stochastic order (3.8).
+Independent FOSD satisfies that premise. This is stronger than marginal
+top-size membership order and is explicitly credited here.
+Theorem 3.12 identifies the relevant likelihood-ratio condition
 with an arrangement-increasing (AI) joint density. The existing dependent
 countermodel also meets that density premise: on each order cone of the unit
 cube give density `24` times its order probability. Those probabilities pass
-all improving transpositions, but give an adjacent pair sum `3/11` below the
-crossing sum `4/11`. Thus the broad AI premise alone does not imply the
-target additive quartet comparison. This distinguishes the inspected result;
+all 72 improving transpositions and all 24 improving same-size subset swaps
+at top sizes one, two and three, but give an adjacent pair sum `3/11` below
+the crossing sum `4/11`. The [exact verifier](../research/spikes/rank/verify.py)
+constructs each top-size law from all 24 full rankings. Thus the broad AI premise
+alone does not imply the target additive quartet comparison. This distinguishes the inspected result;
 it does not exclude a stronger theorem using independence. The inspected
 source is the 2005 preprint, not an assumed identical 2007 final version.
 
@@ -243,6 +265,12 @@ categorical calculation confirms that the strict seven-bin example has those
 ordered marginals while its second quartet gap is `−5/410758`. This refutes
 deduction from that specific weaker conclusion. It does not clear unread
 Joe theorems; the fixture also does not satisfy likelihood-ratio order.
+The stronger subset-swap conclusion in Belzunce's proof is now checked
+separately above; even that conclusion alone does not give the first quartet
+gap. The dependent counterlaw does not rule out an implication from additional
+independence assumptions. Inspection of the UBC technical-report archive
+entries 154–213 (1995–2005) recovered neither original. No inference of
+priority is drawn from that bounded search.
 
 **Regenwetter, Marley and Joe (1998), Random Utility Threshold Models of
 Subset Choice.**
