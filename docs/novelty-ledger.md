@@ -6,6 +6,8 @@ not a certificate that no equivalent result exists. Proofs are in the
 [rank-selection and groups note](rank-selection-and-triples.md),
 [all-horizon group proof](intact-groups-all-horizons.md),
 [stochastic-order group theorem](stochastic-intact-groups.md),
+[three-triple extension](block-separated-triples.md),
+[CDF robustness](robust-stochastic-groups.md),
 [two-threshold certificate](two-threshold-certificate.md),
 [context reduction and ordered sharpness](rank-context-compression.md), and
 [minimal rank contexts](minimal-rank-contexts.md).
@@ -18,6 +20,9 @@ not a certificate that no equivalent result exists. Proofs are in the
 | Adjacent/extreme optimal pairing once the chain is available | Proved | Standard exchange consequence |
 | Consecutive equal groups stochastically maximize intact count at every survivor horizon | Proved for independent atomless clocks under ordinary stochastic order; arbitrary independent background vector allowed; atoms permitted with uniform or aligned ties | General assembly/supermodular sorting is established prior art; priority of the FOSD random-rank application unresolved |
 | Cut-separated quartet comparison remains valid with nonnegative outside selection factors | Proved by a positive integral and conditional rank counting; gives the all-size grouping theorem by product factorization | Precise rank-cutoff implication not located; conditioning and telescoping are established methods |
+| Three target triples need only between-group CDF order | Exact finite proof covers all 280 partitions, all Boolean selection states and all count tails, with arbitrary independent backgrounds | Scope extension; precise priority unresolved; nonnegative-cone certificates are an established technique |
+| CDF perturbations bound the entire intact-count tail vector and grouping regret | Proved with sharp linear constants 1 for stability and 2 for transfer regret | Elementary stability argument; no separate novelty claim |
+| Midpoint CDF projection supplies an approximation certificate when CDFs cross | Implemented using exact rational errors and fixed-order minimax radius | Projection is precisely the established Basic L∞ isotonic regression; no regression-algorithm novelty claim |
 | Universal quartet inequalities reduce exactly to two background thresholds | Proved even with dependence within the quartet | Specific characterization not located; conditioning is standard and priority remains unresolved |
 | Two backgrounds are necessary even under strict stochastic ordering and positive densities | Exact seven-bin examples and a general positive/negative/positive block construction | Stronger sharpness result; exact prior-art comparison remains open |
 | Any reward supported on one focal cardinality reduces pathwise to two backgrounds | Proved without distributional assumptions; universal-expectation corollary permits dependent focal scores | Elementary rank-counting method; no priority claim for the general technique |
@@ -125,6 +130,50 @@ rank membership does not meet that assumption. Section 6's abstract extension
 requires an asymmetric Schur-convex objective of module sums; a reduction of
 the arbitrary-FOSD rank problem to that representation has not been supplied.
 These observations rule out direct substitution, not every indirect reduction.
+
+**D'Abadie and Proschan (1983), Stochastic Rearrangement Inequalities.**
+The [full September 1983 FSU report M672 / AFOSR 83-167](https://archive.org/download/DTIC_ADA150573/DTIC_ADA150573.pdf)
+was recovered. Definitions 3.1/3.3, Theorem 4.2, equation (4.4),
+Theorems 4.29/5.1 and Example 5.2 were inspected, including rendered scans.
+The report gives genuine stochastic-order rearrangement results and
+preservation by rank transformations. Its relevant premises concern
+conditional arrangement laws (AI, PSA or AP), stronger than marginal FOSD.
+Our continuous three-bin laws `W=(2,4,9)/15`, `S=(1,5,9)/15` satisfy
+`F_S≤F_W`, but conditional aligned order has probability `4/9<5/9`
+when ordered observations lie in bins 1 and 2. Two independent copies,
+conditioned in bins 0/1 and 1/2, give PSA mixed difference `−1/21`.
+The [exact verifier](../research/spikes/stochastic/scope_witnesses.py)
+checks both. These refute the natural conditional-kernel premises under
+FOSD; they do not exclude every auxiliary AP representation. The assembly
+example has two stockpiles and no common survivor-count cutoff. The report
+was not assumed identical to the 1984 chapter or the unread 1987 final article.
+
+**Marichal, Mathonet and Spizzichino (2015), On modular decompositions of
+system signatures.** The [2014 arXiv v2 primary text](https://arxiv.org/html/1208.5658v2)
+was inspected: equations (13), (16), (17), Definition 8, Theorems 9/12,
+Examples 14–16 and §4.2. Our fixed-rank count tails are probability-signature
+tails for threshold combinations of series modules; that representation is
+established. Their general modular formula requires a factorization of
+the relative-quality law `q(A)`. Independent FOSD does not imply it:
+two-bin rows `(1,4),(2,3),(3,2),(4,1)` give, for partition `ab/cd`,
+incompatible values `88/135` and `5/9` for the same occupancy coefficient
+`c(1,1)`. The [verifier](../research/spikes/stochastic/scope_witnesses.py)
+computes the complete subset law independently. Theorem 12 quantifies over
+every semicoherent module choice; failure of its premise does not prevent
+a special series-module occupancy representation. That representation
+still needs an inequality comparing the different occupancy laws induced
+by different partitions. The inspected theorems do not supply that comparison.
+This is a scoped distinction, not literature-priority clearance.
+
+**Stout (2018), Weighted L∞ isotonic regression.**
+[Author-hosted paper](https://web.eecs.umich.edu/~qstout/pap/LinfinityIsoReg.pdf),
+[DOI](https://doi.org/10.1016/j.jcss.2017.09.001).
+Section 2.1.1 was read in indexed primary text; direct full-PDF retrieval
+timed out. Its unweighted Basic formula is exactly the midpoint of a prefix
+maximum and suffix minimum used in our [CDF approximation](robust-stochastic-groups.md).
+It records earlier work on this regression. We credit the projection and
+its minimax objective to prior art; this application combines it with a
+separate rank-count stability proof.
 
 **Li and You (2015), Permutation Monotone Functions of Random Vectors with
 Applications in Financial and Actuarial Risk Management.**
@@ -281,10 +330,11 @@ would do the same, even if its wording and application domain differ. The
 full-report comparisons above close several earlier abstract-only gaps and
 explicitly assign the rearrangement method to prior art. Full Ng–Donadio,
 Ng et al. and Joe comparisons remain outstanding. A particularly close
-unread lead is [Chan, D'Abadie and Proschan (1987), Stochastic rearrangement
+unread final version is [Chan, D'Abadie and Proschan (1987), Stochastic rearrangement
 inequalities](https://doi.org/10.1016/0047-259X(87)90156-4): its abstract
 explicitly includes ranking and optimal assembly, but full primary text was
-not obtained. Its kernel hypotheses need inspection. There are also later versions/extensions of
+not obtained. The inspected 1983 report closes the earlier precursor gap;
+equivalence to the final text has not been established. There are also later versions/extensions of
 the retrieved reports and a specialist review of the exact random-rank
 representation and two-threshold characterization. These gaps qualify
 priority claims; they do not invalidate the proofs or executable examples.

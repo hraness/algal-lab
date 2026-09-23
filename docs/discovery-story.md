@@ -36,6 +36,13 @@ The conclusion covers more than the average: consecutive groups maximize the
 chance of having at least any specified number of intact groups. The same
 proof also covers discrete scores with uniform random tie-breaking.
 
+An [exact finite proof](block-separated-triples.md) now allows CDF crossings
+inside each target group for three groups of three. It checks algebraic
+identities for every partition and selection state, then applies the
+four-clock inequality. A [robustness result](robust-stochastic-groups.md)
+also bounds grouping regret when the distributions depart from an ordered
+reference model. Its projection step is established isotonic regression.
+
 For pairs that work when **either member survives**, stochastic dominance
 does not suffice. Four strictly ordered continuous distributions with positive
 densities make crossing pairs outperform opposite-end pairs by exactly

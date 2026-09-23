@@ -206,6 +206,11 @@ are both in later blocks. The cut-separated quartet comparison joins the
 desired pair without decreasing the objective. Fix it and repeat. A single
 group is trivial, and exactly two groups are covered directly by (8)–(9).
 
+There is also an exact finite proof for [three target triples](block-separated-triples.md)
+with internal crossings. It expands every partition's count-tail difference
+into nonnegative outside-pattern quartet terms. This separate certificate
+does not extend the sorting argument to arbitrary unordered blocks.
+
 ## The whole count distribution improves
 
 Let `Z` and `Z'` be the numbers of intact groups among the two groups before
@@ -313,11 +318,17 @@ comparisons suffice. It performs no inclusion-probability evaluations.
 
 The general certificate requires a full CDF chain. It also admits the proved
 special cases of a single group, two cut-separated groups, and cut-separated
-pairs with arbitrary within-pair crossings. With three or more groups of
-size greater than two, between-block separation alone is not asserted
-sufficient here; the full-chain check remains required. Rejection means
+pairs with arbitrary within-pair crossings, plus exactly three target triples
+by the [finite certificate](block-separated-triples.md). For other configurations
+with three or more groups of size greater than two, the full-chain check
+remains required. Rejection means
 the proposed partition is uncertified by these conditions, not that it is
 nonoptimal.
+
+For crossing CDFs outside those exact conditions, the separate
+[robust approximation](robust-stochastic-groups.md) returns explicit regret
+bounds using an ordered reference family. Its status and contract differ
+from this exact certificate.
 
 Construction uses `O(n b log n)` rational-arithmetic work and `O(n b)`
 storage for `b` bins. These are arithmetic-operation bounds, not constant
