@@ -78,7 +78,7 @@ test("scripted comparison runs both control arms, verifies offline, and reports 
   expect(verified).toMatchObject({ ok: true, studies: 2, rows: 24 });
   const envelope = await readJsonFile(join(directory, "comparison.json")) as { report: ComparisonReport; digest: string };
   expect(String(envelope.digest)).toBe(String(verified.reportDigest));
-  expect(digest(envelope.report)).toBe(verified.reportDigest);
+  expect(String(digest(envelope.report))).toBe(String(verified.reportDigest));
   expect(envelope.report.plan).toEqual(parseComparisonPlan(plan));
   // Tampering with a verdict or an underlying study is detected.
   const tampered = json({ ...envelope.report, controls: { ...envelope.report.controls, randomIgnoresSharing: false } });
