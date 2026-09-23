@@ -25,7 +25,7 @@ survivors with probability proportional to weight, and service is the most
 valuable surviving component's share of total value. Exact evaluation uses a
 subset dynamic program over removal-set probabilities, independently checked
 against exhaustive weighted-order enumeration and Monte Carlo (see
-`bun run qualify:instrument` and the spike report).
+`bun run qualify:instrument` and [headroom-v2.md](headroom-v2.md)).
 
 At the registered v1 budgets the heterogeneous objective still saturates
 (0.0016–0.017 mean reference regret), so the spike searched regimes. The
