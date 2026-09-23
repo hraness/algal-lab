@@ -62,3 +62,17 @@ Delivery is public source in this repository. A hosted deployment or package
 release is not required for this headless application. Describe proposed
 follow-up work as proposed, and describe live model results only when a retained
 run supports the claim.
+
+The credential-free [weighted-tree research](docs/weighted-tree-discovery.md)
+also has exact Python certificates, run by CI in addition to `bun run check`:
+
+```sh
+python3 research/spikes/structural/verify.py
+python3 research/spikes/weighted-tree/verify.py
+python3 -m unittest research.test_tree_certificate research.test_certify_policy_results
+```
+
+Proof text, finite exhaustive checks, policy holdouts, and novelty claims are
+separate evidence. Keep research TypeScript in the aggregate typecheck and tests.
+Keep generated experimental archives under ignored `runs/` directories; commit
+the reproducible protocol, source, and an honest findings report.

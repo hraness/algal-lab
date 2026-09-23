@@ -1,0 +1,27 @@
+{
+  "contract": "algal.lab.policy-spike.v1",
+  "objective": "Exact expected network.v2 weighted-random-failure trapezoidal AUC; no targeted component",
+  "developmentSeeds": [20003, 20040, 20077, 20114, 20151, 20188, 20225, 20262],
+  "heldoutSeeds": [40009, 40050, 40091, 40132, 40173, 40214, 40255, 40296, 40337, 40378, 40419, 40460, 40501, 40542, 40583, 40624, 40665, 40706, 40747, 40788, 40829, 40870, 40911, 40952, 40993, 41034, 41075, 41116, 41157, 41198, 41239, 41280],
+  "regimes": [
+    { "key": "primary-tree", "nodes": 8, "edges": 7, "steps": 3, "development": true },
+    { "key": "primary-unicyclic", "nodes": 8, "edges": 8, "steps": 3, "development": true },
+    { "key": "transfer-tree", "nodes": 10, "edges": 9, "steps": 4, "development": false },
+    { "key": "transfer-bicyclic", "nodes": 10, "edges": 11, "steps": 4, "development": false }
+  ],
+  "deploymentEvaluations": 64,
+  "policyCandidates": 48,
+  "generationSize": 12,
+  "eliteCount": 4,
+  "evolutionSeed": 9232026,
+  "bootstrapSeed": 6232026,
+  "bootstrapReplicates": 10000,
+  "selection": "Highest mean exact deployment AUC over 16 development cases; canonical policy JSON breaks exact ties",
+  "primaryContrast": "Selected policy versus random-start hill climbing, paired over heldout environment seeds and averaged across the two primary regimes per seed",
+  "practicalMargin": 0.005,
+  "baselines": ["64 independent repository randomGraph proposals", "64-evaluation random-start strict hill climbing", "64-evaluation exact-one-deletion-star-start strict hill climbing", "64-evaluation random-start simulated annealing with geometric temperature 0.005 to 0.00005", "64-evaluation fixed value/failure policy", "64-evaluation fixed reliability policy", "Selected constructor without objective feedback", "One-deletion star without objective feedback"],
+  "success": "Primary paired mean difference exceeds 0.005 and its paired bootstrap 95% lower limit exceeds zero; selected policy also exceeds the best fixed heuristic in mean. Report every regime and transfer contrast regardless of outcome.",
+  "accounting": "Every scored proposal including duplicate graphs and failed mutation attempts consumes one of 64 evaluations. Retain all 48 proposed policies and their development scores. Report offline training evaluations separately; zero-search generator uses no objective feedback, with one evaluation only to measure its output.",
+  "freeze": "This protocol is written before development or heldout execution. After development, freeze policy, source hashes and selection before evaluating any heldout environment. No holdout-informed tuning within this experiment.",
+  "scope": "Credential-free parameter evolution only; no LLM inference, no claim of token efficiency, global optimality, or algorithm novelty. Random graph baseline is the repository's shuffled recursive tree plus extra edges, not a uniform connected-graph distribution."
+}
