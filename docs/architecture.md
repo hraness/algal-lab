@@ -95,13 +95,16 @@ These are distinct checks:
 | Scientific validation | Requires additional domain evidence; none of the checks above establishes it. |
 
 Verification requires the recorded source identities. The instrument identity
-binds `network.ts` and `network.v1`; the application identity binds `network.ts`,
-`contracts.ts`, `researcher.ts`, `study.ts`, `artifacts.ts`, `oracle.ts`, and
-`qualification.ts`, `xcb-executor.ts`, and `examples/xcb-study.ts`, plus the root
-`cli.ts`, `package.json`, and `bun.lock`.
-Use the recorded source revision and pinned
-dependency when verifying an older run. The digest field named
-`applicationDigest` is not a hash of every repository file.
+binds `src/network.ts` under the `network.v1` version label. The application
+identity binds the exact file list in
+[`sourceIdentities()`](../src/artifacts.ts): every `src/*.ts` module that
+takes part in a study, comparison, or live executor route (not the tests), the
+two live entry points under `examples/`, and the root `cli.ts`, `package.json`,
+and `bun.lock` (the pinned runtime). Changing any bound file, including a
+runtime upgrade through the lockfile, invalidates verification of older
+archives by design: they must then be verified at their recorded source
+revision with `git checkout <revision> && bun install --frozen-lockfile`. The
+digest field named `applicationDigest` is not a hash of every repository file.
 
 Hashes do not authenticate the author, establish an external timestamp, or prove
 that no unrecorded trial occurred. An operator who controls the files can replace

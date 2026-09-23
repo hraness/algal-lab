@@ -2,10 +2,15 @@
 
 Reproducible research environments built on [ALGAL](https://github.com/hraness/algal).
 
-Researchers propose experiments, commit predictions before measurement, and build
-on persistent artifacts. The laboratory records what was requested, what the
-instrument did, and which observations support each result. Competing designs
-remain available for later researchers.
+Researchers propose experiments, record predictions before measurement (the
+ordering is enforced inside the local receipt; it is not an external
+commitment), and build on prior artifacts within a study. The laboratory records
+what was requested, what the instrument did, and which observations support each
+result. Within a study, later rounds see up to 24 recent prior designs with
+their discovery scores (graph, score, and evidence ID only) and, in one
+condition, the last 12 short messages; hypotheses, rationales, predictions, and
+trajectories are not shown to researchers, and nothing carries across studies.
+Every competing design stays in the archive for inspection.
 
 The first lab explores **network resilience**: which connected graph structures
 preserve service as nodes fail? It compares isolated researchers, researchers
@@ -14,7 +19,8 @@ condition gets the same number of proposal slots and paired failure schedules.
 
 ## Try it
 
-Requires [Bun 1.3.14](https://bun.sh). No credentials or model calls are needed.
+Tested with [Bun 1.3.14](https://bun.sh) (CI-pinned; `engines` requires
+`>=1.3.14`). No credentials or model calls are needed.
 
 ```sh
 git clone https://github.com/hraness/algal-lab.git
@@ -65,7 +71,9 @@ flowchart LR
   receipt-bearing artifacts. Bounded structural rejections become recorded errors.
 - **Verification is offline.** It reconstructs the protocol with recorded agent
   effects, executes the simulator afresh, and checks the resulting receipts,
-  artifacts, and report. It never runs the original provider command.
+  artifacts, and the `study.json` report object against the archive.
+  `report.md` is generated text and is not verified. Verification never runs
+  the original provider command.
 
 The instrument measures the largest surviving connected component divided by the
 original node count, across random and targeted node-removal trajectories. This
@@ -77,7 +85,11 @@ infrastructure. Two demo seeds are not evidence of statistical superiority.
 Supply an explicitly chosen, trusted command wrapper. It receives one ALGAL
 `EffectRequest` JSON on stdin; the lab context is at `context.inputs.context`.
 It must return one proposal JSON on stdout. The wrapper owns provider credentials
-and model settings; credentials must never appear in its response.
+and model settings; credentials must never appear in its response. The wrapper
+must also be stateless across calls: each proposal must depend only on the
+request it receives. A wrapper that keeps memory (a cache, a conversation, a
+file) would leak information across conditions and across researchers within a
+round's fixed snapshot, and the lab cannot detect that leak.
 
 Exercise that wire protocol with the included credential-free example:
 
@@ -113,13 +125,39 @@ bun run qualify
 bun run lab verify-qualification runs/qualification
 ```
 
-The instrument check exhaustively compares small graphs against an independent
-connectivity implementation. The qualification runs three graph regimes and
-16 search seeds against equal-opportunity random search, preserving all paired
-differences and checking that the scripted controls ignore message prose.
+The instrument check covers every connected labeled graph with 4–6 nodes,
+comparing the simulator against an independent union-find connectivity
+implementation under every targeted horizon and five random schedules each.
+It checks that random removals are valid and numerically consistent; the random
+schedule's PRNG sequence itself is not independently derived. `bun run
+qualify:instrument` finishes in a few seconds and writes
+`runs/instrument-qualification.json`; that file is never overwritten, so pass a
+new path to `bun scripts/qualify-instrument.ts <file>` for another run, or omit
+the path to print the evidence to stdout.
+
+The qualification runs three graph regimes and 16 search seeds against
+equal-opportunity random search, preserving all paired differences and checking
+that the scripted controls ignore message prose. Expect roughly 20–40 s for
+`bun run qualify` and about half a minute for `verify-qualification` on a
+recent laptop; `bun run check` takes one to two minutes on an idle machine and
+longer when other work is running.
 Read `runs/qualification/report.md`. Qualification needs a fresh directory;
 use `bun run lab qualify --plan examples/qualification-plan.json --out runs/qualification-2`
 for another run. A null sharing result is a valid outcome.
+
+The replicated comparison is the next, frozen step:
+
+```sh
+bun run compare
+bun run lab verify-comparison runs/comparison
+```
+
+`compare` runs the frozen comparison plan (`examples/comparison-plan.json`):
+the scripted control arms `adaptive` and `random`, an optional live arm when
+`--executor-command` is supplied, and paired inference over replicate seeds
+against a preregistered margin. `verify-comparison` reconstructs every arm's
+studies offline and recomputes the whole analysis. Without a live arm the result
+is a scripted control run, not model evidence.
 
 The random-search policy is also available for individual studies:
 
@@ -137,9 +175,13 @@ Vercel AI Gateway executor. It requires explicit model/provider selection and
 authorized Gateway credentials, retains token usage when reported, and uses the
 same twelve-slot smoke acceptance. See [Gateway inference](docs/gateway-executor.md)
 and its [frozen transport plan](docs/gateway-smoke-plan.md).
-The [first live findings](docs/gateway-smoke-findings.md) retain all twelve
-completed generations, the rejected budget-violating proposal, and the failed
-strict acceptance result.
+Two live smokes are recorded. The [first](docs/gateway-smoke-findings.md)
+failed its predeclared acceptance: all twelve generations completed, but one
+proposal exceeded the edge budget and remains retained as a failed slot. After
+the [exact-budget v2 proposal contract](docs/proposal-contract-v2-plan.md) was
+frozen, the [second smoke](docs/gateway-smoke-v2-findings.md) measured 12/12
+proposals and passed. Neither smoke shows a sharing benefit: every condition
+selected the same champion graph in both runs.
 
 ## Scope and development
 

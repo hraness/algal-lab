@@ -85,6 +85,25 @@ function seeds(value: unknown, max: number, label: string): number[] {
   return result;
 }
 
+export type EffectiveSeed = { replicate: number; phase: "discovery" | "holdout"; seed: number; effective: number };
+/** Schedule seeds as the instrument receives them: evaluateGraph runs every
+ * discovery and holdout schedule under `seed ^ replicate`, so the seeds that
+ * reach the simulator are these, not the raw protocol lists. */
+export function effectiveSeeds(protocol: Pick<Protocol, "replicateSeeds" | "discoverySeeds" | "holdoutSeeds">): EffectiveSeed[] {
+  return protocol.replicateSeeds.flatMap((replicate) => (["discovery", "holdout"] as const).flatMap((phase) =>
+    protocol[`${phase}Seeds`].map((seed) => ({ replicate, phase, seed, effective: (seed ^ replicate) >>> 0 }))));
+}
+/** Pairs of schedules that would run the same simulation under different labels. */
+export function effectiveSeedCollisions(protocol: Pick<Protocol, "replicateSeeds" | "discoverySeeds" | "holdoutSeeds">): [EffectiveSeed, EffectiveSeed][] {
+  const seen = new Map<number, EffectiveSeed>();
+  const collisions: [EffectiveSeed, EffectiveSeed][] = [];
+  for (const item of effectiveSeeds(protocol)) {
+    const prior = seen.get(item.effective);
+    if (prior) collisions.push([prior, item]); else seen.set(item.effective, item);
+  }
+  return collisions;
+}
+
 export function parseBudget(value: unknown, label: string): Budget {
   const b = object(value, ["nodes", "edges", "failureSteps"], label);
   const nodes = integer(b.nodes, 4, 16, `${label}.nodes`);
@@ -120,6 +139,12 @@ export function parseProtocol(value: unknown): Protocol {
     if (transferRegimes.some((r) => r.nodes === budget.nodes && r.edges === budget.edges)) throw new Error("transfer regime must differ from the primary node/edge budget");
     result = { ...base, contract: "algal.lab.study.v2", primedDesigns: integer(p.primedDesigns, 0, MAX_PRIMED_DESIGNS, "primedDesigns"),
       counterbalance: p.counterbalance, transferRegimes };
+    // Raw disjointness is not enough: two replicates can XOR different raw seeds
+    // onto the same effective schedule, so one holdout could be a peer's
+    // discovery schedule. v1 protocols and their frozen archives keep the raw rule.
+    const [collision] = effectiveSeedCollisions(result);
+    if (collision) throw new Error(`effective seed ${collision[0].effective} repeats: ${collision[0].phase} seed ${collision[0].seed} of replicate ${collision[0].replicate}` +
+      ` and ${collision[1].phase} seed ${collision[1].seed} of replicate ${collision[1].replicate}`);
   }
   if (result.replicateSeeds.length * proposalSlots(result) * CONDITIONS.length > MAX_ATTEMPTS) throw new Error(`study exceeds ${MAX_ATTEMPTS} proposal slots`);
   return result;

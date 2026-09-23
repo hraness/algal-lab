@@ -26,8 +26,10 @@ run remains retained under `runs/gateway-smoke/`; this plan does not re-judge it
   `exactBudgetContract` control: every observation must carry the schema digest
   for the frozen protocol's exact node and edge counts.
 - The study protocol, VM manifest, instrument, scripted baselines, and archived
-  v1 runs do not change. Existing archives still verify byte-identically; the
-  proposal payload shape is unchanged.
+  v1 runs do not change. The proposal payload shape is unchanged. Existing
+  archives still verify, but only at their recorded source revision (`811ba84`
+  for the first smoke), because the application identity binds the changed
+  executor and inspector sources; they do not verify at later commits.
 
 ## Frozen smoke settings
 

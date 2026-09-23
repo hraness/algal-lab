@@ -67,12 +67,15 @@ function usage(value: unknown): Usage {
 
 function observation(value: unknown): Observation {
   const o = optionalObject(value, ["attempt", "requestDigest", "elapsedMs", "status", "dispatched", "uncertain"],
-    ["schemaDigest", "httpStatus", "requestId", "responseId", "model", "finishReason", "usage", "code"], "gateway observation");
+    ["schemaDigest", "httpStatus", "requestId", "responseId", "model", "finishReason", "usage", "code", "rejected", "latchedBy"], "gateway observation");
   const attempt = integer(o.attempt, 1, 12, "observation attempt");
   const requestDigest = digestString(o.requestDigest);
   const elapsedMs = integer(o.elapsedMs, 0, Number.MAX_SAFE_INTEGER, "elapsed time");
   if ((o.status !== "completed" && o.status !== "failed") || typeof o.dispatched !== "boolean" || typeof o.uncertain !== "boolean") throw new Error("invalid Gateway observation");
   const parsed: Observation = { attempt, requestDigest, elapsedMs, status: o.status, dispatched: o.dispatched, uncertain: o.uncertain };
+  // Retained rejected values and latch provenance only appear on failed observations, which fail the frozen smoke on their own.
+  if (Object.hasOwn(o, "latchedBy")) integer(o.latchedBy, 1, 12, "latching attempt");
+  if ((Object.hasOwn(o, "rejected") || Object.hasOwn(o, "latchedBy")) && o.status !== "failed") throw new Error("invalid Gateway observation");
   if (Object.hasOwn(o, "schemaDigest")) parsed.schemaDigest = digestString(o.schemaDigest);
   if (Object.hasOwn(o, "httpStatus")) parsed.httpStatus = integer(o.httpStatus, 100, 599, "HTTP status");
   for (const key of ["requestId", "responseId"] as const) {

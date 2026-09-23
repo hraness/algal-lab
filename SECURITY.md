@@ -32,6 +32,14 @@ filesystem, network, and provider permissions. Never construct its command from
 a proposal, message, or artifact. The first version performs no arbitrary
 generated-code admission.
 
+The wrapper must be stateless across calls. Each invocation receives one bounded
+request and must derive its proposal from that request alone. A wrapper that
+keeps memory between calls (a cache, a running conversation, a scratch file, or
+provider-side session state) leaks information across information-sharing
+conditions and across researchers within a round's fixed snapshot. The lab
+receives only the wrapper's output and cannot detect that leak; the recorded
+receipts would still verify.
+
 The wrapper owns credentials. Keep secrets out of command arguments, protocol
 files, prompts, responses, and error text that may become retained evidence.
 Model requests and outputs are research records; inspect a run before sharing

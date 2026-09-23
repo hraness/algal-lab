@@ -67,35 +67,23 @@ for another run. Generated archives remain local rather than being committed.
 
 ## Live model status
 
-The user-selected next route is Devin SWE-2 through XCB, with Codex Luna as a
-fallback. The adapter's synthetic tests cover provider admission, source drift,
-budgets, metadata, offline replay, cancellation, and evidence retention. They
-are not live-model evidence.
+XCB route: the [adapter](../src/xcb-executor.ts) is tested with fake
+transports covering provider admission, source drift, budgets, metadata,
+offline replay, cancellation, and evidence retention; those tests are not
+live-model evidence. One live attempt passed initial admission and then
+recorded twelve `account_unavailable` failures before any inference was
+issued. It retained all twelve attempt receipts and zero generation requests;
+offline reproduction passed and the smoke inspector correctly failed because no
+proposal was measured. XCB live acceptance remains pending, and a later attempt
+must preserve that archive. See [the live executor procedure](live-executor.md).
 
-The first local preflight found the Devin route but no valid application
-qualification for the installed XCB bytes. Independent native boundary tests
-passed for an isolated helper, while a concurrent XCB deployment produced
-different source/build/installed identities. That evidence cannot qualify a
-different executable. Provider pins and account state were preserved. The XCB
-owner subsequently deployed and qualified the matching runtime.
-
-The first smoke attempt passed initial admission, then recorded twelve
-`account_unavailable` failures before any inference was issued. It retained all
-twelve attempt receipts and zero generation requests. Offline archive reproduction
-passed; the smoke inspector correctly failed because no proposals were measured
-and no peer artifact was inherited. Separate capability observations reported
-the account busy during concurrent XCB operations; the receipt error alone only
-establishes unavailability. This is admission evidence, not evidence about model
-quality. XCB live acceptance remains pending. A subsequent attempt must preserve
-this archive; see [the live executor procedure](live-executor.md).
-
-The subsequent [Gateway smoke](gateway-smoke-findings.md) used ALGAL's existing
-executor with Luna. Twelve generations completed, eleven proposals passed host
-validation, and offline reproduction passed. The strict researcher acceptance
-failed because one proposal violated the edge budget. Three valid proposals
-cited earlier peers while changing their graphs. All conditions selected the
-same champion, with exact random AUC 0.794643; this is operational evidence and a
-single descriptive search result, not evidence of a sharing advantage.
+Gateway route: two live smokes are recorded. See the
+[first findings](gateway-smoke-findings.md) (twelve generations, eleven valid
+proposals, strict acceptance failed on one over-budget graph) and the
+[second findings](gateway-smoke-v2-findings.md) (twelve of twelve measured
+under the exact-budget v2 contract, acceptance passed). Both are operational
+evidence and single descriptive search results, not evidence of a sharing
+advantage.
 
 ## Architectural implications
 

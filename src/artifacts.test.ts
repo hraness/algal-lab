@@ -1,8 +1,11 @@
+import { createHash } from "node:crypto";
 import { afterEach, describe, expect, test } from "bun:test";
 import { mkdtemp, mkdir, readFile, readdir, rename, rm, stat, symlink, unlink, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { ArtifactStore, MAX_ARTIFACT_BYTES, digest, digestString, readJsonFile } from "./artifacts";
+import { pathToFileURL } from "node:url";
+import { ALGAL_REVISION } from "./contracts";
+import { ArtifactStore, MAX_ARTIFACT_BYTES, RUNTIME_ROOT, assertRuntimePinned, digest, digestString, readJsonFile, readRuntimeSources, runtimeDigest, sourceIdentities } from "./artifacts";
 
 const ownedDirectories: string[] = [];
 
@@ -126,5 +129,75 @@ describe("content-addressed artifact store", () => {
     await expect(store.get(id)).rejects.toThrow(/artifact directory/);
     await expect(store.put({ newWrite: true })).rejects.toThrow(/artifact directory/);
     expect(await readdir(retained)).toEqual([`${id.slice(7)}.json`]);
+  });
+});
+
+describe("source identity binds the installed runtime", () => {
+  const files: [string, string][] = [["index.ts", "export * from './src/a';\n"], ["package.json", '{"name":"@hraness/algal"}'], ["src/a.ts", "export const a = 1;\n"]];
+
+  test("runtime digest changes with any file content, path, or membership and is order-independent", () => {
+    const baseline = runtimeDigest(files);
+    expect(baseline).toMatch(/^sha256:[a-f0-9]{64}$/);
+    expect(runtimeDigest([...files].reverse())).toBe(baseline);
+    expect(runtimeDigest(files.map(([path, contents]) => path === "src/a.ts" ? [path, "export const a = 2;\n"] : [path, contents]))).not.toBe(baseline);
+    expect(runtimeDigest(files.map(([path, contents]) => path === "src/a.ts" ? ["src/b.ts", contents] : [path, contents]))).not.toBe(baseline);
+    expect(runtimeDigest([...files, ["src/extra.ts", ""]])).not.toBe(baseline);
+    expect(runtimeDigest(files.slice(0, 2))).not.toBe(baseline);
+    expect(() => runtimeDigest([...files, ["src/a.ts", "duplicate"]])).toThrow(/repeated runtime source path/);
+    expect(() => runtimeDigest([["", "unnamed"]])).toThrow(/runtime source path/);
+    expect(() => runtimeDigest([])).toThrow(/no runtime sources/);
+  });
+
+  test("lockfile and package manifest must pin the runtime to ALGAL_REVISION", async () => {
+    const lock = await readFile(new URL("../bun.lock", import.meta.url), "utf8");
+    const manifest = await readFile(new URL("../package.json", import.meta.url), "utf8");
+    expect(() => assertRuntimePinned(lock, manifest)).not.toThrow();
+    expect(lock).toContain(`github:hraness/algal#${ALGAL_REVISION}`);
+    const other = "0123456789abcdef0123456789abcdef01234567";
+    expect(() => assertRuntimePinned(lock, manifest, other)).toThrow(/not ALGAL_REVISION/);
+    expect(() => assertRuntimePinned(lock.replaceAll(ALGAL_REVISION, other), manifest)).toThrow(/pinned to github:hraness\/algal#0123456789abcdef0123456789abcdef01234567, not ALGAL_REVISION/);
+    // bun.lock abbreviates the resolved entry; an abbreviated pin must still be a prefix of the revision.
+    const abbreviated = `algal#${ALGAL_REVISION.slice(0, 7)}"`;
+    expect(lock).toContain(abbreviated);
+    expect(() => assertRuntimePinned(lock.replace(abbreviated, `algal#${other.slice(0, 7)}"`), manifest)).toThrow(/pinned to github:hraness\/algal#0123456, not/);
+    expect(() => assertRuntimePinned(lock, manifest.replace(ALGAL_REVISION, other))).toThrow(/not ALGAL_REVISION/);
+    expect(() => assertRuntimePinned(lock.replaceAll(/github:hraness\/algal#[0-9a-f]+/g, "npm:@hraness/algal@0.1.0"), manifest)).toThrow(/must both pin/);
+    expect(() => assertRuntimePinned("{}", "{}")).toThrow(/must both pin/);
+    expect(() => assertRuntimePinned(lock, "{}")).toThrow(/must both pin/);
+    expect(() => assertRuntimePinned(lock, manifest, ALGAL_REVISION.slice(0, 7))).toThrow(/full commit sha/);
+  });
+
+  test("runtime sources are the manifest, entrypoint, and every TypeScript file under src, sorted", async () => {
+    const directory = await temporaryDirectory();
+    await mkdir(join(directory, "src", "nested"), { recursive: true });
+    await writeFile(join(directory, "package.json"), '{"name":"fixture"}');
+    await writeFile(join(directory, "index.ts"), "export {};\n");
+    await writeFile(join(directory, "src", "z.ts"), "z");
+    await writeFile(join(directory, "src", "a.ts"), "a");
+    await writeFile(join(directory, "src", "nested", "n.ts"), "n");
+    await writeFile(join(directory, "src", "algal_expr.wasm"), "binary");
+    await writeFile(join(directory, "cli.ts"), "cli");
+    const sources = await readRuntimeSources(pathToFileURL(`${directory}/`));
+    // Binaries are bound by their hex digest, not their bytes.
+    expect(sources).toEqual([["index.ts", "export {};\n"], ["package.json", '{"name":"fixture"}'], ["src/a.ts", "a"], ["src/algal_expr.wasm", createHash("sha256").update("binary").digest("hex")], ["src/nested/n.ts", "n"], ["src/z.ts", "z"]]);
+    await writeFile(join(directory, "src", "a.ts"), "changed");
+    expect(runtimeDigest(await readRuntimeSources(pathToFileURL(`${directory}/`)))).not.toBe(runtimeDigest(sources));
+    await rm(join(directory, "index.ts"));
+    await expect(readRuntimeSources(pathToFileURL(`${directory}/`))).rejects.toThrow();
+  });
+
+  test("the installed runtime is resolved from the module graph and folded into the application digest", async () => {
+    expect(RUNTIME_ROOT.pathname.endsWith("/node_modules/@hraness/algal/")).toBe(true);
+    const sources = await readRuntimeSources();
+    const paths = sources.map(([path]) => path);
+    expect(paths.slice(0, 2)).toEqual(["index.ts", "package.json"]);
+    expect(paths.slice(2).every((path) => path.startsWith("src/") && (path.endsWith(".ts") || path.endsWith(".wasm")))).toBe(true);
+    expect(paths).toContain("src/algal_expr.wasm");
+    expect(paths).toContain("src/digest.ts");
+    expect(paths).toEqual([...paths].sort());
+    expect(JSON.parse(sources[1]![1]).name).toBe("@hraness/algal");
+    const first = await sourceIdentities();
+    expect(await sourceIdentities()).toEqual(first);
+    expect(Object.keys(first).sort()).toEqual(["applicationDigest", "instrumentDigest"]);
   });
 });

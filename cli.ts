@@ -68,4 +68,18 @@ export async function main(args: string[]): Promise<void> {
   });
   console.log(JSON.stringify({ report: `${options.get("--out")}/report.md`, attempts: report.attempts.length, validExperiments: report.summaries.reduce((n, s) => n + s.validExperiments, 0), backend: report.backend }));
 }
-if (import.meta.main) main(Bun.argv.slice(2)).catch((error: unknown) => { console.error(error instanceof Error ? error.message : "lab failed"); process.exitCode = 1; });
+/** Translate filesystem failures at the CLI boundary only; library behavior is unchanged. */
+function describeFailure(args: string[], error: unknown): string {
+  if (!(error instanceof Error)) return "lab failed";
+  const [command, ...rest] = args;
+  const code = (error as NodeJS.ErrnoException).code;
+  if (code === "EEXIST" && (command === "study" || command === "qualify" || command === "compare")) {
+    const out = rest[rest.indexOf("--out") + 1];
+    if (rest.includes("--out") && out) return `${out} already exists; choose a new --out (existing runs are never overwritten)`;
+  }
+  if (code === "ENOENT" && (command === "verify" || command === "verify-qualification" || command === "verify-comparison") && rest[0]) {
+    return `${rest[0]} is not a run directory`;
+  }
+  return error.message;
+}
+if (import.meta.main) main(Bun.argv.slice(2)).catch((error: unknown) => { console.error(describeFailure(Bun.argv.slice(2), error)); process.exitCode = 1; });

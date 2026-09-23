@@ -56,4 +56,4 @@ test("qualification freezes inputs, compares matched controls, and independently
   report.comparisons[0]!.mean = 0.123;
   await writeFile(join(directory, "qualification.json"), JSON.stringify({ report, digest: digest(report) }));
   await expect(verifyQualification(directory)).rejects.toThrow("differs from reproduced analysis");
-});
+}, 60000); // twelve scripted studies plus a full offline reconstruction; keep headroom for loaded CI hosts

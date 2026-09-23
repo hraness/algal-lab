@@ -57,33 +57,54 @@ The [research method](research-method.md) defines what the measurements mean.
 The [initial qualification plan](qualification-plan.md) now supplies an
 independent exact oracle, exhaustive instrument checks, discovery-selected
 champions, matched random search, and paired descriptive comparisons. See
-[qualification findings](qualification.md) for measured results and remaining
-live-model requirements. These are acceptance evidence for a research substrate,
-not completion of the scientific claims below.
+[qualification findings](qualification.md) for measured results and the
+[first](gateway-smoke-findings.md) and [second](gateway-smoke-v2-findings.md)
+Gateway smoke findings for the live-model status. These are acceptance evidence
+for a research substrate, not completion of the scientific claims below.
 
-1. **Qualify the research protocol.** Run more independent study seeds, record
-   actual inference usage for model runs, compare with random search and other
-   explicit budget-matched policies, and preregister portfolio-level outcomes.
-   Include null results and assess whether sharing concentrates search or adds
-   useful diversity. Test sensitivity to node relabeling and targeted-failure tie
-   policy. Keep artifact-only and message-enabled conditions separate.
-2. **Develop reusable scientific memory.** Add typed claims with supporting and
+1. **Qualify the research protocol.** Status of each sub-item:
+   - Done: more independent study seeds (16 search seeds per regime in the
+     qualification; 8 replicate seeds in the comparison plan).
+   - Done: recorded inference usage for model runs (Gateway token counts and
+     reported cost in both smokes; XCB usage explicitly unavailable).
+   - Done: comparison with random search and a predeclared fixed reference
+     under matched proposal seeds and budgets.
+   - Done: preregistered outcomes (frozen qualification plan; frozen comparison
+     plan with a practical margin), with null results retained.
+   - Partly done: whether sharing concentrates search or adds diversity is now
+     measured as topology-class counts per portfolio; no verdict yet.
+   - Not done: a relabeling or tie-policy sensitivity study. The instrument
+     probe documents label sensitivity of targeted failure; no study varies it.
+   - Done: artifact-only and message-enabled conditions stay separate.
+2. **Replicated comparison (current stage).** Implemented in
+   [`src/comparison.ts`](../src/comparison.ts),
+   [`src/statistics.ts`](../src/statistics.ts), and
+   [`src/topology.ts`](../src/topology.ts): protocol v2 host priming so every
+   condition starts from identical seeded designs, counterbalanced condition
+   order across replicates, held-out transfer budgets, paired inference over
+   replicate seeds (exact sign-flip, percentile bootstrap, and Wilcoxon
+   signed-rank) against a preregistered practical margin, and exact
+   topology (isomorphism) classes tracked separately from labeled graphs.
+   Scripted arms are controls; a live arm requires `--executor-command`. The
+   frozen plan document for the first live comparison is still to follow, and
+   no comparison result is claimed yet.
+3. **Develop reusable scientific memory.** Add typed claims with supporting and
    contradicting experiments, exact lineage, failed hypotheses, and targeted
    replication requests. Separate a researcher's explanation from measured
    evidence and later confirmation. Evaluate retrieval quality before expanding
    memory indefinitely.
-3. **Broaden the instrument family.** Add another validated domain through an
+4. **Broaden the instrument family.** Add another validated domain through an
    explicit instrument interface. Require analytical examples, independent
    implementation or reference checks, documented assumptions, and fresh
    reproduction before comparing outcomes. Keep domains with different units and
    objectives separate.
-4. **Admit proposed instrument and generator changes.** Let researchers suggest
+5. **Admit proposed instrument and generator changes.** Let researchers suggest
    changes as artifacts first. A separate admission process must qualify code,
    resource limits, reference fixtures, control realization, and compatibility
    before activation. Freeze the evaluator for a study; a candidate must not
    improve its reported score by changing its own judge. Arbitrary generated
    code execution and recursive instrument evolution are not implemented now.
-5. **Federate independently owned laboratories when needed.** Valhalla could
+6. **Federate independently owned laboratories when needed.** Valhalla could
    exchange signed artifact references, attribution, replication requests, and
    verification outcomes across owners. Algal would still run local experiments
    under local authority. This requires a maintained work-room adapter and

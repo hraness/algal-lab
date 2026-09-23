@@ -4,8 +4,8 @@ import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { canonicalize } from "@hraness/algal";
 import { readJsonFile } from "../src/artifacts";
-import { json, parseProtocol } from "../src/contracts";
-import { createGatewayExecutor, type GatewayExecutor } from "../src/gateway-executor";
+import { CONDITIONS, json, parseProtocol, proposalSlots } from "../src/contracts";
+import { createGatewayExecutor, GATEWAY_DEFAULT_MAX_CALLS, GATEWAY_MAX_CALLS, type GatewayExecutor } from "../src/gateway-executor";
 import { runStudy } from "../src/study";
 
 const args = process.argv.slice(2);
@@ -16,8 +16,16 @@ function required(name: string): string {
   return value;
 }
 const protocol = parseProtocol(await readJsonFile(args[1]!));
-const maxCalls = protocol.replicateSeeds.length * 3 * protocol.researchers * protocol.rounds;
-if (maxCalls > 12) throw new Error("this smoke entry point permits at most 12 model calls");
+/** Operator call budget. The default admits only the twelve-call smoke; a
+ * replicated comparison must raise it explicitly, up to the executor's cap. */
+const configuredLimit = process.env.ALGAL_LAB_GATEWAY_MAX_CALLS;
+if (configuredLimit !== undefined && (!/^[1-9][0-9]{0,2}$/.test(configuredLimit) || Number(configuredLimit) > GATEWAY_MAX_CALLS)) {
+  throw new Error(`ALGAL_LAB_GATEWAY_MAX_CALLS must be an integer 1..${GATEWAY_MAX_CALLS}`);
+}
+const maxCallsLimit = configuredLimit === undefined ? GATEWAY_DEFAULT_MAX_CALLS : Number(configuredLimit);
+// The executor budget is the study's exact proposal slot count, never the limit itself.
+const maxCalls = protocol.replicateSeeds.length * CONDITIONS.length * proposalSlots(protocol);
+if (maxCalls > maxCallsLimit) throw new Error(`this study needs ${maxCalls} model calls; ALGAL_LAB_GATEWAY_MAX_CALLS permits ${maxCallsLimit} (default ${GATEWAY_DEFAULT_MAX_CALLS}, maximum ${GATEWAY_MAX_CALLS})`);
 const model = required("GATEWAY_MODEL");
 const provider = required("GATEWAY_PROVIDER");
 const directory = args[3]!;
@@ -33,7 +41,10 @@ process.on("SIGINT", interrupt); process.on("SIGTERM", terminate);
 let executor: GatewayExecutor | undefined;
 try {
   executor = createGatewayExecutor({ model, provider, maxCalls, signal: lifetime.signal });
-  await save("executor.json", { configuration: executor.configuration, configurationDigest: executor.configurationDigest });
+  // The explicit limit is recorded only when configured, so the frozen smoke's
+  // archive shape (and its strict inspector) stays byte-for-byte unchanged.
+  await save("executor.json", { configuration: executor.configuration, configurationDigest: executor.configurationDigest,
+    ...(configuredLimit !== undefined ? { maxCallsLimit } : {}) });
   const report = await runStudy(protocol, join(directory, "study"), { executor, progress: (message) => console.error(message) });
   console.log(JSON.stringify({ study: `${directory}/study`, attempts: report.attempts.length, summaries: report.summaries }));
 } finally {

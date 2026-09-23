@@ -27,7 +27,8 @@ test("plan admission bounds seeds, oracle budgets, margins, and chunking", () =>
   expect(parsed.name).toBe("small-comparison");
   expect(comparisonStudies(parsed, ["adaptive", "random"]).map((d) => d.id)).toEqual(["adaptive-0", "random-0"]);
   expect(liveCallBudget(parsed)).toBe(4 * 3 * 2 * (2 + 1));
-  const sixteen = { ...plan, replicateSeeds: Array.from({ length: 16 }, (_, i) => 100 + i) };
+  // Stride 8 keeps every `seed ^ replicate` schedule distinct across replicates (see effectiveSeeds).
+  const sixteen = { ...plan, replicateSeeds: Array.from({ length: 16 }, (_, i) => 100 + 8 * i) };
   expect(comparisonStudies(parseComparisonPlan(sixteen), ["adaptive", "random", "live"]).map((d) => d.id)).toEqual(["adaptive-0", "adaptive-1", "random-0", "random-1", "live-0", "live-1"]);
   expect(() => parseComparisonPlan({ ...plan, replicateSeeds: [1, 2, 3] })).toThrow("4..16");
   expect(() => parseComparisonPlan({ ...plan, replicateSeeds: [1, 2, 3, 3] })).toThrow("repeated");

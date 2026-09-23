@@ -2,7 +2,7 @@ import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { canonicalize, type Executor } from "@hraness/algal";
 import { ArtifactStore, digest, digestString, readJsonFile, sourceIdentities } from "./artifacts";
-import { CONDITIONS, conditionOrder, contextPhase, equal, integer, json, object, parseBudget, parseProtocol, proposalSlots, text, type Budget, type Condition, type ProtocolV2 } from "./contracts";
+import { CONDITIONS, conditionOrder, contextPhase, effectiveSeedCollisions, equal, integer, json, object, parseBudget, parseProtocol, proposalSlots, text, type Budget, type Condition, type ProtocolV2 } from "./contracts";
 import { simulate, type Graph } from "./network";
 import { exactRandomAuc, serviceAucCeiling } from "./oracle";
 import { referenceGraph } from "./qualification";
@@ -72,6 +72,9 @@ export function parseComparisonPlan(value: unknown): ComparisonPlan {
   if (typeof p.margin !== "number" || !Number.isFinite(p.margin) || p.margin <= 0 || p.margin > 0.1) throw new Error("margin must be a practical AUC margin in (0, 0.1]");
   if (!Array.isArray(p.transferRegimes)) throw new Error("transferRegimes must be a list");
   const primary = oracleBudget(p.primary, "primary");
+  // Chunks are separate protocols, so effective schedule seeds are checked across the whole plan here.
+  const [collision] = effectiveSeedCollisions({ replicateSeeds, discoverySeeds: p.discoverySeeds as number[], holdoutSeeds: p.holdoutSeeds as number[] });
+  if (collision) throw new Error(`effective seed ${collision[0].effective} repeats across the plan's replicates`);
   const transferRegimes = p.transferRegimes.map((regime, index) => oracleBudget(regime, `transferRegimes[${index}]`));
   // Every chunk must admit as a v2 protocol; the first chunk's protocol carries the shared seed bounds.
   const protocol = parseProtocol({ contract: "algal.lab.study.v2", name: "admission", replicateSeeds: replicateSeeds.slice(0, CHUNK),
