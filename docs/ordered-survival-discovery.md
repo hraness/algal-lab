@@ -141,7 +141,25 @@ not simulation. For example:
 ```sh
 python3 -m research.ordered_pairing research/examples/ordered-pairing.json
 python3 -m unittest research.test_ordered_pairing research.test_survivor_order
+python3 -m research.spikes.ordered.verify
 ```
+
+For a uniformly random matching, each edge is present with probability
+`1/(n-1)`, so expected intact-pair count is exactly `k(k-1)/(2(n-1))`,
+independent of the rates. This is a useful reference, not another optimization
+algorithm. For the illustrative eight-node profile `(1,1,1,1,12,12,12,12)` at
+`k=4`, adjacent pairing gives `5408099/3561075 ≈ 1.51867` intact pairs versus
+the random-matching mean `6/7 ≈ 0.85714`. Opposite-end pairing gives
+`17278349/4748100 ≈ 3.63900` working redundant pairs versus `22/7 ≈ 3.14286`.
+These are exact model expectations for a chosen example, not a held-out
+empirical effect or a claim about real equipment.
+
+Independent checks covered 200 rational substitutions in the proof identities,
+36,120 exact quadruple/horizon cases (including 14,739 strict interior cases and
+10,080 boundary equalities), and all 3,540 matching/objective comparisons in
+the small-profile test. A separate deletion-order enumeration validates the
+subset DP at four and five nodes. Ordinary mathematical proofs and executable
+checks are used; this is not a theorem-prover formalization.
 
 ## Limits of tempting extensions
 
@@ -193,5 +211,9 @@ before any small-model call. A separate
 can independently select such conjectures from a bounded formula grammar,
 and whether exact counterexamples improve selection. It includes a zero-model
 enumeration baseline. It cannot credit the model with originating the grammar,
-these laws, or their proofs. Its findings will distinguish model inference
-cost from the larger cost of creating and verifying the laboratory.
+these laws, or their proofs. The [findings](../research/spikes/frugal/findings.md)
+record 2,804 reported tokens and $0.00037848 for six completed calls. Each model
+arm selected one correct broad law; the enumeration control selected both.
+Counterexample feedback did not improve the primary count in either replicate.
+That small inference bill excludes the larger cost of creating and verifying
+the laboratory. It is not evidence of a small model originating this theorem.

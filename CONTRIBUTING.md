@@ -69,7 +69,8 @@ also has exact Python certificates, run by CI in addition to `bun run check`:
 ```sh
 python3 research/spikes/structural/verify.py
 python3 research/spikes/weighted-tree/verify.py
-python3 -m unittest research.test_tree_certificate research.test_certify_policy_results research.test_terminal_tree research.test_terminal_sampling research.test_terminal_hybrid
+python3 -m unittest research.test_tree_certificate research.test_certify_policy_results research.test_terminal_tree research.test_terminal_sampling research.test_terminal_hybrid research.test_survivor_order research.test_ordered_pairing research.test_frugal_experiment
+python3 -m research.spikes.ordered.verify
 ```
 
 Proof text, finite exhaustive checks, policy holdouts, and novelty claims are
@@ -81,3 +82,11 @@ The [terminal-tree optimizer](docs/terminal-tree-discovery.md) is a separate
 two-survivor endpoint. Its exact and sampling algorithms use the Python standard
 library and are covered by the same CI unit-test command. Its frozen experiment
 is reproducible separately; local timing thresholds are not CI performance gates.
+
+The [ordered-survival theorem](docs/ordered-survival-discovery.md) concerns all
+fixed horizons and the expected number of working pairs. Its pairing solver
+needs no probability estimates. The separate small-model conjecture pilot keeps
+its protocol and source frozen before inference, records provider failures,
+and compares against a zero-model enumeration control. Offline CI uses mocked
+transport and never performs paid inference. Model receipts cannot establish
+literature priority or credit a model with investigator-supplied ideas.

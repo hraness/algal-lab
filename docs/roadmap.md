@@ -149,3 +149,13 @@ integer-rate evaluation, and a sampled construction with a checked confidence
 bound on regret. It provides a tractable setting for measuring the work/error
 tradeoff against a known optimum. It does not replace the AUC objective or
 establish literature priority or an advantage from model-generated proposals.
+
+The [ordered-survival continuation](ordered-survival-discovery.md) proves a
+four-point joint-inclusion law at every fixed horizon and derives probability-free
+pairing rules for cooperative and redundant pairs. This broadens the mathematical
+result to successive-sampling inclusion probabilities and a distinct additive
+service objective. A small-model pilot found no feedback advantage over its
+no-feedback arm, while a zero-model enumeration control found both additive
+laws. Prefer exact enumeration within a small admitted grammar; future model
+experiments should test useful grammar expansion or proof construction with
+fresh questions, not count investigator-supplied laws as model discoveries.
