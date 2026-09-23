@@ -94,8 +94,12 @@ for a research substrate, not completion of the scientific claims below.
    value-fraction service, exact subset-DP oracle, seeded per-replicate
    environments) in the [v2 plan](comparison-plan-v2.md) at sparse budgets
    that clear the preregistered 0.03 headroom bar. The v1
-   [frozen plan](comparison-plan.md) remains the scripted-control baseline,
-   and no comparison result is claimed yet.
+   [frozen plan](comparison-plan.md) remains the scripted-control baseline.
+   The first live run under the v2 plan is recorded in
+   [live-comparison-v2-findings.md](live-comparison-v2-findings.md): a
+   competent but not dominant live arm, a small within-margin sharing
+   trend at primary, and a measured negative transfer effect — one run,
+   no strong claim.
 3. **Develop reusable scientific memory.** Add typed claims with supporting and
    contradicting experiments, exact lineage, failed hypotheses, and targeted
    replication requests. Separate a researcher's explanation from measured
