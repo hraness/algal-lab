@@ -91,6 +91,14 @@ ALGAL_LAB_GATEWAY_MAX_CALLS=240 GATEWAY_MODEL=<catalog-model> GATEWAY_PROVIDER=<
 bun run lab verify-comparison runs/live-comparison-v2/comparison
 ```
 
+## First live result
+
+The first live run under this plan completed 2026-09-23
+(`openai/gpt-6-luna` through Vercel AI Gateway, 240 calls): the live arm
+landed mid-pack at the primary budget, sharing showed a small within-margin
+positive trend at primary, and peer evidence measurably degraded held-out
+transfer. Recorded in [live-comparison-v2-findings.md](live-comparison-v2-findings.md).
+
 ## Limits
 
 Everything in the v1 plan's limits applies: the scripted arms remain
