@@ -13,7 +13,7 @@ a strongly NP-complete problem.
 |---|---|---|---|
 | Pairs | Both members survive | Any fixed survivor count | Pair adjacent failure rates |
 | Pairs | Either member survives | Any fixed survivor count | Pair opposite ends of the rate order |
-| Equal-size groups | Every member survives | Exactly two failures | Use consecutive blocks of sorted rates |
+| Equal-size groups | Every member survives | Any fixed survivor count | Use consecutive blocks of sorted rates |
 | Triples | At least two members survive | Exactly two failures | Exact optimization is strongly NP-hard |
 
 The pair result rests on an inequality among four joint survival probabilities.
@@ -30,10 +30,22 @@ involving reversed hazards makes the proof work. The full
 [research note](rank-selection-and-triples.md) states that condition and gives
 the counterexample in rational arithmetic.
 
-For larger groups, two failures expose a useful identity. If failures hit
-different groups, two groups lose their fully intact status. If both hit the
-same group, only one does. Consequently, clustering similar failure rates
-helps maximize the number of completely intact groups.
+For larger groups, the same sorted grouping now has a proof at **every**
+survivor count. The useful step is to condition on a failure outside the group.
+That exposes a sum of positive terms to which a classical rearrangement
+argument applies. The [proof](intact-groups-all-horizons.md) also works for a
+class of ordered hazards beyond exponential clocks.
+
+Another result removes the need to test indefinitely many surrounding
+components. For any fixed quartet of independent clock distributions, every
+background reduces to two threshold values. We can check the resulting
+necessary-and-sufficient condition exactly in linear work for histogram
+distributions. A negative certificate gives six clocks whose top-three
+selection violates the inequality. There are quartets for which every
+zero- and one-background test passes but two backgrounds expose a failure,
+so the two-threshold reduction is sharp in general. The
+[certificate note](two-threshold-certificate.md) supplies the formulas and
+exact examples.
 
 A majority triple has the opposite preference: one failure in each of two
 triples leaves both useful, while two failures in one triple disable it.
