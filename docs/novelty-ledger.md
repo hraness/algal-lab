@@ -9,6 +9,7 @@ not a certificate that no equivalent result exists. Proofs are in the
 [mixture-line grouping theorem](mixture-rank-grouping.md),
 [hazard-mixture counterexample](hazard-mixture-counterexample.md),
 [sharp softmax spread theorem](sharp-softmax-spread.md),
+[fixed-total softmax classification](simplex-softmax-order.md),
 [three-triple extension](block-separated-triples.md),
 [CDF robustness](robust-stochastic-groups.md),
 [two-threshold certificate](two-threshold-certificate.md),
@@ -27,6 +28,7 @@ not a certificate that no equivalent result exists. Proofs are in the
 | Three common histogram bins are necessary and sufficient for a FOSD crossing-versus-nested reversal | Two-bin laws lie on a mixture line and cannot reverse; a positive three-bin fixture does | Exact scope boundary; no separate priority claim |
 | Majorization does not order exponential-mixture hazards in dimensions above two | Exact example, every-dimension single-crossing family, and strict-weight/distinct-rate variant proved | Negative answer to the unchanged extension in Shojaee et al. (2022), Remark 6.3; contradicts Theorem 3.8 in the inspected Sahoo et al. (2026) accepted manuscript; priority and final-version status unresolved |
 | Softmax Schur ordering on a box has a sharp dimension-dependent spread threshold | Independently proved iff bound `(n−2)(c_n−2) exp(c_n)=4`, strict at equality, with explicit interior violations above it and exact rational root enclosures | Candidate finite-dimensional improvement; dimension-free bound 2 follows from Fu et al. (2016), two-variable case from Gini-mean theory; unrestricted Table 3 claim in an inspected ICLR 2026 author PDF contradicted; wider comparisons remain open |
+| Softmax Schur ordering on a nonnegative fixed-total simplex has distinct sharp cutoffs for the two temperature signs | Independently proved positive bound `τS≤d_n`, `(d_n−2) exp(d_n)=2(n−1)`, and negative bound `|τ|S≤2c_n`; strict boundaries, finite interior violations, and certified dimension-58 crossover | Candidate exact classification; no inspected source supplies it, but the 1989 Esscher-order original and broader comparisons remain unread; no first-discovery assertion |
 | Three target triples need only between-group CDF order | Exact finite proof covers all 280 partitions, all Boolean selection states and all count tails, with arbitrary independent backgrounds | Scope extension; precise priority unresolved; nonnegative-cone certificates are an established technique |
 | CDF perturbations bound the entire intact-count tail vector and grouping regret | Proved with sharp linear constants 1 for stability and 2 for transfer regret | Elementary stability argument; no separate novelty claim |
 | Midpoint CDF projection supplies an approximation certificate when CDFs cross | Implemented using exact rational errors and fixed-order minimax radius | Projection is precisely the established Basic L∞ isotonic regression; no regression-algorithm novelty claim |
@@ -377,13 +379,38 @@ by title or abstract alone. A bounded search for the threshold and related
 Boltzmann, exponential and geometric-mean terminology found no exact match
 in the inspected texts; absence from these results does not prove priority.
 
-The same expectation ratio is also the Esscher premium. Van Heerwaarden,
-Kaas and Goovaerts' [1989 publisher abstract](https://www.sciencedirect.com/science/article/abs/pii/0167668789900012)
+**Gerber (1981), The Esscher Premium Principle: A Criticism. Comment.**
+[Full publisher PDF](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/CA6B67F264FD91712EE4AA7CD9821E8E/S0515036100007078a.pdf/esscher_premium_principle_a_criticism_comment.pdf).
+Both pages, printed 139–140, were read and visually checked. The Esscher
+premium is exactly `B_t(x)` for the uniform law on the coordinates of `x`.
+Equations (4)–(6), credited there to De Vylder, use a uniform law on
+`(0,z,1)` and show a negative derivative as the middle coordinate increases,
+for sufficiently large temperature. This is a coordinatewise/FOSD failure;
+the mean changes, so it is not itself a convex-order or Schur comparison.
+The inspected original supplies no bounded-spread or fixed-total criterion.
+Global coordinate monotonicity failure is established prior art.
+
+**Goovaerts, Kaas, Laeven and Tang (2004), A Comonotonic Image of Independence
+for Additive Risk Measures.** [Institutional discussion paper](https://papers.tinbergen.nl/04030.pdf).
+Relevant definitions, axioms, Theorem 2.1, Corollary 2.1, discussion and
+references were read. The theorem represents functionals satisfying its
+axioms by mixtures of exponential premiums; the corollary equivalently
+mixes Esscher premiums with a mixing function having prescribed concavity
+on positive parameters and convexity on negative ones. A point mass at a
+nonzero temperature does not meet those mixing conditions. The inspected
+result does not certify a single fixed temperature or the finite-dimensional
+box/simplex thresholds.
+
+**Remaining Esscher-order gap.** Van Heerwaarden, Kaas and Goovaerts'
+[1989 publisher abstract](https://www.sciencedirect.com/science/article/abs/pii/0167668789900012)
 already reports failures to respect smaller or less-variable risks. Its
 full statements, examples and possible bounded-range conditions remain
-unread at this checkpoint. General failure of risk ordering must therefore
-not be presented as a new phenomenon; the finite-dimensional threshold
-still needs this additional primary-source comparison.
+unread at this checkpoint. The [author-linked institutional record](https://dare.uva.nl/personal/search?identifier=c7be28c1-2ff2-4d7e-97c7-89ea7b908f1b)
+and observed doctoral-thesis listing provided metadata without a full-text
+link. For uniform empirical laws, vector majorization corresponds exactly
+to convex order, making this an important unclosed comparison. General
+failure of risk ordering is not a new phenomenon; neither finite-dimensional
+classification has been cleared against this original.
 
 **Stout (2018), Weighted L∞ isotonic regression.**
 [Author-hosted paper](https://web.eecs.umich.edu/~qstout/pap/LinfinityIsoReg.pdf),

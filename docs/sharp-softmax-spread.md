@@ -201,6 +201,11 @@ can coexist with a valid short-time comparison. The dimension-free sufficient
 constant `2` is also sharp when all dimensions are allowed. Its sufficiency
 already follows from earlier Lehmer-mean theory, as detailed below.
 
+The [fixed-total simplex sequel](simplex-softmax-order.md) gives another exact
+classification. On nonnegative vectors of total `S`, the negative-temperature
+bound is `|τ|S≤2c_n`; the positive bound is `|τ|S≤d_n`, where
+`(d_n−2) exp(d_n)=2(n−1)`. Their ordering reverses at dimension 58.
+
 ## Exact counterexample to the unrestricted softmax claim
 
 Amir, Bettini and Prorok's [ICLR 2026 author PDF](https://matteobettini.com/publication/hetenvdesign/HetEnvDesign.pdf),
@@ -268,6 +273,13 @@ already documents Boltzmann-operator failures of non-expansion and develops
 mellowmax. The inspected operator definitions and mathematical sections concern
 sup-norm bounds and monotonicity, rather than this equal-sum Schur comparison.
 The weighted mean and its possible defects are established subjects.
+
+The same ratio is also the Esscher premium of the uniform law on the input
+coordinates. [Gerber (1981)](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/CA6B67F264FD91712EE4AA7CD9821E8E/S0515036100007078a.pdf/esscher_premium_principle_a_criticism_comment.pdf)
+already supplies a three-point failure of coordinatewise stochastic
+monotonicity. That comparison changes the mean and does not give this
+equal-sum Schur classification. The ledger records this original and the
+unread 1989 source addressing variability ordering.
 
 Fu, Wang and Shi's [2016 paper](https://www.isr-publications.com/jnsa/2618/download-schur-convexity-for-lehmer-mean-of-n-variables),
 Theorem 1.4(II), gives a dimension-free sufficient bound for the Lehmer mean

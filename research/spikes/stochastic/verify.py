@@ -21,6 +21,7 @@ from research.spikes.stochastic.scope_witnesses import verify as verify_scope_wi
 from research.spikes.stochastic.mixtures import verify as verify_mixtures
 from research.spikes.stochastic.hazard_mixtures import verify as verify_hazard_mixtures
 from research.spikes.stochastic.softmax_spread import verify as verify_softmax_spread
+from research.spikes.stochastic.simplex_spread import verify as verify_simplex_spread
 from research.stochastic_groups import optimal_histogram_groups
 from research.test_rank_selection import categorical_oracle
 
@@ -33,7 +34,7 @@ WITHIN_PAIR_CROSSINGS = [
 ]
 
 
-def verify() -> dict[str, int | str | tuple[str, ...]]:
+def verify() -> dict[str, object]:
     identities = 0
     positive_coefficients = 0
     for values in product(range(4), repeat=4):
@@ -85,6 +86,7 @@ def verify() -> dict[str, int | str | tuple[str, ...]]:
     return {**verify_factorization(), **verify_tails(), **verify_block_triples(),
             **verify_scope_witnesses(), **verify_mixtures(), **verify_hazard_mixtures(),
             **verify_softmax_spread(),
+            **verify_simplex_spread(),
             "polynomialIdentityCases": identities,
             "nonnegativeDensityCoefficients": positive_coefficients,
             "universalQuartetComparisons": 2 * len(fixtures),
