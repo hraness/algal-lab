@@ -8,6 +8,7 @@ not a certificate that no equivalent result exists. Proofs are in the
 [stochastic-order group theorem](stochastic-intact-groups.md),
 [mixture-line grouping theorem](mixture-rank-grouping.md),
 [hazard-mixture counterexample](hazard-mixture-counterexample.md),
+[sharp softmax spread theorem](sharp-softmax-spread.md),
 [three-triple extension](block-separated-triples.md),
 [CDF robustness](robust-stochastic-groups.md),
 [two-threshold certificate](two-threshold-certificate.md),
@@ -25,6 +26,7 @@ not a certificate that no equivalent result exists. Proofs are in the
 | Consecutive mixture weights stochastically maximize intact count for a common two-base mixture family | Proved for all equal group sizes, arbitrary crossing base CDFs, all fixed horizons and independent backgrounds; extreme pairs minimize intact and maximize redundant count; exact affine-line histogram admission implemented | The squared-CDF discrepancy is established; mixture factorization and the rank-assembly application have unresolved priority |
 | Three common histogram bins are necessary and sufficient for a FOSD crossing-versus-nested reversal | Two-bin laws lie on a mixture line and cannot reverse; a positive three-bin fixture does | Exact scope boundary; no separate priority claim |
 | Majorization does not order exponential-mixture hazards in dimensions above two | Exact example, every-dimension single-crossing family, and strict-weight/distinct-rate variant proved | Negative answer to the unchanged extension in Shojaee et al. (2022), Remark 6.3; contradicts Theorem 3.8 in the inspected Sahoo et al. (2026) accepted manuscript; priority and final-version status unresolved |
+| Softmax Schur ordering on a box has a sharp dimension-dependent spread threshold | Independently proved iff bound `(n−2)(c_n−2) exp(c_n)=4`, strict at equality, with explicit interior violations above it and exact rational root enclosures | Candidate finite-dimensional improvement; dimension-free bound 2 follows from Fu et al. (2016), two-variable case from Gini-mean theory; unrestricted Table 3 claim in an inspected ICLR 2026 author PDF contradicted; wider comparisons remain open |
 | Three target triples need only between-group CDF order | Exact finite proof covers all 280 partitions, all Boolean selection states and all count tails, with arbitrary independent backgrounds | Scope extension; precise priority unresolved; nonnegative-cone certificates are an established technique |
 | CDF perturbations bound the entire intact-count tail vector and grouping regret | Proved with sharp linear constants 1 for stability and 2 for transfer regret | Elementary stability argument; no separate novelty claim |
 | Midpoint CDF projection supplies an approximation certificate when CDFs cross | Implemented using exact rational errors and fixed-order minimax radius | Projection is precisely the established Basic L∞ isotonic regression; no regression-algorithm novelty claim |
@@ -303,6 +305,85 @@ alpha-mixture paper also remains unread. The [July 2026 modified-proportional-ha
 was available only through indexed excerpts; its full hazard extension is
 unclosed. These gaps qualify priority claims, while the specific 2026
 accepted-manuscript contradiction has a complete exact mapping.
+
+**Amir, Bettini and Prorok (ICLR 2026), When Is Diversity Rewarded in
+Cooperative Multi-Agent Learning?** [Author full PDF](https://matteobettini.com/publication/hetenvdesign/HetEnvDesign.pdf),
+[author venue record](https://matteobettini.com/publication/hetenvdesign/).
+Definitions in Sections 2 and 3, the softmax formula, related proof passages
+in Appendix G and Table 3 were read; Table 3 on page 21 was visually checked.
+That table claims strict Schur convexity for all positive temperatures and
+strict Schur concavity for all negative temperatures. The
+[exact counterexample](sharp-softmax-spread.md#exact-counterexample-to-the-unrestricted-softmax-claim)
+fits the stated nonnegative allocation domain, including unit row budgets.
+It disproves the unrestricted aggregator property; it does not by itself
+disprove downstream heterogeneity-gain conclusions. The official
+[OpenReview PDF route](https://openreview.net/pdf?id=uJCGMBO6Qx) required browser
+verification, so final-version byte identity is unconfirmed. The claim is
+bound to the author PDF with SHA-256
+`4473fb913f6cb4a64f6db5fa92ae35320598cc89d029f930c88e747c84ec0d2f`.
+
+**Asadi and Littman (ICML 2017), An Alternative Softmax Operator for
+Reinforcement Learning.** [Full proceedings paper](https://proceedings.mlr.press/v70/asadi17a/asadi17a.pdf).
+The operator definitions and mathematical sections were inspected. They
+document Boltzmann-operator failures of non-expansion and introduce
+mellowmax, a distinct log-mean-exp operator with a non-expansion guarantee.
+These inspected results concern sup-norm and monotonicity properties,
+rather than the equal-sum Schur comparison proved here. The weighted mean
+and its defects are established subjects; no claim is made to their discovery.
+The cited Littman (1996) original was not read.
+
+**Fu, Wang and Shi (2016), Schur-Convexity for Lehmer mean of n variables.**
+[Full primary paper](https://www.isr-publications.com/jnsa/2618/download-schur-convexity-for-lehmer-mean-of-n-variables),
+[DOI](https://doi.org/10.22436/jnsa.009.10.02).
+Definition, Theorems 1.3–1.5, geometric Schur definitions and the relevant
+positive branch of the Section 3.2 proof were read. Theorem 1.4 on printed
+page 5512 was visually checked. Part (II)'s sufficient box for the
+n-variable Lehmer mean yields `|τ|(b−a)≤2` for the softmax mean by the
+[explicit limit argument](sharp-softmax-spread.md#source-comparison-and-priority).
+This is genuine positive prior art, not merely a neighboring operator.
+It does not supply the sharp finite-dimensional constant `c_n>2` in the
+inspected statements. No global audit of the paper's other branches is claimed.
+
+**Perla, Padmanabhan and Lokesha (2017), Schur-convexity for Gini mean of
+n variables.** [Full publisher PDF](https://journalijcar.org/sites/default/files/issue-files/4103---A--2017.pdf),
+[record](https://journalijcar.org/issues/schur-convexity-ginimean-n-variables).
+Equation (1.3) restricts the mean to adjacent parameters: `G_q=L_(q+1)`.
+That definition and Theorem 3.2(II) were visually checked; the related
+statement and proof were inspected. Its sufficient geometric Schur box
+is the 2016 box after relabeling, again yielding the dimension-free bound.
+The title alone must not be treated as a general n-variable diagonal Gini
+theorem or as a sharp dimension-dependent classification.
+
+**Witkowski (2011), On Schur-convexity and Schur-geometric convexity of
+four-parameter family of means.** [Full primary paper](https://files.ele-math.com/articles/mia-14-74.pdf).
+The definitions and recalled results on pages 897–899 were read. The
+two-variable diagonal Gini mean satisfies
+`log G(τ,τ;exp x,exp y)=B_τ(x,y)`; its recalled geometric Schur convexity
+for nonnegative parameters supplies the positive-temperature two-variable
+case. Reflection supplies the negative-temperature case. Neither this
+two-variable result nor the derivative criterion nor the Lambert-W
+representation is claimed as new. The inspected source does not supply
+the dimension-dependent bound for `n≥3`; broader mean inequalities still
+require comparison.
+
+**Remaining softmax and general-mean source gaps.** Wang and Zhang's
+[2026 generalized Bajraktarević set-valued mean paper](https://link.springer.com/article/10.1007/s00010-026-01313-6)
+was available only as a publisher preview; its complete definitions and
+Schur-concavity theorems remain unread. Polson's
+[2026 Annealed Random Operators for Reinforcement Learning](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7272019)
+was located through indexed primary metadata and abstract; its full
+Boltzmann gap condition was not retrieved. Neither source has been cleared
+by title or abstract alone. A bounded search for the threshold and related
+Boltzmann, exponential and geometric-mean terminology found no exact match
+in the inspected texts; absence from these results does not prove priority.
+
+The same expectation ratio is also the Esscher premium. Van Heerwaarden,
+Kaas and Goovaerts' [1989 publisher abstract](https://www.sciencedirect.com/science/article/abs/pii/0167668789900012)
+already reports failures to respect smaller or less-variable risks. Its
+full statements, examples and possible bounded-range conditions remain
+unread at this checkpoint. General failure of risk ordering must therefore
+not be presented as a new phenomenon; the finite-dimensional threshold
+still needs this additional primary-source comparison.
 
 **Stout (2018), Weighted L∞ isotonic regression.**
 [Author-hosted paper](https://web.eecs.umich.edu/~qstout/pap/LinfinityIsoReg.pdf),

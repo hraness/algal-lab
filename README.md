@@ -253,6 +253,15 @@ variant with strict weights and distinct rates, and explains why a shared slow
 component can destroy hazard ordering. Priority and final-version checks are
 recorded separately from the proof.
 
+The [softmax spread theorem](docs/sharp-softmax-spread.md) gives an exact
+repair: in dimension `n≥3`, the softmax-weighted mean has the expected Schur
+ordering precisely when absolute temperature times input spread is at most `c_n`,
+where `(n−2)(c_n−2) exp(c_n)=4`. The proof includes the boundary and explicit
+counterexamples above it. An exact example also contradicts the unrestricted
+property in a specified ICLR 2026 author PDF. The two-variable case and a
+dimension-free sufficient bound follow from prior mean inequalities;
+priority of the sharp dimension-dependent threshold remains unresolved.
+
 The [two-threshold certificate](docs/two-threshold-certificate.md)
 characterizes quartet inequalities against arbitrary backgrounds, with an
 exact linear scan for histogram clocks and counterexample witnesses. The
