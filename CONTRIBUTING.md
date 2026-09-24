@@ -80,10 +80,13 @@ python3 -m research.spikes.softmax_partitions.experiment --out research/spikes/c
 ```
 
 The [certified softmax occupancy solver](docs/certified-softmax-partitions.md)
-uses rational interval arithmetic and a bounded exact-budget DP. Its two
-unit-test modules are included above; the fixed 20-case study also runs in
-CI. Choose an unused output path for each local study. Its `pure-only` scope
-must not be promoted to continuous globality outside a proved purity region.
+uses rational interval arithmetic, bounded occupancy scans for two agents
+or at most three tasks, and an exact-budget DP for the remaining cases. Its
+[universal purity theorem](docs/softmax-universal-purity.md) makes every
+admitted positive-temperature result continuous; historical v1/v2 receipts
+retain their original `pure-only` labels. Its two unit-test modules are
+included above; the fixed 20-case study also runs in CI. Choose an unused
+output path for each local study.
 
 Proof text, finite exhaustive checks, policy holdouts, and novelty claims are
 separate evidence. Keep research TypeScript in the aggregate typecheck and tests.

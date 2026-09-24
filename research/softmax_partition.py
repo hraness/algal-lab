@@ -1,8 +1,8 @@
-"""Certified pure-group optimization for nested Boltzmann task allocation.
+"""Certified continuous optimization for nested Boltzmann task allocation.
 
 Only the Python standard library is used. Exact rational Taylor enclosures
-and outward rounding certify additive regret through threshold DPs or a
-two-task occupancy scan. Continuous scope requires a proved purity certificate.
+and outward rounding certify additive regret through threshold DPs or bounded
+occupancy scans. Universal positive-temperature purity gives continuous scope.
 Run ``python3 -m research.softmax_partition --help`` for the bounded CLI.
 """
 
@@ -16,7 +16,7 @@ import re
 from research.softmax_partition_dp import maximize_partition
 
 
-CONTRACT = "algal.lab.softmax-partition.v2"
+CONTRACT = "algal.lab.softmax-partition.v3"
 MAX_DIMENSION = 128
 MAX_TEMPERATURE = Q(32)
 MIN_EPSILON = Q(1, 2**40)
@@ -99,33 +99,6 @@ def _reward_interval(groups: tuple[int, ...], tasks: int,
     return max(Q(0), _down(a_lo / b_hi, bits)), min(Q(1), _up(a_hi / b_lo, bits))
 
 
-def _purity_certificate(agents: int, tasks: int, inner: Q, outer: Q,
-                        reward_lower: Q, bits: int) -> dict[str, object] | None:
-    """Certify continuous scope without presuming that a pure witness is optimal."""
-    if agents == 1:
-        return {"basis": "one-agent"}
-    if tasks <= 2:
-        return {"basis": "at-most-two-tasks"}
-    if inner <= 2:
-        return {"basis": "inner-temperature-at-most-two"}
-    if 4 * outer >= inner:
-        return {"basis": "outer-inner-ratio"}
-    _, e_hi = _exp_interval(inner, bits)
-    threshold_left = (inner - 2) * e_hi
-    threshold_right = (agents - 1) * (inner + 2)
-    if threshold_left <= threshold_right:
-        return {"basis": "dimension-dependent-inner-threshold",
-                "exponentialUpperBound": str(e_hi),
-                "leftUpperBound": str(threshold_left), "right": str(threshold_right)}
-    G = 1 + outer * (1 - reward_lower)
-    permitted_inner = 4 * outer * (1 + 1 / G)
-    if inner <= permitted_inner:
-        return {"basis": "feasible-reward",
-                "feasibleRewardLowerBound": str(reward_lower), "G": str(G),
-                "certifiedInnerLimit": str(permitted_inner)}
-    return None
-
-
 def _report(agents: int, tasks: int, inner: Q, outer: Q, epsilon: Q,
             groups: tuple[int, ...], lower: Q, upper: Q, witness_upper: Q,
             bits: int, queries: int, transitions: int, transition_bound: int,
@@ -134,14 +107,13 @@ def _report(agents: int, tasks: int, inner: Q, outer: Q, epsilon: Q,
     if not (Q(0) <= lower <= upper <= 1 and lower <= witness_upper <= 1
             and upper - lower <= epsilon and transitions <= transition_bound):
         raise ArithmeticError("certificate invariant failed; no certificate returned")
-    purity = _purity_certificate(agents, tasks, inner, outer, lower, bits)
     return {
         "contract": CONTRACT,
         "agents": agents, "tasks": tasks,
         "inner": str(inner), "outer": str(outer), "epsilon": str(epsilon),
         "groups": list(groups),
-        "optimumScope": "continuous" if purity is not None else "pure-only",
-        "purityCertificate": purity,
+        "optimumScope": "continuous",
+        "purityCertificate": {"basis": "universal-positive-temperature"},
         "optimumInterval": [str(lower), str(upper)],
         "witnessRewardInterval": [str(lower), str(min(upper, witness_upper))],
         "additiveRegretBound": str(upper - lower),
@@ -153,25 +125,38 @@ def _report(agents: int, tasks: int, inner: Q, outer: Q, epsilon: Q,
     }
 
 
-def _two_task_solution(agents: int, inner: Q, outer: Q, epsilon: Q
-                       ) -> dict[str, object]:
-    """Scan every unlabeled two-task occupancy, with outward reward bounds."""
-    candidates = [(agents,)] + [(agents - m, m) for m in range(1, agents // 2 + 1)]
+def _direct_solution(agents: int, tasks: int, inner: Q, outer: Q, epsilon: Q
+                     ) -> dict[str, object]:
+    """Enclose all occupancies when a bounded direct scan is available."""
+    if tasks == 2:
+        candidates = [(agents,)] + [(agents - m, m) for m in range(1, agents // 2 + 1)]
+        stop = "two-task-enumeration"
+    elif agents == 2 and tasks > 2:
+        candidates = [(2,), (1, 1)]
+        stop = "two-agent-enumeration"
+    elif tasks == 3:
+        candidates = [(agents,)] + [(agents - m, m) for m in range(1, agents // 2 + 1)]
+        candidates += [(agents - b - c, b, c)
+                       for c in range(1, agents // 3 + 1)
+                       for b in range(c, (agents - c) // 2 + 1)]
+        stop = "three-task-enumeration"
+    else:
+        raise ValueError("no direct occupancy scan for these dimensions")
     evaluated = 0
     for bits in PRECISIONS:
         items = _item_intervals(agents, inner, outer, bits)
-        rewards = [_reward_interval(groups, 2, items, bits) for groups in candidates]
+        rewards = [_reward_interval(groups, tasks, items, bits) for groups in candidates]
         evaluated += len(candidates)
         best = max(range(len(candidates)), key=lambda i: rewards[i][0])
         lower, witness_upper = rewards[best]
         upper = max(bound[1] for bound in rewards)
         if upper - lower <= epsilon:
-            width = min(agents, 2) * max(a_hi - a_lo + b_hi - b_lo
-                                        for a_lo, a_hi, b_lo, b_hi in items)
-            return _report(agents, 2, inner, outer, epsilon, candidates[best],
+            width = min(agents, tasks) * max(a_hi - a_lo + b_hi - b_lo
+                                            for a_lo, a_hi, b_lo, b_hi in items)
+            return _report(agents, tasks, inner, outer, epsilon, candidates[best],
                            lower, upper, witness_upper, bits, 0, 0, 0, width,
-                           "two-task-enumeration", evaluated)
-    raise ArithmeticError("two-task precision cap reached; no certificate returned")
+                           stop, evaluated)
+    raise ArithmeticError("direct occupancy precision cap reached; no certificate returned")
 
 
 def optimize_partition(agents: int, tasks: int, inner: Q, outer: Q,
@@ -180,9 +165,10 @@ def optimize_partition(agents: int, tasks: int, inner: Q, outer: Q,
 
     Counts are bounded explicit populations. Temperatures must be positive
     exact rationals <=32, with <=64-bit numerator/denominator. Epsilon is
-    in [2^-40,1]. Work admission precedes exponential evaluation. Outside
-    the certified purity conditions, the upper bound applies ONLY to pure
-    optima. Two tasks use a linear occupancy scan and are always pure.
+    in [2^-40,1]. Work admission precedes exponential evaluation. Every
+    admitted input has a continuous optimum attained by a pure allocation,
+    by the universal positive-temperature purity theorem. Two-agent and
+    two/three-task scans use at most 1,430 occupancies per pass.
     This endpoint does not identify all ties or promise an exact optimizer.
     """
     for name, value in (("agents", agents), ("tasks", tasks)):
@@ -193,8 +179,8 @@ def optimize_partition(agents: int, tasks: int, inner: Q, outer: Q,
     if inner == 0 or outer == 0:
         raise ValueError("temperatures must be strictly positive")
     epsilon = _rational(epsilon, MIN_EPSILON, Q(1), "epsilon")
-    if tasks == 2:
-        return _two_task_solution(agents, inner, outer, epsilon)
+    if tasks in (2, 3) or (agents == 2 and tasks > 3):
+        return _direct_solution(agents, tasks, inner, outer, epsilon)
     max_queries, width = 0, Q(1)
     while width > epsilon:
         max_queries += 1

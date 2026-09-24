@@ -1,16 +1,18 @@
-# Certified optimization after the purity theorem
+# Certified optimization after the universal purity theorem
 
-The [purity theorem](softmax-integral-optima.md) turns continuous nested
-Boltzmann allocation into an integer grouping problem whenever `t≤2` or
-`τ≥t/4`, with both temperatures positive. This includes the entire matched
-positive line. We can therefore compute a grouping with a rigorous bound
-on its distance from the global continuous optimum, without running a
-continuous numerical optimizer or a language model.
+The [universal purity theorem](softmax-universal-purity.md) turns continuous
+nested Boltzmann allocation into an integer grouping problem for every finite
+positive `t`, `τ`, population, and task count in the unit-budget model. We can
+therefore compute a grouping with a rigorous bound on its distance from the
+global continuous optimum, without running a continuous numerical optimizer
+or a language model.
 
-The [support-structure sequel](softmax-support-structure.md) extends the
-purity conditions and settles two tasks at all positive temperatures.
-Solver contract `algal.lab.softmax-partition.v2` records which proof
-condition justifies continuous scope and uses direct enumeration for two tasks.
+The support, dominance, two-agent, and three-task notes remain the dependency
+lemmas and useful special-case analyses. They are no longer separate
+temperature gates for the executable. Solver contract
+`algal.lab.softmax-partition.v3` records the universal proof basis and directly
+enumerates the small-dimension occupancy sets where that is cheaper than the
+general DP.
 
 The optimization mechanism is classical fractional programming and
 exact-budget dynamic programming. The candidate mathematical contribution
@@ -100,12 +102,22 @@ The resulting bounds, **after real coefficients are supplied**, are
 bounds for arbitrary real temperatures or polynomial bounds in `log N`
 when population size is a compressed binary multiplicity.
 
-For exactly two tasks, the stronger theorem reduces the continuous optimum
-to `⌊N/2⌋+1` occupancies. Version 2 scans their reward intervals directly,
-taking the maximum upper endpoint and the best feasible lower endpoint.
-This requires `O(N)` comparisons per precision pass after weights are
-supplied. It performs no threshold queries or DP transitions. The general
-DP and its ambiguity proof below apply to the other task counts.
+The direct scans take the largest candidate upper endpoint and retain the
+witness with largest lower endpoint. Their difference certifies regret.
+They make no threshold queries or DP transitions:
+
+| Dimensions | Candidate occupancies | Evaluations per precision pass after weights are supplied |
+|---|---|---|
+| `M=2` | `(N)` and `(N−m,m)` for `1≤m≤⌊N/2⌋` | `⌊N/2⌋+1`, or `O(N)` |
+| `N=2, M>2` | `(2)` and `(1,1)` | 2, or `O(1)` |
+| `M=3, N≠2` | All positive partitions of `N` with at most three parts | `O(N²)` |
+
+For three parts, write them as `(N−b−c,b,c)`, where
+`1≤c≤⌊N/3⌋` and `c≤b≤⌊(N−c)/2⌋`. These inequalities enforce
+nonincreasing positive parts and enumerate each triple exactly once.
+The one- and two-part candidates are added separately. The general DP and
+its ambiguity proof below apply outside these direct branches. The
+one-task case is independently pure.
 
 ## Rigorous exponential and comparison bounds
 
@@ -168,22 +180,27 @@ by 1,024 terms. Reaching a cap raises an error without returning a certificate.
 The unbounded analytic theorem and these deliberately bounded executable
 limits are different statements.
 
-Version 2 checks the expanded conditions in the support sequel. These
-include an outward exponential test for the dimension-dependent inner
-threshold and an exact rational inequality using the returned feasible
-witness's reward lower bound. This latter test does not assume pure
-optimality in order to prove it. The output's `purityCertificate` identifies
-the successful condition and its numerical bounds when applicable. When no
-condition is certified it is null, `optimumScope` says `pure-only`, and the
-upper bound applies only to the pure class. No difference between pure and
-continuous optima is inferred from an unsuccessful sufficient test.
+Every successful returned report has
+`purityCertificate={"basis":"universal-positive-temperature"}`.
+The analytic theorem, rather than a numerical witness or an unsuccessful
+sufficient test, justifies the continuous scope. Previous v1/v2 receipts
+retain their exact source identities and conservative historical scope labels;
+they are not silently rewritten by this follow-up.
+The frozen round-20 v3 candidate is likewise preserved in the local research
+archive as superseded evidence; the round-21 source and proof are the current
+integration candidate.
 
-The two-task scan instead refines directly until its reward bracket is
-short enough, with at most four precision passes and at most 260 occupancy
-evaluations under the input cap. Its `occupancyEvaluations` field includes
-repeated scans. General DP runs report zero for that field. Version-1
-receipts must be reproduced with their recorded source; their conservative
-scope labels and recorded evidence remain valid.
+Each direct scan refines until its reward bracket is short enough, with
+at most four precision passes. Under the input cap, this permits at most
+260 occupancy evaluations for two tasks, eight for two agents with more
+tasks, and 5,720 for three tasks (at most 1,430 per pass).
+`occupancyEvaluations` includes repeated scans; DP runs report zero.
+The corresponding `stopReason` values are `two-task-enumeration`,
+`two-agent-enumeration` and `three-task-enumeration`. They describe the
+enumeration mechanism, not a restricted theorem region. Failed precision
+refinement still returns no certificate. Version-1 and version-2 receipts
+require their recorded source; their original evidence and conservative scope
+labels remain valid.
 
 ## Reproduction and finite results
 
@@ -201,6 +218,24 @@ Choose a new output directory for every experiment. The fixed
 input rationals, source hashes, reward brackets, groupings, operation counts
 and observed timings. A failed run preserves completed cases and its failure.
 There are no external model calls or credentials.
+
+Three version-3 theorem demonstrations extend the continuous certificates
+outside the earlier temperature region:
+
+| Agents, tasks | Inner, outer temperature | Returned grouping | Occupancy evaluations | Certified additive regret |
+|---|---|---|---:|---|
+| 2, 128 | 4, 1/100 | `(1,1)` | 2 | `1/4294967296` |
+| 128, 3 | 8, 1/100 | `(43,43,42)` | 1,430 | `3/4294967296` |
+| 3, 3 | 8, 1/4 | `(1,1,1)` | 3 | `3/4294967296` |
+
+All three bounds are below `10^-8`. These investigator-selected examples
+use no DP queries or external inference. They establish the stated regret
+certificates, without a uniqueness, holdout or runtime-superiority claim.
+For example:
+
+```sh
+python3 -m research.softmax_partition --agents 128 --tasks 3 --inner 8 --outer 1/100 --epsilon 1/100000000
+```
 
 The initial version-1 20-case run passed with certified additive regret below `10^-8`
 in every case. For populations through 16, an independent partition
@@ -227,9 +262,11 @@ regime between the small-temperature two-group and large-temperature
 four-group regimes. At `t=τ=1`, its reward exceeds every different occupancy
 pattern by at least `631069/4294967296 > 1/7000`, using outward rational
 enclosures. It does not locate every transition or prove that group
-count changes monotonically. The separate `N=M=9,t=8,τ=1/4` case certifies
-the permutation grouping **only among pure allocations**. Rectangular and
-one-task cases are also retained.
+count changes monotonically. The archived version-1 receipt described the
+separate `N=M=9,t=8,τ=1/4` permutation result only among pure allocations;
+the universal theorem upgrades the same occupancy comparison to continuous
+scope for the current v3 source. Rectangular and one-task cases are also
+retained.
 
 Those 20 version-1 solver calls took about 3.14 seconds in one Python 3.14.6 run on the
 investigator's machine. This excludes the exhaustive comparison phase and
@@ -262,8 +299,10 @@ convergence claim is needed here.
 
 The inspected softmax model, Theorems 3.1–3.4 and Appendix G.4 of
 [Amir–Bettini–Prorok v4](https://arxiv.org/html/2506.09434v4)
-give endpoint lower bounds without this purity reduction or occupancy solver.
-This is a bounded source comparison. Broader nonlinear allocation and
-group-formation literature, the exact-model citation neighborhood and the
-purity theorem's global priority remain unresolved. The
+give endpoint lower bounds; the inspected passages do not state this
+all-maximizer purity reduction or the resulting exact occupancy formula. This
+is a bounded source comparison, not a proof that no other source contains an
+equivalent theorem. Broader nonlinear allocation and group-formation
+literature, the exact-model citation neighborhood and the purity theorem's
+global priority remain unresolved. The
 [novelty ledger](novelty-ledger.md) preserves those distinctions.
