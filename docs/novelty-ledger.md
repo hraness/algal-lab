@@ -1,6 +1,6 @@
 # Novelty ledger
 
-Last audited 23 September 2026. This records claim scope and source coverage,
+Last audited 24 September 2026. This records claim scope and source coverage,
 not a certificate that no equivalent result exists. Proofs are in the
 [ordered-survival note](ordered-survival-discovery.md), the
 [rank-selection and groups note](rank-selection-and-triples.md),
@@ -15,6 +15,8 @@ not a certificate that no equivalent result exists. Proofs are in the
 [continuous allocation optima](softmax-integral-optima.md),
 [certified occupancy optimization](certified-softmax-partitions.md),
 [sparse allocation support](softmax-support-structure.md),
+[two-agent rectangular phases](two-agent-softmax-phase.md),
+[dominance and small-task optima](softmax-dominance.md),
 [three-triple extension](block-separated-triples.md),
 [CDF robustness](robust-stochastic-groups.md),
 [two-threshold certificate](two-threshold-certificate.md),
@@ -36,14 +38,18 @@ not a certificate that no equivalent result exists. Proofs are in the
 | Softmax Schur ordering on a nonnegative fixed-total simplex has distinct sharp cutoffs for the two temperature signs | Independently proved positive bound `τS≤d_n`, `(d_n−2) exp(d_n)=2(n−1)`, and negative bound `|τ|S≤2c_n`; strict boundaries, finite interior violations, and certified dimension-58 crossover | Candidate exact classification; no inspected source supplies it, but the 1989 Esscher-order original and broader comparisons remain unread; no first-discovery assertion |
 | Every intermediate pure allocation with full budgets beats both endpoints for nested softmax allocation at matched positive temperatures | Proved for all occupancy patterns except concentration and permutation, every `n≥3` and every `t=τ>0`; monotone `log 2` examples give gains `>1/295` for three agents and `>4/465` for four | Refutes the explicit v1 exactness conjecture of Amir et al.; conjecture omitted from v2 onward, reason unestablished; strengthens the later lower bound; first priority unresolved |
 | Nested softmax allocation with positive inner and nonpositive outer temperature has an exact optimum | Proved gain `σ(t,n)−1/n` for `N=M=n≥2`; all maximizers are permutation matrices; for `t≤0` and budgets at most one, both classes have identical score sets for any outer utility | Exactness confirms a branch of the v1 conjecture; the zero-gain Boltzmann conclusion was already stated in the source; the direct proof and score-set extension do not require unrestricted Schur properties |
-| Two-agent nested softmax allocation is exactly solved at every temperature pair, including unused budgets | Proved `R_het=σ(max(t,τ,0),2)` and `R_hom=σ(max(τ,0),2)`; positive-quadrant maximizers classified; matched positive gain occurs precisely from square dimension three onward | Establishes the two-agent special case of the v1 conjecture and agrees with the approximate Figure 2 pattern; current theorem provides lower bounds, broader priority unresolved |
+| Two-agent, two-task nested softmax allocation is exactly solved at every temperature pair, including unused budgets | Proved `R_het=σ(max(t,τ,0),2)` and `R_hom=σ(max(τ,0),2)`; positive-quadrant maximizers classified; matched positive gain occurs precisely from square dimension three onward | Establishes the two-agent square special case of the v1 conjecture and agrees with the approximate Figure 2 pattern; current theorem provides lower bounds, broader priority unresolved |
 | Pure full-budget softmax allocations have different optimal group counts at small and large matched temperature | Exact asymptotic coefficients proved; two balanced groups uniquely optimal near zero for every `n≥3`; for `n=r²`, `r` groups of `r` uniquely optimal for sufficiently large temperature; nine-agent regime change follows | Candidate analytic group-selection result; standard Taylor, reciprocal-sum and AM–GM arguments credited; no located equivalent statement, no global priority or intermediate-temperature classification claimed |
-| Continuous softmax allocation has only pure maximizers throughout a sufficient temperature region, including the whole matched positive line | Proved for all positive `N,M,t,τ` when `t≤2` or `τ≥t/4`; all positive-temperature maximizers exhaust budgets even outside this region; both asymptotic grouping results are global continuous optima | Source-relative improvement over inspected allocation theorems; second-order conditions and AM–GM are standard; the 2013 wirelength original was inspected but 2011 remains unread; boundary sharpness and global priority not asserted |
-| The three-agent continuous optimum has an exact phase classification in the proved purity region | Proved permutation / intermediate / concentration phases, explicit lower threshold and unique upper threshold; EVERY matched `t>0` has exactly 18 intermediate maximizers, so the `log 2` witness attains the true optimum | Sharpens the source's endpoint lower bound; single-crossing mechanism follows from classical concavity or bounded variance, not a new general comparison principle; wider priority unresolved |
+| Continuous softmax allocation has only pure maximizers throughout a sufficient temperature region, including the whole matched positive line | Historical predecessor: proved for all positive `N,M,t,τ` when `t≤2` or `τ≥t/4`; all positive-temperature maximizers exhaust budgets even outside this region | Superseded in scope by the universal path theorem below; the earlier source-relative comparison and receipts remain valid |
+| Every finite positive-temperature nested Boltzmann allocation optimum is pure | Independently reviewed private-leaf path proof covers every finite `N,M,t,τ>0`, including ties and external zero rows; it reduces the unrestricted continuous optimum exactly to integer occupancies and is implemented as v3's continuous-scope basis | Derivative identities, stationarity, forest paths, tangent inequalities and second-order necessary conditions are classical ingredients. The inspected Amir–Bettini–Prorok v4 and bounded adjacent-source packet do not state this all-maximizer theorem; forward search is not exhaustive, so first-discovery priority remains unresolved |
+| The three-agent, three-task continuous optimum has an exact phase classification at every positive temperature pair | Proved permutation / intermediate / concentration phases, explicit lower threshold and unique upper threshold; the three-task purity theorem extends these to the whole positive quadrant, including all ties; EVERY matched `t>0` has exactly 18 intermediate maximizers | Sharpens the source's endpoint lower bound; single-crossing mechanism follows from classical concavity or bounded variance, not a new general comparison principle; wider priority unresolved |
 | Purity permits certified optimization over all occupancies | Exact-budget DP, threshold bisection and rational exponential enclosures give additive regret certificates; a fixed 20-case study certifies the 16-agent three-group intermediate regime and tested 64-agent optima to within `10^-8` | Fractional optimization is classical, directly covered by Megiddo (1979); candidate contribution is the continuous structural reduction and model-specific consequences, not the DP mechanism or a claimed speedup |
 | Every positive-temperature maximizing allocation has sparse acyclic support | Proved forest support, at most one private task per row, at most `2N−1` active tasks and `3N−2` positive entries; sharper component/fractional-row counts also hold | Classical transport support forests and Shapley–Folkman representations are credited; their inspected formulations do not directly imply this nonlinear all-maximizer statement; broader priority and sharpness for actual optima remain open |
 | Every two-task optimum is pure for arbitrary population and positive temperature pair | Proved more strongly for every maximum with at most two active tasks; the two-task global optimum reduces to `⌊N/2⌋+1` occupancies; an outward interval scan implements that reduction | Finite enumeration is standard; the all-population structural reduction sharpens the earlier two-agent square result, with wider priority unresolved |
 | The purity region extends through a dimension-dependent threshold or a feasible reward certificate | Proved `t≤κ_N`, `(κ_N−2)e^κ_N=(N−1)(κ_N+2)`, or `t≤4τ(1+1/[1+τ(1−r₀)])` for a certified feasible reward lower bound `r₀`; solver v2 records the successful condition | Maximum-point curvature and AM–GM are classical; these sufficient conditions are not claimed sharp, and first priority is not established |
+| Two agents with any task count have only pure positive-temperature optima and one separation/concentration crossover | Proved exact `max{H,D}`, all maximizing assignments, `τ_*=t` for two tasks and `t<τ_*<t+log(M−1)` for more; two agents/three tasks have exact matched gain `>1/150`; solver v3 checks two occupancies | The current exact-model source gives square-population lower bounds; inspected passages do not give this rectangular classification. Curvature, trace and finite enumeration are classical; wider priority remains open |
+| Dominance exclusion separates pure and fractional support components and proves three-task purity | Proved `c<a+b` for another row's contribution opposite any supported pair `a,b`; no task mixes pure and fractional rows; every maximum with at most three active tasks is pure for all populations and positive temperatures | Model-specific necessary condition and reduction, using classical tangent and second-order inequalities; no inspected source supplies the complete implication, but wider nonlinear-allocation comparisons remain open |
+| A task served by every agent at an optimum forces complete concentration | Proved by excluding a fractional all-agent star with Lambert-W private-curvature and entropy/trace bounds; external zero-row components are outside this star argument | The entropy, scalar maximization and trace mechanisms are standard; exact-model structural corollary is a candidate contribution with unestablished first priority |
 | Three target triples need only between-group CDF order | Exact finite proof covers all 280 partitions, all Boolean selection states and all count tails, with arbitrary independent backgrounds | Scope extension; precise priority unresolved; nonnegative-cone certificates are an established technique |
 | CDF perturbations bound the entire intact-count tail vector and grouping regret | Proved with sharp linear constants 1 for stability and 2 for transfer regret | Elementary stability argument; no separate novelty claim |
 | Midpoint CDF projection supplies an approximation certificate when CDFs cross | Implemented using exact rational errors and fixed-order minimax radius | Projection is precisely the established Basic L∞ isotonic regression; no regression-algorithm novelty claim |
@@ -404,6 +410,17 @@ was inspected at its opening, the citation discussion on printed page 21
 and the reference on page 24; those passages do not give these results.
 The forward-citation search was not exhaustive.
 
+A 24 September follow-up checked the current arXiv version record (still
+v4, revised 1 March 2026), §2–3, Appendix I Table 3 and Appendix J.2–J.4.
+The inspected theory supplies square-population gain bounds, and the
+rectangular experiment is discrete. These passages do not give the exact
+two-agent arbitrary-task classification or the all-population three-task
+purity result. Four targeted queries located no corresponding follow-up
+theorem; that is a bounded search outcome, not proof of absence. The
+author-linked OpenReview page presented a browser challenge and was not
+used as mathematical evidence. The new notes retain complete proofs and
+identify the classical curvature, trace and enumeration ingredients.
+
 The fixed-score crossover has a classical derivation from exponential
 tilting and the bounded-variance inequality. [Lim and McCann](https://arxiv.org/html/2001.11851v1),
 introduction Equations (1.1)–(1.4), state the variance bound and its
@@ -429,12 +446,42 @@ and empirical tables were not comprehensively read. This closes the
 2013 access gap, without proving broader priority.
 
 The original [2011 paper](https://doi.org/10.1145/2024724.2024875) remains
-unread after its observed author link returned 404,
-as does the [2023 conference paper](https://www.cse.cuhk.edu.hk/~byu/papers/C171-DAC2023-Meawilm.pdf),
-whose retrieval timed out. Their possible local convexity conditions remain a
-priority gap. The general Hessian identity, stationary-point necessary
+unread after its observed author link returned 404. Its possible local
+convexity conditions remain a priority gap. The general Hessian identity, stationary-point necessary
 conditions and AM–GM are credited as standard ingredients; the source-relative
 allocation theorem does not establish global first discovery.
+
+**Round-21 universal purity audit.** The new [private-leaf path theorem](softmax-universal-purity.md)
+was independently reviewed against the exact model in Amir–Bettini–Prorok
+v4 and three adjacent primary-source leads. The audit memo
+`/private/tmp/algal-round21-universal-priority.md` (SHA-256
+`b8ef15e025964ac41af31a106d53312454f6032041b6a3301e14104fdad92881`)
+records the inspected URLs, local artifact hashes and assumptions. Amir et
+al. use the same nested Boltzmann formulas but state square-dimension value
+lower bounds for heterogeneous-versus-homogeneous teams; the inspected text
+does not state all-maximizer purity, rectangular generality, support paths or
+the integer occupancy reduction. Hsu–Balabanov–Chang provide the weighted-mean
+primitive and approximation bounds, while Udell–Boyd and Yu–Lui provide
+convexification or time-sharing tools rather than finite integrality.
+
+This is source-relative evidence only: three targeted queries and a small
+adjacent-source packet did not identify an equivalent theorem, but the search
+is not exhaustive and first-discovery priority remains unresolved. The audit
+also records why the strict boundary `τ>0` matters: at `τ=0,N=1`, every
+full-budget allocation, including fractional rows, ties in the additive
+objective.
+
+A later retrieval recovered the author-hosted
+[DAC 2023 paper by Liao, Liu, Lin, Yu and Wong](https://www.cse.cuhk.edu.hk/~byu/papers/C171-DAC2023-Meawilm.pdf),
+*On a Moreau Envelope Wirelength Model for Analytical Global Placement*.
+Section II.D, the model definitions and Theorems 1–6 with their surrounding
+arguments were inspected; the title page and relevant theorem pages were
+visually checked. Theorem 5 explicitly supplies the gradient-sum identity
+`Σ_i ∂_i B_t=1` used in our star proof. The remaining inspected theorems
+concern proximal mappings, approximation errors and gradient limits; they
+do not state finite-temperature nested allocation purity. This closes the
+2023 access gap and adds positive ingredient attribution, without establishing
+wider priority for the structural result.
 
 **Asadi and Littman (ICML 2017), An Alternative Softmax Operator for
 Reinforcement Learning.** [Full proceedings paper](https://proceedings.mlr.press/v70/asadi17a/asadi17a.pdf).

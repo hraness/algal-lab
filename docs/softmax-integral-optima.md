@@ -1,8 +1,9 @@
 # When continuous softmax allocation has a discrete optimum
 
-At every matched positive temperature, every optimal allocation gives each
-agent's whole unit to one task. Continuous effort splitting adds no
-maximizers. More generally, this holds throughout the region
+The [universal purity theorem](softmax-universal-purity.md) proves that for
+every finite positive inner and outer temperature, every global maximizer
+gives each agent's whole unit to one task. Continuous effort splitting adds
+no maximizers in this unit-budget model. The earlier sufficient region
 
 \[
  \mathcal P=\{(t,\tau):t>0,\ \tau>0,\quad
@@ -10,17 +11,15 @@ maximizers. More generally, this holds throughout the region
  \tag{1}
 \]
 
-Every optimum uses its full row budgets at **all** positive temperature
-pairs, even outside this proved purity region. The
-[support-structure sequel](softmax-support-structure.md) proves larger
-sufficient regions and settles every two-task problem. Fractional optima
-with three or more active tasks remain unresolved outside the enlarged
-regions; the boundary in (1) is not claimed sharp.
+is retained below as the first proved stage of the argument, not as the
+current boundary of the result. Every optimum uses its full row budgets at
+all positive temperature pairs. The two-agent, three-task and support notes
+remain independent dependency proofs and special-case analyses.
 
 This reduction turns the earlier pure-allocation results into global
-continuous optima at matched temperature: two balanced groups near zero,
-square-root groups at sufficiently large temperature for square populations,
-and an exact three-agent solution for every positive temperature.
+continuous optima throughout the positive quadrant: two balanced groups near
+zero, square-root groups at sufficiently large temperature for square
+populations, and an exact three-agent solution for every positive temperature.
 
 Use the [allocation model](softmax-task-allocation.md): a nonnegative
 `N×M` matrix `A=(a_ij)` has row sums at most one, task scores
@@ -246,7 +245,8 @@ Only three pure occupancy patterns exist:
 | `(2,1,0)` | Two agents share a task; the other uses a second | `Q(τ)=(a e^{τa}+b e^{τb})/(e^{τa}+e^{τb}+1)` |
 | `(3,0,0)` | Everyone uses one task | `H(τ)=e^τ/(e^τ+2)` |
 
-Thus, throughout the proved purity region `𝒫`,
+The later [three-task purity theorem](softmax-dominance.md#three-active-tasks-force-purity)
+makes this reduction valid for every `t,τ>0`:
 
 \[
  R_{\rm het}=\max\{P,Q(\tau),H(\tau)\},\qquad R_{\rm hom}=H(\tau).
@@ -261,7 +261,7 @@ There are two unique thresholds satisfying
  \tag{8}
 \]
 
-Within `𝒫`, they classify all maximizers:
+Throughout the positive quadrant, they classify all maximizers:
 
 | Outer temperature | All maximizing occupancy patterns |
 |---|---|
@@ -271,9 +271,9 @@ Within `𝒫`, they classify all maximizers:
 | `τ=u(t)` | `(2,1,0)` and `(3,0,0)` |
 | `τ>u(t)` | `(3,0,0)` |
 
-For `t≤2` this covers every positive outer temperature; for `t>2` it
-covers `τ≥t/4`. All agent and task relabelings are included. Fractional
-mixtures of tied maximizers are excluded by the purity theorem.
+All agent and task relabelings are included. Fractional mixtures of tied
+maximizers are excluded by the three-task purity theorem. The pure
+comparisons below do not depend on the earlier sufficient region `𝒫`.
 
 For the lower threshold, direct subtraction gives
 
@@ -303,8 +303,8 @@ the contribution from score `a` is zero and the other contributions
 negative. Thus `t<u(t)<t+log4`.
 
 Finally `P>H` precisely when `τ<t`. The three comparisons prove the
-table, including all ties. The thresholds exist for every `t>0`, but
-global optimality above is asserted only in (1).
+table, including all ties. The thresholds exist for every `t>0`; the
+later three-task theorem supplies globality throughout `t,τ>0`.
 
 The mechanism in (9) is elementary concavity: `f` is a sum of concave
 powers and `G′=(F+2)f″<0`. It is used as a lemma, not as a claim to a
@@ -333,8 +333,8 @@ task, minority task and minority agent. At `t=τ=log2` the earlier
  >\frac1{295}.
 \]
 
-This promotes a lower-bound example to an exact optimum. It does not
-establish an optimum formula outside (1).
+This promotes a lower-bound example to an exact optimum. The same
+classification now applies outside (1) through the three-task theorem.
 
 ### Exact fixtures for all three phases
 

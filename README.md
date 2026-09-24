@@ -288,12 +288,13 @@ for square populations, square-root-sized groups are optimal at sufficiently
 large temperature. Nine agents therefore exhibit a proved change in optimal
 group count; the transition temperature and broader priority remain open.
 
-The [continuous-allocation sequel](docs/softmax-integral-optima.md) proves
-that every positive-temperature optimum uses full effort and is pure whenever
-`t≤2` or `τ≥t/4`. This includes every matched positive temperature:
-both asymptotic grouping results become global continuous optima, and
-three agents have an exact optimum for the entire matched line. The
-three-agent phase classification holds throughout the proved purity region.
+The [continuous-allocation sequel](docs/softmax-integral-optima.md) records the
+first sufficient purity region and its full-budget lemmas. The later
+[universal purity theorem](docs/softmax-universal-purity.md) extends that
+result to every finite positive temperature pair and every finite population
+and task count. Consequently both asymptotic grouping results become global
+continuous optima, and the three-agent square phase classification holds at
+every positive temperature pair.
 Standard derivative and comparison ingredients are credited; broader
 originality remains open.
 
@@ -302,14 +303,25 @@ classical fractional optimization after this reduction. Exact rational
 exponential enclosures give a returned grouping an explicit additive regret
 bound. A fixed study certifies a three-group intermediate regime for 16
 agents and continuous regret below `10^-8` for tested 64-agent instances.
-Outside the proved purity region its upper bound is explicitly pure-only.
+The current v3 endpoint reports continuous scope from the universal theorem;
+older v1/v2 receipts retain their historical pure-only labels where recorded.
 
 The [support-structure theorem](docs/softmax-support-structure.md) bounds
 every positive-temperature optimum by a forest with at most `2N−1` active
 tasks and `3N−2` positive entries. Two tasks are pure at all positive
-temperatures, enabling a linear occupancy scan. Solver version 2 also
-uses the dimension threshold and a certified feasible reward to justify
-continuous optimality at additional temperature pairs.
+temperatures, enabling a linear occupancy scan. Those support lemmas feed the
+universal purity proof; the dimension threshold and feasible-reward tests are
+retained as historical v2 evidence.
+
+The [two-agent classification](docs/two-agent-softmax-phase.md) solves any
+task count at positive temperatures: the optimum either concentrates the
+agents or separates them, with one exact crossover. Two agents and three
+tasks give an exact matched-temperature gain greater than `1/150`.
+The [dominance theorem](docs/softmax-dominance.md) also settles three tasks
+for any population. Solver v3 uses two candidate rewards for two agents
+and a quadratic occupancy scan for three tasks, with rational regret
+certificates. Pure and fractional rows occupy separate support components;
+a task served by every agent forces complete concentration.
 
 The [two-threshold certificate](docs/two-threshold-certificate.md)
 characterizes quartet inequalities against arbitrary backgrounds, with an

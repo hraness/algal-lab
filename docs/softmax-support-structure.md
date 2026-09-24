@@ -4,20 +4,21 @@ Every positive-temperature optimum has an acyclic allocation support, and
 no agent divides effort between two tasks that nobody else serves. These
 restrictions bound the number of active tasks by `2N−1` and the number of
 positive allocation entries by `3N−2`, independently of the number of
-available tasks. Every optimum using at most two tasks is pure.
+available tasks. The [universal purity theorem](softmax-universal-purity.md)
+now proves that every such optimum is pure, for every finite positive
+temperature pair and all finite dimensions.
 
-Two further arguments enlarge the [earlier purity region](softmax-integral-optima.md):
-a dimension-dependent inner-temperature threshold and a purity certificate
-obtained from any certified feasible reward. The [certified occupancy
-solver](certified-softmax-partitions.md) now checks these conditions and
-uses a direct interval scan for two tasks.
+The dimension threshold, feasible-reward certificate, two-agent analysis and
+three-task dominance proof below remain useful predecessor arguments and
+independent checks. The [certified occupancy solver](certified-softmax-partitions.md)
+uses the universal theorem as its continuous-scope basis; these older
+conditions are no longer runtime gates.
 
 The conclusions below are analytic statements about **every global
-maximizer**, at finite positive temperatures. The sufficient boundaries and
-support bounds are not claimed sharp for actual optima. Fractional optima
-with three or more active tasks remain unresolved outside the proved
-regions. Classical ingredients and the limits of the literature comparison
-are identified at the end.
+maximizer**, at finite positive temperatures. The support bounds and older
+sufficient boundaries are not claimed sharp for actual optima. Classical
+ingredients and the limits of the literature comparison are identified at the
+end.
 
 ## Model and maximum-point identities
 
@@ -436,31 +437,30 @@ Both (9) and (10) enlarge the previous `τ≥t/4` sufficient region.
 Increasing any valid `r₀` strengthens (8). None is asserted to give the
 sharp purity boundary.
 
-### Implemented solver certificates
+### Historical solver certificates
 
-The [occupancy solver](certified-softmax-partitions.md) returns a certified
-lower bound for a feasible pure witness, even when its optimum upper bound
-is limited to the pure class. That lower bound is valid for `R_*` without
-assuming purity. Contract `algal.lab.softmax-partition.v2` substitutes it
-for `r₀` in (8). The rational comparison is equivalently
+The earlier [occupancy solver](certified-softmax-partitions.md) returned a
+certified lower bound for a feasible pure witness, even when its optimum upper
+bound was limited to the pure class. That lower bound is valid for `R_*`
+without assuming purity. Contract `algal.lab.softmax-partition.v2` substituted
+it for `r₀` in (8). The rational comparison is equivalently
 
 \[
  tG\le4\tau(G+1).
 \]
 
-If it succeeds, every continuous maximizer is pure, so the computed pure
-optimum interval and witness regret bound apply to the continuous problem.
-The output records `purityCertificate.basis="feasible-reward"`, the actual
-certified witness lower bound, `G`, and the resulting certified inner limit.
-Failure of this test establishes no difference between the two optima.
+If it succeeded, every continuous maximizer was pure, so the computed pure
+optimum interval and witness regret bound applied to the continuous problem.
+Those source-bound certificates remain reproducible historical evidence; the
+current v3 endpoint uses the universal theorem instead.
 
 The dimension-dependent test uses an outward upper bound `E⁺≥e^t`.
 For `t>2`, the exact rational inequality
 `(t−2)E⁺≤(N−1)(t+2)` certifies `t≤κ_N`; an inconclusive enclosure supplies
-no certificate. Degenerate dimensions, two tasks and the earlier region
-have their own recorded reasons. If none succeeds, the upper bound remains
-`pure-only`. Having a two-group witness when `M>2` is never used to infer
-that all competitors use only two active tasks.
+no certificate. Degenerate dimensions, two tasks and the earlier region had
+their own recorded reasons. If none succeeded, the old upper bound remained
+`pure-only`. Having a two-group witness when `M>2` was never used to infer
+that all competitors used only two active tasks.
 
 For exactly two tasks, the solver scans the list in (6). The largest
 candidate upper endpoint bounds the global optimum. The candidate with
@@ -471,11 +471,12 @@ queries and reports how many occupancy evaluations it performed, including
 repeated scans at finer precision. The implementation uses at most four
 precision passes; each considers exactly `⌊N/2⌋+1` occupancies.
 
-Version 2 adds the purity certificate and occupancy-evaluation fields and
-extends the admitted continuous scope; earlier version-1 receipts retain
-their original source identities. The input caps and the rule that a work
-or precision failure returns no certificate remain in force. No benchmark
-or new general enumeration algorithm is claimed.
+Version 2 added the purity certificate and occupancy-evaluation fields and
+extended the admitted continuous scope; earlier version-1 receipts retain
+their original source identities. Version 3 records the universal theorem as
+its single purity basis. The input caps and the rule that a work or precision
+failure returns no certificate remain in force. No benchmark or new general
+enumeration algorithm is claimed.
 
 ## Reproduction and finite evidence
 
@@ -502,10 +503,9 @@ holdout selection, uniqueness claim or timing comparison.
 | 9, 9 | 8, 9/8 | Nine singletons | Feasible-witness reward criterion | `< 10⁻⁸` |
 
 All three lie outside the earlier sufficient region `t≤2` or `τ≥t/4`.
-The middle example also has a paired scope test: at `N=M=4` with the
-same temperatures, none of the implemented sufficient tests succeeds, so
-the solver correctly retains `pure-only` scope. This is an inconclusive
-certificate, not evidence that a fractional allocation wins there.
+The universal theorem now supplies continuous scope even for the former
+`N=M=4` paired test and other general-DP cases. The old `pure-only` output is
+retained only in historical receipts, not as a current mathematical claim.
 
 The verifier checks 180 exact inner-consolidation cases, 110 outer
 consolidations with certified active signs, 18 two-task fixtures with both
@@ -588,6 +588,7 @@ conditions still need their own wider source comparisons.
 All mathematical conclusions above follow from the displayed proofs and
 the linked maximum-point lemmas. Finite optimizer searches, their absence
 of counterexamples, model capability or token expenditure establish none
-of these theorems and no first-priority claim. The remaining mathematical
-question is whether a global maximizer with three or more active tasks
-can have a fractional tree support outside the sufficient regions.
+of these theorems and no first-priority claim. The [universal purity
+theorem](softmax-universal-purity.md) now answers the former open question:
+no global maximizer has fractional tree support at any finite positive
+temperature pair. Broader priority and sharpness questions remain open.
