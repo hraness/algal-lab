@@ -93,7 +93,9 @@ The [additive-boundary theorem](docs/softmax-additive-boundary.md) and
 outer reward. Their checks run as
 `python3 -m unittest research.test_softmax_additive_boundary research.test_softmax_additive_flow`.
 The flow API takes exact rational `exp(t_j)` values and supplies a residual
-optimality certificate. This is separate from v3's positive-outer-temperature
+optimality certificate. The [negative-outer-temperature note](docs/softmax-negative-outer.md)
+covers `τ≤0`; its exact-witness checks run as
+`python3 -m unittest research.test_softmax_negative_outer`. This is separate from v3's positive-outer-temperature
 input contract.
 
 Proof text, finite exhaustive checks, policy holdouts, and novelty claims are

@@ -21,7 +21,11 @@ small- and large-temperature regimes.
 
 The rectangular additive boundary at `τ=0` is proved separately in the
 [additive-boundary theorem](softmax-additive-boundary.md), including its exact
-`N=1` fractional-tie exception.
+`N=1` fractional-tie exception. The
+[negative-outer-temperature note](softmax-negative-outer.md) extends the
+square `τ≤0` optimum below to every divisible population and shows that
+indivisible populations with `t s_q≤1` turn fractional at sufficiently
+negative `τ`.
 
 The [continuous-allocation sequel](softmax-integral-optima.md) proves that
 every positive-temperature maximizer uses full budgets and is pure whenever
