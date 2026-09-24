@@ -262,6 +262,13 @@ property in a specified ICLR 2026 author PDF. The two-variable case and a
 dimension-free sufficient bound follow from prior mean inequalities;
 priority of the sharp dimension-dependent threshold remains unresolved.
 
+On a [fixed-total nonnegative simplex](docs/simplex-softmax-order.md), the
+sharp cutoff differs by temperature sign: positive temperature allows
+`|τ|S≤d_n`, with `(d_n−2) exp(d_n)=2(n−1)`, while negative temperature
+allows `|τ|S≤2c_n`. Both boundaries are strict modulo permutations.
+Exact root certificates locate a reversal in which sign allows the larger
+range at dimension 58. The classification is proved; its priority is open.
+
 The [two-threshold certificate](docs/two-threshold-certificate.md)
 characterizes quartet inequalities against arbitrary backgrounds, with an
 exact linear scan for histogram clocks and counterexample witnesses. The
