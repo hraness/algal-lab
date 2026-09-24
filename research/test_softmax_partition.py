@@ -80,6 +80,15 @@ def _unscaled_exp_taylor_enclosure(x: Q, degree: int = 384) -> tuple[Q, Q]:
 
 
 class SoftmaxPartitionTests(unittest.TestCase):
+    def assert_v2_contract(self, result):
+        self.assertEqual(result["contract"], "algal.lab.softmax-partition.v2")
+        certificate = result["purityCertificate"]
+        if result["optimumScope"] == "continuous":
+            self.assertIsInstance(certificate, dict)
+            self.assertIn("basis", certificate)
+        else:
+            self.assertIsNone(certificate)
+
     def test_exponential_intervals_contain_independent_decimal_exp(self):
         points = (Q(0), Q(1, 1000), Q(1, 3), Q(1), Q(7, 2), Q(32))
         for point in points:
@@ -108,7 +117,14 @@ class SoftmaxPartitionTests(unittest.TestCase):
         inner = outer = Q(32)
         epsilon = Q(1, 1 << 40)
         result = solver.optimize_partition(agents, tasks, inner, outer, epsilon)
+        self.assert_v2_contract(result)
         self.assertGreater(result["precisionBits"], 32)
+        self.assertEqual(result["thresholdQueries"], 0)
+        self.assertEqual(result["dpTransitions"], 0)
+        self.assertGreaterEqual(result["occupancyEvaluations"], 2)
+        self.assertLessEqual(result["occupancyEvaluations"], 8)
+        self.assertEqual(result["occupancyEvaluations"] % 2, 0)
+        self.assertEqual(result["purityCertificate"]["basis"], "at-most-two-tasks")
         rewards = _decimal_rewards(agents, tasks, inner, outer)
         optimum = max(reward for reward, _ in rewards)
         groups = tuple(result["groups"])
@@ -160,6 +176,7 @@ class SoftmaxPartitionTests(unittest.TestCase):
         for agents, tasks, inner, outer in cases:
             with self.subTest(agents=agents, tasks=tasks, inner=inner, outer=outer):
                 result = solver.optimize_partition(agents, tasks, inner, outer, epsilon)
+                self.assert_v2_contract(result)
                 groups = tuple(result["groups"])
                 self.assertEqual(sum(groups), agents)
                 self.assertEqual(groups, tuple(sorted(groups, reverse=True)))
@@ -183,51 +200,133 @@ class SoftmaxPartitionTests(unittest.TestCase):
                 self.assertLessEqual(result["dpTransitions"],
                                      result["admittedTransitionBound"])
 
-    def test_continuous_and_pure_only_scope_labels(self):
-        continuous_cases = ((3, 2, Q(2), Q(1)), (3, 2, Q(4), Q(1)))
-        pure_only_cases = ((3, 2, Q(4), Q(3, 4)), (4, 5, Q(5), Q(1)))
-        for agents, tasks, inner, outer in continuous_cases:
-            with self.subTest(inner=inner, outer=outer):
-                result = solver.optimize_partition(agents, tasks, inner, outer, Q(1, 20))
+    def test_two_task_all_positive_regimes_use_exact_occupancy_scan(self):
+        epsilon = Q(1, 100)
+        cases = tuple(
+            (agents, 2, inner, outer)
+            for agents in range(1, 9)
+            for inner, outer in ((Q(4), Q(1, 4)), (Q(8), Q(1, 2)))
+        )
+        for agents, tasks, inner, outer in cases:
+            with self.subTest(agents=agents, inner=inner, outer=outer):
+                self.assertGreater(inner, 2)
+                self.assertLess(4 * outer, inner)
+                result = solver.optimize_partition(agents, tasks, inner, outer, epsilon)
+                self.assert_v2_contract(result)
                 self.assertEqual(result["optimumScope"], "continuous")
-        for agents, tasks, inner, outer in pure_only_cases:
-            with self.subTest(inner=inner, outer=outer):
+                expected_per_scan = agents // 2 + 1
+                self.assertGreaterEqual(result["occupancyEvaluations"], expected_per_scan)
+                self.assertLessEqual(result["occupancyEvaluations"], 4 * expected_per_scan)
+                self.assertEqual(result["occupancyEvaluations"] % expected_per_scan, 0)
+                self.assertEqual(result["thresholdQueries"], 0)
+                self.assertEqual(result["dpTransitions"], 0)
+                self.assertEqual(result["admittedTransitionBound"], 0)
+                expected_basis = "one-agent" if agents == 1 else "at-most-two-tasks"
+                self.assertEqual(result["purityCertificate"]["basis"], expected_basis)
+
+                rewards = _decimal_rewards(agents, tasks, inner, outer)
+                optimum = max(reward for reward, _ in rewards)
+                groups = tuple(result["groups"])
+                witness = next(reward for reward, group in rewards if group == groups)
+                self.assertEqual(sum(groups), agents)
+                self.assertLessEqual(len(groups), 2)
+                lower, upper = map(Q, result["optimumInterval"])
+                witness_lower, witness_upper = map(Q, result["witnessRewardInterval"])
+                self.assertLessEqual(_decimal_fraction(lower), optimum)
+                self.assertGreaterEqual(_decimal_fraction(upper), optimum)
+                self.assertLessEqual(_decimal_fraction(witness_lower), witness)
+                self.assertGreaterEqual(_decimal_fraction(witness_upper), witness)
+                self.assertLessEqual(optimum - witness,
+                                     _decimal_fraction(epsilon) + Decimal("1e-80"))
+
+    def test_continuous_certificates_and_pure_only_scope_v2(self):
+        continuous_cases = (
+            (1, 4, Q(4), Q(1, 4), "one-agent"),
+            (3, 2, Q(4), Q(1, 4), "at-most-two-tasks"),
+            (3, 3, Q(4), Q(1), "outer-inner-ratio"),
+            (8, 8, Q(3), Q(1, 100), "dimension-dependent-inner-threshold"),
+            (9, 9, Q(8), Q(9, 8), "feasible-reward"),
+        )
+        for agents, tasks, inner, outer, basis in continuous_cases:
+            with self.subTest(agents=agents, tasks=tasks, basis=basis):
                 result = solver.optimize_partition(agents, tasks, inner, outer, Q(1, 20))
+                self.assert_v2_contract(result)
+                self.assertEqual(result["optimumScope"], "continuous")
+                certificate = result["purityCertificate"]
+                self.assertEqual(certificate["basis"], basis)
+                if basis == "dimension-dependent-inner-threshold":
+                    self.assertEqual(set(certificate), {
+                        "basis", "exponentialUpperBound", "leftUpperBound", "right"
+                    })
+                if basis == "feasible-reward":
+                    self.assertEqual(set(certificate), {
+                        "basis", "feasibleRewardLowerBound", "G",
+                        "certifiedInnerLimit"
+                    })
+
+        pure_only_cases = (
+            (9, 9, Q(8), Q(1, 4)),
+            (4, 4, Q(3), Q(1, 100)),
+            (4, 5, Q(16), Q(1, 100)),
+        )
+        for agents, tasks, inner, outer in pure_only_cases:
+            with self.subTest(agents=agents, tasks=tasks, inner=inner, outer=outer):
+                result = solver.optimize_partition(agents, tasks, inner, outer, Q(1, 20))
+                self.assert_v2_contract(result)
                 self.assertEqual(result["optimumScope"], "pure-only")
+                self.assertIsNone(result["purityCertificate"])
                 self.assertEqual(sum(result["groups"]), agents)
+
+    def test_feasible_reward_certificate_boundary_with_zero_lower_bound(self):
+        tau = Q(1, 2)
+        reward_lower = Q(0)
+        at_boundary = solver._purity_certificate(2, 3, Q(10, 3), tau, reward_lower, 64)
+        just_above = solver._purity_certificate(
+            2, 3, Q(10, 3) + Q(1, 1000), tau, reward_lower, 64
+        )
+        self.assertEqual(at_boundary["basis"], "feasible-reward")
+        self.assertEqual(Q(at_boundary["feasibleRewardLowerBound"]), reward_lower)
+        self.assertEqual(Q(at_boundary["G"]), Q(3, 2))
+        self.assertEqual(Q(at_boundary["certifiedInnerLimit"]), Q(10, 3))
+        self.assertIsNone(just_above)
 
     def test_exact_threshold_tie_takes_small_residual_branch_synthetic(self):
         # Labeled synthetic rational coefficients, deliberately patched rather
         # than presented as Boltzmann-derived values.  At rho=3/4, the split
-        # (1,1) has residual zero while concentration gave the initial reward
+        # (1,1,1) has residual zero while concentration gave the initial reward
         # lower bound 1/2, so the solver must handle the exact tie branch.
         synthetic_items = (
             (Q(3, 4), Q(3, 4), Q(0), Q(0)),
-            (Q(1), Q(1), Q(0), Q(0)),
+            (Q(0), Q(0), Q(0), Q(0)),
+            (Q(2), Q(2), Q(1), Q(1)),
         )
         with patch.object(solver, "_item_intervals", return_value=synthetic_items):
-            result = solver.optimize_partition(2, 2, Q(1), Q(1), Q(1, 10))
-        self.assertEqual(result["groups"], [1, 1])
+            result = solver.optimize_partition(3, 3, Q(1), Q(1), Q(1, 10))
+        self.assert_v2_contract(result)
+        self.assertEqual(result["groups"], [1, 1, 1])
         self.assertEqual(result["stopReason"], "small-residual")
         self.assertEqual(Q(result["optimumInterval"][0]), Q(3, 4))
         self.assertEqual(Q(result["optimumInterval"][1]), Q(3, 4))
 
     def test_nonzero_straddling_residual_encloses_synthetic_rational_optimum(self):
         # Synthetic interval coefficients bracket exact rational coefficients
-        # a_1=3/4, a_2=1, b_1=b_2=0. Their exact pure optimum is 3/4.
-        # At the first threshold rho=3/4 the residual enclosure is
-        # [-1/50,+1/50], so this exercises a genuinely nonzero ambiguity.
+        # Synthetic interval coefficients bracket exact rational coefficients
+        # a_1=3/4, a_2=0, a_3=2, b_1=b_2=0, b_3=1. Their pure optimum is 3/4.
+        # At rho=3/4 the three-singleton residual enclosure is
+        # [-3/100,+3/100], so this exercises nonzero ambiguity.
         synthetic_items = (
             (Q(37, 50), Q(38, 50), Q(0), Q(0)),
-            (Q(1), Q(1), Q(0), Q(0)),
+            (Q(0), Q(0), Q(0), Q(0)),
+            (Q(2), Q(2), Q(1), Q(1)),
         )
         with patch.object(solver, "_item_intervals", return_value=synthetic_items):
-            result = solver.optimize_partition(2, 2, Q(1), Q(1), Q(2, 5))
+            result = solver.optimize_partition(3, 3, Q(1), Q(1), Q(2, 5))
+        self.assert_v2_contract(result)
         true_optimum = Q(3, 4)
         lower, upper = map(Q, result["optimumInterval"])
         witness_lower, witness_upper = map(Q, result["witnessRewardInterval"])
         self.assertEqual(result["stopReason"], "small-residual")
-        self.assertEqual(result["groups"], [1, 1])
+        self.assertEqual(result["groups"], [1, 1, 1])
         self.assertLess(lower, true_optimum)
         self.assertGreater(upper, true_optimum)
         self.assertLessEqual(lower, true_optimum)

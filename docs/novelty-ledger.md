@@ -14,6 +14,7 @@ not a certificate that no equivalent result exists. Proofs are in the
 [specialization boundaries](softmax-specialization-boundaries.md),
 [continuous allocation optima](softmax-integral-optima.md),
 [certified occupancy optimization](certified-softmax-partitions.md),
+[sparse allocation support](softmax-support-structure.md),
 [three-triple extension](block-separated-triples.md),
 [CDF robustness](robust-stochastic-groups.md),
 [two-threshold certificate](two-threshold-certificate.md),
@@ -40,6 +41,9 @@ not a certificate that no equivalent result exists. Proofs are in the
 | Continuous softmax allocation has only pure maximizers throughout a sufficient temperature region, including the whole matched positive line | Proved for all positive `N,M,t,τ` when `t≤2` or `τ≥t/4`; all positive-temperature maximizers exhaust budgets even outside this region; both asymptotic grouping results are global continuous optima | Source-relative improvement over inspected allocation theorems; second-order conditions and AM–GM are standard; the 2013 wirelength original was inspected but 2011 remains unread; boundary sharpness and global priority not asserted |
 | The three-agent continuous optimum has an exact phase classification in the proved purity region | Proved permutation / intermediate / concentration phases, explicit lower threshold and unique upper threshold; EVERY matched `t>0` has exactly 18 intermediate maximizers, so the `log 2` witness attains the true optimum | Sharpens the source's endpoint lower bound; single-crossing mechanism follows from classical concavity or bounded variance, not a new general comparison principle; wider priority unresolved |
 | Purity permits certified optimization over all occupancies | Exact-budget DP, threshold bisection and rational exponential enclosures give additive regret certificates; a fixed 20-case study certifies the 16-agent three-group intermediate regime and tested 64-agent optima to within `10^-8` | Fractional optimization is classical, directly covered by Megiddo (1979); candidate contribution is the continuous structural reduction and model-specific consequences, not the DP mechanism or a claimed speedup |
+| Every positive-temperature maximizing allocation has sparse acyclic support | Proved forest support, at most one private task per row, at most `2N−1` active tasks and `3N−2` positive entries; sharper component/fractional-row counts also hold | Classical transport support forests and Shapley–Folkman representations are credited; their inspected formulations do not directly imply this nonlinear all-maximizer statement; broader priority and sharpness for actual optima remain open |
+| Every two-task optimum is pure for arbitrary population and positive temperature pair | Proved more strongly for every maximum with at most two active tasks; the two-task global optimum reduces to `⌊N/2⌋+1` occupancies; an outward interval scan implements that reduction | Finite enumeration is standard; the all-population structural reduction sharpens the earlier two-agent square result, with wider priority unresolved |
+| The purity region extends through a dimension-dependent threshold or a feasible reward certificate | Proved `t≤κ_N`, `(κ_N−2)e^κ_N=(N−1)(κ_N+2)`, or `t≤4τ(1+1/[1+τ(1−r₀)])` for a certified feasible reward lower bound `r₀`; solver v2 records the successful condition | Maximum-point curvature and AM–GM are classical; these sufficient conditions are not claimed sharp, and first priority is not established |
 | Three target triples need only between-group CDF order | Exact finite proof covers all 280 partitions, all Boolean selection states and all count tails, with arbitrary independent backgrounds | Scope extension; precise priority unresolved; nonnegative-cone certificates are an established technique |
 | CDF perturbations bound the entire intact-count tail vector and grouping regret | Proved with sharp linear constants 1 for stability and 2 for transfer regret | Elementary stability argument; no separate novelty claim |
 | Midpoint CDF projection supplies an approximation certificate when CDFs cross | Implemented using exact rational errors and fixed-order minimax radius | Projection is precisely the established Basic L∞ isotonic regression; no regression-algorithm novelty claim |
@@ -457,6 +461,27 @@ Their article bodies remain unread. Four targeted searches identified no
 closer exact-model occupancy application; they do not constitute an exhaustive
 allocation or group-formation literature audit. The structural purity step
 requires its own priority assessment.
+
+**Support forests and dimension-bounded sparsity.** The [support theorem](softmax-support-structure.md)
+uses a classical cycle direction. De Loera's author-hosted
+[transportation-polytope lecture](https://www.math.ucdavis.edu/~deloera/TALKS/20yearsafter.pdf),
+slides 4 and 13, defines fixed row and column margins and states the
+vertex/forest criterion. These are lecture slides, not the original
+publication; Bolker's 1972 original remains unread. Here column margins
+are not fixed. A separate multiplier cancellation and positive second
+variation exclude cycles at every nonlinear maximizer.
+
+[Dubois-Taine and d'Aspremont v3](https://arxiv.org/html/2406.18282v3),
+problem (P), Assumption 1.1, Theorem 2.4, Lemma 2.2, Theorem 2.5 and
+Proposition 3.1 were inspected. Their separable objective and affine
+coupling permit Shapley–Folkman representations with few convexified
+components and associated duality-gap bounds. These statements do not
+directly imply the nested objective's all-maximizer support theorem.
+Other formulations remain possible. The Starr 1969 original was identified
+bibliographically but its proof was not fully read after retrieval failures.
+Neither comparison establishes first priority for our forest, private-task
+consolidation or enlarged purity statements; closer nonlinear allocation
+literature remains to be checked.
 
 **Fu, Wang and Shi (2016), Schur-Convexity for Lehmer mean of n variables.**
 [Full primary paper](https://www.isr-publications.com/jnsa/2618/download-schur-convexity-for-lehmer-mean-of-n-variables),
