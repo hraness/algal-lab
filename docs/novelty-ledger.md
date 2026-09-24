@@ -7,6 +7,7 @@ not a certificate that no equivalent result exists. Proofs are in the
 [all-horizon group proof](intact-groups-all-horizons.md),
 [stochastic-order group theorem](stochastic-intact-groups.md),
 [mixture-line grouping theorem](mixture-rank-grouping.md),
+[hazard-mixture counterexample](hazard-mixture-counterexample.md),
 [three-triple extension](block-separated-triples.md),
 [CDF robustness](robust-stochastic-groups.md),
 [two-threshold certificate](two-threshold-certificate.md),
@@ -23,6 +24,7 @@ not a certificate that no equivalent result exists. Proofs are in the
 | Cut-separated quartet comparison remains valid with nonnegative outside selection factors | Proved by a positive integral and conditional rank counting; gives the all-size grouping theorem by product factorization | Precise rank-cutoff implication not located; conditioning and telescoping are established methods |
 | Consecutive mixture weights stochastically maximize intact count for a common two-base mixture family | Proved for all equal group sizes, arbitrary crossing base CDFs, all fixed horizons and independent backgrounds; extreme pairs minimize intact and maximize redundant count; exact affine-line histogram admission implemented | The squared-CDF discrepancy is established; mixture factorization and the rank-assembly application have unresolved priority |
 | Three common histogram bins are necessary and sufficient for a FOSD crossing-versus-nested reversal | Two-bin laws lie on a mixture line and cannot reverse; a positive three-bin fixture does | Exact scope boundary; no separate priority claim |
+| Majorization does not order exponential-mixture hazards in dimensions above two | Exact example, every-dimension single-crossing family, and strict-weight/distinct-rate variant proved | Negative answer to the unchanged extension in Shojaee et al. (2022), Remark 6.3; contradicts Theorem 3.8 in the inspected Sahoo et al. (2026) accepted manuscript; priority and final-version status unresolved |
 | Three target triples need only between-group CDF order | Exact finite proof covers all 280 partitions, all Boolean selection states and all count tails, with arbitrary independent backgrounds | Scope extension; precise priority unresolved; nonnegative-cone certificates are an established technique |
 | CDF perturbations bound the entire intact-count tail vector and grouping regret | Proved with sharp linear constants 1 for stability and 2 for transfer regret | Elementary stability argument; no separate novelty claim |
 | Midpoint CDF projection supplies an approximation certificate when CDFs cross | Implemented using exact rational errors and fixed-order minimax radius | Projection is precisely the established Basic L∞ isotonic regression; no regression-algorithm novelty claim |
@@ -237,6 +239,70 @@ monotone-convex baseline and parameter-majorization hypotheses. It does not
 compare partitions of fixed heterogeneous independent observations; our
 crossing-base family also lacks its monotone-parameter premise. This
 bounded comparison does not clear the broader mixture-order literature.
+
+A further audit read Theorem 6.3, its definitions, Remark 6.3 and Example 6.4,
+including visual checks of the publisher pages. This led to the
+[exact negative answer](hazard-mixture-counterexample.md) to the stated
+higher-dimensional extension. The final paper and author manuscript use
+different numbering: final Theorem/Remark 6.3 correspond to manuscript
+Theorem 6.17/Remark 6.18. The note distinguishes this extension from the
+published two-component theorem.
+
+**Sahoo, Kayal and Finkelstein (2026), Stochastic ordering results between two
+finite alpha-mixture models with resilience-scaled components.**
+[Accepted manuscript](https://strathprints.strath.ac.uk/96227/1/Sahoo-etal-ASMBI-2026-Stochastic-ordering-results-between-two-finite-alpha_mixture-models.pdf),
+[version record](https://strathprints.strath.ac.uk/96227/),
+[publisher](https://onlinelibrary.wiley.com/doi/10.1002/asmb.70089).
+Model (1.3), definitions, Lemma 2.5 and Theorem 3.8/proof were read; lemma and
+theorem pages were visually checked. The [note's exact parameter mapping](hazard-mixture-counterexample.md#the-2026-accepted-manuscript-theorem)
+contradicts that manuscript's theorem. The publisher's final full text was
+not retrieved. Bounded title/DOI/correction searches found no correction;
+this does not establish that none exists or that the observation is new.
+
+**Kayal, Bhakta and Balakrishnan (2023; online 2022), Some results on stochastic
+comparisons of two finite mixture models with general components.**
+[Author-uploaded full text](https://www.researchgate.net/publication/362864798_Some_results_on_stochastic_comparisons_of_two_finite_mixture_models_with_general_components),
+[DOI](https://doi.org/10.1080/15326349.2022.2107666).
+Definitions, relevant theorem statements/proofs and conclusion were read.
+The inspected comparisons concern usual stochastic order. Section 5 explicitly
+leaves stronger orders for future work. Those results do not supply this
+hazard comparison.
+
+**Bhakta, Kayal and Finkelstein (2024), Stochastic Comparisons for Finite
+Mixtures from Location-scale Family of Distributions.**
+[Institutional full paper](https://strathprints.strath.ac.uk/91121/1/Bhakta-etal-MCAP-2024-Stochastic-comparisons-for-finite-mixtures.pdf),
+[DOI](https://doi.org/10.1007/s11009-024-10121-x).
+Setup, hazard Theorems 4, 5 and 10, associated proofs and examples, and
+conclusion were inspected. The first two keep the scale vector fixed while
+changing weights. Theorem 10 changes locations under a separated-location
+condition and other baseline assumptions. These inspected statements do not
+resolve the rate-majorization question with fixed uniform weights. This is a
+scope comparison, not independent validation of every theorem in that paper.
+
+**Shekari, Pakdaman, Saadat Kia Barmalzan and Balakrishnan (2026), Stochastic
+comparisons of finite mixture models derived from distorted distributions.**
+[Full primary text](https://link.springer.com/article/10.1186/s13660-026-03450-7).
+The model, Corollary 1 and the related chain-majorization hazard statements
+were inspected. Corollary 1(i) requires both `D(u;v)` and `−D_u(u;v)` to be
+decreasing and convex in the parameter. For the exponential specialization
+`D(u;v)=u^v`, our calculation gives
+`∂_v[−D_u]=−u^(v−1)(1+v log u)`, which changes sign. Thus that sufficient
+condition does not cover the counterexample. Its alternative branch requires
+`D` increasing in the parameter, also false here. This does not invalidate
+the corollary or certify the entire surrounding literature.
+
+**Remaining mixture-order source gaps.** The original full texts of
+[Hazra and Finkelstein (2018)](https://doi.org/10.1007/s11749-018-0581-7),
+[Nadeb and Torabi (online 2020; print 2022)](https://doi.org/10.1080/03610926.2020.1788082),
+and [Barmalzan, Kosari and Zhang (2021)](https://www.sciencedirect.com/science/article/abs/pii/S0167715221000456)
+were not recovered in the bounded audit. The first two's earlier open-question
+status is reported by the inspected 2022 paper, not independently confirmed
+from their originals. The 2021 preview includes stronger-order results whose
+complete assumptions remain unread. A 2025 Bhakta–Kayal general-component
+alpha-mixture paper also remains unread. The [July 2026 modified-proportional-hazard paper](https://www.mdpi.com/2227-7390/14/14/2557)
+was available only through indexed excerpts; its full hazard extension is
+unclosed. These gaps qualify priority claims, while the specific 2026
+accepted-manuscript contradiction has a complete exact mapping.
 
 **Stout (2018), Weighted L∞ isotonic regression.**
 [Author-hosted paper](https://web.eecs.umich.edu/~qstout/pap/LinfinityIsoReg.pdf),
