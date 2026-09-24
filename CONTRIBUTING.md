@@ -69,7 +69,7 @@ also has exact Python certificates, run by CI in addition to `bun run check`:
 ```sh
 python3 research/spikes/structural/verify.py
 python3 research/spikes/weighted-tree/verify.py
-python3 -m unittest research.test_tree_certificate research.test_certify_policy_results research.test_terminal_tree research.test_terminal_sampling research.test_terminal_hybrid research.test_survivor_order research.test_ordered_pairing research.test_frugal_experiment research.test_rank_selection research.test_two_failure_groups research.test_intact_groups research.test_context_certificate research.test_stochastic_groups research.test_robust_stochastic_groups research.test_mixture_stochastic_groups research.test_softmax_partition_dp research.test_softmax_partition
+python3 -m unittest research.test_tree_certificate research.test_certify_policy_results research.test_terminal_tree research.test_terminal_sampling research.test_terminal_hybrid research.test_survivor_order research.test_ordered_pairing research.test_frugal_experiment research.test_rank_selection research.test_two_failure_groups research.test_intact_groups research.test_context_certificate research.test_stochastic_groups research.test_robust_stochastic_groups research.test_mixture_stochastic_groups research.test_softmax_partition_dp research.test_softmax_partition research.test_extremal
 python3 -m research.spikes.ordered.verify
 python3 -m research.spikes.rank.verify
 python3 -m research.spikes.groups.verify
@@ -113,3 +113,11 @@ group oracle computes a universal additive regret bound; this is a proved bound,
 not a measured regret. Keep the unbounded theorem distinct from executable
 input caps and finite checks. Track source-reading coverage in the
 [novelty ledger](docs/novelty-ledger.md).
+
+The [extremal-construction loop](docs/extremal-discovery.md) keeps its
+target registry, verifiers, seed programs, and protocols under
+`research/extremal/`. A registry entry must carry the source URL and retrieval
+date of its best-known value; an `improves-recorded-best` status is a claim
+against that snapshot and needs a same-day re-read of the source before it is
+reported. The unit tests run in CI without any model; the local-model protocol
+is run by hand and its archive stays under an ignored `runs/` directory.

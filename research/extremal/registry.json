@@ -1,0 +1,24 @@
+{
+  "contract": "algal.lab.extremal-registry.v1",
+  "note": "Every best_known value carries its source and the date it was read. Improving a value here is a candidate novelty relative to that source; it is not a worldwide priority claim until the source is rechecked on the claim date.",
+  "targets": [
+    {
+      "id": "covering-C-12-4-3",
+      "title": "Covering design C(12,4,3): fewest 4-subsets of a 12-set covering every 3-subset",
+      "objective": "minimize",
+      "verifier": "covering_design",
+      "parameters": {"v": 12, "k": 4, "t": 3},
+      "best_known": {"kind": "exact", "value": 51, "source": "La Jolla Covering Repository, C(12,4,3) entry", "url": "https://ljcr.dmgordon.org/cover/show_cover.php?v=12&k=4&t=3", "retrieved": "2026-09-24"},
+      "notes": "Placeholder entry used to exercise the loop; value must be re-read from the repository before any claim. Lower bound from the Schönheim bound is not the recorded upper bound."
+    },
+    {
+      "id": "circle-packing-sum-radii-26",
+      "title": "26 disjoint circles in the unit square maximizing the sum of radii",
+      "objective": "maximize",
+      "verifier": "circle_packing",
+      "parameters": {"n": 26},
+      "best_known": {"kind": "reported-decimal", "value": "2.635", "source": "AlphaEvolve (Novikov et al. 2025), Appendix B problem 'circle packing, sum of radii, n=26'", "url": "https://google-deepmind.github.io/alphaevolve_repository_of_problems/", "retrieved": "2026-09-24"},
+      "notes": "Reported to three decimals; later follow-ups improved it. The registry value must be replaced by the current best with citation before any claim; the gate treats a reported decimal as exact, so a claimed improvement must exceed it by more than the reporting precision."
+    }
+  ]
+}

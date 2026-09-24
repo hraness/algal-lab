@@ -210,6 +210,15 @@ selected the same champion graph in both runs.
 
 ## Scope and development
 
+The [extremal-construction loop](docs/extremal-discovery.md) is a second,
+cheaper discovery path: targets are problems with public, dated tables of
+best-known constructions and exact verifiers, so a novelty claim is a strict
+inequality against a cited value rather than a literature judgement. Candidates
+are short programs evolved by a scripted operator or a stateless local-model
+command; every proposal, failure, and exact verification is archived.
+No target has been improved yet.
+
+
 The [terminal-tree result](docs/terminal-tree-discovery.md) gives a proved
 frontier construction for optimal trees when two vertices survive, an exact
 integer-rate solver, and a sampled optimizer with a finite-sample regret

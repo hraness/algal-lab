@@ -21,7 +21,8 @@ not a certificate that no equivalent result exists. Proofs are in the
 [CDF robustness](robust-stochastic-groups.md),
 [two-threshold certificate](two-threshold-certificate.md),
 [context reduction and ordered sharpness](rank-context-compression.md), and
-[minimal rank contexts](minimal-rank-contexts.md).
+[minimal rank contexts](minimal-rank-contexts.md), and the
+[extremal-construction loop](extremal-discovery.md).
 
 | Claim | Status within this lab | Priority assessment |
 |---|---|---|
@@ -62,6 +63,7 @@ not a certificate that no equivalent result exists. Proofs are in the
 | Strong NP-completeness of majority triples after two successive failures, with nearly equal rates | Proved with finite error and rounded threshold | Candidate restriction; generic reliability hardness is known |
 | Quadratic near-uniform regret bound | Proved | Elementary range/variance consequence |
 | Small-model advantage or token-efficient theorem origination | Not established | Previous Qwen pilot is negative; investigator costs are separate |
+| Extremal-construction targets (covering designs, circle packings) | Loop built with exact verifiers, archived runs, and a mechanical gate against cited best-known values; first bounded runs sit below every recorded best | No construction claim; registry values are dated snapshots of public tables and must be re-read before any improvement is reported |
 
 ## Primary sources and actual reading depth
 
