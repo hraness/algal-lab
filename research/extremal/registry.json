@@ -1,24 +1,227 @@
 {
-  "contract": "algal.lab.extremal-registry.v1",
-  "note": "Every best_known value carries its source and the date it was read. Improving a value here is a candidate novelty relative to that source; it is not a worldwide priority claim until the source is rechecked on the claim date.",
-  "targets": [
-    {
-      "id": "covering-C-12-4-3",
-      "title": "Covering design C(12,4,3): fewest 4-subsets of a 12-set covering every 3-subset",
-      "objective": "minimize",
-      "verifier": "covering_design",
-      "parameters": {"v": 12, "k": 4, "t": 3},
-      "best_known": {"kind": "exact", "value": 51, "source": "La Jolla Covering Repository, C(12,4,3) entry", "url": "https://ljcr.dmgordon.org/cover/show_cover.php?v=12&k=4&t=3", "retrieved": "2026-09-24"},
-      "notes": "Placeholder entry used to exercise the loop; value must be re-read from the repository before any claim. Lower bound from the Schönheim bound is not the recorded upper bound."
-    },
-    {
-      "id": "circle-packing-sum-radii-26",
-      "title": "26 disjoint circles in the unit square maximizing the sum of radii",
-      "objective": "maximize",
-      "verifier": "circle_packing",
-      "parameters": {"n": 26},
-      "best_known": {"kind": "reported-decimal", "value": "2.635", "source": "AlphaEvolve (Novikov et al. 2025), Appendix B problem 'circle packing, sum of radii, n=26'", "url": "https://google-deepmind.github.io/alphaevolve_repository_of_problems/", "retrieved": "2026-09-24"},
-      "notes": "Reported to three decimals; later follow-ups improved it. The registry value must be replaced by the current best with citation before any claim; the gate treats a reported decimal as exact, so a claimed improvement must exceed it by more than the reporting precision."
-    }
-  ]
+ "contract": "algal.lab.extremal-registry.v1",
+ "note": "Best-known values are dated snapshots of public ledgers. An improvement is a claim against the snapshot only; re-read the source on the claim date. See docs/extremal-discovery.md.",
+ "targets": [
+  {
+   "id": "isosceles-free-64",
+   "title": "Largest isosceles-free subset of the 64x64 grid",
+   "objective": "maximize",
+   "verifier": "isosceles_free",
+   "parameters": {
+    "n": 64
+   },
+   "best_known": {
+    "value": "112",
+    "kind": "exact",
+    "source": "AlphaEvolve repository of problems, problem 59 (Georgiev et al., arXiv:2511.02864, section 6.39); page says the values are 'still not optimal'",
+    "url": "https://google-deepmind.github.io/alphaevolve_repository_of_problems/problems/59.html",
+    "retrieved": "2026-09-24"
+   },
+   "notes": "Published construction reproduced by the verifier (research/extremal/known). The page value was the best found in a September 2026 survey (arXiv 2601.14465 concerns rhombus/kite-free sets, not this problem); HuggingFace 'douvras/no-isosceles-grid-certificates' could not be read (auth wall) and must be checked before any claim."
+  },
+  {
+   "id": "isosceles-free-100",
+   "title": "Largest isosceles-free subset of the 100x100 grid",
+   "objective": "maximize",
+   "verifier": "isosceles_free",
+   "parameters": {
+    "n": 100
+   },
+   "best_known": {
+    "value": "164",
+    "kind": "exact",
+    "source": "AlphaEvolve repository of problems, problem 59 (Georgiev et al., arXiv:2511.02864, section 6.39); page says the values are 'still not optimal'",
+    "url": "https://google-deepmind.github.io/alphaevolve_repository_of_problems/problems/59.html",
+    "retrieved": "2026-09-24"
+   },
+   "notes": "Published construction reproduced by the verifier (research/extremal/known). The page value was the best found in a September 2026 survey (arXiv 2601.14465 concerns rhombus/kite-free sets, not this problem); HuggingFace 'douvras/no-isosceles-grid-certificates' could not be read (auth wall) and must be checked before any claim."
+  },
+  {
+   "id": "no-five-on-sphere-7",
+   "title": "Largest subset of the 7^3 grid with no five points on a sphere or plane",
+   "objective": "maximize",
+   "verifier": "no_five_on_sphere",
+   "parameters": {
+    "n": 7
+   },
+   "best_known": {
+    "value": "21",
+    "kind": "exact",
+    "source": "AlphaEvolve repository of problems, problem 60 (arXiv:2511.02864, section 6.40)",
+    "url": "https://google-deepmind.github.io/alphaevolve_repository_of_problems/problems/60.html",
+    "retrieved": "2026-09-24"
+   },
+   "notes": "Published construction reproduced by the verifier. HuggingFace 'douvras/no-5-on-a-sphere-certificates' could not be read (auth wall) and must be checked before any claim; arXiv 2506.18113 settles only the asymptotics."
+  },
+  {
+   "id": "no-five-on-sphere-8",
+   "title": "Largest subset of the 8^3 grid with no five points on a sphere or plane",
+   "objective": "maximize",
+   "verifier": "no_five_on_sphere",
+   "parameters": {
+    "n": 8
+   },
+   "best_known": {
+    "value": "23",
+    "kind": "exact",
+    "source": "AlphaEvolve repository of problems, problem 60 (arXiv:2511.02864, section 6.40)",
+    "url": "https://google-deepmind.github.io/alphaevolve_repository_of_problems/problems/60.html",
+    "retrieved": "2026-09-24"
+   },
+   "notes": "Published construction reproduced by the verifier. HuggingFace 'douvras/no-5-on-a-sphere-certificates' could not be read (auth wall) and must be checked before any claim; arXiv 2506.18113 settles only the asymptotics."
+  },
+  {
+   "id": "no-five-on-sphere-9",
+   "title": "Largest subset of the 9^3 grid with no five points on a sphere or plane",
+   "objective": "maximize",
+   "verifier": "no_five_on_sphere",
+   "parameters": {
+    "n": 9
+   },
+   "best_known": {
+    "value": "26",
+    "kind": "exact",
+    "source": "AlphaEvolve repository of problems, problem 60 (arXiv:2511.02864, section 6.40)",
+    "url": "https://google-deepmind.github.io/alphaevolve_repository_of_problems/problems/60.html",
+    "retrieved": "2026-09-24"
+   },
+   "notes": "Published construction reproduced by the verifier. HuggingFace 'douvras/no-5-on-a-sphere-certificates' could not be read (auth wall) and must be checked before any claim; arXiv 2506.18113 settles only the asymptotics."
+  },
+  {
+   "id": "no-five-on-sphere-10",
+   "title": "Largest subset of the 10^3 grid with no five points on a sphere or plane",
+   "objective": "maximize",
+   "verifier": "no_five_on_sphere",
+   "parameters": {
+    "n": 10
+   },
+   "best_known": {
+    "value": "28",
+    "kind": "exact",
+    "source": "AlphaEvolve repository of problems, problem 60 (arXiv:2511.02864, section 6.40)",
+    "url": "https://google-deepmind.github.io/alphaevolve_repository_of_problems/problems/60.html",
+    "retrieved": "2026-09-24"
+   },
+   "notes": "Published construction reproduced by the verifier. HuggingFace 'douvras/no-5-on-a-sphere-certificates' could not be read (auth wall) and must be checked before any claim; arXiv 2506.18113 settles only the asymptotics."
+  },
+  {
+   "id": "no-five-on-sphere-11",
+   "title": "Largest subset of the 11^3 grid with no five points on a sphere or plane",
+   "objective": "maximize",
+   "verifier": "no_five_on_sphere",
+   "parameters": {
+    "n": 11
+   },
+   "best_known": {
+    "value": "31",
+    "kind": "exact",
+    "source": "AlphaEvolve repository of problems, problem 60 (arXiv:2511.02864, section 6.40)",
+    "url": "https://google-deepmind.github.io/alphaevolve_repository_of_problems/problems/60.html",
+    "retrieved": "2026-09-24"
+   },
+   "notes": "Published construction reproduced by the verifier. HuggingFace 'douvras/no-5-on-a-sphere-certificates' could not be read (auth wall) and must be checked before any claim; arXiv 2506.18113 settles only the asymptotics."
+  },
+  {
+   "id": "no-five-on-sphere-12",
+   "title": "Largest subset of the 12^3 grid with no five points on a sphere or plane",
+   "objective": "maximize",
+   "verifier": "no_five_on_sphere",
+   "parameters": {
+    "n": 12
+   },
+   "best_known": {
+    "value": "33",
+    "kind": "exact",
+    "source": "AlphaEvolve repository of problems, problem 60 (arXiv:2511.02864, section 6.40)",
+    "url": "https://google-deepmind.github.io/alphaevolve_repository_of_problems/problems/60.html",
+    "retrieved": "2026-09-24"
+   },
+   "notes": "Published construction reproduced by the verifier. HuggingFace 'douvras/no-5-on-a-sphere-certificates' could not be read (auth wall) and must be checked before any claim; arXiv 2506.18113 settles only the asymptotics."
+  },
+  {
+   "id": "ring-loading-15",
+   "title": "Ring loading lower-bound instance with 15 demand pairs",
+   "objective": "maximize",
+   "verifier": "ring_loading",
+   "parameters": {
+    "m": 15
+   },
+   "best_known": {
+    "value": "9/8",
+    "kind": "exact",
+    "source": "EinsteinArena leaderboard 'Ring Loading Problem (15 pairs)': top entries JSAgent-Ring15 and Wilhelmina at 1.12500000; discussion thread 'A rigid 12-pair core attaining 9/8' gives an exact 9/8 construction in units of 1/16. AlphaEvolve's published instance (problem 61) verifies to 1.11904756846928 here.",
+    "url": "https://einsteinarena.com/problems/ring-loading-15",
+    "retrieved": "2026-09-24"
+   },
+   "notes": "Registered as exact 9/8 because the thread states an exact construction; the leaderboard shows eight decimals. The AlphaEvolve instance was published as floats; pairs whose float sum exceeds 1 were rescaled exactly by 1/(u+v), as the notebook's own scorer does, before reproduction here. Upper bound 19/14 (Schrijver, Seymour, Winkler). Re-read the leaderboard before any claim."
+  },
+  {
+   "id": "sum-difference-I",
+   "title": "Sum-difference exponent I: sets with many sums and few differences",
+   "objective": "maximize",
+   "verifier": "sum_difference",
+   "parameters": {},
+   "best_known": {
+    "value": "1.1219",
+    "kind": "reported-decimal",
+    "source": "AlphaEvolve repository of problems, problem 42 (arXiv:2511.02864, section 6.25) reports 1.1219",
+    "url": "https://google-deepmind.github.io/alphaevolve_repository_of_problems/problems/42.html",
+    "retrieved": "2026-09-24"
+   },
+   "notes": "The published set recomputes to 1.12193573748604 in this verifier, which is within the reporting precision of 1.1219; an improvement must exceed 1.12195. No later improvement was found in the September 2026 survey. Any claim must re-check the page, EinsteinArena, and arXiv for newer sets."
+  },
+  {
+   "id": "heilbronn-square-21",
+   "title": "Heilbronn problem, 21 points in the unit square",
+   "objective": "maximize",
+   "verifier": "heilbronn_square",
+   "parameters": {
+    "n": 21
+   },
+   "best_known": {
+    "value": "27933530325894554018134350585267/2500000000000000000000000000000000",
+    "kind": "exact",
+    "source": "Heilbronn record ledger (math.tejstead.com/heilbronn), data/canonical/square/n21.json: Tej Stead, August 2026; exact value of the published literals",
+    "url": "https://github.com/ShengtongZhang-alt/heilbronn-site/blob/main/data/canonical/square/n21.json",
+    "retrieved": "2026-09-24"
+   },
+   "notes": "Ledger accepts pull requests verified in exact arithmetic (data/sources/external/square-n21). Records changed monthly in July-September 2026; re-read before any claim."
+  },
+  {
+   "id": "heilbronn-square-25",
+   "title": "Heilbronn problem, 25 points in the unit square",
+   "objective": "maximize",
+   "verifier": "heilbronn_square",
+   "parameters": {
+    "n": 25
+   },
+   "best_known": {
+    "value": "157191263026838342303028323039/20000000000000000000000000000000",
+    "kind": "exact",
+    "source": "Heilbronn record ledger (math.tejstead.com/heilbronn), data/canonical/square/n25.json: Rhys Chappell, September 2026; exact value of the published literals",
+    "url": "https://github.com/ShengtongZhang-alt/heilbronn-site/blob/main/data/canonical/square/n25.json",
+    "retrieved": "2026-09-24"
+   },
+   "notes": "Same ledger and submission lane as n=21. The n=25 coordinates were not fetched, so this bar is not reproduced by the verifier here; it is the ledger's exact value of the published literals."
+  },
+  {
+   "id": "covering-C-33-6-4",
+   "title": "Covering design C(33,6,4): fewest 6-blocks covering every 4-subset of 33 points",
+   "objective": "minimize",
+   "verifier": "covering_design",
+   "parameters": {
+    "v": 33,
+    "k": 6,
+    "t": 4
+   },
+   "best_known": {
+    "value": "3310",
+    "kind": "exact",
+    "source": "La Jolla Covering Repository data snapshot (dmgordo/LJCR coverdata.json): 3310 by Dietmar Pree, local search, 2021-05-06; lower bound 2750",
+    "url": "https://github.com/dmgordo/LJCR",
+    "retrieved": "2026-09-24"
+   },
+   "notes": "LJCR was frozen on 2026-03-01; newer improvements are collected at coveringrepository.com (Giovanni Acerbi), which blocked scripted fetches in this survey and must be read by hand before any claim. Kept as a benchmark family; a cheap greedy sits far above 3310."
+  }
+ ]
 }

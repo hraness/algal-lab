@@ -8,17 +8,8 @@ from .registry import Target
 
 
 def reporting_precision(target: Target) -> Fraction:
-    """Half a unit in the last reported decimal place; zero for exact values.
-
-    A value reported as 2.635 may stand for anything in [2.6345, 2.6355], so a
-    verified value only beats it definitively when the margin exceeds 5e-4.
-    """
-    if target.best_known_kind != "reported-decimal":
-        return Fraction(0)
-    unit = Fraction(1)
-    while (target.best_known / unit).denominator != 1:
-        unit /= 10
-    return unit / 2
+    """Half a unit in the last reported decimal place; zero for exact values."""
+    return target.reporting_precision()
 
 
 def assess(target: Target, value: Fraction) -> dict:

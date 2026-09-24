@@ -23,7 +23,12 @@ DESCRIPTION = (
 def _rational(value) -> Fraction:
     if isinstance(value, bool) or not isinstance(value, (int, str)):
         raise ValueError("coordinates must be integers or rational strings")
-    q = Fraction(value)
+    if isinstance(value, str) and len(value) > 400:
+        raise ValueError("literal too long")
+    try:
+        q = Fraction(value)
+    except (ValueError, ZeroDivisionError) as exc:
+        raise ValueError(f"bad rational literal: {exc}") from None
     if q.denominator > MAX_DENOMINATOR:
         raise ValueError("denominator too large")
     return q

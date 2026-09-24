@@ -2,7 +2,8 @@
 
 from importlib import import_module
 
-VERIFIERS = {"covering_design": "covering_design", "circle_packing": "circle_packing"}
+VERIFIERS = {name: name for name in ("covering_design", "circle_packing", "isosceles_free", "no_five_on_sphere",
+                                     "ring_loading", "sum_difference", "heilbronn_square")}
 
 
 def load_verifier(name: str):

@@ -27,7 +27,25 @@ class Target:
     notes: str
 
     def improves(self, value: Fraction) -> bool:
-        return value > self.best_known if self.objective == "maximize" else value < self.best_known
+        return self.margin(value) > self.reporting_precision()
+
+    def margin(self, value: Fraction) -> Fraction:
+        """Signed improvement over the recorded best (positive is better)."""
+        sign = 1 if self.objective == "maximize" else -1
+        return (value - self.best_known) * sign
+
+    def reporting_precision(self) -> Fraction:
+        """Half a unit in the last reported decimal place; zero for exact values.
+
+        A value reported as 2.635 may stand for anything in [2.6345, 2.6355], so
+        a verified value only beats it definitively when the margin exceeds 5e-4.
+        """
+        if self.best_known_kind != "reported-decimal":
+            return Fraction(0)
+        unit = Fraction(1)
+        while (self.best_known / unit).denominator != 1:
+            unit /= 10
+        return unit / 2
 
 
 def parse_value(text) -> Fraction:
@@ -57,13 +75,21 @@ def parse_target(raw) -> Target:
     if kind not in ("exact", "reported-decimal"):
         raise ValueError("best_known.kind must be 'exact' or 'reported-decimal'")
     parameters = _require(raw, "parameters", dict)
+    value = parse_value(_require(best, "value", (int, str)))
+    if kind == "reported-decimal":
+        denominator = value.denominator
+        for prime in (2, 5):
+            while denominator % prime == 0:
+                denominator //= prime
+        if denominator != 1:
+            raise ValueError("reported-decimal values must be terminating decimals")
     return Target(
         id=_require(raw, "id", str),
         title=_require(raw, "title", str),
         objective=objective,
         verifier=_require(raw, "verifier", str),
         parameters=parameters,
-        best_known=parse_value(_require(best, "value", (int, str))),
+        best_known=value,
         best_known_kind=kind,
         source=_require(best, "source", str),
         url=_require(best, "url", str),
