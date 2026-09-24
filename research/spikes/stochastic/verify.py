@@ -24,6 +24,7 @@ from research.spikes.stochastic.softmax_spread import verify as verify_softmax_s
 from research.spikes.stochastic.simplex_spread import verify as verify_simplex_spread
 from research.spikes.stochastic.softmax_allocation import verify as verify_softmax_allocation
 from research.spikes.stochastic.softmax_boundaries import verify as verify_softmax_boundaries
+from research.spikes.stochastic.softmax_integrality import verify as verify_softmax_integrality
 from research.stochastic_groups import optimal_histogram_groups
 from research.test_rank_selection import categorical_oracle
 
@@ -91,6 +92,7 @@ def verify() -> dict[str, object]:
             **verify_simplex_spread(),
             **verify_softmax_allocation(),
             **verify_softmax_boundaries(),
+            **verify_softmax_integrality(),
             "polynomialIdentityCases": identities,
             "nonnegativeDensityCoefficients": positive_coefficients,
             "universalQuartetComparisons": 2 * len(fixtures),

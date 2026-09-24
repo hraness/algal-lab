@@ -12,6 +12,7 @@ not a certificate that no equivalent result exists. Proofs are in the
 [fixed-total softmax classification](simplex-softmax-order.md),
 [nested softmax task allocation](softmax-task-allocation.md),
 [specialization boundaries](softmax-specialization-boundaries.md),
+[continuous allocation optima](softmax-integral-optima.md),
 [three-triple extension](block-separated-triples.md),
 [CDF robustness](robust-stochastic-groups.md),
 [two-threshold certificate](two-threshold-certificate.md),
@@ -35,6 +36,8 @@ not a certificate that no equivalent result exists. Proofs are in the
 | Nested softmax allocation with positive inner and nonpositive outer temperature has an exact optimum | Proved gain `σ(t,n)−1/n` for `N=M=n≥2`; all maximizers are permutation matrices; for `t≤0` and budgets at most one, both classes have identical score sets for any outer utility | Exactness confirms a branch of the v1 conjecture; the zero-gain Boltzmann conclusion was already stated in the source; the direct proof and score-set extension do not require unrestricted Schur properties |
 | Two-agent nested softmax allocation is exactly solved at every temperature pair, including unused budgets | Proved `R_het=σ(max(t,τ,0),2)` and `R_hom=σ(max(τ,0),2)`; positive-quadrant maximizers classified; matched positive gain occurs precisely from square dimension three onward | Establishes the two-agent special case of the v1 conjecture and agrees with the approximate Figure 2 pattern; current theorem provides lower bounds, broader priority unresolved |
 | Pure full-budget softmax allocations have different optimal group counts at small and large matched temperature | Exact asymptotic coefficients proved; two balanced groups uniquely optimal near zero for every `n≥3`; for `n=r²`, `r` groups of `r` uniquely optimal for sufficiently large temperature; nine-agent regime change follows | Candidate analytic group-selection result; standard Taylor, reciprocal-sum and AM–GM arguments credited; no located equivalent statement, no global priority or intermediate-temperature classification claimed |
+| Continuous softmax allocation has only pure maximizers throughout a sufficient temperature region, including the whole matched positive line | Proved for all positive `N,M,t,τ` when `t≤2` or `τ≥t/4`; all positive-temperature maximizers exhaust budgets even outside this region; both asymptotic grouping results are global continuous optima | Source-relative improvement over inspected allocation theorems; second-order conditions and AM–GM are standard; the 2013 wirelength original was inspected but 2011 remains unread; boundary sharpness and global priority not asserted |
+| The three-agent continuous optimum has an exact phase classification in the proved purity region | Proved permutation / intermediate / concentration phases, explicit lower threshold and unique upper threshold; EVERY matched `t>0` has exactly 18 intermediate maximizers, so the `log 2` witness attains the true optimum | Sharpens the source's endpoint lower bound; single-crossing mechanism follows from classical concavity or bounded variance, not a new general comparison principle; wider priority unresolved |
 | Three target triples need only between-group CDF order | Exact finite proof covers all 280 partitions, all Boolean selection states and all count tails, with arbitrary independent backgrounds | Scope extension; precise priority unresolved; nonnegative-cone certificates are an established technique |
 | CDF perturbations bound the entire intact-count tail vector and grouping regret | Proved with sharp linear constants 1 for stability and 2 for transfer regret | Elementary stability argument; no separate novelty claim |
 | Midpoint CDF projection supplies an approximation certificate when CDFs cross | Implemented using exact rational errors and fixed-order minimax radius | Projection is precisely the established Basic L∞ isotonic regression; no regression-algorithm novelty claim |
@@ -369,16 +372,63 @@ OpenReview discussion.
 **Official code comparison.** The author's publication page links
 [proroklab/HetEnvDesign](https://github.com/proroklab/HetEnvDesign/tree/18521b698a5ce10f31fc5222cc4f0a3e637c4c28).
 At commit `18521b698a5ce10f31fc5222cc4f0a3e637c4c28` (7 February 2026),
-tree `e5c79f93e28f97e8ebc4e61063823fcc8d19f521`, six source files were read:
-README, `plot_matrix_games.py`, `plot_ctf_embodied_softmax_design.py`,
-`plot_new.py`, `utils/gen_agg.py`, and `matrix_game_cont.py`. The inspected
-plotters process min/mean/max training logs, embodied design training curves,
-or CSV summaries; the generic helper covers power-sum functions and surfaces.
-No Figure 2 softmax heatmap computation, exact two-agent proof, grouped
-counterexample, or pure asymptotic result was identified in these six files.
+tree `e5c79f93e28f97e8ebc4e61063823fcc8d19f521`, all 39 committed blobs
+were enumerated and hash-verified, and the Git tree independently
+reconstructed. Every Python/YAML file, README and `.gitignore` was read in
+full. The license was identified from selected ranges and scanned; its
+legal provisions were not read line by line. There were no binary or
+oversize-file exclusions. This expands the earlier six-file audit.
+
+The training core uses policy rollouts and PPO/Adam, with scenario functions
+in external VMAS. Every local plotting path produces training curves, CSV
+summaries or generic aggregator-input surfaces. No Figure 2 theoretical
+heatmap method, exact two-agent proof, grouped counterexample or pure
+asymptotic result was found in the committed source/configuration tree.
 The README's general reproduction statement does not identify the missing
-method. External simulator and learning dependencies remain unread; this
-bounded source check does not establish absence across the complete project.
+method. External VMAS/TensorDict/TorchRL branches, W&B data, other revisions,
+unpublished work and wider literature remain outside this audit.
+
+**Continuous-allocation follow-up and classical ingredients.** Reinspection
+of current [arXiv v4](https://arxiv.org/html/2506.09434v4), Theorems 3.1–3.4,
+Appendix F and G.1–G.4, found no stated all-maximizers purity region
+or exact three-agent phase classification. Theorem 3.1 improves a nontrivial
+homogeneous optimum; it does not classify all heterogeneous optima. A confirmed
+direct citer, [Bettini et al., JMLR 26 (2025)](https://www.jmlr.org/papers/volume26/24-1477/24-1477.pdf),
+was inspected at its opening, the citation discussion on printed page 21
+and the reference on page 24; those passages do not give these results.
+The forward-citation search was not exhaustive.
+
+The fixed-score crossover has a classical derivation from exponential
+tilting and the bounded-variance inequality. [Lim and McCann](https://arxiv.org/html/2001.11851v1),
+introduction Equations (1.1)–(1.4), state the variance bound and its
+endpoint-supported equality case, crediting Bhatia and Davis. Their source
+is used for the ingredient; the unit-vertex crossover is a derived lemma.
+The original Bhatia–Davis article was not obtained.
+
+The weighted-average wirelength literature studies the same exponential
+weighted mean. [Peiyu Liao's 2024 thesis](https://www.cse.cuhk.edu.hk/~byu/papers/PHD-thesis-2024-Peiyu-Liao.pdf),
+Equation (3.3), Section 3.1.4/Figure 3.1 and the comparison on printed
+page 20 were read. They discuss nonconvexity of
+`B_(1/γ)(x)−B_(-1/γ)(x)` and do not state the unit-cube convexity range
+used here. The entire thesis was not read.
+
+A bounded follow-up recovered the [2013 original from an author page](https://cc.ee.ntu.edu.tw/~ywchang/Papers/tcad13-3D-placement.pdf).
+Printed pages 500–502, Section IV-A.2–3, Equations (5)–(13) and Theorems
+1–2 were read and visually checked. The positive-temperature weighted mean
+and its positive-minus-negative surrogate appear explicitly. The inspected
+theorems concern approximation error; no bounded convexity or nested
+allocation theorem was found in those mathematical sections or the
+whole-text convexity/Hessian search. The remaining physical-design sections
+and empirical tables were not comprehensively read. This closes the
+2013 access gap, without proving broader priority.
+
+The original [2011 paper](https://doi.org/10.1145/2024724.2024875) remains
+unread after its observed author link returned 404,
+as does the [2023 conference paper](https://www.cse.cuhk.edu.hk/~byu/papers/C171-DAC2023-Meawilm.pdf),
+whose retrieval timed out. Their possible local convexity conditions remain a
+priority gap. The general Hessian identity, stationary-point necessary
+conditions and AM–GM are credited as standard ingredients; the source-relative
+allocation theorem does not establish global first discovery.
 
 **Asadi and Littman (ICML 2017), An Alternative Softmax Operator for
 Reinforcement Learning.** [Full proceedings paper](https://proceedings.mlr.press/v70/asadi17a/asadi17a.pdf).

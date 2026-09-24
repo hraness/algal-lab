@@ -12,8 +12,10 @@ positive matched temperature, two groups as equal as possible are optimal.
 At sufficiently large temperature, a square population of `r²` agents instead
 optimally forms `r` groups of `r`. For nine agents this proves a change from
 occupancies `(5,4)` to `(3,3,3)`. These statements concern eventual regimes;
-no numerical transition temperature or optimality over fractional allocations
-is asserted for the group-selection results.
+no numerical transition temperature is asserted. The
+[continuous-allocation sequel](softmax-integral-optima.md) proves that both
+optima hold over fractional allocations, because every matched positive
+temperature has only pure maximizers.
 
 Use the [nested allocation model](softmax-task-allocation.md): nonnegative
 `N×M` effort matrices with row sums at most one, task scores obtained with
@@ -255,13 +257,15 @@ positive-quadrant pattern is consistent with (1); the proof establishes the
 formula rather than contradicting the figure or independently verifying its
 numerical data. The current theorem states lower bounds. No inspected passage
 supplied the unused-budget proof or the asymptotic pure-group selection
-results. A bounded six-file read of the authors' [official code](https://github.com/proroklab/HetEnvDesign/tree/18521b698a5ce10f31fc5222cc4f0a3e637c4c28)
-also found no matching result or identified Figure 2 heatmap method: the
-inspected plotting files produce training curves or CSV summaries. This audit
-covered the README, three plotting files, the generic aggregation helper and
-the continuous-game launcher at commit
-`18521b698a5ce10f31fc5222cc4f0a3e637c4c28`; the simulator and learning
-dependencies were not read. The wider literature and inaccessible discussion remain gaps,
+results. An audit of all committed program/configuration text in the authors'
+[official code](https://github.com/proroklab/HetEnvDesign/tree/18521b698a5ce10f31fc5222cc4f0a3e637c4c28)
+also found no matching result or identified Figure 2 heatmap method. Its
+plotting paths produce training curves, CSV summaries or aggregator-input
+surfaces. All 39 blobs were enumerated and hash-verified at commit
+`18521b698a5ce10f31fc5222cc4f0a3e637c4c28`; all source/configuration bodies
+were read, while the license received a partial text review. External
+simulator and learning dependencies were not read. The wider literature
+and inaccessible discussion remain gaps,
 so first-discovery priority is not asserted. See the [novelty ledger](novelty-ledger.md).
 
 Run the exact, credential-free standard-library checker:

@@ -288,6 +288,15 @@ for square populations, square-root-sized groups are optimal at sufficiently
 large temperature. Nine agents therefore exhibit a proved change in optimal
 group count; the transition temperature and broader priority remain open.
 
+The [continuous-allocation sequel](docs/softmax-integral-optima.md) proves
+that every positive-temperature optimum uses full effort and is pure whenever
+`t≤2` or `τ≥t/4`. This includes every matched positive temperature:
+both asymptotic grouping results become global continuous optima, and
+three agents have an exact optimum for the entire matched line. The
+three-agent phase classification holds throughout the proved purity region.
+Standard derivative and comparison ingredients are credited; broader
+originality remains open.
+
 The [two-threshold certificate](docs/two-threshold-certificate.md)
 characterizes quartet inequalities against arbitrary backgrounds, with an
 exact linear scan for histogram clocks and counterexample witnesses. The
