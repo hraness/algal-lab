@@ -134,4 +134,30 @@ list and the cached `mlx-community/Qwen3-8B-4bit` weights; it is not run in CI.
 
 ## First runs
 
-Filled in below once the bounded runs finish.
+Bounded runs on 24 September 2026 (macOS, `sandbox-exec+rlimit` isolation,
+protocol seeds 0 and 1). Values are the verifier's exact recomputation; the
+seed column is the investigator-written seed program's own value.
+
+| Target | Seed program | Scripted best (64 evals) | Qwen3-8B-4bit best (24 evals) | Recorded best | Status |
+| --- | --- | --- | --- | --- | --- |
+| isosceles-free-64 | 73 | 74 | 79 (20 evaluable) | 112 | below |
+| no-five-on-sphere-7 | 15 | 16 | not run | 21 | below |
+| ring-loading-15 | 15/16 | 1 | not run | 9/8 | below |
+| sum-difference-I | 1.05033 | 1.05698 | not run | 1.1219 | below |
+| heilbronn-square-21 | 0.0012101 | 0.0021306 | not run | 0.0111734 | below |
+
+Every scripted run evaluated all 64 candidates. The local model returned 20
+evaluable programs out of 24 proposals (the other four were malformed or
+rejected by the verifier and stay in the archive); its best program is a
+mutated greedy search, not a new construction idea.
+
+Conclusion: the loop works end to end (containment, exact verification,
+archive, mechanical novelty gate), and no target moved. The scripted operator
+only tunes `PARAMS`, so it cannot leave the seed program's search family, and
+Qwen3-8B at 2048 tokens rewrites the same family. Both sit far below the
+records, which were produced by much larger searches. The levers that remain
+are program-level search (mutating the search algorithm, not its parameters),
+stronger seed programs that encode the published constructions' structure,
+and a frontier model behind the same command interface. Run archives are
+kept locally under `research/spikes/context/runs/round25-target-survey/runs/`
+with their manifests and input hashes.
