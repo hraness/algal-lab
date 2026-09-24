@@ -304,6 +304,13 @@ bound. A fixed study certifies a three-group intermediate regime for 16
 agents and continuous regret below `10^-8` for tested 64-agent instances.
 Outside the proved purity region its upper bound is explicitly pure-only.
 
+The [support-structure theorem](docs/softmax-support-structure.md) bounds
+every positive-temperature optimum by a forest with at most `2N−1` active
+tasks and `3N−2` positive entries. Two tasks are pure at all positive
+temperatures, enabling a linear occupancy scan. Solver version 2 also
+uses the dimension threshold and a certified feasible reward to justify
+continuous optimality at additional temperature pairs.
+
 The [two-threshold certificate](docs/two-threshold-certificate.md)
 characterizes quartet inequalities against arbitrary backgrounds, with an
 exact linear scan for histogram clocks and counterexample witnesses. The

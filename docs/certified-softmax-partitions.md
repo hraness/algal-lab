@@ -7,6 +7,11 @@ positive line. We can therefore compute a grouping with a rigorous bound
 on its distance from the global continuous optimum, without running a
 continuous numerical optimizer or a language model.
 
+The [support-structure sequel](softmax-support-structure.md) extends the
+purity conditions and settles two tasks at all positive temperatures.
+Solver contract `algal.lab.softmax-partition.v2` records which proof
+condition justifies continuous scope and uses direct enumeration for two tasks.
+
 The optimization mechanism is classical fractional programming and
 exact-budget dynamic programming. The candidate mathematical contribution
 is the structural reduction that makes those tools apply to this continuous
@@ -95,6 +100,13 @@ The resulting bounds, **after real coefficients are supplied**, are
 bounds for arbitrary real temperatures or polynomial bounds in `log N`
 when population size is a compressed binary multiplicity.
 
+For exactly two tasks, the stronger theorem reduces the continuous optimum
+to `⌊N/2⌋+1` occupancies. Version 2 scans their reward intervals directly,
+taking the maximum upper endpoint and the best feasible lower endpoint.
+This requires `O(N)` comparisons per precision pass after weights are
+supplied. It performs no threshold queries or DP transitions. The general
+DP and its ambiguity proof below apply to the other task counts.
+
 ## Rigorous exponential and comparison bounds
 
 The [implementation](../research/softmax_partition.py) accepts rational
@@ -156,10 +168,22 @@ by 1,024 terms. Reaching a cap raises an error without returning a certificate.
 The unbounded analytic theorem and these deliberately bounded executable
 limits are different statements.
 
-Outside the proved purity region, the same algorithm still certifies the
-best **pure** reward and returns a feasible continuous allocation. Its upper
-bound then applies only to the pure class; the output says `pure-only`.
-It does not imply an upper bound for fractional allocations there.
+Version 2 checks the expanded conditions in the support sequel. These
+include an outward exponential test for the dimension-dependent inner
+threshold and an exact rational inequality using the returned feasible
+witness's reward lower bound. This latter test does not assume pure
+optimality in order to prove it. The output's `purityCertificate` identifies
+the successful condition and its numerical bounds when applicable. When no
+condition is certified it is null, `optimumScope` says `pure-only`, and the
+upper bound applies only to the pure class. No difference between pure and
+continuous optima is inferred from an unsuccessful sufficient test.
+
+The two-task scan instead refines directly until its reward bracket is
+short enough, with at most four precision passes and at most 260 occupancy
+evaluations under the input cap. Its `occupancyEvaluations` field includes
+repeated scans. General DP runs report zero for that field. Version-1
+receipts must be reproduced with their recorded source; their conservative
+scope labels and recorded evidence remain valid.
 
 ## Reproduction and finite results
 
@@ -178,7 +202,7 @@ input rationals, source hashes, reward brackets, groupings, operation counts
 and observed timings. A failed run preserves completed cases and its failure.
 There are no external model calls or credentials.
 
-The initial 20-case run passed with certified additive regret below `10^-8`
+The initial version-1 20-case run passed with certified additive regret below `10^-8`
 in every case. For populations through 16, an independent partition
 enumeration compared all alternatives using the same coefficient enclosures.
 All 16 such cases certified a unique optimal occupancy pattern within the
@@ -207,7 +231,7 @@ count changes monotonically. The separate `N=M=9,t=8,τ=1/4` case certifies
 the permutation grouping **only among pure allocations**. Rectangular and
 one-task cases are also retained.
 
-The 20 solver calls took about 3.14 seconds in one Python 3.14.6 run on the
+Those 20 version-1 solver calls took about 3.14 seconds in one Python 3.14.6 run on the
 investigator's machine. This excludes the exhaustive comparison phase and
 is an observation, not a benchmark against another solver. The study uses
 investigator-selected cases, no held-out selection and no inference calls.

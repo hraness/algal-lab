@@ -1,8 +1,8 @@
 """Certified pure-group optimization for nested Boltzmann task allocation.
 
-Only the Python standard library is used. Exact rational Taylor enclosures,
-outward dyadic rounding, and two exact-budget DPs certify additive regret.
-The continuous-model conclusion requires the separately proved purity region.
+Only the Python standard library is used. Exact rational Taylor enclosures
+and outward rounding certify additive regret through threshold DPs or a
+two-task occupancy scan. Continuous scope requires a proved purity certificate.
 Run ``python3 -m research.softmax_partition --help`` for the bounded CLI.
 """
 
@@ -16,7 +16,7 @@ import re
 from research.softmax_partition_dp import maximize_partition
 
 
-CONTRACT = "algal.lab.softmax-partition.v1"
+CONTRACT = "algal.lab.softmax-partition.v2"
 MAX_DIMENSION = 128
 MAX_TEMPERATURE = Q(32)
 MIN_EPSILON = Q(1, 2**40)
@@ -99,6 +99,81 @@ def _reward_interval(groups: tuple[int, ...], tasks: int,
     return max(Q(0), _down(a_lo / b_hi, bits)), min(Q(1), _up(a_hi / b_lo, bits))
 
 
+def _purity_certificate(agents: int, tasks: int, inner: Q, outer: Q,
+                        reward_lower: Q, bits: int) -> dict[str, object] | None:
+    """Certify continuous scope without presuming that a pure witness is optimal."""
+    if agents == 1:
+        return {"basis": "one-agent"}
+    if tasks <= 2:
+        return {"basis": "at-most-two-tasks"}
+    if inner <= 2:
+        return {"basis": "inner-temperature-at-most-two"}
+    if 4 * outer >= inner:
+        return {"basis": "outer-inner-ratio"}
+    _, e_hi = _exp_interval(inner, bits)
+    threshold_left = (inner - 2) * e_hi
+    threshold_right = (agents - 1) * (inner + 2)
+    if threshold_left <= threshold_right:
+        return {"basis": "dimension-dependent-inner-threshold",
+                "exponentialUpperBound": str(e_hi),
+                "leftUpperBound": str(threshold_left), "right": str(threshold_right)}
+    G = 1 + outer * (1 - reward_lower)
+    permitted_inner = 4 * outer * (1 + 1 / G)
+    if inner <= permitted_inner:
+        return {"basis": "feasible-reward",
+                "feasibleRewardLowerBound": str(reward_lower), "G": str(G),
+                "certifiedInnerLimit": str(permitted_inner)}
+    return None
+
+
+def _report(agents: int, tasks: int, inner: Q, outer: Q, epsilon: Q,
+            groups: tuple[int, ...], lower: Q, upper: Q, witness_upper: Q,
+            bits: int, queries: int, transitions: int, transition_bound: int,
+            residual_width_bound: Q, stop: str, occupancy_evaluations: int = 0
+            ) -> dict[str, object]:
+    if not (Q(0) <= lower <= upper <= 1 and lower <= witness_upper <= 1
+            and upper - lower <= epsilon and transitions <= transition_bound):
+        raise ArithmeticError("certificate invariant failed; no certificate returned")
+    purity = _purity_certificate(agents, tasks, inner, outer, lower, bits)
+    return {
+        "contract": CONTRACT,
+        "agents": agents, "tasks": tasks,
+        "inner": str(inner), "outer": str(outer), "epsilon": str(epsilon),
+        "groups": list(groups),
+        "optimumScope": "continuous" if purity is not None else "pure-only",
+        "purityCertificate": purity,
+        "optimumInterval": [str(lower), str(upper)],
+        "witnessRewardInterval": [str(lower), str(min(upper, witness_upper))],
+        "additiveRegretBound": str(upper - lower),
+        "precisionBits": bits, "thresholdQueries": queries,
+        "dpTransitions": transitions, "admittedTransitionBound": transition_bound,
+        "occupancyEvaluations": occupancy_evaluations,
+        "residualWidthBound": str(residual_width_bound), "stopReason": stop,
+        "arithmetic": "exact rational Taylor enclosures and outward dyadic rounding",
+    }
+
+
+def _two_task_solution(agents: int, inner: Q, outer: Q, epsilon: Q
+                       ) -> dict[str, object]:
+    """Scan every unlabeled two-task occupancy, with outward reward bounds."""
+    candidates = [(agents,)] + [(agents - m, m) for m in range(1, agents // 2 + 1)]
+    evaluated = 0
+    for bits in PRECISIONS:
+        items = _item_intervals(agents, inner, outer, bits)
+        rewards = [_reward_interval(groups, 2, items, bits) for groups in candidates]
+        evaluated += len(candidates)
+        best = max(range(len(candidates)), key=lambda i: rewards[i][0])
+        lower, witness_upper = rewards[best]
+        upper = max(bound[1] for bound in rewards)
+        if upper - lower <= epsilon:
+            width = min(agents, 2) * max(a_hi - a_lo + b_hi - b_lo
+                                        for a_lo, a_hi, b_lo, b_hi in items)
+            return _report(agents, 2, inner, outer, epsilon, candidates[best],
+                           lower, upper, witness_upper, bits, 0, 0, 0, width,
+                           "two-task-enumeration", evaluated)
+    raise ArithmeticError("two-task precision cap reached; no certificate returned")
+
+
 def optimize_partition(agents: int, tasks: int, inner: Q, outer: Q,
                        epsilon: Q = Q(1, 1_000_000)) -> dict[str, object]:
     """Return a pure grouping and a rigorous additive-regret enclosure.
@@ -106,7 +181,8 @@ def optimize_partition(agents: int, tasks: int, inner: Q, outer: Q,
     Counts are bounded explicit populations. Temperatures must be positive
     exact rationals <=32, with <=64-bit numerator/denominator. Epsilon is
     in [2^-40,1]. Work admission precedes exponential evaluation. Outside
-    the proved purity region, the upper bound applies ONLY to pure optima.
+    the certified purity conditions, the upper bound applies ONLY to pure
+    optima. Two tasks use a linear occupancy scan and are always pure.
     This endpoint does not identify all ties or promise an exact optimizer.
     """
     for name, value in (("agents", agents), ("tasks", tasks)):
@@ -117,6 +193,8 @@ def optimize_partition(agents: int, tasks: int, inner: Q, outer: Q,
     if inner == 0 or outer == 0:
         raise ValueError("temperatures must be strictly positive")
     epsilon = _rational(epsilon, MIN_EPSILON, Q(1), "epsilon")
+    if tasks == 2:
+        return _two_task_solution(agents, inner, outer, epsilon)
     max_queries, width = 0, Q(1)
     while width > epsilon:
         max_queries += 1
@@ -175,26 +253,9 @@ def optimize_partition(agents: int, tasks: int, inner: Q, outer: Q,
         if stop == "small-residual":
             break
 
-    if not (Q(0) <= lower <= upper <= 1
-            and lower <= witness_upper <= 1
-            and upper - lower <= epsilon
-            and transitions <= transition_bound):
-        raise ArithmeticError("certificate invariant failed; no certificate returned")
-    continuous = inner <= 2 or 4 * outer >= inner
-    return {
-        "contract": CONTRACT,
-        "agents": agents, "tasks": tasks,
-        "inner": str(inner), "outer": str(outer), "epsilon": str(epsilon),
-        "groups": list(best_groups),
-        "optimumScope": "continuous" if continuous else "pure-only",
-        "optimumInterval": [str(lower), str(upper)],
-        "witnessRewardInterval": [str(lower), str(min(upper, witness_upper))],
-        "additiveRegretBound": str(upper - lower),
-        "precisionBits": bits, "thresholdQueries": queries,
-        "dpTransitions": transitions, "admittedTransitionBound": transition_bound,
-        "residualWidthBound": str(residual_width_bound), "stopReason": stop,
-        "arithmetic": "exact rational Taylor enclosures and outward dyadic rounding",
-    }
+    return _report(agents, tasks, inner, outer, epsilon, best_groups, lower,
+                   upper, witness_upper, bits, queries, transitions, transition_bound,
+                   residual_width_bound, stop)
 
 
 def _cli_rational(raw: str) -> Q:

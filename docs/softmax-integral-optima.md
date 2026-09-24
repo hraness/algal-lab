@@ -11,8 +11,11 @@ maximizers. More generally, this holds throughout the region
 \]
 
 Every optimum uses its full row budgets at **all** positive temperature
-pairs, even outside this proved purity region. Purity remains unresolved
-when `t>2` and `0<τ<t/4`; the boundary in (1) is not claimed sharp.
+pairs, even outside this proved purity region. The
+[support-structure sequel](softmax-support-structure.md) proves larger
+sufficient regions and settles every two-task problem. Fractional optima
+with three or more active tasks remain unresolved outside the enlarged
+regions; the boundary in (1) is not claimed sharp.
 
 This reduction turns the earlier pure-allocation results into global
 continuous optima at matched temperature: two balanced groups near zero,
