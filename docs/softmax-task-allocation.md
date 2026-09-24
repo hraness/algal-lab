@@ -10,13 +10,20 @@ positive and the outer temperature is nonpositive.
 These are proved comparisons for a specified allocation problem. They refute
 the exactness conjecture in the first arXiv version of Amir, Bettini and Prorok,
 which was omitted from the second version onward. The current lower-bound
-theorem survives. Global priority, the reason for the conjecture's removal,
-and optimality of the positive-temperature grouped construction remain open.
+theorem survives. Global priority and the reason for the conjecture's removal
+remain open; the later continuous-allocation result below settles optimality
+in a specified temperature region.
 
 The [boundary sequel](softmax-specialization-boundaries.md) solves every
 two-agent temperature pair and proves that three is minimal even over
 continuous allocations. It also classifies the optimal pure grouping in
 small- and large-temperature regimes.
+
+The [continuous-allocation sequel](softmax-integral-optima.md) proves that
+every positive-temperature maximizer uses full budgets and is pure whenever
+`t≤2` or `τ≥t/4`. It makes the three-agent construction globally optimal
+at every matched positive temperature and promotes both asymptotic grouping
+results to continuous optima.
 
 ## Model and results
 
@@ -53,7 +60,8 @@ Here a pure allocation with full budgets means that every row is a unit
 coordinate vector: each agent devotes its whole budget to exactly one task.
 Abstaining agents are excluded. The last row supplies a positive gain for
 every `n≥3` and every matched positive temperature. It is a lower bound, not
-a classification of all optimal allocations for positive outer temperature.
+a classification of all optimal allocations for unrestricted positive outer
+temperature. The later sequel supplies a classification in its stated region.
 
 ## Exact counterexamples with monotone reward functions
 
