@@ -15,6 +15,11 @@ a rational counterexample to an unrestricted claim in an ICLR 2026 author
 PDF. The mathematical result has independent review; literature-first
 priority is unresolved in the [source audit](#source-comparison-and-priority).
 
+The [task-allocation sequel](softmax-task-allocation.md) proves the downstream
+lower bounds directly, sharpens one to an exact optimum, and gives a grouped
+allocation that contradicts an exactness conjecture in the paper's first
+arXiv version. That conjecture was omitted from later revisions.
+
 Here `x≽y` means equal totals and larger decreasing partial sums for `x`.
 A Schur-convex function assigns `f(x)≥f(y)` to such a pair; a Schur-concave
 function reverses the inequality. Strictness excludes permutations.

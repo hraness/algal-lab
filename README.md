@@ -269,6 +269,16 @@ allows `|τ|S≤2c_n`. Both boundaries are strict modulo permutations.
 Exact root certificates locate a reversal in which sign allows the larger
 range at dimension 58. The classification is proved; its priority is open.
 
+For [nested softmax task allocation](docs/softmax-task-allocation.md), every
+pure allocation with full budgets between complete concentration and complete
+specialization beats both endpoints at every matched positive temperature.
+This supplies a gain for every team size from three onward. An exact
+three-agent example disproves an explicit conjecture
+in the paper's June 2025 version, which was omitted from September 2025 onward;
+the later lower-bound theorem remains valid. The note also proves the exact
+optimum and all maximizers for positive inner and nonpositive outer temperature.
+These are source-relative advances; first-discovery priority remains unresolved.
+
 The [two-threshold certificate](docs/two-threshold-certificate.md)
 characterizes quartet inequalities against arbitrary backgrounds, with an
 exact linear scan for histogram clocks and counterexample witnesses. The
