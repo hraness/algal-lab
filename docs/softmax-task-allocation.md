@@ -19,6 +19,10 @@ two-agent temperature pair and proves that three is minimal even over
 continuous allocations. It also classifies the optimal pure grouping in
 small- and large-temperature regimes.
 
+The rectangular additive boundary at `τ=0` is proved separately in the
+[additive-boundary theorem](softmax-additive-boundary.md), including its exact
+`N=1` fractional-tie exception.
+
 The [continuous-allocation sequel](softmax-integral-optima.md) proves that
 every positive-temperature maximizer uses full budgets and is pure whenever
 `t≤2` or `τ≥t/4`. It makes the three-agent construction globally optimal

@@ -84,9 +84,17 @@ uses rational interval arithmetic, bounded occupancy scans for two agents
 or at most three tasks, and an exact-budget DP for the remaining cases. Its
 [universal purity theorem](docs/softmax-universal-purity.md) makes every
 admitted positive-temperature result continuous; historical v1/v2 receipts
-retain their original `pure-only` labels. Its two unit-test modules are
+retain their original `pure-only` labels. Its solver unit-test modules are
 included above; the fixed 20-case study also runs in CI. Choose an unused
 output path for each local study.
+
+The [additive-boundary theorem](docs/softmax-additive-boundary.md) and
+[constrained flow optimizer](docs/softmax-additive-flow.md) concern an additive
+outer reward. Their checks run as
+`python3 -m unittest research.test_softmax_additive_boundary research.test_softmax_additive_flow`.
+The flow API takes exact rational `exp(t_j)` values and supplies a residual
+optimality certificate. This is separate from v3's positive-outer-temperature
+input contract.
 
 Proof text, finite exhaustive checks, policy holdouts, and novelty claims are
 separate evidence. Keep research TypeScript in the aggregate typecheck and tests.
