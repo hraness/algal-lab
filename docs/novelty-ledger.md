@@ -10,6 +10,7 @@ not a certificate that no equivalent result exists. Proofs are in the
 [hazard-mixture counterexample](hazard-mixture-counterexample.md),
 [sharp softmax spread theorem](sharp-softmax-spread.md),
 [fixed-total softmax classification](simplex-softmax-order.md),
+[nested softmax task allocation](softmax-task-allocation.md),
 [three-triple extension](block-separated-triples.md),
 [CDF robustness](robust-stochastic-groups.md),
 [two-threshold certificate](two-threshold-certificate.md),
@@ -29,6 +30,8 @@ not a certificate that no equivalent result exists. Proofs are in the
 | Majorization does not order exponential-mixture hazards in dimensions above two | Exact example, every-dimension single-crossing family, and strict-weight/distinct-rate variant proved | Negative answer to the unchanged extension in Shojaee et al. (2022), Remark 6.3; contradicts Theorem 3.8 in the inspected Sahoo et al. (2026) accepted manuscript; priority and final-version status unresolved |
 | Softmax Schur ordering on a box has a sharp dimension-dependent spread threshold | Independently proved iff bound `(n−2)(c_n−2) exp(c_n)=4`, strict at equality, with explicit interior violations above it and exact rational root enclosures | Candidate finite-dimensional improvement; dimension-free bound 2 follows from Fu et al. (2016), two-variable case from Gini-mean theory; unrestricted Table 3 claim in an inspected ICLR 2026 author PDF contradicted; wider comparisons remain open |
 | Softmax Schur ordering on a nonnegative fixed-total simplex has distinct sharp cutoffs for the two temperature signs | Independently proved positive bound `τS≤d_n`, `(d_n−2) exp(d_n)=2(n−1)`, and negative bound `|τ|S≤2c_n`; strict boundaries, finite interior violations, and certified dimension-58 crossover | Candidate exact classification; no inspected source supplies it, but the 1989 Esscher-order original and broader comparisons remain unread; no first-discovery assertion |
+| Every intermediate pure allocation with full budgets beats both endpoints for nested softmax allocation at matched positive temperatures | Proved for all occupancy patterns except concentration and permutation, every `n≥3` and every `t=τ>0`; monotone `log 2` examples give gains `>1/295` for three agents and `>4/465` for four | Refutes the explicit v1 exactness conjecture of Amir et al.; conjecture omitted from v2 onward, reason unestablished; strengthens the later lower bound; first priority unresolved |
+| Nested softmax allocation with positive inner and nonpositive outer temperature has an exact optimum | Proved gain `σ(t,n)−1/n` for `N=M=n≥2`; all maximizers are permutation matrices; for `t≤0` and budgets at most one, both classes have identical score sets for any outer utility | Exactness confirms a branch of the v1 conjecture; the zero-gain Boltzmann conclusion was already stated in the source; the direct proof and score-set extension do not require unrestricted Schur properties |
 | Three target triples need only between-group CDF order | Exact finite proof covers all 280 partitions, all Boolean selection states and all count tails, with arbitrary independent backgrounds | Scope extension; precise priority unresolved; nonnegative-cone certificates are an established technique |
 | CDF perturbations bound the entire intact-count tail vector and grouping regret | Proved with sharp linear constants 1 for stability and 2 for transfer regret | Elementary stability argument; no separate novelty claim |
 | Midpoint CDF projection supplies an approximation certificate when CDFs cross | Implemented using exact rational errors and fixed-order minimax radius | Projection is precisely the established Basic L∞ isotonic regression; no regression-algorithm novelty claim |
@@ -323,6 +326,29 @@ disprove downstream heterogeneity-gain conclusions. The official
 verification, so final-version byte identity is unconfirmed. The claim is
 bound to the author PDF with SHA-256
 `4473fb913f6cb4a64f6db5fa92ae35320598cc89d029f930c88e747c84ec0d2f`.
+
+**Versioned allocation conjecture audit.** In [arXiv v1, 11 June 2025](https://arxiv.org/pdf/2506.09434v1),
+printed/PDF page 5 explicitly conjectures that the lower bound in Theorem 3.4
+is exact. That page was visually checked; PDF SHA-256 is
+`14c3a02ab1427008beb897cf544fe703fd642622c79b67784a5291b7e7b7fa82`.
+The conjecture is absent from [v2, 28 September 2025](https://arxiv.org/html/2506.09434v2)
+and remains absent in [v3](https://arxiv.org/html/2506.09434v3) and
+[v4](https://arxiv.org/html/2506.09434v4). Targeted reading of the v2/v3
+theorem, proof, metadata and limitations passages found no explanation or
+replacement counterexample; this is not evidence of why it was removed.
+The [public OpenReview forum](https://openreview.net/forum?id=uJCGMBO6Qx)
+required browser verification, so its author/review discussion remains unread.
+The [partial-specialization proof](softmax-task-allocation.md) refutes the
+v1 exactness conjecture at matched positive temperatures, with a `log 2`
+example that is monotone on every feasible input. It preserves the later
+lower-bound statements and proves exactness of the nonpositive-outer branch.
+Theorem 3.1's trivial-optimum exception and Theorem 3.3's constant-total
+hypothesis prevent either from already certifying the construction. The
+foraging appendix's equal-size groups have a different threshold reward.
+The broader specialization literature is not closed. An observed institutional
+PDF for Dahl, Matarić and Sukhatme's 2009 vacancy-chain scheduling paper
+failed certificate-verified retrieval and remains unread. No global novelty
+or author-intent inference follows from this bounded audit.
 
 **Asadi and Littman (ICML 2017), An Alternative Softmax Operator for
 Reinforcement Learning.** [Full proceedings paper](https://proceedings.mlr.press/v70/asadi17a/asadi17a.pdf).
