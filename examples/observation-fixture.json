@@ -1,0 +1,14 @@
+{
+  "protocol": {
+    "contract": "algal.lab.observation-study.v1",
+    "name": "repeated-measurement-fixture",
+    "maxAttempts": 2,
+    "evaluation": {
+      "inputDigest": "sha256:b8c95266a65293066d4ea37abc08ba369b18ceb975e7c57a372eeb04eebb9eeb",
+      "specification": {"endpoint": "mean in fixture-unit", "selection": "predeclared first attempt", "purpose": "credential-free software qualification"}
+    }
+  },
+  "discoveryInput": {"contract": "algal.lab.replicates.v1", "data": {"replicates": [1, 2, 3]}, "artifacts": []},
+  "evaluationInput": {"contract": "algal.lab.replicates.v1", "data": {"replicates": [2, 4, 6]}, "artifacts": []},
+  "proposal": {"design": {"scale": 1}, "hypothesis": "The fixture mean will be two units.", "prediction": {"mean": 2, "unit": "fixture-unit"}, "rationale": "Predeclared arithmetic baseline; this is not model reasoning.", "parents": []}
+}
