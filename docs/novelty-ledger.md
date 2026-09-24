@@ -13,6 +13,7 @@ not a certificate that no equivalent result exists. Proofs are in the
 [nested softmax task allocation](softmax-task-allocation.md),
 [specialization boundaries](softmax-specialization-boundaries.md),
 [continuous allocation optima](softmax-integral-optima.md),
+[certified occupancy optimization](certified-softmax-partitions.md),
 [three-triple extension](block-separated-triples.md),
 [CDF robustness](robust-stochastic-groups.md),
 [two-threshold certificate](two-threshold-certificate.md),
@@ -38,6 +39,7 @@ not a certificate that no equivalent result exists. Proofs are in the
 | Pure full-budget softmax allocations have different optimal group counts at small and large matched temperature | Exact asymptotic coefficients proved; two balanced groups uniquely optimal near zero for every `n≥3`; for `n=r²`, `r` groups of `r` uniquely optimal for sufficiently large temperature; nine-agent regime change follows | Candidate analytic group-selection result; standard Taylor, reciprocal-sum and AM–GM arguments credited; no located equivalent statement, no global priority or intermediate-temperature classification claimed |
 | Continuous softmax allocation has only pure maximizers throughout a sufficient temperature region, including the whole matched positive line | Proved for all positive `N,M,t,τ` when `t≤2` or `τ≥t/4`; all positive-temperature maximizers exhaust budgets even outside this region; both asymptotic grouping results are global continuous optima | Source-relative improvement over inspected allocation theorems; second-order conditions and AM–GM are standard; the 2013 wirelength original was inspected but 2011 remains unread; boundary sharpness and global priority not asserted |
 | The three-agent continuous optimum has an exact phase classification in the proved purity region | Proved permutation / intermediate / concentration phases, explicit lower threshold and unique upper threshold; EVERY matched `t>0` has exactly 18 intermediate maximizers, so the `log 2` witness attains the true optimum | Sharpens the source's endpoint lower bound; single-crossing mechanism follows from classical concavity or bounded variance, not a new general comparison principle; wider priority unresolved |
+| Purity permits certified optimization over all occupancies | Exact-budget DP, threshold bisection and rational exponential enclosures give additive regret certificates; a fixed 20-case study certifies the 16-agent three-group intermediate regime and tested 64-agent optima to within `10^-8` | Fractional optimization is classical, directly covered by Megiddo (1979); candidate contribution is the continuous structural reduction and model-specific consequences, not the DP mechanism or a claimed speedup |
 | Three target triples need only between-group CDF order | Exact finite proof covers all 280 partitions, all Boolean selection states and all count tails, with arbitrary independent backgrounds | Scope extension; precise priority unresolved; nonnegative-cone certificates are an established technique |
 | CDF perturbations bound the entire intact-count tail vector and grouping regret | Proved with sharp linear constants 1 for stability and 2 for transfer regret | Elementary stability argument; no separate novelty claim |
 | Midpoint CDF projection supplies an approximation certificate when CDFs cross | Implemented using exact rational errors and fixed-order minimax radius | Projection is precisely the established Basic L∞ isotonic regression; no regression-algorithm novelty claim |
@@ -439,6 +441,22 @@ These inspected results concern sup-norm and monotonicity properties,
 rather than the equal-sum Schur comparison proved here. The weighted mean
 and its defects are established subjects; no claim is made to their discovery.
 The cited Littman (1996) original was not read.
+
+**Fractional occupancy optimization.** [Megiddo's 1979 original](https://theory.stanford.edu/~megiddo/pdf/rational.pdf),
+abstract, introduction, complete Section 2 theorem/proof, Sections 4–5 and
+references were inspected. Its positive-denominator affine-ratio model
+directly covers the integer occupancy objective after the purity reduction.
+The threshold transform and combinatorial optimization mechanism are prior
+art. The [certified solver](certified-softmax-partitions.md) implements
+bisection with outward rational error bounds, without claiming a new general
+fractional algorithm. The publisher abstracts of
+[Dinkelbach (1967)](https://pubsonline.informs.org/doi/abs/10.1287/mnsc.13.7.492)
+and [Jagannathan (1966)](https://pubsonline.informs.org/doi/10.1287/mnsc.12.7.609)
+were read; Dinkelbach explicitly credits the earlier parametric equivalence.
+Their article bodies remain unread. Four targeted searches identified no
+closer exact-model occupancy application; they do not constitute an exhaustive
+allocation or group-formation literature audit. The structural purity step
+requires its own priority assessment.
 
 **Fu, Wang and Shi (2016), Schur-Convexity for Lehmer mean of n variables.**
 [Full primary paper](https://www.isr-publications.com/jnsa/2618/download-schur-convexity-for-lehmer-mean-of-n-variables),

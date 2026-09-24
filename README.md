@@ -297,6 +297,13 @@ three-agent phase classification holds throughout the proved purity region.
 Standard derivative and comparison ingredients are credited; broader
 originality remains open.
 
+The [certified occupancy solver](docs/certified-softmax-partitions.md) applies
+classical fractional optimization after this reduction. Exact rational
+exponential enclosures give a returned grouping an explicit additive regret
+bound. A fixed study certifies a three-group intermediate regime for 16
+agents and continuous regret below `10^-8` for tested 64-agent instances.
+Outside the proved purity region its upper bound is explicitly pure-only.
+
 The [two-threshold certificate](docs/two-threshold-certificate.md)
 characterizes quartet inequalities against arbitrary backgrounds, with an
 exact linear scan for histogram clocks and counterexample witnesses. The
