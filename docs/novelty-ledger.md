@@ -11,6 +11,7 @@ not a certificate that no equivalent result exists. Proofs are in the
 [sharp softmax spread theorem](sharp-softmax-spread.md),
 [fixed-total softmax classification](simplex-softmax-order.md),
 [nested softmax task allocation](softmax-task-allocation.md),
+[specialization boundaries](softmax-specialization-boundaries.md),
 [three-triple extension](block-separated-triples.md),
 [CDF robustness](robust-stochastic-groups.md),
 [two-threshold certificate](two-threshold-certificate.md),
@@ -32,6 +33,8 @@ not a certificate that no equivalent result exists. Proofs are in the
 | Softmax Schur ordering on a nonnegative fixed-total simplex has distinct sharp cutoffs for the two temperature signs | Independently proved positive bound `τS≤d_n`, `(d_n−2) exp(d_n)=2(n−1)`, and negative bound `|τ|S≤2c_n`; strict boundaries, finite interior violations, and certified dimension-58 crossover | Candidate exact classification; no inspected source supplies it, but the 1989 Esscher-order original and broader comparisons remain unread; no first-discovery assertion |
 | Every intermediate pure allocation with full budgets beats both endpoints for nested softmax allocation at matched positive temperatures | Proved for all occupancy patterns except concentration and permutation, every `n≥3` and every `t=τ>0`; monotone `log 2` examples give gains `>1/295` for three agents and `>4/465` for four | Refutes the explicit v1 exactness conjecture of Amir et al.; conjecture omitted from v2 onward, reason unestablished; strengthens the later lower bound; first priority unresolved |
 | Nested softmax allocation with positive inner and nonpositive outer temperature has an exact optimum | Proved gain `σ(t,n)−1/n` for `N=M=n≥2`; all maximizers are permutation matrices; for `t≤0` and budgets at most one, both classes have identical score sets for any outer utility | Exactness confirms a branch of the v1 conjecture; the zero-gain Boltzmann conclusion was already stated in the source; the direct proof and score-set extension do not require unrestricted Schur properties |
+| Two-agent nested softmax allocation is exactly solved at every temperature pair, including unused budgets | Proved `R_het=σ(max(t,τ,0),2)` and `R_hom=σ(max(τ,0),2)`; positive-quadrant maximizers classified; matched positive gain occurs precisely from square dimension three onward | Establishes the two-agent special case of the v1 conjecture and agrees with the approximate Figure 2 pattern; current theorem provides lower bounds, broader priority unresolved |
+| Pure full-budget softmax allocations have different optimal group counts at small and large matched temperature | Exact asymptotic coefficients proved; two balanced groups uniquely optimal near zero for every `n≥3`; for `n=r²`, `r` groups of `r` uniquely optimal for sufficiently large temperature; nine-agent regime change follows | Candidate analytic group-selection result; standard Taylor, reciprocal-sum and AM–GM arguments credited; no located equivalent statement, no global priority or intermediate-temperature classification claimed |
 | Three target triples need only between-group CDF order | Exact finite proof covers all 280 partitions, all Boolean selection states and all count tails, with arbitrary independent backgrounds | Scope extension; precise priority unresolved; nonnegative-cone certificates are an established technique |
 | CDF perturbations bound the entire intact-count tail vector and grouping regret | Proved with sharp linear constants 1 for stability and 2 for transfer regret | Elementary stability argument; no separate novelty claim |
 | Midpoint CDF projection supplies an approximation certificate when CDFs cross | Implemented using exact rational errors and fixed-order minimax radius | Projection is precisely the established Basic L∞ isotonic regression; no regression-algorithm novelty claim |
@@ -349,6 +352,33 @@ The broader specialization literature is not closed. An observed institutional
 PDF for Dahl, Matarić and Sukhatme's 2009 vacancy-chain scheduling paper
 failed certificate-verified retrieval and remains unread. No global novelty
 or author-intent inference follows from this bounded audit.
+
+**Two-agent and group-selection follow-up.** The inspected author's Figure 2
+(page 6, visually checked) explicitly uses `N=M=2` and labels its gains
+approximate. The [exact two-agent solution](softmax-specialization-boundaries.md)
+agrees with its visible positive-quadrant pattern, while proving the optimum
+over the entire continuous feasible set, including unused budgets. The
+relevant inspected text did not supply the unused-budget argument or a
+numerical-method specification for that heatmap. No independent reproduction
+of the plotted data is claimed. The note also proves small- and large-
+temperature group-selection results for pure full-budget allocations. No
+matching statement was identified in the inspected passages; the bounded
+comparison does not close the wider allocation literature or inaccessible
+OpenReview discussion.
+
+**Official code comparison.** The author's publication page links
+[proroklab/HetEnvDesign](https://github.com/proroklab/HetEnvDesign/tree/18521b698a5ce10f31fc5222cc4f0a3e637c4c28).
+At commit `18521b698a5ce10f31fc5222cc4f0a3e637c4c28` (7 February 2026),
+tree `e5c79f93e28f97e8ebc4e61063823fcc8d19f521`, six source files were read:
+README, `plot_matrix_games.py`, `plot_ctf_embodied_softmax_design.py`,
+`plot_new.py`, `utils/gen_agg.py`, and `matrix_game_cont.py`. The inspected
+plotters process min/mean/max training logs, embodied design training curves,
+or CSV summaries; the generic helper covers power-sum functions and surfaces.
+No Figure 2 softmax heatmap computation, exact two-agent proof, grouped
+counterexample, or pure asymptotic result was identified in these six files.
+The README's general reproduction statement does not identify the missing
+method. External simulator and learning dependencies remain unread; this
+bounded source check does not establish absence across the complete project.
 
 **Asadi and Littman (ICML 2017), An Alternative Softmax Operator for
 Reinforcement Learning.** [Full proceedings paper](https://proceedings.mlr.press/v70/asadi17a/asadi17a.pdf).

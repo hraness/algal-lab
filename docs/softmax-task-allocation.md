@@ -13,6 +13,11 @@ which was omitted from the second version onward. The current lower-bound
 theorem survives. Global priority, the reason for the conjecture's removal,
 and optimality of the positive-temperature grouped construction remain open.
 
+The [boundary sequel](softmax-specialization-boundaries.md) solves every
+two-agent temperature pair and proves that three is minimal even over
+continuous allocations. It also classifies the optimal pure grouping in
+small- and large-temperature regimes.
+
 ## Model and results
 
 Write the Boltzmann, or softmax-weighted, mean as
@@ -286,8 +291,9 @@ occupancy pattern has some `2≤m≤n−1`, giving a strictly positive term in
 The equality cases within this class are precisely complete concentration
 and permutation allocations. For `n=2` these exhaust all pure allocations
 with full budgets, so `n=3` is the smallest dimension admitting a strict
-improvement **within this class**. This is not a minimality claim over
-continuous allocations.
+improvement **within this class**. The separate
+[two-agent proof](softmax-specialization-boundaries.md#exact-two-agent-solution)
+extends this minimum-dimension conclusion to continuous allocations.
 
 ### Equal groups as a closed-form corollary
 

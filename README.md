@@ -279,6 +279,15 @@ the later lower-bound theorem remains valid. The note also proves the exact
 optimum and all maximizers for positive inner and nonpositive outer temperature.
 These are source-relative advances; first-discovery priority remains unresolved.
 
+The [specialization boundary theorem](docs/softmax-specialization-boundaries.md)
+solves the two-agent problem at every temperature pair, proving three is the
+smallest dimension with positive matched-temperature gain even when arbitrary
+continuous allocations can leave budget unused. Among pure full-budget
+allocations, it proves that two balanced groups are optimal near zero and,
+for square populations, square-root-sized groups are optimal at sufficiently
+large temperature. Nine agents therefore exhibit a proved change in optimal
+group count; the transition temperature and broader priority remain open.
+
 The [two-threshold certificate](docs/two-threshold-certificate.md)
 characterizes quartet inequalities against arbitrary backgrounds, with an
 exact linear scan for histogram clocks and counterexample witnesses. The
