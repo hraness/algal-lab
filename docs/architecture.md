@@ -171,7 +171,14 @@ separately qualified tool-free application provider and records its configuratio
 digest in effect metadata. Provider transport evidence is not a scientific
 measurement.
 
-This version has no persistent service, browser UI, distributed workers, resume
-workflow, automatic instrument installation, or autonomous generator evolution.
+The separate [observation instrument interface](instrument-contract.md) adds
+durable prediction registration and measurement joins for non-graph domains.
+It uses the same pinned runtime and artifact store, with full ALGAL agent/tool
+receipt replay, explicit fresh computation, nested adapter source bindings, and
+selection frozen before evaluation. Its bounded resume path does not change
+the deliberately non-resumable graph `runStudy` workflow.
+
+This version has no persistent service, browser UI, distributed workers,
+automatic instrument installation, or autonomous generator evolution.
 Those require separate contracts and evidence described in the
 [roadmap](roadmap.md).
