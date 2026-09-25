@@ -372,9 +372,9 @@ every case). Demonstrandum's fitted law ⌊(5n + 7)/2⌋ predicts 71, 73, 76, 78
 over 67 measure how empty the cells were, not a hard-won improvement.
 
 What did not move. The contested cells n = 13–16 (Demonstrandum 36, 38, 40,
-42) resisted centrally symmetric search from scratch (best 34, 36, 38, 41 at
-n = 13–16) and `ls5x` at the record plus one from the published sets (no valid
-set within 300 CPU seconds at n = 13–15).
+42) resisted centrally symmetric search from scratch (best 34, 36, 38, 42 at
+n = 13–16, the last matching the record) and `ls5x` at the record plus one from
+the published sets (no valid set within 300 CPU seconds at n = 13–15).
 The round-26 lesson holds: the ledger was thin above n = 26 and a strong exact
 local search fills it quickly, while the cells that others have searched hard
 stay put.
