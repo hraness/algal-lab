@@ -222,7 +222,7 @@ certificate. A separate run from the Demonstrandum 44-point set also reaches
 What the numbers mean. These are lower bounds only; no optimality is claimed
 at any n. The cells from n = 21 up were weak (Numaro's values, some below the
 inclusion bound), so large margins there say more about the ledger than about
-the method. The n = 17, 18 and 20 improvements beat certificates published in
+the method. The n = 17–20 improvements beat certificates published in
 June and August 2026 that came from multi-threaded symmetric local search
 (Demonstrandum) and from OpenEvolve and auxiliary searches (milesandmistakes).
 Demonstrandum fitted C(n) = ⌊(5n + 7)/2⌋ to the record values for n = 7–14;
