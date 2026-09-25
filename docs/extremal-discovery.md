@@ -4,6 +4,8 @@ Status: loop and first bounded runs (round 25); ten certificate-backed lower
 bounds for the no-five-on-a-sphere problem at n = 17–26 (round 26),
 both 24 September 2026. The round-26 constructions came from a hand-written C
 local search seeded with public certificates, not from the evolution loop.
+Registry significance fields and a mandatory unseeded control per claim
+followed on 25 September 2026, after the control runs described below.
 
 ## Why a second loop
 
@@ -53,7 +55,9 @@ AlphaEvolve sets; its isosceles counterpart stays unread behind a login wall.
 - `registry.json` — target table. Each entry records the objective, verifier
   name, parameters, and a `best_known` block with the value, whether it is
   exact or a reported decimal, the source, its URL, and the retrieval date.
-  `registry.py` validates the file and rejects unknown fields.
+  `registry.py` validates the file and rejects unknown fields. Each entry
+  also carries `significance` (`crowding`, `evidence`, `open_question`) and
+  `control_required`; see "Significance and controls" below.
 - `verifiers/` — one module per problem family, each exposing
   `verify(construction, parameters) -> Fraction` and a `DESCRIPTION` shown to
   the proposer. All arithmetic is exact (integers, `Fraction`, or a
@@ -107,9 +111,11 @@ AlphaEvolve sets; its isosceles counterpart stays unread behind a login wall.
   target, all bounded to 64 and 24 evaluations respectively.
 - `claims/` and `claims.py` — constructions that beat a registry snapshot
   (`algal.lab.extremal-claims.v1`): target, recorded value at claim time,
-  claim date, derivation, construction. `claims.check` re-runs the verifier
-  and the gate and rejects a claim whose recorded value no longer matches the
-  registry, so a registry update forces every claim to be re-examined.
+  claim date, derivation, an unseeded `control` run, construction.
+  `claims.check` re-runs the verifier and the gate, rejects a claim whose
+  recorded value no longer matches the registry (so a registry update forces
+  every claim to be re-examined), and labels the claim with a `search_status`
+  from its control; see "Significance and controls" below.
 - `native/` — standalone C local searches (`ls5x`, `sym5`, `iso2`) used in
   round 26, with their own brute-force self-checks. Their output is data for
   the verifiers, never a verdict.
@@ -134,6 +140,56 @@ AlphaEvolve sets; its isosceles counterpart stays unread behind a login wall.
 6. Runs live under ignored `runs/` directories; the protocol, seed programs,
    verifiers, and the findings report are committed.
 
+## Significance and controls
+
+Beating a recorded number is not the same as doing something hard. A cell
+that one report lists without coordinates can fall to minutes of local
+search; a cell that several groups have pushed cannot. Round 26 showed this
+directly: cold-start runs matched or approached the seeded results at several
+frontier cells, so those cells were merely under-searched. An automatic "beat
+the recorded number" gate on its own therefore rewards the least meaningful
+targets. Two required fields make the difference visible instead of hiding
+it behind the novelty status.
+
+`significance`, on every registry target, is an object with three fields:
+
+- `crowding`: one of `uncontested` (a single public report, possibly
+  without coordinates), `lightly-contested`, `contested`, `well-studied`
+  (a value several groups have reproduced without improving it). The label
+  summarises how many independent public sources have worked the cell.
+- `evidence`: a short dated string naming the sources counted, so a reader
+  can disagree with the label.
+- `open_question`: a named conjecture or open problem the cell bears on, or
+  null when none was located.
+
+`control_required` is a boolean on every target, true for every search
+target (every current target).
+
+`control`, on every claim, records the same search started from nothing
+(no public certificate, no warm start): `kind` is `unseeded`; `value` is the
+exact value the cold start reached; `budget` states the budget, which must
+be the seeded run's budget; `command` is the exact command; `outcome` compares
+the control with the claimed value in the objective's direction: `matched`,
+`below` (the control did not reach the claimed value), `above` (it beat the
+claimed value), or `not-run`. A `not-run` control has null `value` and
+`command`, and its `budget` states the seeded budget a control must match. A
+claim without a `control` object fails parsing, and an `outcome` that
+contradicts the values is rejected by `claims.check`.
+
+`claims.check` labels each claim with a `search_status` next to the novelty
+status:
+
+| Label | Meaning |
+| --- | --- |
+| `under-searched` | the unseeded control reached at least the recorded best: the public cell was beatable from nothing at that budget, so the claim says more about the ledger than about the method |
+| `improves-recorded-best` | the control fell short of the recorded best, so the seeded search did work that the cold start could not (the novelty status, as before) |
+| `control-missing` | no control was run on a target that requires one; the gap is printed rather than passed silently |
+| `control-not-required` | the target waives the control (`control_required: false`); no current target does |
+
+The labels do not change the novelty status: a claim can be both
+`improves-recorded-best` (it beats the snapshot) and `under-searched` (so
+could a cold start).
+
 ## Reproduce
 
 ```sh
@@ -141,6 +197,9 @@ python3 -m unittest research.test_extremal
 python3 -m research.extremal.claims
 python3 -m research.extremal.evolve --protocol research/extremal/protocols/isosceles-free-64-scripted.json --out runs/extremal/isosceles-free-64-scripted
 ```
+
+The claims command prints, for every claim, the novelty status and the
+search status from its control.
 
 The native tests compile `research/extremal/native/*.c` with the system C
 compiler and are skipped when none is installed.
@@ -232,11 +291,20 @@ two to twelve. The final sets keep few or none of the
 start points, so the start set matters mainly as a warm start; its authors
 are credited in `known/record-constructions.json` and in each derivation.
 Control runs make the same point more strongly: unseeded `ls5x` searches at
-n = 18, 20 and 21 reached 47, 52 and 55 — matching the seeded bests at 20 and
-21 — in seconds to minutes, so these frontier cells were under-searched rather
-than seed-dependent. Priority rests on the dated audit above, not on a
+n = 18, 20 and 21 (no start set, 900 CPU seconds each against the seeded
+2400) reached 47, 52 and 55 in seconds to minutes, at or above the public
+value in all three cells and equal to the seeded result at n = 21, so these
+frontier cells were under-searched rather than seed-dependent. Each claim now
+records its control: `claims.check` labels n = 18, 20 and 21 `under-searched`
+and the seven cells without a control run (n = 17, 19 and 22 to 26)
+`control-missing` until one is made at the seeded budget. On the registry's
+significance fields the n = 21 to 26 cells are `uncontested` (Numaro only,
+no coordinates) and n = 18 to 20 `lightly-contested`, which is the same
+finding stated before any search. Priority rests on the dated audit above, not on a
 guarantee: unpublished work cannot be excluded, and nothing here has been
-submitted to any ledger yet.
+submitted to any ledger; the ten bounds were posted publicly on 2026-09-25 as a
+comment on DeepMind issue #6 (lower bounds only, no priority claim; link in
+`docs/novelty-ledger.md`).
 
 What did not move. n = 7–12: asymmetric tabu runs from scratch and from the
 AlphaEvolve sets at the record plus one, and a centrally symmetric search

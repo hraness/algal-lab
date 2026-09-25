@@ -28,11 +28,13 @@ KNOWN = json.loads((ROOT / "known" / "record-constructions.json").read_text())
 # n = 17 certificate (milesandmistakes entry, index 1), logged seed and KMAX.
 REGENERATE = {"target": "no-five-on-sphere-17", "n": 17, "k": 45, "kmax": 45, "seed": 790491471,
               "seed_target": "no-five-on-sphere-17", "seed_index": 1, "found": "FOUND n=17 k=45 it=2643 "}
+SIGNIFICANCE = {"crowding": "uncontested", "evidence": "one source, 2026-09-24", "open_question": None}
 
 
 def _target(**overrides):
     base = dict(id="t", title="t", objective="minimize", verifier="covering_design", parameters={"v": 6, "k": 3, "t": 2},
-                best_known=Fraction(6), best_known_kind="exact", source="s", url="https://example.org", retrieved="2026-09-24", notes="")
+                best_known=Fraction(6), best_known_kind="exact", source="s", url="https://example.org", retrieved="2026-09-24", notes="",
+                crowding="uncontested", evidence="one source, 2026-09-24", open_question=None, control_required=True)
     base.update(overrides)
     return registry.Target(**base)
 
@@ -58,7 +60,8 @@ class RegistryTests(unittest.TestCase):
 
     def test_reported_decimal_must_terminate_and_improves_uses_precision(self):
         entry = {"id": "x", "title": "x", "objective": "maximize", "verifier": "isosceles_free", "parameters": {"n": 4},
-                 "best_known": {"value": "1/3", "kind": "reported-decimal", "source": "s", "url": "https://e", "retrieved": "2026-09-24"}}
+                 "best_known": {"value": "1/3", "kind": "reported-decimal", "source": "s", "url": "https://e", "retrieved": "2026-09-24"},
+                 "significance": SIGNIFICANCE, "control_required": True}
         with self.assertRaises(ValueError):
             registry.parse_target(entry)
         entry["best_known"]["value"] = "2.635"
@@ -66,6 +69,31 @@ class RegistryTests(unittest.TestCase):
         self.assertEqual(target.reporting_precision(), Fraction(1, 2000))
         self.assertFalse(target.improves(Fraction("2.6354")))
         self.assertTrue(target.improves(Fraction("2.6356")))
+
+    def test_significance_and_control_required_are_parsed_strictly(self):
+        base = {"id": "x", "title": "x", "objective": "maximize", "verifier": "isosceles_free", "parameters": {"n": 4},
+                "best_known": {"value": "3", "kind": "exact", "source": "s", "url": "https://e", "retrieved": "2026-09-24"},
+                "significance": dict(SIGNIFICANCE, open_question="Is 3 optimal?"), "control_required": False}
+        target = registry.parse_target(base)
+        self.assertEqual((target.crowding, target.evidence, target.open_question, target.control_required),
+                         ("uncontested", "one source, 2026-09-24", "Is 3 optimal?", False))
+        self.assertIsNone(registry.parse_target(dict(base, significance=SIGNIFICANCE)).open_question)
+        bad = [{k: v for k, v in base.items() if k != "significance"}, {k: v for k, v in base.items() if k != "control_required"},
+               dict(base, control_required="yes"), dict(base, control_required=1), dict(base, significance="uncontested")]
+        for sig in (dict(SIGNIFICANCE, crowding="hot"), dict(SIGNIFICANCE, crowding=None), dict(SIGNIFICANCE, evidence=""),
+                    dict(SIGNIFICANCE, evidence=3), dict(SIGNIFICANCE, open_question=5), dict(SIGNIFICANCE, open_question=""),
+                    dict(SIGNIFICANCE, extra=1), {k: v for k, v in SIGNIFICANCE.items() if k != "open_question"}):
+            bad.append(dict(base, significance=sig))
+        for entry in bad:
+            with self.assertRaises(ValueError, msg=str(entry)):
+                registry.parse_target(entry)
+
+    def test_every_registry_target_states_dated_significance(self):
+        for target in registry.load_registry().values():
+            with self.subTest(target=target.id):
+                self.assertIn(target.crowding, registry.CROWDING)
+                self.assertRegex(target.evidence, r"20\d\d")
+                self.assertTrue(target.control_required)
 
 
 class KnownConstructionTests(unittest.TestCase):
@@ -353,6 +381,9 @@ class EvolveTests(unittest.TestCase):
 
 class ClaimTests(unittest.TestCase):
     PATHS = sorted((ROOT / "claims").glob("*.json"))
+    # Round 26 ran unseeded controls at n = 18, 20 and 21 only; every other claim is labelled control-missing.
+    SEARCH_STATUS = {"no-five-on-sphere-18": "under-searched", "no-five-on-sphere-20": "under-searched",
+                     "no-five-on-sphere-21": "under-searched"}
 
     def _all(self):
         return [claim for path in self.PATHS for claim in claims.load_claims(path)]
@@ -367,6 +398,10 @@ class ClaimTests(unittest.TestCase):
             claims.parse_claim({k: v for k, v in raw.items() if k != "derivation"})
         with self.assertRaises(ValueError):
             claims.parse_claim(dict(raw, claimed="24 September 2026"))
+        with self.assertRaises(ValueError):
+            claims.parse_claim({k: v for k, v in raw.items() if k != "control"})
+        with self.assertRaises(ValueError):
+            claims.parse_claim(dict(raw, control=dict(raw["control"], kind="seeded")))
 
     def test_every_claim_reverifies_and_beats_its_registry_snapshot(self):
         targets = registry.load_registry()
@@ -374,6 +409,8 @@ class ClaimTests(unittest.TestCase):
             with self.subTest(target=claim.target):
                 result = claims.check(claim, targets)
                 self.assertEqual(result["status"], "improves-recorded-best")
+                self.assertEqual(result["search_status"], self.SEARCH_STATUS.get(claim.target, "control-missing"))
+                self.assertEqual(result["control"]["outcome"], claim.control.outcome)
                 self.assertEqual(result["recorded_value"], str(claim.recorded_best))
                 self.assertGreater(claim.value, claim.recorded_best)
 
@@ -387,6 +424,57 @@ class ClaimTests(unittest.TestCase):
             claims.check(dataclasses.replace(claim, construction={"points": points + [points[0]]}), targets)
         with self.assertRaisesRegex(ValueError, "claim states"):
             claims.check(dataclasses.replace(claim, value=claim.value + 1), targets)
+
+    def test_control_is_parsed_strictly(self):
+        good = {"kind": "unseeded", "value": "47", "budget": "900 CPU seconds", "command": "ls5x 18 40 900 887588671", "outcome": "below"}
+        control = claims.parse_control(good)
+        self.assertEqual((control.value, control.budget, control.outcome), (Fraction(47), "900 CPU seconds", "below"))
+        not_run = {"kind": "unseeded", "value": None, "budget": "2400 CPU seconds", "command": None, "outcome": "not-run"}
+        self.assertEqual((claims.parse_control(not_run).value, claims.parse_control(not_run).command), (None, None))
+        for bad in (dict(good, kind="seeded"), dict(good, outcome="won"), dict(good, outcome=None), dict(good, value=None),
+                    dict(good, value=4.5), dict(good, value=True), dict(good, value="1/0"), dict(good, command=""),
+                    dict(good, command=None), dict(good, budget=900), dict(good, extra=1),
+                    {k: v for k, v in good.items() if k != "budget"}, dict(not_run, value="47"), dict(not_run, command="ls5x"),
+                    "unseeded", ["unseeded"]):
+            with self.assertRaises(ValueError, msg=str(bad)):
+                claims.parse_control(bad)
+
+    def test_search_status_labels(self):
+        # A six-block C(6,3,2) covering against a synthetic recorded best of 7 blocks keeps this off the O(k^5) sphere verifier.
+        blocks = [[0, 1, 2], [0, 1, 3], [0, 4, 5], [1, 4, 5], [2, 3, 4], [2, 3, 5]]
+        target = _target(best_known=Fraction(7))
+        targets = {"t": target}
+
+        def control(value, outcome):
+            return claims.Control(kind="unseeded", value=None if value is None else Fraction(value), budget="same as the seeded run",
+                                  command=None if value is None else "cmd", outcome=outcome)
+
+        def claim(ctrl, recorded=Fraction(7)):
+            return claims.Claim(target="t", verifier="covering_design", parameters=target.parameters, value=Fraction(6),
+                                recorded_best=recorded, claimed="2026-09-24", derivation=("d",), control=ctrl,
+                                construction={"blocks": blocks})
+
+        def label(ctrl, tgts=targets):
+            result = claims.check(claim(ctrl), tgts)
+            self.assertEqual(result["status"], "improves-recorded-best")
+            return result["search_status"]
+
+        # minimize: a control stuck at the recorded 7 blocks did not reach the claimed 6 (below) but did reach the recorded best.
+        self.assertEqual(label(control(7, "below")), "under-searched")
+        self.assertEqual(label(control(6, "matched")), "under-searched")
+        self.assertEqual(label(control(5, "above")), "under-searched")
+        self.assertEqual(label(control(8, "below")), "improves-recorded-best")
+        self.assertEqual(label(control(None, "not-run")), "control-missing")
+        self.assertEqual(label(control(None, "not-run"), {"t": dataclasses.replace(target, control_required=False)}), "control-not-required")
+        for ctrl in (control(7, "matched"), control(6, "below"), control(8, "above")):
+            with self.assertRaisesRegex(ValueError, "outcome"):
+                claims.check(claim(ctrl), targets)
+        # maximize: the same rule in the other direction.
+        up = {"t": dataclasses.replace(target, objective="maximize", best_known=Fraction(5))}
+        self.assertEqual(claims.check(claim(control(5, "below"), Fraction(5)), up)["search_status"], "under-searched")
+        self.assertEqual(claims.check(claim(control(4, "below"), Fraction(5)), up)["search_status"], "improves-recorded-best")
+        with self.assertRaisesRegex(ValueError, "outcome"):
+            claims.check(claim(control(4, "above"), Fraction(5)), up)
 
 
 class NativeSearchTests(unittest.TestCase):
