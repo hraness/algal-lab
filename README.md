@@ -380,6 +380,31 @@ Tests cover analytical graph cases, malformed proposals, information-sharing
 boundaries, the command executor, archive tampering, offline reproduction, and
 the maximum admitted study. Contribute through a checked pull request.
 
+## Publishing follow-ups
+
+Nothing here is submitted or posted yet. Manuscripts live under `papers/`
+(author Benjamin Guo, Hraness). Log of what each still needs:
+
+- `hazard-mixture` — counterexamples to a published α-mixture ordering
+  program (SKF2026 Thms 3.4, 3.8, 3.9, 3.10-literal, 3.11, 3.12, Cors; SAF
+  4.1(b); two invalid printed counterexamples). Needs: venue choice;
+  decide whether to notify the audited authors before submission;
+  independent human read.
+- `softmax-thresholds` — sharp thresholds replacing a published ICLR-2026
+  monotonicity claim. Needs: venue choice; decide on courtesy note to the
+  source authors.
+- `boltzmann-purity` — purity theorem for nested Boltzmann allocation,
+  refuting the v1 exactness conjecture. Needs: venue choice; courtesy-note
+  decision.
+- Research records, not yet papers: `C(5) = 14` (enumeration proof, LRAT
+  corroboration in progress), `C(6) ≥ 18`, `Z_plane = (K_* + o(1)) n^11`
+  proof draft, the `Z_sphere ~ n^10 (ln n)^2` census, and the maintained
+  table attacks (covering arrays — honest negative so far). Needs: decide
+  which belong in papers vs. public record posts (DeepMind issue #6,
+  covering-array tables).
+
+## Links
+
 - [Research method](docs/research-method.md): measurements, controls, budgets, and limits.
 - [Architecture](docs/architecture.md): ALGAL integration and the evidence model.
 - [Roadmap and research sources](docs/roadmap.md): hypothesis testing, reusable
