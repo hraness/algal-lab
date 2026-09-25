@@ -1,0 +1,760 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1.1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\usepackage{url}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rhet}{R_{\mathrm{het}}}
+\newcommand{\Rhom}{R_{\mathrm{hom}}}
+\newcommand{\Feas}{\mathcal{F}}
+\newcommand{\sig}{\sigma}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\argmax}{arg\,max}
+
+\title{Purity and phase structure of nested Boltzmann task allocation}
+\author{[Placeholder: author name to be confirmed]\thanks{The manuscript and its proofs were prepared with AI research agents. The identities and every numerical statement were independently recomputed by the scripts of Section~\ref{sec:verification}; no proof assistant was used. The author list is a placeholder, to be confirmed by the owner of the research record.}}
+\date{September 25, 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We study the nested Boltzmann (softmax-weighted mean) task-allocation model of Amir, Bettini and Prorok, in which $N$ agents distribute unit effort budgets over $M$ tasks, each task score is the Boltzmann mean at inner temperature $t$ of the efforts it receives, and the team reward is the Boltzmann mean at outer temperature $\tau$ of the task scores. Our main result is a universal purity theorem: for every finite positive pair $(t,\tau)$ and all $N,M$, every global maximizer of the reward assigns each agent's entire budget to a single task. The continuous problem therefore reduces exactly to a finite optimization over integer task occupancies. The proof combines first- and second-order necessary conditions with a structural analysis of the support of a maximizer (it is a forest, no agent owns two private tasks, and pure and fractional agents never share a task); a transfer along the path between two private leaves of a fractional component has vanishing first derivative and strictly positive second derivative. As consequences we obtain exact solutions of the model in several regimes: the complete two-agent, two-task solution at all real temperatures, the complete two-agent solution for any number of tasks at positive temperatures, the full phase diagram for three agents and three tasks, and closed-form small- and large-temperature regimes for square populations. On square instances ($N=M$), an exact matched-temperature gap identity shows that every pure allocation other than complete concentration and a permutation strictly beats both, refuting the conjecture stated in the first arXiv version of Amir, Bettini and Prorok that their lower bound is the exact heterogeneity gain; explicit rational certificates give gains exceeding $1/295$, $4/465$ and $1/35$. At nonpositive temperatures the picture differs: for $t\le 0$ heterogeneity never helps, for $t>0\ge\tau$ and square populations the maximizers are exactly the permutation matrices, at $\tau=0$ an explicit concave envelope of the Boltzmann mean gives the exact rectangular optimum, and for $\tau<0$ purity of maximizers depends on whether $M$ divides $N$ and on the size of $t$: in the divisible case every maximizer is a balanced pure allocation, while in the indivisible case with $ts_q\le 1$ every maximizer is fractional for sufficiently negative $\tau$.
+\end{abstract}
+
+\noindent\textbf{Keywords.} Boltzmann mean, softmax, task allocation, heterogeneity, integrality of optima, multi-agent systems.
+
+\noindent\textbf{MSC 2020.} 90C26, 90C27, 91A80, 68T42.
+
+\section{Introduction}\label{sec:intro}
+
+Amir, Bettini and Prorok \cite{ABPv4} ask when behavioral diversity is rewarded in cooperative multi-agent systems. Their analytical vehicle is a nested aggregation model. Each of $N$ agents holds a unit budget of effort and distributes it over $M$ tasks; the score of a task is a Boltzmann mean of the efforts it receives, with inner temperature $t$, and the reward of the team is a Boltzmann mean of the task scores, with outer temperature $\tau$. The Boltzmann mean
+\begin{equation}\label{eq:boltz}
+ B_c(x)=\frac{\sum_i x_i e^{c x_i}}{\sum_i e^{c x_i}}
+\end{equation}
+interpolates between the minimum ($c\to-\infty$), the arithmetic mean ($c=0$) and the maximum ($c\to+\infty$), so the two temperatures encode whether tasks reward crowding or spreading and whether the team rewards its best or its worst task. The heterogeneity gain $\Delta R$ is the difference between the best reward over all allocations and the best reward over allocations in which all agents behave identically. The first arXiv version of \cite{ABPv4}, which we cite as \cite{ABPv1}, proved lower bounds on $\Delta R$ for $N=M$ and conjectured that these bounds are exact; later versions retain the lower bounds and drop the conjecture.
+
+This paper gives a complete account of the structure of optimal allocations in this model. The central result is that at every finite positive temperature pair, optimal allocations are pure.
+
+\begin{theorem}[Universal purity; Theorem~\ref{thm:purity}]
+Let $t,\tau>0$ be finite and $N,M\ge 1$. Every global maximizer of the nested reward over nonnegative $N\times M$ matrices with row sums at most one has exactly one unit entry in every row.
+\end{theorem}
+
+No temperature ratio, dimension restriction or numerical search enters the argument, and the statement covers every maximizer, including all ties. The continuous problem thereby reduces exactly to a finite optimization over partitions of $N$ into at most $M$ positive integer task occupancies (Corollary~\ref{cor:occupancy}). Combined with elementary comparisons, this gives exact solutions in several regimes:
+\begin{itemize}[nosep]
+\item two agents and two tasks at all real temperatures, with all maximizers classified (Theorem~\ref{thm:twotwo}), in particular $\Delta R=0$ at matched positive temperatures;
+\item two agents and any number of tasks at positive temperatures, where a single crossover $\tau_*(t,M)$ separates separation from concentration, with $\tau_*=t$ for $M=2$ and $t<\tau_*<t+\log(M-1)$ for $M>2$ (Theorem~\ref{thm:twoM});
+\item three agents and three tasks, with the complete phase diagram in the positive quadrant, including all tie cases (Theorem~\ref{thm:threethree});
+\item square populations at matched temperature $t=\tau$: an exact gap identity shows that every pure allocation other than complete concentration and a permutation strictly beats both endpoints (Theorem~\ref{thm:gap}), and explicit expansions identify the optimal occupancies for small and for large temperature (Theorems~\ref{thm:smallt} and \ref{thm:larget}).
+\end{itemize}
+The gap identity refutes the exactness conjecture of \cite{ABPv1}: at $t=\tau=\log 2$ the conjectured gain for $N=M=3$ is zero, whereas the allocation with occupancies $(2,1,0)$ has gain exceeding $1/295$, and by the purity theorem this allocation is in fact globally optimal. Section~\ref{sec:related} states precisely which sentence of \cite{ABPv1} is contradicted and records that the conjecture is absent from the later versions.
+
+The nonpositive temperatures behave differently and are treated separately. For $t\le 0$ the set of attainable score vectors of arbitrary allocations coincides with that of homogeneous allocations, so $\Delta R=0$ for every outer utility (Theorem~\ref{thm:scoreset}). For $t>0\ge\tau$ and $N=M=n$ the maximizers are exactly the permutation matrices (Theorem~\ref{thm:square}), which proves that the second branch of the lower bound of \cite{ABPv4} is exact. At $\tau=0$ we determine the least concave majorant of the Boltzmann mean on the unit cube (Theorem~\ref{thm:envelope}); its contact set consists exactly of the binary vectors, which yields the exact rectangular optimum for all $N,M$ (Theorem~\ref{thm:rect}). For $\tau<0$, purity of maximizers depends on divisibility in the following sense: if $M$ divides $N$, every maximizer is a balanced pure allocation at every $\tau\le0$ (Corollary~\ref{cor:divisible}); if $M$ does not divide $N$ and $ts_q\le 1$, where $s_q$ is the score of a task with $q=\lfloor N/M\rfloor$ full-effort agents, then every maximizer is fractional for all sufficiently negative $\tau$ (Theorem~\ref{thm:indivisible}). The indivisible case with $ts_q>1$ and the behavior at moderately negative $\tau$ remain open (Section~\ref{sec:related}).
+
+\paragraph{Why this matters.} The model is small, but the phenomenon it isolates is not. Nested softmax aggregation is the standard smooth surrogate for max/min structures in learned multi-agent objectives, and \cite{ABPv4} uses the model to argue about when diversity is worth its price. The purity theorem says that at positive temperatures the smooth relaxation has no fractional optima at all, so the continuous problem and the combinatorial occupancy problem have identical optimal values and identical maximizers. This is a statement about every maximizer of a nonconvex smooth function on a product of simplices, not about a convex relaxation being tight, and its proof is entirely elementary. The negative-temperature results show that the conclusion is not a general property of softmax nesting: it depends on the sign of the outer temperature and on an arithmetic condition.
+
+\paragraph{Novelty boundary.} We separate three kinds of content. Classical ingredients, which we use without claiming novelty: the derivative identities of the Boltzmann mean, Chebyshev's sum inequality \cite{HLP}, the exponential tangent inequality, second-order necessary conditions, the fact that a forest with all row vertices of degree at least two has two task leaves, the vertex structure of transportation polytopes \cite{Bolker1972,DeLoeraKim}, and the concavification of a set function by its cardinality \cite{Shioura2009}. Statements we believe to be new for this model: the universal purity theorem and its support lemmas, the exact matched-temperature gap identity and the refutation it yields, the exact two-agent, three-agent and asymptotic classifications, the envelope theorem with its exact contact set, and the negative-outer divisibility results (Corollary~\ref{cor:divisible} and Theorem~\ref{thm:indivisible}). Unresolved priority: we did not locate any of these statements in the literature within the bounded search described in Section~\ref{sec:related}, but several publisher pages could not be retrieved, and we do not assert worldwide first priority for any statement.
+
+\paragraph{Organization.} Section~\ref{sec:model} fixes the model and elementary facts. Section~\ref{sec:derivatives} collects the derivative identities. Section~\ref{sec:lemmas} proves the maximum-point lemmas and the support structure. Section~\ref{sec:purity} proves the purity theorem and the occupancy reduction. Section~\ref{sec:exact} derives the exact consequences and the refutation. Section~\ref{sec:boundary} treats nonpositive temperatures. Section~\ref{sec:verification} documents the computational verification. Section~\ref{sec:related} discusses related work and priority.
+
+\section{Model and elementary facts}\label{sec:model}
+
+Throughout, $N\ge1$ agents and $M\ge1$ tasks are finite, and all temperatures are finite real numbers. For a real $c$ and $x\in\R^n$ the Boltzmann mean is \eqref{eq:boltz}; we write $\sig(c,n)=e^c/(e^c+n-1)$. A feasible allocation is a nonnegative $N\times M$ matrix $A=(a_{ij})$ with $\sum_j a_{ij}\le 1$ for every row $i$; the feasible set is denoted $\Feas$. The score of task $j$ and the reward are
+\begin{equation}\label{eq:model}
+ S_j(A)=B_t(A_{:j}),\qquad R(A)=B_\tau(S(A)),
+\end{equation}
+where $A_{:j}$ is the $j$th column. Every inner denominator ranges over all $N$ rows, including zero entries, and the outer denominator ranges over all $M$ tasks, including tasks with zero score. A row is \emph{pure} when it has exactly one unit entry; an allocation is pure when all its rows are pure. A row with full budget that is not pure is \emph{fractional}. A task is \emph{active} when its column has a positive entry and \emph{private} to a row when that entry is the only positive one in the column. An allocation is \emph{homogeneous} when all its rows are equal. We write
+\[
+ \Rhet=\max_{A\in\Feas}R(A),\qquad \Rhom=\max_{A\in\Feas\ \text{homogeneous}}R(A),\qquad \Delta R=\Rhet-\Rhom .
+\]
+Both maxima exist since $\Feas$ is compact and $R$ is continuous. For a homogeneous allocation with common row $c$, every column is constant, so its score vector is exactly $c$, independently of $t$.
+
+\begin{lemma}[Elementary bounds]\label{lem:elementary}
+Let $x\in\R^n$ and $c\in\R$.
+\begin{enumerate}[nosep,label=(\roman*)]
+\item (Ordering) $B_c(x)\ge\frac1n\sum_i x_i$ if $c\ge0$ and $B_c(x)\le\frac1n\sum_ix_i$ if $c\le0$, with equality if and only if $c=0$ or $x$ is constant.
+\item (Weight bound) If $c>0$ and $x\in[0,1]^n$, then every weight $p_i=e^{cx_i}/\sum_l e^{cx_l}$ satisfies $p_i\le\sig(c,n)$, with equality if and only if $x_i=1$ and $x_l=0$ for all $l\ne i$ (for $n\ge2$; if $n=1$ then $p_1=1=\sig(c,1)$ for every $x$).
+\item If $c>0$, $x\in[0,1]^n$ and $\sum_ix_i\le1$, then $B_c(x)\le\sig(c,n)$, with equality if and only if $x$ is a unit vector (for $n\ge2$).
+\item (Homogeneous optimum) $\Rhom=\sig(\tau,M)$ if $\tau>0$ and $\Rhom=1/M$ if $\tau\le0$; in both cases $\Rhom=\sig(\max\{\tau,0\},M)$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) With $w_i=e^{cx_i}$, the identity $n\sum_ix_iw_i-(\sum_ix_i)(\sum_iw_i)=\sum_{i<j}(x_i-x_j)(w_i-w_j)$ holds. For $c>0$ the sequences $x$ and $w$ are similarly ordered and every summand is nonnegative; for $c<0$ they are oppositely ordered. A summand vanishes only when $x_i=x_j$ or $c=0$. This is Chebyshev's sum inequality \cite[\S2.17]{HLP}.
+(ii) $p_i=e^{cx_i}/(e^{cx_i}+\sum_{l\ne i}e^{cx_l})$ increases in $x_i$ and decreases in each $x_l$, $l\ne i$; the extreme point is $x_i=1$, $x_l=0$.
+(iii) $B_c(x)=\sum_ip_ix_i\le\sig(c,n)\sum_ix_i\le\sig(c,n)$; equality in the first step needs $p_i=\sig(c,n)$ at every $i$ with $x_i>0$, hence by (ii) a single positive coordinate equal to one.
+(iv) The score vector of a homogeneous allocation is its common row $c\in[0,1]^M$ with $\sum_jc_j\le1$, and every such $c$ occurs. For $\tau>0$, (iii) gives $\Rhom=\sig(\tau,M)$, attained by concentration on one task. For $\tau\le0$, (i) gives $B_\tau(c)\le\frac1M\sum_jc_j\le\frac1M$, attained by the uniform row.
+\end{proof}
+
+\begin{remark}
+Neither Boltzmann level is monotone in its arguments on all of $\R^n$: $\partial_iB_c(x)=p_i[1+c(x_i-B_c(x))]$ can be negative when $c(x_i-B_c(x))<-1$. On the feasible domain all inner and outer arguments lie in $[0,1]$, so both levels are strictly increasing in every coordinate whenever $|c|\le1$: then $|x_i-B_c(x)|\le1$ gives $1+c(x_i-B_c(x))\ge0$, and equality would need $|x_i-B_c(x)|=1$, that is $\{x_i,B_c(x)\}=\{0,1\}$, which is impossible because $B_c(x)=1$ forces every coordinate to equal $1$ and $B_c(x)=0$ forces every coordinate to equal $0$. For larger $|c|$ monotonicity can fail on the feasible domain, and none of the proofs below assumes it.
+\end{remark}
+
+\section{Derivative identities}\label{sec:derivatives}
+
+Fix $c\in\R$ and $x\in\R^n$, and write $p_i=e^{cx_i}/\sum_le^{cx_l}$, $B=B_c(x)$ and $h_i=1+c(x_i-B)$. For a direction $u\in\R^n$ put $\bar u=\sum_ip_iu_i$.
+
+\begin{lemma}[One Boltzmann mean]\label{lem:derivatives}
+\begin{enumerate}[nosep,label=(\alph*)]
+\item $\partial_kB=p_kh_k$ and $\sum_k\partial_kB=1$.
+\item $\partial_l\partial_kB=cp_k\bigl[\delta_{kl}h_k-p_lh_k+\delta_{kl}-p_lh_l\bigr]$. Consequently
+\begin{equation}\label{eq:hess}
+ D^2B[u,u]=c\sum_ip_i(1+h_i)u_i^2-2c\,\bar u\,DB[u],\qquad
+ \partial_k^2B=cp_k\bigl(1+h_k-2p_kh_k\bigr).
+\end{equation}
+\item Let $n\ge2$, $p=p_k<1$, and let $m=\sum_{i\ne k}p_ix_i/(1-p)$ be the weighted mean of the other coordinates and $d=c(x_k-m)$. Then $h_k=1+(1-p)d$ and
+\begin{equation}\label{eq:ownweight}
+ \partial_k^2B=cp(1-p)\bigl[2-(2p-1)d\bigr].
+\end{equation}
+\item $B_c(sx)=sB_{sc}(x)$ for $s>0$, and $\frac{d}{dc}B_c(x)=\Var_c(x):=\sum_ip_ix_i^2-B^2\ge0$. Hence if $c>0$ and $x\ge0$ is not the zero vector, $s\mapsto B_c(sx)$ is strictly increasing on $s>0$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Write $B=T/Z$ with $T=\sum_ix_ie^{cx_i}$ and $Z=\sum_ie^{cx_i}$. (a) $\partial_kT=e^{cx_k}(1+cx_k)$ and $\partial_kZ=ce^{cx_k}$, so $\partial_kB=p_k(1+cx_k)-p_kcB=p_kh_k$. Summing, $\sum_kp_kh_k=1+c(\sum_kp_kx_k-B)=1$.
+(b) From $\partial_lp_k=cp_k(\delta_{kl}-p_l)$ and $\partial_lh_k=c(\delta_{kl}-p_lh_l)$ we get $\partial_l(p_kh_k)=cp_k(\delta_{kl}-p_l)h_k+cp_k(\delta_{kl}-p_lh_l)$. Contracting with $u_ku_l$ gives $c\sum_kp_kh_ku_k^2-c\bar u\,DB[u]+c\sum_kp_ku_k^2-c\bar u\,DB[u]$, which is \eqref{eq:hess}; the diagonal entry follows by setting $l=k$.
+(c) $B=px_k+(1-p)m$, so $x_k-B=(1-p)(x_k-m)$ and $h_k=1+(1-p)d$. Then $1+h_k-2ph_k=1+(1-2p)h_k=(1-p)[2+(1-2p)d]$.
+(d) The scaling identity is immediate from \eqref{eq:boltz}. Differentiating $T/Z$ in $c$ gives $(\sum_ix_i^2e^{cx_i})/Z-(T/Z)^2=\Var_c(x)$. Finally $\frac{d}{ds}\bigl[sB_{sc}(x)\bigr]=B_{sc}(x)+sc\Var_{sc}(x)$, and $B_{sc}(x)>0$ when $x\ge0$ is nonzero.
+\end{proof}
+
+The identity $\sum_k\partial_kB=1$ expresses translation equivariance of the Boltzmann mean and appears, for the positive-temperature mean used in analytical placement, as Theorem~5 of Liao et al.\ \cite{Liao2023}.
+
+For the nested reward \eqref{eq:model} we use, at a matrix $A$, the notation
+\begin{equation}\label{eq:nested-notation}
+ p_{ij}=\frac{e^{ta_{ij}}}{\sum_le^{ta_{lj}}},\quad h_{ij}=1+t(a_{ij}-S_j),\quad
+ P_j=\frac{e^{\tau S_j}}{\sum_le^{\tau S_l}},\quad g_j=1+\tau(S_j-R),\quad W_j=P_jg_j .
+\end{equation}
+
+\begin{lemma}[Nested derivatives]\label{lem:nested}
+For every feasible $A$ and every direction $U\in\R^{N\times M}$, with $v_j=DS_j[U_{:j}]=\sum_ip_{ij}h_{ij}U_{ij}$,
+\begin{equation}\label{eq:nested}
+ \partial_{ij}R=W_jp_{ij}h_{ij},\qquad
+ D^2R(A)[U,U]=\sum_jW_j\,D^2S_j[U_{:j},U_{:j}]+D^2B_\tau(S)[v,v].
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+$S_l$ depends only on column $l$, so $\partial_{ij}R=\partial_jB_\tau(S)\,\partial_{ij}S_j=W_jp_{ij}h_{ij}$ by Lemma~\ref{lem:derivatives}(a). Differentiating $s\mapsto B_\tau(S(A+sU))$ twice at $s=0$ gives the second formula, since $\partial_jB_\tau(S)=W_j$.
+\end{proof}
+
+Both formulas in \eqref{eq:hess} and \eqref{eq:nested} apply to the full vectors, including zero entries and inactive tasks. In particular, whenever $v_j=0$ for a column, the mixed term of \eqref{eq:hess} for that column vanishes entirely, and whenever $DB_\tau(S)[v]=\sum_jW_jv_j=0$ the mixed term of the outer Hessian vanishes.
+
+\section{Maximum-point lemmas and support structure}\label{sec:lemmas}
+
+In this section $t,\tau>0$ are finite and $A$ is a global maximizer of $R$ over $\Feas$. All quantities \eqref{eq:nested-notation} are evaluated at $A$. The \emph{support graph} $G(A)$ is the bipartite graph with the $N$ rows and $M$ tasks as vertices and an edge $\{i,j\}$ whenever $a_{ij}>0$.
+
+\subsection{Budgets, signs and stationarity}
+
+\begin{lemma}[Signs, budgets, stationarity]\label{lem:signs}
+Let $A$ be a global maximizer. Then:
+\begin{enumerate}[nosep,label=(\alph*)]
+\item $W_j>0$ for every active task $j$;
+\item $h_{ij}>0$ for every positive entry $a_{ij}$;
+\item every row sum equals one;
+\item for each row $i$ the partial derivatives $\partial_{ij}R=W_jp_{ij}h_{ij}$ over the positive entries $a_{ij}>0$ share a common value $\lambda_i>0$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) Let $x=A_{:j}\ne0$. For $s\in(0,1]$ replacing column $j$ by $sx$ is feasible, changes no other score, and by Lemma~\ref{lem:derivatives}(d) makes $S_j=B_t(sx)$ strictly increasing in $s$. Let $\psi(y)$ denote $B_\tau$ of the score vector with $j$th entry replaced by $y$. Since $s<1$ is feasible and $A$ is optimal, $\psi'(S_j)\,\frac{d}{ds}B_t(sx)\big|_{s=1}\ge0$, hence $W_j=\psi'(S_j)\ge0$. If $W_j=0$ then $g_j=0$, and by \eqref{eq:hess} $\psi''(S_j)=\tau P_j(1+g_j-2P_jg_j)=\tau P_j>0$, so $\psi$ has a strict local minimum at $S_j$. Slightly decreasing $s$ then strictly increases the reward, a contradiction.
+
+(b) Let $a_{ij}>0$ and suppose $h_{ij}\le0$. Decreasing $a_{ij}$ alone is feasible. The one-variable function $\phi(y)=R$ with $a_{ij}$ replaced by $y$ has $\phi'(a_{ij})=W_jp_{ij}h_{ij}$ by \eqref{eq:nested}. If $h_{ij}<0$ then $\phi'(a_{ij})<0$ by (a), so a small decrease raises $R$. If $h_{ij}=0$ then $\phi'(a_{ij})=0$ and, by \eqref{eq:nested} and \eqref{eq:hess}, $\phi''(a_{ij})=W_j\,\partial_{ij}^2S_j+\partial_j^2B_\tau(S)\,(\partial_{ij}S_j)^2=W_j\,tp_{ij}(1+h_{ij}-2p_{ij}h_{ij})+0=W_jtp_{ij}>0$, so $a_{ij}$ is a strict local minimum of $\phi$ and again a small decrease raises $R$. Both cases contradict optimality.
+
+(c) Suppose $\sum_ja_{ij}<1$. If some $a_{ij}>0$, then by (a) and (b) $\partial_{ij}R=W_jp_{ij}h_{ij}>0$ and a small increase of $a_{ij}$ is feasible, a contradiction. Otherwise row $i$ is zero. Choose $j$ with $S_j=\max_lS_l$, let $E=e^t$, $T=\sum_{l\ne i}a_{lj}e^{ta_{lj}}$ and $C=\sum_{l\ne i}e^{ta_{lj}}$, so that $S_j=T/(1+C)$ and $T\le C$ because every $a_{lj}\le1$. Let $A'$ be $A$ with $a_{ij}$ replaced by $1$. Its $j$th score is $S_j'=(E+T)/(E+C)$, the other scores are unchanged, and
+\[
+ \frac{E+T}{E+C}-\frac{T}{1+C}=\frac{E(1+C-T)+T}{(E+C)(1+C)}>0 .
+\]
+With $\psi$ as in (a), $\psi'(y)=P_j(y)\bigl[1+\tau(y-\psi(y))\bigr]$, and for $y\ge S_j=\max_lS_l$ the value $\psi(y)$ is a weighted mean of numbers at most $y$, so $\psi'(y)\ge P_j(y)>0$ on $[S_j,S_j']$. Hence $R(A')=\psi(S_j')>\psi(S_j)=R(A)$, a contradiction.
+
+(d) If $a_{ij},a_{ik}>0$ with $j\ne k$, then $A+s(E_{ij}-E_{ik})$ is feasible for all small $|s|$ (row sums are preserved), so optimality forces $\partial_{ij}R=\partial_{ik}R$. Positivity follows from (a) and (b). For a pure row, $\lambda_i$ is defined as the derivative at its unit entry.
+\end{proof}
+
+We emphasize that (b) and (d) are statements at positive entries only; no sign of a derivative at a zero entry is used anywhere below.
+
+\subsection{The support is a forest}
+
+\begin{lemma}[Forest]\label{lem:forest}
+The support graph of a global maximizer contains no cycle.
+\end{lemma}
+
+\begin{proof}
+Suppose $G(A)$ contains a cycle. Since the graph is bipartite, the cycle has the form $i_1-j_1-i_2-j_2-\dots-i_L-j_L-i_1$ with $L\ge2$, distinct rows $i_r$ and distinct tasks $j_r$, and all $2L$ entries $a_{i_rj_{r-1}},a_{i_rj_r}$ positive (indices modulo $L$). Define the direction $U$ by
+\[
+ U_{i_r,j_{r-1}}=\frac1{\lambda_{i_r}},\qquad U_{i_r,j_r}=-\frac1{\lambda_{i_r}}\qquad(r=1,\dots,L),
+\]
+and zero elsewhere. Every row sum of $U$ vanishes and every entry it moves is positive, so $A+sU\in\Feas$ for all $|s|$ small, in both directions. By Lemma~\ref{lem:signs}(d), $p_{ij}h_{ij}=\lambda_i/W_j$ at every positive entry, so the first score variation of each task on the cycle is
+\[
+ v_{j_r}=\sum_ip_{ij_r}h_{ij_r}U_{ij_r}=-\frac{p_{i_rj_r}h_{i_rj_r}}{\lambda_{i_r}}+\frac{p_{i_{r+1}j_r}h_{i_{r+1}j_r}}{\lambda_{i_{r+1}}}=-\frac1{W_{j_r}}+\frac1{W_{j_r}}=0,
+\]
+and $v_j=0$ for tasks off the cycle. Hence $DR[U]=0$, the outer term of \eqref{eq:nested} vanishes, and by \eqref{eq:hess} with vanishing mixed terms
+\[
+ D^2R(A)[U,U]=\sum_jW_j\,t\sum_ip_{ij}(1+h_{ij})U_{ij}^2=t\sum_{(i,j):U_{ij}\ne0}\lambda_i\Bigl(1+\frac1{h_{ij}}\Bigr)U_{ij}^2>0,
+\]
+using $W_jp_{ij}h_{ij}=\lambda_i$ and $h_{ij}>0$. A maximum of the smooth function $s\mapsto R(A+sU)$ at an interior point of its domain requires a nonpositive second derivative; this contradiction proves the lemma.
+\end{proof}
+
+\subsection{No row owns two private tasks}
+
+For $u\in[0,1]$ let $q_N(u)=B_t(u,0,\dots,0)=ue^{tu}/(e^{tu}+N-1)$ be the score of a task whose only positive entry is $u$.
+
+\begin{lemma}[Consolidation]\label{lem:private}
+At a global maximizer no row has two private tasks.
+\end{lemma}
+
+\begin{proof}
+Suppose row $i$ owns private tasks $j$ and $k$ with entries $x=a_{ij}>0$ and $y=a_{ik}>0$, so $X:=S_j=q_N(x)$ and $Y:=S_k=q_N(y)$. Let $A'$ be $A$ with $(a_{ij},a_{ik})$ replaced by $(x+y,0)$; it is feasible, changes only the two private scores to $Z:=q_N(x+y)$ and $0$, and $Z\ge X+Y$ because $q_N(u)/u=e^{tu}/(e^{tu}+N-1)$ is nondecreasing in $u$. Put $R=R(A)$ and $\psi(w)=(w-R)e^{\tau w}$. Writing the outer mean as a quotient $\mathcal N/\mathcal D$ with $\mathcal N=R\mathcal D$, one checks that
+\begin{equation}\label{eq:consol}
+ R(A')>R\iff \psi(Z)>\psi(X)+\psi(Y)+R .
+\end{equation}
+First, $\psi(X+Y)>\psi(X)+\psi(Y)+R$. Indeed, this inequality reads $\Delta\mathcal N>R\,\Delta\mathcal D$ with
+\begin{gather*}
+ \Delta\mathcal D=e^{\tau(X+Y)}+1-e^{\tau X}-e^{\tau Y}=(e^{\tau X}-1)(e^{\tau Y}-1)>0,\\
+ \Delta\mathcal N=Xe^{\tau X}(e^{\tau Y}-1)+Ye^{\tau Y}(e^{\tau X}-1),
+\end{gather*}
+so that
+\[
+ \frac{\Delta\mathcal N}{\Delta\mathcal D}=\frac{X}{1-e^{-\tau X}}+\frac{Y}{1-e^{-\tau Y}}>X+\frac1\tau>R,
+\]
+where $u/(1-e^{-u})>1$ for $u>0$ was used for the $Y$ term and the last inequality is $g_j>0$, which holds by Lemma~\ref{lem:signs}(a) because task $j$ is active. Second, $\psi'(w)=e^{\tau w}[1+\tau(w-R)]>0$ for $w>R-1/\tau$, and $X+Y>X>R-1/\tau$ by the same $g_j>0$. Hence $\psi(Z)\ge\psi(X+Y)$, and \eqref{eq:consol} gives $R(A')>R(A)$, contradicting optimality.
+\end{proof}
+
+\subsection{Dominance and separation of row types}
+
+\begin{lemma}[Dominance]\label{lem:dominance}
+Let $N\ge2$ and let $A$ be a global maximizer. If row $i$ has positive entries $a=a_{ij}$ and $b=a_{ik}$ in distinct tasks $j\ne k$, then every other row $l\ne i$ satisfies $c:=a_{lj}<a+b$.
+\end{lemma}
+
+\begin{proof}
+Suppose $c\ge a+b$, so $c>a$. Consider the two-sided transfer $U=E_{ij}-E_{ik}$, feasible for small $|s|$ in both directions. By Lemma~\ref{lem:signs}(d), $DR[U]=0$, so by \eqref{eq:nested} and \eqref{eq:hess} the mixed term of the outer Hessian vanishes and
+\[
+ D^2R(A)[U,U]=W_j\,\partial_{ij}^2S_j+W_k\,\partial_{ik}^2S_k+\tau\sum_{m\in\{j,k\}}P_m(1+g_m)v_m^2,
+\]
+where $v_j=p_{ij}h_{ij}>0$ and $v_k=-p_{ik}h_{ik}\ne0$. The outer term is strictly positive since $g_j,g_k>0$, and $W_j,W_k>0$. We show that both inner scalar curvatures are positive, which contradicts the second-order necessary condition $D^2R(A)[U,U]\le0$.
+
+By \eqref{eq:hess}, $\partial_{ij}^2S_j=tp_{ij}[1+(1-2p_{ij})h_{ij}]$ with $h_{ij}>0$. In task $j$ the entry $c>a$ contributes $e^{tc}>e^{ta}$ to the denominator, so $p_{ij}<1/2$ and $\partial^2_{ij}S_j>0$.
+
+For task $k$, if $p_{ik}\le1/2$ the same argument applies. Otherwise $e^{tb}>\sum_{l\ne i}e^{ta_{lk}}\ge N-1$. Let $z=t(c-a)>0$ and $y=tb\le z$. Multiplying $h_{ij}>0$ by the denominator $Z_j=\sum_le^{ta_{lj}}$ and using $S_j=\sum_la_{lj}e^{ta_{lj}}/Z_j$ gives $0<Z_jh_{ij}=\sum_le^{ta_{lj}}[1+t(a-a_{lj})]$. The tangent inequality $e^{tx}[1+t(a-x)]\le e^{ta}$, valid for all real $x$ by convexity of the exponential, bounds each of the $N-1$ terms with $l\ne$ the row of $c$ by $e^{ta}$, while the term of $c$ equals $e^{tc}(1-z)$. Hence $0<e^{tc}(1-z)+(N-1)e^{ta}$, that is,
+\[
+ (z-1)e^z<N-1<e^{y}\le e^{z}.
+\]
+Thus $z<2$ and $y\le z<2$. By \eqref{eq:ownweight} with $p=p_{ik}>1/2$ and $d=t(b-m)\le tb=y<2$ (the other coordinates of column $k$ are nonnegative, so their weighted mean $m$ is nonnegative), $\partial_{ik}^2S_k=tp(1-p)[2-(2p-1)d]>0$ because $0<2p-1<1$ and $d<2$. Both curvatures are positive, and the contradiction proves $c<a+b$.
+\end{proof}
+
+\begin{corollary}[Separation of row types]\label{cor:separation}
+Let $A$ be a global maximizer. No active task has both a pure row and a fractional row among its positive contributors. Consequently every connected component of $G(A)$ consists either of pure rows only, in which case it is a star centered at one task, or of fractional rows only, in which case every row vertex has degree at least two and the component has at least two rows.
+\end{corollary}
+
+\begin{proof}
+If a fractional row $i$ has entries $a>0$ in task $j$ and $b>0$ in task $k\ne j$, then $a+b\le1$, while a pure row in task $j$ would contribute $c=1\ge a+b$, contradicting Lemma~\ref{lem:dominance}. Pure rows have degree one, so a component of pure rows is a star. A fractional row has full budget (Lemma~\ref{lem:signs}(c)) and is not pure, hence has at least two positive entries. A fractional component with a single row would make every task in it private to that row, and there are at least two such tasks, contradicting Lemma~\ref{lem:private}.
+\end{proof}
+
+\section{The universal purity theorem}\label{sec:purity}
+
+\begin{theorem}[Universal purity]\label{thm:purity}
+Let $t,\tau>0$ be finite and $N,M\ge1$. Every global maximizer of $R$ over $\Feas$ is pure: each row has exactly one unit entry.
+\end{theorem}
+
+\begin{proof}
+Let $A$ be a global maximizer and suppose some row of $A$ is fractional. By Corollary~\ref{cor:separation}, the connected component $K$ of $G(A)$ containing that row consists of fractional rows only, has at least two rows, and every row vertex in $K$ has degree at least two. By Lemma~\ref{lem:forest}, $K$ is a finite tree with at least two edges, so it has at least two leaves, and no leaf is a row. Choose two task leaves $j_0\ne j_L$ of $K$. Since $K$ is a connected component, each of them has degree one in all of $G(A)$, hence is private to its unique neighbor. By Lemma~\ref{lem:private} their owners are distinct, so the unique path in $K$ between them is
+\begin{equation}\label{eq:path}
+ j_0-i_1-j_1-i_2-\dots-i_L-j_L,\qquad L\ge2,
+\end{equation}
+with distinct rows $i_1,\dots,i_L$ and distinct tasks $j_0,\dots,j_L$. The internal tasks $j_1,\dots,j_{L-1}$ may have further positive contributors off the path, and the rows may serve further tasks; all those entries remain fixed.
+
+Define $U$ by $U_{i_r,j_{r-1}}=1/\lambda_{i_r}$ and $U_{i_r,j_r}=-1/\lambda_{i_r}$ for $r=1,\dots,L$, and zero elsewhere. Every row sum of $U$ vanishes and every entry it moves is positive, so $A+sU\in\Feas$ for all $|s|$ below $\min\{a_{ij}\lambda_i:U_{ij}\ne0\}$, in both directions.
+
+\emph{First variation.} Exactly as in the proof of Lemma~\ref{lem:forest}, each internal task $j_r$ ($1\le r\le L-1$) has two moving contributors and, by Lemma~\ref{lem:signs}(d), $v_{j_r}=-1/W_{j_r}+1/W_{j_r}=0$. At the endpoints only the owner's entry moves, so $v_{j_0}=1/W_{j_0}$ and $v_{j_L}=-1/W_{j_L}$; all other $v_j$ vanish. Hence $DR(A)[U]=\sum_jW_jv_j=1-1=0$.
+
+\emph{Inner curvature.} For an internal task, $v_{j_r}=0$ cancels the mixed term of \eqref{eq:hess}, and as in Lemma~\ref{lem:forest}
+\begin{equation}\label{eq:internal}
+ W_{j_r}D^2S_{j_r}[U_{:j_r},U_{:j_r}]=t\sum_{i\in\{i_r,i_{r+1}\}}\lambda_i\Bigl(1+\frac1{h_{ij_r}}\Bigr)U_{ij_r}^2 .
+\end{equation}
+At a private endpoint $j\in\{j_0,j_L\}$ with owner $i$, only the entry $(i,j)$ moves, and by \eqref{eq:hess}
+\begin{equation}\label{eq:endpoint}
+ W_jD^2S_j[U_{:j},U_{:j}]=W_j\,tp_{ij}(1+h_{ij}-2p_{ij}h_{ij})U_{ij}^2=t\lambda_i\Bigl(1+\frac1{h_{ij}}-2p_{ij}\Bigr)U_{ij}^2>-t\lambda_iU_{ij}^2,
+\end{equation}
+because $h_{ij}>0$ and $p_{ij}<1$ (the component has at least two rows, so $N\ge2$ and the denominator of $p_{ij}$ contains at least one further term). Now group the contributions \eqref{eq:internal} and \eqref{eq:endpoint} by row. Row $i_1$ moves one private entry $(i_1,j_0)$ and one internal entry $(i_1,j_1)$, both with $U^2=1/\lambda_{i_1}^2$, so its total is
+\[
+ \frac{t}{\lambda_{i_1}}\Bigl(2+\frac1{h_{i_1j_0}}+\frac1{h_{i_1j_1}}-2p_{i_1j_0}\Bigr)>0,
+\]
+and likewise for row $i_L$ with $(i_L,j_L)$ and $(i_L,j_{L-1})$. Every other row $i_r$ ($2\le r\le L-1$) moves two internal entries, each contributing a positive term of \eqref{eq:internal}. Since $i_1\ne i_L$ (this is where $L\ge2$ enters), no row is left with two private terms. Summing,
+\begin{equation}\label{eq:inner-positive}
+ \sum_jW_jD^2S_j[U_{:j},U_{:j}]>0 .
+\end{equation}
+For $L=2$ the single internal task $j_1$ supplies one positive term to each of $i_1$ and $i_2$.
+
+\emph{Outer curvature.} Since $\sum_jW_jv_j=0$, the mixed term of the outer Hessian \eqref{eq:hess} vanishes, and only the two endpoint scores move. Both endpoints are active, so $g_{j_0},g_{j_L}>0$ by Lemma~\ref{lem:signs}(a), and
+\begin{equation}\label{eq:outer-positive}
+ D^2B_\tau(S)[v,v]=\tau\sum_{j\in\{j_0,j_L\}}P_j(1+g_j)v_j^2>0 .
+\end{equation}
+By \eqref{eq:nested}, \eqref{eq:inner-positive} and \eqref{eq:outer-positive}, $D^2R(A)[U,U]>0$, while $s\mapsto R(A+sU)$ has an interior maximum at $s=0$. This contradiction shows that no row is fractional. Since every row has full budget by Lemma~\ref{lem:signs}(c), every row is pure.
+\end{proof}
+
+\begin{remark}
+The boundary dimensions are covered by the same proof, but can be seen directly. For $M=1$ full budgets force the all-one column. For $N=1$ the scores equal the row entries, and Lemma~\ref{lem:elementary}(iii) gives $R\le\sig(\tau,M)$ with equality only at unit rows when $M\ge2$. The theorem makes no assertion about zero, negative or infinite temperatures, unequal budgets or other aggregators, and it does not assert that every stationary point is pure, that every pure allocation is optimal, or that the optimum is unique.
+\end{remark}
+
+\begin{corollary}[Occupancy reduction]\label{cor:occupancy}
+Let $t,\tau>0$. For a partition $\pi=(m_1,\dots,m_k)$ of $N$ into $k\le\min\{N,M\}$ positive parts, let $s_m=me^t/(me^t+N-m)$ and
+\begin{equation}\label{eq:Rpi}
+ R_\pi=\frac{\sum_{r=1}^ks_{m_r}e^{\tau s_{m_r}}}{M-k+\sum_{r=1}^ke^{\tau s_{m_r}}}.
+\end{equation}
+Then $\Rhet=\max_\pi R_\pi$, the maximum over all such partitions. The maximizing matrices are exactly the pure allocations whose task occupancies form a maximizing partition; every labeled assignment realizing such a partition attains the maximum.
+\end{corollary}
+
+\begin{proof}
+A pure allocation with occupancies $\pi$ has $k$ active tasks with scores $B_t(1,\dots,1,0,\dots,0)=s_{m_r}$ ($m_r$ ones among $N$ entries), the remaining $M-k$ tasks have score $0$ and weight $1$ in the outer denominator, which gives \eqref{eq:Rpi}. By Theorem~\ref{thm:purity} every maximizer is pure, and the reward of a pure allocation depends only on its occupancy multiset.
+\end{proof}
+
+The corollary describes all equality cases without asserting that the best partition is unique; ties between partitions occur, for example, at the thresholds of Section~\ref{sec:exact}.
+
+\section{Exact consequences at positive temperatures}\label{sec:exact}
+
+\subsection{The matched-temperature gap identity and the refuted conjecture}\label{sec:gap}
+
+Let $N=M=n\ge2$ and $t=\tau>0$, and put $E=e^t$, $h=\sig(t,n)=E/(E+n-1)$. By Lemma~\ref{lem:elementary}(iv), $\Rhom=h$, and $h$ is also the reward of every permutation matrix (all scores equal $s_1=h$) and of complete concentration (one score equal to $s_n=1$, giving $E/(E+n-1)$). For $1\le m\le n$ let
+\[
+ s_m=\frac{mE}{mE+n-m},\qquad D_m=\frac{mE+n-m}{n},\qquad\text{so that}\qquad s_m-h=\frac{h(m-1)}{D_m}.
+\]
+
+\begin{theorem}[Gap identity]\label{thm:gap}
+Let $n\ge2$, $t=\tau>0$, and let $\pi=(m_1,\dots,m_k)$ be the positive occupancies of a pure allocation, $\sum_jm_j=n$. With $Z=\sum_{j=1}^kE^{s_{m_j}}+n-k$,
+\begin{equation}\label{eq:gap}
+ R_\pi-h=\frac hZ\sum_{j=1}^k(m_j-1)\Bigl(\frac{E^{s_{m_j}}}{D_{m_j}}-1\Bigr),
+\end{equation}
+and every summand is nonnegative, vanishing exactly when $m_j\in\{1,n\}$. Consequently $R_\pi\ge h$, with equality if and only if $\pi$ is a permutation ($k=n$) or complete concentration ($k=1$); every other pure allocation strictly beats both. In particular $\Delta R>0$ for every $n\ge3$ and every matched $t=\tau>0$, while $\Delta R=0$ for $n=2$.
+\end{theorem}
+
+\begin{proof}
+At $t=\tau$ the outer weight of an active task with occupancy $m$ is $E^{s_m}$ and each of the $n-k$ empty tasks has weight $1$, so $R_\pi=\sum_js_{m_j}E^{s_{m_j}}/Z$ by \eqref{eq:Rpi}. Then
+\[
+ R_\pi-h=\frac1Z\Bigl[\sum_j(s_{m_j}-h)E^{s_{m_j}}-h(n-k)\Bigr]
+ =\frac hZ\Bigl[\sum_j\frac{(m_j-1)E^{s_{m_j}}}{D_{m_j}}-\sum_j(m_j-1)\Bigr],
+\]
+using $s_m-h=h(m-1)/D_m$ (a direct computation) and $\sum_j(m_j-1)=n-k$. This is \eqref{eq:gap}. For the sign, fix $1\le m\le n$, put $p=m/n$ and $D=D_m=1-p+pE$, so $s_m=pE/D$; the claim $E^{s_m}\ge D$ is $f(E):=pE\log E-D\log D\ge0$. Now $f(1)=0$ and $f'(E)=p\log E+p-p(\log D+1)=p\log(E/D)$, and $E-D=(1-p)(E-1)>0$ when $0<p<1$ and $E>1$. Hence $f(E)>0$ for $1<m<n$, while for $m=n$ we have $D=E$ and $f(E)=0$; for $m=1$ the prefactor $m-1$ vanishes. The remaining statements follow because an occupancy $2\le m_j\le n-1$ exists in every partition of $n$ other than $(1,\dots,1)$ and $(n)$, and such partitions exist exactly when $n\ge3$. For $n=2$ the two pure types are the endpoints and Theorem~\ref{thm:purity} gives $\Rhet=h$.
+\end{proof}
+
+Equivalently, $f(E)>0$ is the strict Jensen inequality for $x\log x$ at the points $E$ and $1$ with weights $p$ and $1-p$. The identity is additive over occupied tasks: each task receiving between two and $n-1$ agents contributes a strictly positive amount.
+
+\paragraph{Refutation of the exactness conjecture.} Theorem~3.4 of \cite{ABPv1} proves, for $N=M\ge2$, $t>0$ and $\tau\ge0$, the lower bound $\Delta R\ge\max\{\sig(t,N)-\sig(\tau,N),0\}$, and the text immediately preceding it states: ``We conjecture the lower bound of Thm.~3.4 is actually the exact value of $\Delta R(t,\tau;N)$, but we were unable to prove this.'' At $t=\tau$ the conjectured value is $0$. Theorem~\ref{thm:gap} shows $\Delta R>0$ for every $n\ge3$ and every $t=\tau>0$, and Theorem~\ref{thm:purity} identifies the actual optimum as the best occupancy partition. The conjecture is absent from versions 2 to 4 of the paper (see Section~\ref{sec:related}); the lower bound itself is correct, since every permutation matrix has all scores equal to $s_1=\sig(t,N)$ and hence reward $\sig(t,N)$, while $\Rhom=\sig(\tau,N)$ for $\tau\ge0$ by Lemma~\ref{lem:elementary}(iv). The branch of the same theorem for $\tau\le0$ is shown to be exact in Theorem~\ref{thm:square} and Remark~\ref{rem:lowerbound}.
+
+\begin{example}[Rational certificates]\label{ex:certificates}
+\begin{enumerate}[nosep,label=(\alph*)]
+\item $n=3$, $t=\tau=\log2$, occupancies $(2,1,0)$: the scores are $(4/5,1/2,0)$ and, with $r=2^{4/5}$ and $q=\sqrt2$,
+\[
+ R-\tfrac12=\frac{3r-5}{10(r+q+1)} .
+\]
+The integer comparisons $12^5=248832<268912=16\cdot7^5$ and $9/4>2$ give $r>12/7$ and $q<3/2$. The fraction increases in $r$ (its derivative in $r$ has the sign of $3q+8$) and, once its numerator is positive, decreases in $q$; substituting gives $\Delta R\ge R-\frac12>\frac{3\cdot12/7-5}{10(12/7+3/2+1)}=\frac1{295}$. Numerically $R-\frac12\approx5.374\times10^{-3}$.
+\item $n=4$, $t=\tau=\log2$, occupancies $(2,2)$: the scores are $(2/3,2/3,0,0)$ and $R=2r/(3(r+1))$ with $r=2^{2/3}$. From $19^3=6859<6912=4\cdot12^3$, $r>19/12$, so $R>38/93$, while $\Rhom=\sig(\log2,4)=2/5$; hence $\Delta R>38/93-2/5=4/465$.
+\item $n=4$, $t=\tau=\log4$, occupancies $(2,2)$: scores $(4/5,4/5,0,0)$, $R=\frac45r/(r+1)$ with $r=4^{4/5}>3$ (since $4^4=256>243=3^5$), so $R>3/5$, while $\Rhom=4/7$; hence $\Delta R>1/35$.
+\end{enumerate}
+In (a) and (b) both levels are strictly increasing on the feasible domain since $\log2<1$ (see the remark after Lemma~\ref{lem:elementary}), so the examples do not rely on any failure of monotonicity. By Theorem~\ref{thm:threethree} below, the allocation in (a) is a global maximizer, so $\Delta R=(3r-5)/(10(r+q+1))$ exactly.
+\end{example}
+
+\subsection{Two agents and two tasks}\label{sec:twotwo}
+
+\begin{theorem}[Two agents, two tasks]\label{thm:twotwo}
+Let $N=M=2$ and let $t,\tau$ be arbitrary finite reals. Then
+\begin{equation}\label{eq:twotwo}
+ \Rhet=\sig(\max\{t,\tau,0\},2),\qquad \Rhom=\sig(\max\{\tau,0\},2),
+\end{equation}
+so $\Delta R>0$ if and only if $t>\max\{\tau,0\}$. For $t,\tau>0$ the maximizers are: the two permutation matrices if $t>\tau$; the two concentration matrices (both agents on the same task) if $\tau>t$; exactly these four matrices if $t=\tau$. For $t>0\ge\tau$ the maximizers are the two permutation matrices.
+\end{theorem}
+
+\begin{proof}
+For $t,\tau>0$, Theorem~\ref{thm:purity} leaves four candidates. A permutation matrix has scores $(\sig(t,2),\sig(t,2))$ and reward $\sig(t,2)$; a concentration matrix has scores $(1,0)$ and reward $e^\tau/(e^\tau+1)=\sig(\tau,2)$. Since $\sig(\cdot,2)$ is strictly increasing, the classification follows. For $t>0\ge\tau$, Theorem~\ref{thm:square} below gives $\Rhet=\sig(t,2)$ with exactly the permutation matrices as maximizers, and for $t\le0$ Theorem~\ref{thm:scoreset} gives $\Rhet=\Rhom$. The value of $\Rhom$ is Lemma~\ref{lem:elementary}(iv). The two theorems invoked are proved in Section~\ref{sec:boundary} without reference to this section.
+\end{proof}
+
+\begin{remark}[A closed form on full budgets]\label{rem:closedform}
+For rows $(a,1-a)$ and $(b,1-b)$ put $u=(a+b-1)/2$, $d=(a-b)/2$ and $g_c(z)=z\tanh(cz)$. Writing the Boltzmann mean of two numbers as their midpoint plus half their difference times $\tanh$ of $c$ times that half difference, the scores are $\frac12+u+g_t(d)$ and $\frac12-u+g_t(d)$, whence
+\[
+ R=\tfrac12+g_t(d)+g_\tau(u),\qquad |u|+|d|\le\tfrac12 .
+\]
+For $t,\tau>0$ and $\alpha=\max\{t,\tau\}$, the function $g_\alpha$ is even, increasing on $[0,\infty)$ and superadditive there, since $x\tanh(\alpha x)+y\tanh(\alpha y)\le(x+y)\tanh(\alpha(x+y))$, strictly if $x,y>0$; and $g_c(z)\le g_\alpha(|z|)$ for $c\le\alpha$. Hence $R\le\frac12+g_\alpha(|d|+|u|)\le\frac12+g_\alpha(\frac12)=\sig(\alpha,2)$, using $\frac12+\frac12\tanh(\alpha/2)=e^\alpha/(e^\alpha+1)$. This recovers \eqref{eq:twotwo} on full-budget allocations by elementary means and shows directly which of the four endpoints attain equality.
+\end{remark}
+
+\subsection{Two agents and any number of tasks}\label{sec:twoM}
+
+Let $N=2$, $M\ge2$ and $t,\tau>0$. Put $E=e^t$, $b=E/(E+1)$, $F=e^\tau$ and
+\begin{equation}\label{eq:HD}
+ H=\frac{F}{F+M-1},\qquad D=\frac{2bF^b}{2F^b+M-2}.
+\end{equation}
+$H$ is the reward of concentration (one task with score $s_2=1$) and $D$ that of separation (two tasks with score $s_1=b$ each).
+
+\begin{theorem}[Two agents, $M$ tasks]\label{thm:twoM}
+For $N=2$, $M\ge2$ and $t,\tau>0$: $\Rhet=\max\{H,D\}$, $\Rhom=H$, and every maximizer is pure. For fixed $t$ there is a unique crossover $\tau_*(t,M)>0$ with $D>H$ for $\tau<\tau_*$ and $D<H$ for $\tau>\tau_*$; $\tau_*=t$ when $M=2$ and $t<\tau_*<t+\log(M-1)$ when $M>2$. The maximizers are the $M(M-1)$ separated assignments for $\tau<\tau_*$, the $M$ concentrated assignments for $\tau>\tau_*$, and all $M^2$ pure assignments at $\tau=\tau_*$. For $M=1$ the unique maximizer sends both agents to the only task and $\Rhet=\Rhom=1$.
+\end{theorem}
+
+\begin{proof}
+By Theorem~\ref{thm:purity} and Corollary~\ref{cor:occupancy} the only occupancy partitions are $(2)$ and $(1,1)$, with rewards $H$ and $D$, and the counts are immediate. Let $f(F)=2F^b+M-2$, so $f'(F)=2bF^{b-1}$ and $2bF^b=Ff'(F)$. Then
+\begin{gather*}
+ D-H=\frac{F\,G(F)}{f(F)(F+M-1)},\qquad G(F)=(F+M-1)f'(F)-f(F),\\
+ G'(F)=(F+M-1)f''(F)=2b(b-1)(F+M-1)F^{b-2}<0 .
+\end{gather*}
+So $D-H$ has the sign of the strictly decreasing function $G$. At $F=1$, $G(1)=M(2b-1)>0$ since $b>1/2$. For $M=2$, $G(F)=2F^{b-1}[b-(1-b)F]$ vanishes exactly at $F=b/(1-b)=E$, giving $\tau_*=t$. For $M>2$, a direct computation using $b(E+1)=E$ gives
+\[
+ G(E)=(M-2)\Bigl[\frac{2E^b}{E+1}-1\Bigr],\qquad G\bigl(E(M-1)\bigr)=-(M-2).
+\]
+The bracket is positive: $J(E)=\frac{E}{E+1}\log E-\log\frac{E+1}2$ satisfies $J(1)=0$ and $J'(E)=\log E/(E+1)^2>0$, so $2E^b>E+1$ for $E>1$. Hence the unique root $F_*$ of $G$ lies in $(E,E(M-1))$, that is $t<\tau_*<t+\log(M-1)$. The case $M=1$ follows from Lemma~\ref{lem:signs}(c).
+\end{proof}
+
+\begin{example}\label{ex:twothree}
+For $M=3$ and $t=\tau=\log2$, $r=e^{\tau b}=2^{2/3}$ and $D-H=(2r-3)/(6(2r+1))$, increasing in $r$; with $r>19/12$ this exceeds $1/150$. Thus two agents and three tasks already have a positive matched-temperature gain, in contrast with $M=2$.
+\end{example}
+
+\subsection{Three agents and three tasks}\label{sec:threethree}
+
+Let $N=M=3$, $t,\tau>0$, $E=e^t$, and
+\[
+ a=\frac{2E}{2E+1},\quad b=\frac{E}{E+2},\qquad
+ P=b,\quad Q(\tau)=\frac{ae^{\tau a}+be^{\tau b}}{e^{\tau a}+e^{\tau b}+1},\quad H(\tau)=\frac{e^\tau}{e^\tau+2},
+\]
+the rewards of the occupancy patterns $(1,1,1)$, $(2,1,0)$ and $(3,0,0)$; here $a=s_2$ and $b=s_1$.
+
+\begin{theorem}[Three-agent phase diagram]\label{thm:threethree}
+For $N=M=3$ and $t,\tau>0$, every maximizer is pure, $\Rhom=H(\tau)$, and $\Rhet$ is the largest of $P$, $Q(\tau)$ and $H(\tau)$. There are thresholds
+\[
+ \ell(t)=\frac1a\log\frac{2E+1}3,\qquad 0<\ell(t)<t<u(t)<t+\log4,
+\]
+where $u(t)$ is the unique solution of $Q(\tau)=H(\tau)$ with $\tau>0$, such that the maximizing occupancy patterns are: $(1,1,1)$ for $\tau<\ell$; $(1,1,1)$ and $(2,1,0)$ at $\tau=\ell$; $(2,1,0)$ for $\ell<\tau<u$; $(2,1,0)$ and $(3,0,0)$ at $\tau=u$; $(3,0,0)$ for $\tau>u$. The numbers of labeled maximizing matrices are $6$, $24$, $18$, $21$ and $3$ respectively. In particular, at every matched $t=\tau>0$ exactly the $18$ allocations of type $(2,1,0)$ are optimal, and
+\[
+ \Rhet(t,t)=\frac{aE^a+bE^b}{E^a+E^b+1}.
+\]
+\end{theorem}
+
+\begin{proof}
+The reduction to the three patterns is Corollary~\ref{cor:occupancy}; the counts are $3!=6$, $3\cdot2\cdot3=18$ (majority task, minority task, minority agent) and $3$. Three comparisons determine the table.
+
+$P$ versus $H$: $b=E/(E+2)$ versus $e^\tau/(e^\tau+2)$, so $P>H$ if and only if $\tau<t$.
+
+$Q$ versus $P$: $Q-b=\bigl[(a-b)e^{\tau a}-b\bigr]/(e^{\tau a}+e^{\tau b}+1)$, and $a-b=\frac{2E}{2E+1}-\frac{E}{E+2}=\frac{3E}{(2E+1)(E+2)}>0$, so the numerator increases strictly in $\tau$ and vanishes exactly when $e^{\tau a}=b/(a-b)=(2E+1)/3$, that is at $\tau=\ell(t)$; $\ell>0$ since $E>1$. Thus $Q>P$ if and only if $\tau>\ell$.
+
+$Q$ versus $H$: with $F=e^\tau$, $f(F)=F^a+F^b+1$ and $G(F)=(F+2)f'(F)-f(F)$,
+\[
+ Q-H=\frac{F\,G(F)}{f(F)(F+2)},\qquad G'(F)=(F+2)f''(F)=-(F+2)\bigl[a(1-a)F^{a-2}+b(1-b)F^{b-2}\bigr]<0 .
+\]
+$G(1)=3(a+b)-3=3(a+b-1)$ and $a+b-1=\frac{2(E^2-1)}{(2E+1)(E+2)}>0$. At $F=4E=2a/(1-a)$ the contribution of the exponent $a$ to $G$, namely $(F+2)aF^{a-1}-F^a=F^{a-1}[a(F+2)-F]=F^{a-1}[2a-(1-a)F]$, vanishes, while that of $b$ is $F^{b-1}[2b-(1-b)F]<0$ because $2b/(1-b)=2E/2=E<4E$, and the constant contributes $-1$. So $G(4E)<0$, and, since $G$ is strictly decreasing with $G(1)>0$, $G$ has exactly one root $F_*$ in $(1,\infty)$, and $F_*\in(1,4E)$; this defines $u(t)=\log F_*<t+\log4$; $Q>H$ if and only if $\tau<u$.
+
+Ordering of the thresholds: by Theorem~\ref{thm:gap}, $Q(t)>P$ and $Q(t)>H(t)$ at $\tau=t$, so $\ell<t<u$. Combining the three comparisons yields the table with all ties, and the matched-temperature statement follows from $\ell<t<u$.
+\end{proof}
+
+\begin{example}[Rational fixtures]\label{ex:fixtures}
+Take $t=\log2$, so $a=4/5$, $b=1/2$, and $\tau=10\log q$ with rational $q$; then $e^{\tau a}=q^8$, $e^{\tau b}=q^5$, $e^\tau=q^{10}$ and all three rewards are rational. Exact comparison gives the unique optimal pattern $(1,1,1)$ for $q=21/20$, $(2,1,0)$ for $q=15/14$ and $(3,0,0)$ for $q=11/10$; numerically $\ell(\log2)\approx0.6385$ and $u(\log2)\approx0.7284$, while $\tau\approx0.4879$, $0.6899$ and $0.9531$ respectively.
+\end{example}
+
+\subsection{Matched temperatures: small and large}\label{sec:asymptotics}
+
+At matched temperatures $t=\tau$ on square instances $N=M=n$, Corollary~\ref{cor:occupancy} reduces the optimization to occupancy vectors, and the two limiting regimes select opposite partitions. Write $R_m(t)$ for the reward of the pure allocation with occupancy $m=(m_1,\dots,m_k)$ (so $\sum_j m_j=n$) and $h(t)=\sigma(t,n)$ for the homogeneous value.
+
+\begin{theorem}[Small matched temperature]\label{thm:smallt}
+For fixed $n$ and $m$, as $t\to0^+$,
+\begin{equation}\label{eq:smallt}
+ R_m(t)-h(t)=\frac{t^2}{2n^4}\sum_{j=1}^k m_j(m_j-1)(n-m_j)+O(t^3).
+\end{equation}
+The coefficient is uniquely maximized, among occupancy vectors of $n\ge3$ agents on $n$ tasks, by the balanced pair $m=(\lceil n/2\rceil,\lfloor n/2\rfloor)$, where it equals $(n-2)\lfloor n^2/4\rfloor/(2n^4)$. Consequently, for every $n\ge3$ there is $t_0(n)>0$ such that for $0<t=\tau<t_0(n)$ the maximizers are exactly the pure allocations of occupancy type $(\lceil n/2\rceil,\lfloor n/2\rfloor)$.
+\end{theorem}
+
+\begin{proof}
+Let $x\in[0,1]^n$ and $K(c)=\log\bigl(\frac1n\sum_ie^{cx_i}\bigr)$, the cumulant generating function of the uniform distribution on the multiset $\{x_i\}$. Then $B_c(x)=K'(c)=\kappa_1+\kappa_2c+\kappa_3c^2/2+O(c^3)$, where $\kappa_1=\bar x$ is the mean, $\kappa_2=\Var(x)$ the variance and $\kappa_3=\overline{(x-\bar x)^3}$ the third central moment. The map $(c,x)\mapsto B_c(x)$ is analytic, so if $x(t)$ is analytic in $t$ with values in $[0,1]^n$, then
+\begin{equation}\label{eq:cumulant}
+ B_t(x(t))=\bar x(t)+t\Var(x(t))+\tfrac{t^2}2\,\kappa_3(x(t))+O(t^3).
+\end{equation}
+Apply this to the padded score vector $x(t)=(s_{m_1},\dots,s_{m_k},0,\dots,0)\in[0,1]^n$, for which $R_m(t)=B_t(x(t))$ exactly. With $\mu_j=m_j/n$ and $E=1+t+t^2/2+O(t^3)$,
+\[
+ s_{m_j}=\frac{m_jE}{m_jE+n-m_j}=\mu_j+t\mu_j(1-\mu_j)+\tfrac{t^2}2\mu_j(1-\mu_j)(1-2\mu_j)+O(t^3).
+\]
+Write $p_2=\sum_j\mu_j^2$ and $p_3=\sum_j\mu_j^3$; note $\sum_j\mu_j=1$. Then
+\begin{align*}
+ \bar x(t)&=\frac1n+\frac tn(1-p_2)+\frac{t^2}{2n}(1-3p_2+2p_3)+O(t^3),\\
+ \Var(x(t))&=\frac{p_2}n-\frac1{n^2}+t\Bigl[\frac2n(p_2-p_3)-\frac2{n^2}(1-p_2)\Bigr]+O(t^2),\\
+ \kappa_3(x(t))&=\frac1n\Bigl[p_3-\frac{3p_2}n+\frac2{n^2}\Bigr]+O(t),
+\end{align*}
+the last from $\frac1n\bigl[\sum_j(\mu_j-\frac1n)^3-\frac{n-k}{n^3}\bigr]$. Substituting in~\eqref{eq:cumulant} and collecting powers of $t$,
+\[
+ R_m(t)=\frac1n+t\Bigl(\frac1n-\frac1{n^2}\Bigr)+t^2\Bigl[\frac1{2n}-\frac2{n^2}+\frac1{n^3}+p_2\Bigl(\frac1{2n}+\frac1{2n^2}\Bigr)-\frac{p_3}{2n}\Bigr]+O(t^3).
+\]
+The first-order coefficient does not depend on $m$. The homogeneous value $h(t)=\sigma(t,n)$ is $R_m$ for $m=(1,\dots,1)$, where $p_2=1/n$ and $p_3=1/n^2$, so
+\[
+ R_m(t)-h(t)=\frac{t^2}{2n}\Bigl[\Bigl(1+\frac1n\Bigr)p_2-p_3-\frac1n\Bigr]+O(t^3)=\frac{t^2}{2n^4}\sum_jm_j(m_j-1)(n-m_j)+O(t^3),
+\]
+the last equality because $\sum_jm_j(m_j-1)(n-m_j)=n^2[(n+1)p_2-np_3-1]$. This is~\eqref{eq:smallt}.
+
+Maximization of $\Phi(m)=\sum_j\phi(m_j)$, $\phi(x)=x(x-1)(n-x)$. A direct expansion gives the merge identity $\phi(a+b)-\phi(a)-\phi(b)=ab\,[2(n+1)-3(a+b)]$. Let $m$ maximize $\Phi$ over occupancy vectors of $n$ agents and suppose it has $k\ge3$ parts. Its two smallest parts $a\le b$ satisfy $a+b\le2n/k\le2n/3<2(n+1)/3$, so merging them strictly increases $\Phi$, a contradiction. Hence $k\le2$. For $k=1$, $\Phi=\phi(n)=0$. For $k=2$ with parts $a$ and $n-a$,
+\[
+ \Phi=a(a-1)(n-a)+(n-a)(n-a-1)a=a(n-a)(n-2)>0\qquad(n\ge3),
+\]
+which is uniquely maximized, up to the order of the two parts, at $a=\lceil n/2\rceil$ with value $(n-2)\lfloor n^2/4\rfloor$. Finally, all pure allocations with the same occupancy vector have the same reward (Corollary~\ref{cor:occupancy}), finitely many occupancy vectors compete, and the balanced pair has the strictly largest $t^2$ coefficient, so it is the unique optimal pattern for all sufficiently small $t=\tau>0$; by Theorem~\ref{thm:purity} every maximizer is pure.
+\end{proof}
+
+\begin{theorem}[Large matched temperature]\label{thm:larget}
+For fixed $n$ and an occupancy vector $m$ with $k$ groups, as $t\to\infty$,
+\begin{equation}\label{eq:larget}
+ R_m(t)=1-A(m)e^{-t}+O(t^2e^{-2t}),\qquad A(m)=\frac nk\Bigl(1+\sum_{j=1}^k\frac1{m_j}\Bigr)-2 .
+\end{equation}
+Moreover $A(m)\ge k+n/k-2\ge2\sqrt n-2$, with equality in the first inequality if and only if all groups have equal size $n/k$ and in the second if and only if $k=\sqrt n$. Consequently, when $n$ is a perfect square there is $t_1(n)$ such that for $t=\tau>t_1(n)$ the maximizers are exactly the pure allocations with $\sqrt n$ groups of $\sqrt n$ agents.
+\end{theorem}
+
+\begin{proof}
+With $E=e^t$, $s_{m_j}=1-\epsilon_j$ where $\epsilon_j=\frac{n-m_j}{m_jE+n-m_j}=\frac{n-m_j}{m_j}e^{-t}+O(e^{-2t})$. The outer Boltzmann mean over the $k$ positive scores and the $n-k$ zero scores is
+\[
+ R_m=\frac{\sum_js_{m_j}w_j}{\sum_jw_j+(n-k)},\qquad w_j=e^{ts_{m_j}}=E\,e^{-t\epsilon_j}=E\bigl(1-t\epsilon_j+O(t^2e^{-2t})\bigr),
+\]
+since $t\epsilon_j=O(te^{-t})$. Put $\varsigma=\sum_j\epsilon_j=O(e^{-t})$. Then $\sum_js_{m_j}w_j=E[k-(1+t)\varsigma+O(t^2e^{-2t})]$ and $\sum_jw_j+(n-k)=E[k-t\varsigma+(n-k)e^{-t}+O(t^2e^{-2t})]$, so
+\[
+ R_m=\frac{1-(1+t)\varsigma/k+O(t^2e^{-2t})}{1-t\varsigma/k+(n-k)e^{-t}/k+O(t^2e^{-2t})}
+ =1-\frac{\varsigma}k-\frac{n-k}ke^{-t}+O(t^2e^{-2t}),
+\]
+where the product of the two first-order terms is $O(t^2e^{-2t})$. Since $\varsigma/k=e^{-t}\bigl[\frac nk\sum_j\frac1{m_j}-1\bigr]+O(e^{-2t})$, the coefficient of $e^{-t}$ is $\frac nk\sum_j\frac1{m_j}-1+\frac nk-1=A(m)$, proving~\eqref{eq:larget}.
+
+By the harmonic--arithmetic mean inequality~\cite{HLP} applied to $m_1,\dots,m_k$ with $\sum_jm_j=n$, $\sum_j1/m_j\ge k^2/n$ with equality if and only if all $m_j$ are equal; hence $A(m)\ge\frac nk+k-2$, and $\frac nk+k\ge2\sqrt n$ with equality if and only if $k=\sqrt n$. When $n$ is a perfect square, the vector with $\sqrt n$ groups of size $\sqrt n$ is therefore the unique minimizer of $A$, and for every other occupancy vector $m$ the difference of rewards is $(A(m)-A(m^*))e^{-t}+O(t^2e^{-2t})>0$ for large $t$. The conclusion follows from Corollary~\ref{cor:occupancy} as in Theorem~\ref{thm:smallt}.
+\end{proof}
+
+\begin{example}\label{ex:nine}
+For $n=9$ the two theorems select different partitions. The small-$t$ coefficient $\Phi(m)/(2n^4)$ equals $70/6561$ for $m=(5,4)$ and $54/6561$ for $m=(3,3,3)$, while $A(5,4)=181/40$ exceeds $A(3,3,3)=4$. Numerically the optimal occupancy pattern at matched temperature changes from $(5,4)$ to $(3,3,3)$ as $t$ grows (Section~\ref{sec:verification}).
+\end{example}
+
+\section{Boundary regimes}\label{sec:boundary}
+
+This section treats nonpositive temperatures, where the maximizers are described completely, and identifies the one regime in which fractional maximizers occur.
+
+\subsection{Nonpositive inner temperature}\label{sec:scoreset}
+
+\begin{theorem}[Score set at $t\le0$]\label{thm:scoreset}
+Let $t\le0$. The set of score vectors of feasible allocations is
+\[
+ \{S(A):A\in\Feas\}=\{S\in\mathbb R^M:S\ge0,\ \textstyle\sum_jS_j\le1\},
+\]
+and it coincides with the set of score vectors of homogeneous allocations. Consequently, for every function $U:\mathbb R^M\to\mathbb R$, the supremum of $U(S(A))$ over $A\in\Feas$ equals its supremum over homogeneous allocations, and whenever the maximum exists it is attained at a homogeneous allocation. In particular $\Delta R(t,\tau)=0$ for all $\tau\in\mathbb R$ when $t\le0$.
+\end{theorem}
+
+\begin{proof}
+For $t\le0$, Lemma~\ref{lem:elementary}(i) gives $B_t(x)\le B_0(x)=\bar x$ for every $x$. Hence for $A\in\Feas$, $S_j(A)\le\frac1N\sum_ia_{ij}$ and $\sum_jS_j(A)\le\frac1N\sum_i\sum_ja_{ij}\le1$; also $S_j\ge0$. Conversely, if $S\ge0$ and $\sum_jS_j\le1$, the homogeneous allocation with every row equal to $S$ has all columns constant, so $S_j(A)=B_t(S_j\mathbf 1)=S_j$. The two sets therefore coincide, so $U\circ S$ takes the same set of values on $\Feas$ as on the homogeneous allocations; both statements about $U$ follow. Taking $U=B_\tau$, which is continuous, gives $\Rhet(t,\tau)=\Rhom(t,\tau)$.
+\end{proof}
+
+\subsection{Zero outer temperature: the concave envelope}\label{sec:envelope}
+
+For $t>0$, $E=e^t$ and $N\ge1$, put
+\begin{equation}\label{eq:sk}
+ \begin{gathered}
+ s_k=\frac{kE}{N+k(E-1)}\quad(k=0,1,\dots,N),\\
+ d_k=s_{k+1}-s_k=\frac{EN}{(N+k(E-1))(N+(k+1)(E-1))},
+ \end{gathered}
+\end{equation}
+so $s_k$ is the score of a column with exactly $k$ ones, $s_0=0$ and $s_N=1$. Let $\varphi:[0,N]\to[0,1]$ be the piecewise linear interpolant of $k\mapsto s_k$.
+
+\begin{theorem}[Concave envelope of the column score]\label{thm:envelope}
+Let $t>0$ and $N\ge1$.
+\begin{enumerate}
+\item[(a)] $d_k$ is strictly decreasing in $k$, so $\varphi$ is concave, strictly concave across the integers, and $\varphi(c)\le cs_1$ with equality if and only if $c\le1$.
+\item[(b)] (Subset mass) For $x\in[0,1]^N$, $L\subseteq[N]$ with $|L|=k$, and $p_i=e^{tx_i}/\sum_le^{tx_l}$, one has $\sum_{i\in L}p_i\le s_k$, with equality if and only if $k=0$, $k=N$ or $x=\mathbf 1_L$.
+\item[(c)] (Envelope) For $x\in[0,1]^N$, $B_t(x)\le\varphi(\sum_ix_i)$. If $N\ge2$, equality holds if and only if $x\in\{0,1\}^N$. If $N=1$ equality always holds.
+\item[(d)] (Leastness) If $g:[0,N]\to\mathbb R$ is concave and $B_t(x)\le g(\sum_ix_i)$ for all $x\in[0,1]^N$, then $g\ge\varphi$.
+\item[(e)] (Price formula) For every $\lambda\in\mathbb R$, $\max_{x\in[0,1]^N}\bigl(B_t(x)-\lambda\sum_ix_i\bigr)=\max_{0\le k\le N}(s_k-\lambda k)$, and the maximum is attained at a binary vector with $k$ ones for any $k$ with $d_k\le\lambda\le d_{k-1}$ (reading $d_{-1}=+\infty$, $d_N=-\infty$).
+\item[(f)] (Gap constant) $s_k-k/N=\dfrac{S(1-S)(E-1)}{1+S(E-1)}$ with $S=k/N$; in particular $0\le s_k-k/N<1$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(a) The denominators $N+k(E-1)$ increase strictly with $k$ because $E>1$, so $d_k$ decreases strictly; concavity of the interpolant follows. Since $\varphi(0)=0$ and $\varphi$ is concave, $\varphi(c)/c$ is nonincreasing on $(0,N]$; it equals $s_1$ on $(0,1]$ and, because $d_1<d_0=s_1$, is strictly smaller than $s_1$ for $c>1$.
+
+(b) $\sum_{i\in L}p_i=\bigl(\sum_{i\in L}e^{tx_i}\bigr)/\bigl(\sum_{i\in L}e^{tx_i}+\sum_{i\notin L}e^{tx_i}\bigr)$ is increasing in each $x_i$, $i\in L$, and decreasing in each $x_i$, $i\notin L$, so it is at most its value at $x=\mathbf 1_L$, which is $kE/(kE+N-k)=s_k$. For $k=0$ both sides vanish identically, and for $k=N$ the ratio is identically $1=s_N$. For $1\le k\le N-1$ both monotonicities are strict, since the two sums in the ratio are positive, so the maximum $s_k$ is attained only at $x=\mathbf 1_L$.
+
+(c) Layer-cake representation: $x_i=\int_0^11[x_i>u]\,du$, so with $L_u=\{i:x_i>u\}$ and $n_u=|L_u|$,
+\[
+ B_t(x)=\sum_ip_ix_i=\int_0^1\sum_{i\in L_u}p_i\,du\le\int_0^1s_{n_u}\,du=\int_0^1\varphi(n_u)\,du\le\varphi\Bigl(\int_0^1n_u\,du\Bigr)=\varphi\Bigl(\sum_ix_i\Bigr),
+\]
+using (b) for each $u$ and Jensen's inequality for the concave $\varphi$. If $x$ is binary with $k$ ones, $B_t(x)=s_k=\varphi(k)$. Conversely let $N\ge2$ and suppose $x$ is not binary. Take $i$ with $c:=x_i$ minimal among the coordinates in $(0,1)$; by minimality every coordinate smaller than $c$ equals $0$. It suffices to find an interval of positive length on which the first inequality of the display is strict for every $u$ (the integrands are piecewise constant in $u$), or else to show that the Jensen step is strict. There are three cases.
+\begin{enumerate}[nosep,label=(\roman*)]
+\item Some coordinate equals $0$. For $u\in(0,c)$, $L_u$ contains $i$ and misses that coordinate, so $1\le n_u\le N-1$, and $x\ne\mathbf 1_{L_u}$ because $i\in L_u$ and $x_i\ne1$. By (b) the first inequality is strict for all such $u$.
+\item No coordinate equals $0$ and some coordinate exceeds $c$. Then every coordinate is at least $c$. Put $c'=\min(\{x_l:x_l>c\}\cup\{1\})>c$. For $u\in(c,c')$, $L_u=\{l:x_l>c\}$ is nonempty and misses $i$, so $1\le n_u\le N-1$, and $x\ne\mathbf 1_{L_u}$ because $i\notin L_u$ and $x_i\ne0$. Again (b) is strict for all such $u$.
+\item $x$ is constant, $x=c\mathbf 1$ with $c\in(0,1)$. Then $B_t(x)=c$, while $\sum_ix_i=Nc$ lies in the open interval $(0,N)$. The concave function $\varphi$ satisfies $\varphi(0)=0$ and $\varphi(N)=1$, and it is not linear on $[0,N]$ because $d_0>d_{N-1}$ for $N\ge2$ by (a). A concave function that meets its chord at an interior point coincides with the chord on the whole interval, so $\varphi(Nc)>c$, the value of the chord from $(0,0)$ to $(N,1)$ at $Nc$. Hence $B_t(x)<\varphi(\sum_ix_i)$.
+\end{enumerate}
+In each case $B_t(x)<\varphi(\sum_ix_i)$. For $N=1$, $B_t(x)=x=\varphi(x)$.
+
+(d) By (c) with binary $x$, $g(k)\ge s_k$ for every integer $k$, and a concave $g$ lies above the linear interpolant of its values at the integers.
+
+(e) By (c), $B_t(x)-\lambda\sum_ix_i\le\varphi(c)-\lambda c$ with $c=\sum_ix_i$; the right side is concave and piecewise linear in $c$, so its maximum over $[0,N]$ is attained at an integer $k$, where it equals $s_k-\lambda k$ and is attained by any binary $x$ with $k$ ones. The maximizing integers are those where the slope changes sign, $d_k\le\lambda\le d_{k-1}$.
+
+(f) With $S=k/N$, $s_k-S=\frac{SE}{1+S(E-1)}-S=\frac{S(E-1)(1-S)}{1+S(E-1)}$. The bound $s_k-k/N<1$ is clear since both terms lie in $[0,1]$ and $s_0-0=0$, $s_N-1=0$.
+\end{proof}
+
+\begin{remark}
+The rational function in (f) is the same expression as equation~(41) of~\cite[Lemma~5.2]{CohenFausti}, which bounds the total-variation displacement of a probability vector under an exponential reweighting with ratio $E$ in terms of the mass $S$ of the reweighted set; the specialization to two mass levels $\{0,1\}$ gives exactly $s_k-k/N$. We use only the elementary identity and none of the results of that paper.
+\end{remark}
+
+\subsection{Zero and negative outer temperature: the divisible case}\label{sec:rect}
+
+Let $t>0$ and write $N=qM+r$ with $q=\lfloor N/M\rfloor$ and $0\le r<M$. A pure allocation is \emph{balanced} if $r$ tasks receive $q+1$ agents and the other $M-r$ tasks receive $q$ agents.
+
+\begin{theorem}[Zero outer temperature]\label{thm:rect}
+Let $t>0$, $\tau=0$, $N\ge2$ and $M\ge1$. Then
+\begin{equation}\label{eq:rect}
+ \Rhet(t,0)=\frac{(M-r)s_q+rs_{q+1}}M,\qquad \Rhom(t,0)=\frac1M,
+\end{equation}
+and the maximizers are exactly the balanced pure allocations. For $N=1$ the value is $1/M$ and the maximizers are all rows with full budget.
+\end{theorem}
+
+\begin{proof}
+At $\tau=0$ the reward is the plain average $R=\frac1M\sum_jS_j$, so by Theorem~\ref{thm:envelope}(c), with $c_j=\sum_ia_{ij}$ the column sums,
+\[
+ R\le\frac1M\sum_j\varphi(c_j),\qquad c_j\ge0,\quad\sum_jc_j\le N .
+\]
+Since $\varphi$ is nondecreasing and concave with strictly decreasing increments $d_k$ across integers, the maximum of $\sum_j\varphi(c_j)$ over the set $\{c\ge0,\sum_jc_j\le N\}$ is attained with $\sum_jc_j=N$, and it is attained at an integer vector. Indeed, since $\sum_jc_j=N$ is an integer, a maximizer with a non-integer coordinate has at least two non-integer coordinates $c_j,c_l$; on the open unit intervals containing them $\varphi$ is linear, so moving mass $\epsilon$ from $c_j$ to $c_l$ changes $\sum_j\varphi(c_j)$ linearly in $\epsilon$, and moving in a direction that does not decrease the sum until one of the two reaches an integer yields a maximizer with fewer non-integer coordinates; repeating ends at an integer maximizer. Among integer vectors summing to $N$ the strict decrease of $d_k$ forces $|c_j-c_l|\le1$ for all $j,l$ (otherwise moving one unit from a larger to a smaller coordinate strictly increases the sum). Hence the maximum is $(M-r)s_q+rs_{q+1}$, attained exactly at the balanced integer vectors. For $N\ge2$, equality in the envelope inequality forces every column to be binary, so the column sums are integers, and a binary matrix with row sums at most one and total mass $N$ has every row equal to a unit vector; thus the maximizers are exactly the balanced pure allocations, which do attain the value. The homogeneous value is $\max\{\frac1M\sum_ja_j:a\ge0,\sum_ja_j\le1\}=1/M$. For $N=1$, $S_j=a_{1j}$ and $R=\frac1M\sum_ja_{1j}\le1/M$ with equality exactly on the full-budget rows.
+\end{proof}
+
+\begin{corollary}[Divisible case, all $\tau\le0$]\label{cor:divisible}
+Let $t>0$, $\tau\le0$, $N\ge2$ and $M\mid N$, $q=N/M$. Then $\Rhet(t,\tau)=s_q=\dfrac{qE}{qE+N-q}$ and the maximizers are exactly the balanced pure allocations, that is the pure allocations with exactly $q$ agents on every task.
+\end{corollary}
+
+\begin{proof}
+For $\tau\le0$, Lemma~\ref{lem:elementary} gives $B_\tau(S)\le B_0(S)=\frac1M\sum_jS_j$, and the proof of Theorem~\ref{thm:rect} bounds the right side by $\frac1M\max\sum_j\varphi(c_j)=s_q$ when $r=0$, with equality only at balanced pure allocations. At a balanced pure allocation all scores equal $s_q$, so $B_\tau(S)=s_q$ for every $\tau$.
+\end{proof}
+
+\begin{theorem}[Square instances with nonpositive outer temperature]\label{thm:square}
+Let $N=M=n\ge2$, $t>0$ and $\tau\le0$. Then $\Rhet(t,\tau)=\sig(t,n)=\dfrac{E}{E+n-1}$, $\Rhom(t,\tau)=\sig(\max\{\tau,0\},n)=1/n$, and the maximizers are exactly the $n!$ permutation matrices. In particular $\Delta R(t,\tau)=\sig(t,n)-1/n=\dfrac{(E-1)(n-1)}{n(E+n-1)}>0$.
+\end{theorem}
+
+\begin{proof}
+This is Corollary~\ref{cor:divisible} with $q=1$: $s_1=E/(E+n-1)=\sig(t,n)$, and the pure allocations with one agent per task are the permutation matrices. The homogeneous value is $\max_a B_\tau(a)$ over $a\ge0$, $\sum_ja_j\le1$; for $\tau\le0$, $B_\tau(a)\le\frac1n\sum_ja_j\le1/n$ with equality at $a=\mathbf 1/n$.
+\end{proof}
+
+\begin{remark}\label{rem:lowerbound}
+Theorem~\ref{thm:square} shows that in the regime $t>0\ge\tau$ the lower bound $\sig(t,n)-\sig(0,n)$ for square instances is the exact value, and it identifies the maximizers. The same value appears as the $\tau\le0$ branch of the lower bound in Theorem~3.4 of~\cite{ABPv4}; see Section~\ref{sec:related} for the precise correspondence and for the temperature conventions.
+\end{remark}
+
+\subsection{Negative outer temperature: the indivisible case}\label{sec:negative}
+
+When $M$ does not divide $N$ the picture changes: at $\tau=0$ the maximizers are still the balanced pure allocations (Theorem~\ref{thm:rect}), but for sufficiently negative $\tau$ every maximizer is fractional. The mechanism is that a very negative outer temperature rewards the smallest task score, that every pure allocation leaves some task with at most $q$ agents, and that a fractional ``crumb'' of an extra agent can raise the score of such a task above $s_q$.
+
+\begin{lemma}[Bounds for $\tau\le0$]\label{lem:negouter}
+Let $S\in[0,1]^M$, $m=\min_jS_j$ and $\tau\le0$. Then $m\le B_\tau(S)\le\frac1M\sum_jS_j$, and for $\tau<0$,
+\begin{equation}\label{eq:negouter}
+ B_\tau(S)-m\le\frac{M-1}{e|\tau|}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+$B_\tau(S)$ is a weighted mean of the $S_j$, hence at least $m$, and at most $B_0(S)$ by Lemma~\ref{lem:elementary}. For~\eqref{eq:negouter}, let $l$ be an index with $S_l=m$; then $\sum_je^{\tau S_j}\ge e^{\tau m}$ and
+\[
+ B_\tau(S)-m=\frac{\sum_j(S_j-m)e^{\tau S_j}}{\sum_je^{\tau S_j}}\le\sum_{j\ne l}(S_j-m)e^{\tau(S_j-m)}\le(M-1)\max_{y\ge0}ye^{-|\tau|y}=\frac{M-1}{e|\tau|}.\qedhere
+\]
+\end{proof}
+
+\begin{lemma}[Pure bottleneck ceiling]\label{lem:ceiling}
+Let $t>0$ and $N=qM+r$ with $1\le r\le M-1$. Every pure allocation has a task with at most $q$ agents, hence $\min_jS_j\le s_q$.
+\end{lemma}
+
+\begin{proof}
+If every task had at least $q+1$ agents then $N\ge(q+1)M>N$. A task with $k\le q$ agents has score $s_k\le s_q$ since $s_k$ increases with $k$.
+\end{proof}
+
+Fix $t>0$, $E=e^t$, $M\ge2$ and $N=qM+r$ with $1\le r\le M-1$ and $q\ge0$. Define the \emph{crumb function}
+\begin{equation}\label{eq:crumb}
+ h(y)=y\,(qE+N-q)-qE\bigl(1-e^{-ty}\bigr),\qquad y\ge0 .
+\end{equation}
+Then $h(0)=0$, $h(1)=N>0$, $h''(y)=t^2qEe^{-ty}\ge0$ and $h'(0)=(qE+N-q)(1-ts_q)$. Let $y_*=0$ if $ts_q\le1$, and otherwise let $y_*\in(0,1)$ be the unique positive zero of $h$; in both cases $h>0$ on $(y_*,\infty)$. (If $ts_q<1$ then $h'>0$ on $[0,\infty)$; if $ts_q=1$ and $q\ge1$ then $h'(0)=0$ and $h'>0$ for $y>0$; if $q=0$ then $h(y)=Ny$; if $ts_q>1$ then $h$ is negative near $0$, positive at $1$ and convex, so it has exactly one positive zero.)
+
+\begin{theorem}[Indivisible case: fractional maximizers]\label{thm:indivisible}
+Let $t>0$, $M\ge2$, $N=qM+r$ with $1\le r\le M-1$, and assume $y_*<1/\lceil M/r\rceil$; this holds in particular whenever $ts_q\le1$. Partition the tasks into $r$ classes $T_1,\dots,T_r$ of sizes $\lfloor M/r\rfloor$ or $\lceil M/r\rceil$, and let $A^*$ be the allocation in which $qM$ agents are placed purely with $q$ agents on each task and the remaining agent $e\in\{1,\dots,r\}$ places mass $y_e=1/|T_e|$ on each task of $T_e$. Then every task score of $A^*$ exceeds $s_q$; put $\delta=\min_jS_j(A^*)-s_q>0$, explicitly
+\[
+ S_j(A^*)-s_q=\frac{e^{ty_e}\,h(y_e)}{(qE+e^{ty_e}+N-q-1)(qE+N-q)}\qquad(j\in T_e).
+\]
+For every $\tau<-(M-1)/(e\delta)$, $\Rhet(t,\tau)\ge s_q+\delta$, every pure allocation has reward at most $s_q+(M-1)/(e|\tau|)<s_q+\delta$, and consequently every maximizer is fractional.
+\end{theorem}
+
+\begin{proof}
+A task $j\in T_e$ has $q$ agents with value $1$, one agent with value $y=y_e$ and $N-q-1$ agents with value $0$, so
+\begin{gather*}
+ S_j=\frac{qE+ye^{ty}}{qE+e^{ty}+N-q-1},\\
+ S_j-s_q=\frac{(qE+ye^{ty})(qE+N-q)-qE(qE+e^{ty}+N-q-1)}{(qE+e^{ty}+N-q-1)(qE+N-q)},
+\end{gather*}
+and the numerator simplifies to $e^{ty}\bigl[y(qE+N-q)-qE(1-e^{-ty})\bigr]=e^{ty}h(y)$. Since $y_e\ge1/\lceil M/r\rceil>y_*$, $h(y_e)>0$ and $S_j>s_q$ for every $j$; thus $\delta>0$. By Lemma~\ref{lem:negouter}, $R(A^*)\ge\min_jS_j(A^*)=s_q+\delta$. For a pure allocation $P$, Lemmas~\ref{lem:negouter} and~\ref{lem:ceiling} give $R(P)\le\min_jS_j(P)+(M-1)/(e|\tau|)\le s_q+(M-1)/(e|\tau|)$, which is smaller than $s_q+\delta$ exactly when $|\tau|>(M-1)/(e\delta)$. A maximizer exists by compactness and continuity, and it is not pure.
+\end{proof}
+
+\begin{example}[Witnesses]\label{ex:witnesses}
+Take $t=\log4$, so $E=4$. For $(N,M)=(3,2)$ we have $q=r=1$, $s_1=2/3$, $ts_1=\frac23\log4<1$, and $A^*$ places two agents purely on the two tasks and splits the third agent as $(\frac12,\frac12)$. Both scores equal $\frac{4+\frac12\cdot2}{4+2+1}=\frac57$, so $\delta=\frac57-\frac23=\frac1{21}$ and every maximizer is fractional for $\tau<-21/e\approx-7.73$; at $\tau=0$ the maximizers are the balanced pure allocations with value $(s_1+s_2)/2=7/9$. A grid search with step $1/20$ (Section~\ref{sec:verification}) finds fractional maximizers already at $\tau=-6$ and pure maximizers at $\tau=-5$. For $(N,M)=(5,3)$, $q=1$, $r=2$, $s_1=1/2$, classes $\{1,2\}$ and $\{3\}$ give scores $\frac59,\frac59,\frac8{11}$, $\delta=1/18$, and the threshold is $-36/e$. For $(N,M)=(2,3)$, $q=0$, every pure allocation leaves a task empty, the construction gives scores $\frac13,\frac13,\frac45$, and $\delta=1/3$. The hypothesis of the theorem is not vacuous: for $(3,2)$ with $E=64$, $ts_1=\frac{32}{33}\log64>1$ and the half crumb gives $\frac{68}{73}<\frac{32}{33}=s_1$, so this construction fails there; we do not know whether fractional maximizers occur in that instance.
+\end{example}
+
+\begin{remark}[Dichotomy for $\tau\le0$]
+Combining Corollary~\ref{cor:divisible}, Theorem~\ref{thm:rect} and Theorem~\ref{thm:indivisible}: when $M\mid N$ the maximizers are balanced pure allocations for every $\tau\le0$; when $M\nmid N$ they are balanced pure allocations at $\tau=0$ but fractional for all sufficiently negative $\tau$ whenever the crumb condition holds. Together with Theorem~\ref{thm:purity}, this shows that for $t>0$ and $N\ge2$ fractional maximizers can occur only when $\tau<0$ and $M\nmid N$. For comparison, when $t\le0$ and $M\ge2$: if $\tau>0$ the maximizers are exactly the $M$ concentration allocations (by Theorem~\ref{thm:scoreset} and Lemma~\ref{lem:elementary}(iii) a maximizer has a unit score vector, and $S_j=1$ forces column $j$ to consist of ones), whereas if $\tau\le0$ the uniform homogeneous allocation, which is fractional, is a maximizer. For $N=1$ and $M\ge2$ the maximizers are the unit rows if $\tau>0$, all full-budget rows if $\tau=0$ (Theorem~\ref{thm:rect}), and the uniform row alone if $\tau<0$ (by Lemma~\ref{lem:elementary}(i)).
+\end{remark}
+
+\section{Computational verification}\label{sec:verification}
+
+Every numerical statement in this paper, and the symbolic identities behind the proofs, were recomputed with five self-contained Python scripts in the directory \path{papers/boltzmann-purity/verify/} of the accompanying repository. The scripts import only \texttt{numpy}, \texttt{sympy}, \texttt{mpmath}, \texttt{fractions} and the standard library; they do not import any other code from the repository, so they check the manuscript rather than the software that produced the research notes. They were run with Python 3.12.14, numpy 2.5.3, sympy 1.14.0 and mpmath 1.3.0. Each script prints one \texttt{PASS} or \texttt{FAIL} line per check and a final line \texttt{FAILURES: none}; the outputs are stored under \texttt{verify/results/}.
+
+\begin{center}
+\small
+\begin{tabular}{@{}l>{\scriptsize\ttfamily}lr@{}}
+\toprule
+Script & \normalfont\small SHA-256 & checks\\
+\midrule
+\texttt{identities.py} & 7c34e2c213cd423836b4557ce74e63cb7a672cd48d90ad93e388279532ce24b9 & 75\\
+\texttt{brute\_force.py} & 65d22f4241f1d20401f5ccdc3d0539e458d69300dc083578e40dfb03aa0e8b5b & 192\\
+\texttt{occupancy.py} & 6ec3a4344e889ad627bd8cccb05630d851862d719c9a4873f8d9dd1e9e0cd807 & 140\\
+\texttt{negative\_outer.py} & a836a9bdd33bbd7fdbe783169597d604ce739ec65ba50448c29cee6d1f2c9abb & 94\\
+\texttt{additive\_boundary.py} & c1443c8db8ead3cf1c05265653205c08abdc436fc1a2ed818a9c42c2a91dc991 & 38\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\paragraph{\texttt{identities.py} (symbolic).}
+With \texttt{sympy} it verifies: the derivative identities of Lemma~\ref{lem:derivatives} and the nested chain rule~\eqref{eq:nested}; the second-derivative formulas used in Lemma~\ref{lem:forest} and Theorem~\ref{thm:purity}; the consolidation identity~\eqref{eq:consol}; the gap identity~\eqref{eq:gap}; the sign of $f'(E)$ in Theorem~\ref{thm:gap}; the closed form of Remark~\ref{rem:closedform}; the factorization $D-H=FG(F)/(f(F)(F+M-1))$, the derivative $G'=(F+M-1)f''$ and the values $G(1)$, $G(E)$, $G(E(M-1))$ of Theorem~\ref{thm:twoM}; the analogous quantities, $a+b-1=2(E^2-1)/((2E+1)(E+2))$ and the sign of $G(4E)$ in Theorem~\ref{thm:threethree}; the power-sum form of the small-$t$ coefficient and the merge identity of Theorem~\ref{thm:smallt}; the coefficient $A(m)$ of Theorem~\ref{thm:larget}; the crumb identity of Theorem~\ref{thm:indivisible}; and the identity of Theorem~\ref{thm:envelope}(f).
+
+\paragraph{\texttt{brute\_force.py} (exhaustive grids).}
+For the eight shapes $(N,M)$ equal to $(2,2)$, $(2,3)$, $(3,2)$, $(3,3)$, $(2,4)$, $(4,2)$, $(4,3)$ and $(3,4)$ it enumerates every allocation whose rows lie on a uniform grid of the simplex with slack (step $1/G$ with $G$ between $4$ and $20$, so between $10^5$ and $10^7$ matrices per instance) at nine temperature pairs with $t,\tau>0$, and checks that the grid maximum equals the maximum over pure allocations, that every grid point within $10^{-9}$ of the maximum is pure, and that the best non-pure grid point is strictly worse. Forty runs of projected gradient ascent from random feasible starts, using the analytic gradient of Lemma~\ref{lem:nested}, never exceed the pure maximum, and every run that reaches it ends at a pure matrix. The ascent also documents a feature of the landscape that the theory predicts: at large temperatures many runs stop at matrices with an empty row, which are Karush--Kuhn--Tucker points of the constrained problem but not maximizers (Lemma~\ref{lem:signs}(c) applies to maximum points only). The same grids verify Theorem~\ref{thm:scoreset} for $t\le0$ with $\tau$ of either sign, Theorem~\ref{thm:square} for square instances with $\tau\le0$ (the grid maximum is $\sig(t,n)$ and is attained only at permutation matrices), the value $\sig(\max\{t,\tau,0\},2)$ and the closed form of Theorem~\ref{thm:twotwo} for all sign patterns of $(t,\tau)$, and the maximizer counts of Theorems~\ref{thm:twoM} and~\ref{thm:threethree} on both sides of every threshold.
+
+\paragraph{\texttt{occupancy.py} (exact arithmetic and high precision).}
+It confirms the four certificates of Example~\ref{ex:certificates} and Example~\ref{ex:twothree} in rational arithmetic (\texttt{fractions.Fraction}), including the auxiliary inequalities $12^5<16\cdot7^5$, $19^3<6912$, $4^{4/5}>3$ and $2^{2/3}>19/12$ in the form of integer comparisons; recomputes $\Rhet$ over all occupancy vectors at 60-digit precision for $N=M\in\{3,\dots,9\}$ and $N=64$ at several matched temperatures (for $n=9$ the optimum is $(5,4)$ at $t=\tau\in\{1/10,1\}$ and $(3,3,3)$ at $t=\tau\in\{3,8\}$, as anticipated by Example~\ref{ex:nine}); locates the thresholds $\ell(t)$ and $u(t)$ of Theorem~\ref{thm:threethree} by bisection for $t\in\{0.05,0.3,\log2,1,2,5,10\}$ and checks $0<\ell<t<u<t+\log4$ (for $t=\log2$: $\ell\approx0.63853$, $u\approx0.72839$) together with the three rational fixtures of Example~\ref{ex:fixtures}; locates $\tau_*(t,M)$ of Theorem~\ref{thm:twoM} for $M\in\{2,3,4,8,50\}$ and checks $\tau_*=t$ for $M=2$ and $t<\tau_*<t+\log(M-1)$ otherwise; verifies the gap identity for $n\in\{3,4,7\}$ and the strict gain for $n=3,\dots,8$; and checks the expansions of Theorems~\ref{thm:smallt} and~\ref{thm:larget} numerically, for instance $(R_{(5,4)}-h)/t^2\to70/6561$ with errors $8.2\cdot10^{-5},8.2\cdot10^{-6},8.2\cdot10^{-7}$ at $t=10^{-2},10^{-3},10^{-4}$ and $(1-R_{(5,4)})e^{t}\to181/40$ with error $5\cdot10^{-16}$ at $t=30$, and that the small-$t$ coefficient is uniquely maximized by the balanced pair for $n\le12$ while $A(m)$ is uniquely minimized by $\sqrt n$ equal groups for $n\in\{4,9,16\}$.
+
+\paragraph{\texttt{negative\_outer.py}.}
+It checks Lemma~\ref{lem:negouter} on $2\cdot10^4$ random score vectors; Corollary~\ref{cor:divisible} on grids for $(N,M)\in\{(4,2),(6,2),(3,3),(4,4),(6,3)\}$ at $t\in\{0.5,2,6\}$ and $\tau\in\{0,-1,-4,-16\}$ (the grid maximum is $s_q$, attained only at balanced pure allocations); the exact witnesses of Example~\ref{ex:witnesses} in rational arithmetic, including the failure at $E=64$; the pure bottleneck ceiling of Lemma~\ref{lem:ceiling} for six shapes; and the crossover for $(3,2)$ at $E=4$ on the grid of step $1/20$: the best grid point is fractional for $\tau\le-6$ and pure for $\tau\ge-5$, with a finer scan between $-6$ and $-5$.
+
+\paragraph{\texttt{additive\_boundary.py}.}
+It checks the monotonicity of $d_k$, the envelope inequality and its contact set on $2\cdot10^4$ random columns, the subset-mass bound, the price formula for $200$ random prices, the gap constant, and Theorem~\ref{thm:rect} on grids for eight shapes at $t\in\{0.5,2,5\}$ including the $N=1$ exception.
+
+\paragraph{Reproduction.}
+From the \path{verify} directory, the commands
+\begin{quote}\small
+\texttt{python identities.py}\\
+\texttt{python brute\_force.py results/brute\_force.json}
+\end{quote}
+and the analogous commands for the other three scripts reproduce the stored outputs; with the versions listed above our final rerun reproduced them byte for byte. The complete run used about $5.4$ minutes of CPU time (user plus system), most of it in the grid checks of \texttt{additive\_boundary.py} and \texttt{negative\_outer.py}; on the heavily loaded machine used for the final run it took $31$ minutes of wall-clock time. The per-script timings are stored in \path{verify/results/timing.txt}.
+
+\section{Related work and priority}\label{sec:related}
+
+\paragraph{The source paper and its versions.}
+The model of Section~\ref{sec:model} is the softmax reward family of Amir, Bettini and Prorok~\cite{ABPv1,ABPv4}: with their notation, the task score is $T_j(A)=\sum_i\frac{\exp(t\,r_{ij})}{\sum_\ell\exp(t\,r_{\ell j})}r_{ij}$ over all $N$ agents and the team reward is $U=\sum_j\frac{\exp(\tau T_j)}{\sum_\ell\exp(\tau T_\ell)}T_j$ over all $M$ tasks, which are $B_t$ applied to the columns and $B_\tau$ applied to the score vector. The arXiv record lists four versions: v1 (11 June 2025), v2 (28 September 2025), v3 (4 November 2025) and v4 (1 March 2026). We retrieved all four (v1 as PDF, the others through the arXiv HTML rendering) and read the statement of Theorem~3.4 and its surrounding text in each. Version~1 states, immediately before its Theorem~3.4, titled ``Exact softmax heterogeneity gain for $N=M$'': ``We conjecture the lower bound of Thm.\ 3.4 is actually the exact value of $\Delta R(t,\tau;N)$, but we were unable to prove this.'' The theorem itself reads, in all four versions up to the title: ``Assume $N=M\ge2$, and let $\sigma(t,N):=\frac{e^t}{e^t+N-1}$. The heterogeneity gain for softmax aggregators (i) equals $\Delta R(t,\tau;N)=0$ when $t\le0$; (ii) is bounded below by $\sigma(t,N)-\frac1N$ when $t>0,\tau\le0$; and (iii) is bounded below by $\max\{\sigma(t,N)-\sigma(\tau,N),0\}$ when $t>0,\tau\ge0$.'' In versions 2, 3 and 4 the theorem is titled ``Softmax heterogeneity gain for $N=M$'' and the retrieved text contains no sentence with the word ``conjecture''; the retrieved texts do not state that the conjecture is false, and we found no exact value for $\Delta R$ at positive matched temperatures in any version.
+
+\paragraph{Correspondence with our results.}
+Branch (i) is contained in Theorem~\ref{thm:scoreset}, which holds for all $N,M$ and every outer utility. Branch (ii) is an equality by Theorem~\ref{thm:square}, with the permutation matrices as the only maximizers. Branch (iii) is an equality for $N=M=2$ by Theorem~\ref{thm:twotwo}, since $\Rhet(t,\tau)-\Rhom(t,\tau)=\sig(\max\{t,\tau\},2)-\sig(\tau,2)$ for $t,\tau>0$. For $N=M\ge3$ and $t=\tau>0$ the bound in (iii) is zero while $\Delta R>0$ by Theorem~\ref{thm:gap}, so the conjecture of version~1 is false exactly in branch (iii) with at least three agents. Theorems~\ref{thm:threethree}, \ref{thm:smallt} and~\ref{thm:larget} describe how the gain is realized.
+
+\paragraph{Classical ingredients.}
+The Boltzmann mean $B_c(x)=\frac{d}{dc}\log\sum_ie^{cx_i}$ is the derivative of the log-partition function; its monotonicity in $c$ and the cumulant expansion used in Theorem~\ref{thm:smallt} are standard, as are the mean inequalities we use~\cite{HLP}. The feasible set $\Feas$ is a product of simplices with slack, a transportation polytope with inequality constraints~\cite{Bolker1972,DeLoeraKim}, and the path directions of Theorem~\ref{thm:purity} are the classical alternating-path moves of pipage rounding on bipartite graphs~\cite{Shioura2009}; our contribution is the curvature computation showing that the reward is strictly convex along such a path at every fractional maximum-point candidate, which is specific to the nested Boltzmann structure. The normalization identity $\sum_k\partial_kB_c=1$ appears for the positive-temperature weighted-average model of analytical placement in~\cite{Liao2023}, and the rational function of Theorem~\ref{thm:envelope}(f) appears in~\cite{CohenFausti}; both are elementary and we rederive them.
+
+\paragraph{Search record and novelty boundary.}
+We searched (nine queries across a general web search engine, arXiv, Crossref and Semantic Scholar) for prior treatments of nested softmax or Boltzmann-weighted task allocation, heterogeneity gain, and purity of maximizers of softmax-weighted averages over transportation polytopes. Apart from the source paper we found no work stating the purity theorem, the exact two- and three-agent solutions, the phase structure at matched temperatures, or the fractional maximizers at negative outer temperature. Several publisher pages (ScienceDirect, Taylor and Francis, INFORMS PubsOnLine, World Scientific), OpenReview and a bibliographic API were unreachable or rate limited during our checks, so the search is bounded and we make no claim of worldwide priority beyond the retrieved sources. The arXiv record of the source paper lists no venue; the publication page of one of its authors lists it under the International Conference on Learning Representations (ICLR) 2026, which we could not confirm from OpenReview.
+
+\paragraph{Open questions.}
+(1) For $N=M=n$ not a perfect square, which occupancy vector is optimal at large matched temperature, and how many transitions occur between the balanced pair and the large-$t$ optimum as $t=\tau$ increases? (2) In the indivisible case with $ts_q>1$ and $y_*\ge1/\lceil M/r\rceil$, are there fractional maximizers for very negative $\tau$? (3) Is the maximizer pure for all $\tau$ in a neighbourhood of $0$ in the indivisible case, and where is the exact transition? (4) A sharp upper bound on $\Delta R(t,t;n)$ uniform in $n$.
+
+\bibliographystyle{plain}
+\bibliography{refs}
+
+\end{document}

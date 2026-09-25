@@ -1,0 +1,149 @@
+=== 1. Rational certificates ===
+PASS 12^5 < 16*7^5 (so 2^(4/5) > 12/7) 248832 < 268912
+PASS 9/4 > 2 (so sqrt 2 < 3/2) 
+PASS (3(12/7)-5)/(10(12/7+3/2+1)) = 1/295 exactly 1/295
+PASS closed form (3r-5)/(10(r+q+1)) equals Q - 1/2 gain=0.00537392222952
+PASS 3x3 matched log2 gain > 1/295 (mp) gain=0.00537392223 vs 0.003389830508
+PASS d/dr (3r-5)/(r+q+1) has sign of 3q+8 > 0 
+PASS 19^3 = 6859 < 6912 = 4*12^3 (so 2^(2/3) > 19/12) 6859 < 6912
+PASS 2r/(3(r+1)) at r = 19/12 equals 38/93 38/93
+PASS 38/93 - 2/5 = 4/465 
+PASS sigma(log2,4) = 2/5 
+PASS (2,2) reward formula 2r/(3(r+1)) matches nested evaluation 
+PASS 4-agent matched log2 gain > 4/465 gain=0.00900786029
+PASS 4^4 = 256 > 243 = 3^5 (so 4^(4/5) > 3) 
+PASS (4/5)*3/(3+1) = 3/5 and 3/5 - 4/7 = 1/35 
+PASS sigma(log4,4) = 4/7 
+PASS (2,2) reward at log 4 matches nested evaluation 
+PASS 4-agent matched log4 gain > 1/35 gain=0.030130831
+PASS (2r-3)/(6(2r+1)) at r = 19/12 equals 1/150 1/150
+PASS 2x3: D - H closed form 
+PASS 2x3 matched log2 gain > 1/150 gain=0.006978458682
+=== 2. Three-agent rational fixtures ===
+PASS fixture q=21/20: unique optimum 111 P=0.500000 Q=0.484878 H=0.448868
+PASS fixture q=21/20: 0 < tau = 10 log q < 1 tau=0.48790164
+PASS fixture q=15/14: unique optimum 210 P=0.500000 Q=0.505059 H=0.499195
+PASS fixture q=15/14: 0 < tau = 10 log q < 1 tau=0.68992871
+PASS fixture q=11/10: unique optimum 300 P=0.500000 Q=0.530095 H=0.564625
+PASS fixture q=11/10: 0 < tau = 10 log q < 1 tau=0.9531018
+  t=log2: ell=0.6385320297 u=0.728388533  fixtures tau: ['0.48790164', '0.68992871', '0.9531018']
+PASS fixture taus straddle ell and u 
+=== 3. Threshold bounds ===
+PASS 3x3 thresholds t=0.05 ell=0.049594745 u=0.050207666 t+log4=1.4362944
+PASS   G(1) = 3(a+b-1) > 0 and G(4E) < 0 at t=0.05 
+PASS   2x2 crossover tau_* = t at t=0.05 
+PASS   2x3 crossover in (t, t+log(M-1)) at t=0.05 tau*=0.050209988
+PASS   2x4 crossover in (t, t+log(M-1)) at t=0.05 tau*=0.050316318
+PASS   2x8 crossover in (t, t+log(M-1)) at t=0.05 tau*=0.050477522
+PASS   2x50 crossover in (t, t+log(M-1)) at t=0.05 tau*=0.050614551
+PASS 3x3 thresholds t=0.3 ell=0.28729833 u=0.30725867 t+log4=1.6862944
+PASS   G(1) = 3(a+b-1) > 0 and G(4E) < 0 at t=0.3 
+PASS   2x2 crossover tau_* = t at t=0.3 
+PASS   2x3 crossover in (t, t+log(M-1)) at t=0.3 tau*=0.30776116
+PASS   2x4 crossover in (t, t+log(M-1)) at t=0.3 tau*=0.31196102
+PASS   2x8 crossover in (t, t+log(M-1)) at t=0.3 tau*=0.31872654
+PASS   2x50 crossover in (t, t+log(M-1)) at t=0.3 tau*=0.32490651
+PASS 3x3 thresholds t=0.6931 ell=0.63853203 u=0.72838853 t+log4=2.0794415
+PASS   G(1) = 3(a+b-1) > 0 and G(4E) < 0 at t=0.6931 
+PASS   2x2 crossover tau_* = t at t=0.6931 
+PASS   2x3 crossover in (t, t+log(M-1)) at t=0.6931 tau*=0.73429724
+PASS   2x4 crossover in (t, t+log(M-1)) at t=0.6931 tau*=0.75906167
+PASS   2x8 crossover in (t, t+log(M-1)) at t=0.6931 tau*=0.80390495
+PASS   2x50 crossover in (t, t+log(M-1)) at t=0.6931 tau*=0.85224828
+PASS 3x3 thresholds t=1.0 ell=0.90379888 u=1.0653376 t+log4=2.3862944
+PASS   G(1) = 3(a+b-1) > 0 and G(4E) < 0 at t=1.0 
+PASS   2x2 crossover tau_* = t at t=1.0 
+PASS   2x3 crossover in (t, t+log(M-1)) at t=1.0 tau*=1.0816986
+PASS   2x4 crossover in (t, t+log(M-1)) at t=1.0 tau*=1.1345756
+PASS   2x8 crossover in (t, t+log(M-1)) at t=1.0 tau*=1.2402774
+PASS   2x50 crossover in (t, t+log(M-1)) at t=1.0 tau*=1.3768922
+PASS 3x3 thresholds t=2.0 ell=1.7723404 u=2.1492206 t+log4=3.3862944
+PASS   G(1) = 3(a+b-1) > 0 and G(4E) < 0 at t=2.0 
+PASS   2x2 crossover tau_* = t at t=2.0 
+PASS   2x3 crossover in (t, t+log(M-1)) at t=2.0 tau*=2.2306499
+PASS   2x4 crossover in (t, t+log(M-1)) at t=2.0 tau*=2.398089
+PASS   2x8 crossover in (t, t+log(M-1)) at t=2.0 tau*=2.8067594
+PASS   2x50 crossover in (t, t+log(M-1)) at t=2.0 tau*=3.8080241
+PASS 3x3 thresholds t=5.0 ell=4.6133884 u=5.1833325 t+log4=6.3862944
+PASS   G(1) = 3(a+b-1) > 0 and G(4E) < 0 at t=5.0 
+PASS   2x2 crossover tau_* = t at t=5.0 
+PASS   2x3 crossover in (t, t+log(M-1)) at t=5.0 tau*=5.3907832
+PASS   2x4 crossover in (t, t+log(M-1)) at t=5.0 tau*=5.6700441
+PASS   2x8 crossover in (t, t+log(M-1)) at t=5.0 tau*=6.3477379
+PASS   2x50 crossover in (t, t+log(M-1)) at t=5.0 tau*=8.1562627
+PASS 3x3 thresholds t=10.0 ell=9.5947754 u=10.182338 t+log4=11.386294
+PASS   G(1) = 3(a+b-1) > 0 and G(4E) < 0 at t=10.0 
+PASS   2x2 crossover tau_* = t at t=10.0 
+PASS   2x3 crossover in (t, t+log(M-1)) at t=10.0 tau*=10.405292
+PASS   2x4 crossover in (t, t+log(M-1)) at t=10.0 tau*=10.692882
+PASS   2x8 crossover in (t, t+log(M-1)) at t=10.0 tau*=11.385872
+PASS   2x50 crossover in (t, t+log(M-1)) at t=10.0 tau*=13.218256
+=== 4. Occupancy optima ===
+PASS occupancy N=9 M=9 t=1/10 tau=1/10: optimum (5, 4) found (5, 4) value=0.121493363948801 runner-up (6, 3) gap=1.23403e-5 over 30 partitions
+PASS occupancy N=9 M=9 t=1 tau=1: optimum (5, 4) found (5, 4) value=0.271941752484292 runner-up (3, 3, 3) gap=0.000719881 over 30 partitions
+PASS occupancy N=9 M=9 t=3 tau=3: optimum (3, 3, 3) found (3, 3, 3) value=0.804349347072582 runner-up (4, 3, 2) gap=0.00588025 over 30 partitions
+PASS occupancy N=9 M=9 t=8 tau=8: optimum (3, 3, 3) found (3, 3, 3) value=0.998655897589773 runner-up (4, 3, 2) gap=8.32558e-5 over 30 partitions
+PASS occupancy N=16 M=16 t=1/10 tau=1/10: optimum (8, 8) found (8, 8) value=0.068696623237169 runner-up (9, 7) gap=1.2477e-6 over 231 partitions
+PASS occupancy N=16 M=16 t=1 tau=1: optimum (6, 5, 5) found (6, 5, 5) value=0.167624572859885 runner-up (6, 6, 4) gap=0.000146932 over 231 partitions
+PASS occupancy N=16 M=16 t=3 tau=3: optimum (4, 4, 4, 4) found (4, 4, 4, 4) value=0.712820579654956 runner-up (5, 4, 4, 3) gap=0.00254477 over 231 partitions
+PASS occupancy N=16 M=16 t=8 tau=8: optimum (4, 4, 4, 4) found (4, 4, 4, 4) value=0.997982156138034 runner-up (5, 4, 4, 3) gap=4.4359e-5 over 231 partitions
+PASS occupancy N=2 M=128 t=4 tau=1/100: optimum (1, 1) found (1, 1) value=0.0154929986513589 runner-up (2,) gap=0.0076026 over 2 partitions
+PASS occupancy N=128 M=3 t=8 tau=1/100: optimum (43, 43, 42) found (43, 43, 42) value=0.999329401043076 runner-up (44, 42, 42) gap=3.594e-7 over 1430 partitions
+PASS occupancy N=3 M=3 t=8 tau=1/4: optimum (1, 1, 1) found (1, 1, 1) value=0.999329524583086 runner-up (2, 1) gap=0.279917 over 3 partitions
+PASS occupancy N=128 M=2 t=8 tau=1/4: optimum (64, 64) found (64, 64) value=0.999664649869534 runner-up (65, 63) gap=1.63593e-7 over 65 partitions
+PASS occupancy N=8 M=8 t=3 tau=1/100: optimum (1, 1, 1, 1, 1, 1, 1, 1) found (1, 1, 1, 1, 1, 1, 1, 1) value=0.741559489115855 runner-up (2, 1, 1, 1, 1, 1, 1) gap=0.0759863 over 22 partitions
+PASS occupancy N=9 M=9 t=8 tau=9/8: optimum (1, 1, 1, 1, 1, 1, 1, 1, 1) found (1, 1, 1, 1, 1, 1, 1, 1, 1) value=0.997323481951007 runner-up (2, 1, 1, 1, 1, 1, 1, 1) gap=0.0388184 over 30 partitions
+PASS occupancy N=4 M=4 t=log2 tau=log2: optimum (2, 2) found (2, 2) value=0.40900786029046 runner-up (3, 1) gap=0.00353321 over 5 partitions
+PASS occupancy N=3 M=3 t=log2 tau=log2: optimum (2, 1) found (2, 1) value=0.505373922229518 runner-up (3,) gap=0.00537392 over 3 partitions
+PASS occupancy N=2 M=3 t=log2 tau=log2: optimum (1, 1) found (1, 1) value=0.506978458682372 runner-up (2,) gap=0.00697846 over 2 partitions
+PASS occupancy N=64 M=64 t=1/10 tau=1/10: optimum (32, 32) found (32, 32) value=0.0172607936273383 runner-up (33, 31) gap=2.16741e-8 over 1741630 partitions (float scan, top 5 re-evaluated at 60 digits)
+PASS occupancy N=64 M=64 t=1 tau=1: optimum (22, 21, 21) found (22, 21, 21) value=0.0463516683792578 runner-up (22, 22, 20) gap=3.93005e-6 over 1741630 partitions (float scan, top 5 re-evaluated at 60 digits)
+PASS occupancy N=64 M=64 t=3 tau=3: optimum (11, 11, 11, 11, 10, 10) found (11, 11, 11, 11, 10, 10) value=0.426853122997386 runner-up (12, 11, 11, 10, 10, 10) gap=0.00021171 over 1741630 partitions (float scan, top 5 re-evaluated at 60 digits)
+PASS occupancy N=64 M=64 t=8 tau=8: optimum (8, 8, 8, 8, 8, 8, 8, 8) found (8, 8, 8, 8, 8, 8, 8, 8) value=0.995275902242772 runner-up (9, 8, 8, 8, 8, 8, 8, 7) gap=1.05118e-5 over 1741630 partitions (float scan, top 5 re-evaluated at 60 digits)
+=== 5. Asymptotic coefficients ===
+PASS (5,4) small-t coefficient 70/6561 70/6561
+PASS (3,3,3) small-t coefficient 54/6561 = 2/243 
+PASS (5,4) large-t coefficient 181/40 
+PASS (3,3,3) large-t coefficient 4 
+PASS n=3: small-t coefficient uniquely maximized by balanced pair [(2, 1)]
+PASS n=4: small-t coefficient uniquely maximized by balanced pair [(2, 2)]
+PASS n=5: small-t coefficient uniquely maximized by balanced pair [(3, 2)]
+PASS n=6: small-t coefficient uniquely maximized by balanced pair [(3, 3)]
+PASS n=7: small-t coefficient uniquely maximized by balanced pair [(4, 3)]
+PASS n=8: small-t coefficient uniquely maximized by balanced pair [(4, 4)]
+PASS n=9: small-t coefficient uniquely maximized by balanced pair [(5, 4)]
+PASS n=10: small-t coefficient uniquely maximized by balanced pair [(5, 5)]
+PASS n=11: small-t coefficient uniquely maximized by balanced pair [(6, 5)]
+PASS n=12: small-t coefficient uniquely maximized by balanced pair [(6, 6)]
+PASS n=4: large-t coefficient uniquely minimized by 2 groups of 2 [(2, 2)]
+PASS n=9: large-t coefficient uniquely minimized by 3 groups of 3 [(3, 3, 3)]
+PASS n=16: large-t coefficient uniquely minimized by 4 groups of 4 [(4, 4, 4, 4)]
+PASS merge identity a=2 b=3 
+PASS merge identity a=1 b=4 
+PASS merge identity a=3 b=3 
+PASS small-t expansion (5, 4): (R-h)/t^2 -> 70/6561 errors ['8.2e-5', '8.19e-6', '8.19e-7']
+PASS large-t expansion (5, 4): (1-R)e^t -> 181/40 errors ['1.11e-7', '8.34e-12', '5.29e-16']
+PASS small-t expansion (3, 3, 3): (R-h)/t^2 -> 2/243 errors ['8.26e-5', '8.23e-6', '8.23e-7']
+PASS large-t expansion (3, 3, 3): (1-R)e^t -> 4 errors ['1.4e-7', '1.01e-11', '6.29e-16']
+=== 6. Matched gap identity ===
+PASS gap identity and E^s > D verified for n in {3,4,7}, all partitions 
+PASS every intermediate partition beats h, endpoints tie: n=3 t=0.1 
+PASS every intermediate partition beats h, endpoints tie: n=3 t=1.0 
+PASS every intermediate partition beats h, endpoints tie: n=3 t=5.0 
+PASS every intermediate partition beats h, endpoints tie: n=4 t=0.1 
+PASS every intermediate partition beats h, endpoints tie: n=4 t=1.0 
+PASS every intermediate partition beats h, endpoints tie: n=4 t=5.0 
+PASS every intermediate partition beats h, endpoints tie: n=5 t=0.1 
+PASS every intermediate partition beats h, endpoints tie: n=5 t=1.0 
+PASS every intermediate partition beats h, endpoints tie: n=5 t=5.0 
+PASS every intermediate partition beats h, endpoints tie: n=6 t=0.1 
+PASS every intermediate partition beats h, endpoints tie: n=6 t=1.0 
+PASS every intermediate partition beats h, endpoints tie: n=6 t=5.0 
+PASS every intermediate partition beats h, endpoints tie: n=7 t=0.1 
+PASS every intermediate partition beats h, endpoints tie: n=7 t=1.0 
+PASS every intermediate partition beats h, endpoints tie: n=7 t=5.0 
+PASS every intermediate partition beats h, endpoints tie: n=8 t=0.1 
+PASS every intermediate partition beats h, endpoints tie: n=8 t=1.0 
+PASS every intermediate partition beats h, endpoints tie: n=8 t=5.0 
+
+FAILURES: none

@@ -1,0 +1,12 @@
+Verification rerun for the referee revision (2026-09-25), python 3.12 venv, host heavily loaded
+(load average 52-80 on 18 logical CPUs). Times from bash 'time'; CPU = user + sys.
+
+script                       real       user        sys
+identities.py           0m56.360s   0m9.236s   0m0.595s
+occupancy.py            5m22.936s  0m44.882s   0m6.591s
+negative_outer.py       9m22.200s  1m34.256s   0m5.893s
+additive_boundary.py   11m44.084s  1m51.870s   0m4.664s
+brute_force.py          3m40.281s  0m41.505s   0m3.117s
+
+total wall-clock 1866 s (31 min 06 s); total CPU 322.6 s (5 min 23 s)
+all five outputs byte-identical to the committed results/*.txt and results/brute_force.json
