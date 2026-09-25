@@ -13,8 +13,9 @@ Thm 3.10 (n=2, rh): two readings:
       htilde comparison in y' = G(t/theta)^a in (0,1) for a>0.
   (b) literal rh of model (1.3): r_U = f/F with F_U = 1 - S_U.
 Thm 3.8/3.9, Cor 3.2 (hr, n>=2); Thm 3.11/3.12, Cor 3.3 (rh) — the V_n, a>=0
-halves are already refuted by the manuscript; here we additionally probe the
-W_n / a<=0 halves which the manuscript leaves untouched.
+halves are refuted by the manuscript's original instances (1)-(4); here we
+additionally probe the W_n / a<=0 halves (audit's discovery; now certified in
+the manuscript as instances (5) and (6)).
 """
 import sys
 import random

@@ -348,7 +348,7 @@ Example 6.7, 6.10, 6.16(i)/(ii), 6.19 all verify as claimed.
     cd .../mixture-claim-audit
     PY=/Users/bg/Documents/algal-lab-worktrees/.venv-math/bin/python
     $PY certify_thm34.py        # SKF Thm 3.4 counterexample certificate
-    $PY certify_whalf.py        # SKF Thm 3.8 W_n/alpha<=0 counterexample
+    $PY certify_whalf.py        # SKF Thm 3.8 W_n/alpha<=0 + Thm 3.9 W-half (2-T) certificates
     $PY verify_paper_cex.py     # papers' own examples/counterexamples
     $PY audit_skf_st.py         # SKF Thms 3.1-3.6 stochastic order
     $PY audit_skf_hr.py         # SKF Thms 3.7-3.12 hazard/rev-hazard
