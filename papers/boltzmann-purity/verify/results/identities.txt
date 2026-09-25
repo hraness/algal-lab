@@ -1,0 +1,77 @@
+PASS dB/dx_k = p_k h_k
+PASS sum_k dB/dx_k = 1
+PASS sum_i p_i (1+h_i) = 2
+PASS d2B/dx_k dx_l = c p_k[delta h_k - p_l h_k + delta - p_l h_l]
+PASS d2B/dx_k^2 = c p_k (1 + h_k - 2 p_k h_k)
+PASS D2B[u,u] = c sum p_i(1+h_i)u_i^2 - 2c ubar DB[u]
+PASS D2B[u,u] = c sum p_i[2+c(x_i-b)](u_i-ubar)^2
+PASS dB_c/dc = Var_c(x)
+PASS B_t(s x) = s B_{st}(x)
+PASS d/ds[s B_{st}(x)] = B_{st}(x) + s t Var_{st}(x)
+PASS 1+h-2ph = (1-p)[2-(2p-1)d] when h = 1+(1-p)d
+PASS nested chain rule: D2R[U,U] = sum_j W_j D2S_j + D2B_tau[v,v] (12 random cases)
+PASS (13): t W p (1+h) U^2 = t lambda (1+1/h) U^2 when lambda = W p h
+PASS (14): t W p (1+h-2ph) U^2 = t lambda (1+1/h-2p) U^2 when lambda = W p h
+PASS (15): 2 + 1/h_priv + 1/h_int - 2 p_priv > 0 sampled (p<1)
+PASS two agents two tasks: R = 1/2 + g_t(d) + g_tau(u) (300 random, any signs)
+PASS slice derivative d/da B_t(a,c) = e^v(1+e^v+v)/(1+e^v)^2
+PASS 1/2 + (1/2)tanh(alpha/2) = e^alpha/(e^alpha+1)
+PASS consolidation: DN/DD = x/(1-e^{-tau x}) + y/(1-e^{-tau y})
+PASS consolidation: Delta N and Delta D formulas
+PASS d/du [q_N(u)/u] = t (N-1) e^{tu}/(e^{tu}+N-1)^2
+PASS 1 - e^{-z} < z sampled
+PASS d/dv[(v-R)e^{tau v}] = e^{tau v}[1+tau(v-R)]
+PASS tangent inequality 1+u <= e^u sampled
+PASS Z h_a = sum_l e^{t x_l}[1 + t(a - x_l)]
+PASS (E+T)/(E+C) - T/(1+C) = [E(1+C-T)+T]/[(E+C)(1+C)]
+PASS s_m - h = h (m-1)/D_m
+PASS gap identity (3): R - h = (h/Z) sum (m_j-1)(E^{s}/D - 1)
+PASS f'(E) = p log(E/D)
+PASS f(1) = 0
+PASS integer certificate n^P E^{mE} > P^P for 1<m<n (n<=12, E<=8), equality at m=n
+PASS s log E - log D = p(1-p) t^2/2 + O(t^3)
+PASS small-t coefficient for n=9 (5, 4) equals 70/6561
+PASS   matches t^2/(2n^4) sum m(m-1)(n-m) for (5, 4)
+PASS small-t coefficient for n=9 (3, 3, 3) equals 2/243
+PASS   matches t^2/(2n^4) sum m(m-1)(n-m) for (3, 3, 3)
+PASS large-t: (1-R)e^t at t=60 for n=9 (5, 4) within 1e-20 of A(m)=4.525
+PASS large-t: (1-R)e^t at t=60 for n=9 (3, 3, 3) within 1e-20 of A(m)=4.0
+PASS merge identity f(a+b)-f(a)-f(b) = ab[2(n+1)-3(a+b)]
+PASS A(m) >= k + n/k - 2, strict unless square-root groups (n<=20)
+PASS D - H = F G(F)/(f(F)(F+M-1))
+PASS G'(F) = 2b(b-1)(F+M-1)F^{b-2}
+PASS G(1) = M(2b-1)
+PASS G(F) = 2F^{b-1}[b(M-1)-(1-b)F]-(M-2)
+PASS G(E) = (M-2)[2E^b/(E+1) - 1] with b = E/(E+1)
+PASS G(E(M-1)) = -(M-2)
+PASS J'(E) = log E/(E+1)^2
+PASS J(1) = 0
+PASS M=3, t=tau=log 2: D - 1/2 = (2r-3)/(6(2r+1)) with r = 2^{2/3}
+PASS 19^3 = 6859 < 6912 = 4 * 12^3
+PASS gain at r = 19/12 equals 1/150
+PASS d/dr (2r-3)/(6(2r+1)) = 4/(3(2r+1)^2) > 0
+PASS Q - b = [(a-b)e^{tau a} - b]/(e^{tau a}+e^{tau b}+1)
+PASS b/(a-b) = (2E+1)/3
+PASS Q - H = F G(F)/(f(F)(F+2))
+PASS G'(F) = (F+2) f''(F)
+PASS G(1) = 3(a+b-1)
+PASS a + b - 1 = 2(E-1)(E+1)/((2E+1)(E+2)) > 0 for E>1
+PASS 2a/(1-a) = 4E
+PASS G(4E) = (4E)^{b-1}[2b - 4E(1-b)] - 1 with 2b-4E(1-b) = -6E/(E+2)
+PASS t=tau=log 2: Q - 1/2 = (3r-5)/(10(r+q+1)), r=2^{4/5}, q=sqrt2
+PASS 12^5 < 16 * 7^5
+PASS value at r=12/7, q=3/2 is 1/295
+PASS (19/12)^3 < 4 and 2(19/12)/(3(19/12+1)) = 38/93
+PASS 38/93 - 2/5 = 4/465
+PASS 3^5 = 243 < 256 = 4^4 and 3/5 - 4/7 = 1/35
+PASS d_k = E N /((N+k(E-1))(N+(k+1)(E-1)))
+PASS s_N = 1
+PASS crumb: cross-multiplied difference = e^{ty} h(y)
+PASS h'(0) = (qE+N-q)(1 - t s_q)
+PASS h(1) = N with E = e^t
+PASS h''(y) = q E t^2 e^{-ty}
+PASS u e^{-cu} <= 1/(e c) sampled
+PASS d sum x_i w_i - (sum x)(sum w) = sum_{i<j}(x_i-x_j)(w_i-w_j)
+PASS s_k - k/N = S(1-S)(E-1)/(1+S(E-1)) with S = k/N (Cohen-Fausti (41) specialization)
+
+FAILURES: none
