@@ -1,0 +1,576 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage[hyphens]{url}
+\usepackage[colorlinks=true,linkcolor=blue!60!black,citecolor=blue!60!black,urlcolor=blue!60!black]{hyperref}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\one}{\mathbf{1}}
+\DeclareMathOperator{\sgn}{sgn}
+\newcommand{\Wl}{W_{0}}
+\newcommand{\maj}{\succ}
+\newcommand{\Simp}{\Delta}
+
+\title{Sharp thresholds for the Schur ordering of the softmax-weighted mean}
+\author{[Owner name to be confirmed]\thanks{Disclosure: the manuscript and its proofs were prepared with AI research agents and were independently machine-checked (exact rational root enclosures, symbolic verification of every identity used in the proofs, and exact rational evaluation of every counterexample); see Section~\ref{sec:certified}. The author block is a placeholder to be completed by the owner of the work.}}
+\date{25 September 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The softmax-weighted mean $B_\tau(x)=\sum_i x_i e^{\tau x_i}/\sum_i e^{\tau x_i}$ of a real vector $x\in\R^n$ is the Boltzmann operator of reinforcement learning and the Esscher premium of the uniform law on the entries of $x$. It is Schur-convex for $\tau>0$ and Schur-concave for $\tau<0$ when the entries are close together, and it is neither when they are far apart. We determine the exact thresholds. On a box $[a,b]^n$ with $n\ge 3$ the ordering holds if and only if $|\tau|(b-a)\le c_n$, where $c_n$ is the unique root above $2$ of $(n-2)(c-2)e^{c}=4$; the ordering is strict at the threshold, and above it we construct explicit violations in the interior of the box. Since $c_n$ decreases to $2$, the dimension-free condition $|\tau|(b-a)\le 2$ is sharp. On the simplex of nonnegative vectors with fixed total $S$ the two signs of $\tau$ separate: Schur-convexity for $\tau>0$ holds if and only if $\tau S\le d_n$, where $(d_n-2)e^{d_n}=2(n-1)$, and Schur-concavity for $\tau<0$ holds if and only if $|\tau|S\le 2c_n$. The two simplex thresholds cross exactly once, between $n=57$ and $n=58$; the crossing is certified by exact rational enclosures of the roots. A rational counterexample shows that the unrestricted Schur property asserted for the softmax aggregator in a table of a recent ICLR paper is false. The two-variable case and the dimension-free constant $2$ follow from known results on Gini and Lehmer means; the dimension-dependent constants appear to be new, although we could not exclude an earlier appearance in the actuarial literature on the Esscher premium.
+
+\medskip\noindent\textbf{Keywords.} Majorization, Schur-convexity, softmax, Boltzmann operator, Esscher premium, Lehmer mean, Lambert $W$ function.
+
+\smallskip\noindent\textbf{2020 Mathematics Subject Classification.} 26D15, 26B25, 15A39; secondary 68T05, 91G05.
+\end{abstract}
+
+\section{Introduction}\label{sec:intro}
+
+For $x=(x_1,\dots,x_n)\in\R^n$ and a real parameter $\tau$ put
+\begin{equation}\label{eq:softmax-mean}
+B_\tau(x)=\frac{\sum_{i=1}^n x_i e^{\tau x_i}}{\sum_{i=1}^n e^{\tau x_i}}
+=\frac{\partial}{\partial\tau}\log\sum_{i=1}^n e^{\tau x_i}.
+\end{equation}
+This is the softmax-weighted mean of the entries of $x$: the weights are the softmax probabilities $e^{\tau x_i}/\sum_j e^{\tau x_j}$. It is the Boltzmann softmax operator $\mathrm{boltz}_\beta$ of Asadi and Littman \cite{AsadiLittman2017}, the Esscher premium with parameter $\tau$ of the uniform law on $\{x_1,\dots,x_n\}$ (B\"uhlmann \cite{Buhlmann1980}, Gerber \cite{Gerber1981}), and the derivative of the log-sum-exp function, which it should not be confused with. It interpolates between the minimum ($\tau\to-\infty$), the arithmetic mean ($\tau=0$) and the maximum ($\tau\to+\infty$).
+
+A natural structural question is how $B_\tau$ responds to the spread of its argument. The spread of vectors with a common sum is ordered by majorization: $x\maj y$ when $x$ and $y$ have the same sum and the $k$ largest entries of $x$ have at least the sum of the $k$ largest entries of $y$ for every $k$. A symmetric function is Schur-convex if it is nondecreasing for this order and Schur-concave if it is nonincreasing. For $\tau>0$ the mean $B_\tau$ favours large entries, so one expects it to increase with spread, and the opposite for $\tau<0$. This expectation is correct when the entries are close together and wrong when they are far apart, a phenomenon already visible in Gerber's criticism of the Esscher principle \cite{Gerber1981}, where a coordinate of the argument is increased and the premium decreases. The purpose of this paper is to determine exactly where the expectation is correct, for the two domains that occur in applications: a box $[a,b]^n$ (entries in a common bounded range) and the simplex $\Simp_S=\{x\in[0,\infty)^n:\sum_i x_i=S\}$ (nonnegative entries with a fixed total).
+
+\subsection*{Main results}
+Let $\Wl$ denote the principal branch of the Lambert $W$ function \cite{Corless1996}. For $n\ge 3$ define
+\begin{equation}\label{eq:constants}
+c_n=2+\Wl\Bigl(\frac{4}{(n-2)e^{2}}\Bigr),\qquad d_n=2+\Wl\Bigl(\frac{2(n-1)}{e^{2}}\Bigr),
+\end{equation}
+so that $c_n$ is the unique solution $c>2$ of $(n-2)(c-2)e^{c}=4$ and $d_n$ the unique solution $d>2$ of $(d-2)e^{d}=2(n-1)$. Numerically $c_3=d_3\approx 2.3729$, $c_4\approx 2.2177$, $c_{128}\approx 2.0043$, $d_4\approx 2.4950$, $d_{128}\approx 4.5869$; certified enclosures are listed in Table~\ref{tab:constants}.
+
+\begin{itemize}
+\item \emph{Box} (Theorem~\ref{thm:box}). Let $n\ge 3$, $a<b$ and $\tau\neq 0$. Then $B_\tau$ is strictly Schur-convex on $[a,b]^n$ (if $\tau>0$), respectively strictly Schur-concave (if $\tau<0$), if and only if $|\tau|(b-a)\le c_n$. Above the threshold there are explicit violations in the open box, and $B_\tau$ is then neither Schur-convex nor Schur-concave on the box. The sequence $c_n$ decreases strictly to $2$, so $|\tau|(b-a)\le 2$ is sufficient in every dimension and no larger constant is (Corollary~\ref{cor:dimfree}). For $n=2$ the ordering holds on all of $\R^2$ for every $\tau$ (Proposition~\ref{prop:n2}).
+\item \emph{Simplex} (Theorem~\ref{thm:simplex}). Let $n\ge 3$ and $S>0$. For $\tau>0$, $B_\tau$ is strictly Schur-convex on $\Simp_S$ if and only if $\tau S\le d_n$; for $\tau<0$, $B_\tau$ is strictly Schur-concave on $\Simp_S$ if and only if $|\tau|S\le 2c_n$. Above the thresholds there are explicit violations with all coordinates positive. The positive threshold $d_n$ increases to infinity and the negative threshold $2c_n$ decreases to $4$; they cross exactly once, with $d_n<2c_n$ for $3\le n\le 57$ and $d_n>2c_n$ for $n\ge 58$ (Proposition~\ref{prop:crossover}).
+\end{itemize}
+
+The sufficiency parts rest on a monotonicity criterion along the segments of $T$-transforms (Lemma~\ref{lem:segment}), which applies on closed boxes and on the simplex, where the classical Schur--Ostrowski criterion for open sets does not apply directly. The necessity parts are explicit: we write down the violating pairs and bound the sign of the difference by elementary inequalities for $\tanh$ and $\coth$. The crossing index $58$ is established by a computation in exact rational arithmetic (Section~\ref{sec:certified}).
+
+\subsection*{Relevance to softmax models}
+Softmax-weighted means occur wherever scores are converted to weights: Boltzmann value aggregation in reinforcement learning \cite{AsadiLittman2017}, attention-type pooling of scores, and reward aggregation in multi-agent learning. In each case the entries lie in a known range (bounded rewards, normalized scores) or have a fixed total (allocations of effort), and the temperature $\tau$ is a design parameter. Theorems~\ref{thm:box} and~\ref{thm:simplex} say that the qualitative behaviour of the aggregator with respect to inequality among its inputs is governed by the single dimensionless quantity $|\tau|$ times the range (or the total): below $c_n$, respectively $d_n$ or $2c_n$, the aggregator is a strict Schur-monotone function; above, it is not monotone for majorization at all. A recent ICLR paper on cooperative multi-agent learning \cite{AmirBettiniProrok2026} lists the softmax aggregator as strictly Schur-convex for every positive temperature and strictly Schur-concave for every negative temperature on nonnegative inputs. Section~\ref{sec:counterexample} gives rational counterexamples in dimension $3$ and records the precise statement that replaces the claim.
+
+\subsection*{Novelty boundary}
+Two ingredients of the results are consequences of the theory of Gini and Lehmer means. The two-variable case (Proposition~\ref{prop:n2}) follows from the Schur-geometric convexity of the two-variable Gini means \cite{ShiJiangJiang2009,Witkowski2011} through the limiting identity of Remark~\ref{rem:lehmer}, and the dimension-free constant $2$ (in its nonstrict form, for $\tau>0$) follows from the bounded-ratio theorem of Fu, Wang and Shi for the Lehmer mean of $n$ variables \cite[Theorem~1.4(II)]{FuWangShi2016} through the same identity. The dimension-dependent constants $c_n$ and $d_n$, the strictness at the threshold, the interior violations and the crossing at $n=58$ are, to our knowledge, new. We are not able to assert priority: the Esscher premium was studied intensively in the actuarial literature of the 1980s, and majorization of the entries of $x$ is exactly the convex order of the uniform empirical laws, so a bounded-range criterion may exist there in a different language. Section~\ref{sec:related} records what we checked, including two sources that could not be retrieved in full.
+
+\subsection*{Organization}
+Section~\ref{sec:prelim} collects the tools. Section~\ref{sec:box} proves the box theorem, Section~\ref{sec:simplex} the simplex theorem. Section~\ref{sec:counterexample} contains the counterexamples. Section~\ref{sec:certified} describes the certified computations and how to reproduce them. Section~\ref{sec:related} discusses related work.
+
+\section{Preliminaries}\label{sec:prelim}
+
+\subsection{Majorization and Schur-convexity}
+For $x\in\R^n$ let $x_{[1]}\ge x_{[2]}\ge\dots\ge x_{[n]}$ be its entries in decreasing order. We write $x\maj y$ (``$x$ majorizes $y$'') if
+\[
+\sum_{i=1}^k x_{[i]}\ge\sum_{i=1}^k y_{[i]}\quad(1\le k\le n-1)\qquad\text{and}\qquad \sum_{i=1}^n x_i=\sum_{i=1}^n y_i .
+\]
+The standard reference is Marshall, Olkin and Arnold \cite{MarshallOlkinArnold2011}. A $T$-transform is a linear map $T=\lambda I+(1-\lambda)Q$ with $\lambda\in[0,1]$ and $Q$ the permutation matrix that exchanges two coordinates $i\ne j$; thus $xT$ has entries $(xT)_i=\lambda x_i+(1-\lambda)x_j$, $(xT)_j=\lambda x_j+(1-\lambda)x_i$ and $(xT)_k=x_k$ for $k\ne i,j$.
+
+\begin{lemma}[{\cite[Lemma~2.B.1]{MarshallOlkinArnold2011}}]\label{lem:ttransform}
+If $x\maj y$, then $y$ can be obtained from $x$ by successive applications of finitely many $T$-transforms.
+\end{lemma}
+
+A set $D\subseteq\R^n$ is symmetric if it is invariant under permutations of the coordinates. A function $f\colon D\to\R$ on a symmetric set is \emph{Schur-convex on $D$} if $x,y\in D$ and $x\maj y$ imply $f(x)\ge f(y)$, and \emph{strictly Schur-convex on $D$} if in addition $f(x)>f(y)$ whenever $y$ is not a permutation of $x$. It is (strictly) Schur-concave if $-f$ is (strictly) Schur-convex.
+
+The classical Schur--Ostrowski criterion \cite[Theorem~3.A.4]{MarshallOlkinArnold2011} characterizes Schur-convexity on $I^n$ for an open interval $I$ by the sign of $(x_i-x_j)(\partial_i f-\partial_j f)$. Our domains are a closed box and a simplex, which has empty interior in $\R^n$, and we need strictness; the following elementary variant is all we use.
+
+\begin{lemma}[segment criterion]\label{lem:segment}
+Let $D\subseteq\R^n$ be convex and symmetric, and let $f\colon\R^n\to\R$ be symmetric and continuously differentiable. Suppose that for every $u\in D$ and every pair $i\ne j$ with $u_i<u_j$,
+\begin{equation}\label{eq:segment-hyp}
+\partial_j f(u)>\partial_i f(u).
+\end{equation}
+Then $f$ is strictly Schur-convex on $D$. If instead $\partial_j f(u)<\partial_i f(u)$ under the same hypotheses, $f$ is strictly Schur-concave on $D$.
+\end{lemma}
+
+\begin{proof}
+Let $v\in D$ and $i\ne j$ with $v_i\le v_j$, and write $c=(v_i+v_j)/2$, $r=(v_j-v_i)/2\ge 0$. For $\rho\in[0,r]$ let $v(\rho)$ be the vector obtained from $v$ by replacing $(v_i,v_j)$ with $(c-\rho,c+\rho)$. If $r>0$ then $v(\rho)=\frac{\rho}{r}v+(1-\frac{\rho}{r})vQ$, where $Q$ exchanges the coordinates $i,j$; since $D$ is symmetric and convex, $v(\rho)\in D$. Let $T=\lambda I+(1-\lambda)Q$. A direct computation gives $vT=v(\rho)$ with $\rho=(2\lambda-1)r$ when $\lambda\ge\frac12$, and $vT=v(\rho)Q$ with $\rho=(1-2\lambda)r$ when $\lambda<\frac12$. In both cases $vT\in D$. Put $\varphi(\rho)=f(v(\rho))$. Then $\varphi'(\rho)=\partial_j f(v(\rho))-\partial_i f(v(\rho))>0$ for $\rho\in(0,r]$ by \eqref{eq:segment-hyp}, because $v(\rho)\in D$ has $v(\rho)_i=c-\rho<c+\rho=v(\rho)_j$. Hence $\varphi$ is strictly increasing on $[0,r]$, and by the symmetry of $f$,
+\[
+f(vT)=\varphi(\rho)\le\varphi(r)=f(v),
+\]
+with equality if and only if $\rho=r$, that is, if and only if $vT\in\{v,vQ\}$ is a permutation of $v$ (when $r=0$, $vT=v$).
+
+Now let $x,y\in D$ with $x\maj y$. By Lemma~\ref{lem:ttransform} there is a chain $x=x^{(0)},x^{(1)},\dots,x^{(k)}=y$ in which each $x^{(l+1)}$ is a $T$-transform of $x^{(l)}$; by the first paragraph and induction all $x^{(l)}$ lie in $D$ and $f(x^{(l+1)})\le f(x^{(l)})$, with equality only if $x^{(l+1)}$ is a permutation of $x^{(l)}$. Therefore $f(y)\le f(x)$, and $f(y)=f(x)$ forces $y$ to be a permutation of $x$. The concave case follows by applying this to $-f$.
+\end{proof}
+
+\subsection{The softmax-weighted mean}
+For $\tau\in\R$ and $x\in\R^n$ put $Z_\tau(x)=\sum_k e^{\tau x_k}$ and define $B_\tau(x)$ by \eqref{eq:softmax-mean}. Two special cases get their own names:
+\begin{gather*}
+F(u)=B_{-1}(u)=\frac{\sum_k u_k e^{-u_k}}{S(u)},\qquad S(u)=\sum_k e^{-u_k};\\
+H(u)=B_{1}(u)=\frac{\sum_k u_k e^{u_k}}{Z(u)},\qquad Z(u)=\sum_k e^{u_k}.
+\end{gather*}
+
+\begin{lemma}\label{lem:basic}
+Let $\tau\in\R$, $x\in\R^n$, $s,t\in\R$. The function $B_\tau$ is symmetric and real-analytic on $\R^n$, and:
+\begin{enumerate}
+\item[(a)] $B_\tau(x+s\one)=B_\tau(x)+s$, where $\one=(1,\dots,1)$;
+\item[(b)] $B_\tau(tx)=t\,B_{t\tau}(x)$;
+\item[(c)] $B_\tau(-x)=-B_{-\tau}(x)$; consequently, for the reflection $R(x)=(a+b)\one-x$ of the box $[a,b]^n$ onto itself, $B_\tau(Rx)=a+b-B_{-\tau}(x)$;
+\item[(d)] $\displaystyle \partial_i B_\tau(x)=\frac{e^{\tau x_i}\bigl(1+\tau(x_i-B_\tau(x))\bigr)}{Z_\tau(x)}$; in particular $\partial_i F(u)=\dfrac{e^{-u_i}(1-u_i+F(u))}{S(u)}$ and $\partial_i H(u)=\dfrac{e^{u_i}(1+u_i-H(u))}{Z(u)}$;
+\item[(e)] for $n\ge 2$, $c\in\R$ and $\varepsilon\in\R$,
+$\displaystyle B_\tau(c+\varepsilon,c-\varepsilon,c,\dots,c)=c+\frac{2\varepsilon\sinh(\tau\varepsilon)}{2\cosh(\tau\varepsilon)+n-2}$;
+\item[(f)] majorization is invariant under the maps $x\mapsto x+s\one$, $x\mapsto tx$ $(t>0)$ and $x\mapsto -x$: each of them maps pairs $x\maj y$ to pairs $x'\maj y'$ and preserves the property that $y$ is not a permutation of $x$. In particular the affine bijections $x\mapsto t(x-a\one)$ $(t>0)$ and $R$ above preserve majorization.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a), (b), (c) are immediate from the definition, since the weights $e^{\tau x_i}/Z_\tau(x)$ are unchanged by $x\mapsto x+s\one$ and are the weights of $B_{t\tau}(x)$ for the argument $tx$. For (d) write $B_\tau=T_\tau/Z_\tau$ with $T_\tau(x)=\sum_k x_k e^{\tau x_k}$; then $\partial_i T_\tau=(1+\tau x_i)e^{\tau x_i}$, $\partial_i Z_\tau=\tau e^{\tau x_i}$ and the quotient rule gives the formula. For (e), the numerator of $B_\tau$ at $(c+\varepsilon,c-\varepsilon,c,\dots,c)$ equals $e^{\tau c}\bigl[c(2\cosh\tau\varepsilon+n-2)+2\varepsilon\sinh\tau\varepsilon\bigr]$ and the denominator equals $e^{\tau c}(2\cosh\tau\varepsilon+n-2)$. For (f): shifting by $s\one$ adds $ks$ to every partial sum of $k$ largest entries on both sides, and scaling by $t>0$ multiplies them by $t$. For negation, the $k$ largest entries of $-x$ are the negatives of the $k$ smallest entries of $x$, whose sum is $\sum_i x_i-\sum_{i\le n-k}x_{[i]}$; since $x$ and $y$ have equal sums, $\sum_{i\le k}(-x)_{[i]}\ge\sum_{i\le k}(-y)_{[i]}$ is equivalent to $\sum_{i\le n-k}x_{[i]}\ge\sum_{i\le n-k}y_{[i]}$. Permutation equivalence is preserved by all three maps.
+\end{proof}
+
+\subsection{Four elementary inequalities}
+
+\begin{lemma}\label{lem:elementary}
+For $z>0$:
+\begin{enumerate}
+\item[(i)] $\tanh z<z$; equivalently $z\coth z>1$;
+\item[(ii)] $\cosh z+\dfrac{z}{\sinh z}>2$;
+\item[(iii)] $\tanh z\ge z-\dfrac{z^{3}}{3}$;
+\item[(iv)] $z\coth z\le 1+\dfrac{z^{2}}{3}$; equivalently $z\coth\dfrac z2\le 2+\dfrac{z^{2}}{6}$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(i) The function $z-\tanh z$ vanishes at $0$ and has derivative $1-\operatorname{sech}^2 z=\tanh^2 z>0$ for $z>0$. (ii) By the arithmetic-geometric mean inequality and (i), $\cosh z+z/\sinh z\ge 2\sqrt{z\coth z}>2$. (iii) The function $\tanh z-z+z^3/3$ vanishes at $0$ and has derivative $\operatorname{sech}^2 z-1+z^2=z^2-\tanh^2 z\ge 0$ by (i). (iv) Comparing the Taylor coefficients of $r^{2k+1}$,
+\begin{align*}
+\Bigl(1+\frac{r^2}{3}\Bigr)\sinh r-r\cosh r
+&=\sum_{k\ge 1}\Bigl[\frac{1}{(2k+1)!}+\frac{1}{3\,(2k-1)!}-\frac{1}{(2k)!}\Bigr]r^{2k+1}\\
+&=\sum_{k\ge 1}\frac{4k(k-1)}{3\,(2k+1)!}\,r^{2k+1}\ \ge\ 0
+\end{align*}
+for $r\ge 0$ (the coefficient of $r$ vanishes), which is $r\coth r\le 1+r^2/3$; the second form is the case $r=z/2$ multiplied by $2$.
+\end{proof}
+
+\subsection{The Lambert function and the constants}
+$\Wl$ is the inverse of $w\mapsto we^{w}$ on $[0,\infty)$; it is continuous and strictly increasing, with $\Wl(0)=0$ and $\Wl(v)\to\infty$ as $v\to\infty$ \cite{Corless1996}. For $n\ge 3$ put $m=n-2$ and
+\begin{equation}\label{eq:g}
+g(c)=g_n(c)=m(2-c)+4e^{-c}\qquad(c\in\R).
+\end{equation}
+
+\begin{lemma}\label{lem:cn}
+Let $n\ge 3$. The function $g$ is strictly decreasing on $\R$, $g(2)=4e^{-2}>0$, $g(3)<0$, and its unique zero is $c_n$ from \eqref{eq:constants}; thus $2<c_n<3$, $g(c)>0$ for $c<c_n$ and $g(c)<0$ for $c>c_n$. The sequence $(c_n)_{n\ge 3}$ is strictly decreasing with limit $2$. Likewise $h_n(d)=(d-2)e^{d}-2(n-1)$ is negative on $[0,2]$, strictly increasing on $[1,\infty)$, and has the unique zero $d_n>2$ from \eqref{eq:constants}; $(d_n)_{n\ge 3}$ is strictly increasing with limit $\infty$, and $c_3=d_3$.
+\end{lemma}
+
+\begin{proof}
+$g'(c)=-m-4e^{-c}<0$; $g(3)=-m+4e^{-3}<0$ since $m\ge 1>4e^{-3}$. The equation $g(c)=0$ is $m(c-2)e^{c}=4$; with $w=c-2$ it reads $we^{w}=4/(me^2)$, so $c_n=2+\Wl(4/(me^2))$, and since the argument of $\Wl$ decreases strictly to $0$ as $n\to\infty$, $c_n$ decreases strictly to $2$. For $h_n$: $h_n'(d)=(d-1)e^{d}$, $h_n(d)\le 0$ on $[0,2]$ since $2(n-1)\ge 4>0\ge (d-2)e^d$ there, and $h_n(d)=0$ with $d>2$ reads $(d-2)e^{d-2}=2(n-1)/e^2$, so $d_n=2+\Wl(2(n-1)/e^2)$, strictly increasing to $\infty$. Finally for $n=3$ both equations read $(c-2)e^{c}=4$.
+\end{proof}
+
+\section{The box theorem}\label{sec:box}
+
+\begin{theorem}[box]\label{thm:box}
+Let $n\ge 3$, $a<b$, $\tau\ne 0$, and put $L=|\tau|(b-a)$. Let $c_n$ be the constant of \eqref{eq:constants}.
+\begin{enumerate}
+\item[(i)] If $L\le c_n$, then $B_\tau$ is strictly Schur-convex on $[a,b]^n$ when $\tau>0$, and strictly Schur-concave on $[a,b]^n$ when $\tau<0$.
+\item[(ii)] If $L>c_n$, then there are $x,y\in(a,b)^n$ with $x\maj y$, $y$ not a permutation of $x$, and $B_\tau(x)<B_\tau(y)$ if $\tau>0$, $B_\tau(x)>B_\tau(y)$ if $\tau<0$. Explicit such pairs are given in \eqref{eq:box-witness}. Consequently, for $L>c_n$, $B_\tau$ is neither Schur-convex nor Schur-concave on $[a,b]^n$.
+\end{enumerate}
+\end{theorem}
+
+Throughout this section $m=n-2\ge 1$. The proof is carried out for $\tau=-1$ on $[0,L]^n$ and transferred by Lemma~\ref{lem:basic}.
+
+\subsection{The pair identity}
+
+\begin{lemma}[pair identity]\label{lem:pair}
+Let $n\ge 3$ and $u\in[0,\infty)^n$ with $u_1=x<y=u_2$. Put
+\begin{gather*}
+\psi(t)=\psi_{x,y}(t)=(1+t-x)e^{-x}-(1+t-y)e^{-y}\quad(t\in\R),\\
+P=P(x,y)=e^{-2x}-e^{-2y}+2(y-x)e^{-(x+y)} .
+\end{gather*}
+Then $\psi$ is affine with slope $e^{-x}-e^{-y}>0$, $P>0$, and
+\begin{equation}\label{eq:pair}
+S(u)^2\bigl(\partial_1F(u)-\partial_2F(u)\bigr)=\sum_{k=1}^n e^{-u_k}\psi(u_k)=P+\sum_{k=3}^n e^{-u_k}\psi(u_k).
+\end{equation}
+Consequently, with $N=N(x,y)=P+m\,\psi(0)$,
+\begin{equation}\label{eq:pair-bound}
+S(u)^2\bigl(\partial_1F(u)-\partial_2F(u)\bigr)\ \ge\ \min\{P,N\},
+\end{equation}
+and equality $S(u)^2(\partial_1F(u)-\partial_2F(u))=N$ holds when $u_3=\dots=u_n=0$.
+\end{lemma}
+
+\begin{proof}
+By Lemma~\ref{lem:basic}(d), $S\,\partial_iF=e^{-u_i}(1-u_i+F)$ and $S F=\sum_k u_ke^{-u_k}$, hence
+\[
+S^2\partial_iF=e^{-u_i}\Bigl[(1-u_i)S+\sum_k u_ke^{-u_k}\Bigr]=e^{-u_i}\sum_k(1-u_i+u_k)e^{-u_k}.
+\]
+Subtracting the expressions for $i=1$ and $i=2$ gives the first equality in \eqref{eq:pair}. The terms $k=1,2$ contribute $e^{-x}\psi(x)+e^{-y}\psi(y)=e^{-2x}-(1+x-y)e^{-(x+y)}+(1+y-x)e^{-(x+y)}-e^{-2y}=P$, which is the second equality. $P>0$ because $e^{-2x}>e^{-2y}$ and $y>x$. Since $\psi$ is increasing and $u_k\ge 0$, $\psi(u_k)\ge\psi(0)$ for $k\ge 3$. If $\psi(0)\ge 0$ the sum in \eqref{eq:pair} is nonnegative and the left side is at least $P$. If $\psi(0)<0$ then, using $0<e^{-u_k}\le 1$, $\sum_{k\ge 3}e^{-u_k}\psi(u_k)\ge\sum_{k\ge 3}e^{-u_k}\psi(0)\ge m\psi(0)$, and the left side is at least $N$. When $u_3=\dots=u_n=0$ the sum equals $m\psi(0)$ exactly.
+\end{proof}
+
+\begin{lemma}[factorization]\label{lem:factor}
+Let $x<y$, $c=(x+y)/2$ and $z=(y-x)/2>0$. Then
+\begin{equation}\label{eq:factor}
+N(x,y)=2e^{-c}\sinh z\Bigl[m\bigl(1-c+z\coth z\bigr)+2e^{-c}\Bigl(\cosh z+\frac{z}{\sinh z}\Bigr)\Bigr]>2e^{-c}\sinh z\cdot g(c),
+\end{equation}
+with $g$ as in \eqref{eq:g}. In particular $N(x,y)>0$ whenever $c\le c_n$.
+\end{lemma}
+
+\begin{proof}
+Substituting $x=c-z$, $y=c+z$,
+\begin{gather*}
+\psi(0)=e^{-c}\bigl[(1-c+z)e^{z}-(1-c-z)e^{-z}\bigr]=2e^{-c}\bigl[(1-c)\sinh z+z\cosh z\bigr],\\
+P=e^{-2c}\bigl[2\sinh 2z+4z\bigr]=4e^{-2c}\bigl[\sinh z\cosh z+z\bigr],
+\end{gather*}
+and $N=m\psi(0)+P$ gives the identity after factoring out $2e^{-c}\sinh z>0$. By Lemma~\ref{lem:elementary}(i),(ii), $z\coth z>1$ and $\cosh z+z/\sinh z>2$, so the bracket exceeds $m(2-c)+4e^{-c}=g(c)$. If $c\le c_n$ then $g(c)\ge 0$ by Lemma~\ref{lem:cn}, so $N>0$.
+\end{proof}
+
+\subsection{Proof of sufficiency}
+
+\begin{proof}[Proof of Theorem~\ref{thm:box}(i)]
+First let $\tau<0$ and $t=-\tau$. The map $x\mapsto u=t(x-a\one)$ is a bijection of $[a,b]^n$ onto $[0,L]^n$ that preserves majorization and non-permutation (Lemma~\ref{lem:basic}(f)), and by Lemma~\ref{lem:basic}(a),(b),
+\begin{equation}\label{eq:reduction}
+B_\tau(x)=B_{-t}\bigl(a\one+u/t\bigr)=a+\tfrac1t B_{-1}(u)=a+\tfrac1t F(u).
+\end{equation}
+Hence it suffices to prove that $F$ is strictly Schur-concave on $[0,L]^n$ when $L\le c_n$. Let $u\in[0,L]^n$ and $i\ne j$ with $u_i<u_j$. By symmetry we may take $i=1$, $j=2$. Then $c=(u_1+u_2)/2\le L\le c_n$, so $N(u_1,u_2)>0$ by Lemma~\ref{lem:factor}, and \eqref{eq:pair-bound} gives $\partial_1F(u)-\partial_2F(u)\ge S(u)^{-2}\min\{P,N\}>0$. Thus $\partial_jF(u)<\partial_iF(u)$ whenever $u_i<u_j$, and Lemma~\ref{lem:segment} (applied to the convex symmetric set $[0,L]^n$ and the symmetric real-analytic function $F$) shows that $F$ is strictly Schur-concave on $[0,L]^n$.
+
+Now let $\tau>0$. The reflection $R(x)=(a+b)\one-x$ maps $[a,b]^n$ onto itself and preserves majorization and non-permutation (Lemma~\ref{lem:basic}(f)), and $B_\tau(x)=a+b-B_{-\tau}(Rx)$ by Lemma~\ref{lem:basic}(c). If $x\maj y$ in $[a,b]^n$ with $y$ not a permutation of $x$, then $Rx\maj Ry$ with $Ry$ not a permutation of $Rx$, so $B_{-\tau}(Rx)<B_{-\tau}(Ry)$ by the first part (note $|{-\tau}|(b-a)=L\le c_n$), and therefore $B_\tau(x)>B_\tau(y)$.
+\end{proof}
+
+\subsection{Proof of necessity}
+
+\begin{lemma}[two-point split at the vertex]\label{lem:split}
+Let $n\ge 3$, $c\in\R$, $z>0$ and $q=e^{-c}$. Then
+\begin{equation}\label{eq:split}
+\begin{aligned}
+\Delta(c,z)&:=F(c-z,c+z,0,\dots,0)-F(c,c,0,\dots,0)\\
+&=\frac{2q\,z\sinh z}{(m+2q\cosh z)(m+2q)}\Bigl[\frac{mc\tanh(z/2)}{z}-(m+2q)\Bigr].
+\end{aligned}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Directly from the definition,
+\[
+F(c-z,c+z,0,\dots,0)=\frac{2q(c\cosh z-z\sinh z)}{m+2q\cosh z},\qquad F(c,c,0,\dots,0)=\frac{2qc}{m+2q}.
+\]
+Bringing the difference to the common denominator, the numerator is
+\[
+2q\bigl[(c\cosh z-z\sinh z)(m+2q)-c(m+2q\cosh z)\bigr]=2q\bigl[mc(\cosh z-1)-z\sinh z\,(m+2q)\bigr].
+\]
+With $\cosh z-1=2\sinh^2(z/2)$ and $\sinh z=2\sinh(z/2)\cosh(z/2)$ the bracket equals
+\[
+2\sinh(z/2)\cosh(z/2)\bigl[mc\tanh(z/2)-z(m+2q)\bigr]=z\sinh z\bigl[mc\tanh(z/2)/z-(m+2q)\bigr].
+\]
+\end{proof}
+
+\begin{lemma}[sign bound]\label{lem:signbound}
+Let $n\ge 3$, $c>c_n$, $q=e^{-c}$ and
+\begin{equation}\label{eq:eta}
+\eta=\eta(c)=1-\frac{2(m+2q)}{mc}=\frac{-g(c)}{mc}>0 .
+\end{equation}
+If $0<z\le\sqrt{3\eta}$, then
+\begin{equation}\label{eq:signbound}
+\frac{mc\tanh(z/2)}{z}-(m+2q)\ \ge\ \frac{3mc\,\eta}{8}>0,\qquad\text{hence}\qquad \Delta(c,z)>0 .
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The two expressions for $\eta$ agree because $mc-2(m+2q)=m(c-2)-4e^{-c}=-g(c)$, and $\eta>0$ because $g(c)<0$ for $c>c_n$ (Lemma~\ref{lem:cn}) and $c>2>0$. By Lemma~\ref{lem:elementary}(iii) with argument $z/2$, $\tanh(z/2)\ge z/2-z^3/24$, so
+\[
+\frac{mc\tanh(z/2)}{z}-(m+2q)\ \ge\ \frac{mc}{2}-\frac{mc\,z^2}{24}-(m+2q)=\frac{mc\,\eta}{2}-\frac{mc\,z^2}{24}\ \ge\ \frac{mc\,\eta}{2}-\frac{mc\,\eta}{8}=\frac{3mc\,\eta}{8},
+\]
+using $z^2\le 3\eta$. The positivity of $\Delta(c,z)$ then follows from \eqref{eq:split}, all other factors there being positive.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:box}(ii)]
+Let $L>c_n$ and define
+\begin{equation}\label{eq:box-construction}
+C=\frac{L+c_n}{2},\qquad s=\frac{L-c_n}{4},\qquad q=e^{-C},\qquad \eta=\eta(C),\qquad z=\min\Bigl\{\frac{s}{2},\sqrt{3\eta}\Bigr\},
+\end{equation}
+\[
+u=(s+C-z,\ s+C+z,\ s,\dots,s),\qquad u^\circ=(s+C,\ s+C,\ s,\dots,s).
+\]
+Here $C>c_n$, so $\eta>0$ by \eqref{eq:eta}. All coordinates of $u$ and $u^\circ$ lie in $(0,L)$: $s>0$, $s+C-z\ge s+C-s/2>0$, and $s+C+z\le s+C+s/2=\frac{7L+c_n}{8}<L$. The vector $u^\circ$ is the $T$-transform of $u$ with $\lambda=\frac12$ acting on the first two coordinates, so $u\maj u^\circ$, and $u^\circ$ is not a permutation of $u$ because $z>0$. By Lemma~\ref{lem:basic}(a), subtracting $s\one$,
+\[
+F(u)-F(u^\circ)=F(C-z,C+z,0,\dots,0)-F(C,C,0,\dots,0)=\Delta(C,z)>0
+\]
+by Lemma~\ref{lem:signbound}, since $0<z\le\sqrt{3\eta}$.
+
+Now let $t=|\tau|$ and transfer to the box. If $\tau<0$ put
+\begin{equation}\label{eq:box-witness}
+\begin{aligned}
+&x=a\one+u/t,\qquad y=a\one+u^\circ/t\qquad(\tau<0);\\
+&x=b\one-u/t,\qquad y=b\one-u^\circ/t\qquad(\tau>0).
+\end{aligned}
+\end{equation}
+Since $L=t(b-a)$, both vectors lie in $(a,b)^n$, and $x\maj y$ with $y$ not a permutation of $x$ by Lemma~\ref{lem:basic}(f). For $\tau<0$, \eqref{eq:reduction} gives $B_\tau(x)-B_\tau(y)=\frac1t(F(u)-F(u^\circ))>0$. For $\tau>0$, Lemma~\ref{lem:basic}(c) with $R x=a\one+u/t$ gives $B_\tau(x)-B_\tau(y)=-\bigl(B_{-\tau}(a\one+u/t)-B_{-\tau}(a\one+u^\circ/t)\bigr)=-\frac1t(F(u)-F(u^\circ))<0$.
+
+Finally, $B_\tau$ is not Schur-concave on $[a,b]^n$ for $\tau>0$ and not Schur-convex for $\tau<0$, whatever $L$: for $c\in(a,b)$ and small $\varepsilon>0$ the vectors $(c+\varepsilon,c-\varepsilon,c,\dots,c)\maj c\one$ lie in the box, are not permutations of each other, and by Lemma~\ref{lem:basic}(e) the difference of their $B_\tau$ values is $2\varepsilon\sinh(\tau\varepsilon)/(2\cosh(\tau\varepsilon)+n-2)$, which has the sign of $\tau$. Together with the violations just constructed, $B_\tau$ is neither Schur-convex nor Schur-concave on $[a,b]^n$ when $L>c_n$.
+\end{proof}
+
+\begin{remark}\label{rem:extremal}
+The threshold is decided by the configuration in which all but two coordinates sit at the lower end of the range: by Lemma~\ref{lem:pair} the pair derivative is smallest there, and Lemma~\ref{lem:split} shows that at that configuration a small symmetric split of the pair around $c$ increases $F$ exactly when $g(c)<0$, that is, when $c>c_n$. Expanding \eqref{eq:split} in $z$ gives $\Delta(c,z)=\dfrac{q\,(m(c-2)-4q)}{(m+2q)^2}\,z^2+O(z^4)=\dfrac{-q\,g(c)}{(m+2q)^2}\,z^2+O(z^4)$. The equation $g(c_n)=0$ is thus the exact boundary, and the construction above only makes the choice of $z$ explicit.
+\end{remark}
+
+\subsection{Two variables and the dimension-free constant}
+
+\begin{proposition}\label{prop:n2}
+For $n=2$, $\tau\ne 0$ and $c,z\in\R$, $B_\tau(c-z,c+z)=c+z\tanh(\tau z)$. Hence $B_\tau$ is strictly Schur-convex on $\R^2$ for $\tau>0$ and strictly Schur-concave on $\R^2$ for $\tau<0$.
+\end{proposition}
+
+\begin{proof}
+The formula is the case $n=2$ of Lemma~\ref{lem:basic}(e). On $\R^2$, $(c-z,c+z)\maj(c-z',c+z')$ if and only if $|z|\ge|z'|$, with $y$ a permutation of $x$ if and only if $|z|=|z'|$; and $z\tanh(\tau z)=|z|\tanh(|\tau||z|)\sgn\tau$ is strictly increasing in $|z|$ when $\tau>0$ and strictly decreasing when $\tau<0$.
+\end{proof}
+
+\begin{corollary}[dimension-free constant]\label{cor:dimfree}
+For every $n\ge 2$, $a<b$ and $\tau\ne0$ with $|\tau|(b-a)\le 2$, $B_\tau$ is strictly Schur-convex on $[a,b]^n$ if $\tau>0$ and strictly Schur-concave if $\tau<0$. The constant $2$ is best possible uniformly in $n$: for every $L>2$ there is an $n$ such that the ordering fails on $[a,b]^n$ whenever $|\tau|(b-a)=L$.
+\end{corollary}
+
+\begin{proof}
+For $n\ge 3$ this is Theorem~\ref{thm:box}(i) with $L\le 2<c_n$, and for $n=2$ it is Proposition~\ref{prop:n2}. Given $L>2$, Lemma~\ref{lem:cn} provides $n$ with $c_n<L$, and Theorem~\ref{thm:box}(ii) applies.
+\end{proof}
+
+\begin{remark}[the Lehmer transfer]\label{rem:lehmer}
+For $X\in(0,\infty)^n$ and $p\in\R$ the Lehmer mean is $L_p(X)=\sum_k X_k^{p}/\sum_k X_k^{p-1}$ \cite{Lehmer1971,Bullen2003}. For $x\in\R^n$, $\tau\in\R$ and $\varepsilon>0$, with $X=(e^{\varepsilon x_1},\dots,e^{\varepsilon x_n})$ and $p=\tau/\varepsilon$,
+\begin{equation}\label{eq:lehmer}
+L_{p}(X)=\frac{Z_\tau(x)}{Z_{\tau-\varepsilon}(x)},\qquad
+\frac{1}{\varepsilon}\log L_{p}(X)=\frac{\log Z_\tau(x)-\log Z_{\tau-\varepsilon}(x)}{\varepsilon}\ \xrightarrow[\varepsilon\to 0^+]{}\ \frac{\partial}{\partial\tau}\log Z_\tau(x)=B_\tau(x).
+\end{equation}
+Schur-geometric convexity of $L_p$ (monotonicity for the majorization of $\log X$) therefore transfers to Schur-convexity of $B_\tau$ in the limit, without strictness. Two known results transfer in this way.
+
+(1) Fu, Wang and Shi \cite[Theorem~1.4(II)]{FuWangShi2016} prove that for $p>\frac12$ and every $A>0$ the mean $L_p$ is Schur-geometrically convex on the box $\bigl[\bigl(\tfrac{p-1}{p}\bigr)^2A,\,A\bigr]^n$. Let $\tau>0$, $x\maj y$ in $[a,b]^n$ and $0<\varepsilon<\tau$. Then $\log X=\varepsilon x$, $\log Y=\varepsilon y$, $\varepsilon x\maj\varepsilon y$, and $X,Y$ lie in the box with $A=e^{\varepsilon b}$ provided $e^{\varepsilon(b-a)}\le\bigl(\tfrac{\tau}{\tau-\varepsilon}\bigr)^2$, that is, $\varepsilon(b-a)\le-2\log(1-\varepsilon/\tau)$. Since $-\log(1-w)\ge w$ for $0\le w<1$, this holds for every $\varepsilon\in(0,\tau)$ as soon as $\tau(b-a)\le 2$. Then $L_p(X)\ge L_p(Y)$ for all small $\varepsilon$, and \eqref{eq:lehmer} gives $B_\tau(x)\ge B_\tau(y)$. This recovers the nonstrict form of Corollary~\ref{cor:dimfree} for $\tau>0$ (and, by reflection, for $\tau<0$). The bounded-ratio condition of that theorem transfers to exactly the constant $2$; it does not give $c_n$, the strictness at the threshold, or the violations.
+
+(2) For $n=2$ the Lehmer mean $L_p=G(p,p-1)$ is a Gini mean, and the Schur-geometric convexity of the two-variable Gini means $G(r,s;x,y)$ for $r,s\ge 0$ (Shi, Jiang and Jiang \cite{ShiJiangJiang2009}; see also Witkowski \cite{Witkowski2011} for a four-parameter family containing them) holds on all of $(0,\infty)^2$, so \eqref{eq:lehmer} gives the nonstrict form of Proposition~\ref{prop:n2}. The direct proof above is shorter and gives strictness.
+\end{remark}
+
+\section{The simplex theorem}\label{sec:simplex}
+
+For $S>0$ let $\Simp_S=\{x\in[0,\infty)^n:\sum_i x_i=S\}$, a compact convex symmetric set. We say that a pair $x\maj y$ in $\Simp_S$ is \emph{interior} if all coordinates of $x$ and of $y$ are positive.
+
+\begin{theorem}[simplex]\label{thm:simplex}
+Let $n\ge 3$, $S>0$ and $\tau\ne 0$. Let $c_n,d_n$ be the constants of \eqref{eq:constants}.
+\begin{enumerate}
+\item[(i)] Let $\tau>0$. If $\tau S\le d_n$, then $B_\tau$ is strictly Schur-convex on $\Simp_S$. If $\tau S>d_n$, there is an interior pair $x\maj y$ in $\Simp_S$, $y$ not a permutation of $x$, with $B_\tau(x)<B_\tau(y)$; an explicit pair is given in \eqref{eq:simplex-pos-witness}.
+\item[(ii)] Let $\tau<0$. If $|\tau|S\le 2c_n$, then $B_\tau$ is strictly Schur-concave on $\Simp_S$. If $|\tau|S>2c_n$, there is an interior pair $x\maj y$ in $\Simp_S$, $y$ not a permutation of $x$, with $B_\tau(x)>B_\tau(y)$; an explicit pair is given in \eqref{eq:simplex-neg-witness}.
+\end{enumerate}
+In both cases, above the threshold $B_\tau$ is neither Schur-convex nor Schur-concave on $\Simp_S$.
+\end{theorem}
+
+By Lemma~\ref{lem:basic}(b),(f), the map $x\mapsto u=|\tau|x$ is a majorization-preserving bijection of $\Simp_S$ onto $\Simp_K$ with $K=|\tau|S$, and $B_\tau(x)=|\tau|^{-1}B_{\sgn\tau}(u)$. It therefore suffices to treat $H=B_1$ (for $\tau>0$) and $F=B_{-1}$ (for $\tau<0$) on $\Simp_K$, and the witnesses transfer by $x=u/|\tau|$.
+
+\subsection{Positive temperature}
+
+\begin{lemma}\label{lem:convexbound}
+Let $n\ge 2$, $K>0$ and $u\in\Simp_K$. Then
+\begin{equation}\label{eq:convexbound}
+\sum_{k=1}^n(u_k-2)e^{u_k}\ \le\ (K-2)e^{K}-2(n-1),
+\end{equation}
+with equality if and only if $u$ is a permutation of $(K,0,\dots,0)$. Consequently $H(u)\le 2$ for all $u\in\Simp_K$ whenever $K\le d_n$, and $H(K,0,\dots,0)=\varphi(K):=\dfrac{Ke^{K}}{e^{K}+n-1}$ satisfies $\varphi(K)-2=\dfrac{(K-2)e^{K}-2(n-1)}{e^{K}+n-1}$, which is positive if and only if $K>d_n$.
+\end{lemma}
+
+\begin{proof}
+The function $\rho(s)=(s-2)e^{s}$ has $\rho''(s)=se^{s}$, so it is strictly convex on $[0,\infty)$. For $s\in[0,K]$ the chord inequality gives $\rho(s)\le(1-s/K)\rho(0)+(s/K)\rho(K)$, with equality if and only if $s\in\{0,K\}$. Summing over $s=u_k$ and using $\sum_k u_k/K=1$ yields $\sum_k\rho(u_k)\le(n-1)\rho(0)+\rho(K)=-2(n-1)+(K-2)e^{K}$, with equality if and only if every $u_k\in\{0,K\}$, that is, $u$ is a permutation of $(K,0,\dots,0)$. Since $\sum_k(u_k-2)e^{u_k}=(H(u)-2)Z(u)$, the bound $H\le 2$ follows when $(K-2)e^{K}\le 2(n-1)$, which by Lemma~\ref{lem:cn} holds exactly for $K\le d_n$. The formula for $\varphi(K)-2$ is a direct computation, and its sign is that of $h_n(K)$, again by Lemma~\ref{lem:cn}.
+\end{proof}
+
+\begin{lemma}\label{lem:Hderiv}
+Let $u\in[0,\infty)^n$ with $H(u)\le 2$, and let $i\ne j$ with $u_i<u_j$. Then $\partial_jH(u)>\partial_iH(u)$.
+\end{lemma}
+
+\begin{proof}
+By Lemma~\ref{lem:basic}(d), $Z(u)\,\partial_kH(u)=f(u_k)$ with $f(s)=e^{s}(1+s-H(u))$, and $f'(s)=e^{s}(2+s-H(u))$, which is positive for $s>0$ and nonnegative at $s=0$. Hence $f$ is strictly increasing on $[0,\infty)$ and $f(u_j)>f(u_i)$.
+\end{proof}
+
+\begin{lemma}[two-point split of equal coordinates]\label{lem:Hsplit}
+Let $n\ge 3$, $w\in\R^n$ with $w_i=w_j=\varepsilon$ for some $i\ne j$, and let $w'$ be obtained from $w$ by replacing $(w_i,w_j)$ with $(\varepsilon-z,\varepsilon+z)$, $z>0$. With $E=\sum_{k\ne i,j}e^{w_k}$,
+\begin{equation}\label{eq:Hsplit}
+H(w')-H(w)=\frac{2e^{\varepsilon}(\cosh z-1)}{E+2e^{\varepsilon}\cosh z}\Bigl[\varepsilon-H(w)+z\coth\frac z2\Bigr].
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Let $T=\sum_{k\ne i,j}w_ke^{w_k}$. Then $H(w)=(T+2\varepsilon e^{\varepsilon})/(E+2e^{\varepsilon})$ and $H(w')=\bigl(T+2e^{\varepsilon}(\varepsilon\cosh z+z\sinh z)\bigr)/(E+2e^{\varepsilon}\cosh z)$. Hence
+\[
+(E+2e^{\varepsilon}\cosh z)\bigl(H(w')-H(w)\bigr)=\bigl[T-H(w)E\bigr]+2e^{\varepsilon}\bigl[\varepsilon\cosh z+z\sinh z-H(w)\cosh z\bigr],
+\]
+and $T-H(w)E=H(w)(E+2e^{\varepsilon})-2\varepsilon e^{\varepsilon}-H(w)E=2e^{\varepsilon}(H(w)-\varepsilon)$. Collecting terms, the right side equals $2e^{\varepsilon}\bigl[(\varepsilon-H(w))(\cosh z-1)+z\sinh z\bigr]$, and $z\sinh z/(\cosh z-1)=z\coth(z/2)$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:simplex}(i)]
+Let $K=\tau S$. If $K\le d_n$, then $H\le 2$ on $\Simp_K$ by Lemma~\ref{lem:convexbound}, so Lemma~\ref{lem:Hderiv} gives $\partial_jH(u)>\partial_iH(u)$ for all $u\in\Simp_K$ and $u_i<u_j$, and Lemma~\ref{lem:segment} shows that $H$ is strictly Schur-convex on the convex symmetric set $\Simp_K$. Transferring by $u=\tau x$ proves the first statement.
+
+Let now $K>d_n$ and put
+\begin{equation}\label{eq:simplex-pos-construction}
+\delta_0=\varphi(K)-2>0,\qquad A=2(n-1)(K+1)+1,\qquad \varepsilon=\min\Bigl\{\frac{K}{2n},\frac{\delta_0}{2A}\Bigr\},\qquad z=\min\Bigl\{\frac{\varepsilon}{2},\sqrt{\tfrac{3\delta_0}{2}}\Bigr\},
+\end{equation}
+\[
+v=\bigl(K-(n-1)\varepsilon,\ \varepsilon,\ \varepsilon,\ \varepsilon,\dots,\varepsilon\bigr),\qquad
+v'=\bigl(K-(n-1)\varepsilon,\ \varepsilon-z,\ \varepsilon+z,\ \varepsilon,\dots,\varepsilon\bigr).
+\]
+Both lie in $\Simp_K$ with all coordinates positive, since $K-(n-1)\varepsilon\ge K-\frac{(n-1)K}{2n}>\frac K2$ and $\varepsilon-z\ge\varepsilon/2$; $v$ is the $T$-transform of $v'$ with $\lambda=\frac12$ on the coordinates $2,3$, so $v'\maj v$, and $v$ is not a permutation of $v'$ since $z>0$. We show $H(v')<H(v)$.
+
+First, $H(v)$ is close to $\varphi(K)=H(e)$, $e=(K,0,\dots,0)$. On $\Simp_K$ every coordinate and every value of $H$ lie in $[0,K]$, so by Lemma~\ref{lem:basic}(d), $|\partial_kH(u)|\le|1+u_k-H(u)|\le K+1$. The segment from $e$ to $v$ lies in $\Simp_K$ and $\|v-e\|_1=2(n-1)\varepsilon$, so by the mean value theorem $H(v)\ge\varphi(K)-2(n-1)(K+1)\varepsilon$, whence
+\begin{equation}\label{eq:Hv}
+H(v)-\varepsilon-2\ \ge\ \delta_0-A\varepsilon\ \ge\ \frac{\delta_0}{2}.
+\end{equation}
+Second, by Lemma~\ref{lem:Hsplit} applied to $w=v$, $(i,j)=(2,3)$, and by Lemma~\ref{lem:elementary}(iv) together with $z^2\le 3\delta_0/2$,
+\[
+\varepsilon-H(v)+z\coth\frac z2\ \le\ \varepsilon-H(v)+2+\frac{z^2}{6}\ \le\ -\frac{\delta_0}{2}+\frac{\delta_0}{4}=-\frac{\delta_0}{4}<0,
+\]
+so the bracket in \eqref{eq:Hsplit} is negative and $H(v')<H(v)$. The witness in $\Simp_S$ is
+\begin{equation}\label{eq:simplex-pos-witness}
+x=v'/\tau,\qquad y=v/\tau,\qquad B_\tau(x)-B_\tau(y)=\tau^{-1}\bigl(H(v')-H(v)\bigr)<0 .
+\end{equation}
+Finally, for any $K$, the pair $(K/n+\varepsilon,K/n-\varepsilon,K/n,\dots,K/n)\maj (K/n)\one$ in $\Simp_K$ (small $\varepsilon>0$) shows by Lemma~\ref{lem:basic}(e) that $H$ is not Schur-concave on $\Simp_K$; so above $d_n$, $B_\tau$ is neither Schur-convex nor Schur-concave on $\Simp_S$.
+\end{proof}
+
+\subsection{Negative temperature}
+
+\begin{proof}[Proof of Theorem~\ref{thm:simplex}(ii)]
+Let $t=|\tau|$ and $K=tS$. If $K\le 2c_n$, let $u\in\Simp_K$ and $u_i<u_j$; by symmetry $i=1$, $j=2$. Then $c=(u_1+u_2)/2\le K/2\le c_n$ and $u_k\ge 0$ for all $k$, so Lemmas~\ref{lem:factor} and~\ref{lem:pair} give $\partial_1F(u)-\partial_2F(u)\ge S(u)^{-2}\min\{P,N\}>0$. Lemma~\ref{lem:segment} shows that $F$ is strictly Schur-concave on $\Simp_K$, and $B_\tau(x)=t^{-1}F(tx)$ transfers this to $\Simp_S$.
+
+Let now $K>2c_n$ and put
+\begin{equation}\label{eq:simplex-neg-construction}
+C=\frac{K+2c_n}{4},\quad s=\frac{K-2C}{n}=\frac{K-2c_n}{2n},\quad q=e^{-C},\quad \eta=\eta(C),\quad z=\min\Bigl\{\frac C2,\sqrt{3\eta}\Bigr\},
+\end{equation}
+\[
+u=(s+C-z,\ s+C+z,\ s,\dots,s),\qquad u^\circ=(s+C,\ s+C,\ s,\dots,s).
+\]
+Then $C>c_n$, so $\eta>0$; $s>0$; the coordinate sums are $2C+ns=K$; all coordinates are positive since $s+C-z\ge s+C/2>0$; $u\maj u^\circ$ by a $T$-transform with $\lambda=\frac12$; and $u^\circ$ is not a permutation of $u$. By Lemma~\ref{lem:basic}(a) and Lemmas~\ref{lem:split} and~\ref{lem:signbound},
+\[
+F(u)-F(u^\circ)=\Delta(C,z)>0 .
+\]
+The witness in $\Simp_S$ is
+\begin{equation}\label{eq:simplex-neg-witness}
+x=u/t,\qquad y=u^\circ/t,\qquad B_\tau(x)-B_\tau(y)=t^{-1}\bigl(F(u)-F(u^\circ)\bigr)>0 .
+\end{equation}
+As in the positive case, Lemma~\ref{lem:basic}(e) shows that $F$ is never Schur-convex on $\Simp_K$, so above $2c_n$, $B_\tau$ is neither Schur-convex nor Schur-concave on $\Simp_S$.
+\end{proof}
+
+\subsection{Comparison of the two thresholds}
+
+\begin{proposition}[monotonicity and crossover]\label{prop:crossover}
+The positive threshold $d_n$ is strictly increasing in $n$ with $d_n\to\infty$; the negative threshold $2c_n$ is strictly decreasing with $2c_n\to 4$; and $d_3=c_3$, so $d_3<2c_3$. The difference $d_n-2c_n$ is strictly increasing and changes sign exactly once: $d_n<2c_n$ for $3\le n\le 57$ and $d_n>2c_n$ for $n\ge 58$. Numerically,
+\begin{gather*}
+d_{57}\in[4.0169248,\,4.0169249],\qquad 2c_{57}\in[4.0194941,\,4.0194942],\\
+2c_{58}\in[4.0191493,\,4.0191494],\qquad d_{58}\in[4.0287691,\,4.0287692].
+\end{gather*}
+\end{proposition}
+
+\begin{proof}
+Monotonicity and the limits are in Lemma~\ref{lem:cn}. Since $d_n-2c_n$ is strictly increasing it has at most one sign change, and the enclosures $d_{57}<2c_{57}$ and $d_{58}>2c_{58}$, certified in exact rational arithmetic in Section~\ref{sec:certified} (Table~\ref{tab:constants}), locate it between $n=57$ and $n=58$.
+\end{proof}
+
+\begin{corollary}[dimension-free simplex constants]\label{cor:simplex-dimfree}
+For every $n\ge 3$ and $S>0$: if $0<\tau S\le c_3=d_3$ then $B_\tau$ is strictly Schur-convex on $\Simp_S$, and the constant $c_3$ is attained for $n=3$; if $0<|\tau|S\le 4$ with $\tau<0$ then $B_\tau$ is strictly Schur-concave on $\Simp_S$, and no constant larger than $4$ works uniformly in $n$.
+\end{corollary}
+
+\begin{proof}
+$d_n\ge d_3=c_3$ and $2c_n>4$ for all $n\ge 3$; the sharpness statements follow from Theorem~\ref{thm:simplex} and $2c_n\to 4$.
+\end{proof}
+
+\begin{remark}
+For small $n$ the negative side is the more tolerant one on the simplex ($2c_n>d_n$), for $n\ge 58$ the positive side is. Both thresholds exceed the box threshold $c_n$, as they must: $\Simp_S$ contains points with entries anywhere in $[0,S]$, but the fixed total prevents more than one large entry when $\tau>0$ (Lemma~\ref{lem:convexbound}) and, when $\tau<0$, keeps the midpoint $c$ of any pair at most $K/2$.
+\end{remark}
+
+\section{A counterexample to an unrestricted claim}\label{sec:counterexample}
+
+\begin{sloppypar}
+Amir, Bettini and Prorok \cite{AmirBettiniProrok2026} analyse the heterogeneity gain of cooperative multi-agent systems in terms of the Schur-convexity or Schur-concavity of the aggregators that combine the efforts of the agents into task scores and the task scores into a global reward. Table~3 of that paper (Appendix~I, page~21 of the 32-page author version marked ``Published as a conference paper at ICLR 2026'', SHA-256 \texttt{4473fb91 3f6cb4a6 4f6db5fa 92ae3532 0598cc89 d029f930 c88e747c 84ec0d2f}; we did not re-locate a public URL for this exact file at the time of writing, and the arXiv version cited below carries the same table) lists parametric families of aggregators together with their Schur properties.
+\end{sloppypar}
+The row for the softmax aggregator defines
+\[
+\mathrm{Softmax}_t(x)=\sum_{i=1}^{N}\frac{e^{tx_i}}{\sum_{j=1}^{N}e^{tx_j}}\,x_i,\qquad t\in\R,
+\]
+which is $B_t(x)$ in our notation, and states: ``Strictly Schur-convex for $t>0$. Strictly Schur-concave for $t<0$.'' The caption of the table specifies that the Schur properties are meant ``on nonnegative inputs''. The introduction (page~2) summarizes the row as ``the soft-max operator switches from Schur-concave to Schur-convex as its temperature increases''. No restriction on the size of $t$ relative to the inputs is stated. The arXiv version v4 of the paper (1 March 2026, SHA-256 \texttt{40003616 22a21d9f 829d1a77 33f54a47 7345ecea 90668c53 ea410151 bd40b3fe}) contains the row in the same wording, and so does the first arXiv version v1 (11 June 2025). We could not retrieve the OpenReview record of the paper (the site answered our requests with an access challenge), so we cannot confirm that the author version we inspected is identical to the official camera-ready version.
+
+The following rational witnesses show that both statements of the row are false as stated, for nonnegative inputs, already for $N=3$.
+
+\begin{proposition}\label{prop:witness}
+Let $\tau=8\log 2$, so that $e^{\pm\tau x}=2^{\pm 8x}$.
+\begin{enumerate}
+\item[(a)] $x=(1,\tfrac12,0)\maj y=(1,\tfrac14,\tfrac14)$, both in $[0,1]^3\cap\Simp_{3/2}$, and $B_\tau(x)=\tfrac{88}{91}<\tfrac{43}{44}=B_\tau(y)$; the difference is $-\tfrac{41}{4004}$.
+\item[(b)] $x=(0,\tfrac12,1)\maj y=(0,\tfrac34,\tfrac34)$, both in $[0,1]^3\cap\Simp_{3/2}$, and $B_{-\tau}(x)=\tfrac{3}{91}>\tfrac{1}{44}=B_{-\tau}(y)$; the difference is $\tfrac{41}{4004}$.
+\item[(c)] $x=(\tfrac34,\tfrac14,0)\maj y=(\tfrac34,\tfrac18,\tfrac18)$ in $\Simp_1$, and $B_\tau(x)=\tfrac{49}{69}<\tfrac{97}{136}=B_\tau(y)$; the difference is $-\tfrac{29}{9384}$.
+\item[(d)] $x=(0,\tfrac38,\tfrac58)\maj y=(0,\tfrac12,\tfrac12)$ in $\Simp_1$, and $B_{-\tau}(x)=\tfrac{17}{296}>\tfrac{1}{18}=B_{-\tau}(y)$; the difference is $\tfrac{5}{2664}$.
+\end{enumerate}
+In each case $y$ is not a permutation of $x$. Hence $B_\tau$ is not Schur-convex on $[0,1]^3$, on $\Simp_{3/2}$ or on $\Simp_1$, and $B_{-\tau}$ is not Schur-concave on these sets.
+\end{proposition}
+
+\begin{proof}
+The majorizations are checked from the partial sums of the decreasing rearrangements: in (a) and (b), $1\ge 1$ and $\tfrac32\ge\tfrac54$ (resp.\ $1\ge\tfrac34$, $\tfrac32\ge\tfrac32$); in (c), $\tfrac34\ge\tfrac34$, $1\ge\tfrac78$; in (d), $\tfrac58\ge\tfrac12$, $1\ge 1$. The values are exact rational computations with the weights $2^{\pm 8x_i}$. For (a): the weights of $x$ are $256,16,1$, so $B_\tau(x)=(256+8)/273=88/91$; the weights of $y$ are $256,4,4$, so $B_\tau(y)=(256+1+1)/264=43/44$. For (b): the weights of $x$ are $1,\tfrac1{16},\tfrac1{256}$, so $B_{-\tau}(x)=(\tfrac1{32}+\tfrac1{256})/(\tfrac{273}{256})=\tfrac{3}{91}$; the weights of $y$ are $1,\tfrac1{64},\tfrac1{64}$, so $B_{-\tau}(y)=\tfrac{3}{128}/\tfrac{33}{32}=\tfrac1{44}$. (b) is the reflection $x\mapsto\one-x$ of (a) (Lemma~\ref{lem:basic}(c)). For (c): weights $64,4,1$ give $49/69$ and weights $64,2,2$ give $(48+\tfrac14+\tfrac14)/68=97/136$. For (d): weights $1,\tfrac18,\tfrac1{32}$ give $\tfrac{17}{256}/\tfrac{37}{32}=\tfrac{17}{296}$ and weights $1,\tfrac1{16},\tfrac1{16}$ give $\tfrac1{16}/\tfrac98=\tfrac1{18}$. All four are re-checked in exact rational arithmetic by the script \texttt{counterexamples.py} of Section~\ref{sec:certified}.
+\end{proof}
+
+The witnesses are consistent with Theorems~\ref{thm:box} and~\ref{thm:simplex}: since $e^{3/5}<2$ (certified in Section~\ref{sec:certified}), $\tau=8\log 2>\tfrac{24}{5}>2c_3>d_3=c_3$, so in (a) and (b) the product $|\tau|(b-a)=\tau$ exceeds $c_3$, in (c) $\tau S=\tau$ exceeds $d_3$, and in (d) $|\tau|S=\tau$ exceeds $2c_3$. Rational witnesses of the same kind exist for every $n\ge 3$ and every temperature above the thresholds, by Theorems~\ref{thm:box}(ii) and~\ref{thm:simplex} and the density of the rationals.
+
+\begin{corollary}\label{cor:nonneg}
+Let $N\ge 3$ and $t\ne 0$. On the set $[0,\infty)^N$ of nonnegative inputs, $B_t$ is neither Schur-convex nor Schur-concave. On $[0,b]^N$ it is strictly Schur-convex (if $t>0$), respectively strictly Schur-concave (if $t<0$), if and only if $|t|\,b\le c_N$; on nonnegative inputs with total $S$ it is strictly Schur-convex if and only if $0<tS\le d_N$, and strictly Schur-concave if and only if $0<|t|S\le 2c_N$ with $t<0$.
+\end{corollary}
+
+\begin{proof}
+Theorem~\ref{thm:box} applied to $[0,b]^N$ with $b>c_N/|t|$ gives the first statement, since violations in $(0,b)^N$ are violations in $[0,\infty)^N$; the rest is Theorems~\ref{thm:box} and~\ref{thm:simplex}.
+\end{proof}
+
+Thus the qualifier ``on nonnegative inputs'' does not rescue the row; what is true is the bounded-range statement of Corollary~\ref{cor:nonneg}. The proof of Theorem~3.4 of \cite{AmirBettiniProrok2026} (Appendix~G.4 of the author version) begins with ``When $t\le 0$, $T_j$ is Schur--concave, so $\Delta R=0$ by Thm.~3.2'', which invokes the unrestricted statement; we do not examine here which conclusions of that paper survive under the bounded-range statement.
+
+\section{Certified computations}\label{sec:certified}
+
+All numerical claims of this paper are of three kinds: the enclosures of the constants $c_n$, $d_n$ in Table~\ref{tab:constants} (used in Proposition~\ref{prop:crossover}), the rational values of Proposition~\ref{prop:witness}, and the inequality $e^{3/5}<2$. They are established by exact rational arithmetic, independently of any floating-point evaluation. In addition, every algebraic identity used in the proofs was verified symbolically, and the explicit constructions of Theorems~\ref{thm:box}(ii) and~\ref{thm:simplex} were evaluated in high-precision arithmetic as a consistency check. The scripts are in the directory \texttt{verify/} accompanying the manuscript [repository location to be confirmed by the owner]; they use only the Python standard library (\texttt{fractions}), SymPy and mpmath, and import nothing from any other code base.
+
+\subsection{Exact enclosure of the exponential}
+For a rational $x\in[0,8]$ put $y=x/8\in[0,1]$ and $P(y)=\sum_{k=0}^{30}y^k/k!$. For $k\ge 31$ the ratio of consecutive Taylor terms $y^{k+1}/(k+1)!$ and $y^k/k!$ is $y/(k+1)\le y/32$, so the remainder is bounded by a geometric series and
+\[
+P(y)\ \le\ e^{y}\ \le\ P(y)+\frac{y^{31}/31!}{1-y/32}=:U(y),
+\qquad\text{hence}\qquad P(y)^8\ \le\ e^{x}\ \le\ U(y)^8 .
+\]
+Both bounds are rational numbers computed exactly; the width $U(y)^8-P(y)^8$ is below $10^{-29}$ on $[0,8]$. For $x=\tfrac35$ the upper bound is below $2$, which certifies $e^{3/5}<2$, that is, $\log 2>\tfrac35$ and $8\log 2>\tfrac{24}{5}$.
+
+\subsection{Root enclosures}
+For $n\ge 3$ let $f_n(c)=(n-2)(c-2)e^{c}-4$ and $h_n(d)=(d-2)e^{d}-2(n-1)$; by Lemma~\ref{lem:cn} both are continuous and strictly increasing on $[2,\infty)$, with unique zeros $c_n\in(2,3)$ and $d_n\in(2,\infty)$. For rational $c\ge 2$ the interval $[(n-2)(c-2)P^8-4,\ (n-2)(c-2)U^8-4]$ contains $f_n(c)$, and similarly for $h_n$. The script \texttt{roots.py} bisects the bracket $[2,3]$ for $c_n$ and $[2,8]$ for $d_n$ thirty-two times; at every midpoint the sign of $f_n$ (resp.\ $h_n$) is read off from its enclosure, and the run aborts if an enclosure contains $0$, which did not happen. The final brackets $[\ell,r]$ satisfy the certified inequalities $f_n(\ell)<0<f_n(r)$, so $c_n\in(\ell,r)$ by strict monotonicity, and likewise for $d_n$; their widths are $2^{-32}$ and $6\cdot 2^{-32}$. The script does this for $n\in\{3,4,5,8,16,32,57,58,64,128,1024\}$ and then asserts, in exact arithmetic:
+\begin{enumerate}
+\item[(1)] the brackets for $c_n$ are pairwise disjoint and decrease with $n$, those for $d_n$ increase with $n$ (a check of Lemma~\ref{lem:cn});
+\item[(2)] the brackets for $c_3$ and $d_3$ intersect (consistent with $c_3=d_3$);
+\item[(3)] the upper end of the bracket for $d_{57}$ is below twice the lower end of the bracket for $c_{57}$, and the lower end of the bracket for $d_{58}$ is above twice the upper end of the bracket for $c_{58}$: this is the certificate used in Proposition~\ref{prop:crossover};
+\item[(4)] $U(3/5)^{8}<2$ and $\tfrac{24}{5}$ exceeds the upper ends of the brackets for $2c_3$, $d_3$ and $c_3$.
+\end{enumerate}
+Table~\ref{tab:constants} is written by the script; its entries are the exact bracket ends rounded outward to ten decimals, and its last column is the sign of $d_n-2c_n$. As a non-certified cross-check the script also evaluates \eqref{eq:constants} with mpmath at fifty digits, confirms that every value lies inside its bracket, and confirms that $d_n-2c_n$ changes sign only between $n=57$ and $n=58$ for $3\le n\le 400$.
+
+\begin{table}[t]
+\centering\scriptsize\setlength{\tabcolsep}{4pt}
+\input{constants}
+\caption{Certified enclosures of $c_n$, $d_n$ and $2c_n$. Each interval contains the exact constant; the ends are outward decimal roundings of rational bounds of width $2^{-32}$ (for $c_n$), $6\cdot 2^{-32}$ (for $d_n$) and $2^{-31}$ (for $2c_n$).}\label{tab:constants}
+\end{table}
+
+\subsection{The other scripts}
+\begin{sloppypar}
+\texttt{counterexamples.py} evaluates the four witnesses of Proposition~\ref{prop:witness} with the Python \texttt{fractions} module (weights $2^{\pm 8x_i}$ are exact rationals), checks the majorizations and the non-permutation condition, and asserts the four signs and the four differences. \texttt{identities.py} verifies with SymPy, symbolically and at random rational points, every identity used in the proofs: Lemma~\ref{lem:basic}(a) to (e), the pair identity \eqref{eq:pair}, the factorization \eqref{eq:factor}, the split formula \eqref{eq:split} and its expansion in Remark~\ref{rem:extremal}, the two expressions for $\eta$ in \eqref{eq:eta}, the identity $\varphi(K)-2=h_n(K)/(e^K+n-1)$, the split formula \eqref{eq:Hsplit}, the derivative of $f$ in Lemma~\ref{lem:Hderiv}, the half-angle identities behind Lemma~\ref{lem:elementary}(iv), the formula of Proposition~\ref{prop:n2}, the Lambert forms \eqref{eq:constants}, and the Lehmer identity and limit \eqref{eq:lehmer}. \texttt{violations.py} evaluates the constructions \eqref{eq:box-construction}, \eqref{eq:simplex-pos-construction} and \eqref{eq:simplex-neg-construction} at fifty digits for several $(n,L)$ and $(n,K)$ above the thresholds, checks domain membership, majorization, the sign of the difference and the intermediate bound chains \eqref{eq:signbound} and \eqref{eq:Hv}, and samples the derivative inequalities of Lemmas~\ref{lem:pair} and~\ref{lem:Hderiv} at random points below the thresholds. These two scripts are consistency checks of the proofs, not part of the certificate.
+\end{sloppypar}
+
+\subsection{Reproduction}
+Running \texttt{sh verify/run\_all.sh} (Python 3.12.14, SymPy 1.14.0, mpmath 1.3.0) executes the four scripts, regenerates Table~\ref{tab:constants} (\texttt{constants.tex}) and the hash table (\texttt{hashes.tex}), and prints the SHA-256 of the scripts, which are listed in Table~\ref{tab:hashes}.
+
+\begin{table}[t]
+\centering\small
+\input{hashes}
+\caption{SHA-256 of the verification scripts.}\label{tab:hashes}
+\end{table}
+
+\section{Related work and the novelty boundary}\label{sec:related}
+
+\paragraph{Gini and Lehmer means.}
+The Schur properties of two-variable Gini means $G(r,s;x,y)$ with respect to $(x,y)$ were determined by Shi, Jiang and Jiang \cite{ShiJiangJiang2009}, and Witkowski \cite{Witkowski2011} treated a four-parameter family containing the Gini and Stolarsky means, proving Schur-geometric convexity in $(x,y)$ under a sign condition on the parameters. Lehmer's paper \cite{Lehmer1971} is the source of the means $L_p$; the handbook of Bullen \cite{Bullen2003} surveys them. For $n$ variables, Fu, Wang and Shi \cite{FuWangShi2016} proved Schur-convexity, Schur-geometric convexity and Schur-harmonic convexity of $L_p$ on boxes whose ratio of largest to smallest coordinate is bounded in terms of $p$; Perla, Padmanabhan and Lokesha \cite{PerlaPadmanabhanLokesha2017} state analogous results for a one-parameter Gini family of $n$ variables. Remark~\ref{rem:lehmer} explains how the bounded-ratio theorem of \cite{FuWangShi2016} transfers, through $L_{\tau/\varepsilon}(e^{\varepsilon x})=Z_\tau(x)/Z_{\tau-\varepsilon}(x)$, to the nonstrict dimension-free bound $\tau(b-a)\le 2$ and no further. We did not find, in these sources or in the works citing them that we inspected, a dimension-dependent bounded-range condition, a fixed-total condition, or the constants $c_n$, $d_n$. A 2026 paper of Wang and Zhang \cite{WangZhang2026} on the Schur-concavity of a generalized Bajraktarevi\'c set-valued mean was accessible to us only through the publisher's preview; we could not determine from the preview whether it bears on the present question.
+
+\paragraph{The Esscher premium.}
+For a random variable $X$ the Esscher premium with parameter $h$ is $E[Xe^{hX}]/E[e^{hX}]$; for the uniform law on $\{x_1,\dots,x_n\}$ this is $B_h(x)$. B\"uhlmann \cite{Buhlmann1980} derived it from an economic equilibrium; Zehnwirth \cite{Zehnwirth1981} and Gerber \cite{Gerber1981} criticized it, Gerber's comment reproducing an example, credited there to De Vylder, of a uniform law on three points $(0,z,1)$ for which the premium decreases as $z$ increases when $h$ is large. That is a failure of coordinatewise monotonicity, in which the mean changes; it is not a majorization comparison, and the inspected text contains no bounded-range criterion. Van Heerwaarden, Kaas and Goovaerts \cite{vanHeerwaardenKaasGoovaerts1989} study properties of the Esscher principle; according to the publisher's abstract the paper reports failures of the principle to respect orderings of risks. We could not retrieve the full text, and since majorization of the entries of $x$ is exactly the convex order of the uniform empirical laws, we cannot exclude that a bounded-range criterion for the convex order appears there in actuarial language; this is the main open point for priority. Goovaerts, Kaas, Laeven and Tang \cite{GoovaertsKaasLaevenTang2004} characterize additive risk measures as mixtures of exponential premiums, equivalently of Esscher premiums with a mixing function of prescribed concavity; a single fixed parameter does not satisfy their mixing conditions, and their result does not address the present thresholds.
+
+\paragraph{Softmax operators in learning.}
+Asadi and Littman \cite{AsadiLittman2017} introduced the name Boltzmann softmax operator for $B_\beta$ in the context of value iteration, showed that it is not a non-expansion and proposed the mellowmax operator (a log-sum-exp, hence a different function) instead. Polson \cite{Polson2026} recently showed, according to the abstract available to us, that the annealed Bellman backup built from the Boltzmann average is neither monotone nor a sup-norm non-expansion and that its correctness threshold depends on gaps between values; we could not retrieve the full text and do not know whether a majorization statement appears there. Amir, Bettini and Prorok \cite{AmirBettiniProrok2026} use Schur-convexity as the organizing principle for heterogeneity gains and list the softmax aggregator with the unrestricted Schur property discussed in Section~\ref{sec:counterexample}; their table is the only source we know of that asserts a Schur property of $B_\tau$ in dimension $n\ge 3$, and the assertion is false. The bounded-range version in Corollary~\ref{cor:nonneg} is, to our knowledge, new.
+
+\paragraph{Majorization.}
+The $T$-transform lemma and the Schur--Ostrowski criterion are in Marshall, Olkin and Arnold \cite{MarshallOlkinArnold2011}. Lemma~\ref{lem:segment} is a routine adaptation which we included for completeness because we need strictness on a closed box and on a simplex.
+
+\paragraph{Search record.}
+Beyond the sources above we ran bounded searches (about ten queries in the Crossref and Semantic Scholar indexes and in general web search) for Schur-convexity or majorization of softmax-weighted, Boltzmann-weighted, Esscher or exponentially weighted means, and for the equations defining $c_n$ and $d_n$. They returned the Gini and Lehmer literature cited above, work on majorization in quantum thermodynamics that does not concern this mean, and nothing containing the thresholds. The absence of a match in a bounded search is not a proof of priority, and we state the novelty claim with this reservation.
+
+\bibliographystyle{plain}
+\bibliography{refs}
+
+\end{document}
