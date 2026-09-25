@@ -226,8 +226,9 @@ the method. The n = 17–20 improvements beat certificates published in
 June and August 2026 that came from multi-threaded symmetric local search
 (Demonstrandum) and from OpenEvolve and auxiliary searches (milesandmistakes).
 Demonstrandum fitted C(n) = ⌊(5n + 7)/2⌋ to the record values for n = 7–14;
-the new values sit one or two below that law at every n above 16, where the
-previous gaps ran from two to twelve. The final sets keep few or none of the
+the new values meet that law exactly at n = 18, 20 and 22 and sit one below it
+at the other n above 16 (two below at n = 23), where the previous gaps ran from
+two to twelve. The final sets keep few or none of the
 start points, so the start set matters mainly as a warm start; its authors
 are credited in `known/record-constructions.json` and in each derivation.
 Control runs make the same point more strongly: unseeded `ls5x` searches at
