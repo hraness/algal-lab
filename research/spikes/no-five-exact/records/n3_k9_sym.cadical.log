@@ -1,0 +1,129 @@
+c --- [ banner ] -------------------------------------------------------------
+c 
+c CaDiCaL SAT Solver
+c Copyright (c) 2016-2026
+c A. Biere, M. Fleury, N. Froleyks, K. Fazekas, F. Pollitt, T. Faller
+c JKU Linz, University of Freiburg, TU Wien
+c 
+c Version 3.0.1
+c Apple clang version 21.0.0 (clang-2100.0.123.102) -Wall -Wextra -O3 -DNDEBUG -DNCLOSEFROM
+c Sun Jul 19 15:40:55 UTC 2026 Darwin Tahoe-arm64.local 25.4.0 arm64
+c 
+c --- [ limit ] --------------------------------------------------------------
+c 
+c setting time limit to 3600 seconds real time (due to '-t 3600')
+c 
+c --- [ proof tracing ] ------------------------------------------------------
+c 
+c opening file to write 'runs/n3_k9_sym.lrat'
+c writing non-binary proof trace to 'runs/n3_k9_sym.lrat'
+c 
+c --- [ parsing input ] ------------------------------------------------------
+c 
+c reading DIMACS file from 'runs/n3_k9_sym.cnf'
+c opening file to read 'runs/n3_k9_sym.cnf'
+c found 'p cnf 1969 12143' header
+c parsed 12143 clauses in 0.00 seconds process time
+c 
+c --- [ options ] ------------------------------------------------------------
+c 
+c   --binary=false                 (different from default 'true')
+c   --lrat=true                    (different from default 'false')
+c 
+c --- [ solving ] ------------------------------------------------------------
+c 
+c time measured in process time since initialization
+c 
+c  seconds  reduction conflicts       size tier2      variables
+c         MB    restarts   redundant    glue  trail        remaining
+c          level     rate       size/glu tier1  irredundant
+c 
+c *  0.00  0  0 0   0  0    0    0 0.0 0 0 2 6  0% 12142 1968 100%
+c )  0.01  0  0 0   0  0    0    0 0.0 1 0 2 6  2% 12142 1962 100%
+c {  0.01  0  0 0   0  0    0    0 0.0 1 0 2 6  2% 12142 1962 100%
+c i  0.01  0  0 0   0  0    0    0 0.0 1 0 2 6  2% 12142 1962 100%
+c -  0.02  0 69 1   1  4  300  183 1.6 10 6 2 6 33% 10739 1962 100%
+c -  0.03  0 32 2   1  2  733  455 1.6 8 5 2 6 33% 10739 1962 100%
+c }  0.04  0 25 2   1  2 1003  630 1.6 8 5 2 6 33% 10739 1962 100%
+c [  0.04  0  0 2   1  0 1003  630 0.0 0 0 2 6  0% 10739 1962 100%
+c O  0.04  0  0 2   1  1 1004  630 0.0 1 0 2 6  5% 10739 1962 100%
+c i  0.04  0  0 2   1  1 1004  630 0.0 1 0 2 6  5% 10739 1956 99%
+c i  0.04  0  4 2   1  1 1039  646 1.4 4 3 2 6 28% 10739 1934 98%
+c i  0.05  0  5 2   1  1 1191  746 1.7 7 4 2 6 36% 10739 1894 96%
+c i  0.05  0  5 2   1  1 1371  878 1.9 7 4 2 6 36% 10739 1789 91%
+c i  0.05  0  5 2   1  1 1372  878 1.9 7 4 2 6 36% 10739 1702 86%
+c ]  0.06  0  5 2   1  1 1375  878 1.9 7 4 2 6 36% 10739 1354 69%
+c 0  0.06  0  5 2   1  1 1375  878 1.9 7 4 2 6 36% 10739 1354 69%
+c 
+c --- [ closing proof ] ------------------------------------------------------
+c 
+c LRAT proof file 'runs/n3_k9_sym.lrat' closed
+c LRAT 2086 added clauses 51.10%
+c LRAT 1996 deleted clauses 48.90%
+c LRAT 265808 bytes (0.25 MB)
+c 
+c --- [ result ] -------------------------------------------------------------
+c 
+s UNSATISFIABLE
+c 
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c         0.05   99.79% search
+c         0.03   68.46% unstable
+c         0.01   28.57% stable
+c         0.00    8.80% parse
+c         0.00    2.68% lucky
+c         0.00    0.00% simplify
+c   =================================
+c         0.05   90.62% solve
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c chronological:               331        24.07 %  of conflicts
+c conflicts:                  1375     27455.52    per second
+c decisions:                  2504     49999.00    per second
+c fixed:                       615        31.23 %  of all variables
+c learned:                    1308        95.13 %  per conflict
+c learned_lits:              14420       100.00 %  learned literals
+c minimized:                     0         0.00 %  learned literals
+c shrunken:                   3195        22.16 %  learned literals
+c minishrunken:               1329         9.22 %  learned literals
+c otfs:                          9         0.65 %  of conflict
+c propagations:             280692         5.60 M  per second
+c reduced:                     105         7.64 %  per conflict
+c rephased:                      1      1375.00    interval
+c restarts:                      1      1375.00    interval
+c stabilizing:                   1        27.05 %  of conflicts
+c subsumed:                    318         2.37 %  of all clauses
+c strengthened:                  9         0.07 %  of all clauses
+c ticks:                   2018543         7.19    propagation
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ glue usage ] ---------------------------------------------------------
+c 
+c focused glue 2 used 331 clauses 18.19% accumulated 41.06% tier1
+c focused glue 3 used 364 clauses 20.01% accumulated 61.07%
+c focused glue 4 used 263 clauses 14.45% accumulated 75.53%
+c focused glue 5 used 180 clauses 9.895% accumulated 85.43%
+c focused glue 6 used 98 clauses 5.387% accumulated 90.81% tier2
+c 
+c stable glue 2 used 209 clauses 25.51% accumulated 58.60% tier1
+c stable glue 3 used 134 clauses 16.36% accumulated 74.96% tier2
+c 
+c 
+c --- [ resources ] ----------------------------------------------------------
+c 
+c total process time since initialization:         0.06    seconds
+c total real time since initialization:            0.06    seconds
+c maximum resident set size of process:            6.61    MB
+c 
+c --- [ shutting down ] ------------------------------------------------------
+c 
+c exit 20
