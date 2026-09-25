@@ -216,7 +216,10 @@ best-known constructions and exact verifiers, so a novelty claim is a strict
 inequality against a cited value rather than a literature judgement. Candidates
 are short programs evolved by a scripted operator or a stateless local-model
 command; every proposal, failure, and exact verification is archived.
-No target has been improved yet.
+The loop itself has not improved a target. In round 26 a C local search
+seeded with public certificates raised the public lower bounds for the
+no-five-on-a-sphere problem at n = 17–26; the certificates are
+re-verified in CI against the dated registry.
 
 
 The [terminal-tree result](docs/terminal-tree-discovery.md) gives a proved

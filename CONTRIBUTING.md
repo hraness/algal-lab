@@ -121,3 +121,8 @@ date of its best-known value; an `improves-recorded-best` status is a claim
 against that snapshot and needs a same-day re-read of the source before it is
 reported. The unit tests run in CI without any model; the local-model protocol
 is run by hand and its archive stays under an ignored `runs/` directory.
+Reported improvements live in `research/extremal/claims/` with the registry
+value they beat, the claim date, and the derivation; `claims.check` re-verifies
+each one, so changing a registry value means re-examining its claims. The
+native searches in `research/extremal/native/` are compiled by the tests when a
+C compiler is present.

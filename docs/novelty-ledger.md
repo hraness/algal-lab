@@ -63,7 +63,8 @@ not a certificate that no equivalent result exists. Proofs are in the
 | Strong NP-completeness of majority triples after two successive failures, with nearly equal rates | Proved with finite error and rounded threshold | Candidate restriction; generic reliability hardness is known |
 | Quadratic near-uniform regret bound | Proved | Elementary range/variance consequence |
 | Small-model advantage or token-efficient theorem origination | Not established | Previous Qwen pilot is negative; investigator costs are separate |
-| Extremal-construction targets (covering designs, circle packings) | Loop built with exact verifiers, archived runs, and a mechanical gate against cited best-known values; first bounded runs sit below every recorded best | No construction claim; registry values are dated snapshots of public tables and must be re-read before any improvement is reported |
+| Extremal-construction targets (covering designs, circle packings) | Loop built with exact verifiers, archived runs, and a mechanical gate against cited best-known values; first bounded runs sit below every recorded best | No construction claim from the evolution loop; registry values are dated snapshots of public tables and must be re-read before any improvement is reported |
+| No five points on a sphere or plane: C(17) ≥ 45, C(18) ≥ 48, C(19) ≥ 50, C(20) ≥ 53, C(21) ≥ 55, C(22) ≥ 58, C(23) ≥ 59, C(24) ≥ 62, C(25) ≥ 65, C(26) ≥ 67 | Explicit certificates in `research/extremal/claims/`, re-verified in CI against the registry snapshot, cross-checked by an independent Leibniz determinant; found by a C local search seeded with public certificates | Beat every public value located by a same-day audit on 2026-09-24 (Demonstrandum, milesandmistakes, Numaro, DeepMind issues, Zenodo, GitHub, HuggingFace, OEIS); lower bounds only, derived from attributed public sets, priority not guaranteed and not yet submitted to any ledger |
 
 ## Primary sources and actual reading depth
 

@@ -4,8 +4,14 @@ Five points are cospherical or coplanar iff the 5x5 determinant with rows
 (x, y, z, x^2+y^2+z^2, 1) vanishes. After subtracting the first point that is
 the 4x4 integer determinant of the lifted difference vectors. The score is the
 number of points; larger is better.
+
+Five points on one axis-parallel plane are coplanar, so a set with five points
+sharing a coordinate value is rejected before the O(k^5) determinant pass. The
+pre-check changes no verdict; it bounds the work because a surviving set has at
+most 4n points.
 """
 
+from collections import Counter
 from fractions import Fraction
 from itertools import combinations
 
@@ -16,7 +22,7 @@ DESCRIPTION = (
     "ints in [0, n-1], no repeats."
 )
 MAX_N = 64
-MAX_POINTS = 48
+MAX_POINTS = 96
 
 
 def _det4(m):
@@ -56,6 +62,10 @@ def verify(construction, parameters) -> Fraction:
     if not 1 <= n <= MAX_N:
         raise ValueError("n out of range")
     points = _points(construction, n)
+    for axis in range(3):
+        value, count = Counter(p[axis] for p in points).most_common(1)[0] if points else (0, 0)
+        if count > 4:
+            raise ValueError(f"{count} points on the plane {'xyz'[axis]} = {value}")
     lifted = [(x, y, z, x * x + y * y + z * z) for x, y, z in points]
     for five in combinations(range(len(points)), 5):
         p0 = lifted[five[0]]

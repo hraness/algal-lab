@@ -1,8 +1,10 @@
 """Tests for the extremal-construction discovery loop (research/extremal)."""
 
+import dataclasses
 import json
 import os
 import random
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -10,7 +12,7 @@ import unittest
 from fractions import Fraction
 from pathlib import Path
 
-from research.extremal import novelty, registry
+from research.extremal import claims, novelty, registry
 from research.extremal.evolve import parse_protocol, run
 from research.extremal.operators import extract_program, read_params, scripted_mutate, write_params
 from research.extremal.sandbox import isolation_mode, run_program
@@ -22,6 +24,10 @@ SEED_COVER = (ROOT / "seeds" / "covering_greedy.py").read_text()
 SEED_CIRCLES = (ROOT / "seeds" / "circles_grid.py").read_text()
 SEED_ISO = (ROOT / "seeds" / "isosceles_greedy.py").read_text()
 KNOWN = json.loads((ROOT / "known" / "record-constructions.json").read_text())
+# One claim small enough to regenerate end to end in CI: ls5x from the published
+# n = 17 certificate (milesandmistakes entry, index 1), logged seed and KMAX.
+REGENERATE = {"target": "no-five-on-sphere-17", "n": 17, "k": 45, "kmax": 45, "seed": 790491471,
+              "seed_target": "no-five-on-sphere-17", "seed_index": 1, "found": "FOUND n=17 k=45 it=2643 "}
 
 
 def _target(**overrides):
@@ -110,6 +116,14 @@ class GridVerifierTests(unittest.TestCase):
             no_five_on_sphere.verify({"points": cube_face_plus}, {"n": 2})
         ok = [[0, 0, 0], [1, 0, 0], [0, 1, 0], [0, 0, 1], [2, 2, 1]]
         self.assertEqual(no_five_on_sphere.verify({"points": ok}, {"n": 3}), Fraction(5))
+
+    def test_sphere_axis_plane_precheck_and_size_cap(self):
+        layer = [[2, 0, 0], [2, 1, 3], [2, 3, 1], [2, 4, 4], [0, 0, 1], [2, 2, 5]]  # five points on x = 2
+        with self.assertRaisesRegex(ValueError, "5 points on the plane x = 2"):
+            no_five_on_sphere.verify({"points": layer}, {"n": 6})
+        too_many = [[x, y, z] for x in range(5) for y in range(5) for z in range(4)][:no_five_on_sphere.MAX_POINTS + 1]
+        with self.assertRaises(ValueError):
+            no_five_on_sphere.verify({"points": too_many}, {"n": 5})
 
     def test_ring_loading_exact(self):
         # m=1: no interior cut, value 0. m=2 with u=v=1/2: z choices give |z1 - z2|; best is 0.
@@ -335,6 +349,100 @@ class EvolveTests(unittest.TestCase):
             self.assertIn("verifier rejected", lines[1]["evaluations"][0]["error"])
             self.assertEqual(lines[2]["note"].split(";")[-1].strip(), "repair")
             self.assertEqual(result["evaluable"], 2)
+
+
+class ClaimTests(unittest.TestCase):
+    PATHS = sorted((ROOT / "claims").glob("*.json"))
+
+    def _all(self):
+        return [claim for path in self.PATHS for claim in claims.load_claims(path)]
+
+    def test_claims_parse_and_reject_unknown_or_missing_fields(self):
+        self.assertTrue(self.PATHS)
+        raw = json.loads(self.PATHS[0].read_text())["claims"][0]
+        self.assertEqual(claims.parse_claim(raw).target, raw["target"])
+        with self.assertRaises(ValueError):
+            claims.parse_claim(dict(raw, bogus=1))
+        with self.assertRaises(ValueError):
+            claims.parse_claim({k: v for k, v in raw.items() if k != "derivation"})
+        with self.assertRaises(ValueError):
+            claims.parse_claim(dict(raw, claimed="24 September 2026"))
+
+    def test_every_claim_reverifies_and_beats_its_registry_snapshot(self):
+        targets = registry.load_registry()
+        for claim in self._all():
+            with self.subTest(target=claim.target):
+                result = claims.check(claim, targets)
+                self.assertEqual(result["status"], "improves-recorded-best")
+                self.assertEqual(result["recorded_value"], str(claim.recorded_best))
+                self.assertGreater(claim.value, claim.recorded_best)
+
+    def test_stale_snapshot_wrong_value_and_tampering_are_rejected(self):
+        targets = registry.load_registry()
+        claim = min(self._all(), key=lambda c: len(c.construction["points"]))
+        with self.assertRaisesRegex(ValueError, "registry holds"):
+            claims.check(dataclasses.replace(claim, recorded_best=claim.recorded_best - 1), targets)
+        with self.assertRaisesRegex(ValueError, "repeated point"):
+            points = claim.construction["points"]
+            claims.check(dataclasses.replace(claim, construction={"points": points + [points[0]]}), targets)
+        with self.assertRaisesRegex(ValueError, "claim states"):
+            claims.check(dataclasses.replace(claim, value=claim.value + 1), targets)
+
+
+class NativeSearchTests(unittest.TestCase):
+    """Build the committed C searches and check them against published constructions and a claim."""
+
+    @classmethod
+    def setUpClass(cls):
+        compiler = shutil.which("cc") or shutil.which("gcc") or shutil.which("clang")
+        if compiler is None:
+            raise unittest.SkipTest("no C compiler")
+        cls.tmp = tempfile.TemporaryDirectory()
+        cls.bin = {}
+        for name, flags in (("ls5x", ["-DMAXP=32768", "-DMAXK=128"]), ("sym5", []), ("iso2", [])):
+            out = Path(cls.tmp.name) / name
+            subprocess.run([compiler, "-O2", *flags, "-o", str(out), str(ROOT / "native" / f"{name}.c"), "-lm"],
+                           check=True, capture_output=True)
+            cls.bin[name] = out
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.tmp.cleanup()
+
+    def _points_file(self, name, points):
+        path = Path(self.tmp.name) / name
+        path.write_text("".join(" ".join(map(str, p)) + "\n" for p in points))
+        return path
+
+    def _run(self, args, env=None):
+        proc = subprocess.run([str(a) for a in args], capture_output=True, text=True, timeout=600, env={**os.environ, **(env or {})})
+        self.assertNotIn("SELFCHECK FAIL", proc.stderr)
+        return proc, [json.loads(line) for line in proc.stdout.splitlines() if line.startswith("{")]
+
+    def _known(self, target, index=0):
+        return [e for e in KNOWN["entries"] if e["target"] == target][index]["construction"]["points"]
+
+    def test_ls5x_keeps_a_published_record_and_regenerates_a_claim(self):
+        ae7 = self._known("no-five-on-sphere-7")
+        proc, found = self._run([self.bin["ls5x"], 7, 21, 5, 1, self._points_file("ae7.txt", ae7)])
+        self.assertIn("FOUND n=7 k=21 it=0", proc.stderr)
+        self.assertEqual(sorted(map(tuple, found[0]["points"])), sorted(map(tuple, ae7)))
+        spec = REGENERATE
+        seed_points = self._known(spec["seed_target"], spec["seed_index"])
+        proc, found = self._run([self.bin["ls5x"], spec["n"], spec["k"], 600, spec["seed"], self._points_file("seed.txt", seed_points)],
+                                env={"KMAX": str(spec["kmax"])})
+        self.assertIn(spec["found"], proc.stderr)
+        claim = next(c for c in ClaimTests()._all() if c.target == spec["target"])
+        self.assertEqual(sorted(map(tuple, found[-1]["points"])), sorted(map(tuple, claim.construction["points"])))
+
+    def test_sym5_and_iso2_print_only_verified_sets(self):
+        proc, found = self._run([self.bin["sym5"], 6, 12, 3, 1])
+        self.assertTrue(found, proc.stderr[-500:])
+        for item in found[:3]:
+            self.assertEqual(no_five_on_sphere.verify({"points": item["points"]}, {"n": 6}), Fraction(len(item["points"])))
+        proc, found = self._run([self.bin["iso2"], 16, 14, 3, 1])
+        self.assertTrue(found, proc.stderr[-500:])
+        self.assertEqual(isosceles_free.verify({"points": found[0]["points"]}, {"n": 16}), Fraction(14))
 
 
 if __name__ == "__main__":
