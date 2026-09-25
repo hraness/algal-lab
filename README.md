@@ -389,7 +389,12 @@ Nothing here is submitted or posted yet. Manuscripts live under `papers/`
   program (SKF2026 Thms 3.4, 3.8, 3.9, 3.10-literal, 3.11, 3.12, Cors; SAF
   4.1(b); two invalid printed counterexamples). Needs: venue choice;
   decide whether to notify the audited authors before submission;
-  independent human read.
+  independent human read. The audit chain now also covers
+  Shekari–Pakdaman–Saadat Kia Barmalzan–Balakrishnan 2026
+  (`research/spikes/shekari-audit/`), which shares the same broken lift
+  *and* has vacuous hypotheses (its monotonicity condition cannot hold for
+  any parameter family) — decide whether that material joins the paper or
+  stands as a second audit note.
 - `softmax-thresholds` — sharp thresholds replacing a published ICLR-2026
   monotonicity claim. Needs: venue choice; decide on courtesy note to the
   source authors.
