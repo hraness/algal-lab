@@ -53,3 +53,47 @@ print("root intervals:", numw.intervals())
 print("roots of den in (0,1):", denw.count_roots(0, 1))
 for v in (R(1, 4), R(1, 2), R(3, 4), R(13, 16), R(7, 8), R(15, 16), R(31, 32)):
     print(f"  d({v}) = {d.subs(s, v)} = {float(d.subs(s, v)):.4f}")
+
+# =====================================================================
+# Thm 3.9 W-half: products of T-transforms with different structures.
+# Two-step chain with intermediates in W_3; alpha = -1.
+#   p = (7/26, 4/13, 11/26), gam = (3, 8, 9)
+#   T1 on coords (2,3) [1-based] w=1/20 -> q1=(7/26,217/520,163/520),
+#        g1=(3,179/20,161/20)
+#   T2 on coords (1,3) [1-based] w=1/4  -> q2=(629/2080,217/520,583/2080),
+#        g2=(543/80,179/20,341/80)
+# =====================================================================
+def _Tapply(vec, i, j, om):
+    v = list(vec)
+    a, b = v[i], v[j]
+    v[i] = om * a + (1 - om) * b
+    v[j] = (1 - om) * a + om * b
+    return v
+
+
+pp9 = [R(7, 26), R(4, 13), R(11, 26)]
+gg9 = [R(3), R(8), R(9)]
+q1 = _Tapply(pp9, 1, 2, R(1, 20))
+g1 = _Tapply(gg9, 1, 2, R(1, 20))
+q2 = _Tapply(q1, 0, 2, R(1, 4))
+g2 = _Tapply(g1, 0, 2, R(1, 4))
+print("\n=== Thm 3.9 W-half (two T-transforms, alpha=-1) ===")
+print("q1,g1 in W3:", in_Wn(q1, g1), "   q2,g2 in W3:", in_Wn(q2, g2))
+print("q2 =", [str(x) for x in q2], " g2 =", [str(x) for x in g2])
+
+
+def ht9(pp, gg):
+    exps = [-80 * g for g in gg]     # alpha=-1, w = s^{1/80}
+    M = min(exps)
+    num = sum(pp[i] * gg[i] * w ** int(exps[i] - M) for i in range(3))
+    den = sum(pp[i] * w ** int(exps[i] - M) for i in range(3))
+    return num / den
+
+
+d9 = sp.together(ht9(pp9, gg9) - ht9(q2, g2))
+n9, dn9 = sp.fraction(d9)
+n9, dn9 = sp.expand(n9), sp.expand(dn9)
+print("numerator degree:", sp.degree(n9, w))
+print("d9(w=1/2)  >0 :", sp.sign(d9.subs(w, R(1, 2))) == 1)
+print("d9(w=49/50)<0 :", sp.sign(d9.subs(w, R(49, 50))) == -1)
+print("d9(w=1) = 7881/83200 >0:", sp.factor(d9.subs(w, R(1))))

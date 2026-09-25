@@ -60,6 +60,30 @@ certificates).
 Grid used: s ∈ {1/16, 1/8, 1/4, 2/5, 1/2, 3/4, 7/8, 15/16} plus claim-specific
 grids; every reported "holds" is bounded-search confirmation, not a proof.
 
+**Search bounds / parameter families.**
+- SKF (exp baseline `Ḡ = e^{−t}`, scalar θ): n ∈ {2,3,4}; weights
+  p,q numerator ints 1..40 / 40; γ,δ,θ,ξ ints 1..9; α ∈
+  {±1/2,±1,±2,±3,±5} and fractional cases; T-transform ω ∈ {1/20..19/20}.
+- SKF Thms 3.4–3.6 additionally use Lomax `Ḡ=1/(1+t)`, power-law
+  `Ḡ=1−t²` on (0,1), and Pareto `Ḡ=(1/t)^{1/2}` baselines; αγ ∈
+  {1/4..12} across both signs of the `αγ≤1` threshold.
+- SAF (exp `Ḡ=e^{−λt}`, Lomax `λ/(λ+t)`, Compound Rayleigh
+  `(λ/(λ+t²))^a`, PRH `1−(1−e^{−t})^λ`, Weibull for ageing): n ∈ {2,3,4};
+  p numerators 1..40/40; λ,γ ints 1..9 (halves allowed); α ∈ ±{1..5} or
+  fractional {1/4,1/2,3/4} for the 0<α<1 branch of Thm 6.9.
+- Hypotheses enforced exactly: ε⁺/D⁺ ordering, V_n/W_n comonotone or
+  anti-ordered pairs, U_n (anti-ordering of p with λ), majorization,
+  SKF weak sub/supermajorization (`≺_w` largest-partial-sums ≤ / `≺^w`
+  increasing-partial-sums ≥), p-larger products, `α_i p_i` monotonicity,
+  T-transform factorization `[q;δ]=[p;γ]M_T` verified componentwise.
+
+**Classification.** `holds-on-samples` = no violation on the exact-search
+domain described; `EXACT COUNTEREXAMPLE` = Sturm-certified sign change or
+exact opposite-sign rational witnesses; `untestable-bounded` = hypothesis
+class not exhausted (e.g., other baseline families) — still checked in the
+listed families; `not-checkable` = remark/commentary or assumptions not
+reproducible from the text.
+
 ## Results — SKF2026
 
 | Claim (AM numbering) | Status | Evidence |
@@ -75,7 +99,7 @@ grids; every reported "holds" is bounded-search confirmation, not a proof.
 | Thm 3.7 (n=2) hr, all four quarters | holds-on-samples | 4×800 admissible, 0 violations |
 | Thm 3.8 V_n/α≥0 hr | **EXACT COUNTEREXAMPLE** (previously refuted) | see manuscript |
 | **Thm 3.8 W_n/α≤0 hr** | **EXACT COUNTEREXAMPLE (new)** | certified below; 322/1274 (n=3), 481/1226 (n=4) violations |
-| Thm 3.9 (mixed T-structures, hr) | **EXACT COUNTEREXAMPLE** (inherits 3.8 failures; a single T is a special case) | both halves |
+| Thm 3.9 (mixed T-structures, hr) | **EXACT COUNTEREXAMPLE** | V-half: manuscript instance (4); W-half: new 2-T certificate below |
 | Thm 3.10 (n=2) rh | refuted (literal model) / holds-on-samples (displayed-formula reading) | literal-model reading: 2279/2500 violations; formula-reading: 1738 (V_2,α≥0) + 1740 (W_2,α≤0) admissible, 0 violations |
 | Thm 3.11 V_n/α≥0 rh | **EXACT COUNTEREXAMPLE** (previously refuted) | manuscript |
 | **Thm 3.11 W_n/α≤0 rh** | **EXACT COUNTEREXAMPLE (new)** | same certificate as 3.8 W-half (identical h̃ comparison); 616/2500 violations |
@@ -83,6 +107,8 @@ grids; every reported "holds" is bounded-search confirmation, not a proof.
 | Cor 3.2 (same-structure products, hr) | refuted | inherits |
 | Cor 3.3 (n-component products, rh) | refuted | inherits |
 | lr order | no positive claim (paper disclaims via counterexamples) | their Cex 3.10, 3.12 verified numerically |
+| Rem 3.1–3.5; Lemmas 2.1–2.5 | not-checkable | commentary / quoted external lemmas (Lemma 2.5's applicability is the failure point — see manuscript) |
+| α = 0 (geometric mixture) sub-claims | holds-on-samples | included where statements allow (Thm 3.7 α=0 quarters: 1600 admissible, 0 viol.; for α=0 the hazard diff is a constant sign so the checks are exact) |
 
 ### New exact counterexample 1 — Theorem 3.4 fails for α > 0
 
@@ -116,8 +142,9 @@ so the claimed ordering fails on a whole t-interval (the two mixtures are in
 fact stochastically incomparable). Script: `certify_thm34.py`.
 
 A 3-component instance is also certified there: p = (25/86, 27/86, 17/43),
-γ = 6 (α = 5/6 so αγ = 5), θ = (8,8,5), ξ = (9,8,4) — numerator has 1 root
-in (0,∞) and the difference changes sign.
+γ = 6 (α = 5/6 so αγ = 5), θ = (8,8,5), ξ = (9,8,4) — numerator roots
+isolated at t=0 and in (4,5); `d(1)=+0.019`, `d(5)=−0.000763` — sign
+change certified.
 
 Violations occur in both the `αγ ≤ 1` regime (44/797 sampled) and `αγ > 1`
 (127/681) — no monotone repair via an αγ-threshold. The proof's key
@@ -156,7 +183,48 @@ Both halves of 3.8/3.11 therefore fail, in both readings — the failure is
 the n ≥ 3 lift (Lemma 2.5 applied componentwise), consistent with the
 manuscript's mechanism.
 
-### Invalid "counterexamples" printed in SKF2026
+### New exact counterexample 3 — Theorem 3.9's W_n/α≤0 half (two T-transforms)
+
+Thm 3.9 requires a chain `M_{T_1}M_{T_2}...` of different-structure
+T-transforms with intermediates in `V_n` (or `W_n`). A single-T violation
+does not transfer automatically (the second transform can repair the sign —
+observed); the following two-step chain stays in `W_3` throughout and still
+violates the conclusion:
+
+    p  = (7/26, 4/13, 11/26),   γ = (3, 8, 9)                  ∈ W3
+    T1 on coords (2,3), ω=1/20: q1 = (7/26, 217/520, 163/520),
+                                γ1 = (3, 179/20, 161/20)       ∈ W3
+    T2 on coords (1,3), ω=1/4:  q2 = (629/2080, 217/520, 583/2080),
+                                γ2 = (543/80, 179/20, 341/80)  ∈ W3
+    α = −1, exponential baseline.
+
+In w = s^{1/80} the difference h̃_{p,γ}(1/w^{80}) − h̃_{q2,γ2}(1/w^{80}) has
+exact rational witnesses of both signs (numerator degree 855):
+
+    d(1/2)  ≈ +0.0500   (positive, exact rational value printed by script)
+    d(49/50) ≈ −0.02834 (negative)
+    d(1)     = 7881/83200 > 0
+
+→ at least two crossings on (0,∞); claimed `U ≤hr V` fails in an interior
+band. Script: `certify_whalf.py` (part 2). This W-half failure then also
+applies to Thm 3.12/Cor 3.3 under the paper's displayed rh formula.
+
+### Validity of the papers' own counterexamples (SKF2026)
+
+| Item | Their claim | Audit result |
+|---|---|---|
+| Ex 3.1 / Cex 3.1 | diff ≤0 / sign change | holds / VERIFIED (root ≈0.9427) |
+| Ex 3.2 / Cex 3.2 | diff ≤0 / sign change | holds / VERIFIED (root ≈0.981) |
+| Ex 3.3 / Cex 3.3 | diff ≤0 / sign change | holds / VERIFIED (root ≈0.70) |
+| Cex 3.4 (hr under Thm 3.3 conds) | sign change | VERIFIED (root ≈0.489 in u) |
+| Ex 3.4 / Cex 3.5 | diff ≥0 / diff(10)<0 | holds / VERIFIED −0.08887328 exact match |
+| Ex 3.5 / Cex 3.6 | diff ≥0 / sign change | holds / VERIFIED |
+| Ex 3.6 / Cex 3.7 | diff ≥0 / diff(20)=−0.0834 | holds / **INVALID: true value +0.0674 — ordering holds, printed number wrong** |
+| Cex 3.8 (hr fails, Thm 3.6 conds) | diff ±1e−16 | **INVALID: h_U ≡ h_V = 7/(2t) identically — FP noise reported as sign change** |
+| Ex 3.7 / Cex 3.9 | diff ≤0 / sign change | holds / VERIFIED |
+| Cex 3.10 (lr non-monotone) | non-monotone | VERIFIED numerically |
+| Ex 3.8 / Cex 3.11 | rh diff ≥0 / sign change | holds / VERIFIED (root ≈0.987) |
+| Cex 3.12 (lr non-monotone) | non-monotone | VERIFIED numerically |
 
 - **Counterexample 3.7** claims `Ḡ_U(20) − Ḡ_V(20) = −0.08336543` for
   p=(0.05,0.3,0.65), q=(0.7,0.26,0.4), γ=2, θ=(5,3.5,2), ξ=(5,3,1.5),
@@ -183,17 +251,19 @@ Cex 3.5's printed value −0.08887328 reproduces to all printed digits.)
 | Lemma 3.3: ηᾱ concave (α>0) / convex (α<0) | holds-on-samples | 3000+3000 random Jensen checks (60-digit) |
 | Thm 4.1(a): lim r(t,ᾱ) = α₁r₁/ᾱ | holds-on-samples | exact limit evaluations consistent |
 | **Thm 4.1(b): "→0 iff cond. (16)"** | **EXACT COUNTEREXAMPLE (boundary)** | at α₁λ₁ = α₂λ₂, r(t,ᾱ) ≡ (α₁/ᾱ)r₁(t) for ALL t (proof below) yet cond. (16) fails — "only if" is false on the boundary; interior holds |
-| Thm 5.1: componentwise ≤st ⇒ mixture ≤st | holds-on-samples | 558 admissible, 0 violations (one-line proof anyway) |
+| Thm 5.1: componentwise ≤st ⇒ mixture ≤st | holds-on-samples | 6000 admissible, 0 violations (one-line proof anyway) |
 | Thm 5.2: hr-order under (i)–(iv) | holds-on-samples | α>0: 460 admissible, 0 viol.; α<0: 5741 admissible, 0 viol. |
 | Thm 6.5 (publ. 6.1): st order, λ ≻^w γ | holds-on-samples | 229 (n=3) + 383 (n=4) admissible, 0 violations |
 | Thm 6.9 (publ. 6.2): st order, α≤0 or 0<α<1 | holds-on-samples | 598 + 341 admissible, 0 violations |
 | Cor 6.12 (PH family) | holds-on-samples | covered by Thm 6.5 domain |
-| Cor 6.13 (accelerated life) | holds-on-samples | 573 admissible (uniform baseline), 0 violations |
-| Cor 6.14 (prop. reversed hazard) | holds-on-samples | 774 admissible, 0 violations |
+| Cor 6.13 (accelerated life, α_i≥1) | holds-on-samples | 900 admissible (Lomax-type base `1/(1+λt)`), 0 violations |
+| Cor 6.14 (prop. reversed hazard) | holds-on-samples | 774 (α≤0) + 831 (0<α<1) admissible, 0 violations |
 | Rem 6.15 bounds (i),(ii) | holds-on-samples | verified on their Example 6.16 params exactly |
 | Thm 6.17 (publ. 6.3): hr order n=2, λ ≻ γ | holds-on-samples | 1030 (α>0) + 505 (α<0) admissible, 0 violations |
 | Rem 6.18 open question (n>2) | resolved | manuscript n-component counterexample |
 | Cor 6.21 (PH consequence of 6.17) | holds-on-samples | follows 6.17 |
+| Rem 4.2, 6.6, 6.22; Def/Ex commentary | not-checkable | commentary only |
+| Thm 6.5/6.9/6.17 on non-tested baselines | untestable-bounded | tested: exp, Lomax, Compound-Rayleigh, PRH, uniform; general r(t\|λ)-monotone families not exhausted |
 
 Note on Thm 5.2 audit subtleties: for α_i<0, condition (i) requires
 `(α_i/ᾱ)r_{Fi}` increasing in i — equivalently `α_i·a_i` *decreasing* since
@@ -240,9 +310,10 @@ Example 6.7, 6.10, 6.16(i)/(ii), 6.19 all verify as claimed.
   manuscript's correct analogs.
 - **SAF Thm 4.1(b)**: replace `≤` by strict `<` in hypothesis `α₁ ≤ cα₂`,
   or add `α₁λ₁ < α₂λ₂` explicitly.
-- **SAF Thm 5.2** α<0 branch: pending; if the corrected-direction run still
-  fails, the branch needs `α_i a_i` decreasing (i.e., `(α_i/ᾱ)r_i` inc) to be
-  stated explicitly — currently ambiguous.
+- **SAF Thm 5.2**: holds on all 6201 admissible samples once (i) is read
+  correctly (`(α_i/ᾱ)r_{Fi}` inc ⟺ `α_i a_i` dec for ᾱ<0) and the `1/ᾱ`
+  prefactor is retained; the statement itself is ambiguous on this point —
+  `α_i a_i` *decreasing* should arguably be spelled out for the α<0 case.
 
 ## Adjacent papers worth auditing next
 
@@ -277,7 +348,7 @@ Example 6.7, 6.10, 6.16(i)/(ii), 6.19 all verify as claimed.
     cd .../mixture-claim-audit
     PY=/Users/bg/Documents/algal-lab-worktrees/.venv-math/bin/python
     $PY certify_thm34.py        # SKF Thm 3.4 counterexample certificate
-    $PY certify_whalf.py        # SKF Thm 3.8 W_n/alpha<=0 counterexample
+    $PY certify_whalf.py        # SKF Thm 3.8 W_n/alpha<=0 + Thm 3.9 W-half (2-T) certificates
     $PY verify_paper_cex.py     # papers' own examples/counterexamples
     $PY audit_skf_st.py         # SKF Thms 3.1-3.6 stochastic order
     $PY audit_skf_hr.py         # SKF Thms 3.7-3.12 hazard/rev-hazard
