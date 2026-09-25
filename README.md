@@ -219,7 +219,10 @@ command; every proposal, failure, and exact verification is archived.
 The loop itself has not improved a target. In round 26 a C local search
 seeded with public certificates raised the public lower bounds for the
 no-five-on-a-sphere problem at n = 17–26; the certificates are
-re-verified in CI against the dated registry.
+re-verified in CI against the dated registry. Every claim also carries an
+unseeded control: the check labels a claim `under-searched` when a cold
+start reached the public value (n = 18, 20 and 21 here) and
+`control-missing` when no control was run.
 
 
 The [terminal-tree result](docs/terminal-tree-discovery.md) gives a proved

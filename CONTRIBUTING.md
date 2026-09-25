@@ -123,6 +123,11 @@ reported. The unit tests run in CI without any model; the local-model protocol
 is run by hand and its archive stays under an ignored `runs/` directory.
 Reported improvements live in `research/extremal/claims/` with the registry
 value they beat, the claim date, and the derivation; `claims.check` re-verifies
-each one, so changing a registry value means re-examining its claims. The
-native searches in `research/extremal/native/` are compiled by the tests when a
-C compiler is present.
+each one, so changing a registry value means re-examining its claims. A
+registry entry also states its `significance` (how crowded the cell is, with
+dated evidence and any open question it bears on), and every claim carries an
+unseeded `control` run at the seeded budget; `claims.check` labels a claim
+`under-searched` when the cold start reached the recorded value and
+`control-missing` when no control exists. The native searches in
+`research/extremal/native/` are compiled by the tests when a C compiler is
+present.

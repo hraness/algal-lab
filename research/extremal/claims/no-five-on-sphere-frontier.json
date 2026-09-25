@@ -1,6 +1,6 @@
 {
  "contract": "algal.lab.extremal-claims.v1",
- "note": "Round 26 no-five-on-sphere certificates. Each set was grown by research/extremal/native/ls5x.c from a public certificate (attributed in known/record-constructions.json) and is re-verified by the no_five_on_sphere verifier against the registry snapshot of 2026-09-24. Lower bounds only.",
+ "note": "Round 26 no-five-on-sphere certificates. Each set was grown by research/extremal/native/ls5x.c from a public certificate (attributed in known/record-constructions.json) and is re-verified by the no_five_on_sphere verifier against the registry snapshot of 2026-09-24. Lower bounds only. Each claim carries an unseeded control: the cold-start ls5x runs of round 26 at n = 18, 20 and 21 (900 CPU seconds each, below the seeded 2400), or not-run where no control was made.",
  "claims": [
   {
    "target": "no-five-on-sphere-17",
@@ -17,6 +17,13 @@
     "`KMAX=48 ls5x 17 45 2400 790491471 <start>` reaches k=45 at it=2643.",
     "The final 45-point set keeps 2 of the 44 points of milesandmistakes RECORD_44_points_n17.json (after the shifts above)."
    ],
+   "control": {
+    "kind": "unseeded",
+    "value": null,
+    "budget": "no control run in round 26; a control must match the seeded run: 2400 CPU seconds (clock()) with KMAX=48",
+    "command": null,
+    "outcome": "not-run"
+   },
    "construction": {
     "points": [
      [
@@ -262,6 +269,13 @@
     "`KMAX=48 ls5x 18 46 2400 908851045 <start>` reaches k=46 at it=145, k=47 at it=2690, k=48 at it=77213.",
     "The final 48-point set keeps 0 of the 44 points of Demonstrandum cert_n17_m44.json (after the shifts above)."
    ],
+   "control": {
+    "kind": "unseeded",
+    "value": "47",
+    "budget": "900 CPU seconds (clock()), inferred from the TIMEOUT line of the retained log because the argument was not logged; the seeded run had 2400 CPU seconds and needed 2053 of them to reach 48, so the control was not given the seeded budget",
+    "command": "`ls5x 18 40 900 887588671` with no start file (cold start; KMAX at least 48; the round-26 build of research/extremal/native/ls5x.c with -DMAXP=32768 and an enlarged MAXK): reaches k=47 at it=7761 (259.8 CPU seconds) and times out at k=48; log ctrl-scratch-n18-k40-s887588671.err under research/spikes/context/runs/round26-no-five-frontier/runs (local, gitignored; its SHA-256 is in that directory's manifest.json)",
+    "outcome": "below"
+   },
    "construction": {
     "points": [
      [
@@ -522,6 +536,13 @@
     "`ls5x 19 50 2400 60067597 <start>` (built with an enlarged MAXK; KMAX env set above 50) reaches k=50 at it=31977.",
     "The final 50-point set keeps 1 of the 49 points of milesandmistakes RECORD_49_points_n19.json (after the shifts above)."
    ],
+   "control": {
+    "kind": "unseeded",
+    "value": null,
+    "budget": "no control run in round 26; a control must match the seeded run: 2400 CPU seconds (clock()) with the default KMAX, which is the starting k of 50",
+    "command": null,
+    "outcome": "not-run"
+   },
    "construction": {
     "points": [
      [
@@ -792,6 +813,13 @@
     "`KMAX=53 ls5x 20 51 2400 417239277 <start>` reaches k=51 at it=42, k=52 at it=59, k=53 at it=29922.",
     "The final 53-point set keeps 0 of the 50 points of milesandmistakes RECORD_50_points_n20.json (after the shifts above)."
    ],
+   "control": {
+    "kind": "unseeded",
+    "value": "52",
+    "budget": "900 CPU seconds (clock()), inferred from the TIMEOUT line of the retained log because the argument was not logged; the seeded run had 2400 CPU seconds and needed 1288 of them to reach 53, so the control was not given the seeded budget",
+    "command": "`ls5x 20 44 900 252078903` with no start file (cold start; KMAX at least 53; the round-26 build of research/extremal/native/ls5x.c with -DMAXP=32768 and an enlarged MAXK): reaches k=52 at it=62 (3.2 CPU seconds) and times out at k=53 (reproduced on 2026-09-25 from the committed source built with -DMAXP=32768 -DMAXK=128: FOUND k=52 at it=62); log ctrl-scratch-n20-k44-s252078903.err under research/spikes/context/runs/round26-no-five-frontier/runs (local, gitignored; its SHA-256 is in that directory's manifest.json)",
+    "outcome": "below"
+   },
    "construction": {
     "points": [
      [
@@ -1077,6 +1105,13 @@
     "Step 2: `KMAX=62 ls5x 21 53 2400 720026319 <step-1 set>` reaches k=53 at it=12, k=54 at it=89, k=55 at it=3027.",
     "The final 55-point set keeps 0 of the 50 points of milesandmistakes RECORD_50_points_n20.json (after the shifts above)."
    ],
+   "control": {
+    "kind": "unseeded",
+    "value": "55",
+    "budget": "900 CPU seconds (clock()), inferred from the TIMEOUT line of the retained log because the argument was not logged; the seeded step 2 had 2400 CPU seconds and reached 55 at 192 of them",
+    "command": "`ls5x 21 48 900 1028108049` with no start file (cold start; KMAX at least 56; the round-26 build of research/extremal/native/ls5x.c with -DMAXP=32768 and an enlarged MAXK): reaches k=55 at it=2162 (141.0 CPU seconds) and times out at k=56; log ctrl-scratch-n21-k48-s1028108049.err under research/spikes/context/runs/round26-no-five-frontier/runs (local, gitignored; its SHA-256 is in that directory's manifest.json)",
+    "outcome": "matched"
+   },
    "construction": {
     "points": [
      [
@@ -1372,6 +1407,13 @@
     "Step 2: `KMAX=63 ls5x 22 54 2400 730191814 <step-1 set>` reaches k=54 at it=17, k=55 at it=35, k=56 at it=237, k=57 at it=1538, k=58 at it=26196.",
     "The final 58-point set keeps 0 of the 50 points of milesandmistakes RECORD_50_points_n20.json (after the shifts above)."
    ],
+   "control": {
+    "kind": "unseeded",
+    "value": null,
+    "budget": "no control run in round 26; a control must match the seeded chain: 2400 CPU seconds (clock()) with KMAX=63 after the 1-second embedding step",
+    "command": null,
+    "outcome": "not-run"
+   },
    "construction": {
     "points": [
      [
@@ -1682,6 +1724,13 @@
     "Step 2: that 53-point set unshifted in the 23-grid; `KMAX=64 ls5x 23 54 2400 237969326 <set>` reaches k=54 at it=2, k=55 at it=6, k=56 at it=11, k=57 at it=17, k=58 at it=24, k=59 at it=496.",
     "The final 59-point set keeps 0 of the 50 points of milesandmistakes RECORD_50_points_n20.json (after the shifts above)."
    ],
+   "control": {
+    "kind": "unseeded",
+    "value": null,
+    "budget": "no control run in round 26; a control must match the seeded chain: 2400 CPU seconds (clock()) with KMAX=64 after the 1-second embedding step",
+    "command": null,
+    "outcome": "not-run"
+   },
    "construction": {
     "points": [
      [
@@ -1997,6 +2046,13 @@
     "Step 2: that 53-point set shifted by (1,1,1) into the 24-grid; `KMAX=64 ls5x 24 54 2400 819521430 <set>` reaches k=54 at it=2, k=55 at it=4, k=56 at it=6, k=57 at it=10, k=58 at it=17, k=59 at it=19, k=60 at it=35, k=61 at it=60, k=62 at it=1247.",
     "The final 62-point set keeps 0 of the 50 points of milesandmistakes RECORD_50_points_n20.json (after the shifts above)."
    ],
+   "control": {
+    "kind": "unseeded",
+    "value": null,
+    "budget": "no control run in round 26; a control must match the seeded chain: 2400 CPU seconds (clock()) with KMAX=64 after the 1-second embedding step",
+    "command": null,
+    "outcome": "not-run"
+   },
    "construction": {
     "points": [
      [
@@ -2329,6 +2385,13 @@
     "Step 4: `KMAX=80 ls5x 25 64 2400 512163841 <step-3 set>` (built with -DMAXK=128) reaches k=64 at it=388, k=65 at it=2515.",
     "The final 65-point set keeps 0 of the 50 points of milesandmistakes RECORD_50_points_n20.json (after the shifts above)."
    ],
+   "control": {
+    "kind": "unseeded",
+    "value": null,
+    "budget": "no control run in round 26; a control must match the seeded chain: 1 + 2400 + 2400 + 2400 CPU seconds (clock()) over four steps with KMAX up to 80",
+    "command": null,
+    "outcome": "not-run"
+   },
    "construction": {
     "points": [
      [
@@ -2676,6 +2739,13 @@
     "Step 4: `KMAX=80 ls5x 26 64 2400 869449535 <step-3 set>` (built with -DMAXK=128) reaches k=64 at it=16, k=65 at it=41, k=66 at it=47, k=67 at it=326.",
     "The final 67-point set keeps 0 of the 50 points of milesandmistakes RECORD_50_points_n20.json (after the shifts above)."
    ],
+   "control": {
+    "kind": "unseeded",
+    "value": null,
+    "budget": "no control run in round 26; a control must match the seeded chain: 1 + 2400 + 2400 + 2400 CPU seconds (clock()) over four steps with KMAX up to 80",
+    "command": null,
+    "outcome": "not-run"
+   },
    "construction": {
     "points": [
      [

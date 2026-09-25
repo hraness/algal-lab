@@ -1,4 +1,10 @@
-"""Target registry: recorded best-known values with citations and retrieval dates."""
+"""Target registry: recorded best-known values with citations and retrieval dates.
+
+Every target also states its significance (how crowded the public cell is,
+with dated evidence naming the sources counted, and the open question it
+bears on) and whether a claim against it must carry an unseeded control run.
+Both are parsed strictly; unknown fields are rejected.
+"""
 
 from __future__ import annotations
 
@@ -9,7 +15,13 @@ from pathlib import Path
 
 REGISTRY_PATH = Path(__file__).with_name("registry.json")
 MAX_REGISTRY_BYTES = 256 * 1024
+MAX_TEXT_CHARS = 2000
 OBJECTIVES = ("maximize", "minimize")
+# How many independent public sources have worked the cell: a single report
+# (possibly without coordinates), two, several, or a value several groups have
+# reproduced without improving it. The evidence string names the sources counted.
+CROWDING = ("uncontested", "lightly-contested", "contested", "well-studied")
+SIGNIFICANCE_FIELDS = {"crowding", "evidence", "open_question"}
 
 
 @dataclass(frozen=True)
@@ -25,6 +37,10 @@ class Target:
     url: str
     retrieved: str
     notes: str
+    crowding: str
+    evidence: str
+    open_question: str | None
+    control_required: bool
 
     def improves(self, value: Fraction) -> bool:
         return self.margin(value) > self.reporting_precision()
@@ -51,7 +67,10 @@ class Target:
 def parse_value(text) -> Fraction:
     if isinstance(text, bool) or not isinstance(text, (int, str)):
         raise ValueError("values must be integers or rational strings")
-    return Fraction(text)
+    try:
+        return Fraction(text)
+    except ZeroDivisionError:
+        raise ValueError("values must have a nonzero denominator") from None
 
 
 def _require(obj: dict, key: str, kind):
@@ -60,10 +79,38 @@ def _require(obj: dict, key: str, kind):
     return obj[key]
 
 
+def _text(obj: dict, key: str, allow_null: bool = False) -> str | None:
+    """A non-empty string of bounded length, or null where allowed."""
+    if key not in obj:
+        raise ValueError(f"significance needs {key!r}")
+    value = obj[key]
+    if value is None and allow_null:
+        return None
+    if not isinstance(value, str) or not value.strip() or len(value) > MAX_TEXT_CHARS:
+        raise ValueError(f"significance.{key} must be a non-empty string of at most {MAX_TEXT_CHARS} characters"
+                         + (" or null" if allow_null else ""))
+    return value
+
+
+def parse_significance(raw) -> tuple[str, str, str | None]:
+    """Return (crowding, evidence, open_question); reject unknown, missing, or invalid fields."""
+    if not isinstance(raw, dict):
+        raise ValueError("significance must be an object")
+    unknown = set(raw) - SIGNIFICANCE_FIELDS
+    missing = SIGNIFICANCE_FIELDS - set(raw)
+    if unknown or missing:
+        raise ValueError(f"significance fields: unknown {sorted(unknown)}, missing {sorted(missing)}")
+    crowding = _text(raw, "crowding")
+    if crowding not in CROWDING:
+        raise ValueError(f"significance.crowding must be one of {CROWDING}")
+    return crowding, _text(raw, "evidence"), _text(raw, "open_question", allow_null=True)
+
+
 def parse_target(raw) -> Target:
     if not isinstance(raw, dict):
         raise ValueError("registry entry must be an object")
-    allowed = {"id", "title", "objective", "verifier", "parameters", "best_known", "source", "url", "retrieved", "notes"}
+    allowed = {"id", "title", "objective", "verifier", "parameters", "best_known", "source", "url", "retrieved", "notes",
+               "significance", "control_required"}
     unknown = set(raw) - allowed
     if unknown:
         raise ValueError(f"unknown registry fields: {sorted(unknown)}")
@@ -83,6 +130,9 @@ def parse_target(raw) -> Target:
                 denominator //= prime
         if denominator != 1:
             raise ValueError("reported-decimal values must be terminating decimals")
+    crowding, evidence, open_question = parse_significance(_require(raw, "significance", dict))
+    if not isinstance(raw.get("control_required"), bool):
+        raise ValueError("registry entry needs 'control_required' of type bool")
     return Target(
         id=_require(raw, "id", str),
         title=_require(raw, "title", str),
@@ -95,6 +145,10 @@ def parse_target(raw) -> Target:
         url=_require(best, "url", str),
         retrieved=_require(best, "retrieved", str),
         notes=str(raw.get("notes", "")),
+        crowding=crowding,
+        evidence=evidence,
+        open_question=open_question,
+        control_required=raw["control_required"],
     )
 
 
