@@ -1,11 +1,24 @@
 # Round 27: exact values of C(n) for small n via certified SAT and CP-SAT
 
-Status: C(3) = 8 and C(4) = 11 are complete (certificate plus LRAT-checked UNSAT proof).
-n = 5 is open here: 14 <= C(5) <= 20. The lower bound is the certificate
-`certificates/n5_14_ls5x.json`; the cube-and-conquer UNSAT attempt at k = 15
-(`cube_solve.py`, 2026-09-25) was still running when this memo was frozen: of the first
-18 cubes, 2 were UNSAT and several timed out at 3,300 s and were split again
-(`records/cubes_n5_k15_sym.log`). CP-SAT reached 14 with bound 20. n = 6 was not attempted.
+Status: C(3) = 8, C(4) = 11 and **C(5) = 14** are complete. The n = 5 decision
+is by exhaustive layer enumeration (`layer_enum5.c`, 2026-09-25): after fixing
+z-layer 0 to one canonical subset per D4 orbit (1,905 orbits of
+within-layer-valid subsets of [5]², sizes 1–4), the DFS over layers 1–4 visited
+~292 M nodes and found no 15-subset (`records/enum_n5_k15.log`). The same
+binary run at K = 14 found a 14-set in ~2 s (positive control; verified by the
+repository verifier and an independent 5×5 determinant check), and the
+layer-candidate table was cross-checked by brute force (826 of the 12,650
+4-subsets of [5]² are concyclic/collinear; the enumerator keeps exactly
+11,824). A cube-and-conquer LRAT UNSAT proof at k = 15 (`cube_solve.py`) is
+still running as an independent second witness; completeness of the
+enumeration is argued + spot-checked, not yet machine-certified.
+
+n = 6: `certificates/n6_18_ls5x.json` gives C(6) ≥ 18 (the seed-82 ls5x run,
+initialised from the n = 6, k = 17 witness; a second certificate from an
+independent seed also verifies). Local search at k = 19 stalls far from zero
+degeneracies (best ~5–6), so C(6) = 18 is plausible but unproved; n = 6's
+hypergraph is too large (~5.0 M maximal degenerate sets) for the current SAT
+encoding.
 Large files (CNF, LRAT proofs, hypergraph dumps) are not committed; their SHA-256 are in
 the logs under `records/` and they regenerate from the scripts.
 
@@ -21,8 +34,12 @@ The scripts write their outputs to `runs/` (gitignored); `records/` holds the fr
 |---|---|---|---|---|
 | 3 | 8 | `certificates/n3_8.json` | CP-SAT optimal; cadical UNSAT at k = 9 with and without symmetry breaking, LRAT proofs checked | complete |
 | 4 | 11 | `certificates/n4_11.json` | CP-SAT optimal (symmetry-broken model); cadical UNSAT at k = 12 with and without symmetry breaking, LRAT proofs checked | complete |
-| 5 | open: 14 to 20 | `certificates/n5_14_ls5x.json` | trivial 4n = 20; k = 15 UNSAT proof in progress | incomplete |
-| 6 | not attempted | | | |
+| 5 | 14 | `certificates/n5_14_ls5x.json` | exhaustive layer enumeration (`layer_enum5.c`); LRAT corroboration in progress | complete* |
+| 6 | ≥ 18 | `certificates/n6_18_ls5x.json` | none (trivial 4n = 24; k = 19 search stalls) | lower bound only |
+
+\* the enumeration's completeness is argued in `layer_enum5.c` and spot-checked;
+a machine-checkable UNSAT proof (cadical/kissat LRAT) is still being computed —
+if one exists it supersedes the enumeration witness.
 
 ## Method
 
@@ -136,4 +153,30 @@ bound within an hour; the broken one proves optimality in 109 s).
 pure-Python Laplace expansion of the raw 5×5 lifted matrix over every 5-subset,
 the repository verifier `research/extremal/verifiers/no_five_on_sphere.py`, and
 the hypergraph constraints.
+
+### Layer enumeration (`layer_enum5.c`, n = 5)
+
+A second, non-SAT decision procedure for k = 15. Every valid set S has at most
+4 points per axis layer; a 15-set therefore meets all five z-layers, and at
+least one axis's extreme layer holds ≥ 2 points (otherwise that axis's five
+layers hold ≤ 14). Orient that extreme to z = 0 and quotient by the D4
+stabiliser of the z-axis: layer 0 can be restricted to 1,905 canonical
+candidates (subsets of [5]² of size ≤ 4 with no concyclic/collinear 4-subset —
+11824 of the 12650 4-subsets qualify, confirmed by an independent Python count).
+Layers 1–4 are then extended by DFS with a precomputed table SPH[T][layer] =
+the grid points lying on the generalised sphere through each 4-subset T
+(9.69 M entries, ~194 MB, self-tested against an independent det evaluator),
+applying the implied constraints as point-forbidding masks, the size bounds
+needed to reach 15, the z-flip prune |L4| ≤ |L0|, and canonical augmentation
+under stab(L0) at each node. Exhaustion: 1905/1905 orbits, ~292 M extension
+nodes, ~192 s wall — no 15-set exists.
+
+Completeness argument: any 15-set S has an axis whose two extreme layers are
+not both ≤ 1, hence an orientation with |L0| ≥ 2 and |L0| ≥ |L4|; a D4
+element sends S's layer 0 to its orbit representative, and the recursive
+extension enumerates every remaining layer set, so an isomorphic copy of S is
+searched. The positive control (K = 14 finds a verified 14-set after 35
+orbits) and the 826/11824 candidate cross-count are the independent checks;
+the cube-and-conquer LRAT pipeline remains the planned fully-mechanical
+corroboration.
 

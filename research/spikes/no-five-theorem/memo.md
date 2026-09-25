@@ -814,3 +814,41 @@ The compiled binary `src/zero5` is not committed; rebuild it with `cc -O2 -o zer
 
 The Section 2 results, which the referee checked and accepted, are unchanged apart from the
 attribution and the Lemma V restriction.  No unconditional bound beyond `n - o(n)` is claimed.
+
+## 8. Round-28 addendum (2026-09-25): H2 proved (pending review), H1 measured
+
+Three developments since the referee round:
+
+**H2 discharged.** `research/spikes/h2-coplanar/memo.md` gives a full proof draft of
+`Z_plane(n) = (K_* + o(1)) n^11` — stronger than the one-sided bound Proposition P
+needs. The proof fixes the bookkeeping (collinear 5-subsets sit in infinitely many
+planes, so the raw `sum C(N_{v,k},5)` diverges; the correct identity uses
+non-collinear 5-subsets per section, verified exactly at n = 3..6), replaces the
+Balogh–White tail input by an elementary Pick's-theorem bound
+`N_{v,k} <= 2 n^2/s + 2` valid for all s (so `N >= 5` forces `s <= 2 n^2/3` —
+the feared large-normal regime truncates itself), and gets `Z_plane <= K_A n^11 +
+O_A(n^10) + 27.74 n^11/A + O(n^7)`, with `A -> infty` giving `limsup <= K_*`.
+An adversarial referee pass (`h2-coplanar/review.md`) accompanies the draft.
+
+**H1 measured at scale.** `research/spikes/h1-cospherical/memo.md`: a Monte-Carlo
+census (up to 10^6 sampled 4-tuples per n, exact sphere arithmetic
+cross-verified, decomposition identity exact at n = 3) gives
+`E(n) ≈ 79 (ln n)^2 / n^2` over n = 8..128 — i.e. `Z_sphere ~ n^10 (ln n)^2`,
+a full power of n below the n^11 H1 needs. `n*E(n)` falls 29.8 → 14.0 across
+the window. Mechanism: ~80% of `Z_sphere` is irreducible cospherical 5-subsets
+on low-denominator spheres; `a = 1` spheres carry ~20% of `E` with mean
+occupancy `~0.57 n`; `Z_circ ~ n^{10.6}` measured (`N_circ4 ~ n^{7.6}`).
+
+**Literature position.** A literature audit found the question sits in a known
+open gap: Ghosal–Goenka–Keevash (arXiv:2509.06935, DCG) prove
+`n^10 <=~ S(n,3) <=~ n^12 log n` for ordered cospherical 5-tuples — our H1
+(`Z_sphere = o(n^11)`) is strictly inside, and needs an arithmetic input
+(uniform-in-denominator lattice-point counts on spheres; ternary subconvexity
+on average). The cleanly decoupled intermediate target: `#concyclic quadruples
+in [n]^3 = o(n^8)` (measured ~n^{7.6}; GGK's Theorem 1.3 method is the 2D
+analogue).
+
+**Exact small values.** `research/spikes/no-five-exact/memo.md`: C(5) = 14 by
+exhaustive canonical layer enumeration (`layer_enum5.c`, 1905 orbits, positive
+control verified; SAT-LRAT corroboration running), and C(6) >= 18 by verified
+certificate (matches the fitted law floor((5n+7)/2) = 18).
