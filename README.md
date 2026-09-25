@@ -310,6 +310,23 @@ every positive temperature pair.
 Standard derivative and comparison ingredients are credited; broader
 originality remains open.
 
+The [exact concave envelope](docs/softmax-additive-boundary.md) solves the
+zero-outer-temperature rectangular case: for `t>0,N≥2`, all maximizers are
+pure with balanced occupancies. It also gives an
+[exact flow reduction](docs/softmax-additive-flow.md) with weighted tasks,
+eligibility, integer task capacities, and linear assignment rewards. A bounded
+rational implementation returns an optimum and residual certificate. The
+probability geometry, gap constants, and flow algorithm are credited to prior
+work; priority of this nonlinear allocation application remains open.
+
+At [negative outer temperature](docs/softmax-negative-outer.md), divisibility
+decides purity: when the task count divides the agent count, every maximizer
+at every `τ≤0` is balanced pure, a corollary of the recorded results; when it
+does not and `t s_q≤1`, an explicit spread allocation beats every pure
+bottleneck, so all maximizers are fractional below an explicit negative `τ`.
+The perturbation and integrality-gap mechanisms are classical; the
+model-specific dichotomy is the candidate contribution.
+
 The [certified occupancy solver](docs/certified-softmax-partitions.md) applies
 classical fractional optimization after this reduction. Exact rational
 exponential enclosures give a returned grouping an explicit additive regret
