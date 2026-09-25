@@ -381,9 +381,12 @@ class EvolveTests(unittest.TestCase):
 
 class ClaimTests(unittest.TestCase):
     PATHS = sorted((ROOT / "claims").glob("*.json"))
-    # Round 26 ran unseeded controls at n = 18, 20 and 21 only; every other claim is labelled control-missing.
+    # Round 26 ran unseeded controls at n = 18, 20 and 21 only, and round 27 at every one of its cells n = 27..32
+    # (each cold start passed the public baseline 67 whether or not it matched the seeded chain); every other claim
+    # is labelled control-missing.
     SEARCH_STATUS = {"no-five-on-sphere-18": "under-searched", "no-five-on-sphere-20": "under-searched",
-                     "no-five-on-sphere-21": "under-searched"}
+                     "no-five-on-sphere-21": "under-searched",
+                     **{f"no-five-on-sphere-{n}": "under-searched" for n in range(27, 33)}}
 
     def _all(self):
         return [claim for path in self.PATHS for claim in claims.load_claims(path)]
