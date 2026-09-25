@@ -1,0 +1,487 @@
+\documentclass[10pt]{article}
+\usepackage[margin=0.9in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[hidelinks]{hyperref}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{statement}[theorem]{Statement}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\hr}{\mathrm{hr}}
+\newcommand{\st}{\mathrm{st}}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\sign}{sign}
+\newcommand{\bmat}[2]{\begin{bmatrix} #1 \\ #2 \end{bmatrix}}
+
+\title{Majorization does not order the hazard rates of exponential mixtures with more than two components}
+\author{[Owner name to be confirmed]\thanks{The manuscript and its proofs were prepared with AI research agents and were independently machine-checked; the exact verification scripts described in Section~\ref{sec:repro} form part of the submission.}}
+\date{25 September 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+For a finite mixture of exponential distributions with weights $p$ and rates $v$, a known two-component fact is that spreading the rates by a $T$-transform lowers the hazard rate everywhere: if $\lambda$ majorizes $\gamma$ then the mixture with rates $\lambda$ is the larger one in the hazard rate order. Theorem~6.3 of Shojaee, Asadi and Finkelstein (2022) proves such a statement for two-component generalized finite $\alpha$-mixtures, and Remark~6.3 there asks whether it holds for more than two components; Theorem~3.8 in the accepted manuscript of Sahoo, Kayal and Finkelstein (2026) asserts an $n$-component version. We show that the $n$-component implication is false for every $n\ge 3$, already for equal weights and integer rates. The hazard rates of the equal-weight mixtures with rates $(1,3,5)$ and $(1,4,4)$ cross exactly once, at a time $t_*\in(\log 2,\log 4)$ that is the logarithm of an algebraic number of degree four, and adjoining any number of common rate-one components preserves the crossing. The mechanism is a common slowest component: for a general three-parameter family we prove that the hazard rates cross exactly once whenever the shared component is the slowest one, and we give a criterion (equal minimal rate, different second rate) that forces a crossing under majorization in every dimension. Variants with strictly ordered weights and rates, and with distinct minimal rates and two crossings, are certified with exact rational arithmetic. The usual stochastic order, the ordering of the hazard rates near the origin and the two-component statement itself all survive. Consequently the extension asked for in Remark~6.3 of Shojaee, Asadi and Finkelstein has a negative answer, and Theorem~3.8, Corollary~3.2 and Theorem~3.9 of the accepted manuscript of Sahoo, Kayal and Finkelstein are false as stated.
+
+\medskip\noindent\textbf{Keywords.} finite mixture; hazard rate order; majorization; $T$-transform; exponential distribution; counterexample.
+
+\noindent\textbf{MSC 2020.} 60E15; 62N05; 90B25.
+\end{abstract}
+
+\section{Introduction}\label{sec:intro}
+
+Let $p=(p_1,\dots,p_n)$ be a probability vector with positive entries and let $v=(v_1,\dots,v_n)\in(0,\infty)^n$. The finite (arithmetic) mixture of exponential distributions with weights $p$ and rates $v$ has survival function and hazard rate
+\begin{equation}\label{eq:mixture}
+S_{p,v}(t)=\sum_{i=1}^n p_i e^{-v_i t},\qquad
+h_{p,v}(t)=\frac{\sum_{i=1}^n p_i v_i e^{-v_i t}}{\sum_{i=1}^n p_i e^{-v_i t}},\qquad t\ge 0 .
+\end{equation}
+When $p$ is the uniform vector we write $S_v$ and $h_v$. A vector $\lambda$ majorizes $\gamma$, written $\lambda\succ\gamma$, when $\lambda$ is more spread out than $\gamma$ with the same total (Definition~\ref{def:maj}). The question studied here is the following.
+
+\begin{quote}
+If $\lambda\succ\gamma$, is $h_{p,\lambda}\le h_{p,\gamma}$ on $[0,\infty)$, that is, is the mixture with the more heterogeneous rates the larger one in the hazard rate order?
+\end{quote}
+
+For two components and equal weights the answer is yes: with $\lambda=(b-d,b+d)$ and $\gamma=(b,b)$ one has $S_\lambda(t)=e^{-bt}\cosh(dt)$, hence $h_\lambda(t)=b-d\tanh(dt)\le b=h_\gamma(t)$. Theorem~6.3 of Shojaee, Asadi and Finkelstein \cite{ShojaeeAsadiFinkelstein2022} proves a statement of this type for two-component generalized finite $\alpha$-mixtures with common mixing proportions, under an antiordering condition between weights and parameters; ordinary exponential mixtures are the special case $\alpha_i=1$ with baseline $e^{-\lambda t}$, which is exactly the baseline of their Example~6.4. Remark~6.3 of the same paper reads: ``Theorem~6.3 is proved for $n=2$. We have not yet been able to prove whether the result holds for $n>2$ or not leaving it as an open problem for now'', with a pointer to \cite{HazraFinkelstein2018,NadebTorabi2022} for the same question about ordinary mixtures. Theorem~3.8 in the accepted manuscript of Sahoo, Kayal and Finkelstein \cite{SahooKayalFinkelstein2026} asserts an $n$-component version for finite $\alpha$-mixtures with resilience-scaled components: if the $2\times n$ matrix formed by the weights and the resilience parameters is multiplied by a single $T$-transform, the original mixture is the larger one in the hazard rate order.
+
+\paragraph{Answer.} The $n$-component implication is false for every $n\ge 3$, and it fails in the simplest possible setting. Our results are the following.
+
+\begin{itemize}
+\item[(a)] \textbf{Three components} (Theorem~\ref{thm:three}). For equal weights, $\lambda=(1,3,5)\succ\gamma=(1,4,4)$, and with $q=e^{-t}$,
+\[
+h_\lambda(t)-h_\gamma(t)=\frac{2q^2(1-q)\,(1-2q-q^3-q^4)}{(1+q^2+q^4)(1+2q^3)} .
+\]
+The difference is negative on $(0,t_*)$ and positive on $(t_*,\infty)$, where $t_*=-\log q_*\approx 0.8231$ and $q_*\approx 0.4391$ is the unique root of $1-2q-q^3-q^4$ in $(0,1)$. In particular $h_\lambda(\log 2)-h_\gamma(\log 2)=-1/35$ and $h_\lambda(\log 4)-h_\gamma(\log 4)=41/1001$. Neither mixture dominates the other in the hazard rate order.
+\item[(b)] \textbf{Every dimension} (Theorem~\ref{thm:padded}). Adjoining $m$ common rate-one components gives $n=m+2$ component equal-weight mixtures with rates $(1,\dots,1,3,5)\succ(1,\dots,1,4,4)$ whose hazard rates cross exactly once, at a time $t_*(m)\in(\log 2,\log 4)$ that decreases strictly to $\log 2$; the difference at $t=\log 4$ equals $3(128m-5)/((256m+17)(32m+1))>0$ for every $m\ge 1$.
+\item[(c)] \textbf{Mechanism} (Theorems~\ref{thm:mechanism} and~\ref{thm:criterion}). In the family with weights $(w,\tfrac{1-w}{2},\tfrac{1-w}{2})$ and rates $(a,b-d,b+d)$ against $(a,b,b)$ the hazard rates cross exactly once when $w\in(0,1)$ and $a<b-d$, and the hazard rate order holds in all other cases. More generally, if two mixtures have the same minimal rate, the mixture with the smaller second rate has the larger hazard rate for large $t$, while for equal weights majorization forces the opposite inequality near $t=0$; this gives a crossing for every $n$.
+\item[(d)] \textbf{Variants} (Propositions~\ref{prop:strict} and~\ref{prop:twocross}). The failure persists with strictly decreasing weights and strictly increasing rates (so all antiordering conditions hold strictly), and it persists when the minimal rates differ, where the sign of the hazard difference changes twice.
+\item[(e)] \textbf{Relation to the published statements} (Section~\ref{sec:relation}). The extension asked for in Remark~6.3 of \cite{ShojaeeAsadiFinkelstein2022} has a negative answer for every $n\ge 3$. Theorem~3.8 of the accepted manuscript of \cite{SahooKayalFinkelstein2026}, and with it Corollary~3.2 and Theorem~3.9 there, are contradicted by explicit instances; we point to the step of the published proof that does not apply. The usual stochastic order (Theorem~6.1 of \cite{ShojaeeAsadiFinkelstein2022}), the two-component statements, and the ordering of the hazard rates on a neighbourhood of the origin are not affected.
+\end{itemize}
+
+\paragraph{Why it matters.} Hazard-rate comparisons of mixtures are the standard tool for comparing heterogeneous populations in reliability, and majorization is the standard measure of heterogeneity of the component parameters. The two-component intuition (more heterogeneity, smaller hazard) is correct near the origin in every dimension, because $h_{p,v}'(0)=-\Var_p(v)$ and the variance is Schur-convex. It is wrong in the tail, where $h_{p,v}(t)$ converges to the minimal rate at a speed governed by the second smallest rate, and majorization does not control that rate in the required direction. The failure is therefore structural, not an artefact of a particular parametrization: no proof strategy can establish the $n$-component statement, and only weaker conclusions (Proposition~\ref{prop:survives}) remain.
+
+\paragraph{Novelty boundary.} We claim no new positive ordering result. The facts in Lemma~\ref{lem:basic} are classical (the decreasing hazard rate of exponential mixtures goes back to Proschan \cite{Proschan1963}), and the two-component statements of \cite{ShojaeeAsadiFinkelstein2022,SahooKayalFinkelstein2026} are not contradicted. A bounded literature search (Section~\ref{sec:sources}) found no earlier counterexample to the $n$-component statement and no correction of \cite{SahooKayalFinkelstein2026}; we cannot exclude that the failure has been noticed before. All crossing counts are established either by hand (Theorems~\ref{thm:three}, \ref{thm:padded}, \ref{thm:mechanism}) or by exact computer algebra (Propositions~\ref{prop:strict} and~\ref{prop:twocross}, where the existence of a crossing is proved by hand and the exact count is machine-certified).
+
+\section{Preliminaries}\label{sec:prelim}
+
+\begin{definition}[majorization]\label{def:maj}
+For $x\in\R^n$ let $x_{[1]}\ge\dots\ge x_{[n]}$ be its decreasing rearrangement. The vector $x$ majorizes $y$, written $x\succ y$, if $\sum_{i=1}^k x_{[i]}\ge\sum_{i=1}^k y_{[i]}$ for $k=1,\dots,n-1$ and $\sum_{i=1}^n x_i=\sum_{i=1}^n y_i$ \cite[Chapter~1]{MarshallOlkinArnold2011}. Equivalently, with the increasing rearrangements $x_{(1)}\le\dots\le x_{(n)}$, $\sum_{i\le k}x_{(i)}\le\sum_{i\le k}y_{(i)}$ for $k<n$ with equality for $k=n$; this is Definition~6.1 of \cite{ShojaeeAsadiFinkelstein2022}.
+\end{definition}
+
+A \emph{$T$-transform} is a matrix $T=\omega I+(1-\omega)\Pi$ with $\omega\in[0,1]$ and $\Pi$ a permutation matrix that interchanges two coordinates \cite[Chapter~2.B]{MarshallOlkinArnold2011}. Acting on a row vector $x$ from the right, $T$ replaces a pair $(x_i,x_j)$ by $(\omega x_i+(1-\omega)x_j,\,(1-\omega)x_i+\omega x_j)$ and leaves the other coordinates unchanged; acting on a $2\times n$ matrix it does this to both rows. Always $x\succ xT$. Conversely, if $x\succ y$ then $y=xT_1\cdots T_k$ for finitely many $T$-transforms \cite[Lemma~2.B.1]{MarshallOlkinArnold2011}.
+
+Let $X$ and $Y$ be nonnegative random variables with survival functions $S_X,S_Y$ and hazard rates $h_X,h_Y$. Then $X\le_{\st}Y$ if $S_X\le S_Y$ on $[0,\infty)$, and $X\le_{\hr}Y$ if $h_X(t)\ge h_Y(t)$ for all $t\ge 0$ \cite[Sections~1.A and~1.B]{ShakedShanthikumar2007}; the hazard rate order implies the usual stochastic order. Both \cite{ShojaeeAsadiFinkelstein2022} and \cite{SahooKayalFinkelstein2026} use the same convention (Definition~2.1(ii) of the latter). Thus ``the mixture with rates $\lambda$ is larger in the hazard rate order'' means $h_{p,\lambda}\le h_{p,\gamma}$.
+
+We use the substitution $q=e^{-t}\in(0,1)$ throughout. If the rates are integers, then by \eqref{eq:mixture} both $S_{p,v}$ and $h_{p,v}$ become rational functions of $q$ with positive denominators on $(0,1)$; if the rates are rational with common denominator $N$, the same holds with $s=e^{-t/N}$. Small $t$ corresponds to $q$ near $1$ and large $t$ to $q$ near $0$.
+
+\begin{lemma}[basic facts]\label{lem:basic}
+Let $p$ have positive entries and let $v\in(0,\infty)^n$ be non-constant. Write $\mu=\sum_i p_i v_i$, $\sigma^2=\sum_i p_i(v_i-\mu)^2$, $v_{\min}=\min_i v_i$, $W_1=\sum_{i:\,v_i=v_{\min}}p_i$, $u=\min\{v_i: v_i>v_{\min}\}$ and $W_2=\sum_{i:\,v_i=u}p_i$. Then:
+\begin{enumerate}
+\item[(a)] $h_{p,v}$ is real-analytic on $[0,\infty)$, $h_{p,v}(0)=\mu$ and $h_{p,v}'(0)=-\sigma^2$;
+\item[(b)] $h_{p,v}$ is strictly decreasing on $[0,\infty)$;
+\item[(c)] $h_{p,v}(t)\to v_{\min}$ as $t\to\infty$, and more precisely
+\[
+h_{p,v}(t)-v_{\min}=\frac{W_2}{W_1}\,(u-v_{\min})\,e^{-(u-v_{\min})t}\,(1+o(1)),\qquad t\to\infty .
+\]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Write $S=S_{p,v}$ and $N=-S'=\sum_i p_i v_i e^{-v_i t}$, so that $h=N/S$ and $S>0$; this gives analyticity. Since $N'=-\sum_i p_i v_i^2 e^{-v_i t}$,
+\[
+h'=\frac{N'S-NS'}{S^2}=\frac{N'S+N^2}{S^2}
+=-\Bigl(\sum_i \pi_i(t)v_i^2-\bigl(\sum_i \pi_i(t)v_i\bigr)^2\Bigr)
+=-\Var_{\pi(t)}(v),
+\]
+where $\pi_i(t)=p_ie^{-v_it}/S(t)$ is a probability vector with positive entries. The variance of the non-constant vector $v$ under a probability vector with positive entries is strictly positive, which proves (b); at $t=0$ we have $\pi(0)=p$, which proves (a). For (c) write
+\[
+h_{p,v}(t)-v_{\min}=\frac{\sum_i p_i(v_i-v_{\min})e^{-(v_i-v_{\min})t}}{\sum_i p_i e^{-(v_i-v_{\min})t}} .
+\]
+The denominator tends to $W_1$. After multiplication by $e^{(u-v_{\min})t}$ the numerator equals $W_2(u-v_{\min})+\sum_{i:\,v_i>u}p_i(v_i-v_{\min})e^{-(v_i-u)t}$, which tends to $W_2(u-v_{\min})$.
+\end{proof}
+
+\begin{lemma}[$T$-transforms and convex sums]\label{lem:schur}
+Let $x\succ y$ in $\R^n$.
+\begin{enumerate}
+\item[(a)] For every convex $\varphi:\R\to\R$, $\sum_i\varphi(y_i)\le\sum_i\varphi(x_i)$. If $\varphi$ is strictly convex and $y$ is not a rearrangement of $x$, the inequality is strict.
+\item[(b)] $\sum_i y_i^2\le\sum_i x_i^2$, with equality if and only if $y$ is a rearrangement of $x$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+By \cite[Lemma~2.B.1]{MarshallOlkinArnold2011}, $y=xT_1\cdots T_k$ with $T$-transforms $T_j$. A single $T$-transform with parameter $\omega$ acting on the coordinates $(z_i,z_j)=(\alpha,\beta)$ of a vector $z$ changes $\sum_l\varphi(z_l)$ by
+\[
+\varphi(\omega\alpha+(1-\omega)\beta)+\varphi((1-\omega)\alpha+\omega\beta)-\varphi(\alpha)-\varphi(\beta)\le 0,
+\]
+by convexity applied to each of the two terms; for strictly convex $\varphi$ the change is strictly negative unless $\omega\in\{0,1\}$ or $\alpha=\beta$, and in those two cases the transform permutes the coordinates of $z$. Hence $\sum_l\varphi(z_l)$ is non-increasing along the chain, and if it is constant along the chain for a strictly convex $\varphi$ then every step is a permutation and $y$ is a rearrangement of $x$. This proves (a). For (b) take $\varphi(z)=z^2$, for which the change equals $-2\omega(1-\omega)(\alpha-\beta)^2$.
+\end{proof}
+
+\section{Three components}\label{sec:three}
+
+\begin{theorem}\label{thm:three}
+Let $\lambda=(1,3,5)$ and $\gamma=(1,4,4)$ with equal weights $p=(\tfrac13,\tfrac13,\tfrac13)$, and put $q=e^{-t}$.
+\begin{enumerate}
+\item[(a)] $\lambda\succ\gamma$; indeed $\gamma=\lambda T$ with $T=\tfrac12(I+\Pi_{23})$, where $\Pi_{23}$ interchanges the last two coordinates.
+\item[(b)] For $t>0$,
+\begin{equation}\label{eq:three}
+h_\lambda(t)=\frac{1+3q^2+5q^4}{1+q^2+q^4},\qquad
+h_\gamma(t)=\frac{1+8q^3}{1+2q^3},
+\end{equation}
+and, with $B_1(q)=1-2q-q^3-q^4$,
+\begin{equation}\label{eq:threediff}
+h_\lambda(t)-h_\gamma(t)=\frac{2q^2(1-q)\,B_1(q)}{(1+q^2+q^4)(1+2q^3)} .
+\end{equation}
+\item[(c)] $B_1$ has exactly one root $q_*$ in $(0,1)$, and $\tfrac14<q_*<\tfrac12$. With $t_*=-\log q_*\in(\log 2,\log 4)$ one has $h_\lambda<h_\gamma$ on $(0,t_*)$, $h_\lambda(t_*)=h_\gamma(t_*)$ and $h_\lambda>h_\gamma$ on $(t_*,\infty)$. Numerically $q_*=0.439087115146\ldots$ and $t_*=0.823057445625\ldots$.
+\item[(d)] $h_\lambda(\log 2)=\tfrac{11}{7}$, $h_\gamma(\log 2)=\tfrac85$, $h_\lambda(\log 4)=\tfrac{103}{91}$, $h_\gamma(\log 4)=\tfrac{12}{11}$; hence
+\[
+h_\lambda(\log 2)-h_\gamma(\log 2)=-\tfrac{1}{35}<0,\qquad h_\lambda(\log 4)-h_\gamma(\log 4)=\tfrac{41}{1001}>0 .
+\]
+\item[(e)] $S_\lambda(t)-S_\gamma(t)=\tfrac13 q^3(1-q)^2>0$ for $t>0$; both mixtures have $h(0)=3$, $h_\lambda'(0)=-\tfrac83<-2=h_\gamma'(0)$, and $h_\lambda(t),h_\gamma(t)\to 1$ as $t\to\infty$.
+\end{enumerate}
+In particular the two mixtures are ordered in the usual stochastic order but in neither direction of the hazard rate order.
+\end{theorem}
+
+\begin{proof}
+(a) The decreasing rearrangements are $(5,3,1)$ and $(4,4,1)$ with partial sums $5\ge 4$, $8\ge 8$, $9=9$. The $T$-transform $\tfrac12(I+\Pi_{23})$ replaces $(3,5)$ by $(4,4)$.
+
+(b) By \eqref{eq:mixture} with equal weights, $h_\lambda=(q+3q^3+5q^5)/(q+q^3+q^5)$ and $h_\gamma=(q+8q^4)/(q+2q^4)$; cancel $q$. Expanding the cross products,
+\begin{align*}
+(1+3q^2+5q^4)(1+2q^3)-(1+8q^3)(1+q^2+q^4)
+&=2q^2-6q^3+4q^4-2q^5+2q^7\\
+&=2q^2(1-q)(1-2q-q^3-q^4),
+\end{align*}
+since $(1-q)(1-2q-q^3-q^4)=1-3q+2q^2-q^3+q^5$.
+
+(c) $B_1'(q)=-2-3q^2-4q^3<0$, so $B_1$ is strictly decreasing on $[0,1]$; $B_1(0)=1$, $B_1(\tfrac14)=\tfrac12-\tfrac{1}{64}-\tfrac{1}{256}=\tfrac{123}{256}>0$ and $B_1(\tfrac12)=-\tfrac{3}{16}<0$. Hence there is exactly one root $q_*\in(\tfrac14,\tfrac12)$, $B_1<0$ on $(q_*,1)$ and $B_1>0$ on $(0,q_*)$. Since $q\mapsto -\log q$ is decreasing, $q\in(q_*,1)$ corresponds to $t\in(0,t_*)$. The other factors in \eqref{eq:threediff} are positive for $q\in(0,1)$. The numerical value is obtained by exact root isolation (Section~\ref{sec:repro}); the reader can check $B_1(0.4390)>0>B_1(0.4392)$.
+
+(d) Put $q=\tfrac12$: $h_\lambda=\tfrac{33/16}{21/16}=\tfrac{11}{7}$ and $h_\gamma=\tfrac{2}{5/4}=\tfrac85$. Put $q=\tfrac14$: $h_\lambda=\tfrac{256+48+5}{256+16+1}=\tfrac{309}{273}=\tfrac{103}{91}$ and $h_\gamma=\tfrac{1+1/8}{1+1/32}=\tfrac{36}{33}=\tfrac{12}{11}$.
+
+(e) $S_\lambda-S_\gamma=\tfrac13(q^3+q^5-2q^4)=\tfrac13q^3(1-q)^2$. The values at $0$ and the derivatives follow from Lemma~\ref{lem:basic}(a): both means equal $3$, and $\Var(1,3,5)=\tfrac83$, $\Var(1,4,4)=2$. The limits follow from Lemma~\ref{lem:basic}(c).
+\end{proof}
+
+\begin{remark}
+Theorem~\ref{thm:three} is fully hand-checkable: the identity \eqref{eq:threediff} is a polynomial identity of degree seven, and the sign change is witnessed by the two rational values in (d). The point $t_*$ is the logarithm of an algebraic number of degree four, since $B_1$ is irreducible over $\mathbb{Q}$ (it has no rational root and no factorization into two quadratics with integer coefficients; the verification script checks irreducibility exactly).
+\end{remark}
+
+\section{Every number of components}\label{sec:padded}
+
+For real $m>0$ consider the survival functions
+\begin{equation}\label{eq:padded}
+S^{(m)}_\lambda(t)=\frac{m e^{-t}+e^{-3t}+e^{-5t}}{m+2},\qquad
+S^{(m)}_\gamma(t)=\frac{m e^{-t}+2e^{-4t}}{m+2}.
+\end{equation}
+For a positive integer $m$ these are the equal-weight mixtures with $n=m+2$ components and rate vectors
+\[
+\lambda^{(m)}=(\underbrace{1,\dots,1}_{m},3,5),\qquad \gamma^{(m)}=(\underbrace{1,\dots,1}_{m},4,4),
+\]
+and $\gamma^{(m)}=\lambda^{(m)}T$ with $T=\tfrac12(I+\Pi_{n-1,n})$, so $\lambda^{(m)}\succ\gamma^{(m)}$. Let $h^{(m)}_\lambda$ and $h^{(m)}_\gamma$ denote the hazard rates and put
+\begin{equation}\label{eq:Bm}
+B_m(q)=m(1-2q)-q^3(1+q).
+\end{equation}
+
+\begin{theorem}\label{thm:padded}
+Let $m>0$ and $q=e^{-t}$.
+\begin{enumerate}
+\item[(a)] For $t>0$,
+\begin{equation}\label{eq:paddeddiff}
+h^{(m)}_\lambda(t)-h^{(m)}_\gamma(t)=\frac{2q^2(1-q)\,B_m(q)}{(m+q^2+q^4)(m+2q^3)} .
+\end{equation}
+\item[(b)] $B_m$ has exactly one root $q_*(m)$ in $(0,1)$, and $0<q_*(m)<\tfrac12$. With $t_*(m)=-\log q_*(m)$ one has $h^{(m)}_\lambda<h^{(m)}_\gamma$ on $(0,t_*(m))$ and $h^{(m)}_\lambda>h^{(m)}_\gamma$ on $(t_*(m),\infty)$.
+\item[(c)] For $m\ge 1$: $\tfrac12-\tfrac{3}{16m}<q_*(m)<\tfrac12$, hence $\log 2<t_*(m)<\log 2+\tfrac{3}{8m-3}<\log 4$. Moreover
+\begin{gather*}
+h^{(m)}_\lambda(\log 2)-h^{(m)}_\gamma(\log 2)=-\frac{3}{(16m+5)(4m+1)}<0,\\
+h^{(m)}_\lambda(\log 4)-h^{(m)}_\gamma(\log 4)=\frac{3(128m-5)}{(256m+17)(32m+1)}>0 .
+\end{gather*}
+\item[(d)] $m\mapsto q_*(m)$ is strictly increasing on $(0,\infty)$, so $t_*(m)$ decreases strictly to $\log 2$ as $m\to\infty$.
+\item[(e)] $S^{(m)}_\lambda(t)-S^{(m)}_\gamma(t)=q^3(1-q)^2/(m+2)>0$ for $t>0$.
+\end{enumerate}
+Consequently, for every $n\ge 3$ there are equal-weight exponential mixtures with $n$ components whose integer rate vectors satisfy $\lambda\succ\gamma$ (with $\gamma=\lambda T$ for a single $T$-transform) and whose hazard rates cross exactly once; in particular they are not comparable in the hazard rate order.
+\end{theorem}
+
+\begin{proof}
+(a) From \eqref{eq:padded}, $h^{(m)}_\lambda=(m+3q^2+5q^4)/(m+q^2+q^4)$ and $h^{(m)}_\gamma=(m+8q^3)/(m+2q^3)$. The numerator of the difference is
+\[
+(m+3q^2+5q^4)(m+2q^3)-(m+8q^3)(m+q^2+q^4)
+=2mq^2-6mq^3+4mq^4-2q^5+2q^7 ,
+\]
+and the right-hand side equals $2q^2[m(1-q)(1-2q)-q^3(1-q^2)]=2q^2(1-q)B_m(q)$.
+
+(b) $B_m'(q)=-2m-3q^2-4q^3<0$ on $[0,1]$, $B_m(0)=m>0$ and $B_m(\tfrac12)=-\tfrac{3}{16}<0$. The sign pattern follows as in Theorem~\ref{thm:three}(c) because the remaining factors of \eqref{eq:paddeddiff} are positive on $(0,1)$.
+
+(c) Let $q_0=\tfrac12-\tfrac{3}{16m}$; for $m\ge 1$, $q_0\in[\tfrac{5}{16},\tfrac12)$. Then $m(1-2q_0)=\tfrac38$ and $q_0^3(1+q_0)<(\tfrac12)^3\cdot\tfrac32=\tfrac{3}{16}$, so $B_m(q_0)>\tfrac{3}{16}>0$ and therefore $q_0<q_*(m)$ by monotonicity of $B_m$. Since $-\log(1-x)\le x/(1-x)$ for $x\in[0,1)$, $t_*(m)<-\log q_0=\log 2-\log(1-\tfrac{3}{8m})\le\log 2+\tfrac{3}{8m-3}$, and $\tfrac{3}{8m-3}\le\tfrac35<\log 2$. The two values follow from \eqref{eq:paddeddiff} with $q=\tfrac12$, where $B_m=-\tfrac{3}{16}$, and $q=\tfrac14$, where $B_m=\tfrac m2-\tfrac{5}{256}$; for $m=1$ they reduce to $-\tfrac1{35}$ and $\tfrac{41}{1001}$.
+
+(d) For $m'>m$ and $q<\tfrac12$, $B_{m'}(q)-B_m(q)=(m'-m)(1-2q)>0$. Hence $B_{m'}(q_*(m))>B_m(q_*(m))=0=B_{m'}(q_*(m'))$, and since $B_{m'}$ is strictly decreasing, $q_*(m')>q_*(m)$. The limit follows from (c).
+
+(e) $S^{(m)}_\lambda-S^{(m)}_\gamma=(q^3+q^5-2q^4)/(m+2)$.
+\end{proof}
+
+\begin{remark}[the two-component case]\label{rem:twocomp}
+Formula \eqref{eq:paddeddiff} remains valid for $m=0$, where $B_0(q)=-q^3(1+q)<0$ and the difference reduces to $-(1-q^2)/(1+q^2)=-\tanh t$: the hazard rate order $h_{(3,5)}\le h_{(4,4)}$ holds, in agreement with the two-component statements. The crossing appears exactly when a component that is slower than both transformed components is present.
+\end{remark}
+
+\begin{table}[t]
+\centering
+\caption{Crossing times of the padded family (Theorem~\ref{thm:padded}), obtained by exact root isolation; $\log 2\approx 0.693147$.}
+\label{tab:padded}
+\begin{tabular}{@{}rrr@{}}
+\toprule
+$n=m+2$ & $q_*(m)$ & $t_*(m)$ \\
+\midrule
+3 & 0.439087 & 0.823057 \\
+4 & 0.463554 & 0.768832 \\
+5 & 0.473863 & 0.746838 \\
+6 & 0.479597 & 0.734808 \\
+8 & 0.485804 & 0.721950 \\
+66 & 0.498549 & 0.696053 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{The mechanism}\label{sec:mechanism}
+
+\subsection{A common slow component}
+
+Fix $a>0$, $b>d>0$ and $w\in[0,1)$, and let $X$ and $Y$ be the mixtures with common weights $(w,\tfrac{1-w}{2},\tfrac{1-w}{2})$ and rates $(a,b-d,b+d)$ and $(a,b,b)$ respectively, so that the rate vector of $X$ majorizes that of $Y$ (they are related by $T=\tfrac12(I+\Pi_{23})$). Their survival functions are
+\begin{equation}\label{eq:XY}
+S_X(t)=we^{-at}+(1-w)e^{-bt}\cosh(dt),\qquad S_Y(t)=we^{-at}+(1-w)e^{-bt}.
+\end{equation}
+Put $c=b-a$.
+
+\begin{theorem}\label{thm:mechanism}
+\begin{enumerate}
+\item[(a)] $S_X(t)>S_Y(t)$ for all $t>0$; in particular $X\ge_{\st}Y$.
+\item[(b)] If $w\in(0,1)$ and $a<b-d$, there is a unique $t_*>0$ such that $h_X<h_Y$ on $(0,t_*)$, $h_X(t_*)=h_Y(t_*)$ and $h_X>h_Y$ on $(t_*,\infty)$. The time $t_*$ is the unique solution of
+\begin{equation}\label{eq:tstar}
+d\coth\Bigl(\frac{dt}{2}\Bigr)=\frac{c\,w\,e^{ct}}{w\,e^{ct}+1-w} .
+\end{equation}
+\item[(c)] If $w=0$, or if $w\in(0,1)$ and $a\ge b-d$, then $h_X(t)<h_Y(t)$ for all $t>0$, so $X\ge_{\hr}Y$. For $w=0$ one has $h_X(t)=b-d\tanh(dt)$ and $h_Y\equiv b$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(a) $S_X-S_Y=(1-w)e^{-bt}(\cosh(dt)-1)$ and $\cosh(dt)-1=2\sinh^2(dt/2)>0$ for $t>0$.
+
+Let $R=S_X/S_Y$. Since $h_X=-(\log S_X)'$ and $h_Y=-(\log S_Y)'$,
+\begin{equation}\label{eq:hdiff}
+h_X-h_Y=-(\log R)'=-\frac{R'}{R},\qquad\text{so}\qquad \sign(h_X-h_Y)=-\sign(R').
+\end{equation}
+Writing $S_Y=e^{-bt}(we^{ct}+1-w)$ we obtain
+\[
+R(t)-1=\frac{(1-w)(\cosh(dt)-1)}{we^{ct}+1-w}>0\qquad(t>0),
+\]
+and therefore $\sign(R')=\sign\bigl((\log(R-1))'\bigr)=\sign F(t)$ with
+\[
+F(t)=\frac{d\sinh(dt)}{\cosh(dt)-1}-\frac{c\,w\,e^{ct}}{we^{ct}+1-w}
+=d\coth\Bigl(\frac{dt}{2}\Bigr)-G(t),\qquad G(t)=\frac{c\,w\,e^{ct}}{we^{ct}+1-w} .
+\]
+
+(c) If $w=0$ then $G\equiv 0$ and $F=d\coth(dt/2)>0$ on $(0,\infty)$. If $w\in(0,1)$ and $c\le 0$ then $G\le 0$ and again $F>0$. If $w\in(0,1)$ and $0<c\le d$ then $0<G(t)<c\le d<d\coth(dt/2)$, so $F>0$. In all three cases $R$ is strictly increasing on $(0,\infty)$ and \eqref{eq:hdiff} gives $h_X<h_Y$ for $t>0$. The condition $a\ge b-d$ is $c\le d$. For $w=0$, $S_X=e^{-bt}\cosh(dt)$ gives $h_X=b-d\tanh(dt)$ directly.
+
+(b) Now $w\in(0,1)$ and $c>d>0$. The function $t\mapsto d\coth(dt/2)$ is continuous and strictly decreasing on $(0,\infty)$ (its derivative is $-d^2/(2\sinh^2(dt/2))$), with limits $+\infty$ at $0^+$ and $d$ at $\infty$. The function $G$ is continuous and strictly increasing (its derivative is $c^2w(1-w)e^{ct}/(we^{ct}+1-w)^2>0$), with limits $cw$ at $0^+$ and $c$ at $\infty$. Hence $F$ is continuous and strictly decreasing on $(0,\infty)$, with $F(0^+)=+\infty$ and $F(\infty)=d-c<0$. So $F$ has a unique zero $t_*$, is positive before it and negative after it. By \eqref{eq:hdiff}, $h_X-h_Y$ is negative on $(0,t_*)$, zero at $t_*$ and positive on $(t_*,\infty)$. Equation \eqref{eq:tstar} is $F(t)=0$.
+\end{proof}
+
+\begin{corollary}\label{cor:specialise}
+With $(a,b,d)=(1,4,1)$ and $w=m/(m+2)$, $m>0$, the pair $(X,Y)$ of Theorem~\ref{thm:mechanism} is the padded family \eqref{eq:padded}, and in the variable $q=e^{-t}$
+\[
+F(t)=\frac{1+q}{1-q}-\frac{3m}{m+2q^3}=-\frac{2B_m(q)}{(1-q)(m+2q^3)} .
+\]
+The weights are antiordered with the rates, $(p_i-p_j)(v_i-v_j)\le 0$ for all $i,j$, exactly when $w\ge\tfrac13$, that is $m\ge 1$; the crossing occurs for every $m>0$.
+\end{corollary}
+
+\begin{proof}
+$w(m+2)=m$ and $(1-w)(m+2)=2$ give \eqref{eq:padded}. Here $c=3$, $\coth(t/2)=(1+q)/(1-q)$ and $e^{3t}=q^{-3}$, so $G=3wq^{-3}/(wq^{-3}+1-w)=3m/(m+2q^3)$, and $(1+q)(m+2q^3)-3m(1-q)=-2m+4mq+2q^3+2q^4=-2B_m(q)$. The antiordering condition for the weights $(w,\tfrac{1-w}{2},\tfrac{1-w}{2})$ and the rates $(1,3,5)$ or $(1,4,4)$ is $w\ge\tfrac{1-w}{2}$.
+\end{proof}
+
+\begin{remark}[majorization alone decides nothing]\label{rem:117}
+The boundary case $a=b-d$ of Theorem~\ref{thm:mechanism}(c) with $(a,b,d,w)=(1,4,3,\tfrac13)$ is the pair of equal-weight mixtures with rates $(1,1,7)$ and $(1,4,4)$. Here $(1,1,7)\succ(1,4,4)$ and the hazard rate order $h_{(1,1,7)}<h_{(1,4,4)}$ holds on $(0,\infty)$; explicitly
+\[
+h_{(1,1,7)}(t)-h_{(1,4,4)}(t)=\frac{6q^3(q-1)(q^3+2)(q^2+q+1)}{(2q^3+1)(q^6+2)} .
+\]
+Thus among equal-weight three-component mixtures with $\lambda\succ\gamma$ the hazard rate order sometimes holds and sometimes fails; the deciding quantity is the tail behaviour described next.
+\end{remark}
+
+\subsection{A crossing criterion}
+
+\begin{theorem}\label{thm:criterion}
+Let $p$ have positive entries and let $\lambda,\gamma\in(0,\infty)^n$ be non-constant, with $p$-means $\mu_\lambda,\mu_\gamma$ and $p$-variances $\sigma_\lambda^2,\sigma_\gamma^2$ as in Lemma~\ref{lem:basic}. Suppose
+\begin{enumerate}
+\item[(A)] either $\mu_\lambda<\mu_\gamma$, or $\mu_\lambda=\mu_\gamma$ and $\sigma^2_\lambda>\sigma^2_\gamma$; and
+\item[(B)] $\min_i\lambda_i=\min_i\gamma_i$, and the second smallest distinct value of $\lambda$ is smaller than the second smallest distinct value of $\gamma$.
+\end{enumerate}
+Then there are $0<\varepsilon<T<\infty$ with $h_{p,\lambda}<h_{p,\gamma}$ on $(0,\varepsilon]$ and $h_{p,\lambda}>h_{p,\gamma}$ on $[T,\infty)$. In particular the two mixtures are not comparable in the hazard rate order.
+\end{theorem}
+
+\begin{proof}
+By Lemma~\ref{lem:basic}(a), $h_{p,\lambda}(0)=\mu_\lambda$, $h_{p,\gamma}(0)=\mu_\gamma$, $h'_{p,\lambda}(0)=-\sigma^2_\lambda$ and $h'_{p,\gamma}(0)=-\sigma^2_\gamma$; under (A) the difference $h_{p,\lambda}-h_{p,\gamma}$ is negative at $0$, or vanishes at $0$ with negative derivative, and in both cases it is negative on some $(0,\varepsilon]$. Let $v_1$ be the common minimum and $u_\lambda<u_\gamma$ the second smallest distinct values. By Lemma~\ref{lem:basic}(c),
+\[
+e^{(u_\lambda-v_1)t}\bigl(h_{p,\lambda}(t)-v_1\bigr)\to\frac{W_2^\lambda}{W_1^\lambda}(u_\lambda-v_1)>0,\qquad
+e^{(u_\lambda-v_1)t}\bigl(h_{p,\gamma}(t)-v_1\bigr)=e^{-(u_\gamma-u_\lambda)t}\,O(1)\to 0,
+\]
+so $h_{p,\lambda}-h_{p,\gamma}>0$ for all large $t$.
+\end{proof}
+
+\begin{corollary}\label{cor:criterion}
+Let $p$ be uniform and $\lambda\succ\gamma$, where $\gamma$ is not a rearrangement of $\lambda$. Suppose $\min_i\lambda_i=\min_i\gamma_i=:v_1$, that $v_1$ has the same multiplicity $k$ in both vectors, and that $\lambda_{(k+1)}<\gamma_{(k+1)}$. Then the hazard rates of the two equal-weight mixtures cross: neither hazard rate order holds.
+\end{corollary}
+
+\begin{proof}
+Majorization gives $\mu_\lambda=\mu_\gamma$, and Lemma~\ref{lem:schur}(b) gives $\sigma^2_\lambda>\sigma^2_\gamma$, so (A) holds. Equal multiplicity of the minimum means that the second smallest distinct values are $\lambda_{(k+1)}$ and $\gamma_{(k+1)}$, so (B) holds.
+\end{proof}
+
+\begin{remark}\label{rem:criterion}
+If $\lambda\succ\gamma$ and the minima coincide, then $\lambda_{(1)}=\gamma_{(1)}$ forces the multiplicity of the minimum in $\lambda$ to be at least that in $\gamma$, and when the multiplicities are equal to $k$ the partial sums give $\lambda_{(k+1)}\le\gamma_{(k+1)}$. So Corollary~\ref{cor:criterion} covers every equal-weight pair with a common minimum of equal multiplicity except the degenerate case $\lambda_{(k+1)}=\gamma_{(k+1)}$. The remaining configurations are a smaller minimum in $\lambda$ (Proposition~\ref{prop:twocross} shows that a crossing may still occur) and a higher multiplicity of the minimum in $\lambda$ (Remark~\ref{rem:117} shows that the hazard rate order may hold).
+\end{remark}
+
+\section{Two further examples}\label{sec:variants}
+
+The first variant removes the ties that make the antiordering conditions of \cite{ShojaeeAsadiFinkelstein2022,SahooKayalFinkelstein2026} hold trivially for equal weights.
+
+\begin{proposition}[strict weights, distinct rates]\label{prop:strict}
+Let $p=(\tfrac25,\tfrac13,\tfrac{4}{15})$, $\lambda=(2,6,10)$ and $\gamma=(2,7,9)$, and let $T=\tfrac34I+\tfrac14\Pi_{23}$, so that $\gamma=\lambda T$ and $\tilde p:=pT=(\tfrac25,\tfrac{19}{60},\tfrac{17}{60})$.
+\begin{enumerate}
+\item[(a)] $\lambda\succ\gamma$; the weights $p$ and $\tilde p$ are strictly decreasing, the rates $\lambda,\gamma$ strictly increasing, so $(p_i-p_j)(\lambda_i-\lambda_j)<0$, $(p_i-p_j)(\gamma_i-\gamma_j)<0$ and $(\tilde p_i-\tilde p_j)(\gamma_i-\gamma_j)<0$ for all $i\ne j$.
+\item[(b)] Common weights: $h_{p,\lambda}(\log 2)=\tfrac{898}{405}$ and $h_{p,\gamma}(\log 2)=\tfrac{214}{99}$, so $h_{p,\lambda}(\log 2)-h_{p,\gamma}(\log 2)=\tfrac{248}{4455}>0$, while $h_{p,\lambda}(\log\tfrac43)-h_{p,\gamma}(\log\tfrac43)=-\tfrac{26862489}{459534895}<0$.
+\item[(c)] Transformed weights: $h_{\tilde p,\gamma}(\log 2)=\tfrac{6829}{3165}$, so $h_{p,\lambda}(\log 2)-h_{\tilde p,\gamma}(\log 2)=\tfrac{1019}{17091}>0$, while $h_{p,\lambda}(\log\tfrac43)-h_{\tilde p,\gamma}(\log\tfrac43)=-\tfrac{399285261}{7327839955}<0$.
+\item[(d)] In both cases $h_{p,\lambda}$ lies below the other hazard rate near $t=0$ and above it for large $t$; the exact number of sign changes on $(0,\infty)$ is one in each case (machine-certified), at $t\approx 0.380362$ for (b) and $t\approx 0.367980$ for (c).
+\item[(e)] $S_{p,\lambda}(t)-S_{p,\gamma}(t)=\tfrac{1}{15}q^6(1-q)(5-4q^3)>0$ for $t>0$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) The decreasing rearrangements $(10,6,2)$ and $(9,7,2)$ have partial sums $10\ge 9$, $16\ge 16$, $18=18$. The $T$-transform maps $(6,10)$ to $(7,9)$ and $(\tfrac13,\tfrac4{15})$ to $(\tfrac14+\tfrac1{15},\tfrac1{12}+\tfrac15)=(\tfrac{19}{60},\tfrac{17}{60})$.
+
+(b), (c) With $q=\tfrac12$, $S_{p,\lambda}=\tfrac1{10}+\tfrac1{192}+\tfrac1{3840}=\tfrac{405}{3840}$ and the numerator of $h_{p,\lambda}$ is $\tfrac15+\tfrac1{32}+\tfrac1{384}=\tfrac{898}{3840}$; similarly $S_{p,\gamma}=\tfrac{198}{1920}$ with numerator $\tfrac{428}{1920}$, and $S_{\tilde p,\gamma}=\tfrac{3165}{30720}$ with numerator $\tfrac{6829}{30720}$. The values at $q=\tfrac34$ are rational numbers computed in the same way (Section~\ref{sec:repro}).
+
+(d) The $p$-means are $\mu_\lambda=\tfrac{82}{15}<\tfrac{83}{15}=\mu_\gamma$ and, for the transformed weights, $\tfrac{82}{15}=\tfrac{164}{30}<\tfrac{167}{30}$; both rate vectors have minimum $2$ and second values $6<7$. The proof of Theorem~\ref{thm:criterion} applies verbatim to two mixtures with different weight vectors, because Lemma~\ref{lem:basic} is applied to each mixture separately; it gives the sign pattern near $0$ and near $\infty$, hence at least one crossing in each case. The exact count is obtained by Sturm's theorem applied to the numerator of the difference, a polynomial in $q$ (Section~\ref{sec:repro}).
+
+(e) $S_{p,\lambda}-S_{p,\gamma}=\tfrac13(q^6-q^7)+\tfrac4{15}(q^{10}-q^9)=\tfrac1{15}q^6(1-q)(5-4q^3)$.
+\end{proof}
+
+The second variant shows that the crossing does not require a common minimal rate, and that it can occur inside a bounded window. It is also an instance of a chain of two $T$-transforms with different structures, which is the setting of Theorem~3.9 of \cite{SahooKayalFinkelstein2026}.
+
+\begin{proposition}[distinct minimal rates, two crossings]\label{prop:twocross}
+Let $\lambda=(1,3,5)$ and $\gamma'=(\tfrac{41}{40},\tfrac{159}{40},4)$ with equal weights. Then $\gamma'=\lambda T_1T_2$ with $T_1=\tfrac12(I+\Pi_{23})$ and $T_2=\tfrac{119}{120}I+\tfrac1{120}\Pi_{12}$, so $\lambda\succ(1,4,4)\succ\gamma'$, and:
+\begin{enumerate}
+\item[(a)] $h_\lambda(0)=h_{\gamma'}(0)=3$ and $h_\lambda'(0)=-\tfrac83<-\tfrac{4681}{2400}=h_{\gamma'}'(0)$, so $h_\lambda<h_{\gamma'}$ near $0$;
+\item[(b)] $h_\lambda(t)\to 1<\tfrac{41}{40}\leftarrow h_{\gamma'}(t)$, so $h_\lambda<h_{\gamma'}$ for large $t$;
+\item[(c)] $h_\lambda(t_1)>h_{\gamma'}(t_1)$ at $t_1=40\log\tfrac{500}{483}\approx 1.3838$, where the difference is a rational number computed exactly;
+\item[(d)] the difference changes sign exactly twice on $(0,\infty)$, at $t\approx 1.043788$ and $t\approx 1.885779$ (machine-certified), and $S_\lambda>S_{\gamma'}$ on $(0,\infty)$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+$T_1$ maps $(3,5)$ to $(4,4)$ and $T_2$ maps $(1,4)$ to $(\tfrac{119+4}{120},\tfrac{1+476}{120})=(\tfrac{41}{40},\tfrac{159}{40})$. (a) and (b) follow from Lemma~\ref{lem:basic}: $\Var(\gamma')=\tfrac13\bigl(\tfrac{1681+25281}{1600}+16\bigr)-9=\tfrac{4681}{2400}$. For (c) and (d), with $s=e^{-t/40}$ every term of \eqref{eq:mixture} is a monomial in $s$ with integer exponent, so the hazard difference is a rational function of $s$ of degree $275$ in the numerator; its value at $s=\tfrac{483}{500}$ is computed exactly and is positive, and its real roots in $(0,1)$ are isolated exactly by the Vincent-Collins-Akritas method (Section~\ref{sec:repro}). The survival difference is treated in the same way.
+\end{proof}
+
+\section{Relation to the published statements}\label{sec:relation}
+
+\subsection{Shojaee, Asadi and Finkelstein (2022)}\label{sec:SAF}
+
+The $\alpha$-mixture of survival functions was introduced by Asadi, Ebrahimi and Soofi \cite{AsadiEbrahimiSoofi2019}. In \cite{ShojaeeAsadiFinkelstein2022}, the generalized finite $\alpha$-mixture of survival functions $\bar F_i$ is $\bar F(t,\bar\alpha)=[\sum_{i=1}^n p_i\bar F_i^{\alpha_i}(t)]^{1/\bar\alpha}$ with $\bar\alpha=\sum_i p_i\alpha_i$ (their equation (3)); $\alpha_i=1$ for all $i$ gives the arithmetic mixture. For a parametric family $\bar F(t\mid\lambda)$ with hazard rate $r(t\mid\lambda)$, $W_n(p,\lambda)$ denotes the mixture with parameters $\lambda_1,\dots,\lambda_n$, and (their page~1069)
+\[
+\mathcal U_n=\{(x,y): x_i,y_i\ge 0,\ (x_i-x_j)(y_i-y_j)\le 0,\ i,j=1,\dots,n\}.
+\]
+Theorem~6.3 (page~1073) states: let $W_2(p,\lambda)$ and $W_2(p,\gamma)$ be two-component generalized finite $\alpha$-mixtures with common mixing proportions $p_1,p_2$, and suppose that for $(p,\lambda)\in\mathcal U_2$ and $(p,\gamma)\in\mathcal U_2$: (i) $r(t\mid\lambda)$ is increasing (decreasing) and concave (convex) in $\lambda>0$ for all $t$; (ii) $\bar F(t\mid\lambda)$ is decreasing (increasing) in $\lambda>0$ for all $t$; (iii) $\alpha_1\le\alpha_2$; (iv) $\lambda\succ\gamma$. Then, for $\alpha_i\ge 0$ such that $\alpha_1p_1\ge\alpha_2p_2$ ($\alpha_i<0$), $r_{W_2(p,\lambda)}\le(\ge)\,r_{W_2(p,\gamma)}$. Remark~6.3 (page~1075) is quoted in Section~\ref{sec:intro}; Example~6.4 illustrates the theorem with $\bar F(t\mid\lambda)=e^{-\lambda t}$.
+
+The $n$-component statement whose validity Remark~6.3 leaves open is obtained by replacing $2$ by $n$, (iii) by $\alpha_1\le\dots\le\alpha_n$ and the weight condition by $\alpha_1p_1\ge\dots\ge\alpha_np_n$, exactly as in Theorems~6.1 and~6.2 of \cite{ShojaeeAsadiFinkelstein2022}, which treat the usual stochastic order for $n$ components:
+
+\begin{statement}[the extension asked for in Remark~6.3]\label{st:SAF}
+Let $(p,\lambda),(p,\gamma)\in\mathcal U_n$, let $\bar F(t\mid\lambda)$ satisfy (i) and (ii), let $\alpha_1\le\dots\le\alpha_n$ with $\alpha_i\ge 0$ and $\alpha_1p_1\ge\dots\ge\alpha_np_n$, and let $\lambda\succ\gamma$. Then $r_{W_n(p,\lambda)}\le r_{W_n(p,\gamma)}$ on $[0,\infty)$.
+\end{statement}
+
+For $\alpha_i=1$ and $\bar F(t\mid\lambda)=e^{-\lambda t}$, conditions (i) and (ii) hold ($r(t\mid\lambda)=\lambda$ is increasing and concave, $e^{-\lambda t}$ is decreasing in $\lambda$), $W_n(p,\lambda)$ is the exponential mixture with weights $p$ and rates $\lambda$, and the hypotheses reduce to $(p,\lambda),(p,\gamma)\in\mathcal U_n$, $p_1\ge\dots\ge p_n$ and $\lambda\succ\gamma$; the conclusion is $h_{p,\lambda}\le h_{p,\gamma}$. Statement~\ref{st:SAF} is therefore false for every $n\ge 3$: Theorem~\ref{thm:three} and Theorem~\ref{thm:padded} give counterexamples with uniform $p$ (for which all antiordering conditions hold with equality), and Proposition~\ref{prop:strict}(b) gives a counterexample with strictly decreasing weights and strictly increasing rates, so that every inequality in the hypotheses is strict. The answer to Remark~6.3 is negative, already for ordinary mixtures of exponential distributions, and no strengthening of the antiordering condition repairs it. Theorem~6.3 itself ($n=2$) is not affected; Theorem~\ref{thm:mechanism}(c) with $w=0$ and Remark~\ref{rem:twocomp} are consistent with it.
+
+\subsection{Sahoo, Kayal and Finkelstein (2026)}\label{sec:SKF}
+
+We refer to the accepted author manuscript (Section~\ref{sec:sources}). The finite $\alpha$-mixture with resilience-scaled components is (their equation (1.3), page~3)
+\[
+\bar G_{U_n(p,\gamma,\theta)}(t)=\Bigl[\sum_{i=1}^n p_i\,\bar G^{\alpha\gamma_i}(t/\theta_i)\Bigr]^{1/\alpha}\qquad(\alpha\ne 0),
+\]
+where $\bar G$ is a baseline survival function with hazard rate $h$, $\gamma_i>0$ are resilience parameters and $\theta_i>0$ scale parameters; in Theorems~3.7 to~3.9 the scale is a common scalar $\theta$. With $\bar G(t)=e^{-t}$, $\theta=1$ and $\alpha=1$ this is exactly $S_{p,\gamma}$ in \eqref{eq:mixture}, and the hazard rate displayed in the proof of Theorem~3.8, $h_{U_n(p,\gamma,\theta)}(t)=\theta^{-1}g(t/\theta)\sum_ip_i\gamma_i\bar G^{\alpha\gamma_i-1}(t/\theta)/\sum_ip_i\bar G^{\alpha\gamma_i}(t/\theta)$, reduces to $h_{p,\gamma}$. The classes (page~6) are
+\[
+\mathcal V_n=\Bigl\{\bmat{y_1\ \cdots\ y_n}{z_1\ \cdots\ z_n}: y_i,z_j>0,\ (y_i-y_j)(z_i-z_j)\le 0\Bigr\},
+\]
+and $\mathcal W_n$ with $\ge 0$; $Y\le_{\hr}Z$ means $h_Y\ge h_Z$ (Definition~2.1(ii), page~4).
+
+\begin{statement}[Theorem~3.8 of \cite{SahooKayalFinkelstein2026}, accepted manuscript, page~20]\label{st:SKF}
+``Let $U_n(p,\gamma,\theta)$ and $V_n(q,\delta,\theta)$ be the finite $\alpha$-mixture random variables. Suppose $h(t)$ is positive and $M_T$ is a $T$-transform matrix. Then, for $[\begin{smallmatrix}p\\ \gamma\end{smallmatrix}]\in\mathcal V_n$ (or $\in\mathcal W_n$) and $\alpha\ge 0$ (or $\le 0$),
+\[
+\bmat{q}{\delta}=\bmat{p}{\gamma}M_T\ \Longrightarrow\ U_n(p,\gamma,\theta)\ge_{\hr}(\le_{\hr})\,V_n(q,\delta,\theta).\text{''}
+\]
+\end{statement}
+
+Take $\bar G(t)=e^{-t}$ (so $h\equiv 1>0$), $\theta=1$ and $\alpha=1$. The following instances satisfy every hypothesis of Statement~\ref{st:SKF} for the class $\mathcal V_n$ and contradict its conclusion $h_{p,\gamma}\le h_{q,\delta}$:
+\begin{enumerate}
+\item[(1)] $n=3$, $p$ uniform, $\gamma=(1,3,5)$, $M_T=\tfrac12(I+\Pi_{23})$: then $q=p$, $\delta=(1,4,4)$, and $h_{p,\gamma}(\log 4)-h_{q,\delta}(\log 4)=\tfrac{41}{1001}>0$ (Theorem~\ref{thm:three}).
+\item[(2)] Any $n\ge 3$, $p$ uniform, $\gamma=\lambda^{(n-2)}$, $M_T=\tfrac12(I+\Pi_{n-1,n})$: the difference at $t=\log 4$ is $3(128m-5)/((256m+17)(32m+1))>0$ with $m=n-2$ (Theorem~\ref{thm:padded}).
+\item[(3)] $n=3$, $p=(\tfrac25,\tfrac13,\tfrac4{15})$, $\gamma=(2,6,10)$, $M_T=\tfrac34I+\tfrac14\Pi_{23}$: then $q=(\tfrac25,\tfrac{19}{60},\tfrac{17}{60})$, $\delta=(2,7,9)$, $[\begin{smallmatrix}p\\ \gamma\end{smallmatrix}]\in\mathcal V_3$ with all products $(p_i-p_j)(\gamma_i-\gamma_j)$, $i\ne j$, strictly negative, and $h_{p,\gamma}(\log 2)-h_{q,\delta}(\log 2)=\tfrac{1019}{17091}>0$ (Proposition~\ref{prop:strict}(c)).
+\end{enumerate}
+Corollary~3.2 there (a finite product $M_{T_1}\cdots M_{T_k}$ of $T$-transforms with the same structure) contains Statement~\ref{st:SKF} as the case $k=1$ and is contradicted by the same instances. Theorem~3.9 there (a product of $k\ge 2$ $T$-transforms with different structures, with the intermediate matrices required to lie in $\mathcal V_n$) is contradicted by instance (4): $p$ uniform, $\gamma=(1,3,5)$, $M_{T_1}=\tfrac12(I+\Pi_{23})$, $M_{T_2}=\tfrac{119}{120}I+\tfrac1{120}\Pi_{12}$, for which the intermediate matrix has rows $p$ and $(1,4,4)$ and lies in $\mathcal V_3$, $\delta=(\tfrac{41}{40},\tfrac{159}{40},4)$, and $h_{p,\gamma}>h_{q,\delta}$ at $t_1=40\log\tfrac{500}{483}$ (Proposition~\ref{prop:twocross}(c)).
+
+\paragraph{Where the published argument stops.} The proof of Theorem~3.8 sets $\Psi_n([\begin{smallmatrix}p\\ \gamma\end{smallmatrix}])=h_{U_n(p,\gamma,\theta)}(t)$, observes that by Theorem~3.7 the two-column function $\Psi_2$ satisfies the conditions of Lemma~2.4 (a criterion for $2\times 2$ matrices, attributed to Barmalzan et al.), and concludes ``using Lemma~2.5''. Lemma~2.5 there is stated for functions of the additive form $\Psi_n(A)=\sum_{i=1}^n\Psi(a_{1i},a_{2i})$. The hazard rate of a mixture is a ratio of two such sums and is not of this form, so the lemma does not apply to $\Psi_n$; since the conclusion is false, no other argument can close the gap. Theorem~3.7 ($n=2$) is not contradicted by anything in this note. The proof of Theorem~3.9 is said to follow from Theorem~3.4 of \cite{HazraFinkelstein2018}, which we could not retrieve (Section~\ref{sec:sources}); we make no claim about that result beyond the fact that Theorem~3.9 as stated fails for instance (4).
+
+\subsection{What survives}\label{sec:survives}
+
+\begin{proposition}\label{prop:survives}
+Let $p$ be uniform, $\lambda\succ\gamma$, and $\gamma$ not a rearrangement of $\lambda$.
+\begin{enumerate}
+\item[(a)] $S_\lambda(t)>S_\gamma(t)$ for every $t>0$; the mixture with rates $\lambda$ is strictly larger in the usual stochastic order.
+\item[(b)] There is $\varepsilon>0$ with $h_\lambda<h_\gamma$ on $(0,\varepsilon]$: the conclusion of the two-component statements holds on a neighbourhood of the origin in every dimension.
+\item[(c)] $h_\lambda(t)\to\lambda_{(1)}$ and $h_\gamma(t)\to\gamma_{(1)}$ with $\lambda_{(1)}\le\gamma_{(1)}$; both hazard rates are strictly decreasing.
+\item[(d)] For $n=2$, $h_\lambda\le h_\gamma$ on $[0,\infty)$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) Apply Lemma~\ref{lem:schur}(a) to the strictly convex function $x\mapsto e^{-xt}$, $t>0$. (b) Majorization gives equal means and Lemma~\ref{lem:schur}(b) gives $\Var(\lambda)>\Var(\gamma)$; apply Lemma~\ref{lem:basic}(a). (c) Lemma~\ref{lem:basic}(b),(c) and $\lambda_{(1)}\le\gamma_{(1)}$ from Definition~\ref{def:maj}. (d) For $n=2$, $\lambda=(b-d,b+d)$ and $\gamma=(b-d',b+d')$ with $0\le d'<d$, and $h_\lambda(t)=b-d\tanh(dt)\le b-d'\tanh(d't)=h_\gamma(t)$ because $x\mapsto x\tanh(xt)$ is increasing on $[0,\infty)$.
+\end{proof}
+
+Part (a) is the exponential case of Theorem~6.1 of \cite{ShojaeeAsadiFinkelstein2022} (usual stochastic order, $n$ components), which our examples do not contradict. Part (b) explains why numerical checks on a short time interval cannot detect the failure: in Theorem~\ref{thm:padded} the crossing time is above $\log 2$ and the sign change happens after the hazard rates have already dropped to within a small distance of their common limit.
+
+\section{Sources, priority and literature search}\label{sec:sources}
+
+\paragraph{Sources consulted.} All statements attributed to \cite{ShojaeeAsadiFinkelstein2022} were read in the publisher's version of record (Cambridge Core PDF, 25 pages, downloaded 25 September 2026; hash below): Definition~6.1 on page~1068, $\mathcal U_n$ and Theorem~6.1 on page~1069, Theorem~6.3 on page~1073, Remark~6.3 and Example~6.4 on page~1075. All statements attributed to \cite{SahooKayalFinkelstein2026} were read in the peer-reviewed accepted author manuscript deposited in the University of Strathclyde repository (Strathprints record 96227, 26 pages, whose cover sheet identifies it as the accepted manuscript of the article in volume~42, number~2, article e70089; deposited 12 May 2026; hash below): equation (1.3) on page~3, Definition~2.1 on page~4, $\mathcal V_n$, $\mathcal W_n$, Lemmas~2.4 and~2.5 on page~6, Theorem~3.7 on page~17, and Theorem~3.8, Corollary~3.2 and Theorem~3.9 on page~20. The publisher's version of record could not be retrieved (access restricted), and the Crossref record of the article listed no correction or update on 25 September 2026; statement numbers or wording in the version of record may differ from the accepted manuscript, and the reader should check them there.
+
+\paragraph{Sources not retrieved.} The full texts of \cite{HazraFinkelstein2018} and \cite{NadebTorabi2022} were not accessible to us; their bibliographic records were verified through Crossref, and they are cited only because Remark~6.3 of \cite{ShojaeeAsadiFinkelstein2022} and the proof of Theorem~3.9 of \cite{SahooKayalFinkelstein2026} refer to them. Whether they contain $n$-component hazard-rate statements affected by our examples is unknown to us. The paper \cite{AsadiEbrahimiSoofi2019} is cited only as the origin of the $\alpha$-mixture model, as both \cite{ShojaeeAsadiFinkelstein2022} and \cite{SahooKayalFinkelstein2026} attribute it; its bibliographic record was verified through Crossref and its text was not examined. The article \cite{SahooKayalBalakrishnan2026} was seen only through its Crossref record and abstract (the publisher's page was inaccessible) and was not examined. Of \cite{BartoszewiczSkolimowska2006} only the abstract was seen; it concerns preservation of stochastic orders under exponential mixtures ordered through the mixing distribution, a different question, and is cited for context only. The arXiv preprint \cite{GuoYan2024} was retrieved and read (hash below); its hazard-rate results (Theorems~5 and~6, Corollaries~5 and~6) vary the tilt parameters of a modified proportional hazard rate model at a common proportional-hazards parameter, so the exponential-rate mixtures of this note are not instances of them, and nothing here bears on that paper.
+
+\paragraph{Retrieved files (SHA-256).}
+\begin{list}{}{\setlength{\leftmargin}{1em}\setlength{\itemsep}{0pt}\small}
+\item \texttt{6750bb3ec436b230b2caae9b38a3f801e847609988af0084176ec0c475e3256b}\\ version of record of \cite{ShojaeeAsadiFinkelstein2022}, Cambridge Core PDF, 25 pages.
+\item \texttt{67efbc3770e16abdb2c4c2c6158323bf8e4966e9d8dd4dae6d0ac8efd6d1fe7c}\\ accepted author manuscript of \cite{SahooKayalFinkelstein2026}, Strathprints record 96227, 26 pages.
+\item \texttt{26cbe4d4c562c0af4be0b852b694ec20e98c86dde01d40691d2295b2780bec0d}\\ arXiv:2407.15638v2 \cite{GuoYan2024}, 32 pages.
+\end{list}
+
+\paragraph{Literature search.} On 25 September 2026 we ran eight web searches\footnote{The queries were: ``Shojaee Asadi Finkelstein generalized finite $\alpha$-mixtures arXiv stochastic properties''; ``hazard rate order finite mixture majorization counterexample exponential mixtures''; ``mixture of exponential distributions hazard rate crossing majorization Schur-convex mixture hazard rate rates vector''; ``Bartoszewicz Mixtures of exponential distributions and stochastic orders Statistics Probability Letters''; ``Sahoo Kayal Finkelstein resilience-scaled $\alpha$-mixture stochastic ordering arXiv OR corrigendum OR correction''; ``finite mixtures hazard rate order majorization n $>$ 2 OR more than two open problem counterexample exponential components''; ``Shojaee generalized finite $\alpha$-mixtures Remark 6.3 OR open problem hazard rate order n-component mixtures majorization''; ``chain majorization T-transform hazard rate order finite mixture counterexample does not hold''.} followed by targeted retrievals of the publisher, repository and arXiv pages of the items found (including arXiv:2511.00791, whose abstract claims no hazard-rate result under majorization). None of the results contained a counterexample to the $n$-component hazard-rate statement, a correction of \cite{SahooKayalFinkelstein2026}, or an arXiv version of \cite{ShojaeeAsadiFinkelstein2022}. The search was bounded and we make no claim that it was exhaustive.
+
+\section{Reproducibility}\label{sec:repro}
+
+Every numerical statement in this note was re-derived independently of any earlier computation by four Python scripts that use only SymPy \cite{Meurer2017} (version 1.14.0 on Python 3.12.14) and exact arithmetic: rational numbers, polynomial identities in the symbols $q$ and $m$, symbolic identities in $t$, real-root counting by Sturm sequences and real-root isolation by the Vincent-Collins-Akritas method (see \cite[Chapters~2 and~10]{BasuPollackRoy2006} for both), with limits computed symbolically. No floating-point comparison is used for any certified claim; decimal values quoted above are printed from isolating intervals of width below $10^{-12}$. Each script prints one line per check and exits with status $0$ only if every check passed; all 85 checks pass. The scripts are supplied as supplementary material in the directory \texttt{verify/} together with a runner \texttt{run\_all.sh}.
+
+\begin{list}{}{\setlength{\leftmargin}{1em}\setlength{\itemsep}{2pt}\small}
+\item \texttt{verify\_core.py} (41 checks, about 25\,s). Theorems~\ref{thm:three} and~\ref{thm:padded}: majorization, the identities \eqref{eq:three}, \eqref{eq:threediff} and \eqref{eq:paddeddiff}, the exact values, the irreducibility of $B_1$, the root counts and isolating intervals for $m=1,\dots,64$ with the localisation $\tfrac12-\tfrac{3}{16m}<q_*(m)<\tfrac12$, Remark~\ref{rem:twocomp}, Remark~\ref{rem:117}, variances and limits.\\
+SHA-256 \texttt{9cfc7ff1c9296ad92fb16f901a516fd89c1863fe3c4e880cb383ffc5498819e8}
+\item \texttt{verify\_general\_mechanism.py} (16 checks, about 70\,s). Theorem~\ref{thm:mechanism} and Corollary~\ref{cor:specialise}: the identities for $R$ and $F$, the two derivatives, the limits, the case $w=0$ and the specialisation to \eqref{eq:padded}.\\
+SHA-256 \texttt{dd61c5493c737bc9baafc094684208e5e83448f4466d6211d70c119a8c4f7f68}
+\item \texttt{verify\_strict\_variant.py} (16 checks, about 4\,s). Proposition~\ref{prop:strict}: antiordering, the $T$-transform, the eight rational values, the exact crossing counts and the survival difference.\\
+SHA-256 \texttt{09ff93827b62170e48d7ff1dea8e7933a48f06f44661c47e5ebd3bf7bcf2faf7}
+\item \texttt{verify\_two\_crossings.py} (12 checks, about 25\,s). Proposition~\ref{prop:twocross}: majorization, exact isolation of the two roots of the degree-275 numerator, signs at rational points, the survival difference, limits and variances.\\
+SHA-256 \texttt{ee3d878cac62731408ab6006c1af372298311e7cb2bcd0f010603aebffdd4e03}
+\end{list}
+
+\setlength{\bibsep}{1pt plus 0.3ex}
+{\small
+\bibliographystyle{plainnat}
+\bibliography{refs}
+}
+
+\end{document}
