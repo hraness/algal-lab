@@ -11,7 +11,16 @@
  * (just-removed pairs tabu), accept if not smaller, restart after STALL idle
  * iterations.  At each rebuilt local optimum single extra points (F = 0) are tried
  * to reach odd sizes.  Every printed set is re-verified by brute force.
- * Usage: sym5 n target seconds seed      env: STALL (default 800), PRINT_MIN
+ * Usage: sym5 n target seconds seed [initfile]
+ * env: STALL (default 800), PRINT_MIN (default target), PRINT_MAX (default 50: distinct sets of
+ * size >= PRINT_MIN printed beyond the running best).  An initfile (x y z per line) seeds the
+ * start: each listed point whose antipode is also addable is added as a pair, in file order,
+ * before the first greedy rebuild.  Printing never touches the random stream, so a run's path
+ * depends only on n, target, seed, the initfile and STALL.
+ * Structure laws (Demonstrandum, June 2026) are hard filters here: one pair per scaled shell
+ * (shell_used) and no three pair-directions coplanar with the centre.  The second needs no extra
+ * code: for distinct shells the 5-subset {b,-b,w,-w,p} is degenerate iff p lies on the plane
+ * of the parallelogram {b,-b,w,-w}, which F[p] == 0 already excludes.
  * Compile-time caps: -DMAXP (grid points, default 4096 = 16^3), -DMAXK (set size + 1).
  */
 #include <stdio.h>
@@ -104,6 +113,10 @@ static int bruteforce_ok(void){
   return 1; }
 static void print_set(FILE*f,const int*P,int k,const char*tag){ fprintf(f,"{\"n\": %d, \"k\": %d, \"tag\": \"%s\", \"points\": [",n,k,tag); for(int i=0;i<k;i++) fprintf(f,"%s[%d, %d, %d]",i?", ":"",px[P[i]],py[P[i]],pz[P[i]]); fprintf(f,"]}\n"); fflush(f); }
 static double elapsed(clock_t t0){ return (double)(clock()-t0)/CLOCKS_PER_SEC; }
+/* order-independent key of a point set (sorted copy, FNV-style mix) */
+static unsigned long long set_key(const int*P,int k){ int c[MAXK]; memcpy(c,P,sizeof(int)*k);
+  for(int i=1;i<k;i++){ int t=c[i],j=i-1; while(j>=0&&c[j]>t){ c[j+1]=c[j]; j--; } c[j+1]=t; }
+  unsigned long long h=1469598103934665603ULL; for(int i=0;i<k;i++){ h^=(unsigned long long)c[i]+1; h*=1099511628211ULL; } return h; }
 static int reps[MAXP], nreps; static int shell_used[1<<16]; static long tabu_until[MAXP]; static long iter_no;
 static int pair_addable(int p){ int q=sig[p];
   if(inS[p]||F[p]||F[q]||shell_used[shell[p]]) return 0;
@@ -119,30 +132,41 @@ static void rebuild(void){
     while(cnt>0){ int j=rnd()%cnt; int p=order[j]; order[j]=order[--cnt]; if(pair_addable(p)){ add_pair(p); added=1; break; } }
     if(!added) return; } }
 int main(int argc,char**argv){
-  if(argc<5){ fprintf(stderr,"usage: sym5 n target seconds seed\n"); return 2; }
+  if(argc<5){ fprintf(stderr,"usage: sym5 n target seconds seed [initfile]\n"); return 2; }
   n=atoi(argv[1]); int target=atoi(argv[2]); double secs=atof(argv[3]); rs=strtoull(argv[4],0,10)*2654435761ULL+88172645463325252ULL; np=n*n*n;
   if(n<3||np>MAXP||target>=MAXK){ fprintf(stderr,"bad n/target\n"); return 2; }
   long STALL=getenv("STALL")?atol(getenv("STALL")):800; int PRINT_MIN=getenv("PRINT_MIN")?atoi(getenv("PRINT_MIN")):target;
+  int PRINT_MAX=getenv("PRINT_MAX")?atoi(getenv("PRINT_MAX")):50; int nprinted=0; unsigned long long last_key=0;
   tab=calloc(tabsz,sizeof(Ent)); pool=malloc(poolsz*sizeof(int));
   int idx=0; for(int x=0;x<n;x++)for(int y=0;y<n;y++)for(int z=0;z<n;z++){px[idx]=x;py[idx]=y;pz[idx]=z;pw[idx]=(ll)x*x+(ll)y*y+(ll)z*z;idx++;}
   for(int q=0;q<np;q++){ int x=n-1-px[q], y=n-1-py[q], z=n-1-pz[q]; sig[q]=x*n*n+y*n+z; int a=2*px[q]-(n-1), b=2*py[q]-(n-1), c=2*pz[q]-(n-1); shell[q]=a*a+b*b+c*c; }
   nreps=0; for(int q=0;q<np;q++) if(q<sig[q]) reps[nreps++]=q;
   clock_t t0=clock(); int best=0, best_printed=0; long restarts=0, found_target=0; int saved[MAXK], nsaved; int removed[3];
-  long since=0; m_=0; memset(F,0,sizeof(F)); rebuild();
+  long since=0; m_=0; memset(F,0,sizeof(F));
+  if(argc>5){ FILE*f=fopen(argv[5],"r"); if(!f){ fprintf(stderr,"cannot open %s\n",argv[5]); return 2; } int x,y,z, seeded=0;
+    while(fscanf(f,"%d %d %d",&x,&y,&z)==3){ if(x<0||y<0||z<0||x>=n||y>=n||z>=n) continue; int q=x*n*n+y*n+z; int p=rep_of(q);
+      if(p==sig[p]) continue; if(m_+2>=MAXK) break; if(pair_addable(p)){ add_pair(p); seeded++; } }
+    fclose(f); fprintf(stderr,"seeded %d pairs from %s\n",seeded,argv[5]); }
+  rebuild();
   while(elapsed(t0)<secs){
     iter_no++;
     /* odd-size extension: any single point with F = 0 */
     int ext=-1; for(int q=0;q<np;q++) if(!inS[q]&&!F[q]){ ext=q; break; }
     int size=m_+(ext>=0);
-    if(size>best || (size>=PRINT_MIN && size>best_printed) || (size>=target && found_target<50)){
+    if(size>best || (size>=PRINT_MIN && (size>best_printed || nprinted<PRINT_MAX)) || (size>=target && found_target<50)){
       int P[MAXK]; memcpy(P,S,sizeof(int)*m_); int k=m_;
-      if(ext>=0){ add_point(ext); memcpy(P,S,sizeof(int)*m_); k=m_; }
-      int ok=bruteforce_ok();
-      if(ext>=0) remove_point(ext);
-      if(!ok){ fprintf(stderr,"SELFCHECK FAIL at size %d\n",k); print_set(stderr,P,k,"fail"); return 3; }
-      if(size>best){ best=size; fprintf(stderr,"best=%d (pairs=%d%s) iter=%ld restarts=%ld t=%.1fs\n",best,m_/2,ext>=0?" +1":"",iter_no,restarts,elapsed(t0)); }
-      if(size>=PRINT_MIN && (size>best_printed || size>=target)){ print_set(stdout,P,k,ext>=0?"sym+1":"sym"); if(size>best_printed) best_printed=size; }
-      if(size>=target){ found_target++; fprintf(stderr,"FOUND n=%d k=%d iter=%ld t=%.1fs selfcheck=ok\n",n,size,iter_no,elapsed(t0)); }
+      if(ext>=0){ P[k++]=ext; }
+      unsigned long long key=set_key(P,k);
+      int print_it = size>=PRINT_MIN && (size>best_printed || (key!=last_key && nprinted<PRINT_MAX));
+      if(size>best || print_it || (size>=target && found_target<50)){
+        if(ext>=0) add_point(ext);
+        int ok=bruteforce_ok();
+        if(ext>=0) remove_point(ext);
+        if(!ok){ fprintf(stderr,"SELFCHECK FAIL at size %d\n",k); print_set(stderr,P,k,"fail"); return 3; }
+        if(size>best){ best=size; fprintf(stderr,"best=%d (pairs=%d%s) iter=%ld restarts=%ld t=%.1fs\n",best,m_/2,ext>=0?" +1":"",iter_no,restarts,elapsed(t0)); }
+        if(print_it){ print_set(stdout,P,k,ext>=0?"sym+1":"sym"); nprinted++; last_key=key; if(size>best_printed) best_printed=size; }
+        if(size>=target){ found_target++; fprintf(stderr,"FOUND n=%d k=%d iter=%ld t=%.1fs selfcheck=ok\n",n,size,iter_no,elapsed(t0)); }
+      }
     }
     if(++since>STALL){ /* restart */ while(m_>0) remove_pair(rep_of(S[0])); memset(tabu_until,0,sizeof(tabu_until)); rebuild(); since=0; restarts++; continue; }
     nsaved=m_; memcpy(saved,S,sizeof(int)*m_);

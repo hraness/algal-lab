@@ -1,6 +1,6 @@
 # Native local searches for the grid targets
 
-Standalone C programs used in round 26 (September 2026). They are research
+Standalone C programs used in rounds 26 and 27 (September 2026). They are research
 tools, not part of the evolution loop: they read a grid size, a target size, a
 CPU-time budget, a seed, and optionally a starting point set, and print every
 valid set they reach as one JSON line on stdout. Each program re-verifies a set
@@ -10,12 +10,14 @@ Python verifiers in `../verifiers/` remain the only judges of a claim.
 ```sh
 cc -O3 -march=native -DMAXP=32768 -DMAXK=128 -o ls5x research/extremal/native/ls5x.c -lm
 KMAX=48 ./ls5x 18 46 2400 908851045 start.txt > found.jsonl
+cc -O3 -march=native -o sym5 research/extremal/native/sym5.c -lm
+PRINT_MIN=36 ./sym5 13 37 500 130001 [start.txt] > pool.jsonl
 ```
 
 | Program | Problem | Method |
 | --- | --- | --- |
 | `ls5x.c` | no five points of `[n]^3` on a sphere or plane | tabu search over `k`-sets with exact incremental counts of degenerate 5-subsets, an exact repair step, and growth to `KMAX` after each valid set |
-| `sym5.c` | same | iterated local search over centrally symmetric sets that are kept valid (ruin and rebuild over antipodal pairs) |
+| `sym5.c` | same | iterated local search over centrally symmetric sets that are kept valid (ruin and rebuild over antipodal pairs); the Demonstrandum structure laws (one pair per scaled shell, no three pair directions coplanar with the centre) are hard filters; an optional start file seeds pairs, and `PRINT_MIN` / `PRINT_MAX` print a pool of distinct sets below the target (round 27) |
 | `iso2.c` | isosceles-free subsets of the `n x n` grid | tabu search with exact repair; `SYM=1` restricts to mirror-symmetric sets |
 
 For a 4-subset `T` of the current set, `ls5x` and `sym5` enumerate the grid

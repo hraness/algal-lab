@@ -2,8 +2,9 @@
 
 Status: loop and first bounded runs (round 25); ten certificate-backed lower
 bounds for the no-five-on-a-sphere problem at n = 17–26 (round 26),
-both 24 September 2026. The round-26 constructions came from a hand-written C
-local search seeded with public certificates, not from the evolution loop.
+both 24 September 2026; six more at n = 27–32 (round 27, 25 September 2026).
+The round-26 and round-27 constructions came from a hand-written C local
+search seeded with public certificates, not from the evolution loop.
 Registry significance fields and a mandatory unseeded control per claim
 followed on 25 September 2026, after the control runs described below.
 
@@ -25,7 +26,7 @@ evaluation is an exact rational check. Nothing in the loop needs a frontier
 model. A frontier model can be plugged in through the same command interface
 when a target justifies the spend.
 
-## Targets (`research/extremal/registry.json`, retrieved 24 September 2026)
+## Targets (`research/extremal/registry.json`, retrieved 24–25 September 2026)
 
 Chosen from a survey of the AlphaEvolve repository of problems (67 rows),
 follow-up work through September 2026, and the classical covering tables
@@ -37,7 +38,7 @@ a public dated ledger so that "better" is a strict inequality.
 |---|---|---|---|---|
 | Isosceles-free subset of the 64×64 and 100×100 grid | maximise size | 112, 164 | AlphaEvolve problem 59 (page says "still not optimal") | yes, both |
 | No five points on a sphere or plane in the n³ grid, n = 7…12 | maximise size | 21, 23, 26, 28, 31, 33 | AlphaEvolve problem 60 | yes, all six |
-| Same problem, n = 13…26 (added in round 26) | maximise size | 36, 38, 40, 42, 44, 45, 49, 50, 50, 50, 51, 53, 55, 56 | Demonstrandum artifacts (n = 13–17), milesandmistakes certificates (n = 18–20), Numaro report (n = 22–26); n = 21 is the inclusion bound C(21) ≥ C(20) | yes for n = 13–20; Numaro publishes no coordinates |
+| Same problem, n = 13…32 (n = 13–26 added in round 26, n = 27–32 in round 27) | maximise size | 36, 38, 40, 42, 44, 45, 49, 50, 50, 50, 51, 53, 55, 56, then 67 for n = 27–32 | Demonstrandum artifacts (n = 13–17), milesandmistakes certificates (n = 18–20), Numaro report (n = 22–26); n = 21 is the inclusion bound C(21) ≥ C(20); n = 27–32 is the inclusion bound C(n) ≥ C(26) ≥ 67 from this repository's round-26 set, published 25 September 2026, no other public value for n ≥ 27 having been found | yes for n = 13–20 and 27–32; Numaro publishes no coordinates |
 | Ring loading instance, 15 pairs | maximise the routing gap | 9/8 | EinsteinArena leaderboard (AlphaEvolve's instance verifies to 1.11904756…) | AlphaEvolve instance reproduced; the 9/8 construction is quoted in a thread and not yet re-verified here |
 | Sum-difference exponent I | maximise ln(\|A+A\|/\|A\|)/ln(\|A−A\|/\|A\|) | 1.12193573748604 (recomputed from the published set; paper says 1.1219) | AlphaEvolve problem 42 | yes |
 | Heilbronn problem in the unit square, n = 21 and 25 | maximise the smallest triangle area | 0.011173412…, 0.007859563… (exact rationals of the published literals) | math.tejstead.com/heilbronn record ledger, PR submission lane with exact CI verification | yes for n = 21 |
@@ -326,3 +327,58 @@ The evolution loop contributed nothing to this round. The gain came from
 choosing a target whose live ledger was thin at larger n, checking that ledger
 on the day, and running a strong exact local search from the best public
 certificates.
+
+## Round 27: n = 27–32 and the contested cells
+
+Same problem, one day later (25 September 2026). A fresh ledger check (DeepMind
+issues, the milesandmistakes and Ganador1 repositories, Zenodo, GitHub search,
+arXiv via web search, the Numaro page) found no public value for n ≥ 27 and
+nothing newer for n = 13–26. The round-26 certificates were published the same
+day (merged to main and posted to DeepMind AlphaEvolve issue #6), so the
+registry carries n = 27–32 with the inclusion bound C(n) ≥ C(26) ≥ 67 from the
+round-26 n = 26 set as the dated public baseline.
+
+`native/ls5x.c` was run as a chain: the round-26 67-point set placed in the
+27-grid, then each cell seeded from the best set the previous cell had printed
+when the next one launched (shifted by (1,1,1) at even n to stay centred),
+300 s CPU per cell (400 s at n = 27, capped by host load), on a shared
+workstation whose load never dropped below 40 — every run under `nice -n 15`,
+at most three at a time. Every cell also got an unseeded control at the same
+per-cell budget.
+
+| n | Previous (registry) | New lower bound | Seeded chain it | Unseeded control | Fitted law |
+| --- | --- | --- | --- | --- | --- |
+| 27 | 67 (inclusion from round-26 n = 26) | 70 | 942 | 69 | 71 |
+| 28 | 67 | 71 | 3 | 71 (matched) | 73 |
+| 29 | 67 | 75 | 471 | 74 | 76 |
+| 30 | 67 | 76 | 37 | 76 (matched) | 78 |
+| 31 | 67 | 79 | 305 | 79 (matched) | 81 |
+| 32 | 67 | 82 | 341 | 81 | 83 |
+
+The seeded value at a cell carries the cumulative effort of the chain below it,
+so a control that matches it says the cell is easy, and one that falls short
+says only that a few hundred CPU seconds from a random start are not enough;
+neither says anything about optimality. Every claim records its control in
+the `control` field, and `claims.check` labels all six cells
+`under-searched`: every cold start cleared the public baseline 67 within a few
+hundred CPU seconds, and three matched the seeded value. The registry entries for n = 27–32 carry
+`crowding: uncontested` with the dated audit as evidence. Each certificate is in
+`claims/no-five-on-sphere-frontier.json` with the full chain of seeds, shifts,
+commands and iteration counts in its derivation, and was checked by the repo
+verifier and by an independent big-integer 5×5 determinant checker written for
+this round (all 5-subsets, zero degenerate determinants, minimum |det| = 2 in
+every case). Demonstrandum's fitted law ⌊(5n + 7)/2⌋ predicts 71, 73, 76, 78,
+81, 83 at n = 27–32; every new value sits one or two below it. These margins
+over 67 measure how empty the cells were, not a hard-won improvement.
+
+What did not move. The contested cells n = 13–16 (Demonstrandum 36, 38, 40,
+42) resisted centrally symmetric search from scratch (best 34, 36, 38, 41 at
+n = 13–16) and `ls5x` at the record plus one from the published sets (no valid
+set within 300 CPU seconds at n = 13–15).
+The round-26 lesson holds: the ledger was thin above n = 26 and a strong exact
+local search fills it quickly, while the cells that others have searched hard
+stay put.
+
+Round-27 memo and manifest: `docs/reports/round27-no-five-frontier.md` and
+`docs/reports/round27-no-five-frontier-manifest.json` (the spike directory with
+run logs and scratch sources stays local and gitignored).
