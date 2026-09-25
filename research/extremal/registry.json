@@ -1,0 +1,627 @@
+{
+ "contract": "algal.lab.extremal-registry.v1",
+ "note": "Best-known values are dated snapshots of public ledgers. An improvement is a claim against the snapshot only; re-read the source on the claim date. See docs/extremal-discovery.md. Each target also states its significance (crowding, dated evidence, open question) and whether a claim against it must carry an unseeded control run.",
+ "targets": [
+  {
+   "id": "isosceles-free-64",
+   "title": "Largest isosceles-free subset of the 64x64 grid",
+   "objective": "maximize",
+   "verifier": "isosceles_free",
+   "parameters": {
+    "n": 64
+   },
+   "best_known": {
+    "value": "112",
+    "kind": "exact",
+    "source": "AlphaEvolve repository of problems, problem 59 (Georgiev et al., arXiv:2511.02864, section 6.39); page says the values are 'still not optimal'",
+    "url": "https://google-deepmind.github.io/alphaevolve_repository_of_problems/problems/59.html",
+    "retrieved": "2026-09-24"
+   },
+   "notes": "Published construction reproduced by the verifier (research/extremal/known). The page value was the best found in a September 2026 survey (arXiv 2601.14465 concerns rhombus/kite-free sets, not this problem); HuggingFace 'douvras/no-isosceles-grid-certificates' could not be read (auth wall) and must be checked before any claim.",
+   "significance": {
+    "crowding": "lightly-contested",
+    "evidence": "One group with published values on 2026-09-24: AlphaEvolve (112 for 64x64 and 164 for 100x100, arXiv:2511.02864, 2025, improving earlier 110 and 160; the page says the values are still not optimal). The HuggingFace dataset douvras/no-isosceles-grid-certificates (2026) could not be read (auth wall) and is unread; arXiv 2601.14465 treats rhombus/kite-free sets, a different problem.",
+    "open_question": null
+   },
+   "control_required": true
+  },
+  {
+   "id": "isosceles-free-100",
+   "title": "Largest isosceles-free subset of the 100x100 grid",
+   "objective": "maximize",
+   "verifier": "isosceles_free",
+   "parameters": {
+    "n": 100
+   },
+   "best_known": {
+    "value": "164",
+    "kind": "exact",
+    "source": "AlphaEvolve repository of problems, problem 59 (Georgiev et al., arXiv:2511.02864, section 6.39); page says the values are 'still not optimal'",
+    "url": "https://google-deepmind.github.io/alphaevolve_repository_of_problems/problems/59.html",
+    "retrieved": "2026-09-24"
+   },
+   "notes": "Published construction reproduced by the verifier (research/extremal/known). The page value was the best found in a September 2026 survey (arXiv 2601.14465 concerns rhombus/kite-free sets, not this problem); HuggingFace 'douvras/no-isosceles-grid-certificates' could not be read (auth wall) and must be checked before any claim.",
+   "significance": {
+    "crowding": "lightly-contested",
+    "evidence": "One group with published values on 2026-09-24: AlphaEvolve (112 for 64x64 and 164 for 100x100, arXiv:2511.02864, 2025, improving earlier 110 and 160; the page says the values are still not optimal). The HuggingFace dataset douvras/no-isosceles-grid-certificates (2026) could not be read (auth wall) and is unread; arXiv 2601.14465 treats rhombus/kite-free sets, a different problem.",
+    "open_question": null
+   },
+   "control_required": true
+  },
+  {
+   "id": "no-five-on-sphere-7",
+   "title": "Largest subset of the 7^3 grid with no five points on a sphere or plane",
+   "objective": "maximize",
+   "verifier": "no_five_on_sphere",
+   "parameters": {
+    "n": 7
+   },
+   "best_known": {
+    "value": "21",
+    "kind": "exact",
+    "source": "AlphaEvolve repository of problems, problem 60 (arXiv:2511.02864, section 6.40)",
+    "url": "https://google-deepmind.github.io/alphaevolve_repository_of_problems/problems/60.html",
+    "retrieved": "2026-09-24"
+   },
+   "notes": "Published construction reproduced by the verifier. Demonstrandum (June 2026) and Numaro (July 2026) reproduced the n = 7..12 values without improving them; Demonstrandum's symmetric search stalls one pair short at n = 11, 12 and its fitted law C(n) = floor((5n+7)/2) matches n = 7..14. The HuggingFace dataset dougdotcon/douvras-no-5-on-a-sphere-certificates only re-verifies these six sets. arXiv 2506.18113 settles only the asymptotics.",
+   "significance": {
+    "crowding": "well-studied",
+    "evidence": "Four public sources on 2026-09-24: AlphaEvolve set the value (arXiv:2511.02864, 2025); Demonstrandum (June 2026) and Numaro (July 2026) reproduced the n = 7..12 values without improving them; the HuggingFace dataset dougdotcon/douvras-no-5-on-a-sphere-certificates re-verifies the six AlphaEvolve sets.",
+    "open_question": "Demonstrandum's fitted law C(n) = floor((5n+7)/2), exact for the records at n = 7..14 and unproved beyond, and the gap to the trivial upper bound 4n."
+   },
+   "control_required": true
+  },
+  {
+   "id": "no-five-on-sphere-8",
+   "title": "Largest subset of the 8^3 grid with no five points on a sphere or plane",
+   "objective": "maximize",
+   "verifier": "no_five_on_sphere",
+   "parameters": {
+    "n": 8
+   },
+   "best_known": {
+    "value": "23",
+    "kind": "exact",
+    "source": "AlphaEvolve repository of problems, problem 60 (arXiv:2511.02864, section 6.40)",
+    "url": "https://google-deepmind.github.io/alphaevolve_repository_of_problems/problems/60.html",
+    "retrieved": "2026-09-24"
+   },
+   "notes": "Published construction reproduced by the verifier. Demonstrandum (June 2026) and Numaro (July 2026) reproduced the n = 7..12 values without improving them; Demonstrandum's symmetric search stalls one pair short at n = 11, 12 and its fitted law C(n) = floor((5n+7)/2) matches n = 7..14. The HuggingFace dataset dougdotcon/douvras-no-5-on-a-sphere-certificates only re-verifies these six sets. arXiv 2506.18113 settles only the asymptotics.",
+   "significance": {
+    "crowding": "well-studied",
+    "evidence": "Four public sources on 2026-09-24: AlphaEvolve set the value (arXiv:2511.02864, 2025); Demonstrandum (June 2026) and Numaro (July 2026) reproduced the n = 7..12 values without improving them; the HuggingFace dataset dougdotcon/douvras-no-5-on-a-sphere-certificates re-verifies the six AlphaEvolve sets.",
+    "open_question": "Demonstrandum's fitted law C(n) = floor((5n+7)/2), exact for the records at n = 7..14 and unproved beyond, and the gap to the trivial upper bound 4n."
+   },
+   "control_required": true
+  },
+  {
+   "id": "no-five-on-sphere-9",
+   "title": "Largest subset of the 9^3 grid with no five points on a sphere or plane",
+   "objective": "maximize",
+   "verifier": "no_five_on_sphere",
+   "parameters": {
+    "n": 9
+   },
+   "best_known": {
+    "value": "26",
+    "kind": "exact",
+    "source": "AlphaEvolve repository of problems, problem 60 (arXiv:2511.02864, section 6.40)",
+    "url": "https://google-deepmind.github.io/alphaevolve_repository_of_problems/problems/60.html",
+    "retrieved": "2026-09-24"
+   },
+   "notes": "Published construction reproduced by the verifier. Demonstrandum (June 2026) and Numaro (July 2026) reproduced the n = 7..12 values without improving them; Demonstrandum's symmetric search stalls one pair short at n = 11, 12 and its fitted law C(n) = floor((5n+7)/2) matches n = 7..14. The HuggingFace dataset dougdotcon/douvras-no-5-on-a-sphere-certificates only re-verifies these six sets. arXiv 2506.18113 settles only the asymptotics.",
+   "significance": {
+    "crowding": "well-studied",
+    "evidence": "Four public sources on 2026-09-24: AlphaEvolve set the value (arXiv:2511.02864, 2025); Demonstrandum (June 2026) and Numaro (July 2026) reproduced the n = 7..12 values without improving them; the HuggingFace dataset dougdotcon/douvras-no-5-on-a-sphere-certificates re-verifies the six AlphaEvolve sets.",
+    "open_question": "Demonstrandum's fitted law C(n) = floor((5n+7)/2), exact for the records at n = 7..14 and unproved beyond, and the gap to the trivial upper bound 4n."
+   },
+   "control_required": true
+  },
+  {
+   "id": "no-five-on-sphere-10",
+   "title": "Largest subset of the 10^3 grid with no five points on a sphere or plane",
+   "objective": "maximize",
+   "verifier": "no_five_on_sphere",
+   "parameters": {
+    "n": 10
+   },
+   "best_known": {
+    "value": "28",
+    "kind": "exact",
+    "source": "AlphaEvolve repository of problems, problem 60 (arXiv:2511.02864, section 6.40)",
+    "url": "https://google-deepmind.github.io/alphaevolve_repository_of_problems/problems/60.html",
+    "retrieved": "2026-09-24"
+   },
+   "notes": "Published construction reproduced by the verifier. Demonstrandum (June 2026) and Numaro (July 2026) reproduced the n = 7..12 values without improving them; Demonstrandum's symmetric search stalls one pair short at n = 11, 12 and its fitted law C(n) = floor((5n+7)/2) matches n = 7..14. The HuggingFace dataset dougdotcon/douvras-no-5-on-a-sphere-certificates only re-verifies these six sets. arXiv 2506.18113 settles only the asymptotics.",
+   "significance": {
+    "crowding": "well-studied",
+    "evidence": "Four public sources on 2026-09-24: AlphaEvolve set the value (arXiv:2511.02864, 2025); Demonstrandum (June 2026) and Numaro (July 2026) reproduced the n = 7..12 values without improving them; the HuggingFace dataset dougdotcon/douvras-no-5-on-a-sphere-certificates re-verifies the six AlphaEvolve sets.",
+    "open_question": "Demonstrandum's fitted law C(n) = floor((5n+7)/2), exact for the records at n = 7..14 and unproved beyond, and the gap to the trivial upper bound 4n."
+   },
+   "control_required": true
+  },
+  {
+   "id": "no-five-on-sphere-11",
+   "title": "Largest subset of the 11^3 grid with no five points on a sphere or plane",
+   "objective": "maximize",
+   "verifier": "no_five_on_sphere",
+   "parameters": {
+    "n": 11
+   },
+   "best_known": {
+    "value": "31",
+    "kind": "exact",
+    "source": "AlphaEvolve repository of problems, problem 60 (arXiv:2511.02864, section 6.40)",
+    "url": "https://google-deepmind.github.io/alphaevolve_repository_of_problems/problems/60.html",
+    "retrieved": "2026-09-24"
+   },
+   "notes": "Published construction reproduced by the verifier. Demonstrandum (June 2026) and Numaro (July 2026) reproduced the n = 7..12 values without improving them; Demonstrandum's symmetric search stalls one pair short at n = 11, 12 and its fitted law C(n) = floor((5n+7)/2) matches n = 7..14. The HuggingFace dataset dougdotcon/douvras-no-5-on-a-sphere-certificates only re-verifies these six sets. arXiv 2506.18113 settles only the asymptotics.",
+   "significance": {
+    "crowding": "well-studied",
+    "evidence": "Four public sources on 2026-09-24: AlphaEvolve set the value (arXiv:2511.02864, 2025); Demonstrandum (June 2026) and Numaro (July 2026) reproduced the n = 7..12 values without improving them; the HuggingFace dataset dougdotcon/douvras-no-5-on-a-sphere-certificates re-verifies the six AlphaEvolve sets.",
+    "open_question": "Demonstrandum's fitted law C(n) = floor((5n+7)/2), exact for the records at n = 7..14 and unproved beyond, and the gap to the trivial upper bound 4n."
+   },
+   "control_required": true
+  },
+  {
+   "id": "no-five-on-sphere-12",
+   "title": "Largest subset of the 12^3 grid with no five points on a sphere or plane",
+   "objective": "maximize",
+   "verifier": "no_five_on_sphere",
+   "parameters": {
+    "n": 12
+   },
+   "best_known": {
+    "value": "33",
+    "kind": "exact",
+    "source": "AlphaEvolve repository of problems, problem 60 (arXiv:2511.02864, section 6.40)",
+    "url": "https://google-deepmind.github.io/alphaevolve_repository_of_problems/problems/60.html",
+    "retrieved": "2026-09-24"
+   },
+   "notes": "Published construction reproduced by the verifier. Demonstrandum (June 2026) and Numaro (July 2026) reproduced the n = 7..12 values without improving them; Demonstrandum's symmetric search stalls one pair short at n = 11, 12 and its fitted law C(n) = floor((5n+7)/2) matches n = 7..14. The HuggingFace dataset dougdotcon/douvras-no-5-on-a-sphere-certificates only re-verifies these six sets. arXiv 2506.18113 settles only the asymptotics.",
+   "significance": {
+    "crowding": "well-studied",
+    "evidence": "Four public sources on 2026-09-24: AlphaEvolve set the value (arXiv:2511.02864, 2025); Demonstrandum (June 2026) and Numaro (July 2026) reproduced the n = 7..12 values without improving them; the HuggingFace dataset dougdotcon/douvras-no-5-on-a-sphere-certificates re-verifies the six AlphaEvolve sets.",
+    "open_question": "Demonstrandum's fitted law C(n) = floor((5n+7)/2), exact for the records at n = 7..14 and unproved beyond, and the gap to the trivial upper bound 4n."
+   },
+   "control_required": true
+  },
+  {
+   "id": "no-five-on-sphere-13",
+   "title": "Largest subset of the 13^3 grid with no five points on a sphere or plane",
+   "objective": "maximize",
+   "verifier": "no_five_on_sphere",
+   "parameters": {
+    "n": 13
+   },
+   "best_known": {
+    "value": "36",
+    "kind": "exact",
+    "source": "Demonstrandum Research artifact bundle (initial commit 2026-06-13), problems/p1-records/no-5-on-a-sphere-grid, certificates/record36_centralsym.json; DeepMind issue #4",
+    "url": "https://doi.org/10.5281/zenodo.20673865",
+    "retrieved": "2026-09-24"
+   },
+   "notes": "Best public lower bound on the retrieval date, including the monotone closure C(n) >= C(n-1). Centrally symmetric 36-point set. Two further 36-point witnesses: Ganador1, DeepMind issue #7 (Zenodo 22015723).",
+   "significance": {
+    "crowding": "contested",
+    "evidence": "Two groups with certificates on 2026-09-24: Demonstrandum (36, June 2026) and Ganador1 (two further 36-point witnesses, DeepMind issue #7, August 2026); Numaro (July 2026) lists no n = 13 row.",
+    "open_question": "Demonstrandum's fitted law C(n) = floor((5n+7)/2), exact for the records at n = 7..14 and unproved beyond, and the gap to the trivial upper bound 4n."
+   },
+   "control_required": true
+  },
+  {
+   "id": "no-five-on-sphere-14",
+   "title": "Largest subset of the 14^3 grid with no five points on a sphere or plane",
+   "objective": "maximize",
+   "verifier": "no_five_on_sphere",
+   "parameters": {
+    "n": 14
+   },
+   "best_known": {
+    "value": "38",
+    "kind": "exact",
+    "source": "Demonstrandum Research artifact bundle (initial commit 2026-06-13), problems/p1-records/no-5-on-a-sphere-grid, mining/construct-search/cert_n14_m38.json",
+    "url": "https://doi.org/10.5281/zenodo.20673865",
+    "retrieved": "2026-09-24"
+   },
+   "notes": "Best public lower bound on the retrieval date, including the monotone closure C(n) >= C(n-1). milesandmistakes found an independent 38-point set. Numaro report NUMARO-2026-009 (2026-07-03) lists 34.",
+   "significance": {
+    "crowding": "contested",
+    "evidence": "Three sources on 2026-09-24: Demonstrandum (38, June 2026), milesandmistakes (an independent 38, August 2026), Numaro (34, July 2026).",
+    "open_question": "Demonstrandum's fitted law C(n) = floor((5n+7)/2), exact for the records at n = 7..14 and unproved beyond, and the gap to the trivial upper bound 4n."
+   },
+   "control_required": true
+  },
+  {
+   "id": "no-five-on-sphere-15",
+   "title": "Largest subset of the 15^3 grid with no five points on a sphere or plane",
+   "objective": "maximize",
+   "verifier": "no_five_on_sphere",
+   "parameters": {
+    "n": 15
+   },
+   "best_known": {
+    "value": "40",
+    "kind": "exact",
+    "source": "Demonstrandum Research artifact bundle (initial commit 2026-06-13), problems/p1-records/no-5-on-a-sphere-grid, mining/construct-search/cert_n15_m40.json",
+    "url": "https://doi.org/10.5281/zenodo.20673865",
+    "retrieved": "2026-09-24"
+   },
+   "notes": "Best public lower bound on the retrieval date, including the monotone closure C(n) >= C(n-1). milesandmistakes found an independent 40-point set. Numaro report NUMARO-2026-009 (2026-07-03) lists 35.",
+   "significance": {
+    "crowding": "contested",
+    "evidence": "Three sources on 2026-09-24: Demonstrandum (40, June 2026), milesandmistakes (an independent 40, August 2026), Numaro (35, July 2026).",
+    "open_question": "Demonstrandum's fitted law C(n) = floor((5n+7)/2), exact for the records at n = 7..14 and unproved beyond, and the gap to the trivial upper bound 4n."
+   },
+   "control_required": true
+  },
+  {
+   "id": "no-five-on-sphere-16",
+   "title": "Largest subset of the 16^3 grid with no five points on a sphere or plane",
+   "objective": "maximize",
+   "verifier": "no_five_on_sphere",
+   "parameters": {
+    "n": 16
+   },
+   "best_known": {
+    "value": "42",
+    "kind": "exact",
+    "source": "Demonstrandum Research artifact bundle (initial commit 2026-06-13), problems/p1-records/no-5-on-a-sphere-grid, mining/construct-search/cert_n16_m42.json",
+    "url": "https://doi.org/10.5281/zenodo.20673865",
+    "retrieved": "2026-09-24"
+   },
+   "notes": "Best public lower bound on the retrieval date, including the monotone closure C(n) >= C(n-1). milesandmistakes has a 41-point asymmetric set. Numaro report NUMARO-2026-009 (2026-07-03) lists 39.",
+   "significance": {
+    "crowding": "contested",
+    "evidence": "Three sources on 2026-09-24: Demonstrandum (42, June 2026), milesandmistakes (41, August 2026), Numaro (39, July 2026).",
+    "open_question": "Demonstrandum's fitted law C(n) = floor((5n+7)/2), exact for the records at n = 7..14 and unproved beyond, and the gap to the trivial upper bound 4n."
+   },
+   "control_required": true
+  },
+  {
+   "id": "no-five-on-sphere-17",
+   "title": "Largest subset of the 17^3 grid with no five points on a sphere or plane",
+   "objective": "maximize",
+   "verifier": "no_five_on_sphere",
+   "parameters": {
+    "n": 17
+   },
+   "best_known": {
+    "value": "44",
+    "kind": "exact",
+    "source": "Demonstrandum Research artifact bundle (initial commit 2026-06-13), problems/p1-records/no-5-on-a-sphere-grid, mining/construct-search/cert_n17_m44.json",
+    "url": "https://doi.org/10.5281/zenodo.20673865",
+    "retrieved": "2026-09-24"
+   },
+   "notes": "Best public lower bound on the retrieval date, including the monotone closure C(n) >= C(n-1). milesandmistakes found an independent 44-point set (22 antipodal pairs). Numaro report NUMARO-2026-009 (2026-07-03) lists 40.",
+   "significance": {
+    "crowding": "contested",
+    "evidence": "Three sources on 2026-09-24: Demonstrandum (44, June 2026), milesandmistakes (an independent 44, August 2026), Numaro (40, July 2026).",
+    "open_question": "Demonstrandum's fitted law C(n) = floor((5n+7)/2), exact for the records at n = 7..14 and unproved beyond, and the gap to the trivial upper bound 4n."
+   },
+   "control_required": true
+  },
+  {
+   "id": "no-five-on-sphere-18",
+   "title": "Largest subset of the 18^3 grid with no five points on a sphere or plane",
+   "objective": "maximize",
+   "verifier": "no_five_on_sphere",
+   "parameters": {
+    "n": 18
+   },
+   "best_known": {
+    "value": "45",
+    "kind": "exact",
+    "source": "milesandmistakes/no-five-sphere-grid-certificates v1.1.1 (2026-08-20), RECORD_45_points_n18.json",
+    "url": "https://github.com/milesandmistakes/no-five-sphere-grid-certificates",
+    "retrieved": "2026-09-24"
+   },
+   "notes": "Best public lower bound on the retrieval date, including the monotone closure C(n) >= C(n-1). Described by its authors as apparently new, without priority guarantee. Numaro report NUMARO-2026-009 (2026-07-03) lists 40.",
+   "significance": {
+    "crowding": "lightly-contested",
+    "evidence": "Two sources on 2026-09-24: milesandmistakes (45, August 2026, described as apparently new) and Numaro (40, July 2026, no coordinates).",
+    "open_question": "Demonstrandum's fitted law C(n) = floor((5n+7)/2), exact for the records at n = 7..14 and unproved beyond, and the gap to the trivial upper bound 4n."
+   },
+   "control_required": true
+  },
+  {
+   "id": "no-five-on-sphere-19",
+   "title": "Largest subset of the 19^3 grid with no five points on a sphere or plane",
+   "objective": "maximize",
+   "verifier": "no_five_on_sphere",
+   "parameters": {
+    "n": 19
+   },
+   "best_known": {
+    "value": "49",
+    "kind": "exact",
+    "source": "milesandmistakes/no-five-sphere-grid-certificates v1.1.1 (2026-08-20), RECORD_49_points_n19.json",
+    "url": "https://github.com/milesandmistakes/no-five-sphere-grid-certificates",
+    "retrieved": "2026-09-24"
+   },
+   "notes": "Best public lower bound on the retrieval date, including the monotone closure C(n) >= C(n-1). Described by its authors as apparently new, without priority guarantee. Numaro report NUMARO-2026-009 (2026-07-03) lists 43.",
+   "significance": {
+    "crowding": "lightly-contested",
+    "evidence": "Two sources on 2026-09-24: milesandmistakes (49, August 2026, described as apparently new) and Numaro (43, July 2026, no coordinates).",
+    "open_question": "Demonstrandum's fitted law C(n) = floor((5n+7)/2), exact for the records at n = 7..14 and unproved beyond, and the gap to the trivial upper bound 4n."
+   },
+   "control_required": true
+  },
+  {
+   "id": "no-five-on-sphere-20",
+   "title": "Largest subset of the 20^3 grid with no five points on a sphere or plane",
+   "objective": "maximize",
+   "verifier": "no_five_on_sphere",
+   "parameters": {
+    "n": 20
+   },
+   "best_known": {
+    "value": "50",
+    "kind": "exact",
+    "source": "milesandmistakes/no-five-sphere-grid-certificates v1.1.1 (2026-08-20), RECORD_50_points_n20.json",
+    "url": "https://github.com/milesandmistakes/no-five-sphere-grid-certificates",
+    "retrieved": "2026-09-24"
+   },
+   "notes": "Best public lower bound on the retrieval date, including the monotone closure C(n) >= C(n-1). Described by its authors as apparently new, without priority guarantee. Numaro report NUMARO-2026-009 (2026-07-03) lists 45.",
+   "significance": {
+    "crowding": "lightly-contested",
+    "evidence": "Two sources on 2026-09-24: milesandmistakes (50, August 2026, described as apparently new) and Numaro (45, July 2026, no coordinates).",
+    "open_question": "Demonstrandum's fitted law C(n) = floor((5n+7)/2), exact for the records at n = 7..14 and unproved beyond, and the gap to the trivial upper bound 4n."
+   },
+   "control_required": true
+  },
+  {
+   "id": "no-five-on-sphere-21",
+   "title": "Largest subset of the 21^3 grid with no five points on a sphere or plane",
+   "objective": "maximize",
+   "verifier": "no_five_on_sphere",
+   "parameters": {
+    "n": 21
+   },
+   "best_known": {
+    "value": "50",
+    "kind": "exact",
+    "source": "Monotone closure C(21) >= C(20) >= 50 of milesandmistakes/no-five-sphere-grid-certificates v1.1.1 (2026-08-20); Numaro report NUMARO-2026-009 (2026-07-03) lists 46",
+    "url": "https://github.com/milesandmistakes/no-five-sphere-grid-certificates",
+    "retrieved": "2026-09-24"
+   },
+   "notes": "Best public lower bound on the retrieval date, including the monotone closure C(n) >= C(n-1). No published 21-grid set reaches 50; the bar is the inclusion bound.",
+   "significance": {
+    "crowding": "uncontested",
+    "evidence": "One source on 2026-09-24: Numaro (46, July 2026, no coordinates or checker); the registry bar is the inclusion bound C(21) >= C(20) >= 50 from the milesandmistakes n = 20 certificate, which is not a search of this cell.",
+    "open_question": "Demonstrandum's fitted law C(n) = floor((5n+7)/2), exact for the records at n = 7..14 and unproved beyond, and the gap to the trivial upper bound 4n."
+   },
+   "control_required": true
+  },
+  {
+   "id": "no-five-on-sphere-22",
+   "title": "Largest subset of the 22^3 grid with no five points on a sphere or plane",
+   "objective": "maximize",
+   "verifier": "no_five_on_sphere",
+   "parameters": {
+    "n": 22
+   },
+   "best_known": {
+    "value": "50",
+    "kind": "exact",
+    "source": "Numaro report NUMARO-2026-009 (2026-07-03); equals the monotone closure of C(20) >= 50",
+    "url": "https://numaro.tech/research/no-5-on-sphere-2026/",
+    "retrieved": "2026-09-24"
+   },
+   "notes": "Best public lower bound on the retrieval date, including the monotone closure C(n) >= C(n-1). Numaro publishes no coordinates or checker for its rows.",
+   "significance": {
+    "crowding": "uncontested",
+    "evidence": "One source on 2026-09-24: Numaro (50, July 2026, no coordinates or checker), equal to the inclusion bound from the milesandmistakes n = 20 certificate.",
+    "open_question": "Demonstrandum's fitted law C(n) = floor((5n+7)/2), exact for the records at n = 7..14 and unproved beyond, and the gap to the trivial upper bound 4n."
+   },
+   "control_required": true
+  },
+  {
+   "id": "no-five-on-sphere-23",
+   "title": "Largest subset of the 23^3 grid with no five points on a sphere or plane",
+   "objective": "maximize",
+   "verifier": "no_five_on_sphere",
+   "parameters": {
+    "n": 23
+   },
+   "best_known": {
+    "value": "51",
+    "kind": "exact",
+    "source": "Numaro report NUMARO-2026-009 (2026-07-03)",
+    "url": "https://numaro.tech/research/no-5-on-sphere-2026/",
+    "retrieved": "2026-09-24"
+   },
+   "notes": "Best public lower bound on the retrieval date, including the monotone closure C(n) >= C(n-1). Numaro publishes no coordinates or checker for its rows.",
+   "significance": {
+    "crowding": "uncontested",
+    "evidence": "One source on 2026-09-24: Numaro (51, July 2026, no coordinates or checker).",
+    "open_question": "Demonstrandum's fitted law C(n) = floor((5n+7)/2), exact for the records at n = 7..14 and unproved beyond, and the gap to the trivial upper bound 4n."
+   },
+   "control_required": true
+  },
+  {
+   "id": "no-five-on-sphere-24",
+   "title": "Largest subset of the 24^3 grid with no five points on a sphere or plane",
+   "objective": "maximize",
+   "verifier": "no_five_on_sphere",
+   "parameters": {
+    "n": 24
+   },
+   "best_known": {
+    "value": "53",
+    "kind": "exact",
+    "source": "Numaro report NUMARO-2026-009 (2026-07-03)",
+    "url": "https://numaro.tech/research/no-5-on-sphere-2026/",
+    "retrieved": "2026-09-24"
+   },
+   "notes": "Best public lower bound on the retrieval date, including the monotone closure C(n) >= C(n-1). Numaro publishes no coordinates or checker for its rows.",
+   "significance": {
+    "crowding": "uncontested",
+    "evidence": "One source on 2026-09-24: Numaro (53, July 2026, no coordinates or checker).",
+    "open_question": "Demonstrandum's fitted law C(n) = floor((5n+7)/2), exact for the records at n = 7..14 and unproved beyond, and the gap to the trivial upper bound 4n."
+   },
+   "control_required": true
+  },
+  {
+   "id": "no-five-on-sphere-25",
+   "title": "Largest subset of the 25^3 grid with no five points on a sphere or plane",
+   "objective": "maximize",
+   "verifier": "no_five_on_sphere",
+   "parameters": {
+    "n": 25
+   },
+   "best_known": {
+    "value": "55",
+    "kind": "exact",
+    "source": "Numaro report NUMARO-2026-009 (2026-07-03)",
+    "url": "https://numaro.tech/research/no-5-on-sphere-2026/",
+    "retrieved": "2026-09-24"
+   },
+   "notes": "Best public lower bound on the retrieval date, including the monotone closure C(n) >= C(n-1). Numaro publishes no coordinates or checker for its rows.",
+   "significance": {
+    "crowding": "uncontested",
+    "evidence": "One source on 2026-09-24: Numaro (55, July 2026, no coordinates or checker).",
+    "open_question": "Demonstrandum's fitted law C(n) = floor((5n+7)/2), exact for the records at n = 7..14 and unproved beyond, and the gap to the trivial upper bound 4n."
+   },
+   "control_required": true
+  },
+  {
+   "id": "no-five-on-sphere-26",
+   "title": "Largest subset of the 26^3 grid with no five points on a sphere or plane",
+   "objective": "maximize",
+   "verifier": "no_five_on_sphere",
+   "parameters": {
+    "n": 26
+   },
+   "best_known": {
+    "value": "56",
+    "kind": "exact",
+    "source": "Numaro report NUMARO-2026-009 (2026-07-03)",
+    "url": "https://numaro.tech/research/no-5-on-sphere-2026/",
+    "retrieved": "2026-09-24"
+   },
+   "notes": "Best public lower bound on the retrieval date, including the monotone closure C(n) >= C(n-1). Numaro publishes no coordinates or checker for its rows.",
+   "significance": {
+    "crowding": "uncontested",
+    "evidence": "One source on 2026-09-24: Numaro (56, July 2026, no coordinates or checker).",
+    "open_question": "Demonstrandum's fitted law C(n) = floor((5n+7)/2), exact for the records at n = 7..14 and unproved beyond, and the gap to the trivial upper bound 4n."
+   },
+   "control_required": true
+  },
+  {
+   "id": "ring-loading-15",
+   "title": "Ring loading lower-bound instance with 15 demand pairs",
+   "objective": "maximize",
+   "verifier": "ring_loading",
+   "parameters": {
+    "m": 15
+   },
+   "best_known": {
+    "value": "9/8",
+    "kind": "exact",
+    "source": "EinsteinArena leaderboard 'Ring Loading Problem (15 pairs)': top entries JSAgent-Ring15 and Wilhelmina at 1.12500000; discussion thread 'A rigid 12-pair core attaining 9/8' gives an exact 9/8 construction in units of 1/16. AlphaEvolve's published instance (problem 61) verifies to 1.11904756846928 here.",
+    "url": "https://einsteinarena.com/problems/ring-loading-15",
+    "retrieved": "2026-09-24"
+   },
+   "notes": "Registered as exact 9/8 because the thread states an exact construction; the leaderboard shows eight decimals. The AlphaEvolve instance was published as floats; pairs whose float sum exceeds 1 were rescaled exactly by 1/(u+v), as the notebook's own scorer does, before reproduction here. Upper bound 19/14 (Schrijver, Seymour, Winkler). Re-read the leaderboard before any claim.",
+   "significance": {
+    "crowding": "contested",
+    "evidence": "Three sources on 2026-09-24: AlphaEvolve (1.119, arXiv:2511.02864, 2025) and, on the EinsteinArena leaderboard (2026), the agents JSAgent-Ring15 and Wilhelmina at 9/8 with a discussion thread giving an exact 9/8 construction.",
+    "open_question": "The largest possible gap between split and unsplit ring loading (Schrijver, Seymour, Winkler): instances give at least 9/8 and the proved upper bound is 19/14."
+   },
+   "control_required": true
+  },
+  {
+   "id": "sum-difference-I",
+   "title": "Sum-difference exponent I: sets with many sums and few differences",
+   "objective": "maximize",
+   "verifier": "sum_difference",
+   "parameters": {},
+   "best_known": {
+    "value": "1.1219",
+    "kind": "reported-decimal",
+    "source": "AlphaEvolve repository of problems, problem 42 (arXiv:2511.02864, section 6.25) reports 1.1219",
+    "url": "https://google-deepmind.github.io/alphaevolve_repository_of_problems/problems/42.html",
+    "retrieved": "2026-09-24"
+   },
+   "notes": "The published set recomputes to 1.12193573748604 in this verifier, which is within the reporting precision of 1.1219; an improvement must exceed 1.12195. No later improvement was found in the September 2026 survey. Any claim must re-check the page, EinsteinArena, and arXiv for newer sets.",
+   "significance": {
+    "crowding": "uncontested",
+    "evidence": "One source on 2026-09-24: AlphaEvolve (1.1219, arXiv:2511.02864, 2025, improving an earlier 1.059793), whose authors write that the bound can likely be improved; the September 2026 survey found no follow-up on the page, on EinsteinArena, or on arXiv.",
+    "open_question": null
+   },
+   "control_required": true
+  },
+  {
+   "id": "heilbronn-square-21",
+   "title": "Heilbronn problem, 21 points in the unit square",
+   "objective": "maximize",
+   "verifier": "heilbronn_square",
+   "parameters": {
+    "n": 21
+   },
+   "best_known": {
+    "value": "27933530325894554018134350585267/2500000000000000000000000000000000",
+    "kind": "exact",
+    "source": "Heilbronn record ledger (math.tejstead.com/heilbronn), data/canonical/square/n21.json: Tej Stead, August 2026; exact value of the published literals",
+    "url": "https://github.com/ShengtongZhang-alt/heilbronn-site/blob/main/data/canonical/square/n21.json",
+    "retrieved": "2026-09-24"
+   },
+   "notes": "Ledger accepts pull requests verified in exact arithmetic (data/sources/external/square-n21). Records changed monthly in July-September 2026; re-read before any claim.",
+   "significance": {
+    "crowding": "lightly-contested",
+    "evidence": "The ledger math.tejstead.com/heilbronn changed monthly in July to September 2026 with at least five contributors across n = 13..36, but the n = 21 square cell had one recorded holder on 2026-09-24 (Tej Stead, August 2026); the round-25 survey notes that only one or two people have searched n = 21..36.",
+    "open_question": "Heilbronn's triangle problem in the unit square: the optimum is known exactly only for n <= 9 (arXiv 2603.11107, March 2026), so every larger n is an open instance."
+   },
+   "control_required": true
+  },
+  {
+   "id": "heilbronn-square-25",
+   "title": "Heilbronn problem, 25 points in the unit square",
+   "objective": "maximize",
+   "verifier": "heilbronn_square",
+   "parameters": {
+    "n": 25
+   },
+   "best_known": {
+    "value": "157191263026838342303028323039/20000000000000000000000000000000",
+    "kind": "exact",
+    "source": "Heilbronn record ledger (math.tejstead.com/heilbronn), data/canonical/square/n25.json: Rhys Chappell, September 2026; exact value of the published literals",
+    "url": "https://github.com/ShengtongZhang-alt/heilbronn-site/blob/main/data/canonical/square/n25.json",
+    "retrieved": "2026-09-24"
+   },
+   "notes": "Same ledger and submission lane as n=21. The n=25 coordinates were not fetched, so this bar is not reproduced by the verifier here; it is the ledger's exact value of the published literals.",
+   "significance": {
+    "crowding": "lightly-contested",
+    "evidence": "The ledger math.tejstead.com/heilbronn changed monthly in July to September 2026 with at least five contributors across n = 13..36, but the n = 25 square cell had one recorded holder on 2026-09-24 (Rhys Chappell, September 2026); the round-25 survey notes that only one or two people have searched n = 21..36.",
+    "open_question": "Heilbronn's triangle problem in the unit square: the optimum is known exactly only for n <= 9 (arXiv 2603.11107, March 2026), so every larger n is an open instance."
+   },
+   "control_required": true
+  },
+  {
+   "id": "covering-C-33-6-4",
+   "title": "Covering design C(33,6,4): fewest 6-blocks covering every 4-subset of 33 points",
+   "objective": "minimize",
+   "verifier": "covering_design",
+   "parameters": {
+    "v": 33,
+    "k": 6,
+    "t": 4
+   },
+   "best_known": {
+    "value": "3310",
+    "kind": "exact",
+    "source": "La Jolla Covering Repository data snapshot (dmgordo/LJCR coverdata.json): 3310 by Dietmar Pree, local search, 2021-05-06; lower bound 2750",
+    "url": "https://github.com/dmgordo/LJCR",
+    "retrieved": "2026-09-24"
+   },
+   "notes": "LJCR was frozen on 2026-03-01; newer improvements are collected at coveringrepository.com (Giovanni Acerbi), which blocked scripted fetches in this survey and must be read by hand before any claim. Kept as a benchmark family; a cheap greedy sits far above 3310.",
+   "significance": {
+    "crowding": "contested",
+    "evidence": "The La Jolla Covering Repository snapshot records six dated improvements for this cell, the last by Dietmar Pree (3310, local search, 2021-05-06); the repository froze on 2026-03-01 and coveringrepository.com, which may hold newer entries, blocked scripted fetches in the 2026-09-24 survey and is unread.",
+    "open_question": "The exact covering number C(33,6,4), known on the 2026-09-24 snapshot to lie between 2750 and 3310."
+   },
+   "control_required": true
+  }
+ ]
+}
