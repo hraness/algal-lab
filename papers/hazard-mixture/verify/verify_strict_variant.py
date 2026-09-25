@@ -113,6 +113,42 @@ for label, diff in (("fixed weights", h_pl - h_pg), ("transformed weights", h_pl
     check(f"12 {label}: negative at q = 99/100, positive at q = 1/100",
           diff.subs(q, R(99, 100)) < 0 and diff.subs(q, R(1, 100)) > 0)
 
+# Hand-checkable crossing counts by Descartes' rule of signs.  With
+#   A = 6 + 5q^4 + 4q^8,  C = 6 + 5q^5 + 4q^7,  C~ = 24 + 19q^5 + 17q^7   (positive on (0,1)),
+#   h_{p,lambda} - h_{p,gamma}  = q^4 P(q) / (A C),
+#   h_{p,lambda} - h_{pT,gamma} = q^4 P~(q) / (A C~),
+# the polynomials Q(x) = (1+x)^11 P(1/(1+x)) and Q~(x) = (1+x)^11 P~(1/(1+x)) have exactly
+# one sign change in their coefficient sequences.  By Descartes' rule each has exactly one
+# positive root, which is simple, so P and P~ have exactly one (simple) root in (0,1).
+x = sp.Symbol("x", positive=True)
+A = 6 + 5 * q**4 + 4 * q**8
+C = 6 + 5 * q**5 + 4 * q**7
+Ct = 24 + 19 * q**5 + 17 * q**7
+P = 16 * q**11 + 60 * q**9 - 60 * q**7 - 25 * q**5 + 192 * q**4 - 168 * q**3 - 150 * q + 120
+Pt = 68 * q**11 + 228 * q**9 - 255 * q**7 - 95 * q**5 + 768 * q**4 - 714 * q**3 - 570 * q + 480
+check("14 h_{p,lambda} - h_{p,gamma} = q^4 P(q)/(A C) with the stated P, A, C",
+      sp.cancel((h_pl - h_pg) - q**4 * P / (A * C)) == 0)
+check("15 h_{p,lambda} - h_{pT,gamma} = q^4 P~(q)/(A C~) with the stated P~, A, C~",
+      sp.cancel((h_pl - h_pTg) - q**4 * Pt / (A * Ct)) == 0)
+
+
+def sign_changes(poly):
+    co = [c for c in poly.all_coeffs() if c != 0]
+    return sum(1 for a, b in zip(co, co[1:]) if (a > 0) != (b > 0))
+
+
+Q = sp.Poly(sp.cancel((1 + x)**11 * P.subs(q, 1 / (1 + x))), x)
+Qt = sp.Poly(sp.cancel((1 + x)**11 * Pt.subs(q, 1 / (1 + x))), x)
+print("   Q  coefficients:", Q.all_coeffs())
+print("   Q~ coefficients:", Qt.all_coeffs())
+check("16 Descartes: Q(x) = (1+x)^11 P(1/(1+x)) has exactly one coefficient sign change",
+      Q.degree() == 11 and sign_changes(Q) == 1)
+check("17 Descartes: Q~(x) = (1+x)^11 P~(1/(1+x)) has exactly one coefficient sign change",
+      Qt.degree() == 11 and sign_changes(Qt) == 1)
+check("18 P(0) = 120, P(1) = -15, P~(0) = 480, P~(1) = -90, and the roots found above are the roots of P, P~",
+      P.subs(q, 0) == 120 and P.subs(q, 1) == -15 and Pt.subs(q, 0) == 480 and Pt.subs(q, 1) == -90
+      and sp.Poly(P, q).count_roots(0, 1) == 1 and sp.Poly(Pt, q).count_roots(0, 1) == 1)
+
 # Both mixtures with common weights are stochastically ordered: S_lambda >= S_gamma.
 sdiff = sum(w * q**r for r, w in zip(lam, p)) - sum(w * q**r for r, w in zip(gam, p))
 check("13 fixed weights: S_lambda - S_gamma = q^6 (1/3 - (1/3) q + (4/15) q^3 ... ) has no root in (0,1) and is positive",

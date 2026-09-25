@@ -4,7 +4,8 @@ Date: 25 September 2026. Branch `paper/hazard-mixture`, directory `papers/hazard
 
 Artefacts: `main.tex`, `refs.bib`, `main.pdf` (12 pages, compiled with tectonic 0.17.0),
 `verify/verify_core.py`, `verify/verify_general_mechanism.py`, `verify/verify_strict_variant.py`,
-`verify/verify_two_crossings.py`, `verify/run_all.sh`. Delivery copy:
+`verify/verify_two_crossings.py`, `verify/run_all.sh`; the revision adds
+`verify/verify_reversed_hazard.py` and brings `main.pdf` to 15 pages (see "Revision response"). Delivery copy:
 `/Users/bg/Documents/algal-lab-delivery-20260925/hazard-mixture-counterexample.pdf`.
 
 Source of the claims: `docs/hazard-mixture-counterexample.md` (repository note, audit date
@@ -201,10 +202,93 @@ Scripts (SymPy 1.14.0, Python 3.12.14; exact arithmetic only, no repository impo
 
 | Script | Checks | Time | SHA-256 |
 |---|---|---|---|
-| `verify_core.py` | 41 | about 25 s | `9cfc7ff1c9296ad92fb16f901a516fd89c1863fe3c4e880cb383ffc5498819e8` |
+| `verify_core.py` | 42 | about 25 s | `4660ba2f26025e26f6a68fc8375a6bbb44306bd258d4cc5a203e653a28818b74` |
 | `verify_general_mechanism.py` | 16 | about 70 s | `dd61c5493c737bc9baafc094684208e5e83448f4466d6211d70c119a8c4f7f68` |
-| `verify_strict_variant.py` | 16 | about 4 s | `09ff93827b62170e48d7ff1dea8e7933a48f06f44661c47e5ebd3bf7bcf2faf7` |
-| `verify_two_crossings.py` | 12 | about 25 s | `ee3d878cac62731408ab6006c1af372298311e7cb2bcd0f010603aebffdd4e03` |
+| `verify_strict_variant.py` | 21 | about 6 s | `fe993d1b1df7d7d7fce6e77d57d3635ede71235b41862527e298b1a10c3055d3` |
+| `verify_two_crossings.py` | 13 | about 25 s | `06b4eb6b6c8e02393c5a548911ee5c7b75798b3c1b963276f434cb865da1414c` |
+| `verify_reversed_hazard.py` | 18 | about 5 s | `a25d901588f1efbc6a3b4431384b985221bcf775d414b8511a045152074f064d` |
 
-All 85 checks pass; each script exits with status 0 only if every check passes. The hashes
+(Table updated in the revision; the original four hashes and the count of 85 are superseded.)
+All 110 checks pass; each script exits with status 0 only if every check passes. The hashes
 above are the ones printed in Section 9 of the manuscript; if a script is edited, update both.
+
+## 8. Revision response (referee report of 25 September 2026, `REFEREE-REPORT.md`)
+
+Section numbers refer to the revised manuscript. The new Section 7.3 shifts "What survives"
+to Section 7.4 (Proposition 7.3 keeps its number).
+
+1. Author placeholder (blocking). Not resolved by the agents: the author block is kept as an
+   explicit placeholder, now `[PLACEHOLDER: author name and affiliation to be inserted before
+   submission]`. The AI-assistance `\thanks` footnote is kept and now says that it must be checked
+   against the target journal's policy. The owner must fill this in before submission.
+2. Root-isolation algorithm. Section 9 and the proof of Proposition 6.2 now name the
+   Vincent-Akritas-Strzebonski continued-fraction method as implemented in SymPy's
+   `Poly.intervals` and cite Akritas and Strzebonski (2005) (new `refs.bib` entry, DOI checked
+   through Crossref; SymPy's `rootisolation.py` cites the same paper). The docstring of
+   `verify_two_crossings.py` is corrected and its SHA-256 updated.
+3. Degree 275. The proof of Proposition 6.2 now says that the directly formed numerator has
+   degree 279 and that 275 is the degree after cancelling `(1+s+s^2)^2`. New check 3' in
+   `verify_two_crossings.py` verifies 279, the common factor and 275.
+4. Rounded digits. Theorem 3.1(c) now prints `t_* = 0.82305744562489...` and states that both
+   decimals are truncated. The referee's suggested `0.8230574456249...` would also have been
+   rounded, since the expansion is 0.82305744562489256... The Table 1 caption now says "rounded
+   to six decimals".
+5. Reversed hazard rates. New Section 7.3 "Scope, and the reversed hazard rate statements":
+   (i) the reduction `h_U(t) = theta^{-1} h(t/theta) htilde(Gbar(t/theta)^alpha)` and the
+   consequence that the failure of Theorem 3.8, Corollary 3.2 and Theorem 3.9 holds for every
+   continuous baseline with positive hazard rate, every theta and every alpha > 0; (ii) an explicit
+   statement that the W_n, alpha <= 0 half is not touched, with the alpha < 0 computation for
+   instance (1); (iii) a verbatim quotation of SKF Theorem 3.11 (page 23) and descriptions of
+   Corollary 3.3 and Theorem 3.12 (page 24), checked on 25 September 2026 against the Strathprints
+   PDF (SHA-256 identical to the one in Section 8); (iv) reading (a), where the reversed hazard
+   rate is the formula displayed in the proof: Theorem 3.11 and Corollary 3.3 fail at instances (1)
+   to (3) and Theorem 3.12 at instance (4), for example `123/1001 > 0` at `t = log(4/3)`; the
+   note that this formula belongs to the alpha-mixture of distribution functions, not to (1.3)
+   (11/7 against 11/25); (v) reading (b), the reversed hazard rate of (1.3): Theorem 3.11 fails
+   (`9/475 > 0` at `t = log 2`). A correction to the referee's "same distribution" remark: under
+   reading (b) the same argument already applies to Theorems 3.7 and 3.10 at n = 2. For
+   `(3,5)`, `(4,4)` it gives `17/59 > 4/15`, so under reading (b) Theorem 3.10 fails too, and a
+   failure under that reading is not specific to n >= 3. The manuscript therefore treats (a) as
+   the substantive reading and says so. The abstract and Introduction item (e) mention the
+   strengthening, and Section 2 defines the reversed hazard rate order. Verified by
+   `verify_reversed_hazard.py` (18 checks, including new check 4' for 123/1001).
+6. Bibliography cross-reference. `\ref{sec:sources}` removed from the `note` field of
+   `SahooKayalFinkelstein2026`; Section 7.2 now opens with an in-text pointer to Section 8.
+7. SAF page numbers. Not re-checked: the version of record is paywalled and not available to
+   the agents in this revision. Note an internal inconsistency to resolve with the PDF: Section 8
+   of the manuscript places Definition 6.1 on page 1068, while Section 6 of these notes places
+   Definition 6.1 and U_n on page 1069. The SKF page numbers were re-checked against the
+   Strathprints PDF (statements up to Theorem 3.12 are now listed in Section 8).
+8. Unread sources. A further search for an open copy of Hazra and Finkelstein (2018) found
+   only the publisher's page. The cautious wording is kept and now covers Theorem 3.12, whose
+   proof is also deferred to their Theorem 3.4. Nadeb and Torabi (2022) is still unread. Both
+   remain open before submission.
+9. Weak consistency check. Check 6' in `verify_two_crossings.py` is now the conjunction only
+   (hash updated). The proof of Proposition 6.2 also gives the parity argument: signs
+   `-, +, -` at three rational points and exactly two distinct roots imply two sign changes.
+10. Irreducibility of B_1. The remark after Theorem 3.1 now contains the hand proof by reduction
+    modulo 2 (plus Gauss's lemma). New check A15c in `verify_core.py` verifies each step.
+11. Machine-only counts. Proposition 6.1(d) is now hand-checkable: explicit factorizations
+    `q^4 P/(A C)` and `q^4 P~/(A C~)`, the substitution `q = 1/(1+x)`, the printed coefficient
+    sequences of `Q` and `Q~` (one sign change each) and Descartes' rule (checks 14 to 18 in
+    `verify_strict_variant.py`). The "(machine-certified)" label is removed there and kept for
+    Proposition 6.2(d). Section 9 now says that Sturm and VAS counts are counts of distinct roots.
+12. Neighbouring results. New paragraph in Section 8: Barmalzan, Kosari and Balakrishnan
+    (2022), which the SKF manuscript names as the source of its Lemmas 2.4 and 2.5 (confirmed in its
+    reference list), Bhakta, Kayal and Balakrishnan (2024), Guo and Yan (2024) and Sahoo, Kayal and
+    Balakrishnan (2026) are named and declared outside the scope of the note. The paragraph says
+    that we did not check whether they use a Lemma 2.5 step. The two new `refs.bib` entries were
+    checked against Crossref (volume, issue, pages, DOI). "Where the published argument stops"
+    now attributes Lemmas 2.4 and 2.5 to that paper and says that the lemma itself is not in question.
+13. LaTeX. Recompiled with tectonic: no undefined references or citations, no overfull boxes,
+    no em-dashes in source or PDF text, and the AI-disclosure footnote is present. The PDF is now
+    15 pages.
+
+Verify suite after the revision (`PYTHON=<python with sympy 1.14> ./verify/run_all.sh`): exit
+status 0; 42 + 16 + 21 + 13 + 18 = 110 PASS lines. The runner uses `${PYTHON:-python3}` and
+contains no local path.
+
+Still open before submission: author block (item 1), SAF page numbers and the Definition 6.1
+page discrepancy (item 7), Hazra and Finkelstein (2018) and Nadeb and Torabi (2022) (item 8),
+the SKF version of record (Section 4 item 2), and informing the SKF authors (referee's
+suggestion).

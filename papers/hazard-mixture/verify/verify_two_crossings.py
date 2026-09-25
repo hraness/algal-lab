@@ -7,9 +7,10 @@ the hazards satisfy h_lambda <= h_gamma near t = 0 and near t = infinity, while
 the difference is positive at an intermediate time.  Hence the hazard difference
 changes sign exactly twice.  With s = exp(-t/40) every exponential is a monomial
 in s with integer exponent, so the hazard difference is a rational function of s
-with rational coefficients; its roots in (0,1) are isolated exactly
-(Vincent-Collins-Akritas, sympy Poly.intervals) and its sign is evaluated
-exactly at rational points.
+with rational coefficients; its roots in (0,1) are isolated exactly by the
+Vincent-Akritas-Strzebonski continued-fraction method with LMQ bounds (sympy
+Poly.intervals), counted by Sturm sequences (Poly.count_roots), and its sign is
+evaluated exactly at rational points.  Both routines count distinct real roots.
 """
 import sys
 import time
@@ -66,6 +67,27 @@ den_roots = den_poly.intervals(inf=lo_end, sup=hi_end)
 check("3 the denominator has no root in (0,1) (it is a product of positive sums)",
       len(den_roots) == 0 and den_poly.eval(R(1, 2)) > 0)
 
+
+# Degree bookkeeping.  Dividing numerator and denominator of each hazard rate by its
+# lowest monomial (s^40 for lambda, s^41 for gamma), the cross-multiplied numerator
+# N_lambda D_gamma - N_gamma D_lambda has degree 279; it shares the factor
+# (1 + s + s^2)^2 with the denominator D_lambda D_gamma, and after cancelling it the
+# numerator has degree 275 (the polynomial whose roots are isolated below).
+def reduced_parts(rates):
+    lo = min(int(N * r) for r in rates)
+    return (sp.Poly(sp.expand(sum(wi * r * s**(int(N * r) - lo) for r, wi in zip(rates, w))), s),
+            sp.Poly(sp.expand(sum(wi * s**(int(N * r) - lo) for r, wi in zip(rates, w))), s))
+
+
+Nl, Dl = reduced_parts(lam)
+Ng, Dg = reduced_parts(gam)
+raw = Nl * Dg - Ng * Dl
+common = sp.gcd(raw, Dl * Dg)
+check("3' raw numerator degree 279, common factor (1 + s + s^2)^2 with the denominator, reduced degree 275",
+      raw.degree() == 279 and (Dl * Dg).degree() == 279
+      and sp.expand(common.as_expr() - (s**2 + s + 1)**2) == 0
+      and num_poly.degree() == 275 and (raw.degree() - common.degree()) == 275)
+
 ivs = [(sp.Rational(x), sp.Rational(y)) for (x, y), k in
        num_poly.intervals(inf=lo_end, sup=hi_end, eps=R(1, 10**12))]
 print(f"   {len(ivs)} real root(s) of the numerator in (0,1), isolated in {time.time() - t0:.1f}s")
@@ -82,8 +104,8 @@ val_mid = diff.subs(s, s_mid)
 check("5 hazard difference positive at s = 483/500 (t about 1.38)", val_mid > 0)
 check("6 hazard difference negative at s = 999/1000 (small t) and at s = 1/2 (t about 27.7)",
       diff.subs(s, R(999, 1000)) < 0 and diff.subs(s, R(1, 2)) < 0)
-check("6' consistency: the two isolating intervals separate the three sample points",
-      ivs[0][1] < R(1, 2) or (R(1, 2) < ivs[0][0] and ivs[0][1] < s_mid < ivs[1][0] and ivs[1][1] < R(999, 1000)))
+check("6' consistency: both isolating intervals lie above 1/2 and separate the three sample points",
+      R(1, 2) < ivs[0][0] and ivs[0][1] < s_mid < ivs[1][0] and ivs[1][1] < R(999, 1000))
 
 sdiff = sp.cancel(survival(lam) - survival(gam))
 sd_num = sp.Poly(sp.expand(sp.fraction(sdiff)[0]), s)

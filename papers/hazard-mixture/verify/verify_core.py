@@ -128,6 +128,19 @@ check("A15 sign pattern: h_lambda < h_gamma for q > q_* (t < t_*), > for q < q_*
 
 check("A15b B_1 = 1 - 2q - q^3 - q^4 is irreducible over Q (q_* is algebraic of degree 4)",
       sp.Poly(B1, q).is_irreducible and sp.Poly(B1, q).degree() == 4)
+# Hand proof of A15b: -B_1 = q^4 + q^3 + 2q - 1 is monic; modulo 2 it is q^4 + q^3 + 1,
+# which has no root in F_2 and leaves remainder q on division by q^2 + q + 1, the only
+# irreducible quadratic over F_2; so it is irreducible over F_2, hence over Z and Q.
+_fl = sp.factor_list(-B1, modulus=2)
+_m2 = sp.Poly(q**4 + q**3 + 1, q, modulus=2)
+check("A15c -B_1 is monic, -B_1 = q^4 + q^3 + 1 (mod 2) is irreducible over F_2: no root in F_2, "
+      "remainder q modulo q^2 + q + 1",
+      sp.Poly(-B1, q).LC() == 1
+      and sp.Poly(sp.expand(-B1), q, modulus=2) == _m2
+      and _fl[0] == 1 and len(_fl[1]) == 1 and _fl[1][0][1] == 1
+      and sp.Poly(_fl[1][0][0], q).degree() == 4
+      and (0**4 + 0**3 + 1) % 2 == 1 and (1**4 + 1**3 + 1) % 2 == 1
+      and _m2.rem(sp.Poly(q**2 + q + 1, q, modulus=2)) == sp.Poly(q, q, modulus=2))
 
 # Local behaviour at t = 0: h(0) equals the mean rate, h'(0) = -Var(rate).
 t = sp.Symbol("t", positive=True)
