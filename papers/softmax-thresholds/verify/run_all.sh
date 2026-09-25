@@ -4,7 +4,7 @@
 # of the scripts.  Usage: sh verify/run_all.sh   (PYTHON=... to override)
 set -eu
 cd "$(dirname "$0")"
-PY="${PYTHON:-/Users/bg/Documents/algal-lab-worktrees/.venv-math/bin/python}"
+PY="${PYTHON:-python3}"
 echo "== roots.py (exact rational root enclosures; writes ../constants.tex)"
 "$PY" roots.py --tex ../constants.tex
 echo "== counterexamples.py (exact rational witnesses)"
