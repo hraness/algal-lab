@@ -36,10 +36,18 @@ The scripts write their outputs to `runs/` (gitignored); `records/` holds the fr
 | 4 | 11 | `certificates/n4_11.json` | CP-SAT optimal (symmetry-broken model); cadical UNSAT at k = 12 with and without symmetry breaking, LRAT proofs checked | complete |
 | 5 | 14 | `certificates/n5_14_ls5x.json` | exhaustive layer enumeration (`layer_enum5.c`); LRAT corroboration in progress | complete* |
 | 6 | ≥ 18 | `certificates/n6_18_ls5x.json` | none (trivial 4n = 24; k = 19 search stalls) | lower bound only |
+| 10 | ≥ 28 | `certificates/n10_28_ls5x.json` | none | lower bound; equals the fitted ⌊(5n+7)/2⌋ = 28 |
+| 12 | ≥ 33 | `certificates/n12_33_ls5x.json` | none | lower bound; equals ⌊(5n+7)/2⌋ = 33 |
 
 \* the enumeration's completeness is argued in `layer_enum5.c` and spot-checked;
 a machine-checkable UNSAT proof (cadical/kissat LRAT) is still being computed —
 if one exists it supersedes the enumeration witness.
+
+Probes at the fitted law's values for n = 7, 8, 9, 11 (targets 21, 23, 26, 31)
+stalled at best = 1–3 degenerate 5-subsets under the same search: consistent
+with those law values being near-optimal, no claim. n = 7's value 21 is the
+known record; whether n = 10, 12 records already appear in the public tables
+was not re-audited — the certificates are recorded as lower bounds only.
 
 ## Method
 
