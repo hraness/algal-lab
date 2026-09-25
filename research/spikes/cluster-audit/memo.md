@@ -1,0 +1,83 @@
+# Cluster audit: the broken T-transform lift across the mixture-ordering literature
+
+Synthesis of the exact-arithmetic audits in `research/spikes/` (run dirs
+under `research/spikes/context/runs/`). Compiled 25 September 2026.
+
+## The defect in one paragraph
+
+Chain majorization of a 2×n parameter matrix is equivalent to a chain of
+T-transforms; for **additive** functionals Φ(A)=Σᵢψ(a₁ᵢ,a₂ᵢ) a standard
+lemma (Marshall–Olkin–Arnold; proved for systems in Balakrishnan–Haidari–
+Masoumifard 2015, Thm 2; restated as BKB2022 Lemmas 2.4–2.5) reduces the
+n-component comparison to the n=2 criterion. Mixture hazard and
+reversed-hazard rates are **ratios of sums**
+h(t)=Σᵢpᵢgᵢ(t)/ΣᵢpᵢGᵢ(t)-shaped kernels — the frozen columns sit inside
+*both* numerator and denominator — so the lift does not apply. The audited
+papers apply it anyway. The lemma is true; the use is false; the resulting
+orderings are not merely unproved but fail on certified instances.
+
+## Scoreboard (as of 25 September 2026)
+
+| Paper | Venue | Certified | Mechanism |
+|---|---|---|---|
+| **SKF2026** Sahoo–Kayal–Finkelstein | ASMBI 42(2):e70089 | Thms 3.4, 3.8 (both halves), 3.9, 3.10 (literal), 3.11 (both), 3.12; Cors 3.2, 3.3; **2 printed counterexamples invalid** | lift on α-mixture hr/rh |
+| **SPBB2026** Shekari et al. | J. Inequal. Appl. 2026:28 (OA) | Thm 11 (Sturm 2 roots), Cor 2, Thm 12, Cor 3; **all hr/rh theorems also vacuous** — hypothesis `-D'(u;γ)` monotone in γ cannot hold for any γ-dependent family (∫D′=1) | lift + unsatisfiable hypotheses |
+| **BKB2022** Barmalzan–Kosari–Balakrishnan | PEIS 36(2):461–481 | Thm 2 (n≥3 rate ordering): crossings certified in both directions, both V/W classes, both conventions; n=2 Thms 1/5 also fail at the unconditional claim shape | the canonized misuse |
+| **GY2024** Guo & Yan | arXiv:2407.15638v2 | Thm 6 / Cor 5 (48% violation at n=3), Cor 6 (2-step chain); Thm 6 has **no proof** ("Similarly… we can get the result") | lift on MPHR hr |
+| **SKB2026** Sahoo–Kayal–Balakrishnan | Mathematics 14:2557 (OA) | Thms 8, 9, 11, 12 + MPRHR duals 20/21/23/24 + Cors 1–4; lift stated verbatim | lift on MPHR α-mixture |
+| **VKF2025** Varghese–Ameen Mahmood et al. | Statistics 59(5) | Scale-vector st claims fail **iff αγ>1** (sharp boundary: 0/~10,200 admissible below, ~2050 above); a different defect — T14 Schur-concavity on the wrong side | boundary violation |
+| **HF2018** Hazra & Finkelstein | TEST 27(4) | transmitted Thm 3.4 (via SKF2026) fails at n=3 already for **ordinary** mixtures (certified); probable **origin** of the defect | lift on ordinary mixtures |
+| **NT2020** Nadeb & Torabi | CSTM 51(10) | transmitted Thm 4.2 fails at n=3; NT Thm 3.2 holds-on-samples | same lift |
+
+**Controls (clean)**: every n=2 base theorem across all audited papers;
+all st-order theorems (the mixture SF is a separable sum — the lift is
+legitimate there); SAF2022 — audited clean *and* historically clean: its
+Remark 6.18 posed n>2 hazard ordering as an open problem, answered
+negatively by the certified exponential-mixture counterexample
+(`hf2018-nt2020/certify_nt42_n3.py`).
+
+**Not yet read (paywalled, statements reconstructed or unrecoverable)**:
+HF2018, NT2020, BKB2022, VKF2025 — claims against them are audited "as
+transmitted" or "at claim shape"; each memo marks exactly which.
+
+## Suspect queue (citation cone, `citation-map.md`)
+
+~12 further papers share the signature (n-component hr/rh claims under
+chain/matrix majorization): BKF2024, BKZ2021, BMKB2024, BKB2024-SPL,
+BBKP2024, BKKA2024, SMH2026, SBB2022, PKP2022, BTDK arXiv:2412.10071,
+BGSK arXiv:2511.00791, VAMSG2025, SAF2023-CSTM. The pattern is strongest
+in the Kayal (NIT Rourkela) 2023–2026 avalanche, which cites BKB2022's
+Lemma 2.4/2.5 as the lift handle.
+
+## Provenance
+
+MOA (1979) → systems-side valid uses (series hazards are sums) → BHM2015
+Thm 2 → HKFN2017 → **HF2018 (probable first misuse)** → BKB2022
+(canonical citation handle, certified false for its own Thm 2) →
+NT2020/BKZ2021/SBB2022/PKP2022 (2020–2021) → Bhakta–Kayal avalanche →
+SKF2026, SPBB2026, SKB2026 (still propagating: SKB2026 cites SKF2026).
+
+## Audit method (reproducible)
+
+Admissible instances are generated exactly (rational weights/scales;
+hypothesis predicates — V_n/W_n, T-transform factorization, weak
+majorization — checked componentwise); ordering differences are evaluated
+at rational points; sign changes are certified by exact rational witnesses
+plus Sturm root counts on the polynomial numerator (interval-arithmetic
+certificates where degree exceeds Sturm budget). `holds-on-samples` is
+reported with admissible counts and is never called a proof.
+
+Spike dirs: `mixture-audit/` (SKF, SAF), `shekari-audit/` (SPBB),
+`bkb2022-own/` (BKB), `hf2018-nt2020/` (transmitted), `vkf2025/`,
+`gy-skb-audit/` (GY, SKB); BHM2015/BKB lemma verification and the
+non-separability certificate are in `context/runs/bhb2022/`.
+
+## What this is not
+
+- Not a claim that every listed suspect is false — suspects are named
+  from claim shape alone until audited.
+- Not a claim about st-order or systems literature — those uses of the
+  same lemma are legitimate (the functional is additive there).
+- Counterexamples to "transmitted" statements refute the statement as
+  cited; whether the paywalled source stated it in that form is recorded
+  per memo.
