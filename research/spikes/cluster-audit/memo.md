@@ -62,6 +62,13 @@ Sturm: exactly 1 root on (2,∞), and the printed Def 2.2 contradicts the
 proof's direction, so the claim fails under both readings). All 7
 examples + 9 printed counterexamples verify.
 
+**Conditional certified carrier**: SMH2026 (Sahoo–Misra–Hazra, Statistics
+2026, DOI 10.1080/02331888.2026.2661806 — text unretrievable, zero
+citers). The abstract's n-component α-mixture hr/rh claims are refuted by
+certificates uniform in α>0 (n=3: 36/208 on the HF-pattern claim,
+1579/1926 on the lift claim). Hazra — HF2018 coauthor and probable defect
+origin — is a coauthor: the lineage persists at the source.
+
 ## Suspect queue (citation cone, `citation-map.md`)
 
 ~12 further papers share the signature (n-component hr/rh claims under
