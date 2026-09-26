@@ -1,0 +1,71 @@
+==========================================================================
+CERT A  (refutes hr-claim shape of BKZ2021, SBB2022, PKP2022-PHR,
+         BBKP2024; and by rh duality the rh shapes of BKZ2021, PKP2022)
+shape: (p,lam),(p,gam) in U_3, lam >maj gam => h_lam <= h_gam
+==========================================================================
+hypotheses: p prob: True | (p,lam) U3: True | (p,gam) U3: True | lam >maj gam: True
+  num deg 9 | den roots on (0,1): 0 | num roots on (0,1] [Sturm]: 2
+    d(1/2) = 6271/156247  sign 1
+    d(3/4) = -17228781/103906915  sign -1
+    d(7/8) = -173032418993/674164819183  sign -1
+=> hazards cross once on (0,1): FAILS for ordinary mixtures, PHR
+   mixtures, all alpha>0 alpha-mixtures (SF side) and Weibull
+   (u=e^{-t^k}) subfamily instances; rh dual for CDF-side families
+   incl. power-function/GL-uniform components (CERT C). For GL
+   components' own hr expression see CERT E.
+
+==========================================================================
+CERT B  (frozen-column lift shape: [p;lam] in V_3, one T-transform)
+refutes the matrix-change hr/rh claim shape of BKZ2021, SBB2022,
+BBKP2024 (two-parameter heterogeneity), PKP2022
+==========================================================================
+hypotheses: p,q prob: True True | (p,lam) V3: True
+T-check: True True True True | frozen col: True
+D(w) = num(h_p - h_q): deg 83 | roots(0,1) [Sturm]: 2
+    D(1/4) sign 1
+    D(1/2) sign 1
+    D(7/8) sign -1
+    D(9/10) sign -1
+=> crossing: the lift fails; the frozen third column sits inside
+   numerator AND denominator of the rate ratio.
+
+==========================================================================
+CERT C  (rh <-> hr bracket identity for CDF-mixtures, symbolic)
+==========================================================================
+r_a - (1/t)*bracket == 0 : True
+=> CERT A/B sign changes refute rh claims for CDF/alpha-mixtures too.
+
+==========================================================================
+CERT D  BKB-SPL24 shape: multiple-outlier n=3 rh claim
+groups (n1,n2)=(2,1): lam_A=(a,a,b), lam_B=(c,c,d);
+ordinary/alpha-mixture CDF of power-function components, rh bracket
+==========================================================================
+crossing instances found: 1836
+  lam_A=(1, 1, 2) lam_B=(1, 1, 3) hyps=['weaksub_th', 'weaksub_2v'] signs(1/4,1/2,9/10)=(1,-1,-1)
+  lam_A=(1, 1, 2) lam_B=(1, 1, 4) hyps=['weaksub_th', 'weaksub_2v'] signs(1/4,1/2,9/10)=(1,1,-1)
+  lam_A=(1, 1, 2) lam_B=(1, 1, 5) hyps=['weaksub_th', 'weaksub_2v'] signs(1/4,1/2,9/10)=(1,1,-1)
+  lam_A=(1, 1, 2) lam_B=(1, 1, 6) hyps=['weaksub_th', 'weaksub_2v'] signs(1/4,1/2,9/10)=(1,1,-1)
+  lam_A=(1, 1, 2) lam_B=(1, 1, 7) hyps=['weaksub_th', 'weaksub_2v'] signs(1/4,1/2,9/10)=(1,1,-1)
+  lam_A=(1, 1, 2) lam_B=(1, 1, 8) hyps=['weaksub_th', 'weaksub_2v'] signs(1/4,1/2,9/10)=(1,1,-1)
+note: lam_A=(1,1,2) vs lam_B=(1,1,3) is a COMPONENTWISE increase
+(and weak-submajorization on both the 3-vector and the distinct-
+parameter 2-vector) yet the rh rates cross: refutes every M-O rh
+claim shape whose hypotheses these satisfy, in BOTH directions.
+
+==========================================================================
+CERT E  SBB2022 shape: generalized Lehmann components
+F_i = F^{theta_i}; uniform baseline F=t on (0,1) gives the
+power-function subfamily; GL mixture hazard rate
+    h_GL(t) = sum p_i th_i t^{th_i-1} / sum p_i (1 - t^{th_i})
+has the *other* denominator -> needs its own certificate.
+shape tested: (p,th),(p,et) in U_3, th >maj et => h_GL ordered
+==========================================================================
+CERT A instance (p=(39/86, 18/43, 11/86), th=(4, 6, 9), et=(4, 7, 8)):
+  num deg 14 | den roots on (0,1): 0 | num roots on (0,1] [Sturm]: 1
+    d(1/4) = 7960822676/4688741950603  sign 1
+    d(1/2) = 28224782/905312865  sign 1
+    d(3/4) = 8111182175388/77320771297627  sign 1
+    d(7/8) = 588459157898454584/4447485401630057007  sign 1
+
+exact search over integer th,et in U_3, th >maj et (n=3):
+GL-hr crossings found: 234 | first: ((1, 1, 4), (1, 2, 3), 1, 1, -1)
