@@ -25,6 +25,7 @@ orderings are not merely unproved but fail on certified instances.
 | **BKB2022** Barmalzan–Kosari–Balakrishnan | PEIS 36(2):461–481 | Thm 2 (n≥3 rate ordering): crossings certified in both directions, both V/W classes, both conventions; n=2 Thms 1/5 also fail at the unconditional claim shape | the canonized misuse |
 | **GY2024** Guo & Yan | arXiv:2407.15638v2 | Thm 6 / Cor 5 (48% violation at n=3), Cor 6 (2-step chain); Thm 6 has **no proof** ("Similarly… we can get the result") | lift on MPHR hr |
 | **SKB2026** Sahoo–Kayal–Balakrishnan | Mathematics 14:2557 (OA) | Thms 8, 9, 11, 12 + MPRHR duals 20/21/23/24 + Cors 1–4; lift stated verbatim | lift on MPHR α-mixture |
+| **BKF2024** Bhakta–Kayal–Finkelstein | MCAP 26(4):52 | Thms 2 (printed glyph), 3, 4 (whole cell), 5 (missing hypothesis), 6, 8; **Lemma 1 printed wrong direction**; printed Cex 1,2,3,5 are FP noise at identically-zero points, Cex 4 contradicted | hr/rh claims; st theorems clean |
 | **VKF2025** Varghese–Ameen Mahmood et al. | Statistics 59(5) | Scale-vector st claims fail **iff αγ>1** (sharp boundary: 0/~10,200 admissible below, ~2050 above); a different defect — T14 Schur-concavity on the wrong side | boundary violation |
 | **HF2018** Hazra & Finkelstein | TEST 27(4) | transmitted Thm 3.4 (via SKF2026) fails at n=3 already for **ordinary** mixtures (certified); probable **origin** of the defect | lift on ordinary mixtures |
 | **NT2020** Nadeb & Torabi | CSTM 51(10) | transmitted Thm 4.2 fails at n=3; NT Thm 3.2 holds-on-samples | same lift |
@@ -38,7 +39,28 @@ negatively by the certified exponential-mixture counterexample
 
 **Not yet read (paywalled, statements reconstructed or unrecoverable)**:
 HF2018, NT2020, BKB2022, VKF2025 — claims against them are audited "as
-transmitted" or "at claim shape"; each memo marks exactly which.
+transmitted" or "at claim shape"; each memo marks exactly which. For
+HF2018 the statement-level attribution is now pinned by two OA witnesses:
+SKF2026's AAM quotes verbatim "The proof follows from Theorem 3.4 of
+Hazra and Finkelstein (2018)", and SPBB2026's theorem-number map places
+the n-component T-chain hr claim at HF §3 — so the defect originates in
+2018 at statement level (verbatim proof text unretrieved).
+
+**Audited, different defect family**: BTDK arXiv:2412.10071 (Bhakta–
+Torrado–Das–Kayal, multiple-outlier two-group mixtures — no chain
+majorization at all). Certified: Thm 4.2 st fails (the cluster's first
+broken st claim), Thm 4.3-E hr, Thm 4.5-D lr; vacuity cases (4.1
+satisfiable only under reversed direction; 4.4-E impossible); clean:
+4.3-D, 4.4-D, plus the additive-lift st lemmas used legitimately.
+
+**Audited, not a carrier, different defect**: BGSK arXiv:2511.00791
+(Bhakta–Gupta–Saadat Kia–Kayal, general exponentiated location-scale
+mixtures — vector majorization only, applied to the additive CDF
+legitimately). Certified false anyway: Thm 4.2 (lr — the term-wise sign
+step `(1/λ₁)f'/f ≤ (1/λ₂)f'/f` fails when `f'/f<0`), Thm 4.3 (R−rh AFO —
+Sturm: exactly 1 root on (2,∞), and the printed Def 2.2 contradicts the
+proof's direction, so the claim fails under both readings). All 7
+examples + 9 printed counterexamples verify.
 
 ## Suspect queue (citation cone, `citation-map.md`)
 
