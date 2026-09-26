@@ -40,6 +40,13 @@ negatively by the certified exponential-mixture counterexample
 HF2018, NT2020, BKB2022, VKF2025 — claims against them are audited "as
 transmitted" or "at claim shape"; each memo marks exactly which.
 
+**Conditional certified carrier**: SMH2026 (Sahoo–Misra–Hazra, Statistics
+2026, DOI 10.1080/02331888.2026.2661806 — text unretrievable, zero
+citers). The abstract's n-component α-mixture hr/rh claims are refuted by
+certificates uniform in α>0 (n=3: 36/208 on the HF-pattern claim,
+1579/1926 on the lift claim). Hazra — HF2018 coauthor and probable defect
+origin — is a coauthor: the lineage persists at the source.
+
 ## Suspect queue (citation cone, `citation-map.md`)
 
 ~12 further papers share the signature (n-component hr/rh claims under
