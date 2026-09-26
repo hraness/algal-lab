@@ -1,0 +1,100 @@
+========================================================================
+THM 5 counterexample (missing r-s condition)
+========================================================================
+(i) lam=(2, 1) in D2+, r=(1/2, 1/2), s=(1/10, 9/10), x=3/5
+    [OK] lam in D2+
+    h_U=28/13  h_V=52/15  h_U-h_V=-256/195
+    [OK] U<=hrV claimed but h_U<h_V here
+(ii) lam=(1, 2) in E2+, r=(1/2, 1/2), s=(1/10, 9/10), x=3/5
+    [OK] lam in E2+
+    h_U=28/13  h_V=124/85  h_U-h_V=768/1105
+    [OK] U>=hrV claimed but h_U>h_V here
+    xi=Fbar_V/Fbar_U: xi'(3/5) = -768/845 (sign -1)
+    [OK] xi'(3/5)<0 so Fbar_V/Fbar_U not increasing -> U<=hrV fails
+
+========================================================================
+THM 4 counterexample (n=3, middle region)
+========================================================================
+    [OK] r in D3+
+    [OK] s in D3+
+    [OK] lam in E3+
+    [OK] r majorized by s (r m s)
+    [OK] alive set {2,3} at x=1/2
+    x=1/2: h_U=60/13=60/13  h_V=280/69  h_U-h_V=500/897
+    [OK] claimed h_U<=h_V but h_U>h_V
+    [OK] r in E3+
+    [OK] s in E3+
+    [OK] lam in D3+
+    [OK] r m s
+    [OK] alive set {1,2} at x=1/2
+    x=1/2: h_U=760/123  h_V=340/57  diff=500/2337
+    [OK] claimed h_U<=h_V but h_U>h_V
+    n=2 control: lam=(1/4,1/2) E2+, r=(7/10,3/10) m s=(3/4,1/4)
+    [OK] r in D2+, s in D2+, r m s
+    h_U-h_V at xs: [1/8, 1/5, 3/10] = [-64000/2099601, -1000/6351, -125/126]
+    [OK] all <=0 (claim holds at n=2 on these points)
+
+========================================================================
+THM 6 counterexamples (n=3, middle region)
+========================================================================
+    [OK] sigma in D3+
+    [OK] r,s in D3+
+    [OK] r m s
+    [OK] alive set {2,3} at x=9/2
+    (i) x=9/2: r~_U=51904/59745  r~_V=4992/7385  diff=69440/360177
+    [OK] claimed r~_U<=r~_V but r~_U>r~_V
+    [OK] r,s in E3+
+    [OK] r m s
+    (ii) x=9/2: r~_U=13232/23835  r~_V=127808/206115  diff=-86800/1336803
+    [OK] claimed r~_U>=r~_V but r~_U<r~_V
+
+========================================================================
+THM 2 counterexample (printed lam _w th direction)
+========================================================================
+    [OK] r in E3+
+    [OK] lam,th in D3+
+    [OK] lam _w th (weak submaj)
+    x=1/4: SF_U-SF_V = -10116/73255  (claim >=st i.e. >=0)
+    [OK] U>=stV claimed but SF_U<SF_V
+
+========================================================================
+THM 3 counterexample (lam rm th, INTERIOR, all alive)
+========================================================================
+    [OK] r in D3+
+    [OK] lam,th in E3+
+    [OK] lam rm th
+    [OK] all alive at x=3/20
+    x=3/20: SF_U-SF_V = 1133/282240  (claim <=st i.e. <=0)
+    [OK] U<=stV claimed but SF_U>SF_V
+
+========================================================================
+THM 8 counterexample (printed _w direction, lam-side)
+========================================================================
+    [OK] r,s in E3+
+    [OK] lam,th in D3+
+    [OK] r _w s
+    [OK] lam _w th
+    x=1/4: SF_U-SF_V = -295/10062  (claim >=st i.e. >=0)
+    [OK] U>=stV claimed but SF_U<SF_V
+    lam->th step alone (s fixed): SF_W-SF_V = -15/208 (needs >=0)
+    r->s step alone (lam fixed): SF_U-SF_W = 265/6192 (needs >=0)
+    [OK] failing step is the lam-side
+
+========================================================================
+THM 1 boundary counterexample (below-support truncation)
+========================================================================
+    [OK] r,lam,th in E3+
+    [OK] 1/lam ^w 1/th (weak supermaj)
+    x=11/10: SF_U-SF_V = 1/60  (claim <=st i.e. <=0); V comp3 u=2/3<1 -> Fbar=1
+    [OK] U<=stV claimed but SF_U>SF_V
+
+========================================================================
+THM 10 probes (power c=3 l=2, lam=4)
+========================================================================
+    [OK] max mu <= min sig
+    Ex5 params: r=(1/2, 3/10, 1/5), s=(3/5, 3/10, 1/10)
+    [OK] r m s holds (paper needs r majorizes s for Schur-concavity)
+    eq49 h_U<=h_W, r m s (Ex5 dir): 29470 evals, viol=24844, e.g. ((Fraction(1, 3), Fraction(1, 3), Fraction(1, 3)), (Fraction(1, 2), Fraction(1, 4), Fraction(1, 4)), Fraction(4, 1), Fraction(7, 250), Fraction(45, 2011))
+    eq49 h_U<=h_W, r majorizes s: 29470 evals, viol=1834, e.g. ((Fraction(1, 2), Fraction(1, 4), Fraction(1, 4)), (Fraction(3, 8), Fraction(3, 8), Fraction(1, 4)), Fraction(21, 10), Fraction(915, 255667), Fraction(490, 170489))
+    thm   h_U<=h_V, r m s (Ex5 dir): viol=0, e.g. None
+    thm   h_U<=h_V, r majorizes s: viol=0, e.g. None

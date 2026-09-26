@@ -1,0 +1,28 @@
+THM 3: interior (all alive) vs boundary-region behavior, power2
+    [OK] r in D3+
+    [OK] lam,th in E3+
+    [OK] lam rm th
+    x=3/20: aliveU=[True, True, True] aliveV=[True, True, True] SF_U-SF_V=1133/282240
+    x=1/5: aliveU=[True, True, True] aliveV=[True, True, True] SF_U-SF_V=1133/70560
+    x=1/4: aliveU=[False, True, True] aliveV=[False, True, True] SF_U-SF_V=1133/31360
+    x=3/10: aliveU=[False, True, True] aliveV=[False, True, True] SF_U-SF_V=1133/17640
+    x=2/5: aliveU=[False, True, True] aliveV=[False, True, True] SF_U-SF_V=1133/7840
+    admissible=11034 interior viol=9002 boundary viol=9002
+
+REMARK 5 (Thm6 with sig in E3+): pareto2 lam=2
+    admissible=782; (rD,sigE) claim <=rh viol=251 e.g.((Fraction(7, 19), Fraction(7, 19), Fraction(5, 19)), (Fraction(1, 2), Fraction(1, 6), Fraction(1, 3)), (Fraction(2, 1), Fraction(5, 2), Fraction(3, 1)), Fraction(23, 5))
+                    (rE,sigE) claim >=rh viol=245 e.g.((Fraction(1, 3), Fraction(1, 3), Fraction(1, 3)), (Fraction(2, 9), Fraction(2, 9), Fraction(5, 9)), (Fraction(1, 1), Fraction(5, 2), Fraction(4, 1)), Fraction(61, 10))
+
+EXAMPLE 3 (Thm7): weibull c=2, sig=(22,18,16),mu=(12,8,2),r=(.1,.7,.2),lam=2
+    ratio monotone increasing on [16.1,100]: True
+    sample: [('16.1', '3.25277'), ('17.1', '212.557'), ('18.1', '3762.06'), ('19.1', '261755.0'), ('20.1', '8.2095e+6')] ... 1.51294e+180
+
+CEX 6: lognormal F, sig=(.6,.4,.2),mu=(.3,.2,.1),lam=1/2?,r=(.2,.5,.3)
+    ratio range: min 1.0008 at x=0.61, max 1.4786 at x=1.01
+    [FAIL] ratio non-monotone (their claim)
+
+CEX 4 wide: any negative K4 on (2.3,120]?
+    negative-K4 points: count=0 []
+
+CEX 7 wide: burr3 SF diff sign set on (0.002,40]
+    signs {1}; min diff 252506/901767405 at t=1/500
