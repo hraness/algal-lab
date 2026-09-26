@@ -69,14 +69,28 @@ certificates uniform in α>0 (n=3: 36/208 on the HF-pattern claim,
 1579/1926 on the lift claim). Hazra — HF2018 coauthor and probable defect
 origin — is a coauthor: the lineage persists at the source.
 
-## Suspect queue (citation cone, `citation-map.md`)
+## Suspect queue — resolved (`suspect-batch/`)
 
-~12 further papers share the signature (n-component hr/rh claims under
-chain/matrix majorization): BKF2024, BKZ2021, BMKB2024, BKB2024-SPL,
-BBKP2024, BKKA2024, SMH2026, SBB2022, PKP2022, BTDK arXiv:2412.10071,
-BGSK arXiv:2511.00791, VAMSG2025, SAF2023-CSTM. The pattern is strongest
-in the Kayal (NIT Rourkela) 2023–2026 avalanche, which cites BKB2022's
-Lemma 2.4/2.5 as the lift handle.
+The ~12-paper queue is now fully classified (all verdicts conditional at
+claim-shape level where texts are paywalled):
+
+- **Conditional certified carriers (4 more)**: BKZ2021 (SPL 173:109083 —
+  the BKB authors' own α-mixture bridge), SBB2022 (CSTM — generalized
+  Lehmann, CERT E needed a dedicated certificate), BBKP2024 (Statistics
+  — gen-Weibull), BKB-SPL24 (SPL — multiple-outlier δ-mixtures; the rh
+  claim fails even under a *componentwise parameter increase*, 1836
+  crossing pairs).
+- **Clean-shape**: PKP2022 (n-component results are star/Lorenz orders —
+  a different order family; its hr theorems are genuinely n=2), SAF2023
+  (orders by lr-ordered *mixing distributions* — a different technique).
+- **Identity fold**: VAMSG2025 = VKF2025.
+- **Elsewhere in this file**: BKF2024 (certified verbatim), BKKA2024
+  (under audit), SMH2026 (conditional), BTDK/BGSK (different families).
+
+Certificate battery (CERT A–E, `suspect-batch/certify_batch.py`): a
+single polynomial in u=e^{−αt} refutes the standard n≥3 hr claim for
+every α-mixture, ordinary mixture, PHR mixture, and Weibull subfamily at
+once; the rh duality converts it verbatim.
 
 ## Provenance
 
