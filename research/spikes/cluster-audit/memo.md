@@ -92,6 +92,20 @@ single polynomial in u=e^{−αt} refutes the standard n≥3 hr claim for
 every α-mixture, ordinary mixture, PHR mixture, and Weibull subfamily at
 once; the rh duality converts it verbatim.
 
+
+## Printed-evidence sweep (`example-sweep/`)
+
+Of the 30 example/counterexample items carrying printed numeric evidence
+across the nine retrievable cone texts, **15 are machine-refuted** — 11/14
+(79%) on the four certified carriers, 4/12 on unaudited suspects, 0/4 on the
+SAF2022 control. Verdict classes: verified / sign-wrong / wrong-value /
+FP-noise (claimed nonzero at identically-zero points) / fabricated (claimed
+phenomenon does not exist) / misprint. New hits beyond the per-paper memos:
+SPBB2026 Example 2's printed T-product is wrong (and its T₃ is a 3-cycle,
+not a T-transform); Example 1's hypothesis sentence is false; GY2024's
+printed T-matrices are not doubly stochastic (intended transforms reproduce
+the result); BHKKB2025 Cex 5.7's mixture weights do not normalize.
+
 ## Provenance
 
 MOA (1979) → systems-side valid uses (series hazards are sums) → BHM2015
