@@ -316,7 +316,12 @@ static void dfs(St *st, int j, u8 stab)
        fixpoint and prune if too few remain. */
     if (m>=4) {
         for (int k=j+1;k<5;k++){
-            int low = K - m - 4*(4-k); if (low<=0) continue;
+            /* sound bound: layers j..4 except k are ALL still unplaced at
+               this node and can each contribute at most 4, so layer k must
+               supply >= K - m - 4*(4-j).  The previous form 4*(4-k) ignored
+               the not-yet-placed layers j..k-1, inflating low and allowing
+               wrongly-pruned branches (found by the n=6 port review). */
+            int low = K - m - 4*(4-j); if (low<=0) continue;
             u32 A = ALL25 & ~blockf[k];
             if (__builtin_popcount(A) < low) return;
             if (low>=2 && m>=3) {

@@ -1,17 +1,20 @@
 # Round 27: exact values of C(n) for small n via certified SAT and CP-SAT
 
 Status: C(3) = 8, C(4) = 11 and **C(5) = 14** are complete. The n = 5 decision
-is by exhaustive layer enumeration (`layer_enum5.c`, 2026-09-25): after fixing
-z-layer 0 to one canonical subset per D4 orbit (1,905 orbits of
-within-layer-valid subsets of [5]², sizes 1–4), the DFS over layers 1–4 visited
-~292 M nodes and found no 15-subset (`records/enum_n5_k15.log`). The same
-binary run at K = 14 found a 14-set in ~2 s (positive control; verified by the
-repository verifier and an independent 5×5 determinant check), and the
-layer-candidate table was cross-checked by brute force (826 of the 12,650
-4-subsets of [5]² are concyclic/collinear; the enumerator keeps exactly
-11,824). A cube-and-conquer LRAT UNSAT proof at k = 15 (`cube_solve.py`) is
-still running as an independent second witness; completeness of the
-enumeration is argued + spot-checked, not yet machine-certified.
+is by exhaustive layer enumeration (`layer_enum5.c`, 2026-09-25, prune
+corrected same day): after fixing z-layer 0 to one canonical subset per D4
+orbit (1,905 orbits of within-layer-valid subsets of [5]², sizes 1–4), the
+DFS over layers 1–4 visited ~591 M nodes and found no 15-subset
+(`runs/c5-enum-fixed/k15_fixed.log`). The same binary run at K = 14 found a
+verified 14-set (positive control), and the layer-candidate table was
+cross-checked by brute force (826 of the 12,650 4-subsets of [5]² are
+concyclic/collinear; the enumerator keeps exactly 11,824). A
+cube-and-conquer LRAT UNSAT proof at k = 15 (`cube_solve.py`) is still
+running as an independent second witness; completeness of the enumeration
+is argued + spot-checked, not yet machine-certified. The first enumeration
+reported found = 0 on ~292 M nodes but its admissibility prune was unsound
+(branch-level detail in the erratum footnote); the corrected run above
+supersedes it.
 
 n = 6: `certificates/n6_18_ls5x.json` gives C(6) ≥ 18 (the seed-82 ls5x run,
 initialised from the n = 6, k = 17 witness; a second certificate from an
@@ -34,14 +37,23 @@ The scripts write their outputs to `runs/` (gitignored); `records/` holds the fr
 |---|---|---|---|---|
 | 3 | 8 | `certificates/n3_8.json` | CP-SAT optimal; cadical UNSAT at k = 9 with and without symmetry breaking, LRAT proofs checked | complete |
 | 4 | 11 | `certificates/n4_11.json` | CP-SAT optimal (symmetry-broken model); cadical UNSAT at k = 12 with and without symmetry breaking, LRAT proofs checked | complete |
-| 5 | 14 | `certificates/n5_14_ls5x.json` | exhaustive layer enumeration (`layer_enum5.c`); LRAT corroboration in progress | complete* |
+| 5 | 14 | `certificates/n5_14_ls5x.json` | exhaustive layer enumeration (`layer_enum5.c`, corrected prune); LRAT corroboration in progress | complete* |
 | 6 | ≥ 18 | `certificates/n6_18_ls5x.json` | none (trivial 4n = 24; k = 19 search stalls) | lower bound only |
 | 10 | ≥ 28 | `certificates/n10_28_ls5x.json` | none | lower bound; equals the fitted ⌊(5n+7)/2⌋ = 28 |
 | 12 | ≥ 33 | `certificates/n12_33_ls5x.json` | none | lower bound; equals ⌊(5n+7)/2⌋ = 33 |
 
 \* the enumeration's completeness is argued in `layer_enum5.c` and spot-checked;
 a machine-checkable UNSAT proof (cadical/kissat LRAT) is still being computed —
-if one exists it supersedes the enumeration witness.
+if one exists it supersedes the enumeration witness. **Erratum (25 Sep):** the
+original enumeration's admissibility prune was unsound (`low = K − m − 4(4−k)`
+counted only layers strictly after k, ignoring the not-yet-placed layers
+j..k−1 — an inflated bound that could drop completable branches); caught by
+the n=6 port review. The corrected run (`4*(4−j)`, counting every unplaced
+layer other than k) re-exhausted all 1905 orbits — ~591 M nodes vs ~292 M,
+consistent with the branches the bug had skipped — and still reports
+found = 0; the k = 14 positive control found a verified 14-set.
+Run dir `context/runs/c5-enum-fixed/` holds the logs (`k15_fixed.log`,
+`k14_fixed.log`, `solution_k.txt`).
 
 Probes at the fitted law's values for n = 7, 8, 9, 11 (targets 21, 23, 26, 31)
 stalled at best = 1–3 degenerate 5-subsets under the same search: consistent
@@ -176,8 +188,9 @@ the grid points lying on the generalised sphere through each 4-subset T
 (9.69 M entries, ~194 MB, self-tested against an independent det evaluator),
 applying the implied constraints as point-forbidding masks, the size bounds
 needed to reach 15, the z-flip prune |L4| ≤ |L0|, and canonical augmentation
-under stab(L0) at each node. Exhaustion: 1905/1905 orbits, ~292 M extension
-nodes, ~192 s wall — no 15-set exists.
+under stab(L0) at each node. Exhaustion (corrected prune, see the erratum
+footnote in the results table): 1905/1905 orbits, ~591 M extension nodes,
+~2,000 s wall — no 15-set exists.
 
 Completeness argument: any 15-set S has an axis whose two extreme layers are
 not both ≤ 1, hence an orientation with |L0| ≥ 2 and |L0| ≥ |L4|; a D4
