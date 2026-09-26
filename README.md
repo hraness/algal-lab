@@ -403,6 +403,14 @@ Nothing here is submitted or posted yet. Manuscripts live under `papers/`
 - `boltzmann-purity` — purity theorem for nested Boltzmann allocation,
   refuting the v1 exactness conjecture. Needs: venue choice; courtesy-note
   decision.
+- `mixture-cluster-audit` (new, 12 pp draft) — the whole-cluster audit as
+  its own paper: 7 certified lift-carriers, the n>2 open question
+  answered negatively, vacuous-hypothesis and noise-counterexample
+  findings, provenance pinned to 2018. Needs: venue choice; independent
+  human read of every certified instance; courtesy-note strategy for the
+  audited authors is now a bigger decision (multiple labs involved);
+  decide the hazard-mixture / cluster-audit split (overlap: the SKF
+  theorems appear in both).
 - Research records, not yet papers: `C(5) = 14` (enumeration proof, LRAT
   corroboration in progress), `C(6) ≥ 18`, `Z_plane = (K_* + o(1)) n^11`
   proof draft, the `Z_sphere ~ n^10 (ln n)^2` census, and the maintained
