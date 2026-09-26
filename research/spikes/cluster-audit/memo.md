@@ -92,6 +92,17 @@ single polynomial in u=e^{−αt} refutes the standard n≥3 hr claim for
 every α-mixture, ordinary mixture, PHR mixture, and Weibull subfamily at
 once; the rh duality converts it verbatim.
 
+## Final classification (cluster-expand/ + shape-sweep/)
+
+Citer enumeration (S2 + COCI union; OpenAlex throttled): **143 distinct
+citing works**, 100 keyword-kept. Defect cone ≈ 31 papers; **17 carry the
+defect** (9 verbatim/transmitted-certified + 8 claim-shape) + 3
+sibling-defect carriers; st-only claims are clean everywhere. Every order
+family in the cone vocabulary is now verdicted: st (legit), hr, rh, lr,
+dispersive, star, Lorenz, ageing-faster — all refuted at claim shape
+(CERTs A–I). Open follow-ups: the uniform dispersive-order audit of
+SB2022's text (paywalled); OA completeness pass for the citer graph.
+
 ## Provenance
 
 MOA (1979) → systems-side valid uses (series hazards are sums) → BHM2015
