@@ -1,0 +1,34 @@
+--- Thm 1 (st, pareto1, 1/lam w 1/th): claim U<=stV
+Thm1: admissible=326, x-evals w/ violation=2, e.g. ((Fraction(1, 6), Fraction(1, 6), Fraction(2, 3)), (Fraction(1, 5), Fraction(3, 5), Fraction(1, 1)), (Fraction(1, 6), Fraction(1, 6), Fraction(2, 3)), (Fraction(1, 5), Fraction(1, 2), Fraction(3, 2)), Fraction(11, 10), Fraction(1, 60))
+--- Thm 2 (st, burr3, lam w th): claim U>=stV i.e. SF_U-SF_V>=0
+    printed _w reading: admissible=1928 violations=1758 e.g. ((Fraction(1, 5), Fraction(2, 5), Fraction(2, 5)), (Fraction(2, 1), Fraction(1, 2), Fraction(1, 5)), (Fraction(2, 1), Fraction(1, 1), Fraction(2, 3)), Fraction(1, 4), Fraction(-10116, 73255))
+    ^w-reading check: admissible=7366 violations=0 e.g. None
+--- Thm 3 (st, power2, lam rm th): claim U<=stV
+Thm3: admissible=1948, x-evals w/ violation=5139, e.g. ((Fraction(1, 2), Fraction(3, 10), Fraction(1, 5)), (Fraction(1, 10), Fraction(2, 5), Fraction(7, 10)), (Fraction(1, 2), Fraction(3, 10), Fraction(1, 5)), (Fraction(1, 10), Fraction(3, 10), Fraction(3, 5)), Fraction(1, 4), Fraction(1133, 31360))
+--- Thm 4 (hr, power2): claim r m s => U>=hrV (h_U<=h_V)
+    n=2: admissible=526 violations=0 e.g. None
+    n=3: admissible=70 violations=8 e.g. ((Fraction(7, 20), Fraction(7, 20), Fraction(3, 10)), (Fraction(3, 5), Fraction(1, 5), Fraction(1, 5)), (Fraction(1, 4), Fraction(4, 3), Fraction(2, 1)))
+    n=4: admissible=12 violations=3 e.g. ((Fraction(7, 26), Fraction(7, 26), Fraction(7, 26), Fraction(5, 26)), (Fraction(7, 16), Fraction(7, 16), Fraction(1, 16), Fraction(1, 16)), (Fraction(2, 3), Fraction(3, 4), Fraction(3, 2), Fraction(2, 1)))
+--- Thm 5 (hr, linhaz): claim lam in D+ => U<=hrV; lam in E+ => U>=hrV
+    lam in D2+, claim h_U>=h_V: evals=19580 viol=4887 e.g. ((Fraction(3, 4), Fraction(1, 4)), (Fraction(2, 5), Fraction(3, 5)), (Fraction(5, 4), Fraction(1, 1)), Fraction(1, 5), Fraction(5180, 2791), Fraction(20860, 10307))
+    lam in E2+, claim h_U<=h_V: evals=19711 viol=5080 e.g. ((Fraction(5, 11), Fraction(6, 11)), (Fraction(1, 6), Fraction(5, 6)), (Fraction(1, 2), Fraction(3, 2)), Fraction(1, 5), Fraction(220, 79), Fraction(530, 281))
+--- Thm 6 (rh, pareto2): (i) r,s in D+, sig in D+, r m s => U<=rhV
+    part (i): admissible=90 violations=12 e.g. ((Fraction(7, 18), Fraction(1, 3), Fraction(5, 18)), (Fraction(1, 2), Fraction(1, 4), Fraction(1, 4)), (Fraction(4, 1), Fraction(3, 2), Fraction(1, 1)), Fraction(18, 5), Fraction(287332500, 1206159067))
+    part (ii): admissible=125 violations=18 e.g. ((Fraction(4, 15), Fraction(1, 3), Fraction(2, 5)), (Fraction(3, 16), Fraction(3, 8), Fraction(7, 16)), (Fraction(7, 2), Fraction(1, 1), Fraction(1, 2)), Fraction(31, 10), Fraction(-574665000, 18432987121))
+--- Thm 8 (st, burr3): r w s, lam w th, r,s in E+, lam,th in D+ => U>=stV
+    admissible=60 violations=41 e.g. ((Fraction(3, 10), Fraction(3, 10), Fraction(2, 5)), (Fraction(1, 8), Fraction(3, 8), Fraction(1, 2)), (Fraction(2, 1), Fraction(1, 1), Fraction(1, 4)), (Fraction(2, 1), Fraction(3, 2), Fraction(1, 2)), Fraction(1, 4), Fraction(-7335, 141427))
+--- Thm 9 (st, pareto1): r m s, sig w mu, r,sig in E+, max sig<=min mu
+    admissible=139 violations=0 e.g. None
+--- Thm 11/12 (st, T-transform): burr3 + pareto1
+    base=burr3 n=2: admissible=2400 viol=0 e.g.None
+    base=burr3 n=3: admissible=1172 viol=0 e.g.None
+    base=pareto1 n=2: admissible=2367 viol=0 e.g.None
+    base=pareto1 n=3: admissible=1120 viol=0 e.g.None
+--- Thm 10 conclusion (hr, power c=3 l=2): U>=hrV means h_U<=h_V
+    evals=85410; r m s viol=0 e.g.None; r majorizes s viol=0 e.g.None
+--- Cex4: does K4 sign change anywhere? pareto2 lam=2 sig=(.4,.6,.3)
+Traceback (most recent call last):
+  File "/Users/bg/Documents/algal-lab/research/spikes/context/runs/bkf2024/scan_all.py", line 246, in <module>
+    t=Fr(k,100); d=rh_frac(t,r,sl,"pareto2")-rh_frac(t,sv,sl,"pareto2")
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'NoneType' and 'NoneType'

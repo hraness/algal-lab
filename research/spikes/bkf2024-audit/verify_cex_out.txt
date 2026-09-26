@@ -1,0 +1,86 @@
+========================================================================
+CEX 1 (Thm 4): K1(t)=h_U-h_V at t=0.52, 0.55; power2, sig=0.1
+    [OK] r m s
+    [OK] r unordered (as they state)
+    t=13/25: alive=[False, True, False] hU=525/46 hV=525/46 diff=0
+    [OK] K1 identically 0 (single alive comp)
+    t=11/20: alive=[False, True, False] hU=360/19 hV=360/19 diff=0
+    [OK] K1 identically 0 (single alive comp)
+    scanning region where >=2 comps alive: (0.2,0.5]
+    signs t=0.21..0.50: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    distinct: {1}
+    signs t=0.11..0.20 (all alive): [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+
+========================================================================
+CEX 2 (Thm 4): K2 at t=0.903, 0.990; power2
+    [OK] r NOT majorized by s (as they state)
+    t=903/1000: alive=[True, False, False] hU=1606000/165191 hV=1606000/165191 diff=0
+    [OK] K2 identically 0 (single alive comp)
+    t=99/100: alive=[True, False, False] hU=17800/179 hV=17800/179 diff=0
+    [OK] K2 identically 0 (single alive comp)
+    nonzero evals t=0.11..1.00: [(Fraction(11, 100), 1), (Fraction(3, 25), 1), (Fraction(13, 100), 1), (Fraction(7, 50), 1), (Fraction(3, 20), 1), (Fraction(4, 25), 1), (Fraction(17, 100), 1), (Fraction(9, 50), 1), (Fraction(19, 100), 1), (Fraction(1, 5), 1), (Fraction(21, 100), 1), (Fraction(11, 50), 1), (Fraction(23, 100), 1), (Fraction(6, 25), 1), (Fraction(1, 4), 1), (Fraction(13, 50), 1), (Fraction(27, 100), 1), (Fraction(7, 25), 1), (Fraction(29, 100), 1), (Fraction(3, 10), 1), (Fraction(31, 100), 1), (Fraction(8, 25), 1), (Fraction(33, 100), 1), (Fraction(17, 50), 1), (Fraction(7, 20), 1), (Fraction(9, 25), 1), (Fraction(37, 100), 1), (Fraction(19, 50), 1), (Fraction(39, 100), 1), (Fraction(2, 5), 1), (Fraction(41, 100), 1), (Fraction(21, 50), 1), (Fraction(43, 100), 1), (Fraction(11, 25), 1), (Fraction(9, 20), 1), (Fraction(23, 50), 1), (Fraction(47, 100), 1), (Fraction(12, 25), 1), (Fraction(49, 100), 1), (Fraction(1, 2), 1), (Fraction(51, 100), 1), (Fraction(13, 25), 1), (Fraction(53, 100), 1), (Fraction(27, 50), 1), (Fraction(11, 20), 1), (Fraction(14, 25), 1), (Fraction(57, 100), 1), (Fraction(29, 50), 1), (Fraction(59, 100), 1), (Fraction(3, 5), 1), (Fraction(61, 100), 1), (Fraction(31, 50), 1), (Fraction(63, 100), 1), (Fraction(16, 25), 1), (Fraction(13, 20), 1), (Fraction(33, 50), 1), (Fraction(67, 100), 1), (Fraction(17, 25), 1), (Fraction(69, 100), 1), (Fraction(7, 10), 1), (Fraction(71, 100), 1), (Fraction(18, 25), 1), (Fraction(73, 100), 1), (Fraction(37, 50), 1), (Fraction(3, 4), 1), (Fraction(19, 25), 1), (Fraction(77, 100), 1), (Fraction(39, 50), 1), (Fraction(79, 100), 1), (Fraction(4, 5), 1), (Fraction(81, 100), 1), (Fraction(41, 50), 1), (Fraction(83, 100), 1), (Fraction(21, 25), 1), (Fraction(17, 20), 1), (Fraction(43, 50), 1), (Fraction(87, 100), 1), (Fraction(22, 25), 1), (Fraction(89, 100), 1), (Fraction(9, 10), 1)]
+
+========================================================================
+CEX 3 (Thm 4): K3 at t=0.80, 0.77; pareto1
+    [OK] r m s
+    t=4/5: hU=10/7 hV=10/7 diff=0   1/(t-sig)=10/7
+    [OK] K3 identically 0
+    t=77/100: hU=100/67 hV=100/67 diff=0   1/(t-sig)=100/67
+    [OK] K3 identically 0
+    t=3/2: hU=5/7 hV=5/7 diff=0   1/(t-sig)=5/7
+    [OK] K3 identically 0
+    t=5: hU=10/49 hV=10/49 diff=0   1/(t-sig)=10/49
+    [OK] K3 identically 0
+    => h(x)=1/(x-sig) for ANY weights/scales; +-2.2e-16 = FP noise.
+
+========================================================================
+CEX 4 (Thm 6): K4 at t=5 (>0), t=50 (<0); pareto2 lam=2
+    [OK] r m s
+    t=5: rU=49429869625/449483628902  rV=136087153525/1366961606406  diff=11315369175550/1086359197792113 ~ 0.0104159
+    t=50: rU=77552390570807125/1173800401318168421252  rV=65952185765950025/1006123240933909832916  diff=2643619093844089996700/5096774044829602149480532197 ~ 5.18685e-07
+    [FAIL] K4(5)>0 and K4(50)<0 (genuine sign change)
+
+========================================================================
+CEX 5 (Thm 6): K5 at t=2.2003, 2.2083; pareto2 lam=2
+    [OK] r NOT m s
+    t=22003/10000: alive=[False, False, True] rU=8000000000000/2400540027 rV=8000000000000/2400540027 diff=0
+    [OK] K5 identically 0 (only comp3 alive)
+    t=22083/10000: alive=[False, False, True] rU=8000000000000/66813911787 rV=8000000000000/66813911787 diff=0
+    [OK] K5 identically 0 (only comp3 alive)
+    genuine scan in (2.4,2.6] (comps 2,3) and (2.6,3.1] (all):
+    signs 2.41..3.10: [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1] distinct: {-1}
+
+========================================================================
+CEX 7 (Thm 11): burr3, T_0.3, sf sign change
+    [r;lam]T_0.3 = [[Fraction(31, 50), Fraction(19, 50)], [Fraction(27, 50), Fraction(23, 50)]]  ; claimed (s,th)= [[Fraction(31, 50), Fraction(19, 50)], [Fraction(27, 50), Fraction(23, 50)]]
+    [OK] exact factorization
+    [OK] r in E2+ not D2+ (hypothesis fails)
+    SF_U-SF_V signs t=0.05..2.95: [('1/20', 1), ('1/10', 1), ('3/20', 1), ('1/5', 1), ('1/4', 1), ('3/10', 1), ('7/20', 1), ('2/5', 1), ('9/20', 1), ('1/2', 1), ('11/20', 1), ('3/5', 1), ('13/20', 1), ('7/10', 1), ('3/4', 1), ('4/5', 1), ('17/20', 1), ('9/10', 1), ('19/20', 1), ('1', 1)]
+    distinct signs: {1}
+
+========================================================================
+EXAMPLE 1 (Thm 1): pareto1, 1/lam weak-supermaj 1/th
+    [OK] 1/lam w 1/th
+    [OK] r,lam in E3+
+    SF_U-SF_V: [(Fraction(11, 10), -1), (Fraction(2, 1), -1), (Fraction(3, 1), -1), (Fraction(5, 1), -1), (Fraction(9, 1), -1), (Fraction(20, 1), -1)]
+    [OK] all <=0 (U<=stV)
+
+========================================================================
+EXAMPLE 2 (Thm 6ii): pareto1 lam=2, sig=(.4,.2,.1)
+    [OK] r,s in E3+, sig in D3+, r m s
+    r~_U-r~_V signs over 2.11..5.96 (claim >=0): distinct {0, 1}
+    [OK] claim U>=rhV on grid
+
+========================================================================
+EXAMPLE 4 (Thm 8): IE F=e^{-2/t} -- mpmath check
+    [OK] r w s
+    [OK] lam w th
+    SF_U-SF_V: ['2.68389e-38', '2.73389e-10', '3.76899e-5', '0.00435202', '0.0367212', '0.0314692', '0.00722847']
+    [OK] U>=stV (>=0)
+
+========================================================================
+EXAMPLE 5 (Thm 10): power c=3 l=2, lam=4
+    [OK] r m s (paper's hypothesis dir; eq49 needs r majorizes s)
+    [OK] max mu<=min sig
+    points h_U>h_V (violating U>=hrV): [] total=0
+    sample diffs h_U-h_V: [(Fraction(2, 1), Fraction(-50731961120, 8621459692727)), (Fraction(4, 1), Fraction(-125021129920, 7343731448207)), (Fraction(7, 1), Fraction(-283515073120, 1890205727927))]
