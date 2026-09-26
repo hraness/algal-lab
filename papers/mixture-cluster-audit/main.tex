@@ -1,0 +1,309 @@
+\documentclass[10pt]{article}
+\usepackage[margin=0.9in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[hidelinks]{hyperref}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{statement}[theorem]{Statement}
+\newtheorem{certificate}[theorem]{Certified instance}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\hr}{\mathrm{hr}}
+\newcommand{\rh}{\mathrm{rh}}
+\newcommand{\st}{\mathrm{st}}
+\newcommand{\lr}{\mathrm{lr}}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\sign}{sign}
+\newcommand{\bmat}[2]{\begin{bmatrix} #1 \\ #2 \end{bmatrix}}
+\newcommand{\Vn}{\mathcal V_n}
+\newcommand{\Wn}{\mathcal W_n}
+
+\title{A repeated invalid lift in the mixture-ordering literature:\\exact-arithmetic audit of $n$-component hazard-rate claims\\ under chain majorization}
+\author{Benjamin Guo\\ Hraness (\url{hraness.com})\thanks{This manuscript was prepared with AI research agents; every numerical and symbolic claim was independently machine-checked, and the exact verification scripts described in Section~\ref{sec:data} form part of the submission. This disclosure should be checked against the target journal's policy on AI-assisted manuscripts.}}
+\date{25 September 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+A proof step recurring in the recent literature on stochastic orderings of finite mixtures asserts, in one of two equivalent forms, that an ordering theorem proved for two-component mixtures extends to $n$ components whenever a $T$-transform leaves $n-2$ columns of the parameter matrix unchanged. The step is valid for additive column functionals --- this is a known lemma, true as stated --- but it is applied to the hazard and reversed hazard rates of a mixture, which are ratios of two such sums, with the frozen columns inside both numerator and denominator. We audited the claim cluster with exact rational arithmetic and Sturm root certification: the resulting $n$-component orderings are not merely unproved but false, with certified counterexamples to theorem-level claims in at least seven peer-reviewed papers spanning TEST (2018), Probability in the Engineering and Informational Sciences (2022), Methodology and Computing in Applied Probability (2024), Statistics (2025), ASMBI, Journal of Inequalities and Applications and Mathematics (2026) --- four of them paywalled and audited through transmitted or reconstructed statements --- and in three arXiv preprints carrying related defects. The audit also resolves negatively an open problem posed in 2022 (the $n>2$ hazard-rate ordering for ordinary mixtures, already for exponential components), shows that the hazard and reversed hazard theorems of one 2026 paper are vacuous as stated (their monotonicity hypothesis is unsatisfiable for every nontrivial distortion family), and finds that several counterexamples printed in the literature --- offered to show where the theorems fail --- are themselves invalid, with reported sign changes that are floating-point noise at points where the compared quantities are identically equal. All certificates are exact: rational witnesses plus exact real-root counts, no floating point in any sign determination. Every claim is accompanied by a reproduction script (Section~\ref{sec:data}).
+\end{abstract}
+
+\medskip\noindent\textbf{Keywords.} finite mixture; hazard rate order; reversed hazard rate order; chain majorization; $T$-transform; Schur-convexity; exact computation; counterexample.
+
+\noindent\textbf{MSC 2020.} 60E15; 62N05; 90B25.
+
+\section{Introduction}\label{sec:intro}
+
+Finite mixtures with heterogeneous component parameters are the standard model of an inhomogeneous population in reliability and survival analysis, and comparing two such mixtures is usually organized by majorization: if the parameter vector of one mixture majorizes that of the other, the first population is ``more heterogeneous'', and one asks which stochastic order this induces. For the usual stochastic order the answer is classical and additive --- a mixture survival function $\sum_i p_i\bar F_i(t)$ is a sum over components, and a T-transform of the parameter matrix acts on each summand separately. For the hazard rate order the question is subtler: a mixture hazard rate
+\begin{equation}\label{eq:hratio}
+h_{p,v}(t)=\frac{\sum_{i=1}^n p_i v_i e^{-v_i t}}{\sum_{i=1}^n p_i e^{-v_i t}}
+\end{equation}
+is a \emph{ratio} of two sums, and a comparison that is true for two components does not, by any general principle, transport to $n$ components.
+
+Between 2018 and 2026 a family of papers asserted precisely such a transport. In various notations the claim is: if the $2\times n$ matrix $\bigl[\begin{smallmatrix}p\\ \lambda\end{smallmatrix}\bigr]$ (weights over parameters) is related to $\bigl[\begin{smallmatrix}q\\ \gamma\end{smallmatrix}\bigr]$ by a single $T$-transform acting on two columns --- or by a chain of such transforms --- then the two $n$-component mixtures are ordered in the hazard rate or reversed hazard rate order, provided the two rows satisfy a comonotonicity or antiordering condition. The proofs all reduce the $n$-component comparison to the $n=2$ case through the same step: the $n-2$ untouched columns ``stay fixed'', so only the affected pair matters. This note reports an exact-arithmetic audit of that literature. The step is invalid for a ratio of sums, and the conclusions it supports are false on certified instances.
+
+\subsection*{What the audit found}
+
+\begin{itemize}
+\item[(a)] \textbf{The defect and its reach} (Sections~\ref{sec:math} and~\ref{sec:provenance}). The recurring step --- we call it the \emph{frozen-column lift} --- is quoted verbatim in Section~\ref{sec:defect} from two open-access carriers; it appears in the proofs of hazard and reversed hazard rate theorems for ordinary mixtures, $\alpha$-mixtures, distorted mixtures, location-scale mixtures and modified-proportional-hazard mixtures. At statement level the pattern originates with Hazra and Finkelstein (2018) \cite{HazraFinkelstein2018} and is canonized by the Lemmas~2.4/2.5 restatement in Barmalzan, Kosari and Balakrishnan (2022) \cite{BarmalzanKosariBalakrishnan2022}, the citation handle used by most of the later papers.
+\item[(b)] \textbf{Certified counterexamples} (Section~\ref{sec:score}). Counterexample certificates, each an exact rational witness pair plus an exact real-root count for the sign change, refute theorem-level $n$-component claims in: \cite{SahooKayalFinkelstein2026} (both halves of Theorems~3.8 and~3.11, Theorem~3.9 and~3.12, Corollaries~3.2 and~3.3, and the $\alpha>0$ branch of Theorem~3.4), \cite{ShekariEtAl2026} (Theorem~11, Corollary~2, Theorem~12), \cite{BarmalzanKosariBalakrishnan2022} (the Theorem~2 claim shape, in both directions, both matrix classes, both parametrization conventions), \cite{GuoYan2024} (Theorem~6, Corollaries~5 and~6), \cite{SahooKayalBalakrishnan2026} (Theorems~8, 9, 11, 12 and the dual Theorems~20--24, Corollaries~1--4), \cite{HazraFinkelstein2018} (the transmitted Theorem~3.4 claim shape, already at $n=3$ for ordinary mixtures), and \cite{NadebTorabi2022} (the transmitted extension of Theorem~4.2).
+\item[(c)] \textbf{A resolved open question} (Section~\ref{sec:open}). Remark~6.18 of \cite{ShojaeeAsadiFinkelstein2022} (published Remark~6.3) asks whether the two-component hazard ordering extends to $n>2$; \cite{HazraFinkelstein2018} and \cite{NadebTorabi2022} leave the same question open. The answer is no, already for ordinary mixtures of exponentials, by a certified three-component instance. A companion manuscript \cite{Guo2026hazard} analyses the failure for every $n\ge3$.
+\item[(d)] \textbf{Vacuous hypotheses} (Section~\ref{sec:score}). All hazard and reversed hazard theorems of \cite{ShekariEtAl2026} require a distortion-density monotonicity condition that no $\gamma$-dependent family can satisfy ($\int_0^1 D'(u;\gamma)\,du=1$), so the theorems are vacuous as stated even before the lift defect is reached; two vacuity cases also occur in \cite{BhaktaTorradoDasKayal2024}.
+\item[(e)] \textbf{Invalid printed counterexamples} (Section~\ref{sec:score}). Counterexamples printed as support for the theory are themselves wrong in two audited papers: \cite{SahooKayalFinkelstein2026} Counterexamples~3.7--3.8 and \cite{BhaktaKayalFinkelstein2024} Counterexamples~1--5 report values of order $10^{-13}$--$10^{-16}$ at points where the exact difference is identically zero (floating-point noise reported as sign changes), or numbers contradicted by exact evaluation.
+\item[(f)] \textbf{Controls} (Section~\ref{sec:provenance}). Every two-component base theorem tested is clean, and every claim proved by the same lift on an \emph{additive} functional --- all audited stochastic-order theorems, where the mixture survival function is a sum --- held on all admissible instances. The failure is specific to the rate functionals.
+\end{itemize}
+
+\paragraph{Scope and care.} This is an audit, not a survey: we do not claim every paper in the citation cone is false (Section~\ref{sec:limits} lists the unaudited suspect queue), we do not claim the underlying lemma is wrong (it is verified true for additive functionals), and we distinguish throughout between claims read verbatim in open texts and claims reconstructed from citing papers for paywalled sources. Sample counts reported as ``holds-on-samples'' are bounded-search statistics, never proofs.
+
+\section{The mathematics of the lift}\label{sec:math}
+
+\subsection{Mixtures and orders}
+
+Let $p=(p_1,\dots,p_n)$ be a probability vector with positive entries. For a parametric family $\bar F(t\mid\lambda)$ of survival functions, the finite mixture with weights $p$ and parameters $\lambda=(\lambda_1,\dots,\lambda_n)$ has survival function $S(t)=\sum_i p_i\bar F(t\mid\lambda_i)$. For nonnegative variables with survival functions $S_X,S_Y$, hazard rates $h_X,h_Y$ and reversed hazard rates $r_X=f_X/F_X$, $r_Y=f_Y/F_Y$, write $X\le_{\st}Y$ if $S_X\le S_Y$ everywhere, $X\le_{\hr}Y$ if $h_X\ge h_Y$ everywhere, and $X\le_{\rh}Y$ if $r_X\le r_Y$ everywhere \cite{ShakedShanthikumar2007}; both rate orders imply the stochastic order. For the exponential baseline $\bar F(t\mid v)=e^{-vt}$ the mixture hazard rate is \eqref{eq:hratio}, and with $y=e^{-t}\in(0,1)$ its sign-relevant factor is the kernel
+\begin{equation}\label{eq:kernel}
+\tilde h_{p,\lambda}(y)=\frac{\sum_{i=1}^n p_i\lambda_i\,y^{\lambda_i}}{\sum_{i=1}^n p_i\,y^{\lambda_i}},
+\end{equation}
+a weighted ratio of two sums of power terms. The same kernel recurs across the cluster (Section~\ref{sec:kernels}).
+
+\subsection{Chain majorization and $T$-transforms}
+
+Write $[x;y]$ for the $2\times n$ matrix with rows $x$ and $y$. A \emph{$T$-transform} is $T_\omega^{ij}=\omega I+(1-\omega)\Pi^{ij}$, $\omega\in[0,1]$, where $\Pi^{ij}$ interchanges coordinates $i$ and $j$; right-multiplication replaces columns $i,j$ by their $\omega$-convex recombination and leaves the other $n-2$ columns untouched. For vectors, $x\succ xT$ always, and $x\succ y$ iff $y=xT_1\cdots T_k$ for finitely many $T$-transforms \cite[Chapter~2.B]{MarshallOlkinArnold2011}. The matrix analogue, (multivariate) \emph{chain majorization} $A\gg B$ iff $B=AT_1\cdots T_k$ acting on columns, is Chapter~15 of \cite{MarshallOlkinArnold2011}. The hypotheses of the audited theorems restrict to the classes
+\[
+\Vn=\Bigl\{\bmat{x_1\ \cdots\ x_n}{y_1\ \cdots\ y_n}:x_i,y_i>0,\ (x_i-x_j)(y_i-y_j)\le0\ \forall i,j\Bigr\}
+\]
+and $\Wn$, defined with $\ge0$: the rows are antiordered or comonotone. (Notation varies by paper: $\mathcal A_n/\mathcal B_n$ in \cite{ShekariEtAl2026}, $K_n/L_n$ in \cite{GuoYan2024}; the content is identical.)
+
+\subsection{The additive lemma is true}\label{sec:additive}
+
+\begin{lemma}[the additive lift --- valid]\label{lem:additive}
+Let $\Psi:\R_+^2\to\R$ be differentiable and let $\Psi_n(A)=\sum_{i=1}^n\Psi(a_{1i},a_{2i})$ for a $2\times n$ matrix $A$. Suppose the $2\times2$ criterion holds: $\Psi_2(A)\ge\Psi_2(B)$ for all $A\in\mathcal V_2$ (or $\mathcal W_2$) and $B=AT$. Then $\Psi_n(A)\ge\Psi_n(AT)$ whenever $A\in\Vn$ (or $\Wn$).
+\end{lemma}
+
+This is Theorem~2 of Balakrishnan, Haidari and Masoumifard \cite{BalakrishnanHaidariMasoumifard2015}, restated as Lemmas~2.4 and~2.5 of \cite{BarmalzanKosariBalakrishnan2022} (the $2\times2$ criterion and the $n$-column lift respectively), Lemma~7 of \cite{ShekariEtAl2026} and Lemmas~1/2 and~3/4 of \cite{GuoYan2024,SahooKayalBalakrishnan2026}. It is correct: a $T$-transform on columns $j,k$ leaves the remaining summands untouched, so the difference $\Psi_n(A)-\Psi_n(AT)$ reduces to a $2\times2$ difference, and the pairwise class membership needed by the criterion follows from $A\in\Vn$ or $\Wn$. Our audit verified the proof skeleton symbolically and confirmed the predicted directions on thousands of exactly generated admissible instances (Section~\ref{sec:data}). The lemma descends from the systems literature, where the compared functionals --- series and parallel system survival or hazard --- \emph{are} additive or multiplicative over components \cite{DykstraKocharRojo1997,KhalediKochar2000,BalakrishnanHaidariMasoumifard2015}.
+
+\subsection{The kernel is a ratio of sums}\label{sec:kernels}
+
+Every audited hazard or reversed hazard claim concerns one of the following functionals of the parameter matrix $[p;\lambda]$ (the exact model per paper varies; the algebraic shape does not):
+
+\begin{table}[h]
+\centering\footnotesize
+\caption{The ratio-of-sums kernel across the audited model families; in each line the ordering-relevant factor is a quotient of two additive column sums in a monotone parameter $y$ or $s$.}
+\label{tab:kernels}
+\begin{tabular}{@{}p{4.9cm} p{10.2cm}@{}}
+\toprule
+Model family & rate functional (up to positive factors) \\
+\midrule
+ordinary / PH mixtures & $h_{p,\lambda}(t)=\tilde h_{p,\lambda}(e^{-t})$, kernel \eqref{eq:kernel} \\
+$\alpha$-mixtures \cite{ShojaeeAsadiFinkelstein2022,SahooKayalFinkelstein2026} & $h_U(t)=\theta^{-1}h(t/\theta)\,\tilde h_{p,\gamma}\bigl(\bar G(t/\theta)^\alpha\bigr)$, i.e.\ \eqref{eq:kernel} at $y=\bar G^\alpha$ \\
+distorted mixtures \cite{ShekariEtAl2026} & $h_{P_n}(t)=g(t)\sum_i\pi_iD'(\bar G;\gamma_i)/\sum_i\pi_iD(\bar G;\gamma_i)$; \eqref{eq:kernel} under $D(u;\gamma)=u^\gamma$ \\
+LS mixtures \cite{BarmalzanKosariBalakrishnan2022,BhaktaKayalFinkelstein2024,VargheseEtAl2025} & $h(s)=\sum_ip_i\nu_i s^{\nu_i}/\sum_ip_i s^{\nu_i}$ and $r(s)=\sum_ip_i\nu_i s^{\nu_i}/(1-\sum_ip_i s^{\nu_i})$, $s=e^{-t}$ \\
+MPHR mixtures \cite{GuoYan2024,SahooKayalBalakrishnan2026} & $r_C=\lambda h(t)\,C(y)$ with $C(y)=[\sum_ip_i\alpha_i(1-\bar\alpha_i y)^{-2}]/[\sum_ip_i\alpha_i(1-\bar\alpha_i y)^{-1}]$, $y=\bar F^\lambda$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+In every case the functional is a quotient $N(p,\lambda)/D(p,\lambda)$ of two additive column sums. Replacing two columns by their $T$-images leaves the summands of the other columns unchanged --- but those summands sit inside both $N$ and $D$, and the sign of the quotient's difference does not reduce to the two-column comparison. Formally:
+
+\begin{proposition}[non-separability, certified]\label{prop:nonsep}
+There is no representation $\tilde h_{p,\lambda}(y)=\sum_i\psi(p_i,\lambda_i)$ valid on the hypothesis classes of the audited theorems: for a $2\times3$ matrix $A=[p;\lambda]$ and $T$ acting on columns $(1,3)$, the difference $\tilde h(A)-\tilde h(AT)$ depends on the untouched column $2$ --- replacing $(p_2,\lambda_2)=(\tfrac14,2)$ by $(\tfrac38,9)$ changes the value of the difference at $y=3$, computed in exact rational arithmetic.
+\end{proposition}
+
+Consequently Lemma~\ref{lem:additive} is inapplicable. The necessary differential condition for the claimed $T$-monotonicity fails as well: at the certified $\Wn$ instance of Certificate~\ref{cer:skf}, the $n$-column analogue of the $2\times2$ criterion evaluates to $25/11>0$ at $y=1$ --- the wrong sign.
+
+\subsection{The defect as printed}\label{sec:defect}
+
+Two verbatim renderings of the step, from open-access texts:
+
+\begin{quote}
+``We observe that $P_n$ and $Q_n$ have the same distribution and same hazard rate function (i.e., $\pi_k=\pi_k^*$ and $\gamma_k=\gamma_k^*$) for all $k\neq i,j$ as the T-transform matrix $T^{i,j}_\omega=\omega I_n+(1-\omega)\Pi^{i,j}$ \dots\ Therefore, applying Theorem 8, the desired result follows immediately.'' --- proof of Theorem~11, \cite{ShekariEtAl2026}
+\end{quote}
+
+\begin{quote}
+``Let $\Phi_n(\theta)=h_{W_n}(t)$. It follows from Theorem 7 that $\Phi_2$ satisfies Lemma 3. Hence, by applying Lemma 4, the desired result follows.'' --- proof of Theorem~8, \cite{SahooKayalBalakrishnan2026}
+\end{quote}
+
+Theorem~7/8 and Lemma~3/4 there are the $n=2$ theorem and the additive lift; $h_{W_n}$ is the $n$-component hazard rate, manifestly not of the form $\sum_i\Phi(a_{1i},a_{2i})$. The same pattern occurs in \cite{SahooKayalFinkelstein2026}, whose Theorem~3.8 proof sets $\Psi_n([p;\gamma])=h_{U_n(p,\gamma,\theta)}(t)$ and invokes the additive Lemma~2.5, and in \cite{GuoYan2024}, where the $n$-component hazard theorem is asserted with \emph{no} proof beyond ``Similarly \dots\ we can get the result''. The step is the frozen-column lift: the $n-2$ unchanged columns are held fixed and the $n=2$ theorem is applied to the remaining pair --- invalid, because the frozen columns sit inside both the numerator and the denominator of the ratio \eqref{eq:kernel}.
+
+Two consequences deserve emphasis. First, the failure is not an edge case: violation rates in exact bounded searches range from a few percent to over half of admissible instances (Section~\ref{sec:score}). Second, the failure is not a gap in an otherwise valid proof --- since the conclusions are false, no repair of the step exists within the claim shape.
+
+\section{Audit method}\label{sec:method}
+
+\paragraph{Exact arithmetic.} All parameters (weights, rates, scales, resilience parameters, transform weights $\omega$, evaluation points) are rational; all hypothesis predicates --- $\Vn$/$\Wn$ membership componentwise, antiordering classes $\mathcal U_n$, majorization and weak sub-/supermajorization, reciprocal majorization, $T$-transform factorization $[q;\gamma]=[p;\lambda]T$ --- are verified exactly. Claimed ordering differences are reduced, after a monotone reparametrization ($s=e^{-t}$, $y=\bar G^\alpha$, $u=z^L$ clearing denominators), to rational functions whose sign changes are certified by exact rational evaluations of opposite sign together with exact real-root counts on the polynomial numerator: Sturm sequences via SymPy's \texttt{Poly.count\_roots} \cite{Meurer2017,BasuPollackRoy2006} and isolation via the Vincent--Akritas--Strzebo\'nski method (\texttt{Poly.intervals} \cite{AkritasStrzebonski2005}); where the degree exceeds the Sturm budget, outward-rounded interval arithmetic certifies the sign change instead. No floating-point comparison enters any certified claim; $60$-digit evaluation is used only where genuinely algebraic quantities are compared, and is labelled \emph{numerical}.
+
+\paragraph{Classification vocabulary.} Each claim receives one of: \textsc{exact counterexample} (certified sign change or exact opposite-sign witnesses), \textsc{holds-on-samples} (no violation on the exact-search domain; a bounded-search statistic, not a proof), \textsc{vacuous} (hypothesis class empty or unsatisfiable as stated), \textsc{untestable-bounded} (hypothesis class not exhausted) and \textsc{not-checkable} (commentary, or assumptions not reproducible from the text). For paywalled sources the scoreboard distinguishes \emph{verbatim} statements, statements \emph{transmitted} by citing papers, and the weakest consistent \emph{claim shape}; a counterexample to a transmitted or claim-shape statement refutes that statement as cited, and the fidelity of the reconstruction is recorded per paper.
+
+\paragraph{Admissible-instance generation.} Searches draw rational instances from bounded grids (representative bounds: $n\in\{2,3,4\}$; weight numerators up to $1\!/\!40$ granularity; rates and scales among small rationals; $\omega\in\{\tfrac1{20},\dots,\tfrac{19}{20}\}$; baseline families including exponential, Lomax, Pareto, power-law, proportional-reversed-hazard and compound Rayleigh), filtering to instances satisfying every hypothesis exactly before evaluating the conclusion. Violation counts are reported with the admissible denominator.
+
+\paragraph{Controls.} Three control classes isolate the defect: (i) the $n=2$ base theorems, which the lift generalizes (they are clean --- e.g.\ $0/6133$, $0/2264$, $0/3200$ violations in three independent two-component sweeps); (ii) the stochastic-order theorems proved by the same lift on additive functionals (clean --- the lift is legitimate there); (iii) \cite{ShojaeeAsadiFinkelstein2022}, audited clean claim-by-claim, which posed the $n>2$ hazard ordering as an open problem rather than claiming it.
+
+\section{Scoreboard and certificates}\label{sec:score}
+
+\subsection{Scoreboard}
+
+Table~\ref{tab:score} summarizes the audit; the ``source'' column records the strongest reading obtained (verbatim text / transmitted statement / claim shape only). Section~\ref{sec:limits} discusses the residual gap for non-verbatim rows.
+
+\begin{table}[t]
+\centering\footnotesize\setlength{\tabcolsep}{4pt}
+\caption{Audit scoreboard. ``Lift'' marks the frozen-column $T$-transform defect; other defect mechanisms are named where different. Certified = exact rational/Sturm certificate exists.}
+\label{tab:score}
+\begin{tabular}{@{}l l p{4.0cm} p{5.2cm} l@{}}
+\toprule
+Paper & Venue & Certified failures & Claim detail & Source \\
+\midrule
+HF2018 \cite{HazraFinkelstein2018} & TEST 27(4) & transmitted Thm~3.4 shape & lift; fails at $n=3$ for ordinary mixtures; probable defect origin & transmitted \\
+BKB2022 \cite{BarmalzanKosariBalakrishnan2022} & PEIS 36(2) & Thm~2 shape & lift; certified crossings both directions, both classes, both conventions; $n=2$ base claims fail at the unconditional shape & claim shape \\
+NT2020 \cite{NadebTorabi2022} & CSTM 51(10) & transmitted $n>2$ extension of Thm~4.2 & lift; the open question answered negatively & transmitted \\
+GY2024 \cite{GuoYan2024} & arXiv:2407.15638 & Thm~6, Cors~5--6 & lift; Thm~6 stated without proof; $\sim$48\% of admissible $n=3$ instances violate & verbatim \\
+BKF2024 \cite{BhaktaKayalFinkelstein2024} & MCAP 26(4) & Thms~2--6, 8; Lem.~1 misprinted; Cex~1--5, 7 invalid & other defects (wrong weak-majorization direction, active-subvector gap, missing hypothesis); the $T$-transform st theorems are clean & verbatim \\
+VKF2025 \cite{VargheseEtAl2025} & Statistics 59(5) & st claims at $\alpha\gamma>1$ & different defect (a Schur-concavity step, not the lift); sharp boundary $\alpha\gamma=1$: $0/{\sim}10{,}200$ below, ${\sim}2050$ above & claim shape \\
+SKF2026 \cite{SahooKayalFinkelstein2026} & ASMBI 42(2) & Thms~3.4 ($\alpha>0$), 3.8 both halves, 3.9, 3.10 (literal), 3.11 both halves, 3.12; Cors~3.2--3.3; Cex~3.7, 3.8 invalid & lift on the $\alpha$-mixture hr/rh kernel & verbatim (AAM) \\
+SPBB2026 \cite{ShekariEtAl2026} & JIA 2026:28 & Thm~11, Cor~2, Thm~12; all hr/rh theorems vacuous as stated & lift, quoted verbatim; second defect: unsatisfiable $-D'$ monotonicity & verbatim (OA) \\
+SKB2026 \cite{SahooKayalBalakrishnan2026} & Mathematics 14 & Thms~8, 9, 11, 12, 20, 21, 23, 24; Cors~1--4 & lift, quoted verbatim; dual MPRHR theorems share the kernels & verbatim (OA) \\
+BTDK2024 \cite{BhaktaTorradoDasKayal2024} & arXiv:2412.10071 & Thms~4.2, 4.3-E, 4.5-D; vacuity in 4.1, 4.4-E & not a carrier (no chain majorization); middle-region direction errors, a sign-indefinite product & verbatim \\
+BGSK2025 \cite{BhaktaGuptaSaadatKiaKayal2025} & arXiv:2511.00791 & Thms~4.2, 4.3 & not a carrier (vector majorization on the additive CDF only); a term-wise sign step fails & verbatim \\
+SAF2022 \cite{ShojaeeAsadiFinkelstein2022} & PEIS 36(4) & none of the main claims; Thm~4.1(b) boundary failure; minor errata & clean control; posed the $n>2$ question resolved in Section~\ref{sec:open} & verbatim (OA) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Certificates}\label{sec:certs}
+
+The six certificates below are the strongest of the audit --- small exact witnesses, full Sturm counts, hypotheses verified componentwise. Each is reproduced by a script named in Table~\ref{tab:repro}.
+
+\begin{certificate}[BKB2022 Theorem~2 claim shape; hazard order, $\mathcal V_3$]\label{cer:bkb}
+Ordinary exponential mixtures, integer rates $\nu=(13,15,11)$, weights $p=(\tfrac3{20},\tfrac1{20},\tfrac45)$, $[p;\nu]\in\mathcal V_3$; a single $T$-transform on columns $(1,2)$ with $\omega=\tfrac12$ gives $\nu'=(14,14,11)$, $p'=(\tfrac1{10},\tfrac1{10},\tfrac45)$. In $s=e^{-t}$ the hazard difference is rational with numerator of degree $29$: exactly \emph{two} roots in $(0,1)$ (Sturm), with exact witnesses $\mathrm{num}(\tfrac5{8})<0$ and $\mathrm{num}(\tfrac1{16})>0$. The rates cross; neither direction of the claimed ordering holds. Sister certificates cover the rh claim, the class $\mathcal W_3$, the scale-row convention $[\lambda;p]$ with $\nu=1/\lambda$ (interval-certified, denominator-positive numerators), and both directions simultaneously: the unconditional claim fails in every variant.
+\end{certificate}
+
+\begin{certificate}[HF2018 transmitted Theorem~3.4; ordinary mixtures, $n=3$]\label{cer:hf}
+$p=(\tfrac18,\tfrac{29}{72},\tfrac{17}{36})$, $\lambda=(9,5,4)$, so $[p;\lambda]\in\mathcal V_3$; a $T$-transform on columns $(1,2)$ with $\omega=\tfrac{13}{20}$ gives $q=(\tfrac29,\tfrac{11}{36},\tfrac{17}{36})$, $\gamma=(\tfrac{38}{5},\tfrac{32}{5},4)$, with $[q;\gamma]\in\mathcal V_3$ as well. With $w=u^{1/5}$ the kernel difference $\tilde h_{p,\lambda}-\tilde h_{q,\gamma}$ has a degree-$83$ numerator with exactly one root in $(0,1)$ (Sturm) and exact witnesses of sign $+,-,-$ at $w=\tfrac12,\tfrac78,\tfrac9{10}$: the hazard rates cross once. The same instance refutes the reversed-hazard analog, and the corresponding two-component sweep ($0/2264$ crossings) confirms that the failure is specific to $n\ge3$. Since every different-structures chain claim contains a single $T$-transform step, this refutes the transmitted Theorem~3.4 content under every reading of its chain flavor.
+\end{certificate}
+
+\begin{certificate}[SKF2026 Theorem~3.8, $\Wn$ half; $\alpha$-mixture]\label{cer:skf}
+$p=(\tfrac{17}{44},\tfrac5{11},\tfrac7{44})$ and $\gamma=(7,9,2)$ comonotone, $[p;\gamma]\in\mathcal W_3$; $T$ on columns $(1,3)$, $\omega=\tfrac{17}{20}$, gives $q=(\tfrac{31}{88},\tfrac5{11},\tfrac{17}{88})$, $\delta=(\tfrac{25}{4},9,\tfrac{11}{4})$; exponential baseline, $\theta=1$, $\alpha=-2$. On $y=\bar G^\alpha>1$ the claimed $U_3\le_{\hr}V_3$ reduces to $\tilde h_{p,\gamma}\le\tilde h_{q,\delta}$; the difference has a numerator with exactly one root in the reduced variable and exact opposite-sign witnesses, e.g.\ the value $-161379121858494821/28929682881644134876<0$ at $s=\tfrac14$. Combined with the $\mathcal V_n$, $\alpha\ge0$ half refuted in \cite{Guo2026hazard}, both halves of Theorems~3.8 and~3.11 fail, and the chain claims Theorem~3.9, Theorem~3.12 and Corollaries~3.2--3.3 fail with them (a certified two-step $\mathcal W_3$ chain for Theorem~3.9 has numerator degree $855$ and witnesses of both signs).
+\end{certificate}
+
+\begin{certificate}[SPBB2026 Theorem~11; distorted mixture, PHR specialization]\label{cer:spbb}
+$A=[\gamma;\pi]=\bigl(\begin{smallmatrix}2&4&3\\ 7/12&1/12&1/3\end{smallmatrix}\bigr)\in\mathcal A_3$ and $B=AT^{2,3}_{3/10}=\bigl(\begin{smallmatrix}2&33/10&37/10\\ 7/12&31/120&19/120\end{smallmatrix}\bigr)\in\mathcal A_3$, all memberships exact. Under $D(u;\gamma)=u^\gamma$ the hazard ratio kernel is $\tilde h_{\pi,\gamma}(u)=\sum_i\pi_i\gamma_iu^{\gamma_i}/\sum_i\pi_iu^{\gamma_i}$; in $z=u^{1/10}$ the difference $\tilde h_A-\tilde h_B$ has a degree-$37$ numerator with exactly two roots in $(0,1)$ (Sturm) and witnesses $\tilde h_A-\tilde h_B=+108762382147/224621531888650>0$ at $z=\tfrac12$ and a negative exact rational value at $z=\tfrac{15}{16}$. The instance simultaneously refutes Corollary~2 (one-factor chain) and embeds in Theorem~12. Sweeps: $1725/5008$ (resp.\ $2109/4106$) admissible PHR instances violate the claimed direction at $n=3$ (resp.\ $n=4$), against $0/6133$ at $n=2$.
+\end{certificate}
+
+\begin{certificate}[GY2024 Theorem~6 (stated without proof); MPHR mixture]\label{cer:gy}
+$p=(\tfrac{16}{37},\tfrac9{37},\tfrac{12}{37})$, $\alpha=(\tfrac12,\tfrac89,\tfrac23)$ with $p_i\alpha_i=\tfrac8{37}$ for all $i$ (the paper's hypothesis, which makes the $K_3$ membership automatic); a single $T$-transform on columns $(1,3)$ with $\omega=\tfrac34$ gives $q=(\tfrac{15}{37},\tfrac9{37},\tfrac{13}{37})$, $\beta=(\tfrac{13}{24},\tfrac89,\tfrac58)$. The hazard-difference numerator $-6623y^7+217404y^6-\cdots$ has degree $7$ and exactly two roots in $(0,1)$ (Sturm), witnessed by $d(\tfrac1{16})=-26382968577328/697805944384200125<0$ and $d(\tfrac15)=1056692120/7414054947243>0$: the claimed ordering fails and the rates cross. Violation rates $1189/2500$ ($n=3$) and $766/1500$ ($n=4$); a certified two-step different-structure chain refutes Corollary~6.
+\end{certificate}
+
+\begin{certificate}[SKB2026 Theorem~8; MPHR $\alpha$-mixture]\label{cer:skb}
+$\alpha=-4$, $p=(\tfrac7{16},\tfrac14,\tfrac5{16})$, $\theta=(\tfrac94,9,3)$, $[p;\theta]\in\mathcal V_3$; $T$ on columns $(2,3)$, $\omega=\tfrac9{10}$ gives $q=(\tfrac7{16},\tfrac{41}{160},\tfrac{49}{160})$, $\gamma=(\tfrac94,\tfrac{42}5,\tfrac{18}5)$. The hazard-difference numerator has degree $7$ with two roots in $(0,1)$ and witnesses $d(\tfrac1{100})=-353619533609100/43666123426941601543<0$, $d(\tfrac14)=175665260436/20936322432487>0$. By the kernel identities of the model, the same instance refutes Theorems~11, 20, 21, 23, 24 and Corollaries~1--4 in matching pairs; Theorems~9 and~12 fall to certified two-step chains with intermediates in $\mathcal V_3$.
+\end{certificate}
+
+\subsection{Beyond the lift: secondary certified findings}\label{sec:secondary}
+
+Three audited papers fail by other mechanisms, and two papers print invalid counterexamples:
+
+\begin{itemize}
+\item \textbf{Vacuous rate theorems in \cite{ShekariEtAl2026}.} Every hr/rh claim requires $-D'(u;\gamma)=-\partial_uD(u;\gamma)$ monotone in $\gamma$ at every $u\in(0,1)$. Since $\int_0^1D'(u;\gamma)\,du=D(1;\gamma)-D(0;\gamma)=1$ for all $\gamma$, two distinct $\gamma$-values give densities on $(0,1)$ that cannot be pointwise ordered: the condition is satisfiable only by the trivial distortion $D=u$. The theorems are thus vacuous as stated; the certified failure (Certificate~\ref{cer:spbb}) applies to their effective content. The paper's own Example~1 hypothesis check is also false exactly (a claimed monotonicity fails on the example's own parameter range).
+\item \textbf{The wrong-direction lemma in \cite{BhaktaKayalFinkelstein2024}.} The printed Lemma~1 asserts $u\prec_w v\Rightarrow\varphi(u)\ge\varphi(v)$ for increasing Schur-concave $\varphi$; the correct pairing is $\prec^w\leftrightarrow\ge$ for increasing Schur-concave (one-line refutation: $\varphi=\sum\sqrt{u_i}$). Theorems~2 and~8 invoke the false direction and are certified false as printed (Theorem~2 holds on $0/7366$ admissible under the corrected $\prec^w$ reading --- consistent with a typeset error). Theorems~3, 4, 5, 6 are certified false by missing hypotheses and by the piecewise-support/active-subvector gap: on bounded-support baselines the live components form a proper subvector while the Schur argument is applied to the full vector. Theorem~10's conclusion holds on all $85{,}410$ admissible evaluations but its key intermediate step (equation~(49)) is certified false --- an unproven theorem whose statement may still be true. Its $T$-transform stochastic-order theorems (11--13) apply the additive lift correctly and are clean on ${\sim}7000$ evaluations.
+\item \textbf{Fabricated counterexample numerics} in \cite{BhaktaKayalFinkelstein2024} (Counterexamples~1, 2, 3, 5 report $\sim10^{-13}$--$10^{-16}$ ``sign changes'' at parameter points where only one component is alive and the difference is identically zero; Counterexample~4's printed $-3.45\times10^{-6}$ is contradicted by the exact $+5.19\times10^{-7}$; Counterexample~7's claimed sign change is absent on ${\sim}12{,}000$ exact rational points) and in \cite{SahooKayalFinkelstein2026} (Counterexample~3.8's $\pm10^{-16}$ values at points where $h_U\equiv h_V=\gamma/(2t)$ identically; Counterexample~3.7's printed $-0.0834$ where the exact value is $+0.0674$).
+\item \textbf{Vacuity and direction defects outside the lift family} in \cite{BhaktaTorradoDasKayal2024} (the IPRFR/IRFR proportional-ageing hypotheses are unsatisfiable on unbounded support; certified failures of Theorems~4.2, 4.3-E, 4.5-D --- including the cluster's first broken \emph{stochastic-order} claim) and \cite{BhaktaGuptaSaadatKiaKayal2025} (certified failures of the two multiple-outlier rate theorems via a term-wise sign step invalid when $f'/f<0$; plus an independent definition-vs-theorem direction inconsistency).
+\end{itemize}
+
+\section{The resolved open question}\label{sec:open}
+
+Both \cite{HazraFinkelstein2018} (\S4) and \cite{NadebTorabi2022} (\S4) leave the $n>2$ hazard-rate ordering open, as does Remark~6.18 (published Remark~6.3) of \cite{ShojaeeAsadiFinkelstein2022}: whether the two-component majorization comparison of mixture hazard rates extends to $n>2$ components. The weakest form of the claim --- ordinary exponential mixtures, common weights, vector majorization --- already fails:
+
+\begin{certificate}[$n>2$ open question, negative]\label{cer:open}
+$p=(\tfrac{39}{86},\tfrac{18}{43},\tfrac{11}{86})$ (decreasing), $\lambda=(4,6,9)$ and $\gamma=(4,7,8)$ (increasing), so $(p,\lambda)$ and $(p,\gamma)$ lie in $\mathcal U_3$ and $\lambda\succ\gamma$ (partial sums $4\le4$, $10\le11$, $19=19$), all verified exactly. With $s=e^{-t}$ the difference $\tilde h_{p,\lambda}-\tilde h_{p,\gamma}$ has a degree-$9$ numerator, a denominator nonvanishing on $(0,1)$, exactly one interior root (Sturm), and exact witnesses
+\[
+d(\tfrac12)=\tfrac{6271}{156247}>0,\qquad d(\tfrac34)=-\tfrac{17228781}{103906915}<0,\qquad d(1)=-\tfrac{25}{86}<0 .
+\]
+The hazard rates cross once: the mixtures are hr-incomparable, and no consistent $n>2$ ordering exists under these hypotheses. The companion manuscript \cite{Guo2026hazard} proves the failure for every $n\ge3$ with equal weights and integer rates, identifies the mechanism (the tail is governed by the second-smallest rate, which majorization does not control in the needed direction), and shows what survives: the stochastic order, the ordering near the origin, and the two-component statement.
+\end{certificate}
+
+\section{Provenance}\label{sec:provenance}
+
+\paragraph{The citation cone.} The lift is genuinely Schur-theoretic: Marshall--Olkin--Arnold chain majorization reduces a $2\times n$ comparison to $T$-transforms, and for additive functionals the reduction to $n=2$ is the standard argument, developed for series/parallel systems by \cite{DykstraKocharRojo1997,KhalediKochar2000} and stated as the canonical $2\times n$ criterion in Theorem~2 of \cite{BalakrishnanHaidariMasoumifard2015} --- valid there, because system hazard and survival functionals are sums or products over components. Hazra, Kuiti, Finkelstein and Nanda \cite{HazraKuitiFinkelsteinNanda2017} carried the criterion to location-scale max order statistics, still additive. The defect is born at the systems$\to$mixtures boundary.
+
+\paragraph{Statement-level origin: 2018.} Hazra and Finkelstein \cite{HazraFinkelstein2018} is the first paper importing multivariate chain majorization into mixture-model hr/rh comparisons. The full text is paywalled and was not retrieved (Section~\ref{sec:limits}), but two independent open-access witnesses pin the $n$-component $T$-chain hazard claims to its Section~3: the accepted manuscript of \cite{SahooKayalFinkelstein2026} states verbatim ``The proof follows from Theorem~3.4 of Hazra and Finkelstein (2018)'' for both of its different-structures chain theorems (3.9 and~3.12), and the theorem-number map in \cite{ShekariEtAl2026} (Remarks~8, 11, 12 and Table~1) places the $n$-component single-$T$ and $T$-chain hr claims at HF2018 Theorems~3.6/3.8/3.10/3.12; \cite{SahooKayalBalakrishnan2026} likewise routes its different-structure theorems to ``Theorem~3.4 of [Hazra and Finkelstein (2018)]''. The transmitted statement is refuted by Certificate~\ref{cer:hf}; since no correct proof of a false statement exists, the lift --- in one of its two observed forms --- is in the 2018 argument, modulo the unretrieved verbatim proof text.
+
+\paragraph{Canonization and avalanche.} \cite{BarmalzanKosariBalakrishnan2022} (online September 2020) restated the additive lemma as Lemmas~2.4/2.5 --- the citation handle nearly all later papers use --- and its own $n\ge3$ rate-ordering Theorem~2 is certified false at claim shape (Certificate~\ref{cer:bkb}). \cite{NadebTorabi2022} (online July 2020, possibly the earliest propagation) and \cite{BarmalzanKosariZhang2021,SattariBarmalzanBalakrishnan2021,PanjaKunduPradhan2022} form the 2020--2021 layer; the 2023--2026 avalanche (\cite{BhaktaMajumderKayalBalakrishnan2024,BhaktaKayalFinkelstein2024,BhaktaKayalBalakrishnan2024,BhaktaBalakrishnanKayalPradhan2024,BhaktaKunduKayalAlizadeh2024,GuoYan2024,BhaktaTorradoDasKayal2024,VargheseEtAl2025,BhaktaGuptaSaadatKiaKayal2025,SahooMisraHazra2026,SahooKayalFinkelstein2026,ShekariEtAl2026,SahooKayalBalakrishnan2026}) is centered on the NIT-Rourkela group and its coauthors, with Balakrishnan and Finkelstein appearing on both the lemma source and several misuses.
+
+\paragraph{Clean controls.} The audit's controls confirm the diagnosis rather than a blanket failure: every audited $n=2$ base theorem held on all admissible instances; every claim proved by the lift on an additive functional --- the stochastic-order theorems of \cite{BhaktaKayalFinkelstein2024} (Theorems~11--13), \cite{GuoYan2024} (Theorems~2 and~4), \cite{SahooKayalBalakrishnan2026} (Theorems~1--6) and the st claims of \cite{BarmalzanKosariBalakrishnan2022} at mechanism level --- is legitimate and consistent; and \cite{ShojaeeAsadiFinkelstein2022}, which posed the $n>2$ question rather than answering it, audited clean apart from a boundary failure of one biconditional (its Theorem~4.1(b), repaired by a strict inequality) and minor errata. The systems literature above the cone is unaffected.
+
+\section{Limitations}\label{sec:limits}
+
+\begin{itemize}
+\item \textbf{Non-verbatim rows.} \cite{HazraFinkelstein2018,NadebTorabi2022,BarmalzanKosariBalakrishnan2022,VargheseEtAl2025} are paywalled; their rows in Table~\ref{tab:score} are audited through transmitted statements or claim shape (the weakest consistent reading, so a counterexample refutes every consistent reading). The certificates stand against the claim shape in all cases; the attribution of an exact theorem number is as recorded. For \cite{HazraFinkelstein2018} the verbatim proof text remains unretrieved, and the defect-origin claim is statement-level, double-witnessed.
+\item \textbf{Holds-on-samples is not a proof.} Consistent results are bounded-search statistics over the parameter families listed in each memo; they are reported with admissible counts and are never conflated with proofs. The certified failures, conversely, are proof-grade.
+\item \textbf{The suspect queue is unverified.} Roughly a dozen further papers share the signature ($n$-component hr/rh claims under chain or matrix majorization): \cite{BarmalzanKosariZhang2021,SattariBarmalzanBalakrishnan2021,PanjaKunduPradhan2022,BhaktaMajumderKayalBalakrishnan2024,BhaktaKayalBalakrishnan2024,BhaktaBalakrishnanKayalPradhan2024,BhaktaKunduKayalAlizadeh2024,SahooMisraHazra2026,ShojaeeAsadiFinkelstein2023,KayalBhaktaBalakrishnan2023} among them; papers are named from claim shape alone until audited, and membership of the queue is not a finding of falsity. Two queue members already audited, \cite{BhaktaTorradoDasKayal2024,BhaktaGuptaSaadatKiaKayal2025}, turned out not to carry the lift at all (they fail, or pass, by other mechanisms).
+\item \textbf{Violation rates are sampling artifacts.} The percentages quoted (e.g.\ $\sim$48\% for \cite{GuoYan2024} at $n=3$) describe the exact-search distribution, not a property of the claims; the certified instances are the content.
+\item \textbf{Degree budget.} A few certificates use outward-rounded interval arithmetic in place of a Sturm count where the numerator degree exceeded the certification budget (e.g.\ the degree-$3325$ numerator of the location-scale specialization certificate); the sign change is still certified exactly.
+\end{itemize}
+
+\section{What correct statements look like}\label{sec:fixes}
+
+The audit localizes the failure, which suggests the shape of valid replacements:
+
+\begin{enumerate}
+\item \textbf{Additive targets.} The lift is theorem-grade for functionals additive over columns: mixture survival and distribution functions (all audited st claims), and, on the systems side, sums and products of component rates \cite{BalakrishnanHaidariMasoumifard2015}. Any $n$-component rate-ordering claim must either be re-argued on an additive surrogate or carry hypotheses strong enough to control the ratio \eqref{eq:kernel} directly.
+\item \textbf{What a true $n$-component hazard ordering would need.} The mechanism analysis of \cite{Guo2026hazard} shows the obstruction is structural: majorization controls the $t\to0$ behavior (equal means, larger variance) but the tail is governed by the minimal and second-minimal rates, which majorization does not order in the required direction. A correct theorem would need hypotheses fixing the tail --- e.g.\ equalizing the smallest two rates jointly, or conditions on the whole vector rather than on pairs of columns --- and even equalizing weighted means does not suffice (Certificate~\ref{cer:open} has unequal $p$-means at $t=0$, but certified sign changes also occur away from the origin). No repair by a distributional-class restriction exists for the lift claims (the failures use the exponential baseline, the common specialization of every model).
+\item \textbf{The honest boundary results.} What remains true in every dimension: the usual stochastic order under majorization (an additive claim), the hazard ordering on a neighborhood of $t=0$, and the two-component theorems themselves. Authors repairing the affected theorems should expect the correct $n$-component statements to be weaker than the printed ones.
+\item \textbf{Reading list for reviewers.} The same $\int D'=1$ obstruction that vacuates \cite{ShekariEtAl2026}, the unsatisfiable proportional-ageing hypotheses of \cite{BhaktaTorradoDasKayal2024}, and the misprinted weak-majorization lemma of \cite{BhaktaKayalFinkelstein2024} are checkable by hand at the referee's desk without any computation; the prevalence of floating-point-noise counterexamples suggests a community habit worth correcting.
+\end{enumerate}
+
+\section{Related work and conclusion}\label{sec:related}
+
+The mathematics sits inside stochastic-order theory \cite{ShakedShanthikumar2007,MarshallOlkinArnold2011}. Mixture-ordering work by other techniques --- component-wise ordering rather than parameter-matrix majorization --- is outside the defect cone (e.g.\ \cite{FinkelsteinEsaulova2006,AminiSereshtZhang2017,BartoszewiczSkolimowska2006} and the Navarro line). The certification methodology --- exact rational witnesses plus Sturm/Vincent--Akritas--Strzebo\'nski root counts \cite{BasuPollackRoy2006,AkritasStrzebonski2005,Meurer2017} --- is the same discipline used in \cite{Guo2026hazard}, applied there to a single theorem and here to a literature cluster.
+
+The picture that emerges is narrower than a broken literature and more specific than a broken lemma. One lemma --- true, standard, and properly proved --- was asked to lift a kind of functional it does not govern, and the misapplication propagated through at least a dozen papers over eight years, carried by the reuse of proof fragments rather than by re-derivation. The counterexamples are elementary: three-component exponential mixtures suffice for every lift claim, and several of the certified instances are small integer-rate vectors. The most defensible conclusion is procedural: claims whose reductions are invisible to their hypotheses fail silently, and exact-arithmetic audit is cheap enough, and the certificates small enough, that a claim of this shape should not again propagate for eight years unchecked.
+
+\section{Data availability}\label{sec:data}
+
+Every audited claim is backed by a committed script in the accompanying research repository (\texttt{research/spikes/}); each certificate script prints one line per check and exits nonzero on any failure. All use SymPy~1.14 exact arithmetic (rational \texttt{Rational}/\texttt{Fraction} values, \texttt{Poly.count\_roots} and \texttt{Poly.intervals}) with \texttt{mpmath} interval arithmetic where noted. Table~\ref{tab:repro} maps the claims of this paper to their reproductions; per-paper audit memos (\texttt{memo.md} in each directory) record the full per-claim status, hypothesis predicates, search bounds and retrieval logs.
+
+\begin{table}[h]
+\centering\footnotesize
+\caption{Reproduction map. Scripts run with any Python~3.12 + SymPy~1.14 interpreter; e.g.\ \texttt{python3 certify\_thm11.py}. Run-directory scripts ($\dagger$) are pending commit into the spike tree.}
+\label{tab:repro}
+\begin{tabular}{@{}p{5.6cm} p{5.2cm} p{4.4cm}@{}}
+\toprule
+Claim certified & Script (\texttt{research/spikes/...}) & Key exact witnesses \\
+\midrule
+SKF Thm~3.4 ($\alpha>0$) & \texttt{mixture-audit/certify\_thm34.py} & $d(1)=\tfrac{305}{3888}>0$; $d(20)=\tfrac{-1579547560}{2598836427243}<0$ \\
+SKF Thm~3.8/3.11 $\mathcal W$-halves; Thm~3.9 $\mathcal W$ (2-step) & \texttt{mixture-audit/certify\_whalf.py} & $\tfrac{-161379121858494821}{28929682881644134876}<0$ at $s=\tfrac14$; deg-$855$ numerator, alternating-sign witnesses \\
+SKF/SAF full claim tables & \texttt{mixture-audit/}: \texttt{audit\_skf\_st}, \texttt{audit\_skf\_hr}, \texttt{audit\_saf}, \texttt{verify\_paper\_cex} & admissible counts per memo; Cex~3.7/3.8 refutations \\
+SPBB Thm~11 (Cert.~\ref{cer:spbb}) & \texttt{shekari-audit/certify\_thm11.py} & $+108762382147/224621531888650$; Sturm: 2 roots in $(0,1)$ \\
+SPBB vacuity; Example~1 check & \texttt{shekari-audit/audit\_shekari.py} & $\partial_\gamma(-D')$ sign changes, exact \\
+SPBB LS specialization (= BKB Thm~2 map) & \texttt{shekari-audit/certify\_ls.py} & opposite-sign interval witnesses at $z=999/1000,\ 1999/2000$ \\
+BKB Thm~2 shape, 4 cells (Cert.~\ref{cer:bkb}) & \texttt{bkb2022-own/}: \texttt{certify\_int}, \texttt{certify\_iv}, \texttt{certify\_n2} & Sturm root counts $3,3,2,2$ in $(0,1)$; scale-row interval certs \\
+HF transmitted Thm~3.4 (Cert.~\ref{cer:hf}) & \texttt{hf2018-nt2020/certify\_hf\_T\_n3.py} & deg-$83$ numerator, 1 root in $(0,1)$; signs $+,-,-$ \\
+Open question (Cert.~\ref{cer:open}) & \texttt{hf2018-nt2020/certify\_nt42\_n3.py} & $6271/156247>0$; $-17228781/103906915<0$; 1 interior root \\
+VKF2025 R1 ($\alpha\gamma>1$) & \texttt{vkf2025/certify\_r1.py} & $d(12)=\tfrac{19760252621}{571952479518784}>0$; $d(15)<0$; 1 root in $(12,13)$ \\
+GY Thm~6/Cor~5--6; SKB Thms~8--24, Cors~1--4 (Certs.~\ref{cer:gy}, \ref{cer:skb}) & \texttt{gy-skb-audit/}: \texttt{certify}, \texttt{certify\_chains} & deg-$7$/$9$/$13$ numerators, 2 roots each; witnesses per memo \\
+BKF Thms~2--8; Lemma~1; Cex~1--5, 7; Thm~10 step & \texttt{runs/bkf2024/}$\dagger$: \texttt{certify}, \texttt{scan\_all}, \texttt{sturm\_cert}, \texttt{verify\_cex}, \texttt{verify\_rest} & whole-cell cert: $h_U-h_V>0$ on all of $(\tfrac7{20},\tfrac{43}{30}]$ \\
+BTDK Thms~4.2, 4.3-E, 4.5-D & \texttt{btdk-arxiv/audit\_btdk.py} & exact middle-region witnesses; algebraic lr cert \\
+BGSK Thms~4.2, 4.3 & \texttt{bgsk-arxiv/audit\_bgsk.py} & $\zeta(4)=455/344>\zeta(5)=535/406$; $\Lambda(20)<\Lambda(80)$ \\
+Lemma validity + non-separability (Prop.~\ref{prop:nonsep}) & \texttt{runs/bhb2022/}$\dagger$: \texttt{audit\_bhb}, \texttt{sweep\_bhb} & $\tilde h(A)-\tilde h(AT)$ changes with untouched column; $M_{13}(1)=25/11>0$ \\
+Additive-lift controls (st theorems) & \texttt{gy-skb-audit/check\_st.py}; \texttt{mixture-audit/audit\_skf\_st.py} & $0$ violations on all admissible st claims \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The scoreboard (Table~\ref{tab:score}), the citation map and the retrieval logs are in the \texttt{cluster-audit} directory of the same tree. Machine-verified environment: SymPy~1.14.0, mpmath~1.3.0, Python~3.12.
+
+\setlength{\bibsep}{1pt plus 0.3ex}
+{\small
+\bibliographystyle{plainnat}
+\bibliography{refs}
+}
+
+\end{document}
