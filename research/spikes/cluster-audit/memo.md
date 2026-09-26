@@ -53,6 +53,15 @@ broken st claim), Thm 4.3-E hr, Thm 4.5-D lr; vacuity cases (4.1
 satisfiable only under reversed direction; 4.4-E impossible); clean:
 4.3-D, 4.4-D, plus the additive-lift st lemmas used legitimately.
 
+**Audited, not a carrier, different defect**: BGSK arXiv:2511.00791
+(Bhakta–Gupta–Saadat Kia–Kayal, general exponentiated location-scale
+mixtures — vector majorization only, applied to the additive CDF
+legitimately). Certified false anyway: Thm 4.2 (lr — the term-wise sign
+step `(1/λ₁)f'/f ≤ (1/λ₂)f'/f` fails when `f'/f<0`), Thm 4.3 (R−rh AFO —
+Sturm: exactly 1 root on (2,∞), and the printed Def 2.2 contradicts the
+proof's direction, so the claim fails under both readings). All 7
+examples + 9 printed counterexamples verify.
+
 ## Suspect queue (citation cone, `citation-map.md`)
 
 ~12 further papers share the signature (n-component hr/rh claims under
