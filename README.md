@@ -411,12 +411,20 @@ Nothing here is submitted or posted yet. Manuscripts live under `papers/`
   audited authors is now a bigger decision (multiple labs involved);
   decide the hazard-mixture / cluster-audit split (overlap: the SKF
   theorems appear in both).
-- Research records, not yet papers: `C(5) = 14` (enumeration proof, LRAT
-  corroboration in progress), `C(6) ≥ 18`, `Z_plane = (K_* + o(1)) n^11`
-  proof draft, the `Z_sphere ~ n^10 (ln n)^2` census, and the maintained
-  table attacks (covering arrays — honest negative so far). Needs: decide
-  which belong in papers vs. public record posts (DeepMind issue #6,
-  covering-array tables).
+- `no-five-exact` (new draft) — first exact values of the AlphaEvolve-60
+  function: `C(3)=8`, `C(4)=11`, `C(5)=14` by complete canonical layer
+  enumeration (no exact values in the public record, which starts at
+  n=7). Includes the corrected-prune erratum as a soundness section.
+  Needs: §4.1 finalization when the `k=19` run decides `C(6)` (found=0
+  over all 8,133 orbits ⇒ `C(6)=18` exactly); venue choice; decide
+  whether to fold the H1 `o(n^8)` reduction chain (`research/spikes/
+  h1-quadruples/`, six memos) into a companion note.
+- Research records, not yet papers: `Z_plane = (K_* + o(1)) n^11`
+  proof draft, the `Z_sphere ~ n^10 (ln n)^2` census, the H1 partial
+  theorem (`N_sym = O(n^7 log n)` + Lemma M isolation), and the
+  maintained table attacks (covering arrays — honest negative so far).
+  Needs: decide which belong in papers vs. public record posts (DeepMind
+  issue #6, covering-array tables).
 
 ## Links
 
