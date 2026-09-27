@@ -1,0 +1,482 @@
+[
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Theorem 3.1(i), strictly decreasing f branch",
+  "page": 7,
+  "quote": "Theorem 3.1. Let X1, . . . , Xn (X1*, . . . , Xn*) be independent random variables where Xi ~ Frè(µ, λi, α) (Xi* ~ Frè(µ, λi*, α)), i = 1, . . . , n. Let us consider an strictly decreasing (increasing) function f. (i) If (f^-1(·))'(f^-1(·))^(α-1) is increasing (decreasing) and (λ1, . . . , λn) ≽^wf (λ1*, . . . , λn*) then Xn:n ≥rh (≤rh) Xn:n*.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "Fréchet Frè(µ, λ, α): G(x; µ, λ, α) = exp{−((x−µ)/λ)^(−α)}, x > µ; µ ∈ R location, λ > 0 scale, α > 0 shape",
+  "compared": "scale parameter vectors λ vs λ*, common location µ and shape α",
+  "hypotheses": [
+   {"text": "Xi ~ Frè(µ, λi, α) (Xi* ~ Frè(µ, λi*, α)), independent", "formal": "X_i ~ Frechet(µ, λ_i, α), X_i* ~ Frechet(µ, λ_i*, α)", "source": "statement"},
+   {"text": "an strictly decreasing function f", "formal": "f strictly decreasing", "source": "statement"},
+   {"text": "(f^-1(·))'(f^-1(·))^(α-1) is increasing", "formal": "y ↦ (f⁻¹)'(y)·(f⁻¹(y))^(α−1) increasing", "source": "statement"},
+   {"text": "(λ1, . . . , λn) ≽^wf (λ1*, . . . , λn*)", "formal": "λ weakly f-supermajorized by λ*, i.e. f(λ) ≽^w f(λ*)", "source": "statement (definition 2.3(ii))"}
+  ],
+  "conclusion": {"order": "rh", "direction": "Xn:n ≥_rh Xn:n*"},
+  "quantifiers": "n ≥ 1 (i = 1,...,n); x > µ",
+  "numbers": "",
+  "ambiguity": "Text layer drops the majorization glyphs; ≽^wf verified from rendered PDF page 7. Theorem states two branches (decreasing/increasing f) in one part; this record covers the decreasing-f branch."
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Theorem 3.1(i), strictly increasing f branch",
+  "page": 7,
+  "quote": "Theorem 3.1. Let X1, . . . , Xn (X1*, . . . , Xn*) be independent random variables where Xi ~ Frè(µ, λi, α) (Xi* ~ Frè(µ, λi*, α)), i = 1, . . . , n. Let us consider an strictly decreasing (increasing) function f. (i) If (f^-1(·))'(f^-1(·))^(α-1) is increasing (decreasing) and (λ1, . . . , λn) ≽^wf (λ1*, . . . , λn*) then Xn:n ≥rh (≤rh) Xn:n*.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "Fréchet Frè(µ, λ, α): G(x; µ, λ, α) = exp{−((x−µ)/λ)^(−α)}, x > µ",
+  "compared": "scale parameter vectors λ vs λ*, common location µ and shape α",
+  "hypotheses": [
+   {"text": "Xi ~ Frè(µ, λi, α) (Xi* ~ Frè(µ, λi*, α)), independent", "formal": "X_i ~ Frechet(µ, λ_i, α), X_i* ~ Frechet(µ, λ_i*, α)", "source": "statement"},
+   {"text": "(increasing) function f", "formal": "f strictly increasing", "source": "statement"},
+   {"text": "(f^-1(·))'(f^-1(·))^(α-1) is (decreasing)", "formal": "y ↦ (f⁻¹)'(y)·(f⁻¹(y))^(α−1) decreasing", "source": "statement"},
+   {"text": "(λ1, . . . , λn) ≽^wf (λ1*, . . . , λn*)", "formal": "λ weakly f-supermajorized by λ*", "source": "statement (definition 2.3(ii))"}
+  ],
+  "conclusion": {"order": "rh", "direction": "Xn:n ≤_rh Xn:n*"},
+  "quantifiers": "n ≥ 1; x > µ",
+  "numbers": "",
+  "ambiguity": "Increasing-f branch of part (i). Glyphs verified from rendered PDF."
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Theorem 3.1(ii), strictly decreasing f branch",
+  "page": 7,
+  "quote": "(ii) If (f^-1(·))'(f^-1(·))^(α-1) is decreasing (increasing) and (λ1*, . . . , λn*) ≽_wf (λ1, . . . , λn) then Xn:n ≥rh (≤rh) Xn:n*.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "Fréchet Frè(µ, λ, α)",
+  "compared": "scale parameter vectors λ vs λ*, common location µ and shape α; here the starred vector weakly f-submajorizes",
+  "hypotheses": [
+   {"text": "Xi ~ Frè(µ, λi, α) (Xi* ~ Frè(µ, λi*, α)), independent", "formal": "X_i ~ Frechet(µ, λ_i, α), X_i* ~ Frechet(µ, λ_i*, α)", "source": "statement (part preamble)"},
+   {"text": "strictly decreasing function f", "formal": "f strictly decreasing", "source": "statement (part preamble)"},
+   {"text": "(f^-1(·))'(f^-1(·))^(α-1) is decreasing", "formal": "(f⁻¹)'·(f⁻¹)^(α−1) decreasing", "source": "statement"},
+   {"text": "(λ1*, . . . , λn*) ≽_wf (λ1, . . . , λn)", "formal": "λ* weakly f-submajorized by λ, i.e. f(λ*) ≽_w f(λ)", "source": "statement (definition 2.3(i))"}
+  ],
+  "conclusion": {"order": "rh", "direction": "Xn:n ≥_rh Xn:n*"},
+  "quantifiers": "n ≥ 1; x > µ",
+  "numbers": "",
+  "ambiguity": "Decreasing-f branch of part (ii); ≽_wf verified from rendered PDF page 7."
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Theorem 3.1(ii), strictly increasing f branch",
+  "page": 7,
+  "quote": "(ii) If (f^-1(·))'(f^-1(·))^(α-1) is decreasing (increasing) and (λ1*, . . . , λn*) ≽_wf (λ1, . . . , λn) then Xn:n ≥rh (≤rh) Xn:n*.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "Fréchet Frè(µ, λ, α)",
+  "compared": "scale parameter vectors λ vs λ*, common location µ and shape α",
+  "hypotheses": [
+   {"text": "Xi ~ Frè(µ, λi, α) (Xi* ~ Frè(µ, λi*, α)), independent", "formal": "X_i ~ Frechet(µ, λ_i, α), X_i* ~ Frechet(µ, λ_i*, α)", "source": "statement (part preamble)"},
+   {"text": "(increasing) function f", "formal": "f strictly increasing", "source": "statement (part preamble)"},
+   {"text": "(f^-1(·))'(f^-1(·))^(α-1) is (increasing)", "formal": "(f⁻¹)'·(f⁻¹)^(α−1) increasing", "source": "statement"},
+   {"text": "(λ1*, . . . , λn*) ≽_wf (λ1, . . . , λn)", "formal": "λ* weakly f-submajorized by λ", "source": "statement (definition 2.3(i))"}
+  ],
+  "conclusion": {"order": "rh", "direction": "Xn:n ≤_rh Xn:n*"},
+  "quantifiers": "n ≥ 1; x > µ",
+  "numbers": "",
+  "ambiguity": "Increasing-f branch of part (ii)."
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Corollary 3.2",
+  "page": 8,
+  "quote": "Corollary 3.2. Let X1, . . . , Xn (X1*, . . . , Xn*) be independent random variables where Xi ~ Frè(µ, λi, α) (Xi* ~ Frè(µ, λi*, α)), i = 1, . . . , n. If (1/λ1, . . . , 1/λn) ≽^w (1/λ1*, . . . , 1/λn*) then Xn:n ≥rh Xn:n*.",
+  "kind": "corollary",
+  "model": "parallel system",
+  "family": "Fréchet Frè(µ, λ, α)",
+  "compared": "scale vectors λ vs λ*; reciprocals weakly supermajorized",
+  "hypotheses": [
+   {"text": "Xi ~ Frè(µ, λi, α) (Xi* ~ Frè(µ, λi*, α)), independent", "formal": "Fréchet components, common µ, α", "source": "statement"},
+   {"text": "(1/λ1, . . . , 1/λn) ≽^w (1/λ1*, . . . , 1/λn*)", "formal": "reciprocal scale vector of X weakly supermajorized by that of X*", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "Xn:n ≥_rh Xn:n*"},
+  "quantifiers": "n ≥ 1; x > µ",
+  "numbers": "",
+  "ambiguity": "Obtained from Theorem 3.1 with f(x) = 1/x; symbol ≽^w verified from rendered PDF page 8."
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Corollary 3.3(i)",
+  "page": 8,
+  "quote": "Corollary 3.3. Let X1, . . . , Xn (X1*, . . . , Xn*) be independent random variables where Xi ~ Frè(µ, λi, α) (Xi* ~ Frè(µ, λi*, α)), i = 1, . . . , n. (i) If α ≥ 1, and (λ1, . . . , λn) ≽_w (λ1*, . . . , λn*) then Xn:n ≥rh Xn:n*.",
+  "kind": "corollary",
+  "model": "parallel system",
+  "family": "Fréchet Frè(µ, λ, α)",
+  "compared": "scale vectors λ vs λ*",
+  "hypotheses": [
+   {"text": "Xi ~ Frè(µ, λi, α) (Xi* ~ Frè(µ, λi*, α)), independent", "formal": "Fréchet components", "source": "statement"},
+   {"text": "α ≥ 1", "formal": "α ≥ 1", "source": "statement"},
+   {"text": "(λ1, . . . , λn) ≽_w (λ1*, . . . , λn*)", "formal": "λ weakly submajorized by λ*", "source": "statement (definition 2.2(i))"}
+  ],
+  "conclusion": {"order": "rh", "direction": "Xn:n ≥_rh Xn:n*"},
+  "quantifiers": "n ≥ 1; x > µ",
+  "numbers": "",
+  "ambiguity": "From Theorem 3.1 with f(x) = x. Symbol ≽_w verified from rendered PDF."
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Corollary 3.3(ii)",
+  "page": 8,
+  "quote": "(ii) If 0 < α ≤ 1 and (λ1, . . . , λn) ≽^w (λ1*, . . . , λn*) then Xn:n ≤rh Xn:n*.",
+  "kind": "corollary",
+  "model": "parallel system",
+  "family": "Fréchet Frè(µ, λ, α)",
+  "compared": "scale vectors λ vs λ*",
+  "hypotheses": [
+   {"text": "Xi ~ Frè(µ, λi, α) (Xi* ~ Frè(µ, λi*, α)), independent", "formal": "Fréchet components", "source": "statement (part preamble)"},
+   {"text": "0 < α ≤ 1", "formal": "0 < α ≤ 1", "source": "statement"},
+   {"text": "(λ1, . . . , λn) ≽^w (λ1*, . . . , λn*)", "formal": "λ weakly supermajorized by λ*", "source": "statement (definition 2.2(ii))"}
+  ],
+  "conclusion": {"order": "rh", "direction": "Xn:n ≤_rh Xn:n*"},
+  "quantifiers": "n ≥ 1; x > µ",
+  "numbers": "",
+  "ambiguity": "Symbol ≽^w verified from rendered PDF."
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Theorem 3.4",
+  "page": 8,
+  "quote": "Theorem 3.4. Let X1, . . . , Xn (X1*, . . . , Xn*) be independent random variables where Xi ~ Frè(µi, λ, α) (Xi* ~ Frè(µi*, λ, α)), i = 1, . . . , n. If (µ1, . . . , µn) ≽_w (µ1*, . . . , µn*), then Xn:n ≥rh Xn:n*.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "Fréchet Frè(µ, λ, α)",
+  "compared": "location parameter vectors µ vs µ*, common scale λ and shape α",
+  "hypotheses": [
+   {"text": "Xi ~ Frè(µi, λ, α) (Xi* ~ Frè(µi*, λ, α)), independent", "formal": "Fréchet components varying in location only", "source": "statement"},
+   {"text": "(µ1, . . . , µn) ≽_w (µ1*, . . . , µn*)", "formal": "µ weakly submajorized by µ*", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "Xn:n ≥_rh Xn:n*"},
+  "quantifiers": "n ≥ 1; x > max(µ1,...,µn)",
+  "numbers": "",
+  "ambiguity": "Preamble notes the same holds under weak f-submajorization for increasing concave f of location parameters (via Lemma 2.2(ii))."
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Theorem 3.5(i), decreasing branch",
+  "page": 9,
+  "quote": "Theorem 3.5. Suppose Xi and Xi* as in the setting of Theorem 3.5. If xr(x) is increasing in x, x² r'(x) is decreasing (increasing) in x and (λ1, . . . , λn) ≽^w (≽_w)(λ1*, . . . , λn*), then (i) X1:n ≥hr (≤hr) X1:n*, and (ii) if r(x) is decreasing then X1:n ≥disp (≤disp) X1:n*.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Scale family: Xi ~ G(λi x), Xi* ~ G(λi* x), λi > 0, G absolutely continuous baseline with density g; r = hazard rate of G. Section text notes conditions hold for generalized gamma GG(p,q) (x²r' increasing when p,q > 1, decreasing when p,q < 1) and Weibull W(α,λ) (increasing for α ≥ 1, decreasing for α ≤ 1)",
+  "compared": "scale parameter vectors λ vs λ*",
+  "hypotheses": [
+   {"text": "Suppose Xi and Xi* as in the setting of Theorem 3.5", "formal": "Xi ~ G(λi x), Xi* ~ G(λi* x), independent scale model (section 3.2 preamble)", "source": "statement + section preamble"},
+   {"text": "xr(x) is increasing in x", "formal": "u ↦ u·r(u) increasing", "source": "statement"},
+   {"text": "x² r'(x) is decreasing in x", "formal": "u ↦ u²r'(u) decreasing", "source": "statement"},
+   {"text": "(λ1, . . . , λn) ≽^w (λ1*, . . . , λn*)", "formal": "λ weakly supermajorized by λ*", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X1:n ≥_hr X1:n*"},
+  "quantifiers": "n ≥ 1; x > 0",
+  "numbers": "",
+  "ambiguity": "Statement says 'as in the setting of Theorem 3.5' — a self-reference; the intended setting is the scale model of Section 3.2 (probably meant Theorem 3.6's setting or the section preamble). Recorded verbatim. Glyphs ≽^w/≽_w verified from rendered PDF page 9."
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Theorem 3.5(i), increasing branch",
+  "page": 9,
+  "quote": "Theorem 3.5. Suppose Xi and Xi* as in the setting of Theorem 3.5. If xr(x) is increasing in x, x² r'(x) is decreasing (increasing) in x and (λ1, . . . , λn) ≽^w (≽_w)(λ1*, . . . , λn*), then (i) X1:n ≥hr (≤hr) X1:n*.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Scale family Xi ~ G(λi x); conditions hold e.g. for GG(p,q) with p,q > 1 and Weibull W(α,λ) with α ≥ 1",
+  "compared": "scale parameter vectors λ vs λ*",
+  "hypotheses": [
+   {"text": "Suppose Xi and Xi* as in the setting of Theorem 3.5", "formal": "scale model, independent", "source": "statement + section preamble"},
+   {"text": "xr(x) is increasing in x", "formal": "u ↦ u·r(u) increasing", "source": "statement"},
+   {"text": "x² r'(x) is (increasing) in x", "formal": "u ↦ u²r'(u) increasing", "source": "statement"},
+   {"text": "(λ1, . . . , λn) (≽_w)(λ1*, . . . , λn*)", "formal": "λ weakly submajorized by λ*", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X1:n ≤_hr X1:n*"},
+  "quantifiers": "n ≥ 1; x > 0",
+  "numbers": "",
+  "ambiguity": "Increasing branch of part (i)."
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Theorem 3.5(ii), decreasing branch",
+  "page": 9,
+  "quote": "(ii) if r(x) is decreasing then X1:n ≥disp (≤disp) X1:n*.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Scale family Xi ~ G(λi x)",
+  "compared": "scale parameter vectors λ vs λ*",
+  "hypotheses": [
+   {"text": "Suppose Xi and Xi* as in the setting of Theorem 3.5", "formal": "scale model, independent", "source": "statement (part preamble)"},
+   {"text": "xr(x) is increasing in x, x² r'(x) is decreasing in x", "formal": "ur(u) increasing, u²r'(u) decreasing", "source": "statement (part preamble)"},
+   {"text": "(λ1, . . . , λn) ≽^w (λ1*, . . . , λn*)", "formal": "λ weakly supermajorized by λ*", "source": "statement (part preamble)"},
+   {"text": "if r(x) is decreasing", "formal": "baseline hazard r decreasing", "source": "statement"}
+  ],
+  "conclusion": {"order": "disp", "direction": "X1:n ≥_disp X1:n*"},
+  "quantifiers": "n ≥ 1; x > 0",
+  "numbers": "",
+  "ambiguity": "Dispersive order part; relies additionally on Theorem 2.1 of [1] (Bagai–Kochar) and Theorem 1 of [4] (Bartoszewicz)."
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Theorem 3.5(ii), increasing branch",
+  "page": 9,
+  "quote": "(ii) if r(x) is decreasing then X1:n ≥disp (≤disp) X1:n*.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Scale family Xi ~ G(λi x)",
+  "compared": "scale parameter vectors λ vs λ*",
+  "hypotheses": [
+   {"text": "Suppose Xi and Xi* as in the setting of Theorem 3.5", "formal": "scale model, independent", "source": "statement (part preamble)"},
+   {"text": "xr(x) is increasing in x, x² r'(x) is (increasing) in x", "formal": "ur(u) increasing, u²r'(u) increasing", "source": "statement (part preamble)"},
+   {"text": "(λ1, . . . , λn) (≽_w)(λ1*, . . . , λn*)", "formal": "λ weakly submajorized by λ*", "source": "statement (part preamble)"},
+   {"text": "if r(x) is decreasing", "formal": "baseline hazard r decreasing", "source": "statement"}
+  ],
+  "conclusion": {"order": "disp", "direction": "X1:n ≤_disp X1:n*"},
+  "quantifiers": "n ≥ 1; x > 0",
+  "numbers": "",
+  "ambiguity": "Increasing branch of part (ii)."
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Theorem 3.6",
+  "page": 10,
+  "quote": "Theorem 3.6. Let X1, . . . , Xn be a set of independent nonnegative random variables with Xi ~ G(λi x), i = 1, . . . , n. Let X1*, . . . , Xn* be another set of independent nonnegative random variables with Xi* ~ G(λi* x), i = 1, . . . , n. If (f^-1)'(y) r̃(f^-1(y)) is decreasing in y, where f is a strictly increasing function, then (λ1, . . . , λn) ≽^wf (λ1*, . . . , λn*) ⟹ Xn:n ≥st Xn:n*.  (3.1)",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "Scale family Xi ~ G(λi x), G absolutely continuous baseline with density g, reversed hazard rate r̃",
+  "compared": "scale parameter vectors λ vs λ*",
+  "hypotheses": [
+   {"text": "Xi ~ G(λi x), Xi* ~ G(λi* x), independent nonnegative", "formal": "scale model", "source": "statement"},
+   {"text": "(f^-1)'(y) r̃(f^-1(y)) is decreasing in y", "formal": "y ↦ (f⁻¹)'(y)·r̃(f⁻¹(y)) decreasing", "source": "statement"},
+   {"text": "f is a strictly increasing function", "formal": "f strictly increasing", "source": "statement"},
+   {"text": "(λ1, . . . , λn) ≽^wf (λ1*, . . . , λn*)", "formal": "λ weakly f-supermajorized by λ*", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn:n ≥_st Xn:n*"},
+  "quantifiers": "n ≥ 1; x ≥ 0",
+  "numbers": "",
+  "ambiguity": "≽^wf verified from rendered PDF page 10."
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Theorem 3.7",
+  "page": 11,
+  "quote": "Theorem 3.7. Let X1, . . . , Xn (X1*, . . . , Xn*) be independent random variables with Xi ~ ES(αi, λ) (Xi* ~ ES(αi*, λ)), i = 1, ..., n. Then, for any λ > 0, we have α ≽^w α* ⟹ X1:n ≤hr X1:n*.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Exponentiated scale ES(α, λ): H(x) = [G(λx)]^α, α, λ > 0, G baseline distribution",
+  "compared": "shape/exponent vectors α vs α*, common scale λ",
+  "hypotheses": [
+   {"text": "Xi ~ ES(αi, λ) (Xi* ~ ES(αi*, λ)), independent", "formal": "ES components varying in α only", "source": "statement"},
+   {"text": "α ≽^w α*", "formal": "α weakly supermajorized by α*", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X1:n ≤_hr X1:n*"},
+  "quantifiers": "n ≥ 1; any λ > 0; x > 0",
+  "numbers": "",
+  "ambiguity": "≽^w (weak supermajorization) verified from rendered PDF page 11. Section preamble notes result also true under weak f-supermajorization for nonnegative strictly increasing convex f (Lemma 2.2)."
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Corollary 3.8",
+  "page": 12,
+  "quote": "Corollary 3.8. For i = 1, . . . , n, let Xi and Xi* be two sets of mutually independent random variables with Xi ~ GE(αi, λ) and Xi* ~ GE(αi*, λ). Then, for any λ > 0, we have α ≽^w α* ⟹ X1:n ≤hr X1:n*.",
+  "kind": "corollary",
+  "model": "series system",
+  "family": "Generalized exponential GE(α, λ): G(x) = (1 − exp{−λx})^α, x > 0, α > 0 shape, λ > 0 scale",
+  "compared": "shape vectors α vs α*, common scale λ",
+  "hypotheses": [
+   {"text": "Xi ~ GE(αi, λ) and Xi* ~ GE(αi*, λ), mutually independent", "formal": "GE components varying in α", "source": "statement"},
+   {"text": "α ≽^w α*", "formal": "α weakly supermajorized by α*", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X1:n ≤_hr X1:n*"},
+  "quantifiers": "n ≥ 1; any λ > 0; x > 0",
+  "numbers": "",
+  "ambiguity": "GE is the ES family member with baseline G(x) = 1 − e^(−x)."
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Theorem 3.9, decreasing branch",
+  "page": 12,
+  "quote": "Theorem 3.9. Let X1, . . . , Xn (X1*, . . . , Xn*) be independent random variables with Xi ~ ES(α, λi) (Xi* ~ ES(α, λi*)), i = 1, ..., n. If q(α, x) = α r̃(x) G^α(x)/(1 − G^α(x)) is decreasing (increasing) in x, λ ≽^w (≽_w) λ*, then X1:n ≥st (≤st) X1:n*.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Exponentiated scale ES(α, λi), common exponent α, baseline G with reversed hazard r̃",
+  "compared": "scale vectors λ vs λ*",
+  "hypotheses": [
+   {"text": "Xi ~ ES(α, λi) (Xi* ~ ES(α, λi*)), independent", "formal": "ES components varying in scale", "source": "statement"},
+   {"text": "q(α, x) = α r̃(x) G^α(x)/(1 − G^α(x)) is decreasing in x", "formal": "q(α,·) decreasing", "source": "statement"},
+   {"text": "λ ≽^w λ*", "formal": "λ weakly supermajorized by λ*", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X1:n ≥_st X1:n*"},
+  "quantifiers": "n ≥ 1; x > 0",
+  "numbers": "",
+  "ambiguity": "Branch symbols verified from rendered PDF page 12 (λ ≽^w for the decreasing branch)."
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Theorem 3.9, increasing branch",
+  "page": 12,
+  "quote": "Theorem 3.9. Let X1, . . . , Xn (X1*, . . . , Xn*) be independent random variables with Xi ~ ES(α, λi) (Xi* ~ ES(α, λi*)), i = 1, ..., n. If q(α, x) = α r̃(x) G^α(x)/(1 − G^α(x)) is decreasing (increasing) in x, λ ≽^w (≽_w) λ*, then X1:n ≥st (≤st) X1:n*.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Exponentiated scale ES(α, λi), common exponent α",
+  "compared": "scale vectors λ vs λ*",
+  "hypotheses": [
+   {"text": "Xi ~ ES(α, λi) (Xi* ~ ES(α, λi*)), independent", "formal": "ES components varying in scale", "source": "statement"},
+   {"text": "q(α, x) is (increasing) in x", "formal": "q(α,·) increasing", "source": "statement"},
+   {"text": "λ (≽_w) λ*", "formal": "λ weakly submajorized by λ*", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X1:n ≤_st X1:n*"},
+  "quantifiers": "n ≥ 1; x > 0",
+  "numbers": "",
+  "ambiguity": "Increasing branch of Theorem 3.9."
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Corollary 3.10, 0 < α ≤ 1 branch",
+  "page": 13,
+  "quote": "Corollary 3.10. Let X1, . . . , Xn (X1*, . . . , Xn*) be independent random variables with Xi ~ GE(α, λi) (Xi* ~ GE(α, λi*)), i = 1, ..., n. If 0 < α ≤ 1 (α ≥ 1) and (λ1, . . . , λn) ≽^w (≽_w)(λ1*, . . . , λn*), then X1:n ≥st (≤st) X1:n*.",
+  "kind": "corollary",
+  "model": "series system",
+  "family": "Generalized exponential GE(α, λ)",
+  "compared": "scale vectors λ vs λ*, common α",
+  "hypotheses": [
+   {"text": "Xi ~ GE(α, λi) (Xi* ~ GE(α, λi*))", "formal": "GE components", "source": "statement"},
+   {"text": "0 < α ≤ 1", "formal": "0 < α ≤ 1", "source": "statement"},
+   {"text": "(λ1, . . . , λn) ≽^w (λ1*, . . . , λn*)", "formal": "λ weakly supermajorized by λ*", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X1:n ≥_st X1:n*"},
+  "quantifiers": "n ≥ 1; x > 0",
+  "numbers": "",
+  "ambiguity": "First branch (0 < α ≤ 1, ≽^w, ≥st) verified from rendered PDF page 13."
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Corollary 3.10, α ≥ 1 branch",
+  "page": 13,
+  "quote": "Corollary 3.10. Let X1, . . . , Xn (X1*, . . . , Xn*) be independent random variables with Xi ~ GE(α, λi) (Xi* ~ GE(α, λi*)), i = 1, ..., n. If 0 < α ≤ 1 (α ≥ 1) and (λ1, . . . , λn) ≽^w (≽_w)(λ1*, . . . , λn*), then X1:n ≥st (≤st) X1:n*.",
+  "kind": "corollary",
+  "model": "series system",
+  "family": "Generalized exponential GE(α, λ)",
+  "compared": "scale vectors λ vs λ*, common α",
+  "hypotheses": [
+   {"text": "Xi ~ GE(α, λi) (Xi* ~ GE(α, λi*))", "formal": "GE components", "source": "statement"},
+   {"text": "(α ≥ 1)", "formal": "α ≥ 1", "source": "statement"},
+   {"text": "(λ1, . . . , λn) (≽_w)(λ1*, . . . , λn*)", "formal": "λ weakly submajorized by λ*", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X1:n ≤_st X1:n*"},
+  "quantifiers": "n ≥ 1; x > 0",
+  "numbers": "",
+  "ambiguity": "Second branch (α ≥ 1, ≽_w, ≤st)."
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Example 3.11(i)",
+  "page": 13,
+  "quote": "Example 3.11. Let (X1, X2) ((X1*, X2*)) be a vector of independent heterogeneous GE random variables. (i) Set α = 2, (λ1, λ2) = (4, 0.5) and (λ1*, λ2*) = (2, 3). Obviously (λ1, λ2) ≽^w_exp (λ1*, λ2*), however X1:2 and X1:2* are not ordered in the usual stochastic order as can be seen in Fig. 1.",
+  "kind": "counterexample",
+  "model": "series system",
+  "family": "Generalized exponential GE(α, λ), n = 2",
+  "compared": "λ = (4, 0.5) vs λ* = (2, 3), common α = 2",
+  "hypotheses": [
+   {"text": "Set α = 2, (λ1, λ2) = (4, 0.5) and (λ1*, λ2*) = (2, 3)", "formal": "GE(2, λi) vs GE(2, λi*)", "source": "statement"},
+   {"text": "(λ1, λ2) ≽^w_exp (λ1*, λ2*)", "formal": "λ weakly exp-majorized by λ* (Definition 2.4)", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X1:2 and X1:2* not ordered in usual stochastic order (survival functions cross, Fig. 1)"},
+  "quantifiers": "n = 2",
+  "numbers": "α = 2; (λ1, λ2) = (4, 0.5); (λ1*, λ2*) = (2, 3); Figure 1 plots survival functions crossing on x ∈ (0, 2.5)",
+  "ambiguity": "Labeled 'Example' but functions as a counterexample to the conjecture that weak (exp-) majorization of scales gives st order for α ≥ 1. exp-majorization symbol ≽^w_exp verified from rendered PDF."
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Example 3.11(ii)",
+  "page": 13,
+  "quote": "(ii) Set α = 0.6. For (λ1, λ2) = (1, 5.5) ≽^p (2, 3) = (λ1*, λ2*), X1:2 ≤st X1:2*; however, for (λ1, λ2) = (1, 2.25) ≽^p (1.1, 2.14) = (λ1*, λ2*), X1:2 ≥st X1:2*. So, (λ1, λ2) ≽^p (λ1*, λ2*) implies neither X1:2 ≤st X1:2* nor X1:2 ≥st X1:2* for 0 < α ≤ 1.",
+  "kind": "counterexample",
+  "model": "series system",
+  "family": "Generalized exponential GE(α, λ), n = 2",
+  "compared": "λ = (1, 5.5) vs λ* = (2, 3) giving ≤st; λ = (1, 2.25) vs λ* = (1.1, 2.14) giving ≥st; common α = 0.6",
+  "hypotheses": [
+   {"text": "Set α = 0.6", "formal": "α = 0.6", "source": "statement"},
+   {"text": "(λ1, λ2) ≽^p (λ1*, λ2*)", "formal": "λ p-larger than λ* (Definition 2.2(v))", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "p-larger ordering of scales implies neither X1:2 ≤st X1:2* nor X1:2 ≥st X1:2* for 0 < α ≤ 1 (both directions occur)"},
+  "quantifiers": "n = 2",
+  "numbers": "α = 0.6; (λ1,λ2) = (1,5.5) ≽^p (2,3) gives X1:2 ≤st X1:2*; (λ1,λ2) = (1,2.25) ≽^p (1.1,2.14) gives X1:2 ≥st X1:2*",
+  "ambiguity": "Counterexample to extending Corollary 3.10's second branch to the p-larger order for 0 < α ≤ 1."
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Theorem 3.12(i)",
+  "page": 14,
+  "quote": "Theorem 3.12. For X ~ ES(α, λ, φ1) and X* ~ ES(α*, λ, φ2), (i) if φ1 or φ2 is log-convex, and ψ2 ◦ φ1 is super-additive, then α ≽_w α* implies Xn:n ≥st Xn:n*;",
+  "kind": "theorem",
+  "model": "other: largest order statistic of a dependent sample with ES marginals and Archimedean copula",
+  "family": "ES(α, λ, φ): sample with Archimedean copula generator φ, marginals Xi ~ ES(αi, λi); ψ = φ^-1 pseudo-inverse",
+  "compared": "exponent vectors α vs α* and copula generators φ1 vs φ2; common λ",
+  "hypotheses": [
+   {"text": "X ~ ES(α, λ, φ1) and X* ~ ES(α*, λ, φ2)", "formal": "two heterogeneous samples with ES marginals and Archimedean copulas", "source": "statement"},
+   {"text": "φ1 or φ2 is log-convex", "formal": "log φ1 or log φ2 convex", "source": "statement"},
+   {"text": "ψ2 ◦ φ1 is super-additive", "formal": "ψ2(φ1(a+b)) ≥ ψ2(φ1(a)) + ψ2(φ1(b))", "source": "statement"},
+   {"text": "α ≽_w α*", "formal": "α weakly submajorized by α*", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn:n ≥_st Xn:n*"},
+  "quantifiers": "n ≥ 1; x ≥ 0",
+  "numbers": "",
+  "ambiguity": "Subscript w in ≽_w verified from rendered PDF page 14."
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Theorem 3.12(ii)",
+  "page": 14,
+  "quote": "(ii) if φ1 or φ2 is log-concave, and ψ1 ◦ φ2 is super-additive, then α ≽^w α* implies Xn:n ≤st Xn:n*.",
+  "kind": "theorem",
+  "model": "other: largest order statistic of a dependent sample with ES marginals and Archimedean copula",
+  "family": "ES(α, λ, φ): Archimedean copula generator φ, ES marginals",
+  "compared": "exponent vectors α vs α* and copula generators φ1 vs φ2; common λ",
+  "hypotheses": [
+   {"text": "X ~ ES(α, λ, φ1) and X* ~ ES(α*, λ, φ2)", "formal": "dependent ES samples", "source": "statement (part preamble)"},
+   {"text": "φ1 or φ2 is log-concave", "formal": "log φ1 or log φ2 concave", "source": "statement"},
+   {"text": "ψ1 ◦ φ2 is super-additive", "formal": "ψ1∘φ2 super-additive", "source": "statement"},
+   {"text": "α ≽^w α*", "formal": "α weakly supermajorized by α*", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn:n ≤_st Xn:n*"},
+  "quantifiers": "n ≥ 1; x ≥ 0",
+  "numbers": "",
+  "ambiguity": "Superscript w in ≽^w verified from rendered PDF."
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Corollary 3.13",
+  "page": 16,
+  "quote": "Corollary 3.13. For X ~ ES(α, λ, φ1) and X* ~ ES(α*, λ, φ2), if φ1 or φ2 is log-convex, and ψ2 ◦ φ1 is super-additive, then α ≽^w_log α* implies Xn:n ≤st Xn:n*.",
+  "kind": "corollary",
+  "model": "other: largest order statistic of a dependent sample with ES marginals and Archimedean copula",
+  "family": "ES(α, λ, φ): Archimedean copula generator φ, ES marginals",
+  "compared": "exponent vectors α vs α* (weakly log-majorized) and generators φ1 vs φ2; common λ",
+  "hypotheses": [
+   {"text": "X ~ ES(α, λ, φ1) and X* ~ ES(α*, λ, φ2)", "formal": "dependent ES samples", "source": "statement"},
+   {"text": "φ1 or φ2 is log-convex, and ψ2 ◦ φ1 is super-additive", "formal": "same copula conditions as Thm 3.12(i)", "source": "statement"},
+   {"text": "α ≽^w_log α*", "formal": "α weakly log-majorized relation to α* (Definition 2.2(iv), symbol is ≽ with stacked w over log)", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn:n ≤_st Xn:n*"},
+  "quantifiers": "n ≥ 1; x ≥ 0",
+  "numbers": "",
+  "ambiguity": "Preamble derives this from Theorem 3.12(i) via 'weak log-majorization implies weak submajorization', but Theorem 3.12(i) concludes Xn:n ≥st Xn:n* while this corollary concludes ≤st — the printed direction conflicts with the derivation; recorded verbatim. Symbol ≽^w_log verified from rendered PDF page 16."
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Corollary 3.14",
+  "page": 16,
+  "quote": "Corollary 3.14. For X ~ PRH(α, φ1) and X* ~ PRH(α*, λ, φ2), if φ1 or φ2 is log-convex, and ψ2 ◦ φ1 is super-additive, then α ≽^w_log α* implies Xn:n ≤st Xn:n*.",
+  "kind": "corollary",
+  "model": "other: largest order statistic of PRH sample with Archimedean copula",
+  "family": "PRH(α, φ): proportional reversed hazard model (λ = 1 case of ES) with Archimedean copula",
+  "compared": "exponent vectors α vs α* and generators φ1 vs φ2",
+  "hypotheses": [
+   {"text": "X ~ PRH(α, φ1) and X* ~ PRH(α*, λ, φ2)", "formal": "PRH samples; note the X* side still prints a λ argument although PRH is the λ = 1 specialization", "source": "statement"},
+   {"text": "φ1 or φ2 is log-convex, and ψ2 ◦ φ1 is super-additive", "formal": "copula conditions", "source": "statement"},
+   {"text": "α ≽^w_log α*", "formal": "weak log-majorization relation", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn:n ≤_st Xn:n*"},
+  "quantifiers": "n ≥ 1; x ≥ 0",
+  "numbers": "",
+  "ambiguity": "Obtained by setting λ = 1 in Corollary 3.13, yet 'PRH(α*, λ, φ2)' retains a λ argument — minor notational inconsistency. Same ≤st direction question as Corollary 3.13. PRH acronym not expanded in the paper (proportional reversed hazard, inferred from context)."
+ }
+]

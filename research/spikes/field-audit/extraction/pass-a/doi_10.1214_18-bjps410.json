@@ -9,14 +9,34 @@
     "family": "Exponentiated scale model: Xi ~ F(λi x)^{αi}, Zi ~ F(μi x)^{αi}, Yi ~ F(μi x)^{βi}, i = 1,...,n, with F an absolutely continuous baseline on R+ having reversed hazard rate r̃ (eq. 2.5)",
     "compared": "scale vectors λ vs μ (log-scale weak α-majorization) and exponent vectors α vs β (unordered majorization); Yn:n vs Xn:n via the bridge variable Zn:n",
     "hypotheses": [
-      {"text": "Assume that t r̃(t) is decreasing in t ∈ R+", "formal": "φ(t) = t·r̃(t) decreasing", "source": "statement"},
-      {"text": "log μ ≺w_α log λ on Dn", "formal": "log μ is weakly α-majorized by log λ on the decreasingly-ordered cone Dn (Definition 2(ii))", "source": "statement"},
-      {"text": "α ≺uo β", "formal": "unordered majorization: partial sums ∑_{i=1}^k αi ≤ ∑_{i=1}^k βi for k = 1,...,n−1 with total equality (Definition 3)", "source": "statement"},
-      {"text": "Xi ~ F(λi x)^{αi}, Zi ~ F(μi x)^{αi}, Yi ~ F(μi x)^{βi}, independent positive r.v.s", "formal": "three-set model", "source": "section preamble, eq. (2.5)"}
+      {
+        "text": "Assume that t r̃(t) is decreasing in t ∈ R+",
+        "formal": "φ(t) = t·r̃(t) decreasing",
+        "source": "statement"
+      },
+      {
+        "text": "log μ ≺w_α log λ on Dn",
+        "formal": "log μ is weakly α-majorized by log λ on the decreasingly-ordered cone Dn (Definition 2(ii))",
+        "source": "statement"
+      },
+      {
+        "text": "α ≺uo β",
+        "formal": "unordered majorization: partial sums ∑_{i=1}^k αi ≤ ∑_{i=1}^k βi for k = 1,...,n−1 with total equality (Definition 3)",
+        "source": "statement"
+      },
+      {
+        "text": "Xi ~ F(λi x)^{αi}, Zi ~ F(μi x)^{αi}, Yi ~ F(μi x)^{βi}, independent positive r.v.s",
+        "formal": "three-set model",
+        "source": "section preamble, eq. (2.5)"
+      }
     ],
-    "conclusion": {"order": "st", "direction": "Y_{n:n} <=st X_{n:n}"},
+    "conclusion": {
+      "order": "st",
+      "direction": "Y_{n:n} <=st X_{n:n}"
+    },
     "quantifiers": "all n, x ∈ R+",
-    "ambiguity": "Intermediate result for a general baseline F; the paper specializes it to the EGG family in Theorem 6."
+    "ambiguity": "Intermediate result for a general baseline F; the paper specializes it to the EGG family in Theorem 6.",
+    "numbers": ""
   },
   {
     "paper": "doi:10.1214/18-bjps410",
@@ -28,13 +48,29 @@
     "family": "Exponentiated scale model Xi ~ F(λi x)^{αi}, Yi ~ F(μi x)^{βi}, Zi ~ F(μi x)^{αi} (eq. 2.5)",
     "compared": "scale vectors λ vs μ (weak α-majorization on Gn) and exponents α ≺uo β; reversed hazard order",
     "hypotheses": [
-      {"text": "Assume that t r̃(t) is decreasing and convex in t ∈ R+", "formal": "t·r̃(t) decreasing and convex", "source": "statement"},
-      {"text": "μ ≺w_α λ on Gn", "formal": "weak α-majorization of the scale vectors on the positive decreasing cone Gn", "source": "statement"},
-      {"text": "α ≺uo β", "formal": "unordered majorization of exponent vectors", "source": "statement"}
+      {
+        "text": "Assume that t r̃(t) is decreasing and convex in t ∈ R+",
+        "formal": "t·r̃(t) decreasing and convex",
+        "source": "statement"
+      },
+      {
+        "text": "μ ≺w_α λ on Gn",
+        "formal": "weak α-majorization of the scale vectors on the positive decreasing cone Gn",
+        "source": "statement"
+      },
+      {
+        "text": "α ≺uo β",
+        "formal": "unordered majorization of exponent vectors",
+        "source": "statement"
+      }
     ],
-    "conclusion": {"order": "rh", "direction": "Y_{n:n} <=rh X_{n:n}"},
+    "conclusion": {
+      "order": "rh",
+      "direction": "Y_{n:n} <=rh X_{n:n}"
+    },
     "quantifiers": "all n, x ∈ R+",
-    "ambiguity": "Proof states 'Assume that μ ≺w_α λ on Dn' while statement says on Gn; minor mismatch between statement and proof."
+    "ambiguity": "Proof states 'Assume that μ ≺w_α λ on Dn' while statement says on Gn; minor mismatch between statement and proof.",
+    "numbers": ""
   },
   {
     "paper": "doi:10.1214/18-bjps410",
@@ -46,13 +82,29 @@
     "family": "Exponentiated scale model (eq. 2.5) with two homogeneous scale groups: μ1 = ··· = μk = μ, μk+1 = ··· = μn = μ́; δ1 = ∑_{i=1}^k αi, δ2 = ∑_{i=k+1}^n αi, ξ1 = ∑_{i=1}^k βi, ξ2 = ∑_{i=k+1}^n βi",
     "compared": "exponent vectors α vs β via aggregated unordered majorization (δ1,δ2) ≺uo (ξ1,ξ2); common scale grouping μ,μ́ on both sides; Yn:n vs Zn:n (same scales, different exponents)",
     "hypotheses": [
-      {"text": "Assume that both functions t r̃(t) and t r̃'(t)/r̃(t) are decreasing in t ∈ R+", "formal": "t·r̃(t) and t·r̃'(t)/r̃(t) decreasing", "source": "statement"},
-      {"text": "(μ, μ́) ∈ G2", "formal": "μ ≥ μ́ > 0 (ordered positive scale pair)", "source": "statement"},
-      {"text": "(δ1, δ2) ≺uo (ξ1, ξ2)", "formal": "δ1 ≤ ξ1 and δ1 + δ2 = ξ1 + ξ2", "source": "statement"}
+      {
+        "text": "Assume that both functions t r̃(t) and t r̃'(t)/r̃(t) are decreasing in t ∈ R+",
+        "formal": "t·r̃(t) and t·r̃'(t)/r̃(t) decreasing",
+        "source": "statement"
+      },
+      {
+        "text": "(μ, μ́) ∈ G2",
+        "formal": "μ ≥ μ́ > 0 (ordered positive scale pair)",
+        "source": "statement"
+      },
+      {
+        "text": "(δ1, δ2) ≺uo (ξ1, ξ2)",
+        "formal": "δ1 ≤ ξ1 and δ1 + δ2 = ξ1 + ξ2",
+        "source": "statement"
+      }
     ],
-    "conclusion": {"order": "lr", "direction": "Y_{n:n} <=lr Z_{n:n}"},
+    "conclusion": {
+      "order": "lr",
+      "direction": "Y_{n:n} <=lr Z_{n:n}"
+    },
     "quantifiers": "k ∈ {1,...,n−1}, x ∈ R+",
-    "ambiguity": "Compares Yn:n to the intermediate variable Zn:n (exponents α vs β on common two-group scales), not directly to a second system Xn:n."
+    "ambiguity": "Compares Yn:n to the intermediate variable Zn:n (exponents α vs β on common two-group scales), not directly to a second system Xn:n.",
+    "numbers": ""
   },
   {
     "paper": "doi:10.1214/18-bjps410",
@@ -64,13 +116,29 @@
     "family": "Exponentiated generalized gamma: Xi ~ EGG(αi, ν, τ, λi), Yi ~ EGG(βi, ν, τ, μi), i = 1,...,n, independent (Section 3 preamble)",
     "compared": "scale vectors λ vs μ via log-scale weak α-majorization; exponential shape vectors α ≺uo β; common ν, τ",
     "hypotheses": [
-      {"text": "log μ ≺w_α log λ on Dn", "formal": "weak α-majorization of log-scale vectors on Dn", "source": "statement"},
-      {"text": "α ≺uo β", "formal": "unordered majorization of exponential shape vectors", "source": "statement"},
-      {"text": "Xi ~ EGG(αi, ν, τ, λi) and Yi ~ EGG(βi, ν, τ, μi) for i = 1,...,n", "formal": "two parallel systems with EGG components", "source": "Section 3 preamble"}
+      {
+        "text": "log μ ≺w_α log λ on Dn",
+        "formal": "weak α-majorization of log-scale vectors on Dn",
+        "source": "statement"
+      },
+      {
+        "text": "α ≺uo β",
+        "formal": "unordered majorization of exponential shape vectors",
+        "source": "statement"
+      },
+      {
+        "text": "Xi ~ EGG(αi, ν, τ, λi) and Yi ~ EGG(βi, ν, τ, μi) for i = 1,...,n",
+        "formal": "two parallel systems with EGG components",
+        "source": "Section 3 preamble"
+      }
     ],
-    "conclusion": {"order": "st", "direction": "Y_{n:n} <=st X_{n:n}"},
+    "conclusion": {
+      "order": "st",
+      "direction": "Y_{n:n} <=st X_{n:n}"
+    },
     "quantifiers": "for all ν ∈ R+ and τ ∈ R+; n = 1,...,n components",
-    "ambiguity": "Extends Khaledi–Farsinezhad–Kochar (2011) result for the generalized-gamma case (αi = βi = 1)."
+    "ambiguity": "Extends Khaledi–Farsinezhad–Kochar (2011) result for the generalized-gamma case (αi = βi = 1).",
+    "numbers": ""
   },
   {
     "paper": "doi:10.1214/18-bjps410",
@@ -82,12 +150,24 @@
     "family": "EGG: Xi ~ EGG(αi, ν, τ, λi), Yi ~ EGG(βi, ν, τ, μi)",
     "compared": "scale vectors λ vs μ via weak α-majorization on Gn; exponents α ≺uo β",
     "hypotheses": [
-      {"text": "μ ≺w_α λ on Gn", "formal": "weak α-majorization of scale vectors on Gn", "source": "statement"},
-      {"text": "α ≺uo β", "formal": "unordered majorization", "source": "statement"}
+      {
+        "text": "μ ≺w_α λ on Gn",
+        "formal": "weak α-majorization of scale vectors on Gn",
+        "source": "statement"
+      },
+      {
+        "text": "α ≺uo β",
+        "formal": "unordered majorization",
+        "source": "statement"
+      }
     ],
-    "conclusion": {"order": "rh", "direction": "Y_{n:n} <=rh X_{n:n}"},
+    "conclusion": {
+      "order": "rh",
+      "direction": "Y_{n:n} <=rh X_{n:n}"
+    },
     "quantifiers": "0 < ν ≤ 1, τ ∈ R+",
-    "ambiguity": "Extends Misra–Misra (2013) generalized-gamma result. Remark 4 extends it to Gnπ with permuted vectors α^π ≺uo β^π."
+    "ambiguity": "Extends Misra–Misra (2013) generalized-gamma result. Remark 4 extends it to Gnπ with permuted vectors α^π ≺uo β^π.",
+    "numbers": ""
   },
   {
     "paper": "doi:10.1214/18-bjps410",
@@ -99,13 +179,29 @@
     "family": "EGG with two homogeneous scale groups: λ1 = ··· = λk = λ, λk+1 = ··· = λn = λ́, μ1 = ··· = μk = μ, μk+1 = ··· = μn = μ́; δ1 = ∑_{i≤k} αi, δ2 = ∑_{i>k} αi, ξ1 = ∑_{i≤k} βi, ξ2 = ∑_{i>k} βi",
     "compared": "two-group scale pairs (λ,λ́) vs (μ,μ́) via weighted majorization with weights (δ1,δ2); exponent group sums (δ1,δ2) ≺uo (ξ1,ξ2)",
     "hypotheses": [
-      {"text": "Assume that μ ≤ λ and δi ≥ 1 for i = 1, 2", "formal": "group scale of B not exceeding that of A on the first group; group exponent sums ≥ 1", "source": "statement"},
-      {"text": "(log μ, log μ́) ≺w_(δ1,δ2) (log λ, log λ́) on D2", "formal": "weak weighted majorization of log-scale pairs", "source": "statement"},
-      {"text": "(δ1, δ2) ≺uo (ξ1, ξ2)", "formal": "unordered majorization of exponent group sums", "source": "statement"}
+      {
+        "text": "Assume that μ ≤ λ and δi ≥ 1 for i = 1, 2",
+        "formal": "group scale of B not exceeding that of A on the first group; group exponent sums ≥ 1",
+        "source": "statement"
+      },
+      {
+        "text": "(log μ, log μ́) ≺w_(δ1,δ2) (log λ, log λ́) on D2",
+        "formal": "weak weighted majorization of log-scale pairs",
+        "source": "statement"
+      },
+      {
+        "text": "(δ1, δ2) ≺uo (ξ1, ξ2)",
+        "formal": "unordered majorization of exponent group sums",
+        "source": "statement"
+      }
     ],
-    "conclusion": {"order": "hr", "direction": "Y_{n:n} <=hr X_{n:n}"},
+    "conclusion": {
+      "order": "hr",
+      "direction": "Y_{n:n} <=hr X_{n:n}"
+    },
     "quantifiers": "0 < τ ≤ ν; k ∈ {1,...,n−1}",
-    "ambiguity": "The condition 'μ ≤ λ' presumably refers to the first-group scales; the two-group scales satisfy λ́ ≤ μ́ ≤ μ ≤ λ in the proof."
+    "ambiguity": "The condition 'μ ≤ λ' presumably refers to the first-group scales; the two-group scales satisfy λ́ ≤ μ́ ≤ μ ≤ λ in the proof.",
+    "numbers": ""
   },
   {
     "paper": "doi:10.1214/18-bjps410",
@@ -117,13 +213,29 @@
     "family": "EGG with two homogeneous scale groups (as in Theorem 8(i))",
     "compared": "two-group scales (λ,λ́) vs (μ,μ́) via weak weighted majorization on G2; exponent sums (δ1,δ2) ≺uo (ξ1,ξ2)",
     "hypotheses": [
-      {"text": "Assume that μ ≤ λ", "formal": "first-group scale ordering", "source": "statement"},
-      {"text": "(μ, μ́) ≺w_(δ1,δ2) (λ, λ́) on G2", "formal": "weak weighted majorization of scale pairs", "source": "statement"},
-      {"text": "(δ1, δ2) ≺uo (ξ1, ξ2)", "formal": "unordered majorization of exponent group sums", "source": "statement"}
+      {
+        "text": "Assume that μ ≤ λ",
+        "formal": "first-group scale ordering",
+        "source": "statement"
+      },
+      {
+        "text": "(μ, μ́) ≺w_(δ1,δ2) (λ, λ́) on G2",
+        "formal": "weak weighted majorization of scale pairs",
+        "source": "statement"
+      },
+      {
+        "text": "(δ1, δ2) ≺uo (ξ1, ξ2)",
+        "formal": "unordered majorization of exponent group sums",
+        "source": "statement"
+      }
     ],
-    "conclusion": {"order": "lr", "direction": "Y_{n:n} <=lr X_{n:n}"},
+    "conclusion": {
+      "order": "lr",
+      "direction": "Y_{n:n} <=lr X_{n:n}"
+    },
     "quantifiers": "0 < τ ≤ ν ≤ 1; k ∈ {1,...,n−1}",
-    "ambiguity": ""
+    "ambiguity": "",
+    "numbers": ""
   },
   {
     "paper": "doi:10.1214/18-bjps410",
@@ -135,12 +247,24 @@
     "family": "EGG two-group scale setting: Xi ~ EGG(αi, ν, τ, λ or λ́), Zi ~ EGG(αi, ν, τ, μ or μ́) (Section 3 preamble)",
     "compared": "scale pairs (λ,λ́) vs (μ,μ́), same exponents α on both sides; Zn:n vs Xn:n",
     "hypotheses": [
-      {"text": "δi ≥ 1, i = 1, 2", "formal": "group exponent sums at least 1", "source": "statement"},
-      {"text": "(log μ, log μ́) ≺w_(δ1,δ2) (log λ, log λ́) on D2", "formal": "weak weighted majorization of log-scale pairs", "source": "statement"}
+      {
+        "text": "δi ≥ 1, i = 1, 2",
+        "formal": "group exponent sums at least 1",
+        "source": "statement"
+      },
+      {
+        "text": "(log μ, log μ́) ≺w_(δ1,δ2) (log λ, log λ́) on D2",
+        "formal": "weak weighted majorization of log-scale pairs",
+        "source": "statement"
+      }
     ],
-    "conclusion": {"order": "hr", "direction": "Z_{n:n} <=hr X_{n:n}"},
+    "conclusion": {
+      "order": "hr",
+      "direction": "Z_{n:n} <=hr X_{n:n}"
+    },
     "quantifiers": "0 < τ ≤ ν",
-    "ambiguity": "Concerns the bridge variable Zn:n vs Xn:n (same exponent vector α)."
+    "ambiguity": "Concerns the bridge variable Zn:n vs Xn:n (same exponent vector α).",
+    "numbers": ""
   },
   {
     "paper": "doi:10.1214/18-bjps410",
@@ -152,11 +276,19 @@
     "family": "EGG two-group scale setting (Section 3 preamble)",
     "compared": "scale pairs (λ,λ́) vs (μ,μ́); same exponents α",
     "hypotheses": [
-      {"text": "(μ, μ́) ≺w_(δ1,δ2) (λ, λ́) on G2", "formal": "weak weighted majorization", "source": "statement"}
+      {
+        "text": "(μ, μ́) ≺w_(δ1,δ2) (λ, λ́) on G2",
+        "formal": "weak weighted majorization",
+        "source": "statement"
+      }
     ],
-    "conclusion": {"order": "lr", "direction": "Z_{n:n} <=lr X_{n:n}"},
+    "conclusion": {
+      "order": "lr",
+      "direction": "Z_{n:n} <=lr X_{n:n}"
+    },
     "quantifiers": "0 < τ ≤ ν ≤ 1",
-    "ambiguity": ""
+    "ambiguity": "",
+    "numbers": ""
   },
   {
     "paper": "doi:10.1214/18-bjps410",
@@ -168,11 +300,19 @@
     "family": "EGG two-group scale setting (Section 3 preamble)",
     "compared": "scale pairs sharing the second-group value λ́ = μ́ with λ́ ≤ μ ≤ λ",
     "hypotheses": [
-      {"text": "λ́ = μ́ and λ́ ≤ μ ≤ λ", "formal": "equal second-group scales, ordered first-group scales", "source": "statement"}
+      {
+        "text": "λ́ = μ́ and λ́ ≤ μ ≤ λ",
+        "formal": "equal second-group scales, ordered first-group scales",
+        "source": "statement"
+      }
     ],
-    "conclusion": {"order": "lr", "direction": "Z_{n:n} <=lr X_{n:n}"},
+    "conclusion": {
+      "order": "lr",
+      "direction": "Z_{n:n} <=lr X_{n:n}"
+    },
     "quantifiers": "any ν ∈ R+, τ ∈ R+",
-    "ambiguity": "Proof deferred to 'similar to that of Theorem 3.1 in Zhao and Balakrishnan (2015)'."
+    "ambiguity": "Proof deferred to 'similar to that of Theorem 3.1 in Zhao and Balakrishnan (2015)'.",
+    "numbers": ""
   },
   {
     "paper": "doi:10.1214/18-bjps410",
@@ -184,12 +324,24 @@
     "family": "EGG: derived via Xi∗ ~ EGG(αi, 1, τ/ν, λi^ν), Yi∗ ~ EGG(βi, 1, τ/ν, μi^ν); λν = (λ1^ν,...,λn^ν), μν = (μ1^ν,...,μn^ν)",
     "compared": "ν-th powers of the scale vectors μν vs λν (weak α-majorization); exponents α ≺uo β",
     "hypotheses": [
-      {"text": "μν ≺w_α λν on Gn", "formal": "weak α-majorization of the powered scale vectors", "source": "statement"},
-      {"text": "α ≺uo β", "formal": "unordered majorization of exponent vectors", "source": "statement"}
+      {
+        "text": "μν ≺w_α λν on Gn",
+        "formal": "weak α-majorization of the powered scale vectors",
+        "source": "statement"
+      },
+      {
+        "text": "α ≺uo β",
+        "formal": "unordered majorization of exponent vectors",
+        "source": "statement"
+      }
     ],
-    "conclusion": {"order": "rh", "direction": "Y_{n:n} <=rh X_{n:n}"},
+    "conclusion": {
+      "order": "rh",
+      "direction": "Y_{n:n} <=rh X_{n:n}"
+    },
     "quantifiers": "ν ∈ R+, τ ∈ R+ (no restriction 0 < ν ≤ 1, unlike Theorem 7)",
-    "ambiguity": "Removes Theorem 7's restriction 0 < ν ≤ 1 at the cost of comparing powered scale vectors. Text layer renders the EGG third parameter as 'τν'; the PDF page shows τ/ν."
+    "ambiguity": "Removes Theorem 7's restriction 0 < ν ≤ 1 at the cost of comparing powered scale vectors. Text layer renders the EGG third parameter as 'τν'; the PDF page shows τ/ν.",
+    "numbers": ""
   },
   {
     "paper": "doi:10.1214/18-bjps410",
@@ -201,13 +353,29 @@
     "family": "EGG two-group scale setting, with powered scales (μ^ν, μ́^ν) vs (λ^ν, λ́^ν)",
     "compared": "powered scale pairs via weak (δ1,δ2)-majorization; exponent group sums (δ1,δ2) ≺uo (ξ1,ξ2)",
     "hypotheses": [
-      {"text": "Assuming μ ≤ λ", "formal": "first-group scale ordering", "source": "statement"},
-      {"text": "(μν, μ́ν) ≺w_(δ1,δ2) (λν, λ́ν) on G2", "formal": "weak weighted majorization of powered scale pairs", "source": "statement"},
-      {"text": "(δ1, δ2) ≺uo (ξ1, ξ2)", "formal": "unordered majorization of exponent group sums", "source": "statement"}
+      {
+        "text": "Assuming μ ≤ λ",
+        "formal": "first-group scale ordering",
+        "source": "statement"
+      },
+      {
+        "text": "(μν, μ́ν) ≺w_(δ1,δ2) (λν, λ́ν) on G2",
+        "formal": "weak weighted majorization of powered scale pairs",
+        "source": "statement"
+      },
+      {
+        "text": "(δ1, δ2) ≺uo (ξ1, ξ2)",
+        "formal": "unordered majorization of exponent group sums",
+        "source": "statement"
+      }
     ],
-    "conclusion": {"order": "lr", "direction": "Y_{n:n} <=lr X_{n:n}"},
+    "conclusion": {
+      "order": "lr",
+      "direction": "Y_{n:n} <=lr X_{n:n}"
+    },
     "quantifiers": "0 < τ ≤ ν (no upper bound ν ≤ 1, unlike Theorem 8(ii))",
-    "ambiguity": "In the two-group setup printed just above, 'λ1 = ··· = λk+1 = λ' is presumably a misprint for λ1 = ··· = λk = λ (conflicts with λk+1 = ··· = λn = λ́)."
+    "ambiguity": "In the two-group setup printed just above, 'λ1 = ··· = λk+1 = λ' is presumably a misprint for λ1 = ··· = λk = λ (conflicts with λk+1 = ··· = λn = λ́).",
+    "numbers": ""
   },
   {
     "paper": "doi:10.1214/18-bjps410",
@@ -219,9 +387,16 @@
     "family": "EGG(αi, ν, τ, λi) vs EGG(βi, ν, τ, μi)",
     "compared": "α = (1,3,5,0.6) vs β = (4.6,4.4,0.5,0.1); λ = (9,6,1,0.7) vs μ = (8,5,0.8,0.75)",
     "hypotheses": [
-      {"text": "log μ ≺w_α log λ on D4 and α ≺uo β", "formal": "hypotheses of Theorem 6 verified numerically", "source": "statement"}
+      {
+        "text": "log μ ≺w_α log λ on D4 and α ≺uo β",
+        "formal": "hypotheses of Theorem 6 verified numerically",
+        "source": "statement"
+      }
     ],
-    "conclusion": {"order": "st", "direction": "Y_{4:4} <=st X_{4:4} (survival functions plotted, Figure 1)"},
+    "conclusion": {
+      "order": "st",
+      "direction": "Y_{4:4} <=st X_{4:4} (survival functions plotted, Figure 1)"
+    },
     "quantifiers": "n = 4",
     "numbers": "ν = 0.4; τ = 0.8; α = (1,3,5,0.6); β = (4.6,4.4,0.5,0.1); λ = (9,6,1,0.7); μ = (8,5,0.8,0.75)",
     "ambiguity": "Unnumbered inline example; graphical confirmation via Figure 1."
@@ -236,9 +411,16 @@
     "family": "EGG(αi, ν, τ, λi) vs EGG(βi, ν, τ, μi)",
     "compared": "α = (4,0.8,3.3,5) vs β = (1,3,2.1,7); λ = (2,11,12,13) vs μ = (5,6,10,14); permutation π = (4,3,2,1)",
     "hypotheses": [
-      {"text": "μ ≺w_α λ on G4π and α^π ≺uo β^π", "formal": "extended hypotheses of Remark 4 (permutation π = (4,3,2,1))", "source": "statement"}
+      {
+        "text": "μ ≺w_α λ on G4π and α^π ≺uo β^π",
+        "formal": "extended hypotheses of Remark 4 (permutation π = (4,3,2,1))",
+        "source": "statement"
+      }
     ],
-    "conclusion": {"order": "rh", "direction": "Y_{4:4} <=rh X_{4:4} (reversed hazard functions plotted, Figure 2)"},
+    "conclusion": {
+      "order": "rh",
+      "direction": "Y_{4:4} <=rh X_{4:4} (reversed hazard functions plotted, Figure 2)"
+    },
     "quantifiers": "n = 4",
     "numbers": "ν = 0.5; τ = 2; α = (4,0.8,3.3,5); β = (1,3,2.1,7); λ = (2,11,12,13); μ = (5,6,10,14); π = (4,3,2,1)",
     "ambiguity": "Illustrates the permuted-space extension given in Remark 4 rather than Theorem 7 directly."
@@ -253,9 +435,16 @@
     "family": "EGG(αi, ν, τ, λi) vs EGG(βi, ν, τ, μi)",
     "compared": "α = β = (4.5,2,3) (equal exponents); λ = (9,3.5,0.1) vs μ = (10,2.9,0.3)",
     "hypotheses": [
-      {"text": "log μ ≺w_α log λ on D3 and α ≺uo β", "formal": "Theorem 6 hypotheses hold (trivially α = β)", "source": "statement"}
+      {
+        "text": "log μ ≺w_α log λ on D3 and α ≺uo β",
+        "formal": "Theorem 6 hypotheses hold (trivially α = β)",
+        "source": "statement"
+      }
     ],
-    "conclusion": {"order": "hr", "direction": "survival ratio not monotone: no hr order between Y_{3:3} and X_{3:3}"},
+    "conclusion": {
+      "order": "hr",
+      "direction": "survival ratio not monotone: no hr order between Y_{3:3} and X_{3:3}"
+    },
     "quantifiers": "n = 3; evaluated at t = 4, 5, 15",
     "numbers": "ν = 0.5; τ = 0.2; α = β = (4.5,2,3); λ = (9,3.5,0.1); μ = (10,2.9,0.3); F̄X3:3/F̄Y3:3 = 1.13809 at 4, 1.14207 at 5, 1.12199 at 15",
     "ambiguity": "Shows Theorem 6's usual-stochastic-order result cannot be strengthened to the hazard rate order."
@@ -270,9 +459,16 @@
     "family": "EGG(αi, ν, τ, λi) vs EGG(βi, ν, τ, μi)",
     "compared": "α = (0.1,0.6,0.4) vs β = (0.7,0.2,0.2); λ = (7,6,1) vs μ = (100,20,1)",
     "hypotheses": [
-      {"text": "μ ≺w_α λ on G3 and α ≺uo β", "formal": "Theorem 7 hypotheses hold", "source": "statement"}
+      {
+        "text": "μ ≺w_α λ on G3 and α ≺uo β",
+        "formal": "Theorem 7 hypotheses hold",
+        "source": "statement"
+      }
     ],
-    "conclusion": {"order": "lr", "direction": "density ratio not monotone: no lr order between Y_{3:3} and X_{3:3}"},
+    "conclusion": {
+      "order": "lr",
+      "direction": "density ratio not monotone: no lr order between Y_{3:3} and X_{3:3}"
+    },
     "quantifiers": "n = 3; evaluated at t = 0.3, 0.4, 0.6",
     "numbers": "ν = 0.5; τ = 0.1; α = (0.1,0.6,0.4); β = (0.7,0.2,0.2); λ = (7,6,1); μ = (100,20,1); density ratios ≈ 2.92344 (0.3), 2.95206 (0.4), 2.91266 (0.6)",
     "ambiguity": "Shows Theorem 7's reversed-hazard-order result cannot be strengthened to the likelihood ratio order."
@@ -287,9 +483,16 @@
     "family": "EGG two-group scales: (λ,λ́) = (8,2), (μ,μ́) = (6,3), k = 1",
     "compared": "α = (1.1,2,0.2,4) vs β = (1.2,1,1.5,3.6); scale pairs (8,2) vs (6,3)",
     "hypotheses": [
-      {"text": "(log 6, log 3) ≺w_(1.1,6.2) (log 8, log 2) on D2, (1.1, 6.2) ≺uo (1.2, 6.1) and μ ≤ λ", "formal": "Theorem 8(i) hypotheses verified", "source": "statement"}
+      {
+        "text": "(log 6, log 3) ≺w_(1.1,6.2) (log 8, log 2) on D2, (1.1, 6.2) ≺uo (1.2, 6.1) and μ ≤ λ",
+        "formal": "Theorem 8(i) hypotheses verified",
+        "source": "statement"
+      }
     ],
-    "conclusion": {"order": "hr", "direction": "Y_{4:4} <=hr X_{4:4} (hazard rates plotted, Figure 3)"},
+    "conclusion": {
+      "order": "hr",
+      "direction": "Y_{4:4} <=hr X_{4:4} (hazard rates plotted, Figure 3)"
+    },
     "quantifiers": "n = 4, k = 1",
     "numbers": "α = (1.1,2,0.2,4); β = (1.2,1,1.5,3.6); (λ,λ́) = (8,2); (μ,μ́) = (6,3); δ = (1.1,6.2); ξ = (1.2,6.1)",
     "ambiguity": ""
@@ -304,9 +507,16 @@
     "family": "EGG two-group scales: (λ,λ́) = (20,0.1), (μ,μ́) = (18,2), k = 3",
     "compared": "α = (0.4,0.4,1,5,5.7) vs β = (3,0.8,3.6,1.2,3.9); scale pairs (20,0.1) vs (18,2)",
     "hypotheses": [
-      {"text": "(20, 0.1) ≺w_(1.8,10.7) (18, 2) on G2, (1.8, 10.7) ≺uo (7.4, 5.1) and μ ≤ λ", "formal": "Theorem 8(ii) hypotheses verified", "source": "statement"}
+      {
+        "text": "(20, 0.1) ≺w_(1.8,10.7) (18, 2) on G2, (1.8, 10.7) ≺uo (7.4, 5.1) and μ ≤ λ",
+        "formal": "Theorem 8(ii) hypotheses verified",
+        "source": "statement"
+      }
     ],
-    "conclusion": {"order": "lr", "direction": "Y_{5:5} <=lr X_{5:5}"},
+    "conclusion": {
+      "order": "lr",
+      "direction": "Y_{5:5} <=lr X_{5:5}"
+    },
     "quantifiers": "n = 5, k = 3",
     "numbers": "α = (0.4,0.4,1,5,5.7); β = (3,0.8,3.6,1.2,3.9); (λ,λ́) = (20,0.1); (μ,μ́) = (18,2); δ = (1.8,10.7); ξ = (7.4,5.1)",
     "ambiguity": "The printed weak-majorization '(20, 0.1) ≺w_(1.8,10.7) (18, 2)' compares raw scales (not log-scales) consistent with part (ii) of Theorem 8."
@@ -321,9 +531,16 @@
     "family": "EGG(αi, ν, τ, λi) vs EGG(βi, ν, τ, μi)",
     "compared": "α = (5,4,9) vs β = (6,3.5,8.5); λ = (10,1,1) vs μ = (7,5,2); ν = 2 > 1",
     "hypotheses": [
-      {"text": "μ ≺w_α λ on G3 and α ≺uo β", "formal": "Theorem 7's majorization hypotheses hold but ν = 2 violates 0 < ν ≤ 1", "source": "statement"}
+      {
+        "text": "μ ≺w_α λ on G3 and α ≺uo β",
+        "formal": "Theorem 7's majorization hypotheses hold but ν = 2 violates 0 < ν ≤ 1",
+        "source": "statement"
+      }
     ],
-    "conclusion": {"order": "rh", "direction": "no reversed hazard order between Y_{3:3} and X_{3:3} (Figure 4)"},
+    "conclusion": {
+      "order": "rh",
+      "direction": "no reversed hazard order between Y_{3:3} and X_{3:3} (Figure 4)"
+    },
     "quantifiers": "n = 3",
     "numbers": "ν = 2; τ = 0.2; α = (5,4,9); β = (6,3.5,8.5); λ = (10,1,1); μ = (7,5,2)",
     "ambiguity": "Shows the restriction 0 < ν ≤ 1 in Theorem 7 is necessary."
@@ -338,9 +555,16 @@
     "family": "EGG(αi, ν, τ, λi) vs EGG(βi, ν, τ, μi)",
     "compared": "α = (4,0.8,3.3,5) vs β = (1,3,2.1,7); λ = (√2,√11,√12,√13) vs μ = (√5,√6,√10,√14)",
     "hypotheses": [
-      {"text": "μν ≺w_α λν on G4 and α ≺uo β (printed with apparent typos: 'λ ⊀w_α μ' and 'μν ≺w_α μν')", "formal": "Theorem 9 hypotheses: powered scale vectors weakly α-majorized", "source": "statement"}
+      {
+        "text": "μν ≺w_α λν on G4 and α ≺uo β (printed with apparent typos: 'λ ⊀w_α μ' and 'μν ≺w_α μν')",
+        "formal": "Theorem 9 hypotheses: powered scale vectors weakly α-majorized",
+        "source": "statement"
+      }
     ],
-    "conclusion": {"order": "rh", "direction": "printed as 'X4:4 ≤rh X4:4' — clearly meant Y_{4:4} <=rh X_{4:4}; shows Theorem 9 applies where Theorem 7 fails"},
+    "conclusion": {
+      "order": "rh",
+      "direction": "printed as 'X4:4 ≤rh X4:4' — clearly meant Y_{4:4} <=rh X_{4:4}; shows Theorem 9 applies where Theorem 7 fails"
+    },
     "quantifiers": "n = 4",
     "numbers": "ν = 0.5; τ = 0.8; α = (4,0.8,3.3,5); β = (1,3,2.1,7); λ = (√2,√11,√12,√13); μ = (√5,√6,√10,√14)",
     "ambiguity": "Multiple print typos: 'λ ⊀w_α μ' presumably should be μ ⊀w_α λ (Theorem 7's condition fails), 'μν ≺w_α μν' should be μν ≺w_α λν, and the conclusion 'X4:4 ≤rh X4:4' should be Y4:4 ≤rh X4:4."

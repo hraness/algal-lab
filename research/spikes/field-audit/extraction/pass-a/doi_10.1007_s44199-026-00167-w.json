@@ -1,0 +1,20 @@
+[
+ {
+  "paper": "doi:10.1007/s44199-026-00167-w",
+  "claim": "Theorem (Section 3.4, unnumbered)",
+  "page": 12,
+  "quote": "Theorem. Let X1 and X2 be two independent random variables following the GTL−HT−G family of distributions with common parameters θ, b, ψ , and different shape parameters δ1 and δ2 , that is, X1 ∼ f1 (x; δ1 , θ, b, ψ) and X2 ∼ f2 (x; δ2 , θ, b, ψ). If δ1 > δ2 , then X1 and X2 are stochastically ordered.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "Gamma Topp-Leone-Heavy Tailed-G (GTL−HT−G) family, pdf f(x; δ, b, θ, ψ) as in Eq. (4), δ, b, θ > 0, baseline parameter vector ψ",
+  "compared": "shape parameter δ1 vs δ2; parameters θ, b, ψ common",
+  "hypotheses": [
+   {"text": "Let X1 and X2 be two independent random variables following the GTL−HT−G family of distributions with common parameters θ, b, ψ , and different shape parameters δ1 and δ2", "formal": "X1 ~ f(.; δ1, θ, b, ψ), X2 ~ f(.; δ2, θ, b, ψ), X1 independent of X2", "source": "statement"},
+   {"text": "If δ1 > δ2", "formal": "δ1 > δ2", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "X1 <=lr X2 (f1/f2 non-increasing in x for δ1 > δ2, per proof); statement itself only says 'stochastically ordered'"},
+  "quantifiers": "δ1, δ2, b, θ > 0; all x in the common support",
+  "numbers": "",
+  "ambiguity": "The statement concludes only that 'X1 and X2 are stochastically ordered' without naming an order or a direction; the proof shows d/dx[f1/f2] < 0 for δ1 > δ2 and asserts 'likelihood ratio order X ⪯lr Y exists', which formally gives X1 ⪯lr X2. In Eqs. (11) and the derivative the denominator is printed as f2 (x; δ1 , θ, b, ψ), a typo for δ2. Theorem is unnumbered."
+ }
+]

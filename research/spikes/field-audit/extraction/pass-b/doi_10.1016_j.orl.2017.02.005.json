@@ -1,0 +1,129 @@
+[
+ {
+  "paper": "doi:10.1016/j.orl.2017.02.005",
+  "claim": "Theorem 3.1",
+  "page": 5,
+  "quote": "Theorem 3.1 For i = 1, 2, . . . , n, let Xi and Yi be two sets of mutually independent random variables with Xi ~ LL(σi, λi) and Yi ~ LL(θi, λi). Further, suppose that σ, θ, λ ∈ D+ or σ, θ, λ ∈ E+. Then, σ ≽^m θ implies Xn:n ≥rhr Yn:n.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "log-Lindley LL(σ, λ): f(x; σ, λ) = σ²/(1 + λσ) (λ − log x) x^(σ−1), 0 < x < 1, λ ≥ 0, σ > 0; σ shape, λ scale",
+  "compared": "shape parameter vectors σ vs θ (majorized); common scale vector λ",
+  "hypotheses": [
+   {"text": "let Xi and Yi be two sets of mutually independent random variables with Xi ∼ LL(σi, λi) and Yi ∼ LL(θi, λi)", "formal": "Xi ~ LL(σ_i,λ_i), Yi ~ LL(θ_i,λ_i), mutually independent", "source": "statement"},
+   {"text": "suppose that σ, θ, λ ∈ D+ or σ, θ, λ ∈ E+", "formal": "all three parameter vectors are similarly ordered, both decreasing (D+) or both increasing (E+)", "source": "statement"},
+   {"text": "σ ≽^m θ", "formal": "σ majorizes θ", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "Yn:n <=_rhr Xn:n (stated as Xn:n ≥rhr Yn:n)"},
+  "quantifiers": "n ≥ 1 components, all x in (0,1)",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1016/j.orl.2017.02.005",
+  "claim": "Counterexample 3.1",
+  "page": 6,
+  "quote": "Counterexample 3.1 Let Xi ∼ LL(σi, λi) and Yi ∼ LL(θi, λi), i = 1, 2, 3. Now, if (σ1, σ2, σ3) = (1, 1, 5) ∈ E+, (θ1, θ2, θ3) = (1, 2, 4) ∈ E+ and (λ1, λ2, λ3) = (4, 3, 0.2) ∈ D+ are taken, then from Figure 1, it is clear that F3:3(x)/G3:3(x) is not monotone, giving that X3:3 ≰rhr Y3:3, although σ ≽^m θ.",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "log-Lindley LL(σ, λ): f(x; σ, λ) = σ²/(1 + λσ) (λ − log x) x^(σ−1), 0 < x < 1",
+  "compared": "shape vectors σ vs θ with σ majorizing θ; scale vector λ ordered oppositely (D+) to σ, θ (E+)",
+  "hypotheses": [
+   {"text": "if (σ1, σ2, σ3) = (1, 1, 5) ∈ E+, (θ1, θ2, θ3) = (1, 2, 4) ∈ E+ and (λ1, λ2, λ3) = (4, 3, 0.2) ∈ D+ are taken", "formal": "σ=(1,1,5), θ=(1,2,4), λ=(4,3,0.2)", "source": "statement"},
+   {"text": "although σ ≽^m θ", "formal": "(1,1,5) majorizes (1,2,4): sums 7 vs 7, partial sums 1≥1, 2≥3? — as stated by authors", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "X3:3 not <=_rhr Y3:3 and not >=_rhr Y3:3 (F3:3/G3:3 non-monotone); refutes necessity relaxation of Theorem 3.1"},
+  "quantifiers": "n = 3",
+  "numbers": "σ=(1,1,5); θ=(1,2,4); λ=(4,3,0.2); F3:3(x)/G3:3(x) plotted over x in (0,1) ranges 0.635-0.67 and is non-monotone",
+  "ambiguity": "Majorization direction: σ=(1,1,5) vs θ=(1,2,4): sorted partial sums of σ are 1,2,7 vs θ 1,3,7, so θ weakly majorizes σ from below convention; the authors assert σ ≽^m θ, suggesting they use the convention that larger spread majorizes (σ more spread). Notation '≽^m' printed with a garbled superscript m in text layer."
+ },
+ {
+  "paper": "doi:10.1016/j.orl.2017.02.005",
+  "claim": "Theorem 3.2",
+  "page": 6,
+  "quote": "Theorem 3.2 For i = 1, 2, . . . , n, let Xi and Yi be two sets of mutually independent random variables with Xi ∼ LL(σi, λi) and Yi ∼ LL(σi, δi). Further, suppose that σ ∈ E+, λ, δ ∈ D+ or σ ∈ D+, λ, δ ∈ E+. Then, λ ≽^m δ implies Xn:n ≤rhr Yn:n.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "log-Lindley LL(σ, λ): f(x; σ, λ) = σ²/(1 + λσ) (λ − log x) x^(σ−1), 0 < x < 1, λ ≥ 0, σ > 0",
+  "compared": "scale parameter vectors λ vs δ (majorized); common shape vector σ ordered oppositely to λ,δ",
+  "hypotheses": [
+   {"text": "let Xi and Yi be two sets of mutually independent random variables with Xi ∼ LL(σi, λi) and Yi ∼ LL(σi, δi)", "formal": "Xi ~ LL(σ_i,λ_i), Yi ~ LL(σ_i,δ_i), mutually independent", "source": "statement"},
+   {"text": "suppose that σ ∈ E+, λ, δ ∈ D+ or σ ∈ D+, λ, δ ∈ E+", "formal": "σ ordered oppositely to λ and δ", "source": "statement"},
+   {"text": "λ ≽^m δ", "formal": "λ majorizes δ", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "Xn:n <=_rhr Yn:n"},
+  "quantifiers": "n ≥ 1 components, all x in (0,1)",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1016/j.orl.2017.02.005",
+  "claim": "Counterexample 3.2",
+  "page": 7,
+  "quote": "Counterexample 3.2 Let Xi ∼ LL(σi, λi) and Yi ∼ (σi, δi), i = 1, 2, 3. Let (λ1, λ2, λ3) = (0.1, 0.3, 4.1) ∈ E+ and (δ1, δ2, δ3) = (0.2, 0.3, 4) ∈ E+, giving λ ≽^m δ. Now, if (σ1, σ2, σ3) = (0.1, 3, 5) ∈ E+ is taken, then Figure 2 (a) shows that F3:3(x)/G3:3(x) is increasing in x. Again if (σ1, σ2, σ3) = (2, 3, 5) ∈ E+ is taken, then Figure 2 (b) shows that F3:3(x)/G3:3(x) is decreasing in x. So, it can be concluded that, for all σ, λ, δ ∈ D+ (resp. E+), λ ≽^m δ does not always imply X3:3 ≤rhr Y3:3.",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "log-Lindley LL(σ, λ): f(x; σ, λ) = σ²/(1 + λσ) (λ − log x) x^(σ−1), 0 < x < 1",
+  "compared": "scale vectors λ vs δ with λ majorizing δ; σ ordered same direction as λ,δ (violating Theorem 3.2's opposite-ordering condition)",
+  "hypotheses": [
+   {"text": "(λ1, λ2, λ3) = (0.1, 0.3, 4.1) ∈ E+ and (δ1, δ2, δ3) = (0.2, 0.3, 4) ∈ E+, giving λ ≽^m δ", "formal": "λ=(0.1,0.3,4.1), δ=(0.2,0.3,4)", "source": "statement"},
+   {"text": "if (σ1, σ2, σ3) = (0.1, 3, 5) ∈ E+ ... again if (σ1, σ2, σ3) = (2, 3, 5) ∈ E+", "formal": "two σ choices both in E+", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "for σ=(0.1,3,5): X3:3 <=_rhr Y3:3 (ratio increasing); for σ=(2,3,5): X3:3 >=_rhr Y3:3 (ratio decreasing) — no uniform rhr ordering"},
+  "quantifiers": "n = 3",
+  "numbers": "λ=(0.1,0.3,4.1); δ=(0.2,0.3,4); σ∈{(0.1,3,5),(2,3,5)}; Fig 2(a) ratio ranges ~1.0-1.014 increasing; Fig 2(b) ratio ranges ~0.88-0.98 decreasing",
+  "ambiguity": "Yi written as 'Yi ∼ (σi, δi)' with the LL symbol omitted in the printed text."
+ },
+ {
+  "paper": "doi:10.1016/j.orl.2017.02.005",
+  "claim": "Theorem 3.3",
+  "page": 7,
+  "quote": "Theorem 3.3 For i = 1, 2, . . . , n, let Xi and Yi be two sets of mutually independent random variables with Xi ∼ LL(σi, λi) and Yi ∼ LL(θi, λi). Further, suppose that σ, θ, λ ∈ D+ or σ, θ, λ ∈ E+. Then, if λiσi > 1/2, σ ≽^m θ implies Xn:n ≥lr Yn:n.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "log-Lindley LL(σ, λ): f(x; σ, λ) = σ²/(1 + λσ) (λ − log x) x^(σ−1), 0 < x < 1, λ ≥ 0, σ > 0",
+  "compared": "shape parameter vectors σ vs θ (majorized); common scale vector λ",
+  "hypotheses": [
+   {"text": "let Xi and Yi be two sets of mutually independent random variables with Xi ∼ LL(σi, λi) and Yi ∼ LL(θi, λi)", "formal": "Xi ~ LL(σ_i,λ_i), Yi ~ LL(θ_i,λ_i), mutually independent", "source": "statement"},
+   {"text": "suppose that σ, θ, λ ∈ D+ or σ, θ, λ ∈ E+", "formal": "all three parameter vectors similarly ordered", "source": "statement"},
+   {"text": "if λiσi > 1/2", "formal": "λ_i σ_i > 1/2 for all i", "source": "statement"},
+   {"text": "σ ≽^m θ", "formal": "σ majorizes θ", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "Yn:n <=_lr Xn:n (stated as Xn:n ≥lr Yn:n)"},
+  "quantifiers": "n ≥ 1 components, all x in (0,1), λ_i σ_i > 1/2 each i",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1016/j.orl.2017.02.005",
+  "claim": "Theorem 3.4",
+  "page": 9,
+  "quote": "Theorem 3.4 For i = 1, 2, ..., n, let Xi and Yi be two sets of independent random variables each following the multiple-outlier EW model such that Xi ∼ LL(σ, λ) and Yi ∼ LL(θ, λ) for i = 1, 2, . . . , n1, Xi ∼ LL(σ∗, λ∗) and Yi ∼ LL(θ∗, λ∗) for i = n1 + 1, n1 + 2, . . . , n1 + n2 (= n). If (σ, σ, . . . , σ, σ∗, σ∗, . . . , σ∗) ≽^m (θ, θ, . . . , θ, θ∗, θ∗, . . . , θ∗) and either {σ ≥ σ∗, θ ≥ θ∗, λ ≥ λ∗} or {σ ≤ σ∗, θ ≤ θ∗, λ ≤ λ∗} then Xn:n ≥lr Yn:n.",
+  "kind": "theorem",
+  "model": "other: multiple-outlier parallel system",
+  "family": "log-Lindley LL(σ, λ): f(x; σ, λ) = σ²/(1 + λσ) (λ − log x) x^(σ−1), 0 < x < 1, λ ≥ 0, σ > 0",
+  "compared": "shape parameters σ vs θ in n1 components and σ* vs θ* in n2 components (majorized vectors); scales λ and λ* common within each group",
+  "hypotheses": [
+   {"text": "Xi ∼ LL(σ, λ) and Yi ∼ LL(θ, λ) for i = 1, ..., n1; Xi ∼ LL(σ∗, λ∗) and Yi ∼ LL(θ∗, λ∗) for i = n1+1, ..., n1+n2 (= n)", "formal": "two-group multiple-outlier model, n = n1 + n2", "source": "statement"},
+   {"text": "(σ, ..., σ, σ∗, ..., σ∗) ≽^m (θ, ..., θ, θ∗, ..., θ∗)", "formal": "the n-vector of X shape parameters majorizes that of Y", "source": "statement"},
+   {"text": "either {σ ≥ σ∗, θ ≥ θ∗, λ ≥ λ∗} or {σ ≤ σ∗, θ ≤ θ∗, λ ≤ λ∗}", "formal": "parameters ordered consistently between the two groups", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "Yn:n <=_lr Xn:n (stated as Xn:n ≥lr Yn:n)"},
+  "quantifiers": "n = n1 + n2 ≥ 2, all x in (0,1)",
+  "ambiguity": "Text says 'multiple-outlier EW model' but components are specified as LL(·,·); 'EW' appears to be a leftover/typo. The phrase 'with common scale parameter vectors' in the discussion applies per-group (λ vs λ* differ across groups)."
+ },
+ {
+  "paper": "doi:10.1016/j.orl.2017.02.005",
+  "claim": "Theorem 3.5",
+  "page": 10,
+  "quote": "Theorem 3.5 For i = 1, 2, . . . , n, let Xi and Yi be two sets of mutually independent random variables with Xi ∼ LL(σi, λi) and Yi ∼ LL(σi, δi). Further, suppose that σ ∈ E+, λ, δ ∈ D+ or σ ∈ D+, λ, δ ∈ E+. Then, λ ≽^m δ implies Xn:n ≤lr Yn:n.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "log-Lindley LL(σ, λ): f(x; σ, λ) = σ²/(1 + λσ) (λ − log x) x^(σ−1), 0 < x < 1, λ ≥ 0, σ > 0",
+  "compared": "scale parameter vectors λ vs δ (majorized); common shape vector σ ordered oppositely",
+  "hypotheses": [
+   {"text": "let Xi and Yi be two sets of mutually independent random variables with Xi ∼ LL(σi, λi) and Yi ∼ LL(σi, δi)", "formal": "Xi ~ LL(σ_i,λ_i), Yi ~ LL(σ_i,δ_i), mutually independent", "source": "statement"},
+   {"text": "suppose that σ ∈ E+, λ, δ ∈ D+ or σ ∈ D+, λ, δ ∈ E+", "formal": "σ ordered oppositely to λ,δ", "source": "statement"},
+   {"text": "λ ≽^m δ", "formal": "λ majorizes δ", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "Xn:n <=_lr Yn:n"},
+  "quantifiers": "n ≥ 1 components, all x in (0,1)",
+  "ambiguity": ""
+ }
+]

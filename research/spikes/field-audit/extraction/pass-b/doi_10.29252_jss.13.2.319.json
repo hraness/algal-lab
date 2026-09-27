@@ -1,0 +1,163 @@
+[
+ {
+  "paper": "doi:10.29252/jss.13.2.319",
+  "claim": "Theorem 1",
+  "page": 325,
+  "quote": "قضیه ١: فرض کنید X١, ···, Xn و Y١, ···, Yn دو مجموعه از متغیرهای تصادفی مستقل با Xi ~ GLFR(αi, βi, λ), Yi ~ GLFR(νi, µi, λ), i = ١, ···, n, باشند. اگر α ≻^m ν روی فضای Dn+ و β ≻^m µ روی فضای Dn+ باشد، آنگاه برای λ ≥ ١ داریم Y١:n ≥st X١:n.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "GLFR(α, β, λ): generalized linear failure rate, F(x; α,β,λ) = {1 - exp(-(αx + (β/2)x²))}^λ, x > 0, α > 0, β > 0, λ > 0",
+  "compared": "two series systems of n independent heterogeneous GLFR components: vectors (α, β) vs (ν, µ), common λ",
+  "hypotheses": [
+   {"text": "Xi ~ GLFR(αi, βi, λ), Yi ~ GLFR(νi, µi, λ), i = ١, ···, n", "formal": "independent components, common λ, per-component α_i,β_i vs ν_i,µ_i", "source": "statement"},
+   {"text": "α ≻^m ν روی فضای Dn+ و β ≻^m µ روی فضای Dn+", "formal": "α majorizes ν and β majorizes µ, both vectors in D_{n+} (sorted decreasing, positive)", "source": "statement"},
+   {"text": "برای λ ≥ ١", "formal": "λ >= 1", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Y_{1:n} >=_st X_{1:n} (X-system minimum smaller)"},
+  "quantifiers": "n >= 1 (i = 1..n), λ >= 1, all x > 0",
+  "ambiguity": "Persian-language paper; math transcribed from RTL text layer, symbol order may be jumbled. Majorization symbol shown as ≻ with superscript m."
+ },
+ {
+  "paper": "doi:10.29252/jss.13.2.319",
+  "claim": "Theorem 2",
+  "page": 327,
+  "quote": "قضیه ٢: فرض کنید X١, ···, Xn و Y١, ···, Yn دو مجموعه از متغیرهای تصادفی مستقل با Xi ~ GLFR(αi, β, λi), Yi ~ GLFR(νi, β, γi), i = ١, ···, n, باشند. اگر α ≻^m ν روی فضای Dn+ و λ - ١ ≻^m γ - ١ روی فضای En+ باشد، آنگاه Y١:n ≥st X١:n.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "GLFR(α, β, λ), common β; shape parameters λ_i vs γ_i; linear parameters α_i vs ν_i",
+  "compared": "two series systems: per-component (α_i, λ_i) vs (ν_i, γ_i), common β",
+  "hypotheses": [
+   {"text": "Xi ~ GLFR(αi, β, λi), Yi ~ GLFR(νi, β, γi), i = ١, ···, n", "formal": "independent heterogeneous GLFR components", "source": "statement"},
+   {"text": "α ≻^m ν روی فضای Dn+", "formal": "α majorizes ν on D_{n+}", "source": "statement"},
+   {"text": "λ - ١ ≻^m γ - ١ روی فضای En+", "formal": "the vector (λ_i - 1) majorizes (γ_i - 1) on E_{n+} (sorted increasing); proof uses η_i = λ_i - 1", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Y_{1:n} >=_st X_{1:n}"},
+  "quantifiers": "n >= 1, all x > 0",
+  "ambiguity": "RTL text layer; 'λ - ١' is the componentwise vector (λ_i - 1), inferred from the proof which sets η_i = λ_i - 1 and writes exponent η_i + 1."
+ },
+ {
+  "paper": "doi:10.29252/jss.13.2.319",
+  "claim": "Theorem 3",
+  "page": 329,
+  "quote": "قضیه ٣: فرض کنید X١, ···, Xn و Y١, ···, Yn دو مجموعه از متغیرهای تصادفی مستقل با Xi ~ GLFR(α, βi, λi), Yi ~ GLFR(α, µi, γi), i = ١, ···, n, باشند. در صورتی که β ≻^m µ روی فضای Dn+ و λ - ١ ≻^m γ - ١ روی فضای En+ باشد، آنگاه Y١:n ≥st X١:n. برهان: این قضیه، مشابه قضایای ١ و ٣ اثبات می‌شود.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "GLFR(α, β, λ), common α; quadratic-coefficient vectors β vs µ; shape vectors λ vs γ",
+  "compared": "two series systems: per-component (β_i, λ_i) vs (µ_i, γ_i), common α",
+  "hypotheses": [
+   {"text": "Xi ~ GLFR(α, βi, λi), Yi ~ GLFR(α, µi, γi), i = ١, ···, n", "formal": "independent heterogeneous GLFR components", "source": "statement"},
+   {"text": "β ≻^m µ روی فضای Dn+", "formal": "β majorizes µ on D_{n+}", "source": "statement"},
+   {"text": "λ - ١ ≻^m γ - ١ روی فضای En+", "formal": "(λ_i - 1) majorizes (γ_i - 1) on E_{n+}", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Y_{1:n} >=_st X_{1:n}"},
+  "quantifiers": "n >= 1, all x > 0",
+  "ambiguity": "Proof note cites 'قضایای ١ و ٣' (theorems 1 and 3, i.e., itself) — presumably means Theorems 1 and 2; recorded as printed."
+ },
+ {
+  "paper": "doi:10.29252/jss.13.2.319",
+  "claim": "Theorem 4",
+  "page": 330,
+  "quote": "قضیه ۴: فرض کنید X١, ···, Xn و Y١, ···, Yn دو مجموعه از متغیرهای تصادفی مستقل با Xi ~ GLFR(αi, βi, λ), Yi ~ GLFR(νi, µi, λ), i = ١, ···, n, باشند. اگر α ≻^m ν روی فضای Dn+ و β ≻^m µ روی فضای Dn+ باشد، آنگاه Xn:n ≥st Yn:n.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "GLFR(α, β, λ), common λ; vectors (α, β) vs (ν, µ)",
+  "compared": "two parallel systems: per-component (α_i, β_i) vs (ν_i, µ_i), common λ",
+  "hypotheses": [
+   {"text": "Xi ~ GLFR(αi, βi, λ), Yi ~ GLFR(νi, µi, λ), i = ١, ···, n", "formal": "independent heterogeneous GLFR components", "source": "statement"},
+   {"text": "α ≻^m ν روی فضای Dn+ و β ≻^m µ روی فضای Dn+", "formal": "α majorizes ν and β majorizes µ on D_{n+}", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X_{n:n} >=_st Y_{n:n} (parallel system of X larger; opposite direction to the series result)"},
+  "quantifiers": "n >= 1, all x > 0; no λ restriction stated (unlike Theorem 1's λ >= 1)",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.29252/jss.13.2.319",
+  "claim": "Theorem 5",
+  "page": 332,
+  "quote": "قضیه ۵: فرض کنید X١, ···, Xn و Y١, ···, Yn دو مجموعه از متغیرهای تصادفی مستقل با Xi ~ GLFR(αi, β, λi), Yi ~ GLFR(νi, β, γi), i = ١, ···, n, باشند. اگر α ≻^m ν روی فضای Dn+ و λ ≻^m γ روی فضای En+ باشد، آنگاه Xn:n ≥st Yn:n.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "GLFR(α, β, λ), common β; per-component (α_i, λ_i) vs (ν_i, γ_i)",
+  "compared": "two parallel systems differing in α and shape λ vectors",
+  "hypotheses": [
+   {"text": "Xi ~ GLFR(αi, β, λi), Yi ~ GLFR(νi, β, γi), i = ١, ···, n", "formal": "independent heterogeneous GLFR components", "source": "statement"},
+   {"text": "α ≻^m ν روی فضای Dn+", "formal": "α majorizes ν on D_{n+}", "source": "statement"},
+   {"text": "λ ≻^m γ روی فضای En+", "formal": "λ majorizes γ on E_{n+} (sorted increasing)", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X_{n:n} >=_st Y_{n:n}"},
+  "quantifiers": "n >= 1, all x > 0",
+  "ambiguity": "Statement places λ, γ vectors on E_{n+} (increasing order) while α, ν are on D_{n+} (decreasing); this asymmetric ordering of the two vector pairs is as printed."
+ },
+ {
+  "paper": "doi:10.29252/jss.13.2.319",
+  "claim": "Theorem 6",
+  "page": 333,
+  "quote": "قضیه ۶: فرض کنید X١, ···, Xn و Y١, ···, Yn دو مجموعه از متغیرهای تصادفی مستقل با Xi ~ GLFR(α, βi, λi), Yi ~ GLFR(α, µi, γi), i = ١, ···, n, باشند. اگر β ≻^m µ روی فضای Dn+ و λ ≻^m γ روی فضای En+ باشد، آنگاه Xn:n ≥st Yn:n. برهان: این قضیه، مشابه قضایای ۴ و ۵ اثبات می‌شود.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "GLFR(α, β, λ), common α; per-component (β_i, λ_i) vs (µ_i, γ_i)",
+  "compared": "two parallel systems differing in β and shape λ vectors",
+  "hypotheses": [
+   {"text": "Xi ~ GLFR(α, βi, λi), Yi ~ GLFR(α, µi, γi), i = ١, ···, n", "formal": "independent heterogeneous GLFR components", "source": "statement"},
+   {"text": "β ≻^m µ روی فضای Dn+", "formal": "β majorizes µ on D_{n+}", "source": "statement"},
+   {"text": "λ ≻^m γ روی فضای En+", "formal": "λ majorizes γ on E_{n+}", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X_{n:n} >=_st Y_{n:n}"},
+  "quantifiers": "n >= 1, all x > 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.29252/jss.13.2.319",
+  "claim": "Theorem 7",
+  "page": 333,
+  "quote": "قضیه ٧: فرض کنید X١, ···, Xn و Y١, ···, Yn دو مجموعه از متغیرهای تصادفی مستقل با Xi ~ GLFR(αi, β, λi), Yi ~ GLFR(νi, β, γi), i = ١, ···, n, باشند. اگر روی فضای Dn^π رابطه α ≻^m_(λ١,···,λn) ν برقرار باشد، آنگاه γ ≻^uo λ ⟹ Xn:n ≥st Yn:n.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "GLFR(α, β, λ), common β; per-component (α_i, λ_i) vs (ν_i, γ_i)",
+  "compared": "two parallel systems; α vs ν compared by p-weighted majorization with weight vector λ on D_n^π; λ vs γ by unordered majorization",
+  "hypotheses": [
+   {"text": "Xi ~ GLFR(αi, β, λi), Yi ~ GLFR(νi, β, γi), i = ١, ···, n", "formal": "independent heterogeneous GLFR components", "source": "statement"},
+   {"text": "α ≻^m_(λ١,···,λn) ν on Dn^π (Cheng weighted majorization: Σ λ_{πi} α_{πi} = Σ λ_{πi} ν_{πi} and partial sums Σ_{i≤k} λ_{πi} α_{πi} ≥ Σ_{i≤k} λ_{πi} ν_{πi})", "formal": "α p-majorizes ν with weights λ on the permuted decreasing space D_n^π", "source": "statement"},
+   {"text": "γ ≻^uo λ", "formal": "γ unordered-majorizes λ (equal total, larger partial sums in given order)", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X_{n:n} >=_st Y_{n:n}"},
+  "quantifiers": "n >= 1, all x > 0",
+  "ambiguity": "RTL text makes the operand order of the weighted majorization ambiguous; in Example 1 with π = (3,2,1), λ_π·ν_π partial sums (15, 19, 20) exceed λ_π·α_π (12, 18, 20), i.e., numerically ν ≻^m_λ α, opposite to the 'α ≻^m ν' reading. Recorded as printed; the example suggests the theorem may intend ν ≻^m_λ α."
+ },
+ {
+  "paper": "doi:10.29252/jss.13.2.319",
+  "claim": "Example 1",
+  "page": 335,
+  "quote": "مثال ١: فرض کنید X١, X٢, X٣ و Y١, Y٢, Y٣ دو مجموعه از متغیرهای تصادفی مستقل با Xi ~ GLFR(αi, β, λi), Yi ~ GLFR(νi, β, γi), i = ١, ٢, ٣ باشند. قرار دهید: λ = (١, ٢, ٣), γ = (٢, ٢/۵, ١/۵), α = (٢, ٣, ۴), ν = (١, ٢, ۵). واضح است γ ≻^uo λ و اگر π = (٣, ٢, ١) یک جایگشت از اعداد {١, ٢, ٣} باشد، آنگاه روی فضای Dn^π رابطه α ≻^m_(λ١,λ٢,λ٣) ν برقرار است. بنابراین طبق قضیه ٧ نتیجه می‌شود X٣:٣ ≥st Y٣:٣.",
+  "kind": "example",
+  "model": "parallel system",
+  "family": "GLFR(α, β, λ), n = 3, common β",
+  "compared": "λ = (1,2,3) vs γ = (2,2.5,1.5); α = (2,3,4) vs ν = (1,2,5) under permutation π = (3,2,1)",
+  "hypotheses": [
+   {"text": "γ ≻^uo λ", "formal": "γ unordered-majorizes λ: sums both 6, partial sums 2>=1, 4.5>=3", "source": "statement"},
+   {"text": "α ≻^m_(λ) ν on Dn^π with π = (3,2,1)", "formal": "weighted majorization with weights λ = (1,2,3)", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X_{3:3} >=_st Y_{3:3}"},
+  "quantifiers": "n = 3",
+  "numbers": "λ = (1,2,3), γ = (2,2.5,1.5), α = (2,3,4), ν = (1,2,5), π = (3,2,1); β arbitrary common value; conclusion X_{3:3} >=_st Y_{3:3}",
+  "ambiguity": "With π = (3,2,1): λ_π = (3,2,1), α_π = (4,3,2), ν_π = (5,2,1); weighted sums Σλ_π α_π = Σλ_π ν_π = 20 but the k=1 partial sums are 12 < 15, so numerically it is ν that p-majorizes α, not α ≻ ν as printed."
+ },
+ {
+  "paper": "doi:10.29252/jss.13.2.319",
+  "claim": "Theorem 8",
+  "page": 336,
+  "quote": "قضیه ٨: فرض کنید X١, ···, Xn و Y١, ···, Yn دو مجموعه از متغیرهای تصادفی مستقل با Xi ~ GLFR(α, βi, λi), Yi ~ GLFR(α, µi, γi), i = ١, ···, n, باشند. اگر روی فضای Dn^π رابطه β ≻^m_(λ١,···,λn) µ برقرار باشد، آنگاه γ ≻^uo λ ⟹ Xn:n ≥st Yn:n. برهان: این قضیه، مشابه قضیه ٧ اثبات می‌شود.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "GLFR(α, β, λ), common α; per-component (β_i, λ_i) vs (µ_i, γ_i)",
+  "compared": "two parallel systems; β vs µ by λ-weighted majorization on D_n^π; λ vs γ by unordered majorization",
+  "hypotheses": [
+   {"text": "Xi ~ GLFR(α, βi, λi), Yi ~ GLFR(α, µi, γi), i = ١, ···, n", "formal": "independent heterogeneous GLFR components", "source": "statement"},
+   {"text": "β ≻^m_(λ١,···,λn) µ on Dn^π", "formal": "β p-majorizes µ with weights λ on D_n^π", "source": "statement"},
+   {"text": "γ ≻^uo λ", "formal": "γ unordered-majorizes λ", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X_{n:n} >=_st Y_{n:n}"},
+  "quantifiers": "n >= 1, all x > 0",
+  "ambiguity": "Same RTL operand-order caveat as Theorem 7."
+ }
+]

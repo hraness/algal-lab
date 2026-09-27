@@ -1,0 +1,246 @@
+[
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Theorem 3 (قضیه ٣)",
+  "page": 64,
+  "quote": "قضیه ٣: فرض کنید Xλ١, ···, Xλn مجموعه‌ای از متغیرهای تصادفی مستقل وایبل باشند به‌گونه‌ای که Xλi ~ W(α, λi), λi > ٠, i = ١, ···, n. همچنین فرض کنید Ip١, ···, Ipn متغیرهای تصادفی مستقل برنولی با E(Ipi) = pi باشند که مستقل از Xλi ها هستند. اگر شرط Πi=١..n pi >= Πi=١..n p*i برقرار باشد، آنگاه Σi=١..n λi^α <= Σi=١..n (λ*i)^α ⟹ Y١:n >=st (>=sl) Y*١:n.",
+  "kind": "theorem",
+  "model": "other: smallest claim amount Y_{1:n} = min{I_{p_i} X_{λ_i}} (insurance portfolio minimum)",
+  "family": "Weibull W(α, λ_i) (scale-model form G(λ_i t), survival F_bar(x) = exp(-λ_i^α x^α) used in proof); Bernoulli occurrence indicators I_{p_i}",
+  "compared": "two portfolios: Weibull scale vectors λ vs λ* and occurrence probabilities p vs p*",
+  "hypotheses": [
+   {"text": "Πi=١..n pi >= Πi=١..n p*i", "formal": "prod p_i >= prod p*_i", "source": "statement"},
+   {"text": "Σi=١..n λi^α <= Σi=١..n (λ*i)^α", "formal": "sum of λ_i^α <= sum of (λ*_i)^α", "source": "statement"},
+   {"text": "Xλi ~ W(α, λi), Ipi independent Bernoulli with E(Ipi) = pi, independent of the Xλi", "formal": "mixed claim variables Y_i = I_{p_i} X_{λ_i}", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Y_{1:n} >=_st Y*_{1:n} (Y-portfolio minimum larger)"},
+  "quantifiers": "n >= 1, λ_i > 0, t >= 0; α unrestricted in statement (proof uses α > 0)",
+  "ambiguity": "Conclusion printed 'Y١:n ≥st (≥sl) Y١∗:n' contains a second symbol '≥sl' (presumably stop-loss order) which is not defined in the paper's definitions (defs give st, hr, c, su, disp, RS, cx); recorded as printed."
+ },
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Lemma 1 (لم ١)",
+  "page": 65,
+  "quote": "لم ١ (برمالزن و پاینده ٢٠١۵): فرض کنید Xλ١, ···, Xλn مجموعه‌ای از متغیرهای تصادفی مستقل وایبل باشند به‌گونه‌ای که Xλi ~ W(α, λi), λi > ٠, i = ١, ···, n. همچنین فرض کنید Ip١, ···, Ipn متغیرهای تصادفی مستقل برنولی با E(Ipi) = pi باشند که مستقل از Xλi ها هستند. اگر α >= ١ و Πi=١..n pi >= Πi=١..n p*i، آنگاه Y١:n >=c (>=su) Y*١:n.",
+  "kind": "lemma",
+  "model": "other: smallest claim amount",
+  "family": "Weibull W(α, λ_i) with Bernoulli occurrence indicators",
+  "compared": "portfolios (λ, p) vs (λ*, p*); the λ condition is implicit via context (Σλ_i^α <= Σλ*_i^α from surrounding results)",
+  "hypotheses": [
+   {"text": "α >= ١", "formal": "Weibull shape alpha >= 1", "source": "statement"},
+   {"text": "Πi=١..n pi >= Πi=١..n p*i", "formal": "prod p_i >= prod p*_i", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: convex transform order >=c and superadditive order >=su", "direction": "Y_{1:n} >=_c Y*_{1:n} (and >=_su)"},
+  "quantifiers": "n >= 1, α >= 1",
+  "ambiguity": "Lemma is attributed to Barmalzan & Payandeh (2015) and restated here; the condition on λ vs λ* is not reprinted inside the lemma text (needed to make the conclusion nontrivial)."
+ },
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Theorem 4 (قضیه ۴)",
+  "page": 65,
+  "quote": "قضیه ۴: تحت مفروضات قضیه ٣، اگر α >= ١ و Πi=١..n pi >= Πi=١..n p*i، آنگاه Σi=١..n λi^α <= Σi=١..n (λ*i)^α ⟹ Y١:n >=disp Y*١:n.",
+  "kind": "theorem",
+  "model": "other: smallest claim amount",
+  "family": "Weibull W(α, λ_i) with Bernoulli indicators",
+  "compared": "portfolios (λ, p) vs (λ*, p*)",
+  "hypotheses": [
+   {"text": "تحت مفروضات قضیه ٣", "formal": "independent Weibull claims X_{λ_i} ~ W(α,λ_i), independent Bernoulli I_{p_i}", "source": "earlier theorem 3"},
+   {"text": "α >= ١ و Πi=١..n pi >= Πi=١..n p*i", "formal": "alpha >= 1 and prod p_i >= prod p*_i", "source": "statement"},
+   {"text": "Σi=١..n λi^α <= Σi=١..n (λ*i)^α", "formal": "sum λ_i^α <= sum (λ*_i)^α", "source": "statement"}
+  ],
+  "conclusion": {"order": "disp", "direction": "Y_{1:n} >=_disp Y*_{1:n} (Y-portfolio minimum more dispersed)"},
+  "quantifiers": "n >= 1, α >= 1, λ_i > 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Corollary 1 (نتیجه ١)",
+  "page": 66,
+  "quote": "نتیجه ١: تحت مفروضات قضیه ٣، اگر α >= ١ و Πi=١..n pi >= Πi=١..n p*i، آنگاه Σi=١..n λi^α <= Σi=١..n (λ*i)^α ⟹ VaR(Y١:n) >= VaR(Y*١:n).",
+  "kind": "corollary",
+  "model": "other: smallest claim amount",
+  "family": "Weibull W(α, λ_i) with Bernoulli indicators",
+  "compared": "portfolios (λ, p) vs (λ*, p*); compares quantiles (VaR) of the two minima",
+  "hypotheses": [
+   {"text": "تحت مفروضات قضیه ٣، α >= ١، Πpi >= Πp*i", "formal": "same as Theorem 4", "source": "earlier theorem 3"},
+   {"text": "Σi=١..n λi^α <= Σi=١..n (λ*i)^α", "formal": "sum λ_i^α <= sum (λ*_i)^α", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: VaR (quantile) order", "direction": "VaR(Y_{1:n}) >= VaR(Y*_{1:n}) for all probability levels"},
+  "quantifiers": "n >= 1, α >= 1, p in (0,1)",
+  "ambiguity": "VaR ordering is equivalent to the usual stochastic order; stated as corollary of the disp/st results."
+ },
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Corollary 2(a) (نتیجه ٢، الف)",
+  "page": 66,
+  "quote": "نتیجه ٢: تحت مفروضات قضیه ٣، فرض کنید α >= ١ و Πi=١..n pi >= Πi=١..n p*i. در این صورت (الف) اگر λ* >= (1/n Σi=١..n λi^α)^{1/α} و p* <= (Πi=١..n pi)^{1/n} باشد، آنگاه Y١:n >=disp Y*١:n.",
+  "kind": "corollary",
+  "model": "other: smallest claim amount; heterogeneous portfolio vs homogeneous portfolio (common λ*, p*)",
+  "family": "Weibull W(α, λ_i) vs W(α, λ*); Bernoulli indicators",
+  "compared": "heterogeneous (λ_i, p_i) vs homogeneous (λ*, p*) portfolios",
+  "hypotheses": [
+   {"text": "α >= ١ و Πi=١..n pi >= Πi=١..n p*i", "formal": "alpha >= 1, prod p_i >= prod p*_i", "source": "statement"},
+   {"text": "λ* >= (1/n Σ λi^α)^{1/α} و p* <= (Π pi)^{1/n}", "formal": "λ* >= power mean of λ_i; p* <= geometric mean of p_i", "source": "statement"}
+  ],
+  "conclusion": {"order": "disp", "direction": "Y_{1:n} >=_disp Y*_{1:n}"},
+  "quantifiers": "n >= 1, α >= 1",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Corollary 2(b) (نتیجه ٢، ب)",
+  "page": 66,
+  "quote": "(ب) اگر λ* <= (1/n Σi=١..n λi^α)^{1/α} و p* >= (Πi=١..n pi)^{1/n} باشد، آنگاه Y*١:n >=disp Y١:n.",
+  "kind": "corollary",
+  "model": "other: smallest claim amount; heterogeneous vs homogeneous portfolio",
+  "family": "Weibull W(α, λ_i) vs W(α, λ*); Bernoulli indicators",
+  "compared": "heterogeneous (λ_i, p_i) vs homogeneous (λ*, p*) portfolios",
+  "hypotheses": [
+   {"text": "تحت مفروضات قضیه ٣، α >= ١ و Π pi >= Π p*i", "formal": "same framework", "source": "earlier theorem 3"},
+   {"text": "λ* <= (1/n Σ λi^α)^{1/α} و p* >= (Π pi)^{1/n}", "formal": "λ* <= power mean; p* >= geometric mean", "source": "statement"}
+  ],
+  "conclusion": {"order": "disp", "direction": "Y*_{1:n} >=_disp Y_{1:n} (homogeneous portfolio minimum more dispersed)"},
+  "quantifiers": "n >= 1, α >= 1",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Theorem 5 (قضیه ۵)",
+  "page": 66,
+  "quote": "قضیه ۵: تحت مفروضات قضیه ٣، اگر Πi=١..n pi >= Πi=١..n p*i و Σi=١..n λi^α <= Σi=١..n (λ*i)^α، آنگاه برای α > ٠، (Πi=١..n pi / Πi=١..n p*i) = (Σi=١..n λi^α / Σi=١..n (λ*i)^α)^{1/α} ⟹ Y١:n >=cx Y*١:n.",
+  "kind": "theorem",
+  "model": "other: smallest claim amount",
+  "family": "Weibull W(α, λ_i) with Bernoulli indicators",
+  "compared": "portfolios (λ, p) vs (λ*, p*)",
+  "hypotheses": [
+   {"text": "Πi=١..n pi >= Πi=١..n p*i", "formal": "prod p_i >= prod p*_i", "source": "statement"},
+   {"text": "Σi=١..n λi^α <= Σi=١..n (λ*i)^α", "formal": "sum λ_i^α <= sum (λ*_i)^α", "source": "statement"},
+   {"text": "(Π pi / Π p*i) = (Σ λi^α / Σ (λ*i)^α)^{1/α}", "formal": "equal-means calibration between the two portfolios", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: cx (convex)", "direction": "Y_{1:n} >=_cx Y*_{1:n}"},
+  "quantifiers": "n >= 1, α > 0, d in R for the stop-loss integrals",
+  "ambiguity": "The printed defining equation is garbled in the RTL layer ('(∏n i=١ pi α / ∏n i=١ p∗i) = (∑n i=١ λαi / ∑n i=١ (λ∗i)α)^{1/α}'); reading inferred from the proof's use of E(Y_{1:n}) = E(Y*_{1:n})."
+ },
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Theorem 6(a) (قضیه ۶، الف)",
+  "page": 67,
+  "quote": "قضیه ۶: فرض کنید Xλ١, ···, Xλn دارای تابع مفصل بقای ارشمیدسی Ĉ(u١, ···, un) = ψ(ϕ(u١) + ··· + ϕ(un)) باشند که در آن ψ تابع مولد و ϕ = ψ^{-١} و Xλi ~ W(α, λi), i = ١, ···, n. همچنین فرض کنید Ip١, ···, Ipn متغیرهای تصادفی مستقل برنولی با E(Ipi) = pi باشند که مستقل از Xλi ها هستند. (الف) اگر ((λ١)^α, ···, (λn)^α) ⪰^w ((λ*١)^α, ···, (λ*n)^α) و ψ تابعی لوگ محدب و Πi=١..n pi <= Πi=١..n p*i باشد، آنگاه Y*١:n >=st Y١:n.",
+  "kind": "theorem",
+  "model": "other: smallest claim amount with dependent Weibull claims (Archimedean survival copula)",
+  "family": "Weibull W(α, λ_i) with Archimedean survival copula Ĉ(u) = ψ(Σϕ(u_i))",
+  "compared": "dependent portfolios (λ, p) vs (λ*, p*)",
+  "hypotheses": [
+   {"text": "((λ١)^α, ···, (λn)^α) ⪰^w ((λ*١)^α, ···, (λ*n)^α)", "formal": "(λ_i^α) weakly supermajorizes ((λ*_i)^α)", "source": "statement"},
+   {"text": "ψ تابعی لوگ محدب", "formal": "generator ψ is log-convex", "source": "statement"},
+   {"text": "Πi=١..n pi <= Πi=١..n p*i", "formal": "prod p_i <= prod p*_i", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Y*_{1:n} >=_st Y_{1:n}"},
+  "quantifiers": "n >= 1, all x >= 0",
+  "ambiguity": "RTL text; superscript w (weak supermajorization) vs subscript w (weak submajorization) partly ambiguous in the text layer; reading assigned by symmetry with part (b) and Li & Li (2014) theorem 1.4(a) cited in the proof."
+ },
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Theorem 6(b) (قضیه ۶، ب)",
+  "page": 67,
+  "quote": "(ب) اگر ((λ١)^α, ···, (λn)^α) ⪰_w ((λ*١)^α, ···, (λ*n)^α) و ψ تابعی لوگ مقعر و Πi=١..n p*i <= Πi=١..n pi باشد، آنگاه Y١:n >=st Y*١:n.",
+  "kind": "theorem",
+  "model": "other: smallest claim amount with dependent Weibull claims (Archimedean survival copula)",
+  "family": "Weibull W(α, λ_i) with Archimedean survival copula",
+  "compared": "dependent portfolios (λ, p) vs (λ*, p*)",
+  "hypotheses": [
+   {"text": "((λ١)^α, ···) ⪰_w ((λ*١)^α, ···)", "formal": "(λ_i^α) weakly submajorizes ((λ*_i)^α)", "source": "statement"},
+   {"text": "ψ تابعی لوگ مقعر", "formal": "generator ψ is log-concave", "source": "statement"},
+   {"text": "Πi=١..n p*i <= Πi=١..n pi", "formal": "prod p*_i <= prod p_i", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Y_{1:n} >=_st Y*_{1:n}"},
+  "quantifiers": "n >= 1, all x >= 0",
+  "ambiguity": "Same weak-majorization notation caveat as part (a)."
+ },
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Theorem 7 (قضیه ٧)",
+  "page": 68,
+  "quote": "قضیه ٧: فرض کنید Xλ١, ···, Xλn (Xλ*١, ···, Xλ*n) دارای تابع مفصل بقای گامبل-هوگارد Ĉ(u١, ···, un) = exp{-((-ln u١)^θ + ··· + (-ln un)^θ)^{1/θ}}, θ >= ١, باشند، که در آن Xλi ~ PHR(F̄, λ١, ···, λn) (Xλ*i ~ PHR(Ḡ, µ١, ···, µn)). همچنین فرض کنید Ip١, ···, Ipn متغیرهای تصادفی مستقل برنولی با E(Ipi) = pi باشند که مستقل از Xλi ها هستند. اگر Πi=١..n p*i >= Πi=١..n pi و Σi=١..n λi^θ <= Σi=١..n µi^θ و F̄(x)/Ḡ(x) نسبت به x صعودی باشند، آنگاه Y١:n >=hr Y*١:n.",
+  "kind": "theorem",
+  "model": "other: smallest claim amount with dependent PHR claims (Gumbel-Hougaard survival copula)",
+  "family": "PHR(F̄, λ) vs PHR(Ḡ, µ) marginals, Gumbel-Hougaard survival copula parameter θ >= 1",
+  "compared": "dependent portfolios (F̄, λ, p) vs (Ḡ, µ, p*)",
+  "hypotheses": [
+   {"text": "Πi=١..n p*i >= Πi=١..n pi", "formal": "prod p*_i >= prod p_i", "source": "statement"},
+   {"text": "Σi=١..n λi^θ <= Σi=١..n µi^θ", "formal": "sum λ_i^θ <= sum µ_i^θ", "source": "statement"},
+   {"text": "F̄(x)/Ḡ(x) نسبت به x صعودی", "formal": "F_bar(x)/G_bar(x) increasing in x", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "Y_{1:n} >=_hr Y*_{1:n}"},
+  "quantifiers": "n >= 1, θ >= 1, x >= 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Theorem 8 (قضیه ٨)",
+  "page": 70,
+  "quote": "قضیه ٨: فرض کنید Xλ١, ···, Xλn (Xλ*١, ···, Xλ*n) دارای تابع مفصل بقای گامبل-هوگارد Ĉ(u١, ···, un) = exp{-((-ln u١)^θ + ··· + (-ln un)^θ)^{1/θ}}, θ >= ١, باشند، که در آن Xλi ~ PHR(F̄, λ١, ···, λn) (Xλ*i ~ PHR(Ḡ, µ١, ···, µn)). همچنین فرض کنید Ip١, ···, Ipn متغیرهای تصادفی مستقل برنولی با E(Ipi) = pi باشند که مستقل از Xλi ها هستند. تحت شرایط (الف) Πi=١..n pi >= Πi=١..n p*i. (ب) نسبت F̄(x)/Ḡ(x) صعودی در x باشد. (ج) -ln F̄(x) یا -ln Ḡ(x) تابعی مقعر باشند. Σi=١..n λi^θ <= Σi=١..n µi^θ ⟹ Y١:n >=disp Y*١:n.",
+  "kind": "theorem",
+  "model": "other: smallest claim amount with dependent PHR claims (Gumbel-Hougaard survival copula)",
+  "family": "PHR(F̄, λ) vs PHR(Ḡ, µ), Gumbel-Hougaard survival copula θ >= 1",
+  "compared": "dependent portfolios (F̄, λ, p) vs (Ḡ, µ, p*)",
+  "hypotheses": [
+   {"text": "(الف) Π pi >= Π p*i", "formal": "prod p_i >= prod p*_i", "source": "statement"},
+   {"text": "(ب) نسبت F̄(x)/Ḡ(x) صعودی در x", "formal": "F_bar/G_bar increasing in x", "source": "statement"},
+   {"text": "(ج) -ln F̄(x) یا -ln Ḡ(x) تابعی مقعر", "formal": "-ln F_bar or -ln G_bar concave (DFR)", "source": "statement"},
+   {"text": "Σi=١..n λi^θ <= Σi=١..n µi^θ", "formal": "sum λ_i^θ <= sum µ_i^θ", "source": "statement"}
+  ],
+  "conclusion": {"order": "disp", "direction": "Y_{1:n} >=_disp Y*_{1:n}"},
+  "quantifiers": "n >= 1, θ >= 1, x >= 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Numerical remark after Theorem 9 (λ = (10,1), µ = (4,8))",
+  "page": 71,
+  "quote": "و (λ١, ···, λn) ⪰_w (µ١, ···, µn) لازم است توجه شود که هیچکدام از شرایط Σi=١..n λi^θ <= Σi=١..n µi^θ یکدیگر را نتیجه نمی‌دهند. به عنوان مثال، اگر (λ١, λ٢) = (١٠, ١) و (µ١, µ٢) = (۴, ٨) باشند بدیهی است λ١ + λ٢ <= µ١ + µ٢ اما برای θ = ٢ داریم λ١^θ + λ٢^θ >= µ١^θ + µ٢^θ.",
+  "kind": "example",
+  "model": "other: smallest claim amount (hypothesis comparison, not a distributional ordering)",
+  "family": "PHR/Gumbel-Hougaard framework of Theorems 8-9",
+  "compared": "parameter vectors λ = (10,1) vs µ = (4,8) under the two alternative conditions of Theorems 8 and 9",
+  "hypotheses": [],
+  "conclusion": {"order": "other: none — shows independence of the two hypotheses", "direction": "Σλ_i <= Σµ_i (11 <= 12) but Σλ_i^2 >= Σµ_i^2 (101 >= 80)"},
+  "quantifiers": "n = 2, θ = 2",
+  "numbers": "λ = (10, 1), µ = (4, 8), θ = 2; λ1+λ2 = 11 <= 12 = µ1+µ2; λ1^2+λ2^2 = 101 >= 80 = µ1^2+µ2^2",
+  "ambiguity": "Included because it is a printed numerical example; it supports the logical independence of the conditions of Theorems 8 and 9 rather than an ordering result itself."
+ },
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Theorem 9 (قضیه ٩)",
+  "page": 70,
+  "quote": "قضیه ٩: فرض کنید Xλ١, ···, Xλn (Xλ*١, ···, Xλ*n) دارای تابع مفصل بقای گامبل-هوگارد Ĉ(u١, ···, un) = exp{-((-ln u١)^θ + ··· + (-ln un)^θ)^{1/θ}}, θ >= ١, باشند، که در آن Xλi ~ PHR(F̄, λ١, ···, λn) (Xλ*i ~ PHR(F̄, µ١, ···, µn)). همچنین فرض کنید Ip١, ···, Ipn متغیرهای تصادفی مستقل برنولی با E(Ipi) = pi باشند که مستقل از Xλi ها هستند. اگر Πi=١..n p*i >= Πi=١..n pi، آنگاه (λ١, ···, λn) ⪰_w (µ١, ···, µn) ⟹ Y١:n <=st Y*١:n.",
+  "kind": "theorem",
+  "model": "other: smallest claim amount with dependent PHR claims (Gumbel-Hougaard survival copula), common baseline F̄",
+  "family": "PHR(F̄, λ) vs PHR(F̄, µ), Gumbel-Hougaard survival copula θ >= 1",
+  "compared": "dependent portfolios differing in PHR power vector (λ vs µ) and occurrence probabilities (p vs p*), same baseline",
+  "hypotheses": [
+   {"text": "Πi=١..n p*i >= Πi=١..n pi", "formal": "prod p*_i >= prod p_i", "source": "statement"},
+   {"text": "(λ١, ···, λn) ⪰_w (µ١, ···, µn)", "formal": "λ weakly submajorizes µ (tail partial sums Σ_{j>=i} λ_(j) >= Σ_{j>=i} µ_(j))", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Y_{1:n} <=_st Y*_{1:n} (Y*-portfolio minimum larger)"},
+  "quantifiers": "n >= 1, θ >= 1, x >= 0",
+  "ambiguity": "Subscript-w weak majorization read as weak submajorization per Definition 5(c); RTL rendering."
+ },
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Theorem 10 (قضیه ١٠)",
+  "page": 72,
+  "quote": "قضیه ١٠: فرض کنید Xλ١, ···, Xλn (Xλ*١, ···, Xλ*n) دارای تابع مفصل بقای کلایتون با تابع مفصل Ĉ(u١, ···, un) = (u١^θ + ··· + un^θ)^{-١/θ}, θ >= ١, باشند، که در آن Xλi ~ PHR(F̄, λ١, ···, λn) (Xλi ~ PHR(F̄, µ١, ···, µn)). همچنین فرض کنید Ip١, ···, Ipn متغیرهای تصادفی مستقل برنولی با E(Ipi) = pi باشند که مستقل از Xλi ها هستند. اگر Πi=١..n p*i >= Πi=١..n pi باشد، آنگاه (λ١, ···, λn) ⪰^w (µ١, ···, µn) ⟹ Y*١:n >=st Y١:n.",
+  "kind": "theorem",
+  "model": "other: smallest claim amount with dependent PHR claims (Clayton survival copula)",
+  "family": "PHR(F̄, λ) vs PHR(F̄, µ), Clayton survival copula Ĉ(u) = (Σu_i^θ)^{-1/θ}, θ >= 1",
+  "compared": "dependent portfolios differing in power vector (λ vs µ) and occurrence probabilities (p vs p*), same baseline",
+  "hypotheses": [
+   {"text": "Πi=١..n p*i >= Πi=١..n pi", "formal": "prod p*_i >= prod p_i", "source": "statement"},
+   {"text": "(λ١, ···, λn) ⪰^w (µ١, ···, µn)", "formal": "λ weakly supermajorizes µ (partial sums Σ_{j<=i} λ_(j) <= Σ_{j<=i} µ_(j) as defined in Def 5(b))", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Y*_{1:n} >=_st Y_{1:n}"},
+  "quantifiers": "n >= 1, θ >= 1, x >= 0",
+  "ambiguity": "The printed Clayton copula is written (Σ u_i^θ)^{-1/θ} with θ >= 1 — the standard Clayton form uses u_i^{-θ}; superscript signs possibly lost in the text layer. Also the second vector is printed 'Xλi ~ PHR(F̄, µ١,...,µn)' with λ instead of λ* in the subscript."
+ }
+]

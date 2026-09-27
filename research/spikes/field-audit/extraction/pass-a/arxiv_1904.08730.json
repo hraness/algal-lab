@@ -1,0 +1,412 @@
+[
+  {
+    "paper": "arxiv:1904.08730",
+    "claim": "Theorem 3.1",
+    "page": 6,
+    "quote": "Theorem 3.1. Let X1, X2 and X∗1, X∗2 be two pairs of non-negative independent random variables such that Xi ~ EG2(θi, φ, αi), and X∗i ~ EG2(θi∗, φ, αi∗) for i = 1, 2. Then, if (α1 α2; θ1 θ2) ∈ S2 we have (α1 α2; θ1 θ2) ≫ (α∗1 α∗2; θ∗1 θ∗2) ⟹ X∗1:2 ≥st X1:2.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "Exponentiated Gumbel type-II EG2(θ, φ, α): F(x) = (1 − e^{−θx^{−φ}})^α, x > 0; common inner shape φ",
+    "compared": "2×2 parameter matrices (α;θ) vs (α*;θ*) under multivariate chain majorization",
+    "hypotheses": [
+      {
+        "text": "Xi ~ EG2(θi, φ, αi), X∗i ~ EG2(θi∗, φ, αi∗), i = 1,2, independent",
+        "formal": "common φ",
+        "source": "statement"
+      },
+      {
+        "text": "(α1 α2; θ1 θ2) ∈ S2",
+        "formal": "(α1 − α2)(θ1 − θ2) ≤ 0 (anti-comonotone), all entries > 0 (eq. 2.1-type set)",
+        "source": "statement"
+      },
+      {
+        "text": "(α1 α2; θ1 θ2) ≫ (α∗1 α∗2; θ∗1 θ∗2)",
+        "formal": "chain majorization: second matrix = first × product of T-transforms (Definition 2.5)",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "X_{1:2} <=st X*_{1:2}"
+    },
+    "quantifiers": "n = 2; x > 0",
+    "ambiguity": "",
+    "numbers": ""
+  },
+  {
+    "paper": "arxiv:1904.08730",
+    "claim": "Theorem 3.2",
+    "page": 6,
+    "quote": "Theorem 3.2. Let X1, X2 and X∗1, X∗2 be two pairs of non-negative independent random variables such that Xi ~ EG2(θi, φ, αi), and X∗i ~ EG2(θi∗, φ, αi∗) for i = 1, 2. Then, if (α1 α2; θ1 θ2) ∈ T2 we have (α1 α2; θ1 θ2) ≫ (α∗1 α∗2; θ∗1 θ∗2) ⟹ X2:2 ≥st X∗2:2.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "EG2(θi, φ, αi) vs EG2(θi∗, φ, αi∗), common φ",
+    "compared": "2×2 parameter matrices under chain majorization",
+    "hypotheses": [
+      {
+        "text": "(α1 α2; θ1 θ2) ∈ T2",
+        "formal": "(αi − αj)(θi − θj) ≤ 0 and αi ≥ 1, θi > 0 (definition of T2)",
+        "source": "statement"
+      },
+      {
+        "text": "(α1 α2; θ1 θ2) ≫ (α∗1 α∗2; θ∗1 θ∗2)",
+        "formal": "chain majorization",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "X_{2:2} >=st X*_{2:2}"
+    },
+    "quantifiers": "n = 2; x > 0",
+    "ambiguity": "T2 additionally requires αi ≥ 1 (per its definition in the preliminaries).",
+    "numbers": ""
+  },
+  {
+    "paper": "arxiv:1904.08730",
+    "claim": "Example 3.3",
+    "page": 9,
+    "quote": "Example 3.3. Let X1, X2 be a pair of independent random variables such that Xi ~ EG2(θi, φ, αi), i = 1, 2. Furthermore, let X∗1, X∗2 be an another pair of independent random variables with X∗i ~ EG2(θi∗, φ, αi∗), i = 1, 2. Set (α1 α2; θ1 θ2) = (0.54 0.66; 1.7 1.4) and (α∗1 α∗2; θ∗1 θ∗2) = (0.5 0.7; 1.8 1.3). We can see that both the matrices belong in S2. Consider a T-transform matrix: T0.8 = 0.8(1 0; 0 1) + 0.2(0 1; 1 0) = (0.8 0.2; 0.2 0.8), and we have (α1 α2; θ1 θ2) = (α∗1 α∗2; θ∗1 θ∗2) T0.8, which satisfies the Definition 2.5, so we have (α1 α2; θ1 θ2) ≫ (α∗1 α∗2; θ∗1 θ∗2). Therefore, from Theorem 3.1, we get X1:2 ≤st X∗1:2, for any x > 0.",
+    "kind": "example",
+    "model": "series system",
+    "family": "EG2(θi, φ, αi) vs EG2(θi∗, φ, αi∗)",
+    "compared": "matrix A = (0.54, 0.66; 1.7, 1.4) vs B = (0.5, 0.7; 1.8, 1.3)",
+    "hypotheses": [
+      {
+        "text": "both matrices in S2; (α;θ) = (α*;θ*) T0.8",
+        "formal": "A = B T0.8",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "X_{1:2} <=st X*_{1:2}"
+    },
+    "quantifiers": "n = 2",
+    "numbers": "(α1,α2) = (0.54,0.66); (θ1,θ2) = (1.7,1.4); (α*1,α*2) = (0.5,0.7); (θ*1,θ*2) = (1.8,1.3); w = 0.8",
+    "ambiguity": "As printed, A = B·T0.8; under Definition 2.5 (A ≫ B iff B = A·chain of T-transforms) this equality rather shows B ≫ A, opposite to the stated A ≫ B. Direction inconsistency recorded as printed."
+  },
+  {
+    "paper": "arxiv:1904.08730",
+    "claim": "Example 3.4",
+    "page": 9,
+    "quote": "Example 3.4. Let X1, X2 be a pair of independent random variables such that Xi ~ EG2(θi, φ, αi), i = 1, 2. Furthermore, let X∗1, X∗2 be an another pair of independent random variables with X∗i ~ EG2(θi∗, φ, αi∗), i = 1, 2. Set (α1 α2; θ1 θ2) = (2.34 2.26; 1.32 1.38) and (α∗1 α∗2; θ∗1 θ∗2) = (2.1 2.5; 1.5 1.2). We can see that both the matrices belong in T2. Consider a T-transform matrix: T0.6 = 0.4(1 0; 0 1) + 0.6(0 1; 1 0) = (0.4 0.6; 0.6 0.4), and we have (α1 α2; θ1 θ2) = (α∗1 α∗2; θ∗1 θ∗2) T0.4. So, according to the Definition 2.5 we have (α1 α2; θ1 θ2) ≫ (α∗1 α∗2; θ∗1 θ∗2). Therefore, from Theorem 3.2, we get X2:2 ≥st X∗2:2, for any x > 0.",
+    "kind": "example",
+    "model": "parallel system",
+    "family": "EG2(θi, φ, αi) vs EG2(θi∗, φ, αi∗)",
+    "compared": "A = (2.34, 2.26; 1.32, 1.38) vs B = (2.1, 2.5; 1.5, 1.2)",
+    "hypotheses": [
+      {
+        "text": "both matrices in T2 (αi ≥ 1); (α;θ) = (α*;θ*) T0.4",
+        "formal": "A = B T0.4",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "X_{2:2} >=st X*_{2:2}"
+    },
+    "quantifiers": "n = 2",
+    "numbers": "(α1,α2) = (2.34,2.26); (θ1,θ2) = (1.32,1.38); (α*1,α*2) = (2.1,2.5); (θ*1,θ*2) = (1.5,1.2); w = 0.4",
+    "ambiguity": "Same right-multiplication direction issue as Example 3.3: A = B·T0.4 corresponds to B ≫ A under Definition 2.5, yet the paper writes A ≫ B."
+  },
+  {
+    "paper": "arxiv:1904.08730",
+    "claim": "Theorem 3.5(1)",
+    "page": 9,
+    "quote": "Theorem 3.5. Let X1, ...., Xn and X∗1, ...., X∗n be two sets of non-negative independent random variables such that Xi ~ EG2(θi, φ, αi), and X∗i ~ EG2(θi∗, φ, αi∗) for i = 1, ..., n. (1) Assume that (α1 .... αn; θ1 .... θn) ∈ Tn, and (α∗1 .... α∗n; θ∗1 .... θ∗n) = (α1 .... αn; θ1 .... θn) Tw^(i,j). Then, we have Xn:n ≥st X∗n:n. Where Tw^(i,j) = wIn + (1 − w)Πn^(i,j), Πn^(i,j) is a permutation matrix of order n that just interchanges the coordinates i and j.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "EG2(θi, φ, αi) vs EG2(θi∗, φ, αi∗), common φ, general n",
+    "compared": "2×n parameter matrices related by a single T-transform interchanging coordinates i,j",
+    "hypotheses": [
+      {
+        "text": "(α;θ) ∈ Tn",
+        "formal": "anti-comonotone rows, αi ≥ 1",
+        "source": "statement"
+      },
+      {
+        "text": "(α*;θ*) = (α;θ) Tw^(i,j)",
+        "formal": "single T-transform step",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "X_{n:n} >=st X*_{n:n}"
+    },
+    "quantifiers": "n ≥ 2; x > 0",
+    "ambiguity": "Here the right-multiplication direction is consistent with Definition 2.5 ((α*;θ*) = (α;θ)Tw).",
+    "numbers": ""
+  },
+  {
+    "paper": "arxiv:1904.08730",
+    "claim": "Theorem 3.5(2)",
+    "page": 9,
+    "quote": "Theorem 3.5. ... (2) Assume that (α1 .... αn; θ1 .... θn) ∈ Sn, and (α∗1 .... α∗n; θ∗1 .... θ∗n) = (α1 .... αn; θ1 .... θn) Tw^(i,j). Then, we have X1:n ≤st X∗1:n.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "EG2(θi, φ, αi) vs EG2(θi∗, φ, αi∗), common φ",
+    "compared": "2×n parameter matrices related by a single T-transform",
+    "hypotheses": [
+      {
+        "text": "(α;θ) ∈ Sn",
+        "formal": "anti-comonotone rows, αi > 0",
+        "source": "statement"
+      },
+      {
+        "text": "(α*;θ*) = (α;θ) Tw^(i,j)",
+        "formal": "single T-transform step",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "X_{1:n} <=st X*_{1:n}"
+    },
+    "quantifiers": "n ≥ 2; x > 0",
+    "ambiguity": "",
+    "numbers": ""
+  },
+  {
+    "paper": "arxiv:1904.08730",
+    "claim": "Corollary 3.6(1)",
+    "page": 10,
+    "quote": "Corollary 3.6. Let X1, ...., Xn and X∗1, ...., X∗n be two sets of non-negative independent random variables such that Xi ~ EG2(θi, φ, αi), and X∗i ~ EG2(θi∗, φ, αi∗) for i = 1, ..., n. (1) Assume that (α1 .... αn; θ1 .... θn) ∈ Tn, and (α∗1 .... α∗n; θ∗1 .... θ∗n) = (α1 .... αn; θ1 .... θn) Tw1^(i,j) ...Twk^(i,j). Where Twi^(i,j), i = 1, 2, ...., k have the same structure. Then, we have Xn:n ≥st X∗n:n.",
+    "kind": "corollary",
+    "model": "parallel system",
+    "family": "EG2, common φ",
+    "compared": "parameter matrices related by same-structure T-transform chains",
+    "hypotheses": [
+      {
+        "text": "(α;θ) ∈ Tn",
+        "formal": "anti-comonotone, αi ≥ 1",
+        "source": "statement"
+      },
+      {
+        "text": "(α*;θ*) = (α;θ) Tw1^(i,j) ...Twk^(i,j), same structure",
+        "formal": "same (i,j) interchange in each step",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "X_{n:n} >=st X*_{n:n}"
+    },
+    "quantifiers": "n ≥ 2, k ≥ 1",
+    "ambiguity": "",
+    "numbers": ""
+  },
+  {
+    "paper": "arxiv:1904.08730",
+    "claim": "Corollary 3.6(2)",
+    "page": 10,
+    "quote": "Corollary 3.6. ... (2) Assume that (α1 .... αn; θ1 .... θn) ∈ Sn, and (α∗1 .... α∗n; θ∗1 .... θ∗n) = (α1 .... αn; θ1 .... θn) Tw1^(i,j) ...Twk^(i,j). Where Twi^(i,j), i = 1, 2, ..., k have the same structure. Then, we have X1:n ≤st X∗1:n.",
+    "kind": "corollary",
+    "model": "series system",
+    "family": "EG2, common φ",
+    "compared": "parameter matrices related by same-structure T-transform chains",
+    "hypotheses": [
+      {
+        "text": "(α;θ) ∈ Sn",
+        "formal": "anti-comonotone rows",
+        "source": "statement"
+      },
+      {
+        "text": "(α*;θ*) = (α;θ) Tw1^(i,j) ...Twk^(i,j), same structure",
+        "formal": "same interchange pair each step",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "X_{1:n} <=st X*_{1:n}"
+    },
+    "quantifiers": "n ≥ 2, k ≥ 1",
+    "ambiguity": "",
+    "numbers": ""
+  },
+  {
+    "paper": "arxiv:1904.08730",
+    "claim": "Theorem 3.7(1)",
+    "page": 10,
+    "quote": "Theorem 3.7. Let X1, ...., Xn and X∗1, ...., X∗n be two sets of non-negative independent random variables such that Xi ~ EG2(θi, φ, αi), and X∗i ~ EG2(θi∗, φ, αi∗) for i = 1, ..., n. (1) Assume that (α1 .... αn; θ1 .... θn) ∈ Tn, (α1 .... αn; θ1 .... θn) Tw1 ...Twi ∈ Tn for i = 1, ...., k − 1, (k ≥ 2). If (α∗1 .... α∗n; θ∗1 .... θ∗n) = (α1 .... αn; θ1 .... θn) Tw1 ...Twk, then, we have Xn:n ≥st X∗n:n.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "EG2, common φ",
+    "compared": "parameter matrices related by different-structure T-transform chains with all intermediates in Tn",
+    "hypotheses": [
+      {
+        "text": "(α;θ) ∈ Tn and each partial product (α;θ)Tw1...Twi ∈ Tn",
+        "formal": "all intermediate matrices anti-comonotone with α ≥ 1",
+        "source": "statement"
+      },
+      {
+        "text": "(α*;θ*) = (α;θ) Tw1 ...Twk",
+        "formal": "chain majorization, possibly different structures",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "X_{n:n} >=st X*_{n:n}"
+    },
+    "quantifiers": "n ≥ 2, k ≥ 2",
+    "ambiguity": "",
+    "numbers": ""
+  },
+  {
+    "paper": "arxiv:1904.08730",
+    "claim": "Theorem 3.7(2)",
+    "page": 10,
+    "quote": "Theorem 3.7. ... (2) Assume that (α1 .... αn; θ1 .... θn) ∈ Sn, (α1 .... αn; θ1 .... θn) Tw1 ...Twi ∈ Sn for i = 1, ...., k − 1, (k ≥ 2). If (α∗1 .... α∗n; θ∗1 .... θ∗n) = (α1 .... αn; θ1 .... θn) Tw1 ...Twk, then, we have X1:n ≤st X∗1:n.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "EG2, common φ",
+    "compared": "different-structure T-transform chains with intermediates in Sn",
+    "hypotheses": [
+      {
+        "text": "(α;θ) ∈ Sn and each partial product ∈ Sn",
+        "formal": "all intermediate matrices anti-comonotone",
+        "source": "statement"
+      },
+      {
+        "text": "(α*;θ*) = (α;θ) Tw1 ...Twk",
+        "formal": "chain majorization",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "X_{1:n} <=st X*_{1:n}"
+    },
+    "quantifiers": "n ≥ 2, k ≥ 2",
+    "ambiguity": "",
+    "numbers": ""
+  },
+  {
+    "paper": "arxiv:1904.08730",
+    "claim": "Theorem 3.8",
+    "page": 11,
+    "quote": "Theorem 3.8. Let X1, ......, Xn, and X∗1, ....., X∗n be two sets of non-negative independent random variables such that Xi ~ EG2(θ, φ, αi), and X∗i ~ EG2(θ, φ, αi∗), i = 1, 2, ...., n. Then, if (α1, ····· αn) ≽m (α∗1, ····· α∗n), we have X1:n =st X∗1:n.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "EG2(θ, φ, αi) vs EG2(θ, φ, αi∗); common θ, φ",
+    "compared": "outer shape vectors α vs α* under majorization",
+    "hypotheses": [
+      {
+        "text": "(α1, ····· αn) ≽m (α∗1, ····· α∗n)",
+        "formal": "α majorizes α* (equal sums)",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "X_{1:n} =st X*_{1:n} (equality in distribution)"
+    },
+    "quantifiers": "x > 0; n ≥ 2",
+    "ambiguity": "Conclusion is equality in the usual stochastic order: F̄X1:n depends on α only through Σαi, preserved by majorization.",
+    "numbers": ""
+  },
+  {
+    "paper": "arxiv:1904.08730",
+    "claim": "Theorem 3.9",
+    "page": 12,
+    "quote": "Theorem 3.9. Let X1, ......, Xn, and X∗1, ....., X∗n be two sets of non-negative independent random variables such that Xi ~ EG2(θ, φ, αi), and X∗i ~ EG2(θ, φ, αi∗), i = 1, 2, ...., n. Then, if (α1, ····· αn) ≽m (α∗1, ····· α∗n), we have Xn:n ≥rf X∗n:n.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "EG2(θ, φ, αi) vs EG2(θ, φ, αi∗); common θ, φ",
+    "compared": "outer shape vectors under majorization",
+    "hypotheses": [
+      {
+        "text": "(α1, ····· αn) ≽m (α∗1, ····· α∗n)",
+        "formal": "α majorizes α*",
+        "source": "statement"
+      },
+      {
+        "text": "φ(α,t) = αt^{α−1}/(1−t^α) convex in α (Lemma 2.9)",
+        "formal": "used to show the reversed hazard is Schur-convex in α",
+        "source": "proof"
+      }
+    ],
+    "conclusion": {
+      "order": "rh",
+      "direction": "X_{n:n} >=rf X*_{n:n} (paper's 'rf' = reversed failure rate order)"
+    },
+    "quantifiers": "x > 0; n ≥ 2",
+    "ambiguity": "",
+    "numbers": ""
+  },
+  {
+    "paper": "arxiv:1904.08730",
+    "claim": "Theorem 3.10",
+    "page": 12,
+    "quote": "Theorem 3.10. Let X1, ......, Xn, and X∗1, ....., X∗n be two sets of non-negative independent random variables such that Xi ~ EG2(θ, φ, αi), and X∗i ~ EG2(θ, φ, αi∗), i = 1, 2, ...., n. Then if Σi=1^n αi ≤ Σi=1^n αi∗, we have X1:n ≤lr X∗1:n.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "EG2(θ, φ, αi) vs EG2(θ, φ, αi∗); common θ, φ",
+    "compared": "total sums of the outer shape parameters",
+    "hypotheses": [
+      {
+        "text": "Σi=1^n αi ≤ Σi=1^n αi∗",
+        "formal": "sum comparison only (weaker than majorization)",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "lr",
+      "direction": "X_{1:n} <=lr X*_{1:n}"
+    },
+    "quantifiers": "x > 0; θ, φ > 0; n ≥ 2",
+    "ambiguity": "",
+    "numbers": ""
+  },
+  {
+    "paper": "arxiv:1904.08730",
+    "claim": "Theorem 3.11",
+    "page": 13,
+    "quote": "Theorem 3.11. Let X1, ......, Xn, and X∗1, ....., X∗n be two sets of non-negative independent random variables such that Xi ~ EG2(θ, φi, α), and X∗i ~ EG2(θ, φ∗i, α), i = 1, 2, ...., n. Then, if (φ1, ····· φn) ≽m (φ∗1, ····· φ∗n), we have X1:n ≤st X∗1:n.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "EG2(θ, φi, α) vs EG2(θ, φi∗, α); common θ, α; heterogeneous inner shapes",
+    "compared": "inner shape vectors φ vs φ* under majorization",
+    "hypotheses": [
+      {
+        "text": "(φ1, ····· φn) ≽m (φ∗1, ····· φ∗n)",
+        "formal": "φ majorizes φ*",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "X_{1:n} <=st X*_{1:n}"
+    },
+    "quantifiers": "x > 0; n ≥ 2",
+    "ambiguity": "",
+    "numbers": ""
+  },
+  {
+    "paper": "arxiv:1904.08730",
+    "claim": "Example 3.12",
+    "page": 14,
+    "quote": "Example 3.12. Let X1, X2, X3 and X∗1, X∗2, X∗3 be two sets of non-negative independent random variables such that Xi ~ EG2(5, φi, 2), and X∗i ~ EG2(5, φ∗i, 2), i = 1, 2, 3. Let us choose φ1 = 0.1, φ2 = 1.14, φ3 = 0.3 and φ∗1 = 0.6, φ∗2 = 0.9, φ∗3 = 0.04. It is clear that (φ1, ····· φn) ≽m (φ∗1, ····· φ∗n). Now, from the Figure 1, in the next page, we observe that the reliability functions cross each other. This implies that Xn:n ≱st X∗n:n.",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "EG2(5, φi, 2) vs EG2(5, φi∗, 2), common θ = 5, α = 2",
+    "compared": "φ = (0.1, 1.14, 0.3) vs φ* = (0.6, 0.9, 0.04), majorization holds",
+    "hypotheses": [
+      {
+        "text": "(φ1, φ2, φ3) ≽m (φ*1, φ*2, φ*3)",
+        "formal": "majorization of inner shapes",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "X_{n:n} not >=st X*_{n:n} (survival curves cross, Figure 1)"
+    },
+    "quantifiers": "n = 3",
+    "numbers": "θ = 5; α = 2; φ = (0.1, 1.14, 0.3); φ* = (0.6, 0.9, 0.04)",
+    "ambiguity": "Shows Theorem 3.11's φ-majorization result does not extend from series to parallel systems (no st order for the highest order statistic)."
+  }
+]
