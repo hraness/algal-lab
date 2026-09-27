@@ -1,0 +1,162 @@
+[
+ {
+  "paper": "doi:10.1080/03610926.2014.985839",
+  "claim": "Theorem 3.1",
+  "page": 6,
+  "quote": "Theorem 3.1 Let Xλ1 , . . . , Xλn be independent nonnegative random variables with Xλi ∼ F (λi t), i = 1, . . . , n, where λi > 0, i = 1, . . . , n and F is an absolutely continuous distribution. Let r be the reverse hazard rate function of F , respectively. If t2 r′ (t) is increasing in t, then (λ1 , . . . , λn ) ⪯ (θ1 , . . . , θn ) ⇒ Xn:n^λ ≤rh Xn:n^θ .",
+  "kind": "theorem",
+  "model": "parallel system (largest order statistic)",
+  "family": "Scale model Xλi ~ F(λi t), F absolutely continuous",
+  "compared": "largest order statistics of two scale-model vectors related by majorization",
+  "hypotheses": [
+   {"text": "t²r′(t) increasing in t", "formal": "condition on reverse hazard rate r of baseline F", "source": "statement"},
+   {"text": "λ ≺ θ (majorization)", "formal": "equal sums, ordered partial sums", "source": "statement"}
+  ],
+  "conclusion": {"order": "rhr", "direction": "Xn:n^λ <=rh Xn:n^θ"},
+  "quantifiers": "all t; n >= 2; λi > 0",
+  "numbers": "",
+  "ambiguity": "Quoted from Khaledi et al. (2011)."
+ },
+ {
+  "paper": "doi:10.1080/03610926.2014.985839",
+  "claim": "Theorem 3.2",
+  "page": 6,
+  "quote": "Theorem 3.2 Let Xλ1 , Xλ2 , . . . , Xλn be independent random variables with Xλi ∼ F (λi t) where λi > 0, i = 1, . . . , n. If tr(t) is decreasing in t and t2 r′ (t) is increasing in t, then (λ1 , . . . , λn ) ≤w (θ1 , . . . , θn ) ⇒ Xn:n^λ ≤rh Xn:n^θ .",
+  "kind": "theorem",
+  "model": "parallel system (largest order statistic)",
+  "family": "Scale model Xλi ~ F(λi t)",
+  "compared": "largest order statistics under weak supermajorization (Definition 2.3: lower partial sums ≥)",
+  "hypotheses": [
+   {"text": "tr(t) decreasing and t²r′(t) increasing in t", "formal": "baseline conditions", "source": "statement"},
+   {"text": "λ ≤w θ (weak supermajorization)", "formal": "Σ_{i≤j} λ(i) ≥ Σ θ(i), j = 1..n", "source": "statement"}
+  ],
+  "conclusion": {"order": "rhr", "direction": "Xn:n^λ <=rh Xn:n^θ — weakly majorized scale vector yields rh-larger parallel-system lifetime"},
+  "quantifiers": "all t; n >= 2",
+  "numbers": "",
+  "ambiguity": "Conditions hold for generalized gamma GG(β,α) with β ≤ 1, α > 0; subsumes gamma (β=1), Weibull (β=α), exponential."
+ },
+ {
+  "paper": "doi:10.1080/03610926.2014.985839",
+  "claim": "Theorem 4.1",
+  "page": 8,
+  "quote": "Theorem 4.1 Let Xλ1 , Xλ be independent nonnegative random variables with Xλ1 ∼ F (λ1 t) and Xλ ∼ F (λt) ... Let Yλ∗1 , Yλ be independent ... with Yλ∗1 ∼ F (λ∗1 t) and Yλ ∼ F (λt) ... Assume tr(t) and tr′ (t)/r(t) are both decreasing in t. Suppose λ∗1 = min(λ, λ1 , λ∗1 ), then (λ1 , λ) ≤w (λ∗1 , λ) ⇒ r2:2^∗ (t)/r2:2 (t) is increasing in t.",
+  "kind": "theorem",
+  "model": "parallel system (n = 2)",
+  "family": "Scale model F(λt)",
+  "compared": "reverse-hazard-rate RATIO increasing — the rh-ratio strengthening toward lr for n = 2",
+  "hypotheses": [
+   {"text": "tr(t) and tr′(t)/r(t) both decreasing in t", "formal": "baseline conditions", "source": "statement"},
+   {"text": "λ∗1 = min(λ, λ1, λ∗1) and (λ1, λ) ≤w (λ∗1, λ)", "formal": "weak supermajorization with min condition", "source": "statement"}
+  ],
+  "conclusion": {"order": "rhr", "direction": "r_{2:2}*(t)/r_{2:2}(t) increasing in t"},
+  "quantifiers": "n = 2; t >= 0",
+  "numbers": "",
+  "ambiguity": "Technical step toward Theorem 4.2's lr conclusion."
+ },
+ {
+  "paper": "doi:10.1080/03610926.2014.985839",
+  "claim": "Theorem 4.2",
+  "page": 9,
+  "quote": "Theorem 4.2 ... Assume tr(t) and tr′ (t)/r(t) are both decreasing in t and t2 r′ (t) is increasing in t. Suppose λ∗1 = min(λ, λ1 , λ∗1 ), then (λ1 , λ) ≤w (λ∗1 , λ) ⇒ X2:2 ≤lr Y2:2 .",
+  "kind": "theorem",
+  "model": "parallel system (n = 2)",
+  "family": "Scale model F(λt); conditions satisfied by GG(β,α) with α ≤ β ≤ 1",
+  "compared": "likelihood-ratio order of two-component maxima under weak supermajorization",
+  "hypotheses": [
+   {"text": "tr(t), tr′(t)/r(t) decreasing; t²r′(t) increasing", "formal": "baseline conditions", "source": "statement"},
+   {"text": "λ∗1 = min(λ, λ1, λ∗1); (λ1, λ) ≤w (λ∗1, λ)", "formal": "weak supermajorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "X2:2 <=lr Y2:2"},
+  "quantifiers": "n = 2; t >= 0",
+  "numbers": "",
+  "ambiguity": "Applies to generalized gamma with α ≤ β ≤ 1; Zhao (2011) Thm 3.4 is special case (gamma, β = 1)."
+ },
+ {
+  "paper": "doi:10.1080/03610926.2014.985839",
+  "claim": "Lemma 4.3",
+  "page": 10,
+  "quote": "Lemma 4.3 Let X ∼ GG(β, α), α ≤ β, with reverse hazard rate r(t), then tr′ (t)/r(t) is a decreasing function.",
+  "kind": "lemma",
+  "model": "other: single distribution",
+  "family": "Generalized gamma GG(β,α): r(t) = t^{α−1}e^{−t^β}/∫0^t x^{α−1}e^{−x^β}dx",
+  "compared": "baseline regularity condition for Theorem 4.2",
+  "hypotheses": [
+   {"text": "α ≤ β", "formal": "parameter ordering", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: condition", "direction": "tr′(t)/r(t) decreasing in t for GG(β,α) when α <= β"},
+  "quantifiers": "t > 0; α <= β",
+  "numbers": "α ≤ β ≤ 1 invoked for Theorem 4.2",
+  "ambiguity": "Supporting technical lemma, not itself an order between two rvs."
+ },
+ {
+  "paper": "doi:10.1080/03610926.2014.985839",
+  "claim": "Corollary 4.4",
+  "page": 11,
+  "quote": "Corollary 4.4 Let Xλ1 , Xλ2 be independent nonnegative random variables with Xλi ∼ F (λi t) for i = 1, 2. Let Y1 , Y2 be independent nonnegative random variables with a common distribution Yi ∼ F (λt) for i = 1, 2. Assume tr(t) and tr′ (t)/r(t) are both decreasing in t and t2 r′ (t) is increasing in t. Suppose λ ≤ min(λ1 , λ2 ), then λ ≤ (λ1 + λ2 )/2 ⇒ X2:2 ≤lr Y2:2 .",
+  "kind": "corollary",
+  "model": "parallel system (n = 2)",
+  "family": "Scale model F(λt); homogeneous comparator",
+  "compared": "heterogeneous vs homogeneous two-component maxima in lr",
+  "hypotheses": [
+   {"text": "tr(t), tr′(t)/r(t) decreasing; t²r′(t) increasing; λ <= min(λ1,λ2) and λ <= (λ1+λ2)/2", "formal": "as stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "X2:2 <=lr Y2:2"},
+  "quantifiers": "n = 2",
+  "numbers": "λ ≤ (λ1+λ2)/2",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1080/03610926.2014.985839",
+  "claim": "Theorem 4.5",
+  "page": 11,
+  "quote": "Theorem 4.5 Let X1 , . . . , Xn be independent nonnegative random variables such that Xi ∼ F (λ1 t) for i = 1, . . . , p and Xj ∼ F (λt) for j = p + 1, . . . , n ... Let Y1 , . . . , Yn be ... Yi ∼ F (λ∗1 t) for i = 1, . . . , p and Yj ∼ F (λt) for j = p + 1, . . . , n ... Assume tr(t) and tr′ (t)/r(t) are both decreasing in t. Suppose λ∗1 = min(λ, λ1 , λ∗1 ), then (λ1 , . . . , λ1 , λ, . . . , λ) ≤w (λ∗1 , . . . , λ∗1 , λ, . . . , λ) ⇒ rn:n^∗ (t)/rn:n (t) is increasing in t.",
+  "kind": "theorem",
+  "model": "parallel system (multiple-outlier model)",
+  "family": "Scale model F(λt) with p outliers + q common",
+  "compared": "reverse-hazard-rate ratio for multiple-outlier scale models",
+  "hypotheses": [
+   {"text": "tr(t), tr′(t)/r(t) decreasing", "formal": "baseline conditions", "source": "statement"},
+   {"text": "λ∗1 = min(λ, λ1, λ∗1); weak supermajorization of the multiple-outlier vectors", "formal": "as stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "rhr", "direction": "r_{n:n}*(t)/r_{n:n}(t) increasing in t"},
+  "quantifiers": "p + q = n; t >= 0",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1080/03610926.2014.985839",
+  "claim": "Theorem 4.6",
+  "page": 13,
+  "quote": "Theorem 4.6 ... Assume tr(t) and tr′ (t)/r(t) are both decreasing in t and t2 r′ (t) is increasing in t. Suppose λ∗1 = min(λ, λ1 , λ∗1 ), then (λ1 , . . . , λ1 , λ, . . . , λ) ≤w (λ∗1 , . . . , λ∗1 , λ, . . . , λ) ⇒ Xn:n ≤lr Yn:n .",
+  "kind": "theorem",
+  "model": "parallel system (multiple-outlier model)",
+  "family": "Scale model F(λt); special case gamma (α ≤ 1) per Zhao-Balakrishnan (2013)",
+  "compared": "likelihood-ratio order of multiple-outlier maxima",
+  "hypotheses": [
+   {"text": "tr(t), tr′(t)/r(t) decreasing; t²r′(t) increasing", "formal": "baseline conditions", "source": "statement"},
+   {"text": "λ∗1 = min; weak supermajorization", "formal": "as stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "Xn:n <=lr Yn:n"},
+  "quantifiers": "p + q = n; t >= 0",
+  "numbers": "",
+  "ambiguity": "Subsumes Zhao & Balakrishnan (2013) Thm 3.1 when λ∗1 <= λ1 <= λ, gamma case."
+ },
+ {
+  "paper": "doi:10.1080/03610926.2014.985839",
+  "claim": "Theorem 4.7",
+  "page": 14,
+  "quote": "Theorem 4.7 Let X1 , . . . , Xn be independent nonnegative random variables such that Xi ∼ F (λ1 t) for i = 1, . . . , p and Xj ∼ G(λt) for j = p + 1, . . . , n ... Let X1∗ , . . . , Xn∗ be n independent nonnegative random variables with Xi∗ ∼ F (λ∗1 t) for i = 1, . . . , p and Xj∗ ∼ G(λt) for j = p + 1, . . . , n ... Assume trF (t) and trF′ (t)/rF (t) are both decreasing in t. Suppose rF (t)/rG (t) is increasing in t, then λ∗1 = min(λ, λ1 , λ∗1 ) ⇒ Xn:n ≤lr Xn:n^∗ .",
+  "kind": "theorem",
+  "model": "parallel system (multiple-outlier model)",
+  "family": "Mixed baselines: outlier components ~ F, common components ~ G",
+  "compared": "likelihood-ratio order of multiple-outlier maxima with different baselines and different outlier scales",
+  "hypotheses": [
+   {"text": "trF(t), trF′(t)/rF(t) decreasing; rF(t)/rG(t) increasing", "formal": "baseline conditions on F and F-vs-G condition", "source": "statement"},
+   {"text": "λ∗1 = min(λ, λ1, λ∗1)", "formal": "min condition", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "Xn:n <=lr Xn:n*"},
+  "quantifiers": "p + q = n; t >= 0",
+  "numbers": "",
+  "ambiguity": "Note: conclusion written with single-arrow hypothesis λ*1 = min rather than explicit weak majorization; the proof uses λ*1 <= λ1 directly."
+ }
+]

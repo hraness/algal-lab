@@ -9,12 +9,28 @@
   "family": "Gamma Topp-Leone-Heavy-Tailed-G (GTL−HT−G) family, cdf F(x; δ, b, θ, ψ) = 1 − γ(−log(1 − U_G(x; θ, ψ))^b, δ)/Γ(δ) with U_G(x; θ, ψ) = [G(x, ψ)/(1 − (1 − θ)G(x, ψ))]^{2θ}, parameters δ, b, θ > 0 and baseline parameter vector ψ",
   "compared": "shape parameter δ1 vs δ2; common θ, b, ψ",
   "hypotheses": [
-   {"text": "Let X1 and X2 be two independent random variables following the GTL−HT−G family of distributions with common parameters θ, b, ψ, and different shape parameters δ1 and δ2", "formal": "X1 ~ GTL-HT-G(δ1, θ, b, ψ), X2 ~ GTL-HT-G(δ2, θ, b, ψ), independent", "source": "statement"},
-   {"text": "If δ1 > δ2", "formal": "δ1 > δ2 > 0", "source": "statement"},
-   {"text": "for δ, b, θ > 0 and parameter vector ψ", "formal": "δ, b, θ > 0", "source": "section preamble (Section 2.1, equation (4))"}
+   {
+    "text": "Let X1 and X2 be two independent random variables following the GTL−HT−G family of distributions with common parameters θ, b, ψ, and different shape parameters δ1 and δ2",
+    "formal": "X1 ~ GTL-HT-G(δ1, θ, b, ψ), X2 ~ GTL-HT-G(δ2, θ, b, ψ), independent",
+    "source": "statement"
+   },
+   {
+    "text": "If δ1 > δ2",
+    "formal": "δ1 > δ2 > 0",
+    "source": "statement"
+   },
+   {
+    "text": "for δ, b, θ > 0 and parameter vector ψ",
+    "formal": "δ, b, θ > 0",
+    "source": "section preamble (Section 2.1, equation (4))"
+   }
   ],
-  "conclusion": {"order": "lr", "direction": "f1/f2 non-increasing in x, i.e. X1 <=lr X2 (statement only says 'stochastically ordered'; proof derives lr order, which implies hr and st order per the section's implication X ⪯lr Y => X ⪯hr Y => X ⪯ Y)"},
+  "conclusion": {
+   "order": "lr",
+   "direction": "f1/f2 non-increasing in x, i.e. X1 <=lr X2 (statement only says 'stochastically ordered'; proof derives lr order, which implies hr and st order per the section's implication X ⪯lr Y => X ⪯hr Y => X ⪯ Y)"
+  },
   "quantifiers": "δ1 > δ2, θ, b > 0, all x in the support",
+  "numbers": "",
   "ambiguity": "The theorem is unnumbered and states only 'stochastically ordered' without a direction. The proof writes 'likelihood ratio order X ⪯lr Y exists' using undefined X, Y (the preamble defines X1, X2). The likelihood-ratio denominator is printed as f2(x; δ1, θ, b, ψ) — an apparent typo for δ2 — in equation (11) and again in its derivative. Independence of X1, X2 is irrelevant to the marginal ordering conclusion."
  }
 ]

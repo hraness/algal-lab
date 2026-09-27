@@ -9,12 +9,28 @@
   "family": "proportional odds (PO) model PO(F̄, λ): survival F̄_i(x) = λi F̄(x)/(1 − (1−λi)F̄(x)), i.e. odds θ_i = λi θ; baseline survival F̄",
   "compared": "parameter vectors λ vs µ under the p-larger order (product majorization)",
   "hypotheses": [
-   {"text": "Suppose the lifetime vectors X ∼ PO(F̄, λ) and Y ∼ PO(F̄, µ)", "formal": "independent PO components, common baseline F̄", "source": "statement"},
-   {"text": "λ ≽^p µ", "formal": "λ p-larger than µ: partial products of smallest components Π_{i=1}^j λ(i) ≤ Π µ(i), all j (Definition 2.1(iv))", "source": "statement"},
-   {"text": "we consider X = (X1, X2, ..., Xn) and Y = (Y1, Y2, ..., Yn) as two sets of independent random variables", "formal": "independence", "source": "section preamble (Section 3)"}
+   {
+    "text": "Suppose the lifetime vectors X ∼ PO(F̄, λ) and Y ∼ PO(F̄, µ)",
+    "formal": "independent PO components, common baseline F̄",
+    "source": "statement"
+   },
+   {
+    "text": "λ ≽^p µ",
+    "formal": "λ p-larger than µ: partial products of smallest components Π_{i=1}^j λ(i) ≤ Π µ(i), all j (Definition 2.1(iv))",
+    "source": "statement"
+   },
+   {
+    "text": "we consider X = (X1, X2, ..., Xn) and Y = (Y1, Y2, ..., Yn) as two sets of independent random variables",
+    "formal": "independence",
+    "source": "section preamble (Section 3)"
+   }
   ],
-  "conclusion": {"order": "st", "direction": "X1:n <=st Y1:n"},
+  "conclusion": {
+   "order": "st",
+   "direction": "X1:n <=st Y1:n"
+  },
   "quantifiers": "n >= 1, all x",
+  "numbers": "",
   "ambiguity": "This paper writes majorization relations with a succeeding symbol ≽: 'x ≽^p y' means x p-larger than y (x more dispersed in the product sense)."
  },
  {
@@ -27,12 +43,28 @@
   "family": "PO model; X heterogeneous λ-vector, Y homogeneous scalar λ",
   "compared": "heterogeneous λ vs scalar λ >= geometric mean of λi",
   "hypotheses": [
-   {"text": "X ∼ PO(F̄, λ) and Y ∼ PO(F̄, λ1)", "formal": "Y homogeneous", "source": "statement"},
-   {"text": "λ ≥ (Π λi)^{1/n}", "formal": "scalar λ at least the geometric mean", "source": "statement"},
-   {"text": "(λ1, λ2, . . . , λn) ≽^p (λ, λ, . . . , λ), where λ ≥ (Π λi)^{1/n}", "formal": "p-larger relation to the constant vector", "source": "section preamble (text above corollary)"}
+   {
+    "text": "X ∼ PO(F̄, λ) and Y ∼ PO(F̄, λ1)",
+    "formal": "Y homogeneous",
+    "source": "statement"
+   },
+   {
+    "text": "λ ≥ (Π λi)^{1/n}",
+    "formal": "scalar λ at least the geometric mean",
+    "source": "statement"
+   },
+   {
+    "text": "(λ1, λ2, . . . , λn) ≽^p (λ, λ, . . . , λ), where λ ≥ (Π λi)^{1/n}",
+    "formal": "p-larger relation to the constant vector",
+    "source": "section preamble (text above corollary)"
+   }
   ],
-  "conclusion": {"order": "st", "direction": "X1:n <=st Y1:n"},
+  "conclusion": {
+   "order": "st",
+   "direction": "X1:n <=st Y1:n"
+  },
   "quantifiers": "n >= 1",
+  "numbers": "",
   "ambiguity": ""
  },
  {
@@ -45,11 +77,23 @@
   "family": "PO model",
   "compared": "parameter vectors λ vs µ under weak supermajorization",
   "hypotheses": [
-   {"text": "λ ≽^w µ", "formal": "λ weakly supermajorizes µ: partial sums of smallest components Σ_{i=1}^j λ(i) ≤ Σ µ(i) (Definition 2.1(ii))", "source": "statement"},
-   {"text": "lifetime vectors X ∼ PO(F̄, λ) and Y ∼ PO(F̄, µ)", "formal": "independent PO components", "source": "statement"}
+   {
+    "text": "λ ≽^w µ",
+    "formal": "λ weakly supermajorizes µ: partial sums of smallest components Σ_{i=1}^j λ(i) ≤ Σ µ(i) (Definition 2.1(ii))",
+    "source": "statement"
+   },
+   {
+    "text": "lifetime vectors X ∼ PO(F̄, λ) and Y ∼ PO(F̄, µ)",
+    "formal": "independent PO components",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "hr", "direction": "X1:n <=hr Y1:n"},
+  "conclusion": {
+   "order": "hr",
+   "direction": "X1:n <=hr Y1:n"
+  },
   "quantifiers": "n >= 1, all x > 0",
+  "numbers": "",
   "ambiguity": ""
  },
  {
@@ -62,11 +106,23 @@
   "family": "PO model; Y homogeneous scalar λ",
   "compared": "heterogeneous λ vs scalar λ >= arithmetic mean",
   "hypotheses": [
-   {"text": "λ ≥ (1/n) Σ λi", "formal": "scalar λ at least the mean", "source": "statement"},
-   {"text": "(λ1, . . . , λn) ≽^w (λ, . . . , λ), for λ ≥ (1/n) Σ λi", "formal": "weak supermajorization to constant vector", "source": "section preamble"}
+   {
+    "text": "λ ≥ (1/n) Σ λi",
+    "formal": "scalar λ at least the mean",
+    "source": "statement"
+   },
+   {
+    "text": "(λ1, . . . , λn) ≽^w (λ, . . . , λ), for λ ≥ (1/n) Σ λi",
+    "formal": "weak supermajorization to constant vector",
+    "source": "section preamble"
+   }
   ],
-  "conclusion": {"order": "hr", "direction": "X1:n <=hr Y1:n"},
+  "conclusion": {
+   "order": "hr",
+   "direction": "X1:n <=hr Y1:n"
+  },
   "quantifiers": "n >= 1",
+  "numbers": "",
   "ambiguity": ""
  },
  {
@@ -79,12 +135,28 @@
   "family": "multiple-outlier PO model: n1 components at parameter λ1 (resp. µ1) and n2 at λ2 (resp. µ2)",
   "compared": "block parameter vectors under majorization; sortedness restriction on the two-level parameters",
   "hypotheses": [
-   {"text": "multiple-outlier PO model with Xi ∼ PO(F̄, λ1), Yi ∼ PO(F̄, µ1) for i ≤ n1 and Xj ∼ PO(F̄, λ2), Yj ∼ PO(F̄, µ2) for j > n1", "formal": "two-level structure", "source": "statement"},
-   {"text": "(λ1, ..., λ1, λ2, ..., λ2) ≽^m (µ1, ..., µ1, µ2, ..., µ2)", "formal": "block vector majorization", "source": "statement"},
-   {"text": "provided {(λ1, λ2) ∈ E+, (µ1, µ2) ∈ E+} or {(λ1, λ2) ∈ D+, (µ1, µ2) ∈ D+}", "formal": "both pairs similarly ordered", "source": "statement"}
+   {
+    "text": "multiple-outlier PO model with Xi ∼ PO(F̄, λ1), Yi ∼ PO(F̄, µ1) for i ≤ n1 and Xj ∼ PO(F̄, λ2), Yj ∼ PO(F̄, µ2) for j > n1",
+    "formal": "two-level structure",
+    "source": "statement"
+   },
+   {
+    "text": "(λ1, ..., λ1, λ2, ..., λ2) ≽^m (µ1, ..., µ1, µ2, ..., µ2)",
+    "formal": "block vector majorization",
+    "source": "statement"
+   },
+   {
+    "text": "provided {(λ1, λ2) ∈ E+, (µ1, µ2) ∈ E+} or {(λ1, λ2) ∈ D+, (µ1, µ2) ∈ D+}",
+    "formal": "both pairs similarly ordered",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "ageing (hr relative ageing)", "direction": "X1:n ≺hr Y1:n"},
+  "conclusion": {
+   "order": "ageing (hr relative ageing)",
+   "direction": "X1:n ≺hr Y1:n"
+  },
   "quantifiers": "n = n1 + n2, all x > 0",
+  "numbers": "",
   "ambiguity": "Direction conflict inside the paper: Definition 2.3(2)(i) defines X ≺hr Y by rX/rY increasing, but the proof (equation (3.1)) shows rX1:n/rY1:n decreasing and Example 5.3 verifies ≺hr via a decreasing ratio — i.e., usage corresponds to 'X ages slower' or to the reversed ratio; recorded as printed."
  },
  {
@@ -97,10 +169,18 @@
   "family": "PO model, n = 2",
   "compared": "parameter pairs under majorization",
   "hypotheses": [
-   {"text": "(λ1, λ2) ≽^m (µ1, µ2)", "formal": "majorization (equal sums)", "source": "statement"}
+   {
+    "text": "(λ1, λ2) ≽^m (µ1, µ2)",
+    "formal": "majorization (equal sums)",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "ageing (hr relative ageing)", "direction": "X1:2 ≺hr Y1:2"},
+  "conclusion": {
+   "order": "ageing (hr relative ageing)",
+   "direction": "X1:2 ≺hr Y1:2"
+  },
   "quantifiers": "n = 2",
+  "numbers": "",
   "ambiguity": "Special case n1 = n2 = 1 of Theorem 3.3; same ≺hr direction ambiguity."
  },
  {
@@ -113,11 +193,23 @@
   "family": "multiple-outlier PO model",
   "compared": "parameter blocks separated by a scalar bound (no majorization)",
   "hypotheses": [
-   {"text": "max{λ1, λ2} ≤ min{µ1, µ2}", "formal": "every λ-parameter <= every µ-parameter", "source": "statement"},
-   {"text": "multiple-outlier PO model", "formal": "two-level parameter structure", "source": "statement"}
+   {
+    "text": "max{λ1, λ2} ≤ min{µ1, µ2}",
+    "formal": "every λ-parameter <= every µ-parameter",
+    "source": "statement"
+   },
+   {
+    "text": "multiple-outlier PO model",
+    "formal": "two-level parameter structure",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "ageing (hr relative ageing)", "direction": "X1:n ≺hr Y1:n"},
+  "conclusion": {
+   "order": "ageing (hr relative ageing)",
+   "direction": "X1:n ≺hr Y1:n"
+  },
   "quantifiers": "n = n1 + n2, x > 0",
+  "numbers": "",
   "ambiguity": "Same ≺hr direction ambiguity as Theorem 3.3."
  },
  {
@@ -130,12 +222,28 @@
   "family": "multiple-outlier PO model with common outlier parameter η in both systems",
   "compared": "block vectors sharing the η block, weak supermajorization plus scalar bound",
   "hypotheses": [
-   {"text": "Xj ∼ PO(F̄, η), Yj ∼ PO(F̄, η) for j = n1+1,...,n", "formal": "shared second-level parameter η", "source": "statement"},
-   {"text": "λ1 ≤ min{η, µ1}", "formal": "scalar bound", "source": "statement"},
-   {"text": "(λ1, ..., λ1, η, ..., η) ≽^w (µ1, ..., µ1, η, ..., η)", "formal": "weak supermajorization of block vectors", "source": "statement"}
+   {
+    "text": "Xj ∼ PO(F̄, η), Yj ∼ PO(F̄, η) for j = n1+1,...,n",
+    "formal": "shared second-level parameter η",
+    "source": "statement"
+   },
+   {
+    "text": "λ1 ≤ min{η, µ1}",
+    "formal": "scalar bound",
+    "source": "statement"
+   },
+   {
+    "text": "(λ1, ..., λ1, η, ..., η) ≽^w (µ1, ..., µ1, η, ..., η)",
+    "formal": "weak supermajorization of block vectors",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "ageing (hr relative ageing)", "direction": "X1:n ≺hr Y1:n"},
+  "conclusion": {
+   "order": "ageing (hr relative ageing)",
+   "direction": "X1:n ≺hr Y1:n"
+  },
   "quantifiers": "n = n1 + n2, x > 0",
+  "numbers": "",
   "ambiguity": "The proof notes the joint hypothesis is equivalent to λ1 ≤ η ≤ µ1 or λ1 ≤ µ1 ≤ η. Same ≺hr direction ambiguity."
  },
  {
@@ -148,11 +256,23 @@
   "family": "PO model, n = 2, shared second parameter η",
   "compared": "pairs (λ1, η) vs (µ1, η) weak supermajorization",
   "hypotheses": [
-   {"text": "λ1 ≤ min{η, µ1}", "formal": "scalar bound", "source": "statement"},
-   {"text": "(λ1, η) ≽^w (µ1, η)", "formal": "weak supermajorization", "source": "statement"}
+   {
+    "text": "λ1 ≤ min{η, µ1}",
+    "formal": "scalar bound",
+    "source": "statement"
+   },
+   {
+    "text": "(λ1, η) ≽^w (µ1, η)",
+    "formal": "weak supermajorization",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "ageing (hr relative ageing)", "direction": "X1:2 ≺hr Y1:2"},
+  "conclusion": {
+   "order": "ageing (hr relative ageing)",
+   "direction": "X1:2 ≺hr Y1:2"
+  },
   "quantifiers": "n = 2",
+  "numbers": "",
   "ambiguity": "n1 = n2 = 1 specialization of Theorem 3.5."
  },
  {
@@ -165,11 +285,23 @@
   "family": "multiple-outlier PO model",
   "compared": "block vectors weak supermajorization plus interlacing scalar chains",
   "hypotheses": [
-   {"text": "{λ1 ≤ µ1 ≤ µ2 ≤ λ2} or {λ1 ≥ µ1 ≥ µ2 ≥ λ2}", "formal": "interlacing conditions", "source": "statement"},
-   {"text": "(λ1, ..., λ1, λ2, ..., λ2) ≽^w (µ1, ..., µ1, µ2, ..., µ2)", "formal": "weak supermajorization", "source": "statement"}
+   {
+    "text": "{λ1 ≤ µ1 ≤ µ2 ≤ λ2} or {λ1 ≥ µ1 ≥ µ2 ≥ λ2}",
+    "formal": "interlacing conditions",
+    "source": "statement"
+   },
+   {
+    "text": "(λ1, ..., λ1, λ2, ..., λ2) ≽^w (µ1, ..., µ1, µ2, ..., µ2)",
+    "formal": "weak supermajorization",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "ageing (hr relative ageing)", "direction": "X1:n ≺hr Y1:n"},
+  "conclusion": {
+   "order": "ageing (hr relative ageing)",
+   "direction": "X1:n ≺hr Y1:n"
+  },
   "quantifiers": "n = n1 + n2, x > 0",
+  "numbers": "",
   "ambiguity": "Under the second chain λ1 ≥ µ1 ≥ µ2 ≥ λ2 the weak-supermajorization hypothesis forces equal block sums in places; the printed statement covers both orderings verbatim. Same ≺hr direction ambiguity."
  },
  {
@@ -182,11 +314,23 @@
   "family": "PO model, n = 2",
   "compared": "parameter pairs under weak supermajorization plus interlacing",
   "hypotheses": [
-   {"text": "(λ1, λ2) ≽^w (µ1, µ2)", "formal": "weak supermajorization", "source": "statement"},
-   {"text": "{λ1 ≤ µ1 ≤ µ2 ≤ λ2} or {λ1 ≥ µ1 ≥ µ2 ≥ λ2}", "formal": "interlacing", "source": "statement"}
+   {
+    "text": "(λ1, λ2) ≽^w (µ1, µ2)",
+    "formal": "weak supermajorization",
+    "source": "statement"
+   },
+   {
+    "text": "{λ1 ≤ µ1 ≤ µ2 ≤ λ2} or {λ1 ≥ µ1 ≥ µ2 ≥ λ2}",
+    "formal": "interlacing",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "ageing (hr relative ageing)", "direction": "X1:2 ≺hr Y1:2"},
+  "conclusion": {
+   "order": "ageing (hr relative ageing)",
+   "direction": "X1:2 ≺hr Y1:2"
+  },
   "quantifiers": "n = 2",
+  "numbers": "",
   "ambiguity": ""
  },
  {
@@ -199,10 +343,18 @@
   "family": "PO model; X heterogeneous, Y homogeneous with scalar λ",
   "compared": "heterogeneous vs homogeneous parameter configurations (mean condition)",
   "hypotheses": [
-   {"text": "λ ≥ (1/n) Σ λi", "formal": "scalar λ at least the arithmetic mean", "source": "statement"}
+   {
+    "text": "λ ≥ (1/n) Σ λi",
+    "formal": "scalar λ at least the arithmetic mean",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "ageing (hr relative ageing)", "direction": "X1:n ≺hr Y1:n"},
+  "conclusion": {
+   "order": "ageing (hr relative ageing)",
+   "direction": "X1:n ≺hr Y1:n"
+  },
   "quantifiers": "n >= 1, x > 0",
+  "numbers": "",
   "ambiguity": "Preamble: 'a series system with homogeneous components ages faster than that with heterogeneous ones'; with Y homogeneous, the printed X1:n ≺hr Y1:n reads X ages 'less' than Y under the paper's operational usage (rX/rY decreasing), consistent with the preamble, but inconsistent with the printed Definition 2.3(2)(i) (r1/r2 increasing for X ≺hr Y)."
  },
  {
@@ -215,12 +367,28 @@
   "family": "multiple-outlier PO model",
   "compared": "block vectors under majorization (resp. weak supermajorization); conclusion via hr order + relative ageing implying lr order",
   "hypotheses": [
-   {"text": "(λ1, ..., λ1, λ2, ..., λ2) ≽^m (resp. ≽^w) (µ1, ..., µ1, µ2, ..., µ2)", "formal": "majorization or weak supermajorization variant", "source": "statement"},
-   {"text": "{(λ1, λ2) ∈ E+, (µ1, µ2) ∈ E+} or {(λ1, λ2) ∈ D+, (µ1, µ2) ∈ D+} (resp. {λ1 ≤ µ1 ≤ µ2 ≤ λ2} or {λ1 ≥ µ1 ≥ µ2 ≥ λ2})", "formal": "two paired hypothesis sets", "source": "statement"},
-   {"text": "the hazard rate order together with the relative ageing order in the sense of hazard rate implies the likelihood ratio order", "formal": "Theorem 3.2 + Theorem 3.3 (or 3.6) give lr", "source": "section preamble (text above theorem)"}
+   {
+    "text": "(λ1, ..., λ1, λ2, ..., λ2) ≽^m (resp. ≽^w) (µ1, ..., µ1, µ2, ..., µ2)",
+    "formal": "majorization or weak supermajorization variant",
+    "source": "statement"
+   },
+   {
+    "text": "{(λ1, λ2) ∈ E+, (µ1, µ2) ∈ E+} or {(λ1, λ2) ∈ D+, (µ1, µ2) ∈ D+} (resp. {λ1 ≤ µ1 ≤ µ2 ≤ λ2} or {λ1 ≥ µ1 ≥ µ2 ≥ λ2})",
+    "formal": "two paired hypothesis sets",
+    "source": "statement"
+   },
+   {
+    "text": "the hazard rate order together with the relative ageing order in the sense of hazard rate implies the likelihood ratio order",
+    "formal": "Theorem 3.2 + Theorem 3.3 (or 3.6) give lr",
+    "source": "section preamble (text above theorem)"
+   }
   ],
-  "conclusion": {"order": "lr", "direction": "X1:n <=lr Y1:n"},
+  "conclusion": {
+   "order": "lr",
+   "direction": "X1:n <=lr Y1:n"
+  },
   "quantifiers": "n = n1 + n2, x > 0",
+  "numbers": "",
   "ambiguity": "Single statement covers two hypothesis/conclusion variants (majorization + sortedness, or weak supermajorization + interlacing), relying on the claimed implication hr + relative ageing ⇒ lr."
  },
  {
@@ -233,11 +401,23 @@
   "family": "PO model; Y homogeneous scalar λ",
   "compared": "heterogeneous vs homogeneous parameter configurations (mean condition)",
   "hypotheses": [
-   {"text": "λ ≥ (1/n) Σ λi", "formal": "scalar λ at least the mean", "source": "statement"},
-   {"text": "The proof follows from Theorem 3.7 and Corollary 3.2", "formal": "hr order plus relative ageing gives lr", "source": "section preamble (text above theorem)"}
+   {
+    "text": "λ ≥ (1/n) Σ λi",
+    "formal": "scalar λ at least the mean",
+    "source": "statement"
+   },
+   {
+    "text": "The proof follows from Theorem 3.7 and Corollary 3.2",
+    "formal": "hr order plus relative ageing gives lr",
+    "source": "section preamble (text above theorem)"
+   }
   ],
-  "conclusion": {"order": "lr", "direction": "X1:n <=lr Y1:n"},
+  "conclusion": {
+   "order": "lr",
+   "direction": "X1:n <=lr Y1:n"
+  },
   "quantifiers": "n >= 1",
+  "numbers": "",
   "ambiguity": ""
  },
  {
@@ -250,11 +430,23 @@
   "family": "PO model; reversed hazard rate functions r̃Xn:n(x) = Σi λi r̃(x)/(1 − λ̄i F̄(x)) (equation (4.2))",
   "compared": "parameter vectors λ vs µ under weak supermajorization",
   "hypotheses": [
-   {"text": "λ ≽^w µ", "formal": "weak supermajorization", "source": "statement"},
-   {"text": "lifetime vectors X ∼ PO(F̄, λ) and Y ∼ PO(F̄, µ)", "formal": "independent PO components", "source": "statement"}
+   {
+    "text": "λ ≽^w µ",
+    "formal": "weak supermajorization",
+    "source": "statement"
+   },
+   {
+    "text": "lifetime vectors X ∼ PO(F̄, λ) and Y ∼ PO(F̄, µ)",
+    "formal": "independent PO components",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "rh", "direction": "Xn:n <=rhr Yn:n"},
+  "conclusion": {
+   "order": "rh",
+   "direction": "Xn:n <=rhr Yn:n"
+  },
   "quantifiers": "n >= 1, all x",
+  "numbers": "",
   "ambiguity": ""
  },
  {
@@ -267,11 +459,23 @@
   "family": "PO model; Y homogeneous scalar λ",
   "compared": "heterogeneous vs homogeneous (mean condition)",
   "hypotheses": [
-   {"text": "λ ≥ (1/n) Σ λi", "formal": "scalar λ at least the mean", "source": "statement"},
-   {"text": "(λ1, . . . , λn) ≽^w (λ, . . . , λ), for λ ≥ (1/n) Σ λi", "formal": "weak supermajorization to constant vector", "source": "section preamble"}
+   {
+    "text": "λ ≥ (1/n) Σ λi",
+    "formal": "scalar λ at least the mean",
+    "source": "statement"
+   },
+   {
+    "text": "(λ1, . . . , λn) ≽^w (λ, . . . , λ), for λ ≥ (1/n) Σ λi",
+    "formal": "weak supermajorization to constant vector",
+    "source": "section preamble"
+   }
   ],
-  "conclusion": {"order": "rh", "direction": "Xn:n <=rhr Yn:n"},
+  "conclusion": {
+   "order": "rh",
+   "direction": "Xn:n <=rhr Yn:n"
+  },
   "quantifiers": "n >= 1",
+  "numbers": "",
   "ambiguity": ""
  },
  {
@@ -284,10 +488,18 @@
   "family": "PO model; Y homogeneous scalar λ equal to the geometric mean",
   "compared": "heterogeneous vs homogeneous (equality geometric-mean condition)",
   "hypotheses": [
-   {"text": "λ = (Π λi)^{1/n}", "formal": "scalar λ exactly the geometric mean", "source": "statement"}
+   {
+    "text": "λ = (Π λi)^{1/n}",
+    "formal": "scalar λ exactly the geometric mean",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "st", "direction": "Xn:n >=st Yn:n"},
+  "conclusion": {
+   "order": "st",
+   "direction": "Xn:n >=st Yn:n"
+  },
   "quantifiers": "n >= 1",
+  "numbers": "",
   "ambiguity": "Stated with equality λ = geometric mean via Lemma 2.6 (a Bon–Păltănea type extremum result); the heterogeneous parallel system is stochastically larger than the homogeneous one with the same geometric mean."
  },
  {
@@ -300,11 +512,23 @@
   "family": "multiple-outlier PO model with shared outlier parameter η",
   "compared": "scalar chain λ1 <= η <= µ1 (shared η block)",
   "hypotheses": [
-   {"text": "λ1 ≤ η ≤ µ1", "formal": "scalar chain", "source": "statement"},
-   {"text": "Xj ∼ PO(F̄, η), Yj ∼ PO(F̄, η) for j > n1", "formal": "shared outlier parameter", "source": "statement"}
+   {
+    "text": "λ1 ≤ η ≤ µ1",
+    "formal": "scalar chain",
+    "source": "statement"
+   },
+   {
+    "text": "Xj ∼ PO(F̄, η), Yj ∼ PO(F̄, η) for j > n1",
+    "formal": "shared outlier parameter",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "ageing (rhr relative ageing)", "direction": "Xn:n ≺rhr Yn:n (r̃Yn:n/r̃Xn:n increasing, per Definition 2.3(2)(ii) r̃2/r̃1 increasing)"},
+  "conclusion": {
+   "order": "ageing (rhr relative ageing)",
+   "direction": "Xn:n ≺rhr Yn:n (r̃Yn:n/r̃Xn:n increasing, per Definition 2.3(2)(ii) r̃2/r̃1 increasing)"
+  },
   "quantifiers": "n = n1 + n2, x > 0",
+  "numbers": "",
   "ambiguity": ""
  },
  {
@@ -317,10 +541,18 @@
   "family": "PO model, n = 2, shared second parameter η",
   "compared": "scalar chain λ1 <= η <= µ1",
   "hypotheses": [
-   {"text": "λ1 ≤ η ≤ µ1", "formal": "scalar chain", "source": "statement"}
+   {
+    "text": "λ1 ≤ η ≤ µ1",
+    "formal": "scalar chain",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "ageing (rhr relative ageing)", "direction": "X2:2 ≺rhr Y2:2"},
+  "conclusion": {
+   "order": "ageing (rhr relative ageing)",
+   "direction": "X2:2 ≺rhr Y2:2"
+  },
   "quantifiers": "n = 2",
+  "numbers": "",
   "ambiguity": "Counterexample 5.6 shows the conclusion fails when the condition is replaced by λ1 ≤ µ1 ≤ η."
  },
  {
@@ -333,12 +565,28 @@
   "family": "multiple-outlier PO model with shared outlier parameter η",
   "compared": "scalar chain λ1 <= η <= µ1",
   "hypotheses": [
-   {"text": "λ1 ≤ η ≤ µ1", "formal": "scalar chain", "source": "statement"},
-   {"text": "We have λ1 ≤ η ≤ µ1, which implies that (λ1, ..., λ1, η, ..., η) ≽^w (µ1, ..., µ1, η, ..., η)", "formal": "weak supermajorization derived from the chain", "source": "proof"},
-   {"text": "fYn:n/fXn:n = (FYn:n/FXn:n)·(r̃Yn:n/r̃Xn:n)", "formal": "factorization used in the proof combining Theorems 4.1 and 4.3", "source": "proof"}
+   {
+    "text": "λ1 ≤ η ≤ µ1",
+    "formal": "scalar chain",
+    "source": "statement"
+   },
+   {
+    "text": "We have λ1 ≤ η ≤ µ1, which implies that (λ1, ..., λ1, η, ..., η) ≽^w (µ1, ..., µ1, η, ..., η)",
+    "formal": "weak supermajorization derived from the chain",
+    "source": "proof"
+   },
+   {
+    "text": "fYn:n/fXn:n = (FYn:n/FXn:n)·(r̃Yn:n/r̃Xn:n)",
+    "formal": "factorization used in the proof combining Theorems 4.1 and 4.3",
+    "source": "proof"
+   }
   ],
-  "conclusion": {"order": "lr", "direction": "Xn:n <=lr Yn:n"},
+  "conclusion": {
+   "order": "lr",
+   "direction": "Xn:n <=lr Yn:n"
+  },
   "quantifiers": "n = n1 + n2, x > 0",
+  "numbers": "",
   "ambiguity": ""
  },
  {
@@ -351,10 +599,18 @@
   "family": "PO model, n = 2",
   "compared": "scalar chain λ1 <= η <= µ1",
   "hypotheses": [
-   {"text": "λ1 ≤ η ≤ µ1", "formal": "scalar chain", "source": "statement"}
+   {
+    "text": "λ1 ≤ η ≤ µ1",
+    "formal": "scalar chain",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "lr", "direction": "X2:2 <=lr Y2:2"},
+  "conclusion": {
+   "order": "lr",
+   "direction": "X2:2 <=lr Y2:2"
+  },
   "quantifiers": "n = 2",
+  "numbers": "",
   "ambiguity": ""
  },
  {
@@ -367,9 +623,16 @@
   "family": "PO model over Weibull baseline F̄(x) = e^{−(x/0.4)^2}",
   "compared": "λ = (2, 3, 5) vs µ = (2.5, 3.5, 6) under p-larger order",
   "hypotheses": [
-   {"text": "(2, 3, 5) ≽^p (2.5, 3.5, 6)", "formal": "partial products of smallest: 2 <= 2.5, 6 <= 8.75, 30 <= 52.5", "source": "statement"}
+   {
+    "text": "(2, 3, 5) ≽^p (2.5, 3.5, 6)",
+    "formal": "partial products of smallest: 2 <= 2.5, 6 <= 8.75, 30 <= 52.5",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "st", "direction": "X1:3 <=st Y1:3 (F̄X1:3 <= F̄Y1:3 via Figure 1 after substitution x = t/(1−t))"},
+  "conclusion": {
+   "order": "st",
+   "direction": "X1:3 <=st Y1:3 (F̄X1:3 <= F̄Y1:3 via Figure 1 after substitution x = t/(1−t))"
+  },
   "quantifiers": "n = 3",
   "numbers": "β = 0.4, k = 2; λ = (2,3,5); µ = (2.5,3.5,6)",
   "ambiguity": ""
@@ -384,9 +647,16 @@
   "family": "PO model over exponential baseline F̄(x) = e^{−2x}",
   "compared": "λ = (3, 4.5, 6) vs µ = (4, 5, 6) under weak supermajorization",
   "hypotheses": [
-   {"text": "(3, 4.5, 6) ≽^w (4, 5, 6)", "formal": "partial sums of smallest: 3 <= 4, 7.5 <= 9, 13.5 <= 15", "source": "statement"}
+   {
+    "text": "(3, 4.5, 6) ≽^w (4, 5, 6)",
+    "formal": "partial sums of smallest: 3 <= 4, 7.5 <= 9, 13.5 <= 15",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "hr", "direction": "X1:3 <=hr Y1:3 (F̄Y/F̄X increasing)"},
+  "conclusion": {
+   "order": "hr",
+   "direction": "X1:3 <=hr Y1:3 (F̄Y/F̄X increasing)"
+  },
   "quantifiers": "n = 3",
   "numbers": "λ = (3,4.5,6); µ = (4,5,6); F̄Y1:3/F̄X1:3 = (120/81)(1 + 5.5e^{−2x} + 7e^{−4x})/(1 + 7e^{−2x} + 12e^{−4x})",
   "ambiguity": ""
@@ -401,9 +671,16 @@
   "family": "multiple-outlier PO model (n1 = n2 = 2) over F̄(x) = e^{−x^2/2} (folded-normal type baseline)",
   "compared": "block vectors (2,2,4.5,4.5) vs (3,3,3.5,3.5) under majorization",
   "hypotheses": [
-   {"text": "(2, 2, 4.5, 4.5) ≽^m (3, 3, 3.5, 3.5)", "formal": "equal totals 13; smallest partial sums 2 <= 3, 4 <= 6, 8.5 <= 9.5", "source": "statement"}
+   {
+    "text": "(2, 2, 4.5, 4.5) ≽^m (3, 3, 3.5, 3.5)",
+    "formal": "equal totals 13; smallest partial sums 2 <= 3, 4 <= 6, 8.5 <= 9.5",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "ageing (hr relative ageing)", "direction": "X1:4 ≺hr Y1:4 (verified via decreasing rX1:4/rY1:4)"},
+  "conclusion": {
+   "order": "ageing (hr relative ageing)",
+   "direction": "X1:4 ≺hr Y1:4 (verified via decreasing rX1:4/rY1:4)"
+  },
   "quantifiers": "n = 4, n1 = n2 = 2",
   "numbers": "λ1 = 2, λ2 = 4.5, µ1 = 3, µ2 = 3.5",
   "ambiguity": "The decreasing hazard-rate ratio is explicitly equated with X ≺hr Y here, confirming the direction-versus-definition discrepancy flagged on Theorem 3.3."
@@ -418,9 +695,16 @@
   "family": "multiple-outlier PO model (n1 = n2 = 2) with shared outlier parameter η",
   "compared": "block vectors under weak supermajorization",
   "hypotheses": [
-   {"text": "λ1 = 3, λ2 = µ2 = η = 4, µ1 = 3.5, so that (2, 2, 4, 4) ≽^w (3.5, 3.5, 4, 4)", "formal": "weak supermajorization", "source": "statement"}
+   {
+    "text": "λ1 = 3, λ2 = µ2 = η = 4, µ1 = 3.5, so that (2, 2, 4, 4) ≽^w (3.5, 3.5, 4, 4)",
+    "formal": "weak supermajorization",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "ageing (hr relative ageing)", "direction": "X1:4 ≺hr Y1:4"},
+  "conclusion": {
+   "order": "ageing (hr relative ageing)",
+   "direction": "X1:4 ≺hr Y1:4"
+  },
   "quantifiers": "n = 4",
   "numbers": "λ1 = 3 (printed) but vector written as (2,2,4,4); λ2 = µ2 = η = 4; µ1 = 3.5",
   "ambiguity": "Internal inconsistency: the stated λ1 = 3 would produce the vector (3,3,4,4), not the printed (2,2,4,4) which corresponds to λ1 = 2; with λ1 = 2 the weak supermajorization (2,2,4,4) ≽^w (3.5,3.5,4,4) and λ1 <= min{η,µ1} = 3.5 hold as required by Theorem 3.5."
@@ -435,9 +719,16 @@
   "family": "multiple-outlier PO model (n1 = n2 = 2)",
   "compared": "block vectors under weak supermajorization with interlacing λ1 < µ1 < µ2 < λ2",
   "hypotheses": [
-   {"text": "(2, 2, 4, 4) ≽^w (3, 3, 3.5, 3.5) and λ1 < µ1 < µ2 < λ2", "formal": "weak supermajorization plus interlacing (Theorem 3.6)", "source": "statement"}
+   {
+    "text": "(2, 2, 4, 4) ≽^w (3, 3, 3.5, 3.5) and λ1 < µ1 < µ2 < λ2",
+    "formal": "weak supermajorization plus interlacing (Theorem 3.6)",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "ageing (hr relative ageing)", "direction": "X1:4 ≺hr Y1:4"},
+  "conclusion": {
+   "order": "ageing (hr relative ageing)",
+   "direction": "X1:4 ≺hr Y1:4"
+  },
   "quantifiers": "n = 4",
   "numbers": "λ1 = 2, λ2 = 4, µ1 = 3, µ2 = 3.5; Figure 3 shows the decreasing ratio",
   "ambiguity": ""
@@ -452,9 +743,16 @@
   "family": "PO model over exponential baseline F̄(x) = e^{−1.5x}",
   "compared": "λ = (0.5, 2.5, 4) vs µ = (1, 3, 5) under weak supermajorization",
   "hypotheses": [
-   {"text": "(0.5, 2.5, 4) ≽^w (1, 3, 5)", "formal": "partial sums of smallest: 0.5 <= 1, 3 <= 4, 7 <= 9", "source": "statement"}
+   {
+    "text": "(0.5, 2.5, 4) ≽^w (1, 3, 5)",
+    "formal": "partial sums of smallest: 0.5 <= 1, 3 <= 4, 7 <= 9",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "rh", "direction": "X3:3 <=rhr Y3:3 (r̃X3:3 <= r̃Y3:3 pointwise)"},
+  "conclusion": {
+   "order": "rh",
+   "direction": "X3:3 <=rhr Y3:3 (r̃X3:3 <= r̃Y3:3 pointwise)"
+  },
   "quantifiers": "n = 3",
   "numbers": "λ = (0.5,2.5,4); µ = (1,3,5); baseline e^{−1.5x}",
   "ambiguity": ""
@@ -469,9 +767,16 @@
   "family": "multiple-outlier PO model (n1 = n2 = 2) over exponential baseline",
   "compared": "scalar chain λ1 = 2 < η = 3 < µ1 = 4 (shared η)",
   "hypotheses": [
-   {"text": "λ1 < η < µ1", "formal": "Theorem 4.3 condition", "source": "statement"}
+   {
+    "text": "λ1 < η < µ1",
+    "formal": "Theorem 4.3 condition",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "ageing (rhr relative ageing)", "direction": "X4:4 ≺rhr Y4:4"},
+  "conclusion": {
+   "order": "ageing (rhr relative ageing)",
+   "direction": "X4:4 ≺rhr Y4:4"
+  },
   "quantifiers": "n = 4",
   "numbers": "λ1 = 2; η = 3; µ1 = 4; baseline e^{−2x}",
   "ambiguity": ""
@@ -486,9 +791,16 @@
   "family": "multiple-outlier PO model (n1 = n2 = 2) over exponential baseline",
   "compared": "scalar chain λ1 = 2 < η = 3 < µ1 = 4 (shared η)",
   "hypotheses": [
-   {"text": "λ1 < η < µ1", "formal": "Theorem 4.4 condition", "source": "statement"}
+   {
+    "text": "λ1 < η < µ1",
+    "formal": "Theorem 4.4 condition",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "lr", "direction": "X4:4 <=lr Y4:4"},
+  "conclusion": {
+   "order": "lr",
+   "direction": "X4:4 <=lr Y4:4"
+  },
   "quantifiers": "n = 4",
   "numbers": "FY4:4/FX4:4 = (1 + e^{−2x})^2/(1 + 3e^{−2x})^2; λ1 = 2, η = 3, µ1 = 4",
   "ambiguity": ""
@@ -503,9 +815,16 @@
   "family": "PO model over exponential baseline F̄(x) = e^{−2x}",
   "compared": "λ = (2.2, 3, 5) vs µ = (2.8, 3.2, 3.3): reciprocal majorization holds but p-larger fails",
   "hypotheses": [
-   {"text": "(λ1, λ2, λ3) ≽^rm (µ1, µ2, µ3) but (λ1, λ2, λ3) ⋡^p (µ1, µ2, µ3)", "formal": "reciprocal majorization holds, p-larger fails", "source": "statement"}
+   {
+    "text": "(λ1, λ2, λ3) ≽^rm (µ1, µ2, µ3) but (λ1, λ2, λ3) ⋡^p (µ1, µ2, µ3)",
+    "formal": "reciprocal majorization holds, p-larger fails",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "st", "direction": "no stochastic order: F̄X1:3(0.2) = 0.63929 < 0.641646 = F̄Y1:3(0.2) but F̄X1:3(0.8) = 0.0861549 > 0.084394 = F̄Y1:3(0.8); Theorem 3.1's p-larger hypothesis cannot be weakened to reciprocal majorization"},
+  "conclusion": {
+   "order": "st",
+   "direction": "no stochastic order: F̄X1:3(0.2) = 0.63929 < 0.641646 = F̄Y1:3(0.2) but F̄X1:3(0.8) = 0.0861549 > 0.084394 = F̄Y1:3(0.8); Theorem 3.1's p-larger hypothesis cannot be weakened to reciprocal majorization"
+  },
   "quantifiers": "n = 3",
   "numbers": "λ = (2.2,3,5); µ = (2.8,3.2,3.3); F̄X(0.2) = 0.63929, F̄Y(0.2) = 0.641646; F̄X(0.8) = 0.0861549, F̄Y(0.8) = 0.084394",
   "ambiguity": ""
@@ -520,9 +839,16 @@
   "family": "PO model over exponential baseline F̄(x) = e^{−1.2x}",
   "compared": "λ = (2, 3, 5) vs µ = (2.8, 3.2, 3.4): p-larger holds but weak supermajorization fails",
   "hypotheses": [
-   {"text": "(λ1, λ2, λ3) ≽^p (µ1, µ2, µ3) but (λ1, λ2, λ3) ⋡^w (µ1, µ2, µ3)", "formal": "p-larger holds, weak supermajorization fails", "source": "statement"}
+   {
+    "text": "(λ1, λ2, λ3) ≽^p (µ1, µ2, µ3) but (λ1, λ2, λ3) ⋡^w (µ1, µ2, µ3)",
+    "formal": "p-larger holds, weak supermajorization fails",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "hr", "direction": "no hazard-rate order: rX(0.2) = 1.4273 > 1.3516 = rY(0.2) but rX(1.8) = 2.8722 < 2.8907 = rY(1.8); Theorem 3.2's weak-supermajorization hypothesis cannot be weakened to p-larger"},
+  "conclusion": {
+   "order": "hr",
+   "direction": "no hazard-rate order: rX(0.2) = 1.4273 > 1.3516 = rY(0.2) but rX(1.8) = 2.8722 < 2.8907 = rY(1.8); Theorem 3.2's weak-supermajorization hypothesis cannot be weakened to p-larger"
+  },
   "quantifiers": "n = 3",
   "numbers": "λ = (2,3,5); µ = (2.8,3.2,3.4); rX(0.2) = 1.4273, rY(0.2) = 1.3516; rX(1.8) = 2.8722, rY(1.8) = 2.8907",
   "ambiguity": "The printed negated symbol is a slashed order glyph; interpreted as failure of X1:3 <=hr Y1:3."
@@ -537,9 +863,16 @@
   "family": "multiple-outlier PO model (n1 = 2, n2 = 4) over exponential baseline F̄(x) = e^{−2x}",
   "compared": "block parameters (2,2,6,6,6,6) vs (3,3,5.5,5.5,5.5,5.5) under majorization",
   "hypotheses": [
-   {"text": "(2, 2, 6, 6, 6, 6) ≽^m (3, 3, 5.5, 5.5, 5.5, 5.5)", "formal": "equal totals 28; smallest partial sums non-increasing side: 2<=3, 4<=6, 10<=11.5, 16<=17, 22<=22.5, 28=28", "source": "statement"}
+   {
+    "text": "(2, 2, 6, 6, 6, 6) ≽^m (3, 3, 5.5, 5.5, 5.5, 5.5)",
+    "formal": "equal totals 28; smallest partial sums non-increasing side: 2<=3, 4<=6, 10<=11.5, 16<=17, 22<=22.5, 28=28",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "ageing (rhr relative ageing)", "direction": "r̃Y6:6/r̃X6:6 non-monotone — no rhr relative-ageing ordering for parallel systems under majorization (unlike the series result Theorem 3.3)"},
+  "conclusion": {
+   "order": "ageing (rhr relative ageing)",
+   "direction": "r̃Y6:6/r̃X6:6 non-monotone — no rhr relative-ageing ordering for parallel systems under majorization (unlike the series result Theorem 3.3)"
+  },
   "quantifiers": "n = 6",
   "numbers": "X block params 2 (×2), 6 (×4); Y block params 3 (×2), 5.5 (×4); Figure 5(a) x-axis roughly 0.5–4",
   "ambiguity": ""
@@ -554,9 +887,16 @@
   "family": "multiple-outlier PO model over exponential baseline",
   "compared": "same parameters as Counterexample 5.3",
   "hypotheses": [
-   {"text": "Taking the random variables as in Counterexample 5.3", "formal": "(2,2,6,6,6,6) ≽^m (3,3,5.5,5.5,5.5,5.5)", "source": "statement"}
+   {
+    "text": "Taking the random variables as in Counterexample 5.3",
+    "formal": "(2,2,6,6,6,6) ≽^m (3,3,5.5,5.5,5.5,5.5)",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "lr", "direction": "fY6:6/fX6:6 non-monotone — no lr ordering (Figure 5(b))"},
+  "conclusion": {
+   "order": "lr",
+   "direction": "fY6:6/fX6:6 non-monotone — no lr ordering (Figure 5(b))"
+  },
   "quantifiers": "n = 6",
   "numbers": "Figure 5(b) shows the density ratio varying around 1.00 (axis roughly 0.996–1.006)",
   "ambiguity": ""
@@ -571,9 +911,16 @@
   "family": "PO model over exponential baseline F̄(x) = e^{−1.8x}",
   "compared": "two parameter pairs satisfying p-larger but not weak supermajorization",
   "hypotheses": [
-   {"text": "λ ≽^p µ but λ ⋡^w µ", "formal": "p-larger holds, weak supermajorization fails", "source": "statement"}
+   {
+    "text": "λ ≽^p µ but λ ⋡^w µ",
+    "formal": "p-larger holds, weak supermajorization fails",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "st", "direction": "case 1: F̄X3:3(1.5) = 0.471629 > 0.459619 = F̄Y3:3(1.5) so X3:3 not <=st Y3:3; case 2: F̄X3:3(1.2) = 0.67176 < 0.69449 = F̄Y3:3(1.2) so X3:3 not >=st Y3:3 — no st order in either direction; Theorem 4.1's hypothesis cannot be weakened even for the usual stochastic order"},
+  "conclusion": {
+   "order": "st",
+   "direction": "case 1: F̄X3:3(1.5) = 0.471629 > 0.459619 = F̄Y3:3(1.5) so X3:3 not <=st Y3:3; case 2: F̄X3:3(1.2) = 0.67176 < 0.69449 = F̄Y3:3(1.2) so X3:3 not >=st Y3:3 — no st order in either direction; Theorem 4.1's hypothesis cannot be weakened even for the usual stochastic order"
+  },
   "quantifiers": "n = 3",
   "numbers": "case 1: λ = (2,3,5), µ = (2.6,3.2,3.7), x = 1.5; case 2: λ = (2.5,3,5), µ = (3,3.8,4.4), x = 1.2",
   "ambiguity": "The second printed negated symbol is rendered as the ≱-slash; direction interpreted from the numeric comparison."
@@ -588,9 +935,16 @@
   "family": "PO model over Weibull baseline F̄(x) = e^{−(x/β)^k}; heterogeneous X vs homogeneous Y",
   "compared": "heterogeneous λ = (2,3,4,5) vs homogeneous λ ∈ {3.6, 3.4}",
   "hypotheses": [
-   {"text": "Yi ∼ PO(F̄, λ) homogeneous", "formal": "homogeneous comparison system", "source": "statement"}
+   {
+    "text": "Yi ∼ PO(F̄, λ) homogeneous",
+    "formal": "homogeneous comparison system",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "ageing (rhr relative ageing)", "direction": "r̃Y4:4/r̃X4:4 non-monotone in both cases — a parallel system of heterogeneous components may not be comparable with a homogeneous one in rhr relative ageing, with or without the condition λ >= mean of Corollary 4.1 (3.6 >= 3.5 satisfies it, 3.4 < 3.5 does not)"},
+  "conclusion": {
+   "order": "ageing (rhr relative ageing)",
+   "direction": "r̃Y4:4/r̃X4:4 non-monotone in both cases — a parallel system of heterogeneous components may not be comparable with a homogeneous one in rhr relative ageing, with or without the condition λ >= mean of Corollary 4.1 (3.6 >= 3.5 satisfies it, 3.4 < 3.5 does not)"
+  },
   "quantifiers": "n = 4",
   "numbers": "case (a): λ = (2,3,4,5), λ = 3.6, β = 0.8, k = 2; case (b): λ = (2,3,4,5), λ = 3.4, β = 3, k = 2; Figures 6(a),(b)",
   "ambiguity": ""
@@ -605,9 +959,16 @@
   "family": "PO model over exponential baseline with rate 2",
   "compared": "parameters λ1 = 0.2, µ1 = 0.4, η = 0.9 giving λ1 ≤ µ1 ≤ η rather than the required λ1 ≤ η ≤ µ1",
   "hypotheses": [
-   {"text": "λ1 = 0.2, µ1 = 0.4 and η = 0.9", "formal": "violates the λ1 ≤ η ≤ µ1 chain (here η > µ1)", "source": "statement"}
+   {
+    "text": "λ1 = 0.2, µ1 = 0.4 and η = 0.9",
+    "formal": "violates the λ1 ≤ η ≤ µ1 chain (here η > µ1)",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "ageing (rhr relative ageing)", "direction": "r̃Y2:2/r̃X2:2 non-monotone — the λ1 ≤ η ≤ µ1 hypothesis of Theorem 4.3 cannot be replaced by λ1 ≤ µ1 ≤ η"},
+  "conclusion": {
+   "order": "ageing (rhr relative ageing)",
+   "direction": "r̃Y2:2/r̃X2:2 non-monotone — the λ1 ≤ η ≤ µ1 hypothesis of Theorem 4.3 cannot be replaced by λ1 ≤ µ1 ≤ η"
+  },
   "quantifiers": "n = 2",
   "numbers": "λ1 = 0.2; µ1 = 0.4; η = 0.9; exponential rate 2; Figure 7",
   "ambiguity": ""

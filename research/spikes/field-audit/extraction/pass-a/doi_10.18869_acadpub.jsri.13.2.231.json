@@ -1,0 +1,54 @@
+[
+ {
+  "paper": "doi:10.18869/acadpub.jsri.13.2.231",
+  "claim": "Definitions and implication chain (Section 5)",
+  "page": 238,
+  "quote": "Usual stochastic order (denoted by X ⩽st Y ): X is said to be stochastically smaller than Y if for all x, F(x) ⩾ G(x). Hazard rate ordering (denoted by X ⩽hr Y ): X is smaller than Y in hazard rate ordering if hX(x) ⩾ hY(x) ... Likelihood ratio ordering (denoted by X ⩽lr Y ): X is smaller than Y in likelihood ratio ordering if g(x)/f(x) is an increasing function of x. The following implications hold among these stochastic orders: X ⩽lr Y ⇒ X ⩽hr Y ⇒ X ⩽st Y.",
+  "kind": "proposition",
+  "model": "generic",
+  "family": "General random variables",
+  "compared": "X vs Y",
+  "hypotheses": [
+   {"text": "X ≤lr Y", "formal": "stated implication", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "X ≤_lr Y ⟹ X ≤_hr Y ⟹ X ≤_st Y"},
+  "quantifiers": "all x",
+  "numbers": "",
+  "ambiguity": "Note the paper's lr definition uses g(x)/f(x) increasing for X ≤lr Y (density ratio of Y over X — opposite orientation to the conventional f_Y/f_X but equivalent)."
+ },
+ {
+  "paper": "doi:10.18869/acadpub.jsri.13.2.231",
+  "claim": "Stochastic ordering of TEE distributions in α (unnamed result, Section 5)",
+  "page": 239,
+  "quote": "Suppose random variables X and Y are distributed according to TEE(α1, λ1) and TEE(α2, λ2), respectively. If λ1 = λ2, then it is easy to show that g(x)/f(x) is a decreasing function of x if and only if α1 < α2. So, Y ⩽lr X implies Y ⩽hr X and hence we see that Y ⩽st X for α1 < α2.",
+  "kind": "theorem",
+  "model": "generic",
+  "family": "Truncated exponential-exponential (TEE) distribution TEE(α, λ)",
+  "compared": "X ~ TEE(α1,λ) vs Y ~ TEE(α2,λ), common λ",
+  "hypotheses": [
+   {"text": "λ1 = λ2 (common rate parameter)", "formal": "stated", "source": "statement"},
+   {"text": "α1 < α2", "formal": "shape-parameter inequality", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "Y ≤_lr X, hence Y ≤_hr X and Y ≤_st X (i.e., larger α gives the stochastically smaller variable)"},
+  "quantifiers": "all x",
+  "numbers": "",
+  "ambiguity": "g/f decreasing iff α1 < α2 means the larger-α variable (Y) is smaller in lr — direction as printed."
+ },
+ {
+  "paper": "doi:10.18869/acadpub.jsri.13.2.231",
+  "claim": "Stochastic ordering of TEE distributions in λ (unnamed result, Section 5)",
+  "page": 239,
+  "quote": "If α1 = α2 = α then g(x)/f(x) = (λ2/λ1)h(x), (8) where h(x) = e^{(λ1−λ2)x} e^{α(e^{−λ2 x}−e^{−λ1 x})}. Hence, we have ∂ log h(x)/∂x = q(λ1) − q(λ2), where q(λ) = λ(1 + αe^{−λx}). (9) It can be shown that if α > −1 then (9) is an increasing function of λ (see Appendix A for more details) and it follows that (8) is a decreasing function of x if λ1 < λ2. So, Y ⩽lr X implies Y ⩽hr X and hence we see that Y ⩽st X for any α > −1 and λ1 < λ2.",
+  "kind": "theorem",
+  "model": "generic",
+  "family": "TEE distribution, common shape α",
+  "compared": "X ~ TEE(α, λ1) vs Y ~ TEE(α, λ2)",
+  "hypotheses": [
+   {"text": "α1 = α2 = α with α > −1; λ1 < λ2", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "Y ≤_lr X (g/f decreasing), hence Y ≤_hr X and Y ≤_st X — larger λ gives the smaller variable"},
+  "quantifiers": "all x",
+  "numbers": "q(λ) = λ(1 + αe^{−λx}) increasing in λ for α > −1",
+  "ambiguity": ""
+ }
+]

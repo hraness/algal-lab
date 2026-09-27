@@ -9,10 +9,18 @@
   "family": "normal mean-variance mixture NMVM_d(µ, Σ, λ, h): X|W ~ Nd(µ + Wλ, WΣ), W ~ h mixing distribution (includes generalized hyperbolic submodels)",
   "compared": "X vs Y under componentwise ordering of location, skewness parameter and covariances",
   "hypotheses": [
-   {"text": "µ ≤ µ′, λ ≤ λ′, σ = σ′, σij ≤ σij′ for all i, j", "formal": "componentwise inequalities; common diagonal", "source": "statement"}
+   {
+    "text": "µ ≤ µ′, λ ≤ λ′, σ = σ′, σij ≤ σij′ for all i, j",
+    "formal": "componentwise inequalities; common diagonal",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "upper orthant", "direction": "P(X ≥ t) <= P(Y ≥ t) for all t (strict if some inequality strict) — Slepian-type inequality"},
+  "conclusion": {
+   "order": "upper orthant",
+   "direction": "P(X ≥ t) <= P(Y ≥ t) for all t (strict if some inequality strict) — Slepian-type inequality"
+  },
   "quantifiers": "all t ∈ Rd",
+  "numbers": "",
   "ambiguity": ""
  },
  {
@@ -25,11 +33,23 @@
   "family": "NMVM_d(µ, Σ, λ, h)",
   "compared": "X vs Y under integral-order generator conditions (sign of directional derivatives of f in direction of parameter differences)",
   "hypotheses": [
-   {"text": "f twice continuously differentiable with boundary regularity (i)-(iii)", "formal": "polynomial-growth regularity", "source": "statement"},
-   {"text": "Σi(µ′i − µi) ∂f/∂xi ≥ 0; Σi(λ′i − λi) ∂f/∂xi ≥ 0; Σij(σ′ij − σij) ∂²f/∂xi∂xj ≥ 0", "formal": "conditions (7)", "source": "statement"}
+   {
+    "text": "f twice continuously differentiable with boundary regularity (i)-(iii)",
+    "formal": "polynomial-growth regularity",
+    "source": "statement"
+   },
+   {
+    "text": "Σi(µ′i − µi) ∂f/∂xi ≥ 0; Σi(λ′i − λi) ∂f/∂xi ≥ 0; Σij(σ′ij − σij) ∂²f/∂xi∂xj ≥ 0",
+    "formal": "conditions (7)",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "integral", "direction": "E f(X) <= E f(Y)"},
+  "conclusion": {
+   "order": "integral",
+   "direction": "E f(X) <= E f(Y)"
+  },
   "quantifiers": "all such f",
+  "numbers": "",
   "ambiguity": "Generic integral-order sufficient condition; basis for Corollary 3 and the icx/dcx/cx results."
  },
  {
@@ -42,10 +62,18 @@
   "family": "scale-shape mixture of multivariate skew-normal SSMSN: X|τ ∼ SNd(µ, a1(τ1)Σ, a2(τ)α)",
   "compared": "X vs Y under componentwise ordering of location, skewness coefficient λτ and covariances",
   "hypotheses": [
-   {"text": "µ ≤ µ′, λτ ≤ λ′τ for all τ ∈ SH, σ = σ′, σij ≤ σij′", "formal": "componentwise inequalities", "source": "statement"}
+   {
+    "text": "µ ≤ µ′, λτ ≤ λ′τ for all τ ∈ SH, σ = σ′, σij ≤ σij′",
+    "formal": "componentwise inequalities",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "upper orthant", "direction": "P(X ≥ t) <= P(Y ≥ t) for all t (strict under strict inequalities) — Slepian-type"},
+  "conclusion": {
+   "order": "upper orthant",
+   "direction": "P(X ≥ t) <= P(Y ≥ t) for all t (strict under strict inequalities) — Slepian-type"
+  },
   "quantifiers": "all t ∈ Rd, τ ∈ SH",
+  "numbers": "",
   "ambiguity": ""
  },
  {
@@ -58,11 +86,23 @@
   "family": "SSMSN",
   "compared": "X vs Y under integral-order generator conditions on f",
   "hypotheses": [
-   {"text": "f twice continuously differentiable with boundary regularity (i)-(iii)", "formal": "regularity", "source": "statement"},
-   {"text": "Σi(µ′i − µi) ∂f/∂xi ≥ 0; Σi(λ′τ,i − λτ,i) ∂f/∂xi ≥ 0; Σij(σ′ij − σij) ∂²f/∂xi∂xj ≥ 0", "formal": "conditions (17)", "source": "statement"}
+   {
+    "text": "f twice continuously differentiable with boundary regularity (i)-(iii)",
+    "formal": "regularity",
+    "source": "statement"
+   },
+   {
+    "text": "Σi(µ′i − µi) ∂f/∂xi ≥ 0; Σi(λ′τ,i − λτ,i) ∂f/∂xi ≥ 0; Σij(σ′ij − σij) ∂²f/∂xi∂xj ≥ 0",
+    "formal": "conditions (17)",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "integral", "direction": "E f(X) <= E f(Y)"},
+  "conclusion": {
+   "order": "integral",
+   "direction": "E f(X) <= E f(Y)"
+  },
   "quantifiers": "all such f, all τ ∈ SH",
+  "numbers": "",
   "ambiguity": ""
  },
  {
@@ -75,10 +115,18 @@
   "family": "univariate SSMSN",
   "compared": "X1 vs X2; necessary and sufficient parameter conditions",
   "hypotheses": [
-   {"text": "µ1 ≤ µ2, σ1 = σ2 and α1 ≤ α2 (λτ,1 ≤ λτ,2)", "formal": "iff conditions (common scale, ordered location and shape)", "source": "statement"}
+   {
+    "text": "µ1 ≤ µ2, σ1 = σ2 and α1 ≤ α2 (λτ,1 ≤ λτ,2)",
+    "formal": "iff conditions (common scale, ordered location and shape)",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "st", "direction": "X1 <=st X2 iff the conditions hold"},
+  "conclusion": {
+   "order": "st",
+   "direction": "X1 <=st X2 iff the conditions hold"
+  },
   "quantifiers": "all t",
+  "numbers": "",
   "ambiguity": ""
  },
  {
@@ -91,9 +139,16 @@
   "family": "skew-t-normal STN(µ, σ, α, ν) and skew-Cauchy SC(µ, σ, α)",
   "compared": "survival functions at several printed parameter settings",
   "hypotheses": [
-   {"text": "parameter settings printed in Figure 1", "formal": "satisfying or violating Lemma 5 conditions", "source": "statement"}
+   {
+    "text": "parameter settings printed in Figure 1",
+    "formal": "satisfying or violating Lemma 5 conditions",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "st", "direction": "ordered (nested survival functions) when µ1 <= µ2, σ1 = σ2, α1 <= α2; survival functions cross otherwise"},
+  "conclusion": {
+   "order": "st",
+   "direction": "ordered (nested survival functions) when µ1 <= µ2, σ1 = σ2, α1 <= α2; survival functions cross otherwise"
+  },
   "quantifiers": "",
   "numbers": "Figure 1(i): STN(0,1,0.25,5), STN(0,1,0.50,5), STN(1,2,0.25,5), STN(1,2,0.50,5); Figure 1(ii): SC(0,1,−0.5), SC(0,4,−0.5), SC(1,1,+0.5), SC(1,4,−0.5)",
   "ambiguity": ""
@@ -108,10 +163,18 @@
   "family": "univariate NMVM_1(µ, σ², λ, h)",
   "compared": "X1 vs X2; iff characterizations under one common parameter",
   "hypotheses": [
-   {"text": "(i) µ1 = µ2; (ii) λ1 = λ2", "formal": "common parameter in each part", "source": "statement"}
+   {
+    "text": "(i) µ1 = µ2; (ii) λ1 = λ2",
+    "formal": "common parameter in each part",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "st", "direction": "(i) X1 <=st X2 iff σ1 = σ2 and λ1 <= λ2; (ii) iff σ1 = σ2 and µ1 <= µ2"},
+  "conclusion": {
+   "order": "st",
+   "direction": "(i) X1 <=st X2 iff σ1 = σ2 and λ1 <= λ2; (ii) iff σ1 = σ2 and µ1 <= µ2"
+  },
   "quantifiers": "all t",
+  "numbers": "",
   "ambiguity": "Full characterization only when one parameter is common; for general parameters sufficiency holds but necessity is not established (text p.9)."
  },
  {
@@ -124,9 +187,16 @@
   "family": "univariate generalized hyperbolic GH(µ, σ, λ) with W ~ Exp(1)",
   "compared": "survival functions at printed parameter settings",
   "hypotheses": [
-   {"text": "parameter settings printed in Figure 2", "formal": "common µ (case i) or common λ (case ii)", "source": "statement"}
+   {
+    "text": "parameter settings printed in Figure 2",
+    "formal": "common µ (case i) or common λ (case ii)",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "st", "direction": "ordered when Lemma 6 conditions hold; crossing survival functions otherwise"},
+  "conclusion": {
+   "order": "st",
+   "direction": "ordered when Lemma 6 conditions hold; crossing survival functions otherwise"
+  },
   "quantifiers": "",
   "numbers": "Figure 2(i): GH(0,1,0.5), GH(0,1,1.0), GH(0,2,0.5), GH(0,2,1.0); Figure 2(ii): GH(0,1,1), GH(0.5,1,1), GH(0,2,1), GH(0.5,2,1)",
   "ambiguity": ""
@@ -141,10 +211,18 @@
   "family": "univariate scale-mixture of skew-normal (SSMSN with a2(τ) = 1)",
   "compared": "X1 vs X2 in increasing convex (stop-loss) order under common location",
   "hypotheses": [
-   {"text": "µ1 = µ2", "formal": "common location", "source": "statement"}
+   {
+    "text": "µ1 = µ2",
+    "formal": "common location",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "icx", "direction": "X1 <=icx X2 iff λ1 <= λ2 and σ1 <= σ2"},
+  "conclusion": {
+   "order": "icx",
+   "direction": "X1 <=icx X2 iff λ1 <= λ2 and σ1 <= σ2"
+  },
   "quantifiers": "all t",
+  "numbers": "",
   "ambiguity": ""
  },
  {
@@ -157,10 +235,18 @@
   "family": "univariate NMVM",
   "compared": "X1 vs X2 in increasing convex (stop-loss) order under common location",
   "hypotheses": [
-   {"text": "µ1 = µ2", "formal": "common location", "source": "statement"}
+   {
+    "text": "µ1 = µ2",
+    "formal": "common location",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "icx", "direction": "X1 <=icx X2 iff λ1 <= λ2 and σ1 <= σ2"},
+  "conclusion": {
+   "order": "icx",
+   "direction": "X1 <=icx X2 iff λ1 <= λ2 and σ1 <= σ2"
+  },
   "quantifiers": "all t",
+  "numbers": "",
   "ambiguity": ""
  },
  {
@@ -173,10 +259,18 @@
   "family": "Fréchet class with marginals F1, F2",
   "compared": "concordance order vs ordering of covariances of increasing transforms",
   "hypotheses": [
-   {"text": "same marginals; covariances exist", "formal": "(X1,X2), (Y1,Y2) ∈ ℜ2(F1,F2)", "source": "statement"}
+   {
+    "text": "same marginals; covariances exist",
+    "formal": "(X1,X2), (Y1,Y2) ∈ ℜ2(F1,F2)",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "concordance", "direction": "(X1,X2) <=conc (Y1,Y2) iff Cov(h1(X1), h2(X2)) <= Cov(h1(Y1), h2(Y2)) for all increasing h1, h2"},
+  "conclusion": {
+   "order": "concordance",
+   "direction": "(X1,X2) <=conc (Y1,Y2) iff Cov(h1(X1), h2(X2)) <= Cov(h1(Y1), h2(Y2)) for all increasing h1, h2"
+  },
   "quantifiers": "all increasing h1, h2",
+  "numbers": "",
   "ambiguity": "Cited characterization (Dhaene–Goovaerts / Müller–Stoyan), restated for use."
  },
  {
@@ -189,10 +283,18 @@
   "family": "bivariate SSMSN",
   "compared": "concordance vs generalized correlation coefficient ordering",
   "hypotheses": [
-   {"text": "X, Y ∈ ℜ2(F1, F2)", "formal": "same marginals", "source": "context (25)"}
+   {
+    "text": "X, Y ∈ ℜ2(F1, F2)",
+    "formal": "same marginals",
+    "source": "context (25)"
+   }
   ],
-  "conclusion": {"order": "concordance", "direction": "X <=conc Y iff ρX <= ρY (generalized correlation coefficients)"},
+  "conclusion": {
+   "order": "concordance",
+   "direction": "X <=conc Y iff ρX <= ρY (generalized correlation coefficients)"
+  },
   "quantifiers": "d = 2",
+  "numbers": "",
   "ambiguity": ""
  },
  {
@@ -205,10 +307,18 @@
   "family": "bivariate NMVM",
   "compared": "concordance vs correlation ordering",
   "hypotheses": [
-   {"text": "X, Y ∈ ℜ2(F1, F2)", "formal": "same marginals", "source": "statement"}
+   {
+    "text": "X, Y ∈ ℜ2(F1, F2)",
+    "formal": "same marginals",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "concordance", "direction": "X <=conc Y iff ρX <= ρY"},
+  "conclusion": {
+   "order": "concordance",
+   "direction": "X <=conc Y iff ρX <= ρY"
+  },
   "quantifiers": "d = 2",
+  "numbers": "",
   "ambiguity": ""
  },
  {
@@ -221,10 +331,18 @@
   "family": "bivariate SSMSN and bivariate NMVM vectors in the Fréchet space",
   "compared": "stop-loss ordering of the aggregate risk vs correlation ordering",
   "hypotheses": [
-   {"text": "X, Y ∈ ℜ2(F1, F2); common marginals", "formal": "same marginals so σX,ii = σY,ii", "source": "statement"}
+   {
+    "text": "X, Y ∈ ℜ2(F1, F2); common marginals",
+    "formal": "same marginals so σX,ii = σY,ii",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "icx", "direction": "X1 + X2 <=icx Y1 + Y2 iff ρX <= ρY"},
+  "conclusion": {
+   "order": "icx",
+   "direction": "X1 + X2 <=icx Y1 + Y2 iff ρX <= ρY"
+  },
   "quantifiers": "d = 2",
+  "numbers": "",
   "ambiguity": ""
  },
  {
@@ -237,13 +355,33 @@
   "family": "NMVM (5) and SSMSN (14)",
   "compared": "sufficient parameter conditions for four integral orders",
   "hypotheses": [
-   {"text": "(i) µ ≤ µ′, Σ = Σ′, λτ ≤ λ′τ (λ ≤ λ′)", "formal": "st conditions", "source": "statement"},
-   {"text": "(ii) µ = µ′, Σ′ − Σ psd, λτ = λ′τ (λ = λ′)", "formal": "cx conditions", "source": "statement"},
-   {"text": "(iii) µ ≤ µ′, Σ′ − Σ psd, λτ ≤ λ′τ (λ ≤ λ′)", "formal": "icx conditions", "source": "statement"},
-   {"text": "(iv) µ = µ′, σij ≤ σij′, λτ = λ′τ (λ = λ′)", "formal": "dcx/sm conditions", "source": "statement"}
+   {
+    "text": "(i) µ ≤ µ′, Σ = Σ′, λτ ≤ λ′τ (λ ≤ λ′)",
+    "formal": "st conditions",
+    "source": "statement"
+   },
+   {
+    "text": "(ii) µ = µ′, Σ′ − Σ psd, λτ = λ′τ (λ = λ′)",
+    "formal": "cx conditions",
+    "source": "statement"
+   },
+   {
+    "text": "(iii) µ ≤ µ′, Σ′ − Σ psd, λτ ≤ λ′τ (λ ≤ λ′)",
+    "formal": "icx conditions",
+    "source": "statement"
+   },
+   {
+    "text": "(iv) µ = µ′, σij ≤ σij′, λτ = λ′τ (λ = λ′)",
+    "formal": "dcx/sm conditions",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "st/cx/icx/dcx/sm", "direction": "(i) X <=st Y; (ii) X <=cx Y; (iii) X <=icx Y; (iv) X <=dcx Y and X <=sm Y"},
+  "conclusion": {
+   "order": "st/cx/icx/dcx/sm",
+   "direction": "(i) X <=st Y; (ii) X <=cx Y; (iii) X <=icx Y; (iv) X <=dcx Y and X <=sm Y"
+  },
   "quantifiers": "all τ ∈ SH",
+  "numbers": "",
   "ambiguity": ""
  },
  {
@@ -256,10 +394,18 @@
   "family": "SSMSN",
   "compared": "usual stochastic order; iff characterization",
   "hypotheses": [
-   {"text": "µ ≤ µ′, Σ = Σ′, λτ ≤ λ′τ for all τ", "formal": "iff conditions", "source": "statement"}
+   {
+    "text": "µ ≤ µ′, Σ = Σ′, λτ ≤ λ′τ for all τ",
+    "formal": "iff conditions",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "st", "direction": "X <=st Y iff the conditions hold"},
+  "conclusion": {
+   "order": "st",
+   "direction": "X <=st Y iff the conditions hold"
+  },
   "quantifiers": "all τ ∈ SH",
+  "numbers": "",
   "ambiguity": ""
  },
  {
@@ -272,10 +418,18 @@
   "family": "NMVM",
   "compared": "usual stochastic order; iff characterizations under a common parameter",
   "hypotheses": [
-   {"text": "(i) µ = µ′; (ii) λ = λ′", "formal": "common parameter in each part", "source": "statement"}
+   {
+    "text": "(i) µ = µ′; (ii) λ = λ′",
+    "formal": "common parameter in each part",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "st", "direction": "(i) X <=st Y iff λ <= λ′ and Σ = Σ′; (ii) X <=st Y iff µ <= µ′ and Σ = Σ′"},
+  "conclusion": {
+   "order": "st",
+   "direction": "(i) X <=st Y iff λ <= λ′ and Σ = Σ′; (ii) X <=st Y iff µ <= µ′ and Σ = Σ′"
+  },
   "quantifiers": "",
+  "numbers": "",
   "ambiguity": ""
  },
  {
@@ -288,10 +442,18 @@
   "family": "NMVM (2) and scale-mixture SN (28: a2(τ) = 1 SSMSN)",
   "compared": "supermodular order; iff characterization via identical marginals and covariance ordering",
   "hypotheses": [
-   {"text": "same marginals and σij ≤ σij′ for i ≠ j", "formal": "iff conditions", "source": "statement"}
+   {
+    "text": "same marginals and σij ≤ σij′ for i ≠ j",
+    "formal": "iff conditions",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "supermodular", "direction": "X <=sm Y iff same marginals and σij <= σij′ for i != j"},
+  "conclusion": {
+   "order": "supermodular",
+   "direction": "X <=sm Y iff same marginals and σij <= σij′ for i != j"
+  },
   "quantifiers": "all i ≠ j",
+  "numbers": "",
   "ambiguity": ""
  },
  {
@@ -304,10 +466,18 @@
   "family": "NMVM and SSMSN (context of Propositions 4-6)",
   "compared": "convex order; iff characterizations under a common parameter",
   "hypotheses": [
-   {"text": "(i) µ = µ′; (ii) λ = λ′", "formal": "common parameter", "source": "statement"}
+   {
+    "text": "(i) µ = µ′; (ii) λ = λ′",
+    "formal": "common parameter",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "cx", "direction": "(i) X <=cx Y iff λ = λ′ and Σ′ − Σ psd; (ii) iff µ = µ′ and Σ′ − Σ psd"},
+  "conclusion": {
+   "order": "cx",
+   "direction": "(i) X <=cx Y iff λ = λ′ and Σ′ − Σ psd; (ii) iff µ = µ′ and Σ′ − Σ psd"
+  },
   "quantifiers": "",
+  "numbers": "",
   "ambiguity": ""
  },
  {
@@ -320,10 +490,18 @@
   "family": "NMVM and SSMSN",
   "compared": "directionally convex order; iff characterizations under a common parameter",
   "hypotheses": [
-   {"text": "(i) µ = µ′; (ii) λ = λ′", "formal": "common parameter", "source": "statement"}
+   {
+    "text": "(i) µ = µ′; (ii) λ = λ′",
+    "formal": "common parameter",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "dcx", "direction": "(i) X <=dcx Y iff λ = λ′ and σij <= σij′ for i != j; (ii) iff µ = µ′ and σij <= σij′ for i != j"},
+  "conclusion": {
+   "order": "dcx",
+   "direction": "(i) X <=dcx Y iff λ = λ′ and σij <= σij′ for i != j; (ii) iff µ = µ′ and σij <= σij′ for i != j"
+  },
   "quantifiers": "all i ≠ j",
+  "numbers": "",
   "ambiguity": ""
  }
 ]

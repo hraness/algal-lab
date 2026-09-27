@@ -1,0 +1,360 @@
+[
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Theorems 1.1–1.3 (chain-majorization lemmas)",
+  "page": 1041,
+  "quote": "Theorem 1.1. Let φ : R+^{2n} → R+ be a differentiable function, which satisfies φ(A) ⩾ (⩽)φ(B) for all A, B such that A ∈ S2(T2) and A ≻> B (1.1) if and only if i) φ(A) = φ(AΠ) for all permutation matrices Π; ii) Σ_{i=1}^{2}(a_{ik} − a_{ij})[φ_{ik}(A) − φ_{ij}(A)] ⩾ (⩽)0 ... Theorem 1.2. The function φn : R+^{2n} → R+ be defined as φn(A) = Π_{i=1}^{n} ψ(a_{1i}, a_{2i}) ... Assume that φ2 satisfies in (1.1). Then A ∈ Sn(Tn) and B = ATw, we have φn(A) ⩾ φn(B). Theorem 1.3. [same for φn(A) = Σ ψ(a_{1i}, a_{2i})].",
+  "kind": "theorem",
+  "model": "generic",
+  "family": "Chain-majorization machinery (multivariate majorization via T-transforms)",
+  "compared": "φn(A) vs φn(B) under A ≻> B",
+  "hypotheses": [
+   {"text": "A ∈ Sn (Tn), B = A Tw (chain majorization), φ2 satisfies (1.1)", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "majorization", "direction": "φn(A) ⩾ φn(B) — majorization-based function comparison used to build stochastic orders"},
+  "quantifiers": "n ≥ 1",
+  "numbers": "",
+  "ambiguity": "Sn: xi > 0, yj > 0, (xi − xj)(yi − yj) ≤ 0; Tn: same with xi ≥ 1. '≻>' is multivariate chain majorization (B = A·Tw1···Twk)."
+ },
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Theorem 2.1",
+  "page": 1043,
+  "quote": "Theorem 2.1. Let X1, X2 be independent random variables with Xi ~ PI(ai, bi), i = 1, 2. Further, let Y1, Y2 be another set of independent random variables with Yi ~ PI(ci, di), i = 1, 2. Then, for (a1 a2; b1 b2) ∈ S2, we have (a1 a2; b1 b2) ≻> (c1 c2; d1 d2) ⇒ Y1:2 ⩾rh X1:2.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Pareto type I: PI(a,b), F(x) = 1 − (x/b)^{−a}, x > b > 0, a > 0",
+  "compared": "minima Y1:2 vs X1:2 under chain majorization of parameter matrices",
+  "hypotheses": [
+   {"text": "(a1 a2; b1 b2) ∈ S2 (row ordering coupled: (ai−aj)(bi−bj) ≤ 0)", "formal": "stated", "source": "statement"},
+   {"text": "(a1 a2; b1 b2) ≻> (c1 c2; d1 d2)", "formal": "chain majorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "Y1:2 ≥_rh X1:2"},
+  "quantifiers": "x ≥ max(b1,b2); n = 2",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Theorem 2.2",
+  "page": 1044,
+  "quote": "Theorem 2.2. Let X1, X2 be independent random variables with Xi ~ PI(ai, bi), i = 1, 2. Further, let Y1, Y2 be another set of independent random variables with Yi ~ PI(ci, di), i = 1, 2. Then, for (a1 a2; b1 b2) ∈ T2, we have (a1 a2; b1 b2) ≻> (c1 c2; d1 d2) ⇒ X2:2 ⩾st Y2:2.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "Pareto type I; shape parameters restricted a ≥ 1 (Tn requires xi ≥ 1)",
+  "compared": "maxima X2:2 vs Y2:2",
+  "hypotheses": [
+   {"text": "(a1 a2; b1 b2) ∈ T2; (a;b) ≻> (c;d)", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:2 ≥_st Y2:2"},
+  "quantifiers": "x ≥ max(b1,b2); n = 2",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Theorem 2.3",
+  "page": 1045,
+  "quote": "Theorem 2.3. Let X1, X2 be independent random variables with Xi ~ PII(ai, bi), i = 1, 2. Further, let Y1, Y2 be another set of independent random variables with Yi ~ PII(ci, di), i = 1, 2. Then, for (a1 a2; b1 b2) ∈ S2, we have (a1 a2; b1 b2) ≻> (c1 c2; d1 d2) ⇒ Y1:2 ⩾hr X1:2.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Pareto type II: PII(a,b), F(x) = 1 − (1 + x/b)^{−a}, x > 0",
+  "compared": "minima Y1:2 vs X1:2",
+  "hypotheses": [
+   {"text": "(a;b) ∈ S2; (a;b) ≻> (c;d)", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "Y1:2 ≥_hr X1:2"},
+  "quantifiers": "x > 0; n = 2",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Example 2.1",
+  "page": 1046,
+  "quote": "Example 2.1. ... (i) Set (a1 a2; b1 b2) = (5 4; 3 6) ∈ S2 and (c1 c2; d1 d2) = (4.44 4.56; 4.68 4.32). Consider T0.2 and T0.6. So, we have (c;d) = (a;b)T0.2 T0.6, implies that (a;b) ≻> (c;d). Therefore from Theorem 2.1, we obtain that Y1:2 ⩾rh X1:2. (ii) Set (a;b) = (7 2; 3 5) ∈ T2 and (c;d) = (4.7 4.3; 3.92 4.08). ... = (a;b)T0.3 T0.4 ... Therefore from Theorem 2.2, we obtain that X2:2 ⩾st Y2:2.",
+  "kind": "example",
+  "model": "series / parallel systems",
+  "family": "Pareto type I",
+  "compared": "numerical T-transform verification",
+  "hypotheses": [
+   {"text": "explicit matrices and T-transforms", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "(i) Y1:2 ≥rh X1:2; (ii) X2:2 ≥st Y2:2"},
+  "quantifiers": "n = 2",
+  "numbers": "(a;b) = (5 4; 3 6) vs (c;d) = (4.44 4.56; 4.68 4.32); (a;b) = (7 2; 3 5) vs (c;d) = (4.7 4.3; 3.92 4.08)",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Example 2.2",
+  "page": 1047,
+  "quote": "Example 2.2. Let X1, X2 be independent random variables with Xi ~ PII(ai, bi), i = 1, 2. Further, let Y1, Y2 be another set of independent random variables with Yi ~ PII(ci, di), i = 1, 2. Then, Set (a1 a2; b1 b2) = (2 0.8; 0.6 1) ∈ S2 and (c1 c2; d1 d2) = (1.208 1.592; 0.864 0.736). Consider T0.9 and T0.3. So, we have (c;d) = (a;b)T0.9 T0.3, implies that (a;b) ≻> (c;d). Therefore from Theorem 2.3, we obtain that Y1:2 ⩾hr X1:2.",
+  "kind": "example",
+  "model": "series system",
+  "family": "Pareto type II",
+  "compared": "Y1:2 vs X1:2",
+  "hypotheses": [
+   {"text": "S2 membership; chain majorization via T-transforms", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "Y1:2 ≥_hr X1:2"},
+  "quantifiers": "n = 2",
+  "numbers": "(a;b) = (2 0.8; 0.6 1); (c;d) = (1.208 1.592; 0.864 0.736)",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Example 2.3 (counterexample)",
+  "page": 1048,
+  "quote": "Example 2.3. ... Set (a1 a2; b1 b2) = (1 2; 6 12) and (c1 c2; d1 d2) = (1.7 1.3; 10.2 7.8). We find that above both matrices are not in S2. Considering the following T-transform matrices: T0.3 ... we have (c;d) = (a;b)T0.3, implies that (a;b) ≻> (c;d). On the other hand, by calculating, we have r̃X1:2(15) = 0.069, r̃Y1:2(15) = 0.057. Thus, which means that Y1:2 ≱rh X1:2.",
+  "kind": "counterexample",
+  "model": "series system",
+  "family": "Pareto type I",
+  "compared": "Y1:2 vs X1:2 without S2 condition",
+  "hypotheses": [
+   {"text": "both parameter matrices not in S2; chain majorization still holds", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "Y1:2 ≱_rh X1:2 (r̃ values cross) — S2 coupling condition necessary"},
+  "quantifiers": "at x = 15",
+  "numbers": "r̃_X1:2(15) = 0.069 > r̃_Y1:2(15) = 0.057",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Example 2.4 (counterexample)",
+  "page": 1048,
+  "quote": "Example 2.4. ... Set (a1 a2; b1 b2) = (3 2; 4 1) and (c1 c2; d1 d2) = (2.4 2.6; 2.2 2.8). We find that above both matrices are not in S2. ... (c;d) = (a;b)T0.4 ... On the other hand, by calculating, we have hX1:2(6) = 0.5857, hY1:2(6) = 0.5881, Thus, which means that Y1:2 ≱hr X1:2.",
+  "kind": "counterexample",
+  "model": "series system",
+  "family": "Pareto type II",
+  "compared": "Y1:2 vs X1:2 without S2 condition",
+  "hypotheses": [
+   {"text": "both matrices not in S2; chain majorization holds", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "Y1:2 ≱_hr X1:2"},
+  "quantifiers": "at x = 6",
+  "numbers": "h_X1:2(6) = 0.5857 < h_Y1:2(6) = 0.5881",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Theorem 2.4",
+  "page": 1048,
+  "quote": "Theorem 2.4. Let X1, ..., Xn be independent random variables with Xi ~ PI(ai, bi), i = 1, ..., n. Further, let Y1, ..., Yn be independent random variables with Yi ~ PI(ci, di), i = 1, ..., n. Assume that (a1 a2 ... an; b1 b2 ... bn) ∈ Sn and (c1 c2 ... cn; d1 d2 ... dn) = (a1 ... an; b1 ... bn)Tw. Then, we have Y1:n ⩾st X1:n.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Pareto type I; n-component extension",
+  "compared": "minima Y1:n vs X1:n",
+  "hypotheses": [
+   {"text": "(a;b) ∈ Sn; (c;d) = (a;b)Tw (single T-transform)", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Y1:n ≥_st X1:n (rh at n=2 upgraded only to st for general n)"},
+  "quantifiers": "x ≥ max(b1,...,bn)",
+  "numbers": "",
+  "ambiguity": "Proof refers to 'Theorem 3.1' — typo for Theorem 2.1."
+ },
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Theorem 2.5",
+  "page": 1049,
+  "quote": "Theorem 2.5. Let X1, ..., Xn be independent random variables with Xi ~ PI(ai, bi), i = 1, ..., n. Further, let Y1, ..., Yn be independent random variables with Yi ~ PI(ci, di), i = 1, ..., n. Assume that (a;b) ∈ Tn and (c;d) = (a;b)Tw. Then, we have Xn:n ⩾st Yn:n.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "Pareto type I; shape ≥ 1 (Tn)",
+  "compared": "maxima Xn:n vs Yn:n",
+  "hypotheses": [
+   {"text": "(a;b) ∈ Tn; (c;d) = (a;b)Tw", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn:n ≥_st Yn:n"},
+  "quantifiers": "x ≥ max(bi)",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Theorem 2.6",
+  "page": 1049,
+  "quote": "Theorem 2.6. Let X1, ..., Xn be independent random variables with Xi ~ PI(ai, bi), i = 1, ..., n. Further, let Y1, ..., Yn be independent random variables with Yi ~ PII(ci, di), i = 1, ..., n. Assume that (a;b) ∈ Sn and (c;d) = (a;b)Tw. Then, we have Y1:n ⩾hr X1:n.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Pareto type II (as proved; statement prints Xi ~ PI — likely typo for PII)",
+  "compared": "minima Y1:n vs X1:n",
+  "hypotheses": [
+   {"text": "(a;b) ∈ Sn; (c;d) = (a;b)Tw", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "Y1:n ≥_hr X1:n"},
+  "quantifiers": "x > 0",
+  "numbers": "",
+  "ambiguity": "Statement prints 'Xi ~ PI(ai,bi)' but proof uses the PII hazard rate hX1:n = Σ ai/(x+bi) — statement likely misprints PI for PII."
+ },
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Corollary 2.1",
+  "page": 1049,
+  "quote": "Corollary 2.1. Let X1, ..., Xn be independent random variables with Xi ~ PI(ai, bi), i = 1, ..., n. Further, let Y1, ..., Yn be another set of independent random variables with Yi ~ PI(ci, di), i = 1, ..., n. Assume that (a;b) ∈ Sn and (c;d) = (a;b)Tw1···Twk, where Twi, i = 1, ..., k have the same structures. Then, we have Y1:n ⩾st X1:n.",
+  "kind": "corollary",
+  "model": "series system",
+  "family": "Pareto type I",
+  "compared": "Y1:n vs X1:n under product of same-structure T-transforms",
+  "hypotheses": [
+   {"text": "(a;b) ∈ Sn; (c;d) = (a;b)·Tw1···Twk, Twi's with the same structures", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Y1:n ≥_st X1:n"},
+  "quantifiers": "",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Corollary 2.2",
+  "page": 1050,
+  "quote": "Corollary 2.2. Let X1, ..., Xn be independent random variables with Xi ~ PI(ai, bi), i = 1, ..., n. Further, let Y1, ..., Yn be another set of independent random variables with Yi ~ PI(ci, di), i = 1, ..., n. Assume that (a;b) ∈ Tn and (c;d) = (a;b)Tw1···Twk, where Twi, i = 1, ..., k have the same structures. Then, we have Xn:n ⩾st Yn:n.",
+  "kind": "corollary",
+  "model": "parallel system",
+  "family": "Pareto type I",
+  "compared": "Xn:n vs Yn:n",
+  "hypotheses": [
+   {"text": "(a;b) ∈ Tn; product of same-structure T-transforms", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn:n ≥_st Yn:n"},
+  "quantifiers": "",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Corollary 2.3",
+  "page": 1050,
+  "quote": "Corollary 2.3. Let X1, ..., Xn be independent random variables with Xi ~ PII(ai, bi), i = 1, ..., n. Further, let Y1, ..., Yn be another set of independent random variables with Yi ~ PII(ci, di), i = 1, ..., n. Assume that (a;b) ∈ Sn and (c;d) = (a;b)Tw1···Twk, where Twi, i = 1, ..., k have the same structures. Then, we have Y1:n ⩾hr X1:n.",
+  "kind": "corollary",
+  "model": "series system",
+  "family": "Pareto type II",
+  "compared": "Y1:n vs X1:n",
+  "hypotheses": [
+   {"text": "(a;b) ∈ Sn; product of same-structure T-transforms", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "Y1:n ≥_hr X1:n"},
+  "quantifiers": "",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Theorem 2.7",
+  "page": 1050,
+  "quote": "Theorem 2.7. Let X1, ..., Xn be independent random variables with Xi ~ PI(ai, bi), i = 1, ..., n. Further, let Y1, ..., Yn be another set of independent random variables with Yi ~ PI(ci, di), i = 1, ..., n. Assume that (a;b) ∈ Sn, (a;b)Tw1···Twi ∈ Sn, for i = 1, ..., k−1, and (c;d) = (a;b)Tw1···Twk. Then, we have Y1:n ⩾st X1:n.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Pareto type I; T-transforms with different structures",
+  "compared": "Y1:n vs X1:n under iterated T-transforms staying inside Sn",
+  "hypotheses": [
+   {"text": "(a;b) ∈ Sn and all partial products (a;b)Tw1···Twi ∈ Sn", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Y1:n ≥_st X1:n"},
+  "quantifiers": "",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Theorem 2.8",
+  "page": 1051,
+  "quote": "Theorem 2.8. Let X1, ..., Xn be independent random variables with Xi ~ PI(ai, bi), i = 1, ..., n. Further, let Y1, ..., Yn be another set of independent random variables with Yi ~ PI(ci, di), i = 1, ..., n. Assume that (a;b) ∈ Tn, (a;b)Tw1···Twi ∈ Tn, for i = 1, ..., k−1, and (c;d) = (a;b)Tw1···Twk. Then, we have Xn:n ⩾st Yn:n.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "Pareto type I; different-structure T-transforms within Tn",
+  "compared": "Xn:n vs Yn:n",
+  "hypotheses": [
+   {"text": "(a;b) ∈ Tn and partial products ∈ Tn", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn:n ≥_st Yn:n"},
+  "quantifiers": "",
+  "numbers": "",
+  "ambiguity": "Proof reference 'Theorem 3.7' — typo for Theorem 2.7."
+ },
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Theorem 2.9",
+  "page": 1051,
+  "quote": "Theorem 2.9. Let X1, ..., Xn be independent random variables with Xi ~ PII(ai, bi), i = 1, ..., n. Further, let Y1, ..., Yn be another set of independent random variables with Yi ~ PII(ci, di), i = 1, ..., n. Assume that (a;b) ∈ Sn, (a;b)Tw1···Twi ∈ Sn, for i = 1, ..., k−1, and (c;d) = (a;b)Tw1···Twk. Then, we have Y1:n ⩾hr X1:n.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Pareto type II; different-structure T-transforms within Sn",
+  "compared": "Y1:n vs X1:n",
+  "hypotheses": [
+   {"text": "(a;b) ∈ Sn and partial products ∈ Sn", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "Y1:n ≥_hr X1:n"},
+  "quantifiers": "",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Theorem 2.10",
+  "page": 1052,
+  "quote": "Theorem 2.10. Let X1, ..., Xn be independent random variables with Xi ~ PII(ai, b), i = 1, ..., n. Further, let Y1, ..., Yn be independent random variables with Yi ~ PII(ci, b), i = 1, ..., n. Then (a1, a2, ..., an) ⪰m (c1, c2, ..., cn) imples Xn:n ⩾st Yn:n.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "Pareto type II with common scale b; ordinary majorization of shape vector",
+  "compared": "maxima Xn:n vs Yn:n under shape-vector majorization",
+  "hypotheses": [
+   {"text": "common scale b; (a1,...,an) ⪰^m (c1,...,cn)", "formal": "a majorizes c (a more spread, equal totals)", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn:n ≥_st Yn:n (F_{Xn:n} Schur-concave in a)"},
+  "quantifiers": "x > 0",
+  "numbers": "",
+  "ambiguity": "Paper's ⪰m convention: 'λ* majorized by λ denoted λ ⪰m λ*' with lower partial sums ∑λ_(i) ≤ ∑λ*_(i) — so λ ⪰m λ* means λ majorizes λ*."
+ },
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Example 2.5",
+  "page": 1052,
+  "quote": "Example 2.5. ... Set (a1 a2 a3; b1 b2 b3) = (6 4 1; 2 3 5) ∈ S3 and (c1 c2 c3; d1 d2 d3) = (4.14 2.72 4.14; 3.04 3.92 3.04). Considering the following three T-transform matrices: T0.3, T0.8, T0.5. Then ... partial products ∈ S3 ... So, the condition of Theorem 2.7 is satisfied which means that Y1:3 ⩾st X1:3.",
+  "kind": "example",
+  "model": "series system",
+  "family": "Pareto type I, n = 3",
+  "compared": "Y1:3 vs X1:3",
+  "hypotheses": [
+   {"text": "S3 membership at every partial product", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Y1:3 ≥_st X1:3"},
+  "quantifiers": "n = 3",
+  "numbers": "(a;b) = (6 4 1; 2 3 5); (c;d) = (4.14 2.72 4.14; 3.04 3.92 3.04)",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Example 2.6",
+  "page": 1053,
+  "quote": "Example 2.6. ... Set (a;b) = (5 4 2; 2 6 8) ∈ T3 and (c;d) = (3.17 3.17 4.66; 6.58 6.58 2.94). ... T0.35, T0.2, T0.5 ... partial products ∈ T3 ... So, the condition of Theorem 2.8 is satisfied which means that X3:3 ⩾st Y3:3.",
+  "kind": "example",
+  "model": "parallel system",
+  "family": "Pareto type I, n = 3",
+  "compared": "X3:3 vs Y3:3",
+  "hypotheses": [
+   {"text": "T3 membership at every partial product", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X3:3 ≥_st Y3:3"},
+  "quantifiers": "n = 3",
+  "numbers": "(a;b) = (5 4 2; 2 6 8); (c;d) = (3.17 3.17 4.66; 6.58 6.58 2.94)",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Example 2.7",
+  "page": 1053,
+  "quote": "Example 2.7. ... Set (a;b) = (0.8 0.3 0.1; 0.6 1 2) ∈ S3 and (c;d) = (0.326 0.458 0.416; 1.523 1.069 1.008). ... T0.3, T0.4, T0.9 ... So, the condition of Theorem 3.9 [sic] is satisfied which means that Y1:3 ⩾hr X1:3.",
+  "kind": "example",
+  "model": "series system",
+  "family": "Pareto type II, n = 3",
+  "compared": "Y1:3 vs X1:3",
+  "hypotheses": [
+   {"text": "S3 membership at every partial product", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "Y1:3 ≥_hr X1:3"},
+  "quantifiers": "n = 3",
+  "numbers": "(a;b) = (0.8 0.3 0.1; 0.6 1 2); (c;d) = (0.326 0.458 0.416; 1.523 1.069 1.008)",
+  "ambiguity": "'Theorem 3.9' is a typo for Theorem 2.9."
+ }
+]

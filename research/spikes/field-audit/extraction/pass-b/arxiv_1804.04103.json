@@ -1,0 +1,170 @@
+[
+ {
+  "paper": "arxiv:1804.04103",
+  "claim": "Theorem 3.1",
+  "page": 7,
+  "quote": "Theorem 3.1 For i = 1, 2, . . . , n, let Ti and Wi be two sets of mutually independent random variables with Ti ∼ LL(σ, λi) and Wi ∼ LL(σ, λi). Further, suppose that Ii (Ii*) be a set of independent Bernoulli rv, independent of Ti's (Wi's) with E(Ii) = pi (E(Ii*) = p*i), i = 1, 2, ..., n. If h : [0,1] → R+ is a differentiable and strictly convex function, then i) h(p) ≽w h(p*) implies Xn:n ≥st Yn:n if λ ∈ D+ (E+), h(p) ∈ D+ (E+), and h(u) is increasing in u; ii) h(p) ≽w h(p*) implies Xn:n ≥st Yn:n if λ ∈ D+ (E+), h(p) ∈ E+ (D+), and h(u) is decreasing in u, where h(p) = (h(p1), h(p2), . . . , h(pn)).",
+  "kind": "theorem",
+  "model": "parallel systems with random shocks (Xi = Ii Ti mixture)",
+  "family": "log-Lindley LL(σ, λi) components, common shape σ; Bernoulli shocks",
+  "compared": "two systems under weak majorization of transformed shock vectors h(p)",
+  "hypotheses": [
+   {
+    "text": "h(p) ≽w h(p*) (weak supermajorization); monotonicity ordering of λ and h(p); h convex; h increasing (i) / decreasing (ii)",
+    "formal": "conditions",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Xn:n >=st Yn:n"
+  },
+  "quantifiers": "n >= 1",
+  "numbers": "",
+  "ambiguity": "Majorized shock parameter vector yields larger system lifetime."
+ },
+ {
+  "paper": "arxiv:1804.04103",
+  "claim": "Theorem 3.2",
+  "page": 8,
+  "quote": "Theorem 3.2 For i = 1, 2, . . . , n, let Ti and Wi be two sets of mutually independent random variables with Ti ∼ LL(σ, λi) and Wi ∼ LL(σ, δi). Further, suppose that Ii be a set of independent Bernoulli rvs with E(Ii) = pi, i = 1, 2, ..., n and h : [0,1] → R+ is a differentiable and strictly convex function. If i) either λ ∈ D+, h(p) ∈ D+ (E+), and h(u) is increasing (decreasing) in u, ii) or λ ∈ E+, h(p) ∈ E+ (D+), and h(u) is increasing (decreasing) in u, then v ≽w v* implies Xn:n ≥st Yn:n, where v = (1/(1+λ1σ), ..., 1/(1+λnσ)) and v* = (1/(1+δ1σ), ..., 1/(1+δnσ)).",
+  "kind": "theorem",
+  "model": "parallel systems with random shocks, common shock vector",
+  "family": "log-Lindley LL(σ, ·) with heterogeneous scales",
+  "compared": "two systems under weak majorization of transformed scale vectors v",
+  "hypotheses": [
+   {
+    "text": "v ≽w v*; ordering membership on λ, h(p); h convex monotone",
+    "formal": "conditions",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Xn:n >=st Yn:n"
+  },
+  "quantifiers": "n >= 1",
+  "numbers": "",
+  "ambiguity": "Majorized scale vector leads to smaller system lifetime (λi larger ⇒ vi smaller ⇒ st-smaller maximum)."
+ },
+ {
+  "paper": "arxiv:1804.04103",
+  "claim": "Theorem 3.3",
+  "page": 9,
+  "quote": "Theorem 3.3 For i = 1, 2, . . . , n, let Ti and Wi be two sets of mutually independent random variables with Ti ∼ LL(σ, λi) and Wi ∼ LL(σ, δi). Further, suppose that Ii (Ii*) be a set of independent Bernoulli rvs with E(Ii) = pi (E(Ii*) = p*i), i = 1, 2, ..., n and h : [0,1] → R+ is a differentiable and strictly decreasing and convex function. If (v, h(p)) ∈ Un, and (v*, h(p*)) ∈ Un, then [h(p); v] ≻w [h(p*); v*] implies Xn:n ≥st Yn:n, where v = (1/(1+λ1σ), . . . , 1/(1+λnσ)) and v* = (1/(1+β1σ), . . . , 1/(1+βnσ)).",
+  "kind": "theorem",
+  "model": "parallel systems with random shocks",
+  "family": "log-Lindley components, common shape σ",
+  "compared": "two systems under row-wise weak majorization of the 2×n parameter matrix",
+  "hypotheses": [
+   {
+    "text": "(v, h(p)), (v*, h(p*)) ∈ Un (rows similarly ordered); matrix [h(p);v] weakly row-majorizes [h(p*);v*]; h strictly decreasing convex",
+    "formal": "matrix majorization",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Xn:n >=st Yn:n"
+  },
+  "quantifiers": "n >= 1",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:1804.04103",
+  "claim": "Counterexample 3.1 (verification)",
+  "page": 9,
+  "quote": "Counterexample 3.1 For σ = 0.5 and i = 1, 2, 3, let Ti ∼ LL(σ, λi) and Wi ∼ LL(σ, βi). Let (v1, v2, v3) = (0.4, 0.4, 0.1) and (v1*, v2*, v3*) = (0.5, 0.4, 0.2), where vi = 1/(1+λiσ) and vi* = 1/(1+βiσ). Now if h(p) = (2, 2, 1) and h(p*) = (3, 2, 1) are taken, where h(u) = −log(u), then it can be written that [h(p); v] ≻w [h(p*); v*], where (v, h(p)) ∈ Un and (v*, h(p*)) ∈ Un. The figure given below also shows that, for all 0 ≤ x ≤ 1, FX3:3(x) ≤ FY3:3(x) giving that X3:3 ≥st Y3:3.",
+  "kind": "example",
+  "model": "three-component parallel systems under shocks",
+  "family": "log-Lindley, σ = 0.5, h(u) = −log u",
+  "compared": "numerical confirmation of Theorem 3.3's matrix-majorization claim",
+  "hypotheses": [
+   {
+    "text": "v = (0.4,0.4,0.1), v* = (0.5,0.4,0.2), h(p) = (2,2,1), h(p*) = (3,2,1); matrix majorization verified",
+    "formal": "printed values",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X3:3 >=st Y3:3 (CDFs ordered, Figure 1)"
+  },
+  "quantifiers": "n = 3",
+  "numbers": "σ = 0.5; v = (0.4,0.4,0.1); v* = (0.5,0.4,0.2); h(p) = (2,2,1); h(p*) = (3,2,1)",
+  "ambiguity": "Figure-based check of the CDF ordering on 0 ≤ x ≤ 1."
+ },
+ {
+  "paper": "arxiv:1804.04103",
+  "claim": "Theorem 3.4",
+  "page": 9,
+  "quote": "Theorem 3.4 For i = 1, 2, . . . , n, let Ti and Wi be two sets of mutually independent random variables with Ti ∼ LL(σ, λi) and Wi ∼ LL(σ, δi). Further, suppose that Ii (Ii*) be a set of independent Bernoulli rvs with E(Ii) = pi (E(Ii*) = p*i), i = 1, 2, ..., n. If h : [0,1] → R+ is a differentiable, strictly decreasing and convex function, and also (v, h(p)), (v*, h(p*)) ∈ Un, then [h(p); v] ≻≻ [h(p*); v*] implies Xn:n ≥st Yn:n.",
+  "kind": "theorem",
+  "model": "parallel systems with random shocks",
+  "family": "log-Lindley components, common shape σ",
+  "compared": "two systems under chain (strong) matrix majorization of the parameter matrix",
+  "hypotheses": [
+   {
+    "text": "matrix [h(p);v] chain-majorizes [h(p*);v*] (symbol ≻≻); h strictly decreasing convex",
+    "formal": "chain majorization",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Xn:n >=st Yn:n"
+  },
+  "quantifiers": "n >= 1",
+  "numbers": "",
+  "ambiguity": "≻≻ denotes chain/strong matrix majorization as used in the paper's majorization hierarchy."
+ },
+ {
+  "paper": "arxiv:1804.04103",
+  "claim": "Theorem 3.5",
+  "page": 10,
+  "quote": "Theorem 3.5 For i = 1, 2, . . . , n, let Ti and Wi be two sets of mutually independent random variables with Ti ∼ LL(σi, λ) and Wi ∼ LL(σi, λ). Further, suppose that Ii (Ii*) be a set of independent Bernoulli rv with E(Ii) = pi (E(Ii*) = p*i), i = 1, 2, ..., n. If h : [0,1] → R+ is a differentiable and strictly convex function, then i) h(p) ≽w h(p*) implies Xn:n ≥st Yn:n if σ ∈ D+, h(p) ∈ D+, and h(u) is increasing in u; ii) h(p) ≽w h(p*) implies Xn:n ≥st Yn:n if λ ∈ D+, h(p) ∈ E+, and h(u) is decreasing in u.",
+  "kind": "theorem",
+  "model": "parallel systems with random shocks, heterogeneous shapes",
+  "family": "log-Lindley LL(σi, λ) with common scale λ",
+  "compared": "two systems under weak majorization of transformed shock vectors",
+  "hypotheses": [
+   {
+    "text": "h(p) ≽w h(p*); monotonicity of σ and h(p); h convex; h increasing (i) / decreasing (ii)",
+    "formal": "conditions",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Xn:n >=st Yn:n"
+  },
+  "quantifiers": "n >= 1",
+  "numbers": "",
+  "ambiguity": "Case (ii) hypothesis mentions λ ∈ D+ though common scale — retained as printed."
+ },
+ {
+  "paper": "arxiv:1804.04103",
+  "claim": "Counterexample 3.2",
+  "page": 11,
+  "quote": "Counterexample 3.2 Let Xi ∼ LL(σi, λi) and Yi ∼ LL(σi*, λi), i = 1, 2, 3. Let λ = (0.5, 0.5, 0.5), (σ1, σ2, σ3) = (3, 2, 1) ∈ D+ and (σ1*, σ2*, σ3*) = (2, 2, 2) ∈ D+, giving σ ≽m σ*. Now, if h(p) = (1, 2, 3) ∈ E+ is taken, where h(u) = −log u, then Figure 2(a) shows that there exists no stochastic ordering between X3:3 and Y3:3. Again, for the same h(u), if h(p) = (0.03, 0.02, 0.01) ∈ D+, σ = (3, 2, 1) and σ* = (2.6, 2.4, 1) are taken, giving σ ≽m σ*, then for λ = (0.5, 0.5, 0.5), Figure [2(b) shows the distribution functions cross].",
+  "kind": "counterexample",
+  "model": "three-component parallel systems under shocks",
+  "family": "log-Lindley, common scale λ = (0.5,0.5,0.5), h(u) = −log u",
+  "compared": "majorized shape vectors do not imply usual stochastic order",
+  "hypotheses": [
+   {
+    "text": "σ = (3,2,1) ≽m σ* = (2,2,2) with h(p) = (1,2,3); and σ* = (2.6,2.4,1) with h(p) = (0.03,0.02,0.01)",
+    "formal": "two majorized configurations",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X3:3 and Y3:3 not st-comparable (crossing distribution functions)"
+  },
+  "quantifiers": "n = 3",
+  "numbers": "σ = (3,2,1); σ* = (2,2,2) and (2.6,2.4,1); h(p) = (1,2,3) and (0.03,0.02,0.01); λ = (0.5,0.5,0.5)",
+  "ambiguity": ""
+ }
+]

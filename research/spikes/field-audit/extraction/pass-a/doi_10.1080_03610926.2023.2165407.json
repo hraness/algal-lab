@@ -1,0 +1,347 @@
+[
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Lemma 4.3",
+  "page": 11,
+  "quote": "Lemma 4.3. Assume Y1 ~ GLSE1(µ1, σ1, δ1, ψ, α, β, H), Y2 ~ GLSE1(µ2, σ2, δ2, ψ, α, β, H). (1) If µ2 − µ1 + β(z)(δ2 − δ1) ≥ 0 for all z and σ1 = σ2, then Y1 ≤st Y2. (2) If Y1 ≤st Y2 and density generator g1 satisfies Assumption 4.1, then µ1 + E(β(Z))δ1 ≤ µ2 + E(β(Z))δ2 and σ1 = σ2.",
+  "kind": "lemma",
+  "model": "generic",
+  "family": "Univariate generalized location-scale mixture of elliptical (GLSE) distributions, common ψ, α, β, H",
+  "compared": "Y1 vs Y2 (univariate)",
+  "hypotheses": [
+   {"text": "µ2 − µ1 + β(z)(δ2 − δ1) ≥ 0 ∀z; σ1 = σ2", "formal": "sufficiency", "source": "statement"},
+   {"text": "Assumption 4.1 on g1 (tail control of density generator)", "formal": "necessity", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Y1 ≤_st Y2; conversely st order implies the mean-type inequality and σ1 = σ2"},
+  "quantifiers": "all z; all t",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Example 4.4",
+  "page": 11,
+  "quote": "Example 4.4. We consider the special case of univariate GLSE distribution to illustrate the results in Lemma 4.3. The survival functions of the GHSS distributions under three parameter setting are plotted in Figure 1(a). It is easy to check that the conditions in Lemma 4.3(1) are satisfied, and thus agrees with the usual stochastic ordering among these three distributions displayed in the plot. Moreover, Figure 1(b) provides a counterexample showing that the survival functions of these distributions cross with each other if the scale parameters of the three distributions are not identical.",
+  "kind": "example",
+  "model": "generic",
+  "family": "GHSS (generalized hyperbolic skew-slash) univariate distributions",
+  "compared": "GHSS(0,1,1,1), GHSS(0,1,2,1), GHSS(1,1,3,1) vs GHSS(0,2,1,1), GHSS(0,3,2,1)",
+  "hypotheses": [
+   {"text": "Lemma 4.3(1) conditions hold in Figure 1(a); violated σ-equality in Figure 1(b)", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "st ordering verified in (a); survival curves cross in (b) when σ's differ"},
+  "quantifiers": "all t",
+  "numbers": "GHSS parameter sets (µ,σ,δ,λ): (0,1,1,1), (0,1,2,1), (1,1,3,1) vs (0,1,1,1), (0,2,1,1), (0,3,2,1)",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Theorem 4.5",
+  "page": 12,
+  "quote": "Theorem 4.5. Assume that Y1 ~ GLSEn(µ1, Σ1, δ1, ψ, α, β, H), Y2 ~ GLSEn(µ2, Σ2, δ2, ψ, α, β, H). (1) If µ2 + β(z)δ2 ≥ µ1 + β(z)δ1 for all z and Σ1 = Σ2, then Y1 ≤st Y2. (2) If Y1 ≤st Y2 and the corresponding density generator g1 for a^T Y1 satisfies Assumption 4.1 for all a ∈ R^n, then µ1 + E(β(Z))δ1 ≤ µ2 + E(β(Z))δ2 and Σ1 = Σ2.",
+  "kind": "theorem",
+  "model": "generic",
+  "family": "Multivariate GLSE vectors, common ψ, α, β, H",
+  "compared": "Y1 vs Y2 (multivariate usual stochastic order)",
+  "hypotheses": [
+   {"text": "µ2 + β(z)δ2 ≥ µ1 + β(z)δ1 ∀z; Σ1 = Σ2", "formal": "sufficiency", "source": "statement"},
+   {"text": "density generator of a^T Y1 satisfies Assumption 4.1 for all a", "formal": "necessity", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Y1 ≤_st Y2; necessary conditions: µ1 + Eβ(Z)δ1 ≤ µ2 + Eβ(Z)δ2 and Σ1 = Σ2"},
+  "quantifiers": "all z; all a ∈ R^n",
+  "numbers": "",
+  "ambiguity": "Remark 3: replacing ≤st by ≤plst (positive linear stochastic order) in part (2) still valid."
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Theorem 4.6",
+  "page": 13,
+  "quote": "Theorem 4.6. Let Y1, Y2 follow (18). We have the following conclusions: (1) If µ1 = µ2, δ1 = δ2 and Σ2 − Σ1 is positive semi-definite, then Y1 ≤cx (≤lcx, ≤ilcx) Y2. (2) If µ1 = µ2, then Y1 ≤cx (≤lcx, ≤ilcx) Y2 if and only if δ1 = δ2 and Σ2 − Σ1 is positive semi-definite. (3) If δ1 = δ2, then Y1 ≤cx (≤lcx, ≤ilcx) Y2 if and only if µ1 = µ2 and Σ2 − Σ1 is positive semi-definite.",
+  "kind": "theorem",
+  "model": "generic",
+  "family": "GLSE vectors",
+  "compared": "Y1 vs Y2 in convex / linear convex / increasing linear convex orders",
+  "hypotheses": [
+   {"text": "µ1 = µ2, δ1 = δ2, Σ2 − Σ1 ⪰ 0 (p.s.d.)", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "cx", "direction": "Y1 ≤_cx (≤_lcx, ≤_ilcx) Y2; iff statements under common means/skews"},
+  "quantifiers": "all convex f",
+  "numbers": "",
+  "ambiguity": "lcx = linear convex order; ilcx = increasing linear convex order (Definition 2.5)."
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Lemma 4.7",
+  "page": 14,
+  "quote": "Lemma 4.7. Let Y1, Y2 follow (17). We have the following conclusions: (1) If µ2 − µ1 + β(z)(δ2 − δ1) ≥ 0 for all z and σ1 ≤ σ2, then Y1 ≤icx Y2. (2) If Y1 ≤icx Y2 and the corresponding density generator g1 satisfies Assumption 4.2, then µ2 − µ1 + Eβ(Z)(δ2 − δ1) ≥ 0 and σ1 ≤ σ2.",
+  "kind": "lemma",
+  "model": "generic",
+  "family": "Univariate GLSE",
+  "compared": "Y1 vs Y2 in increasing convex (stop-loss) order",
+  "hypotheses": [
+   {"text": "µ2 − µ1 + β(z)(δ2 − δ1) ≥ 0 ∀z; σ1 ≤ σ2", "formal": "sufficiency", "source": "statement"},
+   {"text": "g1 satisfies Assumption 4.2", "formal": "necessity", "source": "statement"}
+  ],
+  "conclusion": {"order": "icx", "direction": "Y1 ≤_icx Y2 (iff-type)"},
+  "quantifiers": "all z; all t",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Example 4.8",
+  "page": 14,
+  "quote": "Example 4.8. As an illustration for Lemma 4.7, the stop-loss transformations for the univariate GHSS distributions are plotted in Figure 2. ... consistent with the increasing convex ordering among these three distributions displayed by the stop-loss transformations in Figure 2(a). Figure 2(b) provides a counterexample under the setting (µ1, σ1, δ1) = (0, 1, 0.5) and (µ2, σ2, δ2) = (1, 2, −0.5). It is clear that size relation between µ2 + β(z)δ2 and µ1 + β(z)δ1 varies with respect to z, meaning that the conditions in Lemma 4.7(1) are not fully satisfied. This agrees with the plots in Figure 2(b) that the stop-loss transformations of these distributions cross with each other.",
+  "kind": "example",
+  "model": "generic",
+  "family": "Univariate GHSS distributions",
+  "compared": "GHSS(0,1,1,3), GHSS(0,1,3,3), GHSS(2,5,3,3); counterexample (0,1,0.5,3) vs (1,2,-0.5,3)",
+  "hypotheses": [
+   {"text": "Lemma 4.7(1) conditions in (a); violated in (b)", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "icx", "direction": "icx ordering verified in (a); stop-loss transforms cross in (b) (counterexample)"},
+  "quantifiers": "all t",
+  "numbers": "(µ,σ,δ,λ): (0,1,1,3), (0,1,3,3), (2,5,3,3); counter: (0,1,0.5,3) vs (1,2,-0.5,3)",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Theorem 4.9",
+  "page": 15,
+  "quote": "Theorem 4.9. Let Y1, Y2 follows (18). The following results hold: (1) If µ2 + β(z)δ2 ≥ µ1 + β(z)δ1 for all z and Σ2 − Σ1 is positive semi-definite, then Y1 ≤icx (≤iplcx) Y2. (2) If Y1 ≤icx (≤iplcx) Y2 and the corresponding density generator g1 of a^T Y1 satisfies Assumption 4.2 for all a ∈ R^n_+, then µ2 + Eβ(Z)δ2 ≥ µ1 + Eβ(Z)δ1 and Σ2 − Σ1 is copositive.",
+  "kind": "theorem",
+  "model": "generic",
+  "family": "GLSE vectors",
+  "compared": "Y1 vs Y2 in increasing convex / increasing positive linear convex orders",
+  "hypotheses": [
+   {"text": "µ2 + β(z)δ2 ≥ µ1 + β(z)δ1 ∀z; Σ2 − Σ1 p.s.d.", "formal": "sufficiency", "source": "statement"},
+   {"text": "g1 of a^T Y1 satisfies Assumption 4.2 for all a ≥ 0", "formal": "necessity (copositivity of Σ2 − Σ1)", "source": "statement"}
+  ],
+  "conclusion": {"order": "icx", "direction": "Y1 ≤_icx (≤_iplcx) Y2"},
+  "quantifiers": "all z; a ∈ R^n_+",
+  "numbers": "",
+  "ambiguity": "iplcx = increasing positive linear convex order."
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Theorem 4.10",
+  "page": 16,
+  "quote": "Theorem 4.10. Let Y1, Y2 follow (18). The following statements are true: (1) If µ1 = µ2, δ1 = δ2 and Σ2 ≥ Σ1, then Y1 ≤dcx Y2. (2) If µ1 = µ2, then Y1 ≤dcx Y2 if and only if δ1 = δ2 and Σ2 ≥ Σ1. (3) If δ1 = δ2, then Y1 ≤dcx Y2 if and only if µ1 = µ2 and Σ2 ≥ Σ1.",
+  "kind": "theorem",
+  "model": "generic",
+  "family": "GLSE vectors",
+  "compared": "Y1 vs Y2 in directionally convex order",
+  "hypotheses": [
+   {"text": "µ1 = µ2, δ1 = δ2, Σ2 ≥ Σ1 (p.s.d. in the stated direction)", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "dcx", "direction": "Y1 ≤_dcx Y2 (iff under common means/skews)"},
+  "quantifiers": "all directionally convex f",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Theorem 4.11",
+  "page": 16,
+  "quote": "Theorem 4.11. Let Y1, Y2 follow (18). The following statements hold: (1) If µ1 = µ2, δ1 = δ2, σ1,ii ≤ σ2,ii for 1 ≤ i ≤ n and σ1,ij = σ2,ij for 1 ≤ i < j ≤ n, then Y1 ≤ccx Y2. (2) If µ1 = µ2, then Y1 ≤ccx Y2 if and only if δ1 = δ2, σ1,ii ≤ σ2,ii for 1 ≤ i ≤ n and σ1,ij = σ2,ij for 1 ≤ i < j ≤ n. (3) If δ1 = δ2, then Y1 ≤ccx Y2 if and only if µ1 = µ2, σ1,ii ≤ σ2,ii for 1 ≤ i ≤ n and σ1,ij = σ2,ij for 1 ≤ i < j ≤ n.",
+  "kind": "theorem",
+  "model": "generic",
+  "family": "GLSE vectors",
+  "compared": "Y1 vs Y2 in componentwise convex order",
+  "hypotheses": [
+   {"text": "equal means/skews; diagonal variances ordered; equal off-diagonals", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "ccx", "direction": "Y1 ≤_ccx Y2 (iff under common means/skews)"},
+  "quantifiers": "all componentwise convex f",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Theorem 4.12",
+  "page": 16,
+  "quote": "Theorem 4.12. Let Y1, Y2 follow (18). Y1 ≤sm Y2 if and only if Y1 and Y2 have the same marginals and σ1,ij ≤ σ2,ij for all 1 ≤ i < j ≤ n.",
+  "kind": "theorem",
+  "model": "generic",
+  "family": "GLSE vectors",
+  "compared": "Y1 vs Y2 in supermodular order",
+  "hypotheses": [
+   {"text": "same marginals (µ1 = µ2, δ1 = δ2, σ1,ii = σ2,ii); σ1,ij ≤ σ2,ij for i < j", "formal": "iff characterization", "source": "statement"}
+  ],
+  "conclusion": {"order": "sm", "direction": "Y1 ≤_sm Y2 iff same marginals and σ1,ij ≤ σ2,ij"},
+  "quantifiers": "all supermodular f",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Corollary 4.13",
+  "page": 17,
+  "quote": "Corollary 4.13. Let Y1, Y2 follow (18), where Σ1 and Σ2 are correlation matrices. Then Y1 ≤sm Y2 if and only if µ1 = µ2, δ1 = δ2 and σ1,ij ≤ σ2,ij for all 1 ≤ i < j ≤ n.",
+  "kind": "corollary",
+  "model": "generic",
+  "family": "GLSE vectors with correlation matrices",
+  "compared": "Y1 vs Y2",
+  "hypotheses": [
+   {"text": "Σ1, Σ2 correlation matrices; µ1 = µ2; δ1 = δ2; σ1,ij ≤ σ2,ij", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "sm", "direction": "Y1 ≤_sm Y2 iff"},
+  "quantifiers": "",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Lemma 4.14 (Müller and Scarsini, 2000)",
+  "page": 17,
+  "quote": "Lemma 4.14. (Müller and Scarsini, 2000) Let X, Y be two bivariate random vectors and have the same marginals, then X ≤sm Y is equivalent to X ≤uo Y.",
+  "kind": "lemma",
+  "model": "generic",
+  "family": "Bivariate random vectors",
+  "compared": "X vs Y",
+  "hypotheses": [
+   {"text": "X, Y bivariate with same marginals", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "sm", "direction": "X ≤_sm Y ⟺ X ≤_uo Y (supermodular = upper orthant in bivariate case)"},
+  "quantifiers": "",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Theorem 4.15",
+  "page": 17,
+  "quote": "Theorem 4.15. Let Y1, Y2 follow (18). The following statements are true: (1) If µ2 + β(z)δ2 ≥ µ1 + β(z)δ1 for all z, σ1,ii = σ2,ii for all 1 ≤ i ≤ n and σ1,ij ≤ σ2,ij for all 1 ≤ i ≠ j ≤ n, then Y1 ≤uo Y2. (2) If Y1 ≤uo Y2 and g satisfies Assumption 4.1, then µ1 + E(β(Z))δ1 ≤ µ2 + E(β(Z))δ2 and σ1,ii = σ2,ii for all 1 ≤ i ≤ n. (3) If Y1 and Y2 have the same marginals and Y1 ≤uo Y2, then σ1,ij ≤ σ2,ij for all 1 ≤ i < j ≤ n.",
+  "kind": "theorem",
+  "model": "generic",
+  "family": "GLSE vectors",
+  "compared": "Y1 vs Y2 in upper orthant order",
+  "hypotheses": [
+   {"text": "as stated per part", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "uo", "direction": "Y1 ≤_uo Y2 (sufficiency); necessity of mean-type inequality, equal diagonal variances and σ-inequalities"},
+  "quantifiers": "all t ∈ R^n",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Theorem 4.16",
+  "page": 17,
+  "quote": "Theorem 4.16. Let Y1, Y2 follow (18). The following statements are true: (1) If µ1 = µ2, δ1 = δ2 and Σ2 − Σ1 is copositive, then Y1 ≤cp Y2. (2) If µ1 = µ2, then Y1 ≤cp Y2, if and only if δ1 = δ2 and Σ2 − Σ1 is copositive. (3) If δ1 = δ2, then Y1 ≤cp Y2, if and only if µ1 = µ2 and Σ2 − Σ1 is copositive.",
+  "kind": "theorem",
+  "model": "generic",
+  "family": "GLSE vectors",
+  "compared": "Y1 vs Y2 in copositive order",
+  "hypotheses": [
+   {"text": "as stated", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "cp", "direction": "Y1 ≤_cp Y2 (iff under common means/skews)"},
+  "quantifiers": "all f with completely-positive Hessian",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Theorem 4.17",
+  "page": 18,
+  "quote": "Theorem 4.17. Let Y1, Y2 follow (18). The following statements are true: (1) If µ1 = µ2, δ1 = δ2 and Σ2 − Σ1 is completely positive, then Y1 ≤cop Y2. (2) If µ1 = µ2, then Y1 ≤cop Y2, if and only if δ1 = δ2 and Σ2 − Σ1 is completely positive. (3) If δ1 = δ2, then Y1 ≤cop Y2, if and only if µ1 = µ2 and Σ2 − Σ1 is completely positive.",
+  "kind": "theorem",
+  "model": "generic",
+  "family": "GLSE vectors",
+  "compared": "Y1 vs Y2 in completely positive order",
+  "hypotheses": [
+   {"text": "as stated", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "cop", "direction": "Y1 ≤_cop Y2 (iff under common means/skews)"},
+  "quantifiers": "all f with copositive Hessian",
+  "numbers": "",
+  "ambiguity": "Proof line reads 'Y1 ≤cp Y2' inside the proof of Theorem 4.17 — likely a typo for ≤cop."
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Corollary 5.1 (extended Slepian theorem)",
+  "page": 19,
+  "quote": "Corollary 5.1. Let Y1, Y2 follow (18). If µ1 ≤ µ2, δ1 ≤ δ2, σ1,ii = σ2,ii for all 1 ≤ i ≤ n and σ1,ij ≤ σ2,ij for all 1 ≤ i ≠ j ≤ n, then P(Y1 > a) ≤ P(Y2 > a) holds for all a ∈ R^n. Furthermore, the foregoing inequality is strict if µ1 < µ2, δ1 < δ2, and σ1,ij < σ2,ij for all 1 ≤ i ≠ j ≤ n.",
+  "kind": "corollary",
+  "model": "generic",
+  "family": "GLSE vectors (Slepian-type comparison)",
+  "compared": "upper orthant probabilities",
+  "hypotheses": [
+   {"text": "µ1 ≤ µ2, δ1 ≤ δ2 componentwise; σ1,ii = σ2,ii; σ1,ij ≤ σ2,ij for i ≠ j", "formal": "componentwise parameter inequalities", "source": "statement"}
+  ],
+  "conclusion": {"order": "uo", "direction": "P(Y1 > a) ≤ P(Y2 > a) ∀a (i.e., Y1 ≤_uo Y2)"},
+  "quantifiers": "all a ∈ R^n",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Corollary 5.2",
+  "page": 19,
+  "quote": "Corollary 5.2. Assume Y1, Y2 follow (18), then (1) If µ2 + β(z)δ2 ≥ µ1 + β(z)δ1 for all z and Σ1 = Σ2, then S1 ≤st S2. (2) If µ2 + β(z)δ2 ≥ µ1 + β(z)δ1 for all z and Σ2 − Σ1 is positive semi-definite, then S1 ≤icx S2.",
+  "kind": "corollary",
+  "model": "generic",
+  "family": "Aggregate risks S_i = Σ αi Yi,j (individual risk model, common weights)",
+  "compared": "aggregate claim amounts S1 vs S2",
+  "hypotheses": [
+   {"text": "Y1, Y2 follow (18); respective conditions", "formal": "from Theorem 4.5/4.9", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "(1) S1 ≤_st S2; (2) S1 ≤_icx S2"},
+  "quantifiers": "",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Corollary 5.3",
+  "page": 20,
+  "quote": "Corollary 5.3. Assume Y1, Y2 follow (18), random quantity N1 is independent of {Xi, i ∈ {1,2,...,n}}, random quantity N2 is independent of {Yi, i ∈ {1,2,...,n}}, and N1 ≤st N2, then (1) If µ2 + β(z)δ2 ≥ µ1 + β(z)δ1 for all z and Σ1 = Σ2, then Ŝ1 ≤st Ŝ2. (2) If µ2 + β(z)δ2 ≥ µ1 + β(z)δ1 for all z and Σ2 − Σ1 is positive semi-definite, then Ŝ1 ≤icx Ŝ2.",
+  "kind": "corollary",
+  "model": "generic",
+  "family": "Collective risk model Ŝ = Σ_{i=1}^N αi Xi with random N",
+  "compared": "aggregate risks Ŝ1 vs Ŝ2",
+  "hypotheses": [
+   {"text": "N1 ≤st N2; N's independent of claim vectors", "formal": "stated", "source": "statement"},
+   {"text": "respective GLSE conditions", "formal": "from Corollary 5.2", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "(1) Ŝ1 ≤_st Ŝ2; (2) Ŝ1 ≤_icx Ŝ2"},
+  "quantifiers": "",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Corollary 5.4",
+  "page": 20,
+  "quote": "Corollary 5.4. If µ2 + β(z)δ2 ≥ µ1 + β(z)δ1 for all z and Σ1 = Σ2, then M1 ≤st M2.",
+  "kind": "corollary",
+  "model": "parallel system",
+  "family": "Maximum claim amounts Mi = max{Yi,1,...,Yi,n} of GLSE vectors",
+  "compared": "M1 vs M2 (componentwise maxima of portfolios)",
+  "hypotheses": [
+   {"text": "µ2 + β(z)δ2 ≥ µ1 + β(z)δ1 ∀z; Σ1 = Σ2", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "M1 ≤_st M2"},
+  "quantifiers": "",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Corollary 5.5",
+  "page": 20,
+  "quote": "Corollary 5.5. Let Y1, Y2 follow (18), where Σ1 and Σ2 are correlation matrices and n ∈ {2, 3}. Assume µ1 = µ2, δ1 = δ2 and σ1,ij ≤ σ2,ij for all 1 ≤ i < j ≤ n, then Gn(Y2) ≤icx Gn(Y1).",
+  "kind": "corollary",
+  "model": "generic",
+  "family": "Gini index Gn(X) = (1/n²)Σ|Xi − Xj| of GLSE vectors",
+  "compared": "Gini indices Gn(Y2) vs Gn(Y1) — reversed icx order",
+  "hypotheses": [
+   {"text": "Σ1, Σ2 correlation matrices; n ∈ {2,3}; µ1 = µ2, δ1 = δ2, σ1,ij ≤ σ2,ij", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "icx", "direction": "Gn(Y2) ≤_icx Gn(Y1) (higher correlation ⇒ lower Gini index in icx order)"},
+  "quantifiers": "n ∈ {2,3}",
+  "numbers": "",
+  "ambiguity": ""
+ }
+]

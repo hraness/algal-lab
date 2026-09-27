@@ -9,13 +9,33 @@
   "family": "Kumaraswamy-G family, cdf G(x) = 1 − (1 − F^α(x))^β, α, β > 0, common parent cdf F; U1:n and V1:n are sample minima (series-system lifetimes) of heterogeneous independent Kw-G samples",
   "compared": "shape vectors α vs γ (weak supermajorization); common β vector, common parent F",
   "hypotheses": [
-   {"text": "Ui ∼ Kw-G(αi, βi, F) and Vi ∼ Kw-G(γi, βi, F)", "formal": "two samples sharing β vector and parent F", "source": "statement"},
-   {"text": "α, γ ∈ D+ and β ∈ E+", "formal": "α, γ sorted descending positive; β sorted ascending positive", "source": "statement"},
-   {"text": "α ≽^w γ", "formal": "α weakly supermajorizes γ: partial sums of smallest components Σ_{i=1}^j α(i) ≤ Σ γ(j) (Definition 2.1(ii))", "source": "statement"},
-   {"text": "Let X be a random variable with continuous distribution function F(·) and density function f(·). Suppose that Ui ∼ Kw-G(αi, βi, F) and Vi ∼ Kw-G(γi, δi, F) (i = 1, 2, . . . , n) be two sets of n independent random variables where the parent cdf F is homogenous and common to both the sets", "formal": "independence and common parent", "source": "section preamble (Section 3)"}
+   {
+    "text": "Ui ∼ Kw-G(αi, βi, F) and Vi ∼ Kw-G(γi, βi, F)",
+    "formal": "two samples sharing β vector and parent F",
+    "source": "statement"
+   },
+   {
+    "text": "α, γ ∈ D+ and β ∈ E+",
+    "formal": "α, γ sorted descending positive; β sorted ascending positive",
+    "source": "statement"
+   },
+   {
+    "text": "α ≽^w γ",
+    "formal": "α weakly supermajorizes γ: partial sums of smallest components Σ_{i=1}^j α(i) ≤ Σ γ(j) (Definition 2.1(ii))",
+    "source": "statement"
+   },
+   {
+    "text": "Let X be a random variable with continuous distribution function F(·) and density function f(·). Suppose that Ui ∼ Kw-G(αi, βi, F) and Vi ∼ Kw-G(γi, δi, F) (i = 1, 2, . . . , n) be two sets of n independent random variables where the parent cdf F is homogenous and common to both the sets",
+    "formal": "independence and common parent",
+    "source": "section preamble (Section 3)"
+   }
   ],
-  "conclusion": {"order": "hr", "direction": "X1:n <=hr Y1:n (printed as U1:n ≤hr V1:n; the statement writes X1:n and Y1:n for the minima of the U and V samples)"},
+  "conclusion": {
+   "order": "hr",
+   "direction": "X1:n <=hr Y1:n (printed as U1:n ≤hr V1:n; the statement writes X1:n and Y1:n for the minima of the U and V samples)"
+  },
   "quantifiers": "n >= 1, all x >= 0",
+  "numbers": "",
   "ambiguity": "The conclusion names X1:n, Y1:n while the variables are U_i, V_i — the minima are U1:n, V1:n (notation slip). The majorization glyph is ≽^w (x ≽^w y = 'x weakly supermajorizes y', i.e. sums of smallest components of x <= y's per Definition 2.1, which reverses the Marshall–Olkin arrow convention: here the more heterogeneous vector is written on the left)."
  },
  {
@@ -28,12 +48,28 @@
   "family": "Kw-G(α, β, F), common parent F; same α vector, different second-shape vectors β vs δ",
   "compared": "shape vectors β vs δ (majorization); common α vector, parent F",
   "hypotheses": [
-   {"text": "If β ≽^m δ", "formal": "β majorizes δ (equal totals; smallest-j partial sums of β <= δ's)", "source": "statement"},
-   {"text": "β, δ ∈ E+ and α ∈ D+", "formal": "β, δ ascending sorted; α descending sorted", "source": "statement"},
-   {"text": "Ui ∼ Kw-G(αi, βi, F) and Vi ∼ Kw-G(αi, δi, F)", "formal": "samples with common α, differing second shape", "source": "statement"}
+   {
+    "text": "If β ≽^m δ",
+    "formal": "β majorizes δ (equal totals; smallest-j partial sums of β <= δ's)",
+    "source": "statement"
+   },
+   {
+    "text": "β, δ ∈ E+ and α ∈ D+",
+    "formal": "β, δ ascending sorted; α descending sorted",
+    "source": "statement"
+   },
+   {
+    "text": "Ui ∼ Kw-G(αi, βi, F) and Vi ∼ Kw-G(αi, δi, F)",
+    "formal": "samples with common α, differing second shape",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "hr", "direction": "U1:n <=hr V1:n"},
+  "conclusion": {
+   "order": "hr",
+   "direction": "U1:n <=hr V1:n"
+  },
   "quantifiers": "n >= 1, x >= 0",
+  "numbers": "",
   "ambiguity": ""
  },
  {
@@ -46,11 +82,23 @@
   "family": "Kw-G(α, β, F), common parent F",
   "compared": "shape vectors β vs δ (β majorizes δ); common α vector",
   "hypotheses": [
-   {"text": "If β ≽^m δ", "formal": "β majorizes δ", "source": "statement"},
-   {"text": "β, δ ∈ D+ and α ∈ D+", "formal": "both vectors descending sorted", "source": "statement"}
+   {
+    "text": "If β ≽^m δ",
+    "formal": "β majorizes δ",
+    "source": "statement"
+   },
+   {
+    "text": "β, δ ∈ D+ and α ∈ D+",
+    "formal": "both vectors descending sorted",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "hr", "direction": "U1:n >=hr V1:n"},
+  "conclusion": {
+   "order": "hr",
+   "direction": "U1:n >=hr V1:n"
+  },
   "quantifiers": "n >= 1, x >= 0",
+  "numbers": "",
   "ambiguity": "Direction reverses relative to part (i) purely through the sortedness change E+ -> D+."
  },
  {
@@ -63,11 +111,23 @@
   "family": "Kw-G(α, β, F), common parent F",
   "compared": "shape vectors β vs δ under weak submajorization (β ≽_w δ: sums of largest components of β >= δ's)",
   "hypotheses": [
-   {"text": "If β ≽_w δ, β, δ ∈ E+ and α ∈ D+", "formal": "β weakly submajorizes δ; β, δ ascending; α descending", "source": "statement"},
-   {"text": "Ui ∼ Kw-G(αi, βi, F) and Vi ∼ Kw-G(αi, δi, F)", "formal": "common α vector", "source": "statement"}
+   {
+    "text": "If β ≽_w δ, β, δ ∈ E+ and α ∈ D+",
+    "formal": "β weakly submajorizes δ; β, δ ascending; α descending",
+    "source": "statement"
+   },
+   {
+    "text": "Ui ∼ Kw-G(αi, βi, F) and Vi ∼ Kw-G(αi, δi, F)",
+    "formal": "common α vector",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "hr", "direction": "U1:n <=hr V1:n"},
+  "conclusion": {
+   "order": "hr",
+   "direction": "U1:n <=hr V1:n"
+  },
   "quantifiers": "n >= 1, x >= 0",
+  "numbers": "",
   "ambiguity": "Notation is the paper's ≽_w (subscript w), Definition 2.1(iii): 'x weakly submajorizes y' iff upper-tail partial sums of x >= y's."
  },
  {
@@ -80,10 +140,18 @@
   "family": "Kw-G(α, β, F), common parent F",
   "compared": "shape vectors β vs δ under weak supermajorization (β ≽^w δ: partial sums of smallest components of β <= δ's)",
   "hypotheses": [
-   {"text": "If β ≽^w δ, β, δ ∈ D+ and α ∈ D+", "formal": "β weakly supermajorizes δ; all descending sorted", "source": "statement"}
+   {
+    "text": "If β ≽^w δ, β, δ ∈ D+ and α ∈ D+",
+    "formal": "β weakly supermajorizes δ; all descending sorted",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "hr", "direction": "U1:n >=hr V1:n"},
+  "conclusion": {
+   "order": "hr",
+   "direction": "U1:n >=hr V1:n"
+  },
   "quantifiers": "n >= 1, x >= 0",
+  "numbers": "",
   "ambiguity": ""
  },
  {
@@ -96,9 +164,16 @@
   "family": "Kw-G(α, β, F), common parent F",
   "compared": "α = (6.2, 4.1, 2) vs γ = (5.2, 5.1, 2) under majorization; common β = (1, 2, 3)",
   "hypotheses": [
-   {"text": "it is clear that α ≽^m γ", "formal": "α majorizes γ (equal totals 12.3; smallest partial sums 2<=2, 6.1<=7.1)", "source": "statement"}
+   {
+    "text": "it is clear that α ≽^m γ",
+    "formal": "α majorizes γ (equal totals 12.3; smallest partial sums 2<=2, 6.1<=7.1)",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "lr", "direction": "g1:3/h1:3 non-monotone in x (Figure 3.1: ratio rises above 1 then falls below 1); U1:3 and V1:3 not lr-ordered, so Theorem 3.1 does not extend to lr for n >= 3"},
+  "conclusion": {
+   "order": "lr",
+   "direction": "g1:3/h1:3 non-monotone in x (Figure 3.1: ratio rises above 1 then falls below 1); U1:3 and V1:3 not lr-ordered, so Theorem 3.1 does not extend to lr for n >= 3"
+  },
   "quantifiers": "n = 3",
   "numbers": "α = (6.2, 4.1, 2); γ = (5.2, 5.1, 2); β = (1, 2, 3); Figure 3.1 plots g1:3/h1:3 ranging about 0.94–1.02 over x ∈ (0,1)",
   "ambiguity": "Parent cdf F unspecified numerically; the figure is over x in (0,1), consistent with a unit-interval parent (e.g. uniform/standard Kw)."
@@ -113,9 +188,16 @@
   "family": "Kw-G(α, β, F), common parent F",
   "compared": "β vs δ under majorization in both sorted regimes (D+ and E+); common α = (5, 1, 0.01)",
   "hypotheses": [
-   {"text": "it is clear that β ≽^m δ", "formal": "β majorizes δ in both configurations", "source": "statement"}
+   {
+    "text": "it is clear that β ≽^m δ",
+    "formal": "β majorizes δ in both configurations",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "lr", "direction": "g1:3/h1:3 non-monotone in both cases; Theorem 3.2's hr conclusion does not extend to lr for n >= 3"},
+  "conclusion": {
+   "order": "lr",
+   "direction": "g1:3/h1:3 non-monotone in both cases; Theorem 3.2's hr conclusion does not extend to lr for n >= 3"
+  },
   "quantifiers": "n = 3",
   "numbers": "α = (5, 1, 0.01); case D+: β = (0.005, 0.004, 0.001), δ = (0.0045, 0.0045, 0.001); case E+: β = (0.003, 0.004, 0.005), δ = (0.0035, 0.0035, 0.005); Figures 3.2(i),(ii) plot the density ratio over x ∈ (0,1)",
   "ambiguity": ""
@@ -130,12 +212,28 @@
   "family": "multiple-outlier Kw-G model: n1 components Kw-G(α, β, F) [resp. Kw-G(γ, β, F)] and n2 outlier components Kw-G(α*, β*, F) [resp. Kw-G(γ*, β*, F)], common parent F",
   "compared": "first-shape vectors (α block vs γ block) under majorization, with scalar differences α > α*, γ > γ*, β < β*",
   "hypotheses": [
-   {"text": "If α > α*, γ > γ* and β < β*", "formal": "scalar constraints", "source": "statement"},
-   {"text": "(α, α, . . . , α, α*, α*, . . . , α*) ≽^m (γ, γ, . . . , γ, γ*, γ*, . . . , γ*)", "formal": "block-structured shape vector majorizes the other", "source": "statement"},
-   {"text": "mutually independent random variables each following multiple-outlier Kw-G model", "formal": "independent samples, common parent F", "source": "statement"}
+   {
+    "text": "If α > α*, γ > γ* and β < β*",
+    "formal": "scalar constraints",
+    "source": "statement"
+   },
+   {
+    "text": "(α, α, . . . , α, α*, α*, . . . , α*) ≽^m (γ, γ, . . . , γ, γ*, γ*, . . . , γ*)",
+    "formal": "block-structured shape vector majorizes the other",
+    "source": "statement"
+   },
+   {
+    "text": "mutually independent random variables each following multiple-outlier Kw-G model",
+    "formal": "independent samples, common parent F",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "lr", "direction": "U1:n <=lr V1:n"},
+  "conclusion": {
+   "order": "lr",
+   "direction": "U1:n <=lr V1:n"
+  },
   "quantifiers": "n = n1 + n2, any positive integers n1, n2; x in support",
+  "numbers": "",
   "ambiguity": ""
  },
  {
@@ -148,11 +246,23 @@
   "family": "multiple-outlier Kw-G model: n1 components Kw-G(α, β, F) [resp. Kw-G(α, δ, F)] and n2 outliers Kw-G(α*, β*, F) [resp. Kw-G(α*, δ*, F)], common parent F",
   "compared": "second-shape vectors (β block vs δ block) under majorization, with scalar constraints",
   "hypotheses": [
-   {"text": "If (β, β, . . . , β, β*, β*, . . . , β*) ≽^m (δ, δ, . . . , δ, δ*, δ*, . . . , δ*)", "formal": "block β-vector majorizes block δ-vector", "source": "statement"},
-   {"text": "i) α > α*, β > β*, δ < δ*", "formal": "scalar constraints", "source": "statement"}
+   {
+    "text": "If (β, β, . . . , β, β*, β*, . . . , β*) ≽^m (δ, δ, . . . , δ, δ*, δ*, . . . , δ*)",
+    "formal": "block β-vector majorizes block δ-vector",
+    "source": "statement"
+   },
+   {
+    "text": "i) α > α*, β > β*, δ < δ*",
+    "formal": "scalar constraints",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "lr", "direction": "U1:n >=lr V1:n"},
+  "conclusion": {
+   "order": "lr",
+   "direction": "U1:n >=lr V1:n"
+  },
   "quantifiers": "n = n1 + n2, any positive integers n1, n2",
+  "numbers": "",
   "ambiguity": "Note the conclusion direction is >=lr for this part (opposite to part ii)."
  },
  {
@@ -165,11 +275,23 @@
   "family": "multiple-outlier Kw-G model, common parent F",
   "compared": "second-shape block vectors under majorization",
   "hypotheses": [
-   {"text": "If (β, β, . . . , β, β*, β*, . . . , β*) ≽^m (δ, δ, . . . , δ, δ*, δ*, . . . , δ*)", "formal": "block β-vector majorizes block δ-vector", "source": "statement"},
-   {"text": "ii) α > α*, β < β*, δ < δ*", "formal": "scalar constraints (β < β* instead of β > β*)", "source": "statement"}
+   {
+    "text": "If (β, β, . . . , β, β*, β*, . . . , β*) ≽^m (δ, δ, . . . , δ, δ*, δ*, . . . , δ*)",
+    "formal": "block β-vector majorizes block δ-vector",
+    "source": "statement"
+   },
+   {
+    "text": "ii) α > α*, β < β*, δ < δ*",
+    "formal": "scalar constraints (β < β* instead of β > β*)",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "lr", "direction": "U1:n <=lr V1:n"},
+  "conclusion": {
+   "order": "lr",
+   "direction": "U1:n <=lr V1:n"
+  },
   "quantifiers": "n = n1 + n2",
+  "numbers": "",
   "ambiguity": ""
  },
  {
@@ -182,11 +304,23 @@
   "family": "Kw-G samples with different parent cdfs: Ui ~ Kw-G(αi, βi, F1), Vi ~ Kw-G(γi, βi, F2); X1 ~ F1, X2 ~ F2 are the parent variables",
   "compared": "shape vectors α vs γ under majorization AND parent ordering X1 <=st X2",
   "hypotheses": [
-   {"text": "α, γ ∈ D+ and β ∈ E+ and α ≽^m γ", "formal": "sorted vectors; α majorizes γ", "source": "statement"},
-   {"text": "X1 ≤st X2 implies F1(x) > F2(x)", "formal": "X1 <=st X2, i.e. F1 >= F2 pointwise (parent st-order)", "source": "proof of Theorem 4.1"}
+   {
+    "text": "α, γ ∈ D+ and β ∈ E+ and α ≽^m γ",
+    "formal": "sorted vectors; α majorizes γ",
+    "source": "statement"
+   },
+   {
+    "text": "X1 ≤st X2 implies F1(x) > F2(x)",
+    "formal": "X1 <=st X2, i.e. F1 >= F2 pointwise (parent st-order)",
+    "source": "proof of Theorem 4.1"
+   }
   ],
-  "conclusion": {"order": "st", "direction": "U1:n <=st V1:n"},
+  "conclusion": {
+   "order": "st",
+   "direction": "U1:n <=st V1:n"
+  },
   "quantifiers": "n >= 1, x >= 0",
+  "numbers": "",
   "ambiguity": "Section 2 defines X <=st Y by 'F(t) >= G(t)' where F, G were introduced as survival functions — if read literally with survival functions this is the reverse of the usual convention; the proof's use of 'X1 <=st X2 implies F1(x) > F2(x)' reads F1, F2 as cdfs and is consistent with X1 <=st X2 meaning X1 stochastically smaller."
  },
  {
@@ -199,11 +333,23 @@
   "family": "Kw-G samples with different parents F1, F2; common α vector; second-shape vectors β vs δ",
   "compared": "β vs δ under majorization AND parent ordering X1 <=st X2",
   "hypotheses": [
-   {"text": "If β ≽^m δ, α ∈ D+ and i) β, δ ∈ E+", "formal": "β majorizes δ; sortedness conditions", "source": "statement"},
-   {"text": "X1 ≤st X2", "formal": "parent stochastic order", "source": "statement"}
+   {
+    "text": "If β ≽^m δ, α ∈ D+ and i) β, δ ∈ E+",
+    "formal": "β majorizes δ; sortedness conditions",
+    "source": "statement"
+   },
+   {
+    "text": "X1 ≤st X2",
+    "formal": "parent stochastic order",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "st", "direction": "U1:n <=st V1:n"},
+  "conclusion": {
+   "order": "st",
+   "direction": "U1:n <=st V1:n"
+  },
   "quantifiers": "n >= 1, x >= 0",
+  "numbers": "",
   "ambiguity": ""
  },
  {
@@ -216,12 +362,28 @@
   "family": "Kw-G samples with different parents F1, F2; common α vector",
   "compared": "β vs δ under majorization AND parent ordering X1 >=st X2 (reversed)",
   "hypotheses": [
-   {"text": "If β ≽^m δ, α ∈ D+", "formal": "β majorizes δ", "source": "statement"},
-   {"text": "ii) β, δ ∈ D+", "formal": "descending-sorted vectors", "source": "statement"},
-   {"text": "X1 ≥st X2", "formal": "parent stochastic order reversed", "source": "statement"}
+   {
+    "text": "If β ≽^m δ, α ∈ D+",
+    "formal": "β majorizes δ",
+    "source": "statement"
+   },
+   {
+    "text": "ii) β, δ ∈ D+",
+    "formal": "descending-sorted vectors",
+    "source": "statement"
+   },
+   {
+    "text": "X1 ≥st X2",
+    "formal": "parent stochastic order reversed",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "st", "direction": "U1:n >=st V1:n"},
+  "conclusion": {
+   "order": "st",
+   "direction": "U1:n >=st V1:n"
+  },
   "quantifiers": "n >= 1, x >= 0",
+  "numbers": "",
   "ambiguity": ""
  },
  {
@@ -234,11 +396,23 @@
   "family": "Kw-G samples with different parents F1, F2; Xis denotes a variable with cdf F_i^s (s-th power/resilience transform of the parent)",
   "compared": "shape vectors α vs γ (majorization) AND the family condition X1s <=hr X2s for all s > 0",
   "hypotheses": [
-   {"text": "if α, γ ∈ D+, β ∈ E+ and for all s > 0 X1s ≤hr X2s", "formal": "sorted vectors; hr ordering of all power transforms of the parents", "source": "statement"},
-   {"text": "α ≽^m γ", "formal": "α majorizes γ", "source": "statement"}
+   {
+    "text": "if α, γ ∈ D+, β ∈ E+ and for all s > 0 X1s ≤hr X2s",
+    "formal": "sorted vectors; hr ordering of all power transforms of the parents",
+    "source": "statement"
+   },
+   {
+    "text": "α ≽^m γ",
+    "formal": "α majorizes γ",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "hr", "direction": "U1:n <=hr V1:n"},
+  "conclusion": {
+   "order": "hr",
+   "direction": "U1:n <=hr V1:n"
+  },
   "quantifiers": "n >= 1, all s > 0, x >= 0",
+  "numbers": "",
   "ambiguity": ""
  },
  {
@@ -251,9 +425,16 @@
   "family": "parents F1(x) = 1 − e^{−3x^{4.4}} and F2(x) = 1 − e^{−0.2x^{0.4}} (Weibull forms); Kw-G samples on top",
   "compared": "parent pair (F1, F2) whose power transforms satisfy hr ordering at some s but not all s; shows the 'for all s > 0' hypothesis of Theorem 4.3 is sufficient but not necessary",
   "hypotheses": [
-   {"text": "α = (1.99, 0.01) ∈ D+, γ = (1.98, 0.02) ∈ D+, β = (1, 2) ∈ E+", "formal": "n = 2 parameters; α majorizes γ (equal sums, partial sums of smallest 0.01 <= 0.02)", "source": "statement"}
+   {
+    "text": "α = (1.99, 0.01) ∈ D+, γ = (1.98, 0.02) ∈ D+, β = (1, 2) ∈ E+",
+    "formal": "n = 2 parameters; α majorizes γ (equal sums, partial sums of smallest 0.01 <= 0.02)",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "hr", "direction": "X1s <=hr X2s holds for s = 0.02 (and 0.01) but fails for s = 1.98 (and 1.99); nonetheless U1:n <=hr V1:n holds for the stated parameters — the all-s condition of Theorem 4.3 is only sufficient"},
+  "conclusion": {
+   "order": "hr",
+   "direction": "X1s <=hr X2s holds for s = 0.02 (and 0.01) but fails for s = 1.98 (and 1.99); nonetheless U1:n <=hr V1:n holds for the stated parameters — the all-s condition of Theorem 4.3 is only sufficient"
+  },
   "quantifiers": "n = 2, s ∈ {0.01, 0.02, 1.98, 1.99}",
   "numbers": "F1(x) = 1 − e^{−3x^{4.4}}; F2(x) = 1 − e^{−0.2x^{0.4}}; s = 0.02 hr holds, s = 1.98 hr fails (same for 0.01 and 1.99); α = (1.99, 0.01), γ = (1.98, 0.02), β = (1, 2); plotted vs y with x = −ln y (Figures 4.1, 4.2)",
   "ambiguity": "Parent cdfs rendered from the page image (exponents 4.4 and 0.4 are superscripts lost in the text layer). Figure 4.1 plots (1 − F2^s)/(1 − F1^s); the non-monotone plot at s = 1.98 demonstrates failure of hr ordering."
@@ -268,11 +449,23 @@
   "family": "Kw-G samples with different parents F1, F2; common α; second-shape vectors β vs δ",
   "compared": "β vs δ under majorization AND parent hr ordering X1 <=hr X2 (only the untransformed s = 1 case is required, unlike Theorem 4.3)",
   "hypotheses": [
-   {"text": "If β ≽^m δ, α ∈ D+ and i) β, δ ∈ E+", "formal": "β majorizes δ; sortedness", "source": "statement"},
-   {"text": "X1 ≤hr X2", "formal": "parent hazard-rate order", "source": "statement"}
+   {
+    "text": "If β ≽^m δ, α ∈ D+ and i) β, δ ∈ E+",
+    "formal": "β majorizes δ; sortedness",
+    "source": "statement"
+   },
+   {
+    "text": "X1 ≤hr X2",
+    "formal": "parent hazard-rate order",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "hr", "direction": "U1:n <=hr V1:n"},
+  "conclusion": {
+   "order": "hr",
+   "direction": "U1:n <=hr V1:n"
+  },
   "quantifiers": "n >= 1, x >= 0",
+  "numbers": "",
   "ambiguity": "The preamble introduces Xis with cdf F_i^s for any s > 0, but the hypothesis is only stated at X1, X2 (s = 1), unlike Theorem 4.3 which requires the ordering for all s > 0."
  },
  {
@@ -285,12 +478,28 @@
   "family": "Kw-G samples with different parents; common α",
   "compared": "β vs δ under majorization AND parent hr ordering X1 >=hr X2",
   "hypotheses": [
-   {"text": "If β ≽^m δ, α ∈ D+", "formal": "β majorizes δ", "source": "statement"},
-   {"text": "ii) β, δ ∈ D+", "formal": "descending-sorted vectors", "source": "statement"},
-   {"text": "X1 ≥hr X2", "formal": "parent hazard-rate order reversed", "source": "statement"}
+   {
+    "text": "If β ≽^m δ, α ∈ D+",
+    "formal": "β majorizes δ",
+    "source": "statement"
+   },
+   {
+    "text": "ii) β, δ ∈ D+",
+    "formal": "descending-sorted vectors",
+    "source": "statement"
+   },
+   {
+    "text": "X1 ≥hr X2",
+    "formal": "parent hazard-rate order reversed",
+    "source": "statement"
+   }
   ],
-  "conclusion": {"order": "hr", "direction": "U1:n >=hr V1:n"},
+  "conclusion": {
+   "order": "hr",
+   "direction": "U1:n >=hr V1:n"
+  },
   "quantifiers": "n >= 1, x >= 0",
+  "numbers": "",
   "ambiguity": ""
  }
 ]
