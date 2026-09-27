@@ -1,0 +1,580 @@
+[
+ {
+  "paper": "doi:10.66224/jss.20.1.06",
+  "claim": "Theorem 1",
+  "page": 129,
+  "quote": "Let X^p = (I_{p1}X1, ..., I_{pn}Xn) and X^q = (I_{q1}X1, ..., I_{qn}Xn) be dependent non-identically distributed random vectors with Xi ~ SAH(alpha_i, theta_i) and Archimedean copula with generator phi. Further suppose I_{p1},...,I_{pn} and I_{q1},...,I_{qn} are independent Bernoulli random variables with parameter vectors p = (p1,...,pn) and q = (q1,...,qn), independent of the Xi's. If F_bar_alpha(alpha x) is increasing and log-convex in alpha, phi is log-convex, and h is an increasing convex function, then for (alpha,theta) in B_n, (alpha,p) in A_n, (p,theta) in B_n: h(p) <=^w h(q) ==> X^p_{n:n} <=st X^q_{n:n}.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "scaled additive hazard SAH(alpha,theta) marginals: F_bar_{Xi}(x) = F_bar_alpha(alpha_i x) e^{-theta_i x}; Archimedean copula; Bernoulli random shocks",
+  "compared": "same component lifetimes, two shock-probability vectors p vs q (through h(p), h(q))",
+  "hypotheses": [
+   {
+    "text": "F_bar_alpha(alpha x) increasing and log-convex in alpha",
+    "formal": "baseline marginal condition",
+    "source": "statement"
+   },
+   {
+    "text": "phi log-convex",
+    "formal": "copula generator condition",
+    "source": "statement"
+   },
+   {
+    "text": "h increasing and convex",
+    "formal": "link function condition",
+    "source": "statement"
+   },
+   {
+    "text": "(alpha,theta) in B_n, (alpha,p) in A_n, (p,theta) in B_n",
+    "formal": "comonotonicity/antimonotonicity of parameter pairs",
+    "source": "statement"
+   },
+   {
+    "text": "h(p) <=^w h(q)",
+    "formal": "weak majorization between transformed shock vectors",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X^p_{n:n} <=_st X^q_{n:n}"
+  },
+  "quantifiers": "n >= 1; all x",
+  "numbers": "",
+  "ambiguity": "Paper body is in Persian; statement reconstructed from Persian text and embedded formulas. The printed implication reads h(p) ≺^w h(q) ⟹ X^p_{n:n} ⩽st X^q_{n:n}."
+ },
+ {
+  "paper": "doi:10.66224/jss.20.1.06",
+  "claim": "Theorem 2",
+  "page": 131,
+  "quote": "Let X^p = (I_{p1}X1,...,I_{pn}Xn) and Y^p = (I_{p1}Y1,...,I_{pn}Yn) be dependent non-identically distributed random vectors with Xi ~ SAH(alpha_i, theta_i) and Yi ~ SAH(lambda_i, theta_i) under the same Archimedean copula with generator phi. Further let I_{p1},...,I_{pn} be independent Bernoulli variables with parameters p = (p1,...,pn), independent of Xi's and Yi's. Under conditions: (a) u psi'(1-u) is decreasing in u in (0,1); (b) F_bar_alpha(alpha x) is increasing and log-convex in alpha; we have alpha <=^w lambda ==> X^p_{n:n} <=st Y^p_{n:n} for alpha, lambda, p in D+ and theta in E+.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "SAH marginals; common Archimedean copula; common shock vector",
+  "compared": "scale parameter vectors alpha vs lambda",
+  "hypotheses": [
+   {
+    "text": "u psi'(1-u) decreasing on (0,1)",
+    "formal": "generator tail condition",
+    "source": "statement"
+   },
+   {
+    "text": "F_bar_alpha(alpha x) increasing and log-convex in alpha",
+    "formal": "baseline marginal condition",
+    "source": "statement"
+   },
+   {
+    "text": "alpha, lambda, p in D+; theta in E+",
+    "formal": "ordered parameter vectors",
+    "source": "statement"
+   },
+   {
+    "text": "alpha <=^w lambda",
+    "formal": "weak (super)majorization of scale parameters",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X^p_{n:n} <=_st Y^p_{n:n}"
+  },
+  "quantifiers": "n >= 1; all x",
+  "numbers": "",
+  "ambiguity": "Persian text; reconstructed. Direction of <=^w as printed."
+ },
+ {
+  "paper": "doi:10.66224/jss.20.1.06",
+  "claim": "Theorem 3",
+  "page": 132,
+  "quote": "Let X^p and Y^p be dependent non-identically distributed random vectors with Xi ~ SAH(alpha_i, theta_i) and Yi ~ SAH(lambda_i, theta_i) under Archimedean copulas with generators phi_1 and phi_2 respectively. If psi_2 o phi_1 is super-additive, u psi_1'(1-u) is decreasing, and F_bar_alpha(alpha x) is increasing and log-convex in alpha, then for alpha, lambda, p in D+ and theta in E+: alpha <=^w lambda ==> X^p_{n:n} <=st Y^p_{n:n}.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "SAH marginals; DIFFERENT Archimedean copulas phi_1, phi_2; common shock vector",
+  "compared": "scale parameter vectors alpha vs lambda; distinct copulas",
+  "hypotheses": [
+   {
+    "text": "psi_2 o phi_1 super-additive",
+    "formal": "composition condition",
+    "source": "statement"
+   },
+   {
+    "text": "u psi_1'(1-u) decreasing",
+    "formal": "generator tail condition",
+    "source": "statement"
+   },
+   {
+    "text": "F_bar_alpha(alpha x) increasing and log-convex in alpha",
+    "formal": "baseline marginal condition",
+    "source": "statement"
+   },
+   {
+    "text": "alpha <=^w lambda",
+    "formal": "weak (super)majorization",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X^p_{n:n} <=_st Y^p_{n:n}"
+  },
+  "quantifiers": "n >= 1; all x",
+  "numbers": "",
+  "ambiguity": "Persian text; reconstructed."
+ },
+ {
+  "paper": "doi:10.66224/jss.20.1.06",
+  "claim": "Theorem 4",
+  "page": 133,
+  "quote": "Let X^p and Y^p be dependent non-identically distributed random vectors with Xi ~ SAH(alpha_i, theta_i) and Yi ~ SAH(lambda_i, theta_i) and Archimedean copula with common generator phi. Under the conditions: (a) F_bar_alpha(alpha x) is increasing and convex in alpha; (b) r_alpha(x)/alpha is increasing and convex in alpha; (c) (1 - phi) is log-concave; (d) phi(1-phi)/phi' is decreasing and convex; for (alpha,theta) in B_n, (lambda,p) in A_n, (alpha,p) in A_n: alpha <=^w lambda ==> X^p_{n:n} <=hr Y^p_{n:n}.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "SAH marginals; common Archimedean copula; common shock vector",
+  "compared": "scale parameter vectors alpha vs lambda",
+  "hypotheses": [
+   {
+    "text": "F_bar_alpha(alpha x) increasing and convex in alpha",
+    "formal": "as printed",
+    "source": "statement"
+   },
+   {
+    "text": "r_alpha(x)/alpha increasing and convex in alpha",
+    "formal": "reversed-hazard-shaped condition",
+    "source": "statement"
+   },
+   {
+    "text": "1 - phi log-concave",
+    "formal": "generator condition",
+    "source": "statement"
+   },
+   {
+    "text": "phi(1-phi)/phi' decreasing and convex",
+    "formal": "generator condition",
+    "source": "statement"
+   },
+   {
+    "text": "(alpha,theta) in B_n, (lambda,p) in A_n, (alpha,p) in A_n",
+    "formal": "pairwise comonotonicity",
+    "source": "statement"
+   },
+   {
+    "text": "alpha <=^w lambda",
+    "formal": "weak (super)majorization",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "X^p_{n:n} <=_hr Y^p_{n:n} (r_{X^p_{n:n}}(x) >= r_{Y^p_{n:n}}(x))"
+  },
+  "quantifiers": "n >= 1; all x >= 0",
+  "numbers": "",
+  "ambiguity": "Persian text; reconstructed."
+ },
+ {
+  "paper": "doi:10.66224/jss.20.1.06",
+  "claim": "Theorem 5(a)",
+  "page": 134,
+  "quote": "Let X^p and Y^p be dependent non-identically distributed random vectors with Xi ~ SAH(alpha_i, theta_i) and Yi ~ SAH(alpha_i, eta_i) and Archimedean copula with common generator phi. Further let I_{p1},...,I_{pn} be independent Bernoulli variables with parameters p1,...,pn. If F_bar_alpha(alpha x) is increasing in alpha and (alpha,p) in A_n, (theta,p) in B_n, (alpha,theta) in B_n: (a) if phi is log-convex, theta <=^w eta ==> X^p_{1:n} <=st Y^p_{1:n}.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "SAH marginals (common scale alpha_i); common copula; common shock vector",
+  "compared": "additive-hazard parameter vectors theta vs eta",
+  "hypotheses": [
+   {
+    "text": "F_bar_alpha(alpha x) increasing in alpha",
+    "formal": "marginal condition",
+    "source": "statement"
+   },
+   {
+    "text": "(alpha,p) in A_n, (theta,p) in B_n, (alpha,theta) in B_n",
+    "formal": "pairwise comonotonicity",
+    "source": "statement"
+   },
+   {
+    "text": "phi log-convex",
+    "formal": "generator condition",
+    "source": "statement"
+   },
+   {
+    "text": "theta <=^w eta",
+    "formal": "weak (super)majorization",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X^p_{1:n} <=_st Y^p_{1:n}"
+  },
+  "quantifiers": "n >= 1; all x",
+  "numbers": "",
+  "ambiguity": "Persian text; reconstructed."
+ },
+ {
+  "paper": "doi:10.66224/jss.20.1.06",
+  "claim": "Theorem 5(b)",
+  "page": 134,
+  "quote": "(b) if phi is log-concave, theta <=^w eta ==> Y^p_{1:n} <=st X^p_{1:n}.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "SAH marginals; common copula; common shock vector",
+  "compared": "theta vs eta",
+  "hypotheses": [
+   {
+    "text": "same setup as Theorem 5(a) but phi log-concave",
+    "formal": "as printed",
+    "source": "statement"
+   },
+   {
+    "text": "theta <=^w eta",
+    "formal": "weak (super)majorization",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y^p_{1:n} <=_st X^p_{1:n} (reverse direction)"
+  },
+  "quantifiers": "n >= 1; all x",
+  "numbers": "",
+  "ambiguity": "Persian text; reconstructed."
+ },
+ {
+  "paper": "doi:10.66224/jss.20.1.06",
+  "claim": "Theorem 6(a)",
+  "page": 136,
+  "quote": "Under the assumptions of Theorem 5, suppose F_bar_alpha(alpha x) is decreasing in alpha, and (alpha,theta) in A_n, (p,theta) in B_n, (p,alpha) in B_n. Then: (a) if phi is log-convex, theta <=^w eta ==> X^p_{1:n} <=st Y^p_{1:n}.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "SAH marginals; common copula; common shock vector",
+  "compared": "theta vs eta",
+  "hypotheses": [
+   {
+    "text": "F_bar_alpha(alpha x) decreasing in alpha",
+    "formal": "as printed",
+    "source": "statement"
+   },
+   {
+    "text": "(alpha,theta) in A_n, (p,theta) in B_n, (p,alpha) in B_n",
+    "formal": "pairwise comonotonicity",
+    "source": "statement"
+   },
+   {
+    "text": "phi log-convex; theta <=^w eta",
+    "formal": "as printed",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X^p_{1:n} <=_st Y^p_{1:n}"
+  },
+  "quantifiers": "n >= 1; all x",
+  "numbers": "",
+  "ambiguity": "Persian text; reconstructed."
+ },
+ {
+  "paper": "doi:10.66224/jss.20.1.06",
+  "claim": "Theorem 6(b)",
+  "page": 136,
+  "quote": "(b) if phi is log-concave, theta <=^w eta ==> Y^p_{1:n} <=st X^p_{1:n}.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "SAH marginals; common copula; common shock vector",
+  "compared": "theta vs eta",
+  "hypotheses": [
+   {
+    "text": "same as Theorem 6(a) but phi log-concave",
+    "formal": "as printed",
+    "source": "statement"
+   },
+   {
+    "text": "theta <=^w eta",
+    "formal": "weak (super)majorization",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y^p_{1:n} <=_st X^p_{1:n}"
+  },
+  "quantifiers": "n >= 1; all x",
+  "numbers": "",
+  "ambiguity": "Persian text; reconstructed."
+ },
+ {
+  "paper": "doi:10.66224/jss.20.1.06",
+  "claim": "Theorem 7",
+  "page": 136,
+  "quote": "Let X^p = (I_{p1}X1,...,I_{pn}Xn) and X^q = (I_{q1}X1,...,I_{qn}Xn) be dependent non-identically distributed random vectors with Xi ~ SAH(alpha, theta_i), under an Archimedean copula with generator phi. Further, I_{p1},...,I_{pn} and I_{q1},...,I_{qn} are independent Bernoulli variables with parameters p = (p1,...,pn) and q = (q1,...,qn), independent of Xi's. Under conditions: (a) u psi'(u) is increasing on (0,1); (b) h(u) and u h'(u) are decreasing on (0,1); for h(u) in D+ and theta in D+: h(p) <=^w h(q) ==> X^q_{1:n} <=st X^p_{1:n}.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "SAH marginals with common scale alpha; common copula; two shock vectors",
+  "compared": "shock-probability vectors p vs q via h(p), h(q)",
+  "hypotheses": [
+   {
+    "text": "u psi'(u) increasing on (0,1)",
+    "formal": "generator condition",
+    "source": "statement"
+   },
+   {
+    "text": "h(u) and u h'(u) decreasing on (0,1)",
+    "formal": "link function conditions",
+    "source": "statement"
+   },
+   {
+    "text": "h(u) in D+, theta in D+",
+    "formal": "ordered parameter vectors",
+    "source": "statement"
+   },
+   {
+    "text": "h(p) <=^w h(q)",
+    "formal": "weak majorization between transformed shock vectors",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X^q_{1:n} <=_st X^p_{1:n}"
+  },
+  "quantifiers": "n >= 1; all x",
+  "numbers": "",
+  "ambiguity": "Persian text; reconstructed. Note direction: larger shock vector yields stochastically smaller series lifetime."
+ },
+ {
+  "paper": "doi:10.66224/jss.20.1.06",
+  "claim": "Theorem 8",
+  "page": 138,
+  "quote": "Let X^p and Y^p be dependent non-identically distributed random vectors with Xi ~ SAH(alpha_i, theta_i) and Yi ~ SAH(lambda_i, theta_i) under a common Archimedean copula with generator phi. Further let I_{p1},...,I_{pn} be independent Bernoulli variables with parameter p = (p1,...,pn). Under conditions: (a) phi is a log-concave function; (b) F_bar_alpha(alpha x) is increasing and log-concave in alpha; for alpha, lambda, p in D+ and theta in E+: alpha <=^w lambda ==> X^p_{1:n} <=st Y^p_{1:n}.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "SAH marginals; common copula; common shock vector",
+  "compared": "scale parameter vectors alpha vs lambda",
+  "hypotheses": [
+   {
+    "text": "phi log-concave",
+    "formal": "generator condition",
+    "source": "statement"
+   },
+   {
+    "text": "F_bar_alpha(alpha x) increasing and log-concave in alpha",
+    "formal": "marginal condition",
+    "source": "statement"
+   },
+   {
+    "text": "alpha, lambda, p in D+; theta in E+",
+    "formal": "ordered parameter vectors",
+    "source": "statement"
+   },
+   {
+    "text": "alpha <=^w lambda",
+    "formal": "weak (super)majorization",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X^p_{1:n} <=_st Y^p_{1:n}"
+  },
+  "quantifiers": "n >= 1; all x",
+  "numbers": "",
+  "ambiguity": "Persian text; reconstructed. CDF comparison used: F_{X^p_{1:n}}(x) Schur-concave in alpha."
+ },
+ {
+  "paper": "doi:10.66224/jss.20.1.06",
+  "claim": "Theorem 9",
+  "page": 139,
+  "quote": "Let X^p and Y^p be dependent non-identically distributed random vectors with Xi ~ SAH(alpha_i, theta_i) and Yi ~ SAH(lambda_i, theta_i) under Archimedean copulas with generators phi_1 and phi_2 respectively. If phi_1 is log-concave, F_bar_{alpha_i}(alpha_i x) is increasing in alpha, and psi_2 o phi_1 is super-additive, then for alpha, p, lambda in D+ and theta in E+: alpha <=^w lambda ==> X^p_{1:n} <=st Y^p_{1:n}.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "SAH marginals; DIFFERENT copulas phi_1, phi_2; common shock vector",
+  "compared": "scale parameter vectors alpha vs lambda; distinct copulas",
+  "hypotheses": [
+   {
+    "text": "phi_1 log-concave",
+    "formal": "generator condition",
+    "source": "statement"
+   },
+   {
+    "text": "F_bar_{alpha_i}(alpha_i x) increasing in alpha",
+    "formal": "marginal condition",
+    "source": "statement"
+   },
+   {
+    "text": "psi_2 o phi_1 super-additive",
+    "formal": "composition condition",
+    "source": "statement"
+   },
+   {
+    "text": "alpha <=^w lambda",
+    "formal": "weak (super)majorization",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X^p_{1:n} <=_st Y^p_{1:n}"
+  },
+  "quantifiers": "n >= 1; all x",
+  "numbers": "",
+  "ambiguity": "Persian text; reconstructed; proof said to be similar to Theorem 3."
+ },
+ {
+  "paper": "doi:10.66224/jss.20.1.06",
+  "claim": "Example 1",
+  "page": 140,
+  "quote": "Suppose the baseline survival function is F_bar(x) = 1/x, x >= 1. It can be shown that F_bar_alpha(alpha x) is increasing and log-convex in alpha for alpha >= x >= 1. Take the Ali-Mikhail-Haq copula generator phi(u) = u^{1-delta}/(e^u - delta) ... for (delta = 0.8), delta in (0,1), the function u psi'(1-u) is decreasing in u. For p = (0.72, 0.18, 0.02), alpha = (37, 24, 5) and lambda = (7, 4, 2) we have alpha <=^w lambda. The survival functions of X^p_{3:3} and Y^p_{3:3} are shown in Figure 1(a), which yields the stochastic ordering X^p_{3:3} <=st Y^p_{3:3}.",
+  "kind": "example",
+  "model": "parallel system",
+  "family": "SAH marginals with Pareto-type baseline F_bar(x) = 1/x; AMH copula delta = 0.8; random shocks",
+  "compared": "alpha = (37,24,5) vs lambda = (7,4,2); p = (0.72,0.18,0.02)",
+  "hypotheses": [
+   {
+    "text": "alpha <=^w lambda (as printed)",
+    "formal": "weak (super)majorization",
+    "source": "statement"
+   },
+   {
+    "text": "u psi'(1-u) decreasing for delta = 0.8",
+    "formal": "verifies Theorem 2 condition (a)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X^p_{3:3} <=_st Y^p_{3:3} verified graphically (Figure 1(a))"
+  },
+  "quantifiers": "n = 3",
+  "numbers": "alpha = (37,24,5), lambda = (7,4,2), p = (0.72,0.18,0.02), delta = 0.8",
+  "ambiguity": "Supports Theorem 2."
+ },
+ {
+  "paper": "doi:10.66224/jss.20.1.06",
+  "claim": "Example 2",
+  "page": 140,
+  "quote": "Under the assumptions of Example 1, for the copula function with delta in (-1, 0) (delta = -0.66), the function u psi'(1-u) is increasing in u. Figure 2(b) shows that the distribution functions of X^p_{3:3} and Y^p_{3:3} cross each other. Therefore the result of Theorem 2 does not hold when u psi'(1-u) is increasing.",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "SAH marginals; AMH copula delta = -0.66; random shocks",
+  "compared": "same parameters as Example 1 but copula delta = -0.66",
+  "hypotheses": [
+   {
+    "text": "u psi'(1-u) increasing instead of decreasing",
+    "formal": "violated hypothesis of Theorem 2",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "distribution functions cross: neither X^p_{3:3} <=_st Y^p_{3:3} nor reverse"
+  },
+  "quantifiers": "n = 3",
+  "numbers": "delta = -0.66",
+  "ambiguity": "Shows condition (a) of Theorem 2 cannot be reversed."
+ },
+ {
+  "paper": "doi:10.66224/jss.20.1.06",
+  "claim": "Example 3",
+  "page": 140,
+  "quote": "Consider two parallel systems of dependent and heterogeneous components with baseline survival function F_bar(x) = 1/x, x >= 1. It can be shown that the properties of being increasing and log-convex in alpha do NOT hold for F_bar_alpha(alpha x). Also let alpha = (11, 8, 4) in D+, lambda = (9, 6, 2) in D+ and p = (0.92, 0.68, 0.32) in D+, where alpha <=^w lambda. Take the Ali-Mikhail-Haq generators phi_1(u) = u^{0.5}/(e^u - 0.5) and phi_2(u) = 1.6/(e^u + 0.6) such that psi_2 o phi_1 is super-additive (since it is convex), while u psi_2'(1-u) is increasing. By the argument of Example 1, the survival functions of X^p_{3:3} and Y^p_{3:3} are plotted in Figure 2(c), showing X^p_{3:3} not <=st Y^p_{3:3} and Y^p_{3:3} not <=st X^p_{3:3}. Therefore the result of Theorem 3 does not hold.",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "SAH marginals, baseline F_bar(x) = 1/x; two different AMH-type generators; random shocks",
+  "compared": "alpha = (11,8,4) vs lambda = (9,6,2); different copulas",
+  "hypotheses": [
+   {
+    "text": "F_bar_alpha(alpha x) fails to be increasing and log-convex in alpha",
+    "formal": "violated hypothesis",
+    "source": "statement"
+   },
+   {
+    "text": "u psi_2'(1-u) increasing (Theorem 3 requires decreasing)",
+    "formal": "violated hypothesis",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "no stochastic ordering in either direction (survival functions cross)"
+  },
+  "quantifiers": "n = 3",
+  "numbers": "alpha = (11,8,4), lambda = (9,6,2), p = (0.92,0.68,0.32); generator parameters 0.5 and 1.6/0.6",
+  "ambiguity": "Two hypotheses of Theorem 3 appear violated simultaneously."
+ },
+ {
+  "paper": "doi:10.66224/jss.20.1.06",
+  "claim": "Example 4",
+  "page": 140,
+  "quote": "Suppose the baseline survival function is F_bar(x) = e^{-x}, x > 0. The function F_bar_alpha(alpha x) is increasing and convex in alpha. Also take the generator phi(u) = (1 + delta u)^{1/delta} for delta = 0.2, which is convex (equivalently 1 - phi is log-concave) but phi(1-phi)/phi' is decreasing but NOT convex. For alpha = (3,4,5,6) and lambda = (2,4,5,7) and p = (0.2,0.25,0.45,0.8), clearly alpha <=^m lambda holds. Figure 3(a) shows the failure of Theorem 4.",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "SAH marginals, exponential baseline; Clayton-type generator delta = 0.2; random shocks",
+  "compared": "alpha = (3,4,5,6) vs lambda = (2,4,5,7); p = (0.2,0.25,0.45,0.8)",
+  "hypotheses": [
+   {
+    "text": "alpha <=^m lambda",
+    "formal": "majorization holds",
+    "source": "statement"
+   },
+   {
+    "text": "phi(1-phi)/phi' not convex",
+    "formal": "condition (d) of Theorem 4 violated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "hazard-rate ordering fails; hazard curves of X^p_{4:4} and Y^p_{4:4} cross (Figure 3(a))"
+  },
+  "quantifiers": "n = 4",
+  "numbers": "alpha = (3,4,5,6), lambda = (2,4,5,7), p = (0.2,0.25,0.45,0.8), delta = 0.2",
+  "ambiguity": "Counterexample to Theorem 4 when its convexity condition on phi(1-phi)/phi' is dropped."
+ },
+ {
+  "paper": "doi:10.66224/jss.20.1.06",
+  "claim": "Example 5",
+  "page": 141,
+  "quote": "Consider two series systems consisting of dependent components with baseline survival function F_bar(x) = e^{-x}, x >= 0. Clearly log F_bar_alpha(alpha x) = -alpha^{-4} x^5. It can be easily shown that the second derivative of this function is negative and its first derivative is non-positive. Therefore the condition that F_bar_alpha(alpha x) is increasing and log-concave in alpha holds. Also let alpha = (11,8,4) in D+, lambda = (9,6,2) in D+ and p = (0.92,0.18,0.02) in D+, such that alpha <=^w lambda. The Archimedean generator phi(u) = 2/(1+e^u) is log-concave ... In Figure 3(b) the distribution functions of X^p_{1:3} and Y^p_{1:3} are plotted, showing the graph of F_{X^p_{1:3}} lies above that of F_{Y^p_{1:3}}. Therefore the validity of Theorem 8 is confirmed.",
+  "kind": "example",
+  "model": "series system",
+  "family": "SAH marginals; generator phi(u) = 2/(1+e^u); random shocks",
+  "compared": "alpha = (11,8,4) vs lambda = (9,6,2); p = (0.92,0.18,0.02)",
+  "hypotheses": [
+   {
+    "text": "alpha <=^w lambda; phi log-concave; F_bar_alpha(alpha x) increasing log-concave in alpha",
+    "formal": "verifies Theorem 8 hypotheses",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X^p_{1:3} <=_st Y^p_{1:3} (cdf of X above cdf of Y, Figure 3(b))"
+  },
+  "quantifiers": "n = 3",
+  "numbers": "alpha = (11,8,4), lambda = (9,6,2), p = (0.92,0.18,0.02)",
+  "ambiguity": "Printed log-expression '-alpha^{-4} x^5' is inconsistent with the stated exponential baseline; recorded verbatim."
+ },
+ {
+  "paper": "doi:10.66224/jss.20.1.06",
+  "claim": "Section 6.2 case study (validating Theorem 6(a))",
+  "page": 143,
+  "quote": "A series air-pollution monitoring system of three sensors ... baseline lifetime Weibull with F_bar(x) = e^{-(lambda x)^beta}, lambda = 0.001, beta = 0.7. alpha = (1,1,1), theta = (0.0008, 0.0010, 0.0012) and eta = (0.0005, 0.0010, 0.0015) such that theta <=^w eta. AMH copula with generator phi(u) = e^{1-\\delta u} ... wait, printed as phi(u) = e^{1-\\delta u}/... with delta = 0.8 (phi log-convex). Shock survival probability p = (0.92,0.92,0.92). Table 1 empirical distribution functions: t = 100: 0.1183 vs 0.1251; t = 300: 0.4679 vs 0.4823; t = 500: 0.7258 vs 0.7405; t = 700: 0.8801 vs 0.8912 ... Hence F_X(t) >= F_Y(t) for all t, equivalently X <=st Y. This result fully confirms the prediction of Theorem 6(a).",
+  "kind": "example",
+  "model": "series system",
+  "family": "SAH marginals, Weibull baseline lambda = 0.001, beta = 0.7; AMH copula delta = 0.8; common shock p = 0.92",
+  "compared": "theta = (0.0008,0.0010,0.0012) vs eta = (0.0005,0.0010,0.0015) (more dispersed)",
+  "hypotheses": [
+   {
+    "text": "theta <=^w eta; phi log-convex",
+    "formal": "verifies Theorem 6(a)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X <=_st Y empirically (lower failure probability for Y at all time points)"
+  },
+  "quantifiers": "n = 3; t in {100,300,500,700}",
+  "numbers": "t=100: 0.1183 vs 0.1251; t=300: 0.4679 vs 0.4823; t=500: 0.7258 vs 0.7405; t=700: 0.8801 vs 0.8912",
+  "ambiguity": "Empirical/Monte-Carlo verification rather than exact computation; whether F-hat denotes cdf or survival function is slightly ambiguous in the text (numbers increase in t, so cdf)."
+ }
+]

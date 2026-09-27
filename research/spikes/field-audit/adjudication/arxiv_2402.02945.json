@@ -1,0 +1,705 @@
+[
+ {
+  "claim": "corollary3.1",
+  "a_orders": [
+   "st"
+  ],
+  "b_orders": [
+   "st"
+  ],
+  "a_dirs": [
+   "x n n alpha phi 1 >=st y n n beta phi 2 under archimedean co"
+  ],
+  "b_dirs": [
+   "B_smaller"
+  ],
+  "a_records": [
+   {
+    "paper": "arxiv:2402.02945",
+    "claim": "Corollary 3.1",
+    "page": 8,
+    "quote": "Since Archimedean copula is a particular type of Archimax copula when A(u) == 1, hence theorem 3.1 for stochastic ordering of highest order staistics of two samples from PHR models is holds true. For proof replace A(u) == 1 and proceed as proof of theorem 3.1 or see (Li and Fang 2015).",
+    "kind": "corollary",
+    "model": "parallel system",
+    "family": "PHR(B-bar, alpha) with Archimedean copula (A == 1 special case of Archimax)",
+    "compared": "PHR exponent vectors alpha vs beta and generators phi_1 vs phi_2 as in Theorem 3.1",
+    "hypotheses": [
+     {
+      "text": "Archimedean copula is a particular type of Archimax copula when A(u) == 1",
+      "formal": "A == 1 reduces Archimax to Archimedean copula",
+      "source": "statement"
+     },
+     {
+      "text": "theorem 3.1 ... is holds true",
+      "formal": "same hypotheses as Theorem 3.1 with A == 1: beta <=w alpha, psi_2 o phi_1 superadditive and psi_2(phi_1(tA)) >= A psi_2(phi_1(t))",
+      "source": "earlier theorem 3.1"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X_{n:n}(alpha; phi_1) >=st Y_{n:n}(beta; phi_2) under Archimedean copulas"
+    },
+    "quantifiers": "n >= 1; all x",
+    "numbers": "",
+    "ambiguity": "With A == 1, condition (ii) reduces to psi_2 o phi_1(t) >= psi_2 o phi_1(t) (equality), so the operative extra condition is super-additivity; not spelled out in the paper."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "arxiv:2402.02945",
+    "claim": "Corollary 3.1",
+    "page": 7,
+    "quote": "Since Archimedean copula is a particular type of Archimax copula when A(u) == 1, hence theorem 3.1 for stochastic ordering of highest order staistics of two samples from PHR models is holds true. For proof replace A(u) == 1 and proceed as proof of theorem 3.1 or see (Li and Fang 2015).",
+    "kind": "corollary",
+    "model": "parallel system",
+    "family": "PHR with Archimedean copula (A identically 1)",
+    "compared": "two PHR samples (alpha, phi_1) vs (beta, phi_2) coupled by Archimedean copulas",
+    "hypotheses": [
+     {
+      "text": "A(u) == 1",
+      "formal": "Pickands function identically 1, i.e. Archimedean case",
+      "source": "statement"
+     },
+     {
+      "text": "assumptions of Theorem 3.1",
+      "formal": "beta weakly majorized by alpha; psi_2 o phi_1 superadditive; psi_2 o phi_1(A t) >= A psi_2 o phi_1(t)",
+      "source": "earlier theorem 3.1"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X_{n:n} >=_st Y_{n:n}"
+    },
+    "quantifiers": "n >= 2",
+    "ambiguity": "No separate numbering of conditions; inherits Theorem 3.1's ambiguities."
+   }
+  ]
+ },
+ {
+  "claim": "example4.1i",
+  "a_orders": [
+   "rh"
+  ],
+  "b_orders": [
+   "rh"
+  ],
+  "a_dirs": [
+   "x 3 4 <=rh x 4 4 <=rh x 5 5 illustrated graphically figure 1"
+  ],
+  "b_dirs": [
+   "x 3 4 <= rh x 4 4 <= rh x 5 5 verifying theorem 4.1 i"
+  ],
+  "a_records": [
+   {
+    "paper": "arxiv:2402.02945",
+    "claim": "Example 4.1(i)",
+    "page": 8,
+    "quote": "Consider for illustration of the theorem 4.1, the sample X1, X2, X3, X4, X5 from U(0,1) with n = 4 and n + 1 = 5. Now we know that X_{k:n} ~ Beta(k, n + 1 - k). Now we take l from Gumbel-Hougaard Copula ... as the appropriate stdf for Archimax copula model with 5-monotone Archimedean generator phi(t) = e^{-t^{1/theta}}, theta in [1, infty), where stable tail dependence function (stdf) is l(x) = (x_1^theta + x_2^theta + ... + x_n^theta)^{1/theta} with l(x) = ||x||A(x/||x||). For reverse hazard rate ordering, we calculate t phi'(t)/phi(t) = -(1/theta) t^{1/theta} which is a decreasing function of t >= 0, because for theta in [1, infty), we get d/dt (-(1/theta) t^{1/theta}) = -(1/theta^2) t^{1/theta - 1} <= 0 for all t >= 0. On the other hand F_{X_{5:5}} = x, F_{X_{4:4}} = 4x^3 - 3x^4 and equating both expression of l we have A = n^{1/theta - 1} with n = 4. Plots are shown below which illustrates the theorem 4.1 (i) for theta = 4.",
+    "kind": "example",
+    "model": "order statistic",
+    "family": "U(0,1) margins; Archimax copula with Gumbel-Hougaard stdf l(x) = (sum x_i^theta)^{1/theta} and generator phi(t) = e^{-t^{1/theta}}",
+    "compared": "X_{3:4} vs X_{4:4} vs X_{5:5} in rh order",
+    "hypotheses": [
+     {
+      "text": "theta in [1, infty)",
+      "formal": "theta >= 1",
+      "source": "statement"
+     },
+     {
+      "text": "A = n^{1/theta - 1} with n = 4",
+      "formal": "A = 4^{1/theta - 1}",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "X_{3:4} <=rh X_{4:4} <=rh X_{5:5}, illustrated graphically (Figure 1)"
+    },
+    "quantifiers": "n = 4, n+1 = 5; theta = 4",
+    "numbers": "theta = 4; A = 4^{1/4 - 1} = 4^{-3/4}; t phi'(t)/phi(t) = -(1/theta) t^{1/theta}; F_{X_{4:4}} and F_{X_{3:4}} printed garbled ('F_{X5:5} = x', '4x3x-3x4')",
+    "ambiguity": "Printed cdf expressions are garbled in the text layer ('F_{X5:5} = x' is presumably x^5 and 'F_{X4:4} = 4x3x-3x4' presumably F_{X3:4} = 4x^3 - 3x^4); 'equating both expression of l' for A is nonstandard."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "arxiv:2402.02945",
+    "claim": "Example 4.1(i)",
+    "page": 8,
+    "quote": "Consider for illustration of the theorem 4.1, the sample X1, X2, X3, X4, X5 from U(0,1) with n = 4 and n+1 = 5. Now we know that X_{k:n} ~ Beta(k, n+1-k). Now we take l from Gumbel-Hougaard Copula ... as the appropriate stdf for Archimax copula model with 5-monotone Archimedean generator phi(t) = e^{-t^{1/theta}}, theta in [1, infty), where stable tail dependence function (stdf) is l(x) = (x1^theta + ... + xn^theta)^{1/theta} ... For reverse hazard rate ordering, we calculate t phi'(t)/phi(t) = -(1/theta) t^{1/theta} which is a decreasing function of t >= 0, because for theta in [1,infty), we get d/dt(-(1/theta) t^{1/theta}) = -(1/theta^2) t^{1/theta - 1} <= 0 for all t >= 0. On the other hand F_{X5:5}/F_{X4:4} = x, F_{X4:4}/F_{X3:4} = x^4/(4x^3 - 3x^4) and equating both expression of l we have A = n^{1/theta - 1} with n = 4. Plots are shown below which illustrates the theorem 4.1(i) for theta = 4.",
+    "kind": "example",
+    "model": "order statistic",
+    "family": "U(0,1) sample coupled by Archimax copula with Gumbel-Hougaard stdf and generator phi(t) = e^{-t^{1/theta}}",
+    "compared": "X_{3:4}, X_{4:4}, X_{5:5} rh-ratios and the decreasing generator ratio",
+    "hypotheses": [
+     {
+      "text": "theta in [1, infty)",
+      "formal": "theta >= 1",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "X_{3:4} <=_rh X_{4:4} <=_rh X_{5:5}, verifying Theorem 4.1(i)"
+    },
+    "quantifiers": "n = 4; theta = 4 in the plots; x in [0,1]",
+    "numbers": "n = 4, n+1 = 5, theta = 4; t phi'/phi = -(1/theta) t^{1/theta}; A = n^{1/theta-1} = 4^{-3/4}; F_{X5:5}/F_{X4:4} = x; F_{X4:4}/F_{X3:4} = x^4/(4x^3-3x^4)",
+    "ambiguity": "Printed ratio 'F_{X(4:4)} = 4x3x-3x4' is garbled in the text layer; resolved to F_{X3:4} = 4x^3 - 3x^4 from Beta(3,2) CDF of U(0,1)."
+   }
+  ]
+ },
+ {
+  "claim": "example4.1ii",
+  "a_orders": [
+   "hr"
+  ],
+  "b_orders": [
+   "hr"
+  ],
+  "a_dirs": [
+   "x 3 4 <=hr x 4 4 <=hr x 5 5 illustrated graphically figure 2"
+  ],
+  "b_dirs": [
+   "x 3 4 <= hr x 4 4 <= hr x 5 5 verifying theorem 4.1 ii"
+  ],
+  "a_records": [
+   {
+    "paper": "arxiv:2402.02945",
+    "claim": "Example 4.1(ii)",
+    "page": 9,
+    "quote": "For hazard rate ordering, we calculate t phi'(t)/(1-phi(t)) = - t^{1/theta}/(theta(e^{t^{1/theta}} - 1)) which is an increasing function of t >= 0, because for theta in [1, infty), we get d/dt(- t^{1/theta}/(theta(e^{t^{1/theta}}-1))) = [t^{1/theta - 1} e^{t^{1/theta}} - t^{1/theta} e^{t^{1/theta}} + 1]/(theta^2 (e^{t^{1/theta}}-1)^2) >= 0 for all t >= 0. On the other hand (1-F_{X_{5:5}})/(1-F_{X_{4:4}}) = (1-x^5)/(1-x^4), (1-F_{X_{4:4}})/(1-F_{X_{3:4}}) = (1-x^4)/(1+3x^4-4x^3). Plots are shown below which illustrates the theorem 4.1 (ii) for theta = 8.",
+    "kind": "example",
+    "model": "order statistic",
+    "family": "U(0,1) margins; Archimax copula, Gumbel-Hougaard stdf, generator phi(t) = e^{-t^{1/theta}}",
+    "compared": "X_{3:4} vs X_{4:4} vs X_{5:5} in hr order",
+    "hypotheses": [
+     {
+      "text": "theta in [1, infty)",
+      "formal": "theta >= 1",
+      "source": "statement"
+     },
+     {
+      "text": "A = 4^{1/theta - 1} (from part (i) setting)",
+      "formal": "A = 4^{1/theta - 1}",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "X_{3:4} <=hr X_{4:4} <=hr X_{5:5}, illustrated graphically (Figure 2)"
+    },
+    "quantifiers": "n = 4, n+1 = 5; theta = 8",
+    "numbers": "theta = 8; A = 4^{1/8 - 1}; t phi'/(1-phi) = -t^{1/theta}/(theta(e^{t^{1/theta}}-1)); (1-F_{5:5})/(1-F_{4:4}) = (1-x^5)/(1-x^4); (1-F_{4:4})/(1-F_{3:4}) = (1-x^4)/(1+3x^4-4x^3)",
+    "ambiguity": "Derivative formula partially garbled in text layer; reconstructed from the printed numerator terms."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "arxiv:2402.02945",
+    "claim": "Example 4.1(ii)",
+    "page": 9,
+    "quote": "For hazard rate ordering, we calculate t phi'(t)/(1-phi(t)) = - t^{1/theta}/(theta(e^{t^{1/theta}} - 1)) which is an increasing function of t >= 0, because for theta in [1, infty), we get d/dt(- t^{1/theta}/(theta(e^{t^{1/theta}}-1))) = (t^{1/theta - 1} e^{t^{1/theta}} - e^{t^{1/theta}} + 1)/(theta^2 (e^{t^{1/theta}}-1)^2) >= 0 for all t >= 0. On the other hand (1-F_{X5:5})/(1-F_{X4:4}) = (1-x^5)/(1-x^4), (1-F_{X4:4})/(1-F_{X3:4}) = (1-x^4)/(1+3x^4-4x^3). Plots are shown below which illustrates the theorem 4.1(ii) for theta = 8.",
+    "kind": "example",
+    "model": "order statistic",
+    "family": "U(0,1) sample, Archimax copula, phi(t) = e^{-t^{1/theta}}, Gumbel-Hougaard stdf",
+    "compared": "survival-function ratios of X_{3:4}, X_{4:4}, X_{5:5}",
+    "hypotheses": [
+     {
+      "text": "theta in [1, infty)",
+      "formal": "theta >= 1",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "X_{3:4} <=_hr X_{4:4} <=_hr X_{5:5}, verifying Theorem 4.1(ii)"
+    },
+    "quantifiers": "n = 4; theta = 8 in plots; x in [0,1]",
+    "numbers": "theta = 8; t phi'/(1-phi) = -t^{1/theta}/(theta(e^{t^{1/theta}}-1)); (1-F_{X5:5})/(1-F_{X4:4}) = (1-x^5)/(1-x^4); (1-F_{X4:4})/(1-F_{X3:4}) = (1-x^4)/(1+3x^4-4x^3); A = 4^{1/8-1}",
+    "ambiguity": "Derivative expression transcribed from garbled line breaks; denominator printed as 'theta^2 (e^{t^{1/theta}}-1)^2'."
+   }
+  ]
+ },
+ {
+  "claim": "example4.1iii",
+  "a_orders": [
+   "lr"
+  ],
+  "b_orders": [
+   "lr"
+  ],
+  "a_dirs": [
+   "x 3 4 <=lr x 4 4 <=lr x 5 5 illustrated graphically figure 3"
+  ],
+  "b_dirs": [
+   "x 3 4 <= lr x 4 4 <= lr x 5 5 verifying theorem 4.1 iii"
+  ],
+  "a_records": [
+   {
+    "paper": "arxiv:2402.02945",
+    "claim": "Example 4.1(iii)",
+    "page": 9,
+    "quote": "For likelihood ratio ordering, we calculate t phi''(t)/phi'(t) = (1 - t^{1/theta})/theta - 1, which is a decreasing function of t >= 0, because for theta in [1, infty), we get d/dt((1-t^{1/theta})/theta - 1) = - t^{1/theta - 1}/theta^2 <= 0 for all t >= 0. On the other hand f_{X_{5:5}}/f_{X_{4:4}} = 5x/4, f_{X_{4:4}}/f_{X_{3:4}} = [density ratio garbled]. Plots are shown below which illustrates the theorem 4.1 (iii) for theta = 5.",
+    "kind": "example",
+    "model": "order statistic",
+    "family": "U(0,1) margins; Archimax copula, Gumbel-Hougaard stdf, generator phi(t) = e^{-t^{1/theta}}",
+    "compared": "X_{3:4} vs X_{4:4} vs X_{5:5} in lr order",
+    "hypotheses": [
+     {
+      "text": "theta in [1, infty)",
+      "formal": "theta >= 1",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "X_{3:4} <=lr X_{4:4} <=lr X_{5:5}, illustrated graphically (Figure 3)"
+    },
+    "quantifiers": "n = 4, n+1 = 5; theta = 5",
+    "numbers": "theta = 5; A = 4^{1/5 - 1}; t phi''/phi' = (1-t^{1/theta})/theta - 1; f_{X5:5}/f_{X4:4} = 5x/4 (printed)",
+    "ambiguity": "Printed ratio 'f_{X5:5}/f_{X4:4} = 5x/4' reads as (5/4)x which equals 5x^4/(4x^3) for U(0,1) order statistics \u2014 consistent; the second ratio is partially garbled in the text layer."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "arxiv:2402.02945",
+    "claim": "Example 4.1(iii)",
+    "page": 9,
+    "quote": "For likelihood ratio ordering, we calculate t phi''(t)/phi'(t) = (1-t^{1/theta})/theta - 1, which is a decreasing function of t >= 0, because for theta in [1, infty), we get d/dt((1-t^{1/theta})/theta - 1) = -(1/theta^2) t^{1/theta-1} <= 0 for all t >= 0. On the other hand f_{X5:5}/f_{X4:4} = 5x/4, f_{X4:4}/f_{X3:4} = 4x^3/(3x^2-3x^3)... Plots are shown below which illustrates the theorem 4.1(iii) for theta = 5.",
+    "kind": "example",
+    "model": "order statistic",
+    "family": "U(0,1) sample, Archimax copula, phi(t) = e^{-t^{1/theta}}",
+    "compared": "density ratios of X_{3:4}, X_{4:4}, X_{5:5}",
+    "hypotheses": [
+     {
+      "text": "theta in [1, infty)",
+      "formal": "theta >= 1",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "X_{3:4} <=_lr X_{4:4} <=_lr X_{5:5}, verifying Theorem 4.1(iii)"
+    },
+    "quantifiers": "n = 4; theta = 5 in plots; x in [0,1]",
+    "numbers": "theta = 5; t phi''/phi' = (1-t^{1/theta})/theta - 1; f_{X5:5}/f_{X4:4} = 5x/4; f_{X4:4}/f_{X3:4} printed as '4x^3/(3x^2-3x^3)' (f_{X3:4} = 12x^2(1-x) for Beta(3,2), so ratio = x/(3(1-x)) - denominator in text is garbled)",
+    "ambiguity": "f_{X4:4}/f_{X3:4} ratio printed '4x / 3x2 -3x3' is garbled; exact denominator unclear (should be 12x^2-12x^3, giving ratio x/(3(1-x)))."
+   }
+  ]
+ },
+ {
+  "claim": "example5.1i",
+  "a_orders": [
+   "hr"
+  ],
+  "b_orders": [
+   "hr"
+  ],
+  "a_dirs": [
+   "x 1 5 <=hr x 1 4 <=hr x 2 4 illustrated graphically figure 4"
+  ],
+  "b_dirs": [
+   "x 1 5 <= hr x 1 4 <= hr x 2 4 verifying theorem 5.1 i"
+  ],
+  "a_records": [
+   {
+    "paper": "arxiv:2402.02945",
+    "claim": "Example 5.1(i)",
+    "page": 12,
+    "quote": "To illustrate theorem 5.1, we will consider the random sample same as example 4.1 of section 4, Archimax sevival copula model with generator phi(t) = (1 + t)^{-theta} where theta in [1, infty), stable tail dependent function l defined as l(x) = (x_1^theta + x_2^theta + ... + x_n^theta)^{1/theta}, where l(x) = ||x||A(x/||x||). (i) For hazard rate ordering, we calculate t phi'(t)/phi(t) = theta/(1+t) - theta which is a decreasing function of t >= 0, because for theta in [1, infty), we get d/dt(theta/(1+t) - theta) = -theta/(1+t)^2 <= 0 for all t >= 0. On the other hand (1-F_{X1:4})/(1-F_{X1:5}) = 1/(1-x), (1-F_{X1:4})/(1-F_{X2:4}) = ... and equating both expression of l we have A = n^{1/theta - 1} with n = 4. Plots are shown below which illustrates the theorem 5.1 (i) for theta = 4.",
+    "kind": "example",
+    "model": "order statistic",
+    "family": "U(0,1) margins (same sample as Example 4.1); Archimax survival copula with generator phi(t) = (1+t)^{-theta}, Gumbel-Hougaard stdf l(x) = (sum x_i^theta)^{1/theta}",
+    "compared": "X_{1:5} vs X_{1:4} vs X_{2:4} in hr order",
+    "hypotheses": [
+     {
+      "text": "theta in [1, infty)",
+      "formal": "theta >= 1",
+      "source": "statement"
+     },
+     {
+      "text": "A = n^{1/theta - 1} with n = 4",
+      "formal": "A = 4^{1/theta - 1}",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "X_{1:5} <=hr X_{1:4} <=hr X_{2:4}, illustrated graphically (Figure 4)"
+    },
+    "quantifiers": "n = 4, n+1 = 5; theta = 4",
+    "numbers": "theta = 4; A = 4^{1/4 - 1}; t phi'/phi = theta/(1+t) - theta; printed survival ratios partially garbled ('1/(1-x)' for (1-F_{1:4})/(1-F_{1:5}) presumably (1-x)^4/(1-x)^5)",
+    "ambiguity": "Survival-function ratios garbled in the text layer; one printed numerator reads '1+8x^3 -3x^4 -6x^2 /(x-1)^4' for (1-F_{X2:4})/(1-F_{X1:4})."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "arxiv:2402.02945",
+    "claim": "Example 5.1(i)",
+    "page": 12,
+    "quote": "To illustrate theorem 5.1, we will consider the random sample same as example 4.1 of section 4, Archimax sevival copula model with generator phi(t) = (1+t)^{-theta} where theta in [1, infty), stable tail dependent function l defined as l(x) = (x1^theta + ... + xn^theta)^{1/theta}... (i) For hazard rate ordering, we calculate t phi'(t)/phi(t) = theta/(1+t) - theta which is a decreasing function of t >= 0, because for theta in [1, infty), we get d/dt(theta/(1+t) - theta) = -theta/(1+t)^2 <= 0 for all t >= 0. On the other hand (1-F_{X1:4})/(1-F_{X1:5}) = 1/(1-x), (1-F_{X2:4})/(1-F_{X1:4}) = (1+8x^3-3x^4-6x^2)/(x-1)^4 and equating both expression of l we have A = n^{1/theta - 1} with n = 4. Plots are shown below which illustrates the theorem 5.1(i) for theta = 4.",
+    "kind": "example",
+    "model": "series system",
+    "family": "U(0,1) sample (same as Example 4.1), Archimax survival copula with generator phi(t) = (1+t)^{-theta}",
+    "compared": "survival ratios of X_{1:5}, X_{1:4}, X_{2:4}",
+    "hypotheses": [
+     {
+      "text": "theta in [1, infty)",
+      "formal": "theta >= 1",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "X_{1:5} <=_hr X_{1:4} <=_hr X_{2:4}, verifying Theorem 5.1(i)"
+    },
+    "quantifiers": "n = 4; theta = 4 in plots; x in [0,1]",
+    "numbers": "n = 4; theta = 4; t phi'/phi = theta/(1+t) - theta; (1-F_{X1:4})/(1-F_{X1:5}) = 1/(1-x); (1-F_{X2:4})/(1-F_{X1:4}) = (1+8x^3-3x^4-6x^2)/(x-1)^4; A = 4^{1/4-1}",
+    "ambiguity": ""
+   }
+  ]
+ },
+ {
+  "claim": "example5.1ii",
+  "a_orders": [
+   "rh"
+  ],
+  "b_orders": [
+   "rh"
+  ],
+  "a_dirs": [
+   "x 1 5 <=rh x 1 4 <=rh x 2 4 illustrated graphically figure 5"
+  ],
+  "b_dirs": [
+   "x 1 5 <= rh x 1 4 <= rh x 2 4 verifying theorem 5.1 ii"
+  ],
+  "a_records": [
+   {
+    "paper": "arxiv:2402.02945",
+    "claim": "Example 5.1(ii)",
+    "page": 13,
+    "quote": "For reverse hazard rate ordering, we calculate t phi'(t)/(1 - phi(t)) = t theta/(1 + t - (1+t)^{theta+1}) which is an increasing function of t >= 0, because for theta in [1, infty), we have d/dt( t theta/(1+t-(1+t)^{theta+1}) ) >= 0 for all t >= 0. On the other hand F_{X1:5}/F_{X1:4} = [1-(x-1)^5]/[1-(x-1)^4] (signs garbled) and F_{X1:4}/F_{X2:4} = (3x^3 -8x^2 +6x)/(1-(x-1)^4) [partially garbled]. Plots are shown below which illustrates the theorem 5.1 (ii) for theta = 8.",
+    "kind": "example",
+    "model": "order statistic",
+    "family": "U(0,1) margins; Archimax survival copula, generator phi(t) = (1+t)^{-theta}, Gumbel-Hougaard stdf",
+    "compared": "X_{1:5} vs X_{1:4} vs X_{2:4} in rh order",
+    "hypotheses": [
+     {
+      "text": "theta in [1, infty)",
+      "formal": "theta >= 1",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "X_{1:5} <=rh X_{1:4} <=rh X_{2:4}, illustrated graphically (Figure 5)"
+    },
+    "quantifiers": "n = 4, n+1 = 5; theta = 8",
+    "numbers": "theta = 8; A = 4^{1/8 - 1}; t phi'/(1-phi) = t theta/(1+t-(1+t)^{theta+1}); printed cdf ratios garbled",
+    "ambiguity": "Printed cdf-ratio expressions contain likely sign/typo artifacts ('1-(x-1)^5', '1+(x-1)^5'); reconstructed only partially."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "arxiv:2402.02945",
+    "claim": "Example 5.1(ii)",
+    "page": 12,
+    "quote": "For reverse hazard rate ordering, we calculate t phi'(t)/(1-phi(t)) = t theta/(1+t-(1+t)^{theta+1}) which is an increasing function of t >= 0, because for theta in [1, infty), we have d/dt(t theta/(1+t-(1+t)^{theta+1})) = t theta(1-(theta+1)(t+1)^theta)/(1+t-(1+t)^{theta+1})^2 - ... >= 0 for all t >= 0. On the other hand F_{X1:5}/F_{X1:4} = (1-(x-1)^5... and F_{X2:4}/F_{X1:4} = (3x^4-8x^3+6x^2)/(1-(x-1)^4). Plots are shown below which illustrates the theorem 5.1(ii) for theta = 8.",
+    "kind": "example",
+    "model": "series system",
+    "family": "U(0,1) sample, Archimax survival copula, phi(t) = (1+t)^{-theta}",
+    "compared": "CDF ratios of X_{1:5}, X_{1:4}, X_{2:4}",
+    "hypotheses": [
+     {
+      "text": "theta in [1, infty)",
+      "formal": "theta >= 1",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "X_{1:5} <=_rh X_{1:4} <=_rh X_{2:4}, verifying Theorem 5.1(ii)"
+    },
+    "quantifiers": "n = 4; theta = 8 in plots; x in [0,1]",
+    "numbers": "theta = 8; t phi'/(1-phi) = t theta/(1+t-(1+t)^{theta+1}) (printed '1+t-(1+t) t theta theta+1', garbled); F_{X2:4}/F_{X1:4} = (3x^4-8x^3+6x^2)/(1-(x-1)^4); A = 4^{1/8-1}",
+    "ambiguity": "The closed-form expressions for t phi'/(1-phi) and F_{X1:5}/F_{X1:4} are garbled in the text layer (line 922-936); reconstructed partially from context."
+   }
+  ]
+ },
+ {
+  "claim": "example5.1iii",
+  "a_orders": [
+   "lr"
+  ],
+  "b_orders": [
+   "lr"
+  ],
+  "a_dirs": [
+   "x 1 5 <=lr x 1 4 <=lr x 2 4 illustrated graphically figure 6"
+  ],
+  "b_dirs": [
+   "x 1 5 <= lr x 1 4 <= lr x 2 4 verifying theorem 5.1 iii"
+  ],
+  "a_records": [
+   {
+    "paper": "arxiv:2402.02945",
+    "claim": "Example 5.1(iii)",
+    "page": 13,
+    "quote": "For likelihood ratio ordering, we calculate t phi''(t)/phi'(t) = (1+theta)/(1+t) - theta - 1 which is a decreasing function of t >= 0, because for theta in [1, infty), we have d/dt((1+theta)/(1+t) - theta - 1) = -(1+theta)/(1+t)^2 <= 0 for all t >= 0. On the other hand f_{X1:4}/f_{X1:5} = 5(1-x)^4, f_{X2:4}/f_{X1:4} = 3x/(1-x). Plots are shown below which illustrates the theorem 5.1 (iii) for theta = 5.",
+    "kind": "example",
+    "model": "order statistic",
+    "family": "U(0,1) margins; Archimax survival copula, generator phi(t) = (1+t)^{-theta}, Gumbel-Hougaard stdf",
+    "compared": "X_{1:5} vs X_{1:4} vs X_{2:4} in lr order",
+    "hypotheses": [
+     {
+      "text": "theta in [1, infty)",
+      "formal": "theta >= 1",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "X_{1:5} <=lr X_{1:4} <=lr X_{2:4}, illustrated graphically (Figure 6)"
+    },
+    "quantifiers": "n = 4, n+1 = 5; theta = 5",
+    "numbers": "theta = 5; A = 4^{1/5 - 1}; t phi''/phi' = (1+theta)/(1+t) - theta - 1; f_{X1:4}/f_{X1:5} = 5(1-x)^4 [printed '5(1-x)' with exponent garbled]; f_{X2:4}/f_{X1:4} = 3x/(1-x)",
+    "ambiguity": "Density-ratio exponents partially garbled in the text layer; f_{X1:4}/f_{X1:5} printed as '5(1-x)^4' likely equals (4(1-x)^3)/(5(1-x)^4)-type ratio rearranged."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "arxiv:2402.02945",
+    "claim": "Example 5.1(iii)",
+    "page": 13,
+    "quote": "For likelihood ratio ordering, we calculate t phi''(t)/phi'(t) = (1+theta)/(1+t) - theta - 1 which is a decreasing function of t >= 0, because for theta in [1, infty), we have d/dt((1+theta)/(1+t) - theta - 1) = -(1+theta)/(1+t)^2 <= 0 for all t >= 0. On the other hand f_{X1:4}/f_{X1:5} = 4/(5(1-x)), f_{X2:4}/f_{X1:4} = 3x/(1-x). Plots are shown below which illustrates the theorem 5.1(iii) for theta = 5.",
+    "kind": "example",
+    "model": "series system",
+    "family": "U(0,1) sample, Archimax survival copula, phi(t) = (1+t)^{-theta}",
+    "compared": "density ratios of X_{1:5}, X_{1:4}, X_{2:4}",
+    "hypotheses": [
+     {
+      "text": "theta in [1, infty)",
+      "formal": "theta >= 1",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "X_{1:5} <=_lr X_{1:4} <=_lr X_{2:4}, verifying Theorem 5.1(iii)"
+    },
+    "quantifiers": "n = 4; theta = 5 in plots; x in [0,1]",
+    "numbers": "theta = 5; t phi''/phi' = (1+theta)/(1+t) - theta - 1; f_{X1:4}/f_{X1:5} = 4/(5(1-x)) (printed '5(1-x) 4', garbled); f_{X2:4}/f_{X1:4} = 3x/(1-x)",
+    "ambiguity": "f_{X1:4}/f_{X1:5} printed '5(1\u2212x) 4' is garbled; resolved to 4/(5(1-x)) from U(0,1) minimum densities."
+   }
+  ]
+ },
+ {
+  "claim": "theorem3.1",
+  "a_orders": [
+   "st"
+  ],
+  "b_orders": [
+   "st"
+  ],
+  "a_dirs": [
+   "x n n alpha phi 1 a >=st y n n beta phi 2 a"
+  ],
+  "b_dirs": [
+   "x n n alpha phi 1 a >= st y n n beta phi 2 a"
+  ],
+  "a_records": [
+   {
+    "paper": "arxiv:2402.02945",
+    "claim": "Theorem 3.1",
+    "page": 7,
+    "quote": "Suppose (X1, . . . , Xn) following PHR (B-bar, alpha; phi_1, A) and (Y1, . . . , Yn) following PHR (B-bar, beta; phi_2, A) where phi_1 and phi_2 are Archimedean n-monotone generators for Archimax copula C_{phi_1,A} and C_{phi_2,A} respectively and B-bar the baseline servival function of the model. Then X_{n:n}(alpha; phi_1, A) >=st Y_{n:n}(beta; phi_2, A) if (i) beta <=w alpha, psi_2 o phi_1 is super additive and (ii) psi_2 o phi_1 (t . A) >= A . psi_2 o phi_1 (t).",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "PHR(B-bar, alpha): components with survival function F-bar_{X_i}(x) = B-bar(x)^{alpha_i}, alpha_i > 0, coupled by Archimax copula C_{phi,A}; X_{n:n}(alpha; phi, A) = sample maximum",
+    "compared": "PHR exponent vectors alpha vs beta (beta weakly sub-majorized by alpha) and Archimax generators phi_1 vs phi_2 linked by super-additivity and condition (ii)",
+    "hypotheses": [
+     {
+      "text": "(X1, . . . , Xn) following PHR (B-bar, alpha; phi_1, A) and (Y1, . . . , Yn) following PHR (B-bar, beta; phi_2, A)",
+      "formal": "X vector PHR with exponents alpha under copula C_{phi_1,A}; Y vector PHR with exponents beta under copula C_{phi_2,A}; same baseline B-bar and same Pickands A",
+      "source": "statement"
+     },
+     {
+      "text": "where phi_1 and phi_2 are Archimedean n-monotone generators",
+      "formal": "phi_1, phi_2 n-monotone Archimedean generators",
+      "source": "statement"
+     },
+     {
+      "text": "beta <=w alpha",
+      "formal": "beta weakly sub-majorized by alpha: sums of smallest k components of beta <= those of alpha (Definition 2.1)",
+      "source": "statement"
+     },
+     {
+      "text": "psi_2 o phi_1 is super additive",
+      "formal": "psi_2(phi_1(s+t)) <= psi_2(phi_1(s)) + psi_2(phi_1(t))",
+      "source": "statement"
+     },
+     {
+      "text": "psi_2 o phi_1 (t . A) >= A . psi_2 o phi_1 (t)",
+      "formal": "condition (10) of Lemma A.1 for A in [1/n, 1]",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X_{n:n}(alpha; phi_1, A) >=st Y_{n:n}(beta; phi_2, A)"
+    },
+    "quantifiers": "n >= 1; all x; alpha_i, beta_i > 0",
+    "numbers": "",
+    "ambiguity": "beta \u2aaf^w alpha is 'weakly sub-majorized' per Definition 2.1 (partial sums of largest components); symbol in the PDF is the sub-majorization glyph."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "arxiv:2402.02945",
+    "claim": "Theorem 3.1",
+    "page": 7,
+    "quote": "Suppose (X1, ..., Xn) following PHR(B_bar, alpha; phi_1, A) and (Y1, ..., Yn) following PHR(B_bar, beta; phi_2, A) where phi_1 and phi_2 are Archimedean n-monotone generators for Archimax copula C_{phi_1,A} and C_{phi_2,A} respectively and B_bar the baseline servival function of the model. Then X_{n:n}(alpha; phi_1, A) >=st Y_{n:n}(beta; phi_2, A) if (i) beta <=w alpha, psi_2 o phi_1 is super additive and (ii) psi_2 o phi_1 (t . A) >= A . psi_2 o phi_1 (t).",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "PHR(B_bar, alpha; phi, A): proportional hazards F_bar_{X_i}(x) = B_bar(x)^{alpha_i}, alpha_i > 0, with Archimax copula C_{phi,A}",
+    "compared": "two PHR samples differing in power vector (alpha vs beta) and generator (phi_1 vs phi_2), same baseline B_bar and same Pickands A",
+    "hypotheses": [
+     {
+      "text": "(i) beta <=w alpha",
+      "formal": "beta weakly (super/sub-)majorized by alpha",
+      "source": "statement"
+     },
+     {
+      "text": "psi_2 o phi_1 is super additive",
+      "formal": "psi_2(phi_1(s+t)) >= psi_2(phi_1(s)) + psi_2(phi_1(t))",
+      "source": "statement"
+     },
+     {
+      "text": "(ii) psi_2 o phi_1 (t . A) >= A . psi_2 o phi_1 (t)",
+      "formal": "psi_2(phi_1(A t)) >= A psi_2(phi_1(t)), A in [1/n,1]",
+      "source": "statement"
+     },
+     {
+      "text": "Random vector (X1,...,Xn) is said to follow proportional hazards model (PHR(B_bar, alpha)) if Xi have survival function F_bar_{X_i}(x) = (B_bar(x))^{alpha_i}",
+      "formal": "PHR structure of marginals",
+      "source": "section preamble"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X_{n:n}(alpha; phi_1, A) >=_st Y_{n:n}(beta; phi_2, A)"
+    },
+    "quantifiers": "n >= 2, all x; alpha_i, beta_i > 0",
+    "ambiguity": "Definition 2.1 prints the same symbol '\u2aafw' for both weak super-majorization and weak sub-majorization, so which weak majorization 'beta <=w alpha' denotes is typographically ambiguous (proof suggests weak supermajorization). Same Pickands function A assumed for both copulas despite different generators."
+   }
+  ]
+ },
+ {
+  "claim": "unn3.1:lemma a 1 section 3.1",
+  "side": "A",
+  "records": [
+   {
+    "paper": "arxiv:2402.02945",
+    "claim": "Lemma A.1 (Section 3.1)",
+    "page": 6,
+    "quote": "Let X1, X2, ...., Xn be random variables, phi_1 and phi_2 are generators of n-dimentional Archimax copulas C1 and C2 respectively with inverse of phi_2 is psi_2. If psi_2 o phi_1 satisfies the following, (1) Super-additive. (2) For A such that, 1/n <= A <= 1, psi_2 o phi_1 (t . A) >= A psi_2 o phi_1 (t), where A : [0,1]^n -> [1/n, 1] is pickands dependence function as in equation (7). then C1 (x) <= C2 (x) for all x in [0,1]^n.",
+    "kind": "lemma",
+    "model": "other: Archimax copulas C1 = C_{phi_1,A}, C2 = C_{phi_2,A} of random vectors",
+    "family": "Archimax copula C_{phi,A}(x) = phi( ||psi(x)|| A(psi(x)/||psi(x)||) ), phi an n-monotone Archimedean generator, A Pickands dependence function in [1/n, 1]",
+    "compared": "two Archimax copulas sharing the same Pickands dependence function A but different generators phi_1 vs phi_2",
+    "hypotheses": [
+     {
+      "text": "phi_1 and phi_2 are generators of n-dimentional Archimax copulas C1 and C2 respectively with inverse of phi_2 is psi_2",
+      "formal": "C_i = C_{phi_i,A}; psi_2 = phi_2^{-1} (pseudo-inverse)",
+      "source": "statement"
+     },
+     {
+      "text": "If psi_2 o phi_1 satisfies the following, (1) Super-additive.",
+      "formal": "psi_2(phi_1(s+t)) <= psi_2(phi_1(s)) + psi_2(phi_1(t)) (super-additivity as used in proof)",
+      "source": "statement"
+     },
+     {
+      "text": "(2) For A such that, 1/n <= A <= 1, psi_2 o phi_1 (t . A) >= A psi_2 o phi_1 (t)",
+      "formal": "psi_2(phi_1(A t)) >= A psi_2(phi_1(t)) for A in [1/n, 1]",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "other: pointwise/concordance ordering of copulas",
+     "direction": "C1(x) <= C2(x) for all x in [0,1]^n"
+    },
+    "quantifiers": "all x in [0,1]^n; A in [1/n,1]",
+    "numbers": "",
+    "ambiguity": "The claimed role of X1,...,Xn in the statement is unused beyond the copula; the conclusion orders copulas, not random variables under a classical stochastic order."
+   }
+  ]
+ },
+ {
+  "claim": "unn3.2:example in section 3.2 joe/gumbel generators",
+  "side": "A",
+  "records": [
+   {
+    "paper": "arxiv:2402.02945",
+    "claim": "Example in Section 3.2 (Joe/Gumbel generators)",
+    "page": 7,
+    "quote": "Consider two extreme value copulas Joe copula and Gumbell copula with generators respectively, phi_1(t) = 1 - (1 - e^{-t})^{1/theta_1} and phi_2(t) = e^{-t^{1/theta_2}} for theta_1, theta_2 in [1, infty]. Therefore psi_2(t) = (- log t)^{theta_2} and psi_2 o phi_1(t) = (- log(1 - (1 - e^{-t})^{1/theta_1}))^{theta_2}. Then from graphic software it can be shown that psi_2 o phi_1(t) satisfies the below property (2) namely, for A with, 1/n <= A <= 1, psi_2 o phi_1(tA) >= A psi_2 o phi_1(t) if theta_2 = 1 and theta_1 > theta_2.",
+    "kind": "example",
+    "model": "other: Archimax copula generators",
+    "family": "Joe generator phi_1(t) = 1-(1-e^{-t})^{1/theta_1}; Gumbel generator phi_2(t) = e^{-t^{1/theta_2}}",
+    "compared": "Joe vs Gumbel generators with theta_1 > theta_2 = 1",
+    "hypotheses": [
+     {
+      "text": "if theta_2 = 1 and theta_1 > theta_2",
+      "formal": "theta_2 = 1, theta_1 > 1",
+      "source": "statement"
+     },
+     {
+      "text": "for A with, 1/n <= A <= 1",
+      "formal": "A in [1/n, 1]",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "other: supports the condition (2) of Lemma A.1",
+     "direction": "psi_2 o phi_1(tA) >= A psi_2 o phi_1(t) claimed 'from graphic software'"
+    },
+    "quantifiers": "theta_1, theta_2 in [1, infty), theta_2 = 1 < theta_1; A in [1/n,1]",
+    "numbers": "theta_2 = 1, theta_1 > theta_2 (no numeric value of theta_1 printed); verification is graphical only",
+    "ambiguity": "Claim is justified only by 'graphic software', not proved; phi_1 is the Joe-copula generator family as printed."
+   }
+  ]
+ },
+ {
+  "claim": "unn:lemma a 1",
+  "side": "B",
+  "records": [
+   {
+    "paper": "arxiv:2402.02945",
+    "claim": "Lemma A.1",
+    "page": 6,
+    "quote": "Let X1, X2, ...., Xn be random variables, phi_1 and phi_2 are generators of n-dimentional Archimax copulas C1 and C2 respectively with inverse of phi_2 is psi_2. If psi_2 o phi_1 satisfies the following, (1) Super-additive. (2) For A such that, 1/n <= A <= 1, psi_2 o phi_1 (t . A) >= A psi_2 o phi_1 (t), where A : [0,1]^n -> [1/n, 1] is pickands dependence function as in equation (7). then C1(x) <= C2(x) for all x in [0,1]^n.",
+    "kind": "lemma",
+    "model": "other: n-dimensional Archimax copulas",
+    "family": "Archimax copula C_{phi,A}(x) = phi(||psi(x)|| A(psi(x)/||psi(x)||)); phi n-monotone Archimedean generator, A Pickands dependence function",
+    "compared": "two Archimax copulas C1 (generator phi_1) and C2 (generator phi_2) sharing the same Pickands function A",
+    "hypotheses": [
+     {
+      "text": "psi_2 o phi_1 satisfies the following, (1) Super-additive.",
+      "formal": "psi_2(phi_1(s+t)) >= psi_2(phi_1(s)) + psi_2(phi_1(t))",
+      "source": "statement"
+     },
+     {
+      "text": "For A such that, 1/n <= A <= 1, psi_2 o phi_1 (t . A) >= A psi_2 o phi_1 (t)",
+      "formal": "psi_2(phi_1(A t)) >= A psi_2(phi_1(t)) for A in [1/n,1]",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "other: pointwise copula order",
+     "direction": "C1(x) <= C2(x) for all x in [0,1]^n"
+    },
+    "quantifiers": "n >= 2, all x in [0,1]^n",
+    "ambiguity": "Conclusion is a pointwise ordering of copula CDFs (lower-orthant/concordance type), not one of the named univariate stochastic orders; recorded as it orders two distributions."
+   }
+  ]
+ }
+]

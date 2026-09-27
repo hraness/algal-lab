@@ -1,0 +1,999 @@
+[
+ {
+  "claim": "example1",
+  "a_orders": [
+   "rh"
+  ],
+  "b_orders": [
+   "rh"
+  ],
+  "a_dirs": [
+   "not stated in the text 'x 3 3 and x* 3 3 are ordered in the "
+  ],
+  "b_dirs": [
+   "not stated explicitly 'x 3 3 and x 3 3 ^* are ordered in the"
+  ],
+  "a_records": [
+   {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Example 1",
+    "page": 106,
+    "quote": "Example 1. Let (X_1, X_2, X_3) ((X*_1, X*_2, X*_3)) be a vector of independent heterogeneous GMW random variables. Set \u03b3 = 2, \u03bb = 1.2, \u03b2 = 0.5, (\u03b1_1, \u03b1_2, \u03b1_3) = (0.1, 4, 6) and (\u03b1*_1, \u03b1*_2, \u03b1*_3) = (0.1, 1, 8). Obviously (\u03b1_1, \u03b1_2, \u03b1_3) \u2aaf^w (\u03b1*_1, \u03b1*_2, \u03b1*_3), and X_{3:3} and X*_{3:3} are ordered in the reversed hazard rate order, as can be seen in Fig. 1. [Caption, p. 107:] Figure 1. Plot of the reversed hazard rate functions of X_{3:3} (black line) and X*_{3:3} (red line)",
+    "kind": "example",
+    "model": "parallel system",
+    "family": "GMW(\u03b1_i, \u03b3, \u03bb, \u03b2) independent components with \u03b3 = 2, \u03bb = 1.2, \u03b2 = 0.5",
+    "compared": "\u03b1 = (0.1, 4, 6) vs \u03b1* = (0.1, 1, 8)",
+    "hypotheses": [
+     {
+      "text": "Let (X_1, X_2, X_3) ((X*_1, X*_2, X*_3)) be a vector of independent heterogeneous GMW random variables.",
+      "formal": "X_i \u223c GMW(\u03b1_i, 2, 1.2, 0.5), X*_i \u223c GMW(\u03b1*_i, 2, 1.2, 0.5), independent within each vector",
+      "source": "statement"
+     },
+     {
+      "text": "Obviously (\u03b1_1, \u03b1_2, \u03b1_3) \u2aaf^w (\u03b1*_1, \u03b1*_2, \u03b1*_3)",
+      "formal": "weak supermajorization per Definition 2(ii)",
+      "source": "statement; definition 2(ii)"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "not stated in the text ('X_{3:3} and X*_{3:3} are ordered in the reversed hazard rate order'); presented as an illustration of Theorem 1, whose conclusion would be X_{3:3} \u2264_rh X*_{3:3}"
+    },
+    "quantifiers": "n = 3; plotting range of x not stated in the text",
+    "numbers": "\u03b3 = 2, \u03bb = 1.2, \u03b2 = 0.5; (\u03b1_1, \u03b1_2, \u03b1_3) = (0.1, 4, 6); (\u03b1*_1, \u03b1*_2, \u03b1*_3) = (0.1, 1, 8). Printed result: \u03b1 \u2aaf^w \u03b1* and X_{3:3}, X*_{3:3} ordered in rh order, shown graphically in Fig. 1 (black line X_{3:3}, red line X*_{3:3}); no numerical rh values printed.",
+    "ambiguity": "The direction of the rh ordering is not stated in the text; it is only shown graphically in Fig. 1, which is not readable from the text rendering. Plot range of x not given."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Example 1",
+    "page": 6,
+    "quote": "Let (X_1, X_2, X_3) ((X_1^*, X_2^*, X_3^*)) be a vector of independent heterogeneous GMW random variables. Set \u03b3 = 2, \u03bb = 1.2, \u03b2 = 0.5, (\u03b1_1, \u03b1_2, \u03b1_3) = (0.1, 4, 6) and (\u03b1_1^*, \u03b1_2^*, \u03b1_3^*) = (0.1, 1, 8). Obviously (\u03b1_1, \u03b1_2, \u03b1_3) \u2aaf^w (\u03b1_1^*, \u03b1_2^*, \u03b1_3^*), and X_{3:3} and X_{3:3}^* are ordered in the reversed hazard rate order, as can be seen in Fig. 1.",
+    "kind": "example",
+    "model": "parallel system",
+    "family": "GMW(\u03b1_i, \u03b3, \u03bb, \u03b2) with \u03b3 = 2, \u03bb = 1.2, \u03b2 = 0.5 common, independent components",
+    "compared": "\u03b1 = (0.1, 4, 6) vs \u03b1^* = (0.1, 1, 8) (illustrates Theorem 1)",
+    "hypotheses": [
+     {
+      "text": "vector of independent heterogeneous GMW random variables",
+      "formal": "X_i independent GMW(\u03b1_i, 2, 1.2, 0.5), X_i^* independent GMW(\u03b1_i^*, 2, 1.2, 0.5), i = 1, 2, 3",
+      "source": "statement"
+     },
+     {
+      "text": "Obviously (\u03b1_1, \u03b1_2, \u03b1_3) \u2aaf^w (\u03b1_1^*, \u03b1_2^*, \u03b1_3^*)",
+      "formal": "\u03a3_{i=1}^{j} \u03b1_(i) \u2265 \u03a3_{i=1}^{j} \u03b1^*_(i), j = 1, 2, 3",
+      "source": "statement; definition 2(ii)"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "not stated explicitly ('X_{3:3} and X_{3:3}^* are ordered in the reversed hazard rate order'); Theorem 1, which the example illustrates, gives X_{3:3} \u2264_rh X_{3:3}^*"
+    },
+    "quantifiers": "n = 3; x over the plotted range of Fig. 1",
+    "numbers": "n = 3; \u03b3 = 2; \u03bb = 1.2; \u03b2 = 0.5; (\u03b1_1, \u03b1_2, \u03b1_3) = (0.1, 4, 6); (\u03b1_1^*, \u03b1_2^*, \u03b1_3^*) = (0.1, 1, 8). Printed results: (\u03b1_1, \u03b1_2, \u03b1_3) \u2aaf^w (\u03b1_1^*, \u03b1_2^*, \u03b1_3^*); X_{3:3} and X_{3:3}^* ordered in rh order, shown only graphically in Fig. 1 ('Plot of the reversed hazard rate functions of X_{3:3} (black line) and X_{3:3}^* (red line)'). No function values or plotted x-range printed.",
+    "ambiguity": "The direction of the rh order is not stated in the text; evidence is graphical only. The plotted x-range is not given."
+   }
+  ]
+ },
+ {
+  "claim": "example2i",
+  "a_orders": [
+   "st"
+  ],
+  "b_orders": [
+   "st"
+  ],
+  "a_dirs": [
+   "x* 1 3 \u2264 st x 1 3"
+  ],
+  "b_dirs": [
+   "x 1 3 ^* \u2264 st x 1 3 printed as x 1 3 \u2265 st x 1 3 ^*"
+  ],
+  "a_records": [
+   {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Example 2(i)",
+    "page": 109,
+    "quote": "Example 2. (i) Let (X_1, X_2, X_3) ((X*_1, X*_2, X*_3)) be a vector of independent heterogeneous GMW random variables. Set \u03b3 = 1.3, \u03bb = 1.6, \u03b2 = 1.3, (\u03b1_1, \u03b1_2, \u03b1_3) = (5, 2, 0.2) and (\u03b1*_1, \u03b1*_2, \u03b1*_3) = (8, 3, 0.3). Obviously (\u03b1_1, \u03b1_2, \u03b1_3) \u2aaf_w (\u03b1*_1, \u03b1*_2, \u03b1*_3), and X_{1:3} \u2265_st X*_{1:3}, as can be seen in Fig. 2 (A). [Caption, p. 110:] Figure 2. Plot of the survival functions of X_{1:3} (black line) and X*_{1:3} (blue line)",
+    "kind": "example",
+    "model": "series system",
+    "family": "GMW(\u03b1_i, \u03b3, \u03bb, \u03b2) independent components with \u03b3 = 1.3, \u03bb = 1.6, \u03b2 = 1.3",
+    "compared": "\u03b1 = (5, 2, 0.2) vs \u03b1* = (8, 3, 0.3)",
+    "hypotheses": [
+     {
+      "text": "Let (X_1, X_2, X_3) ((X*_1, X*_2, X*_3)) be a vector of independent heterogeneous GMW random variables.",
+      "formal": "X_i \u223c GMW(\u03b1_i, 1.3, 1.6, 1.3), X*_i \u223c GMW(\u03b1*_i, 1.3, 1.6, 1.3), independent",
+      "source": "statement"
+     },
+     {
+      "text": "Obviously (\u03b1_1, \u03b1_2, \u03b1_3) \u2aaf_w (\u03b1*_1, \u03b1*_2, \u03b1*_3)",
+      "formal": "weak submajorization per Definition 2(i)",
+      "source": "statement; definition 2(i)"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X*_{1:3} \u2264_st X_{1:3}"
+    },
+    "quantifiers": "n = 3; plotting range of x not stated",
+    "numbers": "\u03b3 = 1.3, \u03bb = 1.6, \u03b2 = 1.3; (\u03b1_1, \u03b1_2, \u03b1_3) = (5, 2, 0.2); (\u03b1*_1, \u03b1*_2, \u03b1*_3) = (8, 3, 0.3). Printed result: \u03b1 \u2aaf_w \u03b1* and X_{1:3} \u2265_st X*_{1:3}, shown graphically in Fig. 2(A) (black line X_{1:3}, blue line X*_{1:3}); no numerical survival values printed.",
+    "ambiguity": "Result is graphical only; plot range not given."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Example 2(i)",
+    "page": 9,
+    "quote": "(i) Let (X_1, X_2, X_3) ((X_1^*, X_2^*, X_3^*)) be a vector of independent heterogeneous GMW random variables. Set \u03b3 = 1.3, \u03bb = 1.6, \u03b2 = 1.3, (\u03b1_1, \u03b1_2, \u03b1_3) = (5, 2, 0.2) and (\u03b1_1^*, \u03b1_2^*, \u03b1_3^*) = (8, 3, 0.3). Obviously (\u03b1_1, \u03b1_2, \u03b1_3) \u2aaf_w (\u03b1_1^*, \u03b1_2^*, \u03b1_3^*), and X_{1:3} \u2265_st X_{1:3}^*, as can be seen in Fig. 2 (A).",
+    "kind": "example",
+    "model": "series system",
+    "family": "GMW(\u03b1_i, \u03b3, \u03bb, \u03b2) with \u03b3 = 1.3, \u03bb = 1.6, \u03b2 = 1.3 common, independent components",
+    "compared": "\u03b1 = (5, 2, 0.2) vs \u03b1^* = (8, 3, 0.3) (illustrates Theorem 7(i))",
+    "hypotheses": [
+     {
+      "text": "vector of independent heterogeneous GMW random variables",
+      "formal": "X_i independent GMW(\u03b1_i, 1.3, 1.6, 1.3), X_i^* independent GMW(\u03b1_i^*, 1.3, 1.6, 1.3)",
+      "source": "statement"
+     },
+     {
+      "text": "Obviously (\u03b1_1, \u03b1_2, \u03b1_3) \u2aaf_w (\u03b1_1^*, \u03b1_2^*, \u03b1_3^*)",
+      "formal": "\u03a3_{i=j}^{3} \u03b1_(i) \u2264 \u03a3_{i=j}^{3} \u03b1^*_(i), j = 1, 2, 3",
+      "source": "statement; definition 2(i)"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X_{1:3}^* \u2264_st X_{1:3} (printed as X_{1:3} \u2265_st X_{1:3}^*)"
+    },
+    "quantifiers": "n = 3; x over the plotted range of Fig. 2(A)",
+    "numbers": "n = 3; \u03b3 = 1.3; \u03bb = 1.6; \u03b2 = 1.3; (\u03b1_1, \u03b1_2, \u03b1_3) = (5, 2, 0.2); (\u03b1_1^*, \u03b1_2^*, \u03b1_3^*) = (8, 3, 0.3). Printed results: (\u03b1) \u2aaf_w (\u03b1^*); X_{1:3} \u2265_st X_{1:3}^*, shown graphically in Fig. 2(A) ('Plot of the survival functions of X_{1:3} (black line) and X_{1:3}^* (blue line)'). No function values or x-range printed.",
+    "ambiguity": "Evidence is graphical only; plotted x-range not given."
+   }
+  ]
+ },
+ {
+  "claim": "example2ii",
+  "a_orders": [
+   "st"
+  ],
+  "b_orders": [
+   "st"
+  ],
+  "a_dirs": [
+   "x 1 3 \u2264 st x* 1 3"
+  ],
+  "b_dirs": [
+   "x 1 3 \u2264 st x 1 3 ^*"
+  ],
+  "a_records": [
+   {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Example 2(ii)",
+    "page": 109,
+    "quote": "(ii) Let (X_1, X_2, X_3) ((X*_1, X*_2, X*_3)) be a vector of independent heterogeneous GMW random variables. Set \u03b3 = 1.3, \u03bb = 1.6, \u03b2 = 0.3, (\u03b1_1, \u03b1_2, \u03b1_3) = (0.2, 4, 9) and (\u03b1*_1, \u03b1*_2, \u03b1*_3) = (0.1, 1, 6). Obviously (\u03b1_1, \u03b1_2, \u03b1_3) \u2aaf^w (\u03b1*_1, \u03b1*_2, \u03b1*_3), and X_{1:3} \u2264_st X*_{1:3}, as can be seen in Fig. 2 (B). [Caption, p. 110:] Figure 2. Plot of the survival functions of X_{1:3} (black line) and X*_{1:3} (blue line)",
+    "kind": "example",
+    "model": "series system",
+    "family": "GMW(\u03b1_i, \u03b3, \u03bb, \u03b2) independent components with \u03b3 = 1.3, \u03bb = 1.6, \u03b2 = 0.3",
+    "compared": "\u03b1 = (0.2, 4, 9) vs \u03b1* = (0.1, 1, 6)",
+    "hypotheses": [
+     {
+      "text": "Let (X_1, X_2, X_3) ((X*_1, X*_2, X*_3)) be a vector of independent heterogeneous GMW random variables.",
+      "formal": "X_i \u223c GMW(\u03b1_i, 1.3, 1.6, 0.3), X*_i \u223c GMW(\u03b1*_i, 1.3, 1.6, 0.3), independent",
+      "source": "statement"
+     },
+     {
+      "text": "Obviously (\u03b1_1, \u03b1_2, \u03b1_3) \u2aaf^w (\u03b1*_1, \u03b1*_2, \u03b1*_3)",
+      "formal": "weak supermajorization per Definition 2(ii)",
+      "source": "statement; definition 2(ii)"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X_{1:3} \u2264_st X*_{1:3}"
+    },
+    "quantifiers": "n = 3; plotting range of x not stated",
+    "numbers": "\u03b3 = 1.3, \u03bb = 1.6, \u03b2 = 0.3; (\u03b1_1, \u03b1_2, \u03b1_3) = (0.2, 4, 9); (\u03b1*_1, \u03b1*_2, \u03b1*_3) = (0.1, 1, 6). Printed result: \u03b1 \u2aaf^w \u03b1* and X_{1:3} \u2264_st X*_{1:3}, shown graphically in Fig. 2(B); no numerical survival values printed.",
+    "ambiguity": "Result is graphical only; plot range not given."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Example 2(ii)",
+    "page": 9,
+    "quote": "(ii)Let (X_1, X_2, X_3) ((X_1^*, X_2^*, X_3^*)) be a vector of independent heterogeneous GMW random variables. Set \u03b3 = 1.3, \u03bb = 1.6, \u03b2 = 0.3, (\u03b1_1, \u03b1_2, \u03b1_3) = (0.2, 4, 9) and (\u03b1_1^*, \u03b1_2^*, \u03b1_3^*) = (0.1, 1, 6). Obviously (\u03b1_1, \u03b1_2, \u03b1_3) \u2aaf^w (\u03b1_1^*, \u03b1_2^*, \u03b1_3^*), and X_{1:3} \u2264_st X_{1:3}^*, as can be seen in Fig. 2 (B).",
+    "kind": "example",
+    "model": "series system",
+    "family": "GMW(\u03b1_i, \u03b3, \u03bb, \u03b2) with \u03b3 = 1.3, \u03bb = 1.6, \u03b2 = 0.3 common, independent components",
+    "compared": "\u03b1 = (0.2, 4, 9) vs \u03b1^* = (0.1, 1, 6) (illustrates Theorem 7(ii))",
+    "hypotheses": [
+     {
+      "text": "vector of independent heterogeneous GMW random variables",
+      "formal": "X_i independent GMW(\u03b1_i, 1.3, 1.6, 0.3), X_i^* independent GMW(\u03b1_i^*, 1.3, 1.6, 0.3)",
+      "source": "statement"
+     },
+     {
+      "text": "Obviously (\u03b1_1, \u03b1_2, \u03b1_3) \u2aaf^w (\u03b1_1^*, \u03b1_2^*, \u03b1_3^*)",
+      "formal": "\u03a3_{i=1}^{j} \u03b1_(i) \u2265 \u03a3_{i=1}^{j} \u03b1^*_(i), j = 1, 2, 3",
+      "source": "statement; definition 2(ii)"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X_{1:3} \u2264_st X_{1:3}^*"
+    },
+    "quantifiers": "n = 3; x over the plotted range of Fig. 2(B)",
+    "numbers": "n = 3; \u03b3 = 1.3; \u03bb = 1.6; \u03b2 = 0.3; (\u03b1_1, \u03b1_2, \u03b1_3) = (0.2, 4, 9); (\u03b1_1^*, \u03b1_2^*, \u03b1_3^*) = (0.1, 1, 6). Printed results: (\u03b1) \u2aaf^w (\u03b1^*); X_{1:3} \u2264_st X_{1:3}^*, shown graphically in Fig. 2(B) (survival functions; X_{1:3} black line, X_{1:3}^* blue line). No function values or x-range printed.",
+    "ambiguity": "Evidence is graphical only; plotted x-range not given."
+   }
+  ]
+ },
+ {
+  "claim": "theorem10",
+  "a_orders": [
+   "st"
+  ],
+  "b_orders": [
+   "st"
+  ],
+  "a_dirs": [
+   "A_smaller"
+  ],
+  "b_dirs": [
+   "B_smaller"
+  ],
+  "a_records": [
+   {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 10",
+    "page": 112,
+    "quote": "The next result considers the comparison of the lifetimes of series systems in terms of the usual stochastic order with respect to the scale parameter \u03bb. Theorem 10. Let X_1, ..., X_n be a set of independent random variables with X_i \u223c GMW(\u03b1, \u03b3, \u03bb_i, \u03b2), i = 1, ..., n. Further, let X*_1, ..., X*_n be another set of independent random variables with X*_i \u223c GMW(\u03b1, \u03b3, \u03bb*_i, \u03b2), i = 1, ..., n. Then, for (\u03bb_1, ..., \u03bb_n) \u2aaf_w (\u03bb*_1, ..., \u03bb*_n), we have X_{1:n} \u2265_st X*_{1:n} if \u03b2 \u2265 1.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "GMW(\u03b1, \u03b3, \u03bb_i, \u03b2) (Eq. (1)); \u03b1, \u03b3, \u03b2 common; \u03bb_i heterogeneous",
+    "compared": "\u03bb vs \u03bb*; \u03b1, \u03b3, \u03b2 identical on both sides",
+    "hypotheses": [
+     {
+      "text": "Let X_1, ..., X_n be a set of independent random variables with X_i \u223c GMW(\u03b1, \u03b3, \u03bb_i, \u03b2)",
+      "formal": "X_i independent with cdf (1 \u2212 exp(\u2212\u03b1x^\u03b3 e^{\u03bb_i x}))^\u03b2",
+      "source": "statement"
+     },
+     {
+      "text": "let X*_1, ..., X*_n be another set of independent random variables with X*_i \u223c GMW(\u03b1, \u03b3, \u03bb*_i, \u03b2)",
+      "formal": "X*_i independent with cdf (1 \u2212 exp(\u2212\u03b1x^\u03b3 e^{\u03bb*_i x}))^\u03b2",
+      "source": "statement"
+     },
+     {
+      "text": "for (\u03bb_1, ..., \u03bb_n) \u2aaf_w (\u03bb*_1, ..., \u03bb*_n)",
+      "formal": "\u03a3_{i=j}^{n} \u03bb_(i) \u2264 \u03a3_{i=j}^{n} \u03bb*_(i) for all j = 1, ..., n",
+      "source": "statement; definition 2(i)"
+     },
+     {
+      "text": "if \u03b2 \u2265 1",
+      "formal": "\u03b2 \u2265 1",
+      "source": "statement"
+     },
+     {
+      "text": "\u03b1 > 0 ... \u03b3 > 0",
+      "formal": "\u03b1 > 0, \u03b3 > 0; range of \u03bb_i not stated",
+      "source": "definition Eq. (1)"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X*_{1:n} \u2264_st X_{1:n}"
+    },
+    "quantifiers": "any n; \u03b2 \u2265 1; \u03b1, \u03b3 unrestricted in statement; order for all x",
+    "numbers": "",
+    "ambiguity": "The lead-in calls \u03bb 'the scale parameter', inconsistent with Eq. (1). Range of \u03bb_i not stated."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 10",
+    "page": 12,
+    "quote": "Let X_1, . . . , X_n be a set of independent random variables with X_i \u223c GMW(\u03b1, \u03b3, \u03bb_i, \u03b2), i = 1, . . . , n. Further, let X_1^*, . . . , X_n^* be another set of independent random variables with X_i^* \u223c GMW(\u03b1, \u03b3, \u03bb_i^*, \u03b2), i = 1, . . . , n. Then, for (\u03bb_1, . . . , \u03bb_n) \u2aaf_w (\u03bb_1^*, . . . , \u03bb_n^*), we have X_{1:n} \u2265_st X_{1:n}^* if \u03b2 \u2265 1.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "GMW(\u03b1, \u03b3, \u03bb_i, \u03b2); \u03b1, \u03b3, \u03b2 common; \u03bb_i heterogeneous",
+    "compared": "\u03bb vectors (\u03bb_1, ..., \u03bb_n) vs (\u03bb_1^*, ..., \u03bb_n^*)",
+    "hypotheses": [
+     {
+      "text": "independent random variables with X_i \u223c GMW(\u03b1, \u03b3, \u03bb_i, \u03b2) ... X_i^* \u223c GMW(\u03b1, \u03b3, \u03bb_i^*, \u03b2)",
+      "formal": "independence within each set; F_i(x) = (1 \u2212 exp(\u2212\u03b1x^\u03b3 e^{\u03bb_i x}))^\u03b2, F_i^*(x) = (1 \u2212 exp(\u2212\u03b1x^\u03b3 e^{\u03bb_i^* x}))^\u03b2",
+      "source": "statement"
+     },
+     {
+      "text": "(\u03bb_1, . . . , \u03bb_n) \u2aaf_w (\u03bb_1^*, . . . , \u03bb_n^*)",
+      "formal": "weak submajorization: \u03a3_{i=j}^{n} \u03bb_(i) \u2264 \u03a3_{i=j}^{n} \u03bb^*_(i), j = 1..n",
+      "source": "statement; definition 2(i)"
+     },
+     {
+      "text": "\u03b2 \u2265 1",
+      "formal": "\u03b2 \u2265 1",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X_{1:n}^* \u2264_st X_{1:n} (printed as X_{1:n} \u2265_st X_{1:n}^*)"
+    },
+    "quantifiers": "n unspecified; \u03b2 \u2265 1; \u03b1, \u03b3 fixed and common; range of \u03bb_i not stated; all x",
+    "numbers": "",
+    "ambiguity": "The lead-in calls \u03bb 'the scale parameter \u03bb' (Section 1 calls \u03b1 the scale parameter). Range of \u03bb_i not stated."
+   }
+  ]
+ },
+ {
+  "claim": "theorem15i",
+  "a_orders": [
+   "st"
+  ],
+  "b_orders": [
+   "st"
+  ],
+  "a_dirs": [
+   "A_smaller"
+  ],
+  "b_dirs": [
+   "B_smaller"
+  ],
+  "a_records": [
+   {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 15(i)",
+    "page": 116,
+    "quote": "In the ES family, Bashkar et al. (2018) obtained some sufficient conditions for the comparison of parallel systems under some well-known stochastic orderings. Their results are stated in the following theorem. Theorem 15. For X \u223c ES(\u03b1, \u03bb, \u03d51) and X* \u223c ES(\u03b1*, \u03bb, \u03d52), (i) if \u03d51 or \u03d52 is log-convex, and \u03c82\u25e6\u03d51 is super-additive, then (\u03b1_1, ..., \u03b1_n) \u2ab0_w (\u03b1*_1, ..., \u03b1*_n) implies X_{n:n} \u2265_st X*_{n:n}; (ii) if \u03d51 or \u03d52 is log-concave, and \u03c81\u25e6\u03d52 is super-additive, then (\u03b1_1, ..., \u03b1_n) \u2ab0^w (\u03b1*_1, ..., \u03b1*_n) implies X_{n:n} \u2264_st X*_{n:n}.",
+    "kind": "theorem",
+    "model": "other: parallel system (X_{n:n}) with dependent components; Archimedean generators \u03d51, \u03d52",
+    "family": "ES(\u03b1_i, \u03bb) marginals: cdf [G(\u03bbx)]^{\u03b1_i}, arbitrary absolutely continuous baseline G; common \u03bb",
+    "compared": "\u03b1 vs \u03b1* and generator \u03d51 vs \u03d52; \u03bb and G common",
+    "hypotheses": [
+     {
+      "text": "For X \u223c ES(\u03b1, \u03bb, \u03d51) and X* \u223c ES(\u03b1*, \u03bb, \u03d52)",
+      "formal": "marginals [G(\u03bbx)]^{\u03b1_i}, [G(\u03bbx)]^{\u03b1*_i}; Archimedean dependence with generators \u03d51, \u03d52",
+      "source": "statement; section preamble (ES definition, Eq. (10))"
+     },
+     {
+      "text": "if \u03d51 or \u03d52 is log-convex",
+      "formal": "log \u03d51 convex or log \u03d52 convex",
+      "source": "statement"
+     },
+     {
+      "text": "\u03c82\u25e6\u03d51 is super-additive",
+      "formal": "\u03c82(\u03d51(x + y)) \u2265 \u03c82(\u03d51(x)) + \u03c82(\u03d51(y))",
+      "source": "statement"
+     },
+     {
+      "text": "(\u03b1_1, ..., \u03b1_n) \u2ab0_w (\u03b1*_1, ..., \u03b1*_n)",
+      "formal": "\u03b1* \u2aaf_w \u03b1: \u03a3_{i=j}^{n} \u03b1*_(i) \u2264 \u03a3_{i=j}^{n} \u03b1_(i) for all j",
+      "source": "statement; definition 2(i) (converse symbol)"
+     },
+     {
+      "text": "G ... absolutely continuous; \u03b1, \u03bb > 0",
+      "formal": "\u03b1_i, \u03b1*_i, \u03bb > 0",
+      "source": "section preamble"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X*_{n:n} \u2264_st X_{n:n}"
+    },
+    "quantifiers": "n \u2265 2; all x",
+    "numbers": "",
+    "ambiguity": "Quoted from Bashkar et al. (2018), not proved here. ES(\u03b1, \u03bb, \u03d5) notation was introduced only via Eq. (10) (generator acting as a survival copula for X_{1:n}); for parallel systems the paper's proof of Theorem 17 (Eq. (12)) uses the generator as a copula of the distribution functions; which applies here is not stated. \u2ab0_w not explicitly defined. Baseline G arbitrary."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 15(i)",
+    "page": 16,
+    "quote": "In the ES family, Bashkar et al. (2018) obtained some sufficient conditions for the comparison of parallel systems under some well-known stochastic orderings. Their results are stated in the following theorem. Theorem 15. For X \u223c ES(\u03b1, \u03bb, \u03d5_1) and X^* \u223c ES(\u03b1^*, \u03bb, \u03d5_2), (i) if \u03d5_1 or \u03d5_2 is log-convex, and \u03c8_2\u25e6\u03d5_1 is super-additive, then (\u03b1_1, . . . , \u03b1_n) \u2ab0_w (\u03b1_1^*, . . . , \u03b1_n^*) implies X_{n:n} \u2265_st X_{n:n}^*;",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "ES(\u03b1_i, \u03bb): [G(\u03bbx)]^{\u03b1_i}, arbitrary absolutely continuous baseline G, common \u03bb; dependent components with Archimedean generators \u03d5_1 (X) and \u03d5_2 (X^*)",
+    "compared": "exponent vectors \u03b1 vs \u03b1^* and generators \u03d5_1 vs \u03d5_2",
+    "hypotheses": [
+     {
+      "text": "X \u223c ES(\u03b1, \u03bb, \u03d5_1) and X^* \u223c ES(\u03b1^*, \u03bb, \u03d5_2)",
+      "formal": "X_i cdf [G(\u03bbx)]^{\u03b1_i} with Archimedean generator \u03d5_1; X_i^* cdf [G(\u03bbx)]^{\u03b1_i^*} with generator \u03d5_2",
+      "source": "statement; section preamble (ES definition)"
+     },
+     {
+      "text": "\u03d5_1 or \u03d5_2 is log-convex",
+      "formal": "log \u03d5_1 convex or log \u03d5_2 convex",
+      "source": "statement"
+     },
+     {
+      "text": "\u03c8_2\u25e6\u03d5_1 is super-additive",
+      "formal": "\u03c8_2(\u03d5_1(x + y)) \u2265 \u03c8_2(\u03d5_1(x)) + \u03c8_2(\u03d5_1(y))",
+      "source": "statement"
+     },
+     {
+      "text": "(\u03b1_1, . . . , \u03b1_n) \u2ab0_w (\u03b1_1^*, . . . , \u03b1_n^*)",
+      "formal": "\u03b1^* \u2aaf_w \u03b1: \u03a3_{i=j}^{n} \u03b1^*_(i) \u2264 \u03a3_{i=j}^{n} \u03b1_(i), j = 1..n",
+      "source": "statement; definition 2(i)"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X_{n:n}^* \u2264_st X_{n:n} (printed as X_{n:n} \u2265_st X_{n:n}^*)"
+    },
+    "quantifiers": "n \u2265 2 implied; \u03bb fixed and common; all x",
+    "numbers": "",
+    "ambiguity": "Cited result of Bashkar et al. (2018), stated without proof. Subscript w here (\u2ab0_w, converse of weak submajorization). Whether \u03d5 acts as a copula or a survival copula in X \u223c ES(\u03b1, \u03bb, \u03d5) is not stated for parallel systems (the GMW analogue, Theorem 17 eq. (12), uses \u03d5 as the copula of the joint cdf). General baseline G; GMW version is Theorem 16(i)."
+   }
+  ]
+ },
+ {
+  "claim": "theorem16i",
+  "a_orders": [
+   "st"
+  ],
+  "b_orders": [
+   "st"
+  ],
+  "a_dirs": [
+   "A_smaller"
+  ],
+  "b_dirs": [
+   "B_smaller"
+  ],
+  "a_records": [
+   {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 16(i)",
+    "page": 116,
+    "quote": "The following result follows immediately from Theorem 15. Theorem 16. For X \u223c GMW(\u03b2, \u03b1, \u03b3, \u03bb, \u03d51) and X* \u223c GMW(\u03b2*, \u03b1, \u03b3, \u03bb, \u03d52), (i) if \u03d51 or \u03d52 is log-convex, and \u03c82\u25e6\u03d51 is super-additive, then (\u03b2_1, ..., \u03b2_n) \u2ab0_w (\u03b2*_1, ..., \u03b2*_n) implies X_{n:n} \u2265_st X*_{n:n}; (ii) if \u03d51 or \u03d52 is log-concave, and \u03c81\u25e6\u03d52 is super-additive, then (\u03b2_1, ..., \u03b2_n) \u2ab0^w (\u03b2*_1, ..., \u03b2*_n) implies X_{n:n} \u2264_st X*_{n:n}.",
+    "kind": "theorem",
+    "model": "other: parallel system (X_{n:n}) with dependent components; Archimedean generators \u03d51, \u03d52",
+    "family": "GMW marginals X_i \u223c GMW(\u03b2_i, \u03b1, \u03b3, \u03bb), cdf (1 \u2212 exp(\u2212\u03b1x^\u03b3 exp(\u03bbx)))^{\u03b2_i}; \u03b1, \u03b3, \u03bb common; \u03b2_i heterogeneous",
+    "compared": "\u03b2 vs \u03b2* and generator \u03d51 vs \u03d52; \u03b1, \u03b3, \u03bb common",
+    "hypotheses": [
+     {
+      "text": "by X \u223c GMW(\u03b2, \u03b1, \u03b3, \u03bb, \u03d5) we mean that X has the Archimedean copula with generator \u03d5 and for i = 1, ..., n, X_i \u223c GMW(\u03b2_i, \u03b1, \u03b3, \u03bb)",
+      "formal": "X: generator \u03d51, marginal cdfs (1 \u2212 exp(\u2212\u03b1x^\u03b3 e^{\u03bbx}))^{\u03b2_i}; X*: generator \u03d52, exponents \u03b2*_i",
+      "source": "section preamble (p. 113)"
+     },
+     {
+      "text": "if \u03d51 or \u03d52 is log-convex",
+      "formal": "log \u03d51 convex or log \u03d52 convex",
+      "source": "statement"
+     },
+     {
+      "text": "\u03c82\u25e6\u03d51 is super-additive",
+      "formal": "\u03c82(\u03d51(x + y)) \u2265 \u03c82(\u03d51(x)) + \u03c82(\u03d51(y))",
+      "source": "statement"
+     },
+     {
+      "text": "(\u03b2_1, ..., \u03b2_n) \u2ab0_w (\u03b2*_1, ..., \u03b2*_n)",
+      "formal": "\u03b2* \u2aaf_w \u03b2: \u03a3_{i=j}^{n} \u03b2*_(i) \u2264 \u03a3_{i=j}^{n} \u03b2_(i) for all j",
+      "source": "statement; definition 2(i) (converse symbol)"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X*_{n:n} \u2264_st X_{n:n}"
+    },
+    "quantifiers": "n \u2265 2; \u03b1, \u03b3, \u03bb unrestricted in statement; all x",
+    "numbers": "",
+    "ambiguity": "The GMW(\u03b2, \u03b1, \u03b3, \u03bb, \u03d5) notation was defined as 'has the Archimedean copula' while Eq. (8) uses it as a survival copula; for parallel systems Eq. (12) uses a copula of distribution functions. \u2ab0_w not explicitly defined. Super-additivity not defined in paper."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 16(i)",
+    "page": 16,
+    "quote": "In the sequel, by X \u223c GMW(\u03b2, \u03b1, \u03b3, \u03bb, \u03d5) we mean that X has the Archimedean copula with generator \u03d5 and for i = 1, ..., n, X_i \u223c GMW(\u03b2_i, \u03b1, \u03b3, \u03bb). [...] The following result follows immediately from Theorem 15. Theorem 16. For X \u223c GMW(\u03b2, \u03b1, \u03b3, \u03bb, \u03d5_1) and X^* \u223c GMW(\u03b2^*, \u03b1, \u03b3, \u03bb, \u03d5_2), (i) if \u03d5_1 or \u03d5_2 is log-convex, and \u03c8_2\u25e6\u03d5_1 is super-additive, then (\u03b2_1, . . . , \u03b2_n) \u2ab0_w (\u03b2_1^*, . . . , \u03b2_n^*) implies X_{n:n} \u2265_st X_{n:n}^*;",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "GMW with common \u03b1, \u03b3, \u03bb and heterogeneous exponents \u03b2_i (\u03b2_i^*); dependent components with Archimedean generators \u03d5_1 (X) and \u03d5_2 (X^*)",
+    "compared": "shape vectors \u03b2 vs \u03b2^* and generators \u03d5_1 vs \u03d5_2",
+    "hypotheses": [
+     {
+      "text": "by X \u223c GMW(\u03b2, \u03b1, \u03b3, \u03bb, \u03d5) we mean that X has the Archimedean copula with generator \u03d5 and for i = 1, ..., n, X_i \u223c GMW(\u03b2_i, \u03b1, \u03b3, \u03bb)",
+      "formal": "X_i cdf (1 \u2212 exp(\u2212\u03b1x^\u03b3 e^{\u03bbx}))^{\u03b2_i}; joint dependence via generator \u03d5",
+      "source": "section preamble"
+     },
+     {
+      "text": "\u03d5_1 or \u03d5_2 is log-convex",
+      "formal": "log \u03d5_1 convex or log \u03d5_2 convex",
+      "source": "statement"
+     },
+     {
+      "text": "\u03c8_2\u25e6\u03d5_1 is super-additive",
+      "formal": "\u03c8_2(\u03d5_1(x + y)) \u2265 \u03c8_2(\u03d5_1(x)) + \u03c8_2(\u03d5_1(y))",
+      "source": "statement"
+     },
+     {
+      "text": "(\u03b2_1, . . . , \u03b2_n) \u2ab0_w (\u03b2_1^*, . . . , \u03b2_n^*)",
+      "formal": "\u03b2^* \u2aaf_w \u03b2: \u03a3_{i=j}^{n} \u03b2^*_(i) \u2264 \u03a3_{i=j}^{n} \u03b2_(i), j = 1..n",
+      "source": "statement; definition 2(i)"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X_{n:n}^* \u2264_st X_{n:n} (printed as X_{n:n} \u2265_st X_{n:n}^*)"
+    },
+    "quantifiers": "n \u2265 2 implied; \u03b1, \u03b3, \u03bb fixed and common; all x",
+    "numbers": "",
+    "ambiguity": "Subscript w here (\u2ab0_w). The notation GMW(\u03b2, \u03b1, \u03b3, \u03bb, \u03d5) says 'Archimedean copula'; for Section 3.2 min results it acts as a survival copula (eq. (8)), whereas the parallel-system proof of Theorem 17 (eq. (12)) uses it as the copula of the joint cdf. GMW(\u03b2_i, \u03b1, \u03b3, \u03bb) parameter order differs from GMW(\u03b1, \u03b3, \u03bb, \u03b2). Said to follow immediately from Theorem 15; no proof. '[...]' marks omitted intervening text."
+   }
+  ]
+ },
+ {
+  "claim": "theorem17",
+  "a_orders": [
+   "st"
+  ],
+  "b_orders": [
+   "st"
+  ],
+  "a_dirs": [
+   "A_smaller"
+  ],
+  "b_dirs": [
+   "B_smaller"
+  ],
+  "a_records": [
+   {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 17",
+    "page": 117,
+    "quote": "The following theorem provides some sufficient conditions under which weakly supermajorized order between the scale parameter vectors implies the usual stochastic order between the largest order statistics. Theorem 17. For X \u223c GMW(\u03b2, \u03b1, \u03b3, \u03bb, \u03d51) and X* \u223c GMW(\u03b2, \u03b1*, \u03b3, \u03bb, \u03d52), if \u03d51 or \u03d52 is log-convex, and \u03c82 \u25e6 \u03d51 is super-additive, then (\u03b1_1, ..., \u03b1_n) \u2ab0^w (\u03b1*_1, ..., \u03b1*_n) implies X_{n:n} \u2265_st X*_{n:n}.",
+    "kind": "theorem",
+    "model": "other: parallel system (X_{n:n}) with dependent components; Archimedean generators \u03d51, \u03d52",
+    "family": "GMW marginals with heterogeneous \u03b1_i and common \u03b2, \u03b3, \u03bb: cdf (1 \u2212 exp(\u2212\u03b1_i x^\u03b3 exp(\u03bbx)))^\u03b2",
+    "compared": "\u03b1 vs \u03b1* and generator \u03d51 vs \u03d52; \u03b2, \u03b3, \u03bb common",
+    "hypotheses": [
+     {
+      "text": "For X \u223c GMW(\u03b2, \u03b1, \u03b3, \u03bb, \u03d51) and X* \u223c GMW(\u03b2, \u03b1*, \u03b3, \u03bb, \u03d52)",
+      "formal": "X has Archimedean copula with generator \u03d51 and marginal cdfs (1 \u2212 exp(\u2212\u03b1_i x^\u03b3 e^{\u03bbx}))^\u03b2; X* has generator \u03d52 and \u03b1*_i (per Eq. (12): F_{X_{n:n}}(x) = \u03d51(\u03a3 \u03c81((1 \u2212 exp(\u2212\u03b1_i x^\u03b3 exp(\u03bbx)))^\u03b2)))",
+      "source": "statement; section preamble (notation p. 113); proof Eq. (12)"
+     },
+     {
+      "text": "if \u03d51 or \u03d52 is log-convex",
+      "formal": "log \u03d51 convex or log \u03d52 convex",
+      "source": "statement"
+     },
+     {
+      "text": "\u03c82 \u25e6 \u03d51 is super-additive",
+      "formal": "\u03c82(\u03d51(x + y)) \u2265 \u03c82(\u03d51(x)) + \u03c82(\u03d51(y))",
+      "source": "statement"
+     },
+     {
+      "text": "(\u03b1_1, ..., \u03b1_n) \u2ab0^w (\u03b1*_1, ..., \u03b1*_n)",
+      "formal": "\u03b1* \u2aaf^w \u03b1: \u03a3_{i=1}^{j} \u03b1*_(i) \u2265 \u03a3_{i=1}^{j} \u03b1_(i) for all j",
+      "source": "statement; definition 2(ii) (converse symbol)"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X*_{n:n} \u2264_st X_{n:n}"
+    },
+    "quantifiers": "n \u2265 2; \u03b2, \u03b3, \u03bb unrestricted in statement; all x > 0",
+    "numbers": "",
+    "ambiguity": "The notation GMW(\u03b2, \u03b1, \u03b3, \u03bb, \u03d5) was defined with vector \u03b2 and scalar \u03b1; here \u03b1, \u03b1* are vectors and \u03b2 is common. The dependence is used as a copula of distribution functions in the proof (Eq. (12)), unlike the survival form of Eq. (8). \u2ab0^w not explicitly defined; the lead-in calls \u03b1 'the scale parameter vectors'."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 17",
+    "page": 17,
+    "quote": "In the sequel, by X \u223c GMW(\u03b2, \u03b1, \u03b3, \u03bb, \u03d5) we mean that X has the Archimedean copula with generator \u03d5 and for i = 1, ..., n, X_i \u223c GMW(\u03b2_i, \u03b1, \u03b3, \u03bb). [...] The following theorem provides some sufficient conditions under which weakly supermajorized order between the scale parameter vectors implies the usual stochastic order between the largest order statistics. Theorem 17. For X \u223c GMW(\u03b2, \u03b1, \u03b3, \u03bb, \u03d5_1) and X^* \u223c GMW(\u03b2, \u03b1^*, \u03b3, \u03bb, \u03d5_2), if \u03d5_1 or \u03d5_2 is log-convex, and \u03c8_2 \u25e6 \u03d5_1 is super-additive, then (\u03b1_1, . . . , \u03b1_n) \u2ab0^w (\u03b1_1^*, . . . , \u03b1_n^*) implies X_{n:n} \u2265_st X_{n:n}^*.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "GMW with common \u03b2, \u03b3, \u03bb and heterogeneous scales \u03b1_i (\u03b1_i^*); dependent components with Archimedean generators \u03d5_1 (X) and \u03d5_2 (X^*)",
+    "compared": "scale vectors \u03b1 vs \u03b1^* and generators \u03d5_1 vs \u03d5_2",
+    "hypotheses": [
+     {
+      "text": "X \u223c GMW(\u03b2, \u03b1, \u03b3, \u03bb, \u03d5_1) and X^* \u223c GMW(\u03b2, \u03b1^*, \u03b3, \u03bb, \u03d5_2)",
+      "formal": "per eq. (12): F_{X_{n:n}}(x) = \u03d5_1(\u03a3 \u03c8_1((1 \u2212 exp(\u2212\u03b1_i x^\u03b3 e^{\u03bbx}))^\u03b2)); X^* analogous with \u03b1_i^*, \u03d5_2",
+      "source": "statement; section preamble; proof eq. (12)"
+     },
+     {
+      "text": "\u03d5_1 or \u03d5_2 is log-convex",
+      "formal": "log \u03d5_1 convex or log \u03d5_2 convex",
+      "source": "statement"
+     },
+     {
+      "text": "\u03c8_2 \u25e6 \u03d5_1 is super-additive",
+      "formal": "\u03c8_2(\u03d5_1(x + y)) \u2265 \u03c8_2(\u03d5_1(x)) + \u03c8_2(\u03d5_1(y))",
+      "source": "statement"
+     },
+     {
+      "text": "(\u03b1_1, . . . , \u03b1_n) \u2ab0^w (\u03b1_1^*, . . . , \u03b1_n^*)",
+      "formal": "\u03b1^* \u2aaf^w \u03b1: \u03a3_{i=1}^{j} \u03b1^*_(i) \u2265 \u03a3_{i=1}^{j} \u03b1_(i), j = 1..n",
+      "source": "statement; definition 2(ii)"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X_{n:n}^* \u2264_st X_{n:n} (printed as X_{n:n} \u2265_st X_{n:n}^*)"
+    },
+    "quantifiers": "n \u2265 2 implied; \u03b2, \u03b3, \u03bb fixed and common; all x > 0",
+    "numbers": "",
+    "ambiguity": "The notation GMW(\u03b2, \u03b1, \u03b3, \u03bb, \u03d5) was defined with vector \u03b2 and scalar \u03b1; here \u03b1, \u03b1^* are vectors and \u03b2 is a common scalar (as in the proof's eq. (12)). The proof uses \u03d5_1 as the copula of the joint distribution function, unlike eq. (8). Only the case '\u03d5_1 log-convex' is proved ('the other case can be finished similarly')."
+   }
+  ]
+ },
+ {
+  "claim": "theorem2",
+  "a_orders": [
+   "rh"
+  ],
+  "b_orders": [
+   "rh"
+  ],
+  "a_dirs": [
+   "A_smaller"
+  ],
+  "b_dirs": [
+   "B_smaller"
+  ],
+  "a_records": [
+   {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 2",
+    "page": 106,
+    "quote": "We now generalize Theorem 2 to a wider range of the shape parameters as follows. Theorem 2. Let the conditions of Theorem 1 be met. Then, for any \u03b3, \u03bb, \u03b2 > 0, if \u03b1_i \u2264 \u03b1*_i, i = 1, ..., n, we have X_{n:n} \u2265_rh X*_{n:n}.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "GMW(\u03b1_i, \u03b3, \u03bb, \u03b2) (Eq. (1)); \u03b3, \u03bb, \u03b2 common; \u03b1_i heterogeneous",
+    "compared": "\u03b1 vs \u03b1* with componentwise \u03b1_i \u2264 \u03b1*_i; \u03b3, \u03bb, \u03b2 identical on both sides",
+    "hypotheses": [
+     {
+      "text": "Let the conditions of Theorem 1 be met.",
+      "formal": "X_i \u223c GMW(\u03b1_i, \u03b3, \u03bb, \u03b2) independent, X*_i \u223c GMW(\u03b1*_i, \u03b3, \u03bb, \u03b2) independent (and possibly also (\u03b1_1, ..., \u03b1_n) \u2aaf^w (\u03b1*_1, ..., \u03b1*_n))",
+      "source": "earlier theorem 1"
+     },
+     {
+      "text": "for any \u03b3, \u03bb, \u03b2 > 0",
+      "formal": "\u03b3 > 0, \u03bb > 0, \u03b2 > 0",
+      "source": "statement"
+     },
+     {
+      "text": "if \u03b1_i \u2264 \u03b1*_i, i = 1, ..., n",
+      "formal": "\u03b1_i \u2264 \u03b1*_i for every i",
+      "source": "statement"
+     },
+     {
+      "text": "where \u03b1 > 0 is a scale parameter, and \u03b3 > 0 and \u03b2 > 0 are shape parameters",
+      "formal": "\u03b1_i, \u03b1*_i > 0",
+      "source": "definition Eq. (1)"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "X*_{n:n} \u2264_rh X_{n:n}"
+    },
+    "quantifiers": "any n; all \u03b3, \u03bb, \u03b2 > 0; order per Definition 1(iii) for all x",
+    "numbers": "",
+    "ambiguity": "'Let the conditions of Theorem 1 be met' is ambiguous: if it includes Theorem 1's hypothesis (\u03b1) \u2aaf^w (\u03b1*), then together with \u03b1_i \u2264 \u03b1*_i for all i the partial-sum inequalities force \u03b1 and \u03b1* to coincide, so presumably only the distributional setup is meant. The lead-in says 'generalize Theorem 2' (self-reference, likely meant Theorem 1) and speaks of a 'wider range of the shape parameters' although Theorem 1 states no restriction on \u03b3, \u03bb, \u03b2."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 2",
+    "page": 6,
+    "quote": "Let the conditions of Theorem 1 be met. Then, for any \u03b3, \u03bb, \u03b2 > 0, if \u03b1_i \u2264 \u03b1_i^*, i = 1, . . . , n, we have X_{n:n} \u2265_rh X_{n:n}^*.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "GMW(\u03b1_i, \u03b3, \u03bb, \u03b2) as in Theorem 1; \u03b3, \u03bb, \u03b2 common, \u03b1_i heterogeneous",
+    "compared": "\u03b1_i vs \u03b1_i^* componentwise",
+    "hypotheses": [
+     {
+      "text": "Let the conditions of Theorem 1 be met",
+      "formal": "X_i independent GMW(\u03b1_i, \u03b3, \u03bb, \u03b2), X_i^* independent GMW(\u03b1_i^*, \u03b3, \u03bb, \u03b2), i = 1..n; unclear whether (\u03b1) \u2aaf^w (\u03b1^*) is also assumed",
+      "source": "earlier theorem 1"
+     },
+     {
+      "text": "for any \u03b3, \u03bb, \u03b2 > 0",
+      "formal": "\u03b3 > 0, \u03bb > 0, \u03b2 > 0",
+      "source": "statement"
+     },
+     {
+      "text": "\u03b1_i \u2264 \u03b1_i^*, i = 1, . . . , n",
+      "formal": "\u03b1_i \u2264 \u03b1_i^* for every i",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "X_{n:n}^* \u2264_rh X_{n:n} (printed as X_{n:n} \u2265_rh X_{n:n}^*)"
+    },
+    "quantifiers": "n unspecified; all \u03b3, \u03bb, \u03b2 > 0; \u03b1_i \u2264 \u03b1_i^* for all i; all x",
+    "numbers": "",
+    "ambiguity": "'Let the conditions of Theorem 1 be met' is ambiguous: if it includes the hypothesis (\u03b1) \u2aaf^w (\u03b1^*), then together with \u03b1_i \u2264 \u03b1_i^* for all i it would force \u03b1 = \u03b1^*; presumably only the distributional setup is meant. The sentence before the theorem reads 'We now generalize Theorem 2 to a wider range of the shape parameters as follows', which refers to Theorem 2 itself (possibly intended Theorem 1), and the theorem varies \u03b1 (called a scale parameter in Section 1), not shape parameters."
+   }
+  ]
+ },
+ {
+  "claim": "theorem5ii",
+  "a_orders": [
+   "rh"
+  ],
+  "b_orders": [
+   "rh"
+  ],
+  "a_dirs": [
+   "A_smaller"
+  ],
+  "b_dirs": [
+   "B_smaller"
+  ],
+  "a_records": [
+   {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 5(ii)",
+    "page": 108,
+    "quote": "Theorem 5. For i = 1, ..., n, let X_i and X*_i be two sets of mutually independent random variables with X_i \u223c GMW(\u03b1_i, \u03b3, \u03bb, \u03b2_i) and X*_i \u223c GMW(\u03b1_i, \u03b3, \u03bb, \u03b2*_i). If (\u03b2_1, ..., \u03b2_n) \u2aaf^m (\u03b2*_1, ..., \u03b2*_n) and (i) \u03b2, \u03b2* \u2208 D+ and \u03b1 \u2208 E+, then X_{n:n} \u2264_rh X*_{n:n}; (ii) \u03b2, \u03b2*, \u03b1 \u2208 D+, then X_{n:n} \u2265_rh X*_{n:n}",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "GMW(\u03b1_i, \u03b3, \u03bb, \u03b2_i) (Eq. (1)); \u03b3, \u03bb and vector \u03b1 common to both systems; \u03b2_i heterogeneous",
+    "compared": "\u03b2 vs \u03b2*; \u03b1 (vector), \u03b3, \u03bb identical on both sides",
+    "hypotheses": [
+     {
+      "text": "let X_i and X*_i be two sets of mutually independent random variables with X_i \u223c GMW(\u03b1_i, \u03b3, \u03bb, \u03b2_i) and X*_i \u223c GMW(\u03b1_i, \u03b3, \u03bb, \u03b2*_i)",
+      "formal": "independent components with cdfs (1 \u2212 exp(\u2212\u03b1_i x^\u03b3 e^{\u03bbx}))^{\u03b2_i} and (1 \u2212 exp(\u2212\u03b1_i x^\u03b3 e^{\u03bbx}))^{\u03b2*_i}",
+      "source": "statement"
+     },
+     {
+      "text": "(\u03b2_1, ..., \u03b2_n) \u2aaf^m (\u03b2*_1, ..., \u03b2*_n)",
+      "formal": "\u03a3 \u03b2_i = \u03a3 \u03b2*_i and \u03a3_{i=1}^{j} \u03b2_(i) \u2265 \u03a3_{i=1}^{j} \u03b2*_(i) for j = 1, ..., n\u22121",
+      "source": "statement; definition 2(iii)"
+     },
+     {
+      "text": "(ii) \u03b2, \u03b2*, \u03b1 \u2208 D+",
+      "formal": "\u03b2_1 \u2265 ... \u2265 \u03b2_n > 0, \u03b2*_1 \u2265 ... \u2265 \u03b2*_n > 0, \u03b1_1 \u2265 ... \u2265 \u03b1_n > 0",
+      "source": "statement; notation D+ (p. 103)"
+     },
+     {
+      "text": "\u03b3 > 0 and \u03b2 > 0 are shape parameters",
+      "formal": "\u03b3 > 0; \u03bb range unstated",
+      "source": "definition Eq. (1)"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "X*_{n:n} \u2264_rh X_{n:n}"
+    },
+    "quantifiers": "any n; \u03b3, \u03bb not restricted in the statement; order for all x",
+    "numbers": "",
+    "ambiguity": "No range for \u03b3, \u03bb is stated in this theorem. Statement ends without a period."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 5(ii)",
+    "page": 8,
+    "quote": "For i = 1, . . . , n, let X_i and X_i^* be two sets of mutually independent random variables with X_i \u223c GMW(\u03b1_i, \u03b3, \u03bb, \u03b2_i) and X_i^* \u223c GMW(\u03b1_i, \u03b3, \u03bb, \u03b2_i^*). If (\u03b2_1, . . . , \u03b2_n) \u2aaf^m (\u03b2_1^*, . . . , \u03b2_n^*) and [...] (ii) \u03b2, \u03b2^*, \u03b1 \u2208 D_+, then X_{n:n} \u2265_rh X_{n:n}^*",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "GMW(\u03b1_i, \u03b3, \u03bb, \u03b2_i); \u03b3, \u03bb common; \u03b1 vector common to both systems; \u03b2_i heterogeneous",
+    "compared": "shape vectors \u03b2 vs \u03b2^* (same \u03b1)",
+    "hypotheses": [
+     {
+      "text": "two sets of mutually independent random variables with X_i \u223c GMW(\u03b1_i, \u03b3, \u03bb, \u03b2_i) and X_i^* \u223c GMW(\u03b1_i, \u03b3, \u03bb, \u03b2_i^*)",
+      "formal": "F_i(x) = (1 \u2212 exp(\u2212\u03b1_i x^\u03b3 e^{\u03bbx}))^{\u03b2_i}, F_i^*(x) = (1 \u2212 exp(\u2212\u03b1_i x^\u03b3 e^{\u03bbx}))^{\u03b2_i^*}; independence within each set",
+      "source": "statement"
+     },
+     {
+      "text": "(\u03b2_1, . . . , \u03b2_n) \u2aaf^m (\u03b2_1^*, . . . , \u03b2_n^*)",
+      "formal": "\u03a3 \u03b2_i = \u03a3 \u03b2_i^* and \u03a3_{i=1}^{j} \u03b2_(i) \u2265 \u03a3_{i=1}^{j} \u03b2^*_(i), j = 1..n\u22121",
+      "source": "statement; definition 2(iii)"
+     },
+     {
+      "text": "\u03b2, \u03b2^*, \u03b1 \u2208 D_+",
+      "formal": "\u03b2_1 \u2265 ... \u2265 \u03b2_n > 0, \u03b2_1^* \u2265 ... \u2265 \u03b2_n^* > 0, \u03b1_1 \u2265 ... \u2265 \u03b1_n > 0",
+      "source": "statement; definition (Section 1 notation D_+)"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "X_{n:n}^* \u2264_rh X_{n:n} (printed as X_{n:n} \u2265_rh X_{n:n}^*)"
+    },
+    "quantifiers": "n unspecified; \u03b3, \u03bb fixed (ranges not stated in the statement); all x",
+    "numbers": "",
+    "ambiguity": "Ranges of \u03b3 and \u03bb not stated in the theorem. '[...]' marks the omitted part (i)."
+   }
+  ]
+ },
+ {
+  "claim": "theorem6ii",
+  "a_orders": [
+   "rh"
+  ],
+  "b_orders": [
+   "rh"
+  ],
+  "a_dirs": [
+   "A_smaller"
+  ],
+  "b_dirs": [
+   "B_smaller"
+  ],
+  "a_records": [
+   {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 6(ii)",
+    "page": 108,
+    "quote": "The following theorem follows from Lemma 2 and Theorem 5. Theorem 6. For i = 1, ..., n, let X_i and X*_i be two sets of mutually independent random variables with X_i \u223c GMW(\u03b1_i, \u03b3, \u03bb, \u03b2_i) and X*_i \u223c GMW(\u03b1_i, \u03b3, \u03bb, \u03b2*_i). (i) If \u03b2, \u03b2* \u2208 D+ and \u03b1 \u2208 E+, then (\u03b2_1, ..., \u03b2_n) \u2aaf_w (\u03b2*_1, ..., \u03b2*_n) implies X_{n:n} \u2264_rh X*_{n:n}; (ii) If \u03b2, \u03b2*, \u03b1 \u2208 D+, then (\u03b2_1, ..., \u03b2_n) \u2aaf^w (\u03b2*_1, ..., \u03b2*_n) implies X_{n:n} \u2265_rh X*_{n:n}",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "GMW(\u03b1_i, \u03b3, \u03bb, \u03b2_i) (Eq. (1)); \u03b3, \u03bb and vector \u03b1 common to both systems; \u03b2_i heterogeneous",
+    "compared": "\u03b2 vs \u03b2*; \u03b1 (vector), \u03b3, \u03bb identical on both sides",
+    "hypotheses": [
+     {
+      "text": "let X_i and X*_i be two sets of mutually independent random variables with X_i \u223c GMW(\u03b1_i, \u03b3, \u03bb, \u03b2_i) and X*_i \u223c GMW(\u03b1_i, \u03b3, \u03bb, \u03b2*_i)",
+      "formal": "independent components with cdfs (1 \u2212 exp(\u2212\u03b1_i x^\u03b3 e^{\u03bbx}))^{\u03b2_i} and (1 \u2212 exp(\u2212\u03b1_i x^\u03b3 e^{\u03bbx}))^{\u03b2*_i}",
+      "source": "statement"
+     },
+     {
+      "text": "(ii) If \u03b2, \u03b2*, \u03b1 \u2208 D+",
+      "formal": "\u03b2_1 \u2265 ... \u2265 \u03b2_n > 0, \u03b2*_1 \u2265 ... \u2265 \u03b2*_n > 0, \u03b1_1 \u2265 ... \u2265 \u03b1_n > 0",
+      "source": "statement; notation D+ (p. 103)"
+     },
+     {
+      "text": "(\u03b2_1, ..., \u03b2_n) \u2aaf^w (\u03b2*_1, ..., \u03b2*_n)",
+      "formal": "weak supermajorization: \u03a3_{i=1}^{j} \u03b2_(i) \u2265 \u03a3_{i=1}^{j} \u03b2*_(i) for all j = 1, ..., n",
+      "source": "statement; definition 2(ii)"
+     },
+     {
+      "text": "\u03b3 > 0 and \u03b2 > 0 are shape parameters",
+      "formal": "\u03b3 > 0; \u03bb range unstated",
+      "source": "definition Eq. (1)"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "X*_{n:n} \u2264_rh X_{n:n}"
+    },
+    "quantifiers": "any n; \u03b3, \u03bb not restricted in the statement; order for all x",
+    "numbers": "",
+    "ambiguity": "No range for \u03b3, \u03bb is stated. Statement ends without a period."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 6(ii)",
+    "page": 8,
+    "quote": "For i = 1, . . . , n, let X_i and X_i^* be two sets of mutually independent random variables with X_i \u223c GMW(\u03b1_i, \u03b3, \u03bb, \u03b2_i) and X_i^* \u223c GMW(\u03b1_i, \u03b3, \u03bb, \u03b2_i^*). [...] (ii) If \u03b2, \u03b2^*, \u03b1 \u2208 D_+, then (\u03b2_1, . . . , \u03b2_n) \u2aaf^w (\u03b2_1^*, . . . , \u03b2_n^*) implies X_{n:n} \u2265_rh X_{n:n}^*",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "GMW(\u03b1_i, \u03b3, \u03bb, \u03b2_i); \u03b3, \u03bb common; \u03b1 vector common to both systems; \u03b2_i heterogeneous",
+    "compared": "shape vectors \u03b2 vs \u03b2^* (same \u03b1)",
+    "hypotheses": [
+     {
+      "text": "two sets of mutually independent random variables with X_i \u223c GMW(\u03b1_i, \u03b3, \u03bb, \u03b2_i) and X_i^* \u223c GMW(\u03b1_i, \u03b3, \u03bb, \u03b2_i^*)",
+      "formal": "F_i(x) = (1 \u2212 exp(\u2212\u03b1_i x^\u03b3 e^{\u03bbx}))^{\u03b2_i}, F_i^*(x) = (1 \u2212 exp(\u2212\u03b1_i x^\u03b3 e^{\u03bbx}))^{\u03b2_i^*}; independence within each set",
+      "source": "statement"
+     },
+     {
+      "text": "\u03b2, \u03b2^*, \u03b1 \u2208 D_+",
+      "formal": "\u03b2_1 \u2265 ... \u2265 \u03b2_n > 0, \u03b2_1^* \u2265 ... \u2265 \u03b2_n^* > 0, \u03b1_1 \u2265 ... \u2265 \u03b1_n > 0",
+      "source": "statement; definition (Section 1 notation D_+)"
+     },
+     {
+      "text": "(\u03b2_1, . . . , \u03b2_n) \u2aaf^w (\u03b2_1^*, . . . , \u03b2_n^*)",
+      "formal": "weak supermajorization: \u03a3_{i=1}^{j} \u03b2_(i) \u2265 \u03a3_{i=1}^{j} \u03b2^*_(i), j = 1..n",
+      "source": "statement; definition 2(ii)"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "X_{n:n}^* \u2264_rh X_{n:n} (printed as X_{n:n} \u2265_rh X_{n:n}^*)"
+    },
+    "quantifiers": "n unspecified; \u03b3, \u03bb fixed (ranges not stated); all x",
+    "numbers": "",
+    "ambiguity": "The w is a superscript here (weak supermajorization). '[...]' marks the omitted part (i)."
+   }
+  ]
+ },
+ {
+  "claim": "theorem7i",
+  "a_orders": [
+   "st"
+  ],
+  "b_orders": [
+   "st"
+  ],
+  "a_dirs": [
+   "A_smaller"
+  ],
+  "b_dirs": [
+   "B_smaller"
+  ],
+  "a_records": [
+   {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 7(i)",
+    "page": 108,
+    "quote": "The following result considers the comparison of the lifetimes of two series systems in terms of the usual stochastic order when the shape parameters (\u03b1) of the distribution of component lifetimes of a system is weakly majorized by the shape parameters (\u03b1*) of the other system. Theorem 7. Let X_1, ..., X_n be a set of independent random variables with X_i \u223c GMW(\u03b1_i, \u03b3, \u03bb, \u03b2), i = 1, ..., n. Further, let X*_1, ..., X*_n be another set of independent random variables with X*_i \u223c GMW(\u03b1*_i, \u03b3, \u03bb, \u03b2), i = 1, ..., n. Then, (i) for (\u03b1_1, ..., \u03b1_n) \u2aaf_w (\u03b1*_1, ..., \u03b1*_n), we have X_{1:n} \u2265_st X*_{1:n} if \u03b2 \u2265 1; (ii) (\u03b1_1, ..., \u03b1_n) \u2aaf^w (\u03b1*_1, ..., \u03b1*_n), we have X_{1:n} \u2264_st X*_{1:n} if 0 < \u03b2 \u2264 1.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "GMW(\u03b1_i, \u03b3, \u03bb, \u03b2) (Eq. (1)); \u03b3, \u03bb, \u03b2 common; \u03b1_i heterogeneous",
+    "compared": "\u03b1 vs \u03b1*; \u03b3, \u03bb, \u03b2 identical on both sides",
+    "hypotheses": [
+     {
+      "text": "Let X_1, ..., X_n be a set of independent random variables with X_i \u223c GMW(\u03b1_i, \u03b3, \u03bb, \u03b2)",
+      "formal": "X_i independent with cdf (1 \u2212 exp(\u2212\u03b1_i x^\u03b3 e^{\u03bbx}))^\u03b2",
+      "source": "statement"
+     },
+     {
+      "text": "let X*_1, ..., X*_n be another set of independent random variables with X*_i \u223c GMW(\u03b1*_i, \u03b3, \u03bb, \u03b2)",
+      "formal": "X*_i independent with cdf (1 \u2212 exp(\u2212\u03b1*_i x^\u03b3 e^{\u03bbx}))^\u03b2",
+      "source": "statement"
+     },
+     {
+      "text": "for (\u03b1_1, ..., \u03b1_n) \u2aaf_w (\u03b1*_1, ..., \u03b1*_n)",
+      "formal": "weak submajorization: \u03a3_{i=j}^{n} \u03b1_(i) \u2264 \u03a3_{i=j}^{n} \u03b1*_(i) for all j",
+      "source": "statement; definition 2(i)"
+     },
+     {
+      "text": "if \u03b2 \u2265 1",
+      "formal": "\u03b2 \u2265 1",
+      "source": "statement"
+     },
+     {
+      "text": "\u03b1 > 0 is a scale parameter, and \u03b3 > 0",
+      "formal": "\u03b1_i, \u03b1*_i > 0, \u03b3 > 0; \u03bb range unstated",
+      "source": "definition Eq. (1)"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X*_{1:n} \u2264_st X_{1:n}"
+    },
+    "quantifiers": "any n; \u03b2 \u2265 1; \u03b3, \u03bb unrestricted in statement; order per Definition 1(i) for all x",
+    "numbers": "",
+    "ambiguity": "The lead-in calls \u03b1 'shape parameters' whereas Eq. (1) calls \u03b1 a scale parameter. Range of \u03bb not stated."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 7(i)",
+    "page": 8,
+    "quote": "Let X_1, . . . , X_n be a set of independent random variables with X_i \u223c GMW(\u03b1_i, \u03b3, \u03bb, \u03b2), i = 1, . . . , n. Further, let X_1^*, . . . , X_n^* be another set of independent random variables with X_i^* \u223c GMW(\u03b1_i^*, \u03b3, \u03bb, \u03b2), i = 1, . . . , n. Then, (i) for (\u03b1_1, . . . , \u03b1_n) \u2aaf_w (\u03b1_1^*, . . . , \u03b1_n^*), we have X_{1:n} \u2265_st X_{1:n}^* if \u03b2 \u2265 1;",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "GMW(\u03b1_i, \u03b3, \u03bb, \u03b2); \u03b3, \u03bb, \u03b2 common; \u03b1_i heterogeneous",
+    "compared": "\u03b1 vs \u03b1^*",
+    "hypotheses": [
+     {
+      "text": "independent random variables with X_i \u223c GMW(\u03b1_i, \u03b3, \u03bb, \u03b2) ... X_i^* \u223c GMW(\u03b1_i^*, \u03b3, \u03bb, \u03b2)",
+      "formal": "independence within each set; F_i(x) = (1 \u2212 exp(\u2212\u03b1_i x^\u03b3 e^{\u03bbx}))^\u03b2, F_i^*(x) = (1 \u2212 exp(\u2212\u03b1_i^* x^\u03b3 e^{\u03bbx}))^\u03b2",
+      "source": "statement"
+     },
+     {
+      "text": "(\u03b1_1, . . . , \u03b1_n) \u2aaf_w (\u03b1_1^*, . . . , \u03b1_n^*)",
+      "formal": "weak submajorization: \u03a3_{i=j}^{n} \u03b1_(i) \u2264 \u03a3_{i=j}^{n} \u03b1^*_(i), j = 1..n",
+      "source": "statement; definition 2(i)"
+     },
+     {
+      "text": "\u03b2 \u2265 1",
+      "formal": "\u03b2 \u2265 1",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X_{1:n}^* \u2264_st X_{1:n} (printed as X_{1:n} \u2265_st X_{1:n}^*)"
+    },
+    "quantifiers": "n unspecified; \u03b2 \u2265 1; \u03b3, \u03bb fixed; all x",
+    "numbers": "",
+    "ambiguity": "Subscript w (weak submajorization). The lead-in sentence calls \u03b1 'the shape parameters (\u03b1)', while Section 1 calls \u03b1 a scale parameter."
+   }
+  ]
+ }
+]

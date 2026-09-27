@@ -1,0 +1,472 @@
+[
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Corollary 3.13",
+  "page": 16,
+  "quote": "Corollary 3.13. For X ~ ES(\u03b1, \u03bb, \u03c61) and X* ~ ES(\u03b1*, \u03bb, \u03c62), if \u03c61 or \u03c62 is log-convex, and \u03c82 \u25e6 \u03c61 is super-additive, then \u03b1 \u227d^w_log \u03b1* implies Xn:n \u2264st Xn:n*.",
+  "kind": "corollary",
+  "model": "other: largest order statistic of a dependent sample with ES marginals and Archimedean copula",
+  "family": "ES(\u03b1, \u03bb, \u03c6): Archimedean copula generator \u03c6, ES marginals",
+  "compared": "exponent vectors \u03b1 vs \u03b1* (weakly log-majorized) and generators \u03c61 vs \u03c62; common \u03bb",
+  "hypotheses": [
+   {
+    "text": "X ~ ES(\u03b1, \u03bb, \u03c61) and X* ~ ES(\u03b1*, \u03bb, \u03c62)",
+    "formal": "dependent ES samples",
+    "source": "statement"
+   },
+   {
+    "text": "\u03c61 or \u03c62 is log-convex, and \u03c82 \u25e6 \u03c61 is super-additive",
+    "formal": "same copula conditions as Thm 3.12(i)",
+    "source": "statement"
+   },
+   {
+    "text": "\u03b1 \u227d^w_log \u03b1*",
+    "formal": "\u03b1 weakly log-majorized relation to \u03b1* (Definition 2.2(iv), symbol is \u227d with stacked w over log)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Xn:n \u2264_st Xn:n*"
+  },
+  "quantifiers": "n \u2265 1; x \u2265 0",
+  "numbers": "",
+  "ambiguity": "Preamble derives this from Theorem 3.12(i) via 'weak log-majorization implies weak submajorization', but Theorem 3.12(i) concludes Xn:n \u2265st Xn:n* while this corollary concludes \u2264st \u2014 the printed direction conflicts with the derivation; recorded verbatim. Symbol \u227d^w_log verified from rendered PDF page 16.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Corollary 3.14",
+  "page": 16,
+  "quote": "Corollary 3.14. For X ~ PRH(\u03b1, \u03c61) and X* ~ PRH(\u03b1*, \u03bb, \u03c62), if \u03c61 or \u03c62 is log-convex, and \u03c82 \u25e6 \u03c61 is super-additive, then \u03b1 \u227d^w_log \u03b1* implies Xn:n \u2264st Xn:n*.",
+  "kind": "corollary",
+  "model": "other: largest order statistic of PRH sample with Archimedean copula",
+  "family": "PRH(\u03b1, \u03c6): proportional reversed hazard model (\u03bb = 1 case of ES) with Archimedean copula",
+  "compared": "exponent vectors \u03b1 vs \u03b1* and generators \u03c61 vs \u03c62",
+  "hypotheses": [
+   {
+    "text": "X ~ PRH(\u03b1, \u03c61) and X* ~ PRH(\u03b1*, \u03bb, \u03c62)",
+    "formal": "PRH samples; note the X* side still prints a \u03bb argument although PRH is the \u03bb = 1 specialization",
+    "source": "statement"
+   },
+   {
+    "text": "\u03c61 or \u03c62 is log-convex, and \u03c82 \u25e6 \u03c61 is super-additive",
+    "formal": "copula conditions",
+    "source": "statement"
+   },
+   {
+    "text": "\u03b1 \u227d^w_log \u03b1*",
+    "formal": "weak log-majorization relation",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Xn:n \u2264_st Xn:n*"
+  },
+  "quantifiers": "n \u2265 1; x \u2265 0",
+  "numbers": "",
+  "ambiguity": "Obtained by setting \u03bb = 1 in Corollary 3.13, yet 'PRH(\u03b1*, \u03bb, \u03c62)' retains a \u03bb argument \u2014 minor notational inconsistency. Same \u2264st direction question as Corollary 3.13. PRH acronym not expanded in the paper (proportional reversed hazard, inferred from context).",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Corollary 3.2",
+  "page": 8,
+  "quote": "Corollary 3.2. Let X1, . . . , Xn (X1*, . . . , Xn*) be independent random variables where Xi ~ Fr\u00e8(\u00b5, \u03bbi, \u03b1) (Xi* ~ Fr\u00e8(\u00b5, \u03bbi*, \u03b1)), i = 1, . . . , n. If (1/\u03bb1, . . . , 1/\u03bbn) \u227d^w (1/\u03bb1*, . . . , 1/\u03bbn*) then Xn:n \u2265rh Xn:n*.",
+  "kind": "corollary",
+  "model": "parallel system",
+  "family": "Fr\u00e9chet Fr\u00e8(\u00b5, \u03bb, \u03b1)",
+  "compared": "scale vectors \u03bb vs \u03bb*; reciprocals weakly supermajorized",
+  "hypotheses": [
+   {
+    "text": "Xi ~ Fr\u00e8(\u00b5, \u03bbi, \u03b1) (Xi* ~ Fr\u00e8(\u00b5, \u03bbi*, \u03b1)), independent",
+    "formal": "Fr\u00e9chet components, common \u00b5, \u03b1",
+    "source": "statement"
+   },
+   {
+    "text": "(1/\u03bb1, . . . , 1/\u03bbn) \u227d^w (1/\u03bb1*, . . . , 1/\u03bbn*)",
+    "formal": "reciprocal scale vector of X weakly supermajorized by that of X*",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "rh",
+   "direction": "Xn:n \u2265_rh Xn:n*"
+  },
+  "quantifiers": "n \u2265 1; x > \u00b5",
+  "numbers": "",
+  "ambiguity": "Obtained from Theorem 3.1 with f(x) = 1/x; symbol \u227d^w verified from rendered PDF page 8.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Corollary 3.3(i)",
+  "page": 8,
+  "quote": "Corollary 3.3. Let X1, . . . , Xn (X1*, . . . , Xn*) be independent random variables where Xi ~ Fr\u00e8(\u00b5, \u03bbi, \u03b1) (Xi* ~ Fr\u00e8(\u00b5, \u03bbi*, \u03b1)), i = 1, . . . , n. (i) If \u03b1 \u2265 1, and (\u03bb1, . . . , \u03bbn) \u227d_w (\u03bb1*, . . . , \u03bbn*) then Xn:n \u2265rh Xn:n*.",
+  "kind": "corollary",
+  "model": "parallel system",
+  "family": "Fr\u00e9chet Fr\u00e8(\u00b5, \u03bb, \u03b1)",
+  "compared": "scale vectors \u03bb vs \u03bb*",
+  "hypotheses": [
+   {
+    "text": "Xi ~ Fr\u00e8(\u00b5, \u03bbi, \u03b1) (Xi* ~ Fr\u00e8(\u00b5, \u03bbi*, \u03b1)), independent",
+    "formal": "Fr\u00e9chet components",
+    "source": "statement"
+   },
+   {
+    "text": "\u03b1 \u2265 1",
+    "formal": "\u03b1 \u2265 1",
+    "source": "statement"
+   },
+   {
+    "text": "(\u03bb1, . . . , \u03bbn) \u227d_w (\u03bb1*, . . . , \u03bbn*)",
+    "formal": "\u03bb weakly submajorized by \u03bb*",
+    "source": "statement (definition 2.2(i))"
+   }
+  ],
+  "conclusion": {
+   "order": "rh",
+   "direction": "Xn:n \u2265_rh Xn:n*"
+  },
+  "quantifiers": "n \u2265 1; x > \u00b5",
+  "numbers": "",
+  "ambiguity": "From Theorem 3.1 with f(x) = x. Symbol \u227d_w verified from rendered PDF.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Corollary 3.3(ii)",
+  "page": 8,
+  "quote": "(ii) If 0 < \u03b1 \u2264 1 and (\u03bb1, . . . , \u03bbn) \u227d^w (\u03bb1*, . . . , \u03bbn*) then Xn:n \u2264rh Xn:n*.",
+  "kind": "corollary",
+  "model": "parallel system",
+  "family": "Fr\u00e9chet Fr\u00e8(\u00b5, \u03bb, \u03b1)",
+  "compared": "scale vectors \u03bb vs \u03bb*",
+  "hypotheses": [
+   {
+    "text": "Xi ~ Fr\u00e8(\u00b5, \u03bbi, \u03b1) (Xi* ~ Fr\u00e8(\u00b5, \u03bbi*, \u03b1)), independent",
+    "formal": "Fr\u00e9chet components",
+    "source": "statement (part preamble)"
+   },
+   {
+    "text": "0 < \u03b1 \u2264 1",
+    "formal": "0 < \u03b1 \u2264 1",
+    "source": "statement"
+   },
+   {
+    "text": "(\u03bb1, . . . , \u03bbn) \u227d^w (\u03bb1*, . . . , \u03bbn*)",
+    "formal": "\u03bb weakly supermajorized by \u03bb*",
+    "source": "statement (definition 2.2(ii))"
+   }
+  ],
+  "conclusion": {
+   "order": "rh",
+   "direction": "Xn:n \u2264_rh Xn:n*"
+  },
+  "quantifiers": "n \u2265 1; x > \u00b5",
+  "numbers": "",
+  "ambiguity": "Symbol \u227d^w verified from rendered PDF.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Corollary 3.8",
+  "page": 12,
+  "quote": "Corollary 3.8. For i = 1, . . . , n, let Xi and Xi* be two sets of mutually independent random variables with Xi ~ GE(\u03b1i, \u03bb) and Xi* ~ GE(\u03b1i*, \u03bb). Then, for any \u03bb > 0, we have \u03b1 \u227d^w \u03b1* \u27f9 X1:n \u2264hr X1:n*.",
+  "kind": "corollary",
+  "model": "series system",
+  "family": "Generalized exponential GE(\u03b1, \u03bb): G(x) = (1 \u2212 exp{\u2212\u03bbx})^\u03b1, x > 0, \u03b1 > 0 shape, \u03bb > 0 scale",
+  "compared": "shape vectors \u03b1 vs \u03b1*, common scale \u03bb",
+  "hypotheses": [
+   {
+    "text": "Xi ~ GE(\u03b1i, \u03bb) and Xi* ~ GE(\u03b1i*, \u03bb), mutually independent",
+    "formal": "GE components varying in \u03b1",
+    "source": "statement"
+   },
+   {
+    "text": "\u03b1 \u227d^w \u03b1*",
+    "formal": "\u03b1 weakly supermajorized by \u03b1*",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "X1:n \u2264_hr X1:n*"
+  },
+  "quantifiers": "n \u2265 1; any \u03bb > 0; x > 0",
+  "numbers": "",
+  "ambiguity": "GE is the ES family member with baseline G(x) = 1 \u2212 e^(\u2212x).",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Example 3.11(ii)",
+  "page": 13,
+  "quote": "(ii) Set \u03b1 = 0.6. For (\u03bb1, \u03bb2) = (1, 5.5) \u227d^p (2, 3) = (\u03bb1*, \u03bb2*), X1:2 \u2264st X1:2*; however, for (\u03bb1, \u03bb2) = (1, 2.25) \u227d^p (1.1, 2.14) = (\u03bb1*, \u03bb2*), X1:2 \u2265st X1:2*. So, (\u03bb1, \u03bb2) \u227d^p (\u03bb1*, \u03bb2*) implies neither X1:2 \u2264st X1:2* nor X1:2 \u2265st X1:2* for 0 < \u03b1 \u2264 1.",
+  "kind": "counterexample",
+  "model": "series system",
+  "family": "Generalized exponential GE(\u03b1, \u03bb), n = 2",
+  "compared": "\u03bb = (1, 5.5) vs \u03bb* = (2, 3) giving \u2264st; \u03bb = (1, 2.25) vs \u03bb* = (1.1, 2.14) giving \u2265st; common \u03b1 = 0.6",
+  "hypotheses": [
+   {
+    "text": "Set \u03b1 = 0.6",
+    "formal": "\u03b1 = 0.6",
+    "source": "statement"
+   },
+   {
+    "text": "(\u03bb1, \u03bb2) \u227d^p (\u03bb1*, \u03bb2*)",
+    "formal": "\u03bb p-larger than \u03bb* (Definition 2.2(v))",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "p-larger ordering of scales implies neither X1:2 \u2264st X1:2* nor X1:2 \u2265st X1:2* for 0 < \u03b1 \u2264 1 (both directions occur)"
+  },
+  "quantifiers": "n = 2",
+  "numbers": "\u03b1 = 0.6; (\u03bb1,\u03bb2) = (1,5.5) \u227d^p (2,3) gives X1:2 \u2264st X1:2*; (\u03bb1,\u03bb2) = (1,2.25) \u227d^p (1.1,2.14) gives X1:2 \u2265st X1:2*",
+  "ambiguity": "Counterexample to extending Corollary 3.10's second branch to the p-larger order for 0 < \u03b1 \u2264 1.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Theorem 3.12(i)",
+  "page": 14,
+  "quote": "Theorem 3.12. For X ~ ES(\u03b1, \u03bb, \u03c61) and X* ~ ES(\u03b1*, \u03bb, \u03c62), (i) if \u03c61 or \u03c62 is log-convex, and \u03c82 \u25e6 \u03c61 is super-additive, then \u03b1 \u227d_w \u03b1* implies Xn:n \u2265st Xn:n*;",
+  "kind": "theorem",
+  "model": "other: largest order statistic of a dependent sample with ES marginals and Archimedean copula",
+  "family": "ES(\u03b1, \u03bb, \u03c6): sample with Archimedean copula generator \u03c6, marginals Xi ~ ES(\u03b1i, \u03bbi); \u03c8 = \u03c6^-1 pseudo-inverse",
+  "compared": "exponent vectors \u03b1 vs \u03b1* and copula generators \u03c61 vs \u03c62; common \u03bb",
+  "hypotheses": [
+   {
+    "text": "X ~ ES(\u03b1, \u03bb, \u03c61) and X* ~ ES(\u03b1*, \u03bb, \u03c62)",
+    "formal": "two heterogeneous samples with ES marginals and Archimedean copulas",
+    "source": "statement"
+   },
+   {
+    "text": "\u03c61 or \u03c62 is log-convex",
+    "formal": "log \u03c61 or log \u03c62 convex",
+    "source": "statement"
+   },
+   {
+    "text": "\u03c82 \u25e6 \u03c61 is super-additive",
+    "formal": "\u03c82(\u03c61(a+b)) \u2265 \u03c82(\u03c61(a)) + \u03c82(\u03c61(b))",
+    "source": "statement"
+   },
+   {
+    "text": "\u03b1 \u227d_w \u03b1*",
+    "formal": "\u03b1 weakly submajorized by \u03b1*",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Xn:n \u2265_st Xn:n*"
+  },
+  "quantifiers": "n \u2265 1; x \u2265 0",
+  "numbers": "",
+  "ambiguity": "Subscript w in \u227d_w verified from rendered PDF page 14.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Theorem 3.12(ii)",
+  "page": 14,
+  "quote": "(ii) if \u03c61 or \u03c62 is log-concave, and \u03c81 \u25e6 \u03c62 is super-additive, then \u03b1 \u227d^w \u03b1* implies Xn:n \u2264st Xn:n*.",
+  "kind": "theorem",
+  "model": "other: largest order statistic of a dependent sample with ES marginals and Archimedean copula",
+  "family": "ES(\u03b1, \u03bb, \u03c6): Archimedean copula generator \u03c6, ES marginals",
+  "compared": "exponent vectors \u03b1 vs \u03b1* and copula generators \u03c61 vs \u03c62; common \u03bb",
+  "hypotheses": [
+   {
+    "text": "X ~ ES(\u03b1, \u03bb, \u03c61) and X* ~ ES(\u03b1*, \u03bb, \u03c62)",
+    "formal": "dependent ES samples",
+    "source": "statement (part preamble)"
+   },
+   {
+    "text": "\u03c61 or \u03c62 is log-concave",
+    "formal": "log \u03c61 or log \u03c62 concave",
+    "source": "statement"
+   },
+   {
+    "text": "\u03c81 \u25e6 \u03c62 is super-additive",
+    "formal": "\u03c81\u2218\u03c62 super-additive",
+    "source": "statement"
+   },
+   {
+    "text": "\u03b1 \u227d^w \u03b1*",
+    "formal": "\u03b1 weakly supermajorized by \u03b1*",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Xn:n \u2264_st Xn:n*"
+  },
+  "quantifiers": "n \u2265 1; x \u2265 0",
+  "numbers": "",
+  "ambiguity": "Superscript w in \u227d^w verified from rendered PDF.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Theorem 3.4",
+  "page": 8,
+  "quote": "Theorem 3.4. Let X1, . . . , Xn (X1*, . . . , Xn*) be independent random variables where Xi ~ Fr\u00e8(\u00b5i, \u03bb, \u03b1) (Xi* ~ Fr\u00e8(\u00b5i*, \u03bb, \u03b1)), i = 1, . . . , n. If (\u00b51, . . . , \u00b5n) \u227d_w (\u00b51*, . . . , \u00b5n*), then Xn:n \u2265rh Xn:n*.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "Fr\u00e9chet Fr\u00e8(\u00b5, \u03bb, \u03b1)",
+  "compared": "location parameter vectors \u00b5 vs \u00b5*, common scale \u03bb and shape \u03b1",
+  "hypotheses": [
+   {
+    "text": "Xi ~ Fr\u00e8(\u00b5i, \u03bb, \u03b1) (Xi* ~ Fr\u00e8(\u00b5i*, \u03bb, \u03b1)), independent",
+    "formal": "Fr\u00e9chet components varying in location only",
+    "source": "statement"
+   },
+   {
+    "text": "(\u00b51, . . . , \u00b5n) \u227d_w (\u00b51*, . . . , \u00b5n*)",
+    "formal": "\u00b5 weakly submajorized by \u00b5*",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "rh",
+   "direction": "Xn:n \u2265_rh Xn:n*"
+  },
+  "quantifiers": "n \u2265 1; x > max(\u00b51,...,\u00b5n)",
+  "numbers": "",
+  "ambiguity": "Preamble notes the same holds under weak f-submajorization for increasing concave f of location parameters (via Lemma 2.2(ii)).",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Theorem 3.6",
+  "page": 10,
+  "quote": "Theorem 3.6. Let X1, . . . , Xn be a set of independent nonnegative random variables with Xi ~ G(\u03bbi x), i = 1, . . . , n. Let X1*, . . . , Xn* be another set of independent nonnegative random variables with Xi* ~ G(\u03bbi* x), i = 1, . . . , n. If (f^-1)'(y) r\u0303(f^-1(y)) is decreasing in y, where f is a strictly increasing function, then (\u03bb1, . . . , \u03bbn) \u227d^wf (\u03bb1*, . . . , \u03bbn*) \u27f9 Xn:n \u2265st Xn:n*.  (3.1)",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "Scale family Xi ~ G(\u03bbi x), G absolutely continuous baseline with density g, reversed hazard rate r\u0303",
+  "compared": "scale parameter vectors \u03bb vs \u03bb*",
+  "hypotheses": [
+   {
+    "text": "Xi ~ G(\u03bbi x), Xi* ~ G(\u03bbi* x), independent nonnegative",
+    "formal": "scale model",
+    "source": "statement"
+   },
+   {
+    "text": "(f^-1)'(y) r\u0303(f^-1(y)) is decreasing in y",
+    "formal": "y \u21a6 (f\u207b\u00b9)'(y)\u00b7r\u0303(f\u207b\u00b9(y)) decreasing",
+    "source": "statement"
+   },
+   {
+    "text": "f is a strictly increasing function",
+    "formal": "f strictly increasing",
+    "source": "statement"
+   },
+   {
+    "text": "(\u03bb1, . . . , \u03bbn) \u227d^wf (\u03bb1*, . . . , \u03bbn*)",
+    "formal": "\u03bb weakly f-supermajorized by \u03bb*",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Xn:n \u2265_st Xn:n*"
+  },
+  "quantifiers": "n \u2265 1; x \u2265 0",
+  "numbers": "",
+  "ambiguity": "\u227d^wf verified from rendered PDF page 10.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Theorem 3.7",
+  "page": 11,
+  "quote": "Theorem 3.7. Let X1, . . . , Xn (X1*, . . . , Xn*) be independent random variables with Xi ~ ES(\u03b1i, \u03bb) (Xi* ~ ES(\u03b1i*, \u03bb)), i = 1, ..., n. Then, for any \u03bb > 0, we have \u03b1 \u227d^w \u03b1* \u27f9 X1:n \u2264hr X1:n*.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Exponentiated scale ES(\u03b1, \u03bb): H(x) = [G(\u03bbx)]^\u03b1, \u03b1, \u03bb > 0, G baseline distribution",
+  "compared": "shape/exponent vectors \u03b1 vs \u03b1*, common scale \u03bb",
+  "hypotheses": [
+   {
+    "text": "Xi ~ ES(\u03b1i, \u03bb) (Xi* ~ ES(\u03b1i*, \u03bb)), independent",
+    "formal": "ES components varying in \u03b1 only",
+    "source": "statement"
+   },
+   {
+    "text": "\u03b1 \u227d^w \u03b1*",
+    "formal": "\u03b1 weakly supermajorized by \u03b1*",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "X1:n \u2264_hr X1:n*"
+  },
+  "quantifiers": "n \u2265 1; any \u03bb > 0; x > 0",
+  "numbers": "",
+  "ambiguity": "\u227d^w (weak supermajorization) verified from rendered PDF page 11. Section preamble notes result also true under weak f-supermajorization for nonnegative strictly increasing convex f (Lemma 2.2).",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Example 3.11(i)",
+  "page": 13,
+  "quote": "Example 3.11. Let (X1, X2) ((X1*, X2*)) be a vector of independent heterogeneous GE random variables. (i) Set \u03b1 = 2, (\u03bb1, \u03bb2) = (4, 0.5) and (\u03bb1*, \u03bb2*) = (2, 3). Obviously (\u03bb1, \u03bb2) \u227d^w_exp (\u03bb1*, \u03bb2*), however X1:2 and X1:2* are not ordered in the usual stochastic order as can be seen in Fig. 1.",
+  "kind": "counterexample",
+  "model": "series system",
+  "family": "Generalized exponential GE(\u03b1, \u03bb), n = 2",
+  "compared": "\u03bb = (4, 0.5) vs \u03bb* = (2, 3), common \u03b1 = 2",
+  "hypotheses": [
+   {
+    "text": "Set \u03b1 = 2, (\u03bb1, \u03bb2) = (4, 0.5) and (\u03bb1*, \u03bb2*) = (2, 3)",
+    "formal": "GE(2, \u03bbi) vs GE(2, \u03bbi*)",
+    "source": "statement"
+   },
+   {
+    "text": "(\u03bb1, \u03bb2) \u227d^w_exp (\u03bb1*, \u03bb2*)",
+    "formal": "\u03bb weakly exp-majorized by \u03bb* (Definition 2.4)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X1:2 and X1:2* not ordered in usual stochastic order (survival functions cross, Fig. 1)"
+  },
+  "quantifiers": "n = 2",
+  "numbers": "\u03b1 = 2; (\u03bb1, \u03bb2) = (4, 0.5); (\u03bb1*, \u03bb2*) = (2, 3); Figure 1 plots survival functions crossing on x \u2208 (0, 2.5)",
+  "ambiguity": "Labeled 'Example' but functions as a counterexample to the conjecture that weak (exp-) majorization of scales gives st order for \u03b1 \u2265 1. exp-majorization symbol \u227d^w_exp verified from rendered PDF.",
+  "adjudication": "example record (pass a)+b"
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Example 3.11(ii)",
+  "page": 13,
+  "quote": "(ii) Set \u03b1 = 0.6. For (\u03bb1, \u03bb2) = (1, 5.5) \u227d^p (2, 3) = (\u03bb1*, \u03bb2*), X1:2 \u2264st X1:2*; however, for (\u03bb1, \u03bb2) = (1, 2.25) \u227d^p (1.1, 2.14) = (\u03bb1*, \u03bb2*), X1:2 \u2265st X1:2*. So, (\u03bb1, \u03bb2) \u227d^p (\u03bb1*, \u03bb2*) implies neither X1:2 \u2264st X1:2* nor X1:2 \u2265st X1:2* for 0 < \u03b1 \u2264 1.",
+  "kind": "counterexample",
+  "model": "series system",
+  "family": "Generalized exponential GE(\u03b1, \u03bb), n = 2",
+  "compared": "\u03bb = (1, 5.5) vs \u03bb* = (2, 3) giving \u2264st; \u03bb = (1, 2.25) vs \u03bb* = (1.1, 2.14) giving \u2265st; common \u03b1 = 0.6",
+  "hypotheses": [
+   {
+    "text": "Set \u03b1 = 0.6",
+    "formal": "\u03b1 = 0.6",
+    "source": "statement"
+   },
+   {
+    "text": "(\u03bb1, \u03bb2) \u227d^p (\u03bb1*, \u03bb2*)",
+    "formal": "\u03bb p-larger than \u03bb* (Definition 2.2(v))",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "p-larger ordering of scales implies neither X1:2 \u2264st X1:2* nor X1:2 \u2265st X1:2* for 0 < \u03b1 \u2264 1 (both directions occur)"
+  },
+  "quantifiers": "n = 2",
+  "numbers": "\u03b1 = 0.6; (\u03bb1,\u03bb2) = (1,5.5) \u227d^p (2,3) gives X1:2 \u2264st X1:2*; (\u03bb1,\u03bb2) = (1,2.25) \u227d^p (1.1,2.14) gives X1:2 \u2265st X1:2*",
+  "ambiguity": "Counterexample to extending Corollary 3.10's second branch to the p-larger order for 0 < \u03b1 \u2264 1.",
+  "adjudication": "example record (pass a)+b"
+ }
+]

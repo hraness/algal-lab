@@ -1,0 +1,427 @@
+[
+ {
+  "paper": "doi:10.1080/02331888.2017.1353516",
+  "claim": "Counterexample 3.1",
+  "page": 7,
+  "quote": "Counterexample 3.1 Let Ui \u223cKw-G(\u03b1i , \u03b2i , F ) and Vi \u223c Kw-G(\u03b3i , \u03b2i , F ) , i = 1, 2, 3. Now, for (\u03b11 , \u03b12 , \u03b13 ) = (6.2, 4.1, 2) \u2208 D+ and (\u03b31 , \u03b32 , \u03b33 ) = (5.2, 5.1, 2) \u2208 D+ , it is clear that \u03b1 \u2ab0m \u03b3. Now, if (\u03b21 , \u03b22 , \u03b23 ) = (1, 2, 3) \u2208 E+ is taken, then from Figure 3.1 it can be concluded that g1:3 (x)/h1:3 (x) is not monotone where g1:3 and h1:3 are the pdf 's of the random variables U1:3 and V1:3 respectively.",
+  "kind": "counterexample",
+  "model": "order statistic",
+  "family": "Kw-G(\u03b1i, \u03b2i, F), common parent F (unspecified)",
+  "compared": "\u03b1 = (6.2,4.1,2) vs \u03b3 = (5.2,5.1,2), \u03b1 majorizes \u03b3; common \u03b2 = (1,2,3)",
+  "hypotheses": [
+   {
+    "text": "\u03b1 \u2ab0m \u03b3",
+    "formal": "\u03b1 majorizes \u03b3 (superscript m in PDF)",
+    "source": "statement"
+   },
+   {
+    "text": "(\u03b11 , \u03b12 , \u03b13 ) = (6.2, 4.1, 2) \u2208 D+ , (\u03b31 , \u03b32 , \u03b33 ) = (5.2, 5.1, 2) \u2208 D+ , (\u03b21 , \u03b22 , \u03b23 ) = (1, 2, 3) \u2208 E+",
+    "formal": "parameter assignment satisfying Theorem 3.1's hypotheses",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "refuted: g1:3(x)/h1:3(x) is not monotone (Figure 3.1), so no lr ordering between U1:3 and V1:3"
+  },
+  "quantifiers": "n = 3 (claim made for n >= 3)",
+  "numbers": "\u03b1 = (6.2,4.1,2); \u03b3 = (5.2,5.1,2); \u03b2 = (1,2,3); Figure 3.1 shows g1:3(x)/h1:3(x) non-monotone on (0,1)",
+  "ambiguity": "Shows Theorem 3.1's hr ordering cannot be extended to lr ordering for n >= 3.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.1080/02331888.2017.1353516",
+  "claim": "Counterexample 3.2",
+  "page": 7,
+  "quote": "Counterexample 3.2 Let Ui \u223cKw-G(\u03b1i , \u03b2i , F ) and Vi \u223cKw-G(\u03b1i , \u03b4i , F ) , i = 1, 2, 3. Now, for (\u03b11 , \u03b12 , \u03b13 ) = (5, 1, 0.01) \u2208 D+ , (\u03b21 , \u03b22 , \u03b23 ) = (0.005, 0.004, 0.001) \u2208 D+ and (\u03b41 , \u03b42 , \u03b43 ) = (0.0045, 0.0045, 0.001) \u2208 D+ , it is clear that \u03b2 \u2ab0m \u03b4. But, Figure 3.2 (i) shows that g1:3 (x)/h1:3 (x) is not monotone. Again, for same \u03b1, if (\u03b21 , \u03b22 , \u03b23 ) = (0.003, 0.004, 0.005) \u2208 E+ and (\u03b41 , \u03b42 , \u03b43 ) = (0.0035, 0.0035, 0.005) \u2208 E+ are taken, then it can noticed that although \u03b2 \u2ab0m \u03b4, g1:3 (x)/h1:3 (x) is non-monotone as evident from Figure 3.2 (ii).",
+  "kind": "counterexample",
+  "model": "order statistic",
+  "family": "Kw-G(\u03b1i, \u03b2i, F), common parent F",
+  "compared": "\u03b2 vs \u03b4 (two sub-cases: both in D+, and both in E+); common \u03b1 = (5,1,0.01)",
+  "hypotheses": [
+   {
+    "text": "\u03b2 \u2ab0m \u03b4",
+    "formal": "\u03b2 majorizes \u03b4",
+    "source": "statement"
+   },
+   {
+    "text": "case (i): \u03b1 = (5,1,0.01) \u2208 D+, \u03b2 = (0.005,0.004,0.001) \u2208 D+, \u03b4 = (0.0045,0.0045,0.001) \u2208 D+; case (ii): \u03b2 = (0.003,0.004,0.005) \u2208 E+, \u03b4 = (0.0035,0.0035,0.005) \u2208 E+",
+    "formal": "parameter assignments satisfying Theorem 3.2(ii) and 3.2(i) hypotheses respectively",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "refuted: g1:3(x)/h1:3(x) non-monotone in both cases (Figure 3.2 (i),(ii)), so Theorem 3.2's hr ordering does not extend to lr"
+  },
+  "quantifiers": "n = 3 (claim for n >= 3)",
+  "numbers": "\u03b1 = (5,1,0.01); D+ case: \u03b2 = (0.005,0.004,0.001), \u03b4 = (0.0045,0.0045,0.001); E+ case: \u03b2 = (0.003,0.004,0.005), \u03b4 = (0.0035,0.0035,0.005)",
+  "ambiguity": "",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.1080/02331888.2017.1353516",
+  "claim": "Counterexample 4.1",
+  "page": 12,
+  "quote": "Counterexample 4.1 Let X1 and X2 be two random variables having distribution functions F1 (x) = 1\u2212e\u22123x^4.4 and F2 (x) = 1\u2212e\u22120.2x^0.4 respectively. Now figure 4.1 (i) shows that although X1s \u2264hr X2s for s = 0.02, figure 4.1 (ii) shows that there exists no hr ordering between X1s and X2s for s = 1.98. Again, it can be shown that the same can be concluded for s = 0.01 and 1.99 respectively. Again, if \u03b1 = (1.99, 0.01) \u2208 D+ , \u03b3 = (1.98, 0.02) \u2208 D+ , \u03b2 = (1, 2) \u2208 E+ are taken, then Figure 4.2 shows that U1:n \u2264hr V1:n . It is to be mentioned here that while plotting the curve the substitution x = \u2212 ln y has been used.",
+  "kind": "counterexample",
+  "model": "order statistic",
+  "family": "Kw-G with Weibull-type parents F1(x) = 1 \u2212 e^{\u22123x^{4.4}}, F2(x) = 1 \u2212 e^{\u22120.2x^{0.4}}",
+  "compared": "parents F1 vs F2 (hr ordering of powers holds for s = 0.02, 0.01 but fails for s = 1.98, 1.99); \u03b1 = (1.99,0.01) vs \u03b3 = (1.98,0.02); common \u03b2 = (1,2)",
+  "hypotheses": [
+   {
+    "text": "\u03b1 = (1.99, 0.01) \u2208 D+ , \u03b3 = (1.98, 0.02) \u2208 D+ , \u03b2 = (1, 2) \u2208 E+",
+    "formal": "parameters satisfying Theorem 4.3's remaining conditions (\u03b1 majorizes \u03b3 for n = 2: totals 2.00 = 2.00, top component 1.99 > 1.98)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "U1:n <=hr V1:n still holds (Figure 4.2) even though the condition 'for all s > 0, X1s <=hr X2s' fails \u2014 showing that condition is sufficient but not necessary"
+  },
+  "quantifiers": "n = 2 (\u03b1,\u03b3 are 2-vectors); s \u2208 {0.01, 0.02, 1.98, 1.99} checked",
+  "numbers": "F1(x) = 1 \u2212 e^{\u22123x^{4.4}}; F2(x) = 1 \u2212 e^{\u22120.2x^{0.4}}; s = 0.02 (hr holds), 1.98 (hr fails), 0.01 (holds), 1.99 (fails); \u03b1 = (1.99,0.01); \u03b3 = (1.98,0.02); \u03b2 = (1,2); substitution x = \u2212ln y used for plotting",
+  "ambiguity": "Not a refutation of the theorem \u2014 demonstrates the 'for all s > 0' hypothesis of Theorem 4.3 is only sufficient, since U1:n <=hr V1:n still holds.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.1080/02331888.2017.1353516",
+  "claim": "Theorem 3.1",
+  "page": 5,
+  "quote": "Theorem 3.1 For i = 1, 2, . . . , n, let Ui and Vi be two sets of mutually independent random variables with Ui \u223c Kw-G(\u03b1i , \u03b2i , F ) and Vi \u223c Kw-G(\u03b3i , \u03b2i , F ). Further, suppose that \u03b1, \u03b3 \u2208 D+ and \u03b2 \u2208 E+ . Then, \u03b1 \u2ab0w \u03b3 implies X1:n \u2264hr Y1:n .",
+  "kind": "theorem",
+  "model": "order statistic",
+  "family": "Kw-G(\u03b1, \u03b2, F): G(x) = 1 \u2212 (1 \u2212 F \u03b1 (x))\u03b2, \u03b1 > 0, \u03b2 > 0, common parent cdf F; smallest order statistic U1:n (series system)",
+  "compared": "shape vectors \u03b1 vs \u03b3; common \u03b2 vector and common parent F",
+  "hypotheses": [
+   {
+    "text": "Ui \u223c Kw-G(\u03b1i , \u03b2i , F ) and Vi \u223c Kw-G(\u03b3i , \u03b2i , F )",
+    "formal": "independent Ui ~ Kw-G(\u03b1i,\u03b2i,F), Vi ~ Kw-G(\u03b3i,\u03b2i,F)",
+    "source": "statement"
+   },
+   {
+    "text": "\u03b1, \u03b3 \u2208 D+ and \u03b2 \u2208 E+",
+    "formal": "\u03b1, \u03b3 nonincreasing positive; \u03b2 nondecreasing positive (Notation 2.1)",
+    "source": "statement"
+   },
+   {
+    "text": "\u03b1 \u2ab0w \u03b3",
+    "formal": "\u03b1 weakly supermajorizes \u03b3: \u03a3_{i<=j} \u03b1_(i) <= \u03a3 \u03b3_(i) for all j (Definition 2.1(ii), superscript w)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "U1:n <=hr V1:n (printed as X1:n <=hr Y1:n)"
+  },
+  "quantifiers": "n >= 1; all x >= 0",
+  "numbers": "",
+  "ambiguity": "Conclusion printed with generic names 'X1:n \u2264hr Y1:n' although the setup defines U1:n and V1:n; the paper's own erratum/corrigendum may rename. Superscript-w symbol confirmed from the rendered PDF (Definition 2.1(ii) weak supermajorization).",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.1080/02331888.2017.1353516",
+  "claim": "Theorem 3.2(i)",
+  "page": 6,
+  "quote": "Theorem 3.2 For i = 1, 2, . . . , n, let Ui and Vi be two sets of mutually independent random variables with Ui \u223c Kw-G(\u03b1i , \u03b2i , F ) and Vi \u223cKw-G(\u03b1i , \u03b4i , F ). If \u03b2 \u2ab0m \u03b4 and i) \u03b2, \u03b4 \u2208 E+ and \u03b1 \u2208 D+ , then U1:n \u2264hr V1:n ;",
+  "kind": "theorem",
+  "model": "order statistic",
+  "family": "Kw-G(\u03b1, \u03b2, F), common parent F",
+  "compared": "shape vectors \u03b2 vs \u03b4; common \u03b1 vector and common parent F",
+  "hypotheses": [
+   {
+    "text": "Ui \u223c Kw-G(\u03b1i , \u03b2i , F ) and Vi \u223cKw-G(\u03b1i , \u03b4i , F )",
+    "formal": "common \u03b1 vector",
+    "source": "statement"
+   },
+   {
+    "text": "\u03b2 \u2ab0m \u03b4",
+    "formal": "\u03b2 majorizes \u03b4 (Definition 2.1(i), superscript m)",
+    "source": "statement"
+   },
+   {
+    "text": "\u03b2, \u03b4 \u2208 E+ and \u03b1 \u2208 D+",
+    "formal": "\u03b2, \u03b4 nondecreasing; \u03b1 nonincreasing",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "U1:n <=hr V1:n"
+  },
+  "quantifiers": "n >= 1; all x >= 0",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.1080/02331888.2017.1353516",
+  "claim": "Theorem 3.2(ii)",
+  "page": 6,
+  "quote": "ii) \u03b2, \u03b4 \u2208 D+ and \u03b1 \u2208 D+ , then U1:n \u2265hr V1:n .",
+  "kind": "theorem",
+  "model": "order statistic",
+  "family": "Kw-G(\u03b1, \u03b2, F), common parent F",
+  "compared": "shape vectors \u03b2 vs \u03b4; common \u03b1 vector",
+  "hypotheses": [
+   {
+    "text": "(shared) \u03b2 \u2ab0m \u03b4",
+    "formal": "\u03b2 majorizes \u03b4",
+    "source": "statement"
+   },
+   {
+    "text": "\u03b2, \u03b4 \u2208 D+ and \u03b1 \u2208 D+",
+    "formal": "both vectors nonincreasing",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "U1:n >=hr V1:n"
+  },
+  "quantifiers": "n >= 1; all x >= 0",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.1080/02331888.2017.1353516",
+  "claim": "Theorem 3.3(i)",
+  "page": 6,
+  "quote": "Theorem 3.3 For i = 1, 2, . . . , n, let Ui and Vi be two sets of mutually independent random variables with Ui \u223c Kw-G(\u03b1i , \u03b2i , F ) and Vi \u223c Kw-G(\u03b1i , \u03b4i , F ). i) If \u03b2 \u2ab0w \u03b4, \u03b2, \u03b4 \u2208 E+ and \u03b1 \u2208 D+ , then U1:n \u2264hr V1:n ;",
+  "kind": "theorem",
+  "model": "order statistic",
+  "family": "Kw-G(\u03b1, \u03b2, F), common parent F",
+  "compared": "shape vectors \u03b2 vs \u03b4; common \u03b1 vector",
+  "hypotheses": [
+   {
+    "text": "If \u03b2 \u2ab0w \u03b4",
+    "formal": "\u03b2 weakly submajorizes \u03b4 (subscript w per rendered PDF: \u03a3_{i>=j} \u03b2_(i) >= \u03a3 \u03b4_(i))",
+    "source": "statement"
+   },
+   {
+    "text": "\u03b2, \u03b4 \u2208 E+ and \u03b1 \u2208 D+",
+    "formal": "\u03b2, \u03b4 nondecreasing; \u03b1 nonincreasing",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "U1:n <=hr V1:n"
+  },
+  "quantifiers": "n >= 1; all x >= 0",
+  "numbers": "",
+  "ambiguity": "Subscript w (weak submajorization, Definition 2.1(iii)) on '\u03b2 \u2ab0w \u03b4' confirmed from rendered page.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.1080/02331888.2017.1353516",
+  "claim": "Theorem 3.3(ii)",
+  "page": 6,
+  "quote": "ii) If \u03b2 \u2ab0w \u03b4, \u03b2, \u03b4 \u2208 D+ and \u03b1 \u2208 D+ , then U1:n \u2265hr V1:n .",
+  "kind": "theorem",
+  "model": "order statistic",
+  "family": "Kw-G(\u03b1, \u03b2, F), common parent F",
+  "compared": "shape vectors \u03b2 vs \u03b4; common \u03b1 vector",
+  "hypotheses": [
+   {
+    "text": "If \u03b2 \u2ab0w \u03b4",
+    "formal": "\u03b2 weakly supermajorizes \u03b4 (superscript w per rendered PDF: \u03a3_{i<=j} \u03b2_(i) <= \u03a3 \u03b4_(i))",
+    "source": "statement"
+   },
+   {
+    "text": "\u03b2, \u03b4 \u2208 D+ and \u03b1 \u2208 D+",
+    "formal": "both vectors nonincreasing",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "U1:n >=hr V1:n"
+  },
+  "quantifiers": "n >= 1; all x >= 0",
+  "numbers": "",
+  "ambiguity": "Superscript w (weak supermajorization, Definition 2.1(ii)) on '\u03b2 \u2ab0w \u03b4' in part (ii) \u2014 distinct from the subscript w of part (i); confirmed from rendered page.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.1080/02331888.2017.1353516",
+  "claim": "Theorem 3.4",
+  "page": 7,
+  "quote": "Theorem 3.4 For i = 1, 2, ..., n, let Ui and Vi be two sets of mutually independent random variables each following multiple-outlier Kw-G model such that Ui \u223cKw-G(\u03b1, \u03b2, F ) and Vi \u223c Kw-G(\u03b3, \u03b2, F ) for i = 1, 2, . . . , n1 , Ui \u223c Kw-G(\u03b1\u2217 , \u03b2 \u2217 , F ) and Vi \u223c Kw-G(\u03b3 \u2217 , \u03b2 \u2217 , F ) for i = n1 + 1, n1 + 2, . . . , n1 + n2 (= n). If \u03b1 > \u03b1\u2217 , \u03b3 > \u03b3 \u2217 and \u03b2 < \u03b2 \u2217 , and if (\u03b1, \u03b1, . . . , \u03b1, \u03b1\u2217 , \u03b1\u2217 , . . . , \u03b1\u2217 ) [n1 | n2] \u2ab0m (\u03b3, \u03b3, . . . , \u03b3, \u03b3 \u2217 , \u03b3 \u2217 , . . . , \u03b3 \u2217 ) [n1 | n2], then U1:n \u2264lr V1:n",
+  "kind": "theorem",
+  "model": "order statistic",
+  "family": "Kw-G multiple-outlier model: n1 copies of Kw-G(\u03b1,\u03b2,F) [resp. Kw-G(\u03b3,\u03b2,F)] plus n2 copies of Kw-G(\u03b1*,\u03b2*,F) [resp. Kw-G(\u03b3*,\u03b2*,F)]",
+  "compared": "scalar parameters \u03b1 vs \u03b3 and \u03b1* vs \u03b3* across the outlier blocks; \u03b2 < \u03b2* common arrangement",
+  "hypotheses": [
+   {
+    "text": "If \u03b1 > \u03b1\u2217 , \u03b3 > \u03b3 \u2217 and \u03b2 < \u03b2 \u2217",
+    "formal": "\u03b1 > \u03b1*, \u03b3 > \u03b3*, \u03b2 < \u03b2*",
+    "source": "statement"
+   },
+   {
+    "text": "(\u03b1 repeated n1, \u03b1\u2217 repeated n2) \u2ab0m (\u03b3 repeated n1, \u03b3 \u2217 repeated n2)",
+    "formal": "the n-vector (\u03b1...\u03b1*...) majorizes (\u03b3...\u03b3*...)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "U1:n <=lr V1:n"
+  },
+  "quantifiers": "n = n1 + n2, n1, n2 >= 1; all x >= 0",
+  "numbers": "",
+  "ambiguity": "Remark 3.1 notes the multiple-outlier model reduces to n=2-like behavior, giving lr ordering for all n despite Counterexamples 3.1-3.2. Note the statements use U1:n/V1:n here (correct names).",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.1080/02331888.2017.1353516",
+  "claim": "Theorem 4.1",
+  "page": 11,
+  "quote": "Theorem 4.1 For i = 1, 2, . . . , n, let Ui and Vi be two sets of mutually independent random variables with Ui \u223cKw-G(\u03b1i , \u03b2i , F1 ) and Vi \u223c Kw-G(\u03b3i , \u03b2i , F2 ). Further, suppose that \u03b1, \u03b3 \u2208 D+ and \u03b2 \u2208 E+ and \u03b1 \u2ab0m \u03b3, then, X1 \u2264st X2 implies U1:n \u2264st V1:n .",
+  "kind": "theorem",
+  "model": "order statistic",
+  "family": "Kw-G with different parents: Ui ~ Kw-G(\u03b1i, \u03b2i, F1), Vi ~ Kw-G(\u03b3i, \u03b2i, F2); F1, F2 are cdfs of X1, X2",
+  "compared": "shape vectors \u03b1 vs \u03b3 and parent cdfs F1 vs F2; common \u03b2 vector",
+  "hypotheses": [
+   {
+    "text": "\u03b1, \u03b3 \u2208 D+ and \u03b2 \u2208 E+ and \u03b1 \u2ab0m \u03b3",
+    "formal": "\u03b1, \u03b3 nonincreasing; \u03b2 nondecreasing; \u03b1 majorizes \u03b3",
+    "source": "statement"
+   },
+   {
+    "text": "X1 \u2264st X2",
+    "formal": "parent distributions ordered: F\u03041 <= F\u03042... (per proof: 'X1 \u2264st X2 implies F1(x) > F2(x)', i.e. F1 >= F2 pointwise)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "U1:n <=st V1:n"
+  },
+  "quantifiers": "n >= 1; all x >= 0",
+  "numbers": "",
+  "ambiguity": "Superscript m confirmed (\u03b1 majorizes \u03b3). The proof notes 'X1 \u2264st X2 implies F1(x) > F2(x)' \u2014 i.e., the paper uses F1 >= F2 (strict sign as printed).",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.1080/02331888.2017.1353516",
+  "claim": "Theorem 4.3",
+  "page": 12,
+  "quote": "Theorem 4.3 For i = 1, 2, . . . , n, let Ui and Vi be two sets of mutually independent random variables with Ui \u223cKw-G(\u03b1i , \u03b2i , F1 ) and Vi \u223c Kw-G(\u03b3i , \u03b2i , F2 ). Further, for any real number s > 0 and for i = 1, 2, suppose that Xis be random variables having distribution functions Fis (x). Now, if \u03b1, \u03b3 \u2208 D+ , \u03b2 \u2208 E+ and for all s > 0 X1s \u2264hr X2s , then, \u03b1 \u2ab0m \u03b3 implies U1:n \u2264hr V1:n .",
+  "kind": "theorem",
+  "model": "order statistic",
+  "family": "Kw-G with different parents F1, F2; Xis has cdf Fi^s (s-power transform)",
+  "compared": "shape vectors \u03b1 vs \u03b3 and parent cdfs F1 vs F2; common \u03b2 vector",
+  "hypotheses": [
+   {
+    "text": "\u03b1, \u03b3 \u2208 D+ , \u03b2 \u2208 E+",
+    "formal": "\u03b1, \u03b3 nonincreasing; \u03b2 nondecreasing",
+    "source": "statement"
+   },
+   {
+    "text": "for all s > 0 X1s \u2264hr X2s",
+    "formal": "F2^s/F1^s-ratio... precisely: (1 \u2212 F2^s(x))/(1 \u2212 F1^s(x)) increasing in x for every s > 0 (hr ordering of the powered distributions)",
+    "source": "statement"
+   },
+   {
+    "text": "\u03b1 \u2ab0m \u03b3",
+    "formal": "\u03b1 majorizes \u03b3",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "U1:n <=hr V1:n"
+  },
+  "quantifiers": "n >= 1; all x >= 0; all s > 0",
+  "numbers": "",
+  "ambiguity": "Xis defined as the r.v. with cdf F_i^s; requiring hr-ordering for all powers s is a strong sufficient condition (weaker than needed per Counterexample 4.1).",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.1080/02331888.2017.1353516",
+  "claim": "Counterexample 3.1",
+  "page": 7,
+  "quote": "Counterexample 3.1 Let Ui \u223cKw-G(\u03b1i , \u03b2i , F ) and Vi \u223c Kw-G(\u03b3i , \u03b2i , F ) , i = 1, 2, 3. Now, for (\u03b11 , \u03b12 , \u03b13 ) = (6.2, 4.1, 2) \u2208 D+ and (\u03b31 , \u03b32 , \u03b33 ) = (5.2, 5.1, 2) \u2208 D+ , it is clear that \u03b1 \u2ab0m \u03b3. Now, if (\u03b21 , \u03b22 , \u03b23 ) = (1, 2, 3) \u2208 E+ is taken, then from Figure 3.1 it can be concluded that g1:3 (x)/h1:3 (x) is not monotone where g1:3 and h1:3 are the pdf 's of the random variables U1:3 and V1:3 respectively.",
+  "kind": "counterexample",
+  "model": "order statistic",
+  "family": "Kw-G(\u03b1i, \u03b2i, F), common parent F (unspecified)",
+  "compared": "\u03b1 = (6.2,4.1,2) vs \u03b3 = (5.2,5.1,2), \u03b1 majorizes \u03b3; common \u03b2 = (1,2,3)",
+  "hypotheses": [
+   {
+    "text": "\u03b1 \u2ab0m \u03b3",
+    "formal": "\u03b1 majorizes \u03b3 (superscript m in PDF)",
+    "source": "statement"
+   },
+   {
+    "text": "(\u03b11 , \u03b12 , \u03b13 ) = (6.2, 4.1, 2) \u2208 D+ , (\u03b31 , \u03b32 , \u03b33 ) = (5.2, 5.1, 2) \u2208 D+ , (\u03b21 , \u03b22 , \u03b23 ) = (1, 2, 3) \u2208 E+",
+    "formal": "parameter assignment satisfying Theorem 3.1's hypotheses",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "refuted: g1:3(x)/h1:3(x) is not monotone (Figure 3.1), so no lr ordering between U1:3 and V1:3"
+  },
+  "quantifiers": "n = 3 (claim made for n >= 3)",
+  "numbers": "\u03b1 = (6.2,4.1,2); \u03b3 = (5.2,5.1,2); \u03b2 = (1,2,3); Figure 3.1 shows g1:3(x)/h1:3(x) non-monotone on (0,1)",
+  "ambiguity": "Shows Theorem 3.1's hr ordering cannot be extended to lr ordering for n >= 3.",
+  "adjudication": "example record (pass a)+b"
+ },
+ {
+  "paper": "doi:10.1080/02331888.2017.1353516",
+  "claim": "Counterexample 3.2",
+  "page": 7,
+  "quote": "Counterexample 3.2 Let Ui \u223cKw-G(\u03b1i , \u03b2i , F ) and Vi \u223cKw-G(\u03b1i , \u03b4i , F ) , i = 1, 2, 3. Now, for (\u03b11 , \u03b12 , \u03b13 ) = (5, 1, 0.01) \u2208 D+ , (\u03b21 , \u03b22 , \u03b23 ) = (0.005, 0.004, 0.001) \u2208 D+ and (\u03b41 , \u03b42 , \u03b43 ) = (0.0045, 0.0045, 0.001) \u2208 D+ , it is clear that \u03b2 \u2ab0m \u03b4. But, Figure 3.2 (i) shows that g1:3 (x)/h1:3 (x) is not monotone. Again, for same \u03b1, if (\u03b21 , \u03b22 , \u03b23 ) = (0.003, 0.004, 0.005) \u2208 E+ and (\u03b41 , \u03b42 , \u03b43 ) = (0.0035, 0.0035, 0.005) \u2208 E+ are taken, then it can noticed that although \u03b2 \u2ab0m \u03b4, g1:3 (x)/h1:3 (x) is non-monotone as evident from Figure 3.2 (ii).",
+  "kind": "counterexample",
+  "model": "order statistic",
+  "family": "Kw-G(\u03b1i, \u03b2i, F), common parent F",
+  "compared": "\u03b2 vs \u03b4 (two sub-cases: both in D+, and both in E+); common \u03b1 = (5,1,0.01)",
+  "hypotheses": [
+   {
+    "text": "\u03b2 \u2ab0m \u03b4",
+    "formal": "\u03b2 majorizes \u03b4",
+    "source": "statement"
+   },
+   {
+    "text": "case (i): \u03b1 = (5,1,0.01) \u2208 D+, \u03b2 = (0.005,0.004,0.001) \u2208 D+, \u03b4 = (0.0045,0.0045,0.001) \u2208 D+; case (ii): \u03b2 = (0.003,0.004,0.005) \u2208 E+, \u03b4 = (0.0035,0.0035,0.005) \u2208 E+",
+    "formal": "parameter assignments satisfying Theorem 3.2(ii) and 3.2(i) hypotheses respectively",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "refuted: g1:3(x)/h1:3(x) non-monotone in both cases (Figure 3.2 (i),(ii)), so Theorem 3.2's hr ordering does not extend to lr"
+  },
+  "quantifiers": "n = 3 (claim for n >= 3)",
+  "numbers": "\u03b1 = (5,1,0.01); D+ case: \u03b2 = (0.005,0.004,0.001), \u03b4 = (0.0045,0.0045,0.001); E+ case: \u03b2 = (0.003,0.004,0.005), \u03b4 = (0.0035,0.0035,0.005)",
+  "ambiguity": "",
+  "adjudication": "example record (pass a)+b"
+ },
+ {
+  "paper": "doi:10.1080/02331888.2017.1353516",
+  "claim": "Counterexample 4.1",
+  "page": 12,
+  "quote": "Counterexample 4.1 Let X1 and X2 be two random variables having distribution functions F1 (x) = 1\u2212e\u22123x^4.4 and F2 (x) = 1\u2212e\u22120.2x^0.4 respectively. Now figure 4.1 (i) shows that although X1s \u2264hr X2s for s = 0.02, figure 4.1 (ii) shows that there exists no hr ordering between X1s and X2s for s = 1.98. Again, it can be shown that the same can be concluded for s = 0.01 and 1.99 respectively. Again, if \u03b1 = (1.99, 0.01) \u2208 D+ , \u03b3 = (1.98, 0.02) \u2208 D+ , \u03b2 = (1, 2) \u2208 E+ are taken, then Figure 4.2 shows that U1:n \u2264hr V1:n . It is to be mentioned here that while plotting the curve the substitution x = \u2212 ln y has been used.",
+  "kind": "counterexample",
+  "model": "order statistic",
+  "family": "Kw-G with Weibull-type parents F1(x) = 1 \u2212 e^{\u22123x^{4.4}}, F2(x) = 1 \u2212 e^{\u22120.2x^{0.4}}",
+  "compared": "parents F1 vs F2 (hr ordering of powers holds for s = 0.02, 0.01 but fails for s = 1.98, 1.99); \u03b1 = (1.99,0.01) vs \u03b3 = (1.98,0.02); common \u03b2 = (1,2)",
+  "hypotheses": [
+   {
+    "text": "\u03b1 = (1.99, 0.01) \u2208 D+ , \u03b3 = (1.98, 0.02) \u2208 D+ , \u03b2 = (1, 2) \u2208 E+",
+    "formal": "parameters satisfying Theorem 4.3's remaining conditions (\u03b1 majorizes \u03b3 for n = 2: totals 2.00 = 2.00, top component 1.99 > 1.98)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "U1:n <=hr V1:n still holds (Figure 4.2) even though the condition 'for all s > 0, X1s <=hr X2s' fails \u2014 showing that condition is sufficient but not necessary"
+  },
+  "quantifiers": "n = 2 (\u03b1,\u03b3 are 2-vectors); s \u2208 {0.01, 0.02, 1.98, 1.99} checked",
+  "numbers": "F1(x) = 1 \u2212 e^{\u22123x^{4.4}}; F2(x) = 1 \u2212 e^{\u22120.2x^{0.4}}; s = 0.02 (hr holds), 1.98 (hr fails), 0.01 (holds), 1.99 (fails); \u03b1 = (1.99,0.01); \u03b3 = (1.98,0.02); \u03b2 = (1,2); substitution x = \u2212ln y used for plotting",
+  "ambiguity": "Not a refutation of the theorem \u2014 demonstrates the 'for all s > 0' hypothesis of Theorem 4.3 is only sufficient, since U1:n <=hr V1:n still holds.",
+  "adjudication": "example record (pass a)+b"
+ }
+]

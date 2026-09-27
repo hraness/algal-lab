@@ -1,0 +1,184 @@
+[
+ {
+  "claim": "theorem3.13",
+  "a_orders": [
+   "rh"
+  ],
+  "b_orders": [
+   "rh"
+  ],
+  "a_dirs": [
+   "B_smaller"
+  ],
+  "b_dirs": [
+   "A_smaller"
+  ],
+  "a_records": [
+   {
+    "paper": "doi:10.1007/s11587-026-01094-9",
+    "claim": "Theorem 3.13",
+    "page": 14,
+    "quote": "Theorem 3.13. Let {U1, . . . , Un} and {V1, . . . , Vn} be two sets of independent random variables with Ui ~ F\u0304(x; \u03b1i) and Vi ~ F\u0304(x; \u03b2i), respectively with \u03b1n \u2265 \u03b2n and pn \u2264 p*n. Also, let {J1, . . . , Jn} and {J1*, . . . , Jn*} be another two sets of independent Bernoulli random variables, independently of U_i's and V_i's with E(Ji) = pi and E(Ji*) = p*i, respectively. Further, let N1 and N2 be two positive integer-valued random variables independently of T_i's and T_i*'s satisfying N1 =st N2 =st N, respectively. Assume that the following conditions hold: (i) \u03c8 : (0, 1) \u2192 (0, \u221e) is a differentiable, strictly decreasing and log-convex function. (ii) F\u0304(x; \u03b1i) is decreasing and log-convex in \u03b1i for all x; (iii) r(x; \u03b1i) is decreasing and convex in \u03b1i for all x. Then, for (\u03c8(p), \u03b1; n), (\u03c8(p*), \u03b2; n) \u2208 Mn, we have (\u03c8(p), \u03b1; n) >w (\u03c8(p*), \u03b2; n) \u21d2 TN:N \u2265rh TN*:N.",
+    "kind": "theorem",
+    "model": "parallel system (random size)",
+    "family": "General F\u0304(\u00b7; \u03b1); Bernoulli distortion; N1, N2 stochastically equal to fixed N",
+    "compared": "parameter matrices (\u03c8(p),\u03b1;n) vs (\u03c8(p*),\u03b2;n), row weak majorization",
+    "hypotheses": [
+     {
+      "text": "Ui ~ F\u0304(x;\u03b1i), Vi ~ F\u0304(x;\u03b2i) with \u03b1n \u2265 \u03b2n and pn \u2264 p*n; Ji ~ Ber(pi), Ji* ~ Ber(p*i)",
+      "formal": "last-component inequalities",
+      "source": "statement"
+     },
+     {
+      "text": "N1 and N2 positive integer-valued, independent, satisfying N1 =st N2 =st N",
+      "formal": "N1 =_st N2 =_st N (stochastic equality to N)",
+      "source": "statement"
+     },
+     {
+      "text": "(i) \u03c8 differentiable strictly decreasing log-convex; (ii) F\u0304 decreasing log-convex in \u03b1i; (iii) r decreasing convex in \u03b1i",
+      "formal": "stated",
+      "source": "statement"
+     },
+     {
+      "text": "(\u03c8(p), \u03b1; n), (\u03c8(p*), \u03b2; n) \u2208 Mn, row weak majorization",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "TN:N \u2265_rh T*N:N"
+    },
+    "quantifiers": "all x \u2265 0; n \u2265 1",
+    "numbers": "",
+    "ambiguity": "'N1 =st N2 =st N' means stochastic equality (both equal in distribution to N). Proof uses Theorem 3.4 of Kundu et al. (2024) plus Theorems 3.11-3.12."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "doi:10.1007/s11587-026-01094-9",
+    "claim": "Theorem 3.13",
+    "page": 14,
+    "quote": "Theorem 3.13. Let {U1, . . . , Un} and {V1, . . . , Vn} be two sets of independent random variables with Ui ~ F\u0304(x; \u03b1i) and Vi ~ F\u0304(x; \u03b2i), respectively with \u03b1n \u2265 \u03b2n and pn \u2264 p*n. Also, let {J1, . . . , Jn} and {J1*, . . . , Jn*} be another two sets of independent Bernoulli random variables, independently of Ui's and Vi's with E(Ji) = pi and E(Ji*) = p*i, respectively. Further, let N1 and N2 be two positive integer-valued random variables independently of Ti's and Ti*'s satisfying N1 =st N2 =st N, respectively. Assume that the following conditions hold: (i) \u03c8 : (0, 1) \u2192 (0, \u221e) is a differentiable, strictly decreasing and log-convex function. (ii) F\u0304(x; \u03b1i) is decreasing and log-convex in \u03b1i for all x; (iii) r(x; \u03b1i) is decreasing and convex in \u03b1i for all x. Then, for (\u03c8(p), \u03b1; n), (\u03c8(p*), \u03b2; n) \u2208 Mn, we have (\u03c8(p), \u03b1; n) >^w (\u03c8(p*), \u03b2; n) \u21d2 TN:N \u2265rh TN*:N.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "semiparametric family; random maxima over common random sample size N",
+    "compared": "parameter matrices in row weak majorization with boundary conditions \u03b1n \u2265 \u03b2n, pn \u2264 p*n",
+    "hypotheses": [
+     {
+      "text": "N1 =st N2 =st N (common random sample size); \u03b1n \u2265 \u03b2n and pn \u2264 p*n",
+      "formal": "equal-in-law claim counts; boundary coordinate conditions",
+      "source": "statement"
+     },
+     {
+      "text": "\u03c8 differentiable, strictly decreasing and log-convex; F\u0304(x;\u03b1i) decreasing and log-convex in \u03b1i; r(x;\u03b1i) decreasing and convex in \u03b1i",
+      "formal": "transform, sf, hazard conditions",
+      "source": "statement"
+     },
+     {
+      "text": "(\u03c8(p), \u03b1; n) >^w (\u03c8(p*), \u03b2; n), both in Mn",
+      "formal": "row weak majorization",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "TN*:N <=_rh TN:N"
+    },
+    "quantifiers": "n \u2265 1, x \u2265 0",
+    "ambiguity": "\u03b1n, pn, \u03b2n, p*n denote the largest coordinates (sorted) implicitly; the assumption list follows the printed statement."
+   }
+  ]
+ },
+ {
+  "claim": "theorem3.15",
+  "a_orders": [
+   "rh"
+  ],
+  "b_orders": [
+   "rh"
+  ],
+  "a_dirs": [
+   "B_smaller"
+  ],
+  "b_dirs": [
+   "A_smaller"
+  ],
+  "a_records": [
+   {
+    "paper": "doi:10.1007/s11587-026-01094-9",
+    "claim": "Theorem 3.15",
+    "page": 15,
+    "quote": "Theorem 3.15. Suppose X1:n ~ F\u03041:n(x) and X1:n ~ G\u03041:n(x). Also let the support of a positive integer-valued random variable N having pmf p(n) be N+. Now, for all x \u2265 l, if r\u0303Y1:n(x), the reversed hazard rate function of Y1:n is increasing in n \u2208 N+ and F1:n(x)/G1:n(x) is increasing in n \u2208 N+, then X1:n \u2265rh Y1:n implies X1:N \u2265rh Y1:N.",
+    "kind": "theorem",
+    "model": "series system (random size)",
+    "family": "Generic minimum order statistics X1:n ~ F\u03041:n, Y1:n ~ G\u03041:n (statement prints 'X1:n' twice)",
+    "compared": "X1:n vs Y1:n; same random index N",
+    "hypotheses": [
+     {
+      "text": "the support of a positive integer-valued random variable N having pmf p(n) be N+",
+      "formal": "N supported on positive integers",
+      "source": "statement"
+     },
+     {
+      "text": "for all x \u2265 l, r\u0303Y1:n(x) is increasing in n and F1:n(x)/G1:n(x) is increasing in n",
+      "formal": "monotonicity in n",
+      "source": "statement"
+     },
+     {
+      "text": "X1:n \u2265rh Y1:n",
+      "formal": "rh order at fixed n",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "X1:N \u2265_rh Y1:N"
+    },
+    "quantifiers": "all x \u2265 l; n \u2208 N+",
+    "numbers": "",
+    "ambiguity": "The statement prints both variables as X1:n (second should presumably be Y1:n ~ G\u03041:n) and l is undefined in the statement (lower support bound); recorded verbatim. Auxiliary result from Kundu et al. (2023) machinery."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "doi:10.1007/s11587-026-01094-9",
+    "claim": "Theorem 3.15",
+    "page": 15,
+    "quote": "Theorem 3.15. Suppose X1:n ~ F\u03041:n(x) and X1:n ~ G\u03041:n(x). Also let the support of a positive integer-valued random variable N having pmf p(n) be N+. Now, for all x \u2265 l, if r\u0303Y1:n(x), the reversed hazard rate function of Y1:n is increasing in n \u2208 N+ and F1:n(x)/G1:n(x) is increasing in n \u2208 N+, then X1:n \u2265rh Y1:n implies X1:N \u2265rh Y1:N.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "general minima X1:n ~ F\u03041:n, Y1:n ~ G\u03041:n; random sample size N",
+    "compared": "fixed-n minima vs random-N minima of two distributions",
+    "hypotheses": [
+     {
+      "text": "the support of a positive integer-valued random variable N having pmf p(n) be N+",
+      "formal": "N supported on positive integers",
+      "source": "statement"
+     },
+     {
+      "text": "for all x \u2265 l, r\u0303Y1:n(x) is increasing in n \u2208 N+",
+      "formal": "reversed hazard rate of the second system's minimum increasing in n",
+      "source": "statement"
+     },
+     {
+      "text": "F1:n(x)/G1:n(x) is increasing in n \u2208 N+",
+      "formal": "cdf ratio increasing in n",
+      "source": "statement"
+     },
+     {
+      "text": "X1:n \u2265rh Y1:n",
+      "formal": "fixed-n minima rh-ordered",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "Y1:N <=_rh X1:N"
+    },
+    "quantifiers": "n \u2208 N+, x \u2265 l (l a lower support bound)",
+    "ambiguity": "Printed 'Suppose X1:n ~ F\u03041:n(x) and X1:n ~ G\u03041:n(x)' \u2014 the second variable should be Y1:n (typo). Proof invokes Proposition 3.4 and Theorem 3.1 of Kundu et al. (2023)."
+   }
+  ]
+ }
+]

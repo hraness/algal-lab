@@ -1,0 +1,175 @@
+[
+ {
+  "claim": "example1",
+  "a_orders": [
+   "st"
+  ],
+  "b_orders": [
+   "st"
+  ],
+  "a_dirs": [
+   "x 3 3 >=st y 3 3 claimed via theorem 7"
+  ],
+  "b_dirs": [
+   "x 3 3 >= st y 3 3"
+  ],
+  "a_records": [
+   {
+    "paper": "doi:10.29252/jss.13.2.319",
+    "claim": "Example 1 (\u0645\u062b\u0627\u0644 \u0661)",
+    "page": 335,
+    "quote": "\u0645\u062b\u0627\u0644 \u0661: \u0641\u0631\u0636 \u06a9\u0646\u06cc\u062f X\u0661, X\u0662, X\u0663 \u0648 Y\u0661, Y\u0662, Y\u0663 \u062f\u0648 \u0645\u062c\u0645\u0648\u0639\u0647 \u0627\u0632 \u0645\u062a\u063a\u06cc\u0631\u0647\u0627\u06cc \u062a\u0635\u0627\u062f\u0641\u06cc \u0645\u0633\u062a\u0642\u0644 \u0628\u0627 Xi \u223c GLFR(\u03b1i, \u03b2, \u03bbi), Yi \u223c GLFR(\u03bdi, \u03b2, \u03b3i), i = \u0661, \u0662, \u0663 \u0628\u0627\u0634\u0646\u062f. \u0642\u0631\u0627\u0631 \u062f\u0647\u06cc\u062f: \u03bb = (\u0661, \u0662, \u0663)\u060c \u03b3 = (\u0662, \u0662/\u06f5, \u0661/\u06f5)\u060c \u03b1 = (\u0662, \u0663, \u06f4)\u060c \u03bd = (\u0661, \u0662, \u06f5). \u0648\u0627\u0636\u062d \u0627\u0633\u062a \u03b3 \u227b^uo \u03bb \u0648 \u0627\u06af\u0631 \u03c0 = (\u0663, \u0662, \u0661) \u06cc\u06a9 \u062c\u0627\u06cc\u06af\u0634\u062a \u0627\u0632 \u0627\u0639\u062f\u0627\u062f {\u0661, \u0662, \u0663} \u0628\u0627\u0634\u062f\u060c \u0622\u0646\u06af\u0627\u0647 \u0631\u0648\u06cc \u0641\u0636\u0627\u06cc Dn^\u03c0 \u0631\u0627\u0628\u0637\u0647 \u03b1 \u227b^m_{(\u03bb\u0661,\u03bb\u0662,\u03bb\u0663)} \u03bd \u0628\u0631\u0642\u0631\u0627\u0631 \u0627\u0633\u062a. \u0628\u0646\u0627\u0628\u0631\u0627\u06cc\u0646 \u0637\u0628\u0642 \u0642\u0636\u06cc\u0647 \u0667 \u0646\u062a\u06cc\u062c\u0647 \u0645\u06cc\u200c\u0634\u0648\u062f X\u0663:\u0663 \u2265st Y\u0663:\u0663. [Set lambda=(1,2,3), gamma=(2,2.5,1.5), alpha=(2,3,4), nu=(1,2,5). Clearly gamma unordered-majorizes lambda and with pi=(3,2,1), alpha weighted-majorizes nu on D_n^pi; hence by Theorem 7, X_{3:3} >=_st Y_{3:3}.]",
+    "kind": "example",
+    "model": "parallel system",
+    "family": "GLFR(alpha, beta, lambda): F(x) = (1 - e^{-(alpha x + beta/2 x^2)})^lambda; common beta arbitrary",
+    "compared": "alpha=(2,3,4) vs nu=(1,2,5); exponents lambda=(1,2,3) vs gamma=(2,2.5,1.5)",
+    "hypotheses": [
+     {
+      "text": "Xi \u223c GLFR(\u03b1i, \u03b2, \u03bbi), Yi \u223c GLFR(\u03bdi, \u03b2, \u03b3i), i = \u0661, \u0662, \u0663",
+      "formal": "independent GLFR lifetimes, n = 3",
+      "source": "statement"
+     },
+     {
+      "text": "\u03b3 \u227b^uo \u03bb",
+      "formal": "(2,2.5,1.5) unordered-majorizes (1,2,3): sums 6 = 6, partial sums 2 >= 1 and 4.5 >= 3",
+      "source": "statement"
+     },
+     {
+      "text": "\u03b1 \u227b^m_{(\u03bb\u0661,\u03bb\u0662,\u03bb\u0663)} \u03bd \u0631\u0648\u06cc \u0641\u0636\u0627\u06cc Dn^\u03c0 \u0628\u0631\u0627\u06cc \u03c0 = (\u0663, \u0662, \u0661)",
+      "formal": "alpha weighted-majorizes nu with weights lambda under permutation pi = (3,2,1)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X_{3:3} >=st Y_{3:3} (claimed via Theorem 7)"
+    },
+    "quantifiers": "n = 3; pi = (3,2,1)",
+    "numbers": "lambda=(1,2,3); gamma=(2,2.5,1.5) [printed with '/' as decimal separator: \u0662/\u06f5, \u0661/\u06f5]; alpha=(2,3,4); nu=(1,2,5); pi=(3,2,1); beta common and unspecified",
+    "ambiguity": "Verification of the weighted-majorization condition under Definition 5: with pi=(3,2,1), weighted sums are equal (3*4+2*3+1*2 = 20 = 3*5+2*2+1*1), but the k=1 partial-sum inequality fails as printed (lambda_3*alpha_3 = 12 < 15 = lambda_3*nu_3); the reversed relation nu \u227b^m_lambda alpha would satisfy it. So the example as printed appears to conflict with Definition 5's direction (or reads alpha \u227b nu as 'alpha is majorized by nu'). Persian '/' in \u0662/\u06f5 and \u0661/\u06f5 is a decimal separator (2.5, 1.5): sums must equal 6 for \u227b^uo to hold."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "doi:10.29252/jss.13.2.319",
+    "claim": "Example 1",
+    "page": 335,
+    "quote": "\u0645\u062b\u0627\u0644 \u0661: \u0641\u0631\u0636 \u06a9\u0646\u06cc\u062f X\u0661, X\u0662, X\u0663 \u0648 Y\u0661, Y\u0662, Y\u0663 \u062f\u0648 \u0645\u062c\u0645\u0648\u0639\u0647 \u0627\u0632 \u0645\u062a\u063a\u06cc\u0631\u0647\u0627\u06cc \u062a\u0635\u0627\u062f\u0641\u06cc \u0645\u0633\u062a\u0642\u0644 \u0628\u0627 Xi ~ GLFR(\u03b1i, \u03b2, \u03bbi), Yi ~ GLFR(\u03bdi, \u03b2, \u03b3i), i = \u0661, \u0662, \u0663 \u0628\u0627\u0634\u0646\u062f. \u0642\u0631\u0627\u0631 \u062f\u0647\u06cc\u062f: \u03bb = (\u0661, \u0662, \u0663), \u03b3 = (\u0662, \u0662/\u06f5, \u0661/\u06f5), \u03b1 = (\u0662, \u0663, \u06f4), \u03bd = (\u0661, \u0662, \u06f5). \u0648\u0627\u0636\u062d \u0627\u0633\u062a \u03b3 \u227b^uo \u03bb \u0648 \u0627\u06af\u0631 \u03c0 = (\u0663, \u0662, \u0661) \u06cc\u06a9 \u062c\u0627\u06cc\u06af\u0634\u062a \u0627\u0632 \u0627\u0639\u062f\u0627\u062f {\u0661, \u0662, \u0663} \u0628\u0627\u0634\u062f\u060c \u0622\u0646\u06af\u0627\u0647 \u0631\u0648\u06cc \u0641\u0636\u0627\u06cc Dn^\u03c0 \u0631\u0627\u0628\u0637\u0647 \u03b1 \u227b^m_(\u03bb\u0661,\u03bb\u0662,\u03bb\u0663) \u03bd \u0628\u0631\u0642\u0631\u0627\u0631 \u0627\u0633\u062a. \u0628\u0646\u0627\u0628\u0631\u0627\u06cc\u0646 \u0637\u0628\u0642 \u0642\u0636\u06cc\u0647 \u0667 \u0646\u062a\u06cc\u062c\u0647 \u0645\u06cc\u200c\u0634\u0648\u062f X\u0663:\u0663 \u2265st Y\u0663:\u0663.",
+    "kind": "example",
+    "model": "parallel system",
+    "family": "GLFR(\u03b1, \u03b2, \u03bb), n = 3, common \u03b2",
+    "compared": "\u03bb = (1,2,3) vs \u03b3 = (2,2.5,1.5); \u03b1 = (2,3,4) vs \u03bd = (1,2,5) under permutation \u03c0 = (3,2,1)",
+    "hypotheses": [
+     {
+      "text": "\u03b3 \u227b^uo \u03bb",
+      "formal": "\u03b3 unordered-majorizes \u03bb: sums both 6, partial sums 2>=1, 4.5>=3",
+      "source": "statement"
+     },
+     {
+      "text": "\u03b1 \u227b^m_(\u03bb) \u03bd on Dn^\u03c0 with \u03c0 = (3,2,1)",
+      "formal": "weighted majorization with weights \u03bb = (1,2,3)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X_{3:3} >=_st Y_{3:3}"
+    },
+    "quantifiers": "n = 3",
+    "numbers": "\u03bb = (1,2,3), \u03b3 = (2,2.5,1.5), \u03b1 = (2,3,4), \u03bd = (1,2,5), \u03c0 = (3,2,1); \u03b2 arbitrary common value; conclusion X_{3:3} >=_st Y_{3:3}",
+    "ambiguity": "With \u03c0 = (3,2,1): \u03bb_\u03c0 = (3,2,1), \u03b1_\u03c0 = (4,3,2), \u03bd_\u03c0 = (5,2,1); weighted sums \u03a3\u03bb_\u03c0 \u03b1_\u03c0 = \u03a3\u03bb_\u03c0 \u03bd_\u03c0 = 20 but the k=1 partial sums are 12 < 15, so numerically it is \u03bd that p-majorizes \u03b1, not \u03b1 \u227b \u03bd as printed."
+   }
+  ]
+ },
+ {
+  "claim": "theorem1",
+  "a_orders": [
+   "st"
+  ],
+  "b_orders": [
+   "st"
+  ],
+  "a_dirs": [
+   "B_smaller"
+  ],
+  "b_dirs": [
+   "A_smaller"
+  ],
+  "a_records": [
+   {
+    "paper": "doi:10.29252/jss.13.2.319",
+    "claim": "Theorem 1 (\u0642\u0636\u06cc\u0647 \u0661)",
+    "page": 325,
+    "quote": "\u0642\u0636\u06cc\u0647 \u0661: \u0641\u0631\u0636 \u06a9\u0646\u06cc\u062f X\u0661, \u00b7\u00b7\u00b7, Xn \u0648 Y\u0661, \u00b7\u00b7\u00b7, Yn \u062f\u0648 \u0645\u062c\u0645\u0648\u0639\u0647 \u0627\u0632 \u0645\u062a\u063a\u06cc\u0631\u0647\u0627\u06cc \u062a\u0635\u0627\u062f\u0641\u06cc \u0645\u0633\u062a\u0642\u0644 \u0628\u0627 Xi \u223c GLFR(\u03b1i, \u03b2i, \u03bb), Yi \u223c GLFR(\u03bdi, \u00b5i, \u03bb), i = \u0661, \u00b7\u00b7\u00b7, n, \u0628\u0627\u0634\u0646\u062f. \u0627\u06af\u0631 \u03b1 \u227b^m \u03bd \u0631\u0648\u06cc \u0641\u0636\u0627\u06cc Dn+ \u0648 \u03b2 \u227b^m \u00b5 \u0631\u0648\u06cc \u0641\u0636\u0627\u06cc Dn+ \u0628\u0627\u0634\u062f\u060c \u0622\u0646\u06af\u0627\u0647 \u0628\u0631\u0627\u06cc \u03bb \u2265 \u0661 \u062f\u0627\u0631\u06cc\u0645 Y\u0661:n \u2265st X\u0661:n. [Let X_1,...,X_n and Y_1,...,Y_n be two sets of independent random variables with X_i ~ GLFR(alpha_i, beta_i, lambda) and Y_i ~ GLFR(nu_i, mu_i, lambda). If alpha majorizes nu and beta majorizes mu on D_{n+}, then for lambda >= 1, Y_{1:n} >=_st X_{1:n}.]",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "GLFR(alpha, beta, lambda): F(x; alpha, beta, lambda) = (1 - e^{-(alpha x + beta/2 x^2)})^lambda, x > 0, alpha > 0, beta > 0, lambda > 0 (generalized linear failure rate)",
+    "compared": "linear-FR coefficients alpha_i vs nu_i and quadratic coefficients beta_i vs mu_i (both vector-majorized); common exponent lambda shared",
+    "hypotheses": [
+     {
+      "text": "Xi \u223c GLFR(\u03b1i, \u03b2i, \u03bb), Yi \u223c GLFR(\u03bdi, \u00b5i, \u03bb), i = \u0661, \u00b7\u00b7\u00b7, n (two sets of independent random variables)",
+      "formal": "X_i ~ GLFR(alpha_i, beta_i, lambda), Y_i ~ GLFR(nu_i, mu_i, lambda), independent",
+      "source": "statement"
+     },
+     {
+      "text": "\u03b1 \u227b^m \u03bd \u0631\u0648\u06cc \u0641\u0636\u0627\u06cc Dn+ \u0648 \u03b2 \u227b^m \u00b5 \u0631\u0648\u06cc \u0641\u0636\u0627\u06cc Dn+",
+      "formal": "alpha majorizes nu and beta majorizes mu on D_{n+} = {x: x_1 >= ... >= x_n > 0}",
+      "source": "statement"
+     },
+     {
+      "text": "\u0628\u0631\u0627\u06cc \u03bb \u2265 \u0661",
+      "formal": "lambda >= 1",
+      "source": "statement"
+     },
+     {
+      "text": "X \u062f\u0631 \u062a\u0631\u062a\u06cc\u0628 \u062a\u0635\u0627\u062f\u0641\u06cc \u0645\u0639\u0645\u0648\u0644\u06cc\u060c \u0628\u0632\u0631\u06af\u062a\u0631 \u0627\u0632 Y \u0627\u0633\u062a (X \u2265st Y)\u060c \u0647\u0631\u06af\u0627\u0647 \u0628\u0647 \u0627\u0632\u0627\u06cc \u0647\u0631 x \u2265 \u0660: F\u0304(x) \u2265 \u1e20(x)",
+      "formal": "X >=st Y iff survival functions satisfy F\u0304(x) >= \u1e20(x) for all x >= 0",
+      "source": "definition 1"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "Y_{1:n} >=st X_{1:n} (Y-side series system stochastically larger)"
+    },
+    "quantifiers": "n >= 1 components, i = 1..n; lambda >= 1; all x > 0",
+    "numbers": "",
+    "ambiguity": "Persian-language paper; RTL text layer garbles sub/superscripts, statements verified against rendered PDF pages. \u227b^m is ordinary majorization (Def. 2); D_{n+} requires descending positive vectors."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "doi:10.29252/jss.13.2.319",
+    "claim": "Theorem 1",
+    "page": 325,
+    "quote": "\u0642\u0636\u06cc\u0647 \u0661: \u0641\u0631\u0636 \u06a9\u0646\u06cc\u062f X\u0661, \u00b7\u00b7\u00b7, Xn \u0648 Y\u0661, \u00b7\u00b7\u00b7, Yn \u062f\u0648 \u0645\u062c\u0645\u0648\u0639\u0647 \u0627\u0632 \u0645\u062a\u063a\u06cc\u0631\u0647\u0627\u06cc \u062a\u0635\u0627\u062f\u0641\u06cc \u0645\u0633\u062a\u0642\u0644 \u0628\u0627 Xi ~ GLFR(\u03b1i, \u03b2i, \u03bb), Yi ~ GLFR(\u03bdi, \u00b5i, \u03bb), i = \u0661, \u00b7\u00b7\u00b7, n, \u0628\u0627\u0634\u0646\u062f. \u0627\u06af\u0631 \u03b1 \u227b^m \u03bd \u0631\u0648\u06cc \u0641\u0636\u0627\u06cc Dn+ \u0648 \u03b2 \u227b^m \u00b5 \u0631\u0648\u06cc \u0641\u0636\u0627\u06cc Dn+ \u0628\u0627\u0634\u062f\u060c \u0622\u0646\u06af\u0627\u0647 \u0628\u0631\u0627\u06cc \u03bb \u2265 \u0661 \u062f\u0627\u0631\u06cc\u0645 Y\u0661:n \u2265st X\u0661:n.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "GLFR(\u03b1, \u03b2, \u03bb): generalized linear failure rate, F(x; \u03b1,\u03b2,\u03bb) = {1 - exp(-(\u03b1x + (\u03b2/2)x\u00b2))}^\u03bb, x > 0, \u03b1 > 0, \u03b2 > 0, \u03bb > 0",
+    "compared": "two series systems of n independent heterogeneous GLFR components: vectors (\u03b1, \u03b2) vs (\u03bd, \u00b5), common \u03bb",
+    "hypotheses": [
+     {
+      "text": "Xi ~ GLFR(\u03b1i, \u03b2i, \u03bb), Yi ~ GLFR(\u03bdi, \u00b5i, \u03bb), i = \u0661, \u00b7\u00b7\u00b7, n",
+      "formal": "independent components, common \u03bb, per-component \u03b1_i,\u03b2_i vs \u03bd_i,\u00b5_i",
+      "source": "statement"
+     },
+     {
+      "text": "\u03b1 \u227b^m \u03bd \u0631\u0648\u06cc \u0641\u0636\u0627\u06cc Dn+ \u0648 \u03b2 \u227b^m \u00b5 \u0631\u0648\u06cc \u0641\u0636\u0627\u06cc Dn+",
+      "formal": "\u03b1 majorizes \u03bd and \u03b2 majorizes \u00b5, both vectors in D_{n+} (sorted decreasing, positive)",
+      "source": "statement"
+     },
+     {
+      "text": "\u0628\u0631\u0627\u06cc \u03bb \u2265 \u0661",
+      "formal": "\u03bb >= 1",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "Y_{1:n} >=_st X_{1:n} (X-system minimum smaller)"
+    },
+    "quantifiers": "n >= 1 (i = 1..n), \u03bb >= 1, all x > 0",
+    "ambiguity": "Persian-language paper; math transcribed from RTL text layer, symbol order may be jumbled. Majorization symbol shown as \u227b with superscript m."
+   }
+  ]
+ }
+]

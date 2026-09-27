@@ -79,53 +79,54 @@ def norm_dir(d):
     lhs = m.group(1).strip()
     return 'A_smaller' if not re.search(r'\*|prime|2\b|_2', lhs) else 'B_smaller'
 
-rows = []
-mismatched_bases = []
-for s in SAMPLE:
-    name = fn(s['key'])
-    pa = os.path.join(ROOT,'extraction','pass-a',name)
-    pb = os.path.join(ROOT,'extraction','pass-b',name)
-    if not (os.path.exists(pa) and os.path.exists(pb)):
-        rows.append({'position': s['position'], 'key': s['key'],
-                     'status': 'missing pass-a' if not os.path.exists(pa) else 'missing pass-b'})
-        continue
-    a = json.load(open(pa)); b = json.load(open(pb))
-    def base_map(arr):
-        out = {}
-        for r in arr:
-            base, ohint, kind = parse_claim(r.get('claim',''))
-            out.setdefault(base, []).append(r)
-        return out
-    am, bm = base_map(a), base_map(b)
-    shared = sorted(set(am) & set(bm))
-    details = []
-    agree = 0
-    for k in shared:
-        ao = {norm_order(r.get('conclusion',{}).get('order')) for r in am[k]}
-        bo = {norm_order(r.get('conclusion',{}).get('order')) for r in bm[k]}
-        ad = {norm_dir(r.get('conclusion',{}).get('direction')) for r in am[k]}
-        bd = {norm_dir(r.get('conclusion',{}).get('direction')) for r in bm[k]}
-        ok = ao == bo and ad == bd
-        agree += ok
-        if not ok:
-            details.append({'claim': k, 'a_orders': sorted(ao), 'b_orders': sorted(bo),
-                            'a_dirs': sorted(ad)[:3], 'b_dirs': sorted(bd)[:3]})
-            mismatched_bases.append((s['position'], s['key'], k))
-    rec = {'position': s['position'], 'key': s['key'],
-           'a_records': len(a), 'b_records': len(b),
-           'a_bases': len(am), 'b_bases': len(bm), 'matched_bases': len(shared),
-           'agree_full': agree,
-           'a_only': sorted(set(am)-set(bm)), 'b_only': sorted(set(bm)-set(am)),
-           'disagreements': details}
-    json.dump(rec, open(os.path.join(ROOT,'reconciliation',name),'w'), indent=1)
-    rows.append(rec)
+if __name__ == '__main__':
+    rows = []
+    mismatched_bases = []
+    for s in SAMPLE:
+        name = fn(s['key'])
+        pa = os.path.join(ROOT,'extraction','pass-a',name)
+        pb = os.path.join(ROOT,'extraction','pass-b',name)
+        if not (os.path.exists(pa) and os.path.exists(pb)):
+            rows.append({'position': s['position'], 'key': s['key'],
+                         'status': 'missing pass-a' if not os.path.exists(pa) else 'missing pass-b'})
+            continue
+        a = json.load(open(pa)); b = json.load(open(pb))
+        def base_map(arr):
+            out = {}
+            for r in arr:
+                base, ohint, kind = parse_claim(r.get('claim',''))
+                out.setdefault(base, []).append(r)
+            return out
+        am, bm = base_map(a), base_map(b)
+        shared = sorted(set(am) & set(bm))
+        details = []
+        agree = 0
+        for k in shared:
+            ao = {norm_order(r.get('conclusion',{}).get('order')) for r in am[k]}
+            bo = {norm_order(r.get('conclusion',{}).get('order')) for r in bm[k]}
+            ad = {norm_dir(r.get('conclusion',{}).get('direction')) for r in am[k]}
+            bd = {norm_dir(r.get('conclusion',{}).get('direction')) for r in bm[k]}
+            ok = ao == bo and ad == bd
+            agree += ok
+            if not ok:
+                details.append({'claim': k, 'a_orders': sorted(ao), 'b_orders': sorted(bo),
+                                'a_dirs': sorted(ad)[:3], 'b_dirs': sorted(bd)[:3]})
+                mismatched_bases.append((s['position'], s['key'], k))
+        rec = {'position': s['position'], 'key': s['key'],
+               'a_records': len(a), 'b_records': len(b),
+               'a_bases': len(am), 'b_bases': len(bm), 'matched_bases': len(shared),
+               'agree_full': agree,
+               'a_only': sorted(set(am)-set(bm)), 'b_only': sorted(set(bm)-set(am)),
+               'disagreements': details}
+        json.dump(rec, open(os.path.join(ROOT,'reconciliation',name),'w'), indent=1)
+        rows.append(rec)
 
-done = [r for r in rows if 'status' not in r]
-U = sum(r['a_bases']+r['b_bases']-r['matched_bases'] for r in done)
-M = sum(r['matched_bases'] for r in done)
-A = sum(r['agree_full'] for r in done)
-print(f"papers reconciled: {len(done)}/100")
-print(f"base claims: matched {M} of union {U} -> structural agreement {M/U:.3f}")
-print(f"order+direction identical on matched: {A}/{M} = {A/M:.3f}")
-print(f"claims needing adjudication (order/direction diff): {len(mismatched_bases)}")
-for p,k,c in mismatched_bases[:25]: print('  ', p, k, '->', c)
+    done = [r for r in rows if 'status' not in r]
+    U = sum(r['a_bases']+r['b_bases']-r['matched_bases'] for r in done)
+    M = sum(r['matched_bases'] for r in done)
+    A = sum(r['agree_full'] for r in done)
+    print(f"papers reconciled: {len(done)}/100")
+    print(f"base claims: matched {M} of union {U} -> structural agreement {M/U:.3f}")
+    print(f"order+direction identical on matched: {A}/{M} = {A/M:.3f}")
+    print(f"claims needing adjudication (order/direction diff): {len(mismatched_bases)}")
+    for p,k,c in mismatched_bases[:25]: print('  ', p, k, '->', c)

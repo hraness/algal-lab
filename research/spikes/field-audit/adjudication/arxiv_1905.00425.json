@@ -1,0 +1,187 @@
+[
+ {
+  "claim": "theorem2.7",
+  "side": "A",
+  "records": [
+   {
+    "paper": "arxiv:1905.00425",
+    "claim": "Theorem 2.7",
+    "page": 5,
+    "quote": "Theorem 2.7. Let X, Y be two independent random variables having density functions fX, fY, cumulative distribution functions FX, FY, survival functions F\u0304X, F\u0304Y, respectively. Let T be a random variable with density function h and distribution function H. T is independent of X, Y. Then if 1. X \u2265rh Y and either X or Y is IRHR then X^T \u2265rh Y^T. 2. X \u2264hr Y and either X or Y is DHR then X^T \u2264hr Y^T.",
+    "kind": "theorem",
+    "model": "generic",
+    "family": "General random variables under a common independent random shock (T-power transformation, X^T in the sense of Ebrahimi et al.)",
+    "compared": "X^T vs Y^T under common shock T",
+    "hypotheses": [
+     {
+      "text": "(1) X \u2265rh Y and either X or Y is IRHR",
+      "formal": "stated",
+      "source": "statement"
+     },
+     {
+      "text": "(2) X \u2264hr Y and either X or Y is DHR",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "(1) X^T \u2265rh Y^T; (2) X^T \u2264hr Y^T"
+    },
+    "quantifiers": "all x",
+    "numbers": "",
+    "ambiguity": "'X^T' denotes the shock-transformed variable; superscript-T notation."
+   }
+  ]
+ },
+ {
+  "claim": "theorem2.8",
+  "side": "A",
+  "records": [
+   {
+    "paper": "arxiv:1905.00425",
+    "claim": "Theorem 2.8",
+    "page": 6,
+    "quote": "Theorem 2.8. Let X and Y be two random variables. If X \u2264hr Y and X or Y is DHR, then X \u2264disp Y.",
+    "kind": "theorem",
+    "model": "generic",
+    "family": "General random variables",
+    "compared": "X vs Y",
+    "hypotheses": [
+     {
+      "text": "X \u2264hr Y and X or Y is DHR",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "disp",
+     "direction": "X \u2264_disp Y"
+    },
+    "quantifiers": "quantile differences, all u \u2208 (0,1)",
+    "numbers": "",
+    "ambiguity": "Background result attributed to Shaked et al."
+   }
+  ]
+ },
+ {
+  "claim": "theorem2.9",
+  "side": "A",
+  "records": [
+   {
+    "paper": "arxiv:1905.00425",
+    "claim": "Theorem 2.9",
+    "page": 6,
+    "quote": "Theorem 2.9. Let X and Y be two random variables. If X \u2264hr Y and X or Y is DHR, then X \u2264LU Y.",
+    "kind": "theorem",
+    "model": "generic",
+    "family": "General random variables",
+    "compared": "X vs Y",
+    "hypotheses": [
+     {
+      "text": "X \u2264hr Y and X or Y is DHR",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "LU",
+     "direction": "X \u2264_LU Y (less-uncertainty order, strengthening of Ebrahimi et al. Thm 2.3)"
+    },
+    "quantifiers": "all u \u2208 (0,1)",
+    "numbers": "",
+    "ambiguity": "\u2264LU = less uncertainty order (Ebrahimi et al.)"
+   }
+  ]
+ },
+ {
+  "claim": "theorem3.6",
+  "a_orders": [
+   "disp"
+  ],
+  "b_orders": [
+   "disp",
+   "lu"
+  ],
+  "a_dirs": [
+   "A_smaller"
+  ],
+  "b_dirs": [
+   "A_smaller"
+  ],
+  "a_records": [
+   {
+    "paper": "arxiv:1905.00425",
+    "claim": "Theorem 3.6",
+    "page": 9,
+    "quote": "Theorem 3.6. Let X1,...,Xn (Y1,...,Yn) be the set of continuous independent random variables having Xi ~ Gum(\u00b5i, \u03c3) (Yi ~ Gum(\u00b5i*, \u03c3)), i = 1, 2,..., n. Then, if (\u00b51,...,\u00b5n) \u227bm (\u00b51*,...,\u00b5n*), we have 1. X1:n \u2264disp Y1:n; 2. X1:n \u2264LU Y1:n.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "Gumbel distribution; common scale \u03c3",
+    "compared": "minima X1:n vs Y1:n",
+    "hypotheses": [
+     {
+      "text": "Xi ~ Gum(\u00b5i,\u03c3), Yi ~ Gum(\u00b5i*,\u03c3) independent; \u00b5 \u227bm \u00b5*",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "disp",
+     "direction": "X1:n \u2264_disp Y1:n and X1:n \u2264_LU Y1:n"
+    },
+    "quantifiers": "all quantile arguments; n \u2265 1",
+    "numbers": "",
+    "ambiguity": "Two conclusions: dispersive order and less-uncertainty (LU) order, both via hr + DHR (Theorems 2.8, 2.9)."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "arxiv:1905.00425",
+    "claim": "Theorem 3.6 (disp part)",
+    "page": 9,
+    "quote": "Theorem 3.6. Let X1, ...., Xn (Y1, ...., Yn) be the set of continuous independent random variables having Xi ~ Gum(\u00b5i, \u03c3) (Yi ~ Gum(\u00b5*i, \u03c3)), i = 1, 2, ...., n. Then, if (\u00b51, \u00b7\u00b7\u00b7, \u00b5n) \u227dm (\u00b5*1, \u00b7\u00b7\u00b7, \u00b5*n), we have 1. X1:n \u2264disp Y1:n; 2. X1:n \u2264LU Y1:n.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "independent Gumbel, common \u03c3",
+    "compared": "location vectors under majorization",
+    "hypotheses": [
+     {
+      "text": "(\u00b51, \u00b7\u00b7\u00b7, \u00b5n) \u227dm (\u00b5*1, \u00b7\u00b7\u00b7, \u00b5*n)",
+      "formal": "majorization between location vectors",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "disp",
+     "direction": "X1:n <=_disp Y1:n"
+    },
+    "quantifiers": "n \u2265 1; all x",
+    "ambiguity": "Proof routes through X1:n \u2264hr Y1:n and the DHR property via cited Theorems 2.8\u20132.9."
+   },
+   {
+    "paper": "arxiv:1905.00425",
+    "claim": "Theorem 3.6 (LU part)",
+    "page": 9,
+    "quote": "Theorem 3.6. ... we have 1. X1:n \u2264disp Y1:n; 2. X1:n \u2264LU Y1:n.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "independent Gumbel, common \u03c3",
+    "compared": "location vectors under majorization",
+    "hypotheses": [
+     {
+      "text": "(\u00b51, \u00b7\u00b7\u00b7, \u00b5n) \u227dm (\u00b5*1, \u00b7\u00b7\u00b7, \u00b5*n)",
+      "formal": "majorization between location vectors",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "other: LU (less uncertainty order of Ebrahimi\u2013Pellerey)",
+     "direction": "X1:n <=_LU Y1:n"
+    },
+    "quantifiers": "n \u2265 1; all x",
+    "ambiguity": ""
+   }
+  ]
+ }
+]

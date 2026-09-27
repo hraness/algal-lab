@@ -1,0 +1,359 @@
+[
+ {
+  "paper": "arxiv:2505.01739",
+  "claim": "Proposition 1",
+  "page": 5,
+  "quote": "Proposition 1. The following statements hold. (i) If random variable X satisfies (SD), then either X is a constant, or E[|X|] is infinite. (ii) If two independent random variables X and Y satisfy (SD), then X + Y satisfies (SD). (iii) If random variable X satisfies (SD), then (X + a)/b satisfies (SD) for all a ∈ R and b ∈ R++ . (iv) If random variable Yk with any k ∈ N satisfies (SD) and Yk →d X, then X satisfies (SD).",
+  "kind": "proposition",
+  "model": "other: linear combinations of iid random variables",
+  "family": "General (property (SD): ΣηiXi <=st ΣθiXi whenever θ ⪯ η, θ,η ∈ R₊ⁿ)",
+  "compared": "preservation/closure properties of the (SD) dominance relation",
+  "hypotheses": [
+   {"text": "X satisfies (SD)", "formal": "ΣηiXi <=st ΣθiXi for θ ⪯ η", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "(i) SD forces degenerate-or-infinite-mean; (ii)-(iv) SD preserved under convolution, affine transformation, convergence in distribution"},
+  "quantifiers": "all θ,η ∈ R₊ⁿ; a ∈ R, b > 0; n >= 2",
+  "numbers": "",
+  "ambiguity": "(i) is a necessary structural condition on the SD property, not itself an ordering between two rvs."
+ },
+ {
+  "paper": "arxiv:2505.01739",
+  "claim": "Proposition 2",
+  "page": 6,
+  "quote": "Proposition 2. If F ∈ H, then ϕ(x1 , x2 ) = F (1/x1 ) + F (1/x2 ), (x1 , x2 ) ∈ R2++ , is Schur-concave. Conversely, if F is continuous and ϕ is Schur-concave, F ∈ H. In addition, if F has density f , then F ∈ H if and only if x2 f (x) is increasing in x ∈ R++ .",
+  "kind": "proposition",
+  "model": "other: distribution class characterization",
+  "family": "Inverted concave class H: F(1/x) concave in x ∈ R₊₊, ess-inf F = 0",
+  "compared": "characterization of H via Schur-concavity / density criterion",
+  "hypotheses": [
+   {"text": "F ∈ H (F(1/x) concave)", "formal": "inverted concavity", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: class criterion", "direction": "φ Schur-concave ⇐ F ∈ H; for continuous F, iff; density criterion x²f(x) increasing"},
+  "quantifiers": "(x1,x2) ∈ R₊₊²; x > 0",
+  "numbers": "",
+  "ambiguity": "Characterization rather than a two-distribution ordering; it supplies the pairwise condition underlying (SD)."
+ },
+ {
+  "paper": "arxiv:2505.01739",
+  "claim": "Example 1 (Fréchet)",
+  "page": 7,
+  "quote": "Example 1 (Fréchet distribution). The Fréchet distribution function is F (x) = exp (−x−α ), x ∈ R++ . As its density function is f (x) = αx−α−1 exp (−x−α ) for x ∈ R++ , by Remark 2, F ∈ H if α ≤ 1.",
+  "kind": "example",
+  "model": "other: linear combinations of iid random variables",
+  "family": "Fréchet F(x) = exp(−x^{−α})",
+  "compared": "membership in H (hence (SD) via Theorem 1)",
+  "hypotheses": [
+   {"text": "α ≤ 1 (infinite mean)", "formal": "tail index <= 1", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "F ∈ H for α <= 1, hence (SD): ΣηiXi <=st ΣθiXi for θ ⪯ η"},
+  "quantifiers": "x > 0; α <= 1",
+  "numbers": "α ≤ 1",
+  "ambiguity": "Membership example; ordering conclusion is via Theorem 1."
+ },
+ {
+  "paper": "arxiv:2505.01739",
+  "claim": "Example 2 (absolute Cauchy)",
+  "page": 7,
+  "quote": "Example 2 (Absolute Cauchy distribution). The absolute Cauchy distribution is defined as F (x) = (2/π) arctan(x) for x ∈ R++ . As the density function is f (x) = 2/(π(x2 +1)) = x−2 (2x2 /(π(x2 +1))) for x ∈ R++ , by Remark 2, we have F ∈ H.",
+  "kind": "example",
+  "model": "other: linear combinations of iid random variables",
+  "family": "Absolute Cauchy F(x) = (2/π) arctan x",
+  "compared": "membership in H (hence (SD))",
+  "hypotheses": [
+   {"text": "none beyond the family", "formal": "density form x^{−α−1}l(x) with α ∈ (0,1], l increasing", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "F ∈ H, hence (SD)"},
+  "quantifiers": "x > 0",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2505.01739",
+  "claim": "Example 3 (inverse Gamma)",
+  "page": 7,
+  "quote": "Example 3 (Inverse Gamma distribution). The density function of the inverse Gamma distribution with parameters α, β ∈ R++ is f (x) = β α x−α−1 exp (−β/x) /Γ(α), x ∈ R++ . By Remark 2, if α ≤ 1 and β ∈ R++ , we have F ∈ H. The inverse Gamma distribution with α = 0.5 is the Lévy distribution, which also belongs to the class of stable distributions.",
+  "kind": "example",
+  "model": "other: linear combinations of iid random variables",
+  "family": "Inverse Gamma f(x) = β^α x^{−α−1} e^{−β/x}/Γ(α)",
+  "compared": "membership in H (hence (SD))",
+  "hypotheses": [
+   {"text": "α ≤ 1", "formal": "shape <= 1", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "F ∈ H for α <= 1, hence (SD); Lévy (α = 1/2) included"},
+  "quantifiers": "x > 0; α <= 1; β > 0",
+  "numbers": "α ≤ 1; Lévy at α = 0.5",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2505.01739",
+  "claim": "Example 4 (Feller-Pareto)",
+  "page": 7,
+  "quote": "Example 4 (Feller-Pareto distribution). ... Assume that µ = 0 and σ = 1 and let h(x) = x2 f (x) for x ∈ R+ . ... If γ ≥ γ1 , i.e., the Feller-Pareto distribution has infinite mean, h is increasing. By Proposition 2, the Feller-Pareto distribution is inverted concave if γ ≥ γ1 .",
+  "kind": "example",
+  "model": "other: linear combinations of iid random variables",
+  "family": "Feller-Pareto FP(µ,σ,γ,γ1,γ2): f(x) = (1/(γσB(γ1,γ2))) ((x−µ)/σ)^{γ2/γ−1} (1+((x−µ)/σ)^{1/γ})^{−γ1−γ2}; includes Pareto I-IV, Burr",
+  "compared": "membership in H (hence (SD))",
+  "hypotheses": [
+   {"text": "γ ≥ γ1 (infinite-mean case)", "formal": "parameter condition", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "F ∈ H if γ >= γ1, hence (SD)"},
+  "quantifiers": "x > µ; γ >= γ1",
+  "numbers": "γ >= γ1; µ = 0, σ = 1 in the verification",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2505.01739",
+  "claim": "Theorem 1",
+  "page": 8,
+  "quote": "Theorem 1. If F ∈ H, then F satisfies (SD).",
+  "kind": "theorem",
+  "model": "other: linear combinations of iid random variables",
+  "family": "Inverted concave distributions H (F(1/x) concave, ess-inf F = 0)",
+  "compared": "ΣηiXi vs ΣθiXi under majorization of weight vectors (iid Xi ~ F)",
+  "hypotheses": [
+   {"text": "F ∈ H; θ ⪯ η (majorization)", "formal": "F(1/x) concave; θ ⪯ η", "source": "statement/definition"}
+  ],
+  "conclusion": {"order": "st", "direction": "ΣηiXi <=st ΣθiXi — more balanced weight vector gives stochastically LARGER combination (θ ⪯ η ⇒ θ-sum larger)"},
+  "quantifiers": "all θ,η ∈ R₊ⁿ with θ ⪯ η; n >= 2; all x",
+  "numbers": "",
+  "ambiguity": "Direction is opposite to finite-mean intuition: (SD) as defined is ΣηiXi <=st ΣθiXi for θ ⪯ η (θ less dispersed). Bounded-below assumption via ess-inf F = 0; Remark 4 notes Cauchy satisfies (SD) unbounded."
+ },
+ {
+  "paper": "arxiv:2505.01739",
+  "claim": "Proposition 3",
+  "page": 11,
+  "quote": "Proposition 3. Let X1 , . . . , Xn ∼ F be iid where F ∈ H. For vectors (θ1 , . . . , θn ) and (η1 , . . . , ηn ) in Rn+ such that (θ1 , . . . , θn ) ⪯w (η1 , . . . , ηn ), Σni=1 ηi Xi ≤st Σni=1 θi Xi .",
+  "kind": "proposition",
+  "model": "other: linear combinations of iid random variables",
+  "family": "Inverted concave distributions H",
+  "compared": "linear combinations under weak supermajorization (Definition 1(i))",
+  "hypotheses": [
+   {"text": "F ∈ H and θ ⪯w η", "formal": "weak supermajorization (lower partial sums)", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "ΣηiXi <=st ΣθiXi"},
+  "quantifiers": "all θ,η ∈ R₊ⁿ with θ ⪯w η; n >= 2",
+  "numbers": "",
+  "ambiguity": "Extends Theorem 1 from majorization to weak supermajorization ⪯w (Definition 1(i) notation)."
+ },
+ {
+  "paper": "arxiv:2505.01739",
+  "claim": "Theorem 2",
+  "page": 12,
+  "quote": "Theorem 2. If F ∈ H∗ , then F satisfies (SD*).",
+  "kind": "theorem",
+  "model": "other: linear combinations of iid random variables",
+  "family": "Inverted subadditive class H* ⊃ H: F(1/x1)+F(1/x2) >= F(1/(x1+x2)); contains super-Pareto",
+  "compared": "(Σθi)X1 vs ΣθiXi — diversification dominance (SD*)",
+  "hypotheses": [
+   {"text": "F ∈ H∗", "formal": "inverted subadditivity", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "(Σi θi)X1 <=st Σi θiXi for all θ ∈ R₊ⁿ — any diversification stochastically increases the loss"},
+  "quantifiers": "all θ ∈ R₊ⁿ; n >= 2",
+  "numbers": "",
+  "ambiguity": "Result previously established by Arab et al. (2025, Theorem 3.1); paper notes it is also implied by the proof of Theorem 1."
+ },
+ {
+  "paper": "arxiv:2505.01739",
+  "claim": "Proposition 4",
+  "page": 12,
+  "quote": "Proposition 4. Let X ∼ F where F ∈ H. Then (i) F β ∈ H where β ≥ 1; (ii) ϕ(X) ∈ H where ϕ is strictly increasing, ϕ(0) = 0, and 1/ϕ−1 (1/x) is concave in x ∈ R+ ; (iii) if Y ∼ G is independent of X where G ∈ H, then max{X, Y } ∈ H; (iv) if in addition X and another random variable Y have densities and X ≤lr Y , then Y ∈ H.",
+  "kind": "proposition",
+  "model": "other: linear combinations / class closure",
+  "family": "Inverted concave class H; uses convex transform order ≤c and ≤lr",
+  "compared": "closure properties: power transforms, convex transforms, maxima, lr-dominated distributions",
+  "hypotheses": [
+   {"text": "F ∈ H; β ≥ 1; ϕ strictly increasing with ϕ(0)=0 and 1/ϕ^{-1}(1/x) concave; independent G ∈ H; X ≤lr Y (iv)", "formal": "as listed", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: class closure", "direction": "F^β, ϕ(X), max{X,Y} ∈ H; (iv) X <=lr Y with X ∈ H ⇒ Y ∈ H"},
+  "quantifiers": "x > 0; β >= 1",
+  "numbers": "β >= 1; ϕ(x) = x^p (p ≥ 1) and e^x − 1 are admissible",
+  "ambiguity": "Closure result, not a pairwise ordering; part (iv) uses the lr order to transfer H-membership; proof uses U <=c 1/X characterization."
+ },
+ {
+  "paper": "arxiv:2505.01739",
+  "claim": "Proposition 5",
+  "page": 13,
+  "quote": "Proposition 5. The following statements hold. (i) For w1 , . . . , wn ∈ R+ such that Σni=1 wi = 1, if distribution functions F1 , . . . , Fn ∈ H, then Σni=1 wi Fi ∈ H. (ii) If X ∈ H, then max(X − c, 0) ∈ H where c ∈ R++ .",
+  "kind": "proposition",
+  "model": "other: mixture / deductible transform",
+  "family": "Inverted concave class H",
+  "compared": "closure under distribution mixture and under excess-of-loss transform",
+  "hypotheses": [
+   {"text": "Fi ∈ H, wi >= 0, Σwi = 1; c > 0", "formal": "mixture weights; deductible", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: class closure", "direction": "Σwi Fi ∈ H; max(X−c,0) ∈ H"},
+  "quantifiers": "weights sum to 1; c > 0",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2505.01739",
+  "claim": "Theorem 3",
+  "page": 14,
+  "quote": "Theorem 3. Let F be a continuous distribution function with ess-inf F = 0. Then CP(λ, F ) satisfies (SD) for all λ ∈ R++ if and only if F ∈ H.",
+  "kind": "theorem",
+  "model": "other: compound Poisson sums",
+  "family": "Compound Poisson CP(λ,F): X = Σ_{i=1}^N Yi, N ~ Poisson(λ), Yi ~ F iid",
+  "compared": "linear combinations of iid compound-Poisson variables under majorization — necessary AND sufficient condition",
+  "hypotheses": [
+   {"text": "F continuous, ess-inf F = 0", "formal": "non-negative severity", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "CP(λ,F) satisfies (SD) for all λ > 0 ⇔ F ∈ H (ΣηiXi <=st ΣθiXi for θ ⪯ η)"},
+  "quantifiers": "all λ > 0; n = 2 (reduction); all θ ⪯ η",
+  "numbers": "",
+  "ambiguity": "First necessity result for (SD). Remark 5: if F ∈ H, (SD) also holds for compound mixed Poisson CP(Λ,F) with random Λ."
+ },
+ {
+  "paper": "arxiv:2505.01739",
+  "claim": "Theorem 4",
+  "page": 16,
+  "quote": "Theorem 4. Let F be a continuous distribution function with ess-inf F = 0. Then CP(λ, F ) satisfies (SD*) for all λ ∈ R++ if and only if F ∈ H∗ .",
+  "kind": "theorem",
+  "model": "other: compound Poisson sums",
+  "family": "Compound Poisson CP(λ,F); inverted subadditive severities H*",
+  "compared": "compound-Poisson combinations under (SD*) — necessary and sufficient",
+  "hypotheses": [
+   {"text": "F continuous, ess-inf F = 0", "formal": "non-negative severity", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "CP(λ,F) satisfies (SD*) for all λ > 0 ⇔ F ∈ H* ((Σθi)X1 <=st ΣθiXi)"},
+  "quantifiers": "all λ > 0; all θ ∈ R₊ⁿ",
+  "numbers": "",
+  "ambiguity": "Proof omitted ('slight modification' of Theorem 3)."
+ },
+ {
+  "paper": "arxiv:2505.01739",
+  "claim": "Proposition 6",
+  "page": 17,
+  "quote": "Proposition 6. If X1 , . . . , Xn are iid and satisfy (SD) and an (X1 + · · · + Xn ) + bn →d Z for some stable random variable Z, where an ∈ R++ and bn ∈ R, then Z satisfies (SD).",
+  "kind": "proposition",
+  "model": "other: weak limits / stable laws",
+  "family": "Stable distributions as limits of normalized sums",
+  "compared": "SD property inherited by stable limits",
+  "hypotheses": [
+   {"text": "iid Xi satisfy (SD); an(X1+···+Xn)+bn →d Z, Z stable", "formal": "convergence in distribution to stable law", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Z satisfies (SD) — ΣηiZi <=st ΣθiZi for θ ⪯ η"},
+  "quantifiers": "n >= 2; an > 0, bn ∈ R",
+  "numbers": "",
+  "ambiguity": "Consequence of Proposition 1(iv)."
+ },
+ {
+  "paper": "arxiv:2505.01739",
+  "claim": "Theorem 5",
+  "page": 17,
+  "quote": "Theorem 5. The stable distribution Sα (1, β, 0) satisfies (SD) if and only if one of the following conditions holds. (i) α = 1 and β ∈ R+ ; (ii) α < 1 and β = 1.",
+  "kind": "theorem",
+  "model": "other: linear combinations of iid random variables",
+  "family": "Standard stable distributions Sα(σ,β,µ), α ∈ (0,2], β ∈ [−1,1]",
+  "compared": "linear combinations of iid stable variables under majorization — iff characterization",
+  "hypotheses": [
+   {"text": "α = 1 and β ∈ R+ ; or α < 1 and β = 1", "formal": "parameter conditions", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Sα(1,β,0) satisfies (SD) iff (i) or (ii); for α = 1, ΣwiXi =^d X1 − (2β/π)Σ wi log wi; for α ≠ 1, β = 1, ΣwiXi =^d (Σwi^α)^{1/α} X1"},
+  "quantifiers": "n >= 2; Σwi = 1 normalization used in proof",
+  "numbers": "α ∈ (0,1] cases; β = 1 or β >= 0",
+  "ambiguity": "Part (ii) appeared as Theorem 1.2.4 of Ibragimov (2005) in different form. (i) shows boundedness below is not necessary for (SD)."
+ },
+ {
+  "paper": "arxiv:2505.01739",
+  "claim": "Simulation study (absolute stable conjecture)",
+  "page": 18,
+  "quote": "As the absolute Cauchy distribution satisfies (SD), a natural question is whether absolute stable distributions with parameter α ≤ 1 also satisfy (SD). We conjecture that the answer is yes but do not have a proof. ... Let Y1 = a1 |X1 | + a2 |X2 | and Y2 = b1 |X1 | + b2 |X2 |. We consider three cases of the weight vector (a1 , a2 , b1 , b2 ) = (1, 4, 2, 3), (2, 6, 3, 5) or (3, 8, 5, 6). Figure 1 plots the empirical distribution functions ... with α = 0.10 and β = 0 or −0.40 ... Figure 2 ... α = 0.90 and β = 0 or 0.30 ... the empirical distributions F̂b1 and F̂b2 of Y1 and Y2 seem to satisfy F̂b1 (x) ≥ F̂b2 (x) for all x.",
+  "kind": "example",
+  "model": "other: linear combinations of iid random variables",
+  "family": "Absolute values of stable variables |Sα(1,β,0)|",
+  "compared": "empirical CDFs of weighted sums of absolute stable rvs — supports conjecture that (SD) holds for absolute stable distributions with α <= 1",
+  "hypotheses": [
+   {"text": "α = 0.1 with β = 0, −0.4; α = 0.9 with β = 0, 0.3; weight pairs (1,4) vs (2,3), (2,6) vs (3,5), (3,8) vs (5,6)", "formal": "majorization-related weight pairs", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "empirical F̂Y1 >= F̂Y2 pointwise — suggests Y1 <=st Y2 for the more balanced weight vector? recorded as printed: 'F̂b1 (x) ≥ F̂b2 (x)'"},
+  "quantifiers": "10000 simulated samples per scenario; n = 2",
+  "numbers": "α ∈ {0.10, 0.90}, β ∈ {0, −0.40, 0.30}; weights (1,4)/(2,3), (2,6)/(3,5), (3,8)/(5,6)",
+  "ambiguity": "Simulation evidence only (conjecture, no proof); note (a1,a2)=(1,4) is more spread than (b1,b2)=(2,3), and under (SD) the balanced sum should be stochastically larger (smaller cdf) — the printed direction 'F̂b1 ≥ F̂b2' with b1=b_1? subscript labels ambiguous in text layer."
+ },
+ {
+  "paper": "arxiv:2505.01739",
+  "claim": "Example A.1 (Pareto)",
+  "page": 21,
+  "quote": "Example A.1 (Pareto distribution). For α ∈ R++ , the Pareto distribution function is F (x) = 1 − 1/(x + 1)α , x ∈ R++ . If α ≤ 1, then F has infinite mean. ... If α ≤ 1, then g ′′ is negative. Thus, by Proposition 2, we have F ∈ H if α ≤ 1.",
+  "kind": "example",
+  "model": "other: linear combinations of iid random variables",
+  "family": "Pareto F(x) = 1 − (x+1)^{−α}",
+  "compared": "membership in H (hence (SD))",
+  "hypotheses": [
+   {"text": "α ≤ 1", "formal": "tail index <= 1", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "F ∈ H for α <= 1, hence (SD)"},
+  "quantifiers": "x > 0; α <= 1",
+  "numbers": "α ≤ 1",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2505.01739",
+  "claim": "Example A.2 (log-Pareto)",
+  "page": 21,
+  "quote": "Example A.2 (Log-Pareto distribution). ... F (x) = 1 − 1/(log(x + 1) + 1)α , x ∈ R++ . ... Thus if α ≤ 2, then F ∈ H.",
+  "kind": "example",
+  "model": "other: linear combinations of iid random variables",
+  "family": "Log-Pareto F(x) = 1 − (log(x+1)+1)^{−α}",
+  "compared": "membership in H (hence (SD))",
+  "hypotheses": [
+   {"text": "α ≤ 2", "formal": "parameter bound", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "F ∈ H for α <= 2, hence (SD)"},
+  "quantifiers": "x > 0; α <= 2",
+  "numbers": "α ≤ 2",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2505.01739",
+  "claim": "Example A.3 (inverse Burr)",
+  "page": 22,
+  "quote": "Example A.3 (Inverse Burr distribution). ... F (x) = (xτ /(xτ + 1))α , x ∈ R++ , where α, τ ∈ R++ . ... Hence, if τ ≤ 1, then h′ (x) ≥ 0. By Proposition 2, we have F ∈ H.",
+  "kind": "example",
+  "model": "other: linear combinations of iid random variables",
+  "family": "Inverse Burr F(x) = (x^τ/(x^τ+1))^α",
+  "compared": "membership in H (hence (SD))",
+  "hypotheses": [
+   {"text": "τ ≤ 1", "formal": "parameter bound", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "F ∈ H for τ <= 1 (any α > 0), hence (SD)"},
+  "quantifiers": "x > 0; τ <= 1, α > 0",
+  "numbers": "τ ≤ 1",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2505.01739",
+  "claim": "Example A.4 (Stoppa)",
+  "page": 22,
+  "quote": "Example A.4 (Stoppa distribution). For α, β ∈ R++ , a (location-shifted) Stoppa distribution can be defined as F (x) = (1 − (x + 1)−α )β , x ∈ R++ . Since a Stoppa distribution is a power transform of a Pareto distribution, by Proposition 4 (i), if α ≤ 1 and β ≥ 1, then F ∈ H.",
+  "kind": "example",
+  "model": "other: linear combinations of iid random variables",
+  "family": "Stoppa F(x) = (1 − (x+1)^{−α})^β",
+  "compared": "membership in H (hence (SD))",
+  "hypotheses": [
+   {"text": "α ≤ 1 and β ≥ 1", "formal": "parameter bounds", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "F ∈ H for α <= 1, β >= 1, hence (SD)"},
+  "quantifiers": "x > 0",
+  "numbers": "α ≤ 1, β ≥ 1",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2505.01739",
+  "claim": "Example A.5 (log-Cauchy)",
+  "page": 22,
+  "quote": "Example A.5 (Log-Cauchy distribution). The log-Cauchy distribution function is F (x) = (1/π) arctan(log(x)) + 1/2, x ∈ R++ .",
+  "kind": "example",
+  "model": "other: linear combinations of iid random variables",
+  "family": "Log-Cauchy F(x) = arctan(log x)/π + 1/2",
+  "compared": "membership in H (hence (SD))",
+  "hypotheses": [
+   {"text": "density criterion x²f(x) increasing (checked in appendix)", "formal": "h(x) = x²f(x) increasing", "source": "statement/derivation"}
+  ],
+  "conclusion": {"order": "st", "direction": "F ∈ H, hence (SD)"},
+  "quantifiers": "x > 0",
+  "numbers": "Table 1 marks parameters 'NA'",
+  "ambiguity": "Verification details continue on page 23 (truncated in the extracted excerpt); conclusion F ∈ H per Table 1."
+ }
+]

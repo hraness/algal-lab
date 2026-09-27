@@ -1,0 +1,70 @@
+[
+ {
+  "paper": "doi:10.14419/ijasp.v9i1.31208",
+  "claim": "Theorem 2, likelihood ratio part",
+  "page": 12,
+  "quote": "Let X1 ~ APTQLD(alpha_1, beta_1, theta_1) and X2 ~ APTQLD(alpha_2, beta_2, theta_2). If alpha_1 < alpha_2, beta_1 = beta_2 = beta and theta_1 = theta_2 = theta, then X1 <=lr X2.",
+  "kind": "theorem",
+  "model": "other: two distributions of the same family",
+  "family": "alpha power transformed quasi Lindley APTQLD(alpha, beta, theta)",
+  "compared": "X1 vs X2 differing only in alpha",
+  "hypotheses": [
+   {"text": "alpha_1 < alpha_2; beta_1 = beta_2 = beta; theta_1 = theta_2 = theta", "formal": "ordered shape parameters, common beta and theta", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "X1 <=_lr X2 (likelihood ratio decreasing)"},
+  "quantifiers": "x > 0; alpha > 0, beta > -1, theta > 0",
+  "numbers": "",
+  "ambiguity": "Paper states only lr; heavier OCR garbling in the pdf ratio."
+ },
+ {
+  "paper": "doi:10.14419/ijasp.v9i1.31208",
+  "claim": "Theorem 2, hazard rate part",
+  "page": 12,
+  "quote": "Notably, if X1 <=lr X2, then X1 <=hr X2, X1 <=mrl X2 and X1 <=st X2.",
+  "kind": "theorem",
+  "model": "other: two distributions of the same family",
+  "family": "APTQLD",
+  "compared": "X1 vs X2",
+  "hypotheses": [
+   {"text": "alpha_1 < alpha_2; beta_1 = beta_2 = beta; theta_1 = theta_2 = theta", "formal": "as in Theorem 2", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X1 <=_hr X2 (via printed lr => hr => mrl/st chain)"},
+  "quantifiers": "x > 0",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.14419/ijasp.v9i1.31208",
+  "claim": "Theorem 2, mean residual life part",
+  "page": 12,
+  "quote": "Notably, if X1 <=lr X2, then X1 <=hr X2, X1 <=mrl X2 and X1 <=st X2.",
+  "kind": "theorem",
+  "model": "other: two distributions of the same family",
+  "family": "APTQLD",
+  "compared": "X1 vs X2",
+  "hypotheses": [
+   {"text": "alpha_1 < alpha_2; beta_1 = beta_2 = beta; theta_1 = theta_2 = theta", "formal": "as in Theorem 2", "source": "statement"}
+  ],
+  "conclusion": {"order": "mrl", "direction": "X1 <=_mrl X2"},
+  "quantifiers": "x > 0",
+  "numbers": "",
+  "ambiguity": "mrl defined in the paper as E(X - t | X < t), which is the printed (apparently incorrect) definition."
+ },
+ {
+  "paper": "doi:10.14419/ijasp.v9i1.31208",
+  "claim": "Theorem 2, usual stochastic order part",
+  "page": 12,
+  "quote": "Notably, if X1 <=lr X2, then X1 <=hr X2, X1 <=mrl X2 and X1 <=st X2.",
+  "kind": "theorem",
+  "model": "other: two distributions of the same family",
+  "family": "APTQLD",
+  "compared": "X1 vs X2",
+  "hypotheses": [
+   {"text": "alpha_1 < alpha_2; beta_1 = beta_2 = beta; theta_1 = theta_2 = theta", "formal": "as in Theorem 2", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X1 <=_st X2"},
+  "quantifiers": "x > 0",
+  "numbers": "",
+  "ambiguity": ""
+ }
+]

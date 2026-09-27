@@ -1,0 +1,237 @@
+[
+ {
+  "claim": "counterexample3.1",
+  "a_orders": [
+   "rh"
+  ],
+  "b_orders": [
+   "rh"
+  ],
+  "a_dirs": [
+   "x3 3 \u2271 rhr y3 3 ordering fails although \u03c3 \u227d^m \u03b8"
+  ],
+  "b_dirs": [
+   "A_smaller"
+  ],
+  "a_records": [
+   {
+    "paper": "doi:10.1016/j.orl.2017.02.005",
+    "claim": "Counterexample 3.1",
+    "page": 6,
+    "quote": "Counterexample 3.1 Let Xi \u223c LL(\u03c3i, \u03bbi) and Yi \u223c LL(\u03b8i, \u03bbi), i = 1, 2, 3. Now, if (\u03c31, \u03c32, \u03c33) = (1, 1, 5) \u2208 E+, (\u03b81, \u03b82, \u03b83) = (1, 2, 4) \u2208 E+ and (\u03bb1, \u03bb2, \u03bb3) = (4, 3, 0.2) \u2208 D+ are taken, then from Figure 1, it is clear that F3:3(x)/G3:3(x) is not monotone, giving that X3:3 \u2271rhr Y3:3, although \u03c3 \u227d^m \u03b8.",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "Log-Lindley LL(\u03c3, \u03bb), n = 3 components",
+    "compared": "\u03c3 = (1,1,5) vs \u03b8 = (1,2,4), common \u03bb = (4,3,0.2); \u03c3 and \u03b8 in E+ while \u03bb in D+ (mixed ordering)",
+    "hypotheses": [
+     {
+      "text": "if (\u03c31, \u03c32, \u03c33) = (1, 1, 5) \u2208 E+, (\u03b81, \u03b82, \u03b83) = (1, 2, 4) \u2208 E+ and (\u03bb1, \u03bb2, \u03bb3) = (4, 3, 0.2) \u2208 D+",
+      "formal": "\u03c3, \u03b8 \u2208 E+, \u03bb \u2208 D+, \u03c3 \u227d^m \u03b8",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "X3:3 \u2271_rhr Y3:3 (ordering fails although \u03c3 \u227d^m \u03b8)"
+    },
+    "quantifiers": "n = 3",
+    "numbers": "\u03c3 = (1,1,5), \u03b8 = (1,2,4), \u03bb = (4,3,0.2); Figure 1 plots F3:3(x)/G3:3(x) over x \u2208 (0,1), non-monotone, values around 0.635\u20130.67",
+    "ambiguity": "Refutes a strengthening of Theorem 3.1: shows the hypothesis that scale and shape vectors share the same ordering direction is necessary. 'Not monotone' assessed from Figure 1 only."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "doi:10.1016/j.orl.2017.02.005",
+    "claim": "Counterexample 3.1",
+    "page": 6,
+    "quote": "Counterexample 3.1 Let Xi \u223c LL(\u03c3i, \u03bbi) and Yi \u223c LL(\u03b8i, \u03bbi), i = 1, 2, 3. Now, if (\u03c31, \u03c32, \u03c33) = (1, 1, 5) \u2208 E+, (\u03b81, \u03b82, \u03b83) = (1, 2, 4) \u2208 E+ and (\u03bb1, \u03bb2, \u03bb3) = (4, 3, 0.2) \u2208 D+ are taken, then from Figure 1, it is clear that F3:3(x)/G3:3(x) is not monotone, giving that X3:3 \u2270rhr Y3:3, although \u03c3 \u227d^m \u03b8.",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "log-Lindley LL(\u03c3, \u03bb): f(x; \u03c3, \u03bb) = \u03c3\u00b2/(1 + \u03bb\u03c3) (\u03bb \u2212 log x) x^(\u03c3\u22121), 0 < x < 1",
+    "compared": "shape vectors \u03c3 vs \u03b8 with \u03c3 majorizing \u03b8; scale vector \u03bb ordered oppositely (D+) to \u03c3, \u03b8 (E+)",
+    "hypotheses": [
+     {
+      "text": "if (\u03c31, \u03c32, \u03c33) = (1, 1, 5) \u2208 E+, (\u03b81, \u03b82, \u03b83) = (1, 2, 4) \u2208 E+ and (\u03bb1, \u03bb2, \u03bb3) = (4, 3, 0.2) \u2208 D+ are taken",
+      "formal": "\u03c3=(1,1,5), \u03b8=(1,2,4), \u03bb=(4,3,0.2)",
+      "source": "statement"
+     },
+     {
+      "text": "although \u03c3 \u227d^m \u03b8",
+      "formal": "(1,1,5) majorizes (1,2,4): sums 7 vs 7, partial sums 1\u22651, 2\u22653? \u2014 as stated by authors",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "X3:3 not <=_rhr Y3:3 and not >=_rhr Y3:3 (F3:3/G3:3 non-monotone); refutes necessity relaxation of Theorem 3.1"
+    },
+    "quantifiers": "n = 3",
+    "numbers": "\u03c3=(1,1,5); \u03b8=(1,2,4); \u03bb=(4,3,0.2); F3:3(x)/G3:3(x) plotted over x in (0,1) ranges 0.635-0.67 and is non-monotone",
+    "ambiguity": "Majorization direction: \u03c3=(1,1,5) vs \u03b8=(1,2,4): sorted partial sums of \u03c3 are 1,2,7 vs \u03b8 1,3,7, so \u03b8 weakly majorizes \u03c3 from below convention; the authors assert \u03c3 \u227d^m \u03b8, suggesting they use the convention that larger spread majorizes (\u03c3 more spread). Notation '\u227d^m' printed with a garbled superscript m in text layer."
+   }
+  ]
+ },
+ {
+  "claim": "counterexample3.2",
+  "a_orders": [
+   "rh"
+  ],
+  "b_orders": [
+   "rh"
+  ],
+  "a_dirs": [
+   "\u03bb \u227d^m \u03b4 does not always imply x3 3 \u2264 rhr y3 3 when all vecto"
+  ],
+  "b_dirs": [
+   "for \u03c3= 0.1 3 5 x3 3 <= rhr y3 3 ratio increasing for \u03c3= 2 3 "
+  ],
+  "a_records": [
+   {
+    "paper": "doi:10.1016/j.orl.2017.02.005",
+    "claim": "Counterexample 3.2",
+    "page": 7,
+    "quote": "Counterexample 3.2 Let Xi \u223c LL(\u03c3i, \u03bbi) and Yi \u223c (\u03c3i, \u03b4i), i = 1, 2, 3. Let (\u03bb1, \u03bb2, \u03bb3) = (0.1, 0.3, 4.1) \u2208 E+ and (\u03b41, \u03b42, \u03b43) = (0.2, 0.3, 4) \u2208 E+, giving \u03bb \u227d^m \u03b4. Now, if (\u03c31, \u03c32, \u03c33) = (0.1, 3, 5) \u2208 E+ is taken, then Figure 2 (a) shows that F3:3(x)/G3:3(x) is increasing in x. Again if (\u03c31, \u03c32, \u03c33) = (2, 3, 5) \u2208 E+ is taken, then Figure 2 (b) shows that F3:3(x)/G3:3(x) is decreasing in x. So, it can be concluded that, for all \u03c3, \u03bb, \u03b4 \u2208 D+ (resp. E+), \u03bb \u227d^m \u03b4 does not always imply X3:3 \u2264rhr Y3:3.",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "Log-Lindley LL(\u03c3, \u03bb), n = 3 components",
+    "compared": "\u03bb = (0.1,0.3,4.1) vs \u03b4 = (0.2,0.3,4), common \u03c3; two \u03c3 choices give opposite monotonicity of the cdf ratio",
+    "hypotheses": [
+     {
+      "text": "(\u03bb1, \u03bb2, \u03bb3) = (0.1, 0.3, 4.1) \u2208 E+ and (\u03b41, \u03b42, \u03b43) = (0.2, 0.3, 4) \u2208 E+, giving \u03bb \u227d^m \u03b4",
+      "formal": "\u03bb, \u03b4 \u2208 E+, \u03bb majorizes \u03b4",
+      "source": "statement"
+     },
+     {
+      "text": "(\u03c31, \u03c32, \u03c33) = (0.1, 3, 5) \u2208 E+ ... (\u03c31, \u03c32, \u03c33) = (2, 3, 5) \u2208 E+",
+      "formal": "two alternative \u03c3 vectors both in E+",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "\u03bb \u227d^m \u03b4 does not always imply X3:3 \u2264_rhr Y3:3 when all vectors are similarly ordered"
+    },
+    "quantifiers": "n = 3",
+    "numbers": "\u03bb = (0.1,0.3,4.1), \u03b4 = (0.2,0.3,4); \u03c3 = (0.1,3,5) gives F/G increasing (Fig 2a, ratio ~0.88\u20130.98); \u03c3 = (2,3,5) gives F/G decreasing (Fig 2b, ratio ~1.002\u20131.014)",
+    "ambiguity": "Text layer drops 'LL' in 'Yi \u223c (\u03c3i, \u03b4i)'. Sign of conclusion is consistent: first \u03c3 choice gives F/G increasing i.e. X3:3 \u2264rhr Y3:3 holds, second gives decreasing i.e. fails."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "doi:10.1016/j.orl.2017.02.005",
+    "claim": "Counterexample 3.2",
+    "page": 7,
+    "quote": "Counterexample 3.2 Let Xi \u223c LL(\u03c3i, \u03bbi) and Yi \u223c (\u03c3i, \u03b4i), i = 1, 2, 3. Let (\u03bb1, \u03bb2, \u03bb3) = (0.1, 0.3, 4.1) \u2208 E+ and (\u03b41, \u03b42, \u03b43) = (0.2, 0.3, 4) \u2208 E+, giving \u03bb \u227d^m \u03b4. Now, if (\u03c31, \u03c32, \u03c33) = (0.1, 3, 5) \u2208 E+ is taken, then Figure 2 (a) shows that F3:3(x)/G3:3(x) is increasing in x. Again if (\u03c31, \u03c32, \u03c33) = (2, 3, 5) \u2208 E+ is taken, then Figure 2 (b) shows that F3:3(x)/G3:3(x) is decreasing in x. So, it can be concluded that, for all \u03c3, \u03bb, \u03b4 \u2208 D+ (resp. E+), \u03bb \u227d^m \u03b4 does not always imply X3:3 \u2264rhr Y3:3.",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "log-Lindley LL(\u03c3, \u03bb): f(x; \u03c3, \u03bb) = \u03c3\u00b2/(1 + \u03bb\u03c3) (\u03bb \u2212 log x) x^(\u03c3\u22121), 0 < x < 1",
+    "compared": "scale vectors \u03bb vs \u03b4 with \u03bb majorizing \u03b4; \u03c3 ordered same direction as \u03bb,\u03b4 (violating Theorem 3.2's opposite-ordering condition)",
+    "hypotheses": [
+     {
+      "text": "(\u03bb1, \u03bb2, \u03bb3) = (0.1, 0.3, 4.1) \u2208 E+ and (\u03b41, \u03b42, \u03b43) = (0.2, 0.3, 4) \u2208 E+, giving \u03bb \u227d^m \u03b4",
+      "formal": "\u03bb=(0.1,0.3,4.1), \u03b4=(0.2,0.3,4)",
+      "source": "statement"
+     },
+     {
+      "text": "if (\u03c31, \u03c32, \u03c33) = (0.1, 3, 5) \u2208 E+ ... again if (\u03c31, \u03c32, \u03c33) = (2, 3, 5) \u2208 E+",
+      "formal": "two \u03c3 choices both in E+",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "for \u03c3=(0.1,3,5): X3:3 <=_rhr Y3:3 (ratio increasing); for \u03c3=(2,3,5): X3:3 >=_rhr Y3:3 (ratio decreasing) \u2014 no uniform rhr ordering"
+    },
+    "quantifiers": "n = 3",
+    "numbers": "\u03bb=(0.1,0.3,4.1); \u03b4=(0.2,0.3,4); \u03c3\u2208{(0.1,3,5),(2,3,5)}; Fig 2(a) ratio ranges ~1.0-1.014 increasing; Fig 2(b) ratio ranges ~0.88-0.98 decreasing",
+    "ambiguity": "Yi written as 'Yi \u223c (\u03c3i, \u03b4i)' with the LL symbol omitted in the printed text."
+   }
+  ]
+ },
+ {
+  "claim": "theorem3.4",
+  "a_orders": [
+   "lr"
+  ],
+  "b_orders": [
+   "lr"
+  ],
+  "a_dirs": [
+   "B_smaller"
+  ],
+  "b_dirs": [
+   "A_smaller"
+  ],
+  "a_records": [
+   {
+    "paper": "doi:10.1016/j.orl.2017.02.005",
+    "claim": "Theorem 3.4",
+    "page": 9,
+    "quote": "Theorem 3.4 For i = 1, 2, ..., n, let Xi and Yi be two sets of independent random variables each following the multiple-outlier EW model such that Xi \u223c LL(\u03c3, \u03bb) and Yi \u223c LL(\u03b8, \u03bb) for i = 1, 2, . . . , n1, Xi \u223c LL(\u03c3\u2217, \u03bb\u2217) and Yi \u223c LL(\u03b8\u2217, \u03bb\u2217) for i = n1 + 1, n1 + 2, . . . , n1 + n2 (= n). If (\u03c3, \u03c3, . . . , \u03c3, \u03c3\u2217, \u03c3\u2217, . . . , \u03c3\u2217) \u227d^m (\u03b8, \u03b8, . . . , \u03b8, \u03b8\u2217, \u03b8\u2217, . . . , \u03b8\u2217) and either {\u03c3 \u2265 \u03c3\u2217, \u03b8 \u2265 \u03b8\u2217, \u03bb \u2265 \u03bb\u2217} or {\u03c3 \u2264 \u03c3\u2217, \u03b8 \u2264 \u03b8\u2217, \u03bb \u2264 \u03bb\u2217} then Xn:n \u2265lr Yn:n.",
+    "kind": "theorem",
+    "model": "other: parallel system with multiple-outlier model (n1 components with one parameter set, n2 outliers with another)",
+    "family": "Log-Lindley LL(\u03c3, \u03bb); statement says 'multiple-outlier EW model' but distributions written as LL",
+    "compared": "common-group shape \u03c3 (resp. \u03c3\u2217) vs \u03b8 (resp. \u03b8\u2217); scale vectors common between X and Y sides",
+    "hypotheses": [
+     {
+      "text": "Xi \u223c LL(\u03c3, \u03bb) and Yi \u223c LL(\u03b8, \u03bb) for i = 1, ..., n1; Xi \u223c LL(\u03c3\u2217, \u03bb\u2217) and Yi \u223c LL(\u03b8\u2217, \u03bb\u2217) for i = n1+1, ..., n1+n2 (= n)",
+      "formal": "two-outlier structure with n1 regular + n2 outlier components",
+      "source": "statement"
+     },
+     {
+      "text": "(\u03c3, . . . , \u03c3, \u03c3\u2217, . . . , \u03c3\u2217) \u227d^m (\u03b8, . . . , \u03b8, \u03b8\u2217, . . . , \u03b8\u2217)",
+      "formal": "the n-vector of X-side shape parameters majorizes the Y-side one",
+      "source": "statement"
+     },
+     {
+      "text": "either {\u03c3 \u2265 \u03c3\u2217, \u03b8 \u2265 \u03b8\u2217, \u03bb \u2265 \u03bb\u2217} or {\u03c3 \u2264 \u03c3\u2217, \u03b8 \u2264 \u03b8\u2217, \u03bb \u2264 \u03bb\u2217}",
+      "formal": "regular and outlier parameter triples ordered in the same direction",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "Xn:n \u2265_lr Yn:n"
+    },
+    "quantifiers": "n = n1 + n2; all x in (0,1)",
+    "numbers": "",
+    "ambiguity": "Statement says 'multiple-outlier EW model' although all distributions are LL \u2014 'EW' appears to be a leftover typo from an exponentiated-Weibull template; recorded verbatim. Unlike Theorem 3.3 no \u03bb\u03c3 > 1/2 condition is required."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "doi:10.1016/j.orl.2017.02.005",
+    "claim": "Theorem 3.4",
+    "page": 9,
+    "quote": "Theorem 3.4 For i = 1, 2, ..., n, let Xi and Yi be two sets of independent random variables each following the multiple-outlier EW model such that Xi \u223c LL(\u03c3, \u03bb) and Yi \u223c LL(\u03b8, \u03bb) for i = 1, 2, . . . , n1, Xi \u223c LL(\u03c3\u2217, \u03bb\u2217) and Yi \u223c LL(\u03b8\u2217, \u03bb\u2217) for i = n1 + 1, n1 + 2, . . . , n1 + n2 (= n). If (\u03c3, \u03c3, . . . , \u03c3, \u03c3\u2217, \u03c3\u2217, . . . , \u03c3\u2217) \u227d^m (\u03b8, \u03b8, . . . , \u03b8, \u03b8\u2217, \u03b8\u2217, . . . , \u03b8\u2217) and either {\u03c3 \u2265 \u03c3\u2217, \u03b8 \u2265 \u03b8\u2217, \u03bb \u2265 \u03bb\u2217} or {\u03c3 \u2264 \u03c3\u2217, \u03b8 \u2264 \u03b8\u2217, \u03bb \u2264 \u03bb\u2217} then Xn:n \u2265lr Yn:n.",
+    "kind": "theorem",
+    "model": "other: multiple-outlier parallel system",
+    "family": "log-Lindley LL(\u03c3, \u03bb): f(x; \u03c3, \u03bb) = \u03c3\u00b2/(1 + \u03bb\u03c3) (\u03bb \u2212 log x) x^(\u03c3\u22121), 0 < x < 1, \u03bb \u2265 0, \u03c3 > 0",
+    "compared": "shape parameters \u03c3 vs \u03b8 in n1 components and \u03c3* vs \u03b8* in n2 components (majorized vectors); scales \u03bb and \u03bb* common within each group",
+    "hypotheses": [
+     {
+      "text": "Xi \u223c LL(\u03c3, \u03bb) and Yi \u223c LL(\u03b8, \u03bb) for i = 1, ..., n1; Xi \u223c LL(\u03c3\u2217, \u03bb\u2217) and Yi \u223c LL(\u03b8\u2217, \u03bb\u2217) for i = n1+1, ..., n1+n2 (= n)",
+      "formal": "two-group multiple-outlier model, n = n1 + n2",
+      "source": "statement"
+     },
+     {
+      "text": "(\u03c3, ..., \u03c3, \u03c3\u2217, ..., \u03c3\u2217) \u227d^m (\u03b8, ..., \u03b8, \u03b8\u2217, ..., \u03b8\u2217)",
+      "formal": "the n-vector of X shape parameters majorizes that of Y",
+      "source": "statement"
+     },
+     {
+      "text": "either {\u03c3 \u2265 \u03c3\u2217, \u03b8 \u2265 \u03b8\u2217, \u03bb \u2265 \u03bb\u2217} or {\u03c3 \u2264 \u03c3\u2217, \u03b8 \u2264 \u03b8\u2217, \u03bb \u2264 \u03bb\u2217}",
+      "formal": "parameters ordered consistently between the two groups",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "Yn:n <=_lr Xn:n (stated as Xn:n \u2265lr Yn:n)"
+    },
+    "quantifiers": "n = n1 + n2 \u2265 2, all x in (0,1)",
+    "ambiguity": "Text says 'multiple-outlier EW model' but components are specified as LL(\u00b7,\u00b7); 'EW' appears to be a leftover/typo. The phrase 'with common scale parameter vectors' in the discussion applies per-group (\u03bb vs \u03bb* differ across groups)."
+   }
+  ]
+ }
+]

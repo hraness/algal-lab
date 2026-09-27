@@ -1,0 +1,242 @@
+[
+ {
+  "paper": "doi:10.37119/jpss2023.v21i1.637",
+  "claim": "Theorem (1)(i), likelihood ratio order",
+  "page": 10,
+  "quote": "The MWU distribution is ordered with respect to the strongest 'likelihood ratio' ordering as shown in the following theorem: Theorem (1) Let X \u223c MWU (\u03b1_1, \u03bb_1) and Y \u223c MWU (\u03b1_2, \u03bb_2), Then the following results hold true i) If \u03b1_1 < \u03b1_2 and \u03bb_1 = \u03bb_2 then X \u2264_lr Y, X \u2264_hr Y and X \u2264_st Y ii) If \u03b1_1 = \u03b1_2 and \u03bb_2 > \u03bb_1 then X \u2264_lr Y, X \u2264_hr Y and X \u2264_st Y",
+  "kind": "theorem",
+  "model": "single",
+  "family": "Modified weighted uniform MWU(\u03b1, \u03bb): pdf f_WU(x) = \u03bb(\u03b1 + 1)(1 \u2212 \u03bbx)^\u03b1, 0 \u2264 x \u2264 1/\u03bb, \u03b1 \u2265 0, \u03bb \u2265 0 (eq. (6)); cdf F_WU(x) = 1 \u2212 (1 \u2212 \u03bbx)^{\u03b1+1} (eq. (7)); \u03bb called the scale parameter and \u03b1 the shape parameter",
+  "compared": "shape \u03b1_1 < \u03b1_2 with common \u03bb",
+  "hypotheses": [
+   {
+    "text": "Let X \u223c MWU (\u03b1_1, \u03bb_1) and Y \u223c MWU (\u03b1_2, \u03bb_2)",
+    "formal": "X has pdf \u03bb_1(\u03b1_1 + 1)(1 \u2212 \u03bb_1 x)^{\u03b1_1} on [0, 1/\u03bb_1]; Y has pdf \u03bb_2(\u03b1_2 + 1)(1 \u2212 \u03bb_2 x)^{\u03b1_2} on [0, 1/\u03bb_2]",
+    "source": "statement; eq. (6)"
+   },
+   {
+    "text": "\u03b1 \u2265 0, \u03bb \u2265 0",
+    "formal": "\u03b1_1, \u03b1_2 \u2265 0; \u03bb_1, \u03bb_2 \u2265 0",
+    "source": "definition eq. (6)"
+   },
+   {
+    "text": "If \u03b1_1 < \u03b1_2 and \u03bb_1 = \u03bb_2",
+    "formal": "\u03b1_1 < \u03b1_2, \u03bb_1 = \u03bb_2 = \u03bb",
+    "source": "statement"
+   },
+   {
+    "text": "likelihood ratio order (X \u2264_lr Y) if f_X(x)/f_Y(x) decreases in x",
+    "formal": "X \u2264_lr Y iff f_X/f_Y decreasing on the support",
+    "source": "Section 3.6 definition (iii)"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "X \u2264_lr Y, i.e. MWU(\u03b1_1, \u03bb) \u2264_lr MWU(\u03b1_2, \u03bb) for \u03b1_1 < \u03b1_2"
+  },
+  "quantifiers": "all \u03b1_1 < \u03b1_2 (\u03b1 \u2265 0), all \u03bb \u2265 0 common; x \u2208 [0, 1/\u03bb) (proof: 'increasing if x < 1/\u03bb')",
+  "numbers": "",
+  "ambiguity": "\u03bb = 0 is allowed by '\u03bb \u2265 0' but makes the pdf degenerate. The definitions in Section 3.6 (i)\u2013(iii) do not mention supports.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.37119/jpss2023.v21i1.637",
+  "claim": "Theorem (1)(i), hazard rate order",
+  "page": 10,
+  "quote": "The MWU distribution is ordered with respect to the strongest 'likelihood ratio' ordering as shown in the following theorem: Theorem (1) Let X \u223c MWU (\u03b1_1, \u03bb_1) and Y \u223c MWU (\u03b1_2, \u03bb_2), Then the following results hold true i) If \u03b1_1 < \u03b1_2 and \u03bb_1 = \u03bb_2 then X \u2264_lr Y, X \u2264_hr Y and X \u2264_st Y ii) If \u03b1_1 = \u03b1_2 and \u03bb_2 > \u03bb_1 then X \u2264_lr Y, X \u2264_hr Y and X \u2264_st Y",
+  "kind": "theorem",
+  "model": "single",
+  "family": "Modified weighted uniform MWU(\u03b1, \u03bb): pdf \u03bb(\u03b1 + 1)(1 \u2212 \u03bbx)^\u03b1, 0 \u2264 x \u2264 1/\u03bb, \u03b1 \u2265 0, \u03bb \u2265 0; cdf 1 \u2212 (1 \u2212 \u03bbx)^{\u03b1+1}; survival (1 \u2212 \u03bbx)^{\u03b1+1}",
+  "compared": "shape \u03b1_1 < \u03b1_2 with common \u03bb",
+  "hypotheses": [
+   {
+    "text": "Let X \u223c MWU (\u03b1_1, \u03bb_1) and Y \u223c MWU (\u03b1_2, \u03bb_2)",
+    "formal": "MWU marginals as in eq. (6)",
+    "source": "statement; eq. (6)"
+   },
+   {
+    "text": "\u03b1 \u2265 0, \u03bb \u2265 0",
+    "formal": "parameter ranges",
+    "source": "definition eq. (6)"
+   },
+   {
+    "text": "If \u03b1_1 < \u03b1_2 and \u03bb_1 = \u03bb_2",
+    "formal": "\u03b1_1 < \u03b1_2, \u03bb_1 = \u03bb_2",
+    "source": "statement"
+   },
+   {
+    "text": "hazard rate order (X \u2264_hr Y) if h_X(x) \u2265 h_Y(x) for all x",
+    "formal": "h_X(x) \u2265 h_Y(x) for all x",
+    "source": "Section 3.6 definition (ii)"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "X \u2264_hr Y, i.e. MWU(\u03b1_1, \u03bb) \u2264_hr MWU(\u03b1_2, \u03bb) for \u03b1_1 < \u03b1_2"
+  },
+  "quantifiers": "all \u03b1_1 < \u03b1_2, common \u03bb; all x in the support",
+  "numbers": "",
+  "ambiguity": "The proof derives hr from lr via the stated implication chain.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.37119/jpss2023.v21i1.637",
+  "claim": "Theorem (1)(i), usual stochastic order",
+  "page": 10,
+  "quote": "The MWU distribution is ordered with respect to the strongest 'likelihood ratio' ordering as shown in the following theorem: Theorem (1) Let X \u223c MWU (\u03b1_1, \u03bb_1) and Y \u223c MWU (\u03b1_2, \u03bb_2), Then the following results hold true i) If \u03b1_1 < \u03b1_2 and \u03bb_1 = \u03bb_2 then X \u2264_lr Y, X \u2264_hr Y and X \u2264_st Y ii) If \u03b1_1 = \u03b1_2 and \u03bb_2 > \u03bb_1 then X \u2264_lr Y, X \u2264_hr Y and X \u2264_st Y",
+  "kind": "theorem",
+  "model": "single",
+  "family": "Modified weighted uniform MWU(\u03b1, \u03bb): pdf \u03bb(\u03b1 + 1)(1 \u2212 \u03bbx)^\u03b1, 0 \u2264 x \u2264 1/\u03bb, \u03b1 \u2265 0, \u03bb \u2265 0; cdf 1 \u2212 (1 \u2212 \u03bbx)^{\u03b1+1}",
+  "compared": "shape \u03b1_1 < \u03b1_2 with common \u03bb",
+  "hypotheses": [
+   {
+    "text": "Let X \u223c MWU (\u03b1_1, \u03bb_1) and Y \u223c MWU (\u03b1_2, \u03bb_2)",
+    "formal": "MWU marginals as in eq. (6)",
+    "source": "statement; eq. (6)"
+   },
+   {
+    "text": "\u03b1 \u2265 0, \u03bb \u2265 0",
+    "formal": "parameter ranges",
+    "source": "definition eq. (6)"
+   },
+   {
+    "text": "If \u03b1_1 < \u03b1_2 and \u03bb_1 = \u03bb_2",
+    "formal": "\u03b1_1 < \u03b1_2, \u03bb_1 = \u03bb_2",
+    "source": "statement"
+   },
+   {
+    "text": "stochastic ordering (X \u2264_st Y) if F_X(x) \u2265 F_Y(x) for all x",
+    "formal": "F_X(x) \u2265 F_Y(x) for all x",
+    "source": "Section 3.6 definition (i)"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X \u2264_st Y, i.e. MWU(\u03b1_1, \u03bb) \u2264_st MWU(\u03b1_2, \u03bb) for \u03b1_1 < \u03b1_2"
+  },
+  "quantifiers": "all \u03b1_1 < \u03b1_2, common \u03bb; all x",
+  "numbers": "",
+  "ambiguity": "The proof derives st from lr via the stated implication chain.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.37119/jpss2023.v21i1.637",
+  "claim": "Theorem (1)(ii), likelihood ratio order",
+  "page": 10,
+  "quote": "The MWU distribution is ordered with respect to the strongest 'likelihood ratio' ordering as shown in the following theorem: Theorem (1) Let X \u223c MWU (\u03b1_1, \u03bb_1) and Y \u223c MWU (\u03b1_2, \u03bb_2), Then the following results hold true i) If \u03b1_1 < \u03b1_2 and \u03bb_1 = \u03bb_2 then X \u2264_lr Y, X \u2264_hr Y and X \u2264_st Y ii) If \u03b1_1 = \u03b1_2 and \u03bb_2 > \u03bb_1 then X \u2264_lr Y, X \u2264_hr Y and X \u2264_st Y",
+  "kind": "theorem",
+  "model": "single",
+  "family": "Modified weighted uniform MWU(\u03b1, \u03bb): pdf \u03bb(\u03b1 + 1)(1 \u2212 \u03bbx)^\u03b1, 0 \u2264 x \u2264 1/\u03bb, \u03b1 \u2265 0, \u03bb \u2265 0; cdf 1 \u2212 (1 \u2212 \u03bbx)^{\u03b1+1}",
+  "compared": "scale \u03bb_2 > \u03bb_1 with common shape \u03b1",
+  "hypotheses": [
+   {
+    "text": "Let X \u223c MWU (\u03b1_1, \u03bb_1) and Y \u223c MWU (\u03b1_2, \u03bb_2)",
+    "formal": "X on [0, 1/\u03bb_1], Y on [0, 1/\u03bb_2]",
+    "source": "statement; eq. (6)"
+   },
+   {
+    "text": "\u03b1 \u2265 0, \u03bb \u2265 0",
+    "formal": "parameter ranges",
+    "source": "definition eq. (6)"
+   },
+   {
+    "text": "If \u03b1_1 = \u03b1_2 and \u03bb_2 > \u03bb_1",
+    "formal": "\u03b1_1 = \u03b1_2 = \u03b1, \u03bb_2 > \u03bb_1",
+    "source": "statement"
+   },
+   {
+    "text": "likelihood ratio order (X \u2264_lr Y) if f_X(x)/f_Y(x) decreases in x",
+    "formal": "f_X/f_Y decreasing",
+    "source": "Section 3.6 definition (iii)"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "X \u2264_lr Y, i.e. MWU(\u03b1, \u03bb_1) \u2264_lr MWU(\u03b1, \u03bb_2) for \u03bb_2 > \u03bb_1"
+  },
+  "quantifiers": "all common \u03b1 \u2265 0; all \u03bb_2 > \u03bb_1; x < 1/\u03bb (proof, \u03bb unspecified)",
+  "numbers": "",
+  "ambiguity": "In this part the supports differ ([0, 1/\u03bb_1] for X versus the shorter [0, 1/\u03bb_2] for Y). The proof's range 'increasing in x < 1/\u03bb' does not say which \u03bb, and the definitions ignore supports. \u03bb is called a scale parameter, but the larger \u03bb gives the shorter support.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.37119/jpss2023.v21i1.637",
+  "claim": "Theorem (1)(ii), hazard rate order",
+  "page": 10,
+  "quote": "The MWU distribution is ordered with respect to the strongest 'likelihood ratio' ordering as shown in the following theorem: Theorem (1) Let X \u223c MWU (\u03b1_1, \u03bb_1) and Y \u223c MWU (\u03b1_2, \u03bb_2), Then the following results hold true i) If \u03b1_1 < \u03b1_2 and \u03bb_1 = \u03bb_2 then X \u2264_lr Y, X \u2264_hr Y and X \u2264_st Y ii) If \u03b1_1 = \u03b1_2 and \u03bb_2 > \u03bb_1 then X \u2264_lr Y, X \u2264_hr Y and X \u2264_st Y",
+  "kind": "theorem",
+  "model": "single",
+  "family": "Modified weighted uniform MWU(\u03b1, \u03bb): pdf \u03bb(\u03b1 + 1)(1 \u2212 \u03bbx)^\u03b1, 0 \u2264 x \u2264 1/\u03bb, \u03b1 \u2265 0, \u03bb \u2265 0; survival (1 \u2212 \u03bbx)^{\u03b1+1}",
+  "compared": "scale \u03bb_2 > \u03bb_1 with common shape \u03b1",
+  "hypotheses": [
+   {
+    "text": "Let X \u223c MWU (\u03b1_1, \u03bb_1) and Y \u223c MWU (\u03b1_2, \u03bb_2)",
+    "formal": "MWU marginals",
+    "source": "statement; eq. (6)"
+   },
+   {
+    "text": "\u03b1 \u2265 0, \u03bb \u2265 0",
+    "formal": "parameter ranges",
+    "source": "definition eq. (6)"
+   },
+   {
+    "text": "If \u03b1_1 = \u03b1_2 and \u03bb_2 > \u03bb_1",
+    "formal": "\u03b1_1 = \u03b1_2, \u03bb_2 > \u03bb_1",
+    "source": "statement"
+   },
+   {
+    "text": "hazard rate order (X \u2264_hr Y) if h_X(x) \u2265 h_Y(x) for all x",
+    "formal": "h_X(x) \u2265 h_Y(x) for all x",
+    "source": "Section 3.6 definition (ii)"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "X \u2264_hr Y, i.e. MWU(\u03b1, \u03bb_1) \u2264_hr MWU(\u03b1, \u03bb_2) for \u03bb_2 > \u03bb_1"
+  },
+  "quantifiers": "all common \u03b1; all \u03bb_2 > \u03bb_1; all x",
+  "numbers": "",
+  "ambiguity": "The supports differ ([0, 1/\u03bb_1] vs [0, 1/\u03bb_2]); how 'for all x' in the hr definition treats points outside Y's support is unspecified. The conclusion is derived from lr in the proof.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.37119/jpss2023.v21i1.637",
+  "claim": "Theorem (1)(ii), usual stochastic order",
+  "page": 10,
+  "quote": "The MWU distribution is ordered with respect to the strongest 'likelihood ratio' ordering as shown in the following theorem: Theorem (1) Let X \u223c MWU (\u03b1_1, \u03bb_1) and Y \u223c MWU (\u03b1_2, \u03bb_2), Then the following results hold true i) If \u03b1_1 < \u03b1_2 and \u03bb_1 = \u03bb_2 then X \u2264_lr Y, X \u2264_hr Y and X \u2264_st Y ii) If \u03b1_1 = \u03b1_2 and \u03bb_2 > \u03bb_1 then X \u2264_lr Y, X \u2264_hr Y and X \u2264_st Y",
+  "kind": "theorem",
+  "model": "single",
+  "family": "Modified weighted uniform MWU(\u03b1, \u03bb): pdf \u03bb(\u03b1 + 1)(1 \u2212 \u03bbx)^\u03b1, 0 \u2264 x \u2264 1/\u03bb, \u03b1 \u2265 0, \u03bb \u2265 0; cdf 1 \u2212 (1 \u2212 \u03bbx)^{\u03b1+1}",
+  "compared": "scale \u03bb_2 > \u03bb_1 with common shape \u03b1",
+  "hypotheses": [
+   {
+    "text": "Let X \u223c MWU (\u03b1_1, \u03bb_1) and Y \u223c MWU (\u03b1_2, \u03bb_2)",
+    "formal": "MWU marginals",
+    "source": "statement; eq. (6)"
+   },
+   {
+    "text": "\u03b1 \u2265 0, \u03bb \u2265 0",
+    "formal": "parameter ranges",
+    "source": "definition eq. (6)"
+   },
+   {
+    "text": "If \u03b1_1 = \u03b1_2 and \u03bb_2 > \u03bb_1",
+    "formal": "\u03b1_1 = \u03b1_2, \u03bb_2 > \u03bb_1",
+    "source": "statement"
+   },
+   {
+    "text": "stochastic ordering (X \u2264_st Y) if F_X(x) \u2265 F_Y(x) for all x",
+    "formal": "F_X(x) \u2265 F_Y(x) for all x",
+    "source": "Section 3.6 definition (i)"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X \u2264_st Y, i.e. MWU(\u03b1, \u03bb_1) \u2264_st MWU(\u03b1, \u03bb_2) for \u03bb_2 > \u03bb_1"
+  },
+  "quantifiers": "all common \u03b1; all \u03bb_2 > \u03bb_1; all x",
+  "numbers": "",
+  "ambiguity": "The supports differ ([0, 1/\u03bb_1] vs [0, 1/\u03bb_2]). The conclusion is derived from lr via the implication chain.",
+  "adjudication": "agreed"
+ }
+]

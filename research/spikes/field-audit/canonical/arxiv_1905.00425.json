@@ -1,0 +1,142 @@
+[
+ {
+  "paper": "arxiv:1905.00425",
+  "claim": "Corollary 3.3",
+  "page": 7,
+  "quote": "Corollary 3.3. Let X1,...,Xn (Y1,...,Yn) be the set of continuous independent random variables having Xi ~ Gum(\u00b5i, \u03c3) (Yi ~ Gum(\u00b5i, \u03c3)), i = 1, 2,..., n. Then, if (\u00b51,...,\u00b5n) \u227bm (\u00b51*,...,\u00b5n*), and let T be any random variable which is independent of X and Y. Then we have Xn:n^T \u2265rh Yn:n^T.",
+  "kind": "corollary",
+  "model": "parallel system",
+  "family": "Gumbel; common shock T",
+  "compared": "Xn:n^T vs Yn:n^T",
+  "hypotheses": [
+   {
+    "text": "\u00b5 \u227bm \u00b5*; T independent of X and Y; Xn:n is IRHR",
+    "formal": "from Theorems 3.2 and 2.7(1)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "rh",
+   "direction": "Xn:n^T \u2265_rh Yn:n^T"
+  },
+  "quantifiers": "all x; n \u2265 1",
+  "numbers": "",
+  "ambiguity": "Statement prints Yi ~ Gum(\u00b5i, \u03c3) (no asterisk) \u2014 presumed typo for \u00b5i*.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "arxiv:1905.00425",
+  "claim": "Corollary 3.5",
+  "page": 8,
+  "quote": "Corollary 3.5. Let X1,...,Xn (Y1,...,Yn) be the set of continuous independent random variables having Xi ~ Gum(\u00b5i, \u03c3) (Yi ~ Gum(\u00b5i*, \u03c3)), i = 1, 2,..., n. Then, if (\u00b51,...,\u00b5n) \u227bm (\u00b51*,...,\u00b5n*), and let T be any random variable which is independent of X and Y. Then we have X1:n^T \u2264hr Y1:n^T.",
+  "kind": "corollary",
+  "model": "series system",
+  "family": "Gumbel; common shock T",
+  "compared": "X1:n^T vs Y1:n^T",
+  "hypotheses": [
+   {
+    "text": "\u00b5 \u227bm \u00b5*; T independent; X1:n is DHR (hazard rate decreasing in \u00b5i)",
+    "formal": "from Theorems 3.4 and 2.7(2)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "X1:n^T \u2264_hr Y1:n^T"
+  },
+  "quantifiers": "all x; n \u2265 1",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "arxiv:1905.00425",
+  "claim": "Theorem 3.1",
+  "page": 6,
+  "quote": "Theorem 3.1. Let X1,...,Xn (Y1,...,Yn) be the set of continuous independent random variables having Xi ~ Gum(\u00b5i, \u03c3) (Yi ~ Gum(\u00b5i*, \u03c3)), i = 1, 2,..., n. Then, if \u00b5i \u2265 \u00b5i*, we have Xn:n \u2265lr Yn:n.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "Gumbel distribution Gum(\u00b5,\u03c3): F(x) = exp(\u2212e^{\u2212(x\u2212\u00b5)/\u03c3}), location \u00b5 \u2208 R, scale \u03c3 > 0; independent components",
+  "compared": "maxima Xn:n vs Yn:n; componentwise location ordering",
+  "hypotheses": [
+   {
+    "text": "Xi ~ Gum(\u00b5i,\u03c3), Yi ~ Gum(\u00b5i*,\u03c3) independent; common \u03c3",
+    "formal": "stated",
+    "source": "statement"
+   },
+   {
+    "text": "\u00b5i \u2265 \u00b5i* for all i",
+    "formal": "stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "Xn:n \u2265_lr Yn:n"
+  },
+  "quantifiers": "all x \u2208 R; n \u2265 1",
+  "numbers": "",
+  "ambiguity": "Paper spells 'Gumble' for Gumbel throughout.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "arxiv:1905.00425",
+  "claim": "Theorem 3.2",
+  "page": 7,
+  "quote": "Theorem 3.2. Let X1,...,Xn (Y1,...,Yn) be the set of continuous independent random variables having Xi ~ Gum(\u00b5i, \u03c3) (Yi ~ Gum(\u00b5i*, \u03c3)), i = 1, 2,..., n. Then, if (\u00b51,...,\u00b5n) \u227bm (\u00b51*,...,\u00b5n*), we have Xn:n \u2265rh Yn:n.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "Gumbel distribution; common scale \u03c3",
+  "compared": "maxima Xn:n vs Yn:n; majorization of location vectors",
+  "hypotheses": [
+   {
+    "text": "Xi ~ Gum(\u00b5i,\u03c3), Yi ~ Gum(\u00b5i*,\u03c3) independent",
+    "formal": "stated",
+    "source": "statement"
+   },
+   {
+    "text": "(\u00b51,...,\u00b5n) \u227b^m (\u00b51*,...,\u00b5n*)",
+    "formal": "\u00b5 majorizes \u00b5* (\u00b5 more spread); reversed hazard of maximum is Schur-convex in \u00b5",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "rh",
+   "direction": "Xn:n \u2265_rh Yn:n"
+  },
+  "quantifiers": "all x; n \u2265 1",
+  "numbers": "",
+  "ambiguity": "Majorization glyph rendered as '\u227bm' (majorizes direction).",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "arxiv:1905.00425",
+  "claim": "Theorem 3.4",
+  "page": 8,
+  "quote": "Theorem 3.4. Let X1,...,Xn (Y1,...,Yn) be the set of continuous independent random variables having Xi ~ Gum(\u00b5i, \u03c3) (Yi ~ Gum(\u00b5i*, \u03c3)), i = 1, 2,..., n. Then, if (\u00b51,...,\u00b5n) \u227bm (\u00b51*,...,\u00b5n*), we have X1:n \u2264hr Y1:n.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Gumbel distribution; common scale \u03c3",
+  "compared": "minima X1:n vs Y1:n; majorization of location vectors",
+  "hypotheses": [
+   {
+    "text": "Xi ~ Gum(\u00b5i,\u03c3), Yi ~ Gum(\u00b5i*,\u03c3) independent",
+    "formal": "stated",
+    "source": "statement"
+   },
+   {
+    "text": "(\u00b51,...,\u00b5n) \u227b^m (\u00b51*,...,\u00b5n*)",
+    "formal": "\u00b5 majorizes \u00b5*; hazard rate of minimum is Schur-convex in \u00b5",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "X1:n \u2264_hr Y1:n"
+  },
+  "quantifiers": "all x; n \u2265 1",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "agreed"
+ }
+]

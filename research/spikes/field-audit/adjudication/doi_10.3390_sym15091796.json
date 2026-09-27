@@ -1,0 +1,225 @@
+[
+ {
+  "claim": "theorem1",
+  "a_orders": [
+   "mrl"
+  ],
+  "b_orders": [
+   "mrl"
+  ],
+  "a_dirs": [
+   "x2 2 \u2265 mrl y2 2"
+  ],
+  "b_dirs": [
+   "x2 2 >= mrl y2 2"
+  ],
+  "a_records": [
+   {
+    "paper": "doi:10.3390/sym15091796",
+    "claim": "Theorem 1",
+    "page": 6,
+    "quote": "Theorem 1. For two parallel systems with component lifetimes being distributed as (X1, X2) ~ MOE(\u03bb1, \u03bb2, \u03bb3) and (Y1, Y2) ~ MOE(\u00b51, \u00b52, \u03bb3), the following implication holds: ((\u03bb1 + \u03bb3)\u22121, (\u03bb2 + \u03bb3)\u22121) \u2ab0^m ((\u00b51 + \u03bb3)\u22121, (\u00b52 + \u03bb3)\u22121) \u21d2 X2:2 \u2265mrl Y2:2.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "Marshall\u2013Olkin bivariate exponential MOE(\u03bb1,\u03bb2,\u03bb3): F\u0304(x1,x2) = exp{\u2212(\u03bb1 x1 + \u03bb2 x2 + \u03bb3 (x1 \u2228 x2))}",
+    "compared": "X2:2 (parallel system of MOE pair) vs Y2:2, sharing common \u03bb3",
+    "hypotheses": [
+     {
+      "text": "(X1, X2) ~ MOE(\u03bb1, \u03bb2, \u03bb3) and (Y1, Y2) ~ MOE(\u00b51, \u00b52, \u03bb3)",
+      "formal": "MOE pairs with shared shock rate \u03bb3",
+      "source": "statement"
+     },
+     {
+      "text": "((\u03bb1 + \u03bb3)\u22121, (\u03bb2 + \u03bb3)\u22121) \u2ab0^m ((\u00b51 + \u03bb3)\u22121, (\u00b52 + \u03bb3)\u22121)",
+      "formal": "vector of marginal means majorizes the other",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "mrl",
+     "direction": "X2:2 \u2265_mrl Y2:2"
+    },
+    "quantifiers": "n = 2; all t \u2265 0",
+    "numbers": "",
+    "ambiguity": "Symbol verified via PDF rendering: \u2ab0^m (majorization). Condition couples marginal means rather than marginal rates."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "doi:10.3390/sym15091796",
+    "claim": "Theorem 1",
+    "page": 7,
+    "quote": "Theorem 1. For two parallel systems with component lifetimes being distributed as (X1, X2) ~ MOE(\u03bb1, \u03bb2, \u03bb3) and (Y1, Y2) ~ MOE(\u00b51, \u00b52, \u03bb3), the following implication holds: ((\u03bb1 + \u03bb3)^{\u22121}, (\u03bb2 + \u03bb3)^{\u22121}) \u227a^m ((\u00b51 + \u03bb3)^{\u22121}, (\u00b52 + \u03bb3)^{\u22121}) \u21d2 X2:2 \u2265mrl Y2:2. [Setup:] The random vector (X1, X2) has bivariate Marshall\u2013Olkin exponential distribution with parameters (\u03bb1, \u03bb2, \u03bb3), written as (X1, X2) ~ MOE(\u03bb1, \u03bb2, \u03bb3), if the joint survival function is F\u0304X1,X2(x1, x2) = exp{\u2212(\u03bb1x1 + \u03bb2x2 + \u03bb3(x1 \u2228 x2))}, x1 \u2265 0, x2 \u2265 0, where \u03bb1 > 0, \u03bb2 > 0, \u03bb3 \u2265 0.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "Marshall\u2013Olkin bivariate exponential MOE(\u03bb1,\u03bb2,\u03bb3); common shock parameter \u03bb3",
+    "compared": "reciprocals of marginal hazard rates (\u03bbi+\u03bb3)^{\u22121} vs (\u00b5i+\u03bb3)^{\u22121} under majorization; common \u03bb3",
+    "hypotheses": [
+     {
+      "text": "(X1, X2) ~ MOE(\u03bb1, \u03bb2, \u03bb3) and (Y1, Y2) ~ MOE(\u00b51, \u00b52, \u03bb3)",
+      "formal": "bivariate MOE with shared \u03bb3",
+      "source": "statement"
+     },
+     {
+      "text": "((\u03bb1 + \u03bb3)^{\u22121}, (\u03bb2 + \u03bb3)^{\u22121}) \u227a^m ((\u00b51 + \u03bb3)^{\u22121}, (\u00b52 + \u03bb3)^{\u22121})",
+      "formal": "reciprocal marginal-rate pair majorized",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "mrl",
+     "direction": "X2:2 >=_mrl Y2:2"
+    },
+    "quantifiers": "x \u2265 0; \u03bb1, \u03bb2, \u00b51, \u00b52 > 0, \u03bb3 \u2265 0",
+    "ambiguity": "The majorization glyph (\u227a^m) is degraded in the text layer but legible in the PDF."
+   }
+  ]
+ },
+ {
+  "claim": "theorem2",
+  "a_orders": [
+   "st"
+  ],
+  "b_orders": [
+   "st"
+  ],
+  "a_dirs": [
+   "r x n \u2265 st r y n"
+  ],
+  "b_dirs": [
+   "r x n >= st r y n"
+  ],
+  "a_records": [
+   {
+    "paper": "doi:10.3390/sym15091796",
+    "claim": "Theorem 2",
+    "page": 7,
+    "quote": "Theorem 2. For \u03b7 \u2208 \u0398n(\u03b8), we have R(X, n) \u2265st R(Y, n). [with \u0398n(\u03b8) = {\u03b7 = (\u03b71,...,\u03b7n) \u2208 En+ : \u03b8 \u2ab0^p \u03b7 and \u03b8k \u2265 \u03b7k for k = 2,...,n}, where X1,...,Xn are independent exponential with hazard rates \u03b81,...,\u03b8n, Y1,...,Yn independent exponential with hazard rates \u03b71,...,\u03b7n, and R(X,n) = Xn:n \u2212 X1:n is the sample range]",
+    "kind": "theorem",
+    "model": "sample range",
+    "family": "Independent exponential variables with hazard rates \u03b8i (for X) and \u03b7i (for Y); En+ = {x \u2208 Rn : 0 < x1 \u2264 ... \u2264 xn}",
+    "compared": "R(X,n) vs R(Y,n), hazard-rate vectors \u03b8 vs \u03b7",
+    "hypotheses": [
+     {
+      "text": "X1,...,Xn independent exponential with hazard rates \u03b8i; Y's likewise with rates \u03b7i",
+      "formal": "stated in section preamble",
+      "source": "surrounding text"
+     },
+     {
+      "text": "\u03b7 \u2208 \u0398n(\u03b8): \u03b8 \u2ab0^p \u03b7 (p-majorization) and \u03b8k \u2265 \u03b7k for k = 2,...,n",
+      "formal": "\u03b8 p-majorizes \u03b7 (\u03a0 \u03b8_(j) \u2264 \u03a0 \u03b7_(j) by Definition 2(iii) reading 'a is said to p-majorize b' for \u03b8 vs \u03b7) plus componentwise domination of all but the smallest rate",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "R(X,n) \u2265_st R(Y,n)"
+    },
+    "quantifiers": "all x \u2265 0; n \u2265 2",
+    "numbers": "",
+    "ambiguity": "Symbol verified via PDF rendering: \u2ab0^p = p-majorization with \u03b8 the majorizing (more spread) vector."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "doi:10.3390/sym15091796",
+    "claim": "Theorem 2",
+    "page": 7,
+    "quote": "Theorem 2. For \u03b7 \u2208 \u0398n(\u03b8), we have R(X, n) \u2265st R(Y, n). [Context:] Let X1, \u00b7 \u00b7 \u00b7 , Xn be independent exponential random variables with respective hazard rates \u03b81, \u00b7 \u00b7 \u00b7 , \u03b8n. The sample range of X = (X1, \u00b7 \u00b7 \u00b7 , Xn) is R(X, n) = Xn:n \u2212 X1:n. En+ = {(x1, . . . , xn) \u2208 Rn : 0 < x1 \u2264 . . . \u2264 xn}. For \u03b8 = (\u03b81, . . . , \u03b8n) \u2208 En+, \u0398n(\u03b8) = {\u03b7 \u2208 En+ : \u03b8 \u227a \u03b7 and \u03b8k \u2265 \u03b7k for k = 2, . . . , n} and \u03a9n(\u03b8) = {\u03b7 \u2208 En+ : \u03b8 \u227a^w \u03b7 and \u03b8k \u2265 \u03b7k for k = 2, . . . , n}.",
+    "kind": "theorem",
+    "model": "other: sample range R(X,n) = Xn:n \u2212 X1:n",
+    "family": "independent exponential Exp(\u03b8i) variables",
+    "compared": "hazard-rate vectors \u03b8 vs \u03b7 \u2208 \u0398n(\u03b8) (\u03b7 majorizes \u03b8 with \u03b7k \u2264 \u03b8k for k \u2265 2)",
+    "hypotheses": [
+     {
+      "text": "X1, . . . , Xn independent exponential with hazard rates \u03b81, . . . , \u03b8n; \u03b7 \u2208 \u0398n(\u03b8)",
+      "formal": "\u03b8 \u2208 En+, \u03b7 \u2208 En+, \u03b8 \u227a \u03b7, \u03b8k \u2265 \u03b7k (k=2..n)",
+      "source": "section preamble"
+     },
+     {
+      "text": "R(Y, n) the range of independent exponentials with rates \u03b7",
+      "formal": "second sample's range",
+      "source": "section preamble"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "R(X,n) >=_st R(Y,n)"
+    },
+    "quantifiers": "n \u2265 2, x \u2265 0",
+    "ambiguity": "The majorization/weak-majorization superscripts on \u227a in the definitions of \u0398n and \u03a9n are partly degraded in the text layer; \u0398n uses ordinary majorization and \u03a9n weak (sub/super) majorization as printed."
+   }
+  ]
+ },
+ {
+  "claim": "theorem3",
+  "a_orders": [
+   "rh"
+  ],
+  "b_orders": [
+   "rh"
+  ],
+  "a_dirs": [
+   "r x n \u2265 rh r y n"
+  ],
+  "b_dirs": [
+   "r x n >= rh r y n"
+  ],
+  "a_records": [
+   {
+    "paper": "doi:10.3390/sym15091796",
+    "claim": "Theorem 3",
+    "page": 7,
+    "quote": "Theorem 3. For \u03b7 \u2208 \u2126n(\u03b8), we have R(X, n) \u2265rh R(Y, n). [with \u2126n(\u03b8) = {\u03b7 = (\u03b71,...,\u03b7n) \u2208 En+ : \u03b8 \u2ab0^w \u03b7 and \u03b8k \u2265 \u03b7k for k = 2,...,n}; independent exponentials with hazard rates \u03b8i (X) and \u03b7i (Y); R(X,n) = Xn:n \u2212 X1:n]",
+    "kind": "theorem",
+    "model": "sample range",
+    "family": "Independent exponential variables; weak majorization",
+    "compared": "R(X,n) vs R(Y,n)",
+    "hypotheses": [
+     {
+      "text": "independent exponential X with rates \u03b8, Y with rates \u03b7",
+      "formal": "section setup",
+      "source": "surrounding text"
+     },
+     {
+      "text": "\u03b7 \u2208 \u2126n(\u03b8): \u03b8 \u2ab0^w \u03b7 and \u03b8k \u2265 \u03b7k for k = 2,...,n",
+      "formal": "\u03b8 weakly majorizes \u03b7 plus componentwise domination",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "R(X,n) \u2265_rh R(Y,n)"
+    },
+    "quantifiers": "all x \u2265 0; n \u2265 2",
+    "numbers": "",
+    "ambiguity": "Symbol verified via PDF rendering: \u2ab0^w (weak majorization). Since p-majorization implies weak majorization for positive vectors, \u2126n(\u03b8) \u2287 \u0398n(\u03b8)."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "doi:10.3390/sym15091796",
+    "claim": "Theorem 3",
+    "page": 7,
+    "quote": "Theorem 3. For \u03b7 \u2208 \u03a9n(\u03b8), we have R(X, n) \u2265rh R(Y, n). [Context:] \u03a9n(\u03b8) = {\u03b7 \u2208 En+ : \u03b8 \u227a^w \u03b7 and \u03b8k \u2265 \u03b7k for k = 2, . . . , n}.",
+    "kind": "theorem",
+    "model": "other: sample range R(X,n) = Xn:n \u2212 X1:n",
+    "family": "independent exponential Exp(\u03b8i) variables",
+    "compared": "hazard-rate vectors \u03b8 vs \u03b7 \u2208 \u03a9n(\u03b8) (\u03b7 weakly majorizes \u03b8 with \u03b7k \u2264 \u03b8k for k \u2265 2)",
+    "hypotheses": [
+     {
+      "text": "X1, . . . , Xn independent exponential with hazard rates \u03b8; \u03b7 \u2208 \u03a9n(\u03b8)",
+      "formal": "\u03b8 \u2208 En+, \u03b7 \u2208 En+, \u03b8 \u227a^w \u03b7, \u03b8k \u2265 \u03b7k (k=2..n)",
+      "source": "section preamble"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "R(X,n) >=_rh R(Y,n)"
+    },
+    "quantifiers": "n \u2265 2, x \u2265 0",
+    "ambiguity": "Superscript w on \u227a degraded in text layer; consistent with the \u0398n/\u03a9n distinction (majorization vs weak majorization)."
+   }
+  ]
+ }
+]

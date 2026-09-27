@@ -1,0 +1,145 @@
+[
+ {
+  "claim": "theorem1",
+  "a_orders": [
+   "lr"
+  ],
+  "b_orders": [
+   "hr",
+   "lr",
+   "mrl",
+   "st"
+  ],
+  "a_dirs": [
+   "A_smaller"
+  ],
+  "b_dirs": [
+   "A_smaller"
+  ],
+  "a_records": [
+   {
+    "paper": "arxiv:2509.09757",
+    "claim": "Theorem 1",
+    "page": 7,
+    "quote": "Theorem 1. Let X ~ RBTLL(\u03b3, \u03c5, p1) and Y ~ RBTLL(\u03b3, \u03c5, p2). If p1 < p2 then X is less than Y in the likelihood ratio order, that is, the ratio function of the corresponding PDFs decreases in x. ... We notice that it follows that X is also less than Y in the hazard ratio, the mean residual life, and the stochastic orders under the conditions given in Theorem 1 from [20].",
+    "kind": "theorem",
+    "model": "generic",
+    "family": "Record-based transmuted log-logistic distribution RBTLL(\u03b3,\u03c5,p): density f(x;\u03b3,\u03c5,p) = \u03b3\u03c5x^{\u03c5\u22121}(1+e^\u03b3 x^\u03c5)^{\u22122} [1 \u2212 p log(e^\u03b3 x^\u03c5/(1+e^\u03b3 x^\u03c5)) + p] type; ratio g(x) = (1 + p1 log(1 + e^\u03b3 x^\u03c5) \u2212 p1)/(1 + p2 log(1 + e^\u03b3 x^\u03c5) \u2212 p2)",
+    "compared": "X vs Y differing only in transmutation parameter p1 < p2 (common \u03b3, \u03c5)",
+    "hypotheses": [
+     {
+      "text": "X ~ RBTLL(\u03b3,\u03c5,p1), Y ~ RBTLL(\u03b3,\u03c5,p2) with p1 < p2",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "X \u2264_lr Y (density ratio decreasing in x); consequently X \u2264hr Y, X \u2264mrl Y, X \u2264st Y"
+    },
+    "quantifiers": "all x > 0",
+    "numbers": "",
+    "ambiguity": "The derivative formula in the proof mixes \u03b1, \u03b2 notation with \u03b3, \u03c5 (notational inconsistency in the paper); the ordering claim itself is clear."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "arxiv:2509.09757",
+    "claim": "Theorem 1 (lr part)",
+    "page": 7,
+    "quote": "Theorem 1. Let X ~ RBTLL(\u03b3, \u03c5, p1) and Y ~ RBTLL(\u03b3, \u03c5, p2). If p1 < p2 then X is less than Y in the likelihood ratio order, that is, the ratio function of the corresponding PDFs decreases in x.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "record-based transmuted log-logistic RBTLL(\u03b3, \u03c5, p): pdf f(x) = e^\u03b3 \u03c5 x^{\u03c5\u22121}(1 + p log(1 + e^\u03b3 x^\u03c5) \u2212 p)/(1 + e^\u03b3 x^\u03c5)^2 (up to normalization)",
+    "compared": "transmutation parameters p1 < p2; common \u03b3, \u03c5",
+    "hypotheses": [
+     {
+      "text": "X ~ RBTLL(\u03b3, \u03c5, p1) and Y ~ RBTLL(\u03b3, \u03c5, p2)",
+      "formal": "same \u03b3, \u03c5; different p",
+      "source": "statement"
+     },
+     {
+      "text": "If p1 < p2",
+      "formal": "p1 < p2",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "X <=_lr Y"
+    },
+    "quantifiers": "x > 0; 0 < p1 < p2 < 1",
+    "ambiguity": "The pdf ratio printed in the proof mixes (\u03b1, \u03b2) and (\u03b3, \u03c5) notation; conclusion is lr order."
+   },
+   {
+    "paper": "arxiv:2509.09757",
+    "claim": "Theorem 1 (hr consequence)",
+    "page": 7,
+    "quote": "We notice that it follows that X is also less than Y in the hazard ratio, the mean residual life, and the stochastic orders under the conditions given in Theorem 1 from [20].",
+    "kind": "theorem",
+    "model": "single",
+    "family": "RBTLL(\u03b3, \u03c5, p)",
+    "compared": "p1 < p2; common \u03b3, \u03c5",
+    "hypotheses": [
+     {
+      "text": "conditions given in Theorem 1 (p1 < p2)",
+      "formal": "same premises",
+      "source": "earlier theorem 1"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "X <=_hr Y"
+    },
+    "quantifiers": "x > 0",
+    "ambiguity": "Stated as a consequence via standard implications (citing ref. [20]); 'hazard ratio order' as printed."
+   },
+   {
+    "paper": "arxiv:2509.09757",
+    "claim": "Theorem 1 (mrl consequence)",
+    "page": 7,
+    "quote": "We notice that it follows that X is also less than Y in the hazard ratio, the mean residual life, and the stochastic orders under the conditions given in Theorem 1 from [20].",
+    "kind": "theorem",
+    "model": "single",
+    "family": "RBTLL(\u03b3, \u03c5, p)",
+    "compared": "p1 < p2; common \u03b3, \u03c5",
+    "hypotheses": [
+     {
+      "text": "conditions given in Theorem 1 (p1 < p2)",
+      "formal": "same premises",
+      "source": "earlier theorem 1"
+     }
+    ],
+    "conclusion": {
+     "order": "mrl",
+     "direction": "X <=_mrl Y"
+    },
+    "quantifiers": "x > 0",
+    "ambiguity": "Consequence claim citing implications from [20]."
+   },
+   {
+    "paper": "arxiv:2509.09757",
+    "claim": "Theorem 1 (st consequence)",
+    "page": 7,
+    "quote": "We notice that it follows that X is also less than Y in the hazard ratio, the mean residual life, and the stochastic orders under the conditions given in Theorem 1 from [20].",
+    "kind": "theorem",
+    "model": "single",
+    "family": "RBTLL(\u03b3, \u03c5, p)",
+    "compared": "p1 < p2; common \u03b3, \u03c5",
+    "hypotheses": [
+     {
+      "text": "conditions given in Theorem 1 (p1 < p2)",
+      "formal": "same premises",
+      "source": "earlier theorem 1"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X <=_st Y"
+    },
+    "quantifiers": "x > 0",
+    "ambiguity": ""
+   }
+  ]
+ }
+]

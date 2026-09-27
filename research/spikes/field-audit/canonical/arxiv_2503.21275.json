@@ -1,0 +1,102 @@
+[
+ {
+  "paper": "arxiv:2503.21275",
+  "claim": "Proposition 2.1",
+  "page": 5,
+  "quote": "Proposition 2.1 Let T1, T2, . . . , Tn denote the component lifetimes of a series (parallel) system and let relative error in SF due to faulty assumption of components independently working in the series (parallel) system be denoted by ESF(t) (EPF(t)). Then (i) OA(UA) in error assessment of SF for an n component series system is equivalent to the fact that T1, T2, . . . , Tn are PUOD (NUOD). (ii) OA(UA) in error assessment of SF for an n component parallel system is equivalent to the fact that T1, T2, . . . , Tn are PLOD (NLOD).",
+  "kind": "proposition",
+  "model": "series system; parallel system",
+  "family": "general joint lifetimes T1,...,Tn (no specific family)",
+  "compared": "dependent system TD vs independent-marginals system TI",
+  "hypotheses": [
+   {
+    "text": "T1,...,Tn are the component lifetimes of the system",
+    "formal": "",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "equivalence: SF-error sign \u27fa orthant dependence; in order terms, joint survival \u2265 product of marginals (PUOD) \u27fa F\u0304_D \u2265 F\u0304_I \u27fa T_D >=st T_I for series; PLOD \u27fa cdf ordering \u27fa parallel-system st ordering"
+  },
+  "quantifiers": "n components; t \u2265 0",
+  "ambiguity": "Printed pairing is 'OA(UA) \u2194 PUOD(NUOD)' for series and 'OA(UA) \u2194 PLOD(NLOD)' for parallel; given the paper's own convention (ES_F \u2265 0 \u21d2 UA), PUOD actually corresponds to UA (ES_F \u2265 0), so the printed OA/UA pairing appears reversed. Also the parallel-system relative error EPF(t) is printed in two inconsistent forms: (F\u0304_D \u2212 F\u0304_I)/F\u0304_I and (F\u0304_I \u2212 F\u0304_D)/F\u0304_I.",
+  "numbers": "",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "arxiv:2503.21275",
+  "claim": "Section 3.2.5 result: error signs for Crowder/Lu-Bhattacharyya-I series system",
+  "page": "17-18",
+  "quote": "E^F(t) = delta (exp(B(t)) - 1), E^r(t) = -delta B'(t) L / A'(t) [as printed], E^mu(t) = ... [formula]. We conclude that the relative errors in all aforementioned functions are decreasing in t except that for failure rate and AI function it is non-negative constant.",
+  "kind": "example",
+  "model": "series system",
+  "family": "Lu and Bhattacharyya (1990) I / Crowder-type model: F_D(t) = exp(A(t) - delta B(t)), B(t) = (sum lambda_i^{1/m} t^{alpha_i/m})^m",
+  "compared": "TD vs TI",
+  "hypotheses": [
+   {
+    "text": "dependent components follow the LB-I/Crowder survival model; delta is the dependence parameter",
+    "formal": "as stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "sign of E^F(t) equals sign of delta (since exp(B(t)) - 1 >= 0): delta > 0 gives UA in SF, i.e. TD >=ST TI per Remark 2.2(i); delta < 0 gives OA, i.e. TD <=ST TI"
+  },
+  "quantifiers": "all t >= 0",
+  "numbers": "",
+  "ambiguity": "Only error signs are printed; the stochastic-order direction is the paper's own Remark 2.2(i) interpretation. The garbled middle formula recorded as printed.",
+  "adjudication": "example record (pass b)"
+ },
+ {
+  "paper": "arxiv:2503.21275",
+  "claim": "Section 3.2.6 result: error signs for FGMW series system",
+  "page": 18,
+  "quote": "Here, E^F(t) = gamma(1 - theta(t)), E^r(t) = phi'(t)/(phi(t) A'(t)) [as printed], So, E^F(t) takes same sign as gamma. Further, E^F(t) <= (>=) gamma according as gamma >= (<=) 0. E^r(t) takes opposite sign to gamma.",
+  "kind": "example",
+  "model": "series system",
+  "family": "Farlie-Gumbel-Morgenstern Weibull (FGMW): F_D(t) = exp(A(t)) phi(t), phi(t) = 1 + gamma(1 - theta(t)), F_i(t) = exp(-lambda_i t^{alpha_i}), -1 < gamma < 1",
+  "compared": "TD vs TI",
+  "hypotheses": [
+   {
+    "text": "components follow FGMW; -1 < gamma < 1; theta(t) non-decreasing bounded by [0,1]",
+    "formal": "as stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "E^F(t) has the same sign as gamma and E^r(t) the opposite sign: gamma > 0 gives UA in SF (TD >=ST TI) and OA in FR (TD >=FR TI); gamma < 0 gives OA in SF (TD <=ST TI) and UA in FR (TD <=FR TI)"
+  },
+  "quantifiers": "all t >= 0",
+  "numbers": "",
+  "ambiguity": "Sign-based conclusions; order directions recorded via the paper's Remark 2.2(i) dictionary.",
+  "adjudication": "example record (pass b)"
+ },
+ {
+  "paper": "arxiv:2503.21275",
+  "claim": "Section 4.3.2 result: error signs for FGMW parallel system",
+  "page": "24-25",
+  "quote": "We note that E^F(t) >= 0 if gamma is positive and n is odd or if gamma is negative and n is even. On the other hand, E^F(t) <= 0 if gamma is positive and n is even or if gamma is negative and n is odd. E^r(t) <= 0 if gamma > 0 and n is odd or if gamma < 0 and n is even. E^mu(t) <= 0 if gamma > 0 and n is even or if gamma < 0 and n is odd. E^mu(t) >= 0 if gamma > 0 and n is odd or if gamma < 0 and n is even.",
+  "kind": "example",
+  "model": "parallel system",
+  "family": "FGMW: F_T(t) = theta(t) + (-1)^{n-1} exp(A(t)) gamma (1 - theta(t))",
+  "compared": "parallel-system lifetime TD vs TI",
+  "hypotheses": [
+   {
+    "text": "components follow FGMW; -1 < gamma < 1",
+    "formal": "as stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "E^F(t) >= 0 (UA in SF, TD >=st TI) iff sign(gamma)*(-1)^{n-1} >= 0 as printed: gamma>0 & n odd, or gamma<0 & n even; E^r <= 0 iff gamma>0 & n odd or gamma<0 & n even; E^mu <= 0 iff gamma>0 & n even or gamma<0 & n odd"
+  },
+  "quantifiers": "all t >= 0; parity of n",
+  "numbers": "",
+  "ambiguity": "Parallel-system analogues of the series claims; only error signs are printed (ST, FR, RFR interpretations via Remark 2.2).",
+  "adjudication": "example record (pass b)"
+ }
+]

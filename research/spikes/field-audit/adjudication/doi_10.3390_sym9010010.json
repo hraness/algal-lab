@@ -1,0 +1,73 @@
+[
+ {
+  "claim": "theorem2",
+  "a_orders": [
+   "hr"
+  ],
+  "b_orders": [
+   "rh"
+  ],
+  "a_dirs": [
+   "B_smaller"
+  ],
+  "b_dirs": [
+   "B_smaller"
+  ],
+  "a_records": [
+   {
+    "paper": "doi:10.3390/sym9010010",
+    "claim": "Theorem 2",
+    "page": 5,
+    "quote": "Theorem 2. Let X1 , . . . , Xn be independent random variables with Xi \u223c Fr\u00e9(\u00b5, \u03b8i , \u03b1), i = 1, . . . , n, and Y1 , . . . , Yn be independent random variables with Yi \u223c Fr\u00e9(\u00b5, \u03b8i\u2217 , \u03b1), i = 1, . . . , n. If (1/\u03b81 , . . . , 1/\u03b8n ) \u2ab0w (1/\u03b81\u2217 , . . . , 1/\u03b8n\u2217 ), then Xn:n \u2265rh Yn:n .",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "Fr\u00e9chet Fr\u00e9(\u00b5,\u03b8i,\u03b1); common \u00b5, \u03b1; differing scales \u03b8i",
+    "compared": "reciprocal-scale vectors (1/\u03b8i) via weak submajorization",
+    "hypotheses": [
+     {
+      "text": "(1/\u03b81 , . . . , 1/\u03b8n ) \u2ab0w (1/\u03b81\u2217 , . . . , 1/\u03b8n\u2217 )",
+      "formal": "weak submajorization (subscript w: \u03a3_{i>=j} x(i) >= \u03a3 y(i)); the printed '(\u03b81,...,\u03b81n)' carries superscript 1/\u03b8i = ti in the proof",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rhr",
+     "direction": "Xn:n >=rh Yn:n (reversed hazard rate; printed 'rh')"
+    },
+    "quantifiers": "n >= 1; x > \u00b5",
+    "numbers": "",
+    "ambiguity": "Hypothesis is on reciprocals 1/\u03b8i (text layer shows '\u03b81,...,\u03b81n'); uses Lemma 2's weak-submajorization implication. Generalizes Theorem 2 of Gupta et al. from \u2264st to \u2265rh."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "doi:10.3390/sym9010010",
+    "claim": "Theorem 2",
+    "page": 5,
+    "quote": "Theorem 2. Let X1, . . . , Xn be independent random variables with Xi \u223c Fr\u00e9(\u00b5, \u03b8i, \u03b1), i = 1, . . . , n, and Y1, . . . , Yn be independent random variables with Yi \u223c Fr\u00e9(\u00b5, \u03b8i\u2217, \u03b1), i = 1, . . . , n. If (1/\u03b81, . . . , 1/\u03b8n) \u227dw (1/\u03b81\u2217, . . . , 1/\u03b8\u2217n), then Xn:n \u2265rh Yn:n.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "Fr\u00e9chet Fr\u00e9(\u00b5, \u03b8i, \u03b1); common location \u00b5 and shape \u03b1, heterogeneous scales \u03b8i vs \u03b8i*",
+    "compared": "reciprocal scale vectors (1/\u03b8i) under weak upper majorization",
+    "hypotheses": [
+     {
+      "text": "(1/\u03b81, . . . , 1/\u03b8n) \u227dw (1/\u03b81\u2217, . . . , 1/\u03b8\u2217n)",
+      "formal": "reciprocal-scale vector of Y weak upper majorized by that of X (partial sums of smallest 1/\u03b8(i) <= 1/\u03b8*(i), total <=)",
+      "source": "statement"
+     },
+     {
+      "text": "common location \u00b5 and common shape \u03b1",
+      "formal": "Xi \u223c Fr\u00e9(\u00b5, \u03b8i, \u03b1)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "Xn:n >=rh Yn:n (r\u0303Xn:n >= r\u0303Yn:n pointwise)"
+    },
+    "quantifiers": "n >= 1, x > \u00b5",
+    "ambiguity": "Notation: this paper defines '\u03bb* is weak upper majorized by \u03bb, denoted \u03bb \u227dw \u03bb*' by partial sums of smallest components; the \u227dw superscript here corresponds to 'weak submajorization' of Marshall\u2013Olkin but on the reciprocal scales."
+   }
+  ]
+ }
+]

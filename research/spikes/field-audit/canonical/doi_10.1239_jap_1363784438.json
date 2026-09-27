@@ -1,0 +1,232 @@
+[
+ {
+  "paper": "doi:10.1239/jap_1363784438",
+  "claim": "Remark 2.1",
+  "page": 277,
+  "quote": "For instance, if h1, ..., hn denote the respective hazard rates of F1, ..., Fn and the ratios h_k/h_{k+1} are nondecreasing functions for k = 1, ..., n-1, then X*_{r:n} <=hr X*_{r+1:n} holds for r = 1, ..., n-1 and, therefore, the vector of coefficients (2.2) for the corresponding mixed system based on sequential order statistics also satisfies p(t1) <=lr p(t2) for 0 <= t1 <= t2.",
+  "kind": "remark",
+  "model": "other: sequential order statistics / coefficient vectors",
+  "family": "sequential order statistics based on arbitrary F_1, ..., F_n",
+  "compared": "consecutive sequential order statistics and coefficient vectors at two time points",
+  "hypotheses": [
+   {
+    "text": "ratios h_k/h_{k+1} nondecreasing",
+    "formal": "alternative assumption replacing PHR",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "X*_{r:n} <=_hr X*_{r+1:n} for all r, and consequently p(t1) <=_lr p(t2)"
+  },
+  "quantifiers": "1 <= r <= n-1; 0 <= t1 <= t2",
+  "numbers": "",
+  "ambiguity": "Remark relying on results from Navarro and Burkschat (2011).",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.1239/jap/1363784438",
+  "claim": "Theorem 2.2(a), usual stochastic order bullet",
+  "page": 276,
+  "quote": "Let T1 and T2 denote the lifetimes of two mixed systems with the same failure-dependent component lifetimes X*_1, ..., X*_n. Let the PHR assumption (1.3) hold. (a) Let p1(t) and p2(t) denote the vectors of coefficients (2.2) of T1 and T2, respectively. ... If p1(t) <=st p2(t) then (T1 - t | T1 > t) <=st (T2 - t | T2 > t).",
+  "kind": "theorem",
+  "model": "other: mixed systems with failure-dependent (sequential order statistic) components",
+  "family": "coherent/mixed systems on sequential order statistics; PHR model (hazard rates alpha_1, ..., alpha_n)",
+  "compared": "residual lifetimes of two systems differing only in coefficient vectors p1(t) vs p2(t)",
+  "hypotheses": [
+   {
+    "text": "same component lifetimes X*_i for both systems; PHR assumption",
+    "formal": "shared sequential order statistics",
+    "source": "statement"
+   },
+   {
+    "text": "p1(t) <=st p2(t)",
+    "formal": "stochastic ordering of the coefficient vectors (discrete distributions on {1,...,n})",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "(T1 - t | T1 > t) <=_st (T2 - t | T2 > t)"
+  },
+  "quantifiers": "all t >= 0; n >= 1",
+  "numbers": "",
+  "ambiguity": "Ordering between coefficient vectors p1(t), p2(t) is in the multivariate (discrete) stochastic order sense.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.1239/jap/1363784438",
+  "claim": "Theorem 2.2(a), hazard rate bullet",
+  "page": 276,
+  "quote": "If p1(t) <=hr p2(t) then (T1 - t | T1 > t) <=hr (T2 - t | T2 > t).",
+  "kind": "theorem",
+  "model": "other: mixed systems on sequential order statistics",
+  "family": "PHR sequential order statistics",
+  "compared": "residual lifetimes under hazard-rate-ordered coefficient vectors",
+  "hypotheses": [
+   {
+    "text": "same component lifetimes; PHR assumption",
+    "formal": "shared components",
+    "source": "statement"
+   },
+   {
+    "text": "p1(t) <=hr p2(t)",
+    "formal": "hr ordering of coefficient vectors",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "(T1 - t | T1 > t) <=_hr (T2 - t | T2 > t)"
+  },
+  "quantifiers": "all t >= 0",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.1239/jap/1363784438",
+  "claim": "Theorem 2.2(a), likelihood ratio bullet",
+  "page": 276,
+  "quote": "If p1(t) <=lr p2(t) and F is absolutely continuous, then (T1 - t | T1 > t) <=lr (T2 - t | T2 > t).",
+  "kind": "theorem",
+  "model": "other: mixed systems on sequential order statistics",
+  "family": "PHR sequential order statistics",
+  "compared": "residual lifetimes under lr-ordered coefficient vectors",
+  "hypotheses": [
+   {
+    "text": "same component lifetimes; PHR; F absolutely continuous",
+    "formal": "shared components",
+    "source": "statement"
+   },
+   {
+    "text": "p1(t) <=lr p2(t)",
+    "formal": "lr ordering of coefficient vectors",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "(T1 - t | T1 > t) <=_lr (T2 - t | T2 > t)"
+  },
+  "quantifiers": "all t >= 0",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.1239/jap_1363784438",
+  "claim": "Theorem 2.2(b), usual stochastic order bullet",
+  "page": 276,
+  "quote": "(b) Let p'_1(t) and p'_2(t) denote the vectors of coefficients (2.4) of T1 and T2, respectively. Then the following statements hold for the inactivity times of the systems. If p'_1(t) <=st p'_2(t) then (t - T1 | T1 <= t) >=st (t - T2 | T2 <= t).",
+  "kind": "theorem",
+  "model": "other: mixed systems on sequential order statistics",
+  "family": "PHR sequential order statistics",
+  "compared": "inactivity times (age) under ordered coefficient vectors for the inactivity representation",
+  "hypotheses": [
+   {
+    "text": "same component lifetimes; PHR",
+    "formal": "shared components",
+    "source": "statement"
+   },
+   {
+    "text": "p'_1(t) <=st p'_2(t)",
+    "formal": "st ordering of inactivity coefficient vectors",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "(t - T1 | T1 <= t) >=_st (t - T2 | T2 <= t) (note reversed direction)"
+  },
+  "quantifiers": "all t >= 0",
+  "numbers": "",
+  "ambiguity": "Direction reversed relative to part (a) because coefficients multiply the complementary order statistics.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.1239/jap_1363784438",
+  "claim": "Theorem 2.2(b), reversed hazard rate bullet",
+  "page": 276,
+  "quote": "If p'_1(t) <=rh p'_2(t) then (t - T1 | T1 <= t) >=rh (t - T2 | T2 <= t).",
+  "kind": "theorem",
+  "model": "other: mixed systems on sequential order statistics",
+  "family": "PHR sequential order statistics",
+  "compared": "inactivity times under rh-ordered coefficient vectors",
+  "hypotheses": [
+   {
+    "text": "same components; PHR",
+    "formal": "shared components",
+    "source": "statement"
+   },
+   {
+    "text": "p'_1(t) <=rh p'_2(t)",
+    "formal": "rh ordering of coefficient vectors",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "rh",
+   "direction": "(t - T1 | T1 <= t) >=_rh (t - T2 | T2 <= t)"
+  },
+  "quantifiers": "all t >= 0",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.1239/jap_1363784438",
+  "claim": "Theorem 2.2(b), likelihood ratio bullet",
+  "page": 276,
+  "quote": "If p'_1(t) <=lr p'_2(t) and F is absolutely continuous, then (t - T1 | T1 <= t) >=lr (t - T2 | T2 <= t).",
+  "kind": "theorem",
+  "model": "other: mixed systems on sequential order statistics",
+  "family": "PHR sequential order statistics",
+  "compared": "inactivity times under lr-ordered coefficient vectors",
+  "hypotheses": [
+   {
+    "text": "same components; PHR; F absolutely continuous",
+    "formal": "shared components",
+    "source": "statement"
+   },
+   {
+    "text": "p'_1(t) <=lr p'_2(t)",
+    "formal": "lr ordering of coefficient vectors",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "(t - T1 | T1 <= t) >=_lr (t - T2 | T2 <= t)"
+  },
+  "quantifiers": "all t >= 0",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.1239/jap_1363784438",
+  "claim": "Remark 2.1",
+  "page": 277,
+  "quote": "For instance, if h1, ..., hn denote the respective hazard rates of F1, ..., Fn and the ratios h_k/h_{k+1} are nondecreasing functions for k = 1, ..., n-1, then X*_{r:n} <=hr X*_{r+1:n} holds for r = 1, ..., n-1 and, therefore, the vector of coefficients (2.2) for the corresponding mixed system based on sequential order statistics also satisfies p(t1) <=lr p(t2) for 0 <= t1 <= t2.",
+  "kind": "remark",
+  "model": "other: sequential order statistics / coefficient vectors",
+  "family": "sequential order statistics based on arbitrary F_1, ..., F_n",
+  "compared": "consecutive sequential order statistics and coefficient vectors at two time points",
+  "hypotheses": [
+   {
+    "text": "ratios h_k/h_{k+1} nondecreasing",
+    "formal": "alternative assumption replacing PHR",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "X*_{r:n} <=_hr X*_{r+1:n} for all r, and consequently p(t1) <=_lr p(t2)"
+  },
+  "quantifiers": "1 <= r <= n-1; 0 <= t1 <= t2",
+  "numbers": "",
+  "ambiguity": "Remark relying on results from Navarro and Burkschat (2011).",
+  "adjudication": "example record (pass a)+b"
+ }
+]

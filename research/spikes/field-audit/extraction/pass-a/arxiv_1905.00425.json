@@ -1,0 +1,159 @@
+[
+ {
+  "paper": "arxiv:1905.00425",
+  "claim": "Theorem 2.7",
+  "page": 5,
+  "quote": "Theorem 2.7. Let X, Y be two independent random variables having density functions fX, fY, cumulative distribution functions FX, FY, survival functions F̄X, F̄Y, respectively. Let T be a random variable with density function h and distribution function H. T is independent of X, Y. Then if 1. X ≥rh Y and either X or Y is IRHR then X^T ≥rh Y^T. 2. X ≤hr Y and either X or Y is DHR then X^T ≤hr Y^T.",
+  "kind": "theorem",
+  "model": "generic",
+  "family": "General random variables under a common independent random shock (T-power transformation, X^T in the sense of Ebrahimi et al.)",
+  "compared": "X^T vs Y^T under common shock T",
+  "hypotheses": [
+   {"text": "(1) X ≥rh Y and either X or Y is IRHR", "formal": "stated", "source": "statement"},
+   {"text": "(2) X ≤hr Y and either X or Y is DHR", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "(1) X^T ≥rh Y^T; (2) X^T ≤hr Y^T"},
+  "quantifiers": "all x",
+  "numbers": "",
+  "ambiguity": "'X^T' denotes the shock-transformed variable; superscript-T notation."
+ },
+ {
+  "paper": "arxiv:1905.00425",
+  "claim": "Theorem 2.8",
+  "page": 6,
+  "quote": "Theorem 2.8. Let X and Y be two random variables. If X ≤hr Y and X or Y is DHR, then X ≤disp Y.",
+  "kind": "theorem",
+  "model": "generic",
+  "family": "General random variables",
+  "compared": "X vs Y",
+  "hypotheses": [
+   {"text": "X ≤hr Y and X or Y is DHR", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "disp", "direction": "X ≤_disp Y"},
+  "quantifiers": "quantile differences, all u ∈ (0,1)",
+  "numbers": "",
+  "ambiguity": "Background result attributed to Shaked et al."
+ },
+ {
+  "paper": "arxiv:1905.00425",
+  "claim": "Theorem 2.9",
+  "page": 6,
+  "quote": "Theorem 2.9. Let X and Y be two random variables. If X ≤hr Y and X or Y is DHR, then X ≤LU Y.",
+  "kind": "theorem",
+  "model": "generic",
+  "family": "General random variables",
+  "compared": "X vs Y",
+  "hypotheses": [
+   {"text": "X ≤hr Y and X or Y is DHR", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "LU", "direction": "X ≤_LU Y (less-uncertainty order, strengthening of Ebrahimi et al. Thm 2.3)"},
+  "quantifiers": "all u ∈ (0,1)",
+  "numbers": "",
+  "ambiguity": "≤LU = less uncertainty order (Ebrahimi et al.)"
+ },
+ {
+  "paper": "arxiv:1905.00425",
+  "claim": "Theorem 3.1",
+  "page": 6,
+  "quote": "Theorem 3.1. Let X1,...,Xn (Y1,...,Yn) be the set of continuous independent random variables having Xi ~ Gum(µi, σ) (Yi ~ Gum(µi*, σ)), i = 1, 2,..., n. Then, if µi ≥ µi*, we have Xn:n ≥lr Yn:n.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "Gumbel distribution Gum(µ,σ): F(x) = exp(−e^{−(x−µ)/σ}), location µ ∈ R, scale σ > 0; independent components",
+  "compared": "maxima Xn:n vs Yn:n; componentwise location ordering",
+  "hypotheses": [
+   {"text": "Xi ~ Gum(µi,σ), Yi ~ Gum(µi*,σ) independent; common σ", "formal": "stated", "source": "statement"},
+   {"text": "µi ≥ µi* for all i", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "Xn:n ≥_lr Yn:n"},
+  "quantifiers": "all x ∈ R; n ≥ 1",
+  "numbers": "",
+  "ambiguity": "Paper spells 'Gumble' for Gumbel throughout."
+ },
+ {
+  "paper": "arxiv:1905.00425",
+  "claim": "Theorem 3.2",
+  "page": 7,
+  "quote": "Theorem 3.2. Let X1,...,Xn (Y1,...,Yn) be the set of continuous independent random variables having Xi ~ Gum(µi, σ) (Yi ~ Gum(µi*, σ)), i = 1, 2,..., n. Then, if (µ1,...,µn) ≻m (µ1*,...,µn*), we have Xn:n ≥rh Yn:n.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "Gumbel distribution; common scale σ",
+  "compared": "maxima Xn:n vs Yn:n; majorization of location vectors",
+  "hypotheses": [
+   {"text": "Xi ~ Gum(µi,σ), Yi ~ Gum(µi*,σ) independent", "formal": "stated", "source": "statement"},
+   {"text": "(µ1,...,µn) ≻^m (µ1*,...,µn*)", "formal": "µ majorizes µ* (µ more spread); reversed hazard of maximum is Schur-convex in µ", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "Xn:n ≥_rh Yn:n"},
+  "quantifiers": "all x; n ≥ 1",
+  "numbers": "",
+  "ambiguity": "Majorization glyph rendered as '≻m' (majorizes direction)."
+ },
+ {
+  "paper": "arxiv:1905.00425",
+  "claim": "Corollary 3.3",
+  "page": 7,
+  "quote": "Corollary 3.3. Let X1,...,Xn (Y1,...,Yn) be the set of continuous independent random variables having Xi ~ Gum(µi, σ) (Yi ~ Gum(µi, σ)), i = 1, 2,..., n. Then, if (µ1,...,µn) ≻m (µ1*,...,µn*), and let T be any random variable which is independent of X and Y. Then we have Xn:n^T ≥rh Yn:n^T.",
+  "kind": "corollary",
+  "model": "parallel system",
+  "family": "Gumbel; common shock T",
+  "compared": "Xn:n^T vs Yn:n^T",
+  "hypotheses": [
+   {"text": "µ ≻m µ*; T independent of X and Y; Xn:n is IRHR", "formal": "from Theorems 3.2 and 2.7(1)", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "Xn:n^T ≥_rh Yn:n^T"},
+  "quantifiers": "all x; n ≥ 1",
+  "numbers": "",
+  "ambiguity": "Statement prints Yi ~ Gum(µi, σ) (no asterisk) — presumed typo for µi*."
+ },
+ {
+  "paper": "arxiv:1905.00425",
+  "claim": "Theorem 3.4",
+  "page": 8,
+  "quote": "Theorem 3.4. Let X1,...,Xn (Y1,...,Yn) be the set of continuous independent random variables having Xi ~ Gum(µi, σ) (Yi ~ Gum(µi*, σ)), i = 1, 2,..., n. Then, if (µ1,...,µn) ≻m (µ1*,...,µn*), we have X1:n ≤hr Y1:n.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Gumbel distribution; common scale σ",
+  "compared": "minima X1:n vs Y1:n; majorization of location vectors",
+  "hypotheses": [
+   {"text": "Xi ~ Gum(µi,σ), Yi ~ Gum(µi*,σ) independent", "formal": "stated", "source": "statement"},
+   {"text": "(µ1,...,µn) ≻^m (µ1*,...,µn*)", "formal": "µ majorizes µ*; hazard rate of minimum is Schur-convex in µ", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X1:n ≤_hr Y1:n"},
+  "quantifiers": "all x; n ≥ 1",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:1905.00425",
+  "claim": "Corollary 3.5",
+  "page": 8,
+  "quote": "Corollary 3.5. Let X1,...,Xn (Y1,...,Yn) be the set of continuous independent random variables having Xi ~ Gum(µi, σ) (Yi ~ Gum(µi*, σ)), i = 1, 2,..., n. Then, if (µ1,...,µn) ≻m (µ1*,...,µn*), and let T be any random variable which is independent of X and Y. Then we have X1:n^T ≤hr Y1:n^T.",
+  "kind": "corollary",
+  "model": "series system",
+  "family": "Gumbel; common shock T",
+  "compared": "X1:n^T vs Y1:n^T",
+  "hypotheses": [
+   {"text": "µ ≻m µ*; T independent; X1:n is DHR (hazard rate decreasing in µi)", "formal": "from Theorems 3.4 and 2.7(2)", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X1:n^T ≤_hr Y1:n^T"},
+  "quantifiers": "all x; n ≥ 1",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:1905.00425",
+  "claim": "Theorem 3.6",
+  "page": 9,
+  "quote": "Theorem 3.6. Let X1,...,Xn (Y1,...,Yn) be the set of continuous independent random variables having Xi ~ Gum(µi, σ) (Yi ~ Gum(µi*, σ)), i = 1, 2,..., n. Then, if (µ1,...,µn) ≻m (µ1*,...,µn*), we have 1. X1:n ≤disp Y1:n; 2. X1:n ≤LU Y1:n.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Gumbel distribution; common scale σ",
+  "compared": "minima X1:n vs Y1:n",
+  "hypotheses": [
+   {"text": "Xi ~ Gum(µi,σ), Yi ~ Gum(µi*,σ) independent; µ ≻m µ*", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "disp", "direction": "X1:n ≤_disp Y1:n and X1:n ≤_LU Y1:n"},
+  "quantifiers": "all quantile arguments; n ≥ 1",
+  "numbers": "",
+  "ambiguity": "Two conclusions: dispersive order and less-uncertainty (LU) order, both via hr + DHR (Theorems 2.8, 2.9)."
+ }
+]

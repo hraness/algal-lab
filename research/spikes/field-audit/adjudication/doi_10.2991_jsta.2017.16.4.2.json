@@ -1,0 +1,150 @@
+[
+ {
+  "claim": "theorem1",
+  "a_orders": [
+   "lr"
+  ],
+  "b_orders": [
+   "hr",
+   "lr",
+   "rh",
+   "st"
+  ],
+  "a_dirs": [
+   "A_smaller"
+  ],
+  "b_dirs": [
+   "A_smaller"
+  ],
+  "a_records": [
+   {
+    "paper": "doi:10.2991/jsta.2017.16.4.2",
+    "claim": "Theorem 1",
+    "page": 25,
+    "quote": "Theorem1: Let X ~ MOKwG(\u03b11, a, b) and Y ~ MOKwG(\u03b12, a, b). If \u03b11 < \u03b12, then X \u2264lr Y (X \u2264hr Y, X \u2264rhr Y, X \u2264st Y).",
+    "kind": "theorem",
+    "model": "mixture",
+    "family": "Marshall\u2013Olkin-Kumaraswamy-G distribution MOKwG(\u03b1,a,b): sf F\u0304(t) = [1 \u2212 (1 \u2212 G(t)^a)^b] / [1 \u2212 \u03b1\u0304(1 \u2212 G(t)^a)^b]-style Marshall-Olkin transform of Kw-G; baseline G arbitrary continuous cdf",
+    "compared": "two MOKwG members differing only in the Marshall\u2013Olkin parameter \u03b1",
+    "hypotheses": [
+     {
+      "text": "X ~ MOKwG(\u03b11, a, b) and Y ~ MOKwG(\u03b12, a, b)",
+      "formal": "same a, b and baseline G; only \u03b1 differs",
+      "source": "statement"
+     },
+     {
+      "text": "\u03b11 < \u03b12",
+      "formal": "\u03b11 < \u03b12",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "X \u2264_lr Y (and consequently X \u2264hr Y, X \u2264rhr Y, X \u2264st Y)"
+    },
+    "quantifiers": "all t \u2265 0",
+    "numbers": "",
+    "ambiguity": "The subsidiary orders follow from the implication chain X \u2264rhr Y \u21d0 X \u2264lr Y \u21d2 X \u2264hr Y \u21d2 X \u2264st Y given in the paper's eq. (24)."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "doi:10.2991/jsta.2017.16.4.2",
+    "claim": "Theorem 1 (lr part)",
+    "page": 25,
+    "quote": "Theorem1: Let X ~ MOKwG(\u03b11, a, b) and Y ~ MOKwG(\u03b12, a, b). If \u03b11 < \u03b12, then X \u2264lr Y (X \u2264hr Y, X \u2264rhr Y, X \u2264st Y).",
+    "kind": "theorem",
+    "model": "single",
+    "family": "Marshall-Olkin-Kumaraswamy-G MOKw-G(\u03b1, a, b): pdf f(t) = \u03b1ab g(t) G(t)^{a\u22121} [1 \u2212 G(t)^a]^{b\u22121} / [1 \u2212 \u1fb1(1 \u2212 G(t)^a)^b]^2, \u1fb1 = 1 \u2212 \u03b1, baseline G",
+    "compared": "Marshall-Olkin tilts \u03b11 vs \u03b12; common a, b and baseline G",
+    "hypotheses": [
+     {
+      "text": "X ~ MOKwG(\u03b11, a, b) and Y ~ MOKwG(\u03b12, a, b)",
+      "formal": "same (a, b, G), different \u03b1",
+      "source": "statement"
+     },
+     {
+      "text": "If \u03b11 < \u03b12",
+      "formal": "\u03b11 < \u03b12",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "X <=_lr Y"
+    },
+    "quantifiers": "all t \u2265 0; \u03b11 < \u03b12",
+    "ambiguity": "Printed pdf/cdf formulas in the text layer drop the bar on \u1fb1; verified against the proof ratio f/g = (\u03b11/\u03b12)[(1\u2212\u03b12[1\u2212G^a]^b)/(1\u2212\u03b11[1\u2212G^a]^b)]^2 which uses \u1fb1 = 1\u2212\u03b1 in the denominator."
+   },
+   {
+    "paper": "doi:10.2991/jsta.2017.16.4.2",
+    "claim": "Theorem 1 (hr part)",
+    "page": 25,
+    "quote": "Theorem1: Let X ~ MOKwG(\u03b11, a, b) and Y ~ MOKwG(\u03b12, a, b). If \u03b11 < \u03b12, then X \u2264lr Y (X \u2264hr Y, X \u2264rhr Y, X \u2264st Y). 'The remaining statements follow from the implications (24): X \u2264rhr Y \u21d0 X \u2264lr Y \u21d2 X \u2264hr Y \u21d2 X \u2264st Y.'",
+    "kind": "theorem",
+    "model": "single",
+    "family": "Marshall-Olkin-Kumaraswamy-G MOKw-G(\u03b1, a, b)",
+    "compared": "\u03b11 vs \u03b12; common a, b, G",
+    "hypotheses": [
+     {
+      "text": "X ~ MOKwG(\u03b11, a, b) and Y ~ MOKwG(\u03b12, a, b); \u03b11 < \u03b12",
+      "formal": "\u03b11 < \u03b12",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "X <=_hr Y"
+    },
+    "quantifiers": "all t \u2265 0; \u03b11 < \u03b12",
+    "ambiguity": "Hr conclusion stated parenthetically, derived via implication (24)."
+   },
+   {
+    "paper": "doi:10.2991/jsta.2017.16.4.2",
+    "claim": "Theorem 1 (rhr part)",
+    "page": 25,
+    "quote": "Theorem1: Let X ~ MOKwG(\u03b11, a, b) and Y ~ MOKwG(\u03b12, a, b). If \u03b11 < \u03b12, then X \u2264lr Y (X \u2264hr Y, X \u2264rhr Y, X \u2264st Y). 'The remaining statements follow from the implications (24): X \u2264rhr Y \u21d0 X \u2264lr Y \u21d2 X \u2264hr Y \u21d2 X \u2264st Y.'",
+    "kind": "theorem",
+    "model": "single",
+    "family": "Marshall-Olkin-Kumaraswamy-G MOKw-G(\u03b1, a, b)",
+    "compared": "\u03b11 vs \u03b12; common a, b, G",
+    "hypotheses": [
+     {
+      "text": "X ~ MOKwG(\u03b11, a, b) and Y ~ MOKwG(\u03b12, a, b); \u03b11 < \u03b12",
+      "formal": "\u03b11 < \u03b12",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "X <=_rhr Y"
+    },
+    "quantifiers": "all t \u2265 0; \u03b11 < \u03b12",
+    "ambiguity": "Reversed hazard rate conclusion stated parenthetically, derived via implication (24)."
+   },
+   {
+    "paper": "doi:10.2991/jsta.2017.16.4.2",
+    "claim": "Theorem 1 (st part)",
+    "page": 25,
+    "quote": "Theorem1: Let X ~ MOKwG(\u03b11, a, b) and Y ~ MOKwG(\u03b12, a, b). If \u03b11 < \u03b12, then X \u2264lr Y (X \u2264hr Y, X \u2264rhr Y, X \u2264st Y). 'The remaining statements follow from the implications (24): X \u2264rhr Y \u21d0 X \u2264lr Y \u21d2 X \u2264hr Y \u21d2 X \u2264st Y.'",
+    "kind": "theorem",
+    "model": "single",
+    "family": "Marshall-Olkin-Kumaraswamy-G MOKw-G(\u03b1, a, b)",
+    "compared": "\u03b11 vs \u03b12; common a, b, G",
+    "hypotheses": [
+     {
+      "text": "X ~ MOKwG(\u03b11, a, b) and Y ~ MOKwG(\u03b12, a, b); \u03b11 < \u03b12",
+      "formal": "\u03b11 < \u03b12",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X <=_st Y"
+    },
+    "quantifiers": "all t \u2265 0; \u03b11 < \u03b12",
+    "ambiguity": "St-order conclusion stated parenthetically, derived via implication (24)."
+   }
+  ]
+ }
+]

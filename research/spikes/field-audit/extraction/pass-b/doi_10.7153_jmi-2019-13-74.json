@@ -1,0 +1,349 @@
+[
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Theorem 2.1",
+  "page": 3,
+  "quote": "Theorem 2.1. Let X1, X2 be independent random variables with Xi ~ PI(ai, bi), i = 1, 2. Further, let Y1, Y2 be another set of independent random variables with Yi ~ PI(ci, di), i = 1, 2. Then, for (a1 a2; b1 b2) ∈ S2, we have (a1 a2; b1 b2) chain-majorizes (c1 c2; d1 d2) ⟹ Y1:2 ⩾rh X1:2.",
+  "kind": "theorem",
+  "model": "order statistics",
+  "family": "Pareto type I, PI(a, b): F(x) = 1 − (x/b)^{−a}, x ≥ b",
+  "compared": "smallest order statistics under multivariate chain majorization of parameter matrices",
+  "hypotheses": [
+   {"text": "(a;b) ∈ S2: (a_i − a_j)(b_i − b_j) ≤ 0 (shape and scale oppositely ordered)", "formal": "Sn member matrix", "source": "statement"},
+   {"text": "(c;d) = (a;b)·Tw1···Twk chain majorization", "formal": "matrix chain majorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "Y1:2 >=_rh X1:2"},
+  "quantifiers": "x ≥ max(b1, b2); n = 2",
+  "ambiguity": "Extracted from the publisher's full PDF because the shard's local PDF contains only page 1."
+ },
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Theorem 2.2",
+  "page": 4,
+  "quote": "Theorem 2.2. Let X1, X2 be independent random variables with Xi ~ PI(ai, bi), i = 1, 2. Further, let Y1, Y2 be another set of independent random variables with Yi ~ PI(ci, di), i = 1, 2. Then, for (a1 a2; b1 b2) ∈ T2, we have (a1 a2; b1 b2) chain-majorizes (c1 c2; d1 d2) ⟹ X2:2 ⩾st Y2:2.",
+  "kind": "theorem",
+  "model": "order statistics",
+  "family": "Pareto type I",
+  "compared": "largest order statistics under chain majorization",
+  "hypotheses": [
+   {"text": "(a;b) ∈ T2: a_i ≥ 1 and (a_i − a_j)(b_i − b_j) ≤ 0", "formal": "Tn member matrix", "source": "statement"},
+   {"text": "chain majorization between parameter matrices", "formal": "matrix chain majorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:2 >=_st Y2:2"},
+  "quantifiers": "x ≥ max(b1, b2); n = 2; a_i ≥ 1",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Theorem 2.3",
+  "page": 5,
+  "quote": "Theorem 2.3. Let X1, X2 be independent random variables with Xi ~ PII(ai, bi), i = 1, 2. Further, let Y1, Y2 be another set of independent random variables with Yi ~ PII(ci, di), i = 1, 2. Then, for (a1 a2; b1 b2) ∈ S2, we have (a1 a2; b1 b2) chain-majorizes (c1 c2; d1 d2) ⟹ Y1:2 ⩾hr X1:2.",
+  "kind": "theorem",
+  "model": "order statistics",
+  "family": "Pareto type II (Lomax-type): hazard rate h_X1:2(x) = Σ ai/(x + bi)",
+  "compared": "smallest order statistics under chain majorization",
+  "hypotheses": [
+   {"text": "(a;b) ∈ S2", "formal": "Sn member matrix", "source": "statement"},
+   {"text": "chain majorization", "formal": "matrix chain majorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "Y1:2 >=_hr X1:2"},
+  "quantifiers": "x > 0; n = 2",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Example 2.1 (i)",
+  "page": 6,
+  "quote": "Example 2.1. Let Xi ~ PI(ai, bi), Yi ~ PI(ci, di), i = 1, 2. (i) Set (a1 a2; b1 b2) = (5 4; 4.44 4.56) ∈ S2 and (c1 c2; d1 d2) = (3 6; 4.68 4.32). Consider the following T-transform matrices: T0.2 = 0.2(1 0; 0 1) + 0.8(0 1; 1 0) and T0.6 = 0.6(1 0; 0 1) + 0.4(0 1; 1 0). So, we have (c1 c2; d1 d2) = (a1 a2; b1 b2) T0.2 T0.6. Therefore from Theorem 2.1, we obtain that Y1:2 ⩾rh X1:2.",
+  "kind": "example",
+  "model": "order statistics",
+  "family": "Pareto type I",
+  "compared": "numerical verification of Theorem 2.1",
+  "hypotheses": [
+   {"text": "(5 4; 4.44 4.56) ∈ S2; (3 6; 4.68 4.32) = (5 4; 4.44 4.56) T0.2 T0.6", "formal": "chain majorization exhibited", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "Y1:2 >=_rh X1:2"},
+  "quantifiers": "n = 2",
+  "numbers": "(a;b) = (5 4; 4.44 4.56), (c;d) = (3 6; 4.68 4.32), T0.2, T0.6",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Example 2.1 (ii)",
+  "page": 6,
+  "quote": "(ii) Set (a1 a2; b1 b2) = (7 2; 3 5) ∈ T2 and (c1 c2; d1 d2) = (4.7 4.3; 3.92 4.08). ... we have (c1 c2; d1 d2) = (a1 a2; b1 b2) T0.3 T0.4, implies that (a1 a2; b1 b2) chain-majorizes (c1 c2; d1 d2). Therefore from Theorem 2.2, we obtain that X2:2 ⩾st Y2:2.",
+  "kind": "example",
+  "model": "order statistics",
+  "family": "Pareto type I",
+  "compared": "numerical verification of Theorem 2.2",
+  "hypotheses": [
+   {"text": "(7 2; 3 5) ∈ T2; chain majorization via T0.3 T0.4", "formal": "chain majorization exhibited", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:2 >=_st Y2:2"},
+  "quantifiers": "n = 2",
+  "numbers": "(a;b) = (7 2; 3 5), (c;d) = (4.7 4.3; 3.92 4.08), T0.3, T0.4",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Example 2.2",
+  "page": 7,
+  "quote": "Example 2.2. Let Xi ~ PII(ai, bi), Yi ~ PII(ci, di), i = 1, 2. Set (a1 a2; b1 b2) = (2 0.8; 0.6 1) ∈ S2 and (c1 c2; d1 d2) = (1.208 1.592; 0.864 0.736). ... we have (c1 c2; d1 d2) = (a1 a2; b1 b2) T0.9 T0.3, implies that (a1 a2; b1 b2) chain-majorizes (c1 c2; d1 d2). Therefore from Theorem 2.3, we obtain that Y1:2 ⩾hr X1:2.",
+  "kind": "example",
+  "model": "order statistics",
+  "family": "Pareto type II",
+  "compared": "numerical verification of Theorem 2.3",
+  "hypotheses": [
+   {"text": "(2 0.8; 0.6 1) ∈ S2; chain majorization via T0.9 T0.3", "formal": "chain majorization exhibited", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "Y1:2 >=_hr X1:2"},
+  "quantifiers": "n = 2",
+  "numbers": "(a;b) = (2 0.8; 0.6 1), (c;d) = (1.208 1.592; 0.864 0.736), T0.9, T0.3",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Example 2.3 (counterexample to Theorem 2.1 scope)",
+  "page": 7,
+  "quote": "Example 2.3. Let Xi ~ PI(ai, bi), Yi ~ PI(ci, di), i = 1, 2. Set (a1 a2; b1 b2) = (1 2; 6 12) and (c1 c2; d1 d2) = (1.7 1.3; 10.2 7.8). We find that above both matrices are not in S2. ... we have (c1 c2; d1 d2) = (a1 a2; b1 b2) T0.3, implies that (a1 a2; b1 b2) chain-majorizes (c1 c2; d1 d2). On the other hand, by calculating, we have r̃X1:2(15) = 0.069, r̃Y1:2(15) = 0.057. Thus, which means that Y1:2 ⋡rh X1:2.",
+  "kind": "counterexample",
+  "model": "order statistics",
+  "family": "Pareto type I",
+  "compared": "S2 membership is essential to Theorem 2.1",
+  "hypotheses": [
+   {"text": "parameter matrices not in S2; chain majorization holds", "formal": "violated premise", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "Y1:2 ≱_rh X1:2 (r̃X(15) = 0.069 > r̃Y(15) = 0.057)"},
+  "quantifiers": "x = 15",
+  "numbers": "r̃_X1:2(15) = 0.069; r̃_Y1:2(15) = 0.057",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Example 2.4 (counterexample to Theorem 2.3 scope)",
+  "page": 8,
+  "quote": "Example 2.4. Let Xi ~ PII(ai, bi), Yi ~ PII(ci, di), i = 1, 2. Set (a1 a2; b1 b2) = (3 2; 4 1) and (c1 c2; d1 d2) = (2.4 2.6; 2.2 2.8). We find that above both matrices are not in S2. ... (c1 c2; d1 d2) = (a1 a2; b1 b2) T0.4 ... On the other hand, by calculating, we have hX1:2(6) = 0.5857, hY1:2(6) = 0.5881. Thus, which means that Y1:2 ⋡hr X1:2.",
+  "kind": "counterexample",
+  "model": "order statistics",
+  "family": "Pareto type II",
+  "compared": "S2 membership is essential to Theorem 2.3",
+  "hypotheses": [
+   {"text": "parameter matrices not in S2; chain majorization holds", "formal": "violated premise", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "Y1:2 ≱_hr X1:2 (h_X(6) = 0.5857 < h_Y(6) = 0.5881)"},
+  "quantifiers": "x = 6",
+  "numbers": "h_X1:2(6) = 0.5857; h_Y1:2(6) = 0.5881",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Theorem 2.4",
+  "page": 8,
+  "quote": "Theorem 2.4. Let X1, . . . , Xn be independent random variables with Xi ~ PI(ai, bi), i = 1, . . ., n. Further, let Y1, . . . , Yn be independent random variables with Yi ~ PI(ci, di), i = 1, . . . , n. Assume that (a1 a2 . . . an; b1 b2 . . . bn) ∈ Sn and (c1 c2 . . . cn; d1 d2 . . . dn) = (a1 a2 . . . an; b1 b2 . . . bn) Tw. Then, we have Y1:n ⩾st X1:n.",
+  "kind": "theorem",
+  "model": "order statistics",
+  "family": "Pareto type I",
+  "compared": "n-component smallest order statistics under single T-transform chain majorization",
+  "hypotheses": [
+   {"text": "(a;b) ∈ Sn; (c;d) = (a;b)Tw", "formal": "Sn + chain majorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Y1:n >=_st X1:n"},
+  "quantifiers": "x ≥ max(b1,...,bn); n ≥ 2",
+  "ambiguity": "Only st (not rh) is claimed for n > 2; the proof routes through the n = 2 rh result plus rh ⟹ st."
+ },
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Theorem 2.5",
+  "page": 9,
+  "quote": "Theorem 2.5. Let Xi ~ PI(ai, bi), Yi ~ PI(ci, di), i = 1, . . . , n. Assume that (a1 a2 . . . an; b1 b2 . . . bn) ∈ Tn and (c1 c2 . . . cn; d1 d2 . . . dn) = (a1 a2 . . . an; b1 b2 . . . bn) Tw. Then, we have Xn:n ⩾st Yn:n.",
+  "kind": "theorem",
+  "model": "order statistics",
+  "family": "Pareto type I",
+  "compared": "n-component largest order statistics under chain majorization",
+  "hypotheses": [
+   {"text": "(a;b) ∈ Tn; (c;d) = (a;b)Tw", "formal": "Tn + chain majorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn:n >=_st Yn:n"},
+  "quantifiers": "x ≥ max(bi); n ≥ 2",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Theorem 2.6",
+  "page": 9,
+  "quote": "Theorem 2.6. Let Xi ~ PI(ai, bi), Yi ~ PII(ci, di), i = 1, . . . , n. Assume that (a1 a2 . . . an; b1 b2 . . . bn) ∈ Sn and (c1 c2 . . . cn; d1 d2 . . . dn) = (a1 a2 . . . an; b1 b2 . . . bn) Tw. Then, we have Y1:n ⩾hr X1:n.",
+  "kind": "theorem",
+  "model": "order statistics",
+  "family": "Pareto type II",
+  "compared": "n-component smallest order statistics (hr) under chain majorization",
+  "hypotheses": [
+   {"text": "(a;b) ∈ Sn; (c;d) = (a;b)Tw", "formal": "Sn + chain majorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "Y1:n >=_hr X1:n"},
+  "quantifiers": "x > 0; n ≥ 2",
+  "ambiguity": "The X side is printed as PI in the statement but the proof uses the PII hazard rate h_X1:n(x) = Σ al/(x + bl); almost surely a typo for PII."
+ },
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Corollary 2.1",
+  "page": 9,
+  "quote": "Corollary 2.1. Let Xi ~ PI(ai, bi), Yi ~ PI(ci, di), i = 1, . . . , n. Assume that (a1 . . . an; b1 . . . bn) ∈ Sn and (c1 . . . cn; d1 . . . dn) = (a1 . . . an; b1 . . . bn) Tw1 . . . Twk, where Twi, i = 1, . . . , k have the same structures. Then, we have Y1:n ⩾st X1:n.",
+  "kind": "corollary",
+  "model": "order statistics",
+  "family": "Pareto type I",
+  "compared": "chain majorization via several same-structure T-transforms",
+  "hypotheses": [
+   {"text": "(a;b) ∈ Sn; (c;d) = (a;b)Tw1···Twk with same-structure T-transforms", "formal": "iterated chain majorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Y1:n >=_st X1:n"},
+  "quantifiers": "n ≥ 2",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Corollary 2.2",
+  "page": 10,
+  "quote": "Corollary 2.2. Let Xi ~ PI(ai, bi), Yi ~ PI(ci, di). Assume that (a1 . . . an; b1 . . . bn) ∈ Tn and (c1 . . . cn; d1 . . . dn) = (a1 . . . an; b1 . . . bn) Tw1 . . . Twk, where Twi have the same structures. Then, we have Xn:n ⩾st Yn:n.",
+  "kind": "corollary",
+  "model": "order statistics",
+  "family": "Pareto type I",
+  "compared": "largest order statistics under iterated chain majorization",
+  "hypotheses": [
+   {"text": "(a;b) ∈ Tn; product of same-structure T-transforms", "formal": "iterated chain majorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn:n >=_st Yn:n"},
+  "quantifiers": "n ≥ 2",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Corollary 2.3",
+  "page": 10,
+  "quote": "Corollary 2.3. Let Xi ~ PII(ai, bi), Yi ~ PII(ci, di). Assume that (a1 . . . an; b1 . . . bn) ∈ Sn and (c1 . . . cn; d1 . . . dn) = (a1 . . . an; b1 . . . bn) Tw1 . . . Twk, where Twi have the same structures. Then, we have Y1:n ⩾hr X1:n.",
+  "kind": "corollary",
+  "model": "order statistics",
+  "family": "Pareto type II",
+  "compared": "smallest order statistics (hr) under iterated chain majorization",
+  "hypotheses": [
+   {"text": "(a;b) ∈ Sn; product of same-structure T-transforms", "formal": "iterated chain majorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "Y1:n >=_hr X1:n"},
+  "quantifiers": "n ≥ 2",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Theorem 2.7",
+  "page": 10,
+  "quote": "Theorem 2.7. Let Xi ~ PI(ai, bi), Yi ~ PI(ci, di), i = 1, . . . , n. Assume that (a1 . . . an; b1 . . . bn) ∈ Sn, and (a1 . . . an; b1 . . . bn) Tw1 . . . Twi ∈ Sn for i = 1, . . . , k − 1, and (c1 . . . cn; d1 . . . dn) = (a1 . . . an; b1 . . . bn) Tw1 . . . Twk. Then, we have Y1:n ⩾st X1:n.",
+  "kind": "theorem",
+  "model": "order statistics",
+  "family": "Pareto type I",
+  "compared": "iterated chain majorization with all intermediate matrices in Sn",
+  "hypotheses": [
+   {"text": "(a;b) ∈ Sn; every intermediate matrix (a;b)Tw1···Twi ∈ Sn; (c;d) = (a;b)Tw1···Twk", "formal": "path-restricted chain majorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Y1:n >=_st X1:n"},
+  "quantifiers": "n ≥ 2",
+  "ambiguity": "Extends Theorem 2.4 to products of T-transforms with different structures, provided each intermediate stays in Sn."
+ },
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Theorem 2.8",
+  "page": 11,
+  "quote": "Theorem 2.8. Let Xi ~ PI(ai, bi), Yi ~ PI(ci, di), i = 1, . . . , n. Assume that (a1 . . . an; b1 . . . bn) ∈ Tn, and (a1 . . . an; b1 . . . bn) Tw1 . . . Twi ∈ Tn for i = 1, . . . , k − 1, and (c1 . . . cn; d1 . . . dn) = (a1 . . . an; b1 . . . bn) Tw1 . . . Twk. Then, we have Xn:n ⩾st Yn:n.",
+  "kind": "theorem",
+  "model": "order statistics",
+  "family": "Pareto type I",
+  "compared": "largest order statistics with intermediates in Tn",
+  "hypotheses": [
+   {"text": "(a;b) ∈ Tn; intermediates in Tn; (c;d) = (a;b)Tw1···Twk", "formal": "path-restricted chain majorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn:n >=_st Yn:n"},
+  "quantifiers": "n ≥ 2",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Theorem 2.9",
+  "page": 11,
+  "quote": "Theorem 2.9. Let Xi ~ PII(ai, bi), Yi ~ PII(ci, di), i = 1, . . . , n. Assume that (a1 . . . an; b1 . . . bn) ∈ Sn, and (a1 . . . an; b1 . . . bn) Tw1 . . . Twi ∈ Sn for i = 1, . . . , k − 1, and (c1 . . . cn; d1 . . . dn) = (a1 . . . an; b1 . . . bn) Tw1 . . . Twk. Then, we have Y1:n ⩾hr X1:n.",
+  "kind": "theorem",
+  "model": "order statistics",
+  "family": "Pareto type II",
+  "compared": "smallest order statistics (hr) with intermediates in Sn",
+  "hypotheses": [
+   {"text": "(a;b) ∈ Sn; intermediates in Sn; (c;d) = (a;b)Tw1···Twk", "formal": "path-restricted chain majorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "Y1:n >=_hr X1:n"},
+  "quantifiers": "n ≥ 2",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Theorem 2.10",
+  "page": 12,
+  "quote": "Theorem 2.10. Let X1, . . . , Xn be independent random variables with Xi ~ PII(ai, b), i = 1, . . . , n. Further, let Y1, . . . , Yn be independent random variables with Yi ~ PII(ci, b), i = 1, . . . , n. Then (a1, a2, . . . , an) ≽m (c1, c2, . . . , cn) implies Xn:n ⩾st Yn:n.",
+  "kind": "theorem",
+  "model": "order statistics",
+  "family": "Pareto type II with common scale b",
+  "compared": "largest order statistics under ordinary vector majorization of shape vectors",
+  "hypotheses": [
+   {"text": "common scale b; a ≽m c (vector majorization)", "formal": "majorization between shape vectors", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn:n >=_st Yn:n"},
+  "quantifiers": "x > 0; n ≥ 2",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Example 2.5",
+  "page": 12,
+  "quote": "Example 2.5. Let X1, X2, X3 be independent random variables with Xi ~ PI(ai, bi). Set (a1 a2 a3; b1 b2 b3) = (6 4 1; 2 3 5) ∈ S3 and (c1 c2 c3; d1 d2 d3) = (4.14 2.72 4.14; 3.04 3.92 3.04). Considering the following three T-transform matrices T0.3, T0.8, T0.5. Then, we have (a;b)T0.3 = (6 1.9 3.1; 2 4.4 3.6) ∈ S3, (a;b)T0.3T0.8 = (5.18 2.72 3.1; 2.48 3.92 3.6) ∈ S3, and (c;d) = (a;b)T0.3T0.8T0.5. So, the condition of Theorem 2.7 is satisfied which means that Y1:3 ⩾st X1:3.",
+  "kind": "example",
+  "model": "order statistics",
+  "family": "Pareto type I, n = 3",
+  "compared": "numerical verification of Theorem 2.7",
+  "hypotheses": [
+   {"text": "all intermediate matrices ∈ S3; chain majorization via T0.3 T0.8 T0.5", "formal": "path-restricted chain majorization verified", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Y1:3 >=_st X1:3"},
+  "quantifiers": "n = 3",
+  "numbers": "(a;b) = (6 4 1; 2 3 5), (c;d) = (4.14 2.72 4.14; 3.04 3.92 3.04)",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Example 2.6",
+  "page": 13,
+  "quote": "Example 2.6. Set (a1 a2 a3; b1 b2 b3) = (5 4 2; 2 6 8) ∈ T3 and (c1 c2 c3; d1 d2 d3) = (3.17 3.17 4.66; 6.58 6.58 2.94). ... (a;b)T0.35 = (5 2.7 3.3; 2 7.4 6.7) ∈ T3, (a;b)T0.35T0.2 = (3.64 2.7 4.66; 5.76 7.4 2.94) ∈ T3, (c;d) = (a;b)T0.35T0.2T0.5. So, the condition of Theorem 2.8 is satisfied which means that X3:3 ⩾st Y3:3.",
+  "kind": "example",
+  "model": "order statistics",
+  "family": "Pareto type I, n = 3",
+  "compared": "numerical verification of Theorem 2.8",
+  "hypotheses": [
+   {"text": "intermediates ∈ T3; chain majorization via T0.35 T0.2 T0.5", "formal": "path-restricted chain majorization verified", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X3:3 >=_st Y3:3"},
+  "quantifiers": "n = 3",
+  "numbers": "(a;b) = (5 4 2; 2 6 8), (c;d) = (3.17 3.17 4.66; 6.58 6.58 2.94)",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.7153/jmi-2019-13-74",
+  "claim": "Example 2.7",
+  "page": 13,
+  "quote": "Example 2.7. Let Xi ~ PII(ai, bi), Yi ~ PII(ci, di), i = 1, 2, 3. Set (a1 a2 a3; b1 b2 b3) = (0.8 0.3 0.1; 0.6 1 2) ∈ S3 and (c1 c2 c3; d1 d2 d3) = (0.326 0.458 0.416; 1.523 1.069 1.008). ... intermediates (0.31 0.3 0.59; 1.58 1 1.02) ∈ S3 and (0.31 0.474 0.416; 1.58 1.012 1.008) ∈ S3, (c;d) = (a;b)T0.3T0.4T0.9. So, the condition of Theorem 3.9 [sic: Theorem 2.9] is satisfied which means that Y1:3 ⩾hr X1:3.",
+  "kind": "example",
+  "model": "order statistics",
+  "family": "Pareto type II, n = 3",
+  "compared": "numerical verification of Theorem 2.9",
+  "hypotheses": [
+   {"text": "intermediates ∈ S3; chain majorization via T0.3 T0.4 T0.9", "formal": "path-restricted chain majorization verified", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "Y1:3 >=_hr X1:3"},
+  "quantifiers": "n = 3",
+  "numbers": "(a;b) = (0.8 0.3 0.1; 0.6 1 2), (c;d) = (0.326 0.458 0.416; 1.523 1.069 1.008)",
+  "ambiguity": "Text cites 'Theorem 3.9' — the paper's internal numbering is inconsistent; Theorem 2.9 is clearly meant."
+ }
+]

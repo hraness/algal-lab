@@ -1,0 +1,77 @@
+[
+ {
+  "paper": "doi:10.17713/ajs.v50i3.1025",
+  "claim": "Example 1",
+  "page": 61,
+  "quote": "Example 1. Let X\u03b1i \u223c Burr(\u03b1i , \u03b2i , 2) (X\u03b1\u2217i \u223c Burr(\u03b1i\u2217 , \u03b2i , 2)), for i = 1, 2, 3. Further, suppose that Ip1 , Ip2 , Ip3 (Ip\u22171 , Ip\u22172 , Ip\u22173 ) is a set of independent Bernoulli random variables, independent of the X\u03b1i 's (X\u03b1\u2217i 's), with E[Ipi ] = pi (E[Ip\u2217i ] = p\u2217i ), for i = 1, 2, 3. We take (\u03b11 , \u03b12 , \u03b13 ) = (4, 0.7, 0.2), (\u03b11\u2217 , \u03b12\u2217 , \u03b13\u2217 ) = (4.2, 0.6, 0.3), (\u03b21 , \u03b22 , \u03b23 ) = (5, 3.5, 1.2), (p1 , p2 , p3 ) = (0.2, 0.3, 0.4), and (p\u22171 , p\u22172 , p\u22173 ) = (0.25, 0.35, 0.25). It is clear that the conditions of Theorem 5 are satisfied. So, we have Y1:n\u2217 \u2264hr Y1:n . Figure 1 represents the function rY1:n\u2217 (x) \u2212 rY1:n (x), which agrees with the intended result.",
+  "kind": "example",
+  "model": "order statistic",
+  "family": "Burr(\u03b1i, \u03b2i, 2) severities with Bernoulli claim indicators",
+  "compared": "\u03b1 = (4,0.7,0.2) vs \u03b1* = (4.2,0.6,0.3); p = (0.2,0.3,0.4) vs p* = (0.25,0.35,0.25); common \u03b2 = (5,3.5,1.2), \u03bb = 2",
+  "hypotheses": [
+   {
+    "text": "It is clear that the conditions of Theorem 5 are satisfied",
+    "formal": "\u03a0p* = 0.021875 <= \u03a0p = 0.024; \u03b1 \u2aafw \u03b1* (upper sums 4.9,4.7,4 <= 5.1,4.8,4.2); both (\u03b1,\u03b2),(\u03b1*,\u03b2) in Sn+",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "Y*1:3 <=hr Y1:3"
+  },
+  "quantifiers": "n = 3",
+  "numbers": "\u03b1 = (4,0.7,0.2); \u03b1* = (4.2,0.6,0.3); \u03b2 = (5,3.5,1.2); p = (0.2,0.3,0.4); p* = (0.25,0.35,0.25); \u03bb = 2; Figure 1 plots rY*1:n(x) \u2212 rY1:n(x) >= 0",
+  "ambiguity": "",
+  "adjudication": "example record (pass a)+b"
+ },
+ {
+  "paper": "doi:10.17713/ajs.v50i3.1025",
+  "claim": "Example 2",
+  "page": 61,
+  "quote": "Example 2. Under the same setup in Example 1, we take (\u03b11\u2217 , \u03b12\u2217 , \u03b13\u2217 ) = (4.2, 0.3, 0.6) with the other unchanged values. It is clear that (\u03b1\u2217 , \u03b2) \u2208/ Sn+ , but it can be easily verified that the other conditions of Theorem 5 are satisfied. Figure 2 represents the function rY1:n\u2217 (x) \u2212 rY1:n (x), which changes the sign.",
+  "kind": "counterexample",
+  "model": "order statistic",
+  "family": "Burr(\u03b1i, \u03b2i, 2) severities, same as Example 1",
+  "compared": "\u03b1* = (4.2,0.3,0.6) not comonotone with \u03b2 = (5,3.5,1.2), so (\u03b1*,\u03b2) not in Sn+",
+  "hypotheses": [
+   {
+    "text": "the other conditions of Theorem 5 are satisfied",
+    "formal": "only the Sn+ condition on (\u03b1*,\u03b2) fails",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "refuted: rY*1:3(x) \u2212 rY1:3(x) changes sign (Figure 2), so Y*1:3 <=hr Y1:3 fails"
+  },
+  "quantifiers": "n = 3",
+  "numbers": "\u03b1* = (4.2,0.3,0.6); other values as in Example 1 (\u03b1 = (4,0.7,0.2), \u03b2 = (5,3.5,1.2), p = (0.2,0.3,0.4), p* = (0.25,0.35,0.25), \u03bb = 2)",
+  "ambiguity": "Labeled 'Example 2' in the paper; functionally a counterexample showing the Sn+ condition cannot be dropped.",
+  "adjudication": "example record (pass a)+b"
+ },
+ {
+  "paper": "doi:10.17713/ajs.v50i3.1025",
+  "claim": "Example 3",
+  "page": 62,
+  "quote": "Example 3. Let X\u03b1i \u223c Harris(\u03b1i , \u03b2i ) (X\u03b1\u2217i \u223c Harris(\u03b1i\u2217 , \u03b2i )), for i = 1, 2, 3, with the baseline gamma distribution with the shape parameter 2 and the scale parameter 1 in each two sets. Further, suppose that Ip1 , Ip2 , Ip3 (Ip\u22171 , Ip\u22172 , Ip\u22173 ) is a set of independent Bernoulli random variables, independent of the X\u03b1i 's (X\u03b1\u2217i 's), with E[Ipi ] = pi (E[Ip\u2217i ] = p\u2217i ), for i = 1, 2, 3. We take (\u03b11 , \u03b12 , \u03b13 ) = (1.1, 1.6, 2.5), (\u03b11\u2217 , \u03b12\u2217 , \u03b13\u2217 ) = (1, 1.7, 2.3), (\u03b21 , \u03b22 , \u03b23 ) = (0.1, 0.3, 0.6), (p1 , p2 , p3 ) = (0.1, 0.05, 0.15), and (p\u22171 , p\u22172 , p\u22173 ) = (0.2, 0.05, 0.05). It is clear that the conditions of Theorem 6 are satisfied. So, we have Y1:n\u2217 \u2264hr Y1:n . Figure 3 represents the function rY1:n\u2217 (x) \u2212 rY1:n (x), which coincides with the intended result.",
+  "kind": "example",
+  "model": "order statistic",
+  "family": "Harris(\u03b1i, \u03b2i) severities over Gamma(shape 2, scale 1) baseline",
+  "compared": "\u03b1 = (1.1,1.6,2.5) vs \u03b1* = (1,1.7,2.3); p = (0.1,0.05,0.15) vs p* = (0.2,0.05,0.05); common \u03b2 = (0.1,0.3,0.6)",
+  "hypotheses": [
+   {
+    "text": "It is clear that the conditions of Theorem 6 are satisfied",
+    "formal": "\u03a0p* = 0.0005 <= \u03a0p = 0.00075; \u03b1 weakly supermajorized by \u03b1*; both pairs in Sn+; 0 < \u03b2i <= 1",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "Y*1:3 <=hr Y1:3"
+  },
+  "quantifiers": "n = 3",
+  "numbers": "\u03b1 = (1.1,1.6,2.5); \u03b1* = (1,1.7,2.3); \u03b2 = (0.1,0.3,0.6); p = (0.1,0.05,0.15); p* = (0.2,0.05,0.05); baseline Gamma(2,1); Figure 3 plots rY*1:n(x) \u2212 rY1:n(x) >= 0",
+  "ambiguity": "",
+  "adjudication": "example record (pass a)+b"
+ }
+]

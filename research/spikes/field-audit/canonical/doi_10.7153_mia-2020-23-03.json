@@ -1,0 +1,1037 @@
+[
+ {
+  "paper": "doi:10.7153/mia-2020-23-03",
+  "claim": "Theorem 3.1",
+  "page": 5,
+  "quote": "[Section 3 preamble:] In this section, we compare the largest claim amounts from two interdependent heterogeneous portfolios of risks in the sense of the usual stochastic ordering. [...] The following theorem provides a comparison between the largest claim amounts in two heterogeneous portfolio of risks, in terms of p. Theorem 3.1. Let X\u03bb1 and X\u03bb2 be non-negative random variables with X\u03bbi \u223c F\u0304(x; \u03bbi), i = 1, 2, and associated copula C. Further, suppose that Ip1, Ip2 (Ip\u22171, Ip\u22172) is a set of independent Bernoulli random variables, independent of the X\u03bbi's, with E[Ipi] = pi (E[Ip\u2217i] = p\u2217i), i = 1, 2. Assume that the following conditions hold: (i) h : (0, 1] \u2192 I \u2282 R++ is a differentiable and strictly increasing concave function, with the log-concave inverse; (ii) F\u0304(x; \u03bb) is decreasing in \u03bb for any x \u2208 R+; (iii) C is PQD. Then, for (\u03bb, h(p)) \u2208 S and (\u03bb, h(p\u2217)) \u2208 S, we have (h(p\u22171), h(p\u22172)) \u227c^m (h(p1), h(p2)) =\u21d2 Y\u22172:2 \u2264st Y2:2.",
+  "kind": "theorem",
+  "model": "other: largest claim amount Y2:2 = max(Ip1 X\u03bb1, Ip2 X\u03bb2) (maximum of Bernoulli-thinned, copula-dependent severities)",
+  "family": "general parametric family of marginal survival functions F\u0304(x; \u03bb), decreasing in \u03bb; copula C (PQD); occurrence probabilities entering through a function h",
+  "compared": "occurrence probabilities p = (p1, p2) vs p\u2217 = (p\u22171, p\u22172) through h(p) vs h(p\u2217); severities (\u03bb1, \u03bb2) and copula C common to both portfolios",
+  "hypotheses": [
+   {
+    "text": "Assume that X\u03bb1, . . . , X\u03bbn are continuous and non-negative random variables with the joint distribution function H(x1, . . . , xn), marginal distribution (survival) functions F(x; \u03bb1), . . . , F(x; \u03bbn) (F\u0304(x; \u03bb1), . . . , F\u0304(x; \u03bbn)), and the copula C through the relation H(x1, . . . , xn) = C(F(x; \u03bb1), . . . , F(x; \u03bbn))",
+    "formal": "severities continuous, nonnegative, joint cdf H = C(F(x1; \u03bb1), F(x2; \u03bb2))",
+    "source": "section preamble (Introduction, standing assumption)"
+   },
+   {
+    "text": "Let X\u03bb1 and X\u03bb2 be non-negative random variables with X\u03bbi \u223c F\u0304(x; \u03bbi), i = 1, 2, and associated copula C",
+    "formal": "X\u03bbi has survival F\u0304(x; \u03bbi); dependence via copula C",
+    "source": "statement"
+   },
+   {
+    "text": "Ip1, Ip2 (Ip\u22171, Ip\u22172) is a set of independent Bernoulli random variables, independent of the X\u03bbi's, with E[Ipi] = pi (E[Ip\u2217i] = p\u2217i)",
+    "formal": "Ipi ~ Bernoulli(pi) independent, Ip\u2217i ~ Bernoulli(p\u2217i) independent, both independent of (X\u03bb1, X\u03bb2)",
+    "source": "statement"
+   },
+   {
+    "text": "Yi = Ipi X\u03bbi ... Yn:n = max(Y1, . . . , Yn)",
+    "formal": "Y2:2 = max(Ip1 X\u03bb1, Ip2 X\u03bb2), Y\u22172:2 = max(Ip\u22171 X\u03bb1, Ip\u22172 X\u03bb2)",
+    "source": "section preamble (Abstract/Introduction)"
+   },
+   {
+    "text": "(i) h : (0, 1] \u2192 I \u2282 R++ is a differentiable and strictly increasing concave function, with the log-concave inverse",
+    "formal": "h differentiable, strictly increasing, concave on (0, 1], values in I \u2282 (0, \u221e); h^{-1} log-concave",
+    "source": "statement"
+   },
+   {
+    "text": "(ii) F\u0304(x; \u03bb) is decreasing in \u03bb for any x \u2208 R+",
+    "formal": "\u03bb \u21a6 F\u0304(x; \u03bb) nonincreasing for each x \u2265 0",
+    "source": "statement"
+   },
+   {
+    "text": "(iii) C is PQD",
+    "formal": "C(v1, v2) \u2265 v1 v2 for all (v1, v2) \u2208 [0, 1]\u00b2 (Definition 2.5)",
+    "source": "statement; definition 2.5"
+   },
+   {
+    "text": "for (\u03bb, h(p)) \u2208 S and (\u03bb, h(p\u2217)) \u2208 S",
+    "formal": "(\u03bb1 \u2212 \u03bb2)(h(p1) \u2212 h(p2)) \u2264 0 and (\u03bb1 \u2212 \u03bb2)(h(p\u22171) \u2212 h(p\u22172)) \u2264 0, where S = {(x, y): (xi \u2212 xj)(yi \u2212 yj) \u2264 0, i, j = 1, 2}",
+    "source": "statement; definition of S (end of Section 2)"
+   },
+   {
+    "text": "(h(p\u22171), h(p\u22172)) \u227c^m (h(p1), h(p2))",
+    "formal": "h(p\u22171) + h(p\u22172) = h(p1) + h(p2) and min(h(p\u22171), h(p\u22172)) \u2265 min(h(p1), h(p2)) (h(p\u2217) majorized by h(p))",
+    "source": "statement; definition 2.2(iii)"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y\u22172:2 \u2264st Y2:2"
+  },
+  "quantifiers": "n = 2; all \u03bb, p, p\u2217 satisfying the stated conditions; st order per Definition 2.1 (survival functions compared for all x \u2208 R)",
+  "numbers": "",
+  "ambiguity": "The majorization glyph is missing from the text extraction (only the superscript 'm' survives); read as 'majorized by' (x \u227c^m y), the only majorization symbol Definition 2.2(iii) defines, consistent with the proof. The star in the conclusion is displaced by the layout; read as Y\u22172:2 \u2264st Y2:2, consistent with the proof (\u03a81(u\u2217) \u2264 \u03a81(u), \u03a82(u\u2217) \u2264 \u03a82(u), G = \u2212\u03a81 \u2212 \u03a82). The statement does not define Y\u22172:2 explicitly; read as the largest claim of (Ip\u22171 X\u03bb1, Ip\u22172 X\u03bb2) (same severities). Stated for a general family F\u0304(x; \u03bb); included because the paper also states scale/PHR/TG special cases and gives Gamma, Pareto, TE and Weibull examples.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.7153/mia-2020-23-03",
+  "claim": "Theorem 3.10",
+  "page": 15,
+  "quote": "Theorem 3.10. Let F\u0304(x; \u03bbi) = F\u0304(x)(1 \u2212 \u03bbi F(x)) and F\u0304(x; \u03bb\u2217i) = F\u0304(x)(1 \u2212 \u03bb\u2217i F(x)), for i = 1, 2. Under the setup of Theorem 3.7, suppose that the following conditions hold: (i) (\u03bb\u22171, \u03bb\u22172) \u227c^m (\u03bb1, \u03bb2), such that \u03bb1 \u2265 \u03bb2 and \u03bb\u22171 \u2265 \u03bb\u22172; (ii) C is Schur-concave. Then, we have Y\u22172:2 \u2264st Y2:2.",
+  "kind": "theorem",
+  "model": "other: largest claim amount Y2:2 = max(I1 X\u03bb1, I2 X\u03bb2) with a dependent bivariate Bernoulli occurrence vector I and copula-dependent severities",
+  "family": "TG model F\u0304(x; \u03bb) = F\u0304(x)(1 \u2212 \u03bbF(x)), \u03bb \u2208 [\u22121, 1]; Schur-concave copula C; LWSAI occurrence vector",
+  "compared": "TG parameters \u03bb vs \u03bb\u2217; occurrence vector I, baseline and copula common",
+  "hypotheses": [
+   {
+    "text": "Under the setup of Theorem 3.7",
+    "formal": "severities with common copula C; occurrence vector I LWSAI and independent of severities",
+    "source": "earlier theorem 3.7"
+   },
+   {
+    "text": "Let F\u0304(x; \u03bbi) = F\u0304(x)(1 \u2212 \u03bbi F(x)) and F\u0304(x; \u03bb\u2217i) = F\u0304(x)(1 \u2212 \u03bb\u2217i F(x)), for i = 1, 2",
+    "formal": "TG model with common baseline, \u03bb \u2208 [\u22121, 1]",
+    "source": "statement; TG definition before Theorem 3.6"
+   },
+   {
+    "text": "(i) (\u03bb\u22171, \u03bb\u22172) \u227c^m (\u03bb1, \u03bb2), such that \u03bb1 \u2265 \u03bb2 and \u03bb\u22171 \u2265 \u03bb\u22172",
+    "formal": "\u03bb\u2217 majorized by \u03bb; \u03bb1 \u2265 \u03bb2, \u03bb\u22171 \u2265 \u03bb\u22172",
+    "source": "statement; definition 2.2(iii)"
+   },
+   {
+    "text": "(ii) C is Schur-concave",
+    "formal": "C Schur-concave",
+    "source": "statement; definition 2.3"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y\u22172:2 \u2264st Y2:2"
+  },
+  "quantifiers": "n = 2; \u03bbi, \u03bb\u2217i \u2208 [\u22121, 1] satisfying (i); all x \u2208 R",
+  "numbers": "",
+  "ambiguity": "Majorization glyph missing; read as \u227c^m. Star placement in conclusion displaced; read as Y\u22172:2 \u2264st Y2:2. LWSAI undefined except via Lemma 3.1.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.7153/mia-2020-23-03",
+  "claim": "Theorem 3.11",
+  "page": 15,
+  "quote": "The following theorem provides a comparison between the largest claim amounts in two heterogeneous portfolios of risks, in terms of \u03bb. Theorem 3.11. Let X\u03bb1, . . . , X\u03bbn (X\u03bb\u22171, . . . , X\u03bb\u2217n) be non-negative random variables with X\u03bbi \u223c F\u0304(x; \u03bbi) (X\u03bb\u2217i \u223c F\u0304(x; \u03bb\u2217i)), i = 1, . . . , n, and associated copula C. Further, suppose that Ip1, . . . , Ipn is a set of independent Bernoulli random variables, independent of the X\u03bbi's (X\u03bb\u2217i's), with E[Ipi] = pi, i = 1, . . . , n. Assume that F\u0304(x; \u03bb) is decreasing in \u03bb for any x \u2208 R+. Then, we have \u03bbi \u2264 \u03bb\u2217i, \u2200 i = 1, . . . , n =\u21d2 Y\u2217n:n \u2264st Yn:n.",
+  "kind": "theorem",
+  "model": "other: largest claim amount Yn:n = max(Ip1 X\u03bb1, ..., Ipn X\u03bbn) (maximum of Bernoulli-thinned, copula-dependent severities)",
+  "family": "general parametric family of marginal survival functions F\u0304(x; \u03bb), decreasing in \u03bb; arbitrary copula C",
+  "compared": "severity parameters \u03bb vs \u03bb\u2217 (componentwise); occurrence probabilities p and copula C common",
+  "hypotheses": [
+   {
+    "text": "X\u03bb1, . . . , X\u03bbn are continuous and non-negative random variables with the joint distribution function H [...] and the copula C",
+    "formal": "severities continuous, nonnegative, joint cdf via copula C",
+    "source": "section preamble (Introduction, standing assumption)"
+   },
+   {
+    "text": "Let X\u03bb1, . . . , X\u03bbn (X\u03bb\u22171, . . . , X\u03bb\u2217n) be non-negative random variables with X\u03bbi \u223c F\u0304(x; \u03bbi) (X\u03bb\u2217i \u223c F\u0304(x; \u03bb\u2217i)), i = 1, . . . , n, and associated copula C",
+    "formal": "X\u03bbi ~ F\u0304(\u00b7; \u03bbi), X\u03bb\u2217i ~ F\u0304(\u00b7; \u03bb\u2217i), common copula C",
+    "source": "statement"
+   },
+   {
+    "text": "Ip1, . . . , Ipn is a set of independent Bernoulli random variables, independent of the X\u03bbi's (X\u03bb\u2217i's), with E[Ipi] = pi",
+    "formal": "independent Bernoulli(pi), independent of severities; same Ip in both portfolios",
+    "source": "statement"
+   },
+   {
+    "text": "Assume that F\u0304(x; \u03bb) is decreasing in \u03bb for any x \u2208 R+",
+    "formal": "\u03bb \u21a6 F\u0304(x; \u03bb) nonincreasing for each x \u2265 0",
+    "source": "statement"
+   },
+   {
+    "text": "\u03bbi \u2264 \u03bb\u2217i, \u2200 i = 1, . . . , n",
+    "formal": "\u03bbi \u2264 \u03bb\u2217i for every i",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y\u2217n:n \u2264st Yn:n"
+  },
+  "quantifiers": "any n \u2265 1 (not restricted); all x \u2208 R",
+  "numbers": "",
+  "ambiguity": "Star placement displaced by layout; read as Y\u2217n:n \u2264st Yn:n, consistent with the proof (G_{Yn:n} increasing in each \u03bbi). General family result with no copula condition; included because special cases for specific models appear in Theorems 3.14-3.16.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.7153/mia-2020-23-03",
+  "claim": "Theorem 3.12",
+  "page": 17,
+  "quote": "The following theorem represents the impact due to degree of dependence in comparison the largest claim amounts in two heterogeneous portfolios of risks. Theorem 3.12. Let X\u03bb1, . . . , X\u03bbn be non-negative random variables with X\u03bbi \u223c F\u0304(x; \u03bbi), i = 1, . . . , n, and associated copula C (C\u2217). In addition, suppose that Ip1, . . . , Ipn is a set of independent Bernoulli random variables, independent of the X\u03bbi's, with E[Ipi] = pi, i = 1, . . . , n. Then, we have C \u227a C\u2217 =\u21d2 Y\u2217n:n \u2264st Yn:n.",
+  "kind": "theorem",
+  "model": "other: largest claim amount Yn:n = max(Ip1 X\u03bb1, ..., Ipn X\u03bbn) (maximum of Bernoulli-thinned, copula-dependent severities)",
+  "family": "arbitrary marginal survival functions F\u0304(x; \u03bbi) (no condition); copulas C vs C\u2217",
+  "compared": "copula C vs C\u2217 (dependence structure of severities); marginals and occurrence probabilities common",
+  "hypotheses": [
+   {
+    "text": "X\u03bb1, . . . , X\u03bbn are continuous and non-negative random variables with the joint distribution function H [...] and the copula C",
+    "formal": "severities continuous, nonnegative",
+    "source": "section preamble (Introduction, standing assumption)"
+   },
+   {
+    "text": "Let X\u03bb1, . . . , X\u03bbn be non-negative random variables with X\u03bbi \u223c F\u0304(x; \u03bbi), i = 1, . . . , n, and associated copula C (C\u2217)",
+    "formal": "same marginals; portfolio Y uses copula C, portfolio Y\u2217 uses copula C\u2217",
+    "source": "statement"
+   },
+   {
+    "text": "Ip1, . . . , Ipn is a set of independent Bernoulli random variables, independent of the X\u03bbi's, with E[Ipi] = pi",
+    "formal": "independent Bernoulli(pi), independent of severities",
+    "source": "statement"
+   },
+   {
+    "text": "C \u227a C\u2217",
+    "formal": "C(v) \u2264 C\u2217(v) for all v \u2208 [0, 1]^n (C less PLOD than C\u2217, Definition 2.6)",
+    "source": "statement; definition 2.6"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y\u2217n:n \u2264st Yn:n (Y\u2217 built with copula C\u2217)"
+  },
+  "quantifiers": "any n; all x \u2208 R",
+  "numbers": "",
+  "ambiguity": "Star placement displaced by layout; read as Y\u2217n:n \u2264st Yn:n. Y\u2217n:n is not defined explicitly; read as the largest claim from the same marginals with copula C\u2217. Fully general in the marginals; included because the paper applies it within Theorem 3.13 and its scale/PHR/TG special cases (Theorems 3.14-3.16).",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.7153/mia-2020-23-03",
+  "claim": "Theorem 3.13",
+  "page": 17,
+  "quote": "The following theorem provides a comparison between the largest claim amounts in two heterogeneous portfolios of risks, in terms of \u03bb and degree of dependence. Theorem 3.13. Let X\u03bb1, . . . , X\u03bbn (X\u03bb\u22171, . . . , X\u03bb\u2217n) be non-negative random variables with X\u03bbi \u223c F\u0304(x; \u03bbi) (X\u03bb\u2217i \u223c F\u0304(x; \u03bb\u2217i)), i = 1, . . . , n, and associated copula C (C\u2217). Furthermore, suppose that Ip1, . . . , Ipn is a set of independent Bernoulli random variables, independent of the X\u03bbi's (X\u03bb\u2217i's), with E[Ipi] = pi, i = 1, . . . , n. Assume that F\u0304(x; \u03bb) is decreasing in \u03bb for any x \u2208 R+. Then, we have C \u227a C\u2217 and \u03bbi \u2264 \u03bb\u2217i, \u2200 i = 1, . . . , n =\u21d2 Y\u2217n:n \u2264st Yn:n.",
+  "kind": "theorem",
+  "model": "other: largest claim amount Yn:n = max(Ip1 X\u03bb1, ..., Ipn X\u03bbn) (maximum of Bernoulli-thinned, copula-dependent severities)",
+  "family": "general parametric family of marginal survival functions F\u0304(x; \u03bb), decreasing in \u03bb; copulas C vs C\u2217",
+  "compared": "copula C vs C\u2217 and severity parameters \u03bb vs \u03bb\u2217; occurrence probabilities common",
+  "hypotheses": [
+   {
+    "text": "X\u03bb1, . . . , X\u03bbn are continuous and non-negative random variables with the joint distribution function H [...] and the copula C",
+    "formal": "severities continuous, nonnegative",
+    "source": "section preamble (Introduction, standing assumption)"
+   },
+   {
+    "text": "Let X\u03bb1, . . . , X\u03bbn (X\u03bb\u22171, . . . , X\u03bb\u2217n) be non-negative random variables with X\u03bbi \u223c F\u0304(x; \u03bbi) (X\u03bb\u2217i \u223c F\u0304(x; \u03bb\u2217i)), i = 1, . . . , n, and associated copula C (C\u2217)",
+    "formal": "portfolio Y: marginals F\u0304(\u00b7; \u03bbi), copula C; portfolio Y\u2217: marginals F\u0304(\u00b7; \u03bb\u2217i), copula C\u2217",
+    "source": "statement"
+   },
+   {
+    "text": "Ip1, . . . , Ipn is a set of independent Bernoulli random variables, independent of the X\u03bbi's (X\u03bb\u2217i's), with E[Ipi] = pi",
+    "formal": "independent Bernoulli(pi), independent of severities; same in both portfolios",
+    "source": "statement"
+   },
+   {
+    "text": "Assume that F\u0304(x; \u03bb) is decreasing in \u03bb for any x \u2208 R+",
+    "formal": "\u03bb \u21a6 F\u0304(x; \u03bb) nonincreasing",
+    "source": "statement"
+   },
+   {
+    "text": "C \u227a C\u2217 and \u03bbi \u2264 \u03bb\u2217i, \u2200 i = 1, . . . , n",
+    "formal": "C(v) \u2264 C\u2217(v) for all v (Definition 2.6) and \u03bbi \u2264 \u03bb\u2217i for all i",
+    "source": "statement; definition 2.6"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y\u2217n:n \u2264st Yn:n"
+  },
+  "quantifiers": "any n; all x \u2208 R",
+  "numbers": "",
+  "ambiguity": "Star placement displaced by layout; read as Y\u2217n:n \u2264st Yn:n. The proof cites 'Theorem 3.12 and Theorem 3.13' (i.e., itself) for the two intermediate steps. General family result; special cases for specific models are stated in Theorems 3.14-3.16.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.7153/mia-2020-23-03",
+  "claim": "Theorem 3.14",
+  "page": 18,
+  "quote": "The three following theorems consider the scale, PHR and TG models as the special cases of Theorem 3.13. Theorem 3.14. Let F\u0304(x; \u03bbi) = F\u0304(\u03bbi x) and F\u0304(x; \u03bb\u2217i) = F\u0304(\u03bb\u2217i x), for i = 1, . . . , n. Under the setup of Theorem 3.13, Then, we have Y\u2217n:n \u2264st Yn:n.",
+  "kind": "theorem",
+  "model": "other: largest claim amount Yn:n = max(Ip1 X\u03bb1, ..., Ipn X\u03bbn) (maximum of Bernoulli-thinned, copula-dependent severities)",
+  "family": "scale family F\u0304(x; \u03bb) = F\u0304(\u03bbx), baseline F\u0304, \u03bb > 0; copulas C vs C\u2217",
+  "compared": "scale parameters \u03bb vs \u03bb\u2217 and copula C vs C\u2217 (presumably, via the setup of Theorem 3.13); occurrence probabilities common",
+  "hypotheses": [
+   {
+    "text": "Under the setup of Theorem 3.13",
+    "formal": "portfolio Y: marginals F\u0304(\u00b7; \u03bbi), copula C; Y\u2217: marginals F\u0304(\u00b7; \u03bb\u2217i), copula C\u2217; independent Bernoulli(pi) independent of severities; presumably also C \u227a C\u2217 and \u03bbi \u2264 \u03bb\u2217i for all i",
+    "source": "earlier theorem 3.13"
+   },
+   {
+    "text": "Let F\u0304(x; \u03bbi) = F\u0304(\u03bbi x) and F\u0304(x; \u03bb\u2217i) = F\u0304(\u03bb\u2217i x), for i = 1, . . . , n",
+    "formal": "scale model with common baseline",
+    "source": "statement; scale family definition before Theorem 3.4"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y\u2217n:n \u2264st Yn:n"
+  },
+  "quantifiers": "any n; \u03bbi, \u03bb\u2217i > 0; all x \u2208 R",
+  "numbers": "",
+  "ambiguity": "The statement does not restate the conditions C \u227a C\u2217 and \u03bbi \u2264 \u03bb\u2217i (they are the antecedent of Theorem 3.13's implication, not obviously part of its 'setup'); as written the conclusion is unconditional given the setup. Star placement displaced by layout; read as Y\u2217n:n \u2264st Yn:n.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.7153/mia-2020-23-03",
+  "claim": "Theorem 3.15",
+  "page": 18,
+  "quote": "Theorem 3.15. Let F\u0304(x; \u03bbi) = [F\u0304(x)]^\u03bbi and F\u0304(x; \u03bb\u2217i) = [F\u0304(x)]^\u03bb\u2217i, for i = 1, . . . , n. Under the setup of Theorem 3.13, we have Y\u2217n:n \u2264st Yn:n.",
+  "kind": "theorem",
+  "model": "other: largest claim amount Yn:n = max(Ip1 X\u03bb1, ..., Ipn X\u03bbn) (maximum of Bernoulli-thinned, copula-dependent severities)",
+  "family": "PHR model F\u0304(x; \u03bb) = [F\u0304(x)]^\u03bb, \u03bb > 0; copulas C vs C\u2217",
+  "compared": "PHR parameters \u03bb vs \u03bb\u2217 and copula C vs C\u2217 (presumably, via the setup of Theorem 3.13); occurrence probabilities common",
+  "hypotheses": [
+   {
+    "text": "Under the setup of Theorem 3.13",
+    "formal": "as in Theorem 3.13; presumably also C \u227a C\u2217 and \u03bbi \u2264 \u03bb\u2217i for all i",
+    "source": "earlier theorem 3.13"
+   },
+   {
+    "text": "Let F\u0304(x; \u03bbi) = [F\u0304(x)]^\u03bbi and F\u0304(x; \u03bb\u2217i) = [F\u0304(x)]^\u03bb\u2217i, for i = 1, . . . , n",
+    "formal": "PHR model with common baseline",
+    "source": "statement; PHR definition before Theorem 3.5"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y\u2217n:n \u2264st Yn:n"
+  },
+  "quantifiers": "any n; \u03bbi, \u03bb\u2217i > 0; all x \u2208 R",
+  "numbers": "",
+  "ambiguity": "Second survival function rendered '[F\u0304(x)]\u03bbi' with a displaced '\u2217'; read as [F\u0304(x)]^{\u03bb\u2217i}. The conditions C \u227a C\u2217 and \u03bbi \u2264 \u03bb\u2217i are not restated. Star placement displaced; read as Y\u2217n:n \u2264st Yn:n.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.7153/mia-2020-23-03",
+  "claim": "Theorem 3.16",
+  "page": 18,
+  "quote": "Theorem 3.16. Let F\u0304(x; \u03bbi) = F\u0304(x)(1\u2212\u03bbi F(x)) and F\u0304(x; \u03bb\u2217i) = F\u0304(x)(1\u2212\u03bb\u2217i F(x)), for i = 1, . . . , n. Under the setup of Theorem 3.13, we have Y\u2217n:n \u2264st Yn:n.",
+  "kind": "theorem",
+  "model": "other: largest claim amount Yn:n = max(Ip1 X\u03bb1, ..., Ipn X\u03bbn) (maximum of Bernoulli-thinned, copula-dependent severities)",
+  "family": "TG model F\u0304(x; \u03bb) = F\u0304(x)(1 \u2212 \u03bbF(x)), \u03bb \u2208 [\u22121, 1]; copulas C vs C\u2217",
+  "compared": "TG parameters \u03bb vs \u03bb\u2217 and copula C vs C\u2217 (presumably, via the setup of Theorem 3.13); occurrence probabilities common",
+  "hypotheses": [
+   {
+    "text": "Under the setup of Theorem 3.13",
+    "formal": "as in Theorem 3.13; presumably also C \u227a C\u2217 and \u03bbi \u2264 \u03bb\u2217i for all i",
+    "source": "earlier theorem 3.13"
+   },
+   {
+    "text": "Let F\u0304(x; \u03bbi) = F\u0304(x)(1\u2212\u03bbi F(x)) and F\u0304(x; \u03bb\u2217i) = F\u0304(x)(1\u2212\u03bb\u2217i F(x)), for i = 1, . . . , n",
+    "formal": "TG model with common baseline, \u03bbi, \u03bb\u2217i \u2208 [\u22121, 1]",
+    "source": "statement; TG definition before Theorem 3.6"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y\u2217n:n \u2264st Yn:n"
+  },
+  "quantifiers": "any n; \u03bbi, \u03bb\u2217i \u2208 [\u22121, 1]; all x \u2208 R",
+  "numbers": "",
+  "ambiguity": "The conditions C \u227a C\u2217 and \u03bbi \u2264 \u03bb\u2217i are not restated. Star placement displaced; read as Y\u2217n:n \u2264st Yn:n.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.7153/mia-2020-23-03",
+  "claim": "Theorem 3.2",
+  "page": 6,
+  "quote": "The following theorem provides a comparison between the largest claim amounts in two heterogeneous portfolio of risks, in terms of \u03bb. Theorem 3.2. Let X\u03bb1 and X\u03bb2 (X\u03bb\u22171 and X\u03bb\u22172) be non-negative random variables with X\u03bbi \u223c F\u0304(x; \u03bbi) (X\u03bb\u2217i \u223c F\u0304(x; \u03bb\u2217i)), i = 1, 2, and associated copula C. Further, suppose that Ip1, Ip2 is a set of independent Bernoulli random variables, independent of the X\u03bbi's (X\u03bb\u2217i's), with E[Ipi] = pi, i = 1, 2. Assume that the following conditions hold: (i) h : [0, 1] \u2192 I \u2282 R+ is a differentiable and strictly increasing function; (ii) F\u0304(x; \u03bb) is decreasing and convex in \u03bb for any x \u2208 R+; (iii) \u2202C(v1,v2)/\u2202v1 \u2265 \u2202C(v1,v2)/\u2202v2, for all 0 \u2264 v1 \u2264 v2 \u2264 1. Then, for (\u03bb, h(p)) \u2208 S and (\u03bb\u2217, h(p)) \u2208 S, we have (\u03bb\u22171, \u03bb\u22172) \u227c^w (\u03bb1, \u03bb2) =\u21d2 Y\u22172:2 \u2264st Y2:2.",
+  "kind": "theorem",
+  "model": "other: largest claim amount Y2:2 = max(Ip1 X\u03bb1, Ip2 X\u03bb2) (maximum of Bernoulli-thinned, copula-dependent severities)",
+  "family": "general parametric family of marginal survival functions F\u0304(x; \u03bb), decreasing and convex in \u03bb; copula C with \u2202C/\u2202v1 \u2265 \u2202C/\u2202v2 on 0 \u2264 v1 \u2264 v2 \u2264 1",
+  "compared": "severity parameters \u03bb = (\u03bb1, \u03bb2) vs \u03bb\u2217 = (\u03bb\u22171, \u03bb\u22172); occurrence probabilities p and copula C common",
+  "hypotheses": [
+   {
+    "text": "X\u03bb1, . . . , X\u03bbn are continuous and non-negative random variables with the joint distribution function H(x1, . . . , xn) [...] and the copula C",
+    "formal": "severities continuous, nonnegative, joint cdf C(F(x1; \u03bb1), F(x2; \u03bb2))",
+    "source": "section preamble (Introduction, standing assumption)"
+   },
+   {
+    "text": "Let X\u03bb1 and X\u03bb2 (X\u03bb\u22171 and X\u03bb\u22172) be non-negative random variables with X\u03bbi \u223c F\u0304(x; \u03bbi) (X\u03bb\u2217i \u223c F\u0304(x; \u03bb\u2217i)), i = 1, 2, and associated copula C",
+    "formal": "X\u03bbi ~ F\u0304(\u00b7; \u03bbi), X\u03bb\u2217i ~ F\u0304(\u00b7; \u03bb\u2217i), both pairs with the same copula C",
+    "source": "statement"
+   },
+   {
+    "text": "Ip1, Ip2 is a set of independent Bernoulli random variables, independent of the X\u03bbi's (X\u03bb\u2217i's), with E[Ipi] = pi",
+    "formal": "Ipi ~ Bernoulli(pi) independent, independent of severities; same Ip used for both portfolios",
+    "source": "statement"
+   },
+   {
+    "text": "Yi = Ipi X\u03bbi",
+    "formal": "Y2:2 = max(Ip1 X\u03bb1, Ip2 X\u03bb2), Y\u22172:2 = max(Ip1 X\u03bb\u22171, Ip2 X\u03bb\u22172)",
+    "source": "section preamble (Abstract/Introduction)"
+   },
+   {
+    "text": "(i) h : [0, 1] \u2192 I \u2282 R+ is a differentiable and strictly increasing function",
+    "formal": "h differentiable and strictly increasing on [0, 1]",
+    "source": "statement"
+   },
+   {
+    "text": "(ii) F\u0304(x; \u03bb) is decreasing and convex in \u03bb for any x \u2208 R+",
+    "formal": "\u03bb \u21a6 F\u0304(x; \u03bb) nonincreasing and convex for each x \u2265 0",
+    "source": "statement"
+   },
+   {
+    "text": "(iii) \u2202C(v1,v2)/\u2202v1 \u2265 \u2202C(v1,v2)/\u2202v2, for all 0 \u2264 v1 \u2264 v2 \u2264 1",
+    "formal": "\u22021 C(v1, v2) \u2265 \u22022 C(v1, v2) whenever 0 \u2264 v1 \u2264 v2 \u2264 1",
+    "source": "statement"
+   },
+   {
+    "text": "for (\u03bb, h(p)) \u2208 S and (\u03bb\u2217, h(p)) \u2208 S",
+    "formal": "(\u03bb1 \u2212 \u03bb2)(h(p1) \u2212 h(p2)) \u2264 0 and (\u03bb\u22171 \u2212 \u03bb\u22172)(h(p1) \u2212 h(p2)) \u2264 0",
+    "source": "statement; definition of S (end of Section 2)"
+   },
+   {
+    "text": "(\u03bb\u22171, \u03bb\u22172) \u227c^w (\u03bb1, \u03bb2)",
+    "formal": "\u03bb\u2217 weakly supermajorized by \u03bb: \u03bb\u22171:2 \u2265 \u03bb1:2 and \u03bb\u22171 + \u03bb\u22172 \u2265 \u03bb1 + \u03bb2 (Definition 2.2(ii))",
+    "source": "statement; definition 2.2(ii)"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y\u22172:2 \u2264st Y2:2"
+  },
+  "quantifiers": "n = 2; all \u03bb, \u03bb\u2217, p satisfying the conditions; survival functions compared for all x \u2208 R",
+  "numbers": "",
+  "ambiguity": "The weak-majorization glyph is missing in the text extraction; only a 'w' rendered above the line survives. Read as weak supermajorization x \u227c^w y (Definition 2.2(ii), whose 'w' is likewise rendered above the line, whereas the submajorization 'w' of 2.2(i) is rendered inline); consistent with the proof's nonpositive partial derivatives and use of Lemma 2.2. Star placement in the conclusion displaced by layout; read as Y\u22172:2 \u2264st Y2:2. General family result; included because the paper also states special cases for specific models.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.7153/mia-2020-23-03",
+  "claim": "Theorem 3.3",
+  "page": 8,
+  "quote": "The following theorem provides a comparison between the largest claim amounts in two heterogeneous portfolio of risks, in terms of p and \u03bb. Theorem 3.3. Let X\u03bb1 and X\u03bb2 (X\u03bb\u22171 and X\u03bb\u22172) be non-negative random variables with X\u03bbi \u223c F\u0304(x; \u03bbi) (X\u03bb\u2217i \u223c F\u0304(x; \u03bb\u2217i)), i = 1, 2, and associated copula C. Further, suppose that Ip1, Ip2 (Ip\u22171, Ip\u22172) is a set of independent Bernoulli random variables, independent of the X\u03bbi's (X\u03bb\u2217i's), with E[Ipi] = pi (E[Ip\u2217i] = p\u2217i), i = 1, 2. Assume that the following conditions hold: (i) h : (0, 1] \u2192 I \u2282 R++ is a differentiable and strictly increasing concave function, with a log-concave inverse; (ii) F\u0304(x; \u03bb) is decreasing and convex in \u03bb for any x \u2208 R+; (iii) C is PQD and \u2202C(v1,v2)/\u2202v1 \u2265 \u2202C(v1,v2)/\u2202v2, for all 0 \u2264 v1 \u2264 v2 \u2264 1. Then, for (\u03bb, h(p)) \u2208 S and (\u03bb\u2217, h(p\u2217)) \u2208 S, we have (h(p\u22171), h(p\u22172)) \u227c^m (h(p1), h(p2)) and (\u03bb\u22171, \u03bb\u22172) \u227c^w (\u03bb1, \u03bb2) =\u21d2 Y\u22172:2 \u2264st Y2:2.",
+  "kind": "theorem",
+  "model": "other: largest claim amount Y2:2 = max(Ip1 X\u03bb1, Ip2 X\u03bb2) (maximum of Bernoulli-thinned, copula-dependent severities)",
+  "family": "general parametric family of marginal survival functions F\u0304(x; \u03bb), decreasing and convex in \u03bb; copula C PQD with \u2202C/\u2202v1 \u2265 \u2202C/\u2202v2 on 0 \u2264 v1 \u2264 v2 \u2264 1",
+  "compared": "occurrence probabilities p vs p\u2217 (through h) and severity parameters \u03bb vs \u03bb\u2217; copula C common",
+  "hypotheses": [
+   {
+    "text": "X\u03bb1, . . . , X\u03bbn are continuous and non-negative random variables with the joint distribution function H [...] and the copula C",
+    "formal": "severities continuous, nonnegative, joint cdf via copula C",
+    "source": "section preamble (Introduction, standing assumption)"
+   },
+   {
+    "text": "Let X\u03bb1 and X\u03bb2 (X\u03bb\u22171 and X\u03bb\u22172) be non-negative random variables with X\u03bbi \u223c F\u0304(x; \u03bbi) (X\u03bb\u2217i \u223c F\u0304(x; \u03bb\u2217i)), i = 1, 2, and associated copula C",
+    "formal": "X\u03bbi ~ F\u0304(\u00b7; \u03bbi), X\u03bb\u2217i ~ F\u0304(\u00b7; \u03bb\u2217i), common copula C",
+    "source": "statement"
+   },
+   {
+    "text": "Ip1, Ip2 (Ip\u22171, Ip\u22172) is a set of independent Bernoulli random variables, independent of the X\u03bbi's (X\u03bb\u2217i's), with E[Ipi] = pi (E[Ip\u2217i] = p\u2217i)",
+    "formal": "independent Bernoulli indicators, independent of severities",
+    "source": "statement"
+   },
+   {
+    "text": "Yi = Ipi X\u03bbi",
+    "formal": "Y2:2 = max(Ip1 X\u03bb1, Ip2 X\u03bb2), Y\u22172:2 = max(Ip\u22171 X\u03bb\u22171, Ip\u22172 X\u03bb\u22172)",
+    "source": "section preamble (Abstract/Introduction)"
+   },
+   {
+    "text": "(i) h : (0, 1] \u2192 I \u2282 R++ is a differentiable and strictly increasing concave function, with a log-concave inverse",
+    "formal": "h differentiable, strictly increasing, concave; h^{-1} log-concave",
+    "source": "statement"
+   },
+   {
+    "text": "(ii) F\u0304(x; \u03bb) is decreasing and convex in \u03bb for any x \u2208 R+",
+    "formal": "\u03bb \u21a6 F\u0304(x; \u03bb) nonincreasing and convex for each x \u2265 0",
+    "source": "statement"
+   },
+   {
+    "text": "(iii) C is PQD and \u2202C(v1,v2)/\u2202v1 \u2265 \u2202C(v1,v2)/\u2202v2, for all 0 \u2264 v1 \u2264 v2 \u2264 1",
+    "formal": "C(v1, v2) \u2265 v1 v2; \u22021 C \u2265 \u22022 C on 0 \u2264 v1 \u2264 v2 \u2264 1",
+    "source": "statement; definition 2.5"
+   },
+   {
+    "text": "for (\u03bb, h(p)) \u2208 S and (\u03bb\u2217, h(p\u2217)) \u2208 S",
+    "formal": "(\u03bb1 \u2212 \u03bb2)(h(p1) \u2212 h(p2)) \u2264 0 and (\u03bb\u22171 \u2212 \u03bb\u22172)(h(p\u22171) \u2212 h(p\u22172)) \u2264 0",
+    "source": "statement; definition of S (end of Section 2)"
+   },
+   {
+    "text": "(h(p\u22171), h(p\u22172)) \u227c^m (h(p1), h(p2))",
+    "formal": "h(p\u2217) majorized by h(p) (Definition 2.2(iii))",
+    "source": "statement; definition 2.2(iii)"
+   },
+   {
+    "text": "(\u03bb\u22171, \u03bb\u22172) \u227c^w (\u03bb1, \u03bb2)",
+    "formal": "\u03bb\u2217 weakly supermajorized by \u03bb (Definition 2.2(ii))",
+    "source": "statement; definition 2.2(ii)"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y\u22172:2 \u2264st Y2:2"
+  },
+  "quantifiers": "n = 2; all parameters satisfying the conditions; survival functions compared for all x \u2208 R",
+  "numbers": "",
+  "ambiguity": "Majorization glyphs missing in the text extraction; read as \u227c^m (majorized by, Definition 2.2(iii)) and \u227c^w (weakly supermajorized by, Definition 2.2(ii), 'w' rendered above the line). Star placement displaced by layout; read as Y\u22172:2 \u2264st Y2:2 (the proof chains Y\u22172:2 =st V2:2 \u2264st Z2:2 \u2264st W2:2 =st Y2:2). General family result; included because special cases for specific models are also stated.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.7153/mia-2020-23-03",
+  "claim": "Theorem 3.4",
+  "page": 8,
+  "quote": "The scale family is an applicable model in reliability theory and actuarial science. X\u03bb is said to follow the scale family, if its survival function can be expressed as F\u0304(x; \u03bb) = F\u0304(\u03bbx), where F\u0304(x) is the baseline survival function with the corresponding density function f(x) and \u03bb > 0. The following theorem provides a comparison between the largest claim amounts in two heterogeneous portfolio of risks, whenever the marginal distributions belonging to the scale family. Theorem 3.4. Let F\u0304(x; \u03bbi) = F\u0304(\u03bbi x) and F\u0304(x; \u03bb\u2217i) = F\u0304(\u03bb\u2217i x), for i = 1, 2. Under the setup of Theorem 3.3, suppose that the following conditions hold: (i) h : (0, 1] \u2192 I \u2282 R++ is a differentiable and strictly increasing concave function, with a log-concave inverse; (ii) f(x) is decreasing in x \u2208 R+; (iii) C is PQD and \u2202C(v1,v2)/\u2202v1 \u2265 \u2202C(v1,v2)/\u2202v2, for all 0 \u2264 v1 \u2264 v2 \u2264 1. Then, for (\u03bb, h(p)) \u2208 S and (\u03bb\u2217, h(p\u2217)) \u2208 S, we have (h(p\u22171), h(p\u22172)) \u227c^m (h(p1), h(p2)) and (\u03bb\u22171, \u03bb\u22172) \u227c^w (\u03bb1, \u03bb2) =\u21d2 Y\u22172:2 \u2264st Y2:2.",
+  "kind": "theorem",
+  "model": "other: largest claim amount Y2:2 = max(Ip1 X\u03bb1, Ip2 X\u03bb2) (maximum of Bernoulli-thinned, copula-dependent severities)",
+  "family": "scale family F\u0304(x; \u03bb) = F\u0304(\u03bbx), baseline survival F\u0304 with density f, \u03bb > 0; copula C PQD with \u2202C/\u2202v1 \u2265 \u2202C/\u2202v2 on 0 \u2264 v1 \u2264 v2 \u2264 1",
+  "compared": "occurrence probabilities p vs p\u2217 (through h) and scale parameters \u03bb vs \u03bb\u2217; baseline and copula common",
+  "hypotheses": [
+   {
+    "text": "Under the setup of Theorem 3.3",
+    "formal": "severities (X\u03bb1, X\u03bb2), (X\u03bb\u22171, X\u03bb\u22172) with common copula C; independent Bernoulli Ip, Ip\u2217 independent of severities; Y2:2, Y\u22172:2 as in Theorem 3.3",
+    "source": "earlier theorem 3.3"
+   },
+   {
+    "text": "Let F\u0304(x; \u03bbi) = F\u0304(\u03bbi x) and F\u0304(x; \u03bb\u2217i) = F\u0304(\u03bb\u2217i x), for i = 1, 2",
+    "formal": "scale model with common baseline F\u0304",
+    "source": "statement; section preamble (scale family definition)"
+   },
+   {
+    "text": "\u03bb > 0",
+    "formal": "\u03bbi, \u03bb\u2217i > 0",
+    "source": "section preamble"
+   },
+   {
+    "text": "(i) h : (0, 1] \u2192 I \u2282 R++ is a differentiable and strictly increasing concave function, with a log-concave inverse",
+    "formal": "h differentiable, strictly increasing, concave; h^{-1} log-concave",
+    "source": "statement"
+   },
+   {
+    "text": "(ii) f(x) is decreasing in x \u2208 R+",
+    "formal": "baseline density f nonincreasing on [0, \u221e)",
+    "source": "statement"
+   },
+   {
+    "text": "(iii) C is PQD and \u2202C(v1,v2)/\u2202v1 \u2265 \u2202C(v1,v2)/\u2202v2, for all 0 \u2264 v1 \u2264 v2 \u2264 1",
+    "formal": "C(v1, v2) \u2265 v1 v2; \u22021 C \u2265 \u22022 C on 0 \u2264 v1 \u2264 v2 \u2264 1",
+    "source": "statement"
+   },
+   {
+    "text": "for (\u03bb, h(p)) \u2208 S and (\u03bb\u2217, h(p\u2217)) \u2208 S",
+    "formal": "(\u03bb1 \u2212 \u03bb2)(h(p1) \u2212 h(p2)) \u2264 0 and (\u03bb\u22171 \u2212 \u03bb\u22172)(h(p\u22171) \u2212 h(p\u22172)) \u2264 0",
+    "source": "statement; definition of S"
+   },
+   {
+    "text": "(h(p\u22171), h(p\u22172)) \u227c^m (h(p1), h(p2)) and (\u03bb\u22171, \u03bb\u22172) \u227c^w (\u03bb1, \u03bb2)",
+    "formal": "h(p\u2217) majorized by h(p); \u03bb\u2217 weakly supermajorized by \u03bb",
+    "source": "statement; definition 2.2"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y\u22172:2 \u2264st Y2:2"
+  },
+  "quantifiers": "n = 2; all parameters satisfying the conditions; all x \u2208 R",
+  "numbers": "",
+  "ambiguity": "Majorization glyphs missing in the text extraction; read as \u227c^m (Definition 2.2(iii)) and \u227c^w (weak supermajorization, Definition 2.2(ii)). Star placement displaced by layout; read as Y\u22172:2 \u2264st Y2:2. 'Under the setup of Theorem 3.3' does not say which of Theorem 3.3's conditions carry over; the statement restates (i) and (iii) and replaces (ii) by f decreasing.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.7153/mia-2020-23-03",
+  "claim": "Theorem 3.5",
+  "page": 10,
+  "quote": "The proportional hazard rate (PHR) model is a flexible family of distributions with an important role in reliability theory, actuarial science and other fields [...]. X\u03bb is said to follow PHR model, if its survival function can be expressed as F\u0304(x; \u03bb) = [F\u0304(x)]^\u03bb, where F\u0304(x) is the baseline survival function and \u03bb > 0. The following theorem provides a comparison between the largest claim amounts in two heterogeneous portfolio of risks, whenever the marginal distributions belonging to the PHR model. Theorem 3.5. Let F\u0304(x; \u03bbi) = [F\u0304(x)]^\u03bbi and F\u0304(x; \u03bb\u2217i) = [F\u0304(x)]^\u03bb\u2217i, for i = 1, 2. Under the setup of Theorem 3.3, suppose that the following conditions hold: (i) h : (0, 1] \u2192 I \u2282 R++ is a differentiable and strictly increasing concave function, with the log-concave inverse; (ii) C is PQD and \u2202C(v1,v2)/\u2202v1 \u2265 \u2202C(v1,v2)/\u2202v2, for all 0 \u2264 v1 \u2264 v2 \u2264 1. Then, for (\u03bb, h(p)) \u2208 S and (\u03bb\u2217, h(p\u2217)) \u2208 S, we have (h(p\u22171), h(p\u22172)) \u227c^m (h(p1), h(p2)) and (\u03bb\u22171, \u03bb\u22172) \u227c^w (\u03bb1, \u03bb2) =\u21d2 Y\u22172:2 \u2264st Y2:2.",
+  "kind": "theorem",
+  "model": "other: largest claim amount Y2:2 = max(Ip1 X\u03bb1, Ip2 X\u03bb2) (maximum of Bernoulli-thinned, copula-dependent severities)",
+  "family": "proportional hazard rate (PHR) model F\u0304(x; \u03bb) = [F\u0304(x)]^\u03bb, baseline survival F\u0304, \u03bb > 0; copula C PQD with \u2202C/\u2202v1 \u2265 \u2202C/\u2202v2 on 0 \u2264 v1 \u2264 v2 \u2264 1",
+  "compared": "occurrence probabilities p vs p\u2217 (through h) and PHR parameters \u03bb vs \u03bb\u2217; baseline and copula common",
+  "hypotheses": [
+   {
+    "text": "Under the setup of Theorem 3.3",
+    "formal": "severities with common copula C; independent Bernoulli Ip, Ip\u2217 independent of severities; Y2:2, Y\u22172:2 as in Theorem 3.3",
+    "source": "earlier theorem 3.3"
+   },
+   {
+    "text": "Let F\u0304(x; \u03bbi) = [F\u0304(x)]^\u03bbi and F\u0304(x; \u03bb\u2217i) = [F\u0304(x)]^\u03bb\u2217i, for i = 1, 2",
+    "formal": "PHR model with common baseline F\u0304",
+    "source": "statement; section preamble (PHR definition)"
+   },
+   {
+    "text": "\u03bb > 0",
+    "formal": "\u03bbi, \u03bb\u2217i > 0",
+    "source": "section preamble"
+   },
+   {
+    "text": "(i) h : (0, 1] \u2192 I \u2282 R++ is a differentiable and strictly increasing concave function, with the log-concave inverse",
+    "formal": "h differentiable, strictly increasing, concave; h^{-1} log-concave",
+    "source": "statement"
+   },
+   {
+    "text": "(ii) C is PQD and \u2202C(v1,v2)/\u2202v1 \u2265 \u2202C(v1,v2)/\u2202v2, for all 0 \u2264 v1 \u2264 v2 \u2264 1",
+    "formal": "C(v1, v2) \u2265 v1 v2; \u22021 C \u2265 \u22022 C on 0 \u2264 v1 \u2264 v2 \u2264 1",
+    "source": "statement"
+   },
+   {
+    "text": "for (\u03bb, h(p)) \u2208 S and (\u03bb\u2217, h(p\u2217)) \u2208 S",
+    "formal": "(\u03bb1 \u2212 \u03bb2)(h(p1) \u2212 h(p2)) \u2264 0 and (\u03bb\u22171 \u2212 \u03bb\u22172)(h(p\u22171) \u2212 h(p\u22172)) \u2264 0",
+    "source": "statement; definition of S"
+   },
+   {
+    "text": "(h(p\u22171), h(p\u22172)) \u227c^m (h(p1), h(p2)) and (\u03bb\u22171, \u03bb\u22172) \u227c^w (\u03bb1, \u03bb2)",
+    "formal": "h(p\u2217) majorized by h(p); \u03bb\u2217 weakly supermajorized by \u03bb",
+    "source": "statement; definition 2.2"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y\u22172:2 \u2264st Y2:2"
+  },
+  "quantifiers": "n = 2; all parameters satisfying the conditions; all x \u2208 R",
+  "numbers": "",
+  "ambiguity": "In the text the second survival function reads '[F\u0304(x)]\u03bbi' with a displaced '\u2217' on the next line; read as [F\u0304(x)]^{\u03bb\u2217i}. Majorization glyphs missing; read as \u227c^m and \u227c^w (weak supermajorization) per Definition 2.2. Star placement in conclusion displaced; read as Y\u22172:2 \u2264st Y2:2.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.7153/mia-2020-23-03",
+  "claim": "Theorem 3.6",
+  "page": 12,
+  "quote": "The transmuted-G (TG) model [...] The random variables X\u03bb said to belong to the TG model with the baseline distribution function F(x) and survival F\u0304(x), if its survival function can be expressed as F\u0304(x; \u03bb) = F\u0304(x)(1 \u2212 \u03bbF(x)), where \u03bb \u2208 [\u22121, 1]. The following theorem provides a comparison between the largest claim amounts in two heterogeneous portfolio of risks, whenever the marginal distributions belonging to TG model. Theorem 3.6. Let F\u0304(x; \u03bbi) = F\u0304(x)(1 \u2212 \u03bbi F(x)) and F\u0304(x; \u03bb\u2217i) = F\u0304(x)(1 \u2212 \u03bb\u2217i F(x)), for i = 1, 2. Under the setup of Theorem 3.3, suppose that the following conditions hold: (i) h : (0, 1] \u2192 I \u2282 R++ is a differentiable and strictly increasing concave function, with the log-concave inverse; (ii) C is PQD and \u2202C(v1,v2)/\u2202v1 \u2265 \u2202C(v1,v2)/\u2202v2, for all 0 \u2264 v1 \u2264 v2 \u2264 1. Then, for (\u03bb, h(p)) \u2208 S and (\u03bb\u2217, h(p\u2217)) \u2208 S, we have (h(p\u22171), h(p\u22172)) \u227c^m (h(p1), h(p2)) and (\u03bb\u22171, \u03bb\u22172) \u227c^w (\u03bb1, \u03bb2) =\u21d2 Y\u22172:2 \u2264st Y2:2.",
+  "kind": "theorem",
+  "model": "other: largest claim amount Y2:2 = max(Ip1 X\u03bb1, Ip2 X\u03bb2) (maximum of Bernoulli-thinned, copula-dependent severities)",
+  "family": "transmuted-G (TG) model F\u0304(x; \u03bb) = F\u0304(x)(1 \u2212 \u03bbF(x)), baseline F, \u03bb \u2208 [\u22121, 1]; copula C PQD with \u2202C/\u2202v1 \u2265 \u2202C/\u2202v2 on 0 \u2264 v1 \u2264 v2 \u2264 1",
+  "compared": "occurrence probabilities p vs p\u2217 (through h) and TG parameters \u03bb vs \u03bb\u2217; baseline and copula common",
+  "hypotheses": [
+   {
+    "text": "Under the setup of Theorem 3.3",
+    "formal": "severities with common copula C; independent Bernoulli Ip, Ip\u2217 independent of severities; Y2:2, Y\u22172:2 as in Theorem 3.3",
+    "source": "earlier theorem 3.3"
+   },
+   {
+    "text": "Let F\u0304(x; \u03bbi) = F\u0304(x)(1 \u2212 \u03bbi F(x)) and F\u0304(x; \u03bb\u2217i) = F\u0304(x)(1 \u2212 \u03bb\u2217i F(x)), for i = 1, 2",
+    "formal": "TG model with common baseline F",
+    "source": "statement; section preamble (TG definition)"
+   },
+   {
+    "text": "where \u03bb \u2208 [\u22121, 1]",
+    "formal": "\u03bbi, \u03bb\u2217i \u2208 [\u22121, 1]",
+    "source": "section preamble"
+   },
+   {
+    "text": "(i) h : (0, 1] \u2192 I \u2282 R++ is a differentiable and strictly increasing concave function, with the log-concave inverse",
+    "formal": "h differentiable, strictly increasing, concave; h^{-1} log-concave",
+    "source": "statement"
+   },
+   {
+    "text": "(ii) C is PQD and \u2202C(v1,v2)/\u2202v1 \u2265 \u2202C(v1,v2)/\u2202v2, for all 0 \u2264 v1 \u2264 v2 \u2264 1",
+    "formal": "C(v1, v2) \u2265 v1 v2; \u22021 C \u2265 \u22022 C on 0 \u2264 v1 \u2264 v2 \u2264 1",
+    "source": "statement"
+   },
+   {
+    "text": "for (\u03bb, h(p)) \u2208 S and (\u03bb\u2217, h(p\u2217)) \u2208 S",
+    "formal": "(\u03bb1 \u2212 \u03bb2)(h(p1) \u2212 h(p2)) \u2264 0 and (\u03bb\u22171 \u2212 \u03bb\u22172)(h(p\u22171) \u2212 h(p\u22172)) \u2264 0",
+    "source": "statement; definition of S"
+   },
+   {
+    "text": "(h(p\u22171), h(p\u22172)) \u227c^m (h(p1), h(p2)) and (\u03bb\u22171, \u03bb\u22172) \u227c^w (\u03bb1, \u03bb2)",
+    "formal": "h(p\u2217) majorized by h(p); \u03bb\u2217 weakly supermajorized by \u03bb",
+    "source": "statement; definition 2.2"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y\u22172:2 \u2264st Y2:2"
+  },
+  "quantifiers": "n = 2; \u03bbi, \u03bb\u2217i \u2208 [\u22121, 1]; all x \u2208 R",
+  "numbers": "",
+  "ambiguity": "Majorization glyphs missing; read as \u227c^m and \u227c^w (weak supermajorization) per Definition 2.2. Star placement in conclusion displaced; read as Y\u22172:2 \u2264st Y2:2. Weak supermajorization on vectors that may contain negative entries (\u03bb \u2208 [\u22121, 1]) is not discussed.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.7153/mia-2020-23-03",
+  "claim": "Theorem 3.7",
+  "page": 13,
+  "quote": "Next, we consider the case that the occurrence probabilities are also interdependent. Here, we denote I = (I1, I2) and P(I = \u00b5) = p(\u00b5). The following lemma considers the concept of weakly stochastic arrangement increasing through left tail probability (LWSAI) for I, which is a particular case of Lemma 5.3 of Cai and Wei (2015). Lemma 3.1. A bivariate Bernoulli random vector I is LWSAI, if and only if p(1, 0) \u2264 p(0, 1). [...] The following theorem gives a comparison between the largest claim amounts in two heterogeneous portfolio of risks, whenever the occurrence probabilities are interdependent. Theorem 3.7. Let X\u03bb1 and X\u03bb2 (X\u03bb\u22171 and X\u03bb\u22172) be non-negative random variables with X\u03bbi \u223c F\u0304(x; \u03bbi) (X\u03bb\u2217i \u223c F\u0304(x; \u03bb\u2217i)), i = 1, 2, and associated copula C. Further, suppose that I is LWSAI, and independent of the X\u03bbi's (X\u03bb\u2217i's). Assume that the following conditions hold: (i) F\u0304(x; \u03bb) is decreasing and convex in \u03bb for any x \u2208 R+; (ii) (\u03bb\u22171, \u03bb\u22172) \u227c^m (\u03bb1, \u03bb2), such that \u03bb1 \u2265 \u03bb2 and \u03bb\u22171 \u2265 \u03bb\u22172; (iii) C is Schur-concave. Then, we have Y\u22172:2 \u2264st Y2:2.",
+  "kind": "theorem",
+  "model": "other: largest claim amount Y2:2 = max(I1 X\u03bb1, I2 X\u03bb2) with a dependent bivariate Bernoulli occurrence vector I and copula-dependent severities",
+  "family": "general parametric family of marginal survival functions F\u0304(x; \u03bb), decreasing and convex in \u03bb; Schur-concave copula C; occurrence vector I = (I1, I2) LWSAI",
+  "compared": "severity parameters \u03bb = (\u03bb1, \u03bb2) vs \u03bb\u2217 = (\u03bb\u22171, \u03bb\u22172); occurrence vector I and copula C common",
+  "hypotheses": [
+   {
+    "text": "X\u03bb1, . . . , X\u03bbn are continuous and non-negative random variables with the joint distribution function H [...] and the copula C",
+    "formal": "severities continuous, nonnegative, joint cdf via copula C",
+    "source": "section preamble (Introduction, standing assumption)"
+   },
+   {
+    "text": "Let X\u03bb1 and X\u03bb2 (X\u03bb\u22171 and X\u03bb\u22172) be non-negative random variables with X\u03bbi \u223c F\u0304(x; \u03bbi) (X\u03bb\u2217i \u223c F\u0304(x; \u03bb\u2217i)), i = 1, 2, and associated copula C",
+    "formal": "X\u03bbi ~ F\u0304(\u00b7; \u03bbi), X\u03bb\u2217i ~ F\u0304(\u00b7; \u03bb\u2217i), common copula C",
+    "source": "statement"
+   },
+   {
+    "text": "we denote I = (I1, I2) and P(I = \u00b5) = p(\u00b5)",
+    "formal": "occurrence vector I bivariate Bernoulli with pmf p(\u00b5), \u00b5 \u2208 {0, 1}\u00b2",
+    "source": "section preamble"
+   },
+   {
+    "text": "suppose that I is LWSAI, and independent of the X\u03bbi's (X\u03bb\u2217i's)",
+    "formal": "I LWSAI, equivalently p(1, 0) \u2264 p(0, 1) (Lemma 3.1); I independent of severities",
+    "source": "statement; section preamble (Lemma 3.1)"
+   },
+   {
+    "text": "(i) F\u0304(x; \u03bb) is decreasing and convex in \u03bb for any x \u2208 R+",
+    "formal": "\u03bb \u21a6 F\u0304(x; \u03bb) nonincreasing and convex for each x \u2265 0",
+    "source": "statement"
+   },
+   {
+    "text": "(ii) (\u03bb\u22171, \u03bb\u22172) \u227c^m (\u03bb1, \u03bb2), such that \u03bb1 \u2265 \u03bb2 and \u03bb\u22171 \u2265 \u03bb\u22172",
+    "formal": "\u03bb\u2217 majorized by \u03bb (Definition 2.2(iii)); \u03bb1 \u2265 \u03bb2, \u03bb\u22171 \u2265 \u03bb\u22172",
+    "source": "statement; definition 2.2(iii)"
+   },
+   {
+    "text": "(iii) C is Schur-concave",
+    "formal": "C Schur-concave on [0, 1]\u00b2 (Definition 2.3)",
+    "source": "statement; definition 2.3"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y\u22172:2 \u2264st Y2:2"
+  },
+  "quantifiers": "n = 2; all parameters satisfying the conditions; all x \u2208 R",
+  "numbers": "",
+  "ambiguity": "LWSAI is never defined in the paper; it is characterized only through Lemma 3.1 (p(1, 0) \u2264 p(0, 1)) and cited to Cai and Wei (2015). Majorization glyph missing; read as \u227c^m (majorized by) per Definition 2.2(iii). The star in the conclusion is displaced; read as Y\u22172:2 \u2264st Y2:2, consistent with the proof's final line G_{Y2:2}(x) \u2264 G_{Y\u22172:2}(x). Y\u2217i = Ii X\u03bb\u2217i (same I) is implicit. General family result; special cases for specific models are also stated.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.7153/mia-2020-23-03",
+  "claim": "Theorem 3.8",
+  "page": 14,
+  "quote": "In the following, three special cases of Theorem 3.7 with respect to the scale, PHR and TG models, are represented. Theorem 3.8. Let F\u0304(x; \u03bbi) = F\u0304(\u03bbi x) and F\u0304(x; \u03bb\u2217i) = F\u0304(\u03bb\u2217i x), for i = 1, 2. Under the setup of Theorem 3.7, suppose that the following conditions hold: (i) f(x) is decreasing in x \u2208 R+; (ii) (\u03bb\u22171, \u03bb\u22172) \u227c^m (\u03bb1, \u03bb2), such that \u03bb1 \u2265 \u03bb2 and \u03bb\u22171 \u2265 \u03bb\u22172; (iii) C is Schur-concave. Then, we have Y\u22172:2 \u2264st Y2:2.",
+  "kind": "theorem",
+  "model": "other: largest claim amount Y2:2 = max(I1 X\u03bb1, I2 X\u03bb2) with a dependent bivariate Bernoulli occurrence vector I and copula-dependent severities",
+  "family": "scale family F\u0304(x; \u03bb) = F\u0304(\u03bbx), baseline density f, \u03bb > 0; Schur-concave copula C; LWSAI occurrence vector",
+  "compared": "scale parameters \u03bb vs \u03bb\u2217; occurrence vector I, baseline and copula common",
+  "hypotheses": [
+   {
+    "text": "Under the setup of Theorem 3.7",
+    "formal": "severities with common copula C; occurrence vector I LWSAI and independent of severities",
+    "source": "earlier theorem 3.7"
+   },
+   {
+    "text": "Let F\u0304(x; \u03bbi) = F\u0304(\u03bbi x) and F\u0304(x; \u03bb\u2217i) = F\u0304(\u03bb\u2217i x), for i = 1, 2",
+    "formal": "scale model with common baseline F\u0304 (density f), \u03bb > 0",
+    "source": "statement; scale family definition before Theorem 3.4"
+   },
+   {
+    "text": "(i) f(x) is decreasing in x \u2208 R+",
+    "formal": "baseline density nonincreasing on [0, \u221e)",
+    "source": "statement"
+   },
+   {
+    "text": "(ii) (\u03bb\u22171, \u03bb\u22172) \u227c^m (\u03bb1, \u03bb2), such that \u03bb1 \u2265 \u03bb2 and \u03bb\u22171 \u2265 \u03bb\u22172",
+    "formal": "\u03bb\u2217 majorized by \u03bb; \u03bb1 \u2265 \u03bb2, \u03bb\u22171 \u2265 \u03bb\u22172",
+    "source": "statement; definition 2.2(iii)"
+   },
+   {
+    "text": "(iii) C is Schur-concave",
+    "formal": "C Schur-concave",
+    "source": "statement; definition 2.3"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y\u22172:2 \u2264st Y2:2"
+  },
+  "quantifiers": "n = 2; \u03bbi, \u03bb\u2217i > 0 satisfying (ii); all x \u2208 R",
+  "numbers": "",
+  "ambiguity": "Majorization glyph missing; read as \u227c^m per Definition 2.2(iii). Star placement displaced; read as Y\u22172:2 \u2264st Y2:2. LWSAI undefined except via Lemma 3.1.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.7153/mia-2020-23-03",
+  "claim": "Theorem 3.9",
+  "page": 14,
+  "quote": "Theorem 3.9. Let F\u0304(x; \u03bbi) = [F\u0304(x)]^\u03bbi and F\u0304(x; \u03bb\u2217i) = [F\u0304(x)]^\u03bb\u2217i, for i = 1, 2. Under the setup of Theorem 3.7, suppose that the following conditions hold: (i) (\u03bb\u22171, \u03bb\u22172) \u227c^m (\u03bb1, \u03bb2), such that \u03bb1 \u2265 \u03bb2 and \u03bb\u22171 \u2265 \u03bb\u22172; (ii) C is Schur-concave. Then, we have Y\u22172:2 \u2264st Y2:2.",
+  "kind": "theorem",
+  "model": "other: largest claim amount Y2:2 = max(I1 X\u03bb1, I2 X\u03bb2) with a dependent bivariate Bernoulli occurrence vector I and copula-dependent severities",
+  "family": "PHR model F\u0304(x; \u03bb) = [F\u0304(x)]^\u03bb, baseline survival F\u0304, \u03bb > 0; Schur-concave copula C; LWSAI occurrence vector",
+  "compared": "PHR parameters \u03bb vs \u03bb\u2217; occurrence vector I, baseline and copula common",
+  "hypotheses": [
+   {
+    "text": "Under the setup of Theorem 3.7",
+    "formal": "severities with common copula C; occurrence vector I LWSAI and independent of severities",
+    "source": "earlier theorem 3.7"
+   },
+   {
+    "text": "Let F\u0304(x; \u03bbi) = [F\u0304(x)]^\u03bbi and F\u0304(x; \u03bb\u2217i) = [F\u0304(x)]^\u03bb\u2217i, for i = 1, 2",
+    "formal": "PHR model with common baseline, \u03bb > 0",
+    "source": "statement; PHR definition before Theorem 3.5"
+   },
+   {
+    "text": "(i) (\u03bb\u22171, \u03bb\u22172) \u227c^m (\u03bb1, \u03bb2), such that \u03bb1 \u2265 \u03bb2 and \u03bb\u22171 \u2265 \u03bb\u22172",
+    "formal": "\u03bb\u2217 majorized by \u03bb; \u03bb1 \u2265 \u03bb2, \u03bb\u22171 \u2265 \u03bb\u22172",
+    "source": "statement; definition 2.2(iii)"
+   },
+   {
+    "text": "(ii) C is Schur-concave",
+    "formal": "C Schur-concave",
+    "source": "statement; definition 2.3"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y\u22172:2 \u2264st Y2:2"
+  },
+  "quantifiers": "n = 2; \u03bbi, \u03bb\u2217i > 0 satisfying (i); all x \u2208 R",
+  "numbers": "",
+  "ambiguity": "Second survival function rendered '[F\u0304(x)]\u03bbi' with a displaced '\u2217'; read as [F\u0304(x)]^{\u03bb\u2217i}. Majorization glyph missing; read as \u227c^m. Star placement in conclusion displaced; read as Y\u22172:2 \u2264st Y2:2. LWSAI undefined except via Lemma 3.1.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.7153/mia-2020-23-03",
+  "claim": "Example 3.1",
+  "page": 9,
+  "quote": "Gamma distribution is one of the most applicable distributions to depict the claim amounts whenever the shape parameter is less than 1. X has the gamma distribution with the shape parameter \u03b1 and the scale parameter \u03bb, denoted by X \u223c \u0393(\u03b1, \u03bb), if its density function is given by f(x; \u03b1, \u03bb) = \u03bb^\u03b1 x^{\u03b1\u22121} e^{\u2212\u03bbx} / \u0393(\u03b1), x \u2208 R++. The following example provides a numerical example to illustrate the validity of Theorem 3.4. Example 3.1. Let X\u03bbi \u223c \u0393(0.8, \u03bbi) (X\u03bb\u2217i \u223c \u0393(0.8, \u03bb\u2217i)), for i = 1, 2, with the associated FGM copula. It is clear that this copula is PQD if \u03b8 \u2208 [0, 1]. Further, suppose that Ip1, Ip2 (Ip\u22171, Ip\u22172) is a set of independent Bernoulli random variables, independent of the X\u03bbi's (X\u03bb\u2217i's), with E[Ipi] = pi (E[Ip\u2217i] = p\u2217i), for i = 1, 2. We take h(p) = p, (\u03bb1, \u03bb2) = (0.26, 0.74), (p1, p2) = (0.03, 0.02), (\u03bb\u22171, \u03bb\u22172) = (0.4, 0.6), (p\u22171, p\u22172) = (0.026, 0.024) and \u03b8 = 0.5. Using Lemma 2.3 and Lemma 2.5, we get the condition (iii) of Theorem 3.4, and obviously can be verified that the other conditions are also satisfied. So, we have Y\u22172:2 \u2264st Y2:2. Figure 1 represents the survival function of Y2:2 and Y\u22172:2, which agrees with the intended result.",
+  "kind": "example",
+  "model": "other: largest claim amount Y2:2 = max(Ip1 X\u03bb1, Ip2 X\u03bb2)",
+  "family": "Gamma \u0393(\u03b1, \u03bb) with density \u03bb^\u03b1 x^{\u03b1\u22121} e^{\u2212\u03bbx}/\u0393(\u03b1), shape \u03b1 = 0.8 common, \u03bb called 'scale' (enters as rate); FGM copula C\u03b8(v) = \u03a0 vi + \u03b8 \u03a0 vi(1 \u2212 vi)",
+  "compared": "\u03bb = (0.26, 0.74) vs \u03bb\u2217 = (0.4, 0.6) and p = (0.03, 0.02) vs p\u2217 = (0.026, 0.024), with h(p) = p",
+  "hypotheses": [
+   {
+    "text": "Let X\u03bbi \u223c \u0393(0.8, \u03bbi) (X\u03bb\u2217i \u223c \u0393(0.8, \u03bb\u2217i)), for i = 1, 2, with the associated FGM copula",
+    "formal": "Gamma(shape 0.8, rate \u03bbi) marginals, FGM copula \u03b8 = 0.5",
+    "source": "statement"
+   },
+   {
+    "text": "Ip1, Ip2 (Ip\u22171, Ip\u22172) is a set of independent Bernoulli random variables, independent of the X\u03bbi's (X\u03bb\u2217i's)",
+    "formal": "independent Bernoulli(pi), Bernoulli(p\u2217i)",
+    "source": "statement"
+   },
+   {
+    "text": "We take h(p) = p, (\u03bb1, \u03bb2) = (0.26, 0.74), (p1, p2) = (0.03, 0.02), (\u03bb\u22171, \u03bb\u22172) = (0.4, 0.6), (p\u22171, p\u22172) = (0.026, 0.024) and \u03b8 = 0.5",
+    "formal": "parameter values as printed",
+    "source": "statement"
+   },
+   {
+    "text": "obviously can be verified that the other conditions are also satisfied",
+    "formal": "authors assert all conditions of Theorem 3.4 hold",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y\u22172:2 \u2264st Y2:2 (supports Theorem 3.4)"
+  },
+  "quantifiers": "n = 2; survival functions plotted in Figure 1 over x from 0 to 10",
+  "numbers": "\u0393(0.8, \u03bbi); FGM copula \u03b8 = 0.5; h(p) = p; (\u03bb1, \u03bb2) = (0.26, 0.74); (p1, p2) = (0.03, 0.02); (\u03bb\u22171, \u03bb\u22172) = (0.4, 0.6); (p\u22171, p\u22172) = (0.026, 0.024); printed result: Y\u22172:2 \u2264st Y2:2 (Figure 1, survival function axis 0 to 0.05, x axis 0 to 10)",
+  "ambiguity": "Only a figure is given as evidence; no numerical survival values are printed. The density is written with \u03bb as a rate although \u03bb is called the scale parameter; consistent with the scale family F\u0304(\u03bbx).",
+  "adjudication": "example record (pass a)+b"
+ },
+ {
+  "paper": "doi:10.7153/mia-2020-23-03",
+  "claim": "Example 3.2",
+  "page": 9,
+  "quote": "The following example illustrates that the conditions (\u03bb, h(p)) \u2208 S and (\u03bb\u2217, h(p\u2217)) \u2208 S is an important condition and can not be dropped. Example 3.2. Under the same setup in Example 3.1, we take (p1, p2) = (0.02, 0.03) and (p\u22171, p\u22172) = (0.028, 0.022) with the other unchanged values. It is clear that (\u03bb, h(p)) \u2209 S, but it can be easily verified that the other conditions of Theorem 3.4 are satisfied. Figure 2 represents the survival function of Y2:2 and Y\u22172:2, which cross each other.",
+  "kind": "counterexample",
+  "model": "other: largest claim amount Y2:2 = max(Ip1 X\u03bb1, Ip2 X\u03bb2)",
+  "family": "Gamma \u0393(0.8, \u03bbi) marginals, FGM copula \u03b8 = 0.5 (setup of Example 3.1)",
+  "compared": "\u03bb = (0.26, 0.74) vs \u03bb\u2217 = (0.4, 0.6) and p = (0.02, 0.03) vs p\u2217 = (0.028, 0.022), h(p) = p",
+  "hypotheses": [
+   {
+    "text": "Under the same setup in Example 3.1",
+    "formal": "\u0393(0.8, \u03bbi) marginals, FGM \u03b8 = 0.5, h(p) = p, \u03bb = (0.26, 0.74), \u03bb\u2217 = (0.4, 0.6)",
+    "source": "statement; Example 3.1"
+   },
+   {
+    "text": "we take (p1, p2) = (0.02, 0.03) and (p\u22171, p\u22172) = (0.028, 0.022)",
+    "formal": "p and p\u2217 as printed",
+    "source": "statement"
+   },
+   {
+    "text": "It is clear that (\u03bb, h(p)) \u2209 S, but it can be easily verified that the other conditions of Theorem 3.4 are satisfied",
+    "formal": "S condition violated for (\u03bb, h(p)); all other Theorem 3.4 conditions asserted to hold",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "neither direction: survival functions of Y2:2 and Y\u22172:2 are said to cross (shows the S condition of Theorem 3.4 cannot be dropped)"
+  },
+  "quantifiers": "n = 2; Figure 2 plotted over x from 0 to 4",
+  "numbers": "\u0393(0.8, \u03bbi); FGM \u03b8 = 0.5; h(p) = p; (\u03bb1, \u03bb2) = (0.26, 0.74); (\u03bb\u22171, \u03bb\u22172) = (0.4, 0.6); (p1, p2) = (0.02, 0.03); (p\u22171, p\u22172) = (0.028, 0.022); printed result: survival functions of Y2:2 and Y\u22172:2 cross (Figure 2)",
+  "ambiguity": "Labelled 'Example' in the paper; recorded as counterexample because it is presented as showing a condition cannot be dropped. Evidence is only a plot; no crossing point or values printed.",
+  "adjudication": "example record (pass a)+b"
+ },
+ {
+  "paper": "doi:10.7153/mia-2020-23-03",
+  "claim": "Example 3.3",
+  "page": 11,
+  "quote": "The Pareto distribution is a special case of the PHR model, which is commonly used as the distribution of claim severity from policyholders in insurance. X has the Pareto distribution with parameters \u03b2 and \u03bb, denoted by X \u223c Pareto(\u03b2, \u03bb), if its survival function is given by F\u0304(x; \u03b2, \u03bb) = (\u03b2/x)^\u03bb, x \u2265 \u03b2. The following example provides a numerical example to illustrate the validity of Theorem 3.5. Example 3.3. Let X\u03bbi \u223c Pareto(1, \u03bbi) (X\u03bb\u2217i \u223c Pareto(1, \u03bb\u2217i)), for i = 1, 2, with the associated Ali-Mikhail-Haq copula, which introduced by Ali et al. (1978), of the form C\u03b8(v1, v2) = v1v2 / (1 \u2212 \u03b8(1 \u2212 v1)(1 \u2212 v2)), where \u03b8 \u2208 [\u22121, 1]. According to Nelsen (2007), this copula is Archimedean and obviously is PQD if \u03b8 \u2208 [0, 1]. Further, suppose that Ip1, Ip2 (Ip\u22171, Ip\u22172) is a set of independent Bernoulli random variables, independent of the X\u03bbi's (X\u03bb\u2217i's), with E[Ipi] = pi (E[Ip\u2217i] = p\u2217i), for i = 1, 2. We take h(p) = log(p + 2), (\u03bb1, \u03bb2) = (4, 2), (p1, p2) = (0.02, 0.06), (\u03bb\u22171, \u03bb\u22172) = (4, 6), (p\u22171, p\u22172) = (0.0479, 0.0319) and \u03b8 = 0.3. Lemma 2.3 and Lemma 2.4 imply the condition (ii) of Theorem 3.5, and it can be easily verified that the other condition is also satisfied. So, we have Y\u22172:2 \u2264st Y2:2. Figure 3 represents the survival function of Y2:2 and Y\u22172:2, which agrees with the intended result.",
+  "kind": "example",
+  "model": "other: largest claim amount Y2:2 = max(Ip1 X\u03bb1, Ip2 X\u03bb2)",
+  "family": "Pareto(\u03b2, \u03bb), survival (\u03b2/x)^\u03bb, x \u2265 \u03b2, with \u03b2 = 1 common; Ali-Mikhail-Haq copula C\u03b8(v1, v2) = v1v2/(1 \u2212 \u03b8(1 \u2212 v1)(1 \u2212 v2)), \u03b8 = 0.3",
+  "compared": "\u03bb = (4, 2) vs \u03bb\u2217 = (4, 6) and p = (0.02, 0.06) vs p\u2217 = (0.0479, 0.0319), with h(p) = log(p + 2)",
+  "hypotheses": [
+   {
+    "text": "Let X\u03bbi \u223c Pareto(1, \u03bbi) (X\u03bb\u2217i \u223c Pareto(1, \u03bb\u2217i)), for i = 1, 2, with the associated Ali-Mikhail-Haq copula",
+    "formal": "Pareto(1, \u03bbi) marginals, AMH copula \u03b8 = 0.3",
+    "source": "statement"
+   },
+   {
+    "text": "Ip1, Ip2 (Ip\u22171, Ip\u22172) is a set of independent Bernoulli random variables, independent of the X\u03bbi's (X\u03bb\u2217i's)",
+    "formal": "independent Bernoulli indicators",
+    "source": "statement"
+   },
+   {
+    "text": "We take h(p) = log(p + 2), (\u03bb1, \u03bb2) = (4, 2), (p1, p2) = (0.02, 0.06), (\u03bb\u22171, \u03bb\u22172) = (4, 6), (p\u22171, p\u22172) = (0.0479, 0.0319) and \u03b8 = 0.3",
+    "formal": "parameter values as printed",
+    "source": "statement"
+   },
+   {
+    "text": "it can be easily verified that the other condition is also satisfied",
+    "formal": "authors assert all conditions of Theorem 3.5 hold",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y\u22172:2 \u2264st Y2:2 (supports Theorem 3.5)"
+  },
+  "quantifiers": "n = 2; Figure 3 plotted over x from about 1 to 10",
+  "numbers": "Pareto(1, \u03bbi); AMH copula \u03b8 = 0.3; h(p) = log(p + 2); (\u03bb1, \u03bb2) = (4, 2); (p1, p2) = (0.02, 0.06); (\u03bb\u22171, \u03bb\u22172) = (4, 6); (p\u22171, p\u22172) = (0.0479, 0.0319); printed result: Y\u22172:2 \u2264st Y2:2 (Figure 3, survival axis 0 to 0.08)",
+  "ambiguity": "Only a figure is given; no numerical survival values printed. The base of 'log' in h(p) = log(p + 2) is not stated (natural log presumed).",
+  "adjudication": "example record (pass a)+b"
+ },
+ {
+  "paper": "doi:10.7153/mia-2020-23-03",
+  "claim": "Example 3.4",
+  "page": 12,
+  "quote": "The transmuted exponential distribution, which introduced by Mirhossaini and Dolati (2008) has non-negative support and can be used to simulate the claim severity from policyholders in insurance. X has the transmuted exponential distribution with parameters \u00b5 and \u03bb, denoted by X \u223c TE(\u00b5, \u03bb), if its survival function is given by F\u0304(x, \u00b5, \u03bb) = e^{\u2212x/\u00b5}[1 \u2212 \u03bb(1 \u2212 e^{\u2212x/\u00b5})], x \u2265 0, \u00b5 > 0, \u22121 \u2264 \u03bb \u2264 1. The following example provides a numerical example to illustrate the validity of Theorem 3.6. Example 3.4. Let X\u03bbi \u223c TE(3, \u03bbi) (X\u03bb\u2217i \u223c TE(3, \u03bb\u2217i)), for i = 1, 2, with the associated Gumbel-Hougaard copula, which first introduced by Gumbel (1960b), of the form C\u03b8(v1, v2) = exp{\u2212[(\u2212log v1)^\u03b8 + (\u2212log v2)^\u03b8]^{1/\u03b8}}, where \u03b8 \u2208 [1, \u221e). According to Nelsen (2007), this copula is Archimedean and is PQD. Further, suppose that Ip1, Ip2 (Ip\u22171, Ip\u22172) is a set of independent Bernoulli random variables, independent of the X\u03bbi's (X\u03bb\u2217i's), with E[Ipi] = pi (E[Ip\u2217i] = p\u2217i), for i = 1, 2. We take h(p) = \u221ap, (\u03bb1, \u03bb2) = (0.6, \u22120.2), (p1, p2) = (0.04, 0.09), (\u03bb\u22171, \u03bb\u22172) = (0.1, 0.4), (p\u22171, p\u22172) = (0.0676, 0.0576) and \u03b8 = 10. Lemma 2.3 and Lemma 2.4 imply the condition (ii) of Theorem 3.6, and it can be easily verified that the other condition is also satisfied. So, we have Y\u22172:2 \u2264st Y2:2. Figure 4 represents the survival function of Y2:2 and Y\u22172:2, which coincides with the intended result.",
+  "kind": "example",
+  "model": "other: largest claim amount Y2:2 = max(Ip1 X\u03bb1, Ip2 X\u03bb2)",
+  "family": "transmuted exponential TE(\u00b5, \u03bb), survival e^{\u2212x/\u00b5}[1 \u2212 \u03bb(1 \u2212 e^{\u2212x/\u00b5})], \u00b5 = 3 common; Gumbel-Hougaard copula \u03b8 = 10",
+  "compared": "\u03bb = (0.6, \u22120.2) vs \u03bb\u2217 = (0.1, 0.4) and p = (0.04, 0.09) vs p\u2217 = (0.0676, 0.0576), with h(p) = \u221ap",
+  "hypotheses": [
+   {
+    "text": "Let X\u03bbi \u223c TE(3, \u03bbi) (X\u03bb\u2217i \u223c TE(3, \u03bb\u2217i)), for i = 1, 2, with the associated Gumbel-Hougaard copula",
+    "formal": "TE(3, \u03bbi) marginals, Gumbel-Hougaard copula \u03b8 = 10",
+    "source": "statement"
+   },
+   {
+    "text": "Ip1, Ip2 (Ip\u22171, Ip\u22172) is a set of independent Bernoulli random variables, independent of the X\u03bbi's (X\u03bb\u2217i's)",
+    "formal": "independent Bernoulli indicators",
+    "source": "statement"
+   },
+   {
+    "text": "We take h(p) = \u221ap, (\u03bb1, \u03bb2) = (0.6, \u22120.2), (p1, p2) = (0.04, 0.09), (\u03bb\u22171, \u03bb\u22172) = (0.1, 0.4), (p\u22171, p\u22172) = (0.0676, 0.0576) and \u03b8 = 10",
+    "formal": "parameter values as printed",
+    "source": "statement"
+   },
+   {
+    "text": "it can be easily verified that the other condition is also satisfied",
+    "formal": "authors assert all conditions of Theorem 3.6 hold",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y\u22172:2 \u2264st Y2:2 (supports Theorem 3.6)"
+  },
+  "quantifiers": "n = 2; Figure 4 plotted over x from 0 to 10",
+  "numbers": "TE(3, \u03bbi); Gumbel-Hougaard \u03b8 = 10; h(p) = \u221ap; (\u03bb1, \u03bb2) = (0.6, \u22120.2); (p1, p2) = (0.04, 0.09); (\u03bb\u22171, \u03bb\u22172) = (0.1, 0.4); (p\u22171, p\u22172) = (0.0676, 0.0576); printed result: Y\u22172:2 \u2264st Y2:2 (Figure 4, survival axis 0 to 0.12)",
+  "ambiguity": "The square-root sign in h(p) = \u221ap is rendered on a separate line in the text extraction; read as h(p) = \u221ap. Only a figure is given; no numerical survival values printed.",
+  "adjudication": "example record (pass a)+b"
+ },
+ {
+  "paper": "doi:10.7153/mia-2020-23-03",
+  "claim": "Example 3.5",
+  "page": 15,
+  "quote": "The following example provides a numerical example to illustrate the validity of Theorem 3.9. Example 3.5. Let X\u03bbi \u223c Pareto(1, \u03bbi) (X\u03bb\u2217i \u223c Pareto(1, \u03bb\u2217i)), for i = 1, 2, with the associated FGM copula, with \u03b8 = 0.7. Let (\u03bb1, \u03bb2) = (7, 2), (\u03bb\u22171, \u03bb\u22172) = (5.5, 3.5), p(0, 0) = 0.89, p(0, 1) = 0.06, p(1, 0) = 0.04 and p(1, 1) = 0.01. Using Lemma 2.5, we get the condition (ii) of Theorem 3.9, and obviously can be verified that the other conditions are also satisfied. So, we have Y\u22172:2 \u2264st Y2:2. Figure 5 represents the survival function of Y2:2 and Y\u22172:2, which approves with the intended result.",
+  "kind": "example",
+  "model": "other: largest claim amount Y2:2 = max(I1 X\u03bb1, I2 X\u03bb2) with dependent occurrence vector I",
+  "family": "Pareto(1, \u03bb), survival (1/x)^\u03bb, x \u2265 1; FGM copula \u03b8 = 0.7",
+  "compared": "\u03bb = (7, 2) vs \u03bb\u2217 = (5.5, 3.5); joint occurrence pmf common",
+  "hypotheses": [
+   {
+    "text": "Let X\u03bbi \u223c Pareto(1, \u03bbi) (X\u03bb\u2217i \u223c Pareto(1, \u03bb\u2217i)), for i = 1, 2, with the associated FGM copula, with \u03b8 = 0.7",
+    "formal": "Pareto(1, \u03bbi) marginals, FGM copula \u03b8 = 0.7",
+    "source": "statement"
+   },
+   {
+    "text": "p(0, 0) = 0.89, p(0, 1) = 0.06, p(1, 0) = 0.04 and p(1, 1) = 0.01",
+    "formal": "joint pmf of I as printed",
+    "source": "statement"
+   },
+   {
+    "text": "obviously can be verified that the other conditions are also satisfied",
+    "formal": "authors assert all conditions of Theorem 3.9 hold",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y\u22172:2 \u2264st Y2:2 (supports Theorem 3.9)"
+  },
+  "quantifiers": "n = 2; Figure 5 plotted over x from 1 to 8",
+  "numbers": "Pareto(1, \u03bbi); FGM \u03b8 = 0.7; (\u03bb1, \u03bb2) = (7, 2); (\u03bb\u22171, \u03bb\u22172) = (5.5, 3.5); p(0, 0) = 0.89; p(0, 1) = 0.06; p(1, 0) = 0.04; p(1, 1) = 0.01; printed result: Y\u22172:2 \u2264st Y2:2 (Figure 5, survival axis 0 to 0.10)",
+  "ambiguity": "Only a figure is given; no numerical survival values printed.",
+  "adjudication": "example record (pass a)+b"
+ },
+ {
+  "paper": "doi:10.7153/mia-2020-23-03",
+  "claim": "Example 3.6",
+  "page": 15,
+  "quote": "The following example illustrates that the conditions (ii) of Theorem 3.7 can not be dropped. Example 3.6. Under the same setup in Example 3.5, we take (\u03bb1, \u03bb2) = (2, 7) with the other unchanged values. It is clear that \u03bb1 [symbol missing] \u03bb2, but it can be easily verified that the other conditions of Theorem 3.7 are satisfied. Figure 6 represents the survival function of Y2:2 and Y\u22172:2, which cross each other.",
+  "kind": "counterexample",
+  "model": "other: largest claim amount Y2:2 = max(I1 X\u03bb1, I2 X\u03bb2) with dependent occurrence vector I",
+  "family": "Pareto(1, \u03bb) marginals, FGM copula \u03b8 = 0.7 (setup of Example 3.5)",
+  "compared": "\u03bb = (2, 7) vs \u03bb\u2217 = (5.5, 3.5); joint occurrence pmf common",
+  "hypotheses": [
+   {
+    "text": "Under the same setup in Example 3.5",
+    "formal": "Pareto(1, \u00b7) marginals, FGM \u03b8 = 0.7, \u03bb\u2217 = (5.5, 3.5), p(0,0) = 0.89, p(0,1) = 0.06, p(1,0) = 0.04, p(1,1) = 0.01",
+    "source": "statement; Example 3.5"
+   },
+   {
+    "text": "we take (\u03bb1, \u03bb2) = (2, 7)",
+    "formal": "\u03bb = (2, 7)",
+    "source": "statement"
+   },
+   {
+    "text": "It is clear that \u03bb1 [symbol missing] \u03bb2, but it can be easily verified that the other conditions of Theorem 3.7 are satisfied",
+    "formal": "the ordering requirement \u03bb1 \u2265 \u03bb2 in condition (ii) of Theorem 3.7 is violated; other conditions asserted to hold",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "neither direction: survival functions of Y2:2 and Y\u22172:2 are said to cross (shows condition (ii) of Theorem 3.7 cannot be dropped)"
+  },
+  "quantifiers": "n = 2; Figure 6 plotted over x from 1.0 to 1.5",
+  "numbers": "Pareto(1, \u03bbi); FGM \u03b8 = 0.7; (\u03bb1, \u03bb2) = (2, 7); (\u03bb\u22171, \u03bb\u22172) = (5.5, 3.5); p(0, 0) = 0.89; p(0, 1) = 0.06; p(1, 0) = 0.04; p(1, 1) = 0.01; printed result: survival functions cross (Figure 6)",
+  "ambiguity": "The relation symbol in '\u03bb1 _ \u03bb2' is missing from the text extraction (presumably a negated \u2265). Labelled 'Example' in the paper; recorded as counterexample because it is presented as showing a condition cannot be dropped. Evidence is only a plot.",
+  "adjudication": "example record (pass a)+b"
+ },
+ {
+  "paper": "doi:10.7153/mia-2020-23-03",
+  "claim": "Example 3.7",
+  "page": 18,
+  "quote": "Another important distribution used as the distribution of claim severity from policyholders is Weibull distribution, which is a special case of the scale model. X has the Weibull distribution with parameters \u03b1 and \u03bb, denoted by X \u223c Wei(\u03b1, \u03bb), if its survival function is given by F\u0304(x; \u03b1, \u03bb) = e^{\u2212(\u03bbx)^\u03b1}, x > 0. The following example provides a numerical example to illustrate the validity of Theorem 3.14. Example 3.7. Let X\u03bbi \u223c Wei(3, \u03bbi) (X\u03bb\u2217i \u223c Wei(3, \u03bb\u2217i)), for i = 1, 2, 3, with the associated Frank copula, which introduced by Frank (1979), of the form C\u03b8(v1, v2, v3) = \u2212(1/\u03b8) log(1 + (e^{\u2212\u03b8v1} \u2212 1)(e^{\u2212\u03b8v2} \u2212 1)(e^{\u2212\u03b8v3} \u2212 1)/(e^{\u2212\u03b8} \u2212 1)\u00b2), where \u03b8 \u2208 (0, \u221e). Further, suppose that Ip1, Ip2, Ip3 is a set of independent Bernoulli random variables, independent of the X\u03bbi's (X\u03bb\u2217i's), with E[Ipi] = pi, for i = 1, 2, 3. We take (\u03bb1, \u03bb2, \u03bb3) = (0.5, 0.7, 0.3), (\u03bb\u22171, \u03bb\u22172, \u03bb\u22173) = (0.51, 0.7, 0.33), (p1, p2, p3) = (0.01, 0.02, 0.07) and \u03b8 = 0.6. Obviously, the conditions of Theorem 3.14 are satisfied. So, we have Y\u22173:3 \u2264st Y3:3. Figure 7 represents the survival function of Y3:3 and Y\u22173:3, which coincides with the intended result.",
+  "kind": "example",
+  "model": "other: largest claim amount Y3:3 = max(Ip1 X\u03bb1, Ip2 X\u03bb2, Ip3 X\u03bb3)",
+  "family": "Weibull Wei(\u03b1, \u03bb), survival e^{\u2212(\u03bbx)^\u03b1}, shape \u03b1 = 3 common; trivariate Frank copula \u03b8 = 0.6",
+  "compared": "\u03bb = (0.5, 0.7, 0.3) vs \u03bb\u2217 = (0.51, 0.7, 0.33); p = (0.01, 0.02, 0.07) common; copula common",
+  "hypotheses": [
+   {
+    "text": "Let X\u03bbi \u223c Wei(3, \u03bbi) (X\u03bb\u2217i \u223c Wei(3, \u03bb\u2217i)), for i = 1, 2, 3, with the associated Frank copula",
+    "formal": "Weibull(shape 3, scale parameter \u03bbi as rate) marginals, Frank copula \u03b8 = 0.6",
+    "source": "statement"
+   },
+   {
+    "text": "Ip1, Ip2, Ip3 is a set of independent Bernoulli random variables, independent of the X\u03bbi's (X\u03bb\u2217i's), with E[Ipi] = pi",
+    "formal": "independent Bernoulli(pi)",
+    "source": "statement"
+   },
+   {
+    "text": "We take (\u03bb1, \u03bb2, \u03bb3) = (0.5, 0.7, 0.3), (\u03bb\u22171, \u03bb\u22172, \u03bb\u22173) = (0.51, 0.7, 0.33), (p1, p2, p3) = (0.01, 0.02, 0.07) and \u03b8 = 0.6",
+    "formal": "parameter values as printed",
+    "source": "statement"
+   },
+   {
+    "text": "Obviously, the conditions of Theorem 3.14 are satisfied",
+    "formal": "authors assert Theorem 3.14's conditions hold",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y\u22173:3 \u2264st Y3:3 (supports Theorem 3.14)"
+  },
+  "quantifiers": "n = 3; Figure 7 plotted over x from 0 to 8",
+  "numbers": "Wei(3, \u03bbi); Frank copula \u03b8 = 0.6; (\u03bb1, \u03bb2, \u03bb3) = (0.5, 0.7, 0.3); (\u03bb\u22171, \u03bb\u22172, \u03bb\u22173) = (0.51, 0.7, 0.33); (p1, p2, p3) = (0.01, 0.02, 0.07); printed result: Y\u22173:3 \u2264st Y3:3 (Figure 7, survival axis 0 to 0.10)",
+  "ambiguity": "The copula of the starred portfolio is not stated separately; presumably the same Frank copula (so C \u227a C\u2217 holds with equality). Only a figure is given; no numerical survival values printed.",
+  "adjudication": "example record (pass a)+b"
+ }
+]

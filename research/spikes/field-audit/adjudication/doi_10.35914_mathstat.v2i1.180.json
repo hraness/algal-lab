@@ -1,0 +1,61 @@
+[
+ {
+  "claim": "unn10:section 10 likelihood ratio ordering claim",
+  "side": "A",
+  "records": [
+   {
+    "paper": "doi:10.35914/mathstat.v2i1.180",
+    "claim": "Section 10 likelihood-ratio ordering claim for the MGS(MGSD) distribution",
+    "page": 22,
+    "quote": "Prove that the MSG distribution complies with the ordering with the highest likelihood (the likelihood ratio ordering). Assume that X and Y are two independent Random variables with probability distribution function f_x(x; lambda, theta) and f_y(x; beta, alpha). If lambda < alpha and theta < beta, then Lambda = f_x(x;lambda,theta)/f_y(x;beta,alpha) = [theta^2 (beta+1) (lambda theta x^2/2 + (theta+x)/(theta^2+1))] / [alpha^2 (lambda+1) (beta alpha x^2/2 + (alpha+x)/(alpha^2+1))] e^{-(theta-alpha)x}. ... Hence, d log[Lambda]/dx < 0 if lambda < beta, theta < alpha.",
+    "kind": "theorem",
+    "model": "other: two distributions of the same family",
+    "family": "mixture of Gamma(3,theta) and Shanker(theta): f(x;lambda,theta) = theta^2/(lambda+1) * (lambda theta x^2/2 + (theta+x)/(theta^2+1)) e^{-theta x}",
+    "compared": "X ~ MGS(lambda, theta) vs Y ~ MGS(beta, alpha) (parameter roles swapped in the paper's notation)",
+    "hypotheses": [
+     {
+      "text": "If lambda < alpha and theta < beta (statement); conclusion requires lambda < beta, theta < alpha (as printed)",
+      "formal": "inconsistent parameter inequalities between hypothesis and conclusion",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "X <=_LR Y (likelihood-ratio ordering, density ratio decreasing)"
+    },
+    "quantifiers": "x > 0",
+    "numbers": "",
+    "ambiguity": "Heavily garbled/inconsistent: hypothesis says lambda < alpha, theta < beta while the conclusion condition reads lambda < beta, theta < alpha; only the lr order is claimed (not hr/mrl/st). Parameter symbols switch roles between the two distributions (theta vs alpha as rate, lambda vs beta as mixing weight). No proof rigor; differentiation shown without justification of sign."
+   }
+  ]
+ },
+ {
+  "claim": "unn10:section 10 unlabeled likelihood ratio ordering",
+  "side": "B",
+  "records": [
+   {
+    "paper": "doi:10.35914/mathstat.v2i1.180",
+    "claim": "Section 10 (unlabeled) likelihood-ratio ordering claim",
+    "page": 21,
+    "quote": "Prove that the MSG distribution complies with the ordering with the highest likelihood (the likelihood ratio ordering). Assume that X and Y are two independent Random variables with probability distribution function f_x(x; lambda, theta) and f_y(x; beta, alpha). If lambda < alpha and theta < beta, then Lambda = f_x(x;lambda,theta)/f_y(x;beta,alpha) = [theta^2/(lambda+1) (lambda*theta/2 x^2 + (theta+x)/(theta^2+1)) e^{-theta x}] / [alpha^2/(beta+1) (beta*alpha/2 x^2 + (alpha+x)/(alpha^2+1)) e^{-alpha x}]. ... Differentiating with respect to x ... Hence, d log[Lambda]/dx < 0 if lambda < beta, theta < alpha.",
+    "kind": "theorem",
+    "model": "other: single-distribution comparison",
+    "family": "MGSD (mixture of gamma(3,theta) and Shanker(theta) with mixing proportions lambda^2/(lambda+1)... printed lambda/... and 1/(lambda+1)): f(x;lambda,theta) = theta^2/(lambda+1) (lambda*theta/2 x^2 + (theta+x)/(theta^2+1)) e^{-theta x}, x>0, theta,lambda>0",
+    "compared": "X ~ MGSD(lambda, theta) vs Y ~ MGSD(beta, alpha)",
+    "hypotheses": [
+     {
+      "text": "If lambda < alpha and theta < beta",
+      "formal": "componentwise parameter ordering (as printed)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "X <=_lr Y (density ratio Lambda decreasing in x)"
+    },
+    "quantifiers": "x > 0; all parameters positive",
+    "ambiguity": "Heavily garbled math in the text layer: hypotheses print 'lambda < alpha and theta < beta' while the derivative conclusion prints 'lambda < beta, theta < alpha' (crossed parameter pairing); the mixing proportion denominator is printed variously as 'lambda+1' and the density contains terms 'lambda*theta/2 x^2 + (theta+x)/(theta^2+1)' whose exact placement is uncertain. The ordering direction (X <=_lr Y) is inferred from the decreasing density ratio; the statement does not name the conclusion symbolically."
+   }
+  ]
+ }
+]

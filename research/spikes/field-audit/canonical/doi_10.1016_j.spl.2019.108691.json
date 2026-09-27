@@ -1,0 +1,32 @@
+[
+ {
+  "paper": "doi:10.1016/j.spl.2019.108691",
+  "claim": "Section 4.2 normal-sampling example",
+  "page": 10,
+  "quote": "Let X ~ N(\u00b51, \u03c31) and Y ~ N(\u00b52, \u03c32). Then, Xi:n and Yj:m have BG-normal distributions. According to Table 1, if \u00b51 \u2265 \u00b52 and \u03c31 \u2264 \u03c32, we can apply Theorem 3. For instance, let n = 35, m = 30 and j = 20. The minimum rank i such that Xi:35 \u22652 Y20:30 is given by i = max{j, \u2308nj/m\u2309} = 24, where \u2308\u00b7\u2309 denotes the ceiling function (Xi:35 \u22652 Y20:30 for i \u2265 24).",
+  "kind": "example",
+  "model": "order statistics",
+  "family": "normal baselines \u2192 BG-normal order statistics",
+  "compared": "Xi:35 vs Y20:30",
+  "hypotheses": [
+   {
+    "text": "\u00b51 \u2265 \u00b52 and \u03c31 \u2264 \u03c32",
+    "formal": "normal FSD/SSD condition",
+    "source": "statement"
+   },
+   {
+    "text": "n = 35, m = 30, j = 20",
+    "formal": "concrete sample sizes/rank",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "icv",
+   "direction": "Xi:35 >=_2 Y20:30 iff i \u2265 24"
+  },
+  "quantifiers": "n=35, m=30, j=20, i\u226524",
+  "numbers": "n=35; m=30; j=20; minimum rank i = max{20, \u230835\u00b720/30\u2309} = 24",
+  "ambiguity": "",
+  "adjudication": "example record (pass b)"
+ }
+]

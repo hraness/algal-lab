@@ -1,0 +1,102 @@
+[
+ {
+  "paper": "doi:10.1214/21-bjps510",
+  "claim": "Example 5.1",
+  "page": 847,
+  "quote": "Example 5.1. Let the p.d.f.s of r.v.s X(\u03b8 ) and Y (\u03b8 ) be f\u03b8 (x) = (\u03b8 + 1)(1 \u2212 e\u2212x )\u03b8 e\u2212x , x > 0, \u03b8 \u2208 (0, 1), and g\u03b8 (x) = ((\u03b8 + 1)/\u03b8)(1 \u2212 e\u2212x )1/\u03b8 e\u2212x , x > 0, \u03b8 \u2208 (0, 1), respectively. It is easy to verify that conditions (i) and (iii) of Theorem 3.1 are satisfied. Further, let us assume that the r.v.s  1 and  2 have p.d.f.s h1 (\u03b8 ) = 1, 0 < \u03b8 < 1; and h2 (\u03b8 ) = 2\u03b8 , 0 < \u03b8 < 1. Thus, all three conditions of Theorem 3.1 are satisfied, and hence X( 1 ) \u2264lr\u2191 Y ( 2 ).",
+  "kind": "example",
+  "model": "mixture",
+  "family": "f\u03b8(x) = (\u03b8+1)(1\u2212e^{\u2212x})^\u03b8 e^{\u2212x}, g\u03b8(x) = ((\u03b8+1)/\u03b8)(1\u2212e^{\u2212x})^{1/\u03b8} e^{\u2212x} on x>0, \u03b8 \u2208 (0,1); h1 = U(0,1), h2(\u03b8) = 2\u03b8",
+  "compared": "mixtures X(\u03981) vs Y(\u03982) in up-shifted lr",
+  "hypotheses": [
+   {
+    "text": "conditions (i) and (iii) of Theorem 3.1 verified; (ii) via h1, h2",
+    "formal": "as in Theorem 3.1",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: lr\u2191",
+   "direction": "X(\u03981) <=lr\u2191 Y(\u03982)"
+  },
+  "quantifiers": "\u03b8 \u2208 (0,1); x > 0",
+  "numbers": "h1(\u03b8) = 1, h2(\u03b8) = 2\u03b8, \u03b8 \u2208 (0,1)",
+  "ambiguity": "Only says 'easy to verify' for (i),(iii); numerical check not shown.",
+  "adjudication": "example record (pass a)+b"
+ },
+ {
+  "paper": "doi:10.1214/21-bjps510",
+  "claim": "Example 5.2",
+  "page": 848,
+  "quote": "Example 5.2. Assume that the s.f.s of r.v.s X(\u03b8 ) and Y (\u03b8 ) be F \u03b8 (x) = e\u2212\u03b8 x , x \u2265 0, \u03b8 > 1 and G\u03b8 (x) = e\u2212x/\u03b8 , x \u2265 0, \u03b8 > 1, respectively. Also, let the p.d.fs of r.v.s  1 and  2 be h1 (\u03b8 ) = e\u2212(\u03b8 \u22121) , \u03b8 \u2265 1 and h2 (\u03b8 ) = (1/2)e\u2212(\u03b8 \u22121)/2 , \u03b8 \u2265 1. Thus, it can be seen that all the four assumptions of Theorem 3.6 are satisfied, and hence X( 1 ) \u2264hr\u2191 Y ( 2 ).",
+  "kind": "example",
+  "model": "mixture",
+  "family": "Exponential survival functions F\u0304\u03b8 = e^{\u2212\u03b8x} (rate \u03b8), \u1e20\u03b8 = e^{\u2212x/\u03b8} (rate 1/\u03b8), \u03b8 > 1; shifted-exponential mixing densities",
+  "compared": "mixtures X(\u03981) vs Y(\u03982) in up-shifted hazard rate",
+  "hypotheses": [
+   {
+    "text": "all four assumptions of Theorem 3.6",
+    "formal": "X(\u03b8) <=hr\u2191 Y(\u03b8); family monotonicity; ratio monotone; \u03981 <=hr \u03982",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: hr\u2191",
+   "direction": "X(\u03981) <=hr\u2191 Y(\u03982)"
+  },
+  "quantifiers": "\u03b8 > 1; x >= 0",
+  "numbers": "h1(\u03b8) = e^{\u2212(\u03b8\u22121)}, h2(\u03b8) = (1/2)e^{\u2212(\u03b8\u22121)/2}, \u03b8 >= 1",
+  "ambiguity": "",
+  "adjudication": "example record (pass a)+b"
+ },
+ {
+  "paper": "doi:10.1214/21-bjps510",
+  "claim": "Example 5.3",
+  "page": 848,
+  "quote": "Example 5.3. Suppose that the r.v.s X(\u03b8 ) and Y (\u03b8 ) have s.f.s F \u03b8 (x) = (1+x)^{\u22121/(1+\u03b8)} ... and G\u03b8 (x) = (1+x)^{\u22121/(1+1/\u03b8)} , x \u2265 0, \u03b8 > 1, respectively. Further, assume that the r.v.s  1 and  2 have p.d.f.s h1 (\u03b8 ) = e\u2212(\u03b8 \u22121) , \u03b8 > 1 and h2 (\u03b8 ) = (1/2)e\u2212(\u03b8 \u22121)/2 , \u03b8 > 1. Under this set-up, it is evident that conditions of Theorem 3.7 are satisfied, and therefore X( 1 ) \u2264hr\u2193 Y ( 2 ).",
+  "kind": "example",
+  "model": "mixture",
+  "family": "Lomax-type survival functions (1+x)^{\u22121/(1+\u03b8)}, (1+x)^{\u22121/(1+1/\u03b8)}, \u03b8 > 1; shifted-exponential mixers",
+  "compared": "mixtures X(\u03981) vs Y(\u03982) in down-shifted hazard rate",
+  "hypotheses": [
+   {
+    "text": "conditions of Theorem 3.7",
+    "formal": "as stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: hr\u2193",
+   "direction": "X(\u03981) <=hr\u2193 Y(\u03982)"
+  },
+  "quantifiers": "\u03b8 > 1; x >= 0",
+  "numbers": "exponents \u22121/(1+\u03b8), \u22121/(1+1/\u03b8); h1 = e^{\u2212(\u03b8\u22121)}, h2 = (1/2)e^{\u2212(\u03b8\u22121)/2}",
+  "ambiguity": "Printed exponents in the text layer are garbled ('F \u03b8 (x) = (1+x)1/(1+\u03b8)' written without a minus sign); read as decreasing survival functions.",
+  "adjudication": "example record (pass a)+b"
+ },
+ {
+  "paper": "doi:10.1214/21-bjps510",
+  "claim": "Example 5.4",
+  "page": 848,
+  "quote": "Example 5.4. Let the d.f.s of r.v.s X(\u03b8 ) and Y (\u03b8 ) be F\u03b8 (x) = (x/(1+x))^\u03b8 , x \u2265 0, \u03b8 \u2208 (0, 1) and G\u03b8 (x) = (x/(1+x))^{1/\u03b8} , x \u2265 0, \u03b8 \u2208 (0, 1), respectively. Also, let the p.d.fs of r.v.s  1 and  2 be h1 (\u03b8 ) = 2\u03b8 , 0 < \u03b8 < 1 and h2 (\u03b8 ) = 3\u03b8 2 , 0 < \u03b8 < 1. Thus, conditions of Theorem 3.9 are satisfied, and hence X( 1 ) \u2264rh\u2191 Y ( 2 ).",
+  "kind": "example",
+  "model": "mixture",
+  "family": "CDFs (x/(1+x))^\u03b8 and (x/(1+x))^{1/\u03b8}, \u03b8 \u2208 (0,1); beta-type mixing densities",
+  "compared": "mixtures X(\u03981) vs Y(\u03982) in up-shifted reversed hazard rate",
+  "hypotheses": [
+   {
+    "text": "conditions of Theorem 3.9",
+    "formal": "as stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: rh\u2191",
+   "direction": "X(\u03981) <=rh\u2191 Y(\u03982)"
+  },
+  "quantifiers": "\u03b8 \u2208 (0,1); x >= 0",
+  "numbers": "h1(\u03b8) = 2\u03b8, h2(\u03b8) = 3\u03b8\u00b2, \u03b8 \u2208 (0,1)",
+  "ambiguity": "",
+  "adjudication": "example record (pass a)+b"
+ }
+]

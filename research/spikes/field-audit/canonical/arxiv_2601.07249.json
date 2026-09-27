@@ -1,0 +1,77 @@
+[
+ {
+  "paper": "arxiv:2601.07249",
+  "claim": "Theorem 3.2",
+  "page": 18,
+  "quote": "[Section 3.5 preamble:] In the area of reliability and survival analysis, various stochastic orderings between two random variables have been considered. The following theorem gives the conditions under which CLFRD preserves likelihood ratio ordering. A random variable X is said to be larger than another random variable Y in likelihood ratio order (written as X \u2265LR Y) if for all x \u2265 0, gX(x)/gY(x) is increasing in x. Theorem 3.2. Let X and Y be two random variables following CLFRD with parameters \u03b11, \u03b21, \u03bb1 and \u03b12, \u03b22, \u03bb2 respectively, then X \u2265LR (\u2264LR) Y provided (i) \u03b11 \u2264 (\u2265) \u03b12; (ii) \u03b21 \u2264 (\u2265) \u03b22; (iii) \u03bb1 \u2264 (\u2265) \u03bb2.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "Compounded linear failure rate distribution CLFRD(\u03b1, \u03b2, \u03bb): survival \u1e20(x) = P(U \u2265 x) = exp(\u2212\u03b1x \u2212 (\u03b2/2)x\u00b2 \u2212 \u03bb + \u03bb exp(\u2212\u03b1x \u2212 (\u03b2/2)x\u00b2)), x \u2265 0, \u03b1, \u03b2, \u03bb > 0 (eq. (1)); pdf g(x) = (\u03b1 + \u03b2x)[1 + \u03bb exp(\u2212\u03b1x \u2212 (\u03b2/2)x\u00b2)] / exp(\u03b1x + (\u03b2/2)x\u00b2 + \u03bb \u2212 \u03bb exp(\u2212\u03b1x \u2212 (\u03b2/2)x\u00b2)) (eq. (3)); arises as U = min{X1, ..., XN}, Xi iid LFRD(\u03b1, \u03b2), N \u2212 1 ~ Poisson(\u03bb)",
+  "compared": "all three parameters: (\u03b11, \u03b21, \u03bb1) for X vs (\u03b12, \u03b22, \u03bb2) for Y",
+  "hypotheses": [
+   {
+    "text": "Let X and Y be two random variables following CLFRD with parameters \u03b11, \u03b21, \u03bb1 and \u03b12, \u03b22, \u03bb2 respectively",
+    "formal": "X ~ CLFRD(\u03b11, \u03b21, \u03bb1), Y ~ CLFRD(\u03b12, \u03b22, \u03bb2)",
+    "source": "statement; definition (Section 2, eqs. (1)-(3))"
+   },
+   {
+    "text": "x \u2265 0, \u03b1, \u03b2, \u03bb > 0",
+    "formal": "\u03b11, \u03b21, \u03bb1, \u03b12, \u03b22, \u03bb2 > 0; support x \u2265 0",
+    "source": "definition (Section 2, eq. (1))"
+   },
+   {
+    "text": "(i) \u03b11 \u2264 (\u2265)\u03b12",
+    "formal": "\u03b11 \u2264 \u03b12 (for X \u2265LR Y); \u03b11 \u2265 \u03b12 (for X \u2264LR Y)",
+    "source": "statement"
+   },
+   {
+    "text": "(ii) \u03b21 \u2264 (\u2265)\u03b22",
+    "formal": "\u03b21 \u2264 \u03b22 (for X \u2265LR Y); \u03b21 \u2265 \u03b22 (for X \u2264LR Y)",
+    "source": "statement"
+   },
+   {
+    "text": "(iii) \u03bb1 \u2264 (\u2265)\u03bb2",
+    "formal": "\u03bb1 \u2264 \u03bb2 (for X \u2265LR Y); \u03bb1 \u2265 \u03bb2 (for X \u2264LR Y)",
+    "source": "statement"
+   },
+   {
+    "text": "X is said to be larger than another random variable Y in likelihood ratio order (written as X \u2265LR Y) if for all x \u2265 0, gX(x)/gY(x) is increasing in x",
+    "formal": "X \u2265lr Y iff gX(x)/gY(x) nondecreasing on x \u2265 0",
+    "source": "section preamble"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "Y \u2264lr X when \u03b11 \u2264 \u03b12, \u03b21 \u2264 \u03b22, \u03bb1 \u2264 \u03bb2; mirror statement X \u2264lr Y when \u03b11 \u2265 \u03b12, \u03b21 \u2265 \u03b22, \u03bb1 \u2265 \u03bb2"
+  },
+  "quantifiers": "all parameter values \u03b11, \u03b21, \u03bb1, \u03b12, \u03b22, \u03bb2 > 0 satisfying (i)-(iii); likelihood ratio monotone for all x \u2265 0",
+  "numbers": "",
+  "ambiguity": "The statement lists (i)-(iii) with semicolons and does not say whether they are required jointly or whether each alone suffices; the proof's last line reads '(i) \u03b11 \u2264 \u03b12, (ii) \u03b21 \u2264 \u03b22, and (iii) \u03bb1 \u2264 \u03bb2', so recorded as joint conditions. The proof only says 'By simple calculations it can be shown'. Subscripts in the proof ('gXCLFRD', 'gYCLFRD') are garbled in the text extraction.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "arxiv:2601.07249",
+  "claim": "Table 1 (Section 3.1, mean residual life at x = 0.5)",
+  "page": 12,
+  "quote": "Table 1 shows the MRL value at x = 0.5 for 8 different parameter combinations. Larger \u03b1 values yield a higher MRL, which means that the systems last longer on average after x = 0.5. MRL increases significantly for smaller \u03b1 and \u03b2 values, which means less failure pressure. Table 1: Mean Residual Life at x = 0.5 [\u03b1, \u03b2, \u03bb, MRL0.5 columns: 2.0 2.0 2.0 0.2211234; 0.5 0.2668270; 0.5 2.0 0.2994618; 0.5 0.3773817; 0.5 2.0 2.0 0.2831307; 0.5 0.3962282; 0.5 2.0 0.5214610; 0.5 0.7728661]",
+  "kind": "example",
+  "model": "single",
+  "family": "CLFRD(\u03b1, \u03b2, \u03bb): \u1e20(x) = exp(\u2212\u03b1x \u2212 (\u03b2/2)x\u00b2 \u2212 \u03bb + \u03bb exp(\u2212\u03b1x \u2212 (\u03b2/2)x\u00b2)), x \u2265 0, \u03b1, \u03b2, \u03bb > 0; MRL given by eq. (6)",
+  "compared": "\u03b1 \u2208 {2.0, 0.5}, \u03b2 \u2208 {2.0, 0.5}, \u03bb \u2208 {2.0, 0.5}; mean residual life evaluated at x = 0.5",
+  "hypotheses": [
+   {
+    "text": "Table 1 shows the MRL value at x = 0.5 for 8 different parameter combinations",
+    "formal": "x = 0.5; (\u03b1, \u03b2, \u03bb) over the 2 \u00d7 2 \u00d7 2 grid {2.0, 0.5}^3",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "mrl",
+   "direction": "as printed: 'Larger \u03b1 values yield a higher MRL' and 'MRL increases significantly for smaller \u03b1 and \u03b2 values'; pointwise comparison at x = 0.5 only"
+  },
+  "quantifiers": "single time point x = 0.5; eight parameter combinations",
+  "numbers": "MRL at x = 0.5: (\u03b1, \u03b2, \u03bb) = (2.0, 2.0, 2.0): 0.2211234; (2.0, 2.0, 0.5): 0.2668270; (2.0, 0.5, 2.0): 0.2994618; (2.0, 0.5, 0.5): 0.3773817; (0.5, 2.0, 2.0): 0.2831307; (0.5, 2.0, 0.5): 0.3962282; (0.5, 0.5, 2.0): 0.5214610; (0.5, 0.5, 0.5): 0.7728661",
+  "ambiguity": "The paper does not link Table 1 to Theorem 3.2 or Remark 3.3; it is included because its values compare mean residual lives across parameter values, which bears on the mean residual life order stated in Remark 3.3 (a single x cannot establish that order). The two accompanying sentences conflict: 'Larger \u03b1 values yield a higher MRL' versus 'MRL increases significantly for smaller \u03b1 and \u03b2 values'. Row-to-parameter assignment is inferred from blank cells in the table layout.",
+  "adjudication": "example record (pass b)"
+ }
+]

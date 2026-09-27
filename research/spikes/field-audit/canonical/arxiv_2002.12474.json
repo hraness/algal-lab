@@ -1,0 +1,237 @@
+[
+ {
+  "paper": "arxiv:2002.12474",
+  "claim": "Example 2",
+  "page": 12,
+  "quote": "Example 2. Let X1 , X2 be independent random variables such that Xi \u223c GM (\u03b1i , \u03b2i , \u03bb), i = 1, 2. Also let Y1 , Y2 be another pair ... such that Yi \u223c GM (\u03b1\u2217i , \u03b2\u2217i , \u03bb), i = 1, 2. The parameters satisfy all the given conditions and are given in the form of matrices as (\u03b11\u2217 \u03b12\u2217 / \u03b21\u2217 \u03b22\u2217) = (4.8 3.4 / 2.5 1.6) \u2208 P2 and (\u03b11 \u03b12 / \u03b21 \u03b22 ) = (4.03 4.17 / 2.005 2.095). The plot of the difference rY1:2 \u2212 rX1:2 ... for any value of \u03bb.",
+  "kind": "example",
+  "model": "series system",
+  "family": "Gompertz-Makeham GM(\u03b1,\u03b2,\u03bb)",
+  "compared": "X1:2 vs Y1:2 in hazard rate (supports Theorem 6)",
+  "hypotheses": [
+   {
+    "text": "same numerical matrices as Example 1",
+    "formal": "chain majorization",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "X1:2 >=hr Y1:2 (Figure 2: rY1:2 \u2212 rX1:2 >= 0)"
+  },
+  "quantifiers": "n = 2; x > 0; any \u03bb",
+  "numbers": "\u03b1* = (4.8,3.4), \u03b2* = (2.5,1.6), \u03b1 = (4.03,4.17), \u03b2 = (2.005,2.095)",
+  "ambiguity": "",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "arxiv:2002.12474",
+  "claim": "Theorem 10",
+  "page": 14,
+  "quote": "Theorem 10. Let X1 , X2 , . . . , Xn be a set of independent random variables such that Xi \u223c GM (\u03b1i , \u03b2, \u03bb) for i = 1, 2, . . . , n. Let Y1 , Y2 , . . . , Yn be another set of independent random variables such that Yi \u223c GM (\u03b1\u2217i , \u03b2, \u03bb) for i = 1, 2, . . . , n. Then \u03b1 \u227aw \u03b1\u2217 \u21d2 Xn:n \u2264st Yn:n .",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "Gompertz-Makeham GM(\u03b1i,\u03b2,\u03bb); common \u03b2, \u03bb",
+  "compared": "\u03b1 vectors via weak submajorization",
+  "hypotheses": [
+   {
+    "text": "\u03b1 \u227aw \u03b1\u2217",
+    "formal": "weak submajorization",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Xn:n <=st Yn:n"
+  },
+  "quantifiers": "n >= 1; x > 0",
+  "numbers": "",
+  "ambiguity": "Proof writes 'FXn:n(x) \u2265st FYn:n(x)' at the end \u2014 cdf comparison; conclusion Xn:n <=st Yn:n.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "arxiv:2002.12474",
+  "claim": "Theorem 2",
+  "page": 8,
+  "quote": "Theorem 2. Let X1 , . . . , Xn be a set of independent random variables such that Xi \u223c W \u2212 G(\u03b1i , \u03b2, \u03b3i ), i = 1, . . . , n. Also let Y1 , . . . , Yn be another set of random variable such that Yi \u223c W \u2212 G(\u03b1\u2217i , \u03b2, \u03b3i\u2217 ), i = 1, . . . , n. If (\u03b11 . . . \u03b1n / \u03b31 . . . \u03b3n ) \u2208 Pn and (\u03b11\u2217 . . . \u03b1\u2217n / \u03b31\u2217 . . . \u03b3n\u2217 ) = (\u03b11 . . . \u03b1n / \u03b31 . . . \u03b3n ) Ti,j^\u03bb , then \u03b2 \u2265 2, w\u2032 (x) \u2265 0, w\u2032\u2032 (x) \u2265 0, w\u2032\u2032\u2032 (x) \u2265 0 \u21d2 X1:n \u2265hr Y1:n .",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Weibull-G W-G(\u03b1,\u03b2,\u03b3); common \u03b2",
+  "compared": "n-component parameter matrices related by a single T-transform",
+  "hypotheses": [
+   {
+    "text": "(\u03b1; \u03b3) \u2208 Pn and (\u03b1\u2217; \u03b3\u2217) = (\u03b1; \u03b3) T\u03bbi,j",
+    "formal": "one T-transform between matrices",
+    "source": "statement"
+   },
+   {
+    "text": "\u03b2 \u2265 2, w\u2032 \u2265 0, w\u2032\u2032 \u2265 0, w\u2032\u2032\u2032 \u2265 0",
+    "formal": "transform conditions",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "X1:n >=hr Y1:n"
+  },
+  "quantifiers": "n > 2 (also covers n >= 2); x > 0",
+  "numbers": "\u03b2 >= 2",
+  "ambiguity": "",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "arxiv:2002.12474",
+  "claim": "Theorem 3",
+  "page": 8,
+  "quote": "Theorem 3. Let X1 , . . . , Xn be a set of independent random variables such that Xi \u223c W \u2212 G(\u03b1i , \u03b2, \u03b3i ), i = 1, . . . , n. Also Y1 , . . . , Yn be another set of random variable such that Yi \u223c W \u2212 G(\u03b1\u2217i , \u03b2, \u03b3i\u2217 ), i = 1, . . . , n. Presume k \u2265 2, if (\u03b11 . . . \u03b1n / \u03b31 . . . \u03b3n ) \u2208 Pn , (\u03b11 . . . \u03b1n / \u03b31 . . . \u03b3n ) T\u03bb1 . . . T\u03bbi \u2208 Pn , for i = 1, . . . , k \u2212 1, and (\u03b1\u2217; \u03b3\u2217) = (\u03b1; \u03b3) T\u03bb1 . . . T\u03bbk , then \u03b2 \u2265 2, w\u2032 (x) \u2265 0, w\u2032\u2032 (x) \u2265 0, w\u2032\u2032\u2032 (x) \u2265 0 \u21d2 X1:n \u2265hr Y1:n .",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Weibull-G W-G(\u03b1,\u03b2,\u03b3); common \u03b2",
+  "compared": "chain majorization via product of k T-transforms with all intermediate matrices in Pn",
+  "hypotheses": [
+   {
+    "text": "(\u03b1; \u03b3) \u2208 Pn ; each partial product (\u03b1;\u03b3)T\u03bb1\u00b7\u00b7\u00b7T\u03bbi \u2208 Pn (i = 1,\u2026,k\u22121); (\u03b1\u2217;\u03b3\u2217) = (\u03b1;\u03b3)T\u03bb1\u00b7\u00b7\u00b7T\u03bbk",
+    "formal": "chain majorization with Pn intermediate matrices",
+    "source": "statement"
+   },
+   {
+    "text": "\u03b2 \u2265 2, w\u2032 \u2265 0, w\u2032\u2032 \u2265 0, w\u2032\u2032\u2032 \u2265 0",
+    "formal": "transform conditions",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "X1:n >=hr Y1:n"
+  },
+  "quantifiers": "n >= 2, k >= 2; x > 0",
+  "numbers": "\u03b2 >= 2",
+  "ambiguity": "",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "arxiv:2002.12474",
+  "claim": "Theorem 5",
+  "page": 10,
+  "quote": "Theorem 5. Let X1 , X2 , . . . , Xn be a set of independent random variables such that Xi \u223c W \u2212 Exp(\u03b1, \u03b2, \u03b3i ) for i = 1, 2, . . . , n. Let Y1 , Y2 , . . . , Yn be another set of independent random variables such that Yi \u223c W \u2212 Exp(\u03b1, \u03b2, \u03b3i\u2217 ) for i = 1, 2, . . . , n. Then \u03b3 \u227aw \u03b3 \u2217 \u21d2 Xn:n \u2264st Yn:n .",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "W-Exp (exponential baseline F(x) = 1 \u2212 e^{\u2212\u03b3x}, w(\u03b3x) = e^{\u03b3x} \u2212 1); common \u03b1, \u03b2",
+  "compared": "\u03b3 vectors via weak submajorization",
+  "hypotheses": [
+   {
+    "text": "\u03b3 \u227aw \u03b3\u2217",
+    "formal": "weak submajorization",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Xn:n <=st Yn:n"
+  },
+  "quantifiers": "n >= 1; x > 0",
+  "numbers": "",
+  "ambiguity": "Restricted to exponential baseline (w(t) = e^t \u2212 1).",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "arxiv:2002.12474",
+  "claim": "Theorem 7",
+  "page": 12,
+  "quote": "Theorem 7. Let X1 , . . . , Xn be as set of independent random variables such that Xi \u223c GM (\u03b1i , \u03b2i , \u03bb), i = 1, . . . , n. Also Y1 , . . . , Yn be another set of random variable such that Yi \u223c GM (\u03b1\u2217i , \u03b2i\u2217 , \u03bb), i = 1, . . . , n. If (\u03b11 . . . \u03b1n / \u03bb1 . . . \u03bbn ) \u2208 Pn and (\u03b11\u2217 . . . \u03b1\u2217n / \u03bb\u22171 . . . \u03bb\u2217n ) = (\u03b11 . . . \u03b1n / \u03bb1 . . . \u03bbn ) T\u03b4i,j , then X1:n \u2265hr Y1:n .",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Gompertz-Makeham GM(\u03b1i,\u03b2i,\u03bb); \u03bb common per statement",
+  "compared": "n-component matrices via a single T-transform",
+  "hypotheses": [
+   {
+    "text": "(\u03b11 . . . \u03b1n / \u03bb1 . . . \u03bbn ) \u2208 Pn and (\u03b1\u2217;\u03bb\u2217) = (\u03b1;\u03bb)T\u03b4i,j",
+    "formal": "matrix pair in Pn related by one T-transform",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "X1:n >=hr Y1:n"
+  },
+  "quantifiers": "n >= 2; x > 0",
+  "numbers": "",
+  "ambiguity": "Internal inconsistency: components are stated GM(\u03b1i,\u03b2i,\u03bb) with common \u03bb, yet the matrix's second row is printed '\u03bb1,...,\u03bbn' \u2014 probably intended to be the \u03b2i row (as in Theorem 6/8).",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "arxiv:2002.12474",
+  "claim": "Theorem 8",
+  "page": 13,
+  "quote": "Theorem 8. Let X1 , . . . , Xn be a set of independent random variables such that Xi \u223c GM (\u03b1i , \u03b2i , \u03bb), i = 1, . . . , n. Also let Y1 , . . . , Yn be another set of random variables such that Yi \u223c GM (\u03b1\u2217i , \u03b2i\u2217 , \u03bb), i = 1, . . . , n. For k \u2265 2, if (\u03b11 . . . \u03b1n / \u03b21 . . . \u03b2n ) \u2208 Pn , (\u03b11 . . . \u03b1n / \u03b21 . . . \u03b2n ) T\u03b41 . . . T\u03b4i \u2208 Pn , for i = 1, . . . , k \u2212 1, and (\u03b1\u2217;\u03b2\u2217) = (\u03b1;\u03b2)T\u03b41 . . . T\u03b4k , then X1:n \u2265hr Y1:n .",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Gompertz-Makeham GM(\u03b1,\u03b2,\u03bb); common \u03bb",
+  "compared": "chain majorization via product of k T-transforms with Pn intermediates",
+  "hypotheses": [
+   {
+    "text": "(\u03b1;\u03b2) \u2208 Pn ; partial products in Pn; (\u03b1\u2217;\u03b2\u2217) = (\u03b1;\u03b2)T\u03b41\u00b7\u00b7\u00b7T\u03b4k",
+    "formal": "chain majorization, k >= 2 transforms",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "X1:n >=hr Y1:n"
+  },
+  "quantifiers": "n >= 2, k >= 2; x > 0",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "arxiv:2002.12474",
+  "claim": "Example 1",
+  "page": 7,
+  "quote": "Example 1. Let X1 , X2 be independent random variables such that Xi \u223c W \u2212 Exp(\u03b1i , \u03b2, \u03b3i ), i = 1, 2. Also let Y1 , Y2 be another pair ... (the baseline distribution is Exponential with cdf, F (x) = 1 \u2212 e\u2212\u03b3x ). The parameters are given in the form of matrices as (\u03b11\u2217 \u03b12\u2217 / \u03b31\u2217 \u03b32\u2217) = (4.8 3.4 / 2.5 1.6) \u2208 P2 and (\u03b11 \u03b12 / \u03b31 \u03b32 ) = (4.03 4.17 / 2.005 2.095). It can be observed that (\u03b11 \u03b12 / \u03b31 \u03b32 ) = (\u03b11\u2217 \u03b12\u2217 / \u03b31\u2217 \u03b32\u2217) T^{0.45}, and it satisfies ... (\u03b11 \u03b12 / \u03b31 \u03b32 ) \u227a\u227a (\u03b11\u2217 \u03b12\u2217 / \u03b31 \u03b32\u2217 ) \u21d2 X1:2 \u2265hr Y1:2 . The plot of the difference rY1:2 \u2212 rX1:2 ... for \u03b2 = 3.",
+  "kind": "example",
+  "model": "series system",
+  "family": "W-Exp (Weibull-G with exponential baseline), \u03b2 = 3",
+  "compared": "X1:2 vs Y1:2 in hazard rate under chain majorization (supports Theorem 1)",
+  "hypotheses": [
+   {
+    "text": "parameter matrices as given; A = A* T^{0.45}",
+    "formal": "chain majorization via one T-transform with \u03bb = 0.45",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "X1:2 >=hr Y1:2 (Figure 1: rY1:2 \u2212 rX1:2 >= 0)"
+  },
+  "quantifiers": "n = 2; x > 0",
+  "numbers": "\u03b1* = (4.8, 3.4), \u03b3* = (2.5, 1.6), \u03b1 = (4.03, 4.17), \u03b3 = (2.005, 2.095), \u03bb = 0.45, \u03b2 = 3",
+  "ambiguity": "",
+  "adjudication": "example record (pass a)+b"
+ },
+ {
+  "paper": "arxiv:2002.12474",
+  "claim": "Example 2",
+  "page": 12,
+  "quote": "Example 2. Let X1 , X2 be independent random variables such that Xi \u223c GM (\u03b1i , \u03b2i , \u03bb), i = 1, 2. Also let Y1 , Y2 be another pair ... such that Yi \u223c GM (\u03b1\u2217i , \u03b2\u2217i , \u03bb), i = 1, 2. The parameters satisfy all the given conditions and are given in the form of matrices as (\u03b11\u2217 \u03b12\u2217 / \u03b21\u2217 \u03b22\u2217) = (4.8 3.4 / 2.5 1.6) \u2208 P2 and (\u03b11 \u03b12 / \u03b21 \u03b22 ) = (4.03 4.17 / 2.005 2.095). The plot of the difference rY1:2 \u2212 rX1:2 ... for any value of \u03bb.",
+  "kind": "example",
+  "model": "series system",
+  "family": "Gompertz-Makeham GM(\u03b1,\u03b2,\u03bb)",
+  "compared": "X1:2 vs Y1:2 in hazard rate (supports Theorem 6)",
+  "hypotheses": [
+   {
+    "text": "same numerical matrices as Example 1",
+    "formal": "chain majorization",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "X1:2 >=hr Y1:2 (Figure 2: rY1:2 \u2212 rX1:2 >= 0)"
+  },
+  "quantifiers": "n = 2; x > 0; any \u03bb",
+  "numbers": "\u03b1* = (4.8,3.4), \u03b2* = (2.5,1.6), \u03b1 = (4.03,4.17), \u03b2 = (2.005,2.095)",
+  "ambiguity": "",
+  "adjudication": "example record (pass a)+b"
+ }
+]

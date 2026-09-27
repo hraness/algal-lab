@@ -1,0 +1,261 @@
+[
+ {
+  "paper": "doi:10.1007/s10651-024-00600-2",
+  "claim": "Corollary 1",
+  "page": 158,
+  "quote": "Let Xi ~ SSL_p(xi_i, alpha_i, Omega_i, q_i) for i = 1, 2. Then 0 < q1 <= q2 implies Q1 >=lr Q2 and as a result X2 <=lr-tw X1.",
+  "kind": "corollary",
+  "model": "mixture",
+  "family": "multivariate skew-slash (SSL); mixing variable S = U^{-1/2}, U ~ Beta(q/2, 1)",
+  "compared": "tail weight parameters q1 vs q2",
+  "hypotheses": [
+   {
+    "text": "0 < q1 <= q2",
+    "formal": "ordered tail weight parameters",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "Q1 >=_lr Q2, i.e. X2 <=_{lr-tw} X1 (X2 less tail weighted)"
+  },
+  "quantifiers": "p >= 1; q_i > 0",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.1007/s10651-024-00600-2",
+  "claim": "Corollary 2",
+  "page": 159,
+  "quote": "Let Xi ~ SCoN_p(xi_i, alpha_i, Omega_i, gamma_i, epsilon_i) for i = 1, 2. Then gamma_1 <= gamma_2 and epsilon_1 < epsilon_2 imply Q1 <=lr Q2 and as a result X1 <=lr-tw X2.",
+  "kind": "corollary",
+  "model": "mixture",
+  "family": "multivariate skew-contaminated normal (SCoN); mixing S = U^{-1/2}, U discrete with P(U=gamma)=epsilon",
+  "compared": "inflation factors gamma_i and contamination proportions epsilon_i",
+  "hypotheses": [
+   {
+    "text": "gamma_1 <= gamma_2 and epsilon_1 < epsilon_2",
+    "formal": "ordered SCoN parameters",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "Q1 <=_lr Q2, i.e. X1 <=_{lr-tw} X2"
+  },
+  "quantifiers": "p >= 1; 0 < gamma <= 1; 0 <= epsilon <= 1",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.1007/s10651-024-00600-2",
+  "claim": "Proposition 10",
+  "page": 163,
+  "quote": "Let X1 and X2 be two multivariate random variates such that Xi ~ SMSN_p(xi_i, alpha_i, Omega_i, H_i) for i = 1, 2, with skewed canonical scalar variables Y*_{1(i)} = S_i Z*_{1(i)} for i = 1, 2 such that Z*_{1(i)} ~ SN_1(0, 1, alpha*_(i)) with alpha*_(i) = (alpha_i' Omega_i alpha_i)^{1/2} for i = 1, 2. Then 0 < alpha*_(1) < alpha*_(2) implies X1 <=st-sk X2.",
+  "kind": "proposition",
+  "model": "mixture",
+  "family": "SMSN vectors compared via canonical skewed components (st-sk order, Definition 4)",
+  "compared": "canonical skewness parameters alpha*_(i) = (alpha_i' Omega_i alpha_i)^{1/2}",
+  "hypotheses": [
+   {
+    "text": "0 < alpha*_(1) < alpha*_(2)",
+    "formal": "ordered canonical skewness parameters",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X1 <=_{st-sk} X2 (skewed canonical component Y*_{1(1)} <=_st Y*_{1(2)})"
+  },
+  "quantifiers": "p >= 1",
+  "numbers": "",
+  "ambiguity": "Ordering defined on the skewed canonical component; consequence of Propositions 1 and 2.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.1007/s10651-024-00600-2",
+  "claim": "Degeneracy of the st-tw order for skew-t (text after Proposition 4)",
+  "page": 158,
+  "quote": "It is worthwhile noting that the st - tw order does not hold for the skew-t since if Ui ~ chi^2_{nu_i}/nu_i for i = 1, 2, then E(U1) = E(U2) = 1. So, if S1 <=st S2 holds, from Theorem 1.A.3 in Shaked and Shanthikumar (2007), U1 >=st U2 holds. Therefore, taking into account Theorem 1.A.8, we get U1 =st U2; and thus S1 =st S2 holds, i.e. nu_1 = nu_2.",
+  "kind": "counterexample",
+  "model": "mixture",
+  "family": "multivariate skew-t, mixing variable S = V^{-1/2}, V ~ chi^2_nu/nu",
+  "compared": "two skew-t vectors with different degrees of freedom",
+  "hypotheses": [
+   {
+    "text": "S1 <=st S2",
+    "formal": "suppose an st ordering of mixing variables",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "st-tw comparisons between skew-t vectors are trivial: S1 <=st S2 forces nu_1 = nu_2 (equal mixing distributions)"
+  },
+  "quantifiers": "nu_i > 0",
+  "numbers": "",
+  "ambiguity": "Impossibility/degeneracy argument rather than a labeled theorem.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.1007/s10651-024-00600-2",
+  "claim": "Proposition 4(i)",
+  "page": 158,
+  "quote": "Let Xi ~ SMSN_p(xi_i, Omega_i, alpha_i, H_i) where H_i is the CDF of Si and let Qi = (Xi - xi_i)' Omega_i^{-1} (Xi - xi_i) be the associated quadratic forms for i = 1, 2. Then the following properties hold: (i) if S1 <=st S2, then Q1 <=st Q2 and consequently X1 <=st-tw X2;",
+  "kind": "proposition",
+  "model": "mixture",
+  "family": "multivariate scale mixtures of skew-normal (SMSN); quadratic form Qi = S_i^2 Q with Q ~ chi^2_p",
+  "compared": "mixing variables S1 vs S2 (hence the quadratic forms / tail weights of the vectors)",
+  "hypotheses": [
+   {
+    "text": "Xi ~ SMSN_p(xi_i, Omega_i, alpha_i, H_i)",
+    "formal": "two SMSN vectors",
+    "source": "statement"
+   },
+   {
+    "text": "S1 <=st S2",
+    "formal": "usual stochastic order of mixing variables",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Q1 <=_st Q2, equivalently X1 <=_{st-tw} X2 (X1 less tail weighted than X2)"
+  },
+  "quantifiers": "all p >= 1; i = 1, 2",
+  "numbers": "",
+  "ambiguity": "st-tw order is defined via the quadratic forms (Definition 2).",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.1007/s10651-024-00600-2",
+  "claim": "Proposition 4(ii)",
+  "page": 158,
+  "quote": "(ii) if S1 <=lr S2, then Q1 <=lr Q2 and consequently X1 <=lr-tw X2.",
+  "kind": "proposition",
+  "model": "mixture",
+  "family": "SMSN scale mixtures",
+  "compared": "mixing variables S1 vs S2",
+  "hypotheses": [
+   {
+    "text": "Xi ~ SMSN_p(xi_i, Omega_i, alpha_i, H_i)",
+    "formal": "two SMSN vectors",
+    "source": "statement"
+   },
+   {
+    "text": "S1 <=lr S2",
+    "formal": "likelihood ratio order of mixing variables",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "Q1 <=_lr Q2, equivalently X1 <=_{lr-tw} X2"
+  },
+  "quantifiers": "all p >= 1",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.1007/s10651-024-00600-2",
+  "claim": "Non-extension claim for univariate SN (text above Proposition 2)",
+  "page": 156,
+  "quote": "Moreover, we have the following property for the st-ordering of univariate SN distributions. This property cannot be extended to the lr order.",
+  "kind": "remark",
+  "model": "other: two distributions of the same family",
+  "family": "univariate skew-normal SN_1(0,1,alpha)",
+  "compared": "Z1 vs Z2 with alpha_1 < alpha_2",
+  "hypotheses": [
+   {
+    "text": "alpha_1 < alpha_2",
+    "formal": "ordered skewness parameters",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "st ordering of Proposition 2 does NOT extend to lr order"
+  },
+  "quantifiers": "scalar case",
+  "numbers": "",
+  "ambiguity": "Negative claim asserted in prose without a formal counterexample or proof.",
+  "adjudication": "example record (pass a)"
+ },
+ {
+  "paper": "doi:10.1007/s10651-024-00600-2",
+  "claim": "Degeneracy of the st-tw order for skew-t (text after Proposition 4)",
+  "page": 158,
+  "quote": "It is worthwhile noting that the st - tw order does not hold for the skew-t since if Ui ~ chi^2_{nu_i}/nu_i for i = 1, 2, then E(U1) = E(U2) = 1. So, if S1 <=st S2 holds, from Theorem 1.A.3 in Shaked and Shanthikumar (2007), U1 >=st U2 holds. Therefore, taking into account Theorem 1.A.8, we get U1 =st U2; and thus S1 =st S2 holds, i.e. nu_1 = nu_2.",
+  "kind": "counterexample",
+  "model": "mixture",
+  "family": "multivariate skew-t, mixing variable S = V^{-1/2}, V ~ chi^2_nu/nu",
+  "compared": "two skew-t vectors with different degrees of freedom",
+  "hypotheses": [
+   {
+    "text": "S1 <=st S2",
+    "formal": "suppose an st ordering of mixing variables",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "st-tw comparisons between skew-t vectors are trivial: S1 <=st S2 forces nu_1 = nu_2 (equal mixing distributions)"
+  },
+  "quantifiers": "nu_i > 0",
+  "numbers": "",
+  "ambiguity": "Impossibility/degeneracy argument rather than a labeled theorem.",
+  "adjudication": "example record (pass a)"
+ },
+ {
+  "paper": "doi:10.1007/s10651-024-00600-2",
+  "claim": "Section 4 application: decade-wise c-tw comparison of ST-fitted maximum temperatures",
+  "page": 167,
+  "quote": "The evolution of extreme episodes along time can be assessed by the estimation of the tail weight parameter nu of the ST model from data for all the decades under consideration. ... It can be observed a decreasing trend along the time, which means that temperatures have evolved towards more extreme summers along time.",
+  "kind": "example",
+  "model": "mixture",
+  "family": "multivariate ST fitted to Iberian Peninsula maximum-temperature data (three climate scenarios: Atlantic, Continental, Mediterranean)",
+  "compared": "decade-wise fitted ST models, decades 1901-1910 through 2001-2010",
+  "hypotheses": [
+   {
+    "text": "ST model fitted to each decade's summer maxima",
+    "formal": "empirical setting of Proposition 5",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "star",
+   "direction": "estimated nu decreases along time, so by Proposition 5 later decades are more tail weighted: X_later >=_{c-tw} X_earlier (equivalently earlier <=c-tw later)"
+  },
+  "quantifiers": "11 decades, 3 climate scenarios",
+  "numbers": "no numeric nu estimates printed in text (only Fig. 3 plot; Mardia kurtosis estimates in Tables 1-3)",
+  "ambiguity": "Empirical application via parameter estimation and Proposition 5; not an analytic example.",
+  "adjudication": "example record (pass a)"
+ },
+ {
+  "paper": "doi:10.1007/s10651-024-00600-2",
+  "claim": "Remark after Proposition 4 (st-tw fails for skew-t)",
+  "page": 158,
+  "quote": "It is worthwhile noting that the st - tw order does not hold for the skew-t since if U_i ~ chi^2_{nu_i}/nu_i for i = 1, 2, then E(U1) = E(U2) = 1. So, if S1 <=st S2 holds, from Theorem 1.A.3 in Shaked and Shanthikumar (2007, p. 6.), U1 >=st U2 holds. Therefore, taking into account Theorem 1.A.8 in Shaked and Shanthikumar (2007, p. 8.), we get U1 =^st U2; and thus S1 =^st S2 holds, i.e. nu_1 = nu_2.",
+  "kind": "remark",
+  "model": "other: quadratic forms of ST vectors",
+  "family": "multivariate skew-t ST_p(xi, Omega, alpha, nu), mixing S = U^{-1/2} with U ~ chi^2_nu / nu",
+  "compared": "st-ordering of ST mixing variables S1 vs S2",
+  "hypotheses": [
+   {
+    "text": "S_i = U_i^{-1/2}, U_i ~ chi^2_{nu_i}/nu_i with equal means 1",
+    "formal": "same-mean normalized chi-square mixers",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "S1 <=_st S2 (equiv. Q ordering) forces nu_1 = nu_2, i.e., st-tw is degenerate (equality only) within the skew-t family"
+  },
+  "quantifiers": "nu_i > 0",
+  "ambiguity": "Negative observation: the st-tw order cannot distinguish different degrees of freedom in the ST family.",
+  "adjudication": "example record (pass b)"
+ }
+]

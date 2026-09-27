@@ -1,0 +1,103 @@
+[
+ {
+  "claim": "lemma2.1",
+  "a_orders": [
+   "lr"
+  ],
+  "b_orders": [
+   "lr"
+  ],
+  "a_dirs": [
+   "A_smaller"
+  ],
+  "b_dirs": [
+   "p t1 <= lr p t2 and p~ t1 <= lr p~ t2"
+  ],
+  "a_records": [
+   {
+    "paper": "doi:10.1239/jap_1363784438",
+    "claim": "Lemma 2.1",
+    "page": 276,
+    "quote": "Let p(t) and p'(t) denote the respective vectors of coefficients (2.2) and (2.4). Under the PHR assumption (1.3), p(t1) <=lr p(t2) and p'(t1) <=lr p'(t2) hold for all 0 <= t1 <= t2.",
+    "kind": "lemma",
+    "model": "other: coefficient vectors (discrete distributions) of residual lifetime / inactivity mixtures",
+    "family": "PHR sequential order statistics",
+    "compared": "coefficient vector p(t) (resp. p'(t)) at two times t1 <= t2",
+    "hypotheses": [
+     {
+      "text": "PHR assumption (1.3)",
+      "formal": "proportional hazard rates model for sequential OS",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "p(t1) <=_lr p(t2) and p'(t1) <=_lr p'(t2) for all t1 <= t2"
+    },
+    "quantifiers": "0 <= t1 <= t2",
+    "numbers": "",
+    "ambiguity": "Two parallel lr conclusions (for p and p'); relies on X*_{i:n} <=_lr X*_{i+1:n} under PHR."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "doi:10.1239/jap/1363784438",
+    "claim": "Lemma 2.1",
+    "page": 276,
+    "quote": "Lemma 2.1. Let p(t) and p~(t) denote the respective vectors of coefficients (2.2) and (2.4). Under the PHR assumption (1.3), p(t1) <=lr p(t2) and p~(t1) <=lr p~(t2) hold for all 0 <= t1 <= t2.",
+    "kind": "lemma",
+    "model": "other: coefficient vectors of mixture representations",
+    "family": "PHR-based mixed systems (sequential order statistics with F_i(x) = 1 - (1-F(x))^{alpha_i})",
+    "compared": "coefficient vectors (discrete distributions on {1,...,n}) at two different times t1 <= t2",
+    "hypotheses": [
+     {
+      "text": "PHR assumption (1.3)",
+      "formal": "F_i(x) = 1 - (1 - F(x))^{alpha_i}",
+      "source": "statement"
+     },
+     {
+      "text": "0 <= t1 <= t2",
+      "formal": "increasing evaluation times",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "p(t1) <=_lr p(t2) and p~(t1) <=_lr p~(t2)"
+    },
+    "quantifiers": "all 0 <= t1 <= t2",
+    "ambiguity": "The compared objects are discrete probability vectors (dynamic signatures), ordered in the usual lr sense on {1,...,n}."
+   }
+  ]
+ },
+ {
+  "claim": "theorem2.2",
+  "side": "A",
+  "records": [
+   {
+    "paper": "doi:10.1239/jap_1363784438",
+    "claim": "Preliminary known result (text before Theorem 2.2)",
+    "page": 276,
+    "quote": "we use the fact that generalized order statistics are ordered according to the likelihood ratio ordering, i.e. X*_{r:n} <=lr X*_{r+1:n} for r = 1, ..., n-1 (see, for instance, Cramer et al. (2003) or Hu and Zhuang (2005)).",
+    "kind": "lemma",
+    "model": "order statistic",
+    "family": "generalized/sequential order statistics",
+    "compared": "consecutive generalized order statistics",
+    "hypotheses": [
+     {
+      "text": "generalized order statistics framework",
+      "formal": "known result cited",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "X*_{r:n} <=_lr X*_{r+1:n} for all r"
+    },
+    "quantifiers": "1 <= r <= n-1",
+    "numbers": "",
+    "ambiguity": "Stated as known literature fact rather than a numbered theorem; extracted since it is a printed ordering claim used in the paper."
+   }
+  ]
+ }
+]
