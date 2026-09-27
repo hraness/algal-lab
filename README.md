@@ -428,6 +428,9 @@ Nothing here is submitted or posted yet. Manuscripts live under `papers/`
 
 ## Links
 
+- [Task optimization study](experiments/task-optimization/README.md): fixed tasks, examples, feedback, and retained guidance, with live Gateway results and offline reproduction.
+- [Bun and Elixir host comparison](experiments/host-comparison/README.md): identical ALGAL workloads, crash recovery, cancellation, and measured limits.
+
 - [Research method](docs/research-method.md): measurements, controls, budgets, and limits.
 - [Architecture](docs/architecture.md): ALGAL integration and the evidence model.
 - [Roadmap and research sources](docs/roadmap.md): hypothesis testing, reusable

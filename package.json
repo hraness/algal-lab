@@ -22,10 +22,13 @@
     "typecheck": "tsc --noEmit",
     "test": "bun test",
     "check": "bun run typecheck && bun run test",
-    "compare:v2": "bun cli.ts compare --plan examples/comparison-plan-v2.json --out runs/comparison-v2"
+    "compare:v2": "bun cli.ts compare --plan examples/comparison-plan-v2.json --out runs/comparison-v2",
+    "study:tasks": "bun experiments/task-optimization/run.ts",
+    "study:hosts": "bun experiments/host-comparison/compare.ts",
+    "study:retention": "bun experiments/task-optimization/retention-run.ts"
   },
   "dependencies": {
-    "@hraness/algal": "github:hraness/algal#f899456e497656eb292d97d7c0aef5e06f1437dc"
+    "@hraness/algal": "github:hraness/algal#ac68f096d2e10e1824b9ee4d6fe031b4846094da"
   },
   "devDependencies": {
     "@types/bun": "1.3.14",

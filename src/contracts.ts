@@ -4,7 +4,7 @@ import { parseGraph, type Graph } from "./network";
 
 export const CONDITIONS = ["isolated", "shared-artifacts", "shared-artifacts-and-messages"] as const;
 export type Condition = typeof CONDITIONS[number];
-export const ALGAL_REVISION = "f899456e497656eb292d97d7c0aef5e06f1437dc";
+export const ALGAL_REVISION = "ac68f096d2e10e1824b9ee4d6fe031b4846094da";
 export const MAX_ATTEMPTS = 288;
 export const PROPOSAL_CONTRACT = "algal.lab.proposal.v2";
 
