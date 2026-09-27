@@ -176,6 +176,106 @@
  },
  {
   "paper": "doi:10.66224/jss.20.1.06",
+  "claim": "Theorem 5(a)",
+  "page": 134,
+  "quote": "Let X^p and Y^p be dependent non-identically distributed random vectors with Xi ~ SAH(alpha_i, theta_i) and Yi ~ SAH(alpha_i, eta_i) and Archimedean copula with common generator phi. Further let I_{p1},...,I_{pn} be independent Bernoulli variables with parameters p1,...,pn. If F_bar_alpha(alpha x) is increasing in alpha and (alpha,p) in A_n, (theta,p) in B_n, (alpha,theta) in B_n: (a) if phi is log-convex, theta <=^w eta ==> X^p_{1:n} <=st Y^p_{1:n}.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "SAH marginals (common scale alpha_i); common copula; common shock vector",
+  "compared": "additive-hazard parameter vectors theta vs eta",
+  "hypotheses": [
+   {
+    "text": "F_bar_alpha(alpha x) increasing in alpha",
+    "formal": "marginal condition",
+    "source": "statement"
+   },
+   {
+    "text": "(alpha,p) in A_n, (theta,p) in B_n, (alpha,theta) in B_n",
+    "formal": "pairwise comonotonicity",
+    "source": "statement"
+   },
+   {
+    "text": "phi log-convex",
+    "formal": "generator condition",
+    "source": "statement"
+   },
+   {
+    "text": "theta <=^w eta",
+    "formal": "weak (super)majorization",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X^p_{1:n} <=_st Y^p_{1:n}"
+  },
+  "quantifiers": "n >= 1; all x",
+  "numbers": "",
+  "ambiguity": "Persian text; reconstructed.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.66224/jss.20.1.06",
+  "claim": "Theorem 6(a)",
+  "page": 136,
+  "quote": "Under the assumptions of Theorem 5, suppose F_bar_alpha(alpha x) is decreasing in alpha, and (alpha,theta) in A_n, (p,theta) in B_n, (p,alpha) in B_n. Then: (a) if phi is log-convex, theta <=^w eta ==> X^p_{1:n} <=st Y^p_{1:n}.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "SAH marginals; common copula; common shock vector",
+  "compared": "theta vs eta",
+  "hypotheses": [
+   {
+    "text": "F_bar_alpha(alpha x) decreasing in alpha",
+    "formal": "as printed",
+    "source": "statement"
+   },
+   {
+    "text": "(alpha,theta) in A_n, (p,theta) in B_n, (p,alpha) in B_n",
+    "formal": "pairwise comonotonicity",
+    "source": "statement"
+   },
+   {
+    "text": "phi log-convex; theta <=^w eta",
+    "formal": "as printed",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X^p_{1:n} <=_st Y^p_{1:n}"
+  },
+  "quantifiers": "n >= 1; all x",
+  "numbers": "",
+  "ambiguity": "Persian text; reconstructed.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.66224/jss.20.1.06",
+  "claim": "Section 6.2 case study (validating Theorem 6(a))",
+  "page": 143,
+  "quote": "A series air-pollution monitoring system of three sensors ... baseline lifetime Weibull with F_bar(x) = e^{-(lambda x)^beta}, lambda = 0.001, beta = 0.7. alpha = (1,1,1), theta = (0.0008, 0.0010, 0.0012) and eta = (0.0005, 0.0010, 0.0015) such that theta <=^w eta. AMH copula with generator phi(u) = e^{1-\\delta u} ... wait, printed as phi(u) = e^{1-\\delta u}/... with delta = 0.8 (phi log-convex). Shock survival probability p = (0.92,0.92,0.92). Table 1 empirical distribution functions: t = 100: 0.1183 vs 0.1251; t = 300: 0.4679 vs 0.4823; t = 500: 0.7258 vs 0.7405; t = 700: 0.8801 vs 0.8912 ... Hence F_X(t) >= F_Y(t) for all t, equivalently X <=st Y. This result fully confirms the prediction of Theorem 6(a).",
+  "kind": "example",
+  "model": "series system",
+  "family": "SAH marginals, Weibull baseline lambda = 0.001, beta = 0.7; AMH copula delta = 0.8; common shock p = 0.92",
+  "compared": "theta = (0.0008,0.0010,0.0012) vs eta = (0.0005,0.0010,0.0015) (more dispersed)",
+  "hypotheses": [
+   {
+    "text": "theta <=^w eta; phi log-convex",
+    "formal": "verifies Theorem 6(a)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X <=_st Y empirically (lower failure probability for Y at all time points)"
+  },
+  "quantifiers": "n = 3; t in {100,300,500,700}",
+  "numbers": "t=100: 0.1183 vs 0.1251; t=300: 0.4679 vs 0.4823; t=500: 0.7258 vs 0.7405; t=700: 0.8801 vs 0.8912",
+  "ambiguity": "Empirical/Monte-Carlo verification rather than exact computation; whether F-hat denotes cdf or survival function is slightly ambiguous in the text (numbers increase in t, so cdf).",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.66224/jss.20.1.06",
   "claim": "Theorem 7",
   "page": 136,
   "quote": "Let X^p = (I_{p1}X1,...,I_{pn}Xn) and X^q = (I_{q1}X1,...,I_{qn}Xn) be dependent non-identically distributed random vectors with Xi ~ SAH(alpha, theta_i), under an Archimedean copula with generator phi. Further, I_{p1},...,I_{pn} and I_{q1},...,I_{qn} are independent Bernoulli variables with parameters p = (p1,...,pn) and q = (q1,...,qn), independent of Xi's. Under conditions: (a) u psi'(u) is increasing on (0,1); (b) h(u) and u h'(u) are decreasing on (0,1); for h(u) in D+ and theta in D+: h(p) <=^w h(q) ==> X^q_{1:n} <=st X^p_{1:n}.",

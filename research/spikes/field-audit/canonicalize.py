@@ -32,6 +32,19 @@ for s in SAMPLE:
         return m
     am, bm = bmap(a), bmap(b)
     canon, queue = [], []
+    # second-chance: prefix-match one-sided bases (e.g. 'lemmaa1' vs
+    # 'lemmaa1section31', 'theorem1' vs 'theorem1i' when the part parser
+    # diverged) — adopt the longer label as the base
+    bases = sorted(set(am) | set(bm))
+    only_a = [k for k in bases if k in am and k not in bm]
+    only_b = [k for k in bases if k in bm and k not in am]
+    for ka in list(only_a):
+        for kb in list(only_b):
+            short, long = (ka, kb) if len(ka) <= len(kb) else (kb, ka)
+            if len(short) >= 8 and long.startswith(short):
+                am[long] = am.pop(ka); bm[long] = bm.pop(kb)
+                only_a.remove(ka); only_b.remove(kb)
+                break
     for base in sorted(set(am) | set(bm)):
         ra, rb = am.get(base), bm.get(base)
         if ra is None or rb is None:
@@ -60,6 +73,14 @@ for s in SAMPLE:
                 continue
             r2 = dict(r); r2['adjudication'] = f'example record (pass {tag})'; seen[k] = r2
     canon.extend(seen.values())
+    # merge adjudicated records if a resolution file exists
+    rp = f'{ROOT}/adjudication/{name[:-5]}.resolved.json'
+    if os.path.exists(rp):
+        res = json.load(open(rp))
+        resolved_bases = {item.get('queue_claim') for item in res}
+        for item in res:
+            canon.extend(item.get('records') or [])
+        queue = [q for q in queue if q['claim'] not in resolved_bases]
     json.dump(canon, open(f'{ROOT}/canonical/{name}','w'), indent=1)
     if queue:
         json.dump(queue, open(f'{ROOT}/adjudication/{name}','w'), indent=1)

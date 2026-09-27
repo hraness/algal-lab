@@ -1,0 +1,36 @@
+[
+ {
+  "paper": "doi:10.31801/cfsuasmas.439069",
+  "claim": "Lemma 2.6, part (i)",
+  "page": 4,
+  "quote": "Let X_F and X_G be two random variables corresponding with proposed model (1) and distribution G respectively, then under the condition ... (i) if lambda > 1 then X_F <=hr X_G.",
+  "kind": "lemma",
+  "model": "other: model vs baseline distribution",
+  "family": "NLCH_G family: survival R(x; lambda, theta) = e^{-theta (lambda + H(x))^theta}, where H(x) is the cumulative hazard of parent G; vs parent distribution G",
+  "compared": "X_F (new model) vs X_G (parent G)",
+  "hypotheses": [
+   {"text": "lambda > 1", "formal": "shape parameter greater than 1", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X_F <=_hr X_G (h_F <= h_G per the paper's hr convention; hazard rate ordering via pointwise hazard comparison)"},
+  "quantifiers": "all x; theta > 0",
+  "numbers": "",
+  "ambiguity": "OCR drops the parameter symbol; 'under the condition' followed by lambda-related inequality as printed."
+ },
+ {
+  "paper": "doi:10.31801/cfsuasmas.439069",
+  "claim": "Lemma 2.6, part (ii)",
+  "page": 4,
+  "quote": "(ii) if lambda < 1 then X_G <=hr X_F.",
+  "kind": "lemma",
+  "model": "other: model vs baseline distribution",
+  "family": "NLCH_G vs parent G",
+  "compared": "X_G vs X_F",
+  "hypotheses": [
+   {"text": "lambda < 1", "formal": "shape parameter less than 1", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X_G <=_hr X_F"},
+  "quantifiers": "all x; theta > 0",
+  "numbers": "",
+  "ambiguity": "Parameter symbol partially lost to OCR."
+ }
+]
