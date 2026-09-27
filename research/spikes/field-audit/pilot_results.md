@@ -152,6 +152,15 @@ for example Proposition 2 of arxiv:2407.18801, Theorem 5 of the Remkan paper,
 and the Kw-G counterexamples' parameter vectors. The first text-based Remkan
 records (unreadable glyphs) are kept alongside the page-image records.
 
+Adjudication, Frechet paper (doi:10.2991/jsta.2018.17.3.8): pass B's extra
+records are Theorem 3.7(i)/(ii) and Corollaries 3.6 and 3.7, the dependent
+Archimedean-copula results of section 3.4, plus main/parenthetical splits of
+claims pass A recorded once each. The copula records are in scope per the
+extraction spec (ES and PRH are parametric families), so pass B's file is the
+canonical record for this paper and pass A is scored as missing section 3.4.
+Those claims involve dependent components, which the harness does not test
+(same limitation as the claim-amounts paper's copula cases).
+
 ## arxiv:2601.07249 (compounded linear failure rate distribution)
 
 - **Theorem 3.2 (lr): refuted as stated.** Claim: a1 <= a2, b1 <= b2,
