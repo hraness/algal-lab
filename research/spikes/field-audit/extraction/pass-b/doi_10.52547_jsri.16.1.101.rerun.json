@@ -1,0 +1,548 @@
+[
+  {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 1",
+    "page": 6,
+    "quote": "Theorem 1. Let X_1, . . . , X_n be a set of independent random variables with X_i ∼ GMW(α_i, γ, λ, β), i = 1, . . . , n. Further, let X*_1, . . . , X*_n be another set of independent random variables with X*_i ∼ GMW(α*_i, γ, λ, β), i = 1, . . . , n. If (α_1, . . . , α_n) ⪯^w (α*_1, . . . , α*_n), then X_{n:n} ≤_rh X*_{n:n}.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "Generalized modified Weibull GMW(α, γ, λ, β), cdf F(x) = (1 − exp(−αx^γ exp(λx)))^β (eq. (1)); 'α > 0 is a scale parameter, and γ > 0 and β > 0 are shape parameters', λ 'works as a factor of fragility'; here α_i heterogeneous, γ, λ, β common to all components of both systems",
+    "compared": "scale vectors (α_1, ..., α_n) vs (α*_1, ..., α*_n); γ, λ, β common",
+    "hypotheses": [
+      {"text": "Let X_1, . . . , X_n be a set of independent random variables with X_i ∼ GMW(α_i, γ, λ, β), i = 1, . . . , n.", "formal": "X_1, ..., X_n independent with P(X_i ≤ x) = (1 − exp(−α_i x^γ e^{λx}))^β, x > 0", "source": "statement"},
+      {"text": "let X*_1, . . . , X*_n be another set of independent random variables with X*_i ∼ GMW(α*_i, γ, λ, β), i = 1, . . . , n.", "formal": "X*_1, ..., X*_n independent with P(X*_i ≤ x) = (1 − exp(−α*_i x^γ e^{λx}))^β, x > 0; same γ, λ, β as the X_i", "source": "statement"},
+      {"text": "(α_1, . . . , α_n) ⪯^w (α*_1, . . . , α*_n)", "formal": "weak supermajorization: Σ_{i=1}^j α_(i) ≥ Σ_{i=1}^j α*_(i) for all j = 1, ..., n, where x_(1) ≤ ... ≤ x_(n) is the increasing arrangement", "source": "statement; definition 2(ii)"},
+      {"text": "where α > 0 is a scale parameter, and γ > 0 and β > 0 are shape parameters", "formal": "α_i > 0, α*_i > 0, γ > 0, β > 0; no range is stated for λ", "source": "definition eq. (1) (Introduction)"}
+    ],
+    "conclusion": {"order": "rh", "direction": "X_{n:n} <= X*_{n:n} (r_{X_{n:n}}(x) ≤ r_{X*_{n:n}}(x) for all x, Definition 1(iii))"},
+    "quantifiers": "n unspecified (i = 1, ..., n); all positive α, α* with α ⪯^w α*; any γ > 0, β > 0; λ range not stated; ordering for all x",
+    "numbers": "",
+    "ambiguity": "The admissible range of λ is never stated (λ = 0 is mentioned as the exponentiated Weibull special case). Eq. (1) is printed with an unbalanced parenthesis, 'F(x) = (1 − exp(−αx^γ exp(λx))^β'; the reading (1 − exp(−αx^γ exp(λx)))^β follows eq. (2) and eq. (8). Definition 1 preamble defines 'r_F = f/F and r_F = f/F' (second presumably r_G = g/G). The sentence before Theorem 2 speaks of generalizing 'to a wider range of the shape parameters', but Theorem 1 prints no restriction on the shape parameters."
+  },
+  {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Example 1",
+    "page": 6,
+    "quote": "Example 1. Let (X_1, X_2, X_3) ((X*_1, X*_2, X*_3)) be a vector of independent heterogeneous GMW random variables. Set γ = 2, λ = 1.2, β = 0.5, (α_1, α_2, α_3) = (0.1, 4, 6) and (α*_1, α*_2, α*_3) = (0.1, 1, 8). Obviously (α_1, α_2, α_3) ⪯^w (α*_1, α*_2, α*_3), and X_{3:3} and X*_{3:3} are ordered in the reversed hazard rate order, as can be seen in Fig. 1.",
+    "kind": "example",
+    "model": "parallel system",
+    "family": "GMW(α_i, γ, λ, β), cdf (1 − exp(−α_i x^γ exp(λx)))^β; α_i heterogeneous, γ, λ, β common",
+    "compared": "scale vectors (0.1, 4, 6) vs (0.1, 1, 8)",
+    "hypotheses": [
+      {"text": "Let (X_1, X_2, X_3) ((X*_1, X*_2, X*_3)) be a vector of independent heterogeneous GMW random variables.", "formal": "X_1, X_2, X_3 independent GMW(α_i, γ, λ, β); X*_1, X*_2, X*_3 independent GMW(α*_i, γ, λ, β)", "source": "statement"},
+      {"text": "Set γ = 2, λ = 1.2, β = 0.5, (α_1, α_2, α_3) = (0.1, 4, 6) and (α*_1, α*_2, α*_3) = (0.1, 1, 8).", "formal": "γ = 2, λ = 1.2, β = 0.5, α = (0.1, 4, 6), α* = (0.1, 1, 8)", "source": "statement"},
+      {"text": "Obviously (α_1, α_2, α_3) ⪯^w (α*_1, α*_2, α*_3)", "formal": "asserted weak supermajorization, the hypothesis of Theorem 1", "source": "statement; earlier theorem 1"}
+    ],
+    "conclusion": {"order": "rh", "direction": "not stated in the text; the example illustrates Theorem 1, which gives X_{3:3} <= X*_{3:3}"},
+    "quantifiers": "n = 3; Fig. 1 plots x from 0 to 3.0",
+    "numbers": "n = 3; γ = 2; λ = 1.2; β = 0.5; (α_1, α_2, α_3) = (0.1, 4, 6); (α*_1, α*_2, α*_3) = (0.1, 1, 8). Printed results: (α_1, α_2, α_3) ⪯^w (α*_1, α*_2, α*_3); 'X_{3:3} and X*_{3:3} are ordered in the reversed hazard rate order' (Fig. 1: reversed hazard rate functions of X_{3:3} (black line) and X*_{3:3} (red line), x from 0 to 3.0; visually the red curve lies above the black curve for roughly 0.2 < x < 1 and the curves overlap elsewhere).",
+    "ambiguity": "The text does not say which parallel system is smaller in the rh order; the direction has to be read off Fig. 1 or taken from Theorem 1. The figure covers only 0 < x ≤ 3."
+  },
+  {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 2",
+    "page": 6,
+    "quote": "We now generalize Theorem 2 to a wider range of the shape parameters as follows. Theorem 2. Let the conditions of Theorem 1 be met. Then, for any γ, λ, β > 0, if α_i ≤ α*_i, i = 1, . . . , n, we have X_{n:n} ≥_rh X*_{n:n}.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "GMW(α, γ, λ, β), cdf (1 − exp(−αx^γ exp(λx)))^β; α_i heterogeneous, γ, λ, β common (set-up of Theorem 1)",
+    "compared": "scale vectors α vs α* with α_i ≤ α*_i componentwise; γ, λ, β common",
+    "hypotheses": [
+      {"text": "Let the conditions of Theorem 1 be met.", "formal": "X_i independent GMW(α_i, γ, λ, β) and X*_i independent GMW(α*_i, γ, λ, β), i = 1, ..., n (possibly also (α_1, ..., α_n) ⪯^w (α*_1, ..., α*_n); see ambiguity)", "source": "earlier theorem 1"},
+      {"text": "for any γ, λ, β > 0", "formal": "γ > 0, λ > 0, β > 0", "source": "statement"},
+      {"text": "if α_i ≤ α*_i, i = 1, . . . , n", "formal": "α_i ≤ α*_i for every i = 1, ..., n", "source": "statement"},
+      {"text": "where α > 0 is a scale parameter", "formal": "α_i > 0, α*_i > 0", "source": "definition eq. (1) (Introduction)"}
+    ],
+    "conclusion": {"order": "rh", "direction": "X*_{n:n} <= X_{n:n}"},
+    "quantifiers": "n unspecified; all γ, λ, β > 0; α_i ≤ α*_i for all i; ordering for all x",
+    "numbers": "",
+    "ambiguity": "The lead-in says 'We now generalize Theorem 2', apparently meaning Theorem 1. 'Let the conditions of Theorem 1 be met' does not say whether Theorem 1's weak supermajorization hypothesis is included or only its distributional set-up. The claimed 'wider range of the shape parameters' is unexplained, since Theorem 1 states no shape restriction."
+  },
+  {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 3",
+    "page": 6,
+    "quote": "Theorem 3. For i = 1, . . . , n, let X_i and X*_i be two sets of mutually independent random variables with X_i ∼ GMW(α_i, γ, λ, β_i) and X*_i ∼ GMW(α*_i, γ, λ, β_i). Further, suppose that β ∈ E_+ and α, α* ∈ D_+. Then for all γ, λ > 0, (α_1, . . . , α_n) ⪯^w (α*_1, . . . , α*_n) implies X_{n:n} ≤_rh X*_{n:n}",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "GMW(α_i, γ, λ, β_i), cdf (1 − exp(−α_i x^γ exp(λx)))^{β_i}; heterogeneous scales α_i and exponents β_i, common γ, λ; the same β_i in both systems",
+    "compared": "scale vectors (α_1, ..., α_n) vs (α*_1, ..., α*_n); β vector, γ, λ common",
+    "hypotheses": [
+      {"text": "let X_i and X*_i be two sets of mutually independent random variables with X_i ∼ GMW(α_i, γ, λ, β_i) and X*_i ∼ GMW(α*_i, γ, λ, β_i)", "formal": "X_1, ..., X_n independent, X_i with cdf (1 − exp(−α_i x^γ e^{λx}))^{β_i}; X*_1, ..., X*_n independent, X*_i with cdf (1 − exp(−α*_i x^γ e^{λx}))^{β_i}", "source": "statement"},
+      {"text": "β ∈ E_+", "formal": "0 < β_1 ≤ β_2 ≤ ... ≤ β_n", "source": "statement; notation E_+ defined in Introduction"},
+      {"text": "α, α* ∈ D_+", "formal": "α_1 ≥ α_2 ≥ ... ≥ α_n > 0 and α*_1 ≥ α*_2 ≥ ... ≥ α*_n > 0", "source": "statement; notation D_+ defined in Introduction"},
+      {"text": "for all γ, λ > 0", "formal": "γ > 0, λ > 0", "source": "statement"},
+      {"text": "(α_1, . . . , α_n) ⪯^w (α*_1, . . . , α*_n)", "formal": "Σ_{i=1}^j α_(i) ≥ Σ_{i=1}^j α*_(i) for j = 1, ..., n (increasing arrangement)", "source": "statement; definition 2(ii)"},
+      {"text": "γ > 0 and β > 0 are shape parameters", "formal": "β_i > 0", "source": "definition eq. (1) (Introduction)"}
+    ],
+    "conclusion": {"order": "rh", "direction": "X_{n:n} <= X*_{n:n}"},
+    "quantifiers": "n unspecified; all γ, λ > 0; β increasing, α and α* decreasing; ordering for all x",
+    "numbers": "",
+    "ambiguity": "The bold vectors β, α, α* are not explicitly defined; they are read as (β_1, ..., β_n), (α_1, ..., α_n), (α*_1, ..., α*_n). The statement ends without a period."
+  },
+  {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 4",
+    "page": 7,
+    "quote": "Theorem 4. For i = 1, . . . , n, let X_i and X*_i be two sets of mutually independent random variables with X_i ∼ GMW(α_i, γ, λ, β_i) and X*_i ∼ GMW(α*_i, γ, λ, β*_i). Then, for any γ, λ > 0, if α_i ≥ α*_i and β_i ≤ β*_i, i = 1, . . . , n, we have X_{n:n} ≤_rh X*_{n:n}.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "GMW(α_i, γ, λ, β_i), cdf (1 − exp(−α_i x^γ exp(λx)))^{β_i}; heterogeneous α_i and β_i, common γ, λ",
+    "compared": "scales α vs α* and exponents β vs β*, componentwise",
+    "hypotheses": [
+      {"text": "let X_i and X*_i be two sets of mutually independent random variables with X_i ∼ GMW(α_i, γ, λ, β_i) and X*_i ∼ GMW(α*_i, γ, λ, β*_i)", "formal": "X_i independent with cdf (1 − exp(−α_i x^γ e^{λx}))^{β_i}; X*_i independent with cdf (1 − exp(−α*_i x^γ e^{λx}))^{β*_i}", "source": "statement"},
+      {"text": "for any γ, λ > 0", "formal": "γ > 0, λ > 0", "source": "statement"},
+      {"text": "if α_i ≥ α*_i and β_i ≤ β*_i, i = 1, . . . , n", "formal": "α_i ≥ α*_i and β_i ≤ β*_i for every i", "source": "statement"},
+      {"text": "α > 0 is a scale parameter, and γ > 0 and β > 0 are shape parameters", "formal": "α_i, α*_i, β_i, β*_i > 0", "source": "definition eq. (1) (Introduction)"}
+    ],
+    "conclusion": {"order": "rh", "direction": "X_{n:n} <= X*_{n:n}"},
+    "quantifiers": "n unspecified; all γ, λ > 0; componentwise α_i ≥ α*_i, β_i ≤ β*_i; ordering for all x",
+    "numbers": "",
+    "ambiguity": "Statement spans PDF pages 7-8 (printed pp. 107-108)."
+  },
+  {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 5(i)",
+    "page": 8,
+    "quote": "Theorem 5. For i = 1, . . . , n, let X_i and X*_i be two sets of mutually independent random variables with X_i ∼ GMW(α_i, γ, λ, β_i) and X*_i ∼ GMW(α_i, γ, λ, β*_i). If (β_1, . . . , β_n) ⪯^m (β*_1, . . . , β*_n) and (i) β, β* ∈ D_+ and α ∈ E_+, then X_{n:n} ≤_rh X*_{n:n}; (ii) β, β*, α ∈ D_+, then X_{n:n} ≥_rh X*_{n:n}",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "GMW(α_i, γ, λ, β_i), cdf (1 − exp(−α_i x^γ exp(λx)))^{β_i}; same α vector and common γ, λ in both systems",
+    "compared": "exponent (shape) vectors β vs β*; α, γ, λ common",
+    "hypotheses": [
+      {"text": "let X_i and X*_i be two sets of mutually independent random variables with X_i ∼ GMW(α_i, γ, λ, β_i) and X*_i ∼ GMW(α_i, γ, λ, β*_i)", "formal": "X_i independent with cdf (1 − exp(−α_i x^γ e^{λx}))^{β_i}; X*_i independent with cdf (1 − exp(−α_i x^γ e^{λx}))^{β*_i}", "source": "statement"},
+      {"text": "(β_1, . . . , β_n) ⪯^m (β*_1, . . . , β*_n)", "formal": "Σ β_i = Σ β*_i and Σ_{i=1}^j β_(i) ≥ Σ_{i=1}^j β*_(i) for j = 1, ..., n−1 (increasing arrangement)", "source": "statement; definition 2(iii)"},
+      {"text": "(i) β, β* ∈ D_+ and α ∈ E_+", "formal": "β_1 ≥ ... ≥ β_n > 0, β*_1 ≥ ... ≥ β*_n > 0, 0 < α_1 ≤ ... ≤ α_n", "source": "statement"},
+      {"text": "α > 0 is a scale parameter, and γ > 0 and β > 0 are shape parameters", "formal": "α_i > 0, γ > 0; λ range not stated", "source": "definition eq. (1) (Introduction)"}
+    ],
+    "conclusion": {"order": "rh", "direction": "X_{n:n} <= X*_{n:n}"},
+    "quantifiers": "n unspecified; γ, λ not restricted in the statement; ordering for all x",
+    "numbers": "",
+    "ambiguity": "Unlike Theorems 2-4, no range for γ, λ is given in the statement; λ range never stated in the paper."
+  },
+  {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 5(ii)",
+    "page": 8,
+    "quote": "Theorem 5. For i = 1, . . . , n, let X_i and X*_i be two sets of mutually independent random variables with X_i ∼ GMW(α_i, γ, λ, β_i) and X*_i ∼ GMW(α_i, γ, λ, β*_i). If (β_1, . . . , β_n) ⪯^m (β*_1, . . . , β*_n) and (i) β, β* ∈ D_+ and α ∈ E_+, then X_{n:n} ≤_rh X*_{n:n}; (ii) β, β*, α ∈ D_+, then X_{n:n} ≥_rh X*_{n:n}",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "GMW(α_i, γ, λ, β_i), cdf (1 − exp(−α_i x^γ exp(λx)))^{β_i}; same α vector and common γ, λ in both systems",
+    "compared": "exponent (shape) vectors β vs β*; α, γ, λ common",
+    "hypotheses": [
+      {"text": "let X_i and X*_i be two sets of mutually independent random variables with X_i ∼ GMW(α_i, γ, λ, β_i) and X*_i ∼ GMW(α_i, γ, λ, β*_i)", "formal": "X_i independent with cdf (1 − exp(−α_i x^γ e^{λx}))^{β_i}; X*_i independent with cdf (1 − exp(−α_i x^γ e^{λx}))^{β*_i}", "source": "statement"},
+      {"text": "(β_1, . . . , β_n) ⪯^m (β*_1, . . . , β*_n)", "formal": "Σ β_i = Σ β*_i and Σ_{i=1}^j β_(i) ≥ Σ_{i=1}^j β*_(i) for j = 1, ..., n−1", "source": "statement; definition 2(iii)"},
+      {"text": "(ii) β, β*, α ∈ D_+", "formal": "β_1 ≥ ... ≥ β_n > 0, β*_1 ≥ ... ≥ β*_n > 0, α_1 ≥ ... ≥ α_n > 0", "source": "statement"},
+      {"text": "γ > 0 and β > 0 are shape parameters", "formal": "γ > 0; λ range not stated", "source": "definition eq. (1) (Introduction)"}
+    ],
+    "conclusion": {"order": "rh", "direction": "X*_{n:n} <= X_{n:n}"},
+    "quantifiers": "n unspecified; γ, λ not restricted in the statement; ordering for all x",
+    "numbers": "",
+    "ambiguity": "No range for γ, λ in the statement; λ range never stated in the paper."
+  },
+  {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 6(i)",
+    "page": 8,
+    "quote": "The following theorem follows from Lemma 2 and Theorem 5. Theorem 6. For i = 1, . . . , n, let X_i and X*_i be two sets of mutually independent random variables with X_i ∼ GMW(α_i, γ, λ, β_i) and X*_i ∼ GMW(α_i, γ, λ, β*_i). (i) If β, β* ∈ D_+ and α ∈ E_+, then (β_1, . . . , β_n) ⪯_w (β*_1, . . . , β*_n) implies X_{n:n} ≤_rh X*_{n:n}; (ii) If β, β*, α ∈ D_+, then (β_1, . . . , β_n) ⪯^w (β*_1, . . . , β*_n) implies X_{n:n} ≥_rh X*_{n:n}",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "GMW(α_i, γ, λ, β_i), cdf (1 − exp(−α_i x^γ exp(λx)))^{β_i}; same α vector and common γ, λ in both systems",
+    "compared": "exponent (shape) vectors β vs β*; α, γ, λ common",
+    "hypotheses": [
+      {"text": "let X_i and X*_i be two sets of mutually independent random variables with X_i ∼ GMW(α_i, γ, λ, β_i) and X*_i ∼ GMW(α_i, γ, λ, β*_i)", "formal": "X_i independent with cdf (1 − exp(−α_i x^γ e^{λx}))^{β_i}; X*_i independent with cdf (1 − exp(−α_i x^γ e^{λx}))^{β*_i}", "source": "statement"},
+      {"text": "(i) If β, β* ∈ D_+ and α ∈ E_+", "formal": "β_1 ≥ ... ≥ β_n > 0, β*_1 ≥ ... ≥ β*_n > 0, 0 < α_1 ≤ ... ≤ α_n", "source": "statement"},
+      {"text": "(β_1, . . . , β_n) ⪯_w (β*_1, . . . , β*_n)", "formal": "weak submajorization: Σ_{i=j}^n β_(i) ≤ Σ_{i=j}^n β*_(i) for all j = 1, ..., n", "source": "statement; definition 2(i)"},
+      {"text": "γ > 0 and β > 0 are shape parameters", "formal": "γ > 0; λ range not stated", "source": "definition eq. (1) (Introduction)"}
+    ],
+    "conclusion": {"order": "rh", "direction": "X_{n:n} <= X*_{n:n}"},
+    "quantifiers": "n unspecified; γ, λ not restricted in the statement; ordering for all x",
+    "numbers": "",
+    "ambiguity": "Stated to follow from Lemma 2 and Theorem 5, without proof; no range for γ, λ in the statement."
+  },
+  {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 6(ii)",
+    "page": 8,
+    "quote": "The following theorem follows from Lemma 2 and Theorem 5. Theorem 6. For i = 1, . . . , n, let X_i and X*_i be two sets of mutually independent random variables with X_i ∼ GMW(α_i, γ, λ, β_i) and X*_i ∼ GMW(α_i, γ, λ, β*_i). (i) If β, β* ∈ D_+ and α ∈ E_+, then (β_1, . . . , β_n) ⪯_w (β*_1, . . . , β*_n) implies X_{n:n} ≤_rh X*_{n:n}; (ii) If β, β*, α ∈ D_+, then (β_1, . . . , β_n) ⪯^w (β*_1, . . . , β*_n) implies X_{n:n} ≥_rh X*_{n:n}",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "GMW(α_i, γ, λ, β_i), cdf (1 − exp(−α_i x^γ exp(λx)))^{β_i}; same α vector and common γ, λ in both systems",
+    "compared": "exponent (shape) vectors β vs β*; α, γ, λ common",
+    "hypotheses": [
+      {"text": "let X_i and X*_i be two sets of mutually independent random variables with X_i ∼ GMW(α_i, γ, λ, β_i) and X*_i ∼ GMW(α_i, γ, λ, β*_i)", "formal": "X_i independent with cdf (1 − exp(−α_i x^γ e^{λx}))^{β_i}; X*_i independent with cdf (1 − exp(−α_i x^γ e^{λx}))^{β*_i}", "source": "statement"},
+      {"text": "(ii) If β, β*, α ∈ D_+", "formal": "β_1 ≥ ... ≥ β_n > 0, β*_1 ≥ ... ≥ β*_n > 0, α_1 ≥ ... ≥ α_n > 0", "source": "statement"},
+      {"text": "(β_1, . . . , β_n) ⪯^w (β*_1, . . . , β*_n)", "formal": "weak supermajorization: Σ_{i=1}^j β_(i) ≥ Σ_{i=1}^j β*_(i) for all j = 1, ..., n", "source": "statement; definition 2(ii)"},
+      {"text": "γ > 0 and β > 0 are shape parameters", "formal": "γ > 0; λ range not stated", "source": "definition eq. (1) (Introduction)"}
+    ],
+    "conclusion": {"order": "rh", "direction": "X*_{n:n} <= X_{n:n}"},
+    "quantifiers": "n unspecified; γ, λ not restricted in the statement; ordering for all x",
+    "numbers": "",
+    "ambiguity": "Stated to follow from Lemma 2 and Theorem 5, without proof; no range for γ, λ in the statement."
+  },
+  {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 7(i)",
+    "page": 8,
+    "quote": "Theorem 7. Let X_1, . . . , X_n be a set of independent random variables with X_i ∼ GMW(α_i, γ, λ, β), i = 1, . . . , n. Further, let X*_1, . . . , X*_n be another set of independent random variables with X*_i ∼ GMW(α*_i, γ, λ, β), i = 1, . . . , n. Then, (i) for (α_1, . . . , α_n) ⪯_w (α*_1, . . . , α*_n), we have X_{1:n} ≥_st X*_{1:n} if β ≥ 1; (ii) (α_1, . . . , α_n) ⪯^w (α*_1, . . . , α*_n), we have X_{1:n} ≤_st X*_{1:n} if 0 < β ≤ 1.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "GMW(α_i, γ, λ, β), cdf (1 − exp(−α_i x^γ exp(λx)))^β; α_i heterogeneous, γ, λ, β common",
+    "compared": "scale vectors α vs α*; γ, λ, β common",
+    "hypotheses": [
+      {"text": "Let X_1, . . . , X_n be a set of independent random variables with X_i ∼ GMW(α_i, γ, λ, β)", "formal": "X_i independent with cdf (1 − exp(−α_i x^γ e^{λx}))^β", "source": "statement"},
+      {"text": "let X*_1, . . . , X*_n be another set of independent random variables with X*_i ∼ GMW(α*_i, γ, λ, β)", "formal": "X*_i independent with cdf (1 − exp(−α*_i x^γ e^{λx}))^β", "source": "statement"},
+      {"text": "(i) for (α_1, . . . , α_n) ⪯_w (α*_1, . . . , α*_n)", "formal": "Σ_{i=j}^n α_(i) ≤ Σ_{i=j}^n α*_(i) for all j = 1, ..., n", "source": "statement; definition 2(i)"},
+      {"text": "if β ≥ 1", "formal": "β ≥ 1", "source": "statement"},
+      {"text": "α > 0 is a scale parameter, and γ > 0 and β > 0 are shape parameters", "formal": "α_i, α*_i > 0, γ > 0; λ range not stated", "source": "definition eq. (1) (Introduction)"}
+    ],
+    "conclusion": {"order": "st", "direction": "X*_{1:n} <= X_{1:n}"},
+    "quantifiers": "n unspecified; β ≥ 1; γ, λ not restricted in the statement; ordering for all x",
+    "numbers": "",
+    "ambiguity": "The lead-in sentence calls α 'the shape parameters (α)', while eq. (1) calls α a scale parameter. Statement spans PDF pages 8-9."
+  },
+  {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 7(ii)",
+    "page": 9,
+    "quote": "Theorem 7. Let X_1, . . . , X_n be a set of independent random variables with X_i ∼ GMW(α_i, γ, λ, β), i = 1, . . . , n. Further, let X*_1, . . . , X*_n be another set of independent random variables with X*_i ∼ GMW(α*_i, γ, λ, β), i = 1, . . . , n. Then, (i) for (α_1, . . . , α_n) ⪯_w (α*_1, . . . , α*_n), we have X_{1:n} ≥_st X*_{1:n} if β ≥ 1; (ii) (α_1, . . . , α_n) ⪯^w (α*_1, . . . , α*_n), we have X_{1:n} ≤_st X*_{1:n} if 0 < β ≤ 1.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "GMW(α_i, γ, λ, β), cdf (1 − exp(−α_i x^γ exp(λx)))^β; α_i heterogeneous, γ, λ, β common",
+    "compared": "scale vectors α vs α*; γ, λ, β common",
+    "hypotheses": [
+      {"text": "Let X_1, . . . , X_n be a set of independent random variables with X_i ∼ GMW(α_i, γ, λ, β)", "formal": "X_i independent with cdf (1 − exp(−α_i x^γ e^{λx}))^β", "source": "statement"},
+      {"text": "let X*_1, . . . , X*_n be another set of independent random variables with X*_i ∼ GMW(α*_i, γ, λ, β)", "formal": "X*_i independent with cdf (1 − exp(−α*_i x^γ e^{λx}))^β", "source": "statement"},
+      {"text": "(ii) (α_1, . . . , α_n) ⪯^w (α*_1, . . . , α*_n)", "formal": "Σ_{i=1}^j α_(i) ≥ Σ_{i=1}^j α*_(i) for all j = 1, ..., n", "source": "statement; definition 2(ii)"},
+      {"text": "if 0 < β ≤ 1", "formal": "0 < β ≤ 1", "source": "statement"},
+      {"text": "α > 0 is a scale parameter, and γ > 0 ... are shape parameters", "formal": "α_i, α*_i > 0, γ > 0; λ range not stated", "source": "definition eq. (1) (Introduction)"}
+    ],
+    "conclusion": {"order": "st", "direction": "X_{1:n} <= X*_{1:n}"},
+    "quantifiers": "n unspecified; 0 < β ≤ 1; γ, λ not restricted in the statement; ordering for all x",
+    "numbers": "",
+    "ambiguity": "The lead-in sentence calls α 'the shape parameters (α)', while eq. (1) calls α a scale parameter."
+  },
+  {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Example 2(i)",
+    "page": 9,
+    "quote": "Example 2. (i) Let (X_1, X_2, X_3) ((X*_1, X*_2, X*_3)) be a vector of independent heterogeneous GMW random variables. Set γ = 1.3, λ = 1.6, β = 1.3, (α_1, α_2, α_3) = (5, 2, 0.2) and (α*_1, α*_2, α*_3) = (8, 3, 0.3). Obviously (α_1, α_2, α_3) ⪯_w (α*_1, α*_2, α*_3), and X_{1:3} ≥_st X*_{1:3}, as can be seen in Fig. 2 (A).",
+    "kind": "example",
+    "model": "series system",
+    "family": "GMW(α_i, γ, λ, β), cdf (1 − exp(−α_i x^γ exp(λx)))^β; α_i heterogeneous, γ, λ, β common",
+    "compared": "scale vectors (5, 2, 0.2) vs (8, 3, 0.3)",
+    "hypotheses": [
+      {"text": "Let (X_1, X_2, X_3) ((X*_1, X*_2, X*_3)) be a vector of independent heterogeneous GMW random variables.", "formal": "X_i independent GMW(α_i, γ, λ, β), X*_i independent GMW(α*_i, γ, λ, β), i = 1, 2, 3", "source": "statement"},
+      {"text": "Set γ = 1.3, λ = 1.6, β = 1.3, (α_1, α_2, α_3) = (5, 2, 0.2) and (α*_1, α*_2, α*_3) = (8, 3, 0.3).", "formal": "γ = 1.3, λ = 1.6, β = 1.3, α = (5, 2, 0.2), α* = (8, 3, 0.3)", "source": "statement"},
+      {"text": "Obviously (α_1, α_2, α_3) ⪯_w (α*_1, α*_2, α*_3)", "formal": "asserted weak submajorization (hypothesis of Theorem 7(i)); β = 1.3 ≥ 1", "source": "statement; earlier theorem 7(i)"}
+    ],
+    "conclusion": {"order": "st", "direction": "X*_{1:3} <= X_{1:3}"},
+    "quantifiers": "n = 3; Fig. 2(A) plots x from 0 to about 0.7",
+    "numbers": "n = 3; γ = 1.3; λ = 1.6; β = 1.3; (α_1, α_2, α_3) = (5, 2, 0.2); (α*_1, α*_2, α*_3) = (8, 3, 0.3). Printed results: (α_1, α_2, α_3) ⪯_w (α*_1, α*_2, α*_3); X_{1:3} ≥_st X*_{1:3} (Fig. 2(A): survival functions of X_{1:3} (black line) and X*_{1:3} (blue line)).",
+    "ambiguity": ""
+  },
+  {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Example 2(ii)",
+    "page": 9,
+    "quote": "(ii) Let (X_1, X_2, X_3) ((X*_1, X*_2, X*_3)) be a vector of independent heterogeneous GMW random variables. Set γ = 1.3, λ = 1.6, β = 0.3, (α_1, α_2, α_3) = (0.2, 4, 9) and (α*_1, α*_2, α*_3) = (0.1, 1, 6). Obviously (α_1, α_2, α_3) ⪯^w (α*_1, α*_2, α*_3), and X_{1:3} ≤_st X*_{1:3}, as can be seen in Fig. 2 (B).",
+    "kind": "example",
+    "model": "series system",
+    "family": "GMW(α_i, γ, λ, β), cdf (1 − exp(−α_i x^γ exp(λx)))^β; α_i heterogeneous, γ, λ, β common",
+    "compared": "scale vectors (0.2, 4, 9) vs (0.1, 1, 6)",
+    "hypotheses": [
+      {"text": "Let (X_1, X_2, X_3) ((X*_1, X*_2, X*_3)) be a vector of independent heterogeneous GMW random variables.", "formal": "X_i independent GMW(α_i, γ, λ, β), X*_i independent GMW(α*_i, γ, λ, β), i = 1, 2, 3", "source": "statement"},
+      {"text": "Set γ = 1.3, λ = 1.6, β = 0.3, (α_1, α_2, α_3) = (0.2, 4, 9) and (α*_1, α*_2, α*_3) = (0.1, 1, 6).", "formal": "γ = 1.3, λ = 1.6, β = 0.3, α = (0.2, 4, 9), α* = (0.1, 1, 6)", "source": "statement"},
+      {"text": "Obviously (α_1, α_2, α_3) ⪯^w (α*_1, α*_2, α*_3)", "formal": "asserted weak supermajorization (hypothesis of Theorem 7(ii)); 0 < β = 0.3 ≤ 1", "source": "statement; earlier theorem 7(ii)"}
+    ],
+    "conclusion": {"order": "st", "direction": "X_{1:3} <= X*_{1:3}"},
+    "quantifiers": "n = 3; Fig. 2(B) plots x from 0 to about 0.7",
+    "numbers": "n = 3; γ = 1.3; λ = 1.6; β = 0.3; (α_1, α_2, α_3) = (0.2, 4, 9); (α*_1, α*_2, α*_3) = (0.1, 1, 6). Printed results: (α_1, α_2, α_3) ⪯^w (α*_1, α*_2, α*_3); X_{1:3} ≤_st X*_{1:3} (Fig. 2(B): survival functions of X_{1:3} (black line) and X*_{1:3} (blue line)).",
+    "ambiguity": ""
+  },
+  {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Example 3",
+    "page": 10,
+    "quote": "Naturally, one may wonder whether the following statement is actually also true: For 0 < β ≤ 1, (α_1, . . . , α_n) ⪯^p (α*_1, . . . , α*_n) gives rise to the usual stochastic order between X_{1:n} and X*_{1:n}. The following example gives negative answer to these two conjecture. Example 3. Let (X_1, X_2) ((X*_1, X*_2)) be a vector of independent heterogeneous GMW random variables. Set β = 0.5, γ = 2 and λ = 3. For (α_1, α_2) = (2, 3) ⪯^p (1, 5.5) = (α*_1, α*_2), X_{1:2} ≥_st X*_{1:2}, as can be seen in Fig. 3 (A); however, for (α_1, α_2) = (1.1, 6) ⪯^p (1, 2.25) = (α*_1, α*_2), X_{1:2} ≤_st X*_{1:2}, as can be seen in Fig. 3 (B) So, (α_1, α_2) ⪯^p (α*_1, α*_2) implies neither X_{1:2} ≤_st X*_{1:2} nor X_{1:2} ≥_st X*_{1:2} for 0 < β ≤ 1.",
+    "kind": "counterexample",
+    "model": "series system",
+    "family": "GMW(α_i, γ, λ, β), cdf (1 − exp(−α_i x^γ exp(λx)))^β; α_i heterogeneous, γ, λ, β common",
+    "compared": "scale vectors related by the p-larger order: case (A) (2, 3) vs (1, 5.5); case (B) (1.1, 6) vs (1, 2.25)",
+    "hypotheses": [
+      {"text": "Let (X_1, X_2) ((X*_1, X*_2)) be a vector of independent heterogeneous GMW random variables.", "formal": "X_i independent GMW(α_i, γ, λ, β), X*_i independent GMW(α*_i, γ, λ, β), i = 1, 2", "source": "statement"},
+      {"text": "Set β = 0.5, γ = 2 and λ = 3.", "formal": "β = 0.5, γ = 2, λ = 3", "source": "statement"},
+      {"text": "(α_1, α_2) = (2, 3) ⪯^p (1, 5.5) = (α*_1, α*_2)", "formal": "case (A); read as (1, 5.5) p-larger than (2, 3): Π_{i=1}^j (α*)_(i) ≤ Π_{i=1}^j α_(i), j = 1, 2", "source": "statement; definition 3"},
+      {"text": "(α_1, α_2) = (1.1, 6) ⪯^p (1, 2.25) = (α*_1, α*_2)", "formal": "case (B); read as (1, 2.25) p-larger than (1.1, 6)", "source": "statement; definition 3"}
+    ],
+    "conclusion": {"order": "st", "direction": "case (A): X*_{1:2} <= X_{1:2}; case (B): X_{1:2} <= X*_{1:2}; so the p-larger order of the scale vectors implies neither direction of the st order when 0 < β ≤ 1"},
+    "quantifiers": "n = 2; β = 0.5 (one value in 0 < β ≤ 1); Fig. 3 plots x from 0 to 3.0",
+    "numbers": "n = 2; β = 0.5; γ = 2; λ = 3. Case (A): (α_1, α_2) = (2, 3), (α*_1, α*_2) = (1, 5.5); printed (2, 3) ⪯^p (1, 5.5) and X_{1:2} ≥_st X*_{1:2} (Fig. 3(A)). Case (B): (α_1, α_2) = (1.1, 6), (α*_1, α*_2) = (1, 2.25); printed (1.1, 6) ⪯^p (1, 2.25) and X_{1:2} ≤_st X*_{1:2} (Fig. 3(B)). Fig. 3 caption: survival functions of X_{1:2} (red line) and X*_{1:3} (black line).",
+    "ambiguity": "Definition 3 defines only 'x ⪰^p y' (x p-larger than y: Π_{i=1}^j x_(i) ≤ Π_{i=1}^j y_(i)); the symbol ⪯^p used here is never defined and is read as the reverse relation. The Fig. 3 caption names X*_{1:3}, although n = 2 here. The text refers to 'these two conjecture' but prints one statement (presumably the two st directions). The refuted statement is a conjecture, not a theorem of the paper."
+  },
+  {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 8",
+    "page": 10,
+    "quote": "Theorem 8. Let X_1, . . . , X_n be a set of independent random variables with X_i ∼ GMW(α, γ, λ, β_i), i = 1, . . . , n. Further, let X*_1, . . . , X*_n be another set of independent random variables with X*_i ∼ GMW(α, γ, λ, β*_i), i = 1, . . . , n. If (β_1, . . . , β_n) ⪰^w β*_1, . . . , β*_n), then X_{1:n} ≤_hr X*_{1:n}.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "GMW(α, γ, λ, β_i), cdf (1 − exp(−αx^γ exp(λx)))^{β_i}; heterogeneous exponents β_i, common α, γ, λ",
+    "compared": "exponent (shape) vectors β vs β*; α, γ, λ common",
+    "hypotheses": [
+      {"text": "Let X_1, . . . , X_n be a set of independent random variables with X_i ∼ GMW(α, γ, λ, β_i)", "formal": "X_i independent with cdf (1 − exp(−αx^γ e^{λx}))^{β_i}", "source": "statement"},
+      {"text": "let X*_1, . . . , X*_n be another set of independent random variables with X*_i ∼ GMW(α, γ, λ, β*_i)", "formal": "X*_i independent with cdf (1 − exp(−αx^γ e^{λx}))^{β*_i}", "source": "statement"},
+      {"text": "(β_1, . . . , β_n) ⪰^w β*_1, . . . , β*_n)", "formal": "read as (β*_1, ..., β*_n) ⪯^w (β_1, ..., β_n): Σ_{i=1}^j β*_(i) ≥ Σ_{i=1}^j β_(i) for all j = 1, ..., n", "source": "statement; definition 2(ii) (reversed symbol not defined)"},
+      {"text": "α > 0 is a scale parameter, and γ > 0 and β > 0 are shape parameters", "formal": "α > 0, γ > 0, β_i, β*_i > 0; λ range not stated", "source": "definition eq. (1) (Introduction)"}
+    ],
+    "conclusion": {"order": "hr", "direction": "X_{1:n} <= X*_{1:n}"},
+    "quantifiers": "n unspecified; α, γ, λ not restricted in the statement; ordering for all x",
+    "numbers": "",
+    "ambiguity": "The symbol ⪰^w is not defined (Definition 2 defines ⪯_w, ⪯^w and ⪯^m only); read as the converse of ⪯^w. The opening parenthesis of the second vector is missing in print."
+  },
+  {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 9",
+    "page": 12,
+    "quote": "Theorem 9. Let X_1, . . . , X_n be a set of independent random variables with X_i ∼ GMW(α, γ, λ_i, β), i = 1, . . . , n. Further, let X*_1, . . . , X*_n be another set of independent random variables with X*_i ∼ GMW(α, γ, λ*_i, β), i = 1, . . . , n. Then, for (λ_1, . . . , λ_n) ⪯^w (λ*_1, . . . , λ*_n), we have X_{n:n} ≤_st X*_{n:n}.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "GMW(α, γ, λ_i, β), cdf (1 − exp(−αx^γ exp(λ_i x)))^β; heterogeneous λ_i, common α, γ, β",
+    "compared": "λ vectors (λ_1, ..., λ_n) vs (λ*_1, ..., λ*_n); α, γ, β common",
+    "hypotheses": [
+      {"text": "Let X_1, . . . , X_n be a set of independent random variables with X_i ∼ GMW(α, γ, λ_i, β)", "formal": "X_i independent with cdf (1 − exp(−αx^γ e^{λ_i x}))^β", "source": "statement"},
+      {"text": "let X*_1, . . . , X*_n be another set of independent random variables with X*_i ∼ GMW(α, γ, λ*_i, β)", "formal": "X*_i independent with cdf (1 − exp(−αx^γ e^{λ*_i x}))^β", "source": "statement"},
+      {"text": "for (λ_1, . . . , λ_n) ⪯^w (λ*_1, . . . , λ*_n)", "formal": "Σ_{i=1}^j λ_(i) ≥ Σ_{i=1}^j λ*_(i) for all j = 1, ..., n", "source": "statement; definition 2(ii)"},
+      {"text": "α > 0 is a scale parameter, and γ > 0 and β > 0 are shape parameters", "formal": "α > 0, γ > 0, β > 0; no range stated for λ_i, λ*_i", "source": "definition eq. (1) (Introduction)"}
+    ],
+    "conclusion": {"order": "st", "direction": "X_{n:n} <= X*_{n:n}"},
+    "quantifiers": "n unspecified; α, γ, β not restricted in the statement; ordering for all x",
+    "numbers": "",
+    "ambiguity": "The lead-in sentence calls λ 'the scale parameter λ', whereas eq. (1) calls α the scale parameter and λ a 'factor of fragility'. The range of λ_i, λ*_i (e.g. positivity) is not stated. The proof's eq. (5) prints the cdf as Π(1 − exp(−αx^γ exp(λ_i x))^β) with the exponent β misplaced."
+  },
+  {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 10",
+    "page": 12,
+    "quote": "Theorem 10. Let X_1, . . . , X_n be a set of independent random variables with X_i ∼ GMW(α, γ, λ_i, β), i = 1, . . . , n. Further, let X*_1, . . . , X*_n be another set of independent random variables with X*_i ∼ GMW(α, γ, λ*_i, β), i = 1, . . . , n. Then, for (λ_1, . . . , λ_n) ⪯_w (λ*_1, . . . , λ*_n), we have X_{1:n} ≥_st X*_{1:n} if β ≥ 1.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "GMW(α, γ, λ_i, β), cdf (1 − exp(−αx^γ exp(λ_i x)))^β; heterogeneous λ_i, common α, γ, β",
+    "compared": "λ vectors (λ_1, ..., λ_n) vs (λ*_1, ..., λ*_n); α, γ, β common",
+    "hypotheses": [
+      {"text": "Let X_1, . . . , X_n be a set of independent random variables with X_i ∼ GMW(α, γ, λ_i, β)", "formal": "X_i independent with cdf (1 − exp(−αx^γ e^{λ_i x}))^β", "source": "statement"},
+      {"text": "let X*_1, . . . , X*_n be another set of independent random variables with X*_i ∼ GMW(α, γ, λ*_i, β)", "formal": "X*_i independent with cdf (1 − exp(−αx^γ e^{λ*_i x}))^β", "source": "statement"},
+      {"text": "for (λ_1, . . . , λ_n) ⪯_w (λ*_1, . . . , λ*_n)", "formal": "Σ_{i=j}^n λ_(i) ≤ Σ_{i=j}^n λ*_(i) for all j = 1, ..., n", "source": "statement; definition 2(i)"},
+      {"text": "if β ≥ 1", "formal": "β ≥ 1", "source": "statement"},
+      {"text": "α > 0 is a scale parameter, and γ > 0 ... are shape parameters", "formal": "α > 0, γ > 0; no range stated for λ_i, λ*_i", "source": "definition eq. (1) (Introduction)"}
+    ],
+    "conclusion": {"order": "st", "direction": "X*_{1:n} <= X_{1:n}"},
+    "quantifiers": "n unspecified; β ≥ 1; ordering for all x",
+    "numbers": "",
+    "ambiguity": "The lead-in sentence calls λ 'the scale parameter λ' (eq. (1) calls α the scale parameter). The range of λ_i, λ*_i is not stated."
+  },
+  {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 11",
+    "page": 13,
+    "quote": "We say that random variable X belongs to the Exponentiated Scale (ES) family of distributions if X ∼ H(x) = [G(λx)]^α, where α, λ > 0 and G is called the baseline distribution function which we assume that is absolutely continuous. In the sequel, we denote this family by ES(α, λ). Bashkar et al. (2017) proved the following general result. Theorem 11. Suppose for i = 1, ..., n, X_i ∼ ES(α_i, λ) and X*_i ∼ ES(α*_i, λ) share a common Archimedean survival copula with generator ϕ. Then, X_{1:n} ≤_st X*_{1:n} if (α_1, . . . , α_n) ⪰^w (α*_1, . . . , α*_n).",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "Exponentiated scale family ES(α, λ): H(x) = [G(λx)]^α, α, λ > 0, G an arbitrary absolutely continuous baseline cdf; α_i heterogeneous, λ and G common; dependent components with an Archimedean survival copula",
+    "compared": "exponent vectors α vs α*; λ, baseline G and copula generator ϕ common",
+    "hypotheses": [
+      {"text": "X_i ∼ ES(α_i, λ) and X*_i ∼ ES(α*_i, λ)", "formal": "P(X_i ≤ x) = [G(λx)]^{α_i}, P(X*_i ≤ x) = [G(λx)]^{α*_i}", "source": "statement; section preamble (ES definition)"},
+      {"text": "where α, λ > 0 and G is called the baseline distribution function which we assume that is absolutely continuous", "formal": "α_i, α*_i, λ > 0; G absolutely continuous", "source": "section preamble"},
+      {"text": "share a common Archimedean survival copula with generator ϕ", "formal": "joint survival functions of (X_1, ..., X_n) and (X*_1, ..., X*_n) are ϕ(Σ ψ(F̄_i(x_i))) with the same n-monotone generator ϕ, ψ = ϕ^{-1}", "source": "statement; definition (Section 2, Archimedean copula)"},
+      {"text": "(α_1, . . . , α_n) ⪰^w (α*_1, . . . , α*_n)", "formal": "read as α* ⪯^w α: Σ_{i=1}^j α*_(i) ≥ Σ_{i=1}^j α_(i) for all j", "source": "statement; definition 2(ii) (reversed symbol not defined)"}
+    ],
+    "conclusion": {"order": "st", "direction": "X_{1:n} <= X*_{1:n}"},
+    "quantifiers": "n unspecified (n ≥ 2 implicit for an n-monotone generator); ordering for all x",
+    "numbers": "",
+    "ambiguity": "Cited from Bashkar et al. (2017), not proved here. The baseline G is arbitrary (semiparametric class); extracted because the paper also states the result for GMW (Theorem 12). ⪰^w is not defined; read as the converse of ⪯^w. Whether the same baseline G is used for both samples is implicit."
+  },
+  {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 12",
+    "page": 13,
+    "quote": "The following result, for the GMW samples with Archimedean survival copulas, follows immediately from Theorem 11. Theorem 12. Suppose for i = 1, ..., n, X_i ∼ GMW(α, γ, λ, β_i) and X*_i ∼ GMW(α, γ, λ, β*_i) share a common Archimedean survival copula with generator ϕ. Then, X_{1:n} ≤_st X*_{1:n} if (β_1, . . . , β_n) ⪰^w (β*_1, . . . , β*_n).",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "GMW(α, γ, λ, β_i), cdf (1 − exp(−αx^γ exp(λx)))^{β_i}; heterogeneous exponents β_i, common α, γ, λ; dependent components with a common Archimedean survival copula",
+    "compared": "exponent (shape) vectors β vs β*; α, γ, λ and generator ϕ common",
+    "hypotheses": [
+      {"text": "X_i ∼ GMW(α, γ, λ, β_i) and X*_i ∼ GMW(α, γ, λ, β*_i)", "formal": "marginal cdfs (1 − exp(−αx^γ e^{λx}))^{β_i} and (1 − exp(−αx^γ e^{λx}))^{β*_i}", "source": "statement"},
+      {"text": "share a common Archimedean survival copula with generator ϕ", "formal": "both joint survival functions are ϕ(Σ ψ(F̄_i(x_i))) with the same n-monotone generator ϕ, ψ = ϕ^{-1}", "source": "statement; definition (Section 2, Archimedean copula)"},
+      {"text": "(β_1, . . . , β_n) ⪰^w (β*_1, . . . , β*_n)", "formal": "read as β* ⪯^w β: Σ_{i=1}^j β*_(i) ≥ Σ_{i=1}^j β_(i) for all j", "source": "statement; definition 2(ii) (reversed symbol not defined)"},
+      {"text": "α > 0 is a scale parameter, and γ > 0 and β > 0 are shape parameters", "formal": "α > 0, γ > 0, β_i, β*_i > 0; λ range not stated", "source": "definition eq. (1) (Introduction)"}
+    ],
+    "conclusion": {"order": "st", "direction": "X_{1:n} <= X*_{1:n}"},
+    "quantifiers": "n unspecified (n ≥ 2 implicit); ordering for all x",
+    "numbers": "",
+    "ambiguity": "⪰^w is not defined; read as the converse of ⪯^w. Stated to follow immediately from Theorem 11 (no proof)."
+  },
+  {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 13",
+    "page": 14,
+    "quote": "In the sequel, by X ∼ GMW(β, α, γ, λ, ϕ) we mean that X has the Archimedean copula with generator ϕ and for i = 1, ..., n, X_i ∼ GMW(β_i, α, γ, λ). The smallest order statistic X_{1:n} of the sample X ∼ GMW(β, α, γ, λ, ϕ) has the survival function Ḡ_{X_{1:n}}(x) = ϕ(Σ_{i=1}^n ψ(1 − (F(α, γ, λ, x))^{β_i})) ≡ J(β, α, γ, λ, x, ϕ) (8) where, F(α, γ, λ, x) = 1 − exp(−αx^γ exp(λx)). Theorem 13. For X ∼ GMW(β, α, γ, λ, ϕ_1) and X* ∼ GMW(β*, α, γ, λ, ϕ_2), if ψ_2 ∘ ϕ_1 is super-additive, then (β_1, . . . , β_n) ⪰^w (β*_1, . . . , β*_n) implies X_{1:n} ≤_st X*_{1:n}.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "GMW with exponents β_i and common α, γ, λ: marginal cdf (F(α, γ, λ, x))^{β_i}, F(α, γ, λ, x) = 1 − exp(−αx^γ exp(λx)); dependent components with Archimedean (survival) copula, generator ϕ_1 for X and ϕ_2 for X*",
+    "compared": "exponent (shape) vectors β vs β* and copula generators ϕ_1 vs ϕ_2; α, γ, λ common",
+    "hypotheses": [
+      {"text": "by X ∼ GMW(β, α, γ, λ, ϕ) we mean that X has the Archimedean copula with generator ϕ and for i = 1, ..., n, X_i ∼ GMW(β_i, α, γ, λ)", "formal": "X = (X_1, ..., X_n) with Archimedean copula generator ϕ_1, X* with generator ϕ_2; marginals of X_i and X*_i have cdfs (1 − exp(−αx^γ e^{λx}))^{β_i} and (1 − exp(−αx^γ e^{λx}))^{β*_i}; P(X_{1:n} > x) = ϕ(Σ ψ(1 − F^{β_i})) (eq. (8))", "source": "section preamble"},
+      {"text": "if ψ_2 ∘ ϕ_1 is super-additive", "formal": "ψ_2(ϕ_1(x + y)) ≥ ψ_2(ϕ_1(x)) + ψ_2(ϕ_1(y)) for x, y ≥ 0, with ψ_2 = ϕ_2^{-1}", "source": "statement"},
+      {"text": "(β_1, . . . , β_n) ⪰^w (β*_1, . . . , β*_n)", "formal": "read as β* ⪯^w β: Σ_{i=1}^j β*_(i) ≥ Σ_{i=1}^j β_(i) for all j", "source": "statement; definition 2(ii) (reversed symbol not defined)"},
+      {"text": "a n-monotone (n ≥ 2) function ϕ : [0, +∞) → [0, 1] with ϕ(0) = 1 and lim_{x→+∞} ϕ(x) = 0, let ψ = ϕ^{-1} be the pseudo-inverse", "formal": "ϕ_1, ϕ_2 n-monotone Archimedean generators", "source": "definition (Section 2, Archimedean copula)"}
+    ],
+    "conclusion": {"order": "st", "direction": "X_{1:n} <= X*_{1:n}"},
+    "quantifiers": "n unspecified (n ≥ 2 implicit); ordering for all x ≥ 0",
+    "numbers": "",
+    "ambiguity": "Section 3.2 changes the GMW argument order to GMW(β_i, α, γ, λ) (β first) versus GMW(α, γ, λ, β) in eq. (1); by eq. (8) β_i is the exponent. The definition says 'the Archimedean copula', but eq. (8) is the survival-copula form (Theorem 12 speaks of survival copulas). 'Super-additive' is not defined in the paper (the proof cites Lemma A.1 of Li and Fang (2015)); the standard meaning is used above. ⪰^w is not defined; read as the converse of ⪯^w."
+  },
+  {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 14",
+    "page": 15,
+    "quote": "We say that random variable X belongs to the Exponentiated Scale (ES) family of distributions if X ∼ H(x) = [G(λx)]^α, where α, λ > 0 and G is called the baseline distribution function which we assume that is absolutely continuous. In the sequel, we denote this family by ES(α, λ). [...] Theorem 14 generalizes the result of Bashkar et al. (2017) to ES samples with not necessarily a common dependence structure. The smallest order statistic X_{1:n} of the sample X ∼ ES(α, λ, ϕ) gets survival function Ḡ_{X_{1:n}}(x) = ϕ(Σ_{i=1}^n ψ(1 − G^{α_i}(λx))) = J_1(α, λ, x, ϕ) (10) Theorem 14. For X ∼ ES(α, λ, ϕ_1) and X* ∼ ES(α*, λ, ϕ_2), if ψ_2 ∘ ϕ_1 is super-additive, then α ⪰^w α* implies X_{1:n} ≤_st X*_{1:n}.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "Exponentiated scale family ES(α_i, λ): H(x) = [G(λx)]^{α_i}, arbitrary absolutely continuous baseline G, common λ > 0; dependent components with Archimedean (survival) copula, generator ϕ_1 for X and ϕ_2 for X*",
+    "compared": "exponent vectors α vs α* and copula generators ϕ_1 vs ϕ_2; λ and G common",
+    "hypotheses": [
+      {"text": "X ∼ ES(α, λ, ϕ_1) and X* ∼ ES(α*, λ, ϕ_2)", "formal": "X_i has cdf [G(λx)]^{α_i}, X*_i has cdf [G(λx)]^{α*_i}; P(X_{1:n} > x) = ϕ_1(Σ ψ_1(1 − G^{α_i}(λx))) and P(X*_{1:n} > x) = ϕ_2(Σ ψ_2(1 − G^{α*_i}(λx))) (eq. (10))", "source": "statement; section preamble"},
+      {"text": "where α, λ > 0 and G is called the baseline distribution function which we assume that is absolutely continuous", "formal": "α_i, α*_i, λ > 0; G absolutely continuous", "source": "section preamble"},
+      {"text": "if ψ_2 ∘ ϕ_1 is super-additive", "formal": "ψ_2(ϕ_1(x + y)) ≥ ψ_2(ϕ_1(x)) + ψ_2(ϕ_1(y)), ψ_2 = ϕ_2^{-1}", "source": "statement"},
+      {"text": "α ⪰^w α*", "formal": "read as α* ⪯^w α: Σ_{i=1}^j α*_(i) ≥ Σ_{i=1}^j α_(i) for all j", "source": "statement; definition 2(ii) (reversed symbol not defined)"}
+    ],
+    "conclusion": {"order": "st", "direction": "X_{1:n} <= X*_{1:n}"},
+    "quantifiers": "n unspecified (n ≥ 2 implicit); ordering for all x ≥ 0",
+    "numbers": "",
+    "ambiguity": "General semiparametric class (arbitrary baseline G); extracted because the paper states the corresponding GMW result (Theorem 13). The notation ES(α, λ, ϕ) is introduced only through eq. (10). ⪰^w and 'super-additive' are not defined in the paper. Quote elides (marked [...]) Theorems 11-13 and the intervening text between the ES definition (p. 13) and eq. (10) (p. 15)."
+  },
+  {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Corollary 1",
+    "page": 16,
+    "quote": "Note that if in Theorem 14, we take λ = 1, then we get the following result for the proportional reversed hazards (PRH) model. Corollary 1. Suppose X ∼ PRH(α, ϕ_1) and X* ∼ PRH(α*, ϕ_2) and ϕ_2 ∘ ψ_1 is super-additive. Then α ⪰^w α* implies X_{1:n} ≤_st X*_{1:n}.",
+    "kind": "corollary",
+    "model": "series system",
+    "family": "Proportional reversed hazards model PRH(α, ϕ) = ES with λ = 1: X_i has cdf G^{α_i}(x), arbitrary absolutely continuous baseline G; Archimedean (survival) copula generators ϕ_1, ϕ_2",
+    "compared": "exponent vectors α vs α* and copula generators ϕ_1 vs ϕ_2; baseline G common",
+    "hypotheses": [
+      {"text": "Suppose X ∼ PRH(α, ϕ_1) and X* ∼ PRH(α*, ϕ_2)", "formal": "X_i has cdf G^{α_i}, X*_i has cdf G^{α*_i}; X has Archimedean copula generator ϕ_1, X* has ϕ_2", "source": "statement; earlier theorem 14 with λ = 1"},
+      {"text": "ϕ_2 ∘ ψ_1 is super-additive", "formal": "ϕ_2(ψ_1(x + y)) ≥ ϕ_2(ψ_1(x)) + ϕ_2(ψ_1(y)), as printed", "source": "statement"},
+      {"text": "α ⪰^w α*", "formal": "read as α* ⪯^w α: Σ_{i=1}^j α*_(i) ≥ Σ_{i=1}^j α_(i) for all j", "source": "statement; definition 2(ii) (reversed symbol not defined)"}
+    ],
+    "conclusion": {"order": "st", "direction": "X_{1:n} <= X*_{1:n}"},
+    "quantifiers": "n unspecified (n ≥ 2 implicit); ordering for all x",
+    "numbers": "",
+    "ambiguity": "The super-additivity condition is printed as ϕ_2 ∘ ψ_1, whereas Theorem 14 (from which the corollary is said to follow with λ = 1) requires ψ_2 ∘ ϕ_1. PRH(α, ϕ) is never formally defined (read as ES(α, 1, ϕ)). General semiparametric class (arbitrary baseline G). ⪰^w is not defined."
+  },
+  {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 15(i)",
+    "page": 16,
+    "quote": "In the ES family, Bashkar et al. (2018) obtained some sufficient conditions for the comparison of parallel systems under some well-known stochastic orderings. Their results are stated in the following theorem. Theorem 15. For X ∼ ES(α, λ, ϕ_1) and X* ∼ ES(α*, λ, ϕ_2), (i) if ϕ_1 or ϕ_2 is log-convex, and ψ_2∘ϕ_1 is super-additive, then (α_1, . . . , α_n) ⪰_w (α*_1, . . . , α*_n) implies X_{n:n} ≥_st X*_{n:n}; (ii) if ϕ_1 or ϕ_2 is log-concave, and ψ_1∘ϕ_2 is super-additive, then (α_1, . . . , α_n) ⪰^w (α*_1, . . . , α*_n) implies X_{n:n} ≤_st X*_{n:n}.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "Exponentiated scale family ES(α_i, λ): H(x) = [G(λx)]^{α_i}, arbitrary absolutely continuous baseline G, common λ > 0; dependent components with Archimedean copulas, generator ϕ_1 for X and ϕ_2 for X*",
+    "compared": "exponent vectors α vs α* and copula generators ϕ_1 vs ϕ_2; λ and G common",
+    "hypotheses": [
+      {"text": "For X ∼ ES(α, λ, ϕ_1) and X* ∼ ES(α*, λ, ϕ_2)", "formal": "X_i has cdf [G(λx)]^{α_i}, X*_i has cdf [G(λx)]^{α*_i}; X has Archimedean copula with generator ϕ_1, X* with ϕ_2", "source": "statement; section preamble"},
+      {"text": "(i) if ϕ_1 or ϕ_2 is log-convex", "formal": "log ϕ_1 convex or log ϕ_2 convex", "source": "statement"},
+      {"text": "and ψ_2∘ϕ_1 is super-additive", "formal": "ψ_2(ϕ_1(x + y)) ≥ ψ_2(ϕ_1(x)) + ψ_2(ϕ_1(y))", "source": "statement"},
+      {"text": "(α_1, . . . , α_n) ⪰_w (α*_1, . . . , α*_n)", "formal": "read as α* ⪯_w α: Σ_{i=j}^n α*_(i) ≤ Σ_{i=j}^n α_(i) for all j", "source": "statement; definition 2(i) (reversed symbol not defined)"},
+      {"text": "where α, λ > 0 and G is ... absolutely continuous", "formal": "α_i, α*_i, λ > 0", "source": "section preamble"}
+    ],
+    "conclusion": {"order": "st", "direction": "X*_{n:n} <= X_{n:n}"},
+    "quantifiers": "n unspecified (n ≥ 2 implicit); ordering for all x",
+    "numbers": "",
+    "ambiguity": "Cited from Bashkar et al. (2018), not proved here; general semiparametric class (arbitrary baseline G), extracted because the paper states the GMW version (Theorem 16). ⪰_w is not defined; read as the converse of ⪯_w. It is not specified whether ϕ_1, ϕ_2 generate the copula or the survival copula (ES(α, λ, ϕ) was introduced through the survival form (10) for X_{1:n})."
+  },
+  {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 15(ii)",
+    "page": 16,
+    "quote": "In the ES family, Bashkar et al. (2018) obtained some sufficient conditions for the comparison of parallel systems under some well-known stochastic orderings. Their results are stated in the following theorem. Theorem 15. For X ∼ ES(α, λ, ϕ_1) and X* ∼ ES(α*, λ, ϕ_2), (i) if ϕ_1 or ϕ_2 is log-convex, and ψ_2∘ϕ_1 is super-additive, then (α_1, . . . , α_n) ⪰_w (α*_1, . . . , α*_n) implies X_{n:n} ≥_st X*_{n:n}; (ii) if ϕ_1 or ϕ_2 is log-concave, and ψ_1∘ϕ_2 is super-additive, then (α_1, . . . , α_n) ⪰^w (α*_1, . . . , α*_n) implies X_{n:n} ≤_st X*_{n:n}.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "Exponentiated scale family ES(α_i, λ): H(x) = [G(λx)]^{α_i}, arbitrary absolutely continuous baseline G, common λ > 0; dependent components with Archimedean copulas, generator ϕ_1 for X and ϕ_2 for X*",
+    "compared": "exponent vectors α vs α* and copula generators ϕ_1 vs ϕ_2; λ and G common",
+    "hypotheses": [
+      {"text": "For X ∼ ES(α, λ, ϕ_1) and X* ∼ ES(α*, λ, ϕ_2)", "formal": "X_i has cdf [G(λx)]^{α_i}, X*_i has cdf [G(λx)]^{α*_i}; X has Archimedean copula with generator ϕ_1, X* with ϕ_2", "source": "statement; section preamble"},
+      {"text": "(ii) if ϕ_1 or ϕ_2 is log-concave", "formal": "log ϕ_1 concave or log ϕ_2 concave", "source": "statement"},
+      {"text": "and ψ_1∘ϕ_2 is super-additive", "formal": "ψ_1(ϕ_2(x + y)) ≥ ψ_1(ϕ_2(x)) + ψ_1(ϕ_2(y))", "source": "statement"},
+      {"text": "(α_1, . . . , α_n) ⪰^w (α*_1, . . . , α*_n)", "formal": "read as α* ⪯^w α: Σ_{i=1}^j α*_(i) ≥ Σ_{i=1}^j α_(i) for all j", "source": "statement; definition 2(ii) (reversed symbol not defined)"},
+      {"text": "where α, λ > 0 and G is ... absolutely continuous", "formal": "α_i, α*_i, λ > 0", "source": "section preamble"}
+    ],
+    "conclusion": {"order": "st", "direction": "X_{n:n} <= X*_{n:n}"},
+    "quantifiers": "n unspecified (n ≥ 2 implicit); ordering for all x",
+    "numbers": "",
+    "ambiguity": "Cited from Bashkar et al. (2018), not proved here; general semiparametric class (arbitrary baseline G), extracted because the paper states the GMW version (Theorem 16). ⪰^w is not defined; read as the converse of ⪯^w. Copula versus survival copula not specified."
+  },
+  {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 16(i)",
+    "page": 17,
+    "quote": "In the sequel, by X ∼ GMW(β, α, γ, λ, ϕ) we mean that X has the Archimedean copula with generator ϕ and for i = 1, ..., n, X_i ∼ GMW(β_i, α, γ, λ). [...] The following result follows immediately from Theorem 15. Theorem 16. For X ∼ GMW(β, α, γ, λ, ϕ_1) and X* ∼ GMW(β*, α, γ, λ, ϕ_2), (i) if ϕ_1 or ϕ_2 is log-convex, and ψ_2∘ϕ_1 is super-additive, then (β_1, . . . , β_n) ⪰_w (β*_1, . . . , β*_n) implies X_{n:n} ≥_st X*_{n:n}; (ii) if ϕ_1 or ϕ_2 is log-concave, and ψ_1∘ϕ_2 is super-additive, then (β_1, . . . , β_n) ⪰^w (β*_1, . . . , β*_n) implies X_{n:n} ≤_st X*_{n:n}.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "GMW with exponents β_i and common α, γ, λ: marginal cdf (1 − exp(−αx^γ exp(λx)))^{β_i}; dependent components with Archimedean copulas, generator ϕ_1 for X and ϕ_2 for X*",
+    "compared": "exponent (shape) vectors β vs β* and copula generators ϕ_1 vs ϕ_2; α, γ, λ common",
+    "hypotheses": [
+      {"text": "by X ∼ GMW(β, α, γ, λ, ϕ) we mean that X has the Archimedean copula with generator ϕ and for i = 1, ..., n, X_i ∼ GMW(β_i, α, γ, λ)", "formal": "X_i has cdf (1 − exp(−αx^γ e^{λx}))^{β_i}, X*_i has cdf (1 − exp(−αx^γ e^{λx}))^{β*_i}; X has Archimedean copula generator ϕ_1, X* has ϕ_2", "source": "section preamble"},
+      {"text": "(i) if ϕ_1 or ϕ_2 is log-convex", "formal": "log ϕ_1 convex or log ϕ_2 convex", "source": "statement"},
+      {"text": "and ψ_2∘ϕ_1 is super-additive", "formal": "ψ_2(ϕ_1(x + y)) ≥ ψ_2(ϕ_1(x)) + ψ_2(ϕ_1(y))", "source": "statement"},
+      {"text": "(β_1, . . . , β_n) ⪰_w (β*_1, . . . , β*_n)", "formal": "read as β* ⪯_w β: Σ_{i=j}^n β*_(i) ≤ Σ_{i=j}^n β_(i) for all j", "source": "statement; definition 2(i) (reversed symbol not defined)"},
+      {"text": "α > 0 is a scale parameter, and γ > 0 and β > 0 are shape parameters", "formal": "α > 0, γ > 0, β_i, β*_i > 0; λ range not stated", "source": "definition eq. (1) (Introduction)"}
+    ],
+    "conclusion": {"order": "st", "direction": "X*_{n:n} <= X_{n:n}"},
+    "quantifiers": "n unspecified (n ≥ 2 implicit); ordering for all x",
+    "numbers": "",
+    "ambiguity": "GMW argument order in Section 3.2 is GMW(β_i, α, γ, λ) (β first), unlike eq. (1). ⪰_w is not defined; read as the converse of ⪯_w. Copula versus survival copula not specified for X_{n:n}. Stated to follow immediately from Theorem 15 (no proof). Statement starts at the bottom of PDF page 16; parts (i)-(ii) are on page 17. Quote elides (marked [...]) the text between the GMW(β, α, γ, λ, ϕ) definition (p. 13) and Theorem 16."
+  },
+  {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 16(ii)",
+    "page": 17,
+    "quote": "In the sequel, by X ∼ GMW(β, α, γ, λ, ϕ) we mean that X has the Archimedean copula with generator ϕ and for i = 1, ..., n, X_i ∼ GMW(β_i, α, γ, λ). [...] The following result follows immediately from Theorem 15. Theorem 16. For X ∼ GMW(β, α, γ, λ, ϕ_1) and X* ∼ GMW(β*, α, γ, λ, ϕ_2), (i) if ϕ_1 or ϕ_2 is log-convex, and ψ_2∘ϕ_1 is super-additive, then (β_1, . . . , β_n) ⪰_w (β*_1, . . . , β*_n) implies X_{n:n} ≥_st X*_{n:n}; (ii) if ϕ_1 or ϕ_2 is log-concave, and ψ_1∘ϕ_2 is super-additive, then (β_1, . . . , β_n) ⪰^w (β*_1, . . . , β*_n) implies X_{n:n} ≤_st X*_{n:n}.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "GMW with exponents β_i and common α, γ, λ: marginal cdf (1 − exp(−αx^γ exp(λx)))^{β_i}; dependent components with Archimedean copulas, generator ϕ_1 for X and ϕ_2 for X*",
+    "compared": "exponent (shape) vectors β vs β* and copula generators ϕ_1 vs ϕ_2; α, γ, λ common",
+    "hypotheses": [
+      {"text": "by X ∼ GMW(β, α, γ, λ, ϕ) we mean that X has the Archimedean copula with generator ϕ and for i = 1, ..., n, X_i ∼ GMW(β_i, α, γ, λ)", "formal": "X_i has cdf (1 − exp(−αx^γ e^{λx}))^{β_i}, X*_i has cdf (1 − exp(−αx^γ e^{λx}))^{β*_i}; X has Archimedean copula generator ϕ_1, X* has ϕ_2", "source": "section preamble"},
+      {"text": "(ii) if ϕ_1 or ϕ_2 is log-concave", "formal": "log ϕ_1 concave or log ϕ_2 concave", "source": "statement"},
+      {"text": "and ψ_1∘ϕ_2 is super-additive", "formal": "ψ_1(ϕ_2(x + y)) ≥ ψ_1(ϕ_2(x)) + ψ_1(ϕ_2(y))", "source": "statement"},
+      {"text": "(β_1, . . . , β_n) ⪰^w (β*_1, . . . , β*_n)", "formal": "read as β* ⪯^w β: Σ_{i=1}^j β*_(i) ≥ Σ_{i=1}^j β_(i) for all j", "source": "statement; definition 2(ii) (reversed symbol not defined)"},
+      {"text": "α > 0 is a scale parameter, and γ > 0 and β > 0 are shape parameters", "formal": "α > 0, γ > 0, β_i, β*_i > 0; λ range not stated", "source": "definition eq. (1) (Introduction)"}
+    ],
+    "conclusion": {"order": "st", "direction": "X_{n:n} <= X*_{n:n}"},
+    "quantifiers": "n unspecified (n ≥ 2 implicit); ordering for all x",
+    "numbers": "",
+    "ambiguity": "GMW argument order in Section 3.2 is GMW(β_i, α, γ, λ) (β first), unlike eq. (1). ⪰^w is not defined; read as the converse of ⪯^w. Copula versus survival copula not specified for X_{n:n}. Stated to follow immediately from Theorem 15 (no proof). Quote elides (marked [...]) intervening text."
+  },
+  {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 17",
+    "page": 17,
+    "quote": "In the sequel, by X ∼ GMW(β, α, γ, λ, ϕ) we mean that X has the Archimedean copula with generator ϕ and for i = 1, ..., n, X_i ∼ GMW(β_i, α, γ, λ). [...] The following theorem provides some sufficient conditions under which weakly supermajorized order between the scale parameter vectors implies the usual stochastic order between the largest order statistics. Theorem 17. For X ∼ GMW(β, α, γ, λ, ϕ_1) and X* ∼ GMW(β, α*, γ, λ, ϕ_2), if ϕ_1 or ϕ_2 is log-convex, and ψ_2 ∘ ϕ_1 is super-additive, then (α_1, . . . , α_n) ⪰^w (α*_1, . . . , α*_n) implies X_{n:n} ≥_st X*_{n:n}.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "GMW with heterogeneous scales α_i and common β, γ, λ: marginal cdf (1 − exp(−α_i x^γ exp(λx)))^β (per the proof, eq. (12)); dependent components with Archimedean copulas, generator ϕ_1 for X and ϕ_2 for X*",
+    "compared": "scale vectors α vs α* and copula generators ϕ_1 vs ϕ_2; β, γ, λ common",
+    "hypotheses": [
+      {"text": "For X ∼ GMW(β, α, γ, λ, ϕ_1) and X* ∼ GMW(β, α*, γ, λ, ϕ_2)", "formal": "X_i has cdf (1 − exp(−α_i x^γ e^{λx}))^β, X*_i has cdf (1 − exp(−α*_i x^γ e^{λx}))^β; X has Archimedean copula generator ϕ_1, X* has ϕ_2; F_{X_{n:n}}(x) = ϕ_1(Σ ψ_1((1 − exp(−α_i x^γ exp(λx)))^β)) (eq. (12))", "source": "statement; section preamble"},
+      {"text": "if ϕ_1 or ϕ_2 is log-convex", "formal": "log ϕ_1 convex or log ϕ_2 convex", "source": "statement"},
+      {"text": "and ψ_2 ∘ ϕ_1 is super-additive", "formal": "ψ_2(ϕ_1(x + y)) ≥ ψ_2(ϕ_1(x)) + ψ_2(ϕ_1(y))", "source": "statement"},
+      {"text": "(α_1, . . . , α_n) ⪰^w (α*_1, . . . , α*_n)", "formal": "read as α* ⪯^w α: Σ_{i=1}^j α*_(i) ≥ Σ_{i=1}^j α_(i) for all j", "source": "statement; definition 2(ii) (reversed symbol not defined)"},
+      {"text": "α > 0 is a scale parameter, and γ > 0 and β > 0 are shape parameters", "formal": "α_i, α*_i > 0, γ > 0, β > 0; λ range not stated", "source": "definition eq. (1) (Introduction)"}
+    ],
+    "conclusion": {"order": "st", "direction": "X*_{n:n} <= X_{n:n}"},
+    "quantifiers": "n unspecified (n ≥ 2 implicit); ordering for all x > 0",
+    "numbers": "",
+    "ambiguity": "Here GMW(β, α, γ, λ, ϕ) carries a scalar β and a vector α, contrary to the Section 3.2 definition (vector β, scalar α); the marginal form is taken from the proof (eq. (12)). The proof uses the ordinary-copula form for F_{X_{n:n}}, whereas eq. (8) uses the survival form. ⪰^w and 'super-additive' are not defined in the paper. Quote elides (marked [...]) intervening text."
+  }
+]

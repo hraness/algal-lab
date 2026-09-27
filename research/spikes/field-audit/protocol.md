@@ -175,3 +175,13 @@ results, and a paper reporting P1 and P2.
    pilot paper, the pilot serves as the development set: the harness is frozen
    after the pilot, all sampled papers including the pilot are tested with the
    frozen harness, and P1 is reported both with and without the pilot papers.
+4. **2026-09-27, before the sample of 100 is frozen.** Retrieval adds
+   Unpaywall's open-access locations (queried once per DOI) to Semantic
+   Scholar's link and arXiv, and every candidate without retrieved text is
+   re-attempted, repository copies first. This widens "legally retrievable" to
+   accepted and submitted manuscripts in repositories, and reduces the
+   publisher-blocked downloads that would otherwise skew the sample by
+   publisher. The version retrieved (published, accepted or submitted) is
+   recorded per paper. A refutation found on a manuscript version is reported
+   with that version, since the published text may differ. The pilot keeps its
+   fixed membership.

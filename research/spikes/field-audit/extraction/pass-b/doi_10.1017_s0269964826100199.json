@@ -1,0 +1,1802 @@
+[
+  {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Theorem 3.1(1)",
+    "page": 6,
+    "quote": "Note that, for 0 < q_l, q*_l < 1, U_{1:n} and V_{1:n} are defined over different domains. So, any comparison of these r.v.'s should be over a common domain. In our results, we denote the common domain of U_{1:n} and V_{1:n} as (0, D) where D = min{min_l{[λ_l(1 − q_l)]^{−1/β_l}}, min_l{[λ*_l(1 − q*_l)]^{−1/β*_l}}}. The following theorems compare the smallest order statistics with respect to the usual stochastic order, hazard rate order, and likelihood ratio order. Theorem 3.1. Let U_1, U_2, . . . , U_n be a set of independent r.v.'s such that U_i ∼ q − W(q, λ_i, β), i = 1, 2, . . . , n, and V_1, V_2, . . . , V_n be another set of independent r.v.'s such that V_i ∼ q − W(q, λ*_i, β), i = 1, 2, . . . , n. Then the following results hold: (1) If 0 < q < 1 and (λ_1, λ_2, . . . , λ_n) ⪯_w (λ*_1, λ*_2, . . . , λ*_n), then V_{1:n} ≤_hr U_{1:n}. (2) If 1 < q < 2 and (λ_1, λ_2, . . . , λ_n) ⪯^w (λ*_1, λ*_2, . . . , λ*_n), then V_{1:n} ≥_hr U_{1:n}.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "q-Weibull q−W(q, λ, β): pdf f(t) = λβ(2 − q)t^{β−1}[1 − (1 − q)λt^β]^{1/(1−q)}, t ∈ [0, [λ(1 − q)]^{−1/β}] for 0 < q < 1 and t ∈ [0, ∞) for 1 < q < 2, 'where β > 0 and λ > 0'; cdf F(t) = 1 − [1 − λ(1 − q)t^β]^{(2−q)/(1−q)}, t ≥ 0 (eq. (1)); here λ_i heterogeneous, q and β common to both samples",
+    "compared": "λ vectors (λ_1, ..., λ_n) vs (λ*_1, ..., λ*_n); q, β common",
+    "hypotheses": [
+      {
+        "text": "Let U_1, U_2, . . . , U_n be a set of independent r.v.'s such that U_i ∼ q − W(q, λ_i, β)",
+        "formal": "U_1, ..., U_n independent, U_i with survival [1 − λ_i(1 − q)t^β]^{(2−q)/(1−q)}",
+        "source": "statement"
+      },
+      {
+        "text": "V_1, V_2, . . . , V_n be another set of independent r.v.'s such that V_i ∼ q − W(q, λ*_i, β)",
+        "formal": "V_1, ..., V_n independent, V_i with survival [1 − λ*_i(1 − q)t^β]^{(2−q)/(1−q)}; same q, β as the U_i",
+        "source": "statement"
+      },
+      {
+        "text": "If 0 < q < 1",
+        "formal": "0 < q < 1",
+        "source": "statement"
+      },
+      {
+        "text": "(λ_1, λ_2, . . . , λ_n) ⪯_w (λ*_1, λ*_2, . . . , λ*_n)",
+        "formal": "x = λ, y = λ*: weak submajorization (Definition 2.2): Σ_{i=j}^n x_(i) ≤ Σ_{i=j}^n y_(i) for j = 1, ..., n (increasing arrangement)",
+        "source": "statement; definition 2.2"
+      },
+      {
+        "text": "where β > 0 and λ > 0",
+        "formal": "all λ-type and β-type parameters > 0; q ∈ (0, 1) ∪ (1, 2) as in the two branches of eq. (1)",
+        "source": "definition eq. (1) (Introduction)"
+      },
+      {
+        "text": "In our results, we denote the common domain of U_{1:n} and V_{1:n} as (0, D) where D = min{min_l{[λ_l(1 − q_l)]^{−1/β_l}}, min_l{[λ*_l(1 − q*_l)]^{−1/β*_l}}}.",
+        "formal": "when q < 1 the comparison is made only for t ∈ (0, D), D = smallest upper support endpoint among all components",
+        "source": "section preamble"
+      }
+    ],
+    "conclusion": {
+      "order": "hr",
+      "direction": "V_{1:n} <= U_{1:n}"
+    },
+    "quantifiers": "n unspecified; 0 < q < 1; β > 0; t ∈ (0, D) (common domain)",
+    "numbers": "",
+    "ambiguity": ""
+  },
+  {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Theorem 3.1(2)",
+    "page": 6,
+    "quote": "Note that, for 0 < q_l, q*_l < 1, U_{1:n} and V_{1:n} are defined over different domains. So, any comparison of these r.v.'s should be over a common domain. In our results, we denote the common domain of U_{1:n} and V_{1:n} as (0, D) where D = min{min_l{[λ_l(1 − q_l)]^{−1/β_l}}, min_l{[λ*_l(1 − q*_l)]^{−1/β*_l}}}. The following theorems compare the smallest order statistics with respect to the usual stochastic order, hazard rate order, and likelihood ratio order. Theorem 3.1. Let U_1, U_2, . . . , U_n be a set of independent r.v.'s such that U_i ∼ q − W(q, λ_i, β), i = 1, 2, . . . , n, and V_1, V_2, . . . , V_n be another set of independent r.v.'s such that V_i ∼ q − W(q, λ*_i, β), i = 1, 2, . . . , n. Then the following results hold: (1) If 0 < q < 1 and (λ_1, λ_2, . . . , λ_n) ⪯_w (λ*_1, λ*_2, . . . , λ*_n), then V_{1:n} ≤_hr U_{1:n}. (2) If 1 < q < 2 and (λ_1, λ_2, . . . , λ_n) ⪯^w (λ*_1, λ*_2, . . . , λ*_n), then V_{1:n} ≥_hr U_{1:n}.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "q-Weibull q−W(q, λ, β): pdf f(t) = λβ(2 − q)t^{β−1}[1 − (1 − q)λt^β]^{1/(1−q)}, t ∈ [0, [λ(1 − q)]^{−1/β}] for 0 < q < 1 and t ∈ [0, ∞) for 1 < q < 2, 'where β > 0 and λ > 0'; cdf F(t) = 1 − [1 − λ(1 − q)t^β]^{(2−q)/(1−q)}, t ≥ 0 (eq. (1)); here λ_i heterogeneous, q and β common to both samples",
+    "compared": "λ vectors (λ_1, ..., λ_n) vs (λ*_1, ..., λ*_n); q, β common",
+    "hypotheses": [
+      {
+        "text": "Let U_1, U_2, . . . , U_n be a set of independent r.v.'s such that U_i ∼ q − W(q, λ_i, β)",
+        "formal": "U_1, ..., U_n independent, U_i with survival [1 − λ_i(1 − q)t^β]^{(2−q)/(1−q)}",
+        "source": "statement"
+      },
+      {
+        "text": "V_1, V_2, . . . , V_n be another set of independent r.v.'s such that V_i ∼ q − W(q, λ*_i, β)",
+        "formal": "V_1, ..., V_n independent, V_i with survival [1 − λ*_i(1 − q)t^β]^{(2−q)/(1−q)}; same q, β as the U_i",
+        "source": "statement"
+      },
+      {
+        "text": "If 1 < q < 2",
+        "formal": "1 < q < 2",
+        "source": "statement"
+      },
+      {
+        "text": "(λ_1, λ_2, . . . , λ_n) ⪯^w (λ*_1, λ*_2, . . . , λ*_n)",
+        "formal": "x = λ, y = λ*: weak supermajorization (Definition 2.2): Σ_{i=1}^j x_(i) ≥ Σ_{i=1}^j y_(i) for j = 1, ..., n (increasing arrangement)",
+        "source": "statement; definition 2.2"
+      },
+      {
+        "text": "where β > 0 and λ > 0",
+        "formal": "all λ-type and β-type parameters > 0; q ∈ (0, 1) ∪ (1, 2) as in the two branches of eq. (1)",
+        "source": "definition eq. (1) (Introduction)"
+      }
+    ],
+    "conclusion": {
+      "order": "hr",
+      "direction": "U_{1:n} <= V_{1:n}"
+    },
+    "quantifiers": "n unspecified; 1 < q < 2; β > 0; all t ≥ 0",
+    "numbers": "",
+    "ambiguity": ""
+  },
+  {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Example 3.2 (case 0 < q < 1, Fig. 1(a))",
+    "page": 6,
+    "quote": "In the following, we consider a numerical example to demonstrate the result stated in the above theorem. Example 3.2. Let U_i ∼ q − W(q, λ_i, β) and V_i ∼ q − W(q, λ*_i, β), i = 1, 2. First, consider he case 0 < q < 1 with q = 0.5, β = 0.5, λ_1 = 0.5, λ_2 = 1.5, λ*_1 = 0.3, and λ*_2 = 1.8. Here (λ_1, λ_2) ⪯_w (λ*_1, λ*_2). Figure 1(a) represents the plot of F̄_{U_{1:2}}(t)/F̄_{V_{1:2}}(t) in (0, D) = (0, 1.23). The plot clearly indicates that F̄_{U_{1:2}}(t)/F̄_{V_{1:2}}(t) is increasing in t, which in turn implies h_{U_{1:2}} ≤ h_{V_{1:2}} and hence U_{1:2} ≥_hr V_{1:2}.",
+    "kind": "example",
+    "model": "series system",
+    "family": "q-Weibull q−W(q, λ, β): pdf f(t) = λβ(2 − q)t^{β−1}[1 − (1 − q)λt^β]^{1/(1−q)}, t ∈ [0, [λ(1 − q)]^{−1/β}] for 0 < q < 1 and t ∈ [0, ∞) for 1 < q < 2, 'where β > 0 and λ > 0'; cdf F(t) = 1 − [1 − λ(1 − q)t^β]^{(2−q)/(1−q)}, t ≥ 0 (eq. (1)); here λ_i heterogeneous, q and β common to both samples",
+    "compared": "λ = (0.5, 1.5) vs λ* = (0.3, 1.8)",
+    "hypotheses": [
+      {
+        "text": "Let U_i ∼ q − W(q, λ_i, β) and V_i ∼ q − W(q, λ*_i, β), i = 1, 2.",
+        "formal": "two independent samples of size 2 (independence from Theorem 3.1)",
+        "source": "statement"
+      },
+      {
+        "text": "q = 0.5, β = 0.5, λ_1 = 0.5, λ_2 = 1.5, λ*_1 = 0.3, and λ*_2 = 1.8",
+        "formal": "q = 0.5, β = 0.5, λ = (0.5, 1.5), λ* = (0.3, 1.8)",
+        "source": "statement"
+      },
+      {
+        "text": "Here (λ_1, λ_2) ⪯_w (λ*_1, λ*_2).",
+        "formal": "asserted hypothesis of Theorem 3.1(1)",
+        "source": "statement; earlier theorem 3.1(1)"
+      }
+    ],
+    "conclusion": {
+      "order": "hr",
+      "direction": "V_{1:2} <= U_{1:2}"
+    },
+    "quantifiers": "n = 2; t ∈ (0, D) = (0, 1.23)",
+    "numbers": "n = 2; q = 0.5; β = 0.5; λ_1 = 0.5, λ_2 = 1.5; λ*_1 = 0.3, λ*_2 = 1.8. Printed: (λ_1, λ_2) ⪯_w (λ*_1, λ*_2); (0, D) = (0, 1.23); F̄_{U_{1:2}}(t)/F̄_{V_{1:2}}(t) increasing in t (Fig. 1(a), t from 0 to about 1.2, ratio rising from about 1 to above 50); h_{U_{1:2}} ≤ h_{V_{1:2}}; U_{1:2} ≥_hr V_{1:2}.",
+    "ambiguity": ""
+  },
+  {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Example 3.2 (case q > 1, Fig. 1(b))",
+    "page": 6,
+    "quote": "In the following, we consider a numerical example to demonstrate the result stated in the above theorem. Example 3.2. Let U_i ∼ q − W(q, λ_i, β) and V_i ∼ q − W(q, λ*_i, β), i = 1, 2. Similarly, for the case of q > 1, consider q = 1.5, β = 0.5, λ_1 = 0.6, λ_2 = 1.5, λ*_1 = 0.3, and λ*_2 = 1.7, where (λ_1, λ_2) ⪯^w (λ*_1, λ*_2). Then from Figure 1(b), it is clear that F̄_{U_{1:2}}(t)/F̄_{V_{1:2}}(t) is decreasing in t, which leads to U_{1:2} ≤_hr V_{1:2}.",
+    "kind": "example",
+    "model": "series system",
+    "family": "q-Weibull q−W(q, λ, β): pdf f(t) = λβ(2 − q)t^{β−1}[1 − (1 − q)λt^β]^{1/(1−q)}, t ∈ [0, [λ(1 − q)]^{−1/β}] for 0 < q < 1 and t ∈ [0, ∞) for 1 < q < 2, 'where β > 0 and λ > 0'; cdf F(t) = 1 − [1 − λ(1 − q)t^β]^{(2−q)/(1−q)}, t ≥ 0 (eq. (1)); here λ_i heterogeneous, q and β common to both samples",
+    "compared": "λ = (0.6, 1.5) vs λ* = (0.3, 1.7)",
+    "hypotheses": [
+      {
+        "text": "Let U_i ∼ q − W(q, λ_i, β) and V_i ∼ q − W(q, λ*_i, β), i = 1, 2.",
+        "formal": "two independent samples of size 2 (independence from Theorem 3.1)",
+        "source": "statement"
+      },
+      {
+        "text": "q = 1.5, β = 0.5, λ_1 = 0.6, λ_2 = 1.5, λ*_1 = 0.3, and λ*_2 = 1.7",
+        "formal": "q = 1.5, β = 0.5, λ = (0.6, 1.5), λ* = (0.3, 1.7)",
+        "source": "statement"
+      },
+      {
+        "text": "where (λ_1, λ_2) ⪯^w (λ*_1, λ*_2)",
+        "formal": "asserted hypothesis of Theorem 3.1(2)",
+        "source": "statement; earlier theorem 3.1(2)"
+      }
+    ],
+    "conclusion": {
+      "order": "hr",
+      "direction": "U_{1:2} <= V_{1:2}"
+    },
+    "quantifiers": "n = 2; Fig. 1(b) plots t up to 10000",
+    "numbers": "n = 2; q = 1.5; β = 0.5; λ_1 = 0.6, λ_2 = 1.5; λ*_1 = 0.3, λ*_2 = 1.7. Printed: (λ_1, λ_2) ⪯^w (λ*_1, λ*_2); F̄_{U_{1:2}}(t)/F̄_{V_{1:2}}(t) decreasing in t (Fig. 1(b), t axis to 10000, ratio falling from about 0.635 to about 0.585); U_{1:2} ≤_hr V_{1:2}.",
+    "ambiguity": "The figure is drawn over a finite t range only (roughly 500 to 10000)."
+  },
+  {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Example 3.3 (case 0 < q < 1, Fig. 2(a))",
+    "page": 7,
+    "quote": "Theorem 3.1 demonstrated that under the stated conditions, the smallest order statistics are comparable in hazard rate order. A natural question arises: Does this conclusion hold when substituting the hazard rate order by the likelihood ratio order? The following counterexample furnishes the answer. Example 3.3. Let U_i ∼ q−W(q, λ_i, β) and V_i ∼ q−W(q, λ*_i, β), i = 1, 2. Choose q = 0.5, β = 0.5, λ_1 = 0.5, λ_2 = 1.5, λ*_1 = 0.3, and λ*_2 = 1.7. Then, Figure 2(a) represents the plot of f_{V_{1:2}}(t)/f_{U_{1:2}}(t) in a subset of (0, D) = (0, 1.38), from which it is clear that f_{V_{1:2}}(t)/f_{U_{1:2}}(t) is not an increasing function in t. Thus, for 0 < q < 1, U_{1:n} and V_{1:n} are not comparable in likelihood ratio order when (λ_1, λ_2) ⪯^m (λ*_1, λ*_2).",
+    "kind": "counterexample",
+    "model": "series system",
+    "family": "q-Weibull q−W(q, λ, β): pdf f(t) = λβ(2 − q)t^{β−1}[1 − (1 − q)λt^β]^{1/(1−q)}, t ∈ [0, [λ(1 − q)]^{−1/β}] for 0 < q < 1 and t ∈ [0, ∞) for 1 < q < 2, 'where β > 0 and λ > 0'; cdf F(t) = 1 − [1 − λ(1 − q)t^β]^{(2−q)/(1−q)}, t ≥ 0 (eq. (1)); here λ_i heterogeneous, q and β common to both samples",
+    "compared": "λ = (0.5, 1.5) vs λ* = (0.3, 1.7)",
+    "hypotheses": [
+      {
+        "text": "Let U_i ∼ q − W(q, λ_i, β) and V_i ∼ q − W(q, λ*_i, β), i = 1, 2.",
+        "formal": "two independent samples of size 2 (independence from Theorem 3.1)",
+        "source": "statement"
+      },
+      {
+        "text": "Choose q = 0.5, β = 0.5, λ_1 = 0.5, λ_2 = 1.5, λ*_1 = 0.3, and λ*_2 = 1.7.",
+        "formal": "q = 0.5, β = 0.5, λ = (0.5, 1.5), λ* = (0.3, 1.7)",
+        "source": "statement"
+      },
+      {
+        "text": "when (λ_1, λ_2) ⪯^m (λ*_1, λ*_2)",
+        "formal": "asserted majorization (implies both weak majorizations)",
+        "source": "statement; definition 2.2"
+      }
+    ],
+    "conclusion": {
+      "order": "lr",
+      "direction": "neither: claimed that U_{1:2} and V_{1:2} are not comparable in the lr order (refutes an lr strengthening of Theorem 3.1(1))"
+    },
+    "quantifiers": "n = 2; plotted on a subset of (0, D) = (0, 1.38)",
+    "numbers": "n = 2; q = 0.5; β = 0.5; λ_1 = 0.5, λ_2 = 1.5; λ*_1 = 0.3, λ*_2 = 1.7. Printed: (0, D) = (0, 1.38); f_{V_{1:2}}(t)/f_{U_{1:2}}(t) not increasing (Fig. 2(a), t from 0 to 0.4, ratio rises from 1.00 to about 1.025 near t = 0.12 and falls to about 0.985 at t = 0.4); U_{1:n} and V_{1:n} not comparable in lr order when (λ_1, λ_2) ⪯^m (λ*_1, λ*_2).",
+    "ambiguity": "'Not an increasing function' of f_V/f_U only excludes U_{1:2} ≤_lr V_{1:2}; the lr analogue of the Theorem 3.1 conclusion would be V_{1:2} ≤_lr U_{1:2} (f_V/f_U decreasing). The plotted ratio is non-monotone (rises then falls, or falls then rises), which the text reads as 'not comparable'. The conclusion is phrased for U_{1:n}, V_{1:n} although n = 2."
+  },
+  {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Example 3.3 (case q > 1, Fig. 2(b))",
+    "page": 7,
+    "quote": "Theorem 3.1 demonstrated that under the stated conditions, the smallest order statistics are comparable in hazard rate order. A natural question arises: Does this conclusion hold when substituting the hazard rate order by the likelihood ratio order? The following counterexample furnishes the answer. Example 3.3. Let U_i ∼ q−W(q, λ_i, β) and V_i ∼ q−W(q, λ*_i, β), i = 1, 2. A similar conclusion can also be drawn when q is larger than 1. Set, q = 1.5, β = 2, λ_1 = 0.5, λ_2 = 1.5, λ*_1 = 0.3, and λ*_2 = 1.7. Then, from Figure 2(b) it is clear that f_{V_{1:2}}(t)/f_{U_{1:2}}(t) is also not an increasing function, which enables us to say that U_{1:n} and V_{1:n} are not comparable in likelihood ratio order.",
+    "kind": "counterexample",
+    "model": "series system",
+    "family": "q-Weibull q−W(q, λ, β): pdf f(t) = λβ(2 − q)t^{β−1}[1 − (1 − q)λt^β]^{1/(1−q)}, t ∈ [0, [λ(1 − q)]^{−1/β}] for 0 < q < 1 and t ∈ [0, ∞) for 1 < q < 2, 'where β > 0 and λ > 0'; cdf F(t) = 1 − [1 − λ(1 − q)t^β]^{(2−q)/(1−q)}, t ≥ 0 (eq. (1)); here λ_i heterogeneous, q and β common to both samples",
+    "compared": "λ = (0.5, 1.5) vs λ* = (0.3, 1.7), β = 2",
+    "hypotheses": [
+      {
+        "text": "Let U_i ∼ q − W(q, λ_i, β) and V_i ∼ q − W(q, λ*_i, β), i = 1, 2.",
+        "formal": "two independent samples of size 2 (independence from Theorem 3.1)",
+        "source": "statement"
+      },
+      {
+        "text": "Set, q = 1.5, β = 2, λ_1 = 0.5, λ_2 = 1.5, λ*_1 = 0.3, and λ*_2 = 1.7.",
+        "formal": "q = 1.5, β = 2, λ = (0.5, 1.5), λ* = (0.3, 1.7)",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "lr",
+      "direction": "neither: claimed that U_{1:2} and V_{1:2} are not comparable in the lr order (refutes an lr strengthening of Theorem 3.1(2))"
+    },
+    "quantifiers": "n = 2; Fig. 2(b) plots t from 0 to 2",
+    "numbers": "n = 2; q = 1.5; β = 2; λ_1 = 0.5, λ_2 = 1.5; λ*_1 = 0.3, λ*_2 = 1.7. Printed: f_{V_{1:2}}(t)/f_{U_{1:2}}(t) not increasing (Fig. 2(b), t from 0 to 2, ratio falls from 1.00 to about 0.965 near t = 0.9 and rises to about 1.04 at t = 2); U_{1:n} and V_{1:n} not comparable in lr order.",
+    "ambiguity": "'Not an increasing function' of f_V/f_U only excludes U_{1:2} ≤_lr V_{1:2}; the lr analogue of the Theorem 3.1 conclusion would be V_{1:2} ≤_lr U_{1:2} (f_V/f_U decreasing). The plotted ratio is non-monotone (rises then falls, or falls then rises), which the text reads as 'not comparable'. No majorization relation is stated for this case."
+  },
+  {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Theorem 3.4(1)",
+    "page": 7,
+    "quote": "Note that, for 0 < q_l, q*_l < 1, U_{1:n} and V_{1:n} are defined over different domains. So, any comparison of these r.v.'s should be over a common domain. In our results, we denote the common domain of U_{1:n} and V_{1:n} as (0, D) where D = min{min_l{[λ_l(1 − q_l)]^{−1/β_l}}, min_l{[λ*_l(1 − q*_l)]^{−1/β*_l}}}. [...] Theorem 3.4. Let U_1, U_2, . . . , U_n be a set of independent r.v.'s such that U_i ∼ q-W(q_i, λ, β), i = 1, 2, . . . , n, and V_1, V_2, . . . , V_n be another set of independent r.v.'s such that V_i ∼ q-W(q*_i, λ, β), i = 1, 2, . . . , n. Then the following results hold: (1) If 0 < max_l{q_l, q*_l} < 1 and (q_1, q_2, . . . , q_n) ⪯^w (q*_1, q*_2, . . . , q*_n), then V_{1:n} ≤_hr U_{1:n}. (2) If 1 < min_l{q_l, q*_l} < 2 and (q_1, q_2, . . . , q_n) ⪯^w (q*_1, q*_2, . . . , q*_n), then V_{1:n} ≤_hr U_{1:n}.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "q-Weibull q−W(q, λ, β): pdf f(t) = λβ(2 − q)t^{β−1}[1 − (1 − q)λt^β]^{1/(1−q)}, t ∈ [0, [λ(1 − q)]^{−1/β}] for 0 < q < 1 and t ∈ [0, ∞) for 1 < q < 2, 'where β > 0 and λ > 0'; cdf F(t) = 1 − [1 − λ(1 − q)t^β]^{(2−q)/(1−q)}, t ≥ 0 (eq. (1)); here q_i heterogeneous, λ and β common to both samples",
+    "compared": "q vectors (q_1, ..., q_n) vs (q*_1, ..., q*_n); λ, β common",
+    "hypotheses": [
+      {
+        "text": "Let U_1, U_2, . . . , U_n be a set of independent r.v.'s such that U_i ∼ q-W(q_i, λ, β)",
+        "formal": "U_i independent with survival [1 − λ(1 − q_i)t^β]^{(2−q_i)/(1−q_i)}",
+        "source": "statement"
+      },
+      {
+        "text": "V_1, V_2, . . . , V_n be another set of independent r.v.'s such that V_i ∼ q-W(q*_i, λ, β)",
+        "formal": "V_i independent with survival [1 − λ(1 − q*_i)t^β]^{(2−q*_i)/(1−q*_i)}",
+        "source": "statement"
+      },
+      {
+        "text": "If 0 < max_l{q_l, q*_l} < 1",
+        "formal": "all q_l, q*_l ∈ (0, 1)",
+        "source": "statement"
+      },
+      {
+        "text": "(q_1, q_2, . . . , q_n) ⪯^w (q*_1, q*_2, . . . , q*_n)",
+        "formal": "x = q, y = q*: weak supermajorization (Definition 2.2): Σ_{i=1}^j x_(i) ≥ Σ_{i=1}^j y_(i) for j = 1, ..., n (increasing arrangement)",
+        "source": "statement; definition 2.2"
+      },
+      {
+        "text": "where β > 0 and λ > 0",
+        "formal": "all λ-type and β-type parameters > 0; q ∈ (0, 1) ∪ (1, 2) as in the two branches of eq. (1)",
+        "source": "definition eq. (1) (Introduction)"
+      },
+      {
+        "text": "In our results, we denote the common domain of U_{1:n} and V_{1:n} as (0, D) where D = min{min_l{[λ_l(1 − q_l)]^{−1/β_l}}, min_l{[λ*_l(1 − q*_l)]^{−1/β*_l}}}.",
+        "formal": "when q < 1 the comparison is made only for t ∈ (0, D), D = smallest upper support endpoint among all components",
+        "source": "section preamble"
+      }
+    ],
+    "conclusion": {
+      "order": "hr",
+      "direction": "V_{1:n} <= U_{1:n}"
+    },
+    "quantifiers": "n unspecified; all q's in (0, 1); t ∈ (0, D) (common domain)",
+    "numbers": "",
+    "ambiguity": "Proof only says the results follow by arguments similar to Theorem 3.1. [...] in the quote marks omitted intervening text (Theorem 3.1 and Examples 3.2-3.3)."
+  },
+  {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Theorem 3.4(2)",
+    "page": 7,
+    "quote": "Note that, for 0 < q_l, q*_l < 1, U_{1:n} and V_{1:n} are defined over different domains. So, any comparison of these r.v.'s should be over a common domain. In our results, we denote the common domain of U_{1:n} and V_{1:n} as (0, D) where D = min{min_l{[λ_l(1 − q_l)]^{−1/β_l}}, min_l{[λ*_l(1 − q*_l)]^{−1/β*_l}}}. [...] Theorem 3.4. Let U_1, U_2, . . . , U_n be a set of independent r.v.'s such that U_i ∼ q-W(q_i, λ, β), i = 1, 2, . . . , n, and V_1, V_2, . . . , V_n be another set of independent r.v.'s such that V_i ∼ q-W(q*_i, λ, β), i = 1, 2, . . . , n. Then the following results hold: (1) If 0 < max_l{q_l, q*_l} < 1 and (q_1, q_2, . . . , q_n) ⪯^w (q*_1, q*_2, . . . , q*_n), then V_{1:n} ≤_hr U_{1:n}. (2) If 1 < min_l{q_l, q*_l} < 2 and (q_1, q_2, . . . , q_n) ⪯^w (q*_1, q*_2, . . . , q*_n), then V_{1:n} ≤_hr U_{1:n}.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "q-Weibull q−W(q, λ, β): pdf f(t) = λβ(2 − q)t^{β−1}[1 − (1 − q)λt^β]^{1/(1−q)}, t ∈ [0, [λ(1 − q)]^{−1/β}] for 0 < q < 1 and t ∈ [0, ∞) for 1 < q < 2, 'where β > 0 and λ > 0'; cdf F(t) = 1 − [1 − λ(1 − q)t^β]^{(2−q)/(1−q)}, t ≥ 0 (eq. (1)); here q_i heterogeneous, λ and β common to both samples",
+    "compared": "q vectors (q_1, ..., q_n) vs (q*_1, ..., q*_n); λ, β common",
+    "hypotheses": [
+      {
+        "text": "Let U_1, U_2, . . . , U_n be a set of independent r.v.'s such that U_i ∼ q-W(q_i, λ, β)",
+        "formal": "U_i independent with survival [1 − λ(1 − q_i)t^β]^{(2−q_i)/(1−q_i)}",
+        "source": "statement"
+      },
+      {
+        "text": "V_1, V_2, . . . , V_n be another set of independent r.v.'s such that V_i ∼ q-W(q*_i, λ, β)",
+        "formal": "V_i independent with survival [1 − λ(1 − q*_i)t^β]^{(2−q*_i)/(1−q*_i)}",
+        "source": "statement"
+      },
+      {
+        "text": "If 1 < min_l{q_l, q*_l} < 2",
+        "formal": "all q_l, q*_l > 1 (and < 2 by eq. (1))",
+        "source": "statement"
+      },
+      {
+        "text": "(q_1, q_2, . . . , q_n) ⪯^w (q*_1, q*_2, . . . , q*_n)",
+        "formal": "x = q, y = q*: weak supermajorization (Definition 2.2): Σ_{i=1}^j x_(i) ≥ Σ_{i=1}^j y_(i) for j = 1, ..., n (increasing arrangement)",
+        "source": "statement; definition 2.2"
+      },
+      {
+        "text": "where β > 0 and λ > 0",
+        "formal": "all λ-type and β-type parameters > 0; q ∈ (0, 1) ∪ (1, 2) as in the two branches of eq. (1)",
+        "source": "definition eq. (1) (Introduction)"
+      }
+    ],
+    "conclusion": {
+      "order": "hr",
+      "direction": "V_{1:n} <= U_{1:n}"
+    },
+    "quantifiers": "n unspecified; all q's in (1, 2); all t ≥ 0",
+    "numbers": "",
+    "ambiguity": "Proof only says the results follow by arguments similar to Theorem 3.1. Only min_l{q_l, q*_l} < 2 is stated; q < 2 for every component comes from the definition. [...] in the quote marks omitted intervening text."
+  },
+  {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Example 3.5 (case q < 1, Fig. 3(a))",
+    "page": 7,
+    "quote": "We now present a numerical example to illustrate the result established in Theorem 3.4. Example 3.5. Let U_i ∼ q − W(q_i, λ, β) and V_i ∼ q − W(q*_i, λ_i, β), i = 1, 2. For the case q < 1, consider q_1 = 0.3, q_2 = 0.5, q*_1 = 0.1, q*_2 = 0.6, β = 2, and λ = 0.5, where (q_1, q_2) ⪯^w (q*_1, q*_2). Figure 3(a) displays the plot of F̄_{U_{1:2}}(t)/F̄_{V_{1:2}}(t) over the interval (0, D) = (0, 1.49). The figure clearly shows that F̄_{U_{1:2}}(t)/F̄_{V_{1:2}}(t) is increasing function in t, which implies that U_{1:2} ≥_hr V_{1:2}.",
+    "kind": "example",
+    "model": "series system",
+    "family": "q-Weibull q−W(q, λ, β): pdf f(t) = λβ(2 − q)t^{β−1}[1 − (1 − q)λt^β]^{1/(1−q)}, t ∈ [0, [λ(1 − q)]^{−1/β}] for 0 < q < 1 and t ∈ [0, ∞) for 1 < q < 2, 'where β > 0 and λ > 0'; cdf F(t) = 1 − [1 − λ(1 − q)t^β]^{(2−q)/(1−q)}, t ≥ 0 (eq. (1)); here q_i heterogeneous, λ and β common to both samples",
+    "compared": "q = (0.3, 0.5) vs q* = (0.1, 0.6)",
+    "hypotheses": [
+      {
+        "text": "Let U_i ∼ q − W(q_i, λ, β) and V_i ∼ q − W(q*_i, λ_i, β), i = 1, 2.",
+        "formal": "two samples of size 2; V_i written with λ_i, read as the common λ",
+        "source": "statement"
+      },
+      {
+        "text": "q_1 = 0.3, q_2 = 0.5, q*_1 = 0.1, q*_2 = 0.6, β = 2, and λ = 0.5",
+        "formal": "q = (0.3, 0.5), q* = (0.1, 0.6), β = 2, λ = 0.5",
+        "source": "statement"
+      },
+      {
+        "text": "where (q_1, q_2) ⪯^w (q*_1, q*_2)",
+        "formal": "asserted hypothesis of Theorem 3.4(1)",
+        "source": "statement; earlier theorem 3.4(1)"
+      }
+    ],
+    "conclusion": {
+      "order": "hr",
+      "direction": "V_{1:2} <= U_{1:2}"
+    },
+    "quantifiers": "n = 2; t ∈ (0, D) = (0, 1.49)",
+    "numbers": "n = 2; q_1 = 0.3, q_2 = 0.5; q*_1 = 0.1, q*_2 = 0.6; β = 2; λ = 0.5. Printed: (q_1, q_2) ⪯^w (q*_1, q*_2); (0, D) = (0, 1.49); F̄_{U_{1:2}}/F̄_{V_{1:2}} increasing (Fig. 3(a), ratio near 1 until t ≈ 1.4 then rising above 50); U_{1:2} ≥_hr V_{1:2}.",
+    "ambiguity": "V_i is written q − W(q*_i, λ_i, β) although only a common λ is specified; read as λ."
+  },
+  {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Example 3.5 (case q > 1, Fig. 3(b))",
+    "page": 7,
+    "quote": "We now present a numerical example to illustrate the result established in Theorem 3.4. Example 3.5. Let U_i ∼ q − W(q_i, λ, β) and V_i ∼ q − W(q*_i, λ_i, β), i = 1, 2. Similarly, for the case of q > 1, let q_1 = 1.3, q_2 = 1.5, q*_1 = 1.1, q*_2 = 1.6, β = 2, and λ = 0.5, with (q_1, q_2) ⪯^w (q*_1, q*_2). As illustrated in Figure 3(b), F̄_{U_{1:2}}(t)/F̄_{V_{1:2}}(t) is again increasing, confirming that, U_{1:2} ≥_hr V_{1:2}.",
+    "kind": "example",
+    "model": "series system",
+    "family": "q-Weibull q−W(q, λ, β): pdf f(t) = λβ(2 − q)t^{β−1}[1 − (1 − q)λt^β]^{1/(1−q)}, t ∈ [0, [λ(1 − q)]^{−1/β}] for 0 < q < 1 and t ∈ [0, ∞) for 1 < q < 2, 'where β > 0 and λ > 0'; cdf F(t) = 1 − [1 − λ(1 − q)t^β]^{(2−q)/(1−q)}, t ≥ 0 (eq. (1)); here q_i heterogeneous, λ and β common to both samples",
+    "compared": "q = (1.3, 1.5) vs q* = (1.1, 1.6)",
+    "hypotheses": [
+      {
+        "text": "Let U_i ∼ q − W(q_i, λ, β) and V_i ∼ q − W(q*_i, λ_i, β), i = 1, 2.",
+        "formal": "two samples of size 2; V_i written with λ_i, read as the common λ",
+        "source": "statement"
+      },
+      {
+        "text": "let q_1 = 1.3, q_2 = 1.5, q*_1 = 1.1, q*_2 = 1.6, β = 2, and λ = 0.5",
+        "formal": "q = (1.3, 1.5), q* = (1.1, 1.6), β = 2, λ = 0.5",
+        "source": "statement"
+      },
+      {
+        "text": "with (q_1, q_2) ⪯^w (q*_1, q*_2)",
+        "formal": "asserted hypothesis of Theorem 3.4(2)",
+        "source": "statement; earlier theorem 3.4(2)"
+      }
+    ],
+    "conclusion": {
+      "order": "hr",
+      "direction": "V_{1:2} <= U_{1:2}"
+    },
+    "quantifiers": "n = 2; Fig. 3(b) plots t up to 10000",
+    "numbers": "n = 2; q_1 = 1.3, q_2 = 1.5; q*_1 = 1.1, q*_2 = 1.6; β = 2; λ = 0.5. Printed: (q_1, q_2) ⪯^w (q*_1, q*_2); F̄_{U_{1:2}}/F̄_{V_{1:2}} again increasing (Fig. 3(b), t axis to 10000, ratio reaching about 2.5 × 10^42); U_{1:2} ≥_hr V_{1:2}.",
+    "ambiguity": "V_i is written q − W(q*_i, λ_i, β) although only a common λ is specified; read as λ."
+  },
+  {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Example 3.6 (case q < 1, Fig. 4(a))",
+    "page": 8,
+    "quote": "The above theorem establishes the comparison result with respect to the hazard rate order. A natural question is whether this conclusion also holds when the hazard rate order is replaced by the likelihood ratio order. The following counterexample provides an answer. Example 3.6. Let U_i ∼ q − W(q_i, λ, β) and V_i ∼ q − W(q*_i, λ, β), i = 1, 2. Choose q_1 = 0.2, q_2 = 0.7, q*_1 = 0.1, q*_2 = 0.8, β = 2, and λ = 0.5. Then, (q_1, q_2) ⪯^m (q*_1, q*_2). Figure 4(a) represents the plot of f_{V_{1:2}}(t)/f_{U_{1:2}}(t) in a subset of (0, D) = (0, 1.49), from which it is clear that f_{V_{1:2}}(t)/f_{U_{1:2}}(t) is not an increasing function in t. Thus, for 0 < max_l{q_l, q*_l} < 1, U_{1:n} and V_{1:n} are not comparable in likelihood ratio order.",
+    "kind": "counterexample",
+    "model": "series system",
+    "family": "q-Weibull q−W(q, λ, β): pdf f(t) = λβ(2 − q)t^{β−1}[1 − (1 − q)λt^β]^{1/(1−q)}, t ∈ [0, [λ(1 − q)]^{−1/β}] for 0 < q < 1 and t ∈ [0, ∞) for 1 < q < 2, 'where β > 0 and λ > 0'; cdf F(t) = 1 − [1 − λ(1 − q)t^β]^{(2−q)/(1−q)}, t ≥ 0 (eq. (1)); here q_i heterogeneous, λ and β common to both samples",
+    "compared": "q = (0.2, 0.7) vs q* = (0.1, 0.8)",
+    "hypotheses": [
+      {
+        "text": "Let U_i ∼ q − W(q_i, λ, β) and V_i ∼ q − W(q*_i, λ, β), i = 1, 2.",
+        "formal": "two samples of size 2",
+        "source": "statement"
+      },
+      {
+        "text": "Choose q_1 = 0.2, q_2 = 0.7, q*_1 = 0.1, q*_2 = 0.8, β = 2, and λ = 0.5.",
+        "formal": "q = (0.2, 0.7), q* = (0.1, 0.8), β = 2, λ = 0.5",
+        "source": "statement"
+      },
+      {
+        "text": "Then, (q_1, q_2) ⪯^m (q*_1, q*_2).",
+        "formal": "asserted majorization (implies q ⪯^w q*, the hypothesis of Theorem 3.4(1))",
+        "source": "statement; definition 2.2"
+      }
+    ],
+    "conclusion": {
+      "order": "lr",
+      "direction": "neither: claimed that U_{1:2} and V_{1:2} are not comparable in the lr order (refutes an lr strengthening of Theorem 3.4(1))"
+    },
+    "quantifiers": "n = 2; plotted on a subset of (0, D) = (0, 1.49)",
+    "numbers": "n = 2; q_1 = 0.2, q_2 = 0.7; q*_1 = 0.1, q*_2 = 0.8; β = 2; λ = 0.5. Printed: (q_1, q_2) ⪯^m (q*_1, q*_2); (0, D) = (0, 1.49); f_{V_{1:2}}/f_{U_{1:2}} not increasing (Fig. 4(a), t from about 0.1 to 1.1, ratio rising from 1.000 to about 1.015 near t = 0.95 then falling); not comparable in lr order.",
+    "ambiguity": "'Not an increasing function' of f_V/f_U only excludes U_{1:2} ≤_lr V_{1:2}; the lr analogue of the Theorem 3.1 conclusion would be V_{1:2} ≤_lr U_{1:2} (f_V/f_U decreasing). The plotted ratio is non-monotone (rises then falls, or falls then rises), which the text reads as 'not comparable'."
+  },
+  {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Example 3.6 (case q > 1, Fig. 4(b))",
+    "page": 8,
+    "quote": "The above theorem establishes the comparison result with respect to the hazard rate order. A natural question is whether this conclusion also holds when the hazard rate order is replaced by the likelihood ratio order. The following counterexample provides an answer. Example 3.6. Let U_i ∼ q − W(q_i, λ, β) and V_i ∼ q − W(q*_i, λ, β), i = 1, 2. By setting, q_1 = 1.2, q_2 = 1.7, q*_1 = 1.1, q*_2 = 1.8, β = 2, and λ = 0.5 similar, conclusion can also be drawn from Figure 4(b), when 1 < min_l{q_l, q*_l} < 2.",
+    "kind": "counterexample",
+    "model": "series system",
+    "family": "q-Weibull q−W(q, λ, β): pdf f(t) = λβ(2 − q)t^{β−1}[1 − (1 − q)λt^β]^{1/(1−q)}, t ∈ [0, [λ(1 − q)]^{−1/β}] for 0 < q < 1 and t ∈ [0, ∞) for 1 < q < 2, 'where β > 0 and λ > 0'; cdf F(t) = 1 − [1 − λ(1 − q)t^β]^{(2−q)/(1−q)}, t ≥ 0 (eq. (1)); here q_i heterogeneous, λ and β common to both samples",
+    "compared": "q = (1.2, 1.7) vs q* = (1.1, 1.8)",
+    "hypotheses": [
+      {
+        "text": "Let U_i ∼ q − W(q_i, λ, β) and V_i ∼ q − W(q*_i, λ, β), i = 1, 2.",
+        "formal": "two samples of size 2",
+        "source": "statement"
+      },
+      {
+        "text": "q_1 = 1.2, q_2 = 1.7, q*_1 = 1.1, q*_2 = 1.8, β = 2, and λ = 0.5",
+        "formal": "q = (1.2, 1.7), q* = (1.1, 1.8), β = 2, λ = 0.5",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "lr",
+      "direction": "neither: claimed ('similar conclusion') that U_{1:2} and V_{1:2} are not comparable in the lr order (refutes an lr strengthening of Theorem 3.4(2))"
+    },
+    "quantifiers": "n = 2; Fig. 4(b) plots t from about 0.3 to 2",
+    "numbers": "n = 2; q_1 = 1.2, q_2 = 1.7; q*_1 = 1.1, q*_2 = 1.8; β = 2; λ = 0.5. Printed: similar conclusion from Fig. 4(b) (ratio f_{V_{1:2}}/f_{U_{1:2}} rising from 1.00 to about 1.05 near t = 1.4 then falling to about 1.013 at t = 2).",
+    "ambiguity": "'Not an increasing function' of f_V/f_U only excludes U_{1:2} ≤_lr V_{1:2}; the lr analogue of the Theorem 3.1 conclusion would be V_{1:2} ≤_lr U_{1:2} (f_V/f_U decreasing). The plotted ratio is non-monotone (rises then falls, or falls then rises), which the text reads as 'not comparable'. The majorization relation for this case is not restated."
+  },
+  {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Theorem 3.7(1)",
+    "page": 8,
+    "quote": "Note that, for 0 < q_l, q*_l < 1, U_{1:n} and V_{1:n} are defined over different domains. So, any comparison of these r.v.'s should be over a common domain. In our results, we denote the common domain of U_{1:n} and V_{1:n} as (0, D) where D = min{min_l{[λ_l(1 − q_l)]^{−1/β_l}}, min_l{[λ*_l(1 − q*_l)]^{−1/β*_l}}}. [...] Next, we consider the case when heterogeneity occurs in terms of the parameter β. Theorem 3.7. Let U_1, U_2, . . . , U_n be a set of independent r.v.'s such that U_i ∼ q-W(q, λ, β_i), i = 1, 2, . . . , n, and V_1, V_2, . . . , V_n be another set of independent r.v.'s such that V_i ∼ q-W(q, λ, β*_i), i = 1, 2, . . . , n. Then the following results hold: (1) If 0 < q < 1 and (β_1, β_2, . . . , β_n) ⪯^m (β*_1, β*_2, . . . , β*_n), then V_{1:n} ≤_st U_{1:n}. (2) If 1 < q < 2 and (β_1, β_2, . . . , β_n) ⪯^m (β*_1, β*_2, . . . , β*_n), then V_{1:n} ≤_st U_{1:n}.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "q-Weibull q−W(q, λ, β): pdf f(t) = λβ(2 − q)t^{β−1}[1 − (1 − q)λt^β]^{1/(1−q)}, t ∈ [0, [λ(1 − q)]^{−1/β}] for 0 < q < 1 and t ∈ [0, ∞) for 1 < q < 2, 'where β > 0 and λ > 0'; cdf F(t) = 1 − [1 − λ(1 − q)t^β]^{(2−q)/(1−q)}, t ≥ 0 (eq. (1)); here β_i heterogeneous, q and λ common to both samples",
+    "compared": "β vectors (β_1, ..., β_n) vs (β*_1, ..., β*_n); q, λ common",
+    "hypotheses": [
+      {
+        "text": "Let U_1, U_2, . . . , U_n be a set of independent r.v.'s such that U_i ∼ q-W(q, λ, β_i)",
+        "formal": "U_i independent with survival [1 − λ(1 − q)t^{β_i}]^{(2−q)/(1−q)}",
+        "source": "statement"
+      },
+      {
+        "text": "V_1, V_2, . . . , V_n be another set of independent r.v.'s such that V_i ∼ q-W(q, λ, β*_i)",
+        "formal": "V_i independent with survival [1 − λ(1 − q)t^{β*_i}]^{(2−q)/(1−q)}",
+        "source": "statement"
+      },
+      {
+        "text": "If 0 < q < 1",
+        "formal": "0 < q < 1",
+        "source": "statement"
+      },
+      {
+        "text": "(β_1, β_2, . . . , β_n) ⪯^m (β*_1, β*_2, . . . , β*_n)",
+        "formal": "x = β, y = β*: majorization (Definition 2.2): Σ_{i=1}^j x_(i) ≥ Σ_{i=1}^j y_(i) for j = 1, ..., n − 1 and Σ_{i=1}^n x_(i) = Σ_{i=1}^n y_(i)",
+        "source": "statement; definition 2.2"
+      },
+      {
+        "text": "where β > 0 and λ > 0",
+        "formal": "all λ-type and β-type parameters > 0; q ∈ (0, 1) ∪ (1, 2) as in the two branches of eq. (1)",
+        "source": "definition eq. (1) (Introduction)"
+      },
+      {
+        "text": "In our results, we denote the common domain of U_{1:n} and V_{1:n} as (0, D) where D = min{min_l{[λ_l(1 − q_l)]^{−1/β_l}}, min_l{[λ*_l(1 − q*_l)]^{−1/β*_l}}}.",
+        "formal": "when q < 1 the comparison is made only for t ∈ (0, D), D = smallest upper support endpoint among all components",
+        "source": "section preamble"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "V_{1:n} <= U_{1:n}"
+    },
+    "quantifiers": "n unspecified; 0 < q < 1; λ > 0; t ∈ (0, D) (common domain)",
+    "numbers": "",
+    "ambiguity": "[...] in the quote marks omitted intervening text (Theorems 3.1, 3.4 and Examples 3.2-3.6)."
+  },
+  {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Theorem 3.7(2)",
+    "page": 8,
+    "quote": "Note that, for 0 < q_l, q*_l < 1, U_{1:n} and V_{1:n} are defined over different domains. So, any comparison of these r.v.'s should be over a common domain. In our results, we denote the common domain of U_{1:n} and V_{1:n} as (0, D) where D = min{min_l{[λ_l(1 − q_l)]^{−1/β_l}}, min_l{[λ*_l(1 − q*_l)]^{−1/β*_l}}}. [...] Next, we consider the case when heterogeneity occurs in terms of the parameter β. Theorem 3.7. Let U_1, U_2, . . . , U_n be a set of independent r.v.'s such that U_i ∼ q-W(q, λ, β_i), i = 1, 2, . . . , n, and V_1, V_2, . . . , V_n be another set of independent r.v.'s such that V_i ∼ q-W(q, λ, β*_i), i = 1, 2, . . . , n. Then the following results hold: (1) If 0 < q < 1 and (β_1, β_2, . . . , β_n) ⪯^m (β*_1, β*_2, . . . , β*_n), then V_{1:n} ≤_st U_{1:n}. (2) If 1 < q < 2 and (β_1, β_2, . . . , β_n) ⪯^m (β*_1, β*_2, . . . , β*_n), then V_{1:n} ≤_st U_{1:n}.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "q-Weibull q−W(q, λ, β): pdf f(t) = λβ(2 − q)t^{β−1}[1 − (1 − q)λt^β]^{1/(1−q)}, t ∈ [0, [λ(1 − q)]^{−1/β}] for 0 < q < 1 and t ∈ [0, ∞) for 1 < q < 2, 'where β > 0 and λ > 0'; cdf F(t) = 1 − [1 − λ(1 − q)t^β]^{(2−q)/(1−q)}, t ≥ 0 (eq. (1)); here β_i heterogeneous, q and λ common to both samples",
+    "compared": "β vectors (β_1, ..., β_n) vs (β*_1, ..., β*_n); q, λ common",
+    "hypotheses": [
+      {
+        "text": "Let U_1, U_2, . . . , U_n be a set of independent r.v.'s such that U_i ∼ q-W(q, λ, β_i)",
+        "formal": "U_i independent with survival [1 − λ(1 − q)t^{β_i}]^{(2−q)/(1−q)}",
+        "source": "statement"
+      },
+      {
+        "text": "V_1, V_2, . . . , V_n be another set of independent r.v.'s such that V_i ∼ q-W(q, λ, β*_i)",
+        "formal": "V_i independent with survival [1 − λ(1 − q)t^{β*_i}]^{(2−q)/(1−q)}",
+        "source": "statement"
+      },
+      {
+        "text": "If 1 < q < 2",
+        "formal": "1 < q < 2",
+        "source": "statement"
+      },
+      {
+        "text": "(β_1, β_2, . . . , β_n) ⪯^m (β*_1, β*_2, . . . , β*_n)",
+        "formal": "x = β, y = β*: majorization (Definition 2.2): Σ_{i=1}^j x_(i) ≥ Σ_{i=1}^j y_(i) for j = 1, ..., n − 1 and Σ_{i=1}^n x_(i) = Σ_{i=1}^n y_(i)",
+        "source": "statement; definition 2.2"
+      },
+      {
+        "text": "where β > 0 and λ > 0",
+        "formal": "all λ-type and β-type parameters > 0; q ∈ (0, 1) ∪ (1, 2) as in the two branches of eq. (1)",
+        "source": "definition eq. (1) (Introduction)"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "V_{1:n} <= U_{1:n}"
+    },
+    "quantifiers": "n unspecified; 1 < q < 2; λ > 0; all t ≥ 0",
+    "numbers": "",
+    "ambiguity": "[...] in the quote marks omitted intervening text."
+  },
+  {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Example 3.8 (case q < 1, Fig. 5(a))",
+    "page": 9,
+    "quote": "A numerical example is provided below to illustrate Theorem 3.7. Example 3.8. Let U_i ∼ q − W(q, λ, β_i) and V_i ∼ q − W(q, λ_i, β*_i), i = 1, 2. For the case q < 1, consider q = 0.5, β_1 = 0.5, β_2 = 1.5, β*_1 = 0.3, β*_2 = 1.7, and λ = 1, where (β_1, β_2) ⪯^m (β*_1, β*_2). Figure 5(a) shows the plot of F̄_{U_{1:2}}(t) − F̄_{V_{1:2}}(t) in the interval (0, D) = (0, 1.5). It is evident from the figure that F̄_{U_{1:2}}(t) − F̄_{V_{1:2}}(t) ≥ 0 for all t, which implies that U_{1:2} ≥_st V_{1:2}.",
+    "kind": "example",
+    "model": "series system",
+    "family": "q-Weibull q−W(q, λ, β): pdf f(t) = λβ(2 − q)t^{β−1}[1 − (1 − q)λt^β]^{1/(1−q)}, t ∈ [0, [λ(1 − q)]^{−1/β}] for 0 < q < 1 and t ∈ [0, ∞) for 1 < q < 2, 'where β > 0 and λ > 0'; cdf F(t) = 1 − [1 − λ(1 − q)t^β]^{(2−q)/(1−q)}, t ≥ 0 (eq. (1)); here β_i heterogeneous, q and λ common to both samples",
+    "compared": "β = (0.5, 1.5) vs β* = (0.3, 1.7)",
+    "hypotheses": [
+      {
+        "text": "Let U_i ∼ q − W(q, λ, β_i) and V_i ∼ q − W(q, λ_i, β*_i), i = 1, 2.",
+        "formal": "two samples of size 2; V_i written with λ_i, read as the common λ",
+        "source": "statement"
+      },
+      {
+        "text": "q = 0.5, β_1 = 0.5, β_2 = 1.5, β*_1 = 0.3, β*_2 = 1.7, and λ = 1",
+        "formal": "q = 0.5, β = (0.5, 1.5), β* = (0.3, 1.7), λ = 1",
+        "source": "statement"
+      },
+      {
+        "text": "where (β_1, β_2) ⪯^m (β*_1, β*_2)",
+        "formal": "asserted hypothesis of Theorem 3.7(1)",
+        "source": "statement; earlier theorem 3.7(1)"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "V_{1:2} <= U_{1:2}"
+    },
+    "quantifiers": "n = 2; t ∈ (0, D) = (0, 1.5)",
+    "numbers": "n = 2; q = 0.5; β_1 = 0.5, β_2 = 1.5; β*_1 = 0.3, β*_2 = 1.7; λ = 1. Printed: (β_1, β_2) ⪯^m (β*_1, β*_2); (0, D) = (0, 1.5); F̄_{U_{1:2}}(t) − F̄_{V_{1:2}}(t) ≥ 0 for all t (Fig. 5(a): peak about 0.20 near t = 0, decaying to about 0 by t ≈ 0.8 and staying near 0 up to 1.5); U_{1:2} ≥_st V_{1:2}.",
+    "ambiguity": "V_i is written with λ_i although only a common λ is specified."
+  },
+  {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Example 3.8 (case q > 1)",
+    "page": 9,
+    "quote": "A numerical example is provided below to illustrate Theorem 3.7. Example 3.8. Let U_i ∼ q − W(q, λ, β_i) and V_i ∼ q − W(q, λ_i, β*_i), i = 1, 2. Similarly, for the case of q > 1, take q = 1.5, β_1 = 0.5, β_2 = 1.5, β*_1 = 0.3, β*_2 = 1.7, and λ = 0.5, with (β_1, β_2) ⪯^m (β*_1, β*_2). As illustrated in Figure 6(b), F̄_{U_{1:2}} − F̄_{V_{1:2}} ≥ 0, confirming that U_{1:2} ≥_st V_{1:2}.",
+    "kind": "example",
+    "model": "series system",
+    "family": "q-Weibull q−W(q, λ, β): pdf f(t) = λβ(2 − q)t^{β−1}[1 − (1 − q)λt^β]^{1/(1−q)}, t ∈ [0, [λ(1 − q)]^{−1/β}] for 0 < q < 1 and t ∈ [0, ∞) for 1 < q < 2, 'where β > 0 and λ > 0'; cdf F(t) = 1 − [1 − λ(1 − q)t^β]^{(2−q)/(1−q)}, t ≥ 0 (eq. (1)); here β_i heterogeneous, q and λ common to both samples",
+    "compared": "β = (0.5, 1.5) vs β* = (0.3, 1.7)",
+    "hypotheses": [
+      {
+        "text": "Let U_i ∼ q − W(q, λ, β_i) and V_i ∼ q − W(q, λ_i, β*_i), i = 1, 2.",
+        "formal": "two samples of size 2; V_i written with λ_i, read as the common λ",
+        "source": "statement"
+      },
+      {
+        "text": "take q = 1.5, β_1 = 0.5, β_2 = 1.5, β*_1 = 0.3, β*_2 = 1.7, and λ = 0.5",
+        "formal": "q = 1.5, β = (0.5, 1.5), β* = (0.3, 1.7), λ = 0.5",
+        "source": "statement"
+      },
+      {
+        "text": "with (β_1, β_2) ⪯^m (β*_1, β*_2)",
+        "formal": "asserted hypothesis of Theorem 3.7(2)",
+        "source": "statement; earlier theorem 3.7(2)"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "V_{1:2} <= U_{1:2}"
+    },
+    "quantifiers": "n = 2; plotted t range up to 1000 (Fig. 5(b))",
+    "numbers": "n = 2; q = 1.5; β_1 = 0.5, β_2 = 1.5; β*_1 = 0.3, β*_2 = 1.7; λ = 0.5. Printed: (β_1, β_2) ⪯^m (β*_1, β*_2); F̄_{U_{1:2}} − F̄_{V_{1:2}} ≥ 0; U_{1:2} ≥_st V_{1:2}. Fig. 5(b) (caption parameters match this case) shows the difference between about 0.0003 and 0 for t from about 100 to 1000.",
+    "ambiguity": "The text cites Figure 6(b), which belongs to Example 3.9 (a ratio plot with q = 1.3); Figure 5(b), whose caption lists exactly these parameters, is presumably meant. V_i is written with λ_i."
+  },
+  {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Example 3.9 (case 0 < q < 1, Fig. 6(a))",
+    "page": 10,
+    "quote": "The following counterexample illustrates that the condition in Theorem 3.7 is not sufficient for the hazard rate ordering between U_{1:n} and V_{1:n}. Example 3.9. Let U_i ∼ q − W(q, λ, β_i) and V_i ∼ q − W(q, λ, β*_i), i = 1, 2. Consider q = 0.3, β_1 = 0.5, β_2 = 0.5, β*_1 = 0.3, β*_2 = 0.7, and λ = 0.5. From Figure 6(a), it is clear that F̄_{V_{1:2}}(t)/F̄_{U_{1:2}}(t) is not monotone in a subset of (0, D) = (0, 4.48). Then for 0 < q < 1, (β_1, β_2) ⪯^m (β*_1, β*_2) does not imply V_{1:n} ≤_hr U_{1:n}.",
+    "kind": "counterexample",
+    "model": "series system",
+    "family": "q-Weibull q−W(q, λ, β): pdf f(t) = λβ(2 − q)t^{β−1}[1 − (1 − q)λt^β]^{1/(1−q)}, t ∈ [0, [λ(1 − q)]^{−1/β}] for 0 < q < 1 and t ∈ [0, ∞) for 1 < q < 2, 'where β > 0 and λ > 0'; cdf F(t) = 1 − [1 − λ(1 − q)t^β]^{(2−q)/(1−q)}, t ≥ 0 (eq. (1)); here β_i heterogeneous, q and λ common to both samples",
+    "compared": "β = (0.5, 0.5) vs β* = (0.3, 0.7)",
+    "hypotheses": [
+      {
+        "text": "Let U_i ∼ q − W(q, λ, β_i) and V_i ∼ q − W(q, λ, β*_i), i = 1, 2.",
+        "formal": "two samples of size 2",
+        "source": "statement"
+      },
+      {
+        "text": "Consider q = 0.3, β_1 = 0.5, β_2 = 0.5, β*_1 = 0.3, β*_2 = 0.7, and λ = 0.5.",
+        "formal": "q = 0.3, β = (0.5, 0.5), β* = (0.3, 0.7), λ = 0.5",
+        "source": "statement"
+      },
+      {
+        "text": "(β_1, β_2) ⪯^m (β*_1, β*_2)",
+        "formal": "majorization hypothesis of Theorem 3.7(1)",
+        "source": "statement; earlier theorem 3.7(1)"
+      }
+    ],
+    "conclusion": {
+      "order": "hr",
+      "direction": "V_{1:2} <= U_{1:2} fails: F̄_{V_{1:2}}/F̄_{U_{1:2}} is not monotone, so the Theorem 3.7 condition does not imply V_{1:n} ≤_hr U_{1:n}"
+    },
+    "quantifiers": "n = 2; plotted on a subset of (0, D) = (0, 4.48)",
+    "numbers": "n = 2; q = 0.3; β_1 = 0.5, β_2 = 0.5; β*_1 = 0.3, β*_2 = 0.7; λ = 0.5. Printed: (0, D) = (0, 4.48); F̄_{V_{1:2}}(t)/F̄_{U_{1:2}}(t) not monotone (Fig. 6(a), t from about 0.1 to 1.5, ratio rising from about 0.927 to 1.00 near t = 1 then falling to about 0.98); (β_1, β_2) ⪯^m (β*_1, β*_2) does not imply V_{1:n} ≤_hr U_{1:n}.",
+    "ambiguity": "The ratio is plotted only on about (0.1, 1.5), a subset of (0, 4.48)."
+  },
+  {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Example 3.9 (case 1 < q < 2, Fig. 6(b))",
+    "page": 10,
+    "quote": "The following counterexample illustrates that the condition in Theorem 3.7 is not sufficient for the hazard rate ordering between U_{1:n} and V_{1:n}. Example 3.9. Let U_i ∼ q − W(q, λ, β_i) and V_i ∼ q − W(q, λ, β*_i), i = 1, 2. Similarly, taking, q = 1.3, β_1 = 0.5, β_2 = 0.5, β*_1 = 0.3, β*_2 = 0.7, and λ = 0.5 we can conclude from Figure 6(b) that U_{1:n} and V_{1:n} are not comparable in hazard rate order when 1 < q < 2 and (β_1, β_2) ⪯^m (β*_1, β*_2).",
+    "kind": "counterexample",
+    "model": "series system",
+    "family": "q-Weibull q−W(q, λ, β): pdf f(t) = λβ(2 − q)t^{β−1}[1 − (1 − q)λt^β]^{1/(1−q)}, t ∈ [0, [λ(1 − q)]^{−1/β}] for 0 < q < 1 and t ∈ [0, ∞) for 1 < q < 2, 'where β > 0 and λ > 0'; cdf F(t) = 1 − [1 − λ(1 − q)t^β]^{(2−q)/(1−q)}, t ≥ 0 (eq. (1)); here β_i heterogeneous, q and λ common to both samples",
+    "compared": "β = (0.5, 0.5) vs β* = (0.3, 0.7)",
+    "hypotheses": [
+      {
+        "text": "Let U_i ∼ q − W(q, λ, β_i) and V_i ∼ q − W(q, λ, β*_i), i = 1, 2.",
+        "formal": "two samples of size 2",
+        "source": "statement"
+      },
+      {
+        "text": "taking, q = 1.3, β_1 = 0.5, β_2 = 0.5, β*_1 = 0.3, β*_2 = 0.7, and λ = 0.5",
+        "formal": "q = 1.3, β = (0.5, 0.5), β* = (0.3, 0.7), λ = 0.5",
+        "source": "statement"
+      },
+      {
+        "text": "(β_1, β_2) ⪯^m (β*_1, β*_2)",
+        "formal": "majorization hypothesis of Theorem 3.7(2)",
+        "source": "statement; earlier theorem 3.7(2)"
+      }
+    ],
+    "conclusion": {
+      "order": "hr",
+      "direction": "neither: claimed that U_{1:2} and V_{1:2} are not comparable in the hr order"
+    },
+    "quantifiers": "n = 2; Fig. 6(b) plots t from 0 to about 4.5",
+    "numbers": "n = 2; q = 1.3; β_1 = 0.5, β_2 = 0.5; β*_1 = 0.3, β*_2 = 0.7; λ = 0.5. Printed: U_{1:n} and V_{1:n} not comparable in hr order (Fig. 6(b): F̄_{V_{1:2}}/F̄_{U_{1:2}} rising from about 0.979 to 1.00 near t = 1 then falling to about 0.962 at t ≈ 4.5).",
+    "ambiguity": ""
+  },
+  {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Theorem 3.10(1)",
+    "page": 11,
+    "quote": "It is important to note that, for 0 < q_l, q*_l < 1, X_{n:n} and Y_{n:n} are defined over different domains. So, for any comparison of these r.v.'s, we should take the common domain of U_{n:n} and V_{n:n} as (0, D) where D = min{min_l{[λ_l(1 − q_l)]^{−1/β_l}}, min_l{[λ*_l(1 − q*_l)]^{−1/β*_l}}}. Theorem 3.10. Let U_1, U_2, . . . , U_n be a set of independent r.v.'s such that U_i ∼ q-W(q, λ_i, β), i = 1, 2, . . . , n, and V_1, V_2, . . . , V_n be another set of independent r.v.'s such that V_i ∼ q-W(q, λ*_i, β), i = 1, 2, . . . , n. Then the following results hold: (1) If 0 < q < 1 and (λ_1, λ_2, . . . , λ_n) ⪯^w (λ*_1, λ*_2, . . . , λ*_n), then U_{n:n} ≤_st V_{n:n}. (2) If 1 < q < 2 and (λ_1, λ_2, . . . , λ_n) ⪯^w (λ*_1, λ*_2, . . . , λ*_n), then U_{n:n} ≤_st V_{n:n}.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "q-Weibull q−W(q, λ, β): pdf f(t) = λβ(2 − q)t^{β−1}[1 − (1 − q)λt^β]^{1/(1−q)}, t ∈ [0, [λ(1 − q)]^{−1/β}] for 0 < q < 1 and t ∈ [0, ∞) for 1 < q < 2, 'where β > 0 and λ > 0'; cdf F(t) = 1 − [1 − λ(1 − q)t^β]^{(2−q)/(1−q)}, t ≥ 0 (eq. (1)); here λ_i heterogeneous, q and β common to both samples",
+    "compared": "λ vectors (λ_1, ..., λ_n) vs (λ*_1, ..., λ*_n); q, β common",
+    "hypotheses": [
+      {
+        "text": "Let U_1, U_2, . . . , U_n be a set of independent r.v.'s such that U_i ∼ q − W(q, λ_i, β)",
+        "formal": "U_1, ..., U_n independent, U_i with survival [1 − λ_i(1 − q)t^β]^{(2−q)/(1−q)}",
+        "source": "statement"
+      },
+      {
+        "text": "V_1, V_2, . . . , V_n be another set of independent r.v.'s such that V_i ∼ q − W(q, λ*_i, β)",
+        "formal": "V_1, ..., V_n independent, V_i with survival [1 − λ*_i(1 − q)t^β]^{(2−q)/(1−q)}; same q, β as the U_i",
+        "source": "statement"
+      },
+      {
+        "text": "If 0 < q < 1",
+        "formal": "0 < q < 1",
+        "source": "statement"
+      },
+      {
+        "text": "(λ_1, λ_2, . . . , λ_n) ⪯^w (λ*_1, λ*_2, . . . , λ*_n)",
+        "formal": "x = λ, y = λ*: weak supermajorization (Definition 2.2): Σ_{i=1}^j x_(i) ≥ Σ_{i=1}^j y_(i) for j = 1, ..., n (increasing arrangement)",
+        "source": "statement; definition 2.2"
+      },
+      {
+        "text": "where β > 0 and λ > 0",
+        "formal": "all λ-type and β-type parameters > 0; q ∈ (0, 1) ∪ (1, 2) as in the two branches of eq. (1)",
+        "source": "definition eq. (1) (Introduction)"
+      },
+      {
+        "text": "we should take the common domain of U_{n:n} and V_{n:n} as (0, D) where D = min{min_l{[λ_l(1 − q_l)]^{−1/β_l}}, min_l{[λ*_l(1 − q*_l)]^{−1/β*_l}}}",
+        "formal": "when q < 1 the comparison is made only for t ∈ (0, D), D = smallest upper support endpoint among all components",
+        "source": "section preamble"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "U_{n:n} <= V_{n:n}"
+    },
+    "quantifiers": "n unspecified; 0 < q < 1; β > 0; t ∈ (0, D) (common domain)",
+    "numbers": "",
+    "ambiguity": "The domain remark preceding the theorem speaks of 'X_{n:n} and Y_{n:n}', symbols not otherwise defined (presumably U_{n:n}, V_{n:n})."
+  },
+  {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Theorem 3.10(2)",
+    "page": 11,
+    "quote": "It is important to note that, for 0 < q_l, q*_l < 1, X_{n:n} and Y_{n:n} are defined over different domains. So, for any comparison of these r.v.'s, we should take the common domain of U_{n:n} and V_{n:n} as (0, D) where D = min{min_l{[λ_l(1 − q_l)]^{−1/β_l}}, min_l{[λ*_l(1 − q*_l)]^{−1/β*_l}}}. Theorem 3.10. Let U_1, U_2, . . . , U_n be a set of independent r.v.'s such that U_i ∼ q-W(q, λ_i, β), i = 1, 2, . . . , n, and V_1, V_2, . . . , V_n be another set of independent r.v.'s such that V_i ∼ q-W(q, λ*_i, β), i = 1, 2, . . . , n. Then the following results hold: (1) If 0 < q < 1 and (λ_1, λ_2, . . . , λ_n) ⪯^w (λ*_1, λ*_2, . . . , λ*_n), then U_{n:n} ≤_st V_{n:n}. (2) If 1 < q < 2 and (λ_1, λ_2, . . . , λ_n) ⪯^w (λ*_1, λ*_2, . . . , λ*_n), then U_{n:n} ≤_st V_{n:n}.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "q-Weibull q−W(q, λ, β): pdf f(t) = λβ(2 − q)t^{β−1}[1 − (1 − q)λt^β]^{1/(1−q)}, t ∈ [0, [λ(1 − q)]^{−1/β}] for 0 < q < 1 and t ∈ [0, ∞) for 1 < q < 2, 'where β > 0 and λ > 0'; cdf F(t) = 1 − [1 − λ(1 − q)t^β]^{(2−q)/(1−q)}, t ≥ 0 (eq. (1)); here λ_i heterogeneous, q and β common to both samples",
+    "compared": "λ vectors (λ_1, ..., λ_n) vs (λ*_1, ..., λ*_n); q, β common",
+    "hypotheses": [
+      {
+        "text": "Let U_1, U_2, . . . , U_n be a set of independent r.v.'s such that U_i ∼ q − W(q, λ_i, β)",
+        "formal": "U_1, ..., U_n independent, U_i with survival [1 − λ_i(1 − q)t^β]^{(2−q)/(1−q)}",
+        "source": "statement"
+      },
+      {
+        "text": "V_1, V_2, . . . , V_n be another set of independent r.v.'s such that V_i ∼ q − W(q, λ*_i, β)",
+        "formal": "V_1, ..., V_n independent, V_i with survival [1 − λ*_i(1 − q)t^β]^{(2−q)/(1−q)}; same q, β as the U_i",
+        "source": "statement"
+      },
+      {
+        "text": "If 1 < q < 2",
+        "formal": "1 < q < 2",
+        "source": "statement"
+      },
+      {
+        "text": "(λ_1, λ_2, . . . , λ_n) ⪯^w (λ*_1, λ*_2, . . . , λ*_n)",
+        "formal": "x = λ, y = λ*: weak supermajorization (Definition 2.2): Σ_{i=1}^j x_(i) ≥ Σ_{i=1}^j y_(i) for j = 1, ..., n (increasing arrangement)",
+        "source": "statement; definition 2.2"
+      },
+      {
+        "text": "where β > 0 and λ > 0",
+        "formal": "all λ-type and β-type parameters > 0; q ∈ (0, 1) ∪ (1, 2) as in the two branches of eq. (1)",
+        "source": "definition eq. (1) (Introduction)"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "U_{n:n} <= V_{n:n}"
+    },
+    "quantifiers": "n unspecified; 1 < q < 2; β > 0; all t ≥ 0",
+    "numbers": "",
+    "ambiguity": "The domain remark preceding the theorem speaks of 'X_{n:n} and Y_{n:n}', symbols not otherwise defined (presumably U_{n:n}, V_{n:n})."
+  },
+  {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Example 3.11 (case q < 1, Fig. 7(a))",
+    "page": 11,
+    "quote": "Below, we consider a numerical example to demonstrate the result stated in Theorem 3.10. Example 3.11. Let U_i ∼ q − W(q, λ_i, β) and V_i ∼ q − W(q, λ*_i, β), i = 1, 2. For the case q < 1, consider q = 0.5, β = 0.5, λ_1 = 0.5, λ_2 = 1.5, λ*_1 = 0.3, and λ*_2 = 1.6, where (λ_1, λ_2) ⪯^w (λ*_1, λ*_2). Figure 7(a) presents the plot of F_{U_{2:2}}(t) − F_{V_{2:2}}(t) in the interval (0, D) = (0, 1.56). The plot clearly indicates that F_{U_{2:2}}(t) − F_{V_{2:2}}(t) ≥ 0 in t, which implies U_{2:2} ≤_st V_{2:2}.",
+    "kind": "example",
+    "model": "parallel system",
+    "family": "q-Weibull q−W(q, λ, β): pdf f(t) = λβ(2 − q)t^{β−1}[1 − (1 − q)λt^β]^{1/(1−q)}, t ∈ [0, [λ(1 − q)]^{−1/β}] for 0 < q < 1 and t ∈ [0, ∞) for 1 < q < 2, 'where β > 0 and λ > 0'; cdf F(t) = 1 − [1 − λ(1 − q)t^β]^{(2−q)/(1−q)}, t ≥ 0 (eq. (1)); here λ_i heterogeneous, q and β common to both samples",
+    "compared": "λ = (0.5, 1.5) vs λ* = (0.3, 1.6)",
+    "hypotheses": [
+      {
+        "text": "Let U_i ∼ q − W(q, λ_i, β) and V_i ∼ q − W(q, λ*_i, β), i = 1, 2.",
+        "formal": "two independent samples of size 2 (independence from Theorem 3.1)",
+        "source": "statement"
+      },
+      {
+        "text": "q = 0.5, β = 0.5, λ_1 = 0.5, λ_2 = 1.5, λ*_1 = 0.3, and λ*_2 = 1.6",
+        "formal": "q = 0.5, β = 0.5, λ = (0.5, 1.5), λ* = (0.3, 1.6)",
+        "source": "statement"
+      },
+      {
+        "text": "where (λ_1, λ_2) ⪯^w (λ*_1, λ*_2)",
+        "formal": "asserted hypothesis of Theorem 3.10(1)",
+        "source": "statement; earlier theorem 3.10(1)"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "U_{2:2} <= V_{2:2}"
+    },
+    "quantifiers": "n = 2; t ∈ (0, D) = (0, 1.56)",
+    "numbers": "n = 2; q = 0.5; β = 0.5; λ_1 = 0.5, λ_2 = 1.5; λ*_1 = 0.3, λ*_2 = 1.6. Printed: (λ_1, λ_2) ⪯^w (λ*_1, λ*_2); (0, D) = (0, 1.56); F_{U_{2:2}}(t) − F_{V_{2:2}}(t) ≥ 0 (Fig. 7(a): rising from 0 to about 0.21 at t ≈ 1.56); U_{2:2} ≤_st V_{2:2}.",
+    "ambiguity": "Statement spans PDF pages 11-12."
+  },
+  {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Example 3.11 (case q > 1, Fig. 7(b))",
+    "page": 12,
+    "quote": "Below, we consider a numerical example to demonstrate the result stated in Theorem 3.10. Example 3.11. Let U_i ∼ q − W(q, λ_i, β) and V_i ∼ q − W(q, λ*_i, β), i = 1, 2. Similarly, for the case of q > 1, choose q = 1.5, β = 0.5, λ_1 = 0.5, λ_2 = 1.5, λ*_1 = 0.3, and λ*_2 = 1.6, with (λ_1, λ_2) ⪯^w (λ*_1, λ*_2). As shown in Figure 7(b), we again find that F_{U_{2:2}}(t) − F_{V_{2:2}}(t) ≥ 0, confirming that, U_{2:2} ≤_st V_{2:2}.",
+    "kind": "example",
+    "model": "parallel system",
+    "family": "q-Weibull q−W(q, λ, β): pdf f(t) = λβ(2 − q)t^{β−1}[1 − (1 − q)λt^β]^{1/(1−q)}, t ∈ [0, [λ(1 − q)]^{−1/β}] for 0 < q < 1 and t ∈ [0, ∞) for 1 < q < 2, 'where β > 0 and λ > 0'; cdf F(t) = 1 − [1 − λ(1 − q)t^β]^{(2−q)/(1−q)}, t ≥ 0 (eq. (1)); here λ_i heterogeneous, q and β common to both samples",
+    "compared": "λ = (0.5, 1.5) vs λ* = (0.3, 1.6)",
+    "hypotheses": [
+      {
+        "text": "Let U_i ∼ q − W(q, λ_i, β) and V_i ∼ q − W(q, λ*_i, β), i = 1, 2.",
+        "formal": "two independent samples of size 2 (independence from Theorem 3.1)",
+        "source": "statement"
+      },
+      {
+        "text": "choose q = 1.5, β = 0.5, λ_1 = 0.5, λ_2 = 1.5, λ*_1 = 0.3, and λ*_2 = 1.6",
+        "formal": "q = 1.5, β = 0.5, λ = (0.5, 1.5), λ* = (0.3, 1.6)",
+        "source": "statement"
+      },
+      {
+        "text": "with (λ_1, λ_2) ⪯^w (λ*_1, λ*_2)",
+        "formal": "asserted hypothesis of Theorem 3.10(2)",
+        "source": "statement; earlier theorem 3.10(2)"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "U_{2:2} <= V_{2:2}"
+    },
+    "quantifiers": "n = 2; Fig. 7(b) plots t up to 10000",
+    "numbers": "n = 2; q = 1.5; β = 0.5; λ_1 = 0.5, λ_2 = 1.5; λ*_1 = 0.3, λ*_2 = 1.6. Printed: (λ_1, λ_2) ⪯^w (λ*_1, λ*_2); F_{U_{2:2}}(t) − F_{V_{2:2}}(t) ≥ 0 (Fig. 7(b): about 0.07 falling to about 0.024 at t = 10000); U_{2:2} ≤_st V_{2:2}.",
+    "ambiguity": ""
+  },
+  {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Theorem 4.1(1)",
+    "page": 12,
+    "quote": "Let us consider two sets of heterogeneous q-Weibull samples, U_i's and V_i's, with parameters (q_i, λ_i, β_i) and (q*_i, λ*_i, β*_i), i = 1, 2, . . . , n, respectively. The dependence structures of these samples are modeled by Archimedean copulas with generators ψ_1 (φ_1 = ψ_1^{−1}) and ψ_2 (φ_2 = ψ_2^{−1}). As discussed earlier, for comparison results in case of 0 < q_i, q*_i < 1, we should take the common domain of U_{n:n} and V_{n:n} as (0, D), where D = min{min_i{[λ_i(1 − q_i)]^{−1/β_i}}, min_i{[λ*_i(1 − q*_i)]^{−1/β*_i}}}. Theorem 4.1. Let U_i ∼ q − W(q, λ_i, β), i = 1, ..., n, be a set of dependent r.v.'s sharing an Archimedean copula with generator ψ_1. Similarly, let V_i ∼ q − W(q, λ*_i, β), i = 1, ..., n, be a set of dependent r.v.'s sharing an Archimedean copula with generator ψ_2. (1) Suppose that φ_2 ∘ ψ_1 is super-additive and ψ_1 or ψ_2 is log-convex. Then, for 0 < q < 1 and λ ∈ D_+(E_+), (λ*_1, λ*_2, . . . , λ*_n) ⪯^w (λ_1, λ_2, . . . , λ_n) implies U_{n:n} ≥_st V_{n:n}. (2) Suppose that φ_2 ∘ ψ_1 is super-additive and ψ_1 or ψ_2 is log-convex. Then, for 1 < q < 2 and λ ∈ D_+(E_+), (λ*_1, λ*_2, . . . , λ*_n) ⪯^w (λ_1, λ_2, . . . , λ_n) implies U_{n:n} ≥_st V_{n:n}.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "q-Weibull q−W(q, λ, β): pdf f(t) = λβ(2 − q)t^{β−1}[1 − (1 − q)λt^β]^{1/(1−q)}, t ∈ [0, [λ(1 − q)]^{−1/β}] for 0 < q < 1 and t ∈ [0, ∞) for 1 < q < 2, 'where β > 0 and λ > 0'; cdf F(t) = 1 − [1 − λ(1 − q)t^β]^{(2−q)/(1−q)}, t ≥ 0 (eq. (1)); λ_i heterogeneous, q and β common; components dependent through Archimedean copulas with generator ψ_1 (U sample) and ψ_2 (V sample)",
+    "compared": "λ vectors λ vs λ* and copula generators ψ_1 vs ψ_2; q, β common",
+    "hypotheses": [
+      {
+        "text": "Let U_i ∼ q − W(q, λ_i, β), i = 1, ..., n, be a set of dependent r.v.'s sharing an Archimedean copula with generator ψ_1.",
+        "formal": "(U_1, ..., U_n) has q-Weibull marginals q−W(q, λ_i, β) and Archimedean copula C_{ψ_1}",
+        "source": "statement"
+      },
+      {
+        "text": "let V_i ∼ q − W(q, λ*_i, β), i = 1, ..., n, be a set of dependent r.v.'s sharing an Archimedean copula with generator ψ_2.",
+        "formal": "(V_1, ..., V_n) has marginals q−W(q, λ*_i, β) and Archimedean copula C_{ψ_2}",
+        "source": "statement"
+      },
+      {
+        "text": "Definition 2.6. A copula C is said to be Archimedean if there exists a generator function ψ : [0, ∞] → [0, 1] such that C(u) = ψ(ψ^{−1}(u_1) + ψ^{−1}(u_2) + · · · + ψ^{−1}(u_d)). The function ψ must satisfy ... (i) ψ(0) = 1 and ψ(∞) = 0; (ii) ψ is d-monotone",
+        "formal": "ψ_1, ψ_2 are d-monotone Archimedean generators with ψ(0) = 1, ψ(∞) = 0; φ_k = ψ_k^{−1}",
+        "source": "definition 2.6"
+      },
+      {
+        "text": "φ_2 ∘ ψ_1 is super-additive",
+        "formal": "φ_2(ψ_1(u + v)) ≥ φ_2(ψ_1(u)) + φ_2(ψ_1(v)) for all u, v ≥ 0 (super-additivity as defined in Lemma 2.7)",
+        "source": "statement; lemma 2.7"
+      },
+      {
+        "text": "ψ_1 or ψ_2 is log-convex",
+        "formal": "log ψ_1 convex or log ψ_2 convex",
+        "source": "statement"
+      },
+      {
+        "text": "for 0 < q < 1",
+        "formal": "0 < q < 1",
+        "source": "statement"
+      },
+      {
+        "text": "λ ∈ D_+(E_+)",
+        "formal": "λ = (λ_1, ..., λ_n) ∈ D_+ (λ_1 ≥ ... ≥ λ_n > 0) or λ ∈ E_+ (0 < λ_1 ≤ ... ≤ λ_n); no ordering required of λ*",
+        "source": "statement; notation D_+, E_+ defined in Section 2"
+      },
+      {
+        "text": "(λ*_1, λ*_2, . . . , λ*_n) ⪯^w (λ_1, λ_2, . . . , λ_n)",
+        "formal": "x = λ*, y = λ: weak supermajorization (Definition 2.2): Σ_{i=1}^j x_(i) ≥ Σ_{i=1}^j y_(i) for j = 1, ..., n (increasing arrangement)",
+        "source": "statement; definition 2.2"
+      },
+      {
+        "text": "where β > 0 and λ > 0",
+        "formal": "all λ-type and β-type parameters > 0; q ∈ (0, 1) ∪ (1, 2) as in the two branches of eq. (1)",
+        "source": "definition eq. (1) (Introduction)"
+      },
+      {
+        "text": "for comparison results in case of 0 < q_i, q*_i < 1, we should take the common domain of U_{n:n} and V_{n:n} as (0, D)",
+        "formal": "when q < 1 the comparison is made only for t ∈ (0, D)",
+        "source": "section preamble"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "V_{n:n} <= U_{n:n}"
+    },
+    "quantifiers": "n unspecified; 0 < q < 1; t ∈ (0, D) (common domain)",
+    "numbers": "",
+    "ambiguity": "'λ ∈ D_+(E_+)' is read as 'λ ∈ D_+ or λ ∈ E_+'. The proof invokes only the log-convexity of ψ_2 although the statement allows 'ψ_1 or ψ_2'. Parts (1) and (2) have identical hypotheses apart from the range of q. Remark 1 states that log-convexity can be replaced by TP2 or left-tail-decreasing copulas (equivalent for Archimedean copulas)."
+  },
+  {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Theorem 4.1(2)",
+    "page": 12,
+    "quote": "Let us consider two sets of heterogeneous q-Weibull samples, U_i's and V_i's, with parameters (q_i, λ_i, β_i) and (q*_i, λ*_i, β*_i), i = 1, 2, . . . , n, respectively. The dependence structures of these samples are modeled by Archimedean copulas with generators ψ_1 (φ_1 = ψ_1^{−1}) and ψ_2 (φ_2 = ψ_2^{−1}). As discussed earlier, for comparison results in case of 0 < q_i, q*_i < 1, we should take the common domain of U_{n:n} and V_{n:n} as (0, D), where D = min{min_i{[λ_i(1 − q_i)]^{−1/β_i}}, min_i{[λ*_i(1 − q*_i)]^{−1/β*_i}}}. Theorem 4.1. Let U_i ∼ q − W(q, λ_i, β), i = 1, ..., n, be a set of dependent r.v.'s sharing an Archimedean copula with generator ψ_1. Similarly, let V_i ∼ q − W(q, λ*_i, β), i = 1, ..., n, be a set of dependent r.v.'s sharing an Archimedean copula with generator ψ_2. (1) Suppose that φ_2 ∘ ψ_1 is super-additive and ψ_1 or ψ_2 is log-convex. Then, for 0 < q < 1 and λ ∈ D_+(E_+), (λ*_1, λ*_2, . . . , λ*_n) ⪯^w (λ_1, λ_2, . . . , λ_n) implies U_{n:n} ≥_st V_{n:n}. (2) Suppose that φ_2 ∘ ψ_1 is super-additive and ψ_1 or ψ_2 is log-convex. Then, for 1 < q < 2 and λ ∈ D_+(E_+), (λ*_1, λ*_2, . . . , λ*_n) ⪯^w (λ_1, λ_2, . . . , λ_n) implies U_{n:n} ≥_st V_{n:n}.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "q-Weibull q−W(q, λ, β): pdf f(t) = λβ(2 − q)t^{β−1}[1 − (1 − q)λt^β]^{1/(1−q)}, t ∈ [0, [λ(1 − q)]^{−1/β}] for 0 < q < 1 and t ∈ [0, ∞) for 1 < q < 2, 'where β > 0 and λ > 0'; cdf F(t) = 1 − [1 − λ(1 − q)t^β]^{(2−q)/(1−q)}, t ≥ 0 (eq. (1)); λ_i heterogeneous, q and β common; components dependent through Archimedean copulas with generator ψ_1 (U sample) and ψ_2 (V sample)",
+    "compared": "λ vectors λ vs λ* and copula generators ψ_1 vs ψ_2; q, β common",
+    "hypotheses": [
+      {
+        "text": "Let U_i ∼ q − W(q, λ_i, β), i = 1, ..., n, be a set of dependent r.v.'s sharing an Archimedean copula with generator ψ_1.",
+        "formal": "(U_1, ..., U_n) has q-Weibull marginals q−W(q, λ_i, β) and Archimedean copula C_{ψ_1}",
+        "source": "statement"
+      },
+      {
+        "text": "let V_i ∼ q − W(q, λ*_i, β), i = 1, ..., n, be a set of dependent r.v.'s sharing an Archimedean copula with generator ψ_2.",
+        "formal": "(V_1, ..., V_n) has marginals q−W(q, λ*_i, β) and Archimedean copula C_{ψ_2}",
+        "source": "statement"
+      },
+      {
+        "text": "Definition 2.6. A copula C is said to be Archimedean if there exists a generator function ψ : [0, ∞] → [0, 1] such that C(u) = ψ(ψ^{−1}(u_1) + ψ^{−1}(u_2) + · · · + ψ^{−1}(u_d)). The function ψ must satisfy ... (i) ψ(0) = 1 and ψ(∞) = 0; (ii) ψ is d-monotone",
+        "formal": "ψ_1, ψ_2 are d-monotone Archimedean generators with ψ(0) = 1, ψ(∞) = 0; φ_k = ψ_k^{−1}",
+        "source": "definition 2.6"
+      },
+      {
+        "text": "φ_2 ∘ ψ_1 is super-additive",
+        "formal": "φ_2(ψ_1(u + v)) ≥ φ_2(ψ_1(u)) + φ_2(ψ_1(v)) for all u, v ≥ 0 (super-additivity as defined in Lemma 2.7)",
+        "source": "statement; lemma 2.7"
+      },
+      {
+        "text": "ψ_1 or ψ_2 is log-convex",
+        "formal": "log ψ_1 convex or log ψ_2 convex",
+        "source": "statement"
+      },
+      {
+        "text": "for 1 < q < 2",
+        "formal": "1 < q < 2",
+        "source": "statement"
+      },
+      {
+        "text": "λ ∈ D_+(E_+)",
+        "formal": "λ = (λ_1, ..., λ_n) ∈ D_+ (λ_1 ≥ ... ≥ λ_n > 0) or λ ∈ E_+ (0 < λ_1 ≤ ... ≤ λ_n); no ordering required of λ*",
+        "source": "statement; notation D_+, E_+ defined in Section 2"
+      },
+      {
+        "text": "(λ*_1, λ*_2, . . . , λ*_n) ⪯^w (λ_1, λ_2, . . . , λ_n)",
+        "formal": "x = λ*, y = λ: weak supermajorization (Definition 2.2): Σ_{i=1}^j x_(i) ≥ Σ_{i=1}^j y_(i) for j = 1, ..., n (increasing arrangement)",
+        "source": "statement; definition 2.2"
+      },
+      {
+        "text": "where β > 0 and λ > 0",
+        "formal": "all λ-type and β-type parameters > 0; q ∈ (0, 1) ∪ (1, 2) as in the two branches of eq. (1)",
+        "source": "definition eq. (1) (Introduction)"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "V_{n:n} <= U_{n:n}"
+    },
+    "quantifiers": "n unspecified; 1 < q < 2; all t ≥ 0",
+    "numbers": "",
+    "ambiguity": "'λ ∈ D_+(E_+)' is read as 'λ ∈ D_+ or λ ∈ E_+'. The proof invokes only the log-convexity of ψ_2 although the statement allows 'ψ_1 or ψ_2'. Parts (1) and (2) have identical hypotheses apart from the range of q. Remark 1 states that log-convexity can be replaced by TP2 or left-tail-decreasing copulas (equivalent for Archimedean copulas)."
+  },
+  {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Example 4.2 (case 0 < q < 1, Fig. 8(a))",
+    "page": 14,
+    "quote": "The next example illustrates the validity of the preceding theorem. Example 4.2. Let U_i ∼ q − W(q, λ_i, β) and V_i ∼ q − W(q, λ*_i, β) for i = 1, 2 be two sets of components being mutually dependent with the Clayton copula (member of the Archimedean copula family). Here, we have considered the generators of the Clayton copula as ψ_1(u) = 1/(1−u) and ψ_2(u) = 1/√(2u+1). Then φ_1(u) = (1−u)/u and φ_2(u) = (1−u^2)/(2u^2). It is easy to verify that ψ_1 and ψ_2 are log-convex and φ_2 ∘ ψ_1 is super-additive. Set λ_1 = 0.3, λ_2 = 1.7, λ*_1 = 0.5, λ*_2 = 1.6, β = 0.5 and q = 0.5, then Figure 8(a) demonstrates that F_{U_{n:n}} − F_{V_{n:n}} ≤ 0 on (0, D) = (0, 1.384) when 0 < q < 1.",
+    "kind": "example",
+    "model": "parallel system",
+    "family": "q-Weibull q−W(q, λ, β): pdf f(t) = λβ(2 − q)t^{β−1}[1 − (1 − q)λt^β]^{1/(1−q)}, t ∈ [0, [λ(1 − q)]^{−1/β}] for 0 < q < 1 and t ∈ [0, ∞) for 1 < q < 2, 'where β > 0 and λ > 0'; cdf F(t) = 1 − [1 − λ(1 − q)t^β]^{(2−q)/(1−q)}, t ≥ 0 (eq. (1)); λ_i heterogeneous, q and β common; components dependent through Archimedean copulas with generator ψ_1 (U sample) and ψ_2 (V sample)",
+    "compared": "λ = (0.3, 1.7) vs λ* = (0.5, 1.6); Clayton generators ψ_1 vs ψ_2",
+    "hypotheses": [
+      {
+        "text": "Let U_i ∼ q − W(q, λ_i, β) and V_i ∼ q − W(q, λ*_i, β) for i = 1, 2 be two sets of components being mutually dependent",
+        "formal": "dependent samples of size 2",
+        "source": "statement"
+      },
+      {
+        "text": "Clayton copula ... ψ_1(u) = 1/(1−u) and ψ_2(u) = 1/√(2u+1). Then φ_1(u) = (1−u)/u and φ_2(u) = (1−u^2)/(2u^2). It is easy to verify that ψ_1 and ψ_2 are log-convex and φ_2 ∘ ψ_1 is super-additive.",
+        "formal": "Clayton generators for the U and V samples; asserted log-convexity and super-additivity (hypotheses of Theorem 4.1)",
+        "source": "statement; earlier theorem 4.1"
+      },
+      {
+        "text": "Set λ_1 = 0.3, λ_2 = 1.7, λ*_1 = 0.5, λ*_2 = 1.6, β = 0.5 and q = 0.5",
+        "formal": "λ = (0.3, 1.7), λ* = (0.5, 1.6), β = 0.5, q = 0.5",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "V_{2:2} <= U_{2:2}"
+    },
+    "quantifiers": "n = 2; t ∈ (0, D) = (0, 1.384)",
+    "numbers": "n = 2; ψ_1(u) = 1/(1−u) [as printed], ψ_2(u) = 1/√(2u+1), φ_1(u) = (1−u)/u, φ_2(u) = (1−u^2)/(2u^2); λ_1 = 0.3, λ_2 = 1.7; λ*_1 = 0.5, λ*_2 = 1.6; β = 0.5; q = 0.5. Printed: F_{U_{n:n}} − F_{V_{n:n}} ≤ 0 on (0, D) = (0, 1.384) (Fig. 8(a): from about −0.08 at t ≈ 0.05 decreasing to about −0.205 at t = 1.4).",
+    "ambiguity": "ψ_1(u) = 1/(1−u) as printed is inconsistent with the stated inverse φ_1(u) = (1−u)/u, whose inverse is 1/(1+u). The example does not state the weak supermajorization between λ* and λ required by Theorem 4.1. The text writes U_{n:n}, V_{n:n} although n = 2. Example starts on PDF page 14 and continues on page 15."
+  },
+  {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Example 4.2 (case 1 < q < 2)",
+    "page": 15,
+    "quote": "The next example illustrates the validity of the preceding theorem. Example 4.2. Let U_i ∼ q − W(q, λ_i, β) and V_i ∼ q − W(q, λ*_i, β) for i = 1, 2 be two sets of components being mutually dependent with the Clayton copula (member of the Archimedean copula family). Here, we have considered the generators of the Clayton copula as ψ_1(u) = 1/(1−u) and ψ_2(u) = 1/√(2u+1). Then φ_1(u) = (1−u)/u and φ_2(u) = (1−u^2)/(2u^2). It is easy to verify that ψ_1 and ψ_2 are log-convex and φ_2 ∘ ψ_1 is super-additive. Figure 8(a) demonstrates that the result for 1 < q < 2 also holds. In this case, we have considered λ_1 = 0.3, λ_2 = 1.7, λ*_1 = 0.5, λ*_2 = 1.6, β = 0.5 and q = 1.5.",
+    "kind": "example",
+    "model": "parallel system",
+    "family": "q-Weibull q−W(q, λ, β): pdf f(t) = λβ(2 − q)t^{β−1}[1 − (1 − q)λt^β]^{1/(1−q)}, t ∈ [0, [λ(1 − q)]^{−1/β}] for 0 < q < 1 and t ∈ [0, ∞) for 1 < q < 2, 'where β > 0 and λ > 0'; cdf F(t) = 1 − [1 − λ(1 − q)t^β]^{(2−q)/(1−q)}, t ≥ 0 (eq. (1)); λ_i heterogeneous, q and β common; components dependent through Archimedean copulas with generator ψ_1 (U sample) and ψ_2 (V sample)",
+    "compared": "λ = (0.3, 1.7) vs λ* = (0.5, 1.6); Clayton generators ψ_1 vs ψ_2",
+    "hypotheses": [
+      {
+        "text": "Let U_i ∼ q − W(q, λ_i, β) and V_i ∼ q − W(q, λ*_i, β) for i = 1, 2 be two sets of components being mutually dependent",
+        "formal": "dependent samples of size 2",
+        "source": "statement"
+      },
+      {
+        "text": "Clayton copula ... ψ_1(u) = 1/(1−u) and ψ_2(u) = 1/√(2u+1). Then φ_1(u) = (1−u)/u and φ_2(u) = (1−u^2)/(2u^2). It is easy to verify that ψ_1 and ψ_2 are log-convex and φ_2 ∘ ψ_1 is super-additive.",
+        "formal": "Clayton generators for the U and V samples; asserted log-convexity and super-additivity (hypotheses of Theorem 4.1)",
+        "source": "statement; earlier theorem 4.1"
+      },
+      {
+        "text": "λ_1 = 0.3, λ_2 = 1.7, λ*_1 = 0.5, λ*_2 = 1.6, β = 0.5 and q = 1.5",
+        "formal": "λ = (0.3, 1.7), λ* = (0.5, 1.6), β = 0.5, q = 1.5",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "V_{2:2} <= U_{2:2} (the result of Theorem 4.1(2) 'also holds')"
+    },
+    "quantifiers": "n = 2; Fig. 8(b) plots t up to 100",
+    "numbers": "n = 2; same generators; λ_1 = 0.3, λ_2 = 1.7; λ*_1 = 0.5, λ*_2 = 1.6; β = 0.5; q = 1.5. Printed: 'the result for 1 < q < 2 also holds'. Fig. 8(b) (caption with q = 1.5): F_{U_{2:2}} − F_{V_{2:2}} from about −0.096 near t ≈ 2, minimum about −0.124 near t ≈ 22, about −0.11 at t = 100.",
+    "ambiguity": "The text cites Figure 8(a) for this case; Figure 8(b), whose caption has q = 1.5, is presumably meant. ψ_1(u) = 1/(1−u) as printed is inconsistent with the stated inverse φ_1(u) = (1−u)/u, whose inverse is 1/(1+u). The example does not state the weak supermajorization between λ* and λ required by Theorem 4.1. The text writes U_{n:n}, V_{n:n} although n = 2."
+  },
+  {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Theorem 4.3(1)",
+    "page": 15,
+    "quote": "Let us consider two sets of heterogeneous q-Weibull samples, U_i's and V_i's, with parameters (q_i, λ_i, β_i) and (q*_i, λ*_i, β*_i), i = 1, 2, . . . , n, respectively. The dependence structures of these samples are modeled by Archimedean copulas with generators ψ_1 (φ_1 = ψ_1^{−1}) and ψ_2 (φ_2 = ψ_2^{−1}). As discussed earlier, for comparison results in case of 0 < q_i, q*_i < 1, we should take the common domain of U_{n:n} and V_{n:n} as (0, D), where D = min{min_i{[λ_i(1 − q_i)]^{−1/β_i}}, min_i{[λ*_i(1 − q*_i)]^{−1/β*_i}}}. [...] Theorem 4.3. Let U_i ∼ q − W(q, λ_i, β), for i = 1, ..., n, be a set of dependent r.v.'s sharing an Archimedean copula with generator ψ_1. Similarly, let V_i ∼ q − W(q, λ*_i, β), for i = 1, ..., n, be a set of dependent r.v.'s sharing an Archimedean copula with generator ψ_2. (1) Suppose φ_2 ∘ ψ_1 is super-additive and ψ_1 or ψ_2 is log-convex. Then, for 0 < q < 1 and λ ∈ D_+(E_+), (λ*_1, λ*_2, . . . , λ*_n) ⪯_w (λ_1, λ_2, . . . , λ_n) implies U_{1:n} ≤_st V_{1:n}. (2) Suppose φ_2 ∘ ψ_1 is super-additive and ψ_1 or ψ_2 is log-concave. Then, for 1 < q < 2 and λ ∈ D_+(E_+) (λ_1, λ_2, . . . , λ_n) ⪯^w (λ*_1, λ*_2, . . . , λ*_n) implies U_{1:n} ≤_st V_{1:n}.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "q-Weibull q−W(q, λ, β): pdf f(t) = λβ(2 − q)t^{β−1}[1 − (1 − q)λt^β]^{1/(1−q)}, t ∈ [0, [λ(1 − q)]^{−1/β}] for 0 < q < 1 and t ∈ [0, ∞) for 1 < q < 2, 'where β > 0 and λ > 0'; cdf F(t) = 1 − [1 − λ(1 − q)t^β]^{(2−q)/(1−q)}, t ≥ 0 (eq. (1)); λ_i heterogeneous, q and β common; components dependent through Archimedean copulas with generator ψ_1 (U sample) and ψ_2 (V sample)",
+    "compared": "λ vectors λ vs λ* and copula generators ψ_1 vs ψ_2; q, β common",
+    "hypotheses": [
+      {
+        "text": "Let U_i ∼ q − W(q, λ_i, β), i = 1, ..., n, be a set of dependent r.v.'s sharing an Archimedean copula with generator ψ_1.",
+        "formal": "(U_1, ..., U_n) has q-Weibull marginals q−W(q, λ_i, β) and Archimedean copula C_{ψ_1}",
+        "source": "statement"
+      },
+      {
+        "text": "let V_i ∼ q − W(q, λ*_i, β), i = 1, ..., n, be a set of dependent r.v.'s sharing an Archimedean copula with generator ψ_2.",
+        "formal": "(V_1, ..., V_n) has marginals q−W(q, λ*_i, β) and Archimedean copula C_{ψ_2}",
+        "source": "statement"
+      },
+      {
+        "text": "Definition 2.6. A copula C is said to be Archimedean if there exists a generator function ψ : [0, ∞] → [0, 1] such that C(u) = ψ(ψ^{−1}(u_1) + ψ^{−1}(u_2) + · · · + ψ^{−1}(u_d)). The function ψ must satisfy ... (i) ψ(0) = 1 and ψ(∞) = 0; (ii) ψ is d-monotone",
+        "formal": "ψ_1, ψ_2 are d-monotone Archimedean generators with ψ(0) = 1, ψ(∞) = 0; φ_k = ψ_k^{−1}",
+        "source": "definition 2.6"
+      },
+      {
+        "text": "φ_2 ∘ ψ_1 is super-additive",
+        "formal": "φ_2(ψ_1(u + v)) ≥ φ_2(ψ_1(u)) + φ_2(ψ_1(v)) for all u, v ≥ 0 (super-additivity as defined in Lemma 2.7)",
+        "source": "statement; lemma 2.7"
+      },
+      {
+        "text": "ψ_1 or ψ_2 is log-convex",
+        "formal": "log ψ_1 convex or log ψ_2 convex",
+        "source": "statement"
+      },
+      {
+        "text": "for 0 < q < 1",
+        "formal": "0 < q < 1",
+        "source": "statement"
+      },
+      {
+        "text": "λ ∈ D_+(E_+)",
+        "formal": "λ = (λ_1, ..., λ_n) ∈ D_+ (λ_1 ≥ ... ≥ λ_n > 0) or λ ∈ E_+ (0 < λ_1 ≤ ... ≤ λ_n); no ordering required of λ*",
+        "source": "statement; notation D_+, E_+ defined in Section 2"
+      },
+      {
+        "text": "(λ*_1, λ*_2, . . . , λ*_n) ⪯_w (λ_1, λ_2, . . . , λ_n)",
+        "formal": "x = λ*, y = λ: weak submajorization (Definition 2.2): Σ_{i=j}^n x_(i) ≤ Σ_{i=j}^n y_(i) for j = 1, ..., n (increasing arrangement)",
+        "source": "statement; definition 2.2"
+      },
+      {
+        "text": "where β > 0 and λ > 0",
+        "formal": "all λ-type and β-type parameters > 0; q ∈ (0, 1) ∪ (1, 2) as in the two branches of eq. (1)",
+        "source": "definition eq. (1) (Introduction)"
+      },
+      {
+        "text": "for comparison results in case of 0 < q_i, q*_i < 1, we should take the common domain of U_{n:n} and V_{n:n} as (0, D)",
+        "formal": "when q < 1 the comparison is made only for t ∈ (0, D)",
+        "source": "section preamble"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "U_{1:n} <= V_{1:n}"
+    },
+    "quantifiers": "n unspecified; 0 < q < 1; t ∈ (0, D) (common domain)",
+    "numbers": "",
+    "ambiguity": "The statement says the samples share 'an Archimedean copula', but the proof writes F̄_{U_{1:n}}(t) = ψ_1[Σ φ_1{F̄_{U_i}(t)}], i.e. the generator acts on survival functions (survival copula). 'λ ∈ D_+(E_+)' is read as 'λ ∈ D_+ or λ ∈ E_+'. The section's common-domain sentence is phrased for U_{n:n} and V_{n:n}. [...] in the quote marks omitted intervening text."
+  },
+  {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Theorem 4.3(2)",
+    "page": 15,
+    "quote": "Let us consider two sets of heterogeneous q-Weibull samples, U_i's and V_i's, with parameters (q_i, λ_i, β_i) and (q*_i, λ*_i, β*_i), i = 1, 2, . . . , n, respectively. The dependence structures of these samples are modeled by Archimedean copulas with generators ψ_1 (φ_1 = ψ_1^{−1}) and ψ_2 (φ_2 = ψ_2^{−1}). As discussed earlier, for comparison results in case of 0 < q_i, q*_i < 1, we should take the common domain of U_{n:n} and V_{n:n} as (0, D), where D = min{min_i{[λ_i(1 − q_i)]^{−1/β_i}}, min_i{[λ*_i(1 − q*_i)]^{−1/β*_i}}}. [...] Theorem 4.3. Let U_i ∼ q − W(q, λ_i, β), for i = 1, ..., n, be a set of dependent r.v.'s sharing an Archimedean copula with generator ψ_1. Similarly, let V_i ∼ q − W(q, λ*_i, β), for i = 1, ..., n, be a set of dependent r.v.'s sharing an Archimedean copula with generator ψ_2. (1) Suppose φ_2 ∘ ψ_1 is super-additive and ψ_1 or ψ_2 is log-convex. Then, for 0 < q < 1 and λ ∈ D_+(E_+), (λ*_1, λ*_2, . . . , λ*_n) ⪯_w (λ_1, λ_2, . . . , λ_n) implies U_{1:n} ≤_st V_{1:n}. (2) Suppose φ_2 ∘ ψ_1 is super-additive and ψ_1 or ψ_2 is log-concave. Then, for 1 < q < 2 and λ ∈ D_+(E_+) (λ_1, λ_2, . . . , λ_n) ⪯^w (λ*_1, λ*_2, . . . , λ*_n) implies U_{1:n} ≤_st V_{1:n}.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "q-Weibull q−W(q, λ, β): pdf f(t) = λβ(2 − q)t^{β−1}[1 − (1 − q)λt^β]^{1/(1−q)}, t ∈ [0, [λ(1 − q)]^{−1/β}] for 0 < q < 1 and t ∈ [0, ∞) for 1 < q < 2, 'where β > 0 and λ > 0'; cdf F(t) = 1 − [1 − λ(1 − q)t^β]^{(2−q)/(1−q)}, t ≥ 0 (eq. (1)); λ_i heterogeneous, q and β common; components dependent through Archimedean copulas with generator ψ_1 (U sample) and ψ_2 (V sample)",
+    "compared": "λ vectors λ vs λ* and copula generators ψ_1 vs ψ_2; q, β common",
+    "hypotheses": [
+      {
+        "text": "Let U_i ∼ q − W(q, λ_i, β), i = 1, ..., n, be a set of dependent r.v.'s sharing an Archimedean copula with generator ψ_1.",
+        "formal": "(U_1, ..., U_n) has q-Weibull marginals q−W(q, λ_i, β) and Archimedean copula C_{ψ_1}",
+        "source": "statement"
+      },
+      {
+        "text": "let V_i ∼ q − W(q, λ*_i, β), i = 1, ..., n, be a set of dependent r.v.'s sharing an Archimedean copula with generator ψ_2.",
+        "formal": "(V_1, ..., V_n) has marginals q−W(q, λ*_i, β) and Archimedean copula C_{ψ_2}",
+        "source": "statement"
+      },
+      {
+        "text": "Definition 2.6. A copula C is said to be Archimedean if there exists a generator function ψ : [0, ∞] → [0, 1] such that C(u) = ψ(ψ^{−1}(u_1) + ψ^{−1}(u_2) + · · · + ψ^{−1}(u_d)). The function ψ must satisfy ... (i) ψ(0) = 1 and ψ(∞) = 0; (ii) ψ is d-monotone",
+        "formal": "ψ_1, ψ_2 are d-monotone Archimedean generators with ψ(0) = 1, ψ(∞) = 0; φ_k = ψ_k^{−1}",
+        "source": "definition 2.6"
+      },
+      {
+        "text": "φ_2 ∘ ψ_1 is super-additive",
+        "formal": "φ_2(ψ_1(u + v)) ≥ φ_2(ψ_1(u)) + φ_2(ψ_1(v)) for all u, v ≥ 0 (super-additivity as defined in Lemma 2.7)",
+        "source": "statement; lemma 2.7"
+      },
+      {
+        "text": "ψ_1 or ψ_2 is log-concave",
+        "formal": "log ψ_1 concave or log ψ_2 concave",
+        "source": "statement"
+      },
+      {
+        "text": "for 1 < q < 2",
+        "formal": "1 < q < 2",
+        "source": "statement"
+      },
+      {
+        "text": "λ ∈ D_+(E_+)",
+        "formal": "λ = (λ_1, ..., λ_n) ∈ D_+ (λ_1 ≥ ... ≥ λ_n > 0) or λ ∈ E_+ (0 < λ_1 ≤ ... ≤ λ_n); no ordering required of λ*",
+        "source": "statement; notation D_+, E_+ defined in Section 2"
+      },
+      {
+        "text": "(λ_1, λ_2, . . . , λ_n) ⪯^w (λ*_1, λ*_2, . . . , λ*_n)",
+        "formal": "x = λ, y = λ*: weak supermajorization (Definition 2.2): Σ_{i=1}^j x_(i) ≥ Σ_{i=1}^j y_(i) for j = 1, ..., n (increasing arrangement)",
+        "source": "statement; definition 2.2"
+      },
+      {
+        "text": "where β > 0 and λ > 0",
+        "formal": "all λ-type and β-type parameters > 0; q ∈ (0, 1) ∪ (1, 2) as in the two branches of eq. (1)",
+        "source": "definition eq. (1) (Introduction)"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "U_{1:n} <= V_{1:n}"
+    },
+    "quantifiers": "n unspecified; 1 < q < 2; all t ≥ 0",
+    "numbers": "",
+    "ambiguity": "The statement says the samples share 'an Archimedean copula', but the proof writes F̄_{U_{1:n}}(t) = ψ_1[Σ φ_1{F̄_{U_i}(t)}], i.e. the generator acts on survival functions (survival copula). 'λ ∈ D_+(E_+)' is read as 'λ ∈ D_+ or λ ∈ E_+'. The section's common-domain sentence is phrased for U_{n:n} and V_{n:n}. [...] in the quote marks omitted intervening text. Remark 2 states that log-concavity can be replaced by an RR2 copula (equivalent for Archimedean copulas)."
+  },
+  {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Example 4.4 (case 0 < q < 1, Fig. 9(a))",
+    "page": 17,
+    "quote": "Now, we present an example to demonstrate that if the smallest order statistics satisfy the conditions of Theorem 4.3, then the survival function of one will be smaller than the other. Example 4.4. Let U_i ∼ q − W(q, λ_i, β) and V_i ∼ q − W(q, λ*_i, β) for i = 1, 2 be two sets of components being mutually dependent. For the case of 0 < q < 1, we have used Clayton copula with generators ψ_1(u) = 1/(1−u) and ψ_2(u) = 1/√(2u+1) to model the dependence. With the choice of these generators, it is easy to check that the conditions of Theorem 4.3 hold. Figure 9(a) demonstrates that F̄_{U_{1:n}} − F̄_{V_{1:n}} ≤ 0 on (0, D) = (0, 1.384) where λ_1 = 0.5, λ_2 = 1.7, λ*_1 = 0.6, λ*_2 = 1.5, β = 0.5, and q = 0.5.",
+    "kind": "example",
+    "model": "series system",
+    "family": "q-Weibull q−W(q, λ, β): pdf f(t) = λβ(2 − q)t^{β−1}[1 − (1 − q)λt^β]^{1/(1−q)}, t ∈ [0, [λ(1 − q)]^{−1/β}] for 0 < q < 1 and t ∈ [0, ∞) for 1 < q < 2, 'where β > 0 and λ > 0'; cdf F(t) = 1 − [1 − λ(1 − q)t^β]^{(2−q)/(1−q)}, t ≥ 0 (eq. (1)); λ_i heterogeneous, q and β common; components dependent through Archimedean copulas with generator ψ_1 (U sample) and ψ_2 (V sample)",
+    "compared": "λ = (0.5, 1.7) vs λ* = (0.6, 1.5); Clayton generators ψ_1 vs ψ_2",
+    "hypotheses": [
+      {
+        "text": "Let U_i ∼ q − W(q, λ_i, β) and V_i ∼ q − W(q, λ*_i, β) for i = 1, 2 be two sets of components being mutually dependent.",
+        "formal": "dependent samples of size 2",
+        "source": "statement"
+      },
+      {
+        "text": "Clayton copula with generators ψ_1(u) = 1/(1−u) and ψ_2(u) = 1/√(2u+1) ... it is easy to check that the conditions of Theorem 4.3 hold",
+        "formal": "asserted hypotheses of Theorem 4.3(1)",
+        "source": "statement; earlier theorem 4.3(1)"
+      },
+      {
+        "text": "λ_1 = 0.5, λ_2 = 1.7, λ*_1 = 0.6, λ*_2 = 1.5, β = 0.5, and q = 0.5",
+        "formal": "λ = (0.5, 1.7), λ* = (0.6, 1.5), β = 0.5, q = 0.5",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "U_{1:2} <= V_{1:2}"
+    },
+    "quantifiers": "n = 2; t ∈ (0, D) = (0, 1.384)",
+    "numbers": "n = 2; ψ_1(u) = 1/(1−u) [as printed], ψ_2(u) = 1/√(2u+1); λ_1 = 0.5, λ_2 = 1.7; λ*_1 = 0.6, λ*_2 = 1.5; β = 0.5; q = 0.5. Printed: F̄_{U_{1:n}} − F̄_{V_{1:n}} ≤ 0 on (0, D) = (0, 1.384) (Fig. 9(a): 0 at t = 0, minimum about −0.062 near t ≈ 0.15, about −0.003 at t = 1.4).",
+    "ambiguity": "ψ_1(u) = 1/(1−u) as printed does not match the Clayton inverse φ_1(u) = (1−u)/u given in Example 4.2 (inverse 1/(1+u)). The majorization relation is not stated explicitly. Fig. 9 caption has a stray ']'."
+  },
+  {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Example 4.4 (case 1 < q < 2, Fig. 9(b))",
+    "page": 17,
+    "quote": "Now, we present an example to demonstrate that if the smallest order statistics satisfy the conditions of Theorem 4.3, then the survival function of one will be smaller than the other. Example 4.4. Let U_i ∼ q − W(q, λ_i, β) and V_i ∼ q − W(q, λ*_i, β) for i = 1, 2 be two sets of components being mutually dependent. For the case of 1 < q < 2, to model the dependence, we employ the Gumbel-Hougaard copula (member of Archimedean copula family) with generators ψ_1(u) = e^{1−(1+u)^8} and ψ_2(u) = e^{1−(1+u)^3}. Then φ_1(u) = (1 − ln u)^{1/8} − 1 and φ_2(u) = (1 − ln u)^{1/3} − 1. Observe that both ψ_1(u) and ψ_2(u) are log-concave and φ_2∘ψ_1 is super-additive. With the parameter choices λ_1 = 0.5, λ_2 = 0.8, λ*_1 = 0.3, λ*_2 = 0.9, β = 0.5, and q = 1.5, Figure 9(b) demonstrates that the result also holds for 1 < q < 2.",
+    "kind": "example",
+    "model": "series system",
+    "family": "q-Weibull q−W(q, λ, β): pdf f(t) = λβ(2 − q)t^{β−1}[1 − (1 − q)λt^β]^{1/(1−q)}, t ∈ [0, [λ(1 − q)]^{−1/β}] for 0 < q < 1 and t ∈ [0, ∞) for 1 < q < 2, 'where β > 0 and λ > 0'; cdf F(t) = 1 − [1 − λ(1 − q)t^β]^{(2−q)/(1−q)}, t ≥ 0 (eq. (1)); λ_i heterogeneous, q and β common; components dependent through Archimedean copulas with generator ψ_1 (U sample) and ψ_2 (V sample)",
+    "compared": "λ = (0.5, 0.8) vs λ* = (0.3, 0.9); Gumbel-Hougaard-type generators ψ_1 vs ψ_2",
+    "hypotheses": [
+      {
+        "text": "Let U_i ∼ q − W(q, λ_i, β) and V_i ∼ q − W(q, λ*_i, β) for i = 1, 2 be two sets of components being mutually dependent.",
+        "formal": "dependent samples of size 2",
+        "source": "statement"
+      },
+      {
+        "text": "generators ψ_1(u) = e^{1−(1+u)^8} and ψ_2(u) = e^{1−(1+u)^3}. Then φ_1(u) = (1 − ln u)^{1/8} − 1 and φ_2(u) = (1 − ln u)^{1/3} − 1. Observe that both ψ_1(u) and ψ_2(u) are log-concave and φ_2∘ψ_1 is super-additive.",
+        "formal": "asserted hypotheses of Theorem 4.3(2)",
+        "source": "statement; earlier theorem 4.3(2)"
+      },
+      {
+        "text": "λ_1 = 0.5, λ_2 = 0.8, λ*_1 = 0.3, λ*_2 = 0.9, β = 0.5, and q = 1.5",
+        "formal": "λ = (0.5, 0.8), λ* = (0.3, 0.9), β = 0.5, q = 1.5",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "U_{1:2} <= V_{1:2} (the result 'also holds')"
+    },
+    "quantifiers": "n = 2; Fig. 9(b) plots t up to 100",
+    "numbers": "n = 2; ψ_1(u) = e^{1−(1+u)^8}, ψ_2(u) = e^{1−(1+u)^3}; λ_1 = 0.5, λ_2 = 0.8; λ*_1 = 0.3, λ*_2 = 0.9; β = 0.5; q = 1.5. Printed: the result also holds (Fig. 9(b): F̄_{U_{1:2}} − F̄_{V_{1:2}} from 0 at t = 0 to a minimum about −0.065 near t ≈ 5, about −0.021 at t = 100).",
+    "ambiguity": "The majorization relation (λ ⪯^w λ*) is not stated explicitly. The generators are called Gumbel-Hougaard but are not in the usual Gumbel-Hougaard form."
+  },
+  {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Theorem 5.1(1)",
+    "page": 18,
+    "quote": "Let U_i ∼ q − W(q_i, λ_i, β_i) and V_i ∼ q − W(q*_i, λ*_i, β*_i), for i = 1, 2, . . . , n, be two sets of independent r.v.'s and I_i, I*_i be another two sets of independent Bernoulli r.v.'s, independent of U_i's and V_i's respectively, with E(I_i) = p_i and E(I*_i) = p*_i. These parameters are referred to as shock parameters. Under random shocks, define U*_i = U_i I_i and V*_i = V_i I*_i. Then, the survival functions of U*_i and V*_i are given by F̄_{U*_i}(t) = P(U_i I_i ≥ t) = P(U_i I_i ≥ t|I_i = 1)P(I_i = 1) = p_i(1 − λ_i(1 − q_i)t^{β_i})^{(2−q_i)/(1−q_i)}, and F̄_{V*_i}(t) = P(V_i I*_i ≥ t) = P(V_i I*_i ≥ t|I*_i = 1)P(I*_i = 1) = p*_i(1 − λ*_i(1 − q*_i)t^{β*_i})^{(2−q*_i)/(1−q*_i)}. We now investigate stochastic comparisons between the largest order statistics in the presence of random shocks. The c.d.f.s of the largest order statistics U*_{n:n} and V*_{n:n} are given by F_{U*_{n:n}}(t) = Π_{i=1}^n [1 − p_i(1 − λ_i(1 − q_i)t^{β_i})^{(2−q_i)/(1−q_i)}], and F_{V*_{n:n}}(t) = Π_{i=1}^n [1 − p*_i(1 − λ*_i(1 − q*_i)t^{β*_i})^{(2−q*_i)/(1−q*_i)}], with F_{U*_{n:n}}(0) = Π_{i=1}^n (1 − p_i) and F_{V*_{n:n}}(0) = Π_{i=1}^n (1 − p*_i). Theorem 5.1. Let U_i ∼ q − W(q, λ_i, β) and V_i ∼ q − W(q, λ_i, β), i = 1, . . . , n. Suppose I_i(I*_i) be a set of independent Bernoulli r.v.'s, independent of U_i(V_i) with E(I_i) = p_i(E(I*_i) = p*_i). Let ℘ : [0, 1] → R_+ be a convex, differentiable, and strictly increasing function. Assume λ ∈ D_+(E_+), ℘(p) ∈ E_+(D_+), where ℘(p) ≡ (℘(p_1), ℘(p_2), . . . , ℘(p_n)). Then the following results hold: (1) For 0 < q < 1, if ℘(p) ⪯_w ℘(p*), then U*_{n:n} ≤_st V*_{n:n}. (2) For 1 < q < 2, if ℘(p) ⪯_w ℘(p*), then U*_{n:n} ≤_st V*_{n:n}.",
+    "kind": "theorem",
+    "model": "other: parallel system (largest order statistic) of components under random shocks, U*_i = U_i I_i",
+    "family": "q-Weibull q−W(q, λ, β): pdf f(t) = λβ(2 − q)t^{β−1}[1 − (1 − q)λt^β]^{1/(1−q)}, t ∈ [0, [λ(1 − q)]^{−1/β}] for 0 < q < 1 and t ∈ [0, ∞) for 1 < q < 2, 'where β > 0 and λ > 0'; cdf F(t) = 1 − [1 − λ(1 − q)t^β]^{(2−q)/(1−q)}, t ≥ 0 (eq. (1)); U_i and V_i both q−W(q, λ_i, β) (same λ_i, q, β); each component multiplied by an independent Bernoulli shock indicator, p_i for U and p*_i for V",
+    "compared": "shock parameter vectors p vs p* (through ℘(p) vs ℘(p*)); lifetimes identically parametrized",
+    "hypotheses": [
+      {
+        "text": "Let U_i ∼ q − W(q, λ_i, β) and V_i ∼ q − W(q, λ_i, β), i = 1, . . . , n.",
+        "formal": "U_i and V_i both q−W(q, λ_i, β); independence of the U_i (and of the V_i) from the section preamble",
+        "source": "statement"
+      },
+      {
+        "text": "Suppose I_i(I*_i) be a set of independent Bernoulli r.v.'s, independent of U_i(V_i) with E(I_i) = p_i(E(I*_i) = p*_i).",
+        "formal": "I_i ∼ Bernoulli(p_i), I*_i ∼ Bernoulli(p*_i), independent, independent of the lifetimes",
+        "source": "statement"
+      },
+      {
+        "text": "Under random shocks, define U*_i = U_i I_i and V*_i = V_i I*_i.",
+        "formal": "U*_i = U_i I_i, V*_i = V_i I*_i with I_i ∼ Bernoulli(p_i), I*_i ∼ Bernoulli(p*_i) independent of the U's and V's; P(U*_i > t) = p_i F̄_{U_i}(t) for t > 0",
+        "source": "section preamble"
+      },
+      {
+        "text": "Let ℘ : [0, 1] → R_+ be a convex, differentiable, and strictly increasing function.",
+        "formal": "℘ convex, differentiable, strictly increasing on [0, 1], nonnegative values",
+        "source": "statement"
+      },
+      {
+        "text": "Assume λ ∈ D_+(E_+), ℘(p) ∈ E_+(D_+), where ℘(p) ≡ (℘(p_1), ℘(p_2), . . . , ℘(p_n)).",
+        "formal": "either (λ ∈ D_+ and ℘(p) ∈ E_+) or (λ ∈ E_+ and ℘(p) ∈ D_+); no ordering required of p*",
+        "source": "statement"
+      },
+      {
+        "text": "For 0 < q < 1",
+        "formal": "0 < q < 1",
+        "source": "statement"
+      },
+      {
+        "text": "if ℘(p) ⪯_w ℘(p*)",
+        "formal": "x = ℘(p), y = ℘(p*): weak submajorization (Definition 2.2): Σ_{i=j}^n x_(i) ≤ Σ_{i=j}^n y_(i) for j = 1, ..., n (increasing arrangement)",
+        "source": "statement; definition 2.2"
+      },
+      {
+        "text": "where β > 0 and λ > 0",
+        "formal": "all λ-type and β-type parameters > 0; q ∈ (0, 1) ∪ (1, 2) as in the two branches of eq. (1)",
+        "source": "definition eq. (1) (Introduction)"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "U*_{n:n} <= V*_{n:n}"
+    },
+    "quantifiers": "n unspecified; 0 < q < 1; t ∈ [0, D) per the proof",
+    "numbers": "",
+    "ambiguity": "V_i is written q − W(q, λ_i, β), with the same λ_i as U_i, so only the shock parameters differ. The statement assumes ℘ convex, while the proof invokes 'the concavity of ℘(u)'. 'R_+' is the printed codomain. The paired alternatives 'λ ∈ D_+(E_+), ℘(p) ∈ E_+(D_+)' are read as matched cases. The restriction to t ∈ [0, D) for 0 < q < 1 appears only in the proof. U*_{n:n} denotes the maximum of the shocked variables U_i I_i (the star marks shocks, not the second sample). Parts (1) and (2) have the same hypotheses apart from the range of q."
+  },
+  {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Theorem 5.1(2)",
+    "page": 18,
+    "quote": "Let U_i ∼ q − W(q_i, λ_i, β_i) and V_i ∼ q − W(q*_i, λ*_i, β*_i), for i = 1, 2, . . . , n, be two sets of independent r.v.'s and I_i, I*_i be another two sets of independent Bernoulli r.v.'s, independent of U_i's and V_i's respectively, with E(I_i) = p_i and E(I*_i) = p*_i. These parameters are referred to as shock parameters. Under random shocks, define U*_i = U_i I_i and V*_i = V_i I*_i. Then, the survival functions of U*_i and V*_i are given by F̄_{U*_i}(t) = P(U_i I_i ≥ t) = P(U_i I_i ≥ t|I_i = 1)P(I_i = 1) = p_i(1 − λ_i(1 − q_i)t^{β_i})^{(2−q_i)/(1−q_i)}, and F̄_{V*_i}(t) = P(V_i I*_i ≥ t) = P(V_i I*_i ≥ t|I*_i = 1)P(I*_i = 1) = p*_i(1 − λ*_i(1 − q*_i)t^{β*_i})^{(2−q*_i)/(1−q*_i)}. We now investigate stochastic comparisons between the largest order statistics in the presence of random shocks. The c.d.f.s of the largest order statistics U*_{n:n} and V*_{n:n} are given by F_{U*_{n:n}}(t) = Π_{i=1}^n [1 − p_i(1 − λ_i(1 − q_i)t^{β_i})^{(2−q_i)/(1−q_i)}], and F_{V*_{n:n}}(t) = Π_{i=1}^n [1 − p*_i(1 − λ*_i(1 − q*_i)t^{β*_i})^{(2−q*_i)/(1−q*_i)}], with F_{U*_{n:n}}(0) = Π_{i=1}^n (1 − p_i) and F_{V*_{n:n}}(0) = Π_{i=1}^n (1 − p*_i). Theorem 5.1. Let U_i ∼ q − W(q, λ_i, β) and V_i ∼ q − W(q, λ_i, β), i = 1, . . . , n. Suppose I_i(I*_i) be a set of independent Bernoulli r.v.'s, independent of U_i(V_i) with E(I_i) = p_i(E(I*_i) = p*_i). Let ℘ : [0, 1] → R_+ be a convex, differentiable, and strictly increasing function. Assume λ ∈ D_+(E_+), ℘(p) ∈ E_+(D_+), where ℘(p) ≡ (℘(p_1), ℘(p_2), . . . , ℘(p_n)). Then the following results hold: (1) For 0 < q < 1, if ℘(p) ⪯_w ℘(p*), then U*_{n:n} ≤_st V*_{n:n}. (2) For 1 < q < 2, if ℘(p) ⪯_w ℘(p*), then U*_{n:n} ≤_st V*_{n:n}.",
+    "kind": "theorem",
+    "model": "other: parallel system (largest order statistic) of components under random shocks, U*_i = U_i I_i",
+    "family": "q-Weibull q−W(q, λ, β): pdf f(t) = λβ(2 − q)t^{β−1}[1 − (1 − q)λt^β]^{1/(1−q)}, t ∈ [0, [λ(1 − q)]^{−1/β}] for 0 < q < 1 and t ∈ [0, ∞) for 1 < q < 2, 'where β > 0 and λ > 0'; cdf F(t) = 1 − [1 − λ(1 − q)t^β]^{(2−q)/(1−q)}, t ≥ 0 (eq. (1)); U_i and V_i both q−W(q, λ_i, β) (same λ_i, q, β); each component multiplied by an independent Bernoulli shock indicator, p_i for U and p*_i for V",
+    "compared": "shock parameter vectors p vs p* (through ℘(p) vs ℘(p*)); lifetimes identically parametrized",
+    "hypotheses": [
+      {
+        "text": "Let U_i ∼ q − W(q, λ_i, β) and V_i ∼ q − W(q, λ_i, β), i = 1, . . . , n.",
+        "formal": "U_i and V_i both q−W(q, λ_i, β); independence of the U_i (and of the V_i) from the section preamble",
+        "source": "statement"
+      },
+      {
+        "text": "Suppose I_i(I*_i) be a set of independent Bernoulli r.v.'s, independent of U_i(V_i) with E(I_i) = p_i(E(I*_i) = p*_i).",
+        "formal": "I_i ∼ Bernoulli(p_i), I*_i ∼ Bernoulli(p*_i), independent, independent of the lifetimes",
+        "source": "statement"
+      },
+      {
+        "text": "Under random shocks, define U*_i = U_i I_i and V*_i = V_i I*_i.",
+        "formal": "U*_i = U_i I_i, V*_i = V_i I*_i with I_i ∼ Bernoulli(p_i), I*_i ∼ Bernoulli(p*_i) independent of the U's and V's; P(U*_i > t) = p_i F̄_{U_i}(t) for t > 0",
+        "source": "section preamble"
+      },
+      {
+        "text": "Let ℘ : [0, 1] → R_+ be a convex, differentiable, and strictly increasing function.",
+        "formal": "℘ convex, differentiable, strictly increasing on [0, 1], nonnegative values",
+        "source": "statement"
+      },
+      {
+        "text": "Assume λ ∈ D_+(E_+), ℘(p) ∈ E_+(D_+), where ℘(p) ≡ (℘(p_1), ℘(p_2), . . . , ℘(p_n)).",
+        "formal": "either (λ ∈ D_+ and ℘(p) ∈ E_+) or (λ ∈ E_+ and ℘(p) ∈ D_+); no ordering required of p*",
+        "source": "statement"
+      },
+      {
+        "text": "For 1 < q < 2",
+        "formal": "1 < q < 2",
+        "source": "statement"
+      },
+      {
+        "text": "if ℘(p) ⪯_w ℘(p*)",
+        "formal": "x = ℘(p), y = ℘(p*): weak submajorization (Definition 2.2): Σ_{i=j}^n x_(i) ≤ Σ_{i=j}^n y_(i) for j = 1, ..., n (increasing arrangement)",
+        "source": "statement; definition 2.2"
+      },
+      {
+        "text": "where β > 0 and λ > 0",
+        "formal": "all λ-type and β-type parameters > 0; q ∈ (0, 1) ∪ (1, 2) as in the two branches of eq. (1)",
+        "source": "definition eq. (1) (Introduction)"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "U*_{n:n} <= V*_{n:n}"
+    },
+    "quantifiers": "n unspecified; 1 < q < 2; all t ≥ 0",
+    "numbers": "",
+    "ambiguity": "V_i is written q − W(q, λ_i, β), with the same λ_i as U_i, so only the shock parameters differ. The statement assumes ℘ convex, while the proof invokes 'the concavity of ℘(u)'. 'R_+' is the printed codomain. The paired alternatives 'λ ∈ D_+(E_+), ℘(p) ∈ E_+(D_+)' are read as matched cases. The restriction to t ∈ [0, D) for 0 < q < 1 appears only in the proof. U*_{n:n} denotes the maximum of the shocked variables U_i I_i (the star marks shocks, not the second sample). Parts (1) and (2) have the same hypotheses apart from the range of q."
+  },
+  {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Theorem 5.2(1)",
+    "page": 20,
+    "quote": "Let U_i ∼ q − W(q_i, λ_i, β_i) and V_i ∼ q − W(q*_i, λ*_i, β*_i), for i = 1, 2, . . . , n, be two sets of independent r.v.'s and I_i, I*_i be another two sets of independent Bernoulli r.v.'s, independent of U_i's and V_i's respectively, with E(I_i) = p_i and E(I*_i) = p*_i. These parameters are referred to as shock parameters. Under random shocks, define U*_i = U_i I_i and V*_i = V_i I*_i. Then, the survival functions of U*_i and V*_i are given by F̄_{U*_i}(t) = P(U_i I_i ≥ t) = P(U_i I_i ≥ t|I_i = 1)P(I_i = 1) = p_i(1 − λ_i(1 − q_i)t^{β_i})^{(2−q_i)/(1−q_i)}, and F̄_{V*_i}(t) = P(V_i I*_i ≥ t) = P(V_i I*_i ≥ t|I*_i = 1)P(I*_i = 1) = p*_i(1 − λ*_i(1 − q*_i)t^{β*_i})^{(2−q*_i)/(1−q*_i)}. We now investigate stochastic comparisons between the largest order statistics in the presence of random shocks. The c.d.f.s of the largest order statistics U*_{n:n} and V*_{n:n} are given by F_{U*_{n:n}}(t) = Π_{i=1}^n [1 − p_i(1 − λ_i(1 − q_i)t^{β_i})^{(2−q_i)/(1−q_i)}], and F_{V*_{n:n}}(t) = Π_{i=1}^n [1 − p*_i(1 − λ*_i(1 − q*_i)t^{β*_i})^{(2−q*_i)/(1−q*_i)}], with F_{U*_{n:n}}(0) = Π_{i=1}^n (1 − p_i) and F_{V*_{n:n}}(0) = Π_{i=1}^n (1 − p*_i). [...] Theorem 5.2. Let U_i ∼ q − W(q, λ_i, β) and V_i ∼ q − W(q, λ*_i, β), i = 1, . . . , n. Suppose I_i(I*_i) be a set of independent Bernoulli r.v.'s, independent of U_i(V_i) with E(I_i) = p_i (E(I*_i) = p*_i), i = 1, 2, . . . , n. Let ℘ : [0, 1] → R_+ be a differentiable and strictly increasing function. Assume λ, λ* ∈ D_+(E_+) and ℘(p) ∈ E_+(D_+). Then the following results hold: (1) For 0 < q < 1, if λ ⪯^w λ*, then U*_{n:n} ≤_st V*_{n:n}. (2) For 1 < q < 2, if λ ⪯^w λ*, then U*_{n:n} ≤_st V*_{n:n}.",
+    "kind": "theorem",
+    "model": "other: parallel system (largest order statistic) of components under random shocks, U*_i = U_i I_i",
+    "family": "q-Weibull q−W(q, λ, β): pdf f(t) = λβ(2 − q)t^{β−1}[1 − (1 − q)λt^β]^{1/(1−q)}, t ∈ [0, [λ(1 − q)]^{−1/β}] for 0 < q < 1 and t ∈ [0, ∞) for 1 < q < 2, 'where β > 0 and λ > 0'; cdf F(t) = 1 − [1 − λ(1 − q)t^β]^{(2−q)/(1−q)}, t ≥ 0 (eq. (1)); U_i ∼ q−W(q, λ_i, β), V_i ∼ q−W(q, λ*_i, β); each component multiplied by an independent Bernoulli shock indicator, p_i for U and p*_i for V",
+    "compared": "λ vectors λ vs λ* (shock parameters p, p* not related in the statement)",
+    "hypotheses": [
+      {
+        "text": "Let U_i ∼ q − W(q, λ_i, β) and V_i ∼ q − W(q, λ*_i, β), i = 1, . . . , n.",
+        "formal": "U_i ∼ q−W(q, λ_i, β), V_i ∼ q−W(q, λ*_i, β); independence from the section preamble",
+        "source": "statement"
+      },
+      {
+        "text": "Suppose I_i(I*_i) be a set of independent Bernoulli r.v.'s, independent of U_i(V_i) with E(I_i) = p_i(E(I*_i) = p*_i).",
+        "formal": "I_i ∼ Bernoulli(p_i), I*_i ∼ Bernoulli(p*_i), independent, independent of the lifetimes",
+        "source": "statement"
+      },
+      {
+        "text": "Under random shocks, define U*_i = U_i I_i and V*_i = V_i I*_i.",
+        "formal": "U*_i = U_i I_i, V*_i = V_i I*_i with I_i ∼ Bernoulli(p_i), I*_i ∼ Bernoulli(p*_i) independent of the U's and V's; P(U*_i > t) = p_i F̄_{U_i}(t) for t > 0",
+        "source": "section preamble"
+      },
+      {
+        "text": "Let ℘ : [0, 1] → R_+ be a differentiable and strictly increasing function.",
+        "formal": "℘ differentiable, strictly increasing",
+        "source": "statement"
+      },
+      {
+        "text": "Assume λ, λ* ∈ D_+(E_+) and ℘(p) ∈ E_+(D_+).",
+        "formal": "either (λ, λ* ∈ D_+ and ℘(p) ∈ E_+) or (λ, λ* ∈ E_+ and ℘(p) ∈ D_+)",
+        "source": "statement"
+      },
+      {
+        "text": "For 0 < q < 1",
+        "formal": "0 < q < 1",
+        "source": "statement"
+      },
+      {
+        "text": "if λ ⪯^w λ*",
+        "formal": "x = λ, y = λ*: weak supermajorization (Definition 2.2): Σ_{i=1}^j x_(i) ≥ Σ_{i=1}^j y_(i) for j = 1, ..., n (increasing arrangement)",
+        "source": "statement; definition 2.2"
+      },
+      {
+        "text": "where β > 0 and λ > 0",
+        "formal": "all λ-type and β-type parameters > 0; q ∈ (0, 1) ∪ (1, 2) as in the two branches of eq. (1)",
+        "source": "definition eq. (1) (Introduction)"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "U*_{n:n} <= V*_{n:n}"
+    },
+    "quantifiers": "n unspecified; 0 < q < 1; t ∈ [0, D) per the proof",
+    "numbers": "",
+    "ambiguity": "The statement never relates p* to p; the proof writes F_{U*_{n:n}} as a function Ψ(λ) with the shock parameters u = ℘(p) held fixed, so p* = p appears to be assumed implicitly. ℘ enters only through the ordering assumption on ℘(p). The restriction t ∈ [0, D) for 0 < q < 1 appears only in the proof. [...] in the quote marks omitted Theorem 5.1 and its proof."
+  },
+  {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Theorem 5.2(2)",
+    "page": 20,
+    "quote": "Let U_i ∼ q − W(q_i, λ_i, β_i) and V_i ∼ q − W(q*_i, λ*_i, β*_i), for i = 1, 2, . . . , n, be two sets of independent r.v.'s and I_i, I*_i be another two sets of independent Bernoulli r.v.'s, independent of U_i's and V_i's respectively, with E(I_i) = p_i and E(I*_i) = p*_i. These parameters are referred to as shock parameters. Under random shocks, define U*_i = U_i I_i and V*_i = V_i I*_i. Then, the survival functions of U*_i and V*_i are given by F̄_{U*_i}(t) = P(U_i I_i ≥ t) = P(U_i I_i ≥ t|I_i = 1)P(I_i = 1) = p_i(1 − λ_i(1 − q_i)t^{β_i})^{(2−q_i)/(1−q_i)}, and F̄_{V*_i}(t) = P(V_i I*_i ≥ t) = P(V_i I*_i ≥ t|I*_i = 1)P(I*_i = 1) = p*_i(1 − λ*_i(1 − q*_i)t^{β*_i})^{(2−q*_i)/(1−q*_i)}. We now investigate stochastic comparisons between the largest order statistics in the presence of random shocks. The c.d.f.s of the largest order statistics U*_{n:n} and V*_{n:n} are given by F_{U*_{n:n}}(t) = Π_{i=1}^n [1 − p_i(1 − λ_i(1 − q_i)t^{β_i})^{(2−q_i)/(1−q_i)}], and F_{V*_{n:n}}(t) = Π_{i=1}^n [1 − p*_i(1 − λ*_i(1 − q*_i)t^{β*_i})^{(2−q*_i)/(1−q*_i)}], with F_{U*_{n:n}}(0) = Π_{i=1}^n (1 − p_i) and F_{V*_{n:n}}(0) = Π_{i=1}^n (1 − p*_i). [...] Theorem 5.2. Let U_i ∼ q − W(q, λ_i, β) and V_i ∼ q − W(q, λ*_i, β), i = 1, . . . , n. Suppose I_i(I*_i) be a set of independent Bernoulli r.v.'s, independent of U_i(V_i) with E(I_i) = p_i (E(I*_i) = p*_i), i = 1, 2, . . . , n. Let ℘ : [0, 1] → R_+ be a differentiable and strictly increasing function. Assume λ, λ* ∈ D_+(E_+) and ℘(p) ∈ E_+(D_+). Then the following results hold: (1) For 0 < q < 1, if λ ⪯^w λ*, then U*_{n:n} ≤_st V*_{n:n}. (2) For 1 < q < 2, if λ ⪯^w λ*, then U*_{n:n} ≤_st V*_{n:n}.",
+    "kind": "theorem",
+    "model": "other: parallel system (largest order statistic) of components under random shocks, U*_i = U_i I_i",
+    "family": "q-Weibull q−W(q, λ, β): pdf f(t) = λβ(2 − q)t^{β−1}[1 − (1 − q)λt^β]^{1/(1−q)}, t ∈ [0, [λ(1 − q)]^{−1/β}] for 0 < q < 1 and t ∈ [0, ∞) for 1 < q < 2, 'where β > 0 and λ > 0'; cdf F(t) = 1 − [1 − λ(1 − q)t^β]^{(2−q)/(1−q)}, t ≥ 0 (eq. (1)); U_i ∼ q−W(q, λ_i, β), V_i ∼ q−W(q, λ*_i, β); each component multiplied by an independent Bernoulli shock indicator, p_i for U and p*_i for V",
+    "compared": "λ vectors λ vs λ* (shock parameters p, p* not related in the statement)",
+    "hypotheses": [
+      {
+        "text": "Let U_i ∼ q − W(q, λ_i, β) and V_i ∼ q − W(q, λ*_i, β), i = 1, . . . , n.",
+        "formal": "U_i ∼ q−W(q, λ_i, β), V_i ∼ q−W(q, λ*_i, β); independence from the section preamble",
+        "source": "statement"
+      },
+      {
+        "text": "Suppose I_i(I*_i) be a set of independent Bernoulli r.v.'s, independent of U_i(V_i) with E(I_i) = p_i(E(I*_i) = p*_i).",
+        "formal": "I_i ∼ Bernoulli(p_i), I*_i ∼ Bernoulli(p*_i), independent, independent of the lifetimes",
+        "source": "statement"
+      },
+      {
+        "text": "Under random shocks, define U*_i = U_i I_i and V*_i = V_i I*_i.",
+        "formal": "U*_i = U_i I_i, V*_i = V_i I*_i with I_i ∼ Bernoulli(p_i), I*_i ∼ Bernoulli(p*_i) independent of the U's and V's; P(U*_i > t) = p_i F̄_{U_i}(t) for t > 0",
+        "source": "section preamble"
+      },
+      {
+        "text": "Let ℘ : [0, 1] → R_+ be a differentiable and strictly increasing function.",
+        "formal": "℘ differentiable, strictly increasing",
+        "source": "statement"
+      },
+      {
+        "text": "Assume λ, λ* ∈ D_+(E_+) and ℘(p) ∈ E_+(D_+).",
+        "formal": "either (λ, λ* ∈ D_+ and ℘(p) ∈ E_+) or (λ, λ* ∈ E_+ and ℘(p) ∈ D_+)",
+        "source": "statement"
+      },
+      {
+        "text": "For 1 < q < 2",
+        "formal": "1 < q < 2",
+        "source": "statement"
+      },
+      {
+        "text": "if λ ⪯^w λ*",
+        "formal": "x = λ, y = λ*: weak supermajorization (Definition 2.2): Σ_{i=1}^j x_(i) ≥ Σ_{i=1}^j y_(i) for j = 1, ..., n (increasing arrangement)",
+        "source": "statement; definition 2.2"
+      },
+      {
+        "text": "where β > 0 and λ > 0",
+        "formal": "all λ-type and β-type parameters > 0; q ∈ (0, 1) ∪ (1, 2) as in the two branches of eq. (1)",
+        "source": "definition eq. (1) (Introduction)"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "U*_{n:n} <= V*_{n:n}"
+    },
+    "quantifiers": "n unspecified; 1 < q < 2; all t ≥ 0",
+    "numbers": "",
+    "ambiguity": "The statement never relates p* to p; the proof writes F_{U*_{n:n}} as a function Ψ(λ) with the shock parameters u = ℘(p) held fixed, so p* = p appears to be assumed implicitly. ℘ enters only through the ordering assumption on ℘(p). The restriction t ∈ [0, D) for 0 < q < 1 appears only in the proof. [...] in the quote marks omitted Theorem 5.1 and its proof."
+  },
+  {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Theorem 5.3(1)",
+    "page": 21,
+    "quote": "Let U_i ∼ q − W(q_i, λ_i, β_i) and V_i ∼ q − W(q*_i, λ*_i, β*_i), for i = 1, 2, . . . , n, be two sets of independent r.v.'s and I_i, I*_i be another two sets of independent Bernoulli r.v.'s, independent of U_i's and V_i's respectively, with E(I_i) = p_i and E(I*_i) = p*_i. These parameters are referred to as shock parameters. Under random shocks, define U*_i = U_i I_i and V*_i = V_i I*_i. Then, the survival functions of U*_i and V*_i are given by F̄_{U*_i}(t) = P(U_i I_i ≥ t) = P(U_i I_i ≥ t|I_i = 1)P(I_i = 1) = p_i(1 − λ_i(1 − q_i)t^{β_i})^{(2−q_i)/(1−q_i)}, and F̄_{V*_i}(t) = P(V_i I*_i ≥ t) = P(V_i I*_i ≥ t|I*_i = 1)P(I*_i = 1) = p*_i(1 − λ*_i(1 − q*_i)t^{β*_i})^{(2−q*_i)/(1−q*_i)}. [...] Theorem 5.3. Let U_i ∼ q − W(q, λ_i, β) and V_i ∼ q − W(q, λ*_i, β), i = 1, . . . , n. Suppose I_i(I*_i) be a set of independent Bernoulli r.v.'s, independent of U_i's(V_i's) with E(I_i) = p_i(E(I*_i) = p*_i), i = 1, 2, . . . , n. If Π_{i=1}^n p_i ≤ Π_{i=1}^n p*_i, then: (1) For 0 < q < 1, if (λ_1, λ_2, . . . , λ_n) ⪰_w (λ*_1, λ*_2, . . . , λ*_n), then U*_{1:n} ≤_hr V*_{1:n}, (2) For 1 < q < 2, if (λ_1, λ_2, . . . , λ_n) ⪯^w (λ*_1, λ*_2, . . . , λ*_n), then U*_{1:n} ≤_hr V*_{1:n}.",
+    "kind": "theorem",
+    "model": "other: series system (smallest order statistic) of components under random shocks, U*_i = U_i I_i",
+    "family": "q-Weibull q−W(q, λ, β): pdf f(t) = λβ(2 − q)t^{β−1}[1 − (1 − q)λt^β]^{1/(1−q)}, t ∈ [0, [λ(1 − q)]^{−1/β}] for 0 < q < 1 and t ∈ [0, ∞) for 1 < q < 2, 'where β > 0 and λ > 0'; cdf F(t) = 1 − [1 − λ(1 − q)t^β]^{(2−q)/(1−q)}, t ≥ 0 (eq. (1)); U_i ∼ q−W(q, λ_i, β), V_i ∼ q−W(q, λ*_i, β); each component multiplied by an independent Bernoulli shock indicator, p_i for U and p*_i for V",
+    "compared": "λ vectors λ vs λ* and shock parameters p vs p* (through their products)",
+    "hypotheses": [
+      {
+        "text": "Let U_i ∼ q − W(q, λ_i, β) and V_i ∼ q − W(q, λ*_i, β), i = 1, . . . , n.",
+        "formal": "U_i ∼ q−W(q, λ_i, β), V_i ∼ q−W(q, λ*_i, β); independence from the section preamble",
+        "source": "statement"
+      },
+      {
+        "text": "Suppose I_i(I*_i) be a set of independent Bernoulli r.v.'s, independent of U_i(V_i) with E(I_i) = p_i(E(I*_i) = p*_i).",
+        "formal": "I_i ∼ Bernoulli(p_i), I*_i ∼ Bernoulli(p*_i), independent, independent of the lifetimes",
+        "source": "statement"
+      },
+      {
+        "text": "Under random shocks, define U*_i = U_i I_i and V*_i = V_i I*_i.",
+        "formal": "U*_i = U_i I_i, V*_i = V_i I*_i with I_i ∼ Bernoulli(p_i), I*_i ∼ Bernoulli(p*_i) independent of the U's and V's; P(U*_i > t) = p_i F̄_{U_i}(t) for t > 0",
+        "source": "section preamble"
+      },
+      {
+        "text": "If Π_{i=1}^n p_i ≤ Π_{i=1}^n p*_i",
+        "formal": "Π p_i ≤ Π p*_i",
+        "source": "statement"
+      },
+      {
+        "text": "For 0 < q < 1",
+        "formal": "0 < q < 1",
+        "source": "statement"
+      },
+      {
+        "text": "if (λ_1, λ_2, . . . , λ_n) ⪰_w (λ*_1, λ*_2, . . . , λ*_n)",
+        "formal": "read as λ* ⪯_w λ: Σ_{i=j}^n λ*_(i) ≤ Σ_{i=j}^n λ_(i) for all j",
+        "source": "statement; definition 2.2 (reversed symbol not defined)"
+      },
+      {
+        "text": "where β > 0 and λ > 0",
+        "formal": "all λ-type and β-type parameters > 0; q ∈ (0, 1) ∪ (1, 2) as in the two branches of eq. (1)",
+        "source": "definition eq. (1) (Introduction)"
+      }
+    ],
+    "conclusion": {
+      "order": "hr",
+      "direction": "U*_{1:n} <= V*_{1:n}"
+    },
+    "quantifiers": "n unspecified; 0 < q < 1; t ∈ [0, D) per the proof",
+    "numbers": "",
+    "ambiguity": "The symbol ⪰_w is not defined in Definition 2.2 (only ⪯_w, ⪯^w, ⪯^m); read as the converse, λ* ⪯_w λ, consistent with the proof's appeal to Theorem 3.1. U*_{1:n} is the minimum of the shocked variables U_i I_i, which equals 0 unless all I_i = 1. [...] in the quote marks omitted intervening text."
+  },
+  {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Theorem 5.3(2)",
+    "page": 21,
+    "quote": "Let U_i ∼ q − W(q_i, λ_i, β_i) and V_i ∼ q − W(q*_i, λ*_i, β*_i), for i = 1, 2, . . . , n, be two sets of independent r.v.'s and I_i, I*_i be another two sets of independent Bernoulli r.v.'s, independent of U_i's and V_i's respectively, with E(I_i) = p_i and E(I*_i) = p*_i. These parameters are referred to as shock parameters. Under random shocks, define U*_i = U_i I_i and V*_i = V_i I*_i. Then, the survival functions of U*_i and V*_i are given by F̄_{U*_i}(t) = P(U_i I_i ≥ t) = P(U_i I_i ≥ t|I_i = 1)P(I_i = 1) = p_i(1 − λ_i(1 − q_i)t^{β_i})^{(2−q_i)/(1−q_i)}, and F̄_{V*_i}(t) = P(V_i I*_i ≥ t) = P(V_i I*_i ≥ t|I*_i = 1)P(I*_i = 1) = p*_i(1 − λ*_i(1 − q*_i)t^{β*_i})^{(2−q*_i)/(1−q*_i)}. [...] Theorem 5.3. Let U_i ∼ q − W(q, λ_i, β) and V_i ∼ q − W(q, λ*_i, β), i = 1, . . . , n. Suppose I_i(I*_i) be a set of independent Bernoulli r.v.'s, independent of U_i's(V_i's) with E(I_i) = p_i(E(I*_i) = p*_i), i = 1, 2, . . . , n. If Π_{i=1}^n p_i ≤ Π_{i=1}^n p*_i, then: (1) For 0 < q < 1, if (λ_1, λ_2, . . . , λ_n) ⪰_w (λ*_1, λ*_2, . . . , λ*_n), then U*_{1:n} ≤_hr V*_{1:n}, (2) For 1 < q < 2, if (λ_1, λ_2, . . . , λ_n) ⪯^w (λ*_1, λ*_2, . . . , λ*_n), then U*_{1:n} ≤_hr V*_{1:n}.",
+    "kind": "theorem",
+    "model": "other: series system (smallest order statistic) of components under random shocks, U*_i = U_i I_i",
+    "family": "q-Weibull q−W(q, λ, β): pdf f(t) = λβ(2 − q)t^{β−1}[1 − (1 − q)λt^β]^{1/(1−q)}, t ∈ [0, [λ(1 − q)]^{−1/β}] for 0 < q < 1 and t ∈ [0, ∞) for 1 < q < 2, 'where β > 0 and λ > 0'; cdf F(t) = 1 − [1 − λ(1 − q)t^β]^{(2−q)/(1−q)}, t ≥ 0 (eq. (1)); U_i ∼ q−W(q, λ_i, β), V_i ∼ q−W(q, λ*_i, β); each component multiplied by an independent Bernoulli shock indicator, p_i for U and p*_i for V",
+    "compared": "λ vectors λ vs λ* and shock parameters p vs p* (through their products)",
+    "hypotheses": [
+      {
+        "text": "Let U_i ∼ q − W(q, λ_i, β) and V_i ∼ q − W(q, λ*_i, β), i = 1, . . . , n.",
+        "formal": "U_i ∼ q−W(q, λ_i, β), V_i ∼ q−W(q, λ*_i, β); independence from the section preamble",
+        "source": "statement"
+      },
+      {
+        "text": "Suppose I_i(I*_i) be a set of independent Bernoulli r.v.'s, independent of U_i(V_i) with E(I_i) = p_i(E(I*_i) = p*_i).",
+        "formal": "I_i ∼ Bernoulli(p_i), I*_i ∼ Bernoulli(p*_i), independent, independent of the lifetimes",
+        "source": "statement"
+      },
+      {
+        "text": "Under random shocks, define U*_i = U_i I_i and V*_i = V_i I*_i.",
+        "formal": "U*_i = U_i I_i, V*_i = V_i I*_i with I_i ∼ Bernoulli(p_i), I*_i ∼ Bernoulli(p*_i) independent of the U's and V's; P(U*_i > t) = p_i F̄_{U_i}(t) for t > 0",
+        "source": "section preamble"
+      },
+      {
+        "text": "If Π_{i=1}^n p_i ≤ Π_{i=1}^n p*_i",
+        "formal": "Π p_i ≤ Π p*_i",
+        "source": "statement"
+      },
+      {
+        "text": "For 1 < q < 2",
+        "formal": "1 < q < 2",
+        "source": "statement"
+      },
+      {
+        "text": "if (λ_1, λ_2, . . . , λ_n) ⪯^w (λ*_1, λ*_2, . . . , λ*_n)",
+        "formal": "x = λ, y = λ*: weak supermajorization (Definition 2.2): Σ_{i=1}^j x_(i) ≥ Σ_{i=1}^j y_(i) for j = 1, ..., n (increasing arrangement)",
+        "source": "statement; definition 2.2"
+      },
+      {
+        "text": "where β > 0 and λ > 0",
+        "formal": "all λ-type and β-type parameters > 0; q ∈ (0, 1) ∪ (1, 2) as in the two branches of eq. (1)",
+        "source": "definition eq. (1) (Introduction)"
+      }
+    ],
+    "conclusion": {
+      "order": "hr",
+      "direction": "U*_{1:n} <= V*_{1:n}"
+    },
+    "quantifiers": "n unspecified; 1 < q < 2; all t ≥ 0",
+    "numbers": "",
+    "ambiguity": "U*_{1:n} is the minimum of the shocked variables U_i I_i. The proof treats this case only as 'a similar argument'. [...] in the quote marks omitted intervening text."
+  },
+  {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Theorem 5.4(1)",
+    "page": 21,
+    "quote": "Let U_i ∼ q − W(q_i, λ_i, β_i) and V_i ∼ q − W(q*_i, λ*_i, β*_i), for i = 1, 2, . . . , n, be two sets of independent r.v.'s and I_i, I*_i be another two sets of independent Bernoulli r.v.'s, independent of U_i's and V_i's respectively, with E(I_i) = p_i and E(I*_i) = p*_i. These parameters are referred to as shock parameters. Under random shocks, define U*_i = U_i I_i and V*_i = V_i I*_i. Then, the survival functions of U*_i and V*_i are given by F̄_{U*_i}(t) = P(U_i I_i ≥ t) = P(U_i I_i ≥ t|I_i = 1)P(I_i = 1) = p_i(1 − λ_i(1 − q_i)t^{β_i})^{(2−q_i)/(1−q_i)}, and F̄_{V*_i}(t) = P(V_i I*_i ≥ t) = P(V_i I*_i ≥ t|I*_i = 1)P(I*_i = 1) = p*_i(1 − λ*_i(1 − q*_i)t^{β*_i})^{(2−q*_i)/(1−q*_i)}. [...] Theorem 5.4. Let U_i ∼ q − W(q_i, λ, β) and V_i ∼ q − W(q*_i, λ, β), for i = 1, 2, . . . , n. Suppose I_i(I*_i) be a set of independent Bernoulli r.v.'s, independent of U_i's(V_i's) with E(I_i) = p_i(E(I*_i) = p*_i), i = 1, 2, . . . , n. If Π_{i=1}^n p_i ≤ Π_{i=1}^n p*_i, then: (1) For 0 < max_l{q_l, q*_l} < 1, if (q_1, q_2, . . . , q_n) ⪰^w (q*_1, q*_2, . . . , q*_n) then U*_{1:n} ≤_hr V*_{1:n}. (2) For 1 < min_l{q_l, q*_l} < 2, if (q_1, q_2, . . . , q_n) ⪰^w (q*_1, q*_2, . . . , q*_n), then U*_{1:n} ≤_hr V*_{1:n}.",
+    "kind": "theorem",
+    "model": "other: series system (smallest order statistic) of components under random shocks, U*_i = U_i I_i",
+    "family": "q-Weibull q−W(q, λ, β): pdf f(t) = λβ(2 − q)t^{β−1}[1 − (1 − q)λt^β]^{1/(1−q)}, t ∈ [0, [λ(1 − q)]^{−1/β}] for 0 < q < 1 and t ∈ [0, ∞) for 1 < q < 2, 'where β > 0 and λ > 0'; cdf F(t) = 1 − [1 − λ(1 − q)t^β]^{(2−q)/(1−q)}, t ≥ 0 (eq. (1)); U_i ∼ q−W(q_i, λ, β), V_i ∼ q−W(q*_i, λ, β); each component multiplied by an independent Bernoulli shock indicator, p_i for U and p*_i for V",
+    "compared": "q vectors q vs q* and shock parameters p vs p* (through their products)",
+    "hypotheses": [
+      {
+        "text": "Let U_i ∼ q − W(q_i, λ, β) and V_i ∼ q − W(q*_i, λ, β), for i = 1, 2, . . . , n.",
+        "formal": "U_i ∼ q−W(q_i, λ, β), V_i ∼ q−W(q*_i, λ, β); independence from the section preamble",
+        "source": "statement"
+      },
+      {
+        "text": "Suppose I_i(I*_i) be a set of independent Bernoulli r.v.'s, independent of U_i(V_i) with E(I_i) = p_i(E(I*_i) = p*_i).",
+        "formal": "I_i ∼ Bernoulli(p_i), I*_i ∼ Bernoulli(p*_i), independent, independent of the lifetimes",
+        "source": "statement"
+      },
+      {
+        "text": "Under random shocks, define U*_i = U_i I_i and V*_i = V_i I*_i.",
+        "formal": "U*_i = U_i I_i, V*_i = V_i I*_i with I_i ∼ Bernoulli(p_i), I*_i ∼ Bernoulli(p*_i) independent of the U's and V's; P(U*_i > t) = p_i F̄_{U_i}(t) for t > 0",
+        "source": "section preamble"
+      },
+      {
+        "text": "If Π_{i=1}^n p_i ≤ Π_{i=1}^n p*_i",
+        "formal": "Π p_i ≤ Π p*_i",
+        "source": "statement"
+      },
+      {
+        "text": "For 0 < max_l{q_l, q*_l} < 1",
+        "formal": "all q_l, q*_l ∈ (0, 1)",
+        "source": "statement"
+      },
+      {
+        "text": "if (q_1, q_2, . . . , q_n) ⪰^w (q*_1, q*_2, . . . , q*_n)",
+        "formal": "read as q* ⪯^w q: Σ_{i=1}^j q*_(i) ≥ Σ_{i=1}^j q_(i) for all j",
+        "source": "statement; definition 2.2 (reversed symbol not defined)"
+      },
+      {
+        "text": "where β > 0 and λ > 0",
+        "formal": "all λ-type and β-type parameters > 0; q ∈ (0, 1) ∪ (1, 2) as in the two branches of eq. (1)",
+        "source": "definition eq. (1) (Introduction)"
+      }
+    ],
+    "conclusion": {
+      "order": "hr",
+      "direction": "U*_{1:n} <= V*_{1:n}"
+    },
+    "quantifiers": "n unspecified; all q's in (0, 1); t ∈ [0, D) implied by the section conventions",
+    "numbers": "",
+    "ambiguity": "The symbol ⪰^w is not defined in Definition 2.2; read as the converse of ⪯^w. The proof only refers to the previous theorem and Theorem 3.4. [...] in the quote marks omitted intervening text."
+  },
+  {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Theorem 5.4(2)",
+    "page": 21,
+    "quote": "Let U_i ∼ q − W(q_i, λ_i, β_i) and V_i ∼ q − W(q*_i, λ*_i, β*_i), for i = 1, 2, . . . , n, be two sets of independent r.v.'s and I_i, I*_i be another two sets of independent Bernoulli r.v.'s, independent of U_i's and V_i's respectively, with E(I_i) = p_i and E(I*_i) = p*_i. These parameters are referred to as shock parameters. Under random shocks, define U*_i = U_i I_i and V*_i = V_i I*_i. Then, the survival functions of U*_i and V*_i are given by F̄_{U*_i}(t) = P(U_i I_i ≥ t) = P(U_i I_i ≥ t|I_i = 1)P(I_i = 1) = p_i(1 − λ_i(1 − q_i)t^{β_i})^{(2−q_i)/(1−q_i)}, and F̄_{V*_i}(t) = P(V_i I*_i ≥ t) = P(V_i I*_i ≥ t|I*_i = 1)P(I*_i = 1) = p*_i(1 − λ*_i(1 − q*_i)t^{β*_i})^{(2−q*_i)/(1−q*_i)}. [...] Theorem 5.4. Let U_i ∼ q − W(q_i, λ, β) and V_i ∼ q − W(q*_i, λ, β), for i = 1, 2, . . . , n. Suppose I_i(I*_i) be a set of independent Bernoulli r.v.'s, independent of U_i's(V_i's) with E(I_i) = p_i(E(I*_i) = p*_i), i = 1, 2, . . . , n. If Π_{i=1}^n p_i ≤ Π_{i=1}^n p*_i, then: (1) For 0 < max_l{q_l, q*_l} < 1, if (q_1, q_2, . . . , q_n) ⪰^w (q*_1, q*_2, . . . , q*_n) then U*_{1:n} ≤_hr V*_{1:n}. (2) For 1 < min_l{q_l, q*_l} < 2, if (q_1, q_2, . . . , q_n) ⪰^w (q*_1, q*_2, . . . , q*_n), then U*_{1:n} ≤_hr V*_{1:n}.",
+    "kind": "theorem",
+    "model": "other: series system (smallest order statistic) of components under random shocks, U*_i = U_i I_i",
+    "family": "q-Weibull q−W(q, λ, β): pdf f(t) = λβ(2 − q)t^{β−1}[1 − (1 − q)λt^β]^{1/(1−q)}, t ∈ [0, [λ(1 − q)]^{−1/β}] for 0 < q < 1 and t ∈ [0, ∞) for 1 < q < 2, 'where β > 0 and λ > 0'; cdf F(t) = 1 − [1 − λ(1 − q)t^β]^{(2−q)/(1−q)}, t ≥ 0 (eq. (1)); U_i ∼ q−W(q_i, λ, β), V_i ∼ q−W(q*_i, λ, β); each component multiplied by an independent Bernoulli shock indicator, p_i for U and p*_i for V",
+    "compared": "q vectors q vs q* and shock parameters p vs p* (through their products)",
+    "hypotheses": [
+      {
+        "text": "Let U_i ∼ q − W(q_i, λ, β) and V_i ∼ q − W(q*_i, λ, β), for i = 1, 2, . . . , n.",
+        "formal": "U_i ∼ q−W(q_i, λ, β), V_i ∼ q−W(q*_i, λ, β); independence from the section preamble",
+        "source": "statement"
+      },
+      {
+        "text": "Suppose I_i(I*_i) be a set of independent Bernoulli r.v.'s, independent of U_i(V_i) with E(I_i) = p_i(E(I*_i) = p*_i).",
+        "formal": "I_i ∼ Bernoulli(p_i), I*_i ∼ Bernoulli(p*_i), independent, independent of the lifetimes",
+        "source": "statement"
+      },
+      {
+        "text": "Under random shocks, define U*_i = U_i I_i and V*_i = V_i I*_i.",
+        "formal": "U*_i = U_i I_i, V*_i = V_i I*_i with I_i ∼ Bernoulli(p_i), I*_i ∼ Bernoulli(p*_i) independent of the U's and V's; P(U*_i > t) = p_i F̄_{U_i}(t) for t > 0",
+        "source": "section preamble"
+      },
+      {
+        "text": "If Π_{i=1}^n p_i ≤ Π_{i=1}^n p*_i",
+        "formal": "Π p_i ≤ Π p*_i",
+        "source": "statement"
+      },
+      {
+        "text": "For 1 < min_l{q_l, q*_l} < 2",
+        "formal": "all q_l, q*_l > 1 (and < 2 by eq. (1))",
+        "source": "statement"
+      },
+      {
+        "text": "if (q_1, q_2, . . . , q_n) ⪰^w (q*_1, q*_2, . . . , q*_n)",
+        "formal": "read as q* ⪯^w q: Σ_{i=1}^j q*_(i) ≥ Σ_{i=1}^j q_(i) for all j",
+        "source": "statement; definition 2.2 (reversed symbol not defined)"
+      },
+      {
+        "text": "where β > 0 and λ > 0",
+        "formal": "all λ-type and β-type parameters > 0; q ∈ (0, 1) ∪ (1, 2) as in the two branches of eq. (1)",
+        "source": "definition eq. (1) (Introduction)"
+      }
+    ],
+    "conclusion": {
+      "order": "hr",
+      "direction": "U*_{1:n} <= V*_{1:n}"
+    },
+    "quantifiers": "n unspecified; all q's in (1, 2); all t ≥ 0",
+    "numbers": "",
+    "ambiguity": "The symbol ⪰^w is not defined in Definition 2.2; read as the converse of ⪯^w. The proof only refers to the previous theorem and Theorem 3.4. [...] in the quote marks omitted intervening text."
+  },
+  {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Theorem 5.5(1)",
+    "page": 21,
+    "quote": "Let U_i ∼ q − W(q_i, λ_i, β_i) and V_i ∼ q − W(q*_i, λ*_i, β*_i), for i = 1, 2, . . . , n, be two sets of independent r.v.'s and I_i, I*_i be another two sets of independent Bernoulli r.v.'s, independent of U_i's and V_i's respectively, with E(I_i) = p_i and E(I*_i) = p*_i. These parameters are referred to as shock parameters. Under random shocks, define U*_i = U_i I_i and V*_i = V_i I*_i. Then, the survival functions of U*_i and V*_i are given by F̄_{U*_i}(t) = P(U_i I_i ≥ t) = P(U_i I_i ≥ t|I_i = 1)P(I_i = 1) = p_i(1 − λ_i(1 − q_i)t^{β_i})^{(2−q_i)/(1−q_i)}, and F̄_{V*_i}(t) = P(V_i I*_i ≥ t) = P(V_i I*_i ≥ t|I*_i = 1)P(I*_i = 1) = p*_i(1 − λ*_i(1 − q*_i)t^{β*_i})^{(2−q*_i)/(1−q*_i)}. [...] Theorem 5.5. Let U_i ∼ q − W(q, λ, β_i) and V_i ∼ q − W(q, λ, β*_i), i = 1, . . . , n. Further, suppose I_i(I*_i) be a set of Bernoulli r.v.'s, independent of U_i's(V_i's) with E(I_i) = p_i(E(I*_i) = p*_i), i = 1, 2, . . . , n. If Π_{i=1}^n p_i ≥ Π_{i=1}^n p*_i, then: (1) For 0 < q < 1, if (β_1, β_2, . . . , β_n) ⪯^m (β*_1, β*_2, . . . , β*_n), then V*_{1:n} ≤_st U*_{1:n}. (2) For 1 < q < 2, if (β_1, β_2, . . . , β_n) ⪯^m (β*_1, β*_2, . . . , β*_n), then V*_{1:n} ≤_st U*_{1:n}.",
+    "kind": "theorem",
+    "model": "other: series system (smallest order statistic) of components under random shocks, U*_i = U_i I_i",
+    "family": "q-Weibull q−W(q, λ, β): pdf f(t) = λβ(2 − q)t^{β−1}[1 − (1 − q)λt^β]^{1/(1−q)}, t ∈ [0, [λ(1 − q)]^{−1/β}] for 0 < q < 1 and t ∈ [0, ∞) for 1 < q < 2, 'where β > 0 and λ > 0'; cdf F(t) = 1 − [1 − λ(1 − q)t^β]^{(2−q)/(1−q)}, t ≥ 0 (eq. (1)); U_i ∼ q−W(q, λ, β_i), V_i ∼ q−W(q, λ, β*_i); each component multiplied by a Bernoulli shock indicator, p_i for U and p*_i for V",
+    "compared": "β vectors β vs β* and shock parameters p vs p* (through their products)",
+    "hypotheses": [
+      {
+        "text": "Let U_i ∼ q − W(q, λ, β_i) and V_i ∼ q − W(q, λ, β*_i), i = 1, . . . , n.",
+        "formal": "U_i ∼ q−W(q, λ, β_i), V_i ∼ q−W(q, λ, β*_i); independence from the section preamble",
+        "source": "statement"
+      },
+      {
+        "text": "suppose I_i(I*_i) be a set of Bernoulli r.v.'s, independent of U_i's(V_i's) with E(I_i) = p_i(E(I*_i) = p*_i)",
+        "formal": "I_i ∼ Bernoulli(p_i), I*_i ∼ Bernoulli(p*_i), independent of the lifetimes (mutual independence from the section preamble)",
+        "source": "statement"
+      },
+      {
+        "text": "Under random shocks, define U*_i = U_i I_i and V*_i = V_i I*_i.",
+        "formal": "U*_i = U_i I_i, V*_i = V_i I*_i with I_i ∼ Bernoulli(p_i), I*_i ∼ Bernoulli(p*_i) independent of the U's and V's; P(U*_i > t) = p_i F̄_{U_i}(t) for t > 0",
+        "source": "section preamble"
+      },
+      {
+        "text": "If Π_{i=1}^n p_i ≥ Π_{i=1}^n p*_i",
+        "formal": "Π p_i ≥ Π p*_i",
+        "source": "statement"
+      },
+      {
+        "text": "For 0 < q < 1",
+        "formal": "0 < q < 1",
+        "source": "statement"
+      },
+      {
+        "text": "(β_1, β_2, . . . , β_n) ⪯^m (β*_1, β*_2, . . . , β*_n)",
+        "formal": "x = β, y = β*: majorization (Definition 2.2): Σ_{i=1}^j x_(i) ≥ Σ_{i=1}^j y_(i) for j = 1, ..., n − 1 and Σ_{i=1}^n x_(i) = Σ_{i=1}^n y_(i)",
+        "source": "statement; definition 2.2"
+      },
+      {
+        "text": "where β > 0 and λ > 0",
+        "formal": "all λ-type and β-type parameters > 0; q ∈ (0, 1) ∪ (1, 2) as in the two branches of eq. (1)",
+        "source": "definition eq. (1) (Introduction)"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "V*_{1:n} <= U*_{1:n}"
+    },
+    "quantifiers": "n unspecified; 0 < q < 1; t ∈ (0, D) implied by Theorem 3.7",
+    "numbers": "",
+    "ambiguity": "Theorem 5.5 does not restate that the I_i are mutually independent (the section preamble does). [...] in the quote marks omitted intervening text."
+  },
+  {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Theorem 5.5(2)",
+    "page": 21,
+    "quote": "Let U_i ∼ q − W(q_i, λ_i, β_i) and V_i ∼ q − W(q*_i, λ*_i, β*_i), for i = 1, 2, . . . , n, be two sets of independent r.v.'s and I_i, I*_i be another two sets of independent Bernoulli r.v.'s, independent of U_i's and V_i's respectively, with E(I_i) = p_i and E(I*_i) = p*_i. These parameters are referred to as shock parameters. Under random shocks, define U*_i = U_i I_i and V*_i = V_i I*_i. Then, the survival functions of U*_i and V*_i are given by F̄_{U*_i}(t) = P(U_i I_i ≥ t) = P(U_i I_i ≥ t|I_i = 1)P(I_i = 1) = p_i(1 − λ_i(1 − q_i)t^{β_i})^{(2−q_i)/(1−q_i)}, and F̄_{V*_i}(t) = P(V_i I*_i ≥ t) = P(V_i I*_i ≥ t|I*_i = 1)P(I*_i = 1) = p*_i(1 − λ*_i(1 − q*_i)t^{β*_i})^{(2−q*_i)/(1−q*_i)}. [...] Theorem 5.5. Let U_i ∼ q − W(q, λ, β_i) and V_i ∼ q − W(q, λ, β*_i), i = 1, . . . , n. Further, suppose I_i(I*_i) be a set of Bernoulli r.v.'s, independent of U_i's(V_i's) with E(I_i) = p_i(E(I*_i) = p*_i), i = 1, 2, . . . , n. If Π_{i=1}^n p_i ≥ Π_{i=1}^n p*_i, then: (1) For 0 < q < 1, if (β_1, β_2, . . . , β_n) ⪯^m (β*_1, β*_2, . . . , β*_n), then V*_{1:n} ≤_st U*_{1:n}. (2) For 1 < q < 2, if (β_1, β_2, . . . , β_n) ⪯^m (β*_1, β*_2, . . . , β*_n), then V*_{1:n} ≤_st U*_{1:n}.",
+    "kind": "theorem",
+    "model": "other: series system (smallest order statistic) of components under random shocks, U*_i = U_i I_i",
+    "family": "q-Weibull q−W(q, λ, β): pdf f(t) = λβ(2 − q)t^{β−1}[1 − (1 − q)λt^β]^{1/(1−q)}, t ∈ [0, [λ(1 − q)]^{−1/β}] for 0 < q < 1 and t ∈ [0, ∞) for 1 < q < 2, 'where β > 0 and λ > 0'; cdf F(t) = 1 − [1 − λ(1 − q)t^β]^{(2−q)/(1−q)}, t ≥ 0 (eq. (1)); U_i ∼ q−W(q, λ, β_i), V_i ∼ q−W(q, λ, β*_i); each component multiplied by a Bernoulli shock indicator, p_i for U and p*_i for V",
+    "compared": "β vectors β vs β* and shock parameters p vs p* (through their products)",
+    "hypotheses": [
+      {
+        "text": "Let U_i ∼ q − W(q, λ, β_i) and V_i ∼ q − W(q, λ, β*_i), i = 1, . . . , n.",
+        "formal": "U_i ∼ q−W(q, λ, β_i), V_i ∼ q−W(q, λ, β*_i); independence from the section preamble",
+        "source": "statement"
+      },
+      {
+        "text": "suppose I_i(I*_i) be a set of Bernoulli r.v.'s, independent of U_i's(V_i's) with E(I_i) = p_i(E(I*_i) = p*_i)",
+        "formal": "I_i ∼ Bernoulli(p_i), I*_i ∼ Bernoulli(p*_i), independent of the lifetimes (mutual independence from the section preamble)",
+        "source": "statement"
+      },
+      {
+        "text": "Under random shocks, define U*_i = U_i I_i and V*_i = V_i I*_i.",
+        "formal": "U*_i = U_i I_i, V*_i = V_i I*_i with I_i ∼ Bernoulli(p_i), I*_i ∼ Bernoulli(p*_i) independent of the U's and V's; P(U*_i > t) = p_i F̄_{U_i}(t) for t > 0",
+        "source": "section preamble"
+      },
+      {
+        "text": "If Π_{i=1}^n p_i ≥ Π_{i=1}^n p*_i",
+        "formal": "Π p_i ≥ Π p*_i",
+        "source": "statement"
+      },
+      {
+        "text": "For 1 < q < 2",
+        "formal": "1 < q < 2",
+        "source": "statement"
+      },
+      {
+        "text": "(β_1, β_2, . . . , β_n) ⪯^m (β*_1, β*_2, . . . , β*_n)",
+        "formal": "x = β, y = β*: majorization (Definition 2.2): Σ_{i=1}^j x_(i) ≥ Σ_{i=1}^j y_(i) for j = 1, ..., n − 1 and Σ_{i=1}^n x_(i) = Σ_{i=1}^n y_(i)",
+        "source": "statement; definition 2.2"
+      },
+      {
+        "text": "where β > 0 and λ > 0",
+        "formal": "all λ-type and β-type parameters > 0; q ∈ (0, 1) ∪ (1, 2) as in the two branches of eq. (1)",
+        "source": "definition eq. (1) (Introduction)"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "V*_{1:n} <= U*_{1:n}"
+    },
+    "quantifiers": "n unspecified; 1 < q < 2; all t ≥ 0",
+    "numbers": "",
+    "ambiguity": "Theorem 5.5 does not restate that the I_i are mutually independent (the section preamble does). [...] in the quote marks omitted intervening text."
+  }
+]

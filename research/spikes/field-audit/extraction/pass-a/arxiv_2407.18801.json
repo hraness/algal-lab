@@ -1,0 +1,124 @@
+[
+  {
+    "paper": "arxiv:2407.18801",
+    "claim": "Theorem 3.1",
+    "page": 7,
+    "quote": "Suppose that X = (X_1, X_2, ..., X_n) and Y = (Y_1, Y_2, ..., Y_n) to be two vector of dependent and heterogeneous random variables having lifetimes following the Semi-parametric model with the survival function F̄(x; θ_i), and F̄(x; θ_i), i = 1, 2, ..., n, respectively. The survival function of the second smallest order statistic of the dependent and heterogeneous random variables with the parameters vectors θ = (θ_1, ..., θ_n) and θ* = (θ*_1, ..., θ*_n) under common the Archimedean copula are, respectively, as follows: F̄_{X_{2:n}}(x) = Σ_{i=1}^n ψ[Σ_{j≠i} ϕ(F̄(x; θ_j))] − (n − 1)ψ[Σ_{i=1}^n ϕ(F̄(x; θ_i))], F̄_{Y_{2:n}}(x) = Σ_{i=1}^n ψ[Σ_{j≠i} ϕ(F̄(x; θ*_j))] − (n − 1)ψ[Σ_{i=1}^n ϕ(F̄(x; θ*_i))]. In the following Theorem, we compare the second smallest order statistics when the parameter vectors verify the p-larger order with common generator of Archimedean copulas in the sense of usual stochastic order. Theorem 3.1. Let X and Y be two vectors of nonnegative dependent random variables with Archimedean copula of common generator ψ. Assume X_i ∼ F(x; θ_i) and Y_i ∼ F(x; θ*_i) for i = 1, 2, ..., n. If the following conditions hold: 1. ψ is log-concave; 2. F̄(x; e^a) is decreasing and log-convex in a; Then, θ ⪰^p θ* implies X_{2:n} ≥_st Y_{2:n}.",
+    "kind": "theorem",
+    "model": "order statistic",
+    "family": "General semi-parametric family F(x; θ) = d_θ(F(x)) with arbitrary baseline cdf F and scalar parameter θ_i per component (Introduction); dependence by an Archimedean copula with common generator ψ; second smallest order statistic X_{2:n} (fail-safe, (n−1)-out-of-n system)",
+    "compared": "parameter vectors θ vs θ* (same family, same generator ψ)",
+    "hypotheses": [
+      {"text": "Let X and Y be two vectors of nonnegative dependent random variables with Archimedean copula of common generator ψ", "formal": "both vectors have Archimedean dependence with the same generator ψ; per the section preamble, F̄_{X_{2:n}} = Σ_i ψ[Σ_{j≠i} ϕ(F̄(x; θ_j))] − (n − 1)ψ[Σ_i ϕ(F̄(x; θ_i))] (ψ applied to survival functions)", "source": "statement; section preamble"},
+      {"text": "Let ψ : [0, +∞) ↦ [0, 1] be a decreasing and continuous function with ψ(0) = 1 and ψ(+∞) = 0 ... (−1)^k ψ^(k)(x) ≥ 0, for k = 0, 1, ...n − 2, and (−1)^{n−2} ψ^(n−2)(x) is decreasing and convex", "formal": "ψ is an n-monotone Archimedean generator, ϕ = ψ^{−1}", "source": "definition 2.3"},
+      {"text": "Assume X_i ∼ F(x; θ_i) and Y_i ∼ F(x; θ*_i)", "formal": "marginals from the semi-parametric model F(x; θ) = d_θ(F(x))", "source": "statement; Introduction (definition of semi-parametric model)"},
+      {"text": "ψ is log-concave", "formal": "log ψ concave on [0, ∞)", "source": "statement"},
+      {"text": "F̄(x; e^a) is decreasing and log-convex in a", "formal": "for every x, a ↦ F̄(x; e^a) is decreasing and log F̄(x; e^a) is convex in a (a = log θ)", "source": "statement"},
+      {"text": "θ ⪰^p θ*", "formal": "θ is p-larger than θ*: Π_{j=1}^i θ_{j:n} ≤ Π_{j=1}^i θ*_{j:n} for all i = 1, ..., n (increasing arrangements); θ, θ* ∈ R_+^n", "source": "statement; definition 2.2(4)"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y_{2:n} ≤_st X_{2:n} (printed as X_{2:n} ≥_st Y_{2:n})"},
+    "quantifiers": "n unrestricted (n ≥ 2 implicit); all x ≥ 0; θ, θ* ∈ R_+^n",
+    "numbers": "",
+    "ambiguity": "This result is for a general semi-parametric class. It is included because the paper also states it for specific models (Propositions 1 and 2) and illustrates it with a specific family (the scale model with EW baseline). The theorem says 'Archimedean copula', but the displayed survival function of X_{2:n} applies ψ to marginal survival functions (a survival-copula form); Theorem 3.2 and the propositions say 'distributional copula'. The preamble writes F̄(x; θ_i) for both X and Y (typo for θ*_i). The Introduction defines the semi-parametric model with d_θ 'a decreasing function for which d_θ(0) = 0, d_θ(1) = 1', which is inconsistent as printed."
+  },
+  {
+    "paper": "arxiv:2407.18801",
+    "claim": "Example (Section 3, first unnumbered example: scale model with EW baseline)",
+    "page": 10,
+    "quote": "Example. First we consider the scale (SC) model in the family of semi-parametric distributions, where the baseline distribution is the EW distribution(α = β = 0.9), and according to remark 2, this model satisfies condition 2 of Theorem 3.1. Take (θ_1, θ_2, θ_3, θ_4, θ_5) = (0.12, 0.28, 0.51, 0.62, 0.73), (θ*_1, θ*_2, θ*_3, θ*_4, θ*_5) = (0.21, 0.42, 0.73, 0.89, 0.92) and the generator ψ(x) = exp((1/θ)(1 − e^x)), where θ = 0.2 corresponding to Gumble–Barnett copula. By simple mathematical calculations, we can find that (θ_1, θ_2, θ_3, θ_4, θ_5) ⪰^p (θ*_1, θ*_2, θ*_3, θ*_4, θ*_5) and ψ(x) is is log-concave. Therefore, the above conditions satisfy the three requirements of Theorem 3.1. Based on the above provisions, explicit expressions of F̄_{X_{2:5}}(x; θ) and F̄_{Y_{2:5}}(x; θ*) are as follows: F̄_{X_{2:5}}(x; θ) = Σ_{i=1}^5 exp{10{1 − Π_{j≠i}{1 − 0.1 log[1 − (1 − e^{−(θ_j x)^{0.9}})^{0.9}]}}} − 4 exp{10{1 − Π_{i=1}^5{1 − 0.1 log[1 − (1 − e^{−(θ_i x)^{0.9}})^{0.9}]}}}, F̄_{Y_{2:5}}(x; θ*) = [same with θ*]. In Figure 1, we plot the survival functions of X_{2:5} and Y_{2:5}. We find that the image of F̄_{X_{2:5}}(x) is always higher than that of F̄_{Y_{2:5}}(x). That illustrates F̄_{X_{2:5}}(x) ≥ F̄_{Y_{2:5}}(x), for all x > 0. This confirms the result given in Theorem 3.1.",
+    "kind": "example",
+    "model": "order statistic",
+    "family": "Scale model F̄(x; θ) = F̄(θx) with exponentiated Weibull baseline F(x) = (1 − e^{−x^α})^β, α = β = 0.9; Gumbel–Barnett Archimedean generator ψ(x) = exp((1/θ)(1 − e^x)) with θ = 0.2 (as stated); n = 5, X_{2:5} vs Y_{2:5}",
+    "compared": "scale vectors θ = (0.12, 0.28, 0.51, 0.62, 0.73) vs θ* = (0.21, 0.42, 0.73, 0.89, 0.92); common generator",
+    "hypotheses": [
+      {"text": "(θ_1, ..., θ_5) ⪰^p (θ*_1, ..., θ*_5)", "formal": "Π_{j=1}^i θ_{j:5} ≤ Π_{j=1}^i θ*_{j:5}, i = 1, ..., 5", "source": "statement; definition 2.2(4)"},
+      {"text": "ψ(x) is is log-concave", "formal": "Gumbel–Barnett generator log-concave (Table 1: θ ∈ (0, 1])", "source": "statement; Remark 1 Table 1"},
+      {"text": "this model satisfies condition 2 of Theorem 3.1", "formal": "F̄(x; e^a) decreasing and log-convex in a, via DFR baseline (Remark 2 lists EW with 0 < α, β ≤ 1 as DFR)", "source": "statement; Remark 2"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y_{2:5} ≤_st X_{2:5} (F̄_{X_{2:5}}(x) ≥ F̄_{Y_{2:5}}(x) for all x > 0)"},
+    "quantifiers": "n = 5; all x > 0 (plotted against u = e^{−x} ∈ (0, 1])",
+    "numbers": "n = 5; EW baseline α = β = 0.9; θ = (0.12, 0.28, 0.51, 0.62, 0.73); θ* = (0.21, 0.42, 0.73, 0.89, 0.92); Gumbel–Barnett θ = 0.2 (stated). Printed result: θ ⪰^p θ*; ψ log-concave; F̄_{X_{2:5}}(x) ≥ F̄_{Y_{2:5}}(x) for all x > 0 (Figure 1, x = −log u, u ∈ (0, 1]: the dashed F̄_{X_{2:5}} curve lies above the solid F̄_{Y_{2:5}} curve, both rising from 0 at u = 0 to 1 at u = 1; e.g. at u ≈ 0.6 about 0.58 vs 0.45).",
+    "ambiguity": "The stated copula parameter θ = 0.2 conflicts with the printed explicit formulas, whose coefficients 10 and 0.1 correspond to θ = 0.1 in ψ(x) = exp((1/θ)(1 − e^x)) with ϕ(u) = log(1 − θ log u). The symbol θ is also reused for both the copula parameter and the scale parameters. The text refers to 'three requirements of Theorem 3.1', though Theorem 3.1 lists two conditions plus the p-larger hypothesis."
+  },
+  {
+    "paper": "arxiv:2407.18801",
+    "claim": "Example (Section 3, second unnumbered example: counterexample with log-convex Clayton generator)",
+    "page": 12,
+    "quote": "Logarithmic concavity of ψ(x) is essential in Theorem 3.1, and the following counterexample shows that log-concave cannot be replaced by log-convex. Example. First we consider F̄(x; θ_i) = e^{−(θ_i x)^{0.9}} and F̄(x; θ_i) = e^{−(θ*_i x)^{0.9}}, i = 1, 2, 3, 4, 5 in the family of semi-parametric distributions, Take (θ_1, θ_2, θ_3, θ_4, θ_5) = (0.13, 0.31, 0.49, 0.61, 0.72), (θ*_1, θ*_2, θ*_3, θ*_4, θ*_5) = (0.22, 0.41, 0.71, 0.88, 0.92) and the generator ψ(x) = (θx + 1)^{−1/θ}, where θ = 10 corresponding to Clayton copula. By simple mathematical calculations, we can find that (θ_1, θ_2, θ_3, θ_4, θ_5) ⪰^p (θ*_1, θ*_2, θ*_3, θ*_4, θ*_5) and ψ(x) is is log-convex. Based on the above provisions, explicit expressions of F̄_{X_{2:5}}(x; θ) and F̄_{Y_{2:5}}(x; θ*) are as follows: F̄_{X_{2:5}}(x; θ) = Σ_{i=1}^5 [Σ_{j≠i} (e^{−(θ_j x)^{0.9}} − 3)^{−1/10}] − 4 Σ_{i=1}^5 (e^{−(θ_i x)^{0.9}} − 4)^{−1/10}, F̄_{Y_{2:5}}(x; θ*) = Σ_{i=1}^5 [Σ_{j≠i} (e^{−(θ*_j x)^{0.9}} − 3)^{−1/10}] − 4 Σ_{i=1}^5 (e^{−(θ*_i x)^{0.9}} − 4)^{−1/10}. In Figure 2, we plot F̄_{X_{2:5}}(x) − F̄_{Y_{2:5}}(x) and y = 0, for all x ∈ (0, 10]. We find that the curve of F̄_{X_{2:5}}(x) − F̄_{Y_{2:5}}(x) intersects curve y = 0. That means it's neither F̄_{X_{2:5}}(x) ≥ F̄_{Y_{2:5}}(x) nor F̄_{X_{2:5}}(x) ≤ F̄_{Y_{2:5}}(x), for all x > 0. Therefore, log-concave cannot be replaced by log-convex.",
+    "kind": "counterexample",
+    "model": "order statistic",
+    "family": "Weibull-type scale model F̄(x; θ) = e^{−(θx)^{0.9}} (shape 0.9); Clayton Archimedean generator ψ(x) = (θx + 1)^{−1/θ}, θ = 10; n = 5, X_{2:5} vs Y_{2:5}",
+    "compared": "scale vectors θ = (0.13, 0.31, 0.49, 0.61, 0.72) vs θ* = (0.22, 0.41, 0.71, 0.88, 0.92); common generator",
+    "hypotheses": [
+      {"text": "(θ_1, ..., θ_5) ⪰^p (θ*_1, ..., θ*_5)", "formal": "Π_{j=1}^i θ_{j:5} ≤ Π_{j=1}^i θ*_{j:5}, i = 1, ..., 5", "source": "statement; definition 2.2(4)"},
+      {"text": "ψ(x) is is log-convex", "formal": "Clayton generator log-convex (condition 1 of Theorem 3.1 replaced by log-convexity)", "source": "statement; Remark 3 Table 3"}
+    ],
+    "conclusion": {"order": "st", "direction": "neither X_{2:5} ≥_st Y_{2:5} nor X_{2:5} ≤_st Y_{2:5} (the difference of survival functions changes sign)"},
+    "quantifiers": "n = 5; x ∈ (0, 10] plotted",
+    "numbers": "n = 5; F̄(x; θ) = e^{−(θx)^{0.9}}; θ = (0.13, 0.31, 0.49, 0.61, 0.72); θ* = (0.22, 0.41, 0.71, 0.88, 0.92); Clayton θ = 10. Printed result: θ ⪰^p θ*; ψ log-convex; F̄_{X_{2:5}}(x) − F̄_{Y_{2:5}}(x) intersects y = 0 on (0, 10]. Figure 2 shows the difference rising steeply from below −0.04 near x ≈ 0, peaking at about +0.027 near x ≈ 0.5, crossing zero near x ≈ 1.1, reaching about −0.045 near x ≈ 3.3, and rising to about −0.008 at x = 10.",
+    "ambiguity": "The printed explicit survival expressions do not match the stated marginals and generator: substituting F̄ = e^{−(θx)^{0.9}} into ψ(Σϕ) for Clayton with θ = 10 gives terms u^{−10} = e^{10(θ_j x)^{0.9}}, but e^{−(θ_j x)^{0.9}} is printed. The second marginal is written 'F̄(x; θ_i)' where θ*_i is meant. The symbol θ is reused for the copula parameter."
+  },
+  {
+    "paper": "arxiv:2407.18801",
+    "claim": "Proposition 1",
+    "page": 17,
+    "quote": "Das and Kayal (2021) defined a new distribution, which is called modified proportional hazard rates scale (MPHRS) model. The survival function of this model is given by F̄(x; α, λ, μ) = α F̄(xμ)^λ / (1 − ᾱ F̄(xμ)^λ) where (x, α, λ, μ > 0), ᾱ = 1 − α. (13) [...] Now we apply Theorem 3.1 to MPHRS model, and get the following Corollary 1. Through the conditions of Theorem 3.1 we only need to verify the decreasing property and logarithmic convexity of the model survival function. Proposition 1. Let X and Y be two vectors of dependent and heterogeneous random variables with Archimedean distributional copula with common generator ψ. Assume X ∼ MPHRS(α, λ, μ, F̄) and Y ∼ MPHRS(α*, λ*, μ*, F̄), If ψ is log-concave and the baseline hazard rate function xh_F(x) is decreasing in x, where α = α* = α1_n with α ∈ (0, 1] and λ = λ* = λ1_n. Then, μ ⪰^p μ* ⇒ X_{2:n} ≥_st Y_{2:n}.",
+    "kind": "proposition",
+    "model": "order statistic",
+    "family": "Modified proportional hazard rates scale model MPHRS(α, λ, μ, F̄): F̄(x; α, λ, μ) = α F̄(xμ)^λ / (1 − ᾱ F̄(xμ)^λ), x, α, λ, μ > 0, ᾱ = 1 − α, arbitrary baseline F; common α ∈ (0, 1] and λ, heterogeneous scales μ_i; Archimedean dependence with common generator ψ; X_{2:n}",
+    "compared": "scale vectors μ vs μ*; α and λ common and equal across components",
+    "hypotheses": [
+      {"text": "two vectors of dependent and heterogeneous random variables with Archimedean distributional copula with common generator ψ", "formal": "same Archimedean generator ψ for X and Y (Definition 2.3)", "source": "statement; definition 2.3"},
+      {"text": "X ∼ MPHRS(α, λ, μ, F̄) and Y ∼ MPHRS(α*, λ*, μ*, F̄)", "formal": "X_i has survival α_i F̄(xμ_i)^{λ_i} / (1 − ᾱ_i F̄(xμ_i)^{λ_i}); same baseline F̄ for X and Y", "source": "statement; eq. (13)"},
+      {"text": "ψ is log-concave", "formal": "log ψ concave", "source": "statement"},
+      {"text": "the baseline hazard rate function xh_F(x) is decreasing in x", "formal": "x h_F(x) decreasing in x > 0 (baseline has decreasing proportional failure rate, DPFR per Remark 4)", "source": "statement; Remark 4"},
+      {"text": "α = α* = α1_n with α ∈ (0, 1]", "formal": "all α_i = α*_i = α ∈ (0, 1]", "source": "statement"},
+      {"text": "λ = λ* = λ1_n", "formal": "all λ_i = λ*_i = λ > 0", "source": "statement"},
+      {"text": "μ ⪰^p μ*", "formal": "Π_{j=1}^i μ_{j:n} ≤ Π_{j=1}^i μ*_{j:n}, i = 1, ..., n", "source": "statement; definition 2.2(4)"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y_{2:n} ≤_st X_{2:n} (printed as X_{2:n} ≥_st Y_{2:n})"},
+    "quantifiers": "n unrestricted; all x > 0; any common α ∈ (0, 1], λ > 0",
+    "numbers": "",
+    "ambiguity": "'The baseline hazard rate function xh_F(x)' names x·h_F(x), which Remark 4 calls the proportional (generalized) failure rate, not the hazard rate. The lead-in text calls this result 'Corollary 1'. The baseline F is arbitrary, so this is a semi-parametric model rather than a fully specified family. 'Distributional copula' versus the survival-copula form of the X_{2:n} survival function inherited from Theorem 3.1."
+  },
+  {
+    "paper": "arxiv:2407.18801",
+    "claim": "Proposition 2",
+    "page": 18,
+    "quote": "A random variable X is said to follow the location–scale family, written as X ∼ LS(λ, θ), if its distribution function is represented as F_X(x; λ, θ) = F(θ(x − λ)), x > λ, where λ(∈ R) and θ(> 0) are the location (or threshold) and the scale parameters, respectively. [...] Now we apply Theorem 3.1 to LS model, and get the following Corollary 2. Proposition 2. Let X and Y be two vectors of dependent and heterogeneous random variables with Archimedean distributional copula with common generator ψ. Assume X ∼ LS(θ, λ, F̄) and Y ∼ LS(θ*, λ*, F̄), If ψ is log-concave and the baseline hazard rate function xh_F(x) is decreasing in x. Then, θ ⪰^p θ* ⇒ X_{2:n} ≥_st Y_{2:n}.",
+    "kind": "proposition",
+    "model": "order statistic",
+    "family": "Location–scale family LS(λ, θ): F_X(x; λ, θ) = F(θ(x − λ)), x > λ, λ ∈ R location, θ > 0 scale, arbitrary baseline F; Archimedean dependence with common generator ψ; X_{2:n}",
+    "compared": "scale vectors θ vs θ* (location vectors λ, λ* written separately in the statement)",
+    "hypotheses": [
+      {"text": "two vectors of dependent and heterogeneous random variables with Archimedean distributional copula with common generator ψ", "formal": "same Archimedean generator ψ for X and Y", "source": "statement; definition 2.3"},
+      {"text": "X ∼ LS(θ, λ, F̄) and Y ∼ LS(θ*, λ*, F̄)", "formal": "X_i has cdf F(θ_i(x − λ_i)), Y_i has cdf F(θ*_i(x − λ*_i)); same baseline F", "source": "statement; section preamble"},
+      {"text": "ψ is log-concave", "formal": "log ψ concave", "source": "statement"},
+      {"text": "the baseline hazard rate function xh_F(x) is decreasing in x", "formal": "x h_F(x) decreasing in x", "source": "statement; Remark 4"},
+      {"text": "θ ⪰^p θ*", "formal": "Π_{j=1}^i θ_{j:n} ≤ Π_{j=1}^i θ*_{j:n}, i = 1, ..., n", "source": "statement; definition 2.2(4)"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y_{2:n} ≤_st X_{2:n} (printed as X_{2:n} ≥_st Y_{2:n})"},
+    "quantifiers": "n unrestricted; x ≥ λ (per the proof)",
+    "numbers": "",
+    "ambiguity": "The statement places no restriction on the location vectors λ and λ*, but the proof uses a single common location λ (F̄(x; e^{a_i}) = F̄(e^{a_i}(x − λ))). The argument order LS(θ, λ, F̄) differs from the definition LS(λ, θ). The lead-in text calls this result 'Corollary 2'. The proof ends with 'a_i = log μ_i' (carried over from Proposition 1). 'Baseline hazard rate function xh_F(x)' names the proportional failure rate. The baseline F is arbitrary."
+  },
+  {
+    "paper": "arxiv:2407.18801",
+    "claim": "Section 5 real-data application (cable tensile strength)",
+    "page": 19,
+    "quote": "From Table 4, we know that weibull is the best fitting distribution F̄(x) = e^{−(x/a)^b}, and the parameters are estimated as â = 67.739, b̂ = 341.65. [...] Let us consider two sets of two four- component cable network systems made of #wire 1, 3, 7, 8 and #wire 2, 4, 5, 9 respectively, which follow the fail-safe system(X_{2:4}, Y_{2:4}). It is reasonable to assume here that all components follow the semi-parametric family of distributions, where the baseline distribution function corresponds to the parameter values. By a simple calculation, we can verify that the establishment (341.3373, 341.6547, 342.1098, 343.2238) ⪰^p (340.3877, 342.6283, 344.6258, 345.1538). 2. Fitting a proper Archimedean Copula. Next we used rank-based nonparametric estimation, and the Cramér-von Mises test statistic, as detailed in Fermanian (2005), Genest and Rémillard (2008). We selected the best Copula from among the alternative Copula. Table 5 shows the estimated parameters, test statistics, and p-values for these three Copula. It can be seen that the Clayton Copula connective is the best candidate. 3. Optimize power circuits by selecting cables with the greatest system life corresponding to tensile strength. The conditions of Theorem 3.1 are well satisfied and we next plot the survival functions of X_{2:4} and Y_{2:4}. In Figure 3, we find that the image of F̄_{X_{2:4}}(x) is always higher than that of F̄_{Y_{2:4}}(x). Therefore, in manufacturing cables, we prefer that the 12 wires of a cable include #wire 1, 3, 7, 8.",
+    "kind": "example",
+    "model": "order statistic",
+    "family": "Weibull baseline F̄(x) = e^{−(x/a)^b} with â = 67.739, b̂ = 341.65, inside an unspecified semi-parametric model; Clayton copula with parameter 1.0822; n = 4, fail-safe systems X_{2:4} (wires 1, 3, 7, 8) and Y_{2:4} (wires 2, 4, 5, 9)",
+    "compared": "parameter vectors (341.3373, 341.6547, 342.1098, 343.2238) vs (340.3877, 342.6283, 344.6258, 345.1538)",
+    "hypotheses": [
+      {"text": "(341.3373, 341.6547, 342.1098, 343.2238) ⪰^p (340.3877, 342.6283, 344.6258, 345.1538)", "formal": "p-larger order of the two parameter vectors (Definition 2.2(4))", "source": "statement; definition 2.2(4)"},
+      {"text": "It can be seen that the Clayton Copula connective is the best candidate", "formal": "common Clayton generator with parameter 1.0822 for both systems", "source": "statement; Table 5"},
+      {"text": "The conditions of Theorem 3.1 are well satisfied", "formal": "log-concave ψ and condition 2 asserted without shown verification", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y_{2:4} ≤_st X_{2:4} (F̄_{X_{2:4}} always above F̄_{Y_{2:4}} in Figure 3)"},
+    "quantifiers": "n = 4; x = −log u, u ∈ (0, 1] plotted",
+    "numbers": "Weibull fit â = 67.739, b̂ = 341.65. Table 4 AIC: Exponential 124.8621, Gamma 62.1677, Weibull 60.5968, Burr 62.7108; BIC: 125.0593, 62.5621, 60.9913, 63.3025. Parameter vectors (341.3373, 341.6547, 342.1098, 343.2238) ⪰^p (340.3877, 342.6283, 344.6258, 345.1538). Table 5 (parameter, Cramér–von Mises statistic, p-value): Clayton 1.0822, 0.0637, 0.3358; Gumbel 1.5104, 0.0804, 0.3010; Frank 2.9428, 0.0873, 0.3308. Printed result: F̄_{X_{2:4}}(x) always higher than F̄_{Y_{2:4}}(x) (Figure 3: both curves between about 0.02084 and 0.02096 over u ∈ (0, 1], dashed X curve above solid Y curve).",
+    "ambiguity": "The semi-parametric model (scale, PHR, etc.) linking the per-wire 'parameter values' to the Weibull baseline is not specified, nor how those values were obtained. The paper's own Table 3 lists the Clayton generator as log-convex, whereas Theorem 3.1 requires log-concavity, yet the text says the conditions are 'well satisfied'. The Figure 3 survival values stay near 0.0209 across u ∈ (0, 1], including u near 1 (x near 0)."
+  }
+]
