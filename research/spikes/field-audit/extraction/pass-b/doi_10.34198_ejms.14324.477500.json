@@ -1,0 +1,20 @@
+[
+ {
+  "paper": "doi:10.34198/ejms.14324.477500",
+  "claim": "Theorem 3.1",
+  "page": 487,
+  "quote": "Theorem 3.1. Let X ∼ DoubleXRama(θ1) and Y ∼ DoubleXRama(θ2). If θ1 ≥ θ2, then X ≤lr Y hence X ≤lr Y hence X ≤hr Y, X ≤mrl Y and X ≤st Y.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "Double XRama distribution, pdf f(x) = θ^4 (θ^6 + 18θ^3 + 108 + 36x^3) e^{-θx} / (θ^3 + 6)^3, x > 0, θ > 0 (mixture of exponential and XRama distributions)",
+  "compared": "parameter θ1 vs θ2",
+  "hypotheses": [
+   {"text": "Let X ∼ DoubleXRama(θ1) and Y ∼ DoubleXRama(θ2)", "formal": "X ~ DoubleXRama(θ1), Y ~ DoubleXRama(θ2)", "source": "statement"},
+   {"text": "If θ1 ≥ θ2", "formal": "θ1 >= θ2 > 0", "source": "statement"},
+   {"text": "Likelihood ratio order (X ≤lr Y) if fX(x)/fY(y) decreases in x. This implies that X ≤lr Y ⇒ X ≤hr Y ⇒ X ≤st Y ⇒ X ≤mrl Y.", "formal": "lr implies hr, st, mrl", "source": "section preamble (Section 3.12 definitions)"}
+  ],
+  "conclusion": {"order": "lr", "direction": "X <=lr Y (hence <=hr, <=st, <=mrl)"},
+  "quantifiers": "θ1 >= θ2 > 0, all x > 0",
+  "ambiguity": "The statement duplicates 'hence X ≤lr Y'. The proof then assumes 'If θ2 ≥ θ1, d/dx ln(fx/fy) ≤ 0', which is the opposite inequality from the stated hypothesis θ1 ≥ θ2, so it is unclear which direction the claimed ordering holds. The proof line ends with 'is (CHECK!!!) in x' — an unresolved editorial note in the published text, and the monotonicity word after 'is' is missing. The section's definition of mean residual life order is printed as 'X ≤mrl Y if mX(x) ≥ mY(x)' (conventionally mX ≤ mY), and the stochastic order definition prints 'FY(x) ≥ FY(x)' (one side presumably F_X or a survival function). The printed implication chain 'X ≤lr Y ⇒ X ≤hr Y ⇒ X ≤st Y ⇒ X ≤mrl Y' includes st ⇒ mrl, which is not a standard implication."
+ }
+]

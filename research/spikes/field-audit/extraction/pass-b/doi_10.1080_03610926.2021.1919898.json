@@ -1,0 +1,549 @@
+[
+ {
+  "paper": "doi:10.1080/03610926.2021.1919898",
+  "claim": "Lemma 4 (Li and Fang [17])",
+  "page": 5,
+  "quote": "Lemma 4 (Li and Fang [17]) For two n-dimensional Archimedean copulas C_psi1(u) and C_psi2(u), with phi_2 = psi_2^{-1} = sup{x in R : psi(x) > u} as the right continuous inverse, if phi_2 o psi_1 is super-additive, then C_psi1(u) <= C_psi2(u) for all u in [0,1]^n. Recall that a function f is said to be super-additive if f(x + y) >= f(x) + f(y) for all x and y in the domain of f.",
+  "kind": "lemma",
+  "model": "other: n-dimensional Archimedean copulas",
+  "family": "Archimedean copulas with generators psi_1, psi_2",
+  "compared": "two Archimedean copulas pointwise",
+  "hypotheses": [
+   {"text": "phi_2 o psi_1 is super-additive", "formal": "phi_2(psi_1(x+y)) >= phi_2(psi_1(x)) + phi_2(psi_1(y))", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: pointwise copula order", "direction": "C_{psi1}(u) <= C_{psi2}(u) for all u"},
+  "quantifiers": "n-dimensional, all u in [0,1]^n",
+  "ambiguity": "Cited lemma; concordance-type ordering of copulas, not one of the named univariate orders."
+ },
+ {
+  "paper": "doi:10.1080/03610926.2021.1919898",
+  "claim": "Theorem 1",
+  "page": 7,
+  "quote": "Let X1, X2, ..., Xn be a set of dependent random variables sharing Archimedean copula having generator psi_1, such that Xi ~ GM(alpha_i, beta_i, lambda_i), i = 1, 2, ..., n. Let Y1, Y2, ..., Yn be another set of dependent random variables sharing Archimedean copula having generator psi_2, such that Yi ~ GM(alpha_i*, beta_i, lambda_i), i = 1, 2, ..., n. Assume that alpha, alpha*, beta and lambda in D+ (or E+). Further, suppose phi_2 o psi_1 is super-additive, psi_1 or psi_2 is log-convex. Then, alpha >=^w alpha* implies X_{1:n} <=st Y_{1:n}.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "GM(α, β, λ): Gompertz-Makeham, survival F_bar(x) = exp(-λx - (α/β)(e^{βx}-1)), x > 0, α,β,λ > 0; dependence via Archimedean copulas ψ_1, ψ_2",
+  "compared": "two dependent samples; only the initial-mortality vectors differ (α vs α*); common β, λ vectors",
+  "hypotheses": [
+   {"text": "Xi ~ GM(alpha_i, beta_i, lambda_i), Yi ~ GM(alpha_i*, beta_i, lambda_i)", "formal": "GM marginals, same beta_i, lambda_i; alpha_i vs alpha_i* differ", "source": "statement"},
+   {"text": "alpha, alpha*, beta and lambda in D+ (or E+)", "formal": "all parameter vectors similarly ordered (decreasing or increasing)", "source": "statement"},
+   {"text": "phi_2 o psi_1 is super-additive, psi_1 or psi_2 is log-convex", "formal": "superadditivity of the generator composition; log-convexity of one generator", "source": "statement"},
+   {"text": "alpha >=^w alpha*", "formal": "α weakly supermajorizes α*", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X_{1:n} <=_st Y_{1:n}"},
+  "quantifiers": "n >= 2, x > 0",
+  "ambiguity": "Condition 'psi_1 or psi_2 is log-convex' is an either/or; proof uses psi_2 log-convex."
+ },
+ {
+  "paper": "doi:10.1080/03610926.2021.1919898",
+  "claim": "Theorem 2",
+  "page": 8,
+  "quote": "Let X1, X2, ..., Xn be a set of dependent random variables sharing Archimedean copula having generator psi_1, such that Xi ~ GM(alpha_i, beta_i, lambda_i), i = 1, 2, ..., n. Let Y1, Y2, ..., Yn be another set of dependent random variables sharing Archimedean copula having generator psi_2, such that Yi ~ GM(alpha_i, beta_i*, lambda_i), i = 1, 2, ..., n. Assume that alpha, beta, beta* and lambda in D+ (or E+). Further, suppose phi_2 o psi_1 is super-additive, psi_1 or psi_2 is log-convex. Then, beta >=^w beta* implies X_{1:n} <=st Y_{1:n}.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "GM(α, β, λ) with Archimedean copulas",
+  "compared": "mortality-coefficient vectors β vs β*; common α, λ",
+  "hypotheses": [
+   {"text": "Yi ~ GM(alpha_i, beta_i*, lambda_i)", "formal": "only β vector differs", "source": "statement"},
+   {"text": "alpha, beta, beta* and lambda in D+ (or E+)", "formal": "sorted parameter vectors", "source": "statement"},
+   {"text": "phi_2 o psi_1 super-additive, psi_1 or psi_2 log-convex", "formal": "copula conditions", "source": "statement"},
+   {"text": "beta >=^w beta*", "formal": "β weakly supermajorizes β*", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X_{1:n} <=_st Y_{1:n}"},
+  "quantifiers": "n >= 2, x > 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1080/03610926.2021.1919898",
+  "claim": "Theorem 3",
+  "page": 8,
+  "quote": "Let X1, X2, ..., Xn be a set of dependent random variables sharing Archimedean copula having generator psi_1, such that Xi ~ GM(alpha_i, beta_i, lambda_i), i = 1, 2, ..., n. Let Y1, Y2, ..., Yn be another set of dependent random variables sharing Archimedean copula having generator psi_2, such that Yi ~ GM(alpha_i, beta_i, lambda_i*), i = 1, 2, ..., n. Assume that alpha, beta, lambda, lambda* in D+ (or E+). Further, suppose phi_2 o psi_1 is super-additive, psi_1 or psi_2 is log-convex. Then, lambda >=^w lambda* implies X_{1:n} <=st Y_{1:n}.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "GM(α, β, λ) with Archimedean copulas",
+  "compared": "age-independent mortality vectors λ vs λ*; common α, β",
+  "hypotheses": [
+   {"text": "Yi ~ GM(alpha_i, beta_i, lambda_i*)", "formal": "only λ vector differs", "source": "statement"},
+   {"text": "alpha, beta, lambda, lambda* in D+ (or E+)", "formal": "sorted vectors", "source": "statement"},
+   {"text": "phi_2 o psi_1 super-additive, psi_1 or psi_2 log-convex", "formal": "copula conditions", "source": "statement"},
+   {"text": "lambda >=^w lambda*", "formal": "λ weakly supermajorizes λ*", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X_{1:n} <=_st Y_{1:n}"},
+  "quantifiers": "n >= 2, x > 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1080/03610926.2021.1919898",
+  "claim": "Theorem 4",
+  "page": 9,
+  "quote": "Let X1, X2, ..., Xn be a set of independent random variables such that Xi ~ GM(alpha_i, beta_i, lambda_i), i = 1, 2, ..., n. Let Y1, Y2, ..., Yn be another set of independent random variables such that Yi ~ GM(alpha_i*, beta_i, lambda_i), i = 1, 2, ..., n. Suppose alpha, alpha* in D+ (or E+), beta in D+. Then, alpha >=^m alpha* implies X_{1:n} <=hr (>=hr) Y_{1:n}.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "GM(α, β, λ), independent components",
+  "compared": "α vs α*; common β, λ",
+  "hypotheses": [
+   {"text": "independent random variables; Yi ~ GM(alpha_i*, beta_i, lambda_i)", "formal": "independence, only α differs", "source": "statement"},
+   {"text": "alpha, alpha* in D+ (or E+), beta in D+", "formal": "α vectors sorted either way, β decreasing", "source": "statement"},
+   {"text": "alpha >=^m alpha*", "formal": "α majorizes α*", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X_{1:n} <=_hr Y_{1:n} when α, α* in D+; reversed (>=_hr) when in E+"},
+  "quantifiers": "n >= 2, x > 0",
+  "ambiguity": "Printed 'X_{1:n} <=hr (>=hr) Y_{1:n}' — the parenthesized alternative corresponds to the E+ arrangement; direction flips with the arrangement."
+ },
+ {
+  "paper": "doi:10.1080/03610926.2021.1919898",
+  "claim": "Theorem 5",
+  "page": 9,
+  "quote": "Let X1, X2, ..., Xn be a set of independent random variables such that Xi ~ GM(alpha_i, beta_i, lambda_i), i = 1, 2, ..., n. Let Y1, Y2, ..., Yn be another set of independent random variables such that Yi ~ GM(alpha_i, beta_i*, lambda_i), i = 1, 2, ..., n. Suppose alpha, beta and beta* in D+ (or E+). Then, beta >=^m beta* implies X_{1:n} <=hr Y_{1:n}.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "GM(α, β, λ), independent components",
+  "compared": "β vs β*; common α, λ",
+  "hypotheses": [
+   {"text": "Yi ~ GM(alpha_i, beta_i*, lambda_i)", "formal": "only β differs", "source": "statement"},
+   {"text": "alpha, beta and beta* in D+ (or E+)", "formal": "sorted vectors", "source": "statement"},
+   {"text": "beta >=^m beta*", "formal": "β majorizes β*", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X_{1:n} <=_hr Y_{1:n}"},
+  "quantifiers": "n >= 2, x > 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1080/03610926.2021.1919898",
+  "claim": "Theorem 6",
+  "page": 9,
+  "quote": "Let X1, X2, ..., Xn be a set of independent random variables such that Xi ~ GM(alpha_i, beta_i, lambda_i), i = 1, 2, ..., n. Let Y1, Y2, ..., Yn be another set of independent random variables such that Yi ~ GM(alpha_i, beta_i, lambda_i*), i = 1, 2, ..., n. If sum_{k=1}^n lambda_k >= sum_{k=1}^n lambda*_k, then X_{1:n} <=hr Y_{1:n}.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "GM(α, β, λ), independent components",
+  "compared": "λ vs λ*; common α, β",
+  "hypotheses": [
+   {"text": "Yi ~ GM(alpha_i, beta_i, lambda_i*)", "formal": "only λ differs", "source": "statement"},
+   {"text": "sum lambda_k >= sum lambda*_k", "formal": "Σλ_k >= Σλ*_k", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X_{1:n} <=_hr Y_{1:n}"},
+  "quantifiers": "n >= 2, x > 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1080/03610926.2021.1919898",
+  "claim": "Counterexample 1 (part a)",
+  "page": 10,
+  "quote": "Counterexample 1 Let (alpha_1, alpha_2) = (0.1, 20.0), (alpha_1*, alpha_2*) = (2.1, 18.0), (beta_1, beta_2) = (0.2, 0.1) and (lambda_1, lambda_2) = (0.6, 0.5). Clearly, alpha, alpha* in E+, beta in D+ and alpha >=^m alpha*. But, Figure 1a) shows that there exists no lr ordering between X_{1:2} and Y_{1:2}.",
+  "kind": "counterexample",
+  "model": "series system",
+  "family": "GM(α, β, λ), independent, n = 2",
+  "compared": "X_{1:2} vs Y_{1:2} under majorized α; shows lr ordering fails despite Theorem 4 hypotheses",
+  "hypotheses": [
+   {"text": "alpha, alpha* in E+, beta in D+, alpha >=^m alpha*", "formal": "majorization holds, but no lr ordering", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "no lr ordering between X_{1:2} and Y_{1:2} (refutes strengthening Theorem 4 to lr)"},
+  "quantifiers": "n = 2",
+  "numbers": "α = (0.1, 20.0), α* = (2.1, 18.0), β = (0.2, 0.1), λ = (0.6, 0.5); Figure 1a density ratio plot",
+  "ambiguity": "Non-ordering shown only graphically via Figure 1a."
+ },
+ {
+  "paper": "doi:10.1080/03610926.2021.1919898",
+  "claim": "Counterexample 1 (part b)",
+  "page": 10,
+  "quote": "Again, let (alpha_1, alpha_2) = (20.0, 0.1), (beta_1, beta_2) = (0.8, 0.2), (beta_1*, beta_2*) = (0.7, 0.3) and (lambda_1, lambda_2) = (0.5, 0.6). Clearly, alpha, beta and beta* in D+ and beta >=^m beta*. But, Figure 1b) shows that there exists no lr ordering between X_{1:2} and Y_{1:2}.",
+  "kind": "counterexample",
+  "model": "series system",
+  "family": "GM(α, β, λ), independent, n = 2",
+  "compared": "X_{1:2} vs Y_{1:2} under majorized β; refutes lr strengthening of Theorem 5",
+  "hypotheses": [
+   {"text": "alpha, beta and beta* in D+ and beta >=^m beta*", "formal": "β majorizes β*", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "no lr ordering between X_{1:2} and Y_{1:2}"},
+  "quantifiers": "n = 2",
+  "numbers": "α = (20.0, 0.1), β = (0.8, 0.2), β* = (0.7, 0.3), λ = (0.5, 0.6); Figure 1b",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1080/03610926.2021.1919898",
+  "claim": "Theorem 7",
+  "page": 10,
+  "quote": "Let {X1, X2, ..., Xn} and {Y1, Y2, ..., Yn} be two sets of independent random variables each following the multiple-outlier GM model such that Xi ~ GM(alpha_1, beta_1, lambda_1) and Yi ~ GM(alpha_1*, beta_1, lambda_1), for i = 1, 2, ..., n1, and Xi ~ GM(alpha_2, beta_2, lambda_2) and Yi ~ GM(alpha_2*, beta_2, lambda_2), for i = n1+1, n1+2, ..., n1+n2 = n. Then, alpha_1 <= (>=) alpha_2, beta_1 >= beta_2 and (alpha_1,...,alpha_1 [n1], alpha_2,...,alpha_2 [n2]) >=^m (alpha_1*,...,alpha_1* [n1], alpha_2*,...,alpha_2* [n2]) => X_{1:n} <=R-hr (>=R-hr) Y_{1:n}.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "GM(α, β, λ), independent, multiple-outlier model (two homogeneous groups of sizes n1, n2)",
+  "compared": "α group values (α_1, α_2) vs (α_1*, α_2*); common β, λ per group",
+  "hypotheses": [
+   {"text": "alpha_1 <= (>=) alpha_2, beta_1 >= beta_2", "formal": "group ordering constraints", "source": "statement"},
+   {"text": "(alpha_1 x n1, alpha_2 x n2) >=^m (alpha_1* x n1, alpha_2* x n2)", "formal": "the n-vector of group α's majorizes that of α*'s", "source": "statement"}
+  ],
+  "conclusion": {"order": "ageing: R-hr (ageing faster in hazard rate)", "direction": "X_{1:n} <=_{R-hr} Y_{1:n} when α_1 <= α_2; >=_{R-hr} when α_1 >= α_2"},
+  "quantifiers": "1 <= n1 < n, n1 + n2 = n, x > 0",
+  "ambiguity": "R-hr defined in preliminaries as r_X(t)/r_Y(t) increasing in t."
+ },
+ {
+  "paper": "doi:10.1080/03610926.2021.1919898",
+  "claim": "Theorem 8",
+  "page": 12,
+  "quote": "Let {X1, X2, ..., Xn} and {Y1, Y2, ..., Yn} be two sets of independent random variables each following the multiple-outlier GM model such that Xi ~ GM(alpha_1, beta_1, lambda_1) and Yi ~ GM(alpha_1, beta_1*, lambda_1), for i = 1, 2, ..., n1, and Xi ~ GM(alpha_2, beta_2, lambda_2) and Yi ~ GM(alpha_2, beta_2*, lambda_2), for i = n1+1, n1+2, ..., n1+n2 = n. Then, alpha_1 >= alpha_2, beta_1 >= beta_2 and (beta_1 x n1, beta_2 x n2) >=^m (beta_1* x n1, beta_2* x n2) => X_{1:n} >=R-hr Y_{1:n}.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "GM(α, β, λ), independent, multiple-outlier model",
+  "compared": "β group values vs β* group values; common α, λ",
+  "hypotheses": [
+   {"text": "alpha_1 >= alpha_2, beta_1 >= beta_2", "formal": "group ordering", "source": "statement"},
+   {"text": "beta vector >=^m beta* vector", "formal": "majorization of the n-vectors", "source": "statement"}
+  ],
+  "conclusion": {"order": "ageing: R-hr", "direction": "X_{1:n} >=_{R-hr} Y_{1:n}"},
+  "quantifiers": "1 <= n1 < n, n1 + n2 = n, x > 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1080/03610926.2021.1919898",
+  "claim": "Theorem 9",
+  "page": 12,
+  "quote": "Let {X1, X2, ..., Xn} and {Y1, Y2, ..., Yn} be two sets of independent random variables each following GM model such that Xi ~ GM(alpha_i, beta_i, lambda_i) and Yi ~ GM(alpha_i, beta_i, lambda_i*), for i = 1, 2, ..., n. If sum_{k=1}^n lambda_k >= sum_{k=1}^n lambda*_k, then X_{1:n} >=R-hr Y_{1:n}.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "GM(α, β, λ), independent, general (not multiple-outlier)",
+  "compared": "λ vs λ*; common α, β",
+  "hypotheses": [
+   {"text": "sum lambda_k >= sum lambda*_k", "formal": "Σλ_k >= Σλ*_k", "source": "statement"}
+  ],
+  "conclusion": {"order": "ageing: R-hr", "direction": "X_{1:n} >=_{R-hr} Y_{1:n}"},
+  "quantifiers": "n >= 2, x > 0",
+  "ambiguity": "Text prints 'sum_{k=1}^n lambda*_k' as 'λ∗_k' without subscript index in one place ('lambda*' at line 629); clearly means sum over k."
+ },
+ {
+  "paper": "doi:10.1080/03610926.2021.1919898",
+  "claim": "Theorem 10",
+  "page": 13,
+  "quote": "Let X1, X2, ..., Xn be a set of dependent random variables sharing Archimedean copula having generator psi_1, such that Xi ~ GM(alpha_i, beta, lambda_i), i = 1, 2, ..., n. Further, let Y1, Y2, ..., Yn be another set of dependent random variables sharing Archimedean copula having generator psi_2, such that Yi ~ GM(alpha_i*, beta, lambda_i), i = 1, 2, ..., n. Assume that alpha, alpha*, lambda in D+ (E+). Suppose phi_2 o psi_1 is super-additive and psi_1 or psi_2 is log-convex. Then, alpha >=^w alpha* implies X_{n:n} >=st Y_{n:n}.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "GM(α, β, λ) with Archimedean copulas; common scalar β",
+  "compared": "α vs α*; common β (scalar) and λ vector",
+  "hypotheses": [
+   {"text": "Yi ~ GM(alpha_i*, beta, lambda_i)", "formal": "common scalar beta and lambda vector", "source": "statement"},
+   {"text": "alpha, alpha*, lambda in D+ (E+)", "formal": "sorted vectors", "source": "statement"},
+   {"text": "phi_2 o psi_1 super-additive, psi_1 or psi_2 log-convex", "formal": "copula conditions", "source": "statement"},
+   {"text": "alpha >=^w alpha*", "formal": "α weakly supermajorizes α*", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X_{n:n} >=_st Y_{n:n}"},
+  "quantifiers": "n >= 2, x >= 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1080/03610926.2021.1919898",
+  "claim": "Theorem 11",
+  "page": 14,
+  "quote": "Let X1, X2, ..., Xn be a set of dependent random variables sharing Archimedean copula having generator psi_1, such that Xi ~ GM(alpha_i, beta, lambda_i), i = 1, 2, ..., n. Also, let Y1, Y2, ..., Yn be another set of dependent random variables sharing Archimedean copula having generator psi_2, such that Yi ~ GM(alpha_i, beta, lambda_i*), i = 1, 2, ..., n. Assume that alpha, lambda, lambda* in D+ (E+). Further, suppose phi_2 o psi_1 is super-additive and psi_1 or psi_2 is log-convex. Then, lambda >=^w lambda* implies X_{n:n} >=st Y_{n:n}.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "GM(α, β, λ) with Archimedean copulas; common scalar β",
+  "compared": "λ vs λ*; common α vector and scalar β",
+  "hypotheses": [
+   {"text": "alpha, lambda, lambda* in D+ (E+)", "formal": "sorted vectors", "source": "statement"},
+   {"text": "phi_2 o psi_1 super-additive, psi_1 or psi_2 log-convex", "formal": "copula conditions", "source": "statement"},
+   {"text": "lambda >=^w lambda*", "formal": "λ weakly supermajorizes λ*", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X_{n:n} >=_st Y_{n:n}"},
+  "quantifiers": "n >= 2, x >= 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1080/03610926.2021.1919898",
+  "claim": "Theorem 12",
+  "page": 14,
+  "quote": "Let X1, X2, ..., Xn be a set of dependent random variables sharing Archimedean copula having generator psi_1, such that Xi ~ GM(alpha, beta_i, lambda_i), i = 1, 2, ..., n. Also, let Y1, Y2, ..., Yn be another set of dependent random variables sharing Archimedean copula having generator psi_2, such that Yi ~ GM(alpha, beta_i, lambda_i*), i = 1, 2, ..., n. Assume that beta, lambda, lambda* in D+ (E+). Further, suppose phi_2 o psi_1 is super-additive and psi_1 or psi_2 is log-convex. Then, lambda >=^w lambda* implies X_{n:n} >=st Y_{n:n}.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "GM(α, β, λ) with Archimedean copulas; common scalar α",
+  "compared": "λ vs λ*; common scalar α and β vector",
+  "hypotheses": [
+   {"text": "beta, lambda, lambda* in D+ (E+)", "formal": "sorted vectors", "source": "statement"},
+   {"text": "phi_2 o psi_1 super-additive, psi_1 or psi_2 log-convex", "formal": "copula conditions", "source": "statement"},
+   {"text": "lambda >=^w lambda*", "formal": "λ weakly supermajorizes λ*", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X_{n:n} >=_st Y_{n:n}"},
+  "quantifiers": "n >= 2, x >= 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1080/03610926.2021.1919898",
+  "claim": "Theorem 13",
+  "page": 14,
+  "quote": "Let X1, X2, ..., Xn be a set of dependent random variables sharing Archimedean copula having generator psi_1, such that Xi ~ GM(alpha, beta_i, lambda_i), i = 1, 2, ..., n. Also, let Y1, Y2, ..., Yn be another set of dependent random variables sharing Archimedean copula having generator psi_2, such that Yi ~ GM(alpha, beta_i*, lambda_i), i = 1, 2, ..., n. Assume that beta, beta*, lambda in D+ (E+). Further, suppose phi_2 o psi_1 is super-additive and psi_1 or psi_2 is log-convex. Then, 1/beta >=^w 1/beta* implies X_{n:n} >=st Y_{n:n}, where 1/beta = (1/beta_1, 1/beta_2, ..., 1/beta_n).",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "GM(α, β, λ) with Archimedean copulas; common scalar α",
+  "compared": "β vs β* via reciprocal-vector weak supermajorization; common α, λ",
+  "hypotheses": [
+   {"text": "beta, beta*, lambda in D+ (E+)", "formal": "sorted vectors", "source": "statement"},
+   {"text": "phi_2 o psi_1 super-additive, psi_1 or psi_2 log-convex", "formal": "copula conditions", "source": "statement"},
+   {"text": "1/beta >=^w 1/beta*", "formal": "reciprocal vectors (1/β_i) weakly supermajorize (1/β*_i)", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X_{n:n} >=_st Y_{n:n}"},
+  "quantifiers": "n >= 2, x >= 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1080/03610926.2021.1919898",
+  "claim": "Counterexample 2",
+  "page": 16,
+  "quote": "Counterexample 2 Let lambda = 0.6, beta = (2, 1), alpha = (0.2, 0.1) and alpha* = (0.18, 0.12). Then, beta, alpha, alpha* in D+ and alpha >=^m alpha*. But, Figure 2(a) shows that there exists no stochastic ordering between X_{n:n} and Y_{n:n}.",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "GM(α, β, λ), dependent via Archimedean copula, n = 2 (scalar β = common? here beta = (2,1) is a vector though Theorem 13 used scalar α; this counterexample concerns vector β with common scalar λ)",
+  "compared": "X_{n:n} vs Y_{n:n} under majorized α with common β, scalar λ",
+  "hypotheses": [
+   {"text": "alpha >=^m alpha*", "formal": "α majorizes α*", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "no st ordering between X_{n:n} and Y_{n:n} (refutes strengthening to the maxima analog of Theorem 4)"},
+  "quantifiers": "n = 2",
+  "numbers": "λ = 0.6, β = (2, 1), α = (0.2, 0.1), α* = (0.18, 0.12); Figure 2(a) plots F_{n:n}(x) - G_{n:n}(x)",
+  "ambiguity": "Here β = (2,1) is a vector and λ scalar — matches the Remark 2(iii)(a) scenario (λ constant, β same) rather than Theorem 10 (scalar β). Non-ordering shown graphically."
+ },
+ {
+  "paper": "doi:10.1080/03610926.2021.1919898",
+  "claim": "Counterexample 3",
+  "page": 16,
+  "quote": "Counterexample 3 Let lambda = 0.02, beta = (1/2, 1/1), beta* = (1/1.6, 1/1.4) and alpha = (0.1, 0.2). Then, beta, beta*, alpha in E+ and 1/beta >=^w 1/beta*. But, Figure 2(b) shows that there exists no stochastic ordering between X_{n:n} and Y_{n:n}.",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "GM(α, β, λ), dependent, n = 2, scalar λ and α",
+  "compared": "X_{n:n} vs Y_{n:n} under reciprocal weak supermajorization; refutes st ordering when only reciprocals of β majorize while α is a common scalar but β, β* differ... recorded as printed",
+  "hypotheses": [
+   {"text": "1/beta >=^w 1/beta*", "formal": "(2,1) weakly supermajorizes (1.6,1.4): partial sums 1 <= 1.4, totals 3 = 3", "source": "statement"},
+   {"text": "beta, beta*, alpha in E+", "formal": "sorted ascending", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "no st ordering between X_{n:n} and Y_{n:n}"},
+  "quantifiers": "n = 2",
+  "numbers": "λ = 0.02, β = (1/2, 1/1) = (0.5, 1), β* = (1/1.6, 1/1.4) ≈ (0.625, 0.714), α = (0.1, 0.2); Figure 2(b) plots F_{n:n}(x) - G_{n:n}(x)",
+  "ambiguity": "The printed β values are fractions rendered without clear bars in the text layer ('β = (2, 1), β* = (1.6, 1.4)' with 1/ numerators); interpreted as reciprocals to match the hypothesis 1/β >=^w 1/β*. Note this seems to contradict Theorem 13 unless copula conditions fail; recorded as printed."
+ },
+ {
+  "paper": "doi:10.1080/03610926.2021.1919898",
+  "claim": "Counterexample 4(i)",
+  "page": 17,
+  "quote": "Counterexample 4 (i) For beta = 2, lambda = (0.6, 0.5), alpha = (20, 0.1) and alpha* = (18, 2.1), although alpha >=^m alpha*, Figure 3(a) shows that there exists no reversed hazard rate ordering between X_{n:n} and Y_{n:n}.",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "GM(α, β, λ), dependent, n = 2, scalar β",
+  "compared": "X_{n:n} vs Y_{n:n}; majorized α",
+  "hypotheses": [
+   {"text": "alpha >=^m alpha*", "formal": "α majorizes α*", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "no rh ordering; refutes strengthening Theorem 10 to rh"},
+  "quantifiers": "n = 2",
+  "numbers": "β = 2, λ = (0.6, 0.5), α = (20, 0.1), α* = (18, 2.1); Figure 3(a) plots F_{n:n}(x)/G_{n:n}(x)",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1080/03610926.2021.1919898",
+  "claim": "Counterexample 4(ii)",
+  "page": 17,
+  "quote": "(ii) For beta = 0.2, alpha = (0.02, 0.01), lambda = (0.07, 0.05) and lambda* = (0.06, 0.06), although lambda >=^w lambda*, Figure 3(b) shows that there exists no reversed hazard rate ordering between X_{n:n} and Y_{n:n}.",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "GM(α, β, λ), dependent, n = 2, scalar β",
+  "compared": "X_{n:n} vs Y_{n:n}; weakly supermajorized λ",
+  "hypotheses": [
+   {"text": "lambda >=^w lambda*", "formal": "λ weakly supermajorizes λ*", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "no rh ordering; refutes strengthening Theorem 11 to rh"},
+  "quantifiers": "n = 2",
+  "numbers": "β = 0.2, α = (0.02, 0.01), λ = (0.07, 0.05), λ* = (0.06, 0.06); Figure 3(b)",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1080/03610926.2021.1919898",
+  "claim": "Counterexample 4(iii)",
+  "page": 17,
+  "quote": "(iii) For alpha = 0.02, beta = (0.2, 0.1), lambda = (0.07, 0.05) and lambda* = (0.06, 0.06), although lambda >=^w lambda*, Figure 3(c) shows that there exists no reversed hazard rate ordering between X_{n:n} and Y_{n:n}.",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "GM(α, β, λ), dependent, n = 2, scalar α",
+  "compared": "X_{n:n} vs Y_{n:n}; weakly supermajorized λ (scalar α case, cf. Theorem 12)",
+  "hypotheses": [
+   {"text": "lambda >=^w lambda*", "formal": "λ weakly supermajorizes λ*", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "no rh ordering; refutes strengthening Theorem 12 to rh"},
+  "quantifiers": "n = 2",
+  "numbers": "α = 0.02, β = (0.2, 0.1), λ = (0.07, 0.05), λ* = (0.06, 0.06); Figure 3(c)",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1080/03610926.2021.1919898",
+  "claim": "Counterexample 4(iv)",
+  "page": 17,
+  "quote": "(iv) For alpha = 0.02, lambda = (0.05, 0.07), 1/beta = (0.3, 0.1) and 1/beta* = (0.2, 0.2), although 1/beta >=^w 1/beta*, Figure 3(d) shows that there exists no reversed hazard rate ordering between X_{n:n} and Y_{n:n}.",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "GM(α, β, λ), dependent, n = 2, scalar α",
+  "compared": "X_{n:n} vs Y_{n:n}; reciprocal weak supermajorization (cf. Theorem 13)",
+  "hypotheses": [
+   {"text": "1/beta >=^w 1/beta*", "formal": "(0.3,0.1) weakly supermajorizes (0.2,0.2)", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "no rh ordering; refutes strengthening Theorem 13 to rh"},
+  "quantifiers": "n = 2",
+  "numbers": "α = 0.02, λ = (0.05, 0.07), 1/β = (0.3, 0.1), 1/β* = (0.2, 0.2); Figure 3(d)",
+  "ambiguity": "Values printed as '1 = (0.3, 0.1)' over β — reciprocals of β vectors."
+ },
+ {
+  "paper": "doi:10.1080/03610926.2021.1919898",
+  "claim": "Theorem 14",
+  "page": 19,
+  "quote": "For i = 1, 2, ..., n, let Ui ~ GM(alpha_i, beta, lambda_i) and Vi ~ GM(alpha_i, beta, lambda_i). Further, let Ii (Ii*) be a set of independent Bernoulli random variables, independent of Ui's (Vi's) with E(Ii) = pi (E(Ii*) = p*i), i = 1, 2, ..., n. Then, if h : [0,1] -> R+ is a differentiable, strictly increasing and convex function, h(p) >=_w h(p*) implies X_{n:n} >=st Y_{n:n} if alpha, lambda in D+ (E+) and h(p) in E+ (D+), where h(p) = (h(p1), h(p2), ..., h(pn)).",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "GM(α, β, λ), independent, under Bernoulli random shocks Xi = Ii Ui, Yi = Ii* Vi",
+  "compared": "identical GM marginals; shock probability vectors p vs p* compared via transformed weak submajorization",
+  "hypotheses": [
+   {"text": "Ui ~ GM(alpha_i, beta, lambda_i) and Vi ~ GM(alpha_i, beta, lambda_i)", "formal": "same marginals in both samples", "source": "statement"},
+   {"text": "h differentiable, strictly increasing and convex on [0,1] -> R+", "formal": "link function h", "source": "statement"},
+   {"text": "h(p) >=_w h(p*)", "formal": "(h(p_i)) weakly submajorizes (h(p*_i)) per Def 1(iii): tail partial sums larger", "source": "statement"},
+   {"text": "alpha, lambda in D+ (E+) and h(p) in E+ (D+)", "formal": "opposite arrangements of α,λ vs transformed shocks", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X_{n:n} >=_st Y_{n:n}"},
+  "quantifiers": "n >= 2, x >= 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1080/03610926.2021.1919898",
+  "claim": "Theorem 15",
+  "page": 21,
+  "quote": "For i = 1, 2, ..., n, let Ui ~ GM(alpha, beta_i, lambda_i) and Vi ~ GM(alpha, beta_i, lambda_i). Further, let Ii (Ii*) be a set of independent Bernoulli random variables, independent of Ui's (Vi's) with E(Ii) = pi (E(Ii*) = p*i), i = 1, 2, ..., n. Then, if h : [0,1] -> R+ is a differentiable, strictly increasing and convex function, then h(p) >=_w h(p*) implies X_{n:n} >=st Y_{n:n} if alpha, lambda in D+ (E+) and h(p) in E+ (D+), where h(p) = (h(p1), h(p2), ..., h(pn)).",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "GM(α, β, λ), independent, under Bernoulli random shocks; common scalar α",
+  "compared": "same marginals; shock vectors via h(p) vs h(p*)",
+  "hypotheses": [
+   {"text": "same marginals Ui ~ Vi ~ GM(alpha, beta_i, lambda_i)", "formal": "identical marginals", "source": "statement"},
+   {"text": "h strictly increasing and convex", "formal": "link function", "source": "statement"},
+   {"text": "h(p) >=_w h(p*); alpha, lambda in D+ (E+); h(p) in E+ (D+)", "formal": "weak submajorization of transformed shocks with opposite arrangement", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X_{n:n} >=_st Y_{n:n}"},
+  "quantifiers": "n >= 2, x >= 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1080/03610926.2021.1919898",
+  "claim": "Theorem 16",
+  "page": 21,
+  "quote": "For i = 1, 2, ..., n, let Ui ~ GM(alpha_i, beta, lambda_i) and Vi ~ GM(alpha_i*, beta, lambda_i). Further, let Ii be a set of independent Bernoulli random variables, independent of Ui's (Vi's) with E(Ii) = pi, i = 1, 2, ..., n. Then, if h : [0,1] -> R+ is a differentiable, strictly increasing function, alpha >=^w alpha* implies X_{n:n} >=st Y_{n:n} if alpha, alpha*, lambda in D+ (E+) and h(p) in E+ (D+).",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "GM(α, β, λ), independent, common shock vector p (transformed by h)",
+  "compared": "α vs α* under a common (transformed) shock vector",
+  "hypotheses": [
+   {"text": "Vi ~ GM(alpha_i*, beta, lambda_i)", "formal": "only α differs", "source": "statement"},
+   {"text": "h differentiable, strictly increasing", "formal": "link function (no convexity needed)", "source": "statement"},
+   {"text": "alpha >=^w alpha*; alpha, alpha*, lambda in D+ (E+) and h(p) in E+ (D+)", "formal": "weak supermajorization with opposite arrangements", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X_{n:n} >=_st Y_{n:n}"},
+  "quantifiers": "n >= 2, x >= 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1080/03610926.2021.1919898",
+  "claim": "Theorem 17",
+  "page": 22,
+  "quote": "For i = 1, 2, ..., n, let Ui ~ GM(alpha_i, beta, lambda_i) and Vi ~ GM(alpha_i, beta, lambda_i*). Further, let Ii be a set of independent Bernoulli random variables, independent of Ui's (Vi's) with E(Ii) = pi, i = 1, 2, ..., n. Then, if h : [0,1] -> R+ is a differentiable, strictly increasing function, lambda >=^w lambda* implies X_{n:n} >=st Y_{n:n} if alpha, lambda, lambda* in D+ (E+) and h(p) in E+ (D+).",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "GM(α, β, λ), independent, common shock vector p",
+  "compared": "λ vs λ*; common α, β",
+  "hypotheses": [
+   {"text": "Vi ~ GM(alpha_i, beta, lambda_i*)", "formal": "only λ differs", "source": "statement"},
+   {"text": "lambda >=^w lambda*; alpha, lambda, lambda* in D+ (E+) and h(p) in E+ (D+)", "formal": "weak supermajorization of λ with opposite arrangement of shocks", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X_{n:n} >=_st Y_{n:n}"},
+  "quantifiers": "n >= 2, x >= 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1080/03610926.2021.1919898",
+  "claim": "Theorem 18",
+  "page": 22,
+  "quote": "For i = 1, 2, ..., n, let Ui ~ GM(alpha, beta_i, lambda_i) and Vi ~ GM(alpha, beta_i, lambda_i*). Further, let Ii be a set of independent Bernoulli random variables, independent of Ui's (Vi's) with E(Ii) = pi, i = 1, 2, ..., n. Then, if h : [0,1] -> R+ is a differentiable, strictly increasing function, lambda >=^w lambda* implies X_{n:n} >=st Y_{n:n} if alpha, lambda, lambda* in D+ (E+) and h(p) in E+ (D+).",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "GM(α, β, λ), independent, common shock vector; common scalar α",
+  "compared": "λ vs λ*; common α scalar, β vector",
+  "hypotheses": [
+   {"text": "Vi ~ GM(alpha, beta_i, lambda_i*)", "formal": "only λ differs", "source": "statement"},
+   {"text": "lambda >=^w lambda*; alpha, lambda, lambda* in D+ (E+) and h(p) in E+ (D+)", "formal": "weak supermajorization of λ", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X_{n:n} >=_st Y_{n:n}"},
+  "quantifiers": "n >= 2, x >= 0",
+  "ambiguity": "Statement prints 'alpha, lambda, lambda* in D+ (E+)' although α is a scalar here; presumably means β."
+ },
+ {
+  "paper": "doi:10.1080/03610926.2021.1919898",
+  "claim": "Theorem 19",
+  "page": 22,
+  "quote": "For i = 1, 2, ..., n, let Ui ~ GM(alpha, beta_i, lambda_i) and Vi ~ GM(alpha, beta_i*, lambda_i). Further, let Ii be a set of independent Bernoulli random variables, independent of Ui's (Vi's) with E(Ii) = pi, i = 1, 2, ..., n. Then, if h : [0,1] -> R+ is a differentiable, strictly increasing function, 1/beta >=^w 1/beta* implies X_{n:n} >=st Y_{n:n} if beta, beta*, lambda in D+ (E+) and h(p) in E+ (D+).",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "GM(α, β, λ), independent, common shock vector; common scalar α",
+  "compared": "β vs β* via reciprocal weak supermajorization",
+  "hypotheses": [
+   {"text": "Vi ~ GM(alpha, beta_i*, lambda_i)", "formal": "only β differs", "source": "statement"},
+   {"text": "1/beta >=^w 1/beta*; beta, beta*, lambda in D+ (E+) and h(p) in E+ (D+)", "formal": "reciprocal weak supermajorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X_{n:n} >=_st Y_{n:n}"},
+  "quantifiers": "n >= 2, x >= 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1080/03610926.2021.1919898",
+  "claim": "Theorem 20",
+  "page": 23,
+  "quote": "For i = 1, 2, ..., n, let Ui ~ GM(alpha_i, beta_i, lambda_i) and Vi ~ GM(alpha_i*, beta_i, lambda_i). Further, let Ii (Ii*) be a set of independent Bernoulli random variables, independent of Ui's (Vi's) with E(Ii) = pi (E(Ii*) = p*i), i = 1, 2, ..., n. Then, if alpha, alpha* in D+ (E+), beta in D+ and prod_{i=1}^n p_i >= (<=) prod_{i=1}^n p*_i, alpha >=^m alpha* implies X_{1:n} <=hr (>=hr) Y_{1:n}.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "GM(α, β, λ), independent, under Bernoulli random shocks",
+  "compared": "α vs α*; common β, λ; shock products Πp_i vs Πp*_i",
+  "hypotheses": [
+   {"text": "Vi ~ GM(alpha_i*, beta_i, lambda_i)", "formal": "only α differs", "source": "statement"},
+   {"text": "alpha, alpha* in D+ (E+), beta in D+", "formal": "sortedness", "source": "statement"},
+   {"text": "prod p_i >= (<=) prod p*_i", "formal": "product comparison matching the direction", "source": "statement"},
+   {"text": "alpha >=^m alpha*", "formal": "α majorizes α*", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X_{1:n} <=_hr Y_{1:n} when Πp_i >= Πp*_i (>=_hr in the parenthesized alternative)"},
+  "quantifiers": "n >= 2, x > 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1080/03610926.2021.1919898",
+  "claim": "Theorem 21",
+  "page": 23,
+  "quote": "For i = 1, 2, ..., n, let Ui ~ GM(alpha_i, beta_i, lambda_i) and Vi ~ GM(alpha_i, beta_i*, lambda_i). Further, let Ii (Ii*) be a set of independent Bernoulli random variables, independent of Ui's (Vi's) with E(Ii) = pi (E(Ii*) = p*i), i = 1, 2, ..., n. Then, if alpha, beta, beta* in D+ (E+) and prod_{i=1}^n p_i >= (<=) prod_{i=1}^n p*_i, beta >=^m beta* implies X_{1:n} <=hr Y_{1:n}.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "GM(α, β, λ), independent, under Bernoulli random shocks",
+  "compared": "β vs β*; common α, λ, shocks differ",
+  "hypotheses": [
+   {"text": "Vi ~ GM(alpha_i, beta_i*, lambda_i)", "formal": "only β differs", "source": "statement"},
+   {"text": "alpha, beta, beta* in D+ (E+) and prod p_i >= (<=) prod p*_i", "formal": "sortedness and shock product comparison", "source": "statement"},
+   {"text": "beta >=^m beta*", "formal": "β majorizes β*", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X_{1:n} <=_hr Y_{1:n}"},
+  "quantifiers": "n >= 2, x > 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1080/03610926.2021.1919898",
+  "claim": "Theorem 22",
+  "page": 23,
+  "quote": "For i = 1, 2, ..., n, let Ui ~ GM(alpha_i, beta_i, lambda_i) and Vi ~ GM(alpha_i, beta_i, lambda_i*). Further, let Ii (Ii*) be a set of independent Bernoulli random variables, independent of Ui's (Vi's) with E(Ii) = pi (E(Ii*) = p*i), i = 1, 2, ..., n. Then, if alpha, beta, beta* in D+ (E+) and prod_{i=1}^n p_i >= (<=) prod_{i=1}^n p*_i, sum_{k=1}^n lambda_k >= sum_{k=1}^n lambda*_k implies X_{1:n} <=hr Y_{1:n}.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "GM(α, β, λ), independent, under Bernoulli random shocks",
+  "compared": "λ vs λ*; common α, β, shocks differ",
+  "hypotheses": [
+   {"text": "Vi ~ GM(alpha_i, beta_i, lambda_i*)", "formal": "only λ differs", "source": "statement"},
+   {"text": "prod p_i >= (<=) prod p*_i", "formal": "shock product comparison", "source": "statement"},
+   {"text": "sum lambda_k >= sum lambda*_k", "formal": "Σλ_k >= Σλ*_k", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X_{1:n} <=_hr Y_{1:n}"},
+  "quantifiers": "n >= 2, x > 0",
+  "ambiguity": "Statement prints 'alpha, beta, beta* in D+ (E+)' though β* does not appear in this theorem; presumably means beta in D+ as in Theorem 20, or lambda, lambda* sorted."
+ }
+]

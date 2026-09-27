@@ -1,0 +1,60 @@
+[
+  {
+    "paper": "doi:10.4314/cps.v12i5.16",
+    "claim": "Proposition 2.1",
+    "page": 1643,
+    "quote": "Proposition 2.I: Let F1(x; α, β, θ) and G1(x; α, β, θ) be the cdfs of the EPAD and EWD, each with parameters α, β and θ. Then F1(x; α, β, θ) ≤ G1(x; α, β, θ). That is the EPAD(α, β, θ) exhibits first-order stochastic dominance over the EWD(α, β, θ).",
+    "kind": "proposition",
+    "model": "single",
+    "family": "EPAD vs exponentiated Weibull: F1(x) = [1 − (1 + θx^β)e^{−θx^β}]^α (EPAD), G1(x) = [1 − e^{−θx^β}]^α (EWD), same parameters α, β, θ",
+    "compared": "EPAD distribution vs EWD distribution with identical parameters",
+    "hypotheses": [
+      {
+        "text": "F1 and G1 with common parameters α, β, θ",
+        "formal": "matched parameters",
+        "source": "statement"
+      },
+      {
+        "text": "1 + θx^β ≥ 0 for x ≥ 0 (proof)",
+        "formal": "(1+u)e^{−u} ≥ e^{−u} for u = θx^β ≥ 0",
+        "source": "proof"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "F1 <= G1 pointwise, i.e. EPAD >=st EWD (EPAD stochastically dominates EWD)"
+    },
+    "quantifiers": "all x; α, β, θ > 0",
+    "ambiguity": "Printed as 'Proposition 2.I' (roman numeral I). 'First-order stochastic dominance' = usual stochastic order; EPAD is the stochastically larger side.",
+    "numbers": ""
+  },
+  {
+    "paper": "doi:10.4314/cps.v12i5.16",
+    "claim": "Proposition 2.2",
+    "page": 1643,
+    "quote": "Proposition 2.2: let X1 and X2 refers to two random variables having the EPAD such that the distribution of X1 has the parameters α1, β1, and θ1 and the distribution of X2 has the parameters α2, β2, and θ2. If β1 = β2 and θ1 = θ2, X2 is larger than based on the likelihood ratio ordering if α1 < α2.",
+    "kind": "proposition",
+    "model": "single",
+    "family": "EPAD(αi, βi, θi), i = 1, 2",
+    "compared": "exponent parameters α1 vs α2 with common β and θ",
+    "hypotheses": [
+      {
+        "text": "β1 = β2 and θ1 = θ2",
+        "formal": "common β, θ",
+        "source": "statement"
+      },
+      {
+        "text": "α1 < α2",
+        "formal": "exponent ordering",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "lr",
+      "direction": "X_1 <=lr X_2 (f1/f2 decreasing in x, i.e. X2 larger in lr order)"
+    },
+    "quantifiers": "x > 0",
+    "ambiguity": "Statement printed incomplete: 'X2 is larger than based on the likelihood ratio ordering if α1 < α2' — the object 'X1' is missing; clearly means X1 ≤lr X2. Text layer for the proof is partly garbled (symbol font), but the derivative sign ln(f1/f2) ∝ (α1 − α2) is legible.",
+    "numbers": ""
+  }
+]

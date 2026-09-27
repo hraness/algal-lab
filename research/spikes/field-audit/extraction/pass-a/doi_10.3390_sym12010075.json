@@ -9,12 +9,28 @@
     "family": "Type II power Topp-Leone-G (TIIPTL-G): F(x; α, β, ξ) = 1 − [1 − G(x; ξ)]^{αβ} {2 − [1 − G(x; ξ)]^β}^α, with common β and baseline parameter vector ξ; only α differs (α1 vs α2)",
     "compared": "shape parameter α1 vs α2 (same β, same baseline G(·; ξ))",
     "hypotheses": [
-      {"text": "Let X1 and X2 be two random variables such that X1 and X2 have the pdfs of the TIIPTL-G family given by f(x; α1, β, ξ) and f(x; α2, β, ξ), respectively.", "formal": "X1 ~ TIIPTL-G(α1, β, ξ), X2 ~ TIIPTL-G(α2, β, ξ)", "source": "statement"},
-      {"text": "X ≤lr Y if and only if the ratio of the two corresponding pdfs (the one of X divided by the one of Y) is a decreasing function in x", "formal": "definition of the lr order used", "source": "section preamble, Section 3.4"},
-      {"text": "[proof shows] [log f(x;α1,β,ξ)/f(x;α2,β,ξ)]' = 2β(α2 − α1)·g(x;ξ)(1−[1−G(x;ξ)]^β)/((1−G(x;ξ))(2−[1−G(x;ξ)]^β)), 'which is negative if α2 < α1'", "formal": "the proof actually establishes the lr order only under α2 < α1, i.e. α1 > α2", "source": "proof of Proposition 1"}
+      {
+        "text": "Let X1 and X2 be two random variables such that X1 and X2 have the pdfs of the TIIPTL-G family given by f(x; α1, β, ξ) and f(x; α2, β, ξ), respectively.",
+        "formal": "X1 ~ TIIPTL-G(α1, β, ξ), X2 ~ TIIPTL-G(α2, β, ξ)",
+        "source": "statement"
+      },
+      {
+        "text": "X ≤lr Y if and only if the ratio of the two corresponding pdfs (the one of X divided by the one of Y) is a decreasing function in x",
+        "formal": "definition of the lr order used",
+        "source": "section preamble, Section 3.4"
+      },
+      {
+        "text": "[proof shows] [log f(x;α1,β,ξ)/f(x;α2,β,ξ)]' = 2β(α2 − α1)·g(x;ξ)(1−[1−G(x;ξ)]^β)/((1−G(x;ξ))(2−[1−G(x;ξ)]^β)), 'which is negative if α2 < α1'",
+        "formal": "the proof actually establishes the lr order only under α2 < α1, i.e. α1 > α2",
+        "source": "proof of Proposition 1"
+      }
     ],
-    "conclusion": {"order": "lr", "direction": "X1 <=lr X2 (as printed); per the proof this holds when α1 > α2"},
+    "conclusion": {
+      "order": "lr",
+      "direction": "X1 <=lr X2 (as printed); per the proof this holds when α1 > α2"
+    },
     "quantifiers": "α, β > 0, x ∈ R; no explicit range restriction",
-    "ambiguity": "The printed statement asserts X1 ≤lr X2 without any hypothesis relating α1 and α2; the proof only derives the decreasing likelihood ratio 'if α2 < α1'. The required condition α1 > α2 is missing from the statement as printed."
+    "ambiguity": "The printed statement asserts X1 ≤lr X2 without any hypothesis relating α1 and α2; the proof only derives the decreasing likelihood ratio 'if α2 < α1'. The required condition α1 > α2 is missing from the statement as printed.",
+    "numbers": ""
   }
 ]

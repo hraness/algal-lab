@@ -1,0 +1,682 @@
+[
+ {
+  "paper": "arxiv:2104.08525",
+  "claim": "Theorem 3.1",
+  "page": 6,
+  "quote": "Theorem 3.1. Suppose X ∼ ELS(λ, θ, α; Fb) and Y ∼ ELS(µ, δ, β; Fb), with θ = δ and α = β = α1n ≤ 1. Let λ, θ, µ ∈ I+ (or D+ ) and wrb(w) be decreasing in w > 0. Then, λ ⪰w µ ⇒ X2:n ≥st Y2:n .",
+  "kind": "theorem",
+  "model": "order statistic",
+  "family": "Exponentiated location-scale ELS(λ, θ, α; Fb): FX (x) = [Fb((x − λ)/θ)]α, x > λ > 0, α, θ > 0 (Eq. (1.1)); baseline Fb arbitrary with hazard rate rb; second-order statistic X2:n (fail-safe/(n−1)-out-of-n system)",
+  "compared": "location vectors λ vs µ; common scale vector θ = δ; common shape α = β = α1n",
+  "hypotheses": [
+   {"text": "with θ = δ and α = β = α1n ≤ 1", "formal": "θ = δ; α = β = (α,...,α), α <= 1", "source": "statement"},
+   {"text": "Let λ, θ, µ ∈ I+ (or D+ )", "formal": "vectors componentwise nondecreasing (I+) or nonincreasing (D+) and positive", "source": "statement"},
+   {"text": "wrb(w) be decreasing in w > 0", "formal": "w r_b(w) nonincreasing in w", "source": "statement"},
+   {"text": "λ ⪰w µ", "formal": "λ weakly submajorizes µ (reversed ⪯w of Definition 2.2: upper partial sums of λ >= those of µ)", "source": "statement"},
+   {"text": "the random variables are assumed to be nonnegative and absolutely continuous", "formal": "standing assumption", "source": "section preamble (Introduction)"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:n >=st Y2:n"},
+  "quantifiers": "n >= 2; all x > max(λ1,...,λn) (and corresponding support for Y)",
+  "numbers": "",
+  "ambiguity": "Majorization glyph lost in text layer (extracted as a stray control character); rendered from the PDF as ⪰w with subscript w. The paper's Definition 2.2 uses ⪯w for 'weakly submajorized by'; the theorems print the reversed ⪰w (i.e., left side weakly submajorizes the right side). Prose states 'the fail-safe system associated with weakly submajorized location parameter vector produces less reliable system'."
+ },
+ {
+  "paper": "arxiv:2104.08525",
+  "claim": "Corollary 3.1",
+  "page": 8,
+  "quote": "Corollary 3.1. Let X ∼ ELS(µm , θ, α; Fb ) and Y ∼ ELS(µ, θ, α; Fb), with µ ∈ I+ and wrb(w) be decreasing in w > 0. Then, for µn ≤ 1, F̄Y2:n (x) ≤ Σ{l=1..n} Π{k≠l} [1 − Fb((x − µm)/θ)α] − (n − 1) Π{k=1..n} [1 − Fb((x − µm)/θ)α]. (3.10)",
+  "kind": "corollary",
+  "model": "order statistic",
+  "family": "ELS(λ, θ, α; Fb); X has common location µm = max{(1+µ1)/2, ..., (1+µn)/2}; Y heterogeneous locations µi",
+  "compared": "homogeneous location µm (X) vs heterogeneous vector µ (Y); common θ, α",
+  "hypotheses": [
+   {"text": "Let X ∼ ELS(µm , θ, α; Fb ) and Y ∼ ELS(µ, θ, α; Fb), with µ ∈ I+", "formal": "X-side constant location µm; Y-side location vector µ in I+", "source": "statement"},
+   {"text": "wrb(w) be decreasing in w > 0", "formal": "w r_b(w) nonincreasing", "source": "statement"},
+   {"text": "for µn ≤ 1", "formal": "largest location coordinate <= 1", "source": "statement"},
+   {"text": "(µ1 , · · · , µn ) ⪯w ((1 + µ1 )/2, ··· , (1 + µn )/2) ⪯w (µm , · · · , µm ) (3.9)", "formal": "chain of weak submajorizations justifying application of Theorem 3.1", "source": "earlier theorem (Theorem 3.1) and Eq. (3.9)"}
+  ],
+  "conclusion": {"order": "st", "direction": "F̄Y2:n(x) <= the survival function of the second-order statistic of the homogeneous-location system, i.e. Y2:n <=st X2:n"},
+  "quantifiers": "n >= 2; all x > µm",
+  "numbers": "",
+  "ambiguity": "Conclusion is printed as an explicit upper bound on F̄Y2:n (Eq. (3.10)) rather than a '≤st' symbol; it is the st-ordering bound. µm defined as max{(1+µi)/2} in Eq. (3.9)."
+ },
+ {
+  "paper": "arxiv:2104.08525",
+  "claim": "Corollary 3.2",
+  "page": 8,
+  "quote": "Corollary 3.2. In addition to the set-up as in Theorem 3.1, we assume that µ1 = · · · = µn = µ. Then, nµ ≤ Σni=1 λi ⇒ X2:n ≥st Y2:n .",
+  "kind": "corollary",
+  "model": "order statistic",
+  "family": "ELS(λ, θ, α; Fb); Y has common scalar location µ",
+  "compared": "heterogeneous λ (X) vs common µ (Y); θ = δ, α = β = α1n <= 1 as in Theorem 3.1",
+  "hypotheses": [
+   {"text": "In addition to the set-up as in Theorem 3.1", "formal": "θ = δ, α = β = α1n <= 1, λ,θ ∈ I+ or D+, wrb(w) decreasing", "source": "earlier theorem (Theorem 3.1)"},
+   {"text": "we assume that µ1 = · · · = µn = µ", "formal": "Y-side location vector is constant µ", "source": "statement"},
+   {"text": "nµ ≤ Σni=1 λi", "formal": "n µ <= sum_i λ_i, equivalent to (µ,...,µ) ⪯w λ per the preamble", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:n >=st Y2:n"},
+  "quantifiers": "n >= 2; all x > max(λ1,...,λn)",
+  "numbers": "",
+  "ambiguity": "Text layer scrambles the layout ('Corollary 3.2.' printed before its hypothesis line); statement reconstructed from reading order. The premise uses the fact that (µ,...,µ) ⪯w λ when nµ <= Σλi."
+ },
+ {
+  "paper": "arxiv:2104.08525",
+  "claim": "Example 3.1",
+  "page": 8,
+  "quote": "Example 3.1. Let {X1 , X2 , X3 } and {Y1 , Y2 , Y3 } be two sets of three independent random variables, with Xi ∼ Fbα ((x−λi )/θi ) and Yi ∼ Fbα ((x−µi )/θi ), for i = 1, 2, 3. Take the baseline distribution function as Fb (x) = 1 − x−2 , x ≥ 1. Clearly, xrb (x) = 2, and hence xrb (x) is decreasing for x ≥ 1. Further, set θ = δ = (0.5, 0.7, 0.9), λ = (5, 7, 9), µ = (2, 4, 7) and α = 0.2. It is easy to check that all other conditions of Theorem 3.1 are satisfied. Thus, we have X2:3 ≥st Y2:3 , which can be verified from Figure 1a.",
+  "kind": "example",
+  "model": "order statistic",
+  "family": "ELS with Pareto baseline Fb(x) = 1 − x^{−2}, x >= 1; Xi ~ Fb^α((x−λi)/θi), Yi ~ Fb^α((x−µi)/θi)",
+  "compared": "location vectors λ = (5,7,9) vs µ = (2,4,7); common θ = δ = (0.5,0.7,0.9)",
+  "hypotheses": [
+   {"text": "Take the baseline distribution function as Fb (x) = 1 − x−2 , x ≥ 1. Clearly, xrb (x) = 2, and hence xrb (x) is decreasing", "formal": "Fb Pareto with x r_b(x) = 2 constant hence nonincreasing", "source": "statement"},
+   {"text": "θ = δ = (0.5, 0.7, 0.9), λ = (5, 7, 9), µ = (2, 4, 7) and α = 0.2", "formal": "parameter assignment satisfying λ ⪰w µ, α <= 1, vectors in I+", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:3 >=st Y2:3"},
+  "quantifiers": "n = 3; x > 9 (support starts at max λi)",
+  "numbers": "θ = δ = (0.5, 0.7, 0.9); λ = (5, 7, 9); µ = (2, 4, 7); α = 0.2; Fb(x) = 1 − x^{−2}, x >= 1; xrb(x) = 2; verified via Figure 1a",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2104.08525",
+  "claim": "Theorem 3.2",
+  "page": 8,
+  "quote": "Theorem 3.2. Assume X ∼ ELS(λ, θ, α; Fb) and Y ∼ ELS(µ, δ, β; Fb), with θ = δ = θ1n and α = β = α1n ≤ 1. Let λ, µ ∈ I+ (or D+ ) and rb (w) be decreasing in w > 0. Then, λ ⪰w µ ⇒ X2:n ≥st Y2:n .",
+  "kind": "theorem",
+  "model": "order statistic",
+  "family": "ELS(λ, θ, α; Fb); common scalar scale θ (θ = δ = θ1n)",
+  "compared": "location vectors λ vs µ; common scale θ1n, common shape α <= 1",
+  "hypotheses": [
+   {"text": "with θ = δ = θ1n and α = β = α1n ≤ 1", "formal": "common scalar scale θ, common scalar shape α <= 1", "source": "statement"},
+   {"text": "Let λ, µ ∈ I+ (or D+ ) and rb (w) be decreasing in w > 0", "formal": "λ, µ monotone positive; baseline hazard r_b nonincreasing", "source": "statement"},
+   {"text": "λ ⪰w µ", "formal": "λ weakly submajorizes µ", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:n >=st Y2:n"},
+  "quantifiers": "n >= 2; all x > max(λi, µj)",
+  "numbers": "",
+  "ambiguity": "Majorization glyph lost in text layer; rendered as ⪰w (subscript w) matching Theorem 3.1 (prose: 'similar to Theorem 3.1')."
+ },
+ {
+  "paper": "arxiv:2104.08525",
+  "claim": "Example 3.2",
+  "page": 8,
+  "quote": "Example 3.2. Let us take two sets of independent observations {X1 , X2 , X3 } and {Y1 , Y2 , Y3 } such that Xi ∼ Fbα ((x−λi )/θ) and Yi ∼ Fbα ((x−µi )/θ), for i = 1, 2, 3. The baseline distribution is taken as the Burr distribution, where Fb (x) = 1 − (1 + xc )−k , x > 0, c > 0, k > 0. For 0 < c ≤ 1 and k > 0, the hazard rate function of the Burr distribution is decreasing. Now, consider λ = (7, 9, 11), µ = (3, 5, 8), α = 0.2, c = 0.5, k = 2 and θ = 2. Clearly, λ ⪰w µ and λ, µ ∈ I+ . Therefore, utilizing Theorem 3.2, we obtain X2:3 ≥st Y2:3 .",
+  "kind": "example",
+  "model": "order statistic",
+  "family": "ELS with Burr baseline Fb(x) = 1 − (1 + x^c)^{−k}, x > 0, c, k > 0",
+  "compared": "location vectors λ = (7,9,11) vs µ = (3,5,8); common scalar θ = 2, α = 0.2",
+  "hypotheses": [
+   {"text": "For 0 < c ≤ 1 and k > 0, the hazard rate function of the Burr distribution is decreasing", "formal": "c = 0.5 <= 1 gives decreasing rb", "source": "statement"},
+   {"text": "λ = (7, 9, 11), µ = (3, 5, 8), α = 0.2, c = 0.5, k = 2 and θ = 2. Clearly, λ ⪰w µ and λ, µ ∈ I+", "formal": "parameter assignment satisfying Theorem 3.2 hypotheses", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:3 >=st Y2:3"},
+  "quantifiers": "n = 3",
+  "numbers": "λ = (7,9,11); µ = (3,5,8); α = 0.2; c = 0.5; k = 2; θ = 2; Burr Fb(x) = 1 − (1 + x^c)^{−k}",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2104.08525",
+  "claim": "Theorem 3.3",
+  "page": 9,
+  "quote": "Theorem 3.3. Suppose X ∼ ELS(λ, θ, α; Fb) and Y ∼ ELS(µ, δ, β; Fb), with λ = µ and α = β = α1n ≤ 1. Let λ, θ, δ ∈ I+ (or D+ ) and wrb (w) be decreasing in w > 0. Then, 1/θ ⪰w 1/δ ⇒ X2:n ≥st Y2:n .",
+  "kind": "theorem",
+  "model": "order statistic",
+  "family": "ELS(λ, θ, α; Fb); common location vector λ = µ",
+  "compared": "scale vectors θ vs δ; common location λ, common shape α <= 1",
+  "hypotheses": [
+   {"text": "with λ = µ and α = β = α1n ≤ 1", "formal": "common location vector; common scalar shape α <= 1", "source": "statement"},
+   {"text": "Let λ, θ, δ ∈ I+ (or D+ ) and wrb (w) be decreasing in w > 0", "formal": "monotone positive vectors; w r_b(w) nonincreasing", "source": "statement"},
+   {"text": "1/θ ⪰w 1/δ", "formal": "reciprocal vector 1/θ weakly supermajorizes 1/δ (superscript w per Definition 2.2)", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:n >=st Y2:n"},
+  "quantifiers": "n >= 2; x > max(λi)",
+  "numbers": "",
+  "ambiguity": "Glyph lost in text layer; page image shows '1/θ ⪰w 1/δ' with superscript w (weak supermajorization), matching the preamble 'weak supermajorized-based sufficient conditions'."
+ },
+ {
+  "paper": "arxiv:2104.08525",
+  "claim": "Corollary 3.3",
+  "page": 10,
+  "quote": "Corollary 3.3. Let X ∼ ELS(λ, θ, α; Fb ) and Y ∼ ELS(λ, θ, β; Fb ), with α = β = α1n ≤ 1. Also, consider that θ ∈ I+ (or D+ ). Then, n/θ ≥ Σni=1 (1/θi ) ⇒ X2:n ≥st Y2:n , provided wrb(w) is decreasing in w > 0.",
+  "kind": "corollary",
+  "model": "order statistic",
+  "family": "ELS(λ, θ, α; Fb); per preamble, X has heterogeneous scale vector θ and Y a common scalar θ",
+  "compared": "scale vector θ (X) vs common scalar θ (Y); common λ, α",
+  "hypotheses": [
+   {"text": "Let X ∼ ELS(λ, θ, α; Fb ) and Y ∼ ELS(λ, θ, β; Fb ), with α = β = α1n ≤ 1", "formal": "as printed; Y's scale argument is the scalar θ (intended: common θ 1n)", "source": "statement"},
+   {"text": "θ ∈ I+ (or D+ )", "formal": "monotone positive scale vector", "source": "statement"},
+   {"text": "n/θ ≥ Σni=1 (1/θi )", "formal": "n/θ >= sum_i 1/θ_i, i.e. (1/θ1,...,1/θn) ⪰w (1/θ,...,1/θ) per the preamble sentence", "source": "statement"},
+   {"text": "wrb(w) is decreasing in w > 0", "formal": "w r_b(w) nonincreasing", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:n >=st Y2:n"},
+  "quantifiers": "n >= 2; x > max(λi)",
+  "numbers": "",
+  "ambiguity": "As printed, both X and Y are written with scale 'θ'; the preamble 'We have (1/θ1,...,1/θn) ⪰w (1/θ,...,1/θ), for 1/θ ≥ (1/n) Σ 1/θi' indicates Y has the common scalar scale θ (i.e. θ 1n), while X has the vector θ."
+ },
+ {
+  "paper": "arxiv:2104.08525",
+  "claim": "Theorem 3.4",
+  "page": 10,
+  "quote": "Theorem 3.4. Suppose X ∼ ELS(λ, θ, α; Fb) and Y ∼ ELS(µ, δ, β; Fb), with λ = µ = λ1n and α = β = α1n ≤ 1. Also, assume θ, δ ∈ I+ (or D+ ) and rb (w) is decreasing in w > 0. Then, 1/θ ⪰w 1/δ ⇒ X2:n ≥st Y2:n .",
+  "kind": "theorem",
+  "model": "order statistic",
+  "family": "ELS(λ, θ, α; Fb); common scalar location λ (λ = µ = λ1n)",
+  "compared": "scale vectors θ vs δ; common scalar location λ, shape α <= 1",
+  "hypotheses": [
+   {"text": "with λ = µ = λ1n and α = β = α1n ≤ 1", "formal": "common scalar location λ, common scalar shape α <= 1", "source": "statement"},
+   {"text": "θ, δ ∈ I+ (or D+ ) and rb (w) is decreasing in w > 0", "formal": "monotone positive scale vectors; r_b nonincreasing", "source": "statement"},
+   {"text": "1/θ ⪰w 1/δ", "formal": "1/θ weakly supermajorizes 1/δ", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:n >=st Y2:n"},
+  "quantifiers": "n >= 2; x > λ",
+  "numbers": "",
+  "ambiguity": "Glyph lost in text layer; page image shows superscript w (weak supermajorization)."
+ },
+ {
+  "paper": "arxiv:2104.08525",
+  "claim": "Example 3.3",
+  "page": 10,
+  "quote": "Example 3.3. Let {X1 , X2 , X3 } and {Y1 , Y2, Y3 } be two sets of independent random observations, with Xi ∼ Fbα ((x−λ)/θi ) and Yi ∼ Fbα ((x−λ)/δi ), for i = 1, 2, 3. Take the baseline distribution function as the power generalized Weibull distribution, with Fb (x) = 1−exp(1−(1+xc )1/k ), x > 0, c > 0, k > 0. It is easy to check that for c ≤ k, c < 1, the hazard rate function of power generalized Weibull distribution is decreasing. Set α = 0.6, λ = 2, c = 0.5, k = 2, θ = (5, 6, 7) and δ = (2, 3, 4). It can be verified that 1/θ ⪰w 1/δ and θ, δ ∈ I+ . Therefore, from Theorem 3.4, we have X2:3 ≥st Y2:3 .",
+  "kind": "example",
+  "model": "order statistic",
+  "family": "ELS with power generalized Weibull baseline Fb(x) = 1 − exp(1 − (1 + x^c)^{1/k}), x > 0, c, k > 0",
+  "compared": "scale vectors θ = (5,6,7) vs δ = (2,3,4); common λ = 2, α = 0.6",
+  "hypotheses": [
+   {"text": "for c ≤ k, c < 1, the hazard rate function of power generalized Weibull distribution is decreasing", "formal": "c = 0.5 < 1 and c <= k = 2 gives decreasing rb", "source": "statement"},
+   {"text": "Set α = 0.6, λ = 2, c = 0.5, k = 2, θ = (5, 6, 7) and δ = (2, 3, 4). It can be verified that 1/θ ⪰w 1/δ and θ, δ ∈ I+", "formal": "parameters satisfying Theorem 3.4", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:3 >=st Y2:3"},
+  "quantifiers": "n = 3",
+  "numbers": "α = 0.6; λ = 2; c = 0.5; k = 2; θ = (5,6,7); δ = (2,3,4); Fb(x) = 1 − exp(1 − (1 + x^c)^{1/k})",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2104.08525",
+  "claim": "Theorem 3.5",
+  "page": 10,
+  "quote": "Theorem 3.5. Assume that X ∼ ELS(λ, θ, α; Fb) and Y ∼ ELS(µ, δ, β; Fb), with λ = µ and α = β = α1n ≤ 1. Also, let λ, θ, δ ∈ I+ (or D+ ) and w 2 rb (w) be decreasing in w > 0. Then, 1/θ ⪰rm 1/δ ⇒ X2:n ≥st Y2:n .",
+  "kind": "theorem",
+  "model": "order statistic",
+  "family": "ELS(λ, θ, α; Fb); common location vector λ = µ",
+  "compared": "scale vectors θ vs δ via reciprocal majorization of reciprocals; common λ, α <= 1",
+  "hypotheses": [
+   {"text": "with λ = µ and α = β = α1n ≤ 1", "formal": "common location; common scalar shape α <= 1", "source": "statement"},
+   {"text": "λ, θ, δ ∈ I+ (or D+ ) and w 2 rb (w) be decreasing in w > 0", "formal": "monotone positive vectors; w^2 r_b(w) nonincreasing", "source": "statement"},
+   {"text": "1/θ ⪰rm 1/δ", "formal": "1/θ reciprocally majorizes 1/δ (Σ_{i<=l} θ_{i:n} >= Σ δ_{i:n} per Definition 2.2)", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:n >=st Y2:n"},
+  "quantifiers": "n >= 2; x > max(λi)",
+  "numbers": "",
+  "ambiguity": "Glyph lost in text layer; superscript rm (reciprocal majorization) per Definition 2.2 and the preamble 'reciprocal majorization order between the reciprocal of the scale parameter vectors'."
+ },
+ {
+  "paper": "arxiv:2104.08525",
+  "claim": "Corollary 3.4",
+  "page": 11,
+  "quote": "Corollary 3.4. Let X ∼ ELS(λ, θ, α; Fb ) and Y ∼ ELS(µ, δ, α; Fb), with λ = µ and α ≤ 1. Also, let λ, θ ∈ I+ (or D+ ) and w 2 rb (w) be decreasing in w > 0. Then, nδ ≤ Σni=1 θi ⇒ X2:n ≥st Y2:n .",
+  "kind": "corollary",
+  "model": "order statistic",
+  "family": "ELS(λ, θ, α; Fb); Y has scalar scale δ (since nδ <= Σθi is the premise)",
+  "compared": "scale vector θ (X) vs scalar δ (Y); common λ = µ, α <= 1",
+  "hypotheses": [
+   {"text": "with λ = µ and α ≤ 1", "formal": "common location; scalar shape α <= 1", "source": "statement"},
+   {"text": "λ, θ ∈ I+ (or D+ ) and w 2 rb (w) be decreasing in w > 0", "formal": "monotone positive vectors; w^2 r_b nonincreasing", "source": "statement"},
+   {"text": "nδ ≤ Σni=1 θi", "formal": "n δ <= sum θ_i; per preamble equivalent to (1/θ1,...,1/θn) ⪰rm (1/δ,...,1/δ) — actually the preamble states (1/θ1,...,1/θn) ⪰rm (1/δ,...,1/δ) holds for nδ <= Σ θi", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:n >=st Y2:n"},
+  "quantifiers": "n >= 2",
+  "numbers": "",
+  "ambiguity": "Y's scale argument printed as scalar δ; the preamble motivates it via (1/θ) ⪰rm (1/δ) 1n for nδ <= Σθi. Text layer loses majorization glyph."
+ },
+ {
+  "paper": "arxiv:2104.08525",
+  "claim": "Theorem 3.6(i)",
+  "page": 11,
+  "quote": "Theorem 3.6. Suppose X ∼ ELS(λ, θ, α; Fb) and Y ∼ ELS(µ, δ, β; Fb), with α = β = α1n ≤ 1. Also, assume λ, µ, θ, δ ∈ I+ (or D+ ) and wrb(w) is decreasing in w > 0. Then, (i) λ ⪰w µ and 1/θ ⪰w 1/δ ⇒ X2:n ≥st Y2:n .",
+  "kind": "theorem",
+  "model": "order statistic",
+  "family": "ELS(λ, θ, α; Fb); both location and scale vectors differ",
+  "compared": "location vectors λ vs µ and scale vectors θ vs δ; common α <= 1",
+  "hypotheses": [
+   {"text": "with α = β = α1n ≤ 1", "formal": "common scalar shape α <= 1", "source": "statement"},
+   {"text": "λ, µ, θ, δ ∈ I+ (or D+ ) and wrb(w) is decreasing in w > 0", "formal": "monotone positive vectors; w r_b nonincreasing", "source": "statement"},
+   {"text": "λ ⪰w µ and 1/θ ⪰w 1/δ", "formal": "λ weakly submajorizes µ; 1/θ weakly supermajorizes 1/δ", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:n >=st Y2:n"},
+  "quantifiers": "n >= 2",
+  "numbers": "",
+  "ambiguity": "Glyph positions from rendered PDF: location relation is subscript w (as in Thm 3.1), scale relation is superscript w (as in Thm 3.3). Paper states 'The first part can be proved from Theorems 3.1 and 3.3'."
+ },
+ {
+  "paper": "arxiv:2104.08525",
+  "claim": "Theorem 3.6(ii)",
+  "page": 11,
+  "quote": "(ii) λ ⪰w µ and 1/θ ⪰rm 1/δ ⇒ X2:n ≥st Y2:n , provided w 2 rb (w) is decreasing in w > 0.",
+  "kind": "theorem",
+  "model": "order statistic",
+  "family": "ELS(λ, θ, α; Fb)",
+  "compared": "location vectors λ vs µ and scale vectors θ vs δ; common α <= 1",
+  "hypotheses": [
+   {"text": "with α = β = α1n ≤ 1 (shared statement)", "formal": "common scalar shape α <= 1", "source": "statement"},
+   {"text": "λ ⪰w µ and 1/θ ⪰rm 1/δ", "formal": "λ weakly submajorizes µ; 1/θ reciprocally majorizes 1/δ", "source": "statement"},
+   {"text": "provided w 2 rb (w) is decreasing in w > 0", "formal": "w^2 r_b(w) nonincreasing", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:n >=st Y2:n"},
+  "quantifiers": "n >= 2",
+  "numbers": "",
+  "ambiguity": "Proved from Theorems 3.1 and 3.5 per the preamble. Glyph positions: subscript w for the location relation, superscript rm for the scale relation."
+ },
+ {
+  "paper": "arxiv:2104.08525",
+  "claim": "Theorem 3.7",
+  "page": 12,
+  "quote": "Theorem 3.7. Let X ∼ ELS(λ, θ, α; Fb) and Y ∼ ELS(µ, θ, β; Fb), with α = β = 1n . Also, consider λ, µ ∈ D+ (or I+ ). Then, λ ⪰m µ ⇒ X2:n ≤hr Y2:n , provided rb (w) is decreasing, convex, rb (w)/r̃b(w) is increasing, convex and [rb (w)/r̃b(w)]′′ is decreasing in w > 0.",
+  "kind": "theorem",
+  "model": "order statistic",
+  "family": "ELS with α = β = 1n, i.e. ordinary location-scale model (no exponentiation); common scalar scale θ",
+  "compared": "location vectors λ vs µ; common scalar θ; shape 1",
+  "hypotheses": [
+   {"text": "with α = β = 1n", "formal": "shape parameters all equal 1", "source": "statement"},
+   {"text": "λ, µ ∈ D+ (or I+ )", "formal": "monotone positive location vectors", "source": "statement"},
+   {"text": "λ ⪰m µ", "formal": "λ majorizes µ (Definition 2.2, reversed direction)", "source": "statement"},
+   {"text": "rb (w) is decreasing, convex, rb (w)/r̃b(w) is increasing, convex and [rb (w)/r̃b(w)]′′ is decreasing in w > 0", "formal": "baseline hazard decreasing convex; hazard-to-reversed-hazard ratio increasing convex with decreasing second derivative", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X2:n <=hr Y2:n"},
+  "quantifiers": "n >= 2; all x",
+  "numbers": "",
+  "ambiguity": "Glyph lost in text; page image shows superscript m (majorization). Y is written ELS(µ, θ, β; Fb) with scalar θ — common scale. Note interpretation paragraph: 'the system with components lifetime vector X (here, S-I) is more likely to fail in the immediate future' consistent with X2:n <=hr Y2:n."
+ },
+ {
+  "paper": "arxiv:2104.08525",
+  "claim": "Corollary 3.5",
+  "page": 13,
+  "quote": "Corollary 3.5. Consider two sets of independent random vectors X ∼ ELS(λ, θ, α; Fb ) and Y ∼ ELS(λ, θ, β; Fb), with α = β = 1n . Let λ ∈ D+ (or I+ ). Then, λ = Σni=1 λi /n ⇒ X2:n ≤hr Y2:n , provided rb (w) is decreasing, convex, rb (w)/r̃b (w) is increasing, convex and [rb (w)/r̃b (w)]′′ is decreasing with respect to w > 0.",
+  "kind": "corollary",
+  "model": "order statistic",
+  "family": "ELS location-scale (α = β = 1n); Y intended to have common scalar location λ = Σλi/n",
+  "compared": "heterogeneous λ (X) vs homogeneous mean location (Y); common θ",
+  "hypotheses": [
+   {"text": "with α = β = 1n", "formal": "shape 1", "source": "statement"},
+   {"text": "λ ∈ D+ (or I+ )", "formal": "monotone location vector", "source": "statement"},
+   {"text": "λ = Σni=1 λi /n", "formal": "Y-side scalar location equals the arithmetic mean of the λi", "source": "statement"},
+   {"text": "rb (w) is decreasing, convex, rb (w)/r̃b (w) is increasing, convex and [rb (w)/r̃b (w)]′′ is decreasing", "formal": "baseline conditions as in Theorem 3.7", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X2:n <=hr Y2:n; equivalent hazard-rate lower bound given in Eq. (3.21)"},
+  "quantifiers": "n >= 2",
+  "numbers": "Pareto baseline F(x) = 1 − x^{−a}, x >= 1, 1 < a < 2 satisfies the conditions, giving bound (3.22): rX2:n(x) >= (a/θ)(n a + (an − 1)((x−λ)/θ)^a + 1) / (n((x−λ)/θ)^a + 1) − n ... (printed form garbled)",
+  "ambiguity": "Y written 'ELS(λ, θ, β; Fb)' with the same bold λ; the mean condition λ = Σλi/n indicates Y's location is the scalar mean (homogeneous components), per the preamble 'one with heterogeneous components and other with identical components'. Eq. (3.22) printed bound is garbled in the text layer."
+ },
+ {
+  "paper": "arxiv:2104.08525",
+  "claim": "Theorem 3.8",
+  "page": 13,
+  "quote": "Theorem 3.8. Let X ∼ ELS(λ, θ, α; Fb ) and Y ∼ ELS(µ, δ, β; Fb), with δ = θ and α = β = 1n . Also, consider λ, θ, µ ∈ D+ (or I+ ). Then, λ ⪰m µ ⇒ X2:n ≤hr Y2:n , provided rb (w) is decreasing, w 2 rb′ (w) is increasing, rb (w)/r̃b(w) is increasing and convex and w 2 [rb (w)/r̃b(w)]′′ is decreasing in w > 0.",
+  "kind": "theorem",
+  "model": "order statistic",
+  "family": "ELS location-scale (α = β = 1n); common scale vector δ = θ",
+  "compared": "location vectors λ vs µ; common scale vector θ",
+  "hypotheses": [
+   {"text": "with δ = θ and α = β = 1n", "formal": "common scale vector; shape 1", "source": "statement"},
+   {"text": "λ, θ, µ ∈ D+ (or I+ )", "formal": "monotone positive vectors", "source": "statement"},
+   {"text": "λ ⪰m µ", "formal": "λ majorizes µ", "source": "statement"},
+   {"text": "rb (w) is decreasing, w 2 rb′ (w) is increasing, rb (w)/r̃b(w) is increasing and convex and w 2 [rb (w)/r̃b(w)]′′ is decreasing in w > 0", "formal": "baseline conditions", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X2:n <=hr Y2:n"},
+  "quantifiers": "n >= 2",
+  "numbers": "",
+  "ambiguity": "Superscript m (majorization) confirmed from rendered page."
+ },
+ {
+  "paper": "arxiv:2104.08525",
+  "claim": "Theorem 3.9",
+  "page": 14,
+  "quote": "Theorem 3.9. Let X ∼ ELS(λ, θ, α; Fb) and Y ∼ ELS(µ, δ, β; Fb), with λ = µ = λ1n and α = β = 1n . Further, consider θ, δ ∈ D+ (or I+ ). Then, 1/θ ⪰m 1/δ ⇒ X2:n ≥hr Y2:n , provided wrb (w), [rb (w)/r̃b(w)] are increasing, concave and w[rb (w)/r̃b(w)]′ is convex with respect to w > 0.",
+  "kind": "theorem",
+  "model": "order statistic",
+  "family": "ELS location-scale (α = β = 1n); common scalar location λ",
+  "compared": "scale vectors θ vs δ via majorization of reciprocals; common λ, shape 1",
+  "hypotheses": [
+   {"text": "with λ = µ = λ1n and α = β = 1n", "formal": "common scalar location; shape 1", "source": "statement"},
+   {"text": "θ, δ ∈ D+ (or I+ )", "formal": "monotone positive scale vectors", "source": "statement"},
+   {"text": "1/θ ⪰m 1/δ", "formal": "1/θ majorizes 1/δ", "source": "statement"},
+   {"text": "wrb (w), [rb (w)/r̃b(w)] are increasing, concave and w[rb (w)/r̃b(w)]′ is convex with respect to w > 0", "formal": "baseline conditions", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X2:n >=hr Y2:n"},
+  "quantifiers": "n >= 2",
+  "numbers": "",
+  "ambiguity": "Conclusion direction is X2:n >=hr Y2:n (X has the *larger* hazard rate? No — here >=hr reads as X2:n dominates Y2:n in hazard-rate order, i.e., rX2:n <= rY2:n following Def 2.1's convention W <=hr Z iff rZ <= rW). Note Remark 3.1: Fb(x) = (x−1)/(x+1), x >= 1 satisfies the baseline conditions."
+ },
+ {
+  "paper": "arxiv:2104.08525",
+  "claim": "Corollary 3.6",
+  "page": 15,
+  "quote": "Corollary 3.6. Suppose X ∼ ELS(λ, θ, α; FP b ) and Y ∼ ELS(λ, θ, β; Fb ), with α = β = 1n . Also, assume θ ∈ I+ (or D+ ). Then, 1/θ = Σni=1 1/(nθi ) ⇒ X2:n ≥hr Y2:n , provided wrb (w) and [rb (w)/r̃b (w)] are increasing, concave and w[rb (w)/r̃b(w)]′ is convex with respect to w > 0.",
+  "kind": "corollary",
+  "model": "order statistic",
+  "family": "ELS location-scale; Y has common scalar scale θ equal to the harmonic-mean-type average of θi",
+  "compared": "scale vector θ (X) vs scalar θ (Y) with 1/θ = (1/n)Σ(1/θi); common λ, shape 1",
+  "hypotheses": [
+   {"text": "with α = β = 1n", "formal": "shape 1", "source": "statement"},
+   {"text": "θ ∈ I+ (or D+ )", "formal": "monotone scale vector", "source": "statement"},
+   {"text": "1/θ = Σni=1 1/(nθi )", "formal": "scalar 1/θ equals the mean of the 1/θi", "source": "statement"},
+   {"text": "wrb (w) and [rb (w)/r̃b (w)] are increasing, concave and w[rb (w)/r̃b(w)]′ is convex", "formal": "baseline conditions as in Theorem 3.9", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X2:n >=hr Y2:n"},
+  "quantifiers": "n >= 2",
+  "numbers": "",
+  "ambiguity": "Y printed as ELS(λ, θ, β; Fb) with scalar θ; preamble does not spell out the homogeneous-scale intended reading, but the condition 1/θ = Σ 1/(nθi) forces scalar θ on the Y side."
+ },
+ {
+  "paper": "arxiv:2104.08525",
+  "claim": "Theorem 3.10",
+  "page": 16,
+  "quote": "Theorem 3.10. Let X ∼ ELS(λ, θ, α; Fb, ψ) and Y ∼ ELS(µ, δ, β; Fb, ψ), with α = β = α1n ≤ 1 and θ = δ. Assume λ, θ, µ ∈ I+ (or D+ ) and wrb(w) is decreasing in w > 0. Then, λ ⪰w µ ⇒ X2:n ≥st Y2:n , provided ψ is log-concave.",
+  "kind": "theorem",
+  "model": "order statistic",
+  "family": "ELS marginals coupled by a common Archimedean copula Cψ (generator ψ, φ = ψ^{−1}); Eq. (3.28)–(3.29) survival functions",
+  "compared": "location vectors λ vs µ; common scale θ = δ, shape α <= 1, same copula generator ψ",
+  "hypotheses": [
+   {"text": "with α = β = α1n ≤ 1 and θ = δ", "formal": "common shape α <= 1, common scale vector", "source": "statement"},
+   {"text": "λ, θ, µ ∈ I+ (or D+ ) and wrb(w) is decreasing in w > 0", "formal": "monotone positive vectors; w r_b nonincreasing", "source": "statement"},
+   {"text": "λ ⪰w µ", "formal": "λ weakly submajorizes µ", "source": "statement"},
+   {"text": "provided ψ is log-concave", "formal": "Archimedean copula generator ψ log-concave", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:n >=st Y2:n"},
+  "quantifiers": "n >= 2; x > max(λi)",
+  "numbers": "",
+  "ambiguity": "Subscript w (weak submajorization) per prose 'sub weak majorization order of the location parameter vectors'."
+ },
+ {
+  "paper": "arxiv:2104.08525",
+  "claim": "Theorem 3.11",
+  "page": 18,
+  "quote": "Theorem 3.11. Under the set-up as in Theorem 3.10, we further assume that θ = δ = θ1n . Let λ, µ ∈ I+ (or D+ ) and rb (w) be decreasing in w > 0. Then, λ ⪰w µ ⇒ X2:n ≥st Y2:n , provided ψ is log-concave.",
+  "kind": "theorem",
+  "model": "order statistic",
+  "family": "ELS with common Archimedean copula; common scalar scale θ",
+  "compared": "location vectors λ vs µ; common scalar θ, shape α <= 1, common ψ",
+  "hypotheses": [
+   {"text": "Under the set-up as in Theorem 3.10, we further assume that θ = δ = θ1n", "formal": "α = β = α1n <= 1, common scalar scale θ", "source": "earlier theorem (Theorem 3.10) plus statement"},
+   {"text": "λ, µ ∈ I+ (or D+ ) and rb (w) be decreasing in w > 0", "formal": "monotone vectors; r_b nonincreasing", "source": "statement"},
+   {"text": "λ ⪰w µ", "formal": "λ weakly submajorizes µ", "source": "statement"},
+   {"text": "ψ is log-concave", "formal": "log-concave generator", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:n >=st Y2:n"},
+  "quantifiers": "n >= 2",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2104.08525",
+  "claim": "Example 3.4",
+  "page": 18,
+  "quote": "Example 3.4. Suppose {X1 , X2 , X3 } and {Y1 , Y2, Y3 } are two sets of dependent random variables such that Xi ∼ Fbα ((x−λi )/θ) and Yi ∼ Fbα ((x−µi )/θ), for i = 1, 2, 3, with a common generator ψ. Let ψ(x) = e(1−ex )/a , x > 0, 0 < a ≤ 1. Here, ψ can be easily shown to be log-concave. Consider the baseline distribution function as exponentiated Weibull distribution, where Fb (x) = (1 − exp(−xd ))c , x, d, c > 0. Note that for d ≤ 1 and dc ≤ 1, the hazard rate function of the baseline distribution is decreasing. Set λ = (4, 6, 7), µ = (2.5, 3.5, 4), θ = 5, a = 0.5, α = 0.1, d = 0.5 and c = 0.2. Therefore, clearly, λ ⪰w µ and λ, µ ∈ I+ . Thus, as an application of Theorem 3.11, we have X2:3 ≥st Y2:3 .",
+  "kind": "example",
+  "model": "order statistic",
+  "family": "ELS marginals with common Archimedean generator ψ(x) = e^{(1−e^x)/a}, 0 < a <= 1; exponentiated Weibull baseline Fb(x) = (1 − exp(−x^d))^c",
+  "compared": "location vectors λ = (4,6,7) vs µ = (2.5,3.5,4); common θ = 5, α = 0.1",
+  "hypotheses": [
+   {"text": "ψ(x) = e(1−ex )/a , x > 0, 0 < a ≤ 1. Here, ψ can be easily shown to be log-concave", "formal": "generator ψ(x) = exp((1 − e^x)/a) is log-concave", "source": "statement"},
+   {"text": "for d ≤ 1 and dc ≤ 1, the hazard rate function of the baseline distribution is decreasing", "formal": "d = 0.5, c = 0.2 gives decreasing rb", "source": "statement"},
+   {"text": "λ = (4, 6, 7), µ = (2.5, 3.5, 4), θ = 5, a = 0.5, α = 0.1, d = 0.5 and c = 0.2; λ ⪰w µ and λ, µ ∈ I+", "formal": "parameters satisfying Theorem 3.11", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:3 >=st Y2:3"},
+  "quantifiers": "n = 3",
+  "numbers": "ψ(x) = e^{(1−e^x)/a}, a = 0.5; Fb(x) = (1 − exp(−x^d))^c, d = 0.5, c = 0.2; λ = (4,6,7); µ = (2.5,3.5,4); θ = 5; α = 0.1",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2104.08525",
+  "claim": "Theorem 3.12",
+  "page": 18,
+  "quote": "Theorem 3.12. Assume that X ∼ ELS(λ, θ, α; Fb , ψ) and Y ∼ ELS(µ, δ, β; Fb, ψ), with λ = µ and α = β = α1n ≤ 1. Also, let λ, θ, δ ∈ I+ (or D+ ) and w 2 rb (w) be decreasing in w > 0. Then, θ−1 ⪰rm δ−1 ⇒ X2:n ≥st Y2:n , provided ψ is log-concave.",
+  "kind": "theorem",
+  "model": "order statistic",
+  "family": "ELS with common Archimedean copula; common location λ = µ",
+  "compared": "scale vectors θ vs δ via reciprocal majorization of reciprocals; common λ, α <= 1, ψ",
+  "hypotheses": [
+   {"text": "with λ = µ and α = β = α1n ≤ 1", "formal": "common location, common shape α <= 1", "source": "statement"},
+   {"text": "λ, θ, δ ∈ I+ (or D+ ) and w 2 rb (w) be decreasing in w > 0", "formal": "monotone vectors; w^2 r_b nonincreasing", "source": "statement"},
+   {"text": "θ−1 ⪰rm δ−1 (printed 'θ1 ⪰rm δ1')", "formal": "1/θ reciprocally majorizes 1/δ", "source": "statement"},
+   {"text": "ψ is log-concave", "formal": "log-concave generator", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:n >=st Y2:n"},
+  "quantifiers": "n >= 2",
+  "numbers": "",
+  "ambiguity": "Text prints 'θ1 ⪰rm δ1' meaning the reciprocal vectors 1/θ, 1/δ (the '1/' numerator is lost in the layout); superscript rm = reciprocal majorization."
+ },
+ {
+  "paper": "arxiv:2104.08525",
+  "claim": "Theorem 3.13",
+  "page": 19,
+  "quote": "Theorem 3.13. Suppose X ∼ ELS(λ, θ, α; Fb, ψ) and Y ∼ ELS(µ, δ, β; Fb, ψ), with λ = µ and α = β = α1n ≤ 1. Further, let λ, θ, δ ∈ I+ (or D+ ) and wrb(w) be decreasing in w > 0. Then, θ−1 ⪰w δ−1 ⇒ X2:n ≥st Y2:n , provided ψ is log-concave.",
+  "kind": "theorem",
+  "model": "order statistic",
+  "family": "ELS with common Archimedean copula; common location λ = µ",
+  "compared": "scale vectors θ vs δ via weak supermajorization of reciprocals; common λ, α <= 1, ψ",
+  "hypotheses": [
+   {"text": "with λ = µ and α = β = α1n ≤ 1", "formal": "common location, common shape α <= 1", "source": "statement"},
+   {"text": "λ, θ, δ ∈ I+ (or D+ ) and wrb(w) be decreasing in w > 0", "formal": "monotone vectors; w r_b nonincreasing", "source": "statement"},
+   {"text": "θ−1 ⪰w δ−1 (printed 'θ1 ⪰w δ1')", "formal": "1/θ weakly supermajorizes 1/δ", "source": "statement"},
+   {"text": "ψ is log-concave", "formal": "log-concave generator", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:n >=st Y2:n"},
+  "quantifiers": "n >= 2",
+  "numbers": "",
+  "ambiguity": "'θ1' in the text layer is the reciprocal vector 1/θ; the preamble identifies the relation as weak super majorization (superscript w)."
+ },
+ {
+  "paper": "arxiv:2104.08525",
+  "claim": "Theorem 3.14",
+  "page": 19,
+  "quote": "Theorem 3.14. Suppose X ∼ ELS(λ, θ, α; Fb, ψ) and Y ∼ ELS(µ, δ, β; Fb, ψ), with λ = µ = λ1n and α = β = α1n ≤ 1. Let θ, δ ∈ I+ (or D+ ) and rb (w) be decreasing in w. Then, 1/θ ⪰w 1/δ ⇒ X2:n ≥st Y2:n , provided ψ is log-concave.",
+  "kind": "theorem",
+  "model": "order statistic",
+  "family": "ELS with common Archimedean copula; common scalar location λ",
+  "compared": "scale vectors θ vs δ via weak supermajorization of reciprocals; common scalar λ, α <= 1, ψ",
+  "hypotheses": [
+   {"text": "with λ = µ = λ1n and α = β = α1n ≤ 1", "formal": "common scalar location, common shape α <= 1", "source": "statement"},
+   {"text": "θ, δ ∈ I+ (or D+ ) and rb (w) be decreasing in w", "formal": "monotone scale vectors; r_b nonincreasing", "source": "statement"},
+   {"text": "1/θ ⪰w 1/δ", "formal": "1/θ weakly supermajorizes 1/δ", "source": "statement"},
+   {"text": "ψ is log-concave", "formal": "log-concave generator", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:n >=st Y2:n"},
+  "quantifiers": "n >= 2",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2104.08525",
+  "claim": "Example 3.5",
+  "page": 19,
+  "quote": "Example 3.5. Let {X1 , X2 , X3 } and {Y1, Y2 , Y3 } be two sets of dependent random variables such that Xi ∼ Fbα ((x−λ)/θi ) and Yi ∼ Fbα ((x−λ)/δi ), for i = 1, 2, 3. Let ψ(x) = e−x , x > 0. Here, ψ is log-concave. Take the baseline distribution function as lower-truncated Weibull distribution with Fb (x) = 1 − exp(1 − xa ), x ≥ 1, a > 0. The hazard rate function rb (x) of this distribution is decreasing for a ≤ 1. Set θ = (4.5, 6.5, 7.5), δ = (2.5, 3.5, 4), λ = 5, a = 0.12 and α = 0.9. For these values, it can be verified that 1/θ ⪰w 1/δ. Further, clearly, θ, δ ∈ I+ . Therefore, Theorem 3.14 provides X2:3 ≥st Y2:3 , which can be verified from Figure 1b.",
+  "kind": "example",
+  "model": "order statistic",
+  "family": "ELS with generator ψ(x) = e^{−x}; lower-truncated Weibull baseline Fb(x) = 1 − exp(1 − x^a), x >= 1, a > 0",
+  "compared": "scale vectors θ = (4.5,6.5,7.5) vs δ = (2.5,3.5,4); common λ = 5, α = 0.9",
+  "hypotheses": [
+   {"text": "ψ(x) = e−x , x > 0. Here, ψ is log-concave", "formal": "generator ψ = e^{−x} log-concave (this is the independence copula generator)", "source": "statement"},
+   {"text": "rb (x) of this distribution is decreasing for a ≤ 1", "formal": "a = 0.12 <= 1 gives decreasing hazard", "source": "statement"},
+   {"text": "θ = (4.5, 6.5, 7.5), δ = (2.5, 3.5, 4), λ = 5, a = 0.12 and α = 0.9; 1/θ ⪰w 1/δ; θ, δ ∈ I+", "formal": "parameters satisfying Theorem 3.14", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:3 >=st Y2:3"},
+  "quantifiers": "n = 3",
+  "numbers": "θ = (4.5,6.5,7.5); δ = (2.5,3.5,4); λ = 5; a = 0.12; α = 0.9; ψ(x) = e^{−x}; Fb(x) = 1 − exp(1 − x^a), x >= 1",
+  "ambiguity": "The generator ψ(x) = e^{−x} is the independence copula generator, so 'dependent' here degenerates to independence; recorded as written."
+ },
+ {
+  "paper": "arxiv:2104.08525",
+  "claim": "Theorem 3.15(i)",
+  "page": 20,
+  "quote": "Theorem 3.15. Let X ∼ ELS(λ, θ, α; Fb, ψ1 ) and Y ∼ ELS(µ, δ, β; Fb, ψ2 ), with α = β = α1n ≤ 1 and θ = δ. Let φ1 = ψ1−1 , φ2 = ψ2−1 and ψ1 or ψ2 is log-concave. Also, assume λ, θ, µ ∈ I+ (or D+ ) and wrb(w) is decreasing in w. Then, (i) λ ⪰w µ ⇒ X2:n ≥st Y2:n , provided φ2 ◦ ψ1 is sub-additive.",
+  "kind": "theorem",
+  "model": "order statistic",
+  "family": "ELS marginals with different Archimedean copulas Cψ1 (X side) and Cψ2 (Y side)",
+  "compared": "location vectors λ vs µ and copula generators ψ1 vs ψ2; common θ = δ, α <= 1",
+  "hypotheses": [
+   {"text": "with α = β = α1n ≤ 1 and θ = δ", "formal": "common shape α <= 1, common scale", "source": "statement"},
+   {"text": "φ1 = ψ1−1 , φ2 = ψ2−1 and ψ1 or ψ2 is log-concave", "formal": "at least one generator log-concave", "source": "statement"},
+   {"text": "λ, θ, µ ∈ I+ (or D+ ) and wrb(w) is decreasing in w", "formal": "monotone vectors; w r_b nonincreasing", "source": "statement"},
+   {"text": "λ ⪰w µ", "formal": "λ weakly submajorizes µ", "source": "statement"},
+   {"text": "provided φ2 ◦ ψ1 is sub-additive", "formal": "φ2 ◦ ψ1(x + y) <= φ2 ◦ ψ1(x) + φ2 ◦ ψ1(y)", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:n >=st Y2:n"},
+  "quantifiers": "n >= 2",
+  "numbers": "",
+  "ambiguity": "Subscript w on the location relation (weak submajorization) consistent with Theorem 3.10."
+ },
+ {
+  "paper": "arxiv:2104.08525",
+  "claim": "Theorem 3.15(ii)",
+  "page": 20,
+  "quote": "(ii) µ ⪰w λ ⇒ X2:n ≤st Y2:n , provided φ2 ◦ ψ1 is super-additive.",
+  "kind": "theorem",
+  "model": "order statistic",
+  "family": "ELS marginals with different Archimedean copulas Cψ1 (X) and Cψ2 (Y)",
+  "compared": "location vectors λ vs µ and generators ψ1 vs ψ2; common θ = δ, α <= 1",
+  "hypotheses": [
+   {"text": "(shared statement) α = β = α1n ≤ 1 and θ = δ; φ1 = ψ1−1, φ2 = ψ2−1; ψ1 or ψ2 is log-concave; λ, θ, µ ∈ I+ (or D+ ); wrb(w) decreasing", "formal": "same setup as part (i)", "source": "statement"},
+   {"text": "µ ⪰w λ", "formal": "µ weakly submajorizes λ", "source": "statement"},
+   {"text": "provided φ2 ◦ ψ1 is super-additive", "formal": "φ2 ◦ ψ1(x + y) >= φ2 ◦ ψ1(x) + φ2 ◦ ψ1(y)", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:n <=st Y2:n"},
+  "quantifiers": "n >= 2",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2104.08525",
+  "claim": "Theorem 3.16(i)",
+  "page": 21,
+  "quote": "Theorem 3.16. Let X ∼ ELS(λ, θ, α; Fb, ψ1 ) and Y ∼ ELS(µ, δ, β; Fb, ψ2 ), with α = β = α1n ≤ 1 and λ = µ. Let φ1 = ψ1−1 , φ2 = ψ2−1 and ψ1 or ψ2 is log-concave. Further, assume λ, θ, δ ∈ I+ (or D+ ) and wrb (w) is decreasing in w. Then, (i) 1/θ ⪰w 1/δ ⇒ X2:n ≥st Y2:n , provided φ2 ◦ ψ1 is sub-additive.",
+  "kind": "theorem",
+  "model": "order statistic",
+  "family": "ELS marginals with different Archimedean copulas Cψ1 (X) and Cψ2 (Y)",
+  "compared": "scale vectors θ vs δ and generators ψ1 vs ψ2; common λ = µ, α <= 1",
+  "hypotheses": [
+   {"text": "with α = β = α1n ≤ 1 and λ = µ", "formal": "common location, common shape α <= 1", "source": "statement"},
+   {"text": "ψ1 or ψ2 is log-concave", "formal": "at least one generator log-concave", "source": "statement"},
+   {"text": "λ, θ, δ ∈ I+ (or D+ ) and wrb (w) is decreasing in w", "formal": "monotone vectors; w r_b nonincreasing", "source": "statement"},
+   {"text": "1/θ ⪰w 1/δ", "formal": "1/θ weakly supermajorizes 1/δ (superscript w per rendered page)", "source": "statement"},
+   {"text": "provided φ2 ◦ ψ1 is sub-additive", "formal": "sub-additive composition", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:n >=st Y2:n"},
+  "quantifiers": "n >= 2",
+  "numbers": "",
+  "ambiguity": "Rendered page shows superscript w (weak supermajorization) on the reciprocal-scale relation."
+ },
+ {
+  "paper": "arxiv:2104.08525",
+  "claim": "Theorem 3.16(ii)",
+  "page": 21,
+  "quote": "(ii) 1/δ ⪰w 1/θ ⇒ X2:n ≤st Y2:n , provided φ2 ◦ ψ1 is super-additive.",
+  "kind": "theorem",
+  "model": "order statistic",
+  "family": "ELS marginals with different Archimedean copulas",
+  "compared": "scale vectors θ vs δ and generators ψ1 vs ψ2; common λ = µ, α <= 1",
+  "hypotheses": [
+   {"text": "(shared statement) α = β = α1n ≤ 1; λ = µ; ψ1 or ψ2 log-concave; λ, θ, δ ∈ I+ (or D+ ); wrb(w) decreasing", "formal": "same setup as part (i)", "source": "statement"},
+   {"text": "1/δ ⪰w 1/θ", "formal": "1/δ weakly supermajorizes 1/θ", "source": "statement"},
+   {"text": "provided φ2 ◦ ψ1 is super-additive", "formal": "super-additive composition", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:n <=st Y2:n"},
+  "quantifiers": "n >= 2",
+  "numbers": "",
+  "ambiguity": "Remark 3.2 notes this part reduces to Theorem 4.3 of Li et al. (2016) when λ = 0 and ψ1 = ψ2."
+ },
+ {
+  "paper": "arxiv:2104.08525",
+  "claim": "Example 3.6",
+  "page": 22,
+  "quote": "Example 3.6. Let {X1 , X2 , X3 } and {Y1 , Y2 , Y3 } be two sets of interdependent random variables such that Xi ∼ Fbα ((x−λi )/θi ) and Yi ∼ Fbα ((x−λi )/δi ). The generators are taken as ψ1 (x) = e(1−ex )/a1 and ψ2 (x) = e(1−ex )/a2 , where x > 0, 0 < a1 , a2 ≤ 1. Here, ψ1 and ψ2 both are log-concave. Also, it is clear that for a1 ≥ a2 > 0, φ2 ◦ ψ1 (x) = log(1 − (a2 /a1 )(1 − ex )) is convex. This implies φ2 ◦ ψ1 is super-additive. Let the baseline distribution function be the Pareto distribution as in Example 3.1. Clearly, wrb (w) is decreasing. Consider δ = (6, 7, 8), θ = (3, 4, 5), λ = (2, 5, 6), α = 0.8, b = 0.12, a1 = 0.5, and a2 = 0.1. It can be checked that the conditions 1/δ ⪰w 1/θ and θ, δ, λ ∈ I+ hold. Therefore, as an application of the second part of Theorem 3.16, we have X2:3 ≤st Y2:3 .",
+  "kind": "example",
+  "model": "order statistic",
+  "family": "ELS marginals; generators ψ1(x) = e^{(1−e^x)/a1}, ψ2(x) = e^{(1−e^x)/a2}, 0 < a1, a2 <= 1; Pareto baseline Fb(x) = 1 − x^{−2}, x >= 1 (as in Example 3.1)",
+  "compared": "scale vectors θ = (3,4,5) vs δ = (6,7,8); common λ = (2,5,6), α = 0.8; generators differ",
+  "hypotheses": [
+   {"text": "ψ1 and ψ2 both are log-concave; for a1 ≥ a2 > 0, φ2 ◦ ψ1 (x) = log(1 − (a2 /a1 )(1 − ex )) is convex. This implies φ2 ◦ ψ1 is super-additive", "formal": "a1 = 0.5 >= a2 = 0.1 gives super-additive φ2◦ψ1", "source": "statement"},
+   {"text": "wrb (w) is decreasing (Pareto baseline)", "formal": "w r_b(w) nonincreasing", "source": "statement"},
+   {"text": "δ = (6, 7, 8), θ = (3, 4, 5), λ = (2, 5, 6), α = 0.8, b = 0.12, a1 = 0.5, and a2 = 0.1; 1/δ ⪰w 1/θ; θ, δ, λ ∈ I+", "formal": "parameters satisfying Theorem 3.16(ii)", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:3 <=st Y2:3"},
+  "quantifiers": "n = 3",
+  "numbers": "δ = (6,7,8); θ = (3,4,5); λ = (2,5,6); α = 0.8; b = 0.12; a1 = 0.5; a2 = 0.1; φ2◦ψ1(x) = log(1 − (a2/a1)(1 − e^x)) convex hence super-additive",
+  "ambiguity": "Parameter 'b = 0.12' is listed but no parameter b exists in the model — probably a stray leftover (the Pareto exponent appears as 'a' elsewhere, here the Pareto index is −2 from Example 3.1). Rendered page shows superscript w on '1/δ ⪰w 1/θ'."
+ },
+ {
+  "paper": "arxiv:2104.08525",
+  "claim": "Theorem 3.17",
+  "page": 22,
+  "quote": "Theorem 3.17. Let X ∼ ELS(λ, θ, α; Fb, ψ1 ) and Y ∼ ELS(µ, δ, β; Fb, ψ2 ), with α = β = α1n ≤ 1 and θ = δ = θ1n . Let φ1 = ψ1−1 , φ2 = ψ2−1 and φ2 ◦ ψ1 be super-additive. Also, assume λ, µ ∈ I+ (or D+ ) and rb (w) is decreasing in w. Then, µ ⪰w λ ⇒ X2:n ≤st Y2:n , provided ψ1 or ψ2 is log-concave.",
+  "kind": "theorem",
+  "model": "order statistic",
+  "family": "ELS marginals with different Archimedean copulas; common scalar scale θ",
+  "compared": "location vectors λ vs µ and generators ψ1 vs ψ2; common scalar θ, α <= 1",
+  "hypotheses": [
+   {"text": "with α = β = α1n ≤ 1 and θ = δ = θ1n", "formal": "common scalar scale, common shape α <= 1", "source": "statement"},
+   {"text": "φ2 ◦ ψ1 be super-additive", "formal": "super-additive composition", "source": "statement"},
+   {"text": "λ, µ ∈ I+ (or D+ ) and rb (w) is decreasing in w", "formal": "monotone location vectors; r_b nonincreasing", "source": "statement"},
+   {"text": "µ ⪰w λ", "formal": "µ weakly submajorizes λ", "source": "statement"},
+   {"text": "ψ1 or ψ2 is log-concave", "formal": "at least one generator log-concave", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:n <=st Y2:n"},
+  "quantifiers": "n >= 2",
+  "numbers": "",
+  "ambiguity": "Rendered page shows subscript w on 'µ ⪰w λ'."
+ },
+ {
+  "paper": "arxiv:2104.08525",
+  "claim": "Theorem 3.18",
+  "page": 22,
+  "quote": "Theorem 3.18. Let X ∼ ELS(λ, θ, α; Fb, ψ1 ) and Y ∼ ELS(µ, δ, β; Fb, ψ2 ), with α = β = α1n ≤ 1 and λ = µ = λ1n . Let φ1 = ψ1−1 , φ2 = ψ2−1 and φ2 ◦ ψ1 be super-additive. Also, assume θ, δ ∈ I+ (or D+ ) and rb (w) is decreasing in w. Then, 1/δ ⪰w 1/θ ⇒ X2:n ≤st Y2:n , provided ψ1 or ψ2 is log-concave.",
+  "kind": "theorem",
+  "model": "order statistic",
+  "family": "ELS marginals with different Archimedean copulas; common scalar location λ",
+  "compared": "scale vectors θ vs δ and generators ψ1 vs ψ2; common scalar λ, α <= 1",
+  "hypotheses": [
+   {"text": "with α = β = α1n ≤ 1 and λ = µ = λ1n", "formal": "common scalar location, common shape α <= 1", "source": "statement"},
+   {"text": "φ2 ◦ ψ1 be super-additive", "formal": "super-additive composition", "source": "statement"},
+   {"text": "θ, δ ∈ I+ (or D+ ) and rb (w) is decreasing in w", "formal": "monotone scale vectors; r_b nonincreasing", "source": "statement"},
+   {"text": "1/δ ⪰w 1/θ (printed 'δ1 ⪰w θ1')", "formal": "1/δ weakly supermajorizes 1/θ", "source": "statement"},
+   {"text": "ψ1 or ψ2 is log-concave", "formal": "at least one generator log-concave", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:n <=st Y2:n"},
+  "quantifiers": "n >= 2",
+  "numbers": "",
+  "ambiguity": "Rendered page shows superscript w. 'δ1/θ1' in text layer are the reciprocal vectors 1/δ, 1/θ."
+ },
+ {
+  "paper": "arxiv:2104.08525",
+  "claim": "Counterexample 3.1",
+  "page": 22,
+  "quote": "Counterexample 3.1. Consider the baseline distribution function as Fb (x) = 1 − exp(1 − xa ), x ≥ 1, a > 0. For this, when 0 < a ≤ 1, the hazard rate function is decreasing. Let {X1 , X2 , X3 } and {Y1 , Y2 , Y3 } be the collections of dependent random variables with Xi ∼ Fbα ((x−λi )/θ) and Yi ∼ Fbα ((x−µi )/θ), for i = 1, 2, 3 with generators ψ1 (x) = e(1/a1 )(1−ex ) and ψ2 (x) = e(1/a2 )(1−ex ), respectively, where x > 0, 0 < a1 , a2 ≤ 1. Here, ψ1 and ψ2 both are log-concave. Assume a1 = 0.001 and a2 = 0.5. Then, φ2 ◦ ψ1 (x) is sub-additive, and hence is not super-additive. Set λ = (3, 4, 5), µ = (6, 7, 8), θ = 6, α = 8 and a = 0.9. Thus, all the conditions of Theorem 3.17 are satisfied except super-additivity of φ2 ◦ ψ1 (x) and the restriction on α. Now, we plote the graphs of F̄X2:3 (x) and F̄Y2:3 (x) in Figure 2a. The graphs cross each other, which implies that Theorem 3.17 does not hold.",
+  "kind": "counterexample",
+  "model": "order statistic",
+  "family": "ELS marginals; generators ψi(x) = e^{(1/ai)(1−e^x)}, 0 < ai <= 1; lower-truncated Weibull baseline Fb(x) = 1 − exp(1 − x^a), x >= 1",
+  "compared": "location vectors λ = (3,4,5) vs µ = (6,7,8); common θ = 6; generators differ (a1 = 0.001, a2 = 0.5)",
+  "hypotheses": [
+   {"text": "all the conditions of Theorem 3.17 are satisfied except super-additivity of φ2 ◦ ψ1 (x) and the restriction on α", "formal": "violations: φ2◦ψ1 sub-additive not super-additive; α = 8 > 1", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "negated: F̄X2:3(x) and F̄Y2:3(x) cross (Figure 2a), so neither X2:3 <=st nor >=st Y2:3 holds"},
+  "quantifiers": "n = 3",
+  "numbers": "a1 = 0.001; a2 = 0.5; λ = (3,4,5); µ = (6,7,8); θ = 6; α = 8; a = 0.9; Fb(x) = 1 − exp(1 − x^a), x >= 1",
+  "ambiguity": "Refutes Theorem 3.17 when super-additivity and α <= 1 are dropped. Typo 'plote' is verbatim."
+ },
+ {
+  "paper": "arxiv:2104.08525",
+  "claim": "Counterexample 3.2",
+  "page": 23,
+  "quote": "Counterexample 3.2. For the baseline distribution as in Counterexample 3.1, let {X1 , X2 , X3 } and {Y1 , Y2 , Y3 } be two sets of dependent random variables such that Xi ∼ Fbα ((x−λ)/θi ) and Yi ∼ Fbα ((x−λ)/δi ), for i = 1, 2, 3 with generator ψ1 (x) = e−x 1/a1 and ψ2 (x) = e−x 1/a2 , respectively, where x > 0, a1 , a2 ≥ 1. It is not difficult to check that ψ1 and ψ2 both are log-convex. Also, for a2 ≤ a1 , φ2 ◦ ψ1 (x) = x a2 /a1 is concave, implies φ2 ◦ ψ1 is not super-additive. Consider δ = (4.5, 6.5, 7.5), θ = (2.5, 6.5, 3.1), λ = 5, α = 0.1, a = 0.5, a2 = 1.0001 and a1 = 2.5. Here, θ does not belong to I+ (or D+ ) and δ ∈ I+ . Hence, all the conditions of Theorem 3.18 except the log-concavity of the generators, super-additivity of φ2 ◦ ψ1 and θ ∈ I+ (or D+ ) are satisfied. Next, we plot the graphs of F̄X2:3 (x) and F̄Y2:3 (x) in Figure 2b, which show that Theorem 3.18 does not hold.",
+  "kind": "counterexample",
+  "model": "order statistic",
+  "family": "ELS marginals; generators ψi(x) = e^{−x^{1/ai}}, ai >= 1 (log-convex); lower-truncated Weibull baseline Fb(x) = 1 − exp(1 − x^a), x >= 1",
+  "compared": "scale vectors θ = (2.5,6.5,3.1) (non-monotone) vs δ = (4.5,6.5,7.5); common λ = 5; generators differ",
+  "hypotheses": [
+   {"text": "all the conditions of Theorem 3.18 except the log-concavity of the generators, super-additivity of φ2 ◦ ψ1 and θ ∈ I+ (or D+ ) are satisfied", "formal": "violations: ψ1, ψ2 log-convex not log-concave; φ2◦ψ1(x) = x^{a2/a1} concave hence not super-additive; θ not in I+ or D+", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "negated: F̄X2:3(x) and F̄Y2:3(x) cross (Figure 2b), so the st-ordering of Theorem 3.18 fails"},
+  "quantifiers": "n = 3",
+  "numbers": "δ = (4.5,6.5,7.5); θ = (2.5,6.5,3.1); λ = 5; α = 0.1; a = 0.5; a2 = 1.0001; a1 = 2.5; ψi(x) = e^{−x^{1/ai}}; φ2◦ψ1(x) = x^{a2/a1}",
+  "ambiguity": "Generators printed as 'e−x 1/a1' = e^{−x^{1/a1}} (Weibull-type generators). θ = (2.5,6.5,3.1) is deliberately non-monotone."
+ }
+]

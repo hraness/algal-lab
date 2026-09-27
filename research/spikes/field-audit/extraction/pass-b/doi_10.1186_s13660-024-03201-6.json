@@ -1,0 +1,393 @@
+[
+ {
+  "paper": "doi:10.1186/s13660-024-03201-6",
+  "claim": "Theorem 2.2",
+  "page": 5,
+  "quote": "Theorem 2.2 Let X = (X1, . . . , Xn) be a dependent random vector with the Archimedean copula having generator φ where Xi has exponential distribution with hazard rate λi and, further, let Y = (Y1, . . . , Yn) be another dependent random vector having the same Archimedean copula as X where Yi has exponential distribution with hazard rate λ. If there exists a nonnegative function d(·) satisfying (i) (1 – φ(u))^{1/d(u)} is increasing (resp. decreasing) in u ≥ 0; (ii) d(u) (1–φ(u))/φ'(u) is decreasing (resp. increasing) and also convex in u ≥ 0, then m(x, λ) = (1/n) Σ_{i=1}^n λi d(Z̄(x, λ))/d(Z(x, λi)), λ = (λ1, . . . , λn), where Z(x, λi) = ψ(1 – e^{–λi x}), i = 1, . . . , n and Z̄(x, λ) = (1/n) Σ_{i=1}^n Z(x, λi) and x' = arg max_{x≥0} m(x, λ) such that λ > 0, then m(x', λ) ≤ λ => Xn:n ≥disp Yn:n.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "exponential E(λ): hazard rate λi for Xi, common λ for Yi; Archimedean copula generator φ, ψ = φ^{-1}",
+  "compared": "heterogeneous hazard rates λ1,...,λn vs homogeneous λ; same copula",
+  "hypotheses": [
+   {"text": "Xi has exponential distribution with hazard rate λi; Yi has exponential distribution with hazard rate λ; both vectors share the same Archimedean copula with generator φ", "formal": "dependent exponentials, common Archimedean copula", "source": "statement"},
+   {"text": "(1 – φ(u))^{1/d(u)} is increasing (resp. decreasing) in u ≥ 0", "formal": "condition (i)", "source": "statement"},
+   {"text": "d(u) (1–φ(u))/φ'(u) is decreasing (resp. increasing) and also convex in u ≥ 0", "formal": "condition (ii)", "source": "statement"},
+   {"text": "x' = arg max_{x≥0} m(x, λ) and m(x', λ) ≤ λ", "formal": "sup over x of the weighted ratio functional bounded by the homogeneous hazard rate", "source": "statement"}
+  ],
+  "conclusion": {"order": "disp", "direction": "Yn:n <=_disp Xn:n (stated as Xn:n ≥disp Yn:n)"},
+  "quantifiers": "n ≥ 1, x ≥ 0, λ > 0",
+  "ambiguity": "Majorization notation dropped in text layer; ψ = φ^{-1} is the pseudoinverse of the generator."
+ },
+ {
+  "paper": "doi:10.1186/s13660-024-03201-6",
+  "claim": "Example 2.3",
+  "page": 6,
+  "quote": "Example 2.3 Let us suppose that X = (X1, . . . , Xn) follows the Archimedean copula with generator φ(x) = exp(–x) where Xi ~ E(λi) and let Y = (Y1, . . . , Yn) follow the Archimedean copula with the same generator in which Yi ~ E(λ). We choose d(x) = –φ'(x). Therefore, the conditions (i) and (ii) in Theorem 2.2 hold. In this particular case of the generator function, the random variables X1, . . . , Xn are independent and the random variables Y1, . . . , Yn are also independent. In addition, we observe that m(x, λ) = (1/n) Σ_{i=1}^n λi Π_{j=1,j≠i}^n (1 – exp(–λj x)) ≤ m(+∞, λ) = (Σ_{i=1}^n λi)/n. Therefore, if (Σ_{i=1}^n λi)/n ≤ λ then, using Theorem 2.2, Xn:n ≥disp Yn:n. This result has been acquired by [3] without the framework of Archimedean copulas.",
+  "kind": "example",
+  "model": "parallel system",
+  "family": "exponential E(λ) with independence (product) copula φ(x) = e^{-x}",
+  "compared": "heterogeneous λi vs homogeneous λ (independent components)",
+  "hypotheses": [
+   {"text": "φ(x) = exp(–x), d(x) = –φ'(x)", "formal": "independence copula, d = -φ'", "source": "statement"},
+   {"text": "(Σ λi)/n ≤ λ", "formal": "arithmetic mean of heterogeneous rates at most λ", "source": "statement"}
+  ],
+  "conclusion": {"order": "disp", "direction": "Yn:n <=_disp Xn:n"},
+  "quantifiers": "n ≥ 1, x ≥ 0",
+  "numbers": "m(x,λ) ≤ m(+∞,λ) = (Σλi)/n; condition (Σλi)/n ≤ λ",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1186/s13660-024-03201-6",
+  "claim": "Example 2.4",
+  "page": 7,
+  "quote": "Example 2.4 Consider the Clayton copula which has generator φ(x) = (1 + x)^{–1/θ}, θ > 0. We have ψ(x) = x^{–θ} – 1. Let us take d(x) = –φ'(x) and recall that the conditions (i) and (ii) in Theorem 2.2 are satisfied as remarked before. Therefore, d(Z̄(x,λ))/d(Z(x,λi)) = n^{1+1/θ} ((1 – exp(–λi x))^{–θ} / Σ_{j=1}^n (1 – exp(–λj x))^{–θ})^{1+1/θ}. ... Thus, as an application of Theorem 2.2, Σ_{i=1}^n (λ(i)/i) (n/i)^{1/θ} ≤ λ => Xn:n ≥disp Yn:n",
+  "kind": "example",
+  "model": "parallel system",
+  "family": "exponential E(λi) components under Clayton copula φ(x) = (1+x)^{-1/θ}, θ > 0",
+  "compared": "heterogeneous λi vs homogeneous λ under Clayton dependence",
+  "hypotheses": [
+   {"text": "Clayton copula generator φ(x) = (1 + x)^{–1/θ}, θ > 0; d(x) = –φ'(x)", "formal": "Clayton copula, d = -φ'", "source": "statement"},
+   {"text": "Σ_{i=1}^n (λ(i)/i) (n/i)^{1/θ} ≤ λ", "formal": "order-statistic weighted sum of hazard rates bounded by λ", "source": "statement"}
+  ],
+  "conclusion": {"order": "disp", "direction": "Yn:n <=_disp Xn:n"},
+  "quantifiers": "n ≥ 1, θ > 0, x ≥ 0",
+  "numbers": "derived bound m(x,λ) ≤ Σ_{i=1}^n λ_(i)/i · (n/i)^{1/θ}",
+  "ambiguity": "Intermediate formulas partially garbled in text layer; verified against page image: the sufficient condition is Σ_{i=1}^n (λ_(i)/i)(n/i)^{1/θ} ≤ λ where λ_(i) are the ordered λi's from smallest to largest."
+ },
+ {
+  "paper": "doi:10.1186/s13660-024-03201-6",
+  "claim": "Example 2.5",
+  "page": 7,
+  "quote": "Example 2.5 Let us consider Gumbel copula with generator φ(x) = exp(–√x). In the context of Theorem 2.2, we take d(x) = φ(x). It can be observed after some routine calculation that (1 – φ(x))^{1/d(x)} is increasing in x > 0, and further that d(x) (1–φ(x))/φ'(x) is decreasing and convex in x > 0. Denote Fλi(x) = 1 – e^{–λi x}. ... Hence, an application of Theorem 2.2 yields (1/n) Σ_{i=1}^n (λ_i^i Π_{j=i+1}^n λ_j)^{1/n} ≤ λ => Xn:n ≥disp Yn:n.",
+  "kind": "example",
+  "model": "parallel system",
+  "family": "exponential E(λi) components under Gumbel copula φ(x) = exp(−√x)",
+  "compared": "heterogeneous λi vs homogeneous λ under Gumbel dependence",
+  "hypotheses": [
+   {"text": "Gumbel copula generator φ(x) = exp(–√x); d(x) = φ(x)", "formal": "Gumbel copula (θ = 1/2 parameterization), d = φ", "source": "statement"},
+   {"text": "(1/n) Σ_{i=1}^n (λ_i^i Π_{j=i+1}^n λ_j)^{1/n} ≤ λ", "formal": "weighted geometric-mean bound on hazard rates", "source": "statement"}
+  ],
+  "conclusion": {"order": "disp", "direction": "Yn:n <=_disp Xn:n"},
+  "quantifiers": "n ≥ 1, x ≥ 0; λ1 ≤ ... ≤ λn assumed w.l.o.g.",
+  "numbers": "m(x,λ) ≤ (1/n) Σ_{i=1}^n λ_i (Π_{j=i+1}^n λ_j/λ_i)^{1/n} = (1/n) Σ_{i=1}^n (λ_i^i Π_{j=i+1}^n λ_j)^{1/n}",
+  "ambiguity": "Intermediate algebra verified against page image; the exponent 'λ_i^i' (λ_i raised to i) is as printed."
+ },
+ {
+  "paper": "doi:10.1186/s13660-024-03201-6",
+  "claim": "Example 2.6",
+  "page": 9,
+  "quote": "Example 2.6 Let us take ψ(u) = (1 – u)^θ, θ ≥ 1. In Theorem 2.2, let us take d(x) = 1. It can be verified that (1 – φ(x))^{1/d(x)} is increasing in x > 0, and also d(x) (1–φ(x))/φ'(x) is decreasing and convex in x > 0. Using Theorem 2.2, one gets λ̄ ≤ λ => Xn:n ≥disp Yn:n.",
+  "kind": "example",
+  "model": "parallel system",
+  "family": "exponential E(λi) components under Archimedean copula with inverse generator ψ(u) = (1−u)^θ, θ ≥ 1",
+  "compared": "heterogeneous λi vs homogeneous λ",
+  "hypotheses": [
+   {"text": "ψ(u) = (1 – u)^θ, θ ≥ 1; d(x) = 1", "formal": "copula with ψ(u)=(1-u)^θ, constant d", "source": "statement"},
+   {"text": "λ̄ ≤ λ", "formal": "(1/n)Σλi ≤ λ", "source": "statement"}
+  ],
+  "conclusion": {"order": "disp", "direction": "Yn:n <=_disp Xn:n"},
+  "quantifiers": "n ≥ 1, θ ≥ 1, x ≥ 0",
+  "numbers": "condition λ̄ ≤ λ",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1186/s13660-024-03201-6",
+  "claim": "Theorem 2.7",
+  "page": 9,
+  "quote": "Theorem 2.7 Let X = (X1, . . . , Xn) be a dependent random vector with the Archimedean copula having generator φ where Xi has exponential distribution with hazard rate λi and, further, let Y = (Y1, . . . , Yn) be another dependent random vector having the same Archimedean copula as X where Yi has exponential distribution with hazard rate λ. Let there exist a nonnegative function d for which (i) (1 – φ(u))^{1/d(u)} is increasing (resp. decreasing) in u ≥ 0; (ii) d(u) (1–φ(u))/φ'(u) is increasing (resp. decreasing) and also concave in u ≥ 0. If x'' = arg min_{x≥0} m(x, λ) and λ > 0, then m(x'', λ) ≥ λ => Xn:n ≤disp Yn:n.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "exponential E(λ): hazard rate λi for Xi, λ for Yi; common Archimedean copula",
+  "compared": "heterogeneous λi vs homogeneous λ; same copula",
+  "hypotheses": [
+   {"text": "same Archimedean copula with generator φ; Xi ~ E(λi), Yi ~ E(λ)", "formal": "dependent exponentials", "source": "statement"},
+   {"text": "(1 – φ(u))^{1/d(u)} is increasing (resp. decreasing) in u ≥ 0", "formal": "condition (i)", "source": "statement"},
+   {"text": "d(u) (1–φ(u))/φ'(u) is increasing (resp. decreasing) and also concave in u ≥ 0", "formal": "condition (ii), note concave (not convex as in Thm 2.2)", "source": "statement"},
+   {"text": "x'' = arg min_{x≥0} m(x, λ) and m(x'', λ) ≥ λ", "formal": "inf of m(x,λ) over x at least λ", "source": "statement"}
+  ],
+  "conclusion": {"order": "disp", "direction": "Xn:n <=_disp Yn:n"},
+  "quantifiers": "n ≥ 1, x ≥ 0, λ > 0",
+  "ambiguity": "Proof omitted as similar to Theorem 2.2."
+ },
+ {
+  "paper": "doi:10.1186/s13660-024-03201-6",
+  "claim": "Theorem 3.1",
+  "page": 9,
+  "quote": "Theorem 3.1 Let X be a dependent random vector with Xi ~ F(·; λi) and with the Archimedean copula having generator φ and let Y be another dependent random vector with Yi ~ F(·; λi*) and with the Archimedean copula having generator φ. Let (i) F(·; λ) be increasing in λ; (ii) F(·; λ) be log-concave in λ; (iii) uψ'(u) be increasing in u ∈ (0, 1). Then, we have λ ⪯^m λ* => Xn:n ≤st Yn:n.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "one-parameter family F(·;λ), Archimedean copula generator φ, ψ = φ^{-1}",
+  "compared": "parameter vectors λ vs λ* (majorization); same copula",
+  "hypotheses": [
+   {"text": "Xi ~ F(·; λi) and Yi ~ F(·; λi*), both with the Archimedean copula having generator φ", "formal": "dependent vectors sharing copula", "source": "statement"},
+   {"text": "F(·; λ) be increasing in λ", "formal": "λ -> F(x;λ) increasing for all x", "source": "statement"},
+   {"text": "F(·; λ) be log-concave in λ", "formal": "λ -> log F(x;λ) concave", "source": "statement"},
+   {"text": "uψ'(u) be increasing in u ∈ (0, 1)", "formal": "u -> uψ'(u) increasing", "source": "statement"},
+   {"text": "λ ⪯^m λ*", "formal": "λ majorized by λ* (Definition 1.2: Σ_{i≤k} λ*_(i) ≤ Σ_{i≤k} λ_(i), equal totals)", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn:n <=_st Yn:n"},
+  "quantifiers": "n ≥ 1, x ≥ 0",
+  "ambiguity": "The majorization glyph ⪯^m is dropped in the text layer but visible in the PDF; note the paper's Definition 1.2 writes the condition with the roles of λ_(i) and λ*_(i) interchanged relative to Marshall-Olkin convention."
+ },
+ {
+  "paper": "doi:10.1186/s13660-024-03201-6",
+  "claim": "Example 3.2",
+  "page": 11,
+  "quote": "Example 3.2 Consider the family of Lomax distributions with cdf F(x; λ) = λx/(1+λx), x ≥ 0, λ > 0, denoted by Lo(λ). Suppose that Xi follows Lo(λi), with λ1 = 2, λ2 = 3, λ3 = 4 and, further, assume that Yi follows Lo(λi*) with λ1* = 1, λ2* = 3, λ3* = 5. Contemplate the multivariate Gumbel copula having generator ψθ(u) = (– ln(u))^θ, for θ ≥ 1. It can be verified plainly that F(x; λ) is increasing and log-concave in λ, for all x ≥ 0. Moreover, uψ'θ(u) is increasing in u ∈ (0, 1). Since λ ⪯^m λ*, using Theorem 3.1, we deduce that X3:3 ≤st Y3:3.",
+  "kind": "example",
+  "model": "parallel system",
+  "family": "Lomax Lo(λ): F(x;λ) = λx/(1+λx); Gumbel copula ψθ(u) = (−ln u)^θ, θ ≥ 1",
+  "compared": "λ = (2,3,4) vs λ* = (1,3,5), same Gumbel copula",
+  "hypotheses": [
+   {"text": "Xi ~ Lo(λi), λ = (2,3,4); Yi ~ Lo(λi*), λ* = (1,3,5); Gumbel copula θ ≥ 1", "formal": "Lomax marginals, Gumbel dependence", "source": "statement"},
+   {"text": "λ ⪯^m λ*", "formal": "(2,3,4) majorized by (1,3,5)", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X3:3 <=_st Y3:3"},
+  "quantifiers": "n = 3",
+  "numbers": "λ=(2,3,4); λ*=(1,3,5); θ=2 for plotted survival curves (upper blue curve F̄_Y3:3 above red F̄_X3:3 in Fig. 1)",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1186/s13660-024-03201-6",
+  "claim": "Counterexample 3.3",
+  "page": 11,
+  "quote": "Counterexample 3.3 Suppose that F(x; λ) = (1 – e^{–x^3})^{√λ} where x > 0 and λ > 0. Denote by X1, X2, and X3 the component lifetimes of parallel system with dependent components, where Xi ~ F(·; λi), i = 1, 2, 3 with Gumbel copula having parameter θ > 0. Denote by Y1, Y2, and Y3 the component lifetimes of another parallel system with dependent components such that Yi ~ F(·; λi*) with the same Gumbel copula as that of Xi's. It is easy to see that F(x; λ) is log-convex in λ, for all x > 0. Let us choose λ = (4, 5, 6), λ* = (3, 5, 7), and θ = 2. Note that λ ⪯^m λ*. It can be numerically verified that X3:3 ≰st Y3:3. Therefore, the result of Theorem 3.1 does not hold when F(·; λ) is log-convex in λ.",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "F(x;λ) = (1 − e^{−x^3})^{√λ} (exponentiated-type), Gumbel copula θ = 2",
+  "compared": "λ = (4,5,6) vs λ* = (3,5,7); F log-convex in λ violating Theorem 3.1(ii)",
+  "hypotheses": [
+   {"text": "F(x; λ) = (1 – e^{–x^3})^{√λ}; Gumbel copula θ = 2", "formal": "F increasing but log-convex in λ", "source": "statement"},
+   {"text": "λ = (4, 5, 6) ⪯^m (3, 5, 7) = λ*", "formal": "λ majorized by λ*", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X3:3 not <=_st Y3:3 — refutes Theorem 3.1 when F is log-convex (rather than log-concave) in λ"},
+  "quantifiers": "n = 3, θ = 2",
+  "numbers": "λ=(4,5,6); λ*=(3,5,7); θ=2; numerical verification (not shown) that X3:3 ≰st Y3:3",
+  "ambiguity": "Formula confirmed from page image: F(x;λ)=(1−e^{−x^3})^{√λ}."
+ },
+ {
+  "paper": "doi:10.1186/s13660-024-03201-6",
+  "claim": "Proposition 3.4",
+  "page": 12,
+  "quote": "Proposition 3.4 Let X be a dependent random vector with Xi ~ F(·; λi) and having the Archimedean copula with generator φ and let Y be another dependent random vector with Yi ~ F(·; λi*) and having the Archimedean copula with generator φ. If (i) F(·; λ) is decreasing in λ; (ii) F(·; λ) is log-concave in λ; (iii) uψ'(u) is decreasing in u ∈ (0, 1). Then, we have λ ⪯^m λ* => Xn:n ≤st Yn:n.",
+  "kind": "proposition",
+  "model": "parallel system",
+  "family": "one-parameter family F(·;λ), Archimedean copula generator φ",
+  "compared": "parameter vectors λ vs λ* (majorization); same copula",
+  "hypotheses": [
+   {"text": "Xi ~ F(·; λi), Yi ~ F(·; λi*), common Archimedean copula generator φ", "formal": "dependent vectors sharing copula", "source": "statement"},
+   {"text": "F(·; λ) is decreasing in λ", "formal": "λ -> F(x;λ) decreasing", "source": "statement"},
+   {"text": "F(·; λ) is log-concave in λ", "formal": "λ -> log F(x;λ) concave", "source": "statement"},
+   {"text": "uψ'(u) is decreasing in u ∈ (0, 1)", "formal": "u -> uψ'(u) decreasing", "source": "statement"},
+   {"text": "λ ⪯^m λ*", "formal": "λ majorized by λ*", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn:n <=_st Yn:n"},
+  "quantifiers": "n ≥ 1, x ≥ 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1186/s13660-024-03201-6",
+  "claim": "Example 3.5",
+  "page": 13,
+  "quote": "Example 3.5 Consider the multivariate Clayton copula described by the generator ψθ(x) = (1/θ)(x^{θ̄} – 1), for θ > 0 such that xψ'θ(x) is increasing in x ∈ (0, 1). Suppose that Xi and Yi, i = 1, 2, 3, are exponential random variables with density functions fXi(x) = λi e^{–λi x}, linked by an Archimedean copula with generator function ψθ defined above and scale parameters (λ1, λ2, λ3) = (2, 4, 5) and (λ1*, λ2*, λ3*) = (1, 3, 7), respectively. It is easy to check that the conditions in Theorem 3.1 are satisfied.",
+  "kind": "example",
+  "model": "parallel system",
+  "family": "exponential f(x) = λi e^{−λi x}; Clayton copula ψθ(u) = (1/θ)(u^{−θ} − 1)",
+  "compared": "λ = (2,4,5) vs λ* = (1,3,7), common Clayton copula",
+  "hypotheses": [
+   {"text": "Clayton copula ψθ, θ > 0 with xψ'θ(x) increasing; exponential components", "formal": "conditions (i)-(iii) of Theorem 3.1 hold", "source": "statement"},
+   {"text": "λ = (2,4,5), λ* = (1,3,7)", "formal": "λ ⪯^m λ* (same sum 11, λ* more spread)", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X3:3 <=_st Y3:3 (implied by Theorem 3.1, not printed explicitly in the example)"},
+  "quantifiers": "n = 3, θ > 0",
+  "numbers": "λ=(2,4,5); λ*=(1,3,7)",
+  "ambiguity": "The label 'Example 3.5' is printed with the number embedded in the formula text; the Clayton generator exponent shows a barred theta θ̄ (likely −θ) in the printed formula. The st-ordering conclusion is implied by Theorem 3.1 though not written out."
+ },
+ {
+  "paper": "doi:10.1186/s13660-024-03201-6",
+  "claim": "Counterexample 3.6",
+  "page": 13,
+  "quote": "Counterexample 3.6 Let us take F(x; λ) = (x²/(1+x²))^{√λ} where x, λ > 0. Let X1, X2, and X3 be three nonnegative dependent random variables, where Xi ~ F(·; λi), i = 1, 2, 3 with AMH copula having parameter θ ∈ [–1, 1). Further, let Y1, Y2, and Y3 be three nonnegative dependent random variables, where Yi ~ F(·; λi*) with the same AMH copula as that of Xi's. It can be easily verified that F(x; λ) is log-convex in λ, for all x > 0. Suppose that λ = (0.4, 1.4, 2.1), λ* = (0.6, 1.1, 2.5), and let θ = –0.2. We see that λ ⪯w λ*. Now, after some calculation, we observe that X3:3 ≰st Y3:3, and, consequently, Proposition 3.4 does not remain valid if F(·; λ) is log-convex in λ.",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "F(x;λ) = (x²/(1+x²))^{√λ}; Ali–Mikhail–Haq copula θ = −0.2",
+  "compared": "λ = (0.4,1.4,2.1) vs λ* = (0.6,1.1,2.5) under weak submajorization; F log-convex violating Prop 3.4(ii)",
+  "hypotheses": [
+   {"text": "F(x; λ) = (x²/(1+x²))^{√λ}; AMH copula θ = –0.2", "formal": "F decreasing & log-convex in λ (uψ' decreasing for θ<0)", "source": "statement"},
+   {"text": "λ = (0.4, 1.4, 2.1) ⪯w λ* = (0.6, 1.1, 2.5)", "formal": "weak submajorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X3:3 not <=_st Y3:3 — refutes Proposition 3.4 when F is log-convex in λ"},
+  "quantifiers": "n = 3, θ = −0.2",
+  "numbers": "λ=(0.4,1.4,2.1); λ*=(0.6,1.1,2.5); θ=−0.2; X3:3 ≰st Y3:3",
+  "ambiguity": "Under the ascending-partial-sum definition printed in Def. 1.2 the weak-submajorization claim fails at k=2 (1.8 ≰ 1.7); it holds under the descending (upper-tail) convention. F(x;λ) formula confirmed from page image."
+ },
+ {
+  "paper": "doi:10.1186/s13660-024-03201-6",
+  "claim": "Theorem 3.7",
+  "page": 13,
+  "quote": "Theorem 3.7 Let X be a dependent random vector with Xi ~ F(·; λi) and having the Archimedean copula with generator φ and let Y be another dependent random vector with Yi ~ F(·; λi*) and having the Archimedean copula with generator φ. If (i) F(·; λ) is decreasing in λ; (ii) F(·; λ) is log-concave in λ; (iii) uψ'(u) is decreasing in u ∈ (0, 1). Then, we have λ ⪯w λ* => Xn:n ≤st Yn:n.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "one-parameter family F(·;λ), Archimedean copula generator φ",
+  "compared": "parameter vectors λ vs λ* under weak submajorization; same copula",
+  "hypotheses": [
+   {"text": "Xi ~ F(·; λi), Yi ~ F(·; λi*), common Archimedean copula generator φ", "formal": "dependent vectors sharing copula", "source": "statement"},
+   {"text": "F(·; λ) is decreasing in λ", "formal": "λ -> F(x;λ) decreasing", "source": "statement"},
+   {"text": "F(·; λ) is log-concave in λ", "formal": "λ -> log F(x;λ) concave", "source": "statement"},
+   {"text": "uψ'(u) is decreasing in u ∈ (0, 1)", "formal": "u -> uψ'(u) decreasing", "source": "statement"},
+   {"text": "λ ⪯w λ*", "formal": "λ weakly submajorized by λ*", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn:n <=_st Yn:n"},
+  "quantifiers": "n ≥ 1, x ≥ 0; λ, λ* ∈ D+ or I+",
+  "ambiguity": "Proof contains two slips: it says F̄_Xn:n(x;λ) is 'decreasing in λi' then 'increasing function in λi', and ends 'Xn:n ≤st Xn:n*' where Yn:n is intended."
+ },
+ {
+  "paper": "doi:10.1186/s13660-024-03201-6",
+  "claim": "Example 3.8",
+  "page": 13,
+  "quote": "Example 3.8 Under the setup of Example 3.5, it is easy to check that xψ'θ(x) is decreasing in x for all θ ∈ [–1, 0). Suppose that Xi and Yi, i = 1, 2, 3, are exponential random variables with density functions fXi(x) = (1/λi) e^{–x/λi}, linked by an Archimedean copula with generator function ψθ and scale parameters (λ1, λ2, λ3) = (1, 2, 4) and (λ1*, λ2*, λ3*) = (2, 3, 5), respectively. It is easy to check that (λ1, λ2, λ3) ⪯w (λ1*, λ2*, λ3*) and also the conditions in Theorem 3.7 are satisfied.",
+  "kind": "example",
+  "model": "parallel system",
+  "family": "exponential in scale parameterization f(x) = (1/λi)e^{−x/λi}; Clayton copula θ ∈ [−1, 0)",
+  "compared": "λ = (1,2,4) vs λ* = (2,3,5), common Clayton copula",
+  "hypotheses": [
+   {"text": "xψ'θ(x) decreasing for θ ∈ [–1,0); exponential components fXi(x) = (1/λi)e^{–x/λi}", "formal": "F decreasing in λ, uψ' decreasing — conditions of Theorem 3.7", "source": "statement"},
+   {"text": "(λ1, λ2, λ3) = (1,2,4) ⪯w (λ1*, λ2*, λ3*) = (2,3,5)", "formal": "weak submajorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X3:3 <=_st Y3:3 (implied by Theorem 3.7, not printed explicitly)"},
+  "quantifiers": "n = 3, θ ∈ [−1, 0)",
+  "numbers": "λ=(1,2,4); λ*=(2,3,5)",
+  "ambiguity": "Here the exponential density is written in scale form (1/λi)e^{−x/λi} — opposite parameterization to Example 3.5's λi e^{−λi x}; this is consistent with Theorem 3.7's requirement that F be decreasing in λ. Ordering conclusion implied, not printed."
+ },
+ {
+  "paper": "doi:10.1186/s13660-024-03201-6",
+  "claim": "Counterexample 3.9",
+  "page": 14,
+  "quote": "Counterexample 3.9 Consider the cumulative distribution function F(x; λ) = e^{–√λ/x} where x, λ > 0. We also consider X1, X2, and X3 as three nonnegative dependent random variables, where Xi ~ F(·; λi), i = 1, 2, 3 with Clayton copula having parameter θ > 0. Moreover, take Y1, Y2, and Y3 as three nonnegative dependent random variables, where Yi ~ F(·; λi*) with the same Archimedean copula as that of Xi's. It can be seen that F(x; λ) is log-convex in λ, for all x > 0. Let λ = (0.4, 1.4, 2.1), λ* = (0.6, 1.1, 2.5), and θ = 4.25. It is seen that λ ⪯w λ*. We observe that X3:3 ≰st Y3:3. Hence, the result of Theorem 3.7 is not satisfied in the case when F(·; λ) is log-convex in λ.",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "F(x;λ) = e^{−√λ/x}; Clayton copula θ = 4.25",
+  "compared": "λ = (0.4,1.4,2.1) vs λ* = (0.6,1.1,2.5) under weak submajorization; F log-convex violating Thm 3.7(ii)",
+  "hypotheses": [
+   {"text": "F(x; λ) = e^{–√λ/x}; Clayton copula θ = 4.25", "formal": "F decreasing & log-convex in λ", "source": "statement"},
+   {"text": "λ = (0.4, 1.4, 2.1) ⪯w λ* = (0.6, 1.1, 2.5)", "formal": "weak submajorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X3:3 not <=_st Y3:3 — refutes Theorem 3.7 when F is log-convex in λ"},
+  "quantifiers": "n = 3, θ = 4.25",
+  "numbers": "λ=(0.4,1.4,2.1); λ*=(0.6,1.1,2.5); θ=4.25; X3:3 ≰st Y3:3",
+  "ambiguity": "Weak-submajorization holds under the descending (upper-tail) convention, not under the ascending partial-sum definition printed in Def. 1.2."
+ },
+ {
+  "paper": "doi:10.1186/s13660-024-03201-6",
+  "claim": "Theorem 4.1",
+  "page": 14,
+  "quote": "Theorem 4.1 Let X = (X1, . . . , Xn) be a vector of nonnegative d.non-i.d. random variables, where Xi ~ F(·; λi) and the dependence structure follows the Archimedean copula with generator φ and let Y = (Y1, . . . , Yn) be another vector of d.non-i.d. random variables following the Archimedean copula with generator φ, where Yi ~ F(·; λi*). Let (i) F̄(·; λ) be decreasing in λ; (ii) F̄(·; λ) be log-convex in λ; (iii) uψ'(u) be decreasing in u ∈ (0, 1). Then, λ ⪯^m λ* => X1:n ≤st Y1:n.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "one-parameter family with survival function F̄(·;λ), Archimedean copula generator φ",
+  "compared": "parameter vectors λ vs λ* (majorization); same copula",
+  "hypotheses": [
+   {"text": "Xi ~ F(·; λi), Yi ~ F(·; λi*), common Archimedean copula", "formal": "dependent vectors sharing copula", "source": "statement"},
+   {"text": "F̄(·; λ) be decreasing in λ", "formal": "λ -> F̄(x;λ) decreasing", "source": "statement"},
+   {"text": "F̄(·; λ) be log-convex in λ", "formal": "λ -> log F̄(x;λ) convex", "source": "statement"},
+   {"text": "uψ'(u) be decreasing in u ∈ (0, 1)", "formal": "u -> uψ'(u) decreasing", "source": "statement"},
+   {"text": "λ ⪯^m λ*", "formal": "λ majorized by λ*", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X1:n <=_st Y1:n"},
+  "quantifiers": "n ≥ 1, x ≥ 0",
+  "ambiguity": "Text layer drops the bar: hypotheses are printed on the survival function F̄ (verified on page image), while marginals are denoted F(·;λi)."
+ },
+ {
+  "paper": "doi:10.1186/s13660-024-03201-6",
+  "claim": "Example 4.2",
+  "page": 15,
+  "quote": "Example 4.2 Under the setup of Example 3.5, it is easy to check that xψ'θ(x) is decreasing in x for all θ ∈ [–1, 0) and that the conditions in Theorem 4.1 are satisfied.",
+  "kind": "example",
+  "model": "series system",
+  "family": "exponential marginals (Example 3.5 setup: rate parameterization λi e^{−λi x}) with Clayton copula θ ∈ [−1,0)",
+  "compared": "λ = (2,4,5) vs λ* = (1,3,7) carried over from Example 3.5",
+  "hypotheses": [
+   {"text": "Under the setup of Example 3.5; xψ'θ(x) decreasing for θ ∈ [–1, 0)", "formal": "Clayton copula θ<0, exponential marginals; conditions of Theorem 4.1", "source": "statement"},
+   {"text": "λ = (2,4,5) ⪯^m λ* = (1,3,7)", "formal": "majorization inherited from Example 3.5", "source": "earlier theorem Example 3.5"}
+  ],
+  "conclusion": {"order": "st", "direction": "X1:3 <=_st Y1:3 (implied by Theorem 4.1, not printed)"},
+  "quantifiers": "n = 3, θ ∈ [−1, 0)",
+  "numbers": "inherits λ=(2,4,5), λ*=(1,3,7) from Example 3.5",
+  "ambiguity": "No explicit conclusion sentence; the example only verifies the conditions of Theorem 4.1. For rate-parameterized exponentials F̄=e^{−λx} is decreasing and log-linear (hence log-convex) in λ, consistent with (i)-(ii)."
+ },
+ {
+  "paper": "doi:10.1186/s13660-024-03201-6",
+  "claim": "Counterexample 4.3",
+  "page": 15,
+  "quote": "Counterexample 4.3 Consider a parametric family of distributions with survival function F̄(x; λ) = e^{–λx²}, x > 0, and λ > 0. Assume that X1, X2, and X3 are nonnegative dependent random variables, where Xi ~ F̄(·; λi), i = 1, 2, 3 with Gumbel copula having generator φ(x) = e^{–x^{1/θ}}, where θ ≥ 1. Let Y1, Y2, and Y3 be nonnegative dependent random variables, where Yi ~ F̄(·; λi*) with the same Archimedean copula as that of Xi. It can be seen that F̄(x; λ) is log-concave in λ, for all x > 0. Let us choose λ = (3, 4, 5), λ* = (2, 4, 6) which fulfill that λ ⪯^m λ*. We consider Gumbel copula with θ = 3. It can be seen that X1:3 ≰st Y1:3. As a result, Theorem 4.1 does not remain valid in situations where F(·; λ) is log-concave in λ.",
+  "kind": "counterexample",
+  "model": "series system",
+  "family": "survival function F̄(x;λ) = e^{−λx²}; Gumbel copula φ(x) = e^{−x^{1/θ}}, θ = 3",
+  "compared": "λ = (3,4,5) vs λ* = (2,4,6) under majorization; F̄ log-concave violating Thm 4.1(ii)",
+  "hypotheses": [
+   {"text": "F̄(x; λ) = e^{–λx²}; Gumbel copula θ = 3", "formal": "F̄ decreasing and log-concave (log-linear) in λ", "source": "statement"},
+   {"text": "λ = (3,4,5) ⪯^m λ* = (2,4,6)", "formal": "λ majorized by λ*", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X1:3 not <=_st Y1:3 — refutes Theorem 4.1 when F̄ is log-concave in λ"},
+  "quantifiers": "n = 3, θ = 3",
+  "numbers": "λ=(3,4,5); λ*=(2,4,6); θ=3; X1:3 ≰st Y1:3",
+  "ambiguity": "Last sentence writes 'F(·;λ)' without bar; context and formula indicate F̄. Also note uψ'(u) for Gumbel θ≥1 is increasing, not decreasing as Theorem 4.1(iii) requires — a second violated condition left unremarked."
+ },
+ {
+  "paper": "doi:10.1186/s13660-024-03201-6",
+  "claim": "Theorem 4.4",
+  "page": 16,
+  "quote": "Theorem 4.4 Let X = (X1, . . . , Xn) be a vector of d.non-i.d. random variables with Xi ~ F(·; λi) and having the Archimedean copula with generator φ and let Y = (Y1, . . . , Yn) be another vector of d.non-i.d. random variables with Yi ~ F(·; λi*) and having the Archimedean copula with generator φ. If (i) F̄(·; λ) is increasing in λ; (ii) F̄(·; λ) is log-concave in λ; (iii) uψ'(u) is increasing in u ∈ (0, 1). Then, we have λ ⪯^m λ* => Y1:n ≤st X1:n.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "one-parameter family with survival function F̄(·;λ), Archimedean copula generator φ",
+  "compared": "parameter vectors λ vs λ* (majorization); same copula",
+  "hypotheses": [
+   {"text": "Xi ~ F(·; λi), Yi ~ F(·; λi*), common Archimedean copula", "formal": "dependent vectors sharing copula", "source": "statement"},
+   {"text": "F̄(·; λ) is increasing in λ", "formal": "λ -> F̄(x;λ) increasing", "source": "statement"},
+   {"text": "F̄(·; λ) is log-concave in λ", "formal": "λ -> log F̄(x;λ) concave", "source": "statement"},
+   {"text": "uψ'(u) is increasing in u ∈ (0, 1)", "formal": "u -> uψ'(u) increasing", "source": "statement"},
+   {"text": "λ ⪯^m λ*", "formal": "λ majorized by λ*", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Y1:n <=_st X1:n (note reversed roles relative to Theorem 4.1)"},
+  "quantifiers": "n ≥ 1, x ≥ 0",
+  "ambiguity": "Text layer drops the bar on F̄ in the hypotheses; verified on page image."
+ },
+ {
+  "paper": "doi:10.1186/s13660-024-03201-6",
+  "claim": "Example 4.5",
+  "page": 17,
+  "quote": "Example 4.5 Denote by X the lifetime of a fresh unit that has survival function F̄. Then the lifetime of the unit at age λ as the used unit, where λ > 0 has survival function F̄(x; λ) = F̄(x+λ)/F̄(λ). Assume that Xi is the lifetime of a used unit with age λi, and further assume that Yi is the lifetime of a used unit with age λi*, where λ = (3, 4, 5) and λ* = (2, 4, 6) are two quantities of different ages. If F possesses the IFR property with a concave hazard rate function, then it is easy to show that F̄(x; λ) is decreasing in λ and is also log-convex in λ for all x ≥ 0. Consider the multivariate Gumbel copula with the generator ψθ(u) = (– ln(u))^θ, for θ ≥ 1. It can be proved that uψ'θ(u) is increasing in u ∈ (0, 1). Thus, since λ ⪯^m λ*, using Theorem 4.1, one concludes that X1:3 ≤st Y1:3.",
+  "kind": "example",
+  "model": "series system",
+  "family": "residual-life family F̄(x;λ) = F̄(x+λ)/F̄(λ) with F IFR and concave hazard rate; Gumbel copula θ ≥ 1",
+  "compared": "age vectors λ = (3,4,5) vs λ* = (2,4,6)",
+  "hypotheses": [
+   {"text": "F possesses the IFR property with a concave hazard rate function", "formal": "r_X increasing and concave", "source": "statement"},
+   {"text": "Gumbel copula ψθ(u) = (–ln u)^θ, θ ≥ 1; uψ'θ(u) increasing in u", "formal": "Gumbel dependence", "source": "statement"},
+   {"text": "λ = (3,4,5) ⪯^m λ* = (2,4,6)", "formal": "λ majorized by λ*", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X1:3 <=_st Y1:3"},
+  "quantifiers": "n = 3, θ ≥ 1",
+  "numbers": "λ=(3,4,5); λ*=(2,4,6); conclusion X1:3 ≤st Y1:3",
+  "ambiguity": "Theorem 4.1(iii) requires uψ'(u) DECREASING, but the example verifies it is increasing for Gumbel — an unremarked mismatch (the example's conditions (i),(ii) on F̄ do match Theorem 4.1)."
+ },
+ {
+  "paper": "doi:10.1186/s13660-024-03201-6",
+  "claim": "Counterexample 4.6",
+  "page": 17,
+  "quote": "Counterexample 4.6 Let F̄(x; λ) = e^{–√λ x²} be the underlying survival function where λ > 0. Suppose that X1, X2, and X3 are nonnegative dependent random variables, where Xi ~ F̄(·; λi), i = 1, 2, 3 with Gumbel copula having generator φ(x) = e^{–x^{1/θ}}, where θ ≥ 1. In addition, we assume that Y1, Y2, and Y3 are nonnegative dependent random variables, where Yi ~ F̄(·; λi*) with the same copula function as that of Xi's. It can be seen that F̄(x; λ) is log-convex in λ, for all x > 0. Let us choose λ = (1, 2, 3), λ* = (0.8, 2, 3.2), and take θ = 4.5. It is observed that X1:3 ≰st Y1:3. It can be seen that λ ⪯^m λ*. Therefore, the result of Theorem 4.4 does not hold in the case where F̄(·; λ) is log-convex in λ.",
+  "kind": "counterexample",
+  "model": "series system",
+  "family": "survival function F̄(x;λ) = e^{−√λ x²}; Gumbel copula φ(x) = e^{−x^{1/θ}}, θ = 4.5",
+  "compared": "λ = (1,2,3) vs λ* = (0.8,2,3.2) under majorization; F̄ log-convex violating Thm 4.4(ii)",
+  "hypotheses": [
+   {"text": "F̄(x; λ) = e^{–√λ x²}; Gumbel copula θ = 4.5", "formal": "F̄ increasing and log-convex in λ", "source": "statement"},
+   {"text": "λ = (1,2,3) ⪯^m λ* = (0.8,2,3.2)", "formal": "λ majorized by λ*", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X1:3 not <=_st Y1:3 — refutes Theorem 4.4 when F̄ is log-convex in λ"},
+  "quantifiers": "n = 3, θ = 4.5",
+  "numbers": "λ=(1,2,3); λ*=(0.8,2,3.2); θ=4.5; X1:3 ≰st Y1:3",
+  "ambiguity": ""
+ }
+]

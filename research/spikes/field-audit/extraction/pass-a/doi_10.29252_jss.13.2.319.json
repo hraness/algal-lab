@@ -1,0 +1,177 @@
+[
+ {
+  "paper": "doi:10.29252/jss.13.2.319",
+  "claim": "Theorem 1 (قضیه ١)",
+  "page": 325,
+  "quote": "قضیه ١: فرض کنید X١, ···, Xn و Y١, ···, Yn دو مجموعه از متغیرهای تصادفی مستقل با Xi ∼ GLFR(αi, βi, λ), Yi ∼ GLFR(νi, µi, λ), i = ١, ···, n, باشند. اگر α ≻^m ν روی فضای Dn+ و β ≻^m µ روی فضای Dn+ باشد، آنگاه برای λ ≥ ١ داریم Y١:n ≥st X١:n. [Let X_1,...,X_n and Y_1,...,Y_n be two sets of independent random variables with X_i ~ GLFR(alpha_i, beta_i, lambda) and Y_i ~ GLFR(nu_i, mu_i, lambda). If alpha majorizes nu and beta majorizes mu on D_{n+}, then for lambda >= 1, Y_{1:n} >=_st X_{1:n}.]",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "GLFR(alpha, beta, lambda): F(x; alpha, beta, lambda) = (1 - e^{-(alpha x + beta/2 x^2)})^lambda, x > 0, alpha > 0, beta > 0, lambda > 0 (generalized linear failure rate)",
+  "compared": "linear-FR coefficients alpha_i vs nu_i and quadratic coefficients beta_i vs mu_i (both vector-majorized); common exponent lambda shared",
+  "hypotheses": [
+   {"text": "Xi ∼ GLFR(αi, βi, λ), Yi ∼ GLFR(νi, µi, λ), i = ١, ···, n (two sets of independent random variables)", "formal": "X_i ~ GLFR(alpha_i, beta_i, lambda), Y_i ~ GLFR(nu_i, mu_i, lambda), independent", "source": "statement"},
+   {"text": "α ≻^m ν روی فضای Dn+ و β ≻^m µ روی فضای Dn+", "formal": "alpha majorizes nu and beta majorizes mu on D_{n+} = {x: x_1 >= ... >= x_n > 0}", "source": "statement"},
+   {"text": "برای λ ≥ ١", "formal": "lambda >= 1", "source": "statement"},
+   {"text": "X در ترتیب تصادفی معمولی، بزرگتر از Y است (X ≥st Y)، هرگاه به ازای هر x ≥ ٠: F̄(x) ≥ Ḡ(x)", "formal": "X >=st Y iff survival functions satisfy F̄(x) >= Ḡ(x) for all x >= 0", "source": "definition 1"}
+  ],
+  "conclusion": {"order": "st", "direction": "Y_{1:n} >=st X_{1:n} (Y-side series system stochastically larger)"},
+  "quantifiers": "n >= 1 components, i = 1..n; lambda >= 1; all x > 0",
+  "numbers": "",
+  "ambiguity": "Persian-language paper; RTL text layer garbles sub/superscripts, statements verified against rendered PDF pages. ≻^m is ordinary majorization (Def. 2); D_{n+} requires descending positive vectors."
+ },
+ {
+  "paper": "doi:10.29252/jss.13.2.319",
+  "claim": "Theorem 2 (قضیه ٢)",
+  "page": 327,
+  "quote": "قضیه ٢: فرض کنید X١, ···, Xn و Y١, ···, Yn دو مجموعه از متغیرهای تصادفی مستقل با Xi ∼ GLFR(αi, β, λi), Yi ∼ GLFR(νi, β, γi), i = ١, ···, n, باشند. اگر α ≻^m ν روی فضای Dn+ و λ − ١ ≻^m γ − ١ روی فضای En+ باشد، آنگاه Y١:n ≥st X١:n. [If alpha majorizes nu on D_{n+} and (lambda - 1) majorizes (gamma - 1) on E_{n+}, then Y_{1:n} >=_st X_{1:n}.]",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "GLFR(alpha, beta, lambda): F(x; alpha, beta, lambda) = (1 - e^{-(alpha x + beta/2 x^2)})^lambda, x > 0, parameters > 0",
+  "compared": "linear coefficients alpha_i vs nu_i, and shifted exponents lambda_i - 1 vs gamma_i - 1; common quadratic coefficient beta",
+  "hypotheses": [
+   {"text": "Xi ∼ GLFR(αi, β, λi), Yi ∼ GLFR(νi, β, γi), i = ١, ···, n", "formal": "X_i ~ GLFR(alpha_i, beta, lambda_i), Y_i ~ GLFR(nu_i, beta, gamma_i), independent", "source": "statement"},
+   {"text": "α ≻^m ν روی فضای Dn+", "formal": "alpha majorizes nu on D_{n+}", "source": "statement"},
+   {"text": "λ − ١ ≻^m γ − ١ روی فضای En+", "formal": "(lambda_1-1,...,lambda_n-1) majorizes (gamma_1-1,...,gamma_n-1) on E_{n+} = {x: 0 < x_1 <= ... <= x_n}", "source": "statement"},
+   {"text": "X ≥st Y هرگاه F̄(x) ≥ Ḡ(x) برای هر x ≥ ٠", "formal": "st order via survival function domination", "source": "definition 1"}
+  ],
+  "conclusion": {"order": "st", "direction": "Y_{1:n} >=st X_{1:n}"},
+  "quantifiers": "n >= 1, i = 1..n; all x > 0",
+  "numbers": "",
+  "ambiguity": "'λ − ١' denotes the componentwise vector (lambda_i - 1); the proof reparametrizes eta_i = lambda_i - 1 and uses exponents eta_i + 1. E_{n+} ordering (ascending) pairs with the descending D_{n+} condition on nu."
+ },
+ {
+  "paper": "doi:10.29252/jss.13.2.319",
+  "claim": "Theorem 3 (قضیه ٣)",
+  "page": 329,
+  "quote": "قضیه ٣: فرض کنید X١, ···, Xn و Y١, ···, Yn دو مجموعه از متغیرهای تصادفی مستقل با Xi ∼ GLFR(α, βi, λi), Yi ∼ GLFR(α, µi, γi), i = ١, ···, n, باشند. در صورتی که β ≻^m µ روی فضای Dn+ و λ − ١ ≻^m γ − ١ روی فضای En+ باشد، آنگاه Y١:n ≥st X١:n. برهان: این قضیه، مشابه قضایای ١ و ٣ اثبات می‌شود. [If beta majorizes mu on D_{n+} and (lambda-1) majorizes (gamma-1) on E_{n+}, then Y_{1:n} >=_st X_{1:n}. Proof: similar to Theorems 1 and 3.]",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "GLFR(alpha, beta, lambda): F(x) = (1 - e^{-(alpha x + beta/2 x^2)})^lambda",
+  "compared": "quadratic coefficients beta_i vs mu_i and shifted exponents lambda_i-1 vs gamma_i-1; common linear coefficient alpha",
+  "hypotheses": [
+   {"text": "Xi ∼ GLFR(α, βi, λi), Yi ∼ GLFR(α, µi, γi), i = ١, ···, n", "formal": "X_i ~ GLFR(alpha, beta_i, lambda_i), Y_i ~ GLFR(alpha, mu_i, gamma_i), independent", "source": "statement"},
+   {"text": "β ≻^m µ روی فضای Dn+ و λ − ١ ≻^m γ − ١ روی فضای En+", "formal": "beta majorizes mu on D_{n+}; (lambda-1) majorizes (gamma-1) on E_{n+}", "source": "statement"},
+   {"text": "X ≥st Y هرگاه F̄(x) ≥ Ḡ(x) برای هر x ≥ ٠", "formal": "st order via survival functions", "source": "definition 1"}
+  ],
+  "conclusion": {"order": "st", "direction": "Y_{1:n} >=st X_{1:n}"},
+  "quantifiers": "n >= 1, i = 1..n; all x > 0",
+  "numbers": "",
+  "ambiguity": "The proof remark says 'similar to Theorems 1 and 3' (قضایای ١ و ٣) although this IS Theorem 3 — apparently a typo for Theorems 1 and 2. Statement spans printed pages 329-330."
+ },
+ {
+  "paper": "doi:10.29252/jss.13.2.319",
+  "claim": "Theorem 4 (قضیه ۴)",
+  "page": 330,
+  "quote": "قضیه ۴: فرض کنید X١, ···, Xn و Y١, ···, Yn دو مجموعه از متغیرهای تصادفی مستقل با Xi ∼ GLFR(αi, βi, λ), Yi ∼ GLFR(νi, µi, λ), i = ١, ···, n, باشند. اگر α ≻^m ν روی فضای Dn+ و β ≻^m µ روی فضای Dn+ باشد، آنگاه Xn:n ≥st Yn:n. [If alpha majorizes nu and beta majorizes mu on D_{n+}, then X_{n:n} >=_st Y_{n:n}.]",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "GLFR(alpha, beta, lambda): F(x) = (1 - e^{-(alpha x + beta/2 x^2)})^lambda",
+  "compared": "linear coefficients alpha_i vs nu_i and quadratic coefficients beta_i vs mu_i; common exponent lambda",
+  "hypotheses": [
+   {"text": "Xi ∼ GLFR(αi, βi, λ), Yi ∼ GLFR(νi, µi, λ), i = ١, ···, n", "formal": "X_i ~ GLFR(alpha_i, beta_i, lambda), Y_i ~ GLFR(nu_i, mu_i, lambda), independent", "source": "statement"},
+   {"text": "α ≻^m ν روی فضای Dn+ و β ≻^m µ روی فضای Dn+", "formal": "alpha majorizes nu and beta majorizes mu on D_{n+}", "source": "statement"},
+   {"text": "X ≥st Y هرگاه F̄(x) ≥ Ḡ(x) برای هر x ≥ ٠", "formal": "st order via survival functions", "source": "definition 1"}
+  ],
+  "conclusion": {"order": "st", "direction": "X_{n:n} >=st Y_{n:n} (X-side parallel system stochastically larger)"},
+  "quantifiers": "n >= 1, i = 1..n; all x > 0; lambda > 0",
+  "numbers": "",
+  "ambiguity": "Unlike the series analogue (Theorem 1), no lambda >= 1 restriction is stated; verified on rendered PDF page 330."
+ },
+ {
+  "paper": "doi:10.29252/jss.13.2.319",
+  "claim": "Theorem 5 (قضیه ۵)",
+  "page": 332,
+  "quote": "قضیه ۵: فرض کنید X١, ···, Xn و Y١, ···, Yn دو مجموعه از متغیرهای تصادفی مستقل با Xi ∼ GLFR(αi, β, λi), Yi ∼ GLFR(νi, β, γi), i = ١, ···, n, باشند. اگر α ≻^m ν روی فضای Dn+ و λ ≻^m γ روی فضای En+ باشد، آنگاه Xn:n ≥st Yn:n. [If alpha majorizes nu on D_{n+} and lambda majorizes gamma on E_{n+}, then X_{n:n} >=_st Y_{n:n}.]",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "GLFR(alpha, beta, lambda): F(x) = (1 - e^{-(alpha x + beta/2 x^2)})^lambda",
+  "compared": "linear coefficients alpha_i vs nu_i and exponents lambda_i vs gamma_i; common quadratic coefficient beta",
+  "hypotheses": [
+   {"text": "Xi ∼ GLFR(αi, β, λi), Yi ∼ GLFR(νi, β, γi), i = ١, ···, n", "formal": "X_i ~ GLFR(alpha_i, beta, lambda_i), Y_i ~ GLFR(nu_i, beta, gamma_i), independent", "source": "statement"},
+   {"text": "α ≻^m ν روی فضای Dn+ و λ ≻^m γ روی فضای En+", "formal": "alpha majorizes nu on D_{n+}; lambda majorizes gamma on E_{n+}", "source": "statement"},
+   {"text": "X ≥st Y هرگاه F̄(x) ≥ Ḡ(x) برای هر x ≥ ٠", "formal": "st order via survival functions", "source": "definition 1"}
+  ],
+  "conclusion": {"order": "st", "direction": "X_{n:n} >=st Y_{n:n}"},
+  "quantifiers": "n >= 1, i = 1..n; all x > 0",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.29252/jss.13.2.319",
+  "claim": "Theorem 6 (قضیه ۶)",
+  "page": 333,
+  "quote": "قضیه ۶: فرض کنید X١, ···, Xn و Y١, ···, Yn دو مجموعه از متغیرهای تصادفی مستقل با Xi ∼ GLFR(α, βi, λi), Yi ∼ GLFR(α, µi, γi), i = ١, ···, n, باشند. اگر β ≻^m µ روی فضای Dn+ و λ ≻^m γ روی فضای En+ باشد، آنگاه Xn:n ≥st Yn:n. برهان: این قضیه، مشابه قضایای ۴ و ۵ اثبات می‌شود. [If beta majorizes mu on D_{n+} and lambda majorizes gamma on E_{n+}, then X_{n:n} >=_st Y_{n:n}. Proof: similar to Theorems 4 and 5.]",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "GLFR(alpha, beta, lambda): F(x) = (1 - e^{-(alpha x + beta/2 x^2)})^lambda",
+  "compared": "quadratic coefficients beta_i vs mu_i and exponents lambda_i vs gamma_i; common linear coefficient alpha",
+  "hypotheses": [
+   {"text": "Xi ∼ GLFR(α, βi, λi), Yi ∼ GLFR(α, µi, γi), i = ١, ···, n", "formal": "X_i ~ GLFR(alpha, beta_i, lambda_i), Y_i ~ GLFR(alpha, mu_i, gamma_i), independent", "source": "statement"},
+   {"text": "β ≻^m µ روی فضای Dn+ و λ ≻^m γ روی فضای En+", "formal": "beta majorizes mu on D_{n+}; lambda majorizes gamma on E_{n+}", "source": "statement"},
+   {"text": "X ≥st Y هرگاه F̄(x) ≥ Ḡ(x) برای هر x ≥ ٠", "formal": "st order via survival functions", "source": "definition 1"}
+  ],
+  "conclusion": {"order": "st", "direction": "X_{n:n} >=st Y_{n:n}"},
+  "quantifiers": "n >= 1, i = 1..n; all x > 0",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.29252/jss.13.2.319",
+  "claim": "Theorem 7 (قضیه ٧)",
+  "page": 333,
+  "quote": "قضیه ٧: فرض کنید X١, ···, Xn و Y١, ···, Yn دو مجموعه از متغیرهای تصادفی مستقل با Xi ∼ GLFR(αi, β, λi), Yi ∼ GLFR(νi, β, γi), i = ١, ···, n, باشند. اگر روی فضای Dn^π رابطه α ≻^m_{(λ١,···,λn)} ν برقرار باشد، آنگاه γ ≻^uo λ ⟹ Xn:n ≥st Yn:n. [If alpha weighted-majorizes nu with weight vector lambda on D_n^pi, then gamma unordered-majorizes lambda implies X_{n:n} >=_st Y_{n:n}.]",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "GLFR(alpha, beta, lambda): F(x) = (1 - e^{-(alpha x + beta/2 x^2)})^lambda",
+  "compared": "linear coefficients alpha_i vs nu_i linked to exponents lambda_i vs gamma_i via weighted/unordered majorization; common beta",
+  "hypotheses": [
+   {"text": "Xi ∼ GLFR(αi, β, λi), Yi ∼ GLFR(νi, β, γi), i = ١, ···, n", "formal": "X_i ~ GLFR(alpha_i, beta, lambda_i), Y_i ~ GLFR(nu_i, beta, gamma_i), independent", "source": "statement"},
+   {"text": "α ≻^m_{(λ١,···,λn)} ν روی فضای Dn^π", "formal": "alpha weighted-majorizes nu with weights lambda on D_n^pi = {x: x_{pi_1} >= ... >= x_{pi_n}}: sum_i lambda_{pi_i} alpha_{pi_i} = sum_i lambda_{pi_i} nu_{pi_i} and partial sums of lambda_pi*alpha_pi dominate those of lambda_pi*nu_pi (Definition 5)", "source": "statement"},
+   {"text": "γ ≻^uo λ", "formal": "gamma unordered-majorizes lambda: equal total sums with partial sums of gamma >= those of lambda (Definition 4)", "source": "statement"},
+   {"text": "X ≥st Y هرگاه F̄(x) ≥ Ḡ(x) برای هر x ≥ ٠", "formal": "st order via survival functions", "source": "definition 1"}
+  ],
+  "conclusion": {"order": "st", "direction": "X_{n:n} >=st Y_{n:n}"},
+  "quantifiers": "n >= 1, i = 1..n; all x > 0; pi a permutation of {1..n}",
+  "numbers": "",
+  "ambiguity": "Statement spans printed pages 333-334. The conclusion is phrased as an implication 'gamma ≻^uo lambda ⟹ X_{n:n} >=st Y_{n:n}' nested under the weighted-majorization hypothesis, i.e. both conditions are required."
+ },
+ {
+  "paper": "doi:10.29252/jss.13.2.319",
+  "claim": "Example 1 (مثال ١)",
+  "page": 335,
+  "quote": "مثال ١: فرض کنید X١, X٢, X٣ و Y١, Y٢, Y٣ دو مجموعه از متغیرهای تصادفی مستقل با Xi ∼ GLFR(αi, β, λi), Yi ∼ GLFR(νi, β, γi), i = ١, ٢, ٣ باشند. قرار دهید: λ = (١, ٢, ٣)، γ = (٢, ٢/۵, ١/۵)، α = (٢, ٣, ۴)، ν = (١, ٢, ۵). واضح است γ ≻^uo λ و اگر π = (٣, ٢, ١) یک جایگشت از اعداد {١, ٢, ٣} باشد، آنگاه روی فضای Dn^π رابطه α ≻^m_{(λ١,λ٢,λ٣)} ν برقرار است. بنابراین طبق قضیه ٧ نتیجه می‌شود X٣:٣ ≥st Y٣:٣. [Set lambda=(1,2,3), gamma=(2,2.5,1.5), alpha=(2,3,4), nu=(1,2,5). Clearly gamma unordered-majorizes lambda and with pi=(3,2,1), alpha weighted-majorizes nu on D_n^pi; hence by Theorem 7, X_{3:3} >=_st Y_{3:3}.]",
+  "kind": "example",
+  "model": "parallel system",
+  "family": "GLFR(alpha, beta, lambda): F(x) = (1 - e^{-(alpha x + beta/2 x^2)})^lambda; common beta arbitrary",
+  "compared": "alpha=(2,3,4) vs nu=(1,2,5); exponents lambda=(1,2,3) vs gamma=(2,2.5,1.5)",
+  "hypotheses": [
+   {"text": "Xi ∼ GLFR(αi, β, λi), Yi ∼ GLFR(νi, β, γi), i = ١, ٢, ٣", "formal": "independent GLFR lifetimes, n = 3", "source": "statement"},
+   {"text": "γ ≻^uo λ", "formal": "(2,2.5,1.5) unordered-majorizes (1,2,3): sums 6 = 6, partial sums 2 >= 1 and 4.5 >= 3", "source": "statement"},
+   {"text": "α ≻^m_{(λ١,λ٢,λ٣)} ν روی فضای Dn^π برای π = (٣, ٢, ١)", "formal": "alpha weighted-majorizes nu with weights lambda under permutation pi = (3,2,1)", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X_{3:3} >=st Y_{3:3} (claimed via Theorem 7)"},
+  "quantifiers": "n = 3; pi = (3,2,1)",
+  "numbers": "lambda=(1,2,3); gamma=(2,2.5,1.5) [printed with '/' as decimal separator: ٢/۵, ١/۵]; alpha=(2,3,4); nu=(1,2,5); pi=(3,2,1); beta common and unspecified",
+  "ambiguity": "Verification of the weighted-majorization condition under Definition 5: with pi=(3,2,1), weighted sums are equal (3*4+2*3+1*2 = 20 = 3*5+2*2+1*1), but the k=1 partial-sum inequality fails as printed (lambda_3*alpha_3 = 12 < 15 = lambda_3*nu_3); the reversed relation nu ≻^m_lambda alpha would satisfy it. So the example as printed appears to conflict with Definition 5's direction (or reads alpha ≻ nu as 'alpha is majorized by nu'). Persian '/' in ٢/۵ and ١/۵ is a decimal separator (2.5, 1.5): sums must equal 6 for ≻^uo to hold."
+ },
+ {
+  "paper": "doi:10.29252/jss.13.2.319",
+  "claim": "Theorem 8 (قضیه ٨)",
+  "page": 336,
+  "quote": "قضیه ٨: فرض کنید X١, ···, Xn و Y١, ···, Yn دو مجموعه از متغیرهای تصادفی مستقل با Xi ∼ GLFR(α, βi, λi), Yi ∼ GLFR(α, µi, γi), i = ١, ···, n, باشند. اگر روی فضای Dn^π رابطه β ≻^m_{(λ١,···,λn)} µ برقرار باشد، آنگاه γ ≻^uo λ ⟹ Xn:n ≥st Yn:n. برهان: این قضیه، مشابه قضیه ٧ اثبات می‌شود. [If beta weighted-majorizes mu with weights lambda on D_n^pi, then gamma unordered-majorizes lambda implies X_{n:n} >=_st Y_{n:n}. Proof: similar to Theorem 7.]",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "GLFR(alpha, beta, lambda): F(x) = (1 - e^{-(alpha x + beta/2 x^2)})^lambda",
+  "compared": "quadratic coefficients beta_i vs mu_i linked to exponents lambda_i vs gamma_i; common linear coefficient alpha",
+  "hypotheses": [
+   {"text": "Xi ∼ GLFR(α, βi, λi), Yi ∼ GLFR(α, µi, γi), i = ١, ···, n", "formal": "X_i ~ GLFR(alpha, beta_i, lambda_i), Y_i ~ GLFR(alpha, mu_i, gamma_i), independent", "source": "statement"},
+   {"text": "β ≻^m_{(λ١,···,λn)} µ روی فضای Dn^π", "formal": "beta weighted-majorizes mu with weights lambda on D_n^pi", "source": "statement"},
+   {"text": "γ ≻^uo λ", "formal": "gamma unordered-majorizes lambda", "source": "statement"},
+   {"text": "X ≥st Y هرگاه F̄(x) ≥ Ḡ(x) برای هر x ≥ ٠", "formal": "st order via survival functions", "source": "definition 1"}
+  ],
+  "conclusion": {"order": "st", "direction": "X_{n:n} >=st Y_{n:n}"},
+  "quantifiers": "n >= 1, i = 1..n; all x > 0; pi a permutation",
+  "numbers": "",
+  "ambiguity": ""
+ }
+]

@@ -1,0 +1,73 @@
+[
+ {
+  "paper": "doi:10.46939/j.sci.arts-26.1-a05",
+  "claim": "Theorem 1",
+  "page": 55,
+  "quote": "Theorem 1. Let the random variable X ~ UTPA(α, θ₁) with pdf f_x(x) and the random variable Y ~ UTPA(α, θ₂) with the pdf f_y(x). Then, if θ₁ < θ₂, X is smaller than Y in the likelihood ratio order, the ratio function of the corresponding pdf defined by g(x) = f_x(x)/f_y(x) is decreasing in x.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "Unit two-parameter Aradhana distribution UTPA(ψ), ψ = (α, θ); pdf f_UTPA(x;ψ) = θ³(α − log x)² x^(θ−1) / (θ²α² + 2θα + 2), 0 < x < 1, θ > 0, α > 0 (obtained as X = exp(−Y) from the two-parameter Aradhana distribution)",
+  "compared": "same shape α; scale/power parameter θ₁ vs θ₂",
+  "hypotheses": [
+   {"text": "X ~ UTPA(α, θ₁) with pdf f_x(x)", "formal": "X has UTPA density with parameters α and θ₁", "source": "statement"},
+   {"text": "Y ~ UTPA(α, θ₂) with the pdf f_y(x)", "formal": "Y has UTPA density with parameters α and θ₂", "source": "statement"},
+   {"text": "θ₁ < θ₂", "formal": "θ₁ < θ₂", "source": "statement"},
+   {"text": "0 < x < 1 and θ > 0, α > 0 are the model parameters", "formal": "common α > 0; θ₁, θ₂ > 0", "source": "section preamble (Equation (4) context)"}
+  ],
+  "conclusion": {"order": "lr", "direction": "X smaller than Y: X ≤_lr Y"},
+  "quantifiers": "θ₁ < θ₂; x in (0,1)",
+  "numbers": "",
+  "ambiguity": "Text layer drops the 'distributed as' tilde symbol (rendered as blank between variable and UTPA). The proof's derivative formula is garbled in the text layer (g'(x) = (θ₁ − θ₂)/x as printed). Statement bundles the lr-order conclusion with the monotone-ratio condition used to prove it."
+ },
+ {
+  "paper": "doi:10.46939/j.sci.arts-26.1-a05",
+  "claim": "Corollary 1 (hazard rate order)",
+  "page": 56,
+  "quote": "Corollary 1. It follows from [32] that, under the conditions outlined in Theorem 1, X is smaller than Y with respect to the hazard rate, mean residual life, and stochastic orders.",
+  "kind": "corollary",
+  "model": "single",
+  "family": "Unit two-parameter Aradhana distribution UTPA(ψ), ψ = (α, θ), θ > 0, α > 0, support (0,1)",
+  "compared": "same shape α; θ₁ vs θ₂",
+  "hypotheses": [
+   {"text": "under the conditions outlined in Theorem 1", "formal": "X ~ UTPA(α, θ₁), Y ~ UTPA(α, θ₂), θ₁ < θ₂", "source": "earlier theorem 1"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X ≤_hr Y"},
+  "quantifiers": "θ₁ < θ₂",
+  "numbers": "",
+  "ambiguity": "Corollary asserts three orders in one sentence (hazard rate, mean residual life, stochastic); split into separate records per spec. Reference [32] is cited as the implication source (standard stochastic-order implications text)."
+ },
+ {
+  "paper": "doi:10.46939/j.sci.arts-26.1-a05",
+  "claim": "Corollary 1 (mean residual life order)",
+  "page": 56,
+  "quote": "Corollary 1. It follows from [32] that, under the conditions outlined in Theorem 1, X is smaller than Y with respect to the hazard rate, mean residual life, and stochastic orders.",
+  "kind": "corollary",
+  "model": "single",
+  "family": "Unit two-parameter Aradhana distribution UTPA(ψ), ψ = (α, θ), θ > 0, α > 0, support (0,1)",
+  "compared": "same shape α; θ₁ vs θ₂",
+  "hypotheses": [
+   {"text": "under the conditions outlined in Theorem 1", "formal": "X ~ UTPA(α, θ₁), Y ~ UTPA(α, θ₂), θ₁ < θ₂", "source": "earlier theorem 1"}
+  ],
+  "conclusion": {"order": "mrl", "direction": "X ≤_mrl Y"},
+  "quantifiers": "θ₁ < θ₂",
+  "numbers": "",
+  "ambiguity": "See Corollary 1 (hazard rate order) record; single sentence covering three orders."
+ },
+ {
+  "paper": "doi:10.46939/j.sci.arts-26.1-a05",
+  "claim": "Corollary 1 (usual stochastic order)",
+  "page": 56,
+  "quote": "Corollary 1. It follows from [32] that, under the conditions outlined in Theorem 1, X is smaller than Y with respect to the hazard rate, mean residual life, and stochastic orders.",
+  "kind": "corollary",
+  "model": "single",
+  "family": "Unit two-parameter Aradhana distribution UTPA(ψ), ψ = (α, θ), θ > 0, α > 0, support (0,1)",
+  "compared": "same shape α; θ₁ vs θ₂",
+  "hypotheses": [
+   {"text": "under the conditions outlined in Theorem 1", "formal": "X ~ UTPA(α, θ₁), Y ~ UTPA(α, θ₂), θ₁ < θ₂", "source": "earlier theorem 1"}
+  ],
+  "conclusion": {"order": "st", "direction": "X ≤_st Y"},
+  "quantifiers": "θ₁ < θ₂",
+  "numbers": "",
+  "ambiguity": "See Corollary 1 (hazard rate order) record; single sentence covering three orders."
+ }
+]

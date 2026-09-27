@@ -1,0 +1,319 @@
+[
+  {
+    "paper": "arxiv:2503.21275",
+    "claim": "Proposition 2.1",
+    "page": 5,
+    "quote": "Proposition 2.1 Let T1, T2, . . . , Tn denote the component lifetimes of a series (parallel) system and let relative error in SF due to faulty assumption of components independently working in the series (parallel) system be denoted by ESF(t) (EPF(t)). Then (i) OA(UA) in error assessment of SF for an n component series system is equivalent to the fact that T1, T2, . . . , Tn are PUOD (NUOD). (ii) OA(UA) in error assessment of SF for an n component parallel system is equivalent to the fact that T1, T2, . . . , Tn are PLOD (NLOD).",
+    "kind": "proposition",
+    "model": "series system; parallel system",
+    "family": "general joint lifetimes T1,...,Tn (no specific family)",
+    "compared": "dependent system TD vs independent-marginals system TI",
+    "hypotheses": [
+      {
+        "text": "T1,...,Tn are the component lifetimes of the system",
+        "formal": "",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "equivalence: SF-error sign ⟺ orthant dependence; in order terms, joint survival ≥ product of marginals (PUOD) ⟺ F̄_D ≥ F̄_I ⟺ T_D >=st T_I for series; PLOD ⟺ cdf ordering ⟺ parallel-system st ordering"
+    },
+    "quantifiers": "n components; t ≥ 0",
+    "ambiguity": "Printed pairing is 'OA(UA) ↔ PUOD(NUOD)' for series and 'OA(UA) ↔ PLOD(NLOD)' for parallel; given the paper's own convention (ES_F ≥ 0 ⇒ UA), PUOD actually corresponds to UA (ES_F ≥ 0), so the printed OA/UA pairing appears reversed. Also the parallel-system relative error EPF(t) is printed in two inconsistent forms: (F̄_D − F̄_I)/F̄_I and (F̄_I − F̄_D)/F̄_I.",
+    "numbers": ""
+  },
+  {
+    "paper": "arxiv:2503.21275",
+    "claim": "Proposition 2.2",
+    "page": 6,
+    "quote": "Proposition 2.2 Let a series and a parallel system be formed by two components. If ESF(t) and EPF(t) represent the relative error incurred in SF of the series and parallel system respectively due to deviation from independence assumption then ESF(t) and EPF(t) are of opposite signs for any t > 0.",
+    "kind": "proposition",
+    "model": "series system; parallel system",
+    "family": "bivariate component lifetimes (general)",
+    "compared": "dependent vs independent series and parallel lifetimes",
+    "hypotheses": [
+      {
+        "text": "two-component series and parallel systems",
+        "formal": "n = 2",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "SF-error signs opposite: dependent series vs independent series ordering direction is reversed for the parallel system (over-assessment in one implies under-assessment in the other)"
+    },
+    "quantifiers": "n = 2; t > 0",
+    "ambiguity": "Follows from PQD/NQD equivalence of PUOD/PLOD for n = 2 (Definition 2.3).",
+    "numbers": ""
+  },
+  {
+    "paper": "arxiv:2503.21275",
+    "claim": "Remark 2.2(i)",
+    "page": 8,
+    "quote": "Remark 2.2 (i) The over-assessment and under-assessment of a reliability function (say SF, FR, RFR, MRL, AI) are basically the study of the stochastic ordering (respectively, usual stochastic order, FR order, RFR order, MRL order, AI order, respectively) among the corresponding function between the dependent and independent counterpart of the system concerned. Mathematically, we express as, let TD and TI represent the lifetime of the series system formed by n dependent and independent components respectively. Clearly, TD ≤ST (≥ST)TI if and only if there is OA (UA) in SF. So is for orders based on FR, MRL, RFR, AI, i.e., TD ≤FR (≥FR)TI if and only if there is UA (OA) in FR., TD ≤MRL (≥MRL)TI if and only if there is OA (UA) in MRL., TD ≤RFR (≥RFR)TI if and only if there is OA (UA) in RFR., TD ≤AI (≥AI)TI if and only if there is UA (OA) in AI.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "general dependent vs independent component systems",
+    "compared": "TD vs TI under five orders (st, hr, mrl, rh, AI)",
+    "hypotheses": [
+      {
+        "text": "TD and TI are lifetimes of n-component series systems with dependent and independent components",
+        "formal": "",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "definitional correspondences: T_D <=st T_I iff OA in SF; T_D <=hr T_I iff UA in FR; T_D <=mrl T_I iff OA in MRL; T_D <=rh T_I iff OA in RFR; T_D <=AI T_I iff UA in AI (per the paper's sign conventions and order definitions)"
+    },
+    "quantifiers": "n components; t ≥ 0",
+    "ambiguity": "Remark asserting equivalences between relative-error signs and ordering relations; note the FR correspondence is 'TD ≤FR TI iff UA in FR' while the others pair with OA — the asymmetric pairing reflects that FR order is defined via r_D ≥ r_I while the error is normalized differently (definitional, quoted verbatim). Labeled Remark 2.2(i) in the paper (kind normalized to spec enum).",
+    "numbers": ""
+  },
+  {
+    "paper": "arxiv:2503.21275",
+    "claim": "Proposition 2.3",
+    "page": 8,
+    "quote": "Proposition 2.3 If ESr(t) ≤ (≥) 0 for all t ≥ 0, then ESF(t) ≥ (≤) 0 for t ≥ 0.  ✷",
+    "kind": "proposition",
+    "model": "series system",
+    "family": "general dependent vs independent components",
+    "compared": "TD vs TI",
+    "hypotheses": [
+      {
+        "text": "ESr(t) ≤ (≥) 0 for all t ≥ 0",
+        "formal": "sign of relative error in failure rate",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "ES_F(t) ≥ (≤) 0 — i.e. the SF ordering conclusion follows from the FR-error sign (effectively hr-order-type implication between T_D and T_I: r_D ≤ r_I ⇒ F̄_D ≥ F̄_I)"
+    },
+    "quantifiers": "all t ≥ 0",
+    "ambiguity": "Stated in error-sign language; marked with ✷ (proof omitted or trivial).",
+    "numbers": ""
+  },
+  {
+    "paper": "arxiv:2503.21275",
+    "claim": "Corollary 2.1",
+    "page": 8,
+    "quote": "Corollary 2.1 Let t0 > 0. If ESr(t) ≤ (≥) 0 for all t ≤ t0, then ESF(t) ≥ (≤) 0 for t ≤ t0.  ✷",
+    "kind": "corollary",
+    "model": "series system",
+    "family": "general dependent vs independent components",
+    "compared": "TD vs TI on a bounded horizon",
+    "hypotheses": [
+      {
+        "text": "ESr(t) ≤ (≥) 0 for all t ≤ t0",
+        "formal": "localized FR-error sign",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "ES_F(t) ≥ (≤) 0 for t ≤ t0 — localized version of Proposition 2.3"
+    },
+    "quantifiers": "t ≤ t0, t0 > 0",
+    "ambiguity": "Same error-sign formulation; only holds on [0, t0].",
+    "numbers": ""
+  },
+  {
+    "paper": "arxiv:2503.21275",
+    "claim": "Section 3.1.2 result (MOME series system) — lr ordering",
+    "page": 10,
+    "quote": "We note that, f_D(t)/f_I(t) = (λ/Σi=1^n λi) exp(−(λ − Σi=1 λi)t) is decreasing in t, so there is LR ordering between the lifetimes of series system having dependent and independent components respectively, i.e., TD ≤LR TI.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "Marshall–Olkin multivariate exponential (MOME, eq. 3.5) components vs independent exponentials; both give Exponential system lifetime, TD ~ Exp(λ), TI ~ Exp(Σλi), λ = Σλi + Σλ_i1,i2 + ... + λ_1,...,n ≥ Σλi",
+    "compared": "dependent series lifetime vs independent series lifetime",
+    "hypotheses": [
+      {
+        "text": "components follow MOME (3.5); independent counterpart Exp(λi)",
+        "formal": "λ ≥ Σλi since all λ's ≥ 0",
+        "source": "derivation"
+      }
+    ],
+    "conclusion": {
+      "order": "lr",
+      "direction": "T_D <=lr T_I"
+    },
+    "quantifiers": "n ≥ 2; t ≥ 0",
+    "ambiguity": "Inline (unnumbered) result; f_D/f_I decreasing because λ ≥ Σλi.",
+    "numbers": ""
+  },
+  {
+    "paper": "arxiv:2503.21275",
+    "claim": "Section 3.1.2 result (MOME series system) — implied orders",
+    "page": 10,
+    "quote": "Also, r_D(t)/r_I(t) = λ/Σi=1^n λi, t ≥ 0, giving TD =AI TI. This implies TD ≤FR TI (equivalent to r_D(t) ≥ r_I(t)), TD ≤ST TI (equivalent to F̄_D(t) ≤ F̄_I(t)), TD ≤MRL TI (equivalent to m_D(t) ≤ m_I(t)) and TD ≤RFR TI (equivalent to µ_D(t) ≤ µ_I(t)) for t ≥ 0, resulting in OA in SF, RFR, MRL and UA in FR.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "MOME components",
+    "compared": "TD vs TI",
+    "hypotheses": [
+      {
+        "text": "TD ≤LR TI established above; r_D/r_I constant",
+        "formal": "both systems exponential",
+        "source": "derivation"
+      }
+    ],
+    "conclusion": {
+      "order": "hr",
+      "direction": "T_D <=hr T_I, T_D <=st T_I, T_D <=mrl T_I, T_D <=rh T_I, and T_D =AI T_I (aging intensities equal, both AI = 1)"
+    },
+    "quantifiers": "n ≥ 2; t ≥ 0",
+    "ambiguity": "Bundle of implied orderings printed inline; 'TD =AI TI' is equality of aging intensity (both L(t) = 1).",
+    "numbers": ""
+  },
+  {
+    "paper": "arxiv:2503.21275",
+    "claim": "Section 3.1.3 result (MGI series system) — hr ordering bundle",
+    "page": 12,
+    "quote": "Here, F̄_D(t)/F̄_I(t) = exp(−a2 t² − a3 t³ − . . . − an t^n) is decreasing in t, and hence TD ≤FR TI. This in turn implies TD ≤ST TI, TD ≤MRL TI.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "Multivariate Gumbel Type-I (MGI, eq. 3.6) components",
+    "compared": "TD vs TI",
+    "hypotheses": [
+      {
+        "text": "components follow MGI; a_j = sums of interaction λ's ≥ 0",
+        "formal": "F̄_D/F̄_I decreasing",
+        "source": "derivation"
+      },
+      {
+        "text": "resultant series system is IFRA (1 ≤ L_D(t) ≤ n)",
+        "formal": "via Lemma 3.2 and Lemma 3.3",
+        "source": "derivation"
+      }
+    ],
+    "conclusion": {
+      "order": "hr",
+      "direction": "T_D <=hr T_I (paper writes 'FR'), hence T_D <=st T_I and T_D <=mrl T_I"
+    },
+    "quantifiers": "n ≥ 2; t ≥ 0",
+    "ambiguity": "The claim 'resultant series system is IFRA' (single-distribution characterization) is noted in the text but excluded as a separate record.",
+    "numbers": ""
+  },
+  {
+    "paper": "arxiv:2503.21275",
+    "claim": "Section 3.1.3 result (MGI series system) — ageing-faster and AI ordering",
+    "page": 12,
+    "quote": "Since, r_D(t)/r_I(t) = (a1 + 2a2 t + 3a3 t² + . . . + nan t^{n−1})/a1 is increasing in t, we have TD ≤AFR TI, giving TD ≤AI TI, (cf. Remark 2.1) i.e., L_D(t) ≥ L_I(t), i.e., E2L(t) ≥ 0 for all t ≥ 0.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "MGI components",
+    "compared": "TD vs TI in aging-faster (AF) and aging-intensity (AI) orders",
+    "hypotheses": [
+      {
+        "text": "r_D/r_I increasing in t",
+        "formal": "hazard-rate ratio monotone",
+        "source": "derivation"
+      }
+    ],
+    "conclusion": {
+      "order": "ageing: aging-faster (AF)",
+      "direction": "T_D <=AFR T_I, hence T_D <=AI T_I i.e. L_D(t) ≥ L_I(t)"
+    },
+    "quantifiers": "n ≥ 2; t ≥ 0",
+    "ambiguity": "'AF'/'AFR' is the paper's aging-faster order (r_X/r_Y non-increasing defines X ≤AF Y per Definition 2.4(vi)); note printed 'TD ≤AFR TI' with r_D/r_I increasing is consistent with their definition.",
+    "numbers": ""
+  },
+  {
+    "paper": "arxiv:2503.21275",
+    "claim": "Section 3.2.2 result (MOMW series system)",
+    "page": 14,
+    "quote": "Clearly F̄_D(t)/F̄_I(t) = exp(−B(t)) is decreasing in t ≥ 0, and hence r_D(t) ≥ r_I(t) giving F̄_D(t) ≤ F̄_I(t) and m_D(t) ≤ m_I(t) for all t ≥ 0. Thus, the relative errors in SF, FR, MRL respectively satisfy E3F(t) ≤ 0, E3r(t) ≥ 0, and E3m(t) ≤ 0 for all t ≥ 0. In other words, there is OA in SF, MRL and UA in FR.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "Marshall–Olkin multivariate Weibull (MOMW) components",
+    "compared": "TD vs TI",
+    "hypotheses": [
+      {
+        "text": "components follow MOMW; B(t) = Σ λ_i1,i2 t^{max(α_i1,α_i2)} + ... ≥ 0 increasing",
+        "formal": "F̄_D/F̄_I decreasing",
+        "source": "derivation"
+      }
+    ],
+    "conclusion": {
+      "order": "hr",
+      "direction": "r_D(t) ≥ r_I(t) i.e. T_D <=hr T_I, hence F̄_D ≤ F̄_I (T_D <=st T_I) and m_D ≤ m_I (T_D <=mrl T_I)"
+    },
+    "quantifiers": "n ≥ 2; t ≥ 0",
+    "ambiguity": "Inline result; hr order inferred from survival-ratio monotonicity.",
+    "numbers": ""
+  },
+  {
+    "paper": "arxiv:2503.21275",
+    "claim": "Section 3.2.4 result (Multivariate Lee series system)",
+    "page": 17,
+    "quote": "Since f_D(t)/f_I(t) is decreasing in t, we have TD ≤lr TI and hence TD ≤hr TI, TD ≤st TI, TD ≤rhr TI and TD ≤mrl TI. We note that r_D(t)/r_I(t) is non-negative constant. The relative error in each of survival function, reversed failure rate, mean residual life function is negative whereas the relative error in failure rate is positive, for aging intensity function, it is zero.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "Multivariate Lee (1979) components; system Weibull: F̄(t) = exp(−λ_L t^α)",
+    "compared": "TD vs TI",
+    "hypotheses": [
+      {
+        "text": "components follow multivariate Lee distribution; λ_L ≥ Σ λ_i c_i^α",
+        "formal": "both system lifetimes Weibull with same shape α",
+        "source": "derivation"
+      }
+    ],
+    "conclusion": {
+      "order": "lr",
+      "direction": "T_D <=lr T_I hence T_D <=hr T_I, T_D <=st T_I, T_D <=rh T_I (paper 'rhr'), T_D <=mrl T_I; r_D/r_I constant ⇒ equal AF/AI behavior (L_D = L_I = α)"
+    },
+    "quantifiers": "n ≥ 2; t ≥ 0",
+    "ambiguity": "Both dependent and independent systems are Weibull(α) differing only in scale; the lr claim holds since λ_L ≥ Σλ_i c_i^α.",
+    "numbers": ""
+  },
+  {
+    "paper": "arxiv:2503.21275",
+    "claim": "Section 3.2.6 result (FGMW series system)",
+    "page": 19,
+    "quote": "Here, E F(t) = γ(1 − θ(t)), E r(t) = φ′(t)/(φ(t)A′(t)), So, E F(t) takes same sign as γ. Further, E F(t) ≤ (≥)γ according as γ ≥ (≤)0. E r(t) takes opposite sign to γ.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "Farlie–Gumbel–Morgenstern Weibull components; dependence parameter −1 < γ < 1",
+    "compared": "TD vs TI conditional on sign of γ",
+    "hypotheses": [
+      {
+        "text": "components follow FGMW; φ(t) = 1 + γ(1 − θ(t)) ≥ 0; θ non-decreasing",
+        "formal": "E_F(t) = γ(1−θ(t))",
+        "source": "derivation"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "γ > 0 ⟹ E_F(t) ≥ 0 ⟹ F̄_D ≥ F̄_I (T_D >=st T_I) with E_r opposite sign; γ < 0 reverses (T_D <=st T_I)"
+    },
+    "quantifiers": "n ≥ 2; t ≥ 0",
+    "ambiguity": "Ordering direction depends on sign of the FGMW dependence parameter γ; stated as error signs rather than ≤st notation.",
+    "numbers": ""
+  },
+  {
+    "paper": "arxiv:2503.21275",
+    "claim": "Section 4.3.2 result (FGMW parallel system)",
+    "page": 25,
+    "quote": "We note that E F(t) ≥ 0 if γ is positive and n is odd or if γ is negative and n is even. On the other hand, E F(t) ≤ 0 if γ is positive and n is even or if γ is negative and n is odd. E r(t) ≤ 0 if γ > 0 and n is odd or if γ < 0 and n is even. E µ(t) ≤ 0 if γ > 0 and n is even or if γ < 0 and n is odd. E µ(t) ≥ 0 if γ > 0 and n is odd or if γ < 0 and n is even.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "FGMW components, −1 < γ < 1",
+    "compared": "dependent parallel vs independent parallel system, conditional on γ and parity of n",
+    "hypotheses": [
+      {
+        "text": "components follow FGMW; E_F(t) = (−1)^{n−1} exp(A(t))γ(1−θ(t))/θ(t)",
+        "formal": "sign rules from the printed error formulas",
+        "source": "derivation"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "SF error E_F ≥ 0 iff sign(γ)·(−1)^{n−1} > 0 (γ>0,n odd or γ<0,n even); FR error and RFR error signs given by the printed parity rules — directions of st/fr/rh comparisons between T_D and T_I flip with γ sign and n parity"
+    },
+    "quantifiers": "n ≥ 2; t ≥ 0",
+    "ambiguity": "Given the parallel-system error convention ambiguity noted at Proposition 2.1 (two inconsistent EPF formulas printed), the exact ≤st direction implied by 'E_F ≥ 0' for the parallel system is left as printed.",
+    "numbers": ""
+  }
+]
