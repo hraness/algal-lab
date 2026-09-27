@@ -25,6 +25,42 @@ millions of (3,10,39)-graphs, and his one-point extension checks found no
 is not confident in it because the 39-vertex class is so large. A 40-vertex
 graph, if one exists, would have to avoid everything those checks covered.
 
+## Literature pass (done 2026-09-27)
+
+- Bounds: 40 <= R(3,10) <= 41. Upper bound is Angeltveit (arXiv:2401.00392,
+  EJC 32(4) 2025): ~150 billion (3,9)-graphs enumerated, ~3 CPU-years, no
+  (3,10,41)-graph found. Lower bound is Exoo's (3,10,39)-graph (1989).
+- Failed searches already in the record: 37M+ (3,10,39)-graphs with
+  161 <= e <= 175 (Goedgebeur/Radziszowski catalog ~50M colorings) do not
+  extend to a (3,10,40)-graph; a simulated-annealing run found 810 pairwise
+  non-isomorphic colorings of K_40 with exactly ONE monochromatic triangle
+  (Exoo et al., "On Some Small Classical Ramsey Numbers"). So a 40-vertex
+  graph, if it exists, is outside all generated 39-vertex classes.
+- Structural constraints on a hypothetical (3,10,40)-graph Omega
+  (arXiv:2601.03572 sec.3): Delta = 9; delta >= 4; e >= 161; no vertex has
+  two neighbours with degree sum <= 11; for any v and v1,v2 in N(v),
+  |N(v1) u N(v2)| >= 11; diam(Omega) in {2,3}; if 9-regular then diam = 2;
+  a degree-4 vertex has |Omega_2(v)| in [19,24], |Omega_3(v)| in [11,17].
+- No published exhaustive symmetry-class search of (3,10,40)-graphs was
+  found: circulants on Z_40, Cayley graphs on the groups of order 40, and
+  vertex-transitive graphs on 40 vertices are not known to be excluded.
+  Circulants are ~2^20 distance sets, enumerable in minutes; the
+  vertex-transitive census at order 40 is available (Holt/Royle) and can be
+  filtered directly.
+- Assessment unchanged: the obvious conjecture is R(3,10) = 40, and finding
+  a 40-vertex witness is a needle in a space already probed heuristically.
+  The search proceeds under the existing time box; circulants/Cayley/VT
+  classes first because they are cheap and independently checkable.
+
+## Log
+
+- 2026-09-27, circulants (`circulants.py`): every 9-regular circulant on
+  Z_40 checked exhaustively (3876 candidates: degree 9 forces the antipodal
+  generator 20 plus 4 of {1..19}; 484 triangle-free; none with alpha <= 9).
+  No circulant (3,10,40)-graph exists. Lower-degree circulants are excluded
+  by e(3,10,40) >= 161, higher by Delta <= 9. Certified negative on the
+  class; likely folklore but we found no published exclusion.
+
 ## Approach
 
 1. Literature pass: which symmetry classes of (3,10,40)-graphs are already
