@@ -703,5 +703,674 @@
   "numbers": "Figure 5(b) shows the density ratio varying around 1.00 (axis roughly 0.996\u20131.006)",
   "ambiguity": "",
   "adjudication": "example record (pass b)"
+ },
+ {
+  "paper": "arxiv:1612.00571",
+  "claim": "Corollary 3.3",
+  "page": 11,
+  "quote": "Corollary 3.3 Let, for i = 1, 2, the two independent random variables Xi and Yi follow the PO model with parameters \u03bbi and \u00b5i, respectively. Then (\u03bb1, \u03bb2) \u2ab0m (\u00b51, \u00b52) \u21d2 X1:2 \u2273hr Y1:2.",
+  "kind": "corollary",
+  "model": "series system",
+  "family": "PO model, n = 2 (n1 = n2 = 1)",
+  "compared": "parameter pairs (\u03bb1,\u03bb2) vs (\u00b51,\u00b52) under majorization",
+  "hypotheses": [
+   {
+    "text": "(\u03bb1, \u03bb2) \u2ab0m (\u00b51, \u00b52)",
+    "formal": "2-vector majorization (equal sums, lower partial sums of \u03bb \u2265 those of \u00b5)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: hr",
+   "direction": "X1:2 \u2273hr Y1:2 (as printed; converse of the defined \u2272hr, i.e., Y1:2 ages faster than X1:2 in hazard rate)"
+  },
+  "quantifiers": "n = 2; x > 0",
+  "numbers": "",
+  "ambiguity": "Pass B's '\u227ahr' is a misread: the LaTeX source prints \\gtrsim_{hr} (\u2273). Definition 2.3(2)(i) denotes 'X ages faster than Y' by X \u2272hr Y (r1/r2 increasing); the theorems print the mirror symbol \u2273hr while proofs show rX/rY decreasing, so \u2273hr is used as the converse of \u2272hr (Y ages faster). Recorded as printed."
+ },
+ {
+  "paper": "arxiv:1612.00571",
+  "claim": "Corollary 3.4",
+  "page": 13,
+  "quote": "Corollary 3.4 Let X1 and X2 be independent following the PO model with parameters \u03bb1 and \u03b7 respectively, and let Y1 and Y2 be independent following the PO model with parameters \u00b51 and \u03b7 respectively. Then for \u03bb1 \u2264 min{\u03b7, \u00b51}, (\u03bb1, \u03b7) \u2ab0w (\u00b51, \u03b7) \u21d2 X1:2 \u2273hr Y1:2.",
+  "kind": "corollary",
+  "model": "series system",
+  "family": "PO model, n = 2, shared second parameter \u03b7",
+  "compared": "pairs (\u03bb1,\u03b7) vs (\u00b51,\u03b7) under weak supermajorization",
+  "hypotheses": [
+   {
+    "text": "\u03bb1 \u2264 min{\u03b7, \u00b51}",
+    "formal": "scalar bound",
+    "source": "statement"
+   },
+   {
+    "text": "(\u03bb1, \u03b7) \u2ab0w (\u00b51, \u03b7)",
+    "formal": "weak supermajorization",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: hr",
+   "direction": "X1:2 \u2273hr Y1:2 (as printed; converse of \u2272hr: Y1:2 ages faster)"
+  },
+  "quantifiers": "n = 2; x > 0",
+  "numbers": "",
+  "ambiguity": "n1 = n2 = 1 specialization of Theorem 3.5. Same \u2273hr/\u2272hr notation tension as Corollary 3.3; B's '\u227ahr' is a misread of \\gtrsim."
+ },
+ {
+  "paper": "arxiv:1612.00571",
+  "claim": "Corollary 3.5",
+  "page": 14,
+  "quote": "Corollary 3.5 Let X1 and X2 be independent following PO model with parameters \u03bb1 and \u03bb2 respectively, and let Y1 and Y2 be independent following PO model with parameters \u00b51 and \u00b52 respectively. Then (\u03bb1, \u03bb2) \u2ab0w (\u00b51, \u00b52) \u21d2 X1:2 \u2273hr Y1:2, where {\u03bb1 \u2264 \u00b51 \u2264 \u00b52 \u2264 \u03bb2} or {\u03bb1 \u2265 \u00b51 \u2265 \u00b52 \u2265 \u03bb2}.",
+  "kind": "corollary",
+  "model": "series system",
+  "family": "PO model, n = 2",
+  "compared": "parameter pairs under weak supermajorization plus interlacing",
+  "hypotheses": [
+   {
+    "text": "(\u03bb1, \u03bb2) \u2ab0w (\u00b51, \u00b52)",
+    "formal": "weak supermajorization",
+    "source": "statement"
+   },
+   {
+    "text": "{\u03bb1 \u2264 \u00b51 \u2264 \u00b52 \u2264 \u03bb2} or {\u03bb1 \u2265 \u00b51 \u2265 \u00b52 \u2265 \u03bb2}",
+    "formal": "interlacing conditions",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: hr",
+   "direction": "X1:2 \u2273hr Y1:2 (as printed)"
+  },
+  "quantifiers": "n = 2; x > 0",
+  "numbers": "",
+  "ambiguity": "n1 = n2 = 1 specialization of Theorem 3.6. Same \u2273hr/\u2272hr notation tension as Corollary 3.3."
+ },
+ {
+  "paper": "arxiv:1612.00571",
+  "claim": "Corollary 4.1",
+  "page": 17,
+  "quote": "Corollary 4.1 Suppose lifetime vectors X \u223c PO(F\u0304, \u03bb) and Y \u223c PO(F\u0304, \u03bb1). Then, Xn:n \u2264rhr Yn:n if \u03bb \u2265 (1/n) \u03a3_{i=1}^n \u03bbi.",
+  "kind": "corollary",
+  "model": "parallel system",
+  "family": "PO model; X heterogeneous (vector \u03bb), Y homogeneous (\u03bb\u00b71)",
+  "compared": "heterogeneous vs homogeneous parallel system (mean condition)",
+  "hypotheses": [
+   {
+    "text": "\u03bb \u2265 (1/n) \u03a3_{i=1}^n \u03bbi",
+    "formal": "common scalar \u03bb at least the arithmetic mean of the \u03bbi",
+    "source": "statement"
+   },
+   {
+    "text": "(\u03bb1, . . . , \u03bbn) \u2ab0w (\u03bb, . . . , \u03bb) for \u03bb \u2265 (1/n) \u03a3 \u03bbi",
+    "formal": "weak supermajorization of the \u03bb-vector over the constant vector, used via Theorem 4.1",
+    "source": "section preamble"
+   }
+  ],
+  "conclusion": {
+   "order": "rh",
+   "direction": "Xn:n \u2264rhr Yn:n (X smaller in reversed hazard rate order)"
+  },
+  "quantifiers": "n \u2265 1; x > 0",
+  "numbers": "",
+  "ambiguity": "This is the reversed hazard rate ORDER (\u2264rhr), not relative ageing \u2014 canonical order label 'rh' (pass B); pass A's 'rhr' is the same thing spelled as the paper's subscript. '\u03bb1' in Y \u223c PO(F\u0304, \u03bb1) prints for \u03bb\u00b7\ud835\udfcf, the homogeneous vector."
+ },
+ {
+  "paper": "arxiv:1612.00571",
+  "claim": "Corollary 4.2",
+  "page": 19,
+  "quote": "Corollary 4.2 Let X1 and X2 be independent following the PO model with parameters \u03bb1 and \u03b7 respectively, and let Y1 and Y2 be independent following PO model with parameters \u00b51 and \u03b7 respectively. Then \u03bb1 \u2264 \u03b7 \u2264 \u00b51 \u21d2 X2:2 \u2272rhr Y2:2.",
+  "kind": "corollary",
+  "model": "parallel system",
+  "family": "PO model, n = 2, shared second parameter \u03b7",
+  "compared": "scalar chain \u03bb1 \u2264 \u03b7 \u2264 \u00b51",
+  "hypotheses": [
+   {
+    "text": "\u03bb1 \u2264 \u03b7 \u2264 \u00b51",
+    "formal": "scalar chain",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: rhr",
+   "direction": "X2:2 \u2272rhr Y2:2 (as printed; per Def 2.3(2)(ii) = X ages faster than Y in reversed hazard rate, r\u0303Y2:2/r\u0303X2:2 increasing)"
+  },
+  "quantifiers": "n = 2; x > 0",
+  "numbers": "",
+  "ambiguity": "Source prints \\lesssim_{rhr} (\u2272) \u2014 pass A correct; B's '\u227brhr' is a misread. Unlike the hr-ageing theorems (which print the mirror \u2273hr), the rhr-ageing statements print the defined \u2272 symbol directly. Counterexample 5.6 shows the chain cannot be replaced by \u03bb1 \u2264 \u00b51 \u2264 \u03b7."
+ },
+ {
+  "paper": "arxiv:1612.00571",
+  "claim": "Counterexample 5.1",
+  "page": 24,
+  "quote": "Counterexample 5.1 Let X = (X1, X2, X3) and Y = (Y1, Y2, Y3) with Xi \u223c PO(F\u0304, \u03bbi) and Yi \u223c PO(F\u0304, \u00b5i), i = 1, 2, 3, where the baseline survival function F\u0304 is given by F\u0304(x) = e^{-2x}, x > 0. Take (\u03bb1, \u03bb2, \u03bb3) = (2.2, 3, 5) and (\u00b51, \u00b52, \u00b53) = (2.8, 3.2, 3.3) so that (\u03bb1, \u03bb2, \u03bb3) \u2ab0rm (\u00b51, \u00b52, \u00b53) but (\u03bb1, \u03bb2, \u03bb3) \u22e1p (\u00b51, \u00b52, \u00b53). It is observed that, for x = 0.2, F\u0304X1:3(x) = 0.63929 and F\u0304Y1:3(x) = 0.641646. Again, for x = 0.8, F\u0304X1:3(x) = 0.0861549 and F\u0304Y1:3(x) = 0.084394. So X1:3 \u2270st Y1:3.",
+  "kind": "counterexample",
+  "model": "series system",
+  "family": "PO model over exponential baseline F\u0304(x) = e^{-2x}",
+  "compared": "\u03bb = (2.2,3,5) vs \u00b5 = (2.8,3.2,3.3): reciprocal majorization holds, p-larger fails",
+  "hypotheses": [
+   {
+    "text": "(\u03bb1, \u03bb2, \u03bb3) \u2ab0rm (\u00b51, \u00b52, \u00b53) but (\u03bb1, \u03bb2, \u03bb3) \u22e1p (\u00b51, \u00b52, \u00b53)",
+    "formal": "reciprocal majorization holds, p-larger fails",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X1:3 \u2270st Y1:3 (no st order: F\u0304X < F\u0304Y at x = 0.2 but F\u0304X > F\u0304Y at x = 0.8); shows Theorem 3.1's p-larger hypothesis cannot be replaced by reciprocal majorization"
+  },
+  "quantifiers": "n = 3",
+  "numbers": "\u03bb = (2.2,3,5); \u00b5 = (2.8,3.2,3.3); F\u0304X(0.2) = 0.63929, F\u0304Y(0.2) = 0.641646; F\u0304X(0.8) = 0.0861549, F\u0304Y(0.8) = 0.084394",
+  "ambiguity": "Printed negated glyph is \\nleq_{st} (\u2270st). The A_smaller/B_smaller queue codes are artifacts; both passes' records substantively agree that no st order holds."
+ },
+ {
+  "paper": "arxiv:1612.00571",
+  "claim": "Counterexample 5.2",
+  "page": 24,
+  "quote": "Counterexample 5.2 Let X = (X1, X2, X3) and Y = (Y1, Y2, Y3) with Xi \u223c PO(F\u0304, \u03bbi) and Yi \u223c PO(F\u0304, \u00b5i), i = 1, 2, 3, where the baseline survival function F\u0304 is given by F\u0304(x) = e^{-1.2x}, x > 0. Take (\u03bb1, \u03bb2, \u03bb3) = (2, 3, 5) and (\u00b51, \u00b52, \u00b53) = (2.8, 3.2, 3.4) so that (\u03bb1, \u03bb2, \u03bb3) \u2ab0p (\u00b51, \u00b52, \u00b53) but (\u03bb1, \u03bb2, \u03bb3) \u22e1w (\u00b51, \u00b52, \u00b53). It is observed that, for x = 0.2, rX1:3(x) = 1.4273 and rY1:3(x) = 1.3516, and, for x = 1.8, rX1:3(x) = 2.8722 and rY1:3(x) = 2.8907. Thus, we have X1:3 \u2270hr Y1:3.",
+  "kind": "counterexample",
+  "model": "series system",
+  "family": "PO model over exponential baseline F\u0304(x) = e^{-1.2x}",
+  "compared": "\u03bb = (2,3,5) vs \u00b5 = (2.8,3.2,3.4): p-larger holds, weak supermajorization fails",
+  "hypotheses": [
+   {
+    "text": "(\u03bb1, \u03bb2, \u03bb3) \u2ab0p (\u00b51, \u00b52, \u00b53) but (\u03bb1, \u03bb2, \u03bb3) \u22e1w (\u00b51, \u00b52, \u00b53)",
+    "formal": "p-larger holds, weak supermajorization fails",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "X1:3 \u2270hr Y1:3 (hazard ordering fails: rX > rY at x = 0.2 but rX < rY at x = 1.8); shows Theorem 3.2's weak-supermajorization hypothesis cannot be replaced by p-larger"
+  },
+  "quantifiers": "n = 3",
+  "numbers": "\u03bb = (2,3,5); \u00b5 = (2.8,3.2,3.4); rX(0.2) = 1.4273, rY(0.2) = 1.3516; rX(1.8) = 2.8722, rY(1.8) = 2.8907",
+  "ambiguity": "Printed negated glyph is \\nleq_{hr} (\u2270hr)."
+ },
+ {
+  "paper": "arxiv:1612.00571",
+  "claim": "Counterexample 5.3",
+  "page": 25,
+  "quote": "Counterexample 5.3 Let X = (X1, X2, ..., X6) and Y = (Y1, Y2, ..., Y6), each follows the multiple-outlier PO model such that Xi \u223c PO(F\u0304, 2), Yi \u223c PO(F\u0304, 3), for i = 1, 2, Xj \u223c PO(F\u0304, 6), Yj \u223c PO(F\u0304, 5.5), for j = 3, 4, 5, 6, where the baseline survival function is given by F\u0304(x) = e^{-2x}, x > 0. Clearly, (2, 2, 6, 6, 6, 6) \u2ab0m (3, 3, 5.5, 5.5, 5.5, 5.5). However, it is observed from Figure 5(a) that r\u0303Y6:6(x)/r\u0303X6:6(x) is non-monotone.",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "multiple-outlier PO model (n1 = 2, n2 = 4) over exponential baseline F\u0304(x) = e^{-2x}",
+  "compared": "block parameters (2,2,6,6,6,6) vs (3,3,5.5,5.5,5.5,5.5) under majorization",
+  "hypotheses": [
+   {
+    "text": "(2, 2, 6, 6, 6, 6) \u2ab0m (3, 3, 5.5, 5.5, 5.5, 5.5)",
+    "formal": "equal totals 28; smallest-first partial sums of the \u03bb-vector \u2265 those of \u00b5",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: rhr",
+   "direction": "no rhr relative-ageing ordering: r\u0303Y6:6/r\u0303X6:6 non-monotone \u2014 the parallel-system analogue of Theorem 3.3 fails under majorization"
+  },
+  "quantifiers": "n = 6 (n1 = 2, n2 = 4)",
+  "numbers": "X block params 2 (\u00d72), 6 (\u00d74); Y block params 3 (\u00d72), 5.5 (\u00d74); Figure 5(a)",
+  "ambiguity": "Remark 4.1 adds the companion observation that fY6:6/fX6:6 is also non-monotone (no lr order) \u2014 recorded as a separate record under remark4.1."
+ },
+ {
+  "paper": "arxiv:1612.00571",
+  "claim": "Counterexample 5.5",
+  "page": 26,
+  "quote": "Counterexample 5.5 Let X = (X1, X2, X3, X4) and Y = (Y1, Y2, Y3, Y4), each follows the multiple-outlier PO model such that Xi \u223c PO(F\u0304, \u03bbi), i = 1, 2, 3, 4 and Yi \u223c PO(F\u0304, \u03bb), i = 1, 2, 3, 4, where the baseline survival function is given by F\u0304(x) = e^{-(x/\u03b2)^k}, \u03b2, k > 0, x > 0. It is observed from Figure 6(a) that, for \u03bb1 = 2, \u03bb2 = 3, \u03bb3 = 4, \u03bb4 = 5, \u03bb = 3.6, \u03b2 = 0.8, and k = 2, r\u0303Y4:4(x)/r\u0303X4:4(x) is non-monotone. Again, for \u03bb1 = 2, \u03bb2 = 3, \u03bb3 = 4, \u03bb4 = 5, \u03bb = 3.4, \u03b2 = 3 and k = 2, r\u0303Y4:4(x)/r\u0303X4:4(x) is also non-monotone as can be seen from Figure 6(b).",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "PO model over Weibull baseline F\u0304(x) = e^{-(x/\u03b2)^k}; heterogeneous X vs homogeneous Y",
+  "compared": "heterogeneous \u03bb = (2,3,4,5) vs homogeneous \u03bb \u2208 {3.6, 3.4}",
+  "hypotheses": [
+   {
+    "text": "Yi \u223c PO(F\u0304, \u03bb) homogeneous; two parameter sets (\u03bb1,\u03bb2,\u03bb3,\u03bb4,\u03bb,\u03b2,k) = (2,3,4,5,3.6,0.8,2) and (2,3,4,5,3.4,3,2)",
+    "formal": "\u03bb = 3.6 \u2265 mean 3.5 satisfies Corollary 4.1's condition; \u03bb = 3.4 < 3.5 violates it",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: rhr",
+   "direction": "no rhr relative-ageing ordering: r\u0303Y4:4/r\u0303X4:4 non-monotone in both cases \u2014 a parallel system of heterogeneous components may not be rhr-ageing-comparable with a homogeneous one whether or not Corollary 4.1's mean condition holds (no analogue of Theorem 3.7)"
+  },
+  "quantifiers": "n = 4",
+  "numbers": "case (a): \u03bb = (2,3,4,5), \u03bb = 3.6, \u03b2 = 0.8, k = 2 (Figure 6(a)); case (b): \u03bb = (2,3,4,5), \u03bb = 3.4, \u03b2 = 3, k = 2 (Figure 6(b))",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:1612.00571",
+  "claim": "Counterexample 5.6",
+  "page": 26,
+  "quote": "Counterexample 5.6 Let X1 and X2 follow the PO model with parameters \u03bb1 and \u03b7 respectively, and let Y1 and Y2 follow the PO model with parameters \u00b51 and \u03b7 respectively, where the baseline distribution is exponential with parameter \u03bb = 2. Now, for \u03bb1 = 0.2, \u00b51 = 0.4 and \u03b7 = 0.9, r\u0303Y2:2(x)/r\u0303X2:2(x) is non-monotone, as we see from Figure 7.",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "PO model over exponential baseline with rate 2, n = 2",
+  "compared": "parameters \u03bb1 = 0.2, \u00b51 = 0.4, \u03b7 = 0.9 giving \u03bb1 \u2264 \u00b51 \u2264 \u03b7 instead of the required \u03bb1 \u2264 \u03b7 \u2264 \u00b51",
+  "hypotheses": [
+   {
+    "text": "\u03bb1 = 0.2, \u00b51 = 0.4 and \u03b7 = 0.9",
+    "formal": "violates the \u03bb1 \u2264 \u03b7 \u2264 \u00b51 chain of Theorem 4.3 (here \u03b7 > \u00b51)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: rhr",
+   "direction": "no rhr relative-ageing ordering: r\u0303Y2:2/r\u0303X2:2 non-monotone \u2014 the \u03bb1 \u2264 \u03b7 \u2264 \u00b51 hypothesis of Theorem 4.3 cannot be replaced by \u03bb1 \u2264 \u00b51 \u2264 \u03b7"
+  },
+  "quantifiers": "n = 2",
+  "numbers": "\u03bb1 = 0.2; \u00b51 = 0.4; \u03b7 = 0.9; exponential rate 2; Figure 7",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:1612.00571",
+  "claim": "Example 5.1",
+  "page": 20,
+  "quote": "Example 5.1 Consider two series systems, each comprising of three components having lifetimes following the PO model with the common baseline survival function given by F\u0304(x) = e^{-(x/\u03b2)^k} with \u03b2 = 0.4, k = 2, x \u2265 0. ... (\u03bb1, \u03bb2, \u03bb3) = (2, 3, 5) and (\u00b51, \u00b52, \u00b53) = (2.5, 3.5, 6) so that (2, 3, 5) \u2ab0p (2.5, 3.5, 6). ... From Figure 1 we observe that \u03be1(t) \u2264 \u03be2(t) for all t \u2208 [0, 1), which implies that F\u0304X1:3(x) \u2264 F\u0304Y1:3(x) for all x \u2265 0. Thus X1:3 \u2264st Y1:3.",
+  "kind": "example",
+  "model": "series system",
+  "family": "PO model over Weibull baseline F\u0304(x) = e^{-(x/0.4)^2}",
+  "compared": "\u03bb = (2,3,5) vs \u00b5 = (2.5,3.5,6) under p-larger order",
+  "hypotheses": [
+   {
+    "text": "(2, 3, 5) \u2ab0p (2.5, 3.5, 6)",
+    "formal": "p-larger relation (partial products of smallest: 2 \u2264 2.5, 6 \u2264 8.75, 30 \u2264 52.5)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X1:3 \u2264st Y1:3 (F\u0304X1:3 \u2264 F\u0304Y1:3 via Figure 1 after substitution x = t/(1\u2212t)) \u2014 supports Theorem 3.1"
+  },
+  "quantifiers": "n = 3; all x \u2265 0",
+  "numbers": "\u03b2 = 0.4, k = 2; \u03bb = (2,3,5); \u00b5 = (2.5,3.5,6)",
+  "ambiguity": "Verification is graphical (Figure 1)."
+ },
+ {
+  "paper": "arxiv:1612.00571",
+  "claim": "Example 5.2",
+  "page": 21,
+  "quote": "Example 5.2 Consider two series systems, each comprising of three components having lifetimes following the PO model with the common baseline survival function given by F\u0304(x) = e^{-2x}, x \u2265 0. ... Taking (\u03bb1, \u03bb2, \u03bb3) = (3, 4.5, 6) and (\u00b51, \u00b52, \u00b53) = (4, 5, 6) we observe that (3, 4.5, 6) \u2ab0w (4, 5, 6). Note that F\u0304Y1:3(x)/F\u0304X1:3(x) = (120/81)(1 + 5.5e^{-2x} + 7e^{-4x})/(1 + 7e^{-2x} + 12e^{-4x}), which is increasing in x \u2265 0, and hence X1:3 \u2264hr Y1:3.",
+  "kind": "example",
+  "model": "series system",
+  "family": "PO model over exponential baseline F\u0304(x) = e^{-2x}",
+  "compared": "\u03bb = (3,4.5,6) vs \u00b5 = (4,5,6) under weak supermajorization",
+  "hypotheses": [
+   {
+    "text": "(3, 4.5, 6) \u2ab0w (4, 5, 6)",
+    "formal": "weak supermajorization (smallest-first partial sums of \u03bb \u2265 \u00b5: 3 \u2264 4, 7.5 \u2264 9, 13.5 \u2264 15 hold for \u2ab0w direction as printed)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "X1:3 \u2264hr Y1:3 (F\u0304Y/F\u0304X increasing) \u2014 supports Theorem 3.2"
+  },
+  "quantifiers": "n = 3; all x \u2265 0",
+  "numbers": "\u03bb = (3,4.5,6); \u00b5 = (4,5,6); ratio (120/81)(1+5.5e^{-2x}+7e^{-4x})/(1+7e^{-2x}+12e^{-4x})",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:1612.00571",
+  "claim": "Example 5.3",
+  "page": 21,
+  "quote": "Example 5.3 Consider two series systems, each comprising of four components having lifetimes following the multiple-outlier PO model with the common baseline survival function given by F\u0304(x) = e^{-x^2/2}, x \u2265 0. ... \u03bb1 = 2, \u03bb2 = 4.5, \u00b51 = 3, \u00b52 = 3.5, so that (2, 2, 4.5, 4.5) \u2ab0m (3, 3, 3.5, 3.5). ... From Figure 2(a) we observe that l1(t)/l2(t) is decreasing in t \u2208 [0, 1), which is equivalent to the fact that rX1:4(x)/rY1:4(x) is decreasing in x \u2265 0. Hence X1:4 \u2273hr Y1:4.",
+  "kind": "example",
+  "model": "series system",
+  "family": "multiple-outlier PO model (n1 = n2 = 2) over F\u0304(x) = e^{-x^2/2} (half-normal type)",
+  "compared": "block vectors (2,2,4.5,4.5) vs (3,3,3.5,3.5) under majorization",
+  "hypotheses": [
+   {
+    "text": "(2, 2, 4.5, 4.5) \u2ab0m (3, 3, 3.5, 3.5); (\u03bb1,\u03bb2) = (2,4.5) \u2208 E+, (\u00b51,\u00b52) = (3,3.5) \u2208 E+",
+    "formal": "blocked majorization, equal totals 13, with both level-pairs in E+",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: hr",
+   "direction": "X1:4 \u2273hr Y1:4 (as printed; verified via rX1:4/rY1:4 decreasing \u2014 consistent with \u2273hr = converse of the defined \u2272hr, i.e., Y ages faster)"
+  },
+  "quantifiers": "n = 4, n1 = n2 = 2; x \u2265 0",
+  "numbers": "\u03bb1 = 2, \u03bb2 = 4.5, \u00b51 = 3, \u00b52 = 3.5",
+  "ambiguity": "Explicitly equates a decreasing rX/rY ratio with X \u2273hr Y \u2014 confirms the paper uses \u2273hr as converse of the defined \u2272hr relation (rX/rY decreasing \u27fa rY/rX increasing \u27fa Y \u2272hr X = Y ages faster). B's '\u227ahr' is a misread."
+ },
+ {
+  "paper": "arxiv:1612.00571",
+  "claim": "Example 5.4",
+  "page": 22,
+  "quote": "Example 5.4 Consider Example 5.3 with \u03bb1 = 3, \u03bb2 = \u00b52 = \u03b7 = 4, \u00b51 = 3.5, so that (2, 2, 4, 4) \u2ab0w (3.5, 3.5, 4, 4). After substituting x = t/(1 \u2212 t) in (5.2) and (5.3), let us denote the expressions in (5.2) and (5.3) as \u03ba1(t) and \u03ba2(t), respectively. From Figure 2(b) we observe that \u03ba1(t)/\u03ba2(t) is decreasing in t \u2208 [0, 1), which implies that rX1:4(x)/rY1:4(x) is decreasing in x \u2265 0. Hence X1:4 \u2273hr Y1:4.",
+  "kind": "example",
+  "model": "series system",
+  "family": "multiple-outlier PO model (n1 = n2 = 2) with shared outlier parameter \u03b7",
+  "compared": "block vectors under weak supermajorization",
+  "hypotheses": [
+   {
+    "text": "\u03bb1 = 3, \u03bb2 = \u00b52 = \u03b7 = 4, \u00b51 = 3.5, so that (2, 2, 4, 4) \u2ab0w (3.5, 3.5, 4, 4)",
+    "formal": "blocked weak supermajorization plus \u03bb1 \u2264 min{\u03b7,\u00b51} = 3.5 (Theorem 3.5 conditions)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: hr",
+   "direction": "X1:4 \u2273hr Y1:4 (as printed) \u2014 supports Theorem 3.5"
+  },
+  "quantifiers": "n = 4, n1 = n2 = 2; x \u2265 0",
+  "numbers": "\u03bb1 = 3 (as printed), \u03bb2 = \u00b52 = \u03b7 = 4, \u00b51 = 3.5; displayed vectors (2,2,4,4) vs (3.5,3.5,4,4)",
+  "ambiguity": "Internal inconsistency in the paper itself: text prints \u03bb1 = 3 but the displayed vector (2,2,4,4) implies \u03bb1 = 2 (\u03bb1 = 3 would give (3,3,4,4)); with \u03bb1 = 2 both \u03bb1 \u2264 min{\u03b7,\u00b51} = 3.5 and the weak supermajorization hold as printed. Recorded as written, per spec rule 3."
+ },
+ {
+  "paper": "arxiv:1612.00571",
+  "claim": "Example 5.5",
+  "page": 22,
+  "quote": "Example 5.5 Consider Example 5.3 with \u03bb1 = 2, \u03bb2 = 4, \u00b51 = 3, \u00b52 = 3.5, so that (2, 2, 4, 4) \u2ab0w (3, 3, 3.5, 3.5) and \u03bb1 < \u00b51 < \u00b52 < \u03bb2. After substituting x = t/(1 \u2212 t) in (5.2) and (5.3), let us denote the expressions in (5.2) and (5.3) as \u03b61(t) and \u03b62(t), respectively. From Figure 3 we observe that \u03b61(t)/\u03b62(t) is decreasing in t \u2208 [0, 1), which is equivalent to the fact that rX1:4(x)/rY1:4(x) is decreasing in x \u2265 0. Hence X1:4 \u2273hr Y1:4.",
+  "kind": "example",
+  "model": "series system",
+  "family": "multiple-outlier PO model (n1 = n2 = 2)",
+  "compared": "block vectors under weak supermajorization with interlacing \u03bb1 < \u00b51 < \u00b52 < \u03bb2",
+  "hypotheses": [
+   {
+    "text": "(2, 2, 4, 4) \u2ab0w (3, 3, 3.5, 3.5) and \u03bb1 < \u00b51 < \u00b52 < \u03bb2",
+    "formal": "blocked weak supermajorization plus interlacing (Theorem 3.6 conditions)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: hr",
+   "direction": "X1:4 \u2273hr Y1:4 (as printed) \u2014 supports Theorem 3.6"
+  },
+  "quantifiers": "n = 4, n1 = n2 = 2; x \u2265 0",
+  "numbers": "\u03bb1 = 2, \u03bb2 = 4, \u00b51 = 3, \u00b52 = 3.5",
+  "ambiguity": "Same \u2273hr direction convention as Example 5.3 (decreasing rX/rY printed as \u2273hr)."
+ },
+ {
+  "paper": "arxiv:1612.00571",
+  "claim": "Example 5.6",
+  "page": 22,
+  "quote": "Example 5.6 Consider two parallel systems, each comprising of three components having lifetimes following the PO model with the common baseline survival function given by F\u0304(x) = e^{-1.5x}, x \u2265 0. ... (\u03bb1, \u03bb2, \u03bb3) = (0.5, 2.5, 4) and (\u00b51, \u00b52, \u00b53) = (1, 3, 5) so that (0.5, 2.5, 4) \u2ab0w (1, 3, 5). ... From Figure 4 we observe that \u03b31(t) \u2264 \u03b32(t), t \u2208 [0, 1), which implies that r\u0303X3:3(x) \u2264 r\u0303Y3:3(x) for all x \u2265 0. Hence X3:3 \u2264rhr Y3:3.",
+  "kind": "example",
+  "model": "parallel system",
+  "family": "PO model over exponential baseline F\u0304(x) = e^{-1.5x}",
+  "compared": "\u03bb = (0.5,2.5,4) vs \u00b5 = (1,3,5) under weak supermajorization",
+  "hypotheses": [
+   {
+    "text": "(0.5, 2.5, 4) \u2ab0w (1, 3, 5)",
+    "formal": "weak supermajorization (smallest-first partial sums: 0.5 \u2264 1, 3 \u2264 4, 7 \u2264 9)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "rh",
+   "direction": "X3:3 \u2264rhr Y3:3 (r\u0303X3:3 \u2264 r\u0303Y3:3 pointwise) \u2014 supports Theorem 4.1"
+  },
+  "quantifiers": "n = 3; all x \u2265 0",
+  "numbers": "\u03bb = (0.5,2.5,4); \u00b5 = (1,3,5); baseline e^{-1.5x}; Figure 4",
+  "ambiguity": "Conclusion is the \u2264rhr reversed-hazard ORDER \u2014 canonical order label 'rh' (pass B), not an ageing statement."
+ },
+ {
+  "paper": "arxiv:1612.00571",
+  "claim": "Example 5.7 (rhr-ageing part)",
+  "page": 23,
+  "quote": "Example 5.7 Consider two parallel systems, each comprising of four components having lifetimes following the multiple-outlier PO model with the common baseline survival function given by F\u0304(x) = e^{-2x}, x \u2265 0. Then the ratio of the reversed hazard rate functions of two parallel systems is given by r\u0303Y4:4(x)/r\u0303X4:4(x) = [2\u00b51/(1\u2212\u00b5\u03041 e^{-2x}) + 2\u03b7/(1\u2212\u03b7\u0304e^{-2x})]/[2\u03bb1/(1\u2212\u03bb\u03041 e^{-2x}) + 2\u03b7/(1\u2212\u03b7\u0304e^{-2x})], where \u03bb1 = 2, \u03b7 = 3, \u00b51 = 4, so that \u03bb1 < \u03b7 < \u00b51. Note that r\u0303Y4:4(x)/r\u0303X4:4(x) is increasing in x \u2265 0. Hence X4:4 \u2272rhr Y4:4.",
+  "kind": "example",
+  "model": "parallel system",
+  "family": "multiple-outlier PO model (n1 = n2 = 2) over exponential baseline F\u0304(x) = e^{-2x}",
+  "compared": "scalar chain \u03bb1 = 2 < \u03b7 = 3 < \u00b51 = 4 (shared \u03b7) \u2014 supports Theorem 4.3",
+  "hypotheses": [
+   {
+    "text": "\u03bb1 = 2, \u03b7 = 3, \u00b51 = 4, so that \u03bb1 < \u03b7 < \u00b51",
+    "formal": "Theorem 4.3's chain \u03bb1 \u2264 \u03b7 \u2264 \u00b51",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: rhr",
+   "direction": "X4:4 \u2272rhr Y4:4 (as printed; r\u0303Y4:4/r\u0303X4:4 increasing \u2014 X ages faster in reversed hazard rate per Def 2.3(2)(ii))"
+  },
+  "quantifiers": "n = 4, n1 = n2 = 2; x \u2265 0",
+  "numbers": "\u03bb1 = 2; \u03b7 = 3; \u00b51 = 4; baseline e^{-2x}",
+  "ambiguity": "Source prints \\lesssim_{rhr} (\u2272) \u2014 consistent with Def 2.3(2)(ii) as written. B's '\u227brhr' is a misread."
+ },
+ {
+  "paper": "arxiv:1612.00571",
+  "claim": "Example 5.7 (lr part)",
+  "page": 23,
+  "quote": "Again, we have fY4:4(x)/fX4:4(x) = (FY4:4(x)/FX4:4(x))\u00b7(r\u0303Y4:4(x)/r\u0303X4:4(x)). It can be verified that FY4:4(x)/FX4:4(x) = (1 + e^{-2x})^2/(1 + 3e^{-2x})^2 is increasing in x \u2265 0, which implies that fY4:4(x)/fX4:4(x) is increasing in x \u2265 0. Hence X4:4 \u2264lr Y4:4.",
+  "kind": "example",
+  "model": "parallel system",
+  "family": "multiple-outlier PO model (n1 = n2 = 2) over exponential baseline F\u0304(x) = e^{-2x}",
+  "compared": "same parameters \u03bb1 = 2 < \u03b7 = 3 < \u00b51 = 4 \u2014 supports Theorem 4.4",
+  "hypotheses": [
+   {
+    "text": "\u03bb1 < \u03b7 < \u00b51",
+    "formal": "Theorem 4.4's chain \u03bb1 \u2264 \u03b7 \u2264 \u00b51",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "X4:4 \u2264lr Y4:4 (fY4:4/fX4:4 increasing; note the paper defines \u2264lr via fX/fY decreasing \u2014 equivalent form)"
+  },
+  "quantifiers": "n = 4; x \u2265 0",
+  "numbers": "FY4:4/FX4:4 = (1 + e^{-2x})^2/(1 + 3e^{-2x})^2; \u03bb1 = 2, \u03b7 = 3, \u00b51 = 4",
+  "ambiguity": "Def 2.3(1)(iv) writes X \u2264lr Y iff f(x)/g(x) decreases \u2014 here the check is fY/fX increasing, the same condition with numerator/denominator swapped consistently with the density ratio printed."
+ },
+ {
+  "paper": "arxiv:1612.00571",
+  "claim": "Remark 4.1",
+  "page": 18,
+  "quote": "Remark 4.1 Taking the random variables as in Counterexample 5.3, we see from Figure 5(b) that fY6:6(x)/fX6:6(x) is also non-monotone. This gives that, in case of multiple-outlier model, under the majorization order, two parallel systems with heterogeneous components may not be ordered with respect to likelihood ratio order.",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "multiple-outlier PO model (n1 = 2, n2 = 4) over exponential baseline F\u0304(x) = e^{-2x}",
+  "compared": "same parameters as Counterexample 5.3: (2,2,6,6,6,6) vs (3,3,5.5,5.5,5.5,5.5)",
+  "hypotheses": [
+   {
+    "text": "Taking the random variables as in Counterexample 5.3",
+    "formal": "(2,2,6,6,6,6) \u2ab0m (3,3,5.5,5.5,5.5,5.5)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "no lr ordering: fY6:6/fX6:6 non-monotone (Figure 5(b)) \u2014 under majorization, two parallel systems with heterogeneous components may not be ordered in likelihood ratio"
+  },
+  "quantifiers": "n = 6",
+  "numbers": "Figure 5(b): density ratio varying around 1.00 (axis \u2248 0.996\u20131.006)",
+  "ambiguity": "Printed as a remark but functions as a printed numerical counterexample to an lr-ordering claim; companion to Counterexample 5.3 (which covers the rhr-ageing ratio)."
+ },
+ {
+  "paper": "arxiv:1612.00571",
+  "claim": "Theorem 3.3",
+  "page": 9,
+  "quote": "Theorem 3.3 Let both X and Y follow the multiple-outlier PO model with Xi \u223c PO(F\u0304, \u03bb1), Yi \u223c PO(F\u0304, \u00b51), for i = 1, 2, ..., n1, Xj \u223c PO(F\u0304, \u03bb2), Yj \u223c PO(F\u0304, \u00b52), for j = n1 + 1, n1 + 2, ..., n1 + n2 (= n). Then (\u03bb1, \u03bb1, ..., \u03bb1, \u03bb2, \u03bb2, ..., \u03bb2) \u2ab0m (\u00b51, \u00b51, ..., \u00b51, \u00b52, \u00b52, ..., \u00b52) [n1 and n2 terms] \u21d2 X1:n \u2273hr Y1:n, provided {(\u03bb1, \u03bb2) \u2208 E+, (\u00b51, \u00b52) \u2208 E+} or {(\u03bb1, \u03bb2) \u2208 D+, (\u00b51, \u00b52) \u2208 D+}.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "multiple-outlier PO model: n1 components at \u03bb1 (resp. \u00b51), n2 at \u03bb2 (resp. \u00b52)",
+  "compared": "block parameter vectors under majorization; sortedness restriction on the two levels",
+  "hypotheses": [
+   {
+    "text": "multiple-outlier PO model with Xi \u223c PO(F\u0304, \u03bb1), Yi \u223c PO(F\u0304, \u00b51) for i \u2264 n1 and Xj \u223c PO(F\u0304, \u03bb2), Yj \u223c PO(F\u0304, \u00b52) for j > n1",
+    "formal": "two-level structure",
+    "source": "statement"
+   },
+   {
+    "text": "(\u03bb1, ..., \u03bb1, \u03bb2, ..., \u03bb2) \u2ab0m (\u00b51, ..., \u00b51, \u00b52, ..., \u00b52)",
+    "formal": "block vector majorization",
+    "source": "statement"
+   },
+   {
+    "text": "provided {(\u03bb1, \u03bb2) \u2208 E+, (\u00b51, \u00b52) \u2208 E+} or {(\u03bb1, \u03bb2) \u2208 D+, (\u00b51, \u00b52) \u2208 D+}",
+    "formal": "both level pairs similarly ordered",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: hr",
+   "direction": "X1:n \u2273hr Y1:n (as printed; = converse of the defined \u2272hr \u2014 proof shows rX1:n/rY1:n decreasing, i.e., Y ages faster in hazard rate)"
+  },
+  "quantifiers": "n = n1 + n2; x > 0",
+  "numbers": "",
+  "ambiguity": "Notation tension internal to the paper: Definition 2.3(2)(i) denotes 'ages faster in hr' by X \u2272hr Y (r1/r2 increasing), but the theorems print the mirror \u2273hr and the proofs establish rX/rY decreasing \u2014 consistent only if \u2273hr is read as the converse relation (X \u2273hr Y \u27fa Y \u2272hr X, Y ages faster). The unmapped PDF glyph was read '\u2273hr' by pass A (matches \\gtrsim in the LaTeX source) and '\u227ahr' by pass B (misread)."
+ },
+ {
+  "paper": "arxiv:1612.00571",
+  "claim": "Theorem 3.4",
+  "page": 11,
+  "quote": "Theorem 3.4 Let both X and Y follow the multiple-outlier PO model with Xi \u223c PO(F\u0304, \u03bb1), Yi \u223c PO(F\u0304, \u00b51), for i = 1, 2, ..., n1, Xj \u223c PO(F\u0304, \u03bb2), Yj \u223c PO(F\u0304, \u00b52), for j = n1 + 1, n1 + 2, ..., n1 + n2 (= n). Then max{\u03bb1, \u03bb2} \u2264 min{\u00b51, \u00b52} \u21d2 X1:n \u2273hr Y1:n.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "multiple-outlier PO model",
+  "compared": "parameter blocks separated by a scalar bound (no majorization)",
+  "hypotheses": [
+   {
+    "text": "max{\u03bb1, \u03bb2} \u2264 min{\u00b51, \u00b52}",
+    "formal": "every \u03bb-level \u2264 every \u00b5-level",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: hr",
+   "direction": "X1:n \u2273hr Y1:n (as printed; converse reading \u2014 Y ages faster)"
+  },
+  "quantifiers": "n = n1 + n2; x > 0",
+  "numbers": "",
+  "ambiguity": "Same \u2273hr/\u2272hr notation tension as Theorem 3.3; Remark 3.1 shows this hypothesis and Theorem 3.3's majorization hypothesis are mutually non-implied."
+ },
+ {
+  "paper": "arxiv:1612.00571",
+  "claim": "Theorem 3.5",
+  "page": 12,
+  "quote": "Theorem 3.5 Let both X and Y follow the multiple-outlier PO model with Xi \u223c PO(F\u0304, \u03bb1), Yi \u223c PO(F\u0304, \u00b51), for i = 1, 2, ..., n1, Xj \u223c PO(F\u0304, \u03b7), Yj \u223c PO(F\u0304, \u03b7), for j = n1 + 1, n1 + 2, ..., n1 + n2 (= n). Then for \u03bb1 \u2264 min{\u03b7, \u00b51}, (\u03bb1, \u03bb1, ..., \u03bb1, \u03b7, \u03b7, ..., \u03b7) \u2ab0w (\u00b51, \u00b51, ..., \u00b51, \u03b7, \u03b7, ..., \u03b7) [n1 and n2 terms] \u21d2 X1:n \u2273hr Y1:n.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "multiple-outlier PO model with common outlier parameter \u03b7 in both systems",
+  "compared": "block vectors sharing the \u03b7 block, weak supermajorization plus scalar bound",
+  "hypotheses": [
+   {
+    "text": "Xj \u223c PO(F\u0304, \u03b7), Yj \u223c PO(F\u0304, \u03b7) for j = n1+1,...,n",
+    "formal": "shared second-level parameter \u03b7",
+    "source": "statement"
+   },
+   {
+    "text": "\u03bb1 \u2264 min{\u03b7, \u00b51}",
+    "formal": "scalar bound",
+    "source": "statement"
+   },
+   {
+    "text": "(\u03bb1, ..., \u03bb1, \u03b7, ..., \u03b7) \u2ab0w (\u00b51, ..., \u00b51, \u03b7, ..., \u03b7)",
+    "formal": "weak supermajorization of block vectors",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: hr",
+   "direction": "X1:n \u2273hr Y1:n (as printed; converse reading \u2014 Y ages faster)"
+  },
+  "quantifiers": "n = n1 + n2; x > 0",
+  "numbers": "",
+  "ambiguity": "Proof notes the joint hypothesis is equivalent to \u03bb1 \u2264 \u03b7 \u2264 \u00b51 or \u03bb1 \u2264 \u00b51 \u2264 \u03b7. Same \u2273hr notation tension as Theorem 3.3."
+ },
+ {
+  "paper": "arxiv:1612.00571",
+  "claim": "Theorem 3.6",
+  "page": 14,
+  "quote": "Theorem 3.6 Let both X and Y follow the multiple-outlier PO model with Xi \u223c PO(F\u0304, \u03bb1), Yi \u223c PO(F\u0304, \u00b51), for i = 1, 2, ..., n1, Xj \u223c PO(F\u0304, \u03bb2), Yj \u223c PO(F\u0304, \u00b52), for j = n1 + 1, n1 + 2, ..., n1 + n2 (= n). Then, for {\u03bb1 \u2264 \u00b51 \u2264 \u00b52 \u2264 \u03bb2} or {\u03bb1 \u2265 \u00b51 \u2265 \u00b52 \u2265 \u03bb2}, (\u03bb1, \u03bb1, ..., \u03bb1, \u03bb2, \u03bb2, ..., \u03bb2) \u2ab0w (\u00b51, \u00b51, ..., \u00b51, \u00b52, \u00b52, ..., \u00b52) [n1 and n2 terms] \u21d2 X1:n \u2273hr Y1:n.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "multiple-outlier PO model",
+  "compared": "block vectors weak supermajorization plus interlacing scalar chains",
+  "hypotheses": [
+   {
+    "text": "{\u03bb1 \u2264 \u00b51 \u2264 \u00b52 \u2264 \u03bb2} or {\u03bb1 \u2265 \u00b51 \u2265 \u00b52 \u2265 \u03bb2}",
+    "formal": "interlacing conditions",
+    "source": "statement"
+   },
+   {
+    "text": "(\u03bb1, ..., \u03bb1, \u03bb2, ..., \u03bb2) \u2ab0w (\u00b51, ..., \u00b51, \u00b52, ..., \u00b52)",
+    "formal": "weak supermajorization of block vectors",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: hr",
+   "direction": "X1:n \u2273hr Y1:n (as printed; converse reading \u2014 Y ages faster)"
+  },
+  "quantifiers": "n = n1 + n2; x > 0",
+  "numbers": "",
+  "ambiguity": "Same \u2273hr notation tension as Theorem 3.3."
+ },
+ {
+  "paper": "arxiv:1612.00571",
+  "claim": "Theorem 3.7",
+  "page": 15,
+  "quote": "Theorem 3.7 Suppose lifetime vectors X \u223c PO(F\u0304, \u03bb) and Y \u223c PO(F\u0304, \u03bb1). Then, X1:n \u2273hr Y1:n if \u03bb \u2265 (1/n) \u03a3_{i=1}^n \u03bbi.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "PO model; X heterogeneous (vector \u03bb), Y homogeneous (\u03bb\u00b71)",
+  "compared": "heterogeneous vs homogeneous parameter configurations (mean condition)",
+  "hypotheses": [
+   {
+    "text": "\u03bb \u2265 (1/n) \u03a3_{i=1}^n \u03bbi",
+    "formal": "common scalar \u03bb at least the arithmetic mean",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: hr",
+   "direction": "X1:n \u2273hr Y1:n (as printed; under the converse reading Y ages faster \u2014 matching the preamble 'a series system with homogeneous components ages faster than that with heterogeneous ones')"
+  },
+  "quantifiers": "n \u2265 1; x > 0",
+  "numbers": "",
+  "ambiguity": "Preamble says the homogeneous system ages faster; the printed \u2273hr reads as converse of \u2272hr (Y \u2272hr X). Same \u2273hr/\u2272hr notation tension as Theorem 3.3. '\u03bb1' in Y \u223c PO(F\u0304, \u03bb1) prints for \u03bb\u00b7\ud835\udfcf (homogeneous vector). No parallel analogue: Counterexample 5.5 shows failure."
+ },
+ {
+  "paper": "arxiv:1612.00571",
+  "claim": "Theorem 4.1",
+  "page": 17,
+  "quote": "Theorem 4.1 Suppose that lifetime vectors X \u223c PO(F\u0304, \u03bb) and Y \u223c PO(F\u0304, \u00b5). Then \u03bb \u2ab0w \u00b5 implies Xn:n \u2264rhr Yn:n.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "PO model; independent components; r\u0303Xn:n(x) = \u03a3i \u03bbi r\u0303(x)/(1 \u2212 \u03bb\u0304i F\u0304(x)) (equation (4.2))",
+  "compared": "parameter vectors \u03bb vs \u00b5 under weak supermajorization",
+  "hypotheses": [
+   {
+    "text": "\u03bb \u2ab0w \u00b5",
+    "formal": "weak supermajorization",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "rh",
+   "direction": "Xn:n \u2264rhr Yn:n (X smaller in reversed hazard rate order)"
+  },
+  "quantifiers": "n \u2265 1; all x",
+  "numbers": "",
+  "ambiguity": "This is the \u2264rhr reversed-hazard ORDER, not an ageing relation \u2014 canonical order label 'rh' (pass B correct; A's 'rhr' is the same label spelled as the paper's subscript). Counterexample 5.4 (agreed item) shows \u2ab0w cannot be replaced by p-larger."
+ },
+ {
+  "paper": "arxiv:1612.00571",
+  "claim": "Theorem 4.3",
+  "page": 19,
+  "quote": "Theorem 4.3 Let both X and Y follow the multiple-outlier PO model such that Xi \u223c PO(F\u0304, \u03bb1), Yi \u223c PO(F\u0304, \u00b51), for i = 1, 2, ..., n1, Xj \u223c PO(F\u0304, \u03b7), Yj \u223c PO(F\u0304, \u03b7), for j = n1 + 1, n1 + 2, ..., n1 + n2 (= n). Then \u03bb1 \u2264 \u03b7 \u2264 \u00b51 \u21d2 Xn:n \u2272rhr Yn:n.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "multiple-outlier PO model with shared outlier parameter \u03b7",
+  "compared": "scalar chain \u03bb1 \u2264 \u03b7 \u2264 \u00b51 (shared \u03b7 block)",
+  "hypotheses": [
+   {
+    "text": "\u03bb1 \u2264 \u03b7 \u2264 \u00b51",
+    "formal": "scalar chain",
+    "source": "statement"
+   },
+   {
+    "text": "Xj \u223c PO(F\u0304, \u03b7), Yj \u223c PO(F\u0304, \u03b7) for j > n1",
+    "formal": "shared outlier parameter",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: rhr",
+   "direction": "Xn:n \u2272rhr Yn:n (as printed; per Def 2.3(2)(ii) = X ages faster than Y in reversed hazard rate \u2014 proof shows r\u0303Yn:n/r\u0303Xn:n increasing)"
+  },
+  "quantifiers": "n = n1 + n2; x > 0",
+  "numbers": "",
+  "ambiguity": "Source prints \\lesssim_{rhr} (\u2272) \u2014 pass A correct; B's '\u227brhr' is a misread. Unlike the hr-ageing theorems (which print the mirror \u2273hr), the rhr-ageing statements print the defined \u2272 symbol directly; X is the faster-ageing side. Counterexample 5.6 shows the chain cannot be replaced by \u03bb1 \u2264 \u00b51 \u2264 \u03b7."
  }
 ]

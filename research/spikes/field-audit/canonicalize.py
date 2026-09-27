@@ -82,8 +82,11 @@ for s in SAMPLE:
             canon.extend(item.get('records') or [])
         queue = [q for q in queue if q['claim'] not in resolved_bases]
     json.dump(canon, open(f'{ROOT}/canonical/{name}','w'), indent=1)
+    qp = f'{ROOT}/adjudication/{name}'
     if queue:
-        json.dump(queue, open(f'{ROOT}/adjudication/{name}','w'), indent=1)
+        json.dump(queue, open(qp,'w'), indent=1)
+    elif os.path.exists(qp) and os.path.exists(rp):
+        os.remove(qp)  # fully adjudicated
     summary.append((s['key'], len(canon), len(queue)))
 
 papers = len(summary)

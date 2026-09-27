@@ -1,0 +1,276 @@
+[
+ {
+  "paper": "doi:10.4064/am39-2-1",
+  "claim": "Theorem 2.1",
+  "page": 131,
+  "quote": "The estimator lambda-hat is stochastically increasing in lambda.",
+  "kind": "theorem",
+  "model": "other: estimator distributions",
+  "family": "gamma G(lambda, alpha); moment estimator lambda-hat = S^2 / X-bar",
+  "compared": "lambda-hat_1 (from G(lambda_1,alpha) sample) vs lambda-hat_2 (from G(lambda_2,alpha))",
+  "hypotheses": [
+   {
+    "text": "lambda_1 < lambda_2; independent samples",
+    "formal": "as printed",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "lambda-hat_1 <=_st lambda-hat_2"
+  },
+  "quantifiers": "n >= 1; lambda, alpha > 0",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.4064/am39-2-1",
+  "claim": "Theorem 2.2",
+  "page": 131,
+  "quote": "The estimator alpha-hat is stochastically increasing in alpha.",
+  "kind": "theorem",
+  "model": "other: estimator distributions",
+  "family": "gamma G(lambda, alpha); moment estimator alpha-hat = X-bar^2 / S^2",
+  "compared": "alpha-hat_1 (from G(lambda,alpha_1)) vs alpha-hat_2 (from G(lambda,alpha_2))",
+  "hypotheses": [
+   {
+    "text": "alpha_1 < alpha_2; independent samples",
+    "formal": "as printed",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "alpha-hat_1 <=_st alpha-hat_2"
+  },
+  "quantifiers": "n >= 1; lambda, alpha > 0",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.4064/am39-2-1",
+  "claim": "Theorem 3.3, interval length part",
+  "page": 134,
+  "quote": "Let I1 = (L1, U1) and I2 = (L2, U2) be two random intervals of the form (3.1) for alpha_1 and alpha_2 respectively, where alpha_1 < alpha_2. Then U1 - L1 <=st U2 - L2, and I1 is to the left of I2 in probability, i.e. L1 <=st L2 and U1 <=st U2.",
+  "kind": "theorem",
+  "model": "other: confidence interval endpoints",
+  "family": "gamma model; approximate confidence interval I = (L,U) for alpha",
+  "compared": "interval lengths U1 - L1 vs U2 - L2",
+  "hypotheses": [
+   {
+    "text": "alpha_1 < alpha_2; intervals of form (3.1); n > 2 z_{gamma/2}^2",
+    "formal": "as printed",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "U1 - L1 <=_st U2 - L2"
+  },
+  "quantifiers": "asymptotic (n -> infinity) construction",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.4064/am39-2-1",
+  "claim": "Theorem 3.3, left endpoint part",
+  "page": 134,
+  "quote": "I1 is to the left of I2 in probability, i.e. L1 <=st L2.",
+  "kind": "theorem",
+  "model": "other: confidence interval endpoints",
+  "family": "gamma model; approximate confidence interval",
+  "compared": "L1 vs L2",
+  "hypotheses": [
+   {
+    "text": "alpha_1 < alpha_2",
+    "formal": "as printed",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "L1 <=_st L2"
+  },
+  "quantifiers": "asymptotic",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.4064/am39-2-1",
+  "claim": "Theorem 3.3, right endpoint part",
+  "page": 134,
+  "quote": "U1 <=st U2.",
+  "kind": "theorem",
+  "model": "other: confidence interval endpoints",
+  "family": "gamma model; approximate confidence interval",
+  "compared": "U1 vs U2",
+  "hypotheses": [
+   {
+    "text": "alpha_1 < alpha_2",
+    "formal": "as printed",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "U1 <=_st U2"
+  },
+  "quantifiers": "asymptotic",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.4064/am39-2-1",
+  "claim": "Preliminary fact, gamma family stochastically increasing in alpha",
+  "page": 130,
+  "quote": "It is easy to prove that the family of gamma distributions is stochastically increasing with respect to both parameters, alpha and lambda.",
+  "kind": "other",
+  "model": "other: parametric family monotonicity",
+  "family": "gamma G(lambda, alpha): f(x;alpha,lambda) = x^{alpha-1} e^{-x/lambda} / (Gamma(alpha) lambda^alpha)",
+  "compared": "gamma distributions with increasing alpha",
+  "hypotheses": [
+   {
+    "text": "alpha_1 < alpha_2, fixed lambda",
+    "formal": "ordered shape parameter",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "G(lambda, alpha_1) <=_st G(lambda, alpha_2)"
+  },
+  "quantifiers": "x > 0",
+  "numbers": "",
+  "ambiguity": "Stated as a well-known fact (preliminary, uncited claim in the preliminaries section).",
+  "adjudication": "example record (pass a)"
+ },
+ {
+  "paper": "doi:10.4064/am39-2-1",
+  "claim": "Preliminary fact, gamma family stochastically increasing in lambda",
+  "page": 130,
+  "quote": "It is easy to prove that the family of gamma distributions is stochastically increasing with respect to both parameters, alpha and lambda.",
+  "kind": "other",
+  "model": "other: parametric family monotonicity",
+  "family": "gamma G(lambda, alpha)",
+  "compared": "gamma distributions with increasing lambda",
+  "hypotheses": [
+   {
+    "text": "lambda_1 < lambda_2, fixed alpha",
+    "formal": "ordered scale parameter",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "G(lambda_1, alpha) <=_st G(lambda_2, alpha)"
+  },
+  "quantifiers": "x > 0",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "example record (pass a)"
+ },
+ {
+  "paper": "doi:10.4064/am39-2-1",
+  "claim": "Preliminary fact, convex transform order for gamma family",
+  "page": 130,
+  "quote": "If X and Y have the gamma distributions G(1, alpha_1) and G(1, alpha_2) respectively, where alpha_1 < alpha_2, then X >=c Y (see van Zwet [11])",
+  "kind": "other",
+  "model": "other: parametric family monotonicity",
+  "family": "gamma G(1, alpha)",
+  "compared": "X ~ G(1,alpha_1) vs Y ~ G(1,alpha_2)",
+  "hypotheses": [
+   {
+    "text": "alpha_1 < alpha_2",
+    "formal": "ordered shape parameters",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "convex transform (c)",
+   "direction": "X >=_c Y"
+  },
+  "quantifiers": "x > 0",
+  "numbers": "",
+  "ambiguity": "Cited result (van Zwet), printed in preliminaries.",
+  "adjudication": "example record (pass a)"
+ },
+ {
+  "paper": "doi:10.4064/am39-2-1",
+  "claim": "Preliminary fact, dispersive order for gamma family",
+  "page": 130,
+  "quote": "and also X <=disp Y (see Shaked [9]).",
+  "kind": "other",
+  "model": "other: parametric family monotonicity",
+  "family": "gamma G(1, alpha)",
+  "compared": "X ~ G(1,alpha_1) vs Y ~ G(1,alpha_2)",
+  "hypotheses": [
+   {
+    "text": "alpha_1 < alpha_2",
+    "formal": "ordered shape parameters",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "disp",
+   "direction": "X <=_disp Y"
+  },
+  "quantifiers": "x > 0",
+  "numbers": "",
+  "ambiguity": "Cited result (Shaked), printed in preliminaries.",
+  "adjudication": "example record (pass a)"
+ },
+ {
+  "paper": "doi:10.4064/am39-2-1",
+  "claim": "Remark 2.3",
+  "page": 132,
+  "quote": "One may prove that for n = 2 the statistic 1/alpha-hat has beta distribution B(1/2, alpha) and so alpha-hat is stochastically increasing in alpha.",
+  "kind": "other",
+  "model": "other: estimator distributions",
+  "family": "gamma model, n = 2; 1/alpha-hat ~ Beta(1/2, alpha)",
+  "compared": "alpha-hat under increasing alpha",
+  "hypotheses": [
+   {
+    "text": "n = 2",
+    "formal": "two observations",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "alpha-hat stochastically increasing in alpha"
+  },
+  "quantifiers": "n = 2",
+  "numbers": "n = 2; Beta(1/2, alpha)",
+  "ambiguity": "Remark-level result, n = 2 special case.",
+  "adjudication": "example record (pass a)+b"
+ },
+ {
+  "paper": "doi:10.4064/am39-2-1",
+  "claim": "Preliminary facts (Section 1)",
+  "page": 130,
+  "quote": "It is easy to prove that the family of gamma distributions is stochastically increasing with respect to both parameters, alpha and lambda. If X and Y have the gamma distributions G(1, alpha1) and G(1, alpha2) respectively, where alpha1 < alpha2, then X >=c Y (see van Zwet [11]) and also X <=disp Y (see Shaked [9]).",
+  "kind": "preliminary",
+  "model": "univariate",
+  "family": "gamma distribution G(lambda, alpha)",
+  "compared": "gamma variates with different shape parameters",
+  "hypotheses": [
+   {
+    "text": "alpha1 < alpha2",
+    "formal": "shape parameter inequality",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "c/disp",
+   "direction": "X >=_c Y and X <=_disp Y for alpha1 < alpha2 (unit-rate gamma)"
+  },
+  "quantifiers": "all quantile arguments",
+  "ambiguity": "Background facts cited from van Zwet and Shaked; also definitions of <=st, <=disp, <=c orders and stochastically/dispersively increasing families are given at the same location.",
+  "adjudication": "example record (pass b)"
+ }
+]

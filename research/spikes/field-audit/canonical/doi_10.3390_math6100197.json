@@ -1,0 +1,206 @@
+[
+ {
+  "paper": "doi:10.3390/math6100197",
+  "claim": "Theorem 2",
+  "page": 8,
+  "quote": "Theorem 2. Let T and T* denote the lifetimes of two networks with signature vectors s = (s1, ..., sn) and s* = (s1*, ..., s*n), respectively. Suppose that the components of networks fail based on GCPs with MVFs \u039b(t) and \u039b*(t), respectively. If s \u2264st s* and \u039b(t) \u2265 \u039b*(t) for all t \u2265 0, then T \u2264st T*.",
+  "kind": "theorem",
+  "model": "coherent system",
+  "family": "Two networks under GCPs with different MVFs; signature vectors s, s*",
+  "compared": "network lifetimes T vs T*",
+  "hypotheses": [
+   {
+    "text": "s \u2264st s* (signature stochastic order); \u039b(t) \u2265 \u039b*(t) \u2200t \u2265 0",
+    "formal": "stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "T \u2264_st T*"
+  },
+  "quantifiers": "all t \u2265 0",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.3390/math6100197",
+  "claim": "Theorem 5",
+  "page": 10,
+  "quote": "Theorem 5. Consider a network whose components fail based on two different GCPs with MVFs \u039b(t) and \u039b*(t), respectively. Denote by s(t) and s*(t) the corresponding conditional signatures of the two networks. Then, (a) s(t) and s*(t) are increasing in the sense of st-ordering with respect to t; (b) \u039b(t) \u2264 \u039b*(t) implies that s(t) \u2264st s*(t) for all t \u2265 0.",
+  "kind": "theorem",
+  "model": "coherent system",
+  "family": "Conditional signatures s(t) of GCP networks",
+  "compared": "s(t) vs s*(t); monotonicity of s(t) in t",
+  "hypotheses": [
+   {
+    "text": "\u039b(t) \u2264 \u039b*(t) for all t \u2265 0",
+    "formal": "stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "s(t) increasing in t in st-order; \u039b \u2264 \u039b* \u27f9 s(t) \u2264_st s*(t)"
+  },
+  "quantifiers": "all t \u2265 0",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "doi:10.3390/math6100197",
+  "claim": "Example 1",
+  "page": 6,
+  "quote": "Assume that, in each case, the network is subjected to failure based on the GCPs with the same MVFs. Denote the lifetimes of the network corresponding to (a) and (b) by T and T*, respectively. Comparing the corresponding survival signatures of network for two cases shows that S\u0304i \u2264 S\u0304i*, for i = 0, 1, ..., 9, and hence based on (3) we have T \u2264st T* implying that the network with two-terminal connectivity is more reliable than the network with all-terminal connectivity, as expected intuitively.",
+  "kind": "example",
+  "model": "coherent system",
+  "family": "6-node 10-link network under geometric counting process (GCP) component failures; signature-based reliability",
+  "compared": "network lifetime T (all-terminal) vs T* (two-terminal {c,f})",
+  "hypotheses": [
+   {
+    "text": "same GCP MVF; survival signatures ordered S\u0304i \u2264 S\u0304i*",
+    "formal": "signature comparison (survival signature ordering)",
+    "source": "statement"
+   },
+   {
+    "text": "s = (0,0,1/30,9/70,29/90,65/126,0,0,0,0); s* = (0,0,1/120,37/840,179/1260,379/1260,19/70,1/6,1/15,0)",
+    "formal": "stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "T \u2264_st T*"
+  },
+  "quantifiers": "all t; n = 10 components",
+  "numbers": "signatures as quoted",
+  "ambiguity": "Also observed: for \u039b(t) = t^a the network reliability is not ordered in a (increasing for t<1, decreasing for t>1) \u2014 non-comparability noted.",
+  "adjudication": "example record (pass a)"
+ },
+ {
+  "paper": "doi:10.3390/math6100197",
+  "claim": "Example 2",
+  "page": 7,
+  "quote": "Example 2. Consider the network described in Example 1. Figure 4 shows that the reliability functions of the network for part (a). As the plots show the reliability functions are not ordered in NHPP and GCP models with the same MVFs \u039b(t) = t. The reliability of the network in the NHPP model is higher than the GCP model for the early times of operating of the network. However, when the time goes ahead, the network reliability in NHPP declines rapidly and stays below the reliability of the GCP model.",
+  "kind": "counterexample",
+  "model": "coherent system",
+  "family": "Example-1 network (non-series), \u039b(t) = t",
+  "compared": "network reliability under NHPP vs GCP",
+  "hypotheses": [
+   {
+    "text": "non-series network; same MVF",
+    "formal": "stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "T_NP \u2270_st T_GP and T_GP \u2270_st T_NP \u2014 reliability curves cross"
+  },
+  "quantifiers": "",
+  "numbers": "\u039b(t) = t",
+  "ambiguity": "",
+  "adjudication": "example record (pass a)"
+ },
+ {
+  "paper": "doi:10.3390/math6100197",
+  "claim": "Example 3 (counterexample)",
+  "page": 9,
+  "quote": "Example 3. Consider two networks with signature vectors s = (0, 2/3, 1/3) and s* = (1/3, 0, 2/3). It is easy to see that s \u2264mrl s*. However, s \u2270st s* and hence s \u2270hr s*. Assume that the components of both networks fail based on the same GCPs with MVF \u039b(t) = t\u00b2. Then, a straightforward calculation gives E(T) = 2.5525 > E(T*) = 2.4871, which, in turn, implies that T \u2270mrl T*.",
+  "kind": "counterexample",
+  "model": "coherent system",
+  "family": "3-component signature vectors; GCP with \u039b(t) = t\u00b2",
+  "compared": "T vs T* under mrl order of signatures",
+  "hypotheses": [
+   {
+    "text": "s = (0,2/3,1/3), s* = (1/3,0,2/3); s \u2264mrl s* but s \u2270st (\u2270hr) s*",
+    "formal": "stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "mrl",
+   "direction": "T \u2270_mrl T* (E(T) = 2.5525 > E(T*) = 2.4871) \u2014 hr cannot be weakened to mrl in Theorem 3(ii)"
+  },
+  "quantifiers": "",
+  "numbers": "s = (0,2/3,1/3), s* = (1/3,0,2/3), \u039b(t) = t\u00b2; E(T) = 2.5525, E(T*) = 2.4871",
+  "ambiguity": "",
+  "adjudication": "example record (pass a)"
+ },
+ {
+  "paper": "doi:10.3390/math6100197",
+  "claim": "Definitions 1-3 (stochastic orders and signature notions, Section 1)",
+  "page": 4,
+  "quote": "Definition 1. Let X and Y be two random variables (RVs) with survival functions F\u0304X and F\u0304Y, probability density functions fX and fY, respectively. [Defines \u2264st, \u2264hr, \u2264rh, \u2264lr and residual-life orders; Definition 2 defines multivariate orders; Definition 3 defines the signature vector.]",
+  "kind": "definition",
+  "model": "generic",
+  "family": "Standard stochastic-order definitions (Shaked\u2013Shanthikumar convention)",
+  "compared": "X vs Y",
+  "hypotheses": [
+   {
+    "text": "standard definitions",
+    "formal": "stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "definitions only (\u2264st, \u2264hr, \u2264rh, \u2264lr, \u2264mrl; \u2264uo and multivariate \u2264st)"
+  },
+  "quantifiers": "",
+  "numbers": "",
+  "ambiguity": "Definition record only \u2014 no comparison claim.",
+  "adjudication": "example record (pass a)"
+ },
+ {
+  "paper": "doi:10.3390/math6100197",
+  "claim": "Example 3",
+  "page": 9,
+  "quote": "Example 3. Consider two networks with signature vectors s = (0, 2/3, 1/3) and s* = (1/3, 0, 2/3). It is easy to see that s \u2264mrl s*. However, s \u22e1st s* and hence s \u22e1hr s*. Assume that the components of both networks fail based on the same GCPs with MVF \u039b(t) = t\u00b2. Then, a straightforward calculation gives E(T) = 2.5525 > E(T*) = 2.4871, which, in turn, implies that T \u22e1mrl T*.",
+  "kind": "counterexample",
+  "model": "other: coherent network lifetimes",
+  "family": "3-component networks; GCP with MVF \u039b(t) = t\u00b2",
+  "compared": "s \u2264mrl s* but s not st/hr-ordered; conclusion fails",
+  "hypotheses": [
+   {
+    "text": "s \u2264mrl s* but s \u22e1st s*",
+    "formal": "mrl signature ordering only",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "mrl",
+   "direction": "T \u22e1_mrl T* (E(T) = 2.5525 > E(T*) = 2.4871) \u2014 s \u2264hr s* cannot be weakened to s \u2264mrl s*"
+  },
+  "quantifiers": "",
+  "numbers": "s = (0, 2/3, 1/3); s* = (1/3, 0, 2/3); \u039b(t) = t\u00b2; E(T) = 2.5525; E(T*) = 2.4871",
+  "ambiguity": "",
+  "adjudication": "example record (pass b)"
+ },
+ {
+  "paper": "doi:10.3390/math6100197",
+  "claim": "Example 6",
+  "page": 16,
+  "quote": "Example 6. Consider again the network presented in Example 5. It can be seen that, for every i, j = 1, . . . , 14, S\u0304^(1) S\u0304^(2) \u2264 S\u0304i,j \u2014 i.e., S\u0304i,j \u2265 S\u0304i^(1) S\u0304j^(2). This implies that I and J are PQD. Hence, if the components fail according to a GCP, then T1 and T2 are PQD.",
+  "kind": "example",
+  "model": "other: three-state network",
+  "family": "14-link, 8-node network of Example 5",
+  "compared": "PQD verification on a concrete network",
+  "hypotheses": [
+   {
+    "text": "S\u0304i,j \u2265 S\u0304i^(1) S\u0304j^(2) for all i, j",
+    "formal": "PQD of I, J verified",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: PQD",
+   "direction": "T1 and T2 are PQD"
+  },
+  "quantifiers": "i, j = 1, . . . , 14",
+  "ambiguity": "S\u0304 notation partially garbled in the text layer; reads as S\u0304_{i,j} \u2265 S\u0304_i^{(1)} S\u0304_j^{(2)}.",
+  "adjudication": "example record (pass b)"
+ }
+]

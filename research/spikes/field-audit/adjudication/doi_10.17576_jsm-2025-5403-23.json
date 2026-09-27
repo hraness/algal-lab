@@ -1,0 +1,170 @@
+[
+ {
+  "claim": "theorem2.3",
+  "a_orders": [
+   "lr"
+  ],
+  "b_orders": [
+   "hr",
+   "lr",
+   "mrl",
+   "st"
+  ],
+  "a_dirs": [
+   "A_smaller"
+  ],
+  "b_dirs": [
+   "A_smaller"
+  ],
+  "a_records": [
+   {
+    "paper": "doi:10.17576/jsm-2025-5403-23",
+    "claim": "Theorem 2.3",
+    "page": 933,
+    "quote": "Theorem 2.3. Let X ~ GTHPL(\u03b11, \u03b2, \u03b7, \u03bb) and Y ~ GTHPL(\u03b12, \u03b2, \u03b7, \u03bb). For all \u03b7, \u03bb > 0, \u03b2 \u2265 0 and 0 < \u03b11 \u2264 \u03b12, X \u2264lr Y (and hence X \u2264fr Y, X \u2264mrl Y and X \u2264st Y).",
+    "kind": "theorem",
+    "model": "generic",
+    "family": "Gompertz\u2013three-parameter-Lindley (GTHPL) distribution, parameters \u03b1, \u03b2, \u03b7, \u03bb",
+    "compared": "X vs Y differing only in \u03b1",
+    "hypotheses": [
+     {
+      "text": "\u03b7, \u03bb > 0; \u03b2 \u2265 0; 0 < \u03b11 \u2264 \u03b12",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "X \u2264_lr Y (smaller \u03b1 is smaller in lr), hence X \u2264_fr Y, X \u2264_mrl Y, X \u2264_st Y"
+    },
+    "quantifiers": "all x",
+    "numbers": "Proof: d/dx ln[fX/fY] = 3\u03bbe^{\u03bbx}(\u03b11\u2212\u03b12)/((e^{\u03bbx}+\u03b11\u22121)(e^{\u03bbx}+\u03b12\u22121)) for \u03b2 = 0; for \u03b2 > 0 with \u03b3 = 2\u03b7/\u03b2, \u03bbe^{\u03bbx}(\u03b12\u2212\u03b11){1/((e^{\u03bbx}+\u03b11\u22121+\u03b3)(e^{\u03bbx}+\u03b12\u22121+\u03b3)) \u2212 3/((e^{\u03bbx}+\u03b11\u22121)(e^{\u03bbx}+\u03b12\u22121))} \u2264 0",
+    "ambiguity": "OCR drops all math symbols in the .txt; statement recovered from rendered PDF page 933."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "doi:10.17576/jsm-2025-5403-23",
+    "claim": "Theorem 2.3 (lr part)",
+    "page": 932,
+    "quote": "Theorem 2.3 Let X ~ GTHPL(\u03b11, \u03b2, \u03b7, \u03bb) and Y ~ GTHPL(\u03b12, \u03b2, \u03b7, \u03bb). For all \u03b7, \u03bb > 0, \u03b2 \u2265 0 and 0 < \u03b11 \u2264 \u03b12, X \u2264lr Y (and hence X \u2264fr Y, X \u2264mrl Y and X \u2264st Y).",
+    "kind": "theorem",
+    "model": "single",
+    "family": "Gompertz three-parameter Lindley (GTHPL), a Gompertz\u2013Lindley mixture",
+    "compared": "parameter \u03b1 ordering with common \u03b2, \u03b7, \u03bb",
+    "hypotheses": [
+     {
+      "text": "\u03b7, \u03bb > 0; \u03b2 \u2265 0; 0 < \u03b11 \u2264 \u03b12",
+      "formal": "common \u03b2, \u03b7, \u03bb; ordered \u03b1",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "X <=_lr Y"
+    },
+    "quantifiers": "all x > 0; \u03b7, \u03bb > 0; \u03b2 \u2265 0",
+    "ambiguity": "The math symbols are absent from the shard's text layer; the statement was recovered by rendering the publisher PDF page 932. The paper denotes the hazard-rate order by 'fr' (failure rate order)."
+   },
+   {
+    "paper": "doi:10.17576/jsm-2025-5403-23",
+    "claim": "Theorem 2.3 (fr part)",
+    "page": 932,
+    "quote": "For all \u03b7, \u03bb > 0, \u03b2 \u2265 0 and 0 < \u03b11 \u2264 \u03b12, X \u2264lr Y (and hence X \u2264fr Y, X \u2264mrl Y and X \u2264st Y).",
+    "kind": "theorem",
+    "model": "single",
+    "family": "GTHPL",
+    "compared": "parameter \u03b1 ordering",
+    "hypotheses": [
+     {
+      "text": "\u03b7, \u03bb > 0; \u03b2 \u2265 0; 0 < \u03b11 \u2264 \u03b12",
+      "formal": "as in Theorem 2.3",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "X <=_fr Y (failure-rate order = hazard-rate order)"
+    },
+    "quantifiers": "all x > 0",
+    "ambiguity": "Notation \u2264fr used for the hazard/failure rate order."
+   },
+   {
+    "paper": "doi:10.17576/jsm-2025-5403-23",
+    "claim": "Theorem 2.3 (mrl part)",
+    "page": 932,
+    "quote": "For all \u03b7, \u03bb > 0, \u03b2 \u2265 0 and 0 < \u03b11 \u2264 \u03b12, X \u2264lr Y (and hence X \u2264fr Y, X \u2264mrl Y and X \u2264st Y).",
+    "kind": "theorem",
+    "model": "single",
+    "family": "GTHPL",
+    "compared": "parameter \u03b1 ordering",
+    "hypotheses": [
+     {
+      "text": "\u03b7, \u03bb > 0; \u03b2 \u2265 0; 0 < \u03b11 \u2264 \u03b12",
+      "formal": "as in Theorem 2.3",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "mrl",
+     "direction": "X <=_mrl Y"
+    },
+    "quantifiers": "all x > 0",
+    "ambiguity": ""
+   },
+   {
+    "paper": "doi:10.17576/jsm-2025-5403-23",
+    "claim": "Theorem 2.3 (st part)",
+    "page": 932,
+    "quote": "For all \u03b7, \u03bb > 0, \u03b2 \u2265 0 and 0 < \u03b11 \u2264 \u03b12, X \u2264lr Y (and hence X \u2264fr Y, X \u2264mrl Y and X \u2264st Y).",
+    "kind": "theorem",
+    "model": "single",
+    "family": "GTHPL",
+    "compared": "parameter \u03b1 ordering",
+    "hypotheses": [
+     {
+      "text": "\u03b7, \u03bb > 0; \u03b2 \u2265 0; 0 < \u03b11 \u2264 \u03b12",
+      "formal": "as in Theorem 2.3",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X <=_st Y"
+    },
+    "quantifiers": "all x > 0",
+    "ambiguity": ""
+   }
+  ]
+ },
+ {
+  "claim": "unn:stochastic order definitions section stochastic orders",
+  "side": "A",
+  "records": [
+   {
+    "paper": "doi:10.17576/jsm-2025-5403-23",
+    "claim": "Stochastic-order definitions (Section: Stochastic Orders)",
+    "page": 932,
+    "quote": "In this context, the likelihood ratio order \u2264lr, the usual stochastic order \u2264st, the failure rate order \u2264fr, and the mean residual life order \u2264mrl are considered. A random variable X is considered to be less than a random variable Y: (i) if FX(x) \u2265 FY(x), X \u2264st Y for all x; (ii) if hX(x) \u2265 hY(x), X \u2264fr Y for all x; (iii) if \u00b5X(x) \u2264 \u00b5Y(x), X \u2264mrl Y for all x; (iv) if fX(x)/fY(x), X \u2264lr Y decreases in x.",
+    "kind": "definition",
+    "model": "generic",
+    "family": "Standard orders: st, fr (hazard/failure rate), mrl, lr",
+    "compared": "X vs Y",
+    "hypotheses": [
+     {
+      "text": "as defined",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "definitions only"
+    },
+    "quantifiers": "all x",
+    "numbers": "",
+    "ambiguity": "Paper uses \u2264fr ('failure rate order') for the hazard-rate order."
+   }
+  ]
+ }
+]

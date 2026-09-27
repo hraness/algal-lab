@@ -11,7 +11,7 @@ import json, os, re, sys
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SAMPLE = json.load(open(os.path.join(ROOT, 'sample100.json')))['sample']
-def fn(k): return k.replace(':','_').replace('/','_') + '.json'
+def fn(k): return k.replace(':','_').replace('/','_').replace('(','_').replace(')','_') + '.json'
 
 FA = '۰۱۲۳۴۵۶۷۸۹'
 def strip_fa(t):  # remove Persian/Arabic text inside parens and elsewhere

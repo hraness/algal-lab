@@ -1,0 +1,656 @@
+[
+ {
+  "claim": "example3.1",
+  "a_orders": [
+   "hr"
+  ],
+  "b_orders": [
+   "hr"
+  ],
+  "a_dirs": [
+   "hazard rate of homogeneous \u03bb\u0303 system bounds x3 3 hazard from"
+  ],
+  "b_dirs": [
+   "h y3 3 at geometric mean is an upper bound on h x3 3 sharper"
+  ],
+  "a_records": [
+   {
+    "paper": "arxiv:1912.00798",
+    "claim": "Example 3.1",
+    "page": 9,
+    "quote": "Example 3.1. Suppose X1 , X2 , X3 are independent random variables with Xi \u223c P GW (p, q, \u03bbi ), i = 1, 2, 3, where (\u03bb1 , \u03bb2 , \u03bb3 ) = (1.5, 2, 3.5). Further, suppose Yi \u223c P GW (p, q, \u03bb) ... Figures 1\u20132 represent the hazard rate functions ... for (p, q) = (1.5, 0.8) and (0.8, 0.4), respectively, when \u03bb = \u03bb\u0304 = 2.333 (arithmetic mean) and \u03bb\u0303 = 2.189 (geometric mean). It appears ... that the hazard rate function of Y3:3 in terms of the geometric mean ... provides an upper bound for the hazard rate function of X3:3 which is sharper than those in terms of the arithmetic mean.",
+    "kind": "example",
+    "model": "parallel system",
+    "family": "PGW(1.5,0.8) and PGW(0.8,0.4)",
+    "compared": "numerical illustration: geometric-mean bound vs arithmetic-mean bound",
+    "hypotheses": [
+     {
+      "text": "\u03bb = (1.5,2,3.5); n = 3",
+      "formal": "as stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "hazard rate of homogeneous \u03bb\u0303 system bounds X3:3 hazard from above, sharper than \u03bb\u0304 system"
+    },
+    "quantifiers": "x > 0",
+    "numbers": "\u03bb\u0304 = 2.333; \u03bb\u0303 = 2.189",
+    "ambiguity": "Graphical/numerical illustration only."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "arxiv:1912.00798",
+    "claim": "Example 3.1",
+    "page": 9,
+    "quote": "Example 3.1. Suppose X1, X2, X3 are independent random variables with Xi \u223c PGW(p, q, \u03bbi), i = 1, 2, 3, where (\u03bb1, \u03bb2, \u03bb3) = (1.5, 2, 3.5). Further, suppose Y1, Y2, Y3 is another set of independent random variables with Yi \u223c PGW(p, q, \u03bb), i = 1, 2, 3. ... It appears from these figures that the hazard rate function of Y3:3 in terms of the geometric mean of \u03bbi's provides an upper bound for the hazard rate function of X3:3 which is sharper than those in terms of the arithmetic mean of \u03bbi's.",
+    "kind": "example",
+    "model": "three-component parallel systems",
+    "family": "power-generalized Weibull PGW(p, q, \u03bb); (p,q) = (1.5, 0.8) and (0.8, 0.4)",
+    "compared": "hazard rates of X3:3 vs homogeneous Y3:3 at arithmetic vs geometric mean scale",
+    "hypotheses": [
+     {
+      "text": "\u03bb vector (1.5, 2, 3.5); \u03bb\u0304 = 2.333 (arithmetic), \u03bb\u0303 = 2.189 (geometric)",
+      "formal": "printed values",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "h_Y3:3 at geometric mean is an upper bound on h_X3:3, sharper than at arithmetic mean (figures)"
+    },
+    "quantifiers": "n = 3",
+    "numbers": "\u03bb = (1.5, 2, 3.5); \u03bb\u0304 = 2.333; \u03bb\u0303 = 2.189; (p,q) = (1.5,0.8), (0.8,0.4)",
+    "ambiguity": "Figure-based illustration only (no closed-form check printed)."
+   }
+  ]
+ },
+ {
+  "claim": "example4.1",
+  "a_orders": [
+   "hr"
+  ],
+  "b_orders": [
+   "hr"
+  ],
+  "a_dirs": [
+   "A_smaller"
+  ],
+  "b_dirs": [
+   "B_smaller"
+  ],
+  "a_records": [
+   {
+    "paper": "arxiv:1912.00798",
+    "claim": "Example 4.1",
+    "page": 10,
+    "quote": "Example 4.1. Suppose X1 , X2 , X3 ... Xi \u223c P GW (2, 1, \u03bbi ) ... (\u03bb1 , \u03bb2 , \u03bb3 ) = (0.1, 1, 9). ... Yi \u223c P GW (2, 1, \u00b5i ) ... (\u00b51 , \u00b52 , \u00b53 ) = (0.1, 4, 6). It is easy to observe that (\u03bb1 , \u03bb2 , \u03bb3 ) \u227cp (\u00b51 , \u00b52 , \u00b53 ). On the other hand, F\u0304X3:3 (0.8)/F\u0304Y3:3 (0.8) = 1.00339, F\u0304X3:3 (1)/F\u0304Y3:3 (1) = 1.0037, F\u0304X3:3 (1.9)/F\u0304Y3:3 (1.9) = 1.0019. Thus, the ratio F\u0304X3:3 (x)/F\u0304Y3:3 (x) is not monotone in x \u2208 R+ , which means that X3:3 and Y3:3 can not be compared with respect to the hazard rate order.",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "PGW(2,1,\u00b7) both systems fully heterogeneous",
+    "compared": "failure of Theorem 3.1-type extension to general p-larger vectors",
+    "hypotheses": [
+     {
+      "text": "(0.1,1,9) \u227cp (0.1,4,6)",
+      "formal": "p-larger order",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "p-larger scale vectors do NOT imply hr order in the fully heterogeneous case \u2014 X3:3 and Y3:3 not hr-comparable"
+    },
+    "quantifiers": "n = 3",
+    "numbers": "survival ratios 1.00339 (x=0.8), 1.0037 (x=1), 1.0019 (x=1.9) \u2014 non-monotone",
+    "ambiguity": "Ratio written F\u0304X3:3/F\u0304Y3:3 (survival-function ratio, proxy for hr comparison)."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "arxiv:1912.00798",
+    "claim": "Example 4.1",
+    "page": 10,
+    "quote": "Example 4.1. Suppose X1, X2, X3 are independent random variables with Xi \u223c PGW(2, 1, \u03bbi), i = 1, 2, 3, where (\u03bb1, \u03bb2, \u03bb3) = (0.1, 1, 9). Further, suppose Y1, Y2, Y3 is another set of independent random variables with Yi \u223c PGW(2, 1, \u00b5i), i = 1, 2, 3, where (\u00b51, \u00b52, \u00b53) = (0.1, 4, 6). It is easy to observe that (\u03bb1, \u03bb2, \u03bb3) \u227dp (\u00b51, \u00b52, \u00b53). On the other hand, we have F\u0304X3:3(0.8)/F\u0304Y3:3(0.8) = 1.00339, F\u0304X3:3(1)/F\u0304Y3:3(1) = 1.0037, F\u0304X3:3(1.9)/F\u0304Y3:3(1.9) = 1.0019. Thus, the ratio F\u0304X3:3(x)/F\u0304Y3:3(x) is not monotone in x, which means that X3:3 and Y3:3 can not be compared with respect to the hazard rate order.",
+    "kind": "counterexample",
+    "model": "three-component parallel systems with fully heterogeneous scales",
+    "family": "PGW(2, 1, \u03bb)",
+    "compared": "p-larger scale vectors without interlacing \u2014 hr comparison fails",
+    "hypotheses": [
+     {
+      "text": "(0.1, 1, 9) \u227dp (0.1, 4, 6)",
+      "formal": "p-larger order (products equal 0.9? per printed claim)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "X3:3 not >=hr Y3:3 (survival ratio non-monotone) \u2014 Theorem 3.1-type equivalence fails in full heterogeneity"
+    },
+    "quantifiers": "n = 3",
+    "numbers": "\u03bb = (0.1,1,9); \u00b5 = (0.1,4,6); F\u0304-ratios 1.00339 (x=0.8), 1.0037 (x=1), 1.0019 (x=1.9)",
+    "ambiguity": ""
+   }
+  ]
+ },
+ {
+  "claim": "lemma2.1",
+  "a_orders": [
+   "hr"
+  ],
+  "b_orders": [
+   "st"
+  ],
+  "a_dirs": [
+   "B_smaller"
+  ],
+  "b_dirs": [
+   "B_smaller"
+  ],
+  "a_records": [
+   {
+    "paper": "arxiv:1912.00798",
+    "claim": "Lemma 2.1",
+    "page": 5,
+    "quote": "Lemma 2.1. Suppose X1 , \u00b7 \u00b7 \u00b7 , Xn are independent non-negative random variables with Xi \u223c F (\u03bbi x)^{\u03b1i}, i = 1 \u00b7 \u00b7 \u00b7 , n. Further, suppose Y1 , \u00b7 \u00b7 \u00b7 , Yn ... Yi \u223c F (\u03bbx)^{\u03b1i}. Assume that following assumptions hold: (a) xr\u0303(x) is decreasing in x \u2208 R+ ; (b) x(r\u0303(x) \u2212 h\u2032(x)/h(x)) is increasing in x \u2208 R+ ; (c) F\u0304^2 (x) \u2264 \u2212w(x)h\u2032(x)/h(x) for every x \u2208 R+ . Where r\u0303(x) = f (x)/F (x). Then, for \u03b1i \u2265 1, i = 1, \u00b7 \u00b7 \u00b7 , n the following three statements are equivalent: (i) \u03bb \u2265 \u03bbwg ; (ii) Xn:n \u2265hr Yn:n ; (iii) Xn:n \u2265st Yn:n . Where \u03bbwg = (\u220f_{i=1}^n \u03bbi^{\u03b1i})^{1/\u03a3\u03b1i}.",
+    "kind": "lemma",
+    "model": "parallel system (exponentiated scale model)",
+    "family": "exponentiated scale model F(\u03bbx)^\u03b1, \u03b1i \u2265 1",
+    "compared": "heterogeneous vs homogeneous exponentiated-scale parallel systems: weighted-geometric-mean bound \u21d4 hr \u21d4 st",
+    "hypotheses": [
+     {
+      "text": "(a) xr\u0303 decreasing; (b) x(r\u0303\u2212h\u2032/h) increasing; (c) F\u0304\u00b2 \u2264 \u2212w(x)h\u2032/h",
+      "formal": "baseline conditions in decomposition F(\u03bbx) = w(\u03bbx)/h(\u03bbx)?",
+      "source": "statement"
+     },
+     {
+      "text": "\u03b1i \u2265 1",
+      "formal": "exponents",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "\u03bb >= \u03bbwg iff Xn:n >=hr Yn:n iff Xn:n >=st Yn:n \u2014 three-way equivalence"
+    },
+    "quantifiers": "x > 0; n \u2265 1",
+    "numbers": "\u03bbwg = (\u220f \u03bbi^{\u03b1i})^{1/\u03a3\u03b1i} weighted geometric mean",
+    "ambiguity": "Core equivalence lemma driving all main results."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "arxiv:1912.00798",
+    "claim": "Lemma 2.1",
+    "page": 5,
+    "quote": "Lemma 2.1. Suppose X1, \u00b7\u00b7\u00b7, Xn are independent non-negative random variables with Xi \u223c F(\u03bbi x)^{\u03b1i}, i = 1, \u00b7\u00b7\u00b7, n. Further, suppose Y1, \u00b7\u00b7\u00b7, Yn are independent non-negative random variables with Yi \u223c F(\u03bbx)^{\u03b1i}. Assume that following assumptions hold: (a) xr\u0303(x) is decreasing in x; (b) x(r\u0303(x) \u2212 h\u2032(x)/h(x)) is increasing in x; (c) F\u0304\u00b2(x) \u2264 \u2212w(x)h\u2032(x)/h\u00b2(x) for every x. Then, for \u03b1i \u2265 1, i = 1, \u00b7\u00b7\u00b7, n the following three statements are equivalent: (i) \u03bb \u2265 \u03bbwg; (ii) Xn:n \u2265hr Yn:n; (iii) Xn:n \u2265st Yn:n. Where \u03bbwg = (\u220f \u03bbi^{\u03b1i})^{1/\u03a3\u03b1i}.",
+    "kind": "lemma",
+    "model": "parallel systems: heterogeneous exponentiated-scale vs homogeneous",
+    "family": "exponentiated scale model Xi ~ F(\u03bbi x)^{\u03b1i}, Yi ~ F(\u03bb x)^{\u03b1i}, \u03b1i >= 1",
+    "compared": "heterogeneous vs homogeneous parallel system; equivalence of weighted-geometric-mean condition with hr and st orders",
+    "hypotheses": [
+     {
+      "text": "\u03b1i \u2265 1; assumptions (a)-(c) on baseline F",
+      "formal": "baseline regularity",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr/st",
+     "direction": "\u03bb >= \u03bbwg iff Xn:n >=hr Yn:n iff Xn:n >=st Yn:n"
+    },
+    "quantifiers": "n >= 1",
+    "numbers": "",
+    "ambiguity": "\u03bbwg is the weighted geometric mean of \u03bbi with weights \u03b1i."
+   }
+  ]
+ },
+ {
+  "claim": "lemma2.3",
+  "a_orders": [
+   "hr"
+  ],
+  "b_orders": [
+   "st"
+  ],
+  "a_dirs": [
+   "B_smaller"
+  ],
+  "b_dirs": [
+   "B_smaller"
+  ],
+  "a_records": [
+   {
+    "paper": "arxiv:1912.00798",
+    "claim": "Lemma 2.3",
+    "page": 5,
+    "quote": "Lemma 2.3. ... Assume that \u03bb \u2264 \u00b5 \u2264 \u00b5\u2217 \u2264 \u03bb\u2217 and [same (a)\u2013(c)]. Then, the following three statements are equivalent: (i) (\u03bb, . . . , \u03bb, \u03bb\u2217 , . . . , \u03bb\u2217 ) \u227cp (\u00b5, . . . , \u00b5, \u00b5\u2217 , . . . , \u00b5\u2217 ); (ii) Xn:n \u2265hr Yn:n ; (iii) Xn:n \u2265st Yn:n .",
+    "kind": "lemma",
+    "model": "parallel system (multiple-outlier scale model)",
+    "family": "scale model F(\u03bbx)",
+    "compared": "p-larger order \u21d4 hr \u21d4 st for two-value scale vectors",
+    "hypotheses": [
+     {
+      "text": "\u03bb \u2264 \u00b5 \u2264 \u00b5\u2217 \u2264 \u03bb\u2217; (a)\u2013(c)",
+      "formal": "as stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "p-larger scale vector iff Xn:n >=hr Yn:n iff Xn:n >=st Yn:n"
+    },
+    "quantifiers": "p + (n\u2212p) = n",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "arxiv:1912.00798",
+    "claim": "Lemma 2.3",
+    "page": 5,
+    "quote": "Lemma 2.3. [Same two-level scale-model setup.] Assume that \u03bb \u2264 \u00b5 \u2264 \u00b5* \u2264 \u03bb* and [conditions (a)-(c)]. Then, the following three statements are equivalent: (i) (\u03bb\u00b7p, \u03bb*\u00b7(n-p)) \u227dp (\u00b5\u00b7p, \u00b5*\u00b7(n-p)) [p-larger order]; (ii) Xn:n \u2265hr Yn:n; (iii) Xn:n \u2265st Yn:n.",
+    "kind": "lemma",
+    "model": "parallel systems, two-level scale model",
+    "family": "scale model with baseline F satisfying (a)-(c)",
+    "compared": "p-larger order of scale vectors equivalent to hr and st orders of maxima",
+    "hypotheses": [
+     {
+      "text": "\u03bb \u2264 \u00b5 \u2264 \u00b5* \u2264 \u03bb*; (a)-(c)",
+      "formal": "interlacing and regularity",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr/st",
+     "direction": "(\u03bb\u00b7p, \u03bb*\u00b7(n-p)) is p-larger than (\u00b5\u00b7p, \u00b5*\u00b7(n-p)) iff Xn:n >=hr Yn:n iff Xn:n >=st Yn:n"
+    },
+    "quantifiers": "p + (n-p) = n",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ]
+ },
+ {
+  "claim": "lemma3.1",
+  "side": "A",
+  "records": [
+   {
+    "paper": "arxiv:1912.00798",
+    "claim": "Lemma 3.1",
+    "page": 6,
+    "quote": "Lemma 3.1. Suppose the baseline distribution is P GW (p, q, 1). Then, for q \u2264 1, the assumptions of Lemma 2.1 hold.",
+    "kind": "lemma",
+    "model": "other: baseline verification",
+    "family": "power-generalized Weibull PGW(p,q,\u03bb)",
+    "compared": "validity of (a)\u2013(c) for PGW baseline",
+    "hypotheses": [
+     {
+      "text": "q \u2264 1",
+      "formal": "shape restriction",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "other: condition",
+     "direction": "Lemma 2.1 conditions hold for PGW with q \u2264 1"
+    },
+    "quantifiers": "x \u2208 R+",
+    "numbers": "",
+    "ambiguity": "Proof in appendix."
+   }
+  ]
+ },
+ {
+  "claim": "lemma3.2",
+  "side": "A",
+  "records": [
+   {
+    "paper": "arxiv:1912.00798",
+    "claim": "Lemma 3.2",
+    "page": 7,
+    "quote": "Lemma 3.2. Suppose the baseline distribution is GG(\u03b1, \u03b2, 1). Then, for \u03b1 \u2265 \u03b2, the assumptions of Lemma 2.1 hold.",
+    "kind": "lemma",
+    "model": "other: baseline verification",
+    "family": "generalized gamma GG(\u03b1,\u03b2,1)",
+    "compared": "validity of (a)\u2013(c) for GG baseline",
+    "hypotheses": [
+     {
+      "text": "\u03b1 \u2265 \u03b2",
+      "formal": "shape condition",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "other: condition",
+     "direction": "Lemma 2.1 conditions hold for GG with \u03b1 \u2265 \u03b2"
+    },
+    "quantifiers": "x \u2208 R+",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ]
+ },
+ {
+  "claim": "lemma4.2",
+  "side": "A",
+  "records": [
+   {
+    "paper": "arxiv:1912.00798",
+    "claim": "Lemma 4.2",
+    "page": 15,
+    "quote": "Lemma 4.2. Suppose X1 , \u00b7 \u00b7 \u00b7 , Xn are independent non-negative random variables with Xi \u223c F (\u03bbx), i = 1, \u00b7 \u00b7 \u00b7 , p, and Xj \u223c F (\u03bb\u2217 x), j = p + 1, \u00b7 \u00b7 \u00b7 , n, where \u03bb \u2264 \u03bb\u2217 . Further, suppose [assumptions (a)\u2013(b)]. Then, the hazard rate function of Xn:n is increasing in \u03bb \u2208 (0, \u03bb\u2217 ].",
+    "kind": "lemma",
+    "model": "parallel system (two-value scale model)",
+    "family": "scale model F(\u03bbx)",
+    "compared": "monotonicity of the maximum's hazard rate in the lower scale parameter \u2014 equivalently \u2265hr as \u03bb grows",
+    "hypotheses": [
+     {
+      "text": "(a) x(r\u0303\u2212h\u2032/h) increasing; (b) F\u0304\u00b2 \u2264 \u2212w(x)h\u2032/h; \u03bb \u2264 \u03bb*",
+      "formal": "as stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "r_{Xn:n}(x) increasing in \u03bb \u2208 (0, \u03bb*]"
+    },
+    "quantifiers": "x > 0; \u03bb \u2208 (0, \u03bb*]",
+    "numbers": "",
+    "ambiguity": "Appendix lemma used in Lemma 2.3 proof."
+   }
+  ]
+ },
+ {
+  "claim": "lemma4.3",
+  "side": "A",
+  "records": [
+   {
+    "paper": "arxiv:1912.00798",
+    "claim": "Lemma 4.3",
+    "page": 15,
+    "quote": "Lemma 4.3. Suppose X1 , \u00b7 \u00b7 \u00b7 , Xn are independent non-negative random variables with common distribution function F (\u03bbx)^\u03b1 . Further, suppose F\u0304^2 (x) \u2264 \u2212w(x)h\u2032(x)/h(x) for every x \u2208 R+ . Then, for \u03b1 \u2265 1 the hazard rate function of Xn:n is increasing in \u03bb \u2208 R+ .",
+    "kind": "lemma",
+    "model": "parallel system (exponentiated scale)",
+    "family": "homogeneous exponentiated scale F(\u03bbx)^\u03b1",
+    "compared": "hazard rate increasing in common scale \u03bb \u2014 via Xi \u2265hr Yi for \u03bb \u2264 \u00b5",
+    "hypotheses": [
+     {
+      "text": "\u03b1 \u2265 1; condition (c)",
+      "formal": "as stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "Xn:n's hazard rate increases with \u03bb"
+    },
+    "quantifiers": "x > 0; \u03bb \u2208 R+",
+    "numbers": "",
+    "ambiguity": "Uses Theorem 1.B.36 of Shaked\u2013Shanthikumar (componentwise hr \u21d2 hr of max)."
+   }
+  ]
+ },
+ {
+  "claim": "lemma4.4",
+  "side": "A",
+  "records": [
+   {
+    "paper": "arxiv:1912.00798",
+    "claim": "Lemma 4.4",
+    "page": 15,
+    "quote": "Lemma 4.4. For n > 1, let \u03c6 : R^{2n}_+ \u2192 R+ be a continuously differentiable mapping. If (a) (\u03bbi \u2212 \u03bbj)(\u03b1i/\u03bbi \u2202\u03c6(\u03b1,\u03bb)/\u2202\u03bbi \u2212 \u03b1j/\u03bbj \u2202\u03c6(\u03b1,\u03bb)/\u2202\u03bbj ) \u2265 0, (b) (\u03b1i/\u03bbi)\u2202\u03c6(\u03b1,\u03bb)/\u2202\u03bbi |_{\u03bbi=z} = (\u03b1j/\u03bbj)\u2202\u03c6(\u03b1,\u03bb)/\u2202\u03bbj |_{\u03bbj=z}, Then, for any x \u2208 (0, \u221e)^n : \u03c6(\u03b1, x) \u2265 \u03c6(\u03b1, x\u0303), where x\u0303 = (\u220f_{i=1}^n xi^{\u03b1i})^{1/\u03a3\u03b1i}.",
+    "kind": "lemma",
+    "model": "other: analytic tool",
+    "family": "weighted-geometric-mean smoothing of symmetric functions",
+    "compared": "Schur-type criterion: \u03c6 minimized at weighted geometric mean vector",
+    "hypotheses": [
+     {
+      "text": "(a) cross-partial sign condition; (b) equal diagonal condition",
+      "formal": "as stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "other: inequality",
+     "direction": "\u03c6(\u03b1,x) \u2265 \u03c6(\u03b1,x\u0303) \u2014 value at heterogeneous x dominates value at weighted geometric mean"
+    },
+    "quantifiers": "n > 1; x \u2208 (0,\u221e)^n",
+    "numbers": "",
+    "ambiguity": "Key tool delivering the \u03bbwg bound in Lemma 2.1."
+   }
+  ]
+ },
+ {
+  "claim": "remark3.1",
+  "side": "A",
+  "records": [
+   {
+    "paper": "arxiv:1912.00798",
+    "claim": "Remark 3.1",
+    "page": 8,
+    "quote": "Remark 3.1. (i) Under the conditions of Theorem 3.1, the hazard rXn:n of Xn:n satisfies rXn:n (x) \u2264 [PGW hazard at \u03bb\u0304], x > 0; and P(Xn:n \u2265 x + t | Xn:n \u2265 x) \u2265 [PGW conditional survival at \u03bb\u0304]. (ii) Under the conditions of Theorem 3.2, rXn:n (x) \u2264 n\u03b8\u0304\u03b3\u2032(\u03bbwg x,\u03b1,\u03b2)\u03b3(\u03bbwg x,\u03b1,\u03b2)^{n\u03b8\u0304\u22121}/[1\u2212\u03b3(\u03bbwg x,\u03b1,\u03b2)^{n\u03b8\u0304}], x > 0; and analogous conditional-survival lower bound.",
+    "kind": "corollary",
+    "model": "parallel system",
+    "family": "PGW and EGG",
+    "compared": "operational bounds: upper bound on hazard rate, lower bound on conditional survival, via homogeneous replacement",
+    "hypotheses": [
+     {
+      "text": "conditions of Theorems 3.1 / 3.2",
+      "formal": "as stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "r_{Xn:n}(x) bounded above by the homogeneous geometric-mean system hazard; conditional survival bounded below"
+    },
+    "quantifiers": "x > 0; t \u2265 0",
+    "numbers": "",
+    "ambiguity": "Consequence of hr ordering; used for replacing heterogeneous components by identical ones."
+   }
+  ]
+ },
+ {
+  "claim": "theorem3.1",
+  "a_orders": [
+   "hr"
+  ],
+  "b_orders": [
+   "st"
+  ],
+  "a_dirs": [
+   "B_smaller"
+  ],
+  "b_dirs": [
+   "B_smaller"
+  ],
+  "a_records": [
+   {
+    "paper": "arxiv:1912.00798",
+    "claim": "Theorem 3.1",
+    "page": 6,
+    "quote": "Theorem 3.1. Let (X1 , \u00b7 \u00b7 \u00b7 , Xn ) and (Y1 , \u00b7 \u00b7 \u00b7 , Yn ) be two independent random vectors with Xi \u223c P GW (p, q, \u03bbi ) and Yi \u223c P GW (p, q, \u03bb\u0304), i = 1, \u00b7 \u00b7 \u00b7 , n. Where \u03bb\u0304 = (\u220f_{i=1}^n \u03bbi)^{1/n}. Then, for q \u2264 1, the following three statements are equivalent: (i) \u03bb \u2265 \u03bb\u0304; (ii) Xn:n \u2265hr Yn:n ; (iii) Xn:n \u2265st Yn:n .",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "power-generalized Weibull PGW(p,q,\u00b7), q \u2264 1",
+    "compared": "heterogeneous PGW parallel system vs homogeneous geometric-mean comparator",
+    "hypotheses": [
+     {
+      "text": "q \u2264 1; Yi ~ PGW(p,q,\u03bb\u0304), \u03bb\u0304 = geometric mean",
+      "formal": "as stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "\u03bb (any common scale) \u2265 \u03bb\u0304 iff Xn:n >=hr Yn:n iff Xn:n >=st Yn:n"
+    },
+    "quantifiers": "n \u2265 1; x > 0",
+    "numbers": "",
+    "ambiguity": "Here \u03bb\u0304 denotes the geometric mean (\u220f\u03bbi)^{1/n} (also written \u03bb\u0303 in text)."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "arxiv:1912.00798",
+    "claim": "Theorem 3.1",
+    "page": 7,
+    "quote": "Theorem 3.1. Let (X1, \u00b7\u00b7\u00b7, Xn) and (Y1, \u00b7\u00b7\u00b7, Yn) be two independent random vectors with Xi \u223c PGW(p, q, \u03bbi) and Yi \u223c PGW(p, q, \u03bb\u0304), i = 1, \u00b7\u00b7\u00b7, n. Where \u03bb\u0304 = (\u220f \u03bbi)^{1/n}. Then, for q \u2264 1, the following three statements are equivalent: (i) \u03bb \u2265 \u03bb\u0304; (ii) Xn:n \u2265hr Yn:n; (iii) Xn:n \u2265st Yn:n.",
+    "kind": "theorem",
+    "model": "parallel systems: heterogeneous vs homogeneous",
+    "family": "power-generalized Weibull PGW(p, q, \u03bb), q \u2264 1",
+    "compared": "heterogeneous PGW system vs homogeneous system at geometric-mean scale",
+    "hypotheses": [
+     {
+      "text": "q \u2264 1; \u03bb\u0304 = geometric mean of \u03bbi",
+      "formal": "parameter restriction",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr/st",
+     "direction": "\u03bb >= \u03bb\u0304 iff Xn:n >=hr Yn:n iff Xn:n >=st Yn:n"
+    },
+    "quantifiers": "n >= 1",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ]
+ },
+ {
+  "claim": "theorem3.2",
+  "a_orders": [
+   "hr"
+  ],
+  "b_orders": [
+   "st"
+  ],
+  "a_dirs": [
+   "B_smaller"
+  ],
+  "b_dirs": [
+   "B_smaller"
+  ],
+  "a_records": [
+   {
+    "paper": "arxiv:1912.00798",
+    "claim": "Theorem 3.2",
+    "page": 7,
+    "quote": "Theorem 3.2. Suppose X1 , \u00b7 \u00b7 \u00b7 , Xn are independent non-negative random variables with Xi \u223c EGG(\u03b3i , \u03b1, \u03b2, \u03bbi ), i = 1 \u00b7 \u00b7 \u00b7 , n. Further, suppose Y1 , \u00b7 \u00b7 \u00b7 , Yn ... Yi \u223c EGG(\u03b3i , \u03b1, \u03b2, \u03bb). Then, for \u03b1 \u2265 \u03b2 and \u03b3i \u2265 1, i = 1, \u00b7 \u00b7 \u00b7 , n the following three statements are equivalent: (i) \u03bb \u2265 \u03bbwg ; (ii) Xn:n \u2265hr Yn:n ; (iii) Xn:n \u2265st Yn:n . Where \u03bbwg = (\u220f_{i=1}^n \u03bbi^{\u03b1i})^{1/\u03a3\u03b1i}.",
+    "kind": "theorem",
+    "model": "parallel system (exponentiated model)",
+    "family": "exponentiated generalized gamma EGG(\u03b3,\u03b1,\u03b2,\u03bb)",
+    "compared": "heterogeneous EGG system vs homogeneous weighted-geometric-mean system",
+    "hypotheses": [
+     {
+      "text": "\u03b1 \u2265 \u03b2; \u03b3i \u2265 1",
+      "formal": "as stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "\u03bb \u2265 \u03bbwg iff Xn:n >=hr Yn:n iff Xn:n >=st Yn:n"
+    },
+    "quantifiers": "n \u2265 1; x > 0",
+    "numbers": "",
+    "ambiguity": "\u03bbwg = (\u220f\u03bbi^{\u03b3i})^{1/\u03a3\u03b3i} (\u03b1i in text refers to \u03b3i exponents)."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "arxiv:1912.00798",
+    "claim": "Theorem 3.2",
+    "page": 8,
+    "quote": "Theorem 3.2. Suppose X1, \u00b7\u00b7\u00b7, Xn are independent non-negative random variables with Xi \u223c EGG(\u03b3i, \u03b1, \u03b2, \u03bbi), i = 1 \u00b7\u00b7\u00b7, n. Further, suppose Y1, \u00b7\u00b7\u00b7, Yn are independent non-negative random variables with Yi \u223c EGG(\u03b3i, \u03b1, \u03b2, \u03bb). Then, for \u03b1 \u2265 \u03b2 and \u03b3i \u2265 1, i = 1, \u00b7\u00b7\u00b7, n the following three statements are equivalent: (i) \u03bb \u2265 \u03bbwg; (ii) Xn:n \u2265hr Yn:n; (iii) Xn:n \u2265st Yn:n. Where \u03bbwg = (\u220f \u03bbi^{\u03b3i})^{1/\u03a3\u03b3i}.",
+    "kind": "theorem",
+    "model": "parallel systems: heterogeneous vs homogeneous",
+    "family": "exponentiated generalized gamma EGG(\u03b3, \u03b1, \u03b2, \u03bb) (CDF = [\u03b3(\u03bbt;\u03b1,\u03b2)]^{\u03b8}-form)",
+    "compared": "heterogeneous vs homogeneous EGG systems; equivalence with weighted-geometric-mean condition",
+    "hypotheses": [
+     {
+      "text": "\u03b1 \u2265 \u03b2; \u03b3i \u2265 1; common \u03b3i, \u03b1, \u03b2 across Xi and Yi",
+      "formal": "parameter restrictions",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr/st",
+     "direction": "\u03bb >= \u03bbwg iff Xn:n >=hr Yn:n iff Xn:n >=st Yn:n"
+    },
+    "quantifiers": "n >= 1",
+    "numbers": "",
+    "ambiguity": "\u03bbwg uses the \u03b3i as weights (printed \u03b1i superscript is the exponentiation parameter)."
+   }
+  ]
+ },
+ {
+  "claim": "theorem4.1",
+  "a_orders": [
+   "hr"
+  ],
+  "b_orders": [
+   "st"
+  ],
+  "a_dirs": [
+   "B_smaller"
+  ],
+  "b_dirs": [
+   "B_smaller"
+  ],
+  "a_records": [
+   {
+    "paper": "arxiv:1912.00798",
+    "claim": "Theorem 4.1",
+    "page": 11,
+    "quote": "Theorem 4.1. Let (X1,1 , \u00b7 \u00b7 \u00b7 , X1,n1 , X2,1 , \u00b7 \u00b7 \u00b7 , X2,n2 ) and (Y1,1 , \u00b7 \u00b7 \u00b7 , Y1,n1 , Y2,1 , \u00b7 \u00b7 \u00b7 , Y2,n2 ) be two independent random vectors with (i) Xi,j \u223c P GW (p, q, \u03bbi ) and Yi,j \u223c P GW (p, q, \u03bb\u2217i ), j = 1, \u00b7 \u00b7 \u00b7 , ni , i = 1, 2 or (ii) Xi,j \u223c GG(\u03b1, q\u03b1, \u03bbi ) and Yi,j \u223c GG(\u03b1, q\u03b1, \u03bb\u2217i ), j = 1, \u00b7 \u00b7 \u00b7 , ni , i = 1, 2. Assume that \u03bb1 \u2264 \u03bb\u22171 \u2264 \u03bb\u22172 \u2264 \u03bb2 . Then, for q \u2264 1, the following three statements are equivalent: (i) (\u03bb1 , . . . , \u03bb1 , \u03bb2 , . . . , \u03bb2 ) \u227cp (\u03bb\u22171 , . . . , \u03bb\u22171 , \u03bb\u22172 , . . . , \u03bb\u22172 ); (ii) Xn:n \u2265hr Yn:n ; (iii) Xn:n \u2265st Yn:n .",
+    "kind": "theorem",
+    "model": "parallel system (multiple-outlier model)",
+    "family": "PGW(p,q,\u00b7) or GG(\u03b1,q\u03b1,\u00b7), q \u2264 1",
+    "compared": "p-larger \u21d4 hr \u21d4 st for multiple-outlier PGW/GG systems",
+    "hypotheses": [
+     {
+      "text": "\u03bb1 \u2264 \u03bb*1 \u2264 \u03bb*2 \u2264 \u03bb2; q \u2264 1",
+      "formal": "interlaced multiple-outlier scales",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "p-larger scale vector iff Xn:n >=hr Yn:n iff Xn:n >=st Yn:n"
+    },
+    "quantifiers": "n1 + n2 = n",
+    "numbers": "",
+    "ambiguity": "Analog of Zhao\u2013Balakrishnan (2012) exponential result (4.6) for PGW/GG."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "arxiv:1912.00798",
+    "claim": "Theorem 4.1",
+    "page": 11,
+    "quote": "Theorem 4.1. Let (X1,1, \u00b7\u00b7\u00b7, X1,n1, X2,1, \u00b7\u00b7\u00b7, X2,n2) and (Y1,1, \u00b7\u00b7\u00b7, Y1,n1, Y2,1, \u00b7\u00b7\u00b7, Y2,n2) be two independent random vectors with (i) Xi,j \u223c PGW(p, q, \u03bbi) and Yi,j \u223c PGW(p, q, \u03bb*i), j = 1, \u00b7\u00b7\u00b7, ni, i = 1, 2 or (ii) Xi,j \u223c GG(\u03b1, q\u03b1, \u03bbi) and Yi,j \u223c GG(\u03b1, q\u03b1, \u03bb*i), j = 1, \u00b7\u00b7\u00b7, ni, i = 1, 2. Assume that \u03bb1 \u2264 \u03bb*1 \u2264 \u03bb*2 \u2264 \u03bb2. Then, for q \u2264 1, the following three statements are equivalent: (i) (\u03bb1\u00b7n1, \u03bb2\u00b7n2) \u227dp (\u03bb*1\u00b7n1, \u03bb*2\u00b7n2); (ii) Xn:n \u2265hr Yn:n; (iii) Xn:n \u2265st Yn:n.",
+    "kind": "theorem",
+    "model": "parallel systems, multiple-outlier model",
+    "family": "(i) PGW(p, q, \u03bb); (ii) generalized gamma GG(\u03b1, q\u03b1, \u03bb) \u2014 both with q \u2264 1",
+    "compared": "two multiple-outlier systems with interlaced group scales; p-larger order equivalent to hr and st",
+    "hypotheses": [
+     {
+      "text": "\u03bb1 \u2264 \u03bb*1 \u2264 \u03bb*2 \u2264 \u03bb2; q \u2264 1",
+      "formal": "interlaced scales; shape restriction",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr/st",
+     "direction": "(\u03bb1\u00b7n1, \u03bb2\u00b7n2) p-larger than (\u03bb*1\u00b7n1, \u03bb*2\u00b7n2) iff Xn:n >=hr Yn:n iff Xn:n >=st Yn:n"
+    },
+    "quantifiers": "n1 + n2 = n",
+    "numbers": "",
+    "ambiguity": "Extends Zhao\u2013Balakrishnan (2012) exponential equivalence (4.6) to PGW and GG multiple-outlier models."
+   }
+  ]
+ }
+]

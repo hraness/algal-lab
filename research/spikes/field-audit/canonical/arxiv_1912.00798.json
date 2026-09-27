@@ -1,0 +1,77 @@
+[
+ {
+  "paper": "arxiv:1912.00798",
+  "claim": "Lemma 2.2",
+  "page": 5,
+  "quote": "Lemma 2.2. Suppose X1 , \u00b7 \u00b7 \u00b7 , Xn are independent ... Xi \u223c F (\u03bbx), i = 1, \u00b7 \u00b7 \u00b7 , p, and Xj \u223c F (\u03bb\u2217 x), j = p + 1, \u00b7 \u00b7 \u00b7 , n. Further, suppose Y1 , \u00b7 \u00b7 \u00b7 , Yn ... Yi \u223c F (\u00b5x), i = 1, \u00b7 \u00b7 \u00b7 , p, and Yj \u223c F (\u00b5\u2217 x), j = p + 1, \u00b7 \u00b7 \u00b7 , n. Assume [same (a)\u2013(c)]. So, if \u03bb \u2264 \u00b5 \u2264 \u00b5\u2217 \u2264 \u03bb\u2217 and \u03bbp \u03bb\u2217^{n\u2212p} = \u00b5p \u00b5\u2217^{n\u2212p} , then Xn:n \u2265hr Yn:n .",
+  "kind": "lemma",
+  "model": "parallel system (multiple-outlier scale model)",
+  "family": "scale model F(\u03bbx), two-value vectors",
+  "compared": "two multiple-outlier parallel systems with equal scale products",
+  "hypotheses": [
+   {
+    "text": "(a)\u2013(c) as in Lemma 2.1; \u03bb \u2264 \u00b5 \u2264 \u00b5\u2217 \u2264 \u03bb\u2217; \u03bb^p \u03bb*^{n\u2212p} = \u00b5^p \u00b5*^{n\u2212p}",
+    "formal": "interlaced scales, equal products",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "Xn:n >=hr Yn:n"
+  },
+  "quantifiers": "p + (n\u2212p) = n",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "arxiv:1912.00798",
+  "claim": "Example 3.1",
+  "page": 9,
+  "quote": "Example 3.1. Suppose X1 , X2 , X3 are independent random variables with Xi \u223c P GW (p, q, \u03bbi ), i = 1, 2, 3, where (\u03bb1 , \u03bb2 , \u03bb3 ) = (1.5, 2, 3.5). Further, suppose Yi \u223c P GW (p, q, \u03bb) ... Figures 1\u20132 represent the hazard rate functions ... for (p, q) = (1.5, 0.8) and (0.8, 0.4), respectively, when \u03bb = \u03bb\u0304 = 2.333 (arithmetic mean) and \u03bb\u0303 = 2.189 (geometric mean). It appears ... that the hazard rate function of Y3:3 in terms of the geometric mean ... provides an upper bound for the hazard rate function of X3:3 which is sharper than those in terms of the arithmetic mean.",
+  "kind": "example",
+  "model": "parallel system",
+  "family": "PGW(1.5,0.8) and PGW(0.8,0.4)",
+  "compared": "numerical illustration: geometric-mean bound vs arithmetic-mean bound",
+  "hypotheses": [
+   {
+    "text": "\u03bb = (1.5,2,3.5); n = 3",
+    "formal": "as stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "hazard rate of homogeneous \u03bb\u0303 system bounds X3:3 hazard from above, sharper than \u03bb\u0304 system"
+  },
+  "quantifiers": "x > 0",
+  "numbers": "\u03bb\u0304 = 2.333; \u03bb\u0303 = 2.189",
+  "ambiguity": "Graphical/numerical illustration only.",
+  "adjudication": "example record (pass a)+b"
+ },
+ {
+  "paper": "arxiv:1912.00798",
+  "claim": "Example 4.1",
+  "page": 10,
+  "quote": "Example 4.1. Suppose X1 , X2 , X3 ... Xi \u223c P GW (2, 1, \u03bbi ) ... (\u03bb1 , \u03bb2 , \u03bb3 ) = (0.1, 1, 9). ... Yi \u223c P GW (2, 1, \u00b5i ) ... (\u00b51 , \u00b52 , \u00b53 ) = (0.1, 4, 6). It is easy to observe that (\u03bb1 , \u03bb2 , \u03bb3 ) \u227cp (\u00b51 , \u00b52 , \u00b53 ). On the other hand, F\u0304X3:3 (0.8)/F\u0304Y3:3 (0.8) = 1.00339, F\u0304X3:3 (1)/F\u0304Y3:3 (1) = 1.0037, F\u0304X3:3 (1.9)/F\u0304Y3:3 (1.9) = 1.0019. Thus, the ratio F\u0304X3:3 (x)/F\u0304Y3:3 (x) is not monotone in x \u2208 R+ , which means that X3:3 and Y3:3 can not be compared with respect to the hazard rate order.",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "PGW(2,1,\u00b7) both systems fully heterogeneous",
+  "compared": "failure of Theorem 3.1-type extension to general p-larger vectors",
+  "hypotheses": [
+   {
+    "text": "(0.1,1,9) \u227cp (0.1,4,6)",
+    "formal": "p-larger order",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "p-larger scale vectors do NOT imply hr order in the fully heterogeneous case \u2014 X3:3 and Y3:3 not hr-comparable"
+  },
+  "quantifiers": "n = 3",
+  "numbers": "survival ratios 1.00339 (x=0.8), 1.0037 (x=1), 1.0019 (x=1.9) \u2014 non-monotone",
+  "ambiguity": "Ratio written F\u0304X3:3/F\u0304Y3:3 (survival-function ratio, proxy for hr comparison).",
+  "adjudication": "example record (pass a)+b"
+ }
+]

@@ -1,0 +1,265 @@
+[
+ {
+  "claim": "unn5:definitions and implication chain section 5",
+  "side": "A",
+  "records": [
+   {
+    "paper": "doi:10.18869/acadpub.jsri.13.2.231",
+    "claim": "Definitions and implication chain (Section 5)",
+    "page": 238,
+    "quote": "Usual stochastic order (denoted by X \u2a7dst Y ): X is said to be stochastically smaller than Y if for all x, F(x) \u2a7e G(x). Hazard rate ordering (denoted by X \u2a7dhr Y ): X is smaller than Y in hazard rate ordering if hX(x) \u2a7e hY(x) ... Likelihood ratio ordering (denoted by X \u2a7dlr Y ): X is smaller than Y in likelihood ratio ordering if g(x)/f(x) is an increasing function of x. The following implications hold among these stochastic orders: X \u2a7dlr Y \u21d2 X \u2a7dhr Y \u21d2 X \u2a7dst Y.",
+    "kind": "proposition",
+    "model": "generic",
+    "family": "General random variables",
+    "compared": "X vs Y",
+    "hypotheses": [
+     {
+      "text": "X \u2264lr Y",
+      "formal": "stated implication",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "X \u2264_lr Y \u27f9 X \u2264_hr Y \u27f9 X \u2264_st Y"
+    },
+    "quantifiers": "all x",
+    "numbers": "",
+    "ambiguity": "Note the paper's lr definition uses g(x)/f(x) increasing for X \u2264lr Y (density ratio of Y over X \u2014 opposite orientation to the conventional f_Y/f_X but equivalent)."
+   }
+  ]
+ },
+ {
+  "claim": "unn5:section 5 claim a hr",
+  "side": "B",
+  "records": [
+   {
+    "paper": "doi:10.18869/acadpub.jsri.13.2.231",
+    "claim": "Section 5, claim (a) hr",
+    "page": 239,
+    "quote": "So, Y \u2a7dlr X implies Y \u2a7dhr X and hence we see that Y \u2a7dst X for \u03b11 < \u03b12.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "TEE(\u03b1, \u03bb)",
+    "compared": "\u03b11 < \u03b12 with common \u03bb",
+    "hypotheses": [
+     {
+      "text": "\u03bb1 = \u03bb2; \u03b11 < \u03b12",
+      "formal": "as in claim (a)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "Y <=_hr X"
+    },
+    "quantifiers": "all x",
+    "ambiguity": "Derived via the standard lr \u27f9 hr \u27f9 st chain stated in the paper."
+   }
+  ]
+ },
+ {
+  "claim": "unn5:section 5 claim a lr",
+  "side": "B",
+  "records": [
+   {
+    "paper": "doi:10.18869/acadpub.jsri.13.2.231",
+    "claim": "Section 5, claim (a) lr",
+    "page": 239,
+    "quote": "Suppose random variables X and Y are distributed according to TEE(\u03b11, \u03bb1) and TEE(\u03b12, \u03bb2), respectively. If \u03bb1 = \u03bb2, then it is easy to show that g(x)/f(x) is a decreasing function of x if and only if \u03b11 < \u03b12. So, Y \u2a7dlr X implies Y \u2a7dhr X and hence we see that Y \u2a7dst X for \u03b11 < \u03b12.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "truncated exponential-exponential TEE(\u03b1, \u03bb)",
+    "compared": "\u03b11 < \u03b12 with common \u03bb",
+    "hypotheses": [
+     {
+      "text": "X ~ TEE(\u03b11, \u03bb1), Y ~ TEE(\u03b12, \u03bb2); \u03bb1 = \u03bb2; \u03b11 < \u03b12",
+      "formal": "equal \u03bb; ordered \u03b1",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "Y <=_lr X"
+    },
+    "quantifiers": "all x",
+    "ambiguity": "Unnumbered display-block claim in Section 5."
+   }
+  ]
+ },
+ {
+  "claim": "unn5:section 5 claim a st",
+  "side": "B",
+  "records": [
+   {
+    "paper": "doi:10.18869/acadpub.jsri.13.2.231",
+    "claim": "Section 5, claim (a) st",
+    "page": 239,
+    "quote": "So, Y \u2a7dlr X implies Y \u2a7dhr X and hence we see that Y \u2a7dst X for \u03b11 < \u03b12.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "TEE(\u03b1, \u03bb)",
+    "compared": "\u03b11 < \u03b12 with common \u03bb",
+    "hypotheses": [
+     {
+      "text": "\u03bb1 = \u03bb2; \u03b11 < \u03b12",
+      "formal": "as in claim (a)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "Y <=_st X"
+    },
+    "quantifiers": "all x",
+    "ambiguity": ""
+   }
+  ]
+ },
+ {
+  "claim": "unn5:section 5 claim b hr",
+  "side": "B",
+  "records": [
+   {
+    "paper": "doi:10.18869/acadpub.jsri.13.2.231",
+    "claim": "Section 5, claim (b) hr",
+    "page": 239,
+    "quote": "So, Y \u2a7dlr X implies Y \u2a7dhr X and hence we see that Y \u2a7dst X for any \u03b1 > \u22121 and \u03bb1 < \u03bb2.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "TEE(\u03b1, \u03bb)",
+    "compared": "\u03bb1 < \u03bb2 with common \u03b1 > \u22121",
+    "hypotheses": [
+     {
+      "text": "\u03b11 = \u03b12 = \u03b1 > \u22121; \u03bb1 < \u03bb2",
+      "formal": "as in claim (b)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "Y <=_hr X"
+    },
+    "quantifiers": "all x",
+    "ambiguity": ""
+   }
+  ]
+ },
+ {
+  "claim": "unn5:section 5 claim b lr",
+  "side": "B",
+  "records": [
+   {
+    "paper": "doi:10.18869/acadpub.jsri.13.2.231",
+    "claim": "Section 5, claim (b) lr",
+    "page": 239,
+    "quote": "If \u03b11 = \u03b12 = \u03b1 then g(x)/f(x) = (\u03bb2/\u03bb1) h(x), where h(x) = e^{(\u03bb1\u2212\u03bb2)x} e^{\u03b1(e^{\u2212\u03bb2 x} \u2212 e^{\u2212\u03bb1 x})}. Hence, we have \u2202 log h(x)/\u2202x = q(\u03bb1) \u2212 q(\u03bb2), where q(\u03bb) = \u03bb(1 + \u03b1e^{\u2212\u03bbx}). It can be shown that if \u03b1 > \u22121 then (9) is an increasing function of \u03bb (see Appendix A for more details) and it follows that (8) is a decreasing function of x if \u03bb1 < \u03bb2. So, Y \u2a7dlr X implies Y \u2a7dhr X and hence we see that Y \u2a7dst X for any \u03b1 > \u22121 and \u03bb1 < \u03bb2.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "TEE(\u03b1, \u03bb)",
+    "compared": "\u03bb1 < \u03bb2 with common \u03b1 > \u22121",
+    "hypotheses": [
+     {
+      "text": "\u03b11 = \u03b12 = \u03b1 > \u22121; \u03bb1 < \u03bb2",
+      "formal": "equal \u03b1; ordered \u03bb",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "Y <=_lr X"
+    },
+    "quantifiers": "all x; \u03b1 > \u22121",
+    "ambiguity": "Requires q(\u03bb) increasing in \u03bb, shown for \u03b1 > \u22121 in Appendix A."
+   }
+  ]
+ },
+ {
+  "claim": "unn5:section 5 claim b st",
+  "side": "B",
+  "records": [
+   {
+    "paper": "doi:10.18869/acadpub.jsri.13.2.231",
+    "claim": "Section 5, claim (b) st",
+    "page": 239,
+    "quote": "So, Y \u2a7dlr X implies Y \u2a7dhr X and hence we see that Y \u2a7dst X for any \u03b1 > \u22121 and \u03bb1 < \u03bb2.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "TEE(\u03b1, \u03bb)",
+    "compared": "\u03bb1 < \u03bb2 with common \u03b1 > \u22121",
+    "hypotheses": [
+     {
+      "text": "\u03b11 = \u03b12 = \u03b1 > \u22121; \u03bb1 < \u03bb2",
+      "formal": "as in claim (b)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "Y <=_st X"
+    },
+    "quantifiers": "all x",
+    "ambiguity": ""
+   }
+  ]
+ },
+ {
+  "claim": "unn5:stochastic ordering of tee distributions in",
+  "side": "A",
+  "records": [
+   {
+    "paper": "doi:10.18869/acadpub.jsri.13.2.231",
+    "claim": "Stochastic ordering of TEE distributions in \u03b1 (unnamed result, Section 5)",
+    "page": 239,
+    "quote": "Suppose random variables X and Y are distributed according to TEE(\u03b11, \u03bb1) and TEE(\u03b12, \u03bb2), respectively. If \u03bb1 = \u03bb2, then it is easy to show that g(x)/f(x) is a decreasing function of x if and only if \u03b11 < \u03b12. So, Y \u2a7dlr X implies Y \u2a7dhr X and hence we see that Y \u2a7dst X for \u03b11 < \u03b12.",
+    "kind": "theorem",
+    "model": "generic",
+    "family": "Truncated exponential-exponential (TEE) distribution TEE(\u03b1, \u03bb)",
+    "compared": "X ~ TEE(\u03b11,\u03bb) vs Y ~ TEE(\u03b12,\u03bb), common \u03bb",
+    "hypotheses": [
+     {
+      "text": "\u03bb1 = \u03bb2 (common rate parameter)",
+      "formal": "stated",
+      "source": "statement"
+     },
+     {
+      "text": "\u03b11 < \u03b12",
+      "formal": "shape-parameter inequality",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "Y \u2264_lr X, hence Y \u2264_hr X and Y \u2264_st X (i.e., larger \u03b1 gives the stochastically smaller variable)"
+    },
+    "quantifiers": "all x",
+    "numbers": "",
+    "ambiguity": "g/f decreasing iff \u03b11 < \u03b12 means the larger-\u03b1 variable (Y) is smaller in lr \u2014 direction as printed."
+   },
+   {
+    "paper": "doi:10.18869/acadpub.jsri.13.2.231",
+    "claim": "Stochastic ordering of TEE distributions in \u03bb (unnamed result, Section 5)",
+    "page": 239,
+    "quote": "If \u03b11 = \u03b12 = \u03b1 then g(x)/f(x) = (\u03bb2/\u03bb1)h(x), (8) where h(x) = e^{(\u03bb1\u2212\u03bb2)x} e^{\u03b1(e^{\u2212\u03bb2 x}\u2212e^{\u2212\u03bb1 x})}. Hence, we have \u2202 log h(x)/\u2202x = q(\u03bb1) \u2212 q(\u03bb2), where q(\u03bb) = \u03bb(1 + \u03b1e^{\u2212\u03bbx}). (9) It can be shown that if \u03b1 > \u22121 then (9) is an increasing function of \u03bb (see Appendix A for more details) and it follows that (8) is a decreasing function of x if \u03bb1 < \u03bb2. So, Y \u2a7dlr X implies Y \u2a7dhr X and hence we see that Y \u2a7dst X for any \u03b1 > \u22121 and \u03bb1 < \u03bb2.",
+    "kind": "theorem",
+    "model": "generic",
+    "family": "TEE distribution, common shape \u03b1",
+    "compared": "X ~ TEE(\u03b1, \u03bb1) vs Y ~ TEE(\u03b1, \u03bb2)",
+    "hypotheses": [
+     {
+      "text": "\u03b11 = \u03b12 = \u03b1 with \u03b1 > \u22121; \u03bb1 < \u03bb2",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "Y \u2264_lr X (g/f decreasing), hence Y \u2264_hr X and Y \u2264_st X \u2014 larger \u03bb gives the smaller variable"
+    },
+    "quantifiers": "all x",
+    "numbers": "q(\u03bb) = \u03bb(1 + \u03b1e^{\u2212\u03bbx}) increasing in \u03bb for \u03b1 > \u22121",
+    "ambiguity": ""
+   }
+  ]
+ }
+]

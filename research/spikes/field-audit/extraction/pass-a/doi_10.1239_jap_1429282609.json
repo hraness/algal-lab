@@ -1,0 +1,292 @@
+[
+ {
+  "paper": "doi:10.1239/jap/1429282609",
+  "claim": "Lemma 3.1",
+  "page": 4,
+  "quote": "Lemma 3.1 For t ≥ 0, the function u(t) = t^α/(e^{t^α} − 1) is decreasing for any α > 0 and convex for 0 < α ≤ 1.",
+  "kind": "lemma",
+  "model": "other: analytic helper",
+  "family": "Weibull-related function u(t) = t^α/(e^{t^α} − 1)",
+  "compared": "monotonicity/convexity of u — basis for Schur-convexity of reverse hazard rate",
+  "hypotheses": [
+   {"text": "t ≥ 0; α > 0", "formal": "as stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: function property", "direction": "u decreasing for all α > 0, convex iff restricted to 0 < α ≤ 1"},
+  "quantifiers": "t ≥ 0",
+  "numbers": "",
+  "ambiguity": "Technical lemma supporting Theorem 4.1."
+ },
+ {
+  "paper": "doi:10.1239/jap/1429282609",
+  "claim": "Lemma 3.2",
+  "page": 4,
+  "quote": "Lemma 3.2 For t ≥ 0, the function v(t) = t^α/(1 − e^{−t^α}) is increasing for any α > 0.",
+  "kind": "lemma",
+  "model": "other: analytic helper",
+  "family": "Weibull-related function v(t)",
+  "compared": "monotonicity of v",
+  "hypotheses": [
+   {"text": "t ≥ 0; α > 0", "formal": "as stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: function property", "direction": "v increasing for any α > 0"},
+  "quantifiers": "t ≥ 0",
+  "numbers": "",
+  "ambiguity": "Via ψ2(t) = t/(1−e^{−t}) (Khaledi–Kochar 2000, Lemma 2.1)."
+ },
+ {
+  "paper": "doi:10.1239/jap/1429282609",
+  "claim": "Lemma 3.3",
+  "page": 4,
+  "quote": "Lemma 3.3 For t ≥ 0, the function te^t (1 + t − e^t )/(e^t − 1)^3 is increasing.",
+  "kind": "lemma",
+  "model": "other: analytic helper",
+  "family": "ψ3(t) = te^t(1+t−e^t)/(e^t−1)^3",
+  "compared": "monotonicity of ψ3",
+  "hypotheses": [
+   {"text": "t ≥ 0", "formal": "as stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: function property", "direction": "ψ3 increasing on [0,∞)"},
+  "quantifiers": "t ≥ 0",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1239/jap/1429282609",
+  "claim": "Lemma 3.4",
+  "page": 5,
+  "quote": "Lemma 3.4 For t ≥ 0, the function w(t) = αt^{2α−1} e^{t^α} (1 + t^α − e^{t^α})/(e^{t^α} − 1)^3 is increasing for 0 < α ≤ 1.",
+  "kind": "lemma",
+  "model": "other: analytic helper",
+  "family": "w(t) = αt^{α−1}ψ3(t^α)",
+  "compared": "monotonicity of w",
+  "hypotheses": [
+   {"text": "t ≥ 0; 0 < α ≤ 1", "formal": "as stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: function property", "direction": "w increasing on [0,∞) for 0 < α ≤ 1"},
+  "quantifiers": "t ≥ 0",
+  "numbers": "",
+  "ambiguity": "Supports Schur-convexity in Theorems 4.3 and 4.6."
+ },
+ {
+  "paper": "doi:10.1239/jap/1429282609",
+  "claim": "Theorem 4.1",
+  "page": 6,
+  "quote": "Theorem 4.1 Let Xλ1 , Xλ2 , . . . , Xλn be independent random variables with Xλi ∼ W (α, λi ), where λi > 0, i = 1, . . . , n, and let Xθ1 , Xθ2 , . . . , Xθn be another set of independent random variables with Xθi ∼ W (α, θi ), where θi > 0, i = 1, . . . , n. Then for 0 < α ≤ 1, (λ1 , . . . , λn ) ≼w (θ1 , . . . , θn ) ⇒ Xn:n^λ ≤rh Xn:n^θ .",
+  "kind": "theorem",
+  "model": "parallel system (largest order statistic)",
+  "family": "Weibull W(α, λ): density αλi(λi t)^{α−1}e^{−(λi t)^α}, common shape 0 < α ≤ 1",
+  "compared": "two parallel systems under weak supermajorization of scale vectors",
+  "hypotheses": [
+   {"text": "0 < α ≤ 1", "formal": "common shape", "source": "statement"},
+   {"text": "λ ≼w θ (weak supermajorization)", "formal": "lower partial sums ordered, all n", "source": "statement"}
+  ],
+  "conclusion": {"order": "rhr", "direction": "Xn:n^λ <=rh Xn:n^θ — weakly majorized scale vector gives rh-larger maximum"},
+  "quantifiers": "n ≥ 2; all t ≥ 0",
+  "numbers": "0 < α ≤ 1",
+  "ambiguity": "Proof: u(t) convex for α ≤ 1 ⇒ rh rate Schur-convex and decreasing in each λi."
+ },
+ {
+  "paper": "doi:10.1239/jap/1429282609",
+  "claim": "Corollary 4.2",
+  "page": 6,
+  "quote": "Corollary 4.2 Let Xλ1 , Xλ2 , . . . , Xλn be independent random variables with Xλi ∼ W (α, λi ), where λi > 0, i = 1, . . . , n, and let Xθ1 , . . . , Xθn ... ∼ W (α, θi )... Then for 0 < α ≤ 1, (λ1 , . . . , λn ) ≼m (θ1 , . . . , θn ) ⇒ Xn:n^λ ≤rh Xn:n^θ .",
+  "kind": "corollary",
+  "model": "parallel system",
+  "family": "Weibull W(α,λ), common shape ≤ 1",
+  "compared": "parallel systems under ordinary majorization",
+  "hypotheses": [
+   {"text": "0 < α ≤ 1; λ ≼m θ", "formal": "majorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "rhr", "direction": "Xn:n^λ <=rh Xn:n^θ"},
+  "quantifiers": "n ≥ 2",
+  "numbers": "0 < α ≤ 1",
+  "ambiguity": "Also proved for generalized gamma p = q < 1 in Khaledi et al. (2011)."
+ },
+ {
+  "paper": "doi:10.1239/jap/1429282609",
+  "claim": "Theorem 4.3",
+  "page": 7,
+  "quote": "Theorem 4.3 Let Xλ1 , Xλ2 be independent random variables with Xλi ∼ W (α, λi ) where λi > 0, i = 1, 2, and let Xθ1 , Xθ2 be independent random variables with Xθi ∼ W (α, θi ) where θi > 0, i = 1, 2. Then (λ1 , λ2 ) ≼m (θ1 , θ2 ) ⇒ r2:2^θ (t)/r2:2^λ (t) is increasing in t, for 0 < α ≤ 1.",
+  "kind": "theorem",
+  "model": "parallel system (n = 2)",
+  "family": "Weibull W(α,λ), common shape ≤ 1",
+  "compared": "reverse-hazard-rate RATIO increasing — lr bridge for two-component maxima",
+  "hypotheses": [
+   {"text": "0 < α ≤ 1; (λ1,λ2) ≼m (θ1,θ2)", "formal": "majorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "rhr", "direction": "r_{2:2}^θ(t)/r_{2:2}^λ(t) increasing in t"},
+  "quantifiers": "n = 2; t ≥ 0",
+  "numbers": "0 < α ≤ 1",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1239/jap/1429282609",
+  "claim": "Theorem 4.4",
+  "page": 8,
+  "quote": "Theorem 4.4 Let Xλ1 , Xλ2 be independent random variables with Xλi ∼ W (α, λi ) where λi > 0, i = 1, 2, and let Xθ1 , Xθ2 be independent random variables with Xθi ∼ W (α, θi ) where θi > 0, i = 1, 2. Then for 0 < α ≤ 1, (λ1 , λ2 ) ≼m (θ1 , θ2 ) ⇒ X2:2^λ ≤lr X2:2^θ .",
+  "kind": "theorem",
+  "model": "parallel system (n = 2)",
+  "family": "Weibull W(α,λ), common shape ≤ 1",
+  "compared": "likelihood ratio order of two-component maxima under majorization",
+  "hypotheses": [
+   {"text": "0 < α ≤ 1; (λ1,λ2) ≼m (θ1,θ2)", "formal": "majorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "X2:2^λ <=lr X2:2^θ — more-dispersed scale vector yields lr-larger parallel system"},
+  "quantifiers": "n = 2",
+  "numbers": "0 < α ≤ 1",
+  "ambiguity": "Generalizes Dykstra et al. (1997) Thm 3.1 (exponential); extension to α > 1 fails (Example 4.5); n > 2 open."
+ },
+ {
+  "paper": "doi:10.1239/jap/1429282609",
+  "claim": "Example 4.5",
+  "page": 8,
+  "quote": "Example 4.5 Let (Xλ1 , Xλ2 ) be a vector of heterogeneous Weibull random variables, W (α, λi ), with α = 2 and scale parameter vector (1.5, 2). Let (Xθ1 , Xθ2 ) be ... W (α, θi ), with α = 2 and scale parameter vector (1, 2.5). Obviously (λ1 , λ2 ) ≼m (θ1 , θ2 ), however X2:2^λ ≰lr X2:2^θ since f2:2^θ (t)/f2:2^λ (t) is not increasing in t as it can be seen from Figure 1.",
+  "kind": "counterexample",
+  "model": "parallel system (n = 2)",
+  "family": "Weibull with shape α = 2 > 1",
+  "compared": "failure of lr extension to α > 1",
+  "hypotheses": [
+   {"text": "α = 2; λ = (1.5, 2), θ = (1, 2.5); λ ≼m θ", "formal": "as stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "NOT lr-ordered — Theorem 4.4 cannot extend to α > 1"},
+  "quantifiers": "n = 2",
+  "numbers": "α = 2; λ = (1.5,2); θ = (1,2.5)",
+  "ambiguity": "Shown graphically (Figure 1)."
+ },
+ {
+  "paper": "doi:10.1239/jap/1429282609",
+  "claim": "Theorem 4.6",
+  "page": 9,
+  "quote": "Theorem 4.6 Let X1 , . . . , Xn be independent random variables following the multiple-outlier Weibull model such that Xi ∼ W (α, λ1 ) for i = 1, . . . , p and Xj ∼ W (α, λ2 ) for j = p + 1, . . . , n, with λ1 , λ2 > 0. Let Y1 , . . . , Yn ... Yi ∼ W (α, θ1 ) for i = 1, . . . , p and Yj ∼ W (α, θ2 ) for j = p + 1, . . . , n ... Then for 0 < α ≤ 1, (λ1 , . . . , λ1 , λ2 , . . . , λ2 ) ≼m (θ1 , . . . , θ1 , θ2 , . . . , θ2 ) ⇒ rn:n^θ (t)/rn:n^λ (t) is increasing in t, where p + q = n.",
+  "kind": "theorem",
+  "model": "parallel system (multiple-outlier model)",
+  "family": "Weibull multiple-outlier: p at λ1 + q at λ2 vs p at θ1 + q at θ2",
+  "compared": "reverse-hazard-rate ratio increasing under majorization in multiple-outlier Weibull",
+  "hypotheses": [
+   {"text": "0 < α ≤ 1; multiple-outlier majorization", "formal": "as stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "rhr", "direction": "r_{n:n}^θ(t)/r_{n:n}^λ(t) increasing in t"},
+  "quantifiers": "p + q = n; t ≥ 0",
+  "numbers": "0 < α ≤ 1",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1239/jap/1429282609",
+  "claim": "Theorem 4.7",
+  "page": 10,
+  "quote": "Theorem 4.7 Let X1 , . . . , Xn be independent random variables following the multiple-outlier Weibull model ... Let Y1 , . . . , Yn be another set ... Then for 0 < α ≤ 1, (λ1 , . . . , λ1 , λ2 , . . . , λ2 ) ≼m (θ1 , . . . , θ1 , θ2 , . . . , θ2 ) ⇒ Xn:n^λ ≤lr Xn:n^θ , where p + q = n.",
+  "kind": "theorem",
+  "model": "parallel system (multiple-outlier model)",
+  "family": "Weibull multiple-outlier",
+  "compared": "likelihood ratio order of multiple-outlier maxima under majorization",
+  "hypotheses": [
+   {"text": "0 < α ≤ 1; majorization of the multiple-outlier scale vectors", "formal": "as stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "Xn:n^λ <=lr Xn:n^θ"},
+  "quantifiers": "p + q = n",
+  "numbers": "0 < α ≤ 1",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1239/jap/1429282609",
+  "claim": "Theorem 4.8",
+  "page": 10,
+  "quote": "Theorem 4.8 Let Xλ1 , Xλ be independent random variables with Xλ1 ∼ W (α, λ1 ) and Xλ ∼ W (α, λ) where λ1 , λ > 0. Let Yλ∗1 , Yλ be independent random variables with Yλ∗1 ∼ W (α, λ∗1 ) and Yλ ∼ W (α, λ), where λ∗1 , λ > 0. Suppose λ∗1 = min(λ, λ1 , λ∗1 ), then for any α > 0, (λ1 , λ) ≼w (λ∗1 , λ) ⇒ r2:2^∗ (t)/r2:2 (t) is increasing in t.",
+  "kind": "theorem",
+  "model": "parallel system (n = 2)",
+  "family": "Weibull W(α,·), arbitrary shape α > 0",
+  "compared": "rh-ratio under weak supermajorization — shape restriction removed via min condition",
+  "hypotheses": [
+   {"text": "λ∗1 = min(λ, λ1, λ∗1); (λ1,λ) ≼w (λ∗1,λ)", "formal": "weak supermajorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "rhr", "direction": "r_{2:2}*(t)/r_{2:2}(t) increasing for ANY α > 0"},
+  "quantifiers": "n = 2; t ≥ 0",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1239/jap/1429282609",
+  "claim": "Theorem 4.9",
+  "page": 11,
+  "quote": "Theorem 4.9 Let Xλ1 , Xλ be independent random variables with Xλ1 ∼ W (α, λ1 ) and Xλ ∼ W (α, λ) where λ1 , λ > 0. Let Yλ∗1 , Yλ be independent random variables with Yλ∗1 ∼ W (α, λ∗1 ) and Yλ ∼ W (α, λ), where λ∗1 , λ > 0. Suppose λ∗1 = min(λ, λ1 , λ∗1 ), then for any α > 0, (λ1 , λ) ≼w (λ∗1 , λ) ⇒ X2:2 ≤lr Y2:2 .",
+  "kind": "theorem",
+  "model": "parallel system (n = 2)",
+  "family": "Weibull, arbitrary shape α > 0",
+  "compared": "lr order of two-component maxima under weak supermajorization, arbitrary shape",
+  "hypotheses": [
+   {"text": "λ∗1 = min(λ, λ1, λ∗1); (λ1,λ) ≼w (λ∗1,λ)", "formal": "as stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "X2:2 <=lr Y2:2 for any α > 0"},
+  "quantifiers": "n = 2",
+  "numbers": "",
+  "ambiguity": "Third case λ ≤ λ∗1 ≤ λ1 fails — see Example 4.10."
+ },
+ {
+  "paper": "doi:10.1239/jap/1429282609",
+  "claim": "Example 4.10",
+  "page": 11,
+  "quote": "Example 4.10 Let (Xλ1 , Xλ ) be a vector of heterogeneous Weibull random variables with α = 0.3 and scale parameters λ = 0.2 and λ1 = 3.5. Let Yλ∗1 , Yλ be a vector of heterogeneous Weibull random variables with α = 0.3 and scale parameters λ = 0.2 and λ∗1 = 2. Obviously (λ1 , λ) ≼w (λ∗1 , λ) and λ ≤ λ∗1 ≤ λ1 . However X2:2 ≰lr Y2:2 since f2:2^∗ (t)/f2:2 (t) is not increasing in t as it can be seen from Figure 2. Analogously, from Figure 3, it can be seen that X2:2 ≰lr Y2:2 when α = 1.3.",
+  "kind": "counterexample",
+  "model": "parallel system (n = 2)",
+  "family": "Weibull, α = 0.3 and α = 1.3",
+  "compared": "failure of lr when min condition violated (λ ≤ λ∗1 ≤ λ1)",
+  "hypotheses": [
+   {"text": "(λ1,λ) ≼w (λ∗1,λ) but λ ≤ λ∗1 ≤ λ1", "formal": "as stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "NOT lr-ordered — the λ∗1 = min condition is needed in Theorems 4.8–4.9"},
+  "quantifiers": "n = 2",
+  "numbers": "α = 0.3: λ = 0.2, λ1 = 3.5, λ*1 = 2; also α = 1.3",
+  "ambiguity": "Graphical evidence (Figures 2–3)."
+ },
+ {
+  "paper": "doi:10.1239/jap/1429282609",
+  "claim": "Theorem 4.11",
+  "page": 12,
+  "quote": "Theorem 4.11 Let Xλ1 , Xλ2 be independent random variables with Xλi ∼ W (α, λi ) where λi > 0, i = 1, 2, and let Xθ1 , Xθ2 be another set of independent random variables with Xθi ∼ W (α, θi ) where θi > 0, i = 1, 2. Suppose θ1 ≤ λ1 ≤ λ2 ≤ θ2 . Then (λ1 , λ2 ) ≼w (θ1 , θ2 ) implies that X2:2^λ ≤lr X2:2^θ , for 0 < α ≤ 1.",
+  "kind": "theorem",
+  "model": "parallel system (n = 2)",
+  "family": "Weibull, common shape ≤ 1",
+  "compared": "lr order under weak supermajorization plus interlacing θ1 ≤ λ1 ≤ λ2 ≤ θ2",
+  "hypotheses": [
+   {"text": "θ1 ≤ λ1 ≤ λ2 ≤ θ2; (λ1,λ2) ≼w (θ1,θ2); 0 < α ≤ 1", "formal": "as stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "X2:2^λ <=lr X2:2^θ"},
+  "quantifiers": "n = 2",
+  "numbers": "0 < α ≤ 1",
+  "ambiguity": "Subsumes Joo & Mi (2010) Thm 2.4 for exponentials."
+ },
+ {
+  "paper": "doi:10.1239/jap/1429282609",
+  "claim": "Theorem 4.12",
+  "page": 12,
+  "quote": "Theorem 4.12 Let X1 , . . . , Xn be independent random variables following the multiple-outlier Weibull model such that Xi ∼ W (α, λ1 ) for i = 1, . . . , p and Xj ∼ W (α, λ) for j = p + 1, . . . , n, with λ1 , λ > 0. Let Y1 , . . . , Yn be another set ... Yi ∼ W (α, λ∗1 ) for i = 1, . . . , p and Yj ∼ W (α, λ) for j = p + 1, . . . , n ... Suppose λ∗1 = min(λ, λ1 , λ∗1 ), then for any α > 0, (λ1 , . . . , λ1 , λ, . . . , λ) ≼w (λ∗1 , . . . , λ∗1 , λ, . . . , λ) ⇒ rn:n^∗ (t)/rn:n (t) is increasing in t, where p + q = n.",
+  "kind": "theorem",
+  "model": "parallel system (multiple-outlier model)",
+  "family": "Weibull multiple-outlier; common λ on both sides",
+  "compared": "rh-ratio increasing for multiple-outlier maxima, arbitrary α",
+  "hypotheses": [
+   {"text": "λ∗1 = min(λ, λ1, λ∗1); weak supermajorization", "formal": "as stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "rhr", "direction": "r_{n:n}*(t)/r_{n:n}(t) increasing in t for any α > 0"},
+  "quantifiers": "p + q = n; t ≥ 0",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1239/jap/1429282609",
+  "claim": "Theorem 4.13",
+  "page": 13,
+  "quote": "Theorem 4.13 Let X1 , . . . , Xn be independent random variables such that Xi ∼ W (α, λ1 ) for i = 1, . . . , p and Xj ∼ W (α, λ) for j = p + 1, . . . , n ... Let Y1 , . . . , Yn be independent nonnegative random variables with Yi ∼ W (α, λ∗1 ) for i = 1, . . . , p and Yj ∼ W (α, λ) for j = p + 1, . . . , n ... Suppose λ∗1 = min(λ, λ1 , λ∗1 ), then (λ1 , . . . , λ1 , λ, . . . , λ) ≼w (λ∗1 , . . . , λ∗1 , λ, . . . , λ) ⇒ Xn:n ≤lr Yn:n , for p + q = n and any α > 0.",
+  "kind": "theorem",
+  "model": "parallel system (multiple-outlier model)",
+  "family": "Weibull multiple-outlier; arbitrary shape α > 0",
+  "compared": "lr order of multiple-outlier maxima under weak supermajorization, no shape restriction",
+  "hypotheses": [
+   {"text": "λ∗1 = min(λ, λ1, λ∗1); weak supermajorization", "formal": "as stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "Xn:n <=lr Yn:n for any α > 0"},
+  "quantifiers": "p + q = n",
+  "numbers": "",
+  "ambiguity": "Like Theorem 4.7 but unrestricted α at cost of the extra min-condition."
+ }
+]
