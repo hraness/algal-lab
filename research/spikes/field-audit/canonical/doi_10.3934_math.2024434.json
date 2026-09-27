@@ -1,53 +1,318 @@
 [
  {
   "paper": "doi:10.3934/math.2024434",
-  "claim": "Example 1",
-  "page": 8912,
-  "quote": "Example 1. Let F\u03041(x) = e^{\u22123x}, F\u03042(x) = e^{\u22122x}, and generator \u03c8(x) = e^{(1\u2212e^x)/a}, 0 < a \u2264 1. Take n = 4, \u03bb = 0.2, \u03b1 = 0.2, a = 0.1, and \u03b8 = (0.6, 0.7, 0.8, 0.9) \u227aw (0.2, 0.3, 0.5, 0.7) = \u03b7. It is easy to check that the conditions of Theorem 2 are all satisfied. ... which confirms X2:4 \u2264st Y2:4.",
-  "kind": "example",
-  "model": "fail-safe system",
-  "family": "MPHRS; exponential baselines; copula generator \u03c8(x) = e^{(1\u2212e^x)/a} (a = 0.1)",
-  "compared": "\u03b8 = (0.6,0.7,0.8,0.9) vs \u03b7 = (0.2,0.3,0.5,0.7)",
+  "claim": "Corollary 1",
+  "page": 8910,
+  "quote": "Corollary 1. For X ~ MPHRS (\u03b11; \u03b81; \u03bb1; F\u03041 ; \u03c8) and Y ~ MPHRS (\u03b1; \u03b81; \u03bb1; F\u03042 ; \u03c8). If F\u03041 (x) \u2265 F\u03042 (x), then \u03b1 \u2265 (1/n) \u03a3_{i=1}^n \u03b1i \u21d2 X2:n \u2265 st Y2:n .",
+  "kind": "corollary",
+  "model": "k-out-of-n system",
+  "family": "MPHRS model under Archimedean survival copula \u03c8; X has homogeneous tilt \u03b11 (scalar \u03b1) vs Y's tilt vector \u03b1 = (\u03b11,...,\u03b1n); common scale \u03b81 and MPHR \u03bb1; baselines F\u03041, F\u03042",
+  "compared": "X2:n vs Y2:n; scalar tilt \u03b1 vs mean of tilt vector",
   "hypotheses": [
    {
-    "text": "n = 4, \u03bb = 0.2, \u03b1 = 0.2; \u03b8 \u227aw \u03b7 (lower sums: 0.6,1.3,2.1,3.0 \u2265 0.2,0.5,1.0,1.7 \u2014 consistent with weak supermajorization)",
-    "formal": "stated",
+    "text": "F\u03041 (x) \u2265 F\u03042 (x)",
+    "formal": "baseline survival functions ordered pointwise",
+    "source": "statement"
+   },
+   {
+    "text": "\u03b1 \u2265 (1/n) \u03a3_{i=1}^n \u03b1i",
+    "formal": "scalar tilt at least the mean of the heterogeneous tilts",
     "source": "statement"
    }
   ],
   "conclusion": {
    "order": "st",
-   "direction": "X2:4 \u2aaf_st Y2:4 verified numerically (plotted transformed cdfs)"
+   "direction": "X2:n \u2265st Y2:n"
   },
-  "quantifiers": "n = 4; all x \u2265 0",
-  "numbers": "F\u03041 = e^{\u22123x}, F\u03042 = e^{\u22122x}, \u03c8 = e^{(1\u2212e^x)/a}, a = 0.1, \u03bb = 0.2, \u03b1 = 0.2; \u03b8 = (0.6,0.7,0.8,0.9), \u03b7 = (0.2,0.3,0.5,0.7)",
-  "ambiguity": "Note F\u03041 = e^{\u22123x} \u2264 F\u03042 = e^{\u22122x} consistent with the condition F\u03041 \u2264 F\u03042.",
-  "adjudication": "example record (pass a)+b"
+  "quantifiers": "n \u2265 2; all x \u2265 0",
+  "numbers": "",
+  "ambiguity": "The scalar-vs-vector collision is printed as is: X's tilt is \u03b11 (constant vector) while the condition \u03b1 \u2265 (1/n)\u03a3\u03b1i uses scalar \u03b1 against the components of Y's vector \u03b1. X2:n is the (n\u22121)-out-of-n 'fail-safe' lifetime per the paper's terminology.",
+  "adjudication": "adjudicated: Passes agree on st and on X2:n \u2265st Y2:n; the queue diff was glyph normalization only (A's '\u2ab0st' = B'"
+ },
+ {
+  "paper": "doi:10.3934/math.2024434",
+  "claim": "Corollary 2",
+  "page": 8911,
+  "quote": "Corollary 2. For X ~ MPHRS (\u03b11; \u03b81; \u03bb1; F\u03041 ; \u03c8) and Y ~ MPHRS (\u03b11; \u03b8; \u03bb1; F\u03042 ; \u03c8), where 0 < \u03b1 \u2264 1, if \u03c8 is log-concave, F\u03041 (x) \u2264 F\u03042 (x), and h2 (x) is decreasing in x, then \u03b8 \u2265 (1/n) \u03a3_{i=1}^n \u03b8i \u21d2 X2:n \u2264 st Y2:n .",
+  "kind": "corollary",
+  "model": "k-out-of-n system",
+  "family": "MPHRS model; common scalar tilt \u03b1 \u2208 (0,1] and MPHR \u03bb1; X has scalar scale \u03b81, Y scale vector \u03b8",
+  "compared": "X2:n vs Y2:n; scalar scale \u03b8 vs mean of scale vector",
+  "hypotheses": [
+   {
+    "text": "0 < \u03b1 \u2264 1; \u03c8 is log-concave; F\u03041 (x) \u2264 F\u03042 (x); h2 (x) is decreasing in x",
+    "formal": "tilt bound, generator and baseline conditions as in Theorem 2",
+    "source": "statement"
+   },
+   {
+    "text": "\u03b8 \u2265 (1/n) \u03a3_{i=1}^n \u03b8i",
+    "formal": "scalar scale at least the mean of the heterogeneous scales",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X2:n \u2264st Y2:n"
+  },
+  "quantifiers": "n \u2265 2; all x \u2265 0",
+  "numbers": "",
+  "ambiguity": "Same scalar-vs-vector notation collision as Corollary 1 (\u03b81 vs \u03b8).",
+  "adjudication": "adjudicated: Passes agree on st and X2:n \u2264st Y2:n; A's '\u2aafst' = B's 'A_smaller'. Page 8911 (printed footer), not 8"
+ },
+ {
+  "paper": "doi:10.3934/math.2024434",
+  "claim": "Corollary 3",
+  "page": 8913,
+  "quote": "Corollary 3. For X ~ MPRHRS (\u03b11; \u03b81; \u03bb1; F1 ; \u03c8) and Y ~ MPRHRS (\u03b11; \u03b81; \u03bb; F2 ; \u03c8), where 0 < \u03b1 \u2264 1, if \u03c8 is log-concave, F1 (x) \u2264 F2 (x), then \u03bb \u2265 (1/n) \u03a3_{i=1}^n \u03bbi \u21d2 Xn\u22121:n \u2265 st Yn\u22121:n .",
+  "kind": "corollary",
+  "model": "k-out-of-n system",
+  "family": "MPRHRS model under Archimedean copula \u03c8; common scalar tilt \u03b1 and scale \u03b81; X scalar rate \u03bb1 vs Y rate vector \u03bb",
+  "compared": "Xn\u22121:n vs Yn\u22121:n; scalar rate \u03bb vs mean of rate vector",
+  "hypotheses": [
+   {
+    "text": "0 < \u03b1 \u2264 1; \u03c8 is log-concave; F1 (x) \u2264 F2 (x)",
+    "formal": "tilt bound, generator and baseline-cdf conditions as in Theorem 3",
+    "source": "statement"
+   },
+   {
+    "text": "\u03bb \u2265 (1/n) \u03a3_{i=1}^n \u03bbi",
+    "formal": "scalar rate at least the mean of the heterogeneous rates",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Xn\u22121:n \u2265st Yn\u22121:n"
+  },
+  "quantifiers": "n \u2265 2; all x \u2265 0",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Passes agree on st and Xn\u22121:n \u2265st Yn\u22121:n; A's '\u2ab0st' = B's 'B_smaller'. Page 8913, not 8914."
+ },
+ {
+  "paper": "doi:10.3934/math.2024434",
+  "claim": "Corollary 4",
+  "page": 8914,
+  "quote": "Corollary 4. For X ~ MPRHRS (\u03b11; \u03b81; \u03bb1; F1 ; \u03c8) and Y ~ MPRHRS (\u03b1; \u03b81; \u03bb1; F2 ; \u03c8). If F1 (x) \u2265 F2 (x), then \u03b1 \u2265 (1/n) \u03a3_{i=1}^n \u03b1i \u21d2 Xn\u22121:n \u2264 st Yn\u22121:n .",
+  "kind": "corollary",
+  "model": "k-out-of-n system",
+  "family": "MPRHRS model; X homogeneous tilt \u03b11 (scalar \u03b1) vs Y tilt vector \u03b1; common scale \u03b81 and rate \u03bb1; baseline cdfs F1, F2",
+  "compared": "Xn\u22121:n vs Yn\u22121:n; scalar tilt vs mean of tilt vector",
+  "hypotheses": [
+   {
+    "text": "F1 (x) \u2265 F2 (x)",
+    "formal": "baseline cdfs ordered pointwise",
+    "source": "statement"
+   },
+   {
+    "text": "\u03b1 \u2265 (1/n) \u03a3_{i=1}^n \u03b1i",
+    "formal": "scalar tilt at least the mean of the heterogeneous tilts",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Xn\u22121:n \u2264st Yn\u22121:n"
+  },
+  "quantifiers": "n \u2265 2; all x \u2265 0",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Passes agree on st and Xn\u22121:n \u2264st Yn\u22121:n; A's '\u2aafst' = B's 'A_smaller'. Page 8914, not 8915."
+ },
+ {
+  "paper": "doi:10.3934/math.2024434",
+  "claim": "Example 1",
+  "page": 8911,
+  "quote": "Example 1. Let F\u03041 (x) = e\u22123x , F\u03042 (x) = e\u22122x , and generator \u03c8(x) = e^{(1\u2212e^x)/a} , 0 < a \u2264 1. Take n = 4, \u03bb = 0.2, \u03b1 = 0.2, a = 0.1, and \u03b8 = (0.6, 0.7, 0.8, 0.9) \u2ab0w (0.2, 0.3, 0.5, 0.7) = \u03b7. It is easy to check that the conditions of Theorem 2 are all satisfied. To display the whole of survival curves of X2:4 and Y2:4 on [0, \u221e), we perform the transformation (x + 1)\u22121 : [0, \u221e) \u2192 [0, 1]. The distribution functions of (X2:4 + 1)\u22121 and (Y2:4 + 1)\u22121 are plotted in Figure 1, which confirms X2:4 \u2264 st Y2:4 .",
+  "kind": "example",
+  "model": "k-out-of-n system",
+  "family": "MPHRS with exponential baselines F\u03041 = e^{\u22123x}, F\u03042 = e^{\u22122x}; Gumbel-type copula generator \u03c8(x) = e^{(1\u2212e^x)/a}",
+  "compared": "scale vectors \u03b8 = (0.6,0.7,0.8,0.9) vs \u03b7 = (0.2,0.3,0.5,0.7) under weak supermajorization",
+  "hypotheses": [
+   {
+    "text": "n = 4, \u03bb = 0.2, \u03b1 = 0.2, a = 0.1; \u03b8 \u2ab0w \u03b7 (sums of smallest: 0.6 \u2265 0.2, 1.3 \u2265 0.5, 2.1 \u2265 1.0, 3.0 \u2265 1.7 \u2014 holds)",
+    "formal": "all conditions of Theorem 2 verified",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X2:4 \u2264st Y2:4 confirmed by plotted transformed cdfs (Figure 1)"
+  },
+  "quantifiers": "n = 4; x \u2265 0",
+  "numbers": "F\u03041 = e^{\u22123x}, F\u03042 = e^{\u22122x}; \u03c8(x) = e^{(1\u2212e^x)/a} with a = 0.1; n = 4; \u03bb = 0.2; \u03b1 = 0.2; \u03b8 = (0.6,0.7,0.8,0.9); \u03b7 = (0.2,0.3,0.5,0.7)",
+  "ambiguity": "Generator prints as '\u03c8(x) = e a' in the text layer with the (1\u2212e^x) superscript on a separate line; reading \u03c8(x) = e^{(1\u2212e^x)/a} (Gumbel) is consistent with 0 < a \u2264 1. F\u03041 = e^{\u22123x} \u2264 e^{\u22122x} = F\u03042 matches the premise F\u03041 \u2264 F\u03042.",
+  "adjudication": "adjudicated: Passes agree on direction X2:4 \u2264st Y2:4 (numerically verified example for Theorem 2); the queue diff"
  },
  {
   "paper": "doi:10.3934/math.2024434",
   "claim": "Example 2",
-  "page": 8915,
-  "quote": "Example 2. Let F1(x) = 1 \u2212 e^{\u22123x} and F2(x) = 1 \u2212 e^{\u22122x}, and generator \u03c8(x) = (ax + 1)^{\u22121/a}, a > 0. Take n = 4, \u03bb = 0.5, \u03b8 = 0.1, a = 0.6, and \u03b1 = (0.6, 0.7, 0.8, 0.8) \u227aw (0.3, 0.4, 0.5, 0.6) = \u03b2. It is easy to check that the conditions of Theorem 4 are all satisfied. Thus, X3:4 \u2264st Y3:4, as shown in Figure 2.",
+  "page": 8914,
+  "quote": "Example 2. Let F1 (x) = 1 \u2212 e\u22123x and F2 (x) = 1 \u2212 e\u22122x , and generator \u03c8(x) = (ax + 1)\u22121/a , a > 0. Take n = 4, \u03bb = 0.5, \u03b8 = 0.1, a = 0.6, and \u03b1 = (0.6, 0.7, 0.8, 0.8) \u2ab0w (0.3, 0.4, 0.5, 0.6) = \u03b2. It is easy to check that the conditions of Theorem 4 are all satisfied. Thus, X3:4 \u2264 st Y3:4 , as shown in Figure 2.",
   "kind": "example",
-  "model": "fail-safe system (second largest)",
-  "family": "MPRHRS; exponential baselines; Clayton-type generator \u03c8(x) = (ax+1)^{\u22121/a}, a = 0.6",
-  "compared": "\u03b1 = (0.6,0.7,0.8,0.8) vs \u03b2 = (0.3,0.4,0.5,0.6)",
+  "model": "k-out-of-n system",
+  "family": "MPRHRS with exponential baselines F1 = 1\u2212e^{\u22123x}, F2 = 1\u2212e^{\u22122x}; Clayton-type generator \u03c8(x) = (ax+1)^{\u22121/a}",
+  "compared": "tilt vectors \u03b1 = (0.6,0.7,0.8,0.8) vs \u03b2 = (0.3,0.4,0.5,0.6) under weak supermajorization",
   "hypotheses": [
    {
-    "text": "n = 4, \u03bb = 0.5, \u03b8 = 0.1; \u03b1 \u227aw \u03b2 (lower sums consistent)",
-    "formal": "stated",
+    "text": "n = 4, \u03bb = 0.5, \u03b8 = 0.1, a = 0.6; \u03b1 \u2ab0w \u03b2 (sums of smallest: 0.6 \u2265 0.3, 1.3 \u2265 0.7, 2.1 \u2265 1.2, 2.9 \u2265 1.8 \u2014 holds)",
+    "formal": "all conditions of Theorem 4 claimed satisfied",
     "source": "statement"
    }
   ],
   "conclusion": {
    "order": "st",
-   "direction": "X3:4 \u2aaf_st Y3:4 verified numerically"
+   "direction": "X3:4 \u2264st Y3:4 confirmed by plotted survival functions (Figure 2)"
   },
-  "quantifiers": "n = 4; all x \u2265 0",
-  "numbers": "F1 = 1\u2212e^{\u22123x}, F2 = 1\u2212e^{\u22122x}; \u03c8 = (ax+1)^{\u22121/a}, a = 0.6; \u03bb = 0.5; \u03b8 = 0.1; \u03b1 = (0.6,0.7,0.8,0.8), \u03b2 = (0.3,0.4,0.5,0.6)",
+  "quantifiers": "n = 4; x \u2265 0",
+  "numbers": "F1 = 1\u2212e^{\u22123x}, F2 = 1\u2212e^{\u22122x}; \u03c8 = (ax+1)^{\u22121/a}, a = 0.6; n = 4; \u03bb = 0.5; \u03b8 = 0.1; \u03b1 = (0.6,0.7,0.8,0.8); \u03b2 = (0.3,0.4,0.5,0.6)",
+  "ambiguity": "Internal inconsistency: F1 = 1\u2212e^{\u22123x} \u2264 F2 = 1\u2212e^{\u22122x} for x \u2265 0, opposite of Theorem 4's printed premise F1(x) \u2265 F2(x) (it matches Theorem 3's F1 \u2264 F2); the paper nonetheless claims Theorem 4's conditions are satisfied.",
+  "adjudication": "adjudicated: Passes agree on X3:4 \u2264st Y3:4; wording-only diff. Page 8914. New flag: printed F1 \u2264 F2 violates Theo"
+ },
+ {
+  "paper": "doi:10.3934/math.2024434",
+  "claim": "Example 3",
+  "page": 8914,
+  "quote": "One natural question is whether the condition of weakly supermajorization order can be replaced by p-large order in Theorem 4. The following example gives a negative answer. Example 3. Let F1 (x) = F2 (x) = 1 \u2212 e\u2212x , and generator \u03c8(x) = (ax + 1)\u22121/a , a > 0. Take n = 3, \u03b1 = (3, 4, 5), and \u03b2 = (2, 4.8, 6), and it holds that \u03b1 \u2ab0p \u03b2 while \u03b1 \u22e1w \u03b2. The curve of F\u0304(X2:3 +1)\u22121 (x) \u2212 F\u0304(Y2:3 +1)\u22121 (x) is displayed in Figure 3, from which we confirm that X2:3 \u2271 st Y2:3 and X2:3 \u2270 st Y2:3 .",
+  "kind": "counterexample",
+  "model": "k-out-of-n system",
+  "family": "MPRHRS with identical exponential baselines F1 = F2 = 1\u2212e^{\u2212x}; Clayton-type generator \u03c8(x) = (ax+1)^{\u22121/a}",
+  "compared": "tilt vectors \u03b1 = (3,4,5) vs \u03b2 = (2,4.8,6) claimed p-large ordered but not weakly supermajorized",
+  "hypotheses": [
+   {
+    "text": "n = 3; F1 = F2 = 1\u2212e^{\u2212x}; \u03b1 \u2ab0p \u03b2 asserted while \u03b1 \u22e1w \u03b2",
+    "formal": "p-large order replaces weak supermajorization in Theorem 4's premise",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X2:3 \u2271st Y2:3 and X2:3 \u2270st Y2:3 \u2014 not st-comparable (difference of transformed survival functions changes sign in Figure 3); the \u2ab0w \u2192 \u2ab0p weakening of Theorem 4 fails"
+  },
+  "quantifiers": "n = 3; x \u2265 0",
+  "numbers": "n = 3; \u03b1 = (3,4,5); \u03b2 = (2,4.8,6); F1 = F2 = 1\u2212e^{\u2212x}; \u03c8(x) = (ax+1)^{\u22121/a}",
+  "ambiguity": "Two printed defects. (1) Definition 2(iii) as printed reads \u03a0_{i=j}^n x_(i) \u2265 \u03a0_{i=1}^j y_(i) (asymmetric limits, verified via glyph coordinates): under this literal reading \u03b1 \u2ab0p \u03b2 fails at j = 3 (5 \u2265\u0338 57.6), and under the symmetric upper-products reading it fails at j = 2 (20 \u2265\u0338 28.8). Only the standard symmetric lower-products reading \u03a0_{i=1}^j x_(i) \u2265 \u03a0_{i=1}^j y_(i) makes the claim hold (3 \u2265 2, 12 \u2265 9.6, 60 \u2265 57.6) \u2014 so the example is consistent with the intended p-majorization but conflicts with the printed definition text. The \u03b1 \u22e1w \u03b2 half checks out: sums of smallest 3 \u2265 2, 7 \u2265 6.8 hold but total 12 \u2265\u0338 12.8 fails at j = 3. (2) The conclusion relation glyphs are unmapped bytes (0x02, 0x03) in the text layer; both passes read them as the two negated st relations \u2014 i.e., not st-comparable, which is what a sign-changing difference plot shows.",
+  "adjudication": "adjudicated: Passes agree substantively (order fails in both directions). Flagged: printed Def 2(iii) limits are "
+ },
+ {
+  "paper": "doi:10.3934/math.2024434",
+  "claim": "Theorem 1",
+  "page": 8908,
+  "quote": "Theorem 1. For X \u223c MPHRS (\u03b1; \u03b81; \u03bb1; F\u03041 ; \u03c8) and Y \u223c MPHRS (\u03b2; \u03b81; \u03bb1; F\u03042 ; \u03c8), if F\u03041 (x) \u2265 F\u03042 (x), then \u03b1 \u2ab0w \u03b2 implies X2:n \u2265 st Y2:n .",
+  "kind": "theorem",
+  "model": "k-out-of-n system",
+  "family": "MPHRS model under Archimedean survival copula \u03c8; tilt vector \u03b1 (X) vs \u03b2 (Y); common scalar scale \u03b81 and MPHR \u03bb1; baseline survival functions F\u03041, F\u03042",
+  "compared": "X2:n vs Y2:n; tilt vectors \u03b1 vs \u03b2 under weak supermajorization",
+  "hypotheses": [
+   {
+    "text": "F\u03041 (x) \u2265 F\u03042 (x)",
+    "formal": "baseline survival functions ordered pointwise",
+    "source": "statement"
+   },
+   {
+    "text": "\u03b1 \u2ab0w \u03b2",
+    "formal": "\u03b1 weakly supermajorized by \u03b2: \u03a3_{i=1}^j \u03b1_(i) \u2265 \u03a3_{i=1}^j \u03b2_(i), j = 1,...,n (Definition 2(ii))",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X2:n \u2265st Y2:n"
+  },
+  "quantifiers": "n \u2265 2; all x \u2265 0",
+  "numbers": "",
+  "ambiguity": "\u03b81, \u03bb1 denote constant vectors \u03b8\u00b71, \u03bb\u00b71 in the paper's notation (scalar common parameters).",
+  "adjudication": "adjudicated: Passes agree on st and X2:n \u2265st Y2:n; '\u2ab0st' = 'B_smaller'. Page 8908 (statement on the page opened b"
+ },
+ {
+  "paper": "doi:10.3934/math.2024434",
+  "claim": "Theorem 2",
+  "page": 8910,
+  "quote": "Theorem 2. For X \u223c MPHRS (\u03b11; \u03b8; \u03bb1; F\u03041 ; \u03c8) and Y \u223c MPHRS (\u03b11; \u03b7; \u03bb1; F\u03042 ; \u03c8), where 0 < \u03b1 \u2264 1. If \u03c8 is log-concave, F\u03041 (x) \u2264 F\u03042 (x), and h2 (x) is decreasing in x, then \u03b8 \u2ab0w \u03b7 implies X2:n \u2264 st Y2:n .",
+  "kind": "theorem",
+  "model": "k-out-of-n system",
+  "family": "MPHRS model; common scalar tilt \u03b1 \u2208 (0,1] and MPHR \u03bb1; scale vectors \u03b8 (X) vs \u03b7 (Y); baseline survival functions F\u03041, F\u03042 with baseline hazards h1, h2",
+  "compared": "X2:n vs Y2:n; scale vectors \u03b8 vs \u03b7 under weak supermajorization",
+  "hypotheses": [
+   {
+    "text": "0 < \u03b1 \u2264 1; \u03c8 is log-concave; F\u03041 (x) \u2264 F\u03042 (x); h2 (x) is decreasing in x",
+    "formal": "tilt bound, log-concave generator, baseline ordering, decreasing baseline hazard h2",
+    "source": "statement"
+   },
+   {
+    "text": "\u03b8 \u2ab0w \u03b7",
+    "formal": "\u03b8 weakly supermajorized by \u03b7 (Definition 2(ii))",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X2:n \u2264st Y2:n"
+  },
+  "quantifiers": "n \u2265 2; all x \u2265 0",
+  "numbers": "",
+  "ambiguity": "Remark 1 (printed below): Theorem 4.3 of [20] is the \u03b1 = \u03bb = 1, F\u03041 = F\u03042 special case.",
+  "adjudication": "adjudicated: Passes agree on st and X2:n \u2264st Y2:n; '\u2aafst' = 'A_smaller'. Page 8910, not 8911."
+ },
+ {
+  "paper": "doi:10.3934/math.2024434",
+  "claim": "Theorem 3",
+  "page": 8912,
+  "quote": "Theorem 3. For X \u223c MPRHRS (\u03b11; \u03b81; \u03bb; F1 ; \u03c8) and Y \u223c MPRHRS (\u03b11; \u03b81; \u00b5; F2 ; \u03c8), where 0 < \u03b1 \u2264 1. If \u03c8 is log-concave, F1 (x) \u2264 F2 (x), then \u03bb \u2ab0w \u00b5 implies Xn\u22121:n \u2265 st Yn\u22121:n .",
+  "kind": "theorem",
+  "model": "k-out-of-n system",
+  "family": "MPRHRS model under Archimedean copula \u03c8; modified proportional reversed hazard rate vectors \u03bb (X) vs \u00b5 (Y); common scalar tilt \u03b1 \u2208 (0,1] and scale \u03b81; baseline cdfs F1, F2",
+  "compared": "Xn\u22121:n vs Yn\u22121:n; MPRHR vectors \u03bb vs \u00b5 under weak supermajorization",
+  "hypotheses": [
+   {
+    "text": "0 < \u03b1 \u2264 1; \u03c8 is log-concave; F1 (x) \u2264 F2 (x)",
+    "formal": "tilt bound, log-concave generator, baseline cdfs ordered",
+    "source": "statement"
+   },
+   {
+    "text": "\u03bb \u2ab0w \u00b5",
+    "formal": "\u03bb weakly supermajorized by \u00b5 (Definition 2(ii))",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Xn\u22121:n \u2265st Yn\u22121:n"
+  },
+  "quantifiers": "n \u2265 2; all x \u2265 0",
+  "numbers": "",
+  "ambiguity": "Remark 2 (printed below): Theorem 6.2 of [19] is the \u03b1 = \u03b8 = 1, F1 = F2 special case.",
+  "adjudication": "adjudicated: Passes agree on st and Xn\u22121:n \u2265st Yn\u22121:n; '\u2ab0st' = 'B_smaller'. Page 8912 (statement in the 8912 bloc"
+ },
+ {
+  "paper": "doi:10.3934/math.2024434",
+  "claim": "Theorem 4",
+  "page": 8914,
+  "quote": "Theorem 4. For X \u223c MPRHRS (\u03b1; \u03b81; \u03bb1; F1 ; \u03c8) and Y \u223c MPRHRS (\u03b2; \u03b81; \u03bb1; F2 ; \u03c8). If F1 (x) \u2265 F2 (x), then \u03b1 \u2ab0w \u03b2 implies Xn\u22121:n \u2264 st Yn\u22121:n .",
+  "kind": "theorem",
+  "model": "k-out-of-n system",
+  "family": "MPRHRS model; tilt vectors \u03b1 (X) vs \u03b2 (Y); common scalar scale \u03b81 and rate \u03bb1; baseline cdfs F1, F2",
+  "compared": "Xn\u22121:n vs Yn\u22121:n; tilt vectors \u03b1 vs \u03b2 under weak supermajorization",
+  "hypotheses": [
+   {
+    "text": "F1 (x) \u2265 F2 (x)",
+    "formal": "baseline cdfs ordered pointwise",
+    "source": "statement"
+   },
+   {
+    "text": "\u03b1 \u2ab0w \u03b2",
+    "formal": "\u03b1 weakly supermajorized by \u03b2 (Definition 2(ii))",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Xn\u22121:n \u2264st Yn\u22121:n"
+  },
+  "quantifiers": "n \u2265 2; all x \u2265 0",
+  "numbers": "",
   "ambiguity": "",
-  "adjudication": "example record (pass a)+b"
+  "adjudication": "adjudicated: Passes agree on st and Xn\u22121:n \u2264st Yn\u22121:n; '\u2aafst' = 'A_smaller'. Page 8914, not 8915."
  },
  {
   "paper": "doi:10.3934/math.2024434",
@@ -73,30 +338,5 @@
   "numbers": "\u03b1 = (3,4,5), \u03b2 = (2,4.8,6)",
   "ambiguity": "\u03b1 \u227ap \u03b2 per Definition 2(iii) requires \u03a0_{i=j}^n \u03b1_(i) \u2265 \u03a0 \u03b2_(i): j = 3 gives 5 \u2265 6 which fails \u2014 the printed claim conflicts with the printed definition; the lower-products reading \u03a0_{i=1}^j \u03b1_(i) \u2265 \u03a0 \u03b2_(i) does hold (3 \u2265 2, 12 \u2265 9.6, 60 \u2265 57.6). Flagged.",
   "adjudication": "example record (pass a)"
- },
- {
-  "paper": "doi:10.3934/math.2024434",
-  "claim": "Example 3",
-  "page": 8914,
-  "quote": "Example 3. Let F1(x) = F2(x) = 1 \u2212 e^{\u2212x}, and generator \u03c8(x) = (ax + 1)^{\u22121/a}, a > 0. Take n = 3, \u03b1 = (3, 4, 5), and \u03b2 = (2, 4.8, 6), and it holds that \u03b1 \u227ap \u03b2 while \u03b1 \u22e0w \u03b2. The curve of F\u0304(X2:3+1)^{\u22121}(x) \u2212 F\u0304(Y2:3+1)^{\u22121}(x) is displayed in Figure 3, from which we confirm that X2:3 \u22e1st Y2:3 and X2:3 \u2271st Y2:3.",
-  "kind": "counterexample",
-  "model": "order statistics",
-  "family": "MPRHRS with identical exponential baselines; Clayton copula",
-  "compared": "\u03b1 = (3,4,5) vs \u03b2 = (2,4.8,6): p-majorized but not weakly supermajorized",
-  "hypotheses": [
-   {
-    "text": "\u03b1 \u227ap \u03b2 but \u03b1 \u22e0w \u03b2",
-    "formal": "p-large order holds, weak supermajorization fails",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "X2:3 and Y2:3 are not st-comparable (difference of transformed survival functions changes sign) \u2014 Theorem 4 fails under p-majorization alone"
-  },
-  "quantifiers": "n = 3; x \u2265 0",
-  "numbers": "n=3; \u03b1=(3,4,5); \u03b2=(2,4.8,6); F1=F2=1\u2212e^{\u2212x}; \u03c8(x)=(ax+1)^{\u22121/a}",
-  "ambiguity": "Prints 'X2:3 \u22e1st Y2:3 and X2:3 \u2271st Y2:3' (neither direction of st holds).",
-  "adjudication": "example record (pass b)"
  }
 ]

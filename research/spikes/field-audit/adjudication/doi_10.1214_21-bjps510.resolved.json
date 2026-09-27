@@ -1,0 +1,709 @@
+[
+ {
+  "queue_claim": "corollary3.5",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1214/21-bjps510",
+    "claim": "Corollary 3.5",
+    "page": 844,
+    "quote": "Corollary 3.5. Suppose that X(θ1 ) ≤lr↓ (≥lr↓ )X(θ2 ), ∀a < θ1 ≤ θ2 < b, and 1 ≤lr (≥lr ) 2 . Then, X( 1 ) ≤lr↓ X( 2 ).",
+    "kind": "corollary",
+    "model": "mixture",
+    "family": "general parametric family X(θ), θ ∈ (a,b); mixing r.v.s Θi ~ hi",
+    "compared": "the common model X(θ)=Y(θ) mixed by two different mixing variables Θ1 vs Θ2",
+    "hypotheses": [
+     {
+      "text": "X(θ1) ≤lr↓ (≥lr↓) X(θ2), ∀a<θ1≤θ2<b",
+      "formal": "down-shifted lr ordering of the kernel family in θ",
+      "source": "statement"
+     },
+     {
+      "text": "Θ1 ≤lr (≥lr) Θ2",
+      "formal": "lr ordering of the mixing variables",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "other: lr↓",
+     "direction": "X(Θ1) ≤lr↓ X(Θ2)"
+    },
+    "quantifiers": "θ ∈ (a,b); Δ ∈ (l2,∞)",
+    "numbers": "",
+    "ambiguity": "Special case X(θ)=Y(θ) of Theorem 3.3. Θ printed as  (unmapped glyph)."
+   }
+  ],
+  "note": "Both passes agree on the lr↓ direction; merged."
+ },
+ {
+  "queue_claim": "corollary3.8",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1214/21-bjps510",
+    "claim": "Corollary 3.8",
+    "page": 845,
+    "quote": "Corollary 3.8. Assume that X(θ1 ) ≤hr↓ (≥hr↓ )X(θ2 ), ∀a < θ1 ≤ θ2 < b, and 1 ≤hr (≥rh ) 2 . Then, X( 1 ) ≤hr↓ X( 2 ).",
+    "kind": "corollary",
+    "model": "mixture",
+    "family": "general parametric family X(θ), θ ∈ (a,b)",
+    "compared": "common-kernel mixtures with different mixing variables",
+    "hypotheses": [
+     {
+      "text": "X(θ1) ≤hr↓ (≥hr↓) X(θ2), ∀a<θ1≤θ2<b",
+      "formal": "down-shifted hr ordering in θ",
+      "source": "statement"
+     },
+     {
+      "text": "Θ1 ≤hr (≥rh) Θ2",
+      "formal": "hr ordering of mixing variables (bracketed alternative uses rh)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "other: hr↓",
+     "direction": "X(Θ1) ≤hr↓ X(Θ2)"
+    },
+    "quantifiers": "θ ∈ (a,b); Δ ∈ (l2,∞)",
+    "numbers": "",
+    "ambiguity": "Corollary of Theorem 3.7 for X(θ)=Y(θ). The bracketed mixing alternative is ≥rh, not ≥hr — asymmetric pairing as printed."
+   }
+  ],
+  "note": "Both passes agree on hr↓; the printed mixing alternative is Θ1 ≥rh Θ2 (kept verbatim)."
+ },
+ {
+  "queue_claim": "example5.1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1214/21-bjps510",
+    "claim": "Example 5.1",
+    "page": 847,
+    "quote": "Example 5.1. Let the p.d.f.s of r.v.s X(θ ) and Y (θ ) be fθ (x) = (θ + 1)(1 − e−x )θ e−x , x > 0, θ ∈ (0, 1), and gθ (x) = ((θ + 1)/θ)(1 − e−x )1/θ e−x , x > 0, θ ∈ (0, 1), respectively. It is easy to verify that conditions (i) and (iii) of Theorem 3.1 are satisfied. Further, let us assume that the r.v.s  1 and  2 have p.d.f.s h1 (θ ) = 1, 0 < θ < 1; and h2 (θ ) = 2θ , 0 < θ < 1. Thus, all three conditions of Theorem 3.1 are satisfied, and hence X( 1 ) ≤lr↑ Y ( 2 ).",
+    "kind": "example",
+    "model": "mixture",
+    "family": "fθ(x)=(θ+1)(1−e^{−x})^θ e^{−x}, gθ(x)=((θ+1)/θ)(1−e^{−x})^{1/θ} e^{−x}, x>0, θ∈(0,1); h1=U(0,1), h2(θ)=2θ",
+    "compared": "mixtures X(Θ1) vs Y(Θ2)",
+    "hypotheses": [
+     {
+      "text": "conditions (i) and (iii) of Theorem 3.1 verified",
+      "formal": "gθ(x)/fθ(x+Δ) increasing in x; X(θ) or Y(θ) lr-ordered in θ",
+      "source": "statement ('it is easy to verify' — no computation shown)"
+     }
+    ],
+    "conclusion": {
+     "order": "other: lr↑",
+     "direction": "X(Θ1) ≤lr↑ Y(Θ2)"
+    },
+    "quantifiers": "x > 0; θ ∈ (0,1)",
+    "numbers": "h1(θ)=1, h2(θ)=2θ on (0,1)",
+    "ambiguity": "Verification of conditions asserted, not shown ('easy to verify')."
+   }
+  ],
+  "note": "Passes agree on order/direction; span pp. 847–848."
+ },
+ {
+  "queue_claim": "example5.2",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1214/21-bjps510",
+    "claim": "Example 5.2",
+    "page": 848,
+    "quote": "Example 5.2. Assume that the s.f.s of r.v.s X(θ ) and Y (θ ) be F θ (x) = e−θ x , x ≥ 0, θ > 1 and Gθ (x) = e−x/θ , x ≥ 0, θ > 1, respectively. Also, let the p.d.fs of r.v.s  1 and  2 be h1 (θ ) = e−(θ −1) , θ ≥ 1 and h2 (θ ) = 12 e−(θ −1)/2 , θ ≥ 1. Thus, it can be seen that all the four assumptions of Theorem 3.6 are satisfied, and hence X( 1 ) ≤hr↑ Y ( 2 ).",
+    "kind": "example",
+    "model": "mixture",
+    "family": "F̄θ(x)=e^{−θx}, Ḡθ(x)=e^{−x/θ}, x≥0, θ>1; h1(θ)=e^{−(θ−1)}, h2(θ)=(1/2)e^{−(θ−1)/2}, θ≥1",
+    "compared": "mixtures X(Θ1) vs Y(Θ2)",
+    "hypotheses": [
+     {
+      "text": "all four assumptions of Theorem 3.6 satisfied",
+      "formal": "X(θ)≤hr↑Y(θ), hr monotonicity in θ, Ḡθ(x)/F̄θ(x+Δ) monotone in θ, Θ1≤hr Θ2",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "other: hr↑",
+     "direction": "X(Θ1) ≤hr↑ Y(Θ2)"
+    },
+    "quantifiers": "x ≥ 0; θ > 1",
+    "numbers": "h1(θ)=e^{−(θ−1)}, h2(θ)=(1/2)e^{−(θ−1)/2} on θ≥1 (both integrate to 1)",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Passes agree; verbatim survival functions kept."
+ },
+ {
+  "queue_claim": "example5.3",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1214/21-bjps510",
+    "claim": "Example 5.3",
+    "page": 848,
+    "quote": "Example 5.3. Suppose that the r.v.s X(θ ) and Y (θ ) have s.f.s F θ (x) = (1+x)^{1/(1+θ)} , x ≥ 0, θ > 1 and Gθ (x) = (1+x)^{1/(1+1/θ)} , x ≥ 0, θ > 1, respectively. Further, assume that the r.v.s  1 and  2 have p.d.f.s h1 (θ ) = e−(θ −1) , θ > 1 and h2 (θ ) = 12 e−(θ −1)/2 , θ > 1. Under this set-up, it is evident that conditions of Theorem 3.7 are satisfied, and therefore X( 1 ) ≤hr↓ Y ( 2 ).",
+    "kind": "example",
+    "model": "mixture",
+    "family": "F̄θ(x)=(1+x)^{1/(1+θ)}, Ḡθ(x)=(1+x)^{1/(1+1/θ)}, x≥0, θ>1; h1(θ)=e^{−(θ−1)}, h2(θ)=(1/2)e^{−(θ−1)/2}, θ>1",
+    "compared": "mixtures X(Θ1) vs Y(Θ2)",
+    "hypotheses": [
+     {
+      "text": "conditions of Theorem 3.7 satisfied",
+      "formal": "X(θ)≤hr↓Y(θ), hr monotonicity in θ, Ḡθ(x+Δ)/F̄θ(x) monotone in θ, Θ1≤hr Θ2",
+      "source": "statement ('it is evident')"
+     }
+    ],
+    "conclusion": {
+     "order": "other: hr↓",
+     "direction": "X(Θ1) ≤hr↓ Y(Θ2)"
+    },
+    "quantifiers": "x ≥ 0; θ > 1",
+    "numbers": "h1(θ)=e^{−(θ−1)}, h2(θ)=(1/2)e^{−(θ−1)/2}, θ>1",
+    "ambiguity": "Source-level issue: the printed survival functions have POSITIVE exponents — (1+x)^{1/(1+θ)} and (1+x)^{1/(1+1/θ)} increase in x and exceed 1, so they are not survival functions as printed (negative exponents were presumably intended). PDF glyph inspection shows a stacked fraction exponent 1/(1+θ) resp. 1/(1+1/θ) and no minus sign; recorded literally. Pass A silently inserted minus signs."
+   }
+  ],
+  "note": "CONSEQUENTIAL: printed exponents lack the minus signs needed for survival functions — preserved literally, flagged as a likely printed erratum."
+ },
+ {
+  "queue_claim": "example5.4",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1214/21-bjps510",
+    "claim": "Example 5.4",
+    "page": 848,
+    "quote": "Example 5.4. Let the d.f.s of r.v.s X(θ ) and Y (θ ) be Fθ (x) = (x/(1+x))^θ , x ≥ 0, θ ∈ (0, 1) and Gθ (x) = (x/(1+x))^{1/θ} , x ≥ 0, θ ∈ (0, 1), respectively. Also, let the p.d.fs of r.v.s  1 and  2 be h1 (θ ) = 2θ , 0 < θ < 1 and h2 (θ ) = 3θ 2 , 0 < θ < 1. Thus, conditions of Theorem 3.9 are satisfied, and hence X( 1 ) ≤rh↑ Y ( 2 ).",
+    "kind": "example",
+    "model": "mixture",
+    "family": "Fθ(x)=(x/(1+x))^θ, Gθ(x)=(x/(1+x))^{1/θ}, x≥0, θ∈(0,1); h1(θ)=2θ, h2(θ)=3θ² on (0,1)",
+    "compared": "mixtures X(Θ1) vs Y(Θ2)",
+    "hypotheses": [
+     {
+      "text": "conditions of Theorem 3.9 satisfied",
+      "formal": "X(θ)≤rh↑Y(θ), rh monotonicity in θ, Gθ(x)/Fθ(x+Δ) monotone in θ, Θ1≤rh Θ2",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "other: rh↑",
+     "direction": "X(Θ1) ≤rh↑ Y(Θ2)"
+    },
+    "quantifiers": "x ≥ 0; θ ∈ (0,1)",
+    "numbers": "h1(θ)=2θ, h2(θ)=3θ² on (0,1)",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Passes agree; verbatim distribution functions kept."
+ },
+ {
+  "queue_claim": "theorem3.1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1214/21-bjps510",
+    "claim": "Theorem 3.1",
+    "page": 843,
+    "quote": "Theorem 3.1. Suppose that the following conditions are satisfied: (i) for every fixed θ ∈ (a, b) and Δ ≥ 0, gθ (x)/fθ (x + Δ) is increasing in x ∈ (l, u); (ii) for every fixed x ∈ (l, u) and Δ ≥ 0, [gθ (x)h2 (θ )]/[fθ (x + Δ)h1 (θ )] is increasing (decreasing) in θ ∈ (a, b); (iii) either X(θ1 ) ≤lr (≥lr )X(θ2 ), ∀a < θ1 ≤ θ2 < b, or Y (θ1 ) ≤lr (≥lr )Y (θ2 ), ∀a < θ1 ≤ θ2 < b. Then, X(Θ1 ) ≤lr↑ Y (Θ2 ).",
+    "kind": "theorem",
+    "model": "mixture",
+    "family": "mixture distributions X(Θ1) and Y(Θ2) with densities f(x)=∫fθ(x)I_{(a,b)}(θ)h1(θ)dθ, g(x)=∫gθ(x)I_{(a,b)}(θ)h2(θ)dθ (Eq. 3.1)",
+    "compared": "mixture distributions X(Θ1) vs Y(Θ2) under different mixing variables",
+    "hypotheses": [
+     {
+      "text": "(i) gθ(x)/fθ(x+Δ) increasing in x ∈ (l,u) for fixed θ, Δ",
+      "formal": "TP2 structure of the kernel ratio",
+      "source": "statement — orientation verified from PDF glyph layout: numerator gθ(x), denominator fθ(x+Δ)"
+     },
+     {
+      "text": "(ii) [gθ(x)h2(θ)]/[fθ(x+Δ)h1(θ)] increasing (decreasing) in θ for fixed x, Δ",
+      "formal": "kernel-times-mixing-density ratio monotone in θ",
+      "source": "statement — PDF layout confirms gθ(x)h2(θ) over fθ(x+Δ)h1(θ)"
+     },
+     {
+      "text": "(iii) either X(θ1) ≤lr (≥lr) X(θ2) or Y(θ1) ≤lr (≥lr) Y(θ2), ∀a<θ1≤θ2<b",
+      "formal": "common-direction lr ordering of one kernel family in θ",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "other: lr↑",
+     "direction": "X(Θ1) ≤lr↑ Y(Θ2)"
+    },
+    "quantifiers": "θ ∈ (a,b); x ∈ (l,u); Δ ≥ 0",
+    "numbers": "",
+    "ambiguity": "Bracketed alternatives give reversed variants. When X(θ)=Y(θ) and Θ1 =d Θ2 the conclusion amounts to ILR of X(Θ1); Section 6 notes conditions (ii)+(iii) cannot then hold simultaneously — the theorem is not equipped for the ILR conclusion."
+   }
+  ],
+  "note": "Direction agreed; ratio orientation in (i)–(ii) confirmed from PDF glyph coordinates (gθ(x) over fθ(x+Δ))."
+ },
+ {
+  "queue_claim": "theorem3.2",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1214/21-bjps510",
+    "claim": "Theorem 3.2",
+    "page": 844,
+    "quote": "Theorem 3.2. Suppose that the following conditions are satisfied: (i) X(θ) ≤lr↑ Y (θ ), ∀θ ∈ (a, b); (ii) X(θ1 ) ≤lr (≥lr )X(θ2 ), ∀a < θ1 ≤ θ2 < b, or Y (θ1 ) ≤lr (≥lr )Y (θ2 ), ∀a < θ1 ≤ θ2 < b; (iii) gθ (x)/fθ (x + Δ) is increasing (decreasing) in θ ∈ (a, b), for every fixed x ∈ (l, u) and Δ ≥ 0. Then, X(Θ1 ) ≤lr↑ Y (Θ2 ).",
+    "kind": "theorem",
+    "model": "mixture",
+    "family": "mixture distributions X(Θ1) and Y(Θ2) with densities f(x)=∫fθ(x)I_{(a,b)}(θ)h1(θ)dθ, g(x)=∫gθ(x)I_{(a,b)}(θ)h2(θ)dθ (Eq. 3.1)",
+    "compared": "mixtures X(Θ1) vs Y(Θ2) with Θ1 =d Θ2",
+    "hypotheses": [
+     {
+      "text": "(i) X(θ) ≤lr↑ Y(θ) ∀θ∈(a,b)",
+      "formal": "pointwise up-shifted lr of the kernels",
+      "source": "statement"
+     },
+     {
+      "text": "(ii) X(θ1) ≤lr (≥lr) X(θ2) or Y(θ1) ≤lr (≥lr) Y(θ2), ∀a<θ1≤θ2<b",
+      "formal": "kernel lr ordering in θ",
+      "source": "statement"
+     },
+     {
+      "text": "(iii) gθ(x)/fθ(x+Δ) increasing (decreasing) in θ",
+      "formal": "kernel ratio monotone in θ",
+      "source": "statement — same orientation as 3.1, verified via PDF layout"
+     }
+    ],
+    "conclusion": {
+     "order": "other: lr↑",
+     "direction": "X(Θ1) ≤lr↑ Y(Θ2)"
+    },
+    "quantifiers": "θ ∈ (a,b); x ∈ (l,u); Δ ≥ 0",
+    "numbers": "",
+    "ambiguity": "Introduced as the Θ1 =d Θ2 case of Theorem 3.1."
+   }
+  ],
+  "note": "Both passes agree; verbatim statement."
+ },
+ {
+  "queue_claim": "theorem3.3",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1214/21-bjps510",
+    "claim": "Theorem 3.3",
+    "page": 844,
+    "quote": "Theorem 3.3. Suppose that: (i) X(θ) ≤lr↓ Y (θ ), ∀θ ∈ (a, b); (ii) X(θ1 ) ≤lr (≥lr )X(θ2 ), ∀a < θ1 ≤ θ2 < b, or Y (θ1 ) ≤lr (≥lr )Y (θ2 ), ∀a < θ1 ≤ θ2 < b; (iii) gθ (x + Δ)/fθ (x) is increasing (decreasing) in θ ∈ (a, b), for every fixed x ∈ (l, u) and Δ ≥ 0; (iv) Θ1 ≤lr (≥lr )Θ2 . Then, X(Θ1 ) ≤lr↓ Y (Θ2 ).",
+    "kind": "theorem",
+    "model": "mixture",
+    "family": "mixture distributions X(Θ1) and Y(Θ2) with densities f(x)=∫fθ(x)I_{(a,b)}(θ)h1(θ)dθ, g(x)=∫gθ(x)I_{(a,b)}(θ)h2(θ)dθ (Eq. 3.1)",
+    "compared": "mixtures X(Θ1) vs Y(Θ2)",
+    "hypotheses": [
+     {
+      "text": "(i) X(θ) ≤lr↓ Y(θ) ∀θ",
+      "formal": "pointwise down-shifted lr",
+      "source": "statement"
+     },
+     {
+      "text": "(ii) kernel lr ordering in θ",
+      "formal": "X(θ1) ≤lr (≥lr) X(θ2) or Y(θ1) ≤lr (≥lr) Y(θ2)",
+      "source": "statement"
+     },
+     {
+      "text": "(iii) gθ(x+Δ)/fθ(x) increasing (decreasing) in θ",
+      "formal": "proof uses ψ1=fθ(x), ψ2=gθ(x+Δ)",
+      "source": "statement"
+     },
+     {
+      "text": "(iv) Θ1 ≤lr (≥lr) Θ2",
+      "formal": "lr ordering of mixing variables",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "other: lr↓",
+     "direction": "X(Θ1) ≤lr↓ Y(Θ2)"
+    },
+    "quantifiers": "θ ∈ (a,b); x ∈ (l,u); Δ ≥ 0",
+    "numbers": "",
+    "ambiguity": "Section 6 notes that under X(θ)=Y(θ), Θ1=dΘ2 it concludes DLR under a redundant extra assumption — printed limitation."
+   }
+  ],
+  "note": "Direction agreed; verbatim statement."
+ },
+ {
+  "queue_claim": "theorem3.4",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1214/21-bjps510",
+    "claim": "Theorem 3.4",
+    "page": 844,
+    "quote": "Theorem 3.4. Suppose that: (i) for every fixed θ ∈ (a, b) and Δ ≥ 0, gθ (x + Δ)/fθ (x) is increasing in x ∈ (l, u); (ii) for every fixed x ∈ (l, u) and Δ ≥ 0, [gθ (x + Δ)h2 (θ)]/[fθ (x)h1 (θ)] is increasing (decreasing) in θ ∈ (a, b); (iii) either X(θ1 ) ≤lr (≥lr )X(θ2 ), ∀a < θ1 ≤ θ2 < b, or Y (θ1 ) ≤lr (≥lr )Y (θ2 ), ∀a < θ1 ≤ θ2 < b. Then, X(Θ1 ) ≤lr↓ Y (Θ2 ).",
+    "kind": "theorem",
+    "model": "mixture",
+    "family": "mixture distributions X(Θ1) and Y(Θ2) with densities f(x)=∫fθ(x)I_{(a,b)}(θ)h1(θ)dθ, g(x)=∫gθ(x)I_{(a,b)}(θ)h2(θ)dθ (Eq. 3.1)",
+    "compared": "mixtures X(Θ1) vs Y(Θ2) under different mixing variables",
+    "hypotheses": [
+     {
+      "text": "(i) gθ(x+Δ)/fθ(x) increasing in x",
+      "formal": "kernel ratio monotone in x",
+      "source": "statement — orientation confirmed by PDF glyph layout"
+     },
+     {
+      "text": "(ii) [gθ(x+Δ)h2(θ)]/[fθ(x)h1(θ)] increasing (decreasing) in θ",
+      "formal": "kernel-times-density ratio monotone in θ",
+      "source": "statement"
+     },
+     {
+      "text": "(iii) kernel lr ordering in θ",
+      "formal": "as in Theorem 3.1(iii)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "other: lr↓",
+     "direction": "X(Θ1) ≤lr↓ Y(Θ2)"
+    },
+    "quantifiers": "θ ∈ (a,b); x ∈ (l,u); Δ ≥ 0",
+    "numbers": "",
+    "ambiguity": "Presented as a 'weaker conditions' variant of Theorem 3.3 proved along the lines of Theorem 3.1."
+   }
+  ],
+  "note": "Direction agreed; verbatim statement."
+ },
+ {
+  "queue_claim": "theorem3.6",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1214/21-bjps510",
+    "claim": "Theorem 3.6",
+    "page": 845,
+    "quote": "Theorem 3.6. Suppose that: (i) X(θ) ≤hr↑ Y (θ ), ∀θ ∈ (a, b); (ii) X(θ1 ) ≤hr (≥hr )X(θ2 ), ∀a < θ1 ≤ θ2 < b, or Y (θ1 ) ≤hr (≥hr )Y (θ2 ), ∀a < θ1 ≤ θ2 < b; (iii) Gθ (x)/F θ (x + Δ) is increasing (decreasing) in θ ∈ (a, b), for every fixed x ∈ (l, u) and Δ ≥ 0; (iv) Θ1 ≤hr (≥rh )Θ2 . Then, X(Θ1 ) ≤hr↑ Y (Θ2 ).",
+    "kind": "theorem",
+    "model": "mixture",
+    "family": "mixture distributions X(Θ1) and Y(Θ2) with densities f(x)=∫fθ(x)I_{(a,b)}(θ)h1(θ)dθ, g(x)=∫gθ(x)I_{(a,b)}(θ)h2(θ)dθ (Eq. 3.1)",
+    "compared": "mixtures X(Θ1) vs Y(Θ2)",
+    "hypotheses": [
+     {
+      "text": "(i) X(θ) ≤hr↑ Y(θ) ∀θ",
+      "formal": "pointwise up-shifted hr",
+      "source": "statement"
+     },
+     {
+      "text": "(ii) kernel hr ordering in θ",
+      "formal": "X(θ1) ≤hr (≥hr) X(θ2) or Y(θ1) ≤hr (≥hr) Y(θ2)",
+      "source": "statement"
+     },
+     {
+      "text": "(iii) Ḡθ(x)/F̄θ(x+Δ) increasing (decreasing) in θ",
+      "formal": "survival-function ratio monotone in θ",
+      "source": "statement — PDF glyph layout gives numerator Ḡθ(x), denominator F̄θ(x+Δ); pass B's print 'F̄θ(x)/Ḡθ(x+Δ)' is inverted"
+     },
+     {
+      "text": "(iv) Θ1 ≤hr (≥rh) Θ2",
+      "formal": "hr ordering of mixing variables (bracketed: rh)",
+      "source": "statement — asymmetric ≤hr/≥rh pairing as printed"
+     }
+    ],
+    "conclusion": {
+     "order": "other: hr↑",
+     "direction": "X(Θ1) ≤hr↑ Y(Θ2)"
+    },
+    "quantifiers": "θ ∈ (a,b); x ∈ (l,u); Δ ≥ 0",
+    "numbers": "",
+    "ambiguity": "Condition (iv) pairs ≤hr with ≥rh in the bracketed alternative — printed as such. When X(θ)=Y(θ), Θ1=dΘ2 the conclusion amounts to IFR; (ii)+(iii) cannot hold simultaneously then (Section 6)."
+   }
+  ],
+  "note": "CORRECTED: condition (iii) is Ḡθ(x)/F̄θ(x+Δ) monotone in θ (PDF glyph coordinates), not pass B's inverted ratio. Conclusion X(Θ1) ≤hr↑ Y(Θ2) agreed."
+ },
+ {
+  "queue_claim": "theorem3.7",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1214/21-bjps510",
+    "claim": "Theorem 3.7",
+    "page": 845,
+    "quote": "Theorem 3.7. Suppose that: (i) X(θ) ≤hr↓ Y (θ ), ∀θ ∈ (a, b); (ii) X(θ1 ) ≤hr (≥hr )X(θ2 ), ∀a < θ1 ≤ θ2 < b, or Y (θ1 ) ≤hr (≥hr )Y (θ2 ), ∀a < θ1 ≤ θ2 < b; (iii) Gθ (x + Δ)/F θ (x) is increasing (decreasing) in θ , for every fixed x ∈ (l, u) and Δ ≥ 0; (iv) Θ1 ≤hr (≥rh )Θ2 . Then, X(Θ1 ) ≤hr↓ Y (Θ2 ).",
+    "kind": "theorem",
+    "model": "mixture",
+    "family": "mixture distributions X(Θ1) and Y(Θ2) with densities f(x)=∫fθ(x)I_{(a,b)}(θ)h1(θ)dθ, g(x)=∫gθ(x)I_{(a,b)}(θ)h2(θ)dθ (Eq. 3.1)",
+    "compared": "mixtures X(Θ1) vs Y(Θ2)",
+    "hypotheses": [
+     {
+      "text": "(i) X(θ) ≤hr↓ Y(θ) ∀θ",
+      "formal": "pointwise down-shifted hr",
+      "source": "statement"
+     },
+     {
+      "text": "(ii) kernel hr ordering in θ",
+      "formal": "as printed",
+      "source": "statement"
+     },
+     {
+      "text": "(iii) Ḡθ(x+Δ)/F̄θ(x) increasing (decreasing) in θ",
+      "formal": "survival-function ratio monotone in θ; proof uses ψ1=F̄θ(x), ψ2=Ḡθ(x+Δ)",
+      "source": "statement — orientation confirmed via PDF glyph layout"
+     },
+     {
+      "text": "(iv) Θ1 ≤hr (≥rh) Θ2",
+      "formal": "mixing ordering (bracketed rh alternative)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "other: hr↓",
+     "direction": "X(Θ1) ≤hr↓ Y(Θ2)"
+    },
+    "quantifiers": "θ ∈ (a,b); x ∈ (l,u); Δ ≥ 0",
+    "numbers": "",
+    "ambiguity": "Asymmetric ≤hr/(≥rh) pairing printed in (iv). Under X(θ)=Y(θ), Θ1=dΘ2 it gives DFR with a redundant extra assumption (Section 6)."
+   }
+  ],
+  "note": "Both passes agree; verbatim statement."
+ },
+ {
+  "queue_claim": "theorem3.9",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1214/21-bjps510",
+    "claim": "Theorem 3.9",
+    "page": 845,
+    "quote": "Theorem 3.9. Suppose that the following conditions are satisfied: (i) X(θ) ≤rh↑ Y (θ ), ∀θ ∈ (a, b); (ii) X(θ1 ) ≤rh (≥rh )X(θ2 ), ∀a < θ1 ≤ θ2 < b, or Y (θ1 ) ≤rh (≥rh )Y (θ2 ), ∀a < θ1 ≤ θ2 < b; (iii) Gθ (x)/Fθ (x + Δ) is increasing (decreasing) in θ ∈ (a, b), for every fixed x ∈ (l, u) and Δ ≥ 0; (iv) Θ1 ≤rh (≥hr )Θ2 . Then, X(Θ1 ) ≤rh↑ Y (Θ2 ).",
+    "kind": "theorem",
+    "model": "mixture",
+    "family": "mixture distributions X(Θ1) and Y(Θ2) with densities f(x)=∫fθ(x)I_{(a,b)}(θ)h1(θ)dθ, g(x)=∫gθ(x)I_{(a,b)}(θ)h2(θ)dθ (Eq. 3.1)",
+    "compared": "mixtures X(Θ1) vs Y(Θ2)",
+    "hypotheses": [
+     {
+      "text": "(i) X(θ) ≤rh↑ Y(θ) ∀θ",
+      "formal": "pointwise up-shifted rh",
+      "source": "statement"
+     },
+     {
+      "text": "(ii) kernel rh ordering in θ",
+      "formal": "as printed",
+      "source": "statement"
+     },
+     {
+      "text": "(iii) Gθ(x)/Fθ(x+Δ) increasing (decreasing) in θ",
+      "formal": "d.f. ratio monotone in θ",
+      "source": "statement — PDF glyph layout gives numerator Gθ(x), denominator Fθ(x+Δ); BOTH passes' print 'Fθ(x)/Gθ(x+Δ)' is inverted"
+     },
+     {
+      "text": "(iv) Θ1 ≤rh (≥hr) Θ2",
+      "formal": "rh ordering of mixing variables (bracketed: hr)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "other: rh↑",
+     "direction": "X(Θ1) ≤rh↑ Y(Θ2)"
+    },
+    "quantifiers": "θ ∈ (a,b); x ∈ (l,u); Δ ≥ 0",
+    "numbers": "",
+    "ambiguity": "Under X(θ)=Y(θ), Θ1=dΘ2 the conclusion is DRFR; (ii)+(iii) cannot hold simultaneously then (Section 6)."
+   }
+  ],
+  "note": "CORRECTED: condition (iii) is Gθ(x)/Fθ(x+Δ) monotone in θ (PDF glyph coordinates) — both extraction passes printed the reciprocal."
+ },
+ {
+  "queue_claim": "theorem3.10",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1214/21-bjps510",
+    "claim": "Theorem 3.10",
+    "page": 846,
+    "quote": "Theorem 3.10. Suppose that: (i) X(θ) ≤rh↓ Y (θ ), ∀θ ∈ (a, b); (ii) X(θ1 ) ≤rh (≥rh )X(θ2 ), ∀a < θ1 ≤ θ2 < b, or Y (θ1 ) ≤rh (≥rh )Y (θ2 ), ∀a < θ1 ≤ θ2 < b; (iii) Gθ (x + Δ)/Fθ (x) is increasing (decreasing) in θ ∈ (a, b), for every fixed x ∈ (l, u) and Δ > 0; (iv) Θ1 ≤rh (≥hr )Θ2 . Then, X(Θ1 ) ≤rh↓ Y (Θ2 ).",
+    "kind": "theorem",
+    "model": "mixture",
+    "family": "mixture distributions X(Θ1) and Y(Θ2) with densities f(x)=∫fθ(x)I_{(a,b)}(θ)h1(θ)dθ, g(x)=∫gθ(x)I_{(a,b)}(θ)h2(θ)dθ (Eq. 3.1)",
+    "compared": "mixtures X(Θ1) vs Y(Θ2)",
+    "hypotheses": [
+     {
+      "text": "(i) X(θ) ≤rh↓ Y(θ) ∀θ",
+      "formal": "pointwise down-shifted rh",
+      "source": "statement"
+     },
+     {
+      "text": "(ii) kernel rh ordering in θ",
+      "formal": "as printed",
+      "source": "statement"
+     },
+     {
+      "text": "(iii) Gθ(x+Δ)/Fθ(x) increasing (decreasing) in θ",
+      "formal": "d.f. ratio monotone in θ; proof recipe ψ1=Gθ(x+Δ), ψ2=Fθ(x)",
+      "source": "statement — orientation confirmed via PDF glyph layout"
+     },
+     {
+      "text": "(iv) Θ1 ≤rh (≥hr) Θ2",
+      "formal": "rh ordering of mixing variables (bracketed: hr)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "other: rh↓",
+     "direction": "X(Θ1) ≤rh↓ Y(Θ2)"
+    },
+    "quantifiers": "θ ∈ (a,b); x ∈ (l,u); Δ > 0 (as printed)",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Direction agreed; verbatim statement."
+ },
+ {
+  "queue_claim": "unn4:convolution preservation result unnumbered section 4",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1214/21-bjps510",
+    "claim": "Unnumbered convolution preservation result (Section 4), part lr↑",
+    "page": 846,
+    "quote": "Shanthikumar and Yao (1986) and Lillo et al. (2000) proved that if Xi ≤lr↑ Yi , i = 1, 2, then X1 + X2 ≤lr↑ Y1 + Y2 . In addition, Hu and Zhu (2001) proved that if X1 ≤lr↑ Y1 and X2 ≤lr↑ (respectively, ≤hr↑ and ≤rh↑ ) Y2 , then X1 + X2 ≤lr↑ (respectively, ≤hr↑ and ≤rh↑ ) Y1 + Y2 ... However, using the general result stated in Lemma 2.7, the assertion follows in a straight-forward manner.",
+    "kind": "theorem",
+    "model": "other: convolution of independent pairs",
+    "family": "general distributions with Lebesgue densities",
+    "compared": "convolutions X1+X2 vs Y1+Y2 of pairs (Xi,Yi) of independent components",
+    "hypotheses": [
+     {
+      "text": "X1 ≤lr↑ Y1 and X2 ≤lr↑ Y2",
+      "formal": "componentwise up-shifted lr ordering",
+      "source": "statement (Hu–Zhu 2001, re-proved via Lemma 2.7)"
+     }
+    ],
+    "conclusion": {
+     "order": "other: lr↑",
+     "direction": "X1 + X2 ≤lr↑ Y1 + Y2"
+    },
+    "quantifiers": "all x where ψ1(x)=h(x)/f(x+Δ) is well-defined (S1)",
+    "numbers": "",
+    "ambiguity": "The paper re-proves the cited preservation assertions using Lemma 2.7; the equivalent formulation is ψ2(x)/ψ1(x+Δ) increasing, i.e., h(x)/f(x+Δ) increasing for convolved densities."
+   },
+   {
+    "paper": "doi:10.1214/21-bjps510",
+    "claim": "Unnumbered convolution preservation result (Section 4), part hr↑",
+    "page": 846,
+    "quote": "Hu and Zhu (2001) proved that if X1 ≤lr↑ Y1 and X2 ≤hr↑ Y2 , then X1 + X2 ≤hr↑ Y1 + Y2 ; ... using the general result stated in Lemma 2.7, the assertion follows in a straight-forward manner.",
+    "kind": "theorem",
+    "model": "other: convolution of independent pairs",
+    "family": "general distributions with Lebesgue densities",
+    "compared": "convolutions X1+X2 vs Y1+Y2",
+    "hypotheses": [
+     {
+      "text": "X1 ≤lr↑ Y1 and X2 ≤hr↑ Y2",
+      "formal": "mixed componentwise ordering: lr↑ on the first pair, hr↑ on the second",
+      "source": "statement (Hu–Zhu 2001, re-proved via Lemma 2.7)"
+     }
+    ],
+    "conclusion": {
+     "order": "other: hr↑",
+     "direction": "X1 + X2 ≤hr↑ Y1 + Y2"
+    },
+    "quantifiers": "all x where ψ2(x)=H̄(x)/F̄(x+Δ) is well-defined (S2)",
+    "numbers": "",
+    "ambiguity": "Asymmetric premise (first pair ordered in lr↑, second in hr↑)."
+   },
+   {
+    "paper": "doi:10.1214/21-bjps510",
+    "claim": "Unnumbered convolution preservation result (Section 4), part rh↑",
+    "page": 846,
+    "quote": "Hu and Zhu (2001) proved that if X1 ≤lr↑ Y1 and X2 ≤rh↑ Y2 , then X1 + X2 ≤rh↑ Y1 + Y2 ; ... using the general result stated in Lemma 2.7, the assertion follows in a straight-forward manner.",
+    "kind": "theorem",
+    "model": "other: convolution of independent pairs",
+    "family": "general distributions with Lebesgue densities",
+    "compared": "convolutions X1+X2 vs Y1+Y2",
+    "hypotheses": [
+     {
+      "text": "X1 ≤lr↑ Y1 and X2 ≤rh↑ Y2",
+      "formal": "mixed componentwise ordering: lr↑ on the first pair, rh↑ on the second",
+      "source": "statement (Hu–Zhu 2001, re-proved via Lemma 2.7)"
+     }
+    ],
+    "conclusion": {
+     "order": "other: rh↑",
+     "direction": "X1 + X2 ≤rh↑ Y1 + Y2"
+    },
+    "quantifiers": "all x where ψ3(x)=H(x)/F(x+Δ) is well-defined (S3)",
+    "numbers": "",
+    "ambiguity": "Asymmetric premise (first pair ordered in lr↑, second in rh↑)."
+   }
+  ],
+  "note": "One printed claim asserting three orders (lr↑, hr↑, rh↑) under convolutions — split into three records, one per order."
+ },
+ {
+  "queue_claim": "unn4:convolution preservation section 4 unnumbered",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1214/21-bjps510",
+    "claim": "Unnumbered convolution preservation result (Section 4), part lr↑",
+    "page": 846,
+    "quote": "Shanthikumar and Yao (1986) and Lillo et al. (2000) proved that if Xi ≤lr↑ Yi , i = 1, 2, then X1 + X2 ≤lr↑ Y1 + Y2 . In addition, Hu and Zhu (2001) proved that if X1 ≤lr↑ Y1 and X2 ≤lr↑ (respectively, ≤hr↑ and ≤rh↑ ) Y2 , then X1 + X2 ≤lr↑ (respectively, ≤hr↑ and ≤rh↑ ) Y1 + Y2 ... However, using the general result stated in Lemma 2.7, the assertion follows in a straight-forward manner.",
+    "kind": "theorem",
+    "model": "other: convolution of independent pairs",
+    "family": "general distributions with Lebesgue densities",
+    "compared": "convolutions X1+X2 vs Y1+Y2 of pairs (Xi,Yi) of independent components",
+    "hypotheses": [
+     {
+      "text": "X1 ≤lr↑ Y1 and X2 ≤lr↑ Y2",
+      "formal": "componentwise up-shifted lr ordering",
+      "source": "statement (Hu–Zhu 2001, re-proved via Lemma 2.7)"
+     }
+    ],
+    "conclusion": {
+     "order": "other: lr↑",
+     "direction": "X1 + X2 ≤lr↑ Y1 + Y2"
+    },
+    "quantifiers": "all x where ψ1(x)=h(x)/f(x+Δ) is well-defined (S1)",
+    "numbers": "",
+    "ambiguity": "The paper re-proves the cited preservation assertions using Lemma 2.7; the equivalent formulation is ψ2(x)/ψ1(x+Δ) increasing, i.e., h(x)/f(x+Δ) increasing for convolved densities."
+   },
+   {
+    "paper": "doi:10.1214/21-bjps510",
+    "claim": "Unnumbered convolution preservation result (Section 4), part hr↑",
+    "page": 846,
+    "quote": "Hu and Zhu (2001) proved that if X1 ≤lr↑ Y1 and X2 ≤hr↑ Y2 , then X1 + X2 ≤hr↑ Y1 + Y2 ; ... using the general result stated in Lemma 2.7, the assertion follows in a straight-forward manner.",
+    "kind": "theorem",
+    "model": "other: convolution of independent pairs",
+    "family": "general distributions with Lebesgue densities",
+    "compared": "convolutions X1+X2 vs Y1+Y2",
+    "hypotheses": [
+     {
+      "text": "X1 ≤lr↑ Y1 and X2 ≤hr↑ Y2",
+      "formal": "mixed componentwise ordering: lr↑ on the first pair, hr↑ on the second",
+      "source": "statement (Hu–Zhu 2001, re-proved via Lemma 2.7)"
+     }
+    ],
+    "conclusion": {
+     "order": "other: hr↑",
+     "direction": "X1 + X2 ≤hr↑ Y1 + Y2"
+    },
+    "quantifiers": "all x where ψ2(x)=H̄(x)/F̄(x+Δ) is well-defined (S2)",
+    "numbers": "",
+    "ambiguity": "Asymmetric premise (first pair ordered in lr↑, second in hr↑)."
+   },
+   {
+    "paper": "doi:10.1214/21-bjps510",
+    "claim": "Unnumbered convolution preservation result (Section 4), part rh↑",
+    "page": 846,
+    "quote": "Hu and Zhu (2001) proved that if X1 ≤lr↑ Y1 and X2 ≤rh↑ Y2 , then X1 + X2 ≤rh↑ Y1 + Y2 ; ... using the general result stated in Lemma 2.7, the assertion follows in a straight-forward manner.",
+    "kind": "theorem",
+    "model": "other: convolution of independent pairs",
+    "family": "general distributions with Lebesgue densities",
+    "compared": "convolutions X1+X2 vs Y1+Y2",
+    "hypotheses": [
+     {
+      "text": "X1 ≤lr↑ Y1 and X2 ≤rh↑ Y2",
+      "formal": "mixed componentwise ordering: lr↑ on the first pair, rh↑ on the second",
+      "source": "statement (Hu–Zhu 2001, re-proved via Lemma 2.7)"
+     }
+    ],
+    "conclusion": {
+     "order": "other: rh↑",
+     "direction": "X1 + X2 ≤rh↑ Y1 + Y2"
+    },
+    "quantifiers": "all x where ψ3(x)=H(x)/F(x+Δ) is well-defined (S3)",
+    "numbers": "",
+    "ambiguity": "Asymmetric premise (first pair ordered in lr↑, second in rh↑)."
+   }
+  ],
+  "note": "Same printed Section-4 claim as the companion queue item; identical three records (one per order)."
+ }
+]

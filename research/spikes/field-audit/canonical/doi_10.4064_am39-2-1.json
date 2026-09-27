@@ -1,6 +1,161 @@
 [
  {
   "paper": "doi:10.4064/am39-2-1",
+  "claim": "Remark 2.3",
+  "page": 132,
+  "quote": "Remark 2.3. Deriving exact distributions of the moment estimators \u03b1\u0302 and \u03bb\u0302 is tedious for n > 2. One may prove that for n = 2 the statistic 1/\u03b1\u0302 has beta distribution B(1/2, \u03b1) and so \u03b1\u0302 is stochastically increasing in \u03b1.",
+  "kind": "remark",
+  "model": "other: moment estimator distribution",
+  "family": "gamma G(\u03bb, \u03b1): f(x;\u03b1,\u03bb) = x^{\u03b1\u22121} e^{\u2212x/\u03bb}/(\u0393(\u03b1) \u03bb^\u03b1); moment estimator \u03b1\u0302 = X\u0304\u00b2/S\u00b2, n = 2",
+  "compared": "distributions of \u03b1\u0302 under increasing \u03b1 (\u03b1\u0302 at smaller \u03b1 is stochastically smaller)",
+  "hypotheses": [
+   {
+    "text": "for n = 2 the statistic 1/\u03b1\u0302 has beta distribution B(1/2, \u03b1)",
+    "formal": "1/\u03b1\u0302 ~ Beta(1/2, \u03b1), which is stochastically decreasing in \u03b1 (mean 1/(1+2\u03b1)), so \u03b1\u0302 = 1/(1/\u03b1\u0302) is stochastically increasing",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "\u03b1\u0302 stochastically increasing in \u03b1 (\u03b1\u0302(\u03b11) \u2264st \u03b1\u0302(\u03b12) for \u03b11 < \u03b12)"
+  },
+  "quantifiers": "n = 2; \u03b1 > 0",
+  "numbers": "n = 2; 1/\u03b1\u0302 ~ B(1/2, \u03b1)",
+  "ambiguity": "Remark-level claim (kind 'remark' retained for fidelity; it asserts a stochastic monotonicity, so it is in scope as a printed st-ordering claim for the specific gamma family). Direction is consistent: B(1/2,\u03b1) decreases stochastically in \u03b1, so the reciprocal \u03b1\u0302 increases.",
+  "adjudication": "adjudicated: Passes agree: st monotonicity of \u03b1\u0302 in \u03b1 for n = 2 via the printed Beta(1/2,\u03b1) law; direction string"
+ },
+ {
+  "paper": "doi:10.4064/am39-2-1",
+  "claim": "Theorem 2.4",
+  "page": 132,
+  "quote": "Theorem 2.4. The estimator 1/\u03b1\u0302 is not dispersively monotone in \u03b1. Proof. Suppose for contradiction that 1/\u03b1\u0302 is dispersively monotone. Then Var(1/\u03b1\u0302) should be a monotone function in \u03b1. ... \u03c8(\u03b1) := Var(S\u00b2/X\u0304\u00b2) = 2\u03b1(\u03b1 + 1) / [(n \u2212 1)(\u03b1 + 1/n)\u00b2(\u03b1 + 2/n)(\u03b1 + 3/n)]. Since lim_{\u03b1\u21920} \u03c8(\u03b1) = lim_{\u03b1\u2192\u221e} \u03c8(\u03b1) = 0, the function \u03c8 is not monotone and therefore 1/\u03b1\u0302 cannot be dispersively monotone.",
+  "kind": "theorem",
+  "model": "other: moment estimator distribution",
+  "family": "gamma G(\u03bb, \u03b1) samples; estimator 1/\u03b1\u0302 = S\u00b2/X\u0304\u00b2 (moment estimator \u03b1\u0302 = X\u0304\u00b2/S\u00b2)",
+  "compared": "distributions of 1/\u03b1\u0302 under different \u03b1 \u2014 dispersive monotonicity claimed to fail",
+  "hypotheses": [
+   {
+    "text": "Suppose for contradiction that 1/\u03b1\u0302 is dispersively monotone. Then Var(1/\u03b1\u0302) should be a monotone function in \u03b1.",
+    "formal": "disp ordering would imply Var ordering; proof proceeds by contradiction",
+    "source": "statement"
+   },
+   {
+    "text": "lim_{\u03b1\u21920} \u03c8(\u03b1) = lim_{\u03b1\u2192\u221e} \u03c8(\u03b1) = 0, the function \u03c8 is not monotone",
+    "formal": "Var(1/\u03b1\u0302) = \u03c8(\u03b1) vanishes at both ends of (0,\u221e) while positive inside, hence non-monotone",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "disp",
+   "direction": "negative: 1/\u03b1\u0302 is NOT dispersively monotone in \u03b1 \u2014 the disp ordering across \u03b1 fails"
+  },
+  "quantifiers": "\u03b1 > 0; n \u2265 2",
+  "numbers": "\u03c8(\u03b1) = Var(1/\u03b1\u0302) = 2\u03b1(\u03b1+1)/[(n\u22121)(\u03b1+1/n)\u00b2(\u03b1+2/n)(\u03b1+3/n)]",
+  "ambiguity": "A printed negative result: dispersive monotonicity of 1/\u03b1\u0302 in \u03b1 fails (the proof exploits that \u2264disp implies variance ordering).",
+  "adjudication": "adjudicated: Passes agree: printed negative disp result; A's 'not dispersively monotone' = B's 'negative ...' dir"
+ },
+ {
+  "paper": "doi:10.4064/am39-2-1",
+  "claim": "Preliminary fact (Section 1): convex transform order for the gamma family",
+  "page": 130,
+  "quote": "If X and Y have the gamma distributions G(1, \u03b11 ) and G(1, \u03b12 ) respectively, where \u03b11 < \u03b12 , then X \u2265c Y (see van Zwet [11])",
+  "kind": "preliminary",
+  "model": "single",
+  "family": "gamma G(1, \u03b1) \u2014 unit scale; f(x;\u03b1,1) = x^{\u03b1\u22121} e^{\u2212x}/\u0393(\u03b1)",
+  "compared": "X ~ G(1,\u03b11) vs Y ~ G(1,\u03b12), unit-rate gammas with ordered shapes",
+  "hypotheses": [
+   {
+    "text": "\u03b11 < \u03b12",
+    "formal": "shape parameters ordered",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "star",
+   "direction": "X \u2265c Y (X bigger in the convex-transform order: F^{-1}G concave; equivalently G(1,\u03b11) \u2265c G(1,\u03b12))"
+  },
+  "quantifiers": "\u03b11 < \u03b12 arbitrary",
+  "numbers": "",
+  "ambiguity": "Printed as X \u2265c Y \u2014 the convex-transform order of van Zwet [11] (the paper's Definition: X \u2264c Y iff G^{-1}F convex), grouped under the spec's 'star or convex transform' bucket as 'star'. Cited background fact printed in the preliminaries (kind 'preliminary' retained for fidelity).",
+  "adjudication": "adjudicated: Pass A's split of the preliminary sentence; order is van Zwet's \u2264c convex-transform order, bucketed "
+ },
+ {
+  "paper": "doi:10.4064/am39-2-1",
+  "claim": "Preliminary fact (Section 1): dispersive order for the gamma family",
+  "page": 130,
+  "quote": "and also X \u2264disp Y (see Shaked [9]).",
+  "kind": "preliminary",
+  "model": "single",
+  "family": "gamma G(1, \u03b1) \u2014 unit scale",
+  "compared": "X ~ G(1,\u03b11) vs Y ~ G(1,\u03b12), unit-rate gammas with ordered shapes",
+  "hypotheses": [
+   {
+    "text": "\u03b11 < \u03b12",
+    "formal": "shape parameters ordered (same sentence as the \u2265c fact)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "disp",
+   "direction": "X \u2264disp Y (G(1,\u03b11) \u2264disp G(1,\u03b12))"
+  },
+  "quantifiers": "\u03b11 < \u03b12 arbitrary",
+  "numbers": "",
+  "ambiguity": "Cited background fact (Shaked [9]) printed in the preliminaries (kind 'preliminary' retained for fidelity).",
+  "adjudication": "adjudicated: Pass A's split of the same preliminary sentence; printed X \u2264disp Y for \u03b11 < \u03b12. Page 130."
+ },
+ {
+  "paper": "doi:10.4064/am39-2-1",
+  "claim": "Preliminary fact (Section 1): gamma family stochastically increasing in \u03b1",
+  "page": 130,
+  "quote": "It is easy to prove that the family of gamma distributions is stochastically increasing with respect to both parameters, \u03b1 and \u03bb.",
+  "kind": "preliminary",
+  "model": "single",
+  "family": "gamma G(\u03bb, \u03b1): f(x;\u03b1,\u03bb) = x^{\u03b1\u22121} e^{\u2212x/\u03bb}/(\u0393(\u03b1) \u03bb^\u03b1)",
+  "compared": "gamma distributions with increasing shape \u03b1 at fixed \u03bb",
+  "hypotheses": [
+   {
+    "text": "stochastically increasing ... \u03b1: \u03b11 < \u03b12 at fixed \u03bb",
+    "formal": "per the paper's definition, X(\u03b11) \u2264st X(\u03b12) whenever \u03b11 < \u03b12",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "G(\u03bb,\u03b11) \u2264st G(\u03bb,\u03b12) for \u03b11 < \u03b12"
+  },
+  "quantifiers": "all \u03b11 < \u03b12, \u03bb > 0",
+  "numbers": "",
+  "ambiguity": "Stated as an easy-to-prove background fact (no citation); the printed sentence asserts monotonicity in both parameters \u2014 split into one record per parameter.",
+  "adjudication": "adjudicated: Pass A's split of the preliminary sentence; st monotonicity in \u03b1 and in \u03bb are two distinct conclusio"
+ },
+ {
+  "paper": "doi:10.4064/am39-2-1",
+  "claim": "Preliminary fact (Section 1): gamma family stochastically increasing in \u03bb",
+  "page": 130,
+  "quote": "It is easy to prove that the family of gamma distributions is stochastically increasing with respect to both parameters, \u03b1 and \u03bb.",
+  "kind": "preliminary",
+  "model": "single",
+  "family": "gamma G(\u03bb, \u03b1): f(x;\u03b1,\u03bb) = x^{\u03b1\u22121} e^{\u2212x/\u03bb}/(\u0393(\u03b1) \u03bb^\u03b1)",
+  "compared": "gamma distributions with increasing scale \u03bb at fixed \u03b1",
+  "hypotheses": [
+   {
+    "text": "stochastically increasing ... \u03bb: \u03bb1 < \u03bb2 at fixed \u03b1",
+    "formal": "X(\u03bb1) \u2264st X(\u03bb2) whenever \u03bb1 < \u03bb2",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "G(\u03bb1,\u03b1) \u2264st G(\u03bb2,\u03b1) for \u03bb1 < \u03bb2"
+  },
+  "quantifiers": "all \u03bb1 < \u03bb2, \u03b1 > 0",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Pass A's split of the preliminary sentence; st monotonicity in \u03b1 and in \u03bb are two distinct conclusio"
+ },
+ {
+  "paper": "doi:10.4064/am39-2-1",
   "claim": "Theorem 2.1",
   "page": 131,
   "quote": "The estimator lambda-hat is stochastically increasing in lambda.",

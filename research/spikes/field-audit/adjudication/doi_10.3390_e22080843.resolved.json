@@ -1,0 +1,676 @@
+[
+ {
+  "queue_claim": "corollary1i",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3390/e22080843",
+    "claim": "Corollary 1 (i)",
+    "page": 9,
+    "quote": "Corollary 1. Let wi (t) = v( F̄i (t)), i = 1, 2 such that X1 ≤hr X2 . Set ξ (x) = (1/(xv(x))) ∫_0^x v(u)du and ξ ∗ (x) = (1/((1 − x)v(x))) ∫_x^1 v(u)du. (i) If xξ′(x)/ξ(x) is non-increasing (resp. non-decreasing) in x ∈ [0, 1], in which ξ(x) is non-decreasing (non-increasing) in x, then X1 ≤rhr X2 implies that X1w1 ≤rhr X2w2 .",
+    "kind": "corollary",
+    "model": "other: weighted distribution",
+    "family": "Parameter-free survival-based weights wi(t) = v(F̄i(t))",
+    "compared": "X1w1 vs X2w2",
+    "hypotheses": [
+     {
+      "text": "wi(t) = v(F̄i(t)); X1 ≤hr X2; xξ′(x)/ξ(x) non-increasing (resp. non-decreasing) in x, where ξ non-decreasing (non-increasing) in x; premise X1 ≤rhr X2",
+      "formal": "elasticity-type conditions on ξ",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "ageing: rhr",
+     "direction": "X1 <=rhr X2 implies X1w1 <=rhr X2w2 (preservation of the relative hazard-rate order)"
+    },
+    "quantifiers": "x ∈ [0,1]; t > 0",
+    "numbers": "",
+    "ambiguity": "Definition 1(v): ≤rhr is the RELATIVE hazard-rate order (hY/hX non-increasing) — an ageing order, not the standard hazard-rate order. Split of Corollary 1 into per-part records."
+   }
+  ],
+  "note": "In scope: preservation claim for the relative hazard-rate order between two weighted distributions. Pass A merged parts (i)+(ii) into one record; per spec rule 5 part (i) is recorded here and part (ii) under corollary1ii. Order is 'ageing: rhr' (relative order per Definition 1(v))."
+ },
+ {
+  "queue_claim": "corollary1ii",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3390/e22080843",
+    "claim": "Corollary 1 (ii)",
+    "page": 10,
+    "quote": "(ii) If (1 − x)ξ ∗′(x)/ξ(x) is non-decreasing (resp. non-increasing) in x ∈ [0, 1], in which ξ ∗ (x) is non-decreasing (non-increasing) in x, then X1 ≤rrh X2 implies that X1w1 ≤rrh X2w2 .",
+    "kind": "corollary",
+    "model": "other: weighted distribution",
+    "family": "Parameter-free survival-based weights wi(t) = v(F̄i(t))",
+    "compared": "X1w1 vs X2w2",
+    "hypotheses": [
+     {
+      "text": "wi(t) = v(F̄i(t)); X1 ≤hr X2 (Corollary 1 preamble); (1−x)ξ*′(x)/ξ(x) non-decreasing (resp. non-increasing), ξ* non-decreasing (non-increasing); premise X1 ≤rrh X2",
+      "formal": "elasticity-type conditions on ξ*",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "ageing: rrh",
+     "direction": "X1 <=rrh X2 implies X1w1 <=rrh X2w2 (preservation of the relative reversed-hazard-rate order)"
+    },
+    "quantifiers": "x ∈ [0,1]; t > 0",
+    "numbers": "",
+    "ambiguity": "As printed, the denominator of the elasticity quotient is ξ(x), not ξ*(x) — cf. Theorem 2's (1−x)ξ*′(x,θ)/ξ*(x,θ); a ξ* denominator was presumably intended, recorded as printed. Definition 1(vi): ≤rrh is the relative reversed hazard-rate order (an ageing order)."
+   }
+  ],
+  "note": "One-sided B item; verdict include — in-scope preservation claim for the relative reversed hazard-rate order ('ageing: rrh'). Flagged the printed ξ(x) denominator (likely a typo for ξ*(x))."
+ },
+ {
+  "queue_claim": "corollary2i",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3390/e22080843",
+    "claim": "Corollary 2 (i)",
+    "page": 10,
+    "quote": "Corollary 2. Suppose that the random variable X(θ1 ) and X(θ2 ) for θ1 , θ2 ∈ χ have density functions f θ1 (t) = v( F̄ (t),θ1 )f (t)/ ∫_0^∞ v( F̄ (t),θ1 )f (t)dt and f θ2 (t) = v( F̄ (t),θ2 )f (t)/ ∫_0^∞ v( F̄ (t),θ2 )f (t)dt. For ξ (x, θ) = (1/v(x, θ)) ∫_0^x v(u, θ)du and ξ ∗ (x, θ) = (1/v(x, θ)) ∫_x^1 v(u, θ)du, we have: (i) X(θ1 ) ≤rhr X(θ2 ), for all θ1 ≤ θ2 ∈ χ if, and only if, ξ(x, θ) is RR2 in (x, θ).",
+    "kind": "corollary",
+    "model": "other: parametric weighted family",
+    "family": "v(F̄,θ)-weighted family over a common baseline density f",
+    "compared": "X(θ1) vs X(θ2) for all θ1 ≤ θ2",
+    "hypotheses": [
+     {
+      "text": "Parametric densities f_{θi}(t) = v(F̄(t),θi)f(t)/∫v(F̄(t),θi)f(t)dt; θ1 ≤ θ2 ∈ χ",
+      "formal": "parameter ordering",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "ageing: rhr",
+     "direction": "X(θ1) <=rhr X(θ2) for all θ1 <= θ2 iff ξ(x,θ) is RR2 in (x,θ)"
+    },
+    "quantifiers": "θ1 ≤ θ2 ∈ χ; x ∈ [0,1]",
+    "numbers": "",
+    "ambiguity": "Note ξ(x,θ) in Corollary 2 is defined as (1/v)∫_0^x v du — without the x factor that appears in the ξ of Theorems 1–2 / Corollary 1 — as printed. Order is 'ageing: rhr' (relative hazard-rate order, Definition 1(v)). Split: part (ii) recorded under corollary2ii."
+   }
+  ],
+  "note": "In scope: iff characterization of the relative hazard-rate order in a parametric weighted family; 'ageing: rhr'. Pass A merged both parts — split per spec rule 5."
+ },
+ {
+  "queue_claim": "corollary2ii",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3390/e22080843",
+    "claim": "Corollary 2 (ii)",
+    "page": 10,
+    "quote": "(ii) X(θ1 ) ≤rrh X(θ2 ), for all θ1 ≤ θ2 ∈ χ if, and only if, ξ ∗ (x, θ) TP2 in (x, θ).",
+    "kind": "corollary",
+    "model": "other: parametric weighted family",
+    "family": "v(F̄,θ)-weighted family over a common baseline density f",
+    "compared": "X(θ1) vs X(θ2) for all θ1 ≤ θ2",
+    "hypotheses": [
+     {
+      "text": "Parametric densities f_{θi}(t) = v(F̄(t),θi)f(t)/∫v(F̄(t),θi)f(t)dt; ξ*(x,θ) = (1/v(x,θ))∫_x^1 v(u,θ)du; θ1 ≤ θ2 ∈ χ",
+      "formal": "parameter ordering",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "ageing: rrh",
+     "direction": "X(θ1) <=rrh X(θ2) for all θ1 <= θ2 iff ξ*(x,θ) is TP2 in (x,θ)"
+    },
+    "quantifiers": "θ1 ≤ θ2 ∈ χ; x ∈ [0,1]",
+    "numbers": "",
+    "ambiguity": "≤rrh is the relative reversed hazard-rate order (Definition 1(vi)) — labelled 'ageing: rrh', not the standard 'rh'."
+   }
+  ],
+  "note": "One-sided B item; verdict include — in-scope iff characterization of the relative reversed hazard-rate order ('ageing: rrh')."
+ },
+ {
+  "queue_claim": "example1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3390/e22080843",
+    "claim": "Example 1 (lr part)",
+    "page": 6,
+    "quote": "Example 1 (Weighted power distribution). Assume that w(x, θi ) = w1 (x)(w2 (x))^{k1 (θi )}, i = 1, 2, in which θ1 ≤ θ2 ∈ χ. Suppose that w2 and k1 are both non-decreasing (or non-increasing) functions. By Proposition 1(i), if X1 ≤lr X2 then X1w1 ≤lr X2w2 .",
+    "kind": "example",
+    "model": "other: weighted distribution",
+    "family": "Weighted power distribution w = w1·w2^{k1(θ)}",
+    "compared": "X1w1 vs X2w2",
+    "hypotheses": [
+     {
+      "text": "θ1 ≤ θ2; w2 and k1 both non-decreasing (or both non-increasing) so w is TP2 in (x,θ)",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "X1 <=lr X2 implies X1w1 <=lr X2w2"
+    },
+    "quantifiers": "all x; θ ∈ χ",
+    "numbers": "",
+    "ambiguity": ""
+   },
+   {
+    "paper": "doi:10.3390/e22080843",
+    "claim": "Example 1 (hr part)",
+    "page": 6,
+    "quote": "Example 1. ... Let us further assume that k1 (θi ) > 0 for i = 1, 2. Then, by Proposition 1(ii) X1 ≤hr X2 implies X1w1 ≤hr X2w2 provided that w1 and w2 are both non-decreasing.",
+    "kind": "example",
+    "model": "other: weighted distribution",
+    "family": "Weighted power distribution w = w1·w2^{k1(θ)}",
+    "compared": "X1w1 vs X2w2",
+    "hypotheses": [
+     {
+      "text": "θ1 ≤ θ2; k1(θi) > 0; w1 and w2 both non-decreasing (w non-decreasing in x)",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "X1 <=hr X2 implies X1w1 <=hr X2w2"
+    },
+    "quantifiers": "all x; θ ∈ χ",
+    "numbers": "",
+    "ambiguity": ""
+   },
+   {
+    "paper": "doi:10.3390/e22080843",
+    "claim": "Example 1 (rh part)",
+    "page": 6,
+    "quote": "Example 1. ... In parallel, if w1 and w2 are both non-increasing then using Proposition 1(iii), X1 ≤rh X2 concludes that X1w1 ≤rh X2w2 .",
+    "kind": "example",
+    "model": "other: weighted distribution",
+    "family": "Weighted power distribution w = w1·w2^{k1(θ)}",
+    "compared": "X1w1 vs X2w2",
+    "hypotheses": [
+     {
+      "text": "θ1 ≤ θ2; k1(θi) > 0; w1 and w2 both non-increasing (w non-increasing in x)",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "X1 <=rh X2 implies X1w1 <=rh X2w2"
+    },
+    "quantifiers": "all x; θ ∈ χ",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "In scope: the example asserts preservation of three distinct orders under the power weight; split into one record per order (lr, hr, rh) — resolving the 'lr' vs 'hr' pass disagreement (both appear)."
+ },
+ {
+  "queue_claim": "example2",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3390/e22080843",
+    "claim": "Example 2 (lr part)",
+    "page": 6,
+    "quote": "Example 2 (Weighted exponentiated distribution). Consider the weight function w(x, θi ) = w1 (x)(k1 (θi ))^{w2 (x)}, i = 1, 2 such that θ1 ≤ θ2 ∈ χ in which k1 (θi ) > 0 for i = 1, 2. Presume that w2 and k1 are both non-decreasing (or non-increasing) functions. From Proposition 1(i), X1 ≤lr X2 yields X1w1 ≤lr X2w2 .",
+    "kind": "example",
+    "model": "other: weighted distribution",
+    "family": "Weighted exponentiated distribution w = w1·k1(θ)^{w2}",
+    "compared": "X1w1 vs X2w2",
+    "hypotheses": [
+     {
+      "text": "θ1 ≤ θ2; k1(θi) > 0; w2 and k1 both non-decreasing (or both non-increasing) so w is TP2",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "X1 <=lr X2 implies X1w1 <=lr X2w2"
+    },
+    "quantifiers": "all x; θ ∈ χ",
+    "numbers": "",
+    "ambiguity": ""
+   },
+   {
+    "paper": "doi:10.3390/e22080843",
+    "claim": "Example 2 (hr part)",
+    "page": 6,
+    "quote": "Example 2. ... If w1 is non-decreasing, w2 is non-decreasing and k1 (θi ) > 1 (resp. w2 is non-increasing and k1 (θi ) < 1) for i = 1, 2 then by Proposition 1(ii) X1 ≤hr X2 gives X1w1 ≤hr X2w2 .",
+    "kind": "example",
+    "model": "other: weighted distribution",
+    "family": "Weighted exponentiated distribution w = w1·k1(θ)^{w2}",
+    "compared": "X1w1 vs X2w2",
+    "hypotheses": [
+     {
+      "text": "θ1 ≤ θ2; w1 non-decreasing; w2 non-decreasing and k1(θi) > 1 (resp. w2 non-increasing and k1(θi) < 1)",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "X1 <=hr X2 implies X1w1 <=hr X2w2"
+    },
+    "quantifiers": "all x; θ ∈ χ",
+    "numbers": "",
+    "ambiguity": ""
+   },
+   {
+    "paper": "doi:10.3390/e22080843",
+    "claim": "Example 2 (rh part)",
+    "page": 6,
+    "quote": "Example 2. ... Besides, if w1 is non-increasing, w2 is non-increasing and k1 (θi ) > 1 (resp. w2 is non-decreasing and k1 (θi ) < 1) for i = 1, 2 then on applying by Proposition 1(iii) X1 ≤rh X2 implies X1w1 ≤rh X2w2 .",
+    "kind": "example",
+    "model": "other: weighted distribution",
+    "family": "Weighted exponentiated distribution w = w1·k1(θ)^{w2}",
+    "compared": "X1w1 vs X2w2",
+    "hypotheses": [
+     {
+      "text": "θ1 ≤ θ2; w1 non-increasing; w2 non-increasing and k1(θi) > 1 (resp. w2 non-decreasing and k1(θi) < 1)",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "X1 <=rh X2 implies X1w1 <=rh X2w2"
+    },
+    "quantifiers": "all x; θ ∈ χ",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Split into one record per asserted order (lr, hr, rh); each is a preservation claim between two weighted distributions."
+ },
+ {
+  "queue_claim": "example3",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3390/e22080843",
+    "claim": "Example 3 (lr part)",
+    "page": 6,
+    "quote": "Example 3 (Additive-Multiplicative weighted distribution). Let w(x, θi ) = w1 (x) + k1 (θi )w2 (x), i = 1, 2, where θ1 ≤ θ2 ∈ χ. Suppose that w1 /w2 is non-increasing (resp. non-decreasing) and k1 is non-decreasing (resp. non-increasing). Proposition 1(i) provides that X1 ≤lr X2 implies X1w1 ≤lr X2w2 .",
+    "kind": "example",
+    "model": "other: weighted distribution",
+    "family": "Additive-multiplicative weight w = w1 + k1(θ)w2",
+    "compared": "X1w1 vs X2w2",
+    "hypotheses": [
+     {
+      "text": "θ1 ≤ θ2; w1/w2 non-increasing (resp. non-decreasing) and k1 non-decreasing (resp. non-increasing) so w is TP2",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "X1 <=lr X2 implies X1w1 <=lr X2w2"
+    },
+    "quantifiers": "all x; θ ∈ χ",
+    "numbers": "",
+    "ambiguity": ""
+   },
+   {
+    "paper": "doi:10.3390/e22080843",
+    "claim": "Example 3 (hr part)",
+    "page": 6,
+    "quote": "Example 3. ... If, moreover, we assume that k1 (θi ) > 0, i = 1, 2 then when w1 and w2 are both non-decreasing by Proposition 1(ii) we deduce that X1 ≤hr X2 gives X1w1 ≤hr X2w2 . In a suchlike manner, whenever k1 (θi ) ≤ 0, i = 1, 2 then if w1 is non-decreasing and w2 is non-increasing, on applying Proposition 1(ii) X1 ≤hr X2 assures that X1w1 ≤hr X2w2 .",
+    "kind": "example",
+    "model": "other: weighted distribution",
+    "family": "Additive-multiplicative weight w = w1 + k1(θ)w2",
+    "compared": "X1w1 vs X2w2",
+    "hypotheses": [
+     {
+      "text": "θ1 ≤ θ2; k1(θi) > 0 with w1,w2 both non-decreasing; or k1(θi) ≤ 0 with w1 non-decreasing and w2 non-increasing",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "X1 <=hr X2 implies X1w1 <=hr X2w2"
+    },
+    "quantifiers": "all x; θ ∈ χ",
+    "numbers": "",
+    "ambiguity": "Two sign regimes for k1 are stated; both give the same hr-preservation conclusion."
+   },
+   {
+    "paper": "doi:10.3390/e22080843",
+    "claim": "Example 3 (rh part)",
+    "page": 6,
+    "quote": "Example 3. ... and once w1 and w2 are both non-increasing by Proposition 1(iii) X1 ≤rh X2 entails that X1w1 ≤rh X2w2 . ... and similarly when w1 is non-increasing and w2 is non-decreasing by Proposition 1(iii) it is deducible that X1 ≤rh X2 gives X1w1 ≤rh X2w2 .",
+    "kind": "example",
+    "model": "other: weighted distribution",
+    "family": "Additive-multiplicative weight w = w1 + k1(θ)w2",
+    "compared": "X1w1 vs X2w2",
+    "hypotheses": [
+     {
+      "text": "θ1 ≤ θ2; k1(θi) > 0 with w1,w2 both non-increasing; or k1(θi) ≤ 0 with w1 non-increasing and w2 non-decreasing",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "X1 <=rh X2 implies X1w1 <=rh X2w2"
+    },
+    "quantifiers": "all x; θ ∈ χ",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Split into one record per asserted order (lr, hr, rh); the example asserts preservation under two sign regimes for k1."
+ },
+ {
+  "queue_claim": "example4",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3390/e22080843",
+    "claim": "Example 4 (lr part)",
+    "page": 6,
+    "quote": "Example 4 (Weighted left-truncated distribution). Let w(x, θi ) = w1 (x) I [w2 (x) > k1 (θi )], i = 1, 2 with θ1 ≤ θ2 ∈ χ. Let us suppose that w2 and k1 are both non-decreasing (or non-increasing) functions. By Proposition 1(i), X1 ≤lr X2 implies X1w1 ≤lr X2w2 .",
+    "kind": "example",
+    "model": "other: weighted distribution",
+    "family": "Weighted left-truncated distribution w = w1·I[w2 > k1(θ)]",
+    "compared": "X1w1 vs X2w2",
+    "hypotheses": [
+     {
+      "text": "θ1 ≤ θ2; w2 and k1 both non-decreasing (or both non-increasing) so w is TP2",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "X1 <=lr X2 implies X1w1 <=lr X2w2"
+    },
+    "quantifiers": "all x; θ ∈ χ",
+    "numbers": "",
+    "ambiguity": ""
+   },
+   {
+    "paper": "doi:10.3390/e22080843",
+    "claim": "Example 4 (hr part)",
+    "page": 6,
+    "quote": "Example 4. ... If w1 , w2 and k1 are all non-decreasing functions then Proposition 1(ii) establishes that X1 ≤hr X2 implicate X1w1 ≤hr X2w2 .",
+    "kind": "example",
+    "model": "other: weighted distribution",
+    "family": "Weighted left-truncated distribution w = w1·I[w2 > k1(θ)]",
+    "compared": "X1w1 vs X2w2",
+    "hypotheses": [
+     {
+      "text": "θ1 ≤ θ2; w1, w2, k1 all non-decreasing",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "X1 <=hr X2 implies X1w1 <=hr X2w2"
+    },
+    "quantifiers": "all x; θ ∈ χ",
+    "numbers": "",
+    "ambiguity": ""
+   },
+   {
+    "paper": "doi:10.3390/e22080843",
+    "claim": "Example 4 (rh part)",
+    "page": 6,
+    "quote": "Example 4. ... In a similar manner, if w1 , w2 and k1 are all non-increasing functions then from Proposition 1(iii) it is deduced that X1 ≤rh X2 implies X1w1 ≤rh X2w2 .",
+    "kind": "example",
+    "model": "other: weighted distribution",
+    "family": "Weighted left-truncated distribution w = w1·I[w2 > k1(θ)]",
+    "compared": "X1w1 vs X2w2",
+    "hypotheses": [
+     {
+      "text": "θ1 ≤ θ2; w1, w2, k1 all non-increasing",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "X1 <=rh X2 implies X1w1 <=rh X2w2"
+    },
+    "quantifiers": "all x; θ ∈ χ",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Split into one record per asserted order (lr, hr, rh) preservation under the left-truncation weight."
+ },
+ {
+  "queue_claim": "example5",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3390/e22080843",
+    "claim": "Example 5 (lr part)",
+    "page": 7,
+    "quote": "Example 5 (Weighted right-truncated distribution). Let w(x, θi ) = w1 (x) I [w2 (x) ≤ k1 (θi )], i = 1, 2, in which θ1 ≤ θ2 ∈ χ. We assume that w2 and k1 are both non-decreasing (or non-increasing) functions. Proposition 1(i) guarantees that X1 ≤lr X2 implies X1w1 ≤lr X2w2 .",
+    "kind": "example",
+    "model": "other: weighted distribution",
+    "family": "Weighted right-truncated distribution w = w1·I[w2 ≤ k1(θ)]",
+    "compared": "X1w1 vs X2w2",
+    "hypotheses": [
+     {
+      "text": "θ1 ≤ θ2; w2 and k1 both non-decreasing (or both non-increasing) so w is TP2",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "X1 <=lr X2 implies X1w1 <=lr X2w2"
+    },
+    "quantifiers": "all x; θ ∈ χ",
+    "numbers": "",
+    "ambiguity": ""
+   },
+   {
+    "paper": "doi:10.3390/e22080843",
+    "claim": "Example 5 (hr part)",
+    "page": 7,
+    "quote": "Example 5. ... If w1 is non-decreasing and w2 and k1 are non-increasing functions then by Proposition 1(ii) X1 ≤hr X2 yields X1w1 ≤hr X2w2 .",
+    "kind": "example",
+    "model": "other: weighted distribution",
+    "family": "Weighted right-truncated distribution w = w1·I[w2 ≤ k1(θ)]",
+    "compared": "X1w1 vs X2w2",
+    "hypotheses": [
+     {
+      "text": "θ1 ≤ θ2; w1 non-decreasing; w2 and k1 non-increasing",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "X1 <=hr X2 implies X1w1 <=hr X2w2"
+    },
+    "quantifiers": "all x; θ ∈ χ",
+    "numbers": "",
+    "ambiguity": ""
+   },
+   {
+    "paper": "doi:10.3390/e22080843",
+    "claim": "Example 5 (rh part)",
+    "page": 7,
+    "quote": "Example 5. ... In the dual case, if w1 is non-increasing and further w2 and k1 are both non-decreasing functions then Proposition 1(iii) concludes that X1 ≤rh X2 gives X1w1 ≤rh X2w2 .",
+    "kind": "example",
+    "model": "other: weighted distribution",
+    "family": "Weighted right-truncated distribution w = w1·I[w2 ≤ k1(θ)]",
+    "compared": "X1w1 vs X2w2",
+    "hypotheses": [
+     {
+      "text": "θ1 ≤ θ2; w1 non-increasing; w2 and k1 both non-decreasing",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "X1 <=rh X2 implies X1w1 <=rh X2w2"
+    },
+    "quantifiers": "all x; θ ∈ χ",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Split into one record per asserted order (lr, hr, rh) preservation under the right-truncation weight."
+ },
+ {
+  "queue_claim": "example7",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3390/e22080843",
+    "claim": "Example 7",
+    "page": 12,
+    "quote": "Example 7. Suppose that (X1 , X2 , X3 ) are dependent with a Farlie-Gumbel-Morgenstern (FGM) joint reliability function F̄(x1 , x2 , x3 ) = F̄(x1 )F̄(x2 )F̄(x3 )(1 − αF(x1 )F(x2 )F(x3 )), where α ∈ [−1, 1]. ... Consider the parallel system with lifetime Tα = max{X1 , X2 , X3 } for which F̄α (x) = hα ( F̄ (x)), where hα (u) = u3 − α(u − u2 )3 − 3u2 + 3u. It can be shown that if h1 (x) = x3 − 0.5(x − x2 )3 − 3x2 + 3x and h2 (x) = x3 − 0.75(x − x2 )3 − 3x2 + 3x then ξi∗ (x) = (1 − hi (x))/hi′ (x) is TP2 in (i, x) ∈ {1, 2} × [0, 1] because the function ξ2∗ (x)/ξ1∗ (x) is non-decreasing in x ∈ [0, 1] as the Figure 1 indicates. Hence, according to Proposition 2(ii) one obtains T0.5 ≤rrh T0.75 .",
+    "kind": "example",
+    "model": "parallel system",
+    "family": "3-component parallel systems with FGM dependence; domination hα(u) = u^3 − α(u−u^2)^3 − 3u^2 + 3u",
+    "compared": "T_{0.5} vs T_{0.75} (FGM dependence parameter α = 0.5 vs 0.75)",
+    "hypotheses": [
+     {
+      "text": "FGM joint reliability; h1 (α=0.5), h2 (α=0.75); ξi*(x) = (1−hi(x))/h'i(x) TP2 in (i,x) because ξ2*/ξ1* non-decreasing (verified graphically via Figure 1)",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "ageing: rrh",
+     "direction": "T0.5 <=rrh T0.75"
+    },
+    "quantifiers": "x ∈ [0,1]",
+    "numbers": "α = 0.5 vs 0.75; hα(u) = u^3 − α(u−u^2)^3 − 3u^2 + 3u",
+    "ambiguity": "TP2 condition verified only graphically (Figure 1). ≤rrh is the relative reversed hazard-rate order (Definition 1(vi)) — labelled 'ageing: rrh', not standard 'rh'."
+   }
+  ],
+  "note": "Both passes agree on T0.5 ≤rrh T0.75; canonical order is 'ageing: rrh' (relative reversed hazard rate), not 'rh' as the normalized pass labels suggested."
+ },
+ {
+  "queue_claim": "proposition1ii",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3390/e22080843",
+    "claim": "Proposition 1 (ii)",
+    "page": 5,
+    "quote": "Proposition 1. Let Xi , i = 1, 2 have support ζ and let w(x, θ) be TP2 in (x, θ) ∈ ζ × χ. Then ... (ii) If θ1 ≤ θ2 and w(x, θ) is non-decreasing in x, then X1 ≤hr X2 implies that X1w1 ≤hr X2w2 .",
+    "kind": "proposition",
+    "model": "other: weighted distribution",
+    "family": "General weighted distributions f_{iwi}(x,θi) = w(x,θi)fi(x)/E[w(Xi,θi)]",
+    "compared": "X1w1 vs X2w2",
+    "hypotheses": [
+     {
+      "text": "w TP2 in (x,θ); θ1 ≤ θ2; w non-decreasing in x; premise X1 ≤hr X2",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "X1 <=hr X2 implies X1w1 <=hr X2w2"
+    },
+    "quantifiers": "x ∈ ζ; θ ∈ χ",
+    "numbers": "",
+    "ambiguity": "Direct consequence of Theorem 3.2 in Misra et al. [16]. Standard hazard-rate order (not the relative order)."
+   }
+  ],
+  "note": "One-sided B item; verdict include — in-scope preservation claim for the standard hazard-rate order."
+ },
+ {
+  "queue_claim": "proposition1iii",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3390/e22080843",
+    "claim": "Proposition 1 (iii)",
+    "page": 5,
+    "quote": "Proposition 1. Let Xi , i = 1, 2 have support ζ and let w(x, θ) be TP2 in (x, θ) ∈ ζ × χ. Then ... (iii) If θ1 ≤ θ2 and w(x, θ) is non-increasing in x, then X1 ≤rh X2 implies that X1w1 ≤rh X2w2 .",
+    "kind": "proposition",
+    "model": "other: weighted distribution",
+    "family": "General weighted distributions f_{iwi}(x,θi) = w(x,θi)fi(x)/E[w(Xi,θi)]",
+    "compared": "X1w1 vs X2w2",
+    "hypotheses": [
+     {
+      "text": "w TP2 in (x,θ); θ1 ≤ θ2; w non-increasing in x; premise X1 ≤rh X2",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "X1 <=rh X2 implies X1w1 <=rh X2w2"
+    },
+    "quantifiers": "x ∈ ζ; θ ∈ χ",
+    "numbers": "",
+    "ambiguity": "Standard reversed hazard-rate order (Definition 1(iii)) — distinct from the relative order ≤rrh of Definition 1(vi)."
+   }
+  ],
+  "note": "One-sided B item; verdict include — in-scope preservation claim for the standard reversed hazard-rate order ('rh')."
+ },
+ {
+  "queue_claim": "proposition2ii",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3390/e22080843",
+    "claim": "Proposition 2 (ii)",
+    "page": 12,
+    "quote": "Proposition 2. Let ξi (x) = hi (x)/hi′ (x) and ξi∗ (x) = (1 − hi (x))/hi′ (x) for i = 1, 2 where h1 and h2 are two domination functions. Let T1 and T2 have respective survival functions h1 ( F̄ ) and h2 ( F̄ ). Then ... (ii) T1 ≤rrh T2 , if, and only if, ξi∗ (x) is TP2 in (i, x) ∈ {1, 2} × [0, 1].",
+    "kind": "proposition",
+    "model": "other: coherent system via domination (distortion) function",
+    "family": "Distorted survival functions h_i(F̄) of a common component reliability",
+    "compared": "T1 (survival h1(F̄)) vs T2 (survival h2(F̄))",
+    "hypotheses": [
+     {
+      "text": "h1, h2 domination functions (non-decreasing, [0,1]→[0,1], h(0)=0, h(1)=1); ξi*(x) = (1−hi(x))/h'i(x)",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "ageing: rrh",
+     "direction": "T1 <=rrh T2 iff ξi*(x) is TP2 in (i,x) ∈ {1,2} × [0,1]"
+    },
+    "quantifiers": "i ∈ {1,2}; x ∈ [0,1]",
+    "numbers": "",
+    "ambiguity": "Consequence of Theorem 3. ≤rrh is the relative reversed hazard-rate order — 'ageing: rrh'."
+   }
+  ],
+  "note": "One-sided B item; verdict include — iff characterization of the relative reversed hazard-rate order for distorted survival functions ('ageing: rrh')."
+ },
+ {
+  "queue_claim": "theorem3ii",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3390/e22080843",
+    "claim": "Theorem 3 (ii)",
+    "page": 10,
+    "quote": "Theorem 3. Let wi (t, θi ) = vi ( F̄ (t), θi ) and set ξi (x, θi ) = (1/vi (x, θi )) ∫_0^x vi (u, θi ) du and ξi∗ (x, θi ) = (1/vi (x, θi )) ∫_x^1 vi (u, θi ) du for i = 1, 2. Then ... (ii) X1w1 ≤rrh X2w2 if, and only if, ξ2∗ (x,θ2 )/ξ1∗ (x,θ1 ) is non-decreasing in x.",
+    "kind": "theorem",
+    "model": "other: weighted distribution",
+    "family": "v_i(F̄,θi)-weighted distributions over a common baseline F̄",
+    "compared": "X1w1 vs X2w2",
+    "hypotheses": [
+     {
+      "text": "wi(t,θi) = vi(F̄(t),θi); ξi and ξi* as defined (Theorem-3 convention: no x/(1−x) factors)",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "ageing: rrh",
+     "direction": "X1w1 <=rrh X2w2 iff ξ2*(x,θ2)/ξ1*(x,θ1) is non-decreasing in x"
+    },
+    "quantifiers": "x ∈ [0,1]; t > 0",
+    "numbers": "",
+    "ambiguity": "≤rrh is the relative reversed hazard-rate order (Definition 1(vi)) — 'ageing: rrh', not the standard 'rh' order. Theorem 3's ξ convention (1/v factor only) differs from Theorems 1–2's ξ = (1/(xv))∫v du."
+   }
+  ],
+  "note": "One-sided B item; verdict include — iff characterization of the relative reversed hazard-rate order between weighted distributions ('ageing: rrh')."
+ }
+]

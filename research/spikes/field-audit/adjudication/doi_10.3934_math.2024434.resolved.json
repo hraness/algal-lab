@@ -1,0 +1,383 @@
+[
+ {
+  "queue_claim": "corollary1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3934/math.2024434",
+    "claim": "Corollary 1",
+    "page": 8910,
+    "quote": "Corollary 1. For X ~ MPHRS (α1; θ1; λ1; F̄1 ; ψ) and Y ~ MPHRS (α; θ1; λ1; F̄2 ; ψ). If F̄1 (x) ≥ F̄2 (x), then α ≥ (1/n) Σ_{i=1}^n αi ⇒ X2:n ≥ st Y2:n .",
+    "kind": "corollary",
+    "model": "k-out-of-n system",
+    "family": "MPHRS model under Archimedean survival copula ψ; X has homogeneous tilt α1 (scalar α) vs Y's tilt vector α = (α1,...,αn); common scale θ1 and MPHR λ1; baselines F̄1, F̄2",
+    "compared": "X2:n vs Y2:n; scalar tilt α vs mean of tilt vector",
+    "hypotheses": [
+     {
+      "text": "F̄1 (x) ≥ F̄2 (x)",
+      "formal": "baseline survival functions ordered pointwise",
+      "source": "statement"
+     },
+     {
+      "text": "α ≥ (1/n) Σ_{i=1}^n αi",
+      "formal": "scalar tilt at least the mean of the heterogeneous tilts",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X2:n ≥st Y2:n"
+    },
+    "quantifiers": "n ≥ 2; all x ≥ 0",
+    "numbers": "",
+    "ambiguity": "The scalar-vs-vector collision is printed as is: X's tilt is α1 (constant vector) while the condition α ≥ (1/n)Σαi uses scalar α against the components of Y's vector α. X2:n is the (n−1)-out-of-n 'fail-safe' lifetime per the paper's terminology."
+   }
+  ],
+  "note": "Passes agree on st and on X2:n ≥st Y2:n; the queue diff was glyph normalization only (A's '⪰st' = B's 'B_smaller'). Page 8910 (printed footer), not 8911."
+ },
+ {
+  "queue_claim": "corollary2",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3934/math.2024434",
+    "claim": "Corollary 2",
+    "page": 8911,
+    "quote": "Corollary 2. For X ~ MPHRS (α1; θ1; λ1; F̄1 ; ψ) and Y ~ MPHRS (α1; θ; λ1; F̄2 ; ψ), where 0 < α ≤ 1, if ψ is log-concave, F̄1 (x) ≤ F̄2 (x), and h2 (x) is decreasing in x, then θ ≥ (1/n) Σ_{i=1}^n θi ⇒ X2:n ≤ st Y2:n .",
+    "kind": "corollary",
+    "model": "k-out-of-n system",
+    "family": "MPHRS model; common scalar tilt α ∈ (0,1] and MPHR λ1; X has scalar scale θ1, Y scale vector θ",
+    "compared": "X2:n vs Y2:n; scalar scale θ vs mean of scale vector",
+    "hypotheses": [
+     {
+      "text": "0 < α ≤ 1; ψ is log-concave; F̄1 (x) ≤ F̄2 (x); h2 (x) is decreasing in x",
+      "formal": "tilt bound, generator and baseline conditions as in Theorem 2",
+      "source": "statement"
+     },
+     {
+      "text": "θ ≥ (1/n) Σ_{i=1}^n θi",
+      "formal": "scalar scale at least the mean of the heterogeneous scales",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X2:n ≤st Y2:n"
+    },
+    "quantifiers": "n ≥ 2; all x ≥ 0",
+    "numbers": "",
+    "ambiguity": "Same scalar-vs-vector notation collision as Corollary 1 (θ1 vs θ)."
+   }
+  ],
+  "note": "Passes agree on st and X2:n ≤st Y2:n; A's '⪯st' = B's 'A_smaller'. Page 8911 (printed footer), not 8912."
+ },
+ {
+  "queue_claim": "corollary3",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3934/math.2024434",
+    "claim": "Corollary 3",
+    "page": 8913,
+    "quote": "Corollary 3. For X ~ MPRHRS (α1; θ1; λ1; F1 ; ψ) and Y ~ MPRHRS (α1; θ1; λ; F2 ; ψ), where 0 < α ≤ 1, if ψ is log-concave, F1 (x) ≤ F2 (x), then λ ≥ (1/n) Σ_{i=1}^n λi ⇒ Xn−1:n ≥ st Yn−1:n .",
+    "kind": "corollary",
+    "model": "k-out-of-n system",
+    "family": "MPRHRS model under Archimedean copula ψ; common scalar tilt α and scale θ1; X scalar rate λ1 vs Y rate vector λ",
+    "compared": "Xn−1:n vs Yn−1:n; scalar rate λ vs mean of rate vector",
+    "hypotheses": [
+     {
+      "text": "0 < α ≤ 1; ψ is log-concave; F1 (x) ≤ F2 (x)",
+      "formal": "tilt bound, generator and baseline-cdf conditions as in Theorem 3",
+      "source": "statement"
+     },
+     {
+      "text": "λ ≥ (1/n) Σ_{i=1}^n λi",
+      "formal": "scalar rate at least the mean of the heterogeneous rates",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "Xn−1:n ≥st Yn−1:n"
+    },
+    "quantifiers": "n ≥ 2; all x ≥ 0",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Passes agree on st and Xn−1:n ≥st Yn−1:n; A's '⪰st' = B's 'B_smaller'. Page 8913, not 8914."
+ },
+ {
+  "queue_claim": "corollary4",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3934/math.2024434",
+    "claim": "Corollary 4",
+    "page": 8914,
+    "quote": "Corollary 4. For X ~ MPRHRS (α1; θ1; λ1; F1 ; ψ) and Y ~ MPRHRS (α; θ1; λ1; F2 ; ψ). If F1 (x) ≥ F2 (x), then α ≥ (1/n) Σ_{i=1}^n αi ⇒ Xn−1:n ≤ st Yn−1:n .",
+    "kind": "corollary",
+    "model": "k-out-of-n system",
+    "family": "MPRHRS model; X homogeneous tilt α1 (scalar α) vs Y tilt vector α; common scale θ1 and rate λ1; baseline cdfs F1, F2",
+    "compared": "Xn−1:n vs Yn−1:n; scalar tilt vs mean of tilt vector",
+    "hypotheses": [
+     {
+      "text": "F1 (x) ≥ F2 (x)",
+      "formal": "baseline cdfs ordered pointwise",
+      "source": "statement"
+     },
+     {
+      "text": "α ≥ (1/n) Σ_{i=1}^n αi",
+      "formal": "scalar tilt at least the mean of the heterogeneous tilts",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "Xn−1:n ≤st Yn−1:n"
+    },
+    "quantifiers": "n ≥ 2; all x ≥ 0",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Passes agree on st and Xn−1:n ≤st Yn−1:n; A's '⪯st' = B's 'A_smaller'. Page 8914, not 8915."
+ },
+ {
+  "queue_claim": "example1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3934/math.2024434",
+    "claim": "Example 1",
+    "page": 8911,
+    "quote": "Example 1. Let F̄1 (x) = e−3x , F̄2 (x) = e−2x , and generator ψ(x) = e^{(1−e^x)/a} , 0 < a ≤ 1. Take n = 4, λ = 0.2, α = 0.2, a = 0.1, and θ = (0.6, 0.7, 0.8, 0.9) ⪰w (0.2, 0.3, 0.5, 0.7) = η. It is easy to check that the conditions of Theorem 2 are all satisfied. To display the whole of survival curves of X2:4 and Y2:4 on [0, ∞), we perform the transformation (x + 1)−1 : [0, ∞) → [0, 1]. The distribution functions of (X2:4 + 1)−1 and (Y2:4 + 1)−1 are plotted in Figure 1, which confirms X2:4 ≤ st Y2:4 .",
+    "kind": "example",
+    "model": "k-out-of-n system",
+    "family": "MPHRS with exponential baselines F̄1 = e^{−3x}, F̄2 = e^{−2x}; Gumbel-type copula generator ψ(x) = e^{(1−e^x)/a}",
+    "compared": "scale vectors θ = (0.6,0.7,0.8,0.9) vs η = (0.2,0.3,0.5,0.7) under weak supermajorization",
+    "hypotheses": [
+     {
+      "text": "n = 4, λ = 0.2, α = 0.2, a = 0.1; θ ⪰w η (sums of smallest: 0.6 ≥ 0.2, 1.3 ≥ 0.5, 2.1 ≥ 1.0, 3.0 ≥ 1.7 — holds)",
+      "formal": "all conditions of Theorem 2 verified",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X2:4 ≤st Y2:4 confirmed by plotted transformed cdfs (Figure 1)"
+    },
+    "quantifiers": "n = 4; x ≥ 0",
+    "numbers": "F̄1 = e^{−3x}, F̄2 = e^{−2x}; ψ(x) = e^{(1−e^x)/a} with a = 0.1; n = 4; λ = 0.2; α = 0.2; θ = (0.6,0.7,0.8,0.9); η = (0.2,0.3,0.5,0.7)",
+    "ambiguity": "Generator prints as 'ψ(x) = e a' in the text layer with the (1−e^x) superscript on a separate line; reading ψ(x) = e^{(1−e^x)/a} (Gumbel) is consistent with 0 < a ≤ 1. F̄1 = e^{−3x} ≤ e^{−2x} = F̄2 matches the premise F̄1 ≤ F̄2."
+   }
+  ],
+  "note": "Passes agree on direction X2:4 ≤st Y2:4 (numerically verified example for Theorem 2); the queue diff was wording, not substance. Page 8911."
+ },
+ {
+  "queue_claim": "example2",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3934/math.2024434",
+    "claim": "Example 2",
+    "page": 8914,
+    "quote": "Example 2. Let F1 (x) = 1 − e−3x and F2 (x) = 1 − e−2x , and generator ψ(x) = (ax + 1)−1/a , a > 0. Take n = 4, λ = 0.5, θ = 0.1, a = 0.6, and α = (0.6, 0.7, 0.8, 0.8) ⪰w (0.3, 0.4, 0.5, 0.6) = β. It is easy to check that the conditions of Theorem 4 are all satisfied. Thus, X3:4 ≤ st Y3:4 , as shown in Figure 2.",
+    "kind": "example",
+    "model": "k-out-of-n system",
+    "family": "MPRHRS with exponential baselines F1 = 1−e^{−3x}, F2 = 1−e^{−2x}; Clayton-type generator ψ(x) = (ax+1)^{−1/a}",
+    "compared": "tilt vectors α = (0.6,0.7,0.8,0.8) vs β = (0.3,0.4,0.5,0.6) under weak supermajorization",
+    "hypotheses": [
+     {
+      "text": "n = 4, λ = 0.5, θ = 0.1, a = 0.6; α ⪰w β (sums of smallest: 0.6 ≥ 0.3, 1.3 ≥ 0.7, 2.1 ≥ 1.2, 2.9 ≥ 1.8 — holds)",
+      "formal": "all conditions of Theorem 4 claimed satisfied",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X3:4 ≤st Y3:4 confirmed by plotted survival functions (Figure 2)"
+    },
+    "quantifiers": "n = 4; x ≥ 0",
+    "numbers": "F1 = 1−e^{−3x}, F2 = 1−e^{−2x}; ψ = (ax+1)^{−1/a}, a = 0.6; n = 4; λ = 0.5; θ = 0.1; α = (0.6,0.7,0.8,0.8); β = (0.3,0.4,0.5,0.6)",
+    "ambiguity": "Internal inconsistency: F1 = 1−e^{−3x} ≤ F2 = 1−e^{−2x} for x ≥ 0, opposite of Theorem 4's printed premise F1(x) ≥ F2(x) (it matches Theorem 3's F1 ≤ F2); the paper nonetheless claims Theorem 4's conditions are satisfied."
+   }
+  ],
+  "note": "Passes agree on X3:4 ≤st Y3:4; wording-only diff. Page 8914. New flag: printed F1 ≤ F2 violates Theorem 4's stated F1 ≥ F2 premise."
+ },
+ {
+  "queue_claim": "example3",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3934/math.2024434",
+    "claim": "Example 3",
+    "page": 8914,
+    "quote": "One natural question is whether the condition of weakly supermajorization order can be replaced by p-large order in Theorem 4. The following example gives a negative answer. Example 3. Let F1 (x) = F2 (x) = 1 − e−x , and generator ψ(x) = (ax + 1)−1/a , a > 0. Take n = 3, α = (3, 4, 5), and β = (2, 4.8, 6), and it holds that α ⪰p β while α ⋡w β. The curve of F̄(X2:3 +1)−1 (x) − F̄(Y2:3 +1)−1 (x) is displayed in Figure 3, from which we confirm that X2:3 ≱ st Y2:3 and X2:3 ≰ st Y2:3 .",
+    "kind": "counterexample",
+    "model": "k-out-of-n system",
+    "family": "MPRHRS with identical exponential baselines F1 = F2 = 1−e^{−x}; Clayton-type generator ψ(x) = (ax+1)^{−1/a}",
+    "compared": "tilt vectors α = (3,4,5) vs β = (2,4.8,6) claimed p-large ordered but not weakly supermajorized",
+    "hypotheses": [
+     {
+      "text": "n = 3; F1 = F2 = 1−e^{−x}; α ⪰p β asserted while α ⋡w β",
+      "formal": "p-large order replaces weak supermajorization in Theorem 4's premise",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X2:3 ≱st Y2:3 and X2:3 ≰st Y2:3 — not st-comparable (difference of transformed survival functions changes sign in Figure 3); the ⪰w → ⪰p weakening of Theorem 4 fails"
+    },
+    "quantifiers": "n = 3; x ≥ 0",
+    "numbers": "n = 3; α = (3,4,5); β = (2,4.8,6); F1 = F2 = 1−e^{−x}; ψ(x) = (ax+1)^{−1/a}",
+    "ambiguity": "Two printed defects. (1) Definition 2(iii) as printed reads Π_{i=j}^n x_(i) ≥ Π_{i=1}^j y_(i) (asymmetric limits, verified via glyph coordinates): under this literal reading α ⪰p β fails at j = 3 (5 ≱ 57.6), and under the symmetric upper-products reading it fails at j = 2 (20 ≱ 28.8). Only the standard symmetric lower-products reading Π_{i=1}^j x_(i) ≥ Π_{i=1}^j y_(i) makes the claim hold (3 ≥ 2, 12 ≥ 9.6, 60 ≥ 57.6) — so the example is consistent with the intended p-majorization but conflicts with the printed definition text. The α ⋡w β half checks out: sums of smallest 3 ≥ 2, 7 ≥ 6.8 hold but total 12 ≱ 12.8 fails at j = 3. (2) The conclusion relation glyphs are unmapped bytes (0x02, 0x03) in the text layer; both passes read them as the two negated st relations — i.e., not st-comparable, which is what a sign-changing difference plot shows."
+   }
+  ],
+  "note": "Passes agree substantively (order fails in both directions). Flagged: printed Def 2(iii) limits are asymmetric/mismatched and only the standard symmetric lower-product reading validates α ⪰p β. Page 8914."
+ },
+ {
+  "queue_claim": "theorem1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3934/math.2024434",
+    "claim": "Theorem 1",
+    "page": 8908,
+    "quote": "Theorem 1. For X ∼ MPHRS (α; θ1; λ1; F̄1 ; ψ) and Y ∼ MPHRS (β; θ1; λ1; F̄2 ; ψ), if F̄1 (x) ≥ F̄2 (x), then α ⪰w β implies X2:n ≥ st Y2:n .",
+    "kind": "theorem",
+    "model": "k-out-of-n system",
+    "family": "MPHRS model under Archimedean survival copula ψ; tilt vector α (X) vs β (Y); common scalar scale θ1 and MPHR λ1; baseline survival functions F̄1, F̄2",
+    "compared": "X2:n vs Y2:n; tilt vectors α vs β under weak supermajorization",
+    "hypotheses": [
+     {
+      "text": "F̄1 (x) ≥ F̄2 (x)",
+      "formal": "baseline survival functions ordered pointwise",
+      "source": "statement"
+     },
+     {
+      "text": "α ⪰w β",
+      "formal": "α weakly supermajorized by β: Σ_{i=1}^j α_(i) ≥ Σ_{i=1}^j β_(i), j = 1,...,n (Definition 2(ii))",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X2:n ≥st Y2:n"
+    },
+    "quantifiers": "n ≥ 2; all x ≥ 0",
+    "numbers": "",
+    "ambiguity": "θ1, λ1 denote constant vectors θ·1, λ·1 in the paper's notation (scalar common parameters)."
+   }
+  ],
+  "note": "Passes agree on st and X2:n ≥st Y2:n; '⪰st' = 'B_smaller'. Page 8908 (statement on the page opened by the 8908 header), not 8909."
+ },
+ {
+  "queue_claim": "theorem2",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3934/math.2024434",
+    "claim": "Theorem 2",
+    "page": 8910,
+    "quote": "Theorem 2. For X ∼ MPHRS (α1; θ; λ1; F̄1 ; ψ) and Y ∼ MPHRS (α1; η; λ1; F̄2 ; ψ), where 0 < α ≤ 1. If ψ is log-concave, F̄1 (x) ≤ F̄2 (x), and h2 (x) is decreasing in x, then θ ⪰w η implies X2:n ≤ st Y2:n .",
+    "kind": "theorem",
+    "model": "k-out-of-n system",
+    "family": "MPHRS model; common scalar tilt α ∈ (0,1] and MPHR λ1; scale vectors θ (X) vs η (Y); baseline survival functions F̄1, F̄2 with baseline hazards h1, h2",
+    "compared": "X2:n vs Y2:n; scale vectors θ vs η under weak supermajorization",
+    "hypotheses": [
+     {
+      "text": "0 < α ≤ 1; ψ is log-concave; F̄1 (x) ≤ F̄2 (x); h2 (x) is decreasing in x",
+      "formal": "tilt bound, log-concave generator, baseline ordering, decreasing baseline hazard h2",
+      "source": "statement"
+     },
+     {
+      "text": "θ ⪰w η",
+      "formal": "θ weakly supermajorized by η (Definition 2(ii))",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X2:n ≤st Y2:n"
+    },
+    "quantifiers": "n ≥ 2; all x ≥ 0",
+    "numbers": "",
+    "ambiguity": "Remark 1 (printed below): Theorem 4.3 of [20] is the α = λ = 1, F̄1 = F̄2 special case."
+   }
+  ],
+  "note": "Passes agree on st and X2:n ≤st Y2:n; '⪯st' = 'A_smaller'. Page 8910, not 8911."
+ },
+ {
+  "queue_claim": "theorem3",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3934/math.2024434",
+    "claim": "Theorem 3",
+    "page": 8912,
+    "quote": "Theorem 3. For X ∼ MPRHRS (α1; θ1; λ; F1 ; ψ) and Y ∼ MPRHRS (α1; θ1; µ; F2 ; ψ), where 0 < α ≤ 1. If ψ is log-concave, F1 (x) ≤ F2 (x), then λ ⪰w µ implies Xn−1:n ≥ st Yn−1:n .",
+    "kind": "theorem",
+    "model": "k-out-of-n system",
+    "family": "MPRHRS model under Archimedean copula ψ; modified proportional reversed hazard rate vectors λ (X) vs µ (Y); common scalar tilt α ∈ (0,1] and scale θ1; baseline cdfs F1, F2",
+    "compared": "Xn−1:n vs Yn−1:n; MPRHR vectors λ vs µ under weak supermajorization",
+    "hypotheses": [
+     {
+      "text": "0 < α ≤ 1; ψ is log-concave; F1 (x) ≤ F2 (x)",
+      "formal": "tilt bound, log-concave generator, baseline cdfs ordered",
+      "source": "statement"
+     },
+     {
+      "text": "λ ⪰w µ",
+      "formal": "λ weakly supermajorized by µ (Definition 2(ii))",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "Xn−1:n ≥st Yn−1:n"
+    },
+    "quantifiers": "n ≥ 2; all x ≥ 0",
+    "numbers": "",
+    "ambiguity": "Remark 2 (printed below): Theorem 6.2 of [19] is the α = θ = 1, F1 = F2 special case."
+   }
+  ],
+  "note": "Passes agree on st and Xn−1:n ≥st Yn−1:n; '⪰st' = 'B_smaller'. Page 8912 (statement in the 8912 block), not 8913."
+ },
+ {
+  "queue_claim": "theorem4",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3934/math.2024434",
+    "claim": "Theorem 4",
+    "page": 8914,
+    "quote": "Theorem 4. For X ∼ MPRHRS (α; θ1; λ1; F1 ; ψ) and Y ∼ MPRHRS (β; θ1; λ1; F2 ; ψ). If F1 (x) ≥ F2 (x), then α ⪰w β implies Xn−1:n ≤ st Yn−1:n .",
+    "kind": "theorem",
+    "model": "k-out-of-n system",
+    "family": "MPRHRS model; tilt vectors α (X) vs β (Y); common scalar scale θ1 and rate λ1; baseline cdfs F1, F2",
+    "compared": "Xn−1:n vs Yn−1:n; tilt vectors α vs β under weak supermajorization",
+    "hypotheses": [
+     {
+      "text": "F1 (x) ≥ F2 (x)",
+      "formal": "baseline cdfs ordered pointwise",
+      "source": "statement"
+     },
+     {
+      "text": "α ⪰w β",
+      "formal": "α weakly supermajorized by β (Definition 2(ii))",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "Xn−1:n ≤st Yn−1:n"
+    },
+    "quantifiers": "n ≥ 2; all x ≥ 0",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Passes agree on st and Xn−1:n ≤st Yn−1:n; '⪯st' = 'A_smaller'. Page 8914, not 8915."
+ }
+]

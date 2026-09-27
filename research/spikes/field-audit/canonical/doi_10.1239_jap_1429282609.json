@@ -1,6 +1,291 @@
 [
  {
   "paper": "doi:10.1239/jap/1429282609",
+  "claim": "Corollary 4.2",
+  "page": 6,
+  "quote": "Corollary 4.2 Let X\u03bb1, X\u03bb2, . . . , X\u03bbn be independent random variables with X\u03bbi \u223c W(\u03b1, \u03bbi), where \u03bbi > 0, i = 1, . . . , n, and let X\u03b81, X\u03b82, . . . , X\u03b8n be another set of independent random variables with X\u03b8i \u223c W(\u03b1, \u03b8i), where \u03b8i > 0, i = 1, . . . , n. Then for 0 < \u03b1 \u2264 1, (\u03bb1, . . . , \u03bbn) \u227cm (\u03b81, . . . , \u03b8n) \u21d2 X\u03bbn:n \u2264rh X\u03b8n:n.",
+  "kind": "corollary",
+  "model": "parallel system",
+  "family": "Weibull W(\u03b1, \u03bb), common shape \u03b1, heterogeneous scale parameters \u03bbi",
+  "compared": "X\u03bbn:n (scale vector \u03bb) vs X\u03b8n:n (scale vector \u03b8)",
+  "hypotheses": [
+   {
+    "text": "Then for 0 < \u03b1 \u2264 1",
+    "formal": "0 < \u03b1 \u2264 1 (common Weibull shape)",
+    "source": "statement"
+   },
+   {
+    "text": "(\u03bb1, . . . , \u03bbn) \u227cm (\u03b81, . . . , \u03b8n)",
+    "formal": "\u03bb majorized by \u03b8 (Definition 2.2: equal sums and \u03a3_{i=1}^j \u03bb_(i) \u2265 \u03a3_{i=1}^j \u03b8_(i), j = 1,...,n\u22121)",
+    "source": "statement; definition 2.2"
+   }
+  ],
+  "conclusion": {
+   "order": "rh",
+   "direction": "X\u03bbn:n \u2264rh X\u03b8n:n (\u03bb-system smaller in reversed hazard rate order)"
+  },
+  "quantifiers": "any n; all t \u2265 0",
+  "numbers": "",
+  "ambiguity": "Immediate from Theorem 4.1 since \u227cm \u21d2 \u227cw. Pass A's 'hr' label is wrong \u2014 the paper prints \u2264rh (reverse hazard rate order). Note in text: proved earlier by Khaledi et al. (2011) for generalized gamma with p = q < 1.",
+  "adjudication": "adjudicated: Disputed hr (A) vs rh (B). The paper prints \u2264rh \u2014 the reversed hazard rate order; corrected to rh."
+ },
+ {
+  "paper": "doi:10.1239/jap/1429282609",
+  "claim": "Theorem 4.1",
+  "page": 6,
+  "quote": "Theorem 4.1 Let X\u03bb1, X\u03bb2, . . . , X\u03bbn be independent random variables with X\u03bbi \u223c W(\u03b1, \u03bbi), where \u03bbi > 0, i = 1, . . . , n, and let X\u03b81, X\u03b82, . . . , X\u03b8n be another set of independent random variables with X\u03b8i \u223c W(\u03b1, \u03b8i), where \u03b8i > 0, i = 1, . . . , n. Then for 0 < \u03b1 \u2264 1, (\u03bb1, . . . , \u03bbn) \u227cw (\u03b81, . . . , \u03b8n) \u21d2 X\u03bbn:n \u2264rh X\u03b8n:n.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "Weibull W(\u03b1, \u03bb), common shape \u03b1, heterogeneous scale parameters \u03bbi",
+  "compared": "X\u03bbn:n (scale vector \u03bb) vs X\u03b8n:n (scale vector \u03b8)",
+  "hypotheses": [
+   {
+    "text": "Then for 0 < \u03b1 \u2264 1",
+    "formal": "0 < \u03b1 \u2264 1 (common Weibull shape)",
+    "source": "statement"
+   },
+   {
+    "text": "(\u03bb1, . . . , \u03bbn) \u227cw (\u03b81, . . . , \u03b8n)",
+    "formal": "\u03bb weakly majorized by \u03b8 in the paper's sense (Definition 2.4: \u03a3_{i=1}^j \u03bb_(i) \u2265 \u03a3_{i=1}^j \u03b8_(i) for all j \u2014 i.e. weak supermajorization)",
+    "source": "statement; definition 2.4"
+   }
+  ],
+  "conclusion": {
+   "order": "rh",
+   "direction": "X\u03bbn:n \u2264rh X\u03b8n:n (\u03bb-system smaller in reversed hazard rate order)"
+  },
+  "quantifiers": "any n; all t \u2265 0",
+  "numbers": "",
+  "ambiguity": "Pass A's 'hr' label is wrong \u2014 the paper prints \u2264rh. The paper's \u227cw (Definition 2.4) is the lower-partial-sum \u2265 relation (weak supermajorization in Marshall\u2013Olkin terminology).",
+  "adjudication": "adjudicated: Disputed hr (A) vs rh (B). The paper prints \u2264rh \u2014 reversed hazard rate order under weak supermajoriz"
+ },
+ {
+  "paper": "doi:10.1239/jap/1429282609",
+  "claim": "Theorem 4.12",
+  "page": 12,
+  "quote": "Theorem 4.12 Let X1, . . . , Xn be independent random variables following the multiple-outlier Weibull model such that Xi \u223c W(\u03b1, \u03bb1) for i = 1, . . . , p and Xj \u223c W(\u03b1, \u03bb) for j = p + 1, . . . , n, with \u03bb1, \u03bb > 0. Let Y1, . . . , Yn be another set of independent random variables following the multiple-outlier Weibull model with Yi \u223c W(\u03b1, \u03bb*1) for i = 1, . . . , p and Yj \u223c W(\u03b1, \u03bb) for j = p + 1, . . . , n, with \u03bb*1, \u03bb > 0. Suppose \u03bb*1 = min(\u03bb, \u03bb1, \u03bb*1), then for any \u03b1 > 0, (\u03bb1,...,\u03bb1,\u03bb,...,\u03bb)p,q \u227cw (\u03bb*1,...,\u03bb*1,\u03bb,...,\u03bb)p,q \u21d2 r*n:n(t)/rn:n(t) is increasing in t, where p + q = n.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "multiple-outlier Weibull model W(\u03b1, \u00b7): X has p components at \u03bb1 and q at \u03bb; Y has p components at \u03bb*1 and q at \u03bb",
+  "compared": "Xn:n (p outliers at \u03bb1) vs Yn:n (p outliers at \u03bb*1); common shape \u03b1, common \u03bb-block",
+  "hypotheses": [
+   {
+    "text": "Suppose \u03bb*1 = min(\u03bb, \u03bb1, \u03bb*1)",
+    "formal": "\u03bb*1 \u2264 min(\u03bb, \u03bb1) \u2014 the outlier scale of Y is the smallest of the three values",
+    "source": "statement"
+   },
+   {
+    "text": "(\u03bb1,...,\u03bb1,\u03bb,...,\u03bb) \u227cw (\u03bb*1,...,\u03bb*1,\u03bb,...,\u03bb) (p and q copies respectively)",
+    "formal": "weak supermajorization (Definition 2.4) between the two-value scale vectors",
+    "source": "statement; definition 2.4"
+   },
+   {
+    "text": "then for any \u03b1 > 0",
+    "formal": "\u03b1 > 0 unrestricted (no 0 < \u03b1 \u2264 1 restriction)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: rhr",
+   "direction": "Xn:n ages faster than Yn:n in the reversed hazard rate sense: r\u0303Yn:n(t)/r\u0303Xn:n(t) = r*n:n(t)/rn:n(t) is increasing in t"
+  },
+  "quantifiers": "p + q = n; all t \u2265 0; any \u03b1 > 0",
+  "numbers": "",
+  "ambiguity": "Conclusion is the rh-ratio monotonicity (relative-ageing \u2272rhr) condition of Shaked\u2013Shanthikumar Thm 1.C.4(b) used to lift \u2264rh to \u2264lr in Theorem 4.13 \u2014 neither a plain hr (pass A) nor plain rh (pass B) order. Pass A's quote rendered \u03bb*1 as \u03bb\u22121 (mis-OCR); the paper prints \u03bb*1, the smaller outlier scale.",
+  "adjudication": "adjudicated: Disputed hr (A) vs rh (B). Neither is exact: the printed conclusion is that the ratio r*_{n:n}(t)/r_"
+ },
+ {
+  "paper": "doi:10.1239/jap/1429282609",
+  "claim": "Theorem 4.3",
+  "page": 7,
+  "quote": "Theorem 4.3 Let X\u03bb1, X\u03bb2 be independent random variables with X\u03bbi \u223c W(\u03b1, \u03bbi) where \u03bbi > 0, i = 1, 2, and let X\u03b81, X\u03b82 be independent random variables with X\u03b8i \u223c W(\u03b1, \u03b8i) where \u03b8i > 0, i = 1, 2. Then (\u03bb1, \u03bb2) \u227cm (\u03b81, \u03b82) \u21d2 r\u03b82:2(t)/r\u03bb2:2(t) is increasing in t, for 0 < \u03b1 \u2264 1.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "Weibull W(\u03b1, \u03bb), common shape \u03b1, n = 2 heterogeneous scale parameters",
+  "compared": "X\u03bb2:2 (scales \u03bb1, \u03bb2) vs X\u03b82:2 (scales \u03b81, \u03b82)",
+  "hypotheses": [
+   {
+    "text": "for 0 < \u03b1 \u2264 1",
+    "formal": "0 < \u03b1 \u2264 1 (common Weibull shape)",
+    "source": "statement"
+   },
+   {
+    "text": "(\u03bb1, \u03bb2) \u227cm (\u03b81, \u03b82)",
+    "formal": "\u03bb majorized by \u03b8 (Definition 2.2)",
+    "source": "statement; definition 2.2"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: rhr",
+   "direction": "X\u03bb2:2 ages faster than X\u03b82:2 in the reversed hazard rate sense: r\u0303X\u03b82:2(t)/r\u0303X\u03bb2:2(t) increasing in t"
+  },
+  "quantifiers": "n = 2; all t \u2265 0",
+  "numbers": "",
+  "ambiguity": "Ratio-monotonicity conclusion (r\u0303^\u03b8_{2:2}/r\u0303^\u03bb_{2:2} increasing) \u2014 the rh relative-ageing condition feeding Theorem 1.C.4 to lift \u2264rh to \u2264lr in Theorem 4.4; neither plain hr (A) nor plain rh (B).",
+  "adjudication": "adjudicated: Disputed hr (A) vs rh (B). Printed conclusion is monotonicity of the reversed-hazard-rate ratio \u2014 ca"
+ },
+ {
+  "paper": "doi:10.1239/jap/1429282609",
+  "claim": "Theorem 4.4",
+  "page": 8,
+  "quote": "Theorem 4.4 Let X\u03bb1, X\u03bb2 be independent random variables with X\u03bbi \u223c W(\u03b1, \u03bbi) where \u03bbi > 0, i = 1, 2, and let X\u03b81, X\u03b82 be independent random variables with X\u03b8i \u223c W(\u03b1, \u03b8i) where \u03b8i > 0, i = 1, 2. Then for 0 < \u03b1 \u2264 1, (\u03bb1, \u03bb2) \u227cm (\u03b81, \u03b82) \u21d2 X\u03bb2:2 \u2264lr X\u03b82:2.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "Weibull W(\u03b1, \u03bb), common shape \u03b1, n = 2 heterogeneous scale parameters",
+  "compared": "X\u03bb2:2 (scales \u03bb) vs X\u03b82:2 (scales \u03b8)",
+  "hypotheses": [
+   {
+    "text": "Then for 0 < \u03b1 \u2264 1",
+    "formal": "0 < \u03b1 \u2264 1 (common Weibull shape)",
+    "source": "statement"
+   },
+   {
+    "text": "(\u03bb1, \u03bb2) \u227cm (\u03b81, \u03b82)",
+    "formal": "\u03bb majorized by \u03b8 (Definition 2.2)",
+    "source": "statement; definition 2.2"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "X\u03bb2:2 \u2264lr X\u03b82:2 (\u03bb-system smaller in likelihood ratio order)"
+  },
+  "quantifiers": "n = 2; all t \u2265 0",
+  "numbers": "",
+  "ambiguity": "Via Theorems 4.1 + 4.3 and Shaked\u2013Shanthikumar Thm 1.C.4. Generalizes Dykstra et al. (1997) Thm 3.1 from exponential to Weibull. Example 4.5 shows the result fails for \u03b1 = 2.",
+  "adjudication": "adjudicated: Both passes agree: lr ordering for n = 2 under majorization, 0 < \u03b1 \u2264 1. Direction X^\u03bb_{2:2} \u2264lr X^\u03b8_"
+ },
+ {
+  "paper": "doi:10.1239/jap/1429282609",
+  "claim": "Theorem 4.6",
+  "page": 9,
+  "quote": "Theorem 4.6 Let X1, . . . , Xn be independent random variables following the multiple-outlier Weibull model such that Xi \u223c W(\u03b1, \u03bb1) for i = 1, . . . , p and Xj \u223c W(\u03b1, \u03bb2) for j = p + 1, . . . , n, with \u03bb1, \u03bb2 > 0. Let Y1, . . . , Yn be another set of independent random variables following the multiple-outlier Weibull model such that Yi \u223c W(\u03b1, \u03b81) for i = 1, . . . , p and Yj \u223c W(\u03b1, \u03b82) for j = p + 1, . . . , n, with \u03b81, \u03b82 > 0. Then for 0 < \u03b1 \u2264 1, (\u03bb1,...,\u03bb1,\u03bb2,...,\u03bb2)p,q \u227cm (\u03b81,...,\u03b81,\u03b82,...,\u03b82)p,q \u21d2 r\u03b8n:n(t)/r\u03bbn:n(t) is increasing in t, where p + q = n.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "multiple-outlier Weibull model W(\u03b1, \u00b7): p components at first scale, q at second",
+  "compared": "Xn:n (scales \u03bb1^p, \u03bb2^q) vs Yn:n (scales \u03b81^p, \u03b82^q)",
+  "hypotheses": [
+   {
+    "text": "Then for 0 < \u03b1 \u2264 1",
+    "formal": "0 < \u03b1 \u2264 1 (common Weibull shape)",
+    "source": "statement"
+   },
+   {
+    "text": "(\u03bb1,...,\u03bb1,\u03bb2,...,\u03bb2) \u227cm (\u03b81,...,\u03b81,\u03b82,...,\u03b82) with p and q copies, p + q = n",
+    "formal": "majorization (Definition 2.2) between the two multiple-outlier scale vectors",
+    "source": "statement; definition 2.2"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: rhr",
+   "direction": "Xn:n ages faster than Yn:n in the reversed hazard rate sense: r\u0303Yn:n(t)/r\u0303Xn:n(t) = r\u03b8n:n(t)/r\u03bbn:n(t) increasing in t"
+  },
+  "quantifiers": "p + q = n; all t \u2265 0",
+  "numbers": "",
+  "ambiguity": "Ratio-monotonicity (rh relative-ageing) conclusion lifting Theorem 4.1's \u2264rh to \u2264lr via Thm 1.C.4 in Theorem 4.7; neither plain hr (A) nor plain rh (B).",
+  "adjudication": "adjudicated: Disputed hr (A) vs rh (B). Printed conclusion is monotonicity of the reversed-hazard-rate ratio \u2014 ca"
+ },
+ {
+  "paper": "doi:10.1239/jap/1429282609",
+  "claim": "Theorem 4.7",
+  "page": 10,
+  "quote": "Theorem 4.7 Let X1, . . . , Xn be independent random variables following the multiple-outlier Weibull model such that Xi \u223c W(\u03b1, \u03bb1) for i = 1, . . . , p and Xj \u223c W(\u03b1, \u03bb2) for j = p + 1, . . . , n, with \u03bb1, \u03bb2 > 0. Let Y1, . . . , Yn be another set of independent random variables following the multiple-outlier Weibull model such that Yi \u223c W(\u03b1, \u03b81) for i = 1, . . . , p and Yj \u223c W(\u03b1, \u03b82) for j = p + 1, . . . , n, with \u03b81, \u03b82 > 0. Then for 0 < \u03b1 \u2264 1, (\u03bb1,...,\u03bb1,\u03bb2,...,\u03bb2)p,q \u227cm (\u03b81,...,\u03b81,\u03b82,...,\u03b82)p,q \u21d2 X\u03bbn:n \u2264lr X\u03b8n:n, where p + q = n.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "multiple-outlier Weibull model W(\u03b1, \u00b7): p components at first scale, q at second",
+  "compared": "X\u03bbn:n (scales \u03bb1^p, \u03bb2^q) vs X\u03b8n:n (scales \u03b81^p, \u03b82^q)",
+  "hypotheses": [
+   {
+    "text": "Then for 0 < \u03b1 \u2264 1",
+    "formal": "0 < \u03b1 \u2264 1 (common Weibull shape)",
+    "source": "statement"
+   },
+   {
+    "text": "(\u03bb1,...,\u03bb1,\u03bb2,...,\u03bb2) \u227cm (\u03b81,...,\u03b81,\u03b82,...,\u03b82) with p and q copies, p + q = n",
+    "formal": "majorization (Definition 2.2) between the two multiple-outlier scale vectors",
+    "source": "statement; definition 2.2"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "X\u03bbn:n \u2264lr X\u03b8n:n (\u03bb-system smaller in likelihood ratio order)"
+  },
+  "quantifiers": "p + q = n; all t \u2265 0",
+  "numbers": "",
+  "ambiguity": "Via Theorems 4.1 + 4.6 and Shaked\u2013Shanthikumar Thm 1.C.4. Paper glosses: more dispersed scale parameters (majorization) give a stochastically larger parallel-system maximum.",
+  "adjudication": "adjudicated: Both passes agree on lr; direction X^\u03bb_{n:n} \u2264lr X^\u03b8_{n:n} as printed under majorization of scale ve"
+ },
+ {
+  "paper": "doi:10.1239/jap/1429282609",
+  "claim": "Theorem 4.8",
+  "page": 10,
+  "quote": "Theorem 4.8 Let X\u03bb1, X\u03bb be independent random variables with X\u03bb1 \u223c W(\u03b1, \u03bb1) and X\u03bb \u223c W(\u03b1, \u03bb) where \u03bb1, \u03bb > 0. Let Y\u03bb*1, Y\u03bb be independent random variables with Y\u03bb*1 \u223c W(\u03b1, \u03bb*1) and Y\u03bb \u223c W(\u03b1, \u03bb), where \u03bb*1, \u03bb > 0. Suppose \u03bb*1 = min(\u03bb, \u03bb1, \u03bb*1), then for any \u03b1 > 0, (\u03bb1, \u03bb) \u227cw (\u03bb*1, \u03bb) \u21d2 r*2:2(t)/r2:2(t) is increasing in t.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "Weibull W(\u03b1, \u00b7), n = 2: X = (\u03bb1, \u03bb), Y = (\u03bb*1, \u03bb) \u2014 only the first scale differs",
+  "compared": "X2:2 (scales \u03bb1, \u03bb) vs Y2:2 (scales \u03bb*1, \u03bb)",
+  "hypotheses": [
+   {
+    "text": "Suppose \u03bb*1 = min(\u03bb, \u03bb1, \u03bb*1)",
+    "formal": "\u03bb*1 \u2264 min(\u03bb, \u03bb1) \u2014 Y's outlier scale is the smallest",
+    "source": "statement"
+   },
+   {
+    "text": "(\u03bb1, \u03bb) \u227cw (\u03bb*1, \u03bb)",
+    "formal": "weak supermajorization (Definition 2.4)",
+    "source": "statement; definition 2.4"
+   },
+   {
+    "text": "then for any \u03b1 > 0",
+    "formal": "\u03b1 > 0 unrestricted",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: rhr",
+   "direction": "X2:2 ages faster than Y2:2 in the reversed hazard rate sense: r\u0303Y2:2(t)/r\u0303X2:2(t) = r*2:2(t)/r2:2(t) increasing in t"
+  },
+  "quantifiers": "n = 2; all t \u2265 0; any \u03b1 > 0",
+  "numbers": "",
+  "ambiguity": "Ratio-monotonicity conclusion for Theorem 4.9 via Thm 1.C.4; valid only when the distinct scale \u03bb*1 is the minimum (the third arrangement \u03bb \u2264 \u03bb*1 \u2264 \u03bb1 fails \u2014 Example 4.10). Neither plain hr (A) nor plain rh (B).",
+  "adjudication": "adjudicated: Disputed hr (A) vs rh (B). Printed conclusion is monotonicity of the reversed-hazard-rate ratio \u2014 ca"
+ },
+ {
+  "paper": "doi:10.1239/jap/1429282609",
+  "claim": "Theorem 4.9",
+  "page": 11,
+  "quote": "Theorem 4.9 Let X\u03bb1, X\u03bb be independent random variables with X\u03bb1 \u223c W(\u03b1, \u03bb1) and X\u03bb \u223c W(\u03b1, \u03bb) where \u03bb1, \u03bb > 0. Let Y\u03bb*1, Y\u03bb be independent random variables with Y\u03bb*1 \u223c W(\u03b1, \u03bb*1) and Y\u03bb \u223c W(\u03b1, \u03bb), where \u03bb*1, \u03bb > 0. Suppose \u03bb*1 = min(\u03bb, \u03bb1, \u03bb*1), then for any \u03b1 > 0, (\u03bb1, \u03bb) \u227cw (\u03bb*1, \u03bb) \u21d2 X2:2 \u2264lr Y2:2.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "Weibull W(\u03b1, \u00b7), n = 2: X = (\u03bb1, \u03bb), Y = (\u03bb*1, \u03bb) \u2014 only the first scale differs",
+  "compared": "X2:2 (scales \u03bb1, \u03bb) vs Y2:2 (scales \u03bb*1, \u03bb)",
+  "hypotheses": [
+   {
+    "text": "Suppose \u03bb*1 = min(\u03bb, \u03bb1, \u03bb*1)",
+    "formal": "\u03bb*1 \u2264 min(\u03bb, \u03bb1) \u2014 covers \u03bb*1 \u2264 \u03bb \u2264 \u03bb1 and \u03bb*1 \u2264 \u03bb1 \u2264 \u03bb; excludes \u03bb \u2264 \u03bb*1 \u2264 \u03bb1",
+    "source": "statement"
+   },
+   {
+    "text": "(\u03bb1, \u03bb) \u227cw (\u03bb*1, \u03bb)",
+    "formal": "weak supermajorization (Definition 2.4)",
+    "source": "statement; definition 2.4"
+   },
+   {
+    "text": "then for any \u03b1 > 0",
+    "formal": "\u03b1 > 0 unrestricted",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "X2:2 \u2264lr Y2:2 (X-system smaller in likelihood ratio order)"
+  },
+  "quantifiers": "n = 2; all t \u2265 0; any \u03b1 > 0",
+  "numbers": "",
+  "ambiguity": "Via Theorem 4.8 + Theorem 4.1 (\u2264rh) + Shaked\u2013Shanthikumar Thm 1.C.4. The third possible arrangement \u03bb \u2264 \u03bb*1 \u2264 \u03bb1 is explicitly excluded and refuted by Example 4.10 (\u03b1 = 0.3 and \u03b1 = 1.3 figures).",
+  "adjudication": "adjudicated: Both passes agree: lr ordering for n = 2 under weak supermajorization with the smallest-scale constr"
+ },
+ {
+  "paper": "doi:10.1239/jap/1429282609",
   "claim": "Example 4.10",
   "page": 11,
   "quote": "Example 4.10 Let (X\u03bb1 , X\u03bb ) be a vector of heterogeneous Weibull random variables with \u03b1 = 0.3 and scale parameters \u03bb = 0.2 and \u03bb1 = 3.5. Let Y\u03bb\u22171 , Y\u03bb be a vector of heterogeneous Weibull random variables with \u03b1 = 0.3 and scale parameters \u03bb = 0.2 and \u03bb\u22171 = 2. Obviously (\u03bb1 , \u03bb) \u227cw (\u03bb\u22171 , \u03bb) and \u03bb \u2264 \u03bb\u22171 \u2264 \u03bb1 . However X2:2 \u2270lr Y2:2 since f2:2^\u2217 (t)/f2:2 (t) is not increasing in t as it can be seen from Figure 2. Analogously, from Figure 3, it can be seen that X2:2 \u2270lr Y2:2 when \u03b1 = 1.3.",

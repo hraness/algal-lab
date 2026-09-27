@@ -1,0 +1,210 @@
+[
+ {
+  "queue_claim": "lemma1.2a",
+  "decision": "exclude",
+  "records": [],
+  "note": "Pass A only. Lemma 1.2(a) is the generic Strassen-type coupling fact 'X ≤st Y ⇒ ∃ Z =st X with Z ≤ Y pointwise' for arbitrary random variables — an ordering result stated for a fully general class, excluded by spec scope; the paper's family-specific st claims are Theorems 2.1/2.2, captured separately."
+ },
+ {
+  "queue_claim": "lemma1.2b",
+  "decision": "exclude",
+  "records": [],
+  "note": "Pass A only. Lemma 1.2(b) is the converse coupling check for arbitrary random variables — fully general tool lemma, out of spec scope."
+ },
+ {
+  "queue_claim": "lemma1.3",
+  "decision": "exclude",
+  "records": [],
+  "note": "Pass A only. Lemma 1.3 (X ≤st Y, Z independent ⇒ X·Z ≤st Y·Z) holds for arbitrary nonnegative random variables — an ordering result for a fully general nonparametric class, excluded by spec scope."
+ },
+ {
+  "queue_claim": "remark2.3",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.4064/am39-2-1",
+    "claim": "Remark 2.3",
+    "page": 132,
+    "quote": "Remark 2.3. Deriving exact distributions of the moment estimators α̂ and λ̂ is tedious for n > 2. One may prove that for n = 2 the statistic 1/α̂ has beta distribution B(1/2, α) and so α̂ is stochastically increasing in α.",
+    "kind": "remark",
+    "model": "other: moment estimator distribution",
+    "family": "gamma G(λ, α): f(x;α,λ) = x^{α−1} e^{−x/λ}/(Γ(α) λ^α); moment estimator α̂ = X̄²/S², n = 2",
+    "compared": "distributions of α̂ under increasing α (α̂ at smaller α is stochastically smaller)",
+    "hypotheses": [
+     {
+      "text": "for n = 2 the statistic 1/α̂ has beta distribution B(1/2, α)",
+      "formal": "1/α̂ ~ Beta(1/2, α), which is stochastically decreasing in α (mean 1/(1+2α)), so α̂ = 1/(1/α̂) is stochastically increasing",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "α̂ stochastically increasing in α (α̂(α1) ≤st α̂(α2) for α1 < α2)"
+    },
+    "quantifiers": "n = 2; α > 0",
+    "numbers": "n = 2; 1/α̂ ~ B(1/2, α)",
+    "ambiguity": "Remark-level claim (kind 'remark' retained for fidelity; it asserts a stochastic monotonicity, so it is in scope as a printed st-ordering claim for the specific gamma family). Direction is consistent: B(1/2,α) decreases stochastically in α, so the reciprocal α̂ increases."
+   }
+  ],
+  "note": "Passes agree: st monotonicity of α̂ in α for n = 2 via the printed Beta(1/2,α) law; direction strings differed cosmetically. Page 132."
+ },
+ {
+  "queue_claim": "theorem2.4",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.4064/am39-2-1",
+    "claim": "Theorem 2.4",
+    "page": 132,
+    "quote": "Theorem 2.4. The estimator 1/α̂ is not dispersively monotone in α. Proof. Suppose for contradiction that 1/α̂ is dispersively monotone. Then Var(1/α̂) should be a monotone function in α. ... ψ(α) := Var(S²/X̄²) = 2α(α + 1) / [(n − 1)(α + 1/n)²(α + 2/n)(α + 3/n)]. Since lim_{α→0} ψ(α) = lim_{α→∞} ψ(α) = 0, the function ψ is not monotone and therefore 1/α̂ cannot be dispersively monotone.",
+    "kind": "theorem",
+    "model": "other: moment estimator distribution",
+    "family": "gamma G(λ, α) samples; estimator 1/α̂ = S²/X̄² (moment estimator α̂ = X̄²/S²)",
+    "compared": "distributions of 1/α̂ under different α — dispersive monotonicity claimed to fail",
+    "hypotheses": [
+     {
+      "text": "Suppose for contradiction that 1/α̂ is dispersively monotone. Then Var(1/α̂) should be a monotone function in α.",
+      "formal": "disp ordering would imply Var ordering; proof proceeds by contradiction",
+      "source": "statement"
+     },
+     {
+      "text": "lim_{α→0} ψ(α) = lim_{α→∞} ψ(α) = 0, the function ψ is not monotone",
+      "formal": "Var(1/α̂) = ψ(α) vanishes at both ends of (0,∞) while positive inside, hence non-monotone",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "disp",
+     "direction": "negative: 1/α̂ is NOT dispersively monotone in α — the disp ordering across α fails"
+    },
+    "quantifiers": "α > 0; n ≥ 2",
+    "numbers": "ψ(α) = Var(1/α̂) = 2α(α+1)/[(n−1)(α+1/n)²(α+2/n)(α+3/n)]",
+    "ambiguity": "A printed negative result: dispersive monotonicity of 1/α̂ in α fails (the proof exploits that ≤disp implies variance ordering)."
+   }
+  ],
+  "note": "Passes agree: printed negative disp result; A's 'not dispersively monotone' = B's 'negative ...' direction. Page 132 (proof runs to 133)."
+ },
+ {
+  "queue_claim": "unn1:preliminary facts section 1",
+  "decision": "include",
+  "records": [],
+  "note": "Pass B bundled the preliminary sentence '...stochastically increasing with respect to both parameters, α and λ' plus the 'X ≥c Y ... X ≤disp Y' sentence into one record; the four conclusions (st in α, st in λ, ≤c, ≤disp) are canonicalized under the A-side per-order queue items — included."
+ },
+ {
+  "queue_claim": "unn:preliminary fact convex transform order for",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.4064/am39-2-1",
+    "claim": "Preliminary fact (Section 1): convex transform order for the gamma family",
+    "page": 130,
+    "quote": "If X and Y have the gamma distributions G(1, α1 ) and G(1, α2 ) respectively, where α1 < α2 , then X ≥c Y (see van Zwet [11])",
+    "kind": "preliminary",
+    "model": "single",
+    "family": "gamma G(1, α) — unit scale; f(x;α,1) = x^{α−1} e^{−x}/Γ(α)",
+    "compared": "X ~ G(1,α1) vs Y ~ G(1,α2), unit-rate gammas with ordered shapes",
+    "hypotheses": [
+     {
+      "text": "α1 < α2",
+      "formal": "shape parameters ordered",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "star",
+     "direction": "X ≥c Y (X bigger in the convex-transform order: F^{-1}G concave; equivalently G(1,α1) ≥c G(1,α2))"
+    },
+    "quantifiers": "α1 < α2 arbitrary",
+    "numbers": "",
+    "ambiguity": "Printed as X ≥c Y — the convex-transform order of van Zwet [11] (the paper's Definition: X ≤c Y iff G^{-1}F convex), grouped under the spec's 'star or convex transform' bucket as 'star'. Cited background fact printed in the preliminaries (kind 'preliminary' retained for fidelity)."
+   }
+  ],
+  "note": "Pass A's split of the preliminary sentence; order is van Zwet's ≤c convex-transform order, bucketed as 'star' per spec. Page 130."
+ },
+ {
+  "queue_claim": "unn:preliminary fact dispersive order for gamma",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.4064/am39-2-1",
+    "claim": "Preliminary fact (Section 1): dispersive order for the gamma family",
+    "page": 130,
+    "quote": "and also X ≤disp Y (see Shaked [9]).",
+    "kind": "preliminary",
+    "model": "single",
+    "family": "gamma G(1, α) — unit scale",
+    "compared": "X ~ G(1,α1) vs Y ~ G(1,α2), unit-rate gammas with ordered shapes",
+    "hypotheses": [
+     {
+      "text": "α1 < α2",
+      "formal": "shape parameters ordered (same sentence as the ≥c fact)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "disp",
+     "direction": "X ≤disp Y (G(1,α1) ≤disp G(1,α2))"
+    },
+    "quantifiers": "α1 < α2 arbitrary",
+    "numbers": "",
+    "ambiguity": "Cited background fact (Shaked [9]) printed in the preliminaries (kind 'preliminary' retained for fidelity)."
+   }
+  ],
+  "note": "Pass A's split of the same preliminary sentence; printed X ≤disp Y for α1 < α2. Page 130."
+ },
+ {
+  "queue_claim": "unn:preliminary fact gamma family stochastically increasing",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.4064/am39-2-1",
+    "claim": "Preliminary fact (Section 1): gamma family stochastically increasing in α",
+    "page": 130,
+    "quote": "It is easy to prove that the family of gamma distributions is stochastically increasing with respect to both parameters, α and λ.",
+    "kind": "preliminary",
+    "model": "single",
+    "family": "gamma G(λ, α): f(x;α,λ) = x^{α−1} e^{−x/λ}/(Γ(α) λ^α)",
+    "compared": "gamma distributions with increasing shape α at fixed λ",
+    "hypotheses": [
+     {
+      "text": "stochastically increasing ... α: α1 < α2 at fixed λ",
+      "formal": "per the paper's definition, X(α1) ≤st X(α2) whenever α1 < α2",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "G(λ,α1) ≤st G(λ,α2) for α1 < α2"
+    },
+    "quantifiers": "all α1 < α2, λ > 0",
+    "numbers": "",
+    "ambiguity": "Stated as an easy-to-prove background fact (no citation); the printed sentence asserts monotonicity in both parameters — split into one record per parameter."
+   },
+   {
+    "paper": "doi:10.4064/am39-2-1",
+    "claim": "Preliminary fact (Section 1): gamma family stochastically increasing in λ",
+    "page": 130,
+    "quote": "It is easy to prove that the family of gamma distributions is stochastically increasing with respect to both parameters, α and λ.",
+    "kind": "preliminary",
+    "model": "single",
+    "family": "gamma G(λ, α): f(x;α,λ) = x^{α−1} e^{−x/λ}/(Γ(α) λ^α)",
+    "compared": "gamma distributions with increasing scale λ at fixed α",
+    "hypotheses": [
+     {
+      "text": "stochastically increasing ... λ: λ1 < λ2 at fixed α",
+      "formal": "X(λ1) ≤st X(λ2) whenever λ1 < λ2",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "G(λ1,α) ≤st G(λ2,α) for λ1 < λ2"
+    },
+    "quantifiers": "all λ1 < λ2, α > 0",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Pass A's split of the preliminary sentence; st monotonicity in α and in λ are two distinct conclusions — one record each. Page 130."
+ }
+]

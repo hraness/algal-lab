@@ -1,0 +1,544 @@
+[
+ {
+  "queue_claim": "example3.1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:1912.00798",
+    "claim": "Example 3.1",
+    "page": 9,
+    "quote": "Example 3.1. Suppose X1, X2, X3 are independent random variables with Xi ∼ PGW(p, q, λi), i = 1, 2, 3, where (λ1, λ2, λ3) = (1.5, 2, 3.5). Further, suppose Y1, Y2, Y3 is another set of independent random variables with Yi ∼ PGW(p, q, λ), i = 1, 2, 3. Assume that the hazard rates of X3:3 and Y3:3 are denoted, respectively, by h(.; 1.5, 2, 3.5) and h(.; λ, λ, λ). Fig.1 and Fig.2 represent the hazard rate functions of X3:3 and Y3:3 for the case (p, q) = (1.5, 0.8) and (p, q) = (0.8, 0.4), respectively, when parameter λ is taken as λ̄ = 2.333 (the arithmetic mean of λi's) and λ̃ = 2.189 (the geometric means of λi's). It appears from these figures that the hazard rate function of Y3:3 in terms of the geometric mean of λi's provides an upper bound for the hazard rate function of X3:3 which is sharper than those in terms of the arithmetic mean of λi's.",
+    "kind": "example",
+    "model": "parallel system",
+    "family": "PGW(p,q,λ); X heterogeneous scales (1.5, 2, 3.5) vs Y homogeneous scale λ = λ̄ or λ̃",
+    "compared": "X3:3 vs Y3:3(λ) at λ = 2.333 (arithmetic mean) and λ = 2.189 (geometric mean)",
+    "hypotheses": [
+     {
+      "text": "Xi ∼ PGW(p, q, λi), (λ1, λ2, λ3) = (1.5, 2, 3.5); Yi ∼ PGW(p, q, λ)",
+      "formal": "heterogeneous PGW parallel system vs homogeneous comparator at common scale λ",
+      "source": "statement"
+     },
+     {
+      "text": "(p, q) = (1.5, 0.8) and (p, q) = (0.8, 0.4); λ taken as λ̄ = 2.333 and λ̃ = 2.189",
+      "formal": "both parameter pairs satisfy q ≤ 1, so Theorem 3.1 applies (λ ≥ λ̃ gives the hr bound)",
+      "source": "statement; theorem 3.1"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "X3:3 ≥hr Y3:3 at λ = λ̃ = 2.189 (the geometric-mean system's hazard rate upper-bounds the heterogeneous system's); the arithmetic-mean bound (λ̄ = 2.333) also holds but is weaker"
+    },
+    "quantifiers": "n = 3; x over the plotted range of Figs. 1–2",
+    "numbers": "λ = (1.5, 2, 3.5); λ̄ = 2.333; λ̃ = 2.189; (p,q) = (1.5,0.8) and (0.8,0.4); no function values printed — graphical evidence only",
+    "ambiguity": "Figure-based example: bound observed graphically, consistent with Theorem 3.1 (hazard rate increasing in λ means λ̃ gives the sharpest upper bound; λ̄ > λ̃ also valid but looser). Note the paper uses λ̄ for the arithmetic mean here while Theorem 3.1 prints λ̄ for the geometric mean (∏λi)^{1/n} — an internal notation inconsistency."
+   }
+  ],
+  "note": "Both passes agree: figure-based hr-bound example supporting the geometric-mean bound of Theorem 3.1; included with the observed direction (X3:3 ≥hr Y3:3 at λ̃)."
+ },
+ {
+  "queue_claim": "example4.1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:1912.00798",
+    "claim": "Example 4.1",
+    "page": 11,
+    "quote": "Example 4.1. Suppose X1, X2, X3 are independent random variables with Xi ∼ PGW(2, 1, λi), i = 1, 2, 3, where (λ1, λ2, λ3) = (0.1, 1, 9). Further, suppose Y1, Y2, Y3 is another set of independent random variables with Yi ∼ PGW(2, 1, µi), i = 1, 2, 3, where (µ1, µ2, µ3) = (0.1, 4, 6). It is easy to observe that (λ1, λ2, λ3) ≽p (µ1, µ2, µ3). On the other hand, we have F̄X3:3(0.8)/F̄Y3:3(0.8) = 1.00339, F̄X3:3(1)/F̄Y3:3(1) = 1.0037, F̄X3:3(1.9)/F̄Y3:3(1.9) = 1.0019. Thus, the ratio F̄X3:3(x)/F̄Y3:3(x) is not monotone in x ∈ R+, which means that X3:3 and Y3:3 can not be compared with respect to the hazard rate order.",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "PGW(2,1,λ); X scales (0.1,1,9) vs Y scales (0.1,4,6)",
+    "compared": "X3:3 vs Y3:3 under the hazard rate order — shown NOT comparable",
+    "hypotheses": [
+     {
+      "text": "Xi ∼ PGW(2, 1, λi), (λ1, λ2, λ3) = (0.1, 1, 9); Yi ∼ PGW(2, 1, µi), (µ1, µ2, µ3) = (0.1, 4, 6)",
+      "formal": "two heterogeneous PGW parallel systems; p = 2, q = 1 common",
+      "source": "statement"
+     },
+     {
+      "text": "(λ1, λ2, λ3) ≽p (µ1, µ2, µ3)",
+      "formal": "λ is p-larger than µ: ∏_{j=1}^i λ_(j) ≤ ∏_{j=1}^i µ_(j) for i = 1,2,3 (0.1 ≤ 0.1, 0.1 ≤ 0.4, 0.9 ≤ 2.4)",
+      "source": "statement; p-larger definition"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "X3:3 and Y3:3 cannot be compared in the hazard rate order (F̄X3:3/F̄Y3:3 non-monotone: 1.00339 → 1.0037 → 1.0019)"
+    },
+    "quantifiers": "n = 3; evaluated at x = 0.8, 1, 1.9",
+    "numbers": "λ = (0.1,1,9); µ = (0.1,4,6); F̄-ratios 1.00339 (x=0.8), 1.0037 (x=1), 1.0019 (x=1.9)",
+    "ambiguity": "Negative example showing Theorem 3.1 does not extend to general p-larger heterogeneity. The printed p-larger symbol is ≽p (x ≽p y means ∏x_(j) ≤ ∏y_(j) — 'x p-larger than y'); pass A's '≼p' in its quote is a glyph flip."
+   }
+  ],
+  "note": "Both passes agree: numerical counterexample to extending Theorem 3.1 under the p-larger order. Corrected pass A's printed symbol to ≽p per the paper's definition (λ is p-larger than µ)."
+ },
+ {
+  "queue_claim": "lemma2.1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:1912.00798",
+    "claim": "Lemma 2.1",
+    "page": 5,
+    "quote": "Lemma 2.1. Suppose X1, ···, Xn are independent non-negative random variables with Xi ∼ F(λi x)^{αi}, i = 1···n. Further, suppose Y1, ···, Yn are independent non-negative random variables with Yi ∼ F(λx)^{αi}. Assume that following assumptions hold: (a) xr̃(x) is decreasing in x ∈ R+; (b) x(r̃(x) − h′(x)/h(x)) is increasing in x ∈ R+; (c) F̄^2(x) ≤ −w(x)h′(x)/h(x) for every x ∈ R+. Where r̃(x) = f(x)/F(x). Then, for αi ≥ 1, i = 1, ···, n the following three statements are equivalent: (i) λ ≥ λwg; (ii) Xn:n ≥hr Yn:n; (iii) Xn:n ≥st Yn:n. Where λwg = (∏_{i=1}^n λ_i^{α_i})^{1/Σ_{i=1}^n α_i}.",
+    "kind": "lemma",
+    "model": "parallel system",
+    "family": "exponentiated scale model F(λx)^α; baseline density f = w·h satisfying C-1, C-2",
+    "compared": "heterogeneous Xn:n (scales λi, exponents αi) vs homogeneous Yn:n (common scale λ, same exponents)",
+    "hypotheses": [
+     {
+      "text": "(a) xr̃(x) is decreasing in x ∈ R+; (b) x(r̃(x) − h′(x)/h(x)) is increasing in x ∈ R+; (c) F̄^2(x) ≤ −w(x)h′(x)/h(x) for every x ∈ R+",
+      "formal": "baseline conditions on the reversed hazard rate r̃ = f/F and the decomposition f = w·h (C-1, C-2)",
+      "source": "statement"
+     },
+     {
+      "text": "for αi ≥ 1, i = 1, ···, n",
+      "formal": "common exponent parameters αi ≥ 1 shared by both systems",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "λ ≥ λwg ⟺ Xn:n ≥hr Yn:n (common scale ≥ weighted geometric mean iff X-system hr-larger)"
+    },
+    "quantifiers": "any n; all x > 0; αi ≥ 1",
+    "numbers": "λwg = (∏ λ_i^{α_i})^{1/Σα_i} — weighted geometric mean",
+    "ambiguity": "Equivalence (i) ⟺ (ii) ⟺ (iii); the paper numbers the last item '(ii)' twice — a typo for (iii)."
+   },
+   {
+    "paper": "arxiv:1912.00798",
+    "claim": "Lemma 2.1",
+    "page": 5,
+    "quote": "Lemma 2.1. Suppose X1, ···, Xn are independent non-negative random variables with Xi ∼ F(λi x)^{αi}, i = 1···n. Further, suppose Y1, ···, Yn are independent non-negative random variables with Yi ∼ F(λx)^{αi}. Assume that following assumptions hold: (a) xr̃(x) is decreasing in x ∈ R+; (b) x(r̃(x) − h′(x)/h(x)) is increasing in x ∈ R+; (c) F̄^2(x) ≤ −w(x)h′(x)/h(x) for every x ∈ R+. Where r̃(x) = f(x)/F(x). Then, for αi ≥ 1, i = 1, ···, n the following three statements are equivalent: (i) λ ≥ λwg; (ii) Xn:n ≥hr Yn:n; (iii) Xn:n ≥st Yn:n. Where λwg = (∏_{i=1}^n λ_i^{α_i})^{1/Σ_{i=1}^n α_i}.",
+    "kind": "lemma",
+    "model": "parallel system",
+    "family": "exponentiated scale model F(λx)^α; baseline density f = w·h satisfying C-1, C-2",
+    "compared": "heterogeneous Xn:n (scales λi, exponents αi) vs homogeneous Yn:n (common scale λ, same exponents)",
+    "hypotheses": [
+     {
+      "text": "(a) xr̃(x) is decreasing in x ∈ R+; (b) x(r̃(x) − h′(x)/h(x)) is increasing in x ∈ R+; (c) F̄^2(x) ≤ −w(x)h′(x)/h(x) for every x ∈ R+",
+      "formal": "baseline conditions on the reversed hazard rate r̃ = f/F and the decomposition f = w·h (C-1, C-2)",
+      "source": "statement"
+     },
+     {
+      "text": "for αi ≥ 1, i = 1, ···, n",
+      "formal": "common exponent parameters αi ≥ 1 shared by both systems",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "λ ≥ λwg ⟺ Xn:n ≥st Yn:n (common scale ≥ weighted geometric mean iff X-system st-larger)"
+    },
+    "quantifiers": "any n; all x > 0; αi ≥ 1",
+    "numbers": "λwg = (∏ λ_i^{α_i})^{1/Σα_i} — weighted geometric mean",
+    "ambiguity": "Equivalence (i) ⟺ (ii) ⟺ (iii); the paper numbers the last item '(ii)' twice — a typo for (iii)."
+   }
+  ],
+  "note": "Disputed hr (A) vs st (B): the printed statement is a three-way equivalence λ ≥ λwg ⟺ ≥hr ⟺ ≥st, so both orders hold — split into one record per order."
+ },
+ {
+  "queue_claim": "lemma2.3",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:1912.00798",
+    "claim": "Lemma 2.3",
+    "page": 6,
+    "quote": "Lemma 2.3. Suppose X1, ···, Xn are independent non-negative random variables with Xi ∼ F(λx), i = 1, ···, p, and Xj ∼ F(λ*x), j = p + 1, ···, n. Further, suppose Y1, ···, Yn is another set of independent non-negative random variables with Yi ∼ F(µx), i = 1, ···, p, and Yj ∼ F(µ*x), j = p + 1, ···, n. Assume that λ ≤ µ ≤ µ* ≤ λ* and following assumptions hold: (a) xr̃(x) is decreasing in x ∈ R+; (b) x(r̃(x) − h′(x)/h(x)) is increasing in x ∈ R+; (c) F̄^2(x) ≤ −w(x)h′(x)/h(x) for every x ∈ R+. Then, the following three statements are equivalent: (i) (λ,...,λ,λ*,...,λ*) ≽p (µ,...,µ,µ*,...,µ*) [p and n−p copies]; (ii) Xn:n ≥hr Yn:n; (iii) Xn:n ≥st Yn:n.",
+    "kind": "lemma",
+    "model": "parallel system",
+    "family": "scale model F(λx), two-value (multiple-outlier) scale structure; baseline density f = w·h satisfying C-1, C-2",
+    "compared": "Xn:n (p components at λ, n−p at λ*) vs Yn:n (p at µ, n−p at µ*)",
+    "hypotheses": [
+     {
+      "text": "Assume that λ ≤ µ ≤ µ* ≤ λ*",
+      "formal": "interlaced scale parameters: the X-system's two levels bracket the Y-system's",
+      "source": "statement"
+     },
+     {
+      "text": "(a) xr̃(x) is decreasing in x ∈ R+; (b) x(r̃(x) − h′(x)/h(x)) is increasing in x ∈ R+; (c) F̄^2(x) ≤ −w(x)h′(x)/h(x) for every x ∈ R+",
+      "formal": "baseline conditions (a)–(c)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "(λ·p, λ*·(n−p)) ≽p (µ·p, µ*·(n−p)) ⟺ Xn:n ≥hr Yn:n (X-system's scale vector p-larger iff X-system hr-larger)"
+    },
+    "quantifiers": "any n and p < n; all x > 0",
+    "numbers": "",
+    "ambiguity": "Three-way equivalence with the p-larger order; ≽p denotes 'is p-larger than' (∏x_(j) ≤ ∏y_(j))."
+   },
+   {
+    "paper": "arxiv:1912.00798",
+    "claim": "Lemma 2.3",
+    "page": 6,
+    "quote": "Lemma 2.3. Suppose X1, ···, Xn are independent non-negative random variables with Xi ∼ F(λx), i = 1, ···, p, and Xj ∼ F(λ*x), j = p + 1, ···, n. Further, suppose Y1, ···, Yn is another set of independent non-negative random variables with Yi ∼ F(µx), i = 1, ···, p, and Yj ∼ F(µ*x), j = p + 1, ···, n. Assume that λ ≤ µ ≤ µ* ≤ λ* and following assumptions hold: (a) xr̃(x) is decreasing in x ∈ R+; (b) x(r̃(x) − h′(x)/h(x)) is increasing in x ∈ R+; (c) F̄^2(x) ≤ −w(x)h′(x)/h(x) for every x ∈ R+. Then, the following three statements are equivalent: (i) (λ,...,λ,λ*,...,λ*) ≽p (µ,...,µ,µ*,...,µ*) [p and n−p copies]; (ii) Xn:n ≥hr Yn:n; (iii) Xn:n ≥st Yn:n.",
+    "kind": "lemma",
+    "model": "parallel system",
+    "family": "scale model F(λx), two-value (multiple-outlier) scale structure; baseline density f = w·h satisfying C-1, C-2",
+    "compared": "Xn:n (p components at λ, n−p at λ*) vs Yn:n (p at µ, n−p at µ*)",
+    "hypotheses": [
+     {
+      "text": "Assume that λ ≤ µ ≤ µ* ≤ λ*",
+      "formal": "interlaced scale parameters: the X-system's two levels bracket the Y-system's",
+      "source": "statement"
+     },
+     {
+      "text": "(a) xr̃(x) is decreasing in x ∈ R+; (b) x(r̃(x) − h′(x)/h(x)) is increasing in x ∈ R+; (c) F̄^2(x) ≤ −w(x)h′(x)/h(x) for every x ∈ R+",
+      "formal": "baseline conditions (a)–(c)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "(λ·p, λ*·(n−p)) ≽p (µ·p, µ*·(n−p)) ⟺ Xn:n ≥st Yn:n (X-system's scale vector p-larger iff X-system st-larger)"
+    },
+    "quantifiers": "any n and p < n; all x > 0",
+    "numbers": "",
+    "ambiguity": "Three-way equivalence with the p-larger order; ≽p denotes 'is p-larger than' (∏x_(j) ≤ ∏y_(j))."
+   }
+  ],
+  "note": "Disputed hr (A) vs st (B): printed statement is a three-way equivalence p-larger ⟺ ≥hr ⟺ ≥st — both orders hold; split into one record per order."
+ },
+ {
+  "queue_claim": "lemma3.1",
+  "decision": "exclude",
+  "records": [],
+  "note": "Pass A only. Lemma 3.1 verifies that the PGW(p,q,1) baseline satisfies the assumptions (a)–(c) of Lemma 2.1 for q ≤ 1 — a distributional condition check, not an ordering claim between two distributions/systems. Out of spec scope."
+ },
+ {
+  "queue_claim": "lemma3.2",
+  "decision": "exclude",
+  "records": [],
+  "note": "Pass A only. Lemma 3.2 verifies that the GG(α,β,1) baseline satisfies the assumptions of Lemma 2.1 for α ≥ β — a condition check, not an ordering claim. Out of spec scope."
+ },
+ {
+  "queue_claim": "lemma4.2",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:1912.00798",
+    "claim": "Lemma 4.2",
+    "page": 15,
+    "quote": "Lemma 4.2. Suppose X1, ···, Xn are independent non-negative random variables with Xi ∼ F(λx), i = 1, ···, p, and Xj ∼ F(λ*x), j = p + 1, ···, n, where λ ≤ λ*. Further, suppose the following assumptions hold: (a) x(r̃(x) − h′(x)/h(x)) is increasing in x ∈ R+; (b) F̄^2(x) ≤ −w(x)h′(x)/h(x) for every x ∈ R+. Then, the hazard rate function of Xn:n is increasing in λ ∈ (0, λ*].",
+    "kind": "lemma",
+    "model": "parallel system",
+    "family": "scale model F(λx), two-value model (p components at λ, n−p at λ*); baseline f = w·h",
+    "compared": "Xn:n at parameter λ vs Xn:n at a smaller parameter (equivalently Xn:n(λ') ≥hr Xn:n(λ) for λ' ≥ λ within (0,λ*])",
+    "hypotheses": [
+     {
+      "text": "Xi ∼ F(λx), i = 1,...,p, and Xj ∼ F(λ*x), j = p+1,...,n, where λ ≤ λ*",
+      "formal": "two-value scale model with lower level λ ≤ upper level λ*",
+      "source": "statement"
+     },
+     {
+      "text": "(a) x(r̃(x) − h′(x)/h(x)) increasing; (b) F̄^2(x) ≤ −w(x)h′(x)/h(x)",
+      "formal": "baseline assumptions (a)–(b)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "r_{Xn:n}(x; λ) increasing in λ ∈ (0, λ*] — equivalently for λ_a ≤ λ_b ≤ λ*, Xn:n(λ_a) ≥hr Xn:n(λ_b) (smaller lower-scale parameter gives hr-larger maximum)"
+    },
+    "quantifiers": "x > 0; λ ∈ (0, λ*]",
+    "numbers": "",
+    "ambiguity": "Appendix lemma stated as parameter-monotonicity of the system hazard rate — equivalent to the hr ordering of systems differing only in the smaller scale parameter (used to get Xn:n ≥hr Zn:n in the proof of Lemma 2.3)."
+   }
+  ],
+  "note": "Pass A only. The conclusion — hazard rate of Xn:n increasing in the lower scale parameter — is an hr-ordering claim across parameter values; included as hr."
+ },
+ {
+  "queue_claim": "lemma4.3",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:1912.00798",
+    "claim": "Lemma 4.3",
+    "page": 15,
+    "quote": "Lemma 4.3. Suppose X1, ···, Xn are independent non-negative random variables with common distribution function F(λx)^{αi}. Further, suppose the following hold: F̄^2(x) ≤ −w(x)h′(x)/h(x) for every x ∈ R+. Then, for α ≥ 1 the hazard rate function of Xn:n is increasing in λ ∈ R+.",
+    "kind": "lemma",
+    "model": "parallel system",
+    "family": "homogeneous exponentiated scale model F(λx)^α (common α)",
+    "compared": "Xn:n at parameter λ vs a larger parameter — per the proof: for λ ≤ µ, Xn:n(λ) ≥hr Yn:n(µ) where Yi ∼ F(µx)^{αi}",
+    "hypotheses": [
+     {
+      "text": "common distribution function F(λx)^{αi}; for α ≥ 1",
+      "formal": "homogeneous exponentiated scale model with exponent ≥ 1",
+      "source": "statement"
+     },
+     {
+      "text": "F̄^2(x) ≤ −w(x)h′(x)/h(x) for every x ∈ R+",
+      "formal": "baseline assumption (b)/(c)-type condition",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "r_{Xn:n}(x; λ) increasing in λ ∈ R+ — equivalently Xn:n(λ) ≥hr Xn:n(µ) whenever λ ≤ µ (proved as Xi ≥hr Yi componentwise)"
+    },
+    "quantifiers": "x > 0; λ > 0; α ≥ 1",
+    "numbers": "",
+    "ambiguity": "Appendix lemma stated as parameter-monotonicity of the system hazard rate — an hr-ordering claim between homogeneous systems at different scales (proof explicitly shows Xn:n(λ) ≥hr Yn:n(µ) for λ ≤ µ)."
+   }
+  ],
+  "note": "Pass A only. Hazard-rate monotonicity in the common scale parameter is an hr comparison between two homogeneous systems; included as hr (proof literally shows Xn:n ≥hr Yn:n for λ ≤ µ)."
+ },
+ {
+  "queue_claim": "lemma4.4",
+  "decision": "exclude",
+  "records": [],
+  "note": "Pass A only. Lemma 4.4 is a purely analytic smoothing result: under sign/equality conditions on partial derivatives, a mapping φ(α,·) attains its minimum at the weighted-geometric-mean vector x̃ = (∏xi^{αi})^{1/Σαi}. No distributions or stochastic orders appear — a Schur-criterion-type tool used to deliver the λwg bound. Out of spec scope."
+ },
+ {
+  "queue_claim": "remark3.1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:1912.00798",
+    "claim": "Remark 3.1(i)",
+    "page": 8,
+    "quote": "Remark 3.1. (i) Under the conditions of Theorem 3.1, • the hazard rXn:n of Xn:n satisfies rXn:n(x) ≤ n λ̄^p x^{p−1}(1 + (λ̄x)^p)^{1/q−1} e^{n{1−(1+(λ̄x)^p)^{1/q}}} / (1 − e^{n{1−(1+(λ̄x)^p)^{1/q}}}), x > 0; • P(Xn:n ≥ x + t | Xn:n ≥ x) ≥ (1 − e^{n{1−(1+(λ̄(x+t))^p)^{1/q}}})/(1 − e^{n{1−(1+(λ̄x)^p)^{1/q}}}), x > 0, t ≥ 0.",
+    "kind": "corollary",
+    "model": "parallel system",
+    "family": "PGW(p,q,λ); under the conditions of Theorem 3.1 (q ≤ 1, common-scale comparator)",
+    "compared": "heterogeneous Xn:n vs homogeneous system at scale λ̄ (per Theorem 3.1, λ̄ = (∏λi)^{1/n} the geometric mean)",
+    "hypotheses": [
+     {
+      "text": "Under the conditions of Theorem 3.1",
+      "formal": "Xi ∼ PGW(p,q,λi) heterogeneous vs Yi ∼ PGW(p,q,λ) homogeneous, q ≤ 1, λ ≥ λ̄(= geometric mean as printed in Theorem 3.1)",
+      "source": "statement; theorem 3.1"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "Xn:n ≥hr the homogeneous comparator — printed as the pointwise bound r_{Xn:n}(x) ≤ r_{Yn:n}(x; λ̄), with the matching conditional-survival lower bound P(Xn:n ≥ x+t | Xn:n ≥ x) ≥ P(Yn:n ≥ x+t | Yn:n ≥ x)"
+    },
+    "quantifiers": "x > 0, t ≥ 0",
+    "numbers": "explicit PGW hazard-rate upper bound and conditional-survival lower bound formulas",
+    "ambiguity": "Restates the hr order of Theorem 3.1 as explicit operational bounds. The λ̄ here is the geometric-mean comparator of Theorem 3.1 — but Example 3.1 uses λ̄ = arithmetic mean, an internal notation inconsistency in the paper."
+   },
+   {
+    "paper": "arxiv:1912.00798",
+    "claim": "Remark 3.1(ii)",
+    "page": 9,
+    "quote": "(ii) Under the conditions of Theorem 3.2, • the hazard rXn:n of Xn:n satisfies rXn:n(x) ≤ nθ̄γ′(λwg x, α, β)γ(λwg x, α, β)^{nθ̄−1}/(1 − γ(λwg x, α, β)^{nθ̄}), x > 0, where γ′(λwg x, α, β) = ∂/∂x γ(λwg x, α, β) and γ(x, α, β) is the cdf of a generalized gamma distribution with shape parameters α and β and scale parameter 1; • P(Xn:n ≥ x + t | Xn:n ≥ x) ≥ (1 − γ(λwg(x+t), α, β)^{nθ̄})/(1 − γ(λwg x, α, β)^{nθ̄}), x > 0, t ≥ 0.",
+    "kind": "corollary",
+    "model": "parallel system",
+    "family": "EGG(γi,α,β,λ); under the conditions of Theorem 3.2 (α ≥ β, γi ≥ 1, weighted-geometric-mean comparator λwg)",
+    "compared": "heterogeneous Xn:n vs homogeneous system at scale λwg",
+    "hypotheses": [
+     {
+      "text": "Under the conditions of Theorem 3.2",
+      "formal": "Xi ∼ EGG(γi,α,β,λi) vs Yi ∼ EGG(γi,α,β,λ), α ≥ β, γi ≥ 1, λ ≥ λwg",
+      "source": "statement; theorem 3.2"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "Xn:n ≥hr the homogeneous comparator — printed as the pointwise bound r_{Xn:n}(x) ≤ r_{Yn:n}(x; λwg), with the matching conditional-survival lower bound"
+    },
+    "quantifiers": "x > 0, t ≥ 0",
+    "numbers": "explicit EGG hazard-rate upper bound (nθ̄ = Σγi? — printed θ̄ for the exponent) and conditional-survival lower bound",
+    "ambiguity": "Restates the hr order of Theorem 3.2 as explicit bounds. The printed exponent nθ̄ appears to be Σγi (the exponentiation exponents) — notation is muddled between γ and θ in the OCR/print."
+   }
+  ],
+  "note": "Pass A only. The remark converts the hr equivalences of Theorems 3.1/3.2 into explicit hazard-rate upper bounds and conditional-survival lower bounds — genuine hr-order consequences; included as two records (one per family/part)."
+ },
+ {
+  "queue_claim": "theorem3.1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:1912.00798",
+    "claim": "Theorem 3.1",
+    "page": 7,
+    "quote": "Theorem 3.1. Let (X1, ···, Xn) and (Y1, ···, Yn) be two independent random vectors with Xi ∼ PGW(p, q, λi) and Yi ∼ PGW(p, q, λ̄), i = 1, ···, n. Where λ̄ = (∏_{i=1}^n λi)^{1/n}. Then, for q ≤ 1, the following three statements are equivalent: (i) λ ≥ λ̄; (ii) Xn:n ≥hr Yn:n; (iii) Xn:n ≥st Yn:n.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "power-generalized Weibull PGW(p,q,λ)",
+    "compared": "heterogeneous Xn:n (scales λi) vs homogeneous Yn:n (common scale λ)",
+    "hypotheses": [
+     {
+      "text": "Xi ∼ PGW(p, q, λi) and Yi ∼ PGW(p, q, λ̄), i = 1,···,n; for q ≤ 1",
+      "formal": "heterogeneous vs homogeneous PGW systems; shape restriction q ≤ 1 (per Lemma 3.1 this ensures conditions (a)–(c))",
+      "source": "statement; lemma 3.1"
+     },
+     {
+      "text": "(i) λ ≥ λ̄, where λ̄ = (∏ λi)^{1/n}",
+      "formal": "common comparator scale ≥ the geometric mean of the heterogeneous scales",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "λ ≥ λ̄ ⟺ Xn:n ≥hr Yn:n"
+    },
+    "quantifiers": "any n; all x > 0",
+    "numbers": "λ̄ defined in this theorem as (∏λi)^{1/n}",
+    "ambiguity": "Notation inconsistency: the theorem prints λ̄ = (∏λi)^{1/n} — i.e., λ̄ denotes the geometric mean here — while Section 3's preamble and Example 3.1 use λ̃ for the geometric mean and λ̄ for the arithmetic mean (λ̄ = 2.333 vs λ̃ = 2.189 there). The equivalence is with the geometric-mean comparator (consistent with Lemma 2.1's λwg at αi = 1)."
+   },
+   {
+    "paper": "arxiv:1912.00798",
+    "claim": "Theorem 3.1",
+    "page": 7,
+    "quote": "Theorem 3.1. Let (X1, ···, Xn) and (Y1, ···, Yn) be two independent random vectors with Xi ∼ PGW(p, q, λi) and Yi ∼ PGW(p, q, λ̄), i = 1, ···, n. Where λ̄ = (∏_{i=1}^n λi)^{1/n}. Then, for q ≤ 1, the following three statements are equivalent: (i) λ ≥ λ̄; (ii) Xn:n ≥hr Yn:n; (iii) Xn:n ≥st Yn:n.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "power-generalized Weibull PGW(p,q,λ)",
+    "compared": "heterogeneous Xn:n (scales λi) vs homogeneous Yn:n (common scale λ)",
+    "hypotheses": [
+     {
+      "text": "Xi ∼ PGW(p, q, λi) and Yi ∼ PGW(p, q, λ̄), i = 1,···,n; for q ≤ 1",
+      "formal": "heterogeneous vs homogeneous PGW systems; shape restriction q ≤ 1",
+      "source": "statement; lemma 3.1"
+     },
+     {
+      "text": "(i) λ ≥ λ̄, where λ̄ = (∏ λi)^{1/n}",
+      "formal": "common comparator scale ≥ the geometric mean of the heterogeneous scales",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "λ ≥ λ̄ ⟺ Xn:n ≥st Yn:n"
+    },
+    "quantifiers": "any n; all x > 0",
+    "numbers": "λ̄ defined in this theorem as (∏λi)^{1/n}",
+    "ambiguity": "Same notation inconsistency: printed λ̄ is the geometric mean here, whereas the paper's running convention is λ̄ = arithmetic, λ̃ = geometric."
+   }
+  ],
+  "note": "Disputed hr (A) vs st (B): the printed statement is a three-way equivalence λ ≥ λ̄ ⟺ ≥hr ⟺ ≥st — both orders hold; split into one record per order. Preserved the paper's internal inconsistency: Theorem 3.1 prints λ̄ for the geometric mean (∏λi)^{1/n} while the surrounding text uses λ̃ = geometric, λ̄ = arithmetic."
+ },
+ {
+  "queue_claim": "theorem3.2",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:1912.00798",
+    "claim": "Theorem 3.2",
+    "page": 8,
+    "quote": "Theorem 3.2. Suppose X1, ···, Xn are independent non-negative random variables with Xi ∼ EGG(γi, α, β, λi), i = 1 ··· n. Further, suppose Y1, ···, Yn are independent non-negative random variables with Yi ∼ EGG(γi, α, β, λ). Then, for α ≥ β and γi ≥ 1, i = 1, ···, n the following three statements are equivalent: (i) λ ≥ λwg; (ii) Xn:n ≥hr Yn:n; (iii) Xn:n ≥st Yn:n. Where λwg = (∏_{i=1}^n λ_i^{α_i})^{1/Σ_i α_i}.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "exponentiated generalized gamma EGG(γ,α,β,λ)",
+    "compared": "heterogeneous Xn:n (exponents γi, scales λi) vs homogeneous Yn:n (same γi, common scale λ)",
+    "hypotheses": [
+     {
+      "text": "Xi ∼ EGG(γi, α, β, λi) and Yi ∼ EGG(γi, α, β, λ); for α ≥ β and γi ≥ 1, i = 1,···,n",
+      "formal": "shared exponent parameters γi ≥ 1 and GG shape condition α ≥ β (per Lemma 3.2 this ensures conditions (a)–(c))",
+      "source": "statement; lemma 3.2"
+     },
+     {
+      "text": "(i) λ ≥ λwg",
+      "formal": "common comparator scale ≥ the γi-weighted geometric mean of the λi",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "λ ≥ λwg ⟺ Xn:n ≥hr Yn:n"
+    },
+    "quantifiers": "any n; all x > 0",
+    "numbers": "λwg = (∏ λ_i^{α_i})^{1/Σα_i} as printed — the weights are the exponentiation parameters (α_i in the printed formula should be γ_i of the EGG)",
+    "ambiguity": "The printed λwg formula carries α_i superscripts where the γ_i exponents of the EGG are meant (the α's in the exponent are the exponentiation parameters, not the GG shape α). Pass A's and B's notes flag the same mismatch."
+   },
+   {
+    "paper": "arxiv:1912.00798",
+    "claim": "Theorem 3.2",
+    "page": 8,
+    "quote": "Theorem 3.2. Suppose X1, ···, Xn are independent non-negative random variables with Xi ∼ EGG(γi, α, β, λi), i = 1 ··· n. Further, suppose Y1, ···, Yn are independent non-negative random variables with Yi ∼ EGG(γi, α, β, λ). Then, for α ≥ β and γi ≥ 1, i = 1, ···, n the following three statements are equivalent: (i) λ ≥ λwg; (ii) Xn:n ≥hr Yn:n; (iii) Xn:n ≥st Yn:n. Where λwg = (∏_{i=1}^n λ_i^{α_i})^{1/Σ_i α_i}.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "exponentiated generalized gamma EGG(γ,α,β,λ)",
+    "compared": "heterogeneous Xn:n (exponents γi, scales λi) vs homogeneous Yn:n (same γi, common scale λ)",
+    "hypotheses": [
+     {
+      "text": "Xi ∼ EGG(γi, α, β, λi) and Yi ∼ EGG(γi, α, β, λ); for α ≥ β and γi ≥ 1, i = 1,···,n",
+      "formal": "shared exponent parameters γi ≥ 1 and GG shape condition α ≥ β",
+      "source": "statement; lemma 3.2"
+     },
+     {
+      "text": "(i) λ ≥ λwg",
+      "formal": "common comparator scale ≥ the γi-weighted geometric mean of the λi",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "λ ≥ λwg ⟺ Xn:n ≥st Yn:n"
+    },
+    "quantifiers": "any n; all x > 0",
+    "numbers": "λwg = (∏ λ_i^{α_i})^{1/Σα_i} as printed",
+    "ambiguity": "Same notation caveat: the λwg weights are the exponentiation exponents (γ_i here; printed as α_i superscripts)."
+   }
+  ],
+  "note": "Disputed hr (A) vs st (B): printed statement is the three-way equivalence λ ≥ λwg ⟺ ≥hr ⟺ ≥st — split into one record per order."
+ },
+ {
+  "queue_claim": "theorem4.1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:1912.00798",
+    "claim": "Theorem 4.1",
+    "page": 11,
+    "quote": "Theorem 4.1. Let (X1,1, ···, X1,n1, X2,1, ···, X2,n2) and (Y1,1, ···, Y1,n1, Y2,1, ···, Y2,n2) be two independent random vectors with (i) Xi,j ∼ PGW(p, q, λi) and Yi,j ∼ PGW(p, q, λ*i), j = 1,···,ni, i = 1, 2 or (ii) Xi,j ∼ GG(α, qα, λi) and Yi,j ∼ GG(α, qα, λ*i), j = 1,···,ni, i = 1, 2. Assume that λ1 ≤ λ*1 ≤ λ*2 ≤ λ2. Then, for q ≤ 1, the following three statements are equivalent: (i) (λ1,...,λ1,λ2,...,λ2) ≽p (λ*1,...,λ*1,λ*2,...,λ*2) [n1 and n2 copies]; (ii) Xn:n ≥hr Yn:n; (iii) Xn:n ≥st Yn:n.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "multiple-outlier model: PGW(p,q,·) or GG(α,qα,·) with two scale levels (n1 at the first, n2 at the second)",
+    "compared": "Xn:n (n1 components at λ1, n2 at λ2) vs Yn:n (n1 at λ*1, n2 at λ*2)",
+    "hypotheses": [
+     {
+      "text": "Assume that λ1 ≤ λ*1 ≤ λ*2 ≤ λ2",
+      "formal": "interlaced two-level scales: X's levels bracket Y's",
+      "source": "statement"
+     },
+     {
+      "text": "Then, for q ≤ 1",
+      "formal": "shape restriction q ≤ 1 (PGW) / qα-parameterization for GG (conditions via Lemmas 3.1/3.2)",
+      "source": "statement; lemmas 3.1, 3.2"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "(λ1·n1, λ2·n2) ≽p (λ*1·n1, λ*2·n2) ⟺ Xn:n ≥hr Yn:n"
+    },
+    "quantifiers": "n = n1 + n2; all x > 0",
+    "numbers": "",
+    "ambiguity": "Three-way equivalence with the p-larger order (≽p = 'is p-larger than', ∏x_(j) ≤ ∏y_(j)); the GG sub-model uses shared shape parameter qα per sub-case (ii)."
+   },
+   {
+    "paper": "arxiv:1912.00798",
+    "claim": "Theorem 4.1",
+    "page": 11,
+    "quote": "Theorem 4.1. Let (X1,1, ···, X1,n1, X2,1, ···, X2,n2) and (Y1,1, ···, Y1,n1, Y2,1, ···, Y2,n2) be two independent random vectors with (i) Xi,j ∼ PGW(p, q, λi) and Yi,j ∼ PGW(p, q, λ*i), j = 1,···,ni, i = 1, 2 or (ii) Xi,j ∼ GG(α, qα, λi) and Yi,j ∼ GG(α, qα, λ*i), j = 1,···,ni, i = 1, 2. Assume that λ1 ≤ λ*1 ≤ λ*2 ≤ λ2. Then, for q ≤ 1, the following three statements are equivalent: (i) (λ1,...,λ1,λ2,...,λ2) ≽p (λ*1,...,λ*1,λ*2,...,λ*2) [n1 and n2 copies]; (ii) Xn:n ≥hr Yn:n; (iii) Xn:n ≥st Yn:n.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "multiple-outlier model: PGW(p,q,·) or GG(α,qα,·) with two scale levels (n1 at the first, n2 at the second)",
+    "compared": "Xn:n (n1 components at λ1, n2 at λ2) vs Yn:n (n1 at λ*1, n2 at λ*2)",
+    "hypotheses": [
+     {
+      "text": "Assume that λ1 ≤ λ*1 ≤ λ*2 ≤ λ2",
+      "formal": "interlaced two-level scales: X's levels bracket Y's",
+      "source": "statement"
+     },
+     {
+      "text": "Then, for q ≤ 1",
+      "formal": "shape restriction q ≤ 1 (PGW) / qα-parameterization for GG",
+      "source": "statement; lemmas 3.1, 3.2"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "(λ1·n1, λ2·n2) ≽p (λ*1·n1, λ*2·n2) ⟺ Xn:n ≥st Yn:n"
+    },
+    "quantifiers": "n = n1 + n2; all x > 0",
+    "numbers": "",
+    "ambiguity": "Three-way equivalence with the p-larger order (≽p = 'is p-larger than', ∏x_(j) ≤ ∏y_(j)); the GG sub-model uses shared shape parameter qα per sub-case (ii)."
+   }
+  ],
+  "note": "Disputed hr (A) vs st (B): printed statement is the three-way equivalence p-larger ⟺ ≥hr ⟺ ≥st for the multiple-outlier PGW/GG model under interlaced scales and q ≤ 1 — split into one record per order."
+ }
+]

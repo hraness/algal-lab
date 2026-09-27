@@ -1,6 +1,606 @@
 [
  {
   "paper": "doi:10.3390/e22080843",
+  "claim": "Corollary 1 (i)",
+  "page": 9,
+  "quote": "Corollary 1. Let wi (t) = v( F\u0304i (t)), i = 1, 2 such that X1 \u2264hr X2 . Set \u03be (x) = (1/(xv(x))) \u222b_0^x v(u)du and \u03be \u2217 (x) = (1/((1 \u2212 x)v(x))) \u222b_x^1 v(u)du. (i) If x\u03be\u2032(x)/\u03be(x) is non-increasing (resp. non-decreasing) in x \u2208 [0, 1], in which \u03be(x) is non-decreasing (non-increasing) in x, then X1 \u2264rhr X2 implies that X1w1 \u2264rhr X2w2 .",
+  "kind": "corollary",
+  "model": "other: weighted distribution",
+  "family": "Parameter-free survival-based weights wi(t) = v(F\u0304i(t))",
+  "compared": "X1w1 vs X2w2",
+  "hypotheses": [
+   {
+    "text": "wi(t) = v(F\u0304i(t)); X1 \u2264hr X2; x\u03be\u2032(x)/\u03be(x) non-increasing (resp. non-decreasing) in x, where \u03be non-decreasing (non-increasing) in x; premise X1 \u2264rhr X2",
+    "formal": "elasticity-type conditions on \u03be",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: rhr",
+   "direction": "X1 <=rhr X2 implies X1w1 <=rhr X2w2 (preservation of the relative hazard-rate order)"
+  },
+  "quantifiers": "x \u2208 [0,1]; t > 0",
+  "numbers": "",
+  "ambiguity": "Definition 1(v): \u2264rhr is the RELATIVE hazard-rate order (hY/hX non-increasing) \u2014 an ageing order, not the standard hazard-rate order. Split of Corollary 1 into per-part records.",
+  "adjudication": "adjudicated: In scope: preservation claim for the relative hazard-rate order between two weighted distributions. "
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Corollary 1 (ii)",
+  "page": 10,
+  "quote": "(ii) If (1 \u2212 x)\u03be \u2217\u2032(x)/\u03be(x) is non-decreasing (resp. non-increasing) in x \u2208 [0, 1], in which \u03be \u2217 (x) is non-decreasing (non-increasing) in x, then X1 \u2264rrh X2 implies that X1w1 \u2264rrh X2w2 .",
+  "kind": "corollary",
+  "model": "other: weighted distribution",
+  "family": "Parameter-free survival-based weights wi(t) = v(F\u0304i(t))",
+  "compared": "X1w1 vs X2w2",
+  "hypotheses": [
+   {
+    "text": "wi(t) = v(F\u0304i(t)); X1 \u2264hr X2 (Corollary 1 preamble); (1\u2212x)\u03be*\u2032(x)/\u03be(x) non-decreasing (resp. non-increasing), \u03be* non-decreasing (non-increasing); premise X1 \u2264rrh X2",
+    "formal": "elasticity-type conditions on \u03be*",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: rrh",
+   "direction": "X1 <=rrh X2 implies X1w1 <=rrh X2w2 (preservation of the relative reversed-hazard-rate order)"
+  },
+  "quantifiers": "x \u2208 [0,1]; t > 0",
+  "numbers": "",
+  "ambiguity": "As printed, the denominator of the elasticity quotient is \u03be(x), not \u03be*(x) \u2014 cf. Theorem 2's (1\u2212x)\u03be*\u2032(x,\u03b8)/\u03be*(x,\u03b8); a \u03be* denominator was presumably intended, recorded as printed. Definition 1(vi): \u2264rrh is the relative reversed hazard-rate order (an ageing order).",
+  "adjudication": "adjudicated: One-sided B item; verdict include \u2014 in-scope preservation claim for the relative reversed hazard-rat"
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Corollary 2 (i)",
+  "page": 10,
+  "quote": "Corollary 2. Suppose that the random variable X(\u03b81 ) and X(\u03b82 ) for \u03b81 , \u03b82 \u2208 \u03c7 have density functions f \u03b81 (t) = v( F\u0304 (t),\u03b81 )f (t)/ \u222b_0^\u221e v( F\u0304 (t),\u03b81 )f (t)dt and f \u03b82 (t) = v( F\u0304 (t),\u03b82 )f (t)/ \u222b_0^\u221e v( F\u0304 (t),\u03b82 )f (t)dt. For \u03be (x, \u03b8) = (1/v(x, \u03b8)) \u222b_0^x v(u, \u03b8)du and \u03be \u2217 (x, \u03b8) = (1/v(x, \u03b8)) \u222b_x^1 v(u, \u03b8)du, we have: (i) X(\u03b81 ) \u2264rhr X(\u03b82 ), for all \u03b81 \u2264 \u03b82 \u2208 \u03c7 if, and only if, \u03be(x, \u03b8) is RR2 in (x, \u03b8).",
+  "kind": "corollary",
+  "model": "other: parametric weighted family",
+  "family": "v(F\u0304,\u03b8)-weighted family over a common baseline density f",
+  "compared": "X(\u03b81) vs X(\u03b82) for all \u03b81 \u2264 \u03b82",
+  "hypotheses": [
+   {
+    "text": "Parametric densities f_{\u03b8i}(t) = v(F\u0304(t),\u03b8i)f(t)/\u222bv(F\u0304(t),\u03b8i)f(t)dt; \u03b81 \u2264 \u03b82 \u2208 \u03c7",
+    "formal": "parameter ordering",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: rhr",
+   "direction": "X(\u03b81) <=rhr X(\u03b82) for all \u03b81 <= \u03b82 iff \u03be(x,\u03b8) is RR2 in (x,\u03b8)"
+  },
+  "quantifiers": "\u03b81 \u2264 \u03b82 \u2208 \u03c7; x \u2208 [0,1]",
+  "numbers": "",
+  "ambiguity": "Note \u03be(x,\u03b8) in Corollary 2 is defined as (1/v)\u222b_0^x v du \u2014 without the x factor that appears in the \u03be of Theorems 1\u20132 / Corollary 1 \u2014 as printed. Order is 'ageing: rhr' (relative hazard-rate order, Definition 1(v)). Split: part (ii) recorded under corollary2ii.",
+  "adjudication": "adjudicated: In scope: iff characterization of the relative hazard-rate order in a parametric weighted family; 'a"
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Corollary 2 (ii)",
+  "page": 10,
+  "quote": "(ii) X(\u03b81 ) \u2264rrh X(\u03b82 ), for all \u03b81 \u2264 \u03b82 \u2208 \u03c7 if, and only if, \u03be \u2217 (x, \u03b8) TP2 in (x, \u03b8).",
+  "kind": "corollary",
+  "model": "other: parametric weighted family",
+  "family": "v(F\u0304,\u03b8)-weighted family over a common baseline density f",
+  "compared": "X(\u03b81) vs X(\u03b82) for all \u03b81 \u2264 \u03b82",
+  "hypotheses": [
+   {
+    "text": "Parametric densities f_{\u03b8i}(t) = v(F\u0304(t),\u03b8i)f(t)/\u222bv(F\u0304(t),\u03b8i)f(t)dt; \u03be*(x,\u03b8) = (1/v(x,\u03b8))\u222b_x^1 v(u,\u03b8)du; \u03b81 \u2264 \u03b82 \u2208 \u03c7",
+    "formal": "parameter ordering",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: rrh",
+   "direction": "X(\u03b81) <=rrh X(\u03b82) for all \u03b81 <= \u03b82 iff \u03be*(x,\u03b8) is TP2 in (x,\u03b8)"
+  },
+  "quantifiers": "\u03b81 \u2264 \u03b82 \u2208 \u03c7; x \u2208 [0,1]",
+  "numbers": "",
+  "ambiguity": "\u2264rrh is the relative reversed hazard-rate order (Definition 1(vi)) \u2014 labelled 'ageing: rrh', not the standard 'rh'.",
+  "adjudication": "adjudicated: One-sided B item; verdict include \u2014 in-scope iff characterization of the relative reversed hazard-ra"
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Example 1 (lr part)",
+  "page": 6,
+  "quote": "Example 1 (Weighted power distribution). Assume that w(x, \u03b8i ) = w1 (x)(w2 (x))^{k1 (\u03b8i )}, i = 1, 2, in which \u03b81 \u2264 \u03b82 \u2208 \u03c7. Suppose that w2 and k1 are both non-decreasing (or non-increasing) functions. By Proposition 1(i), if X1 \u2264lr X2 then X1w1 \u2264lr X2w2 .",
+  "kind": "example",
+  "model": "other: weighted distribution",
+  "family": "Weighted power distribution w = w1\u00b7w2^{k1(\u03b8)}",
+  "compared": "X1w1 vs X2w2",
+  "hypotheses": [
+   {
+    "text": "\u03b81 \u2264 \u03b82; w2 and k1 both non-decreasing (or both non-increasing) so w is TP2 in (x,\u03b8)",
+    "formal": "stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "X1 <=lr X2 implies X1w1 <=lr X2w2"
+  },
+  "quantifiers": "all x; \u03b8 \u2208 \u03c7",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: In scope: the example asserts preservation of three distinct orders under the power weight; split in"
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Example 1 (hr part)",
+  "page": 6,
+  "quote": "Example 1. ... Let us further assume that k1 (\u03b8i ) > 0 for i = 1, 2. Then, by Proposition 1(ii) X1 \u2264hr X2 implies X1w1 \u2264hr X2w2 provided that w1 and w2 are both non-decreasing.",
+  "kind": "example",
+  "model": "other: weighted distribution",
+  "family": "Weighted power distribution w = w1\u00b7w2^{k1(\u03b8)}",
+  "compared": "X1w1 vs X2w2",
+  "hypotheses": [
+   {
+    "text": "\u03b81 \u2264 \u03b82; k1(\u03b8i) > 0; w1 and w2 both non-decreasing (w non-decreasing in x)",
+    "formal": "stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "X1 <=hr X2 implies X1w1 <=hr X2w2"
+  },
+  "quantifiers": "all x; \u03b8 \u2208 \u03c7",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: In scope: the example asserts preservation of three distinct orders under the power weight; split in"
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Example 1 (rh part)",
+  "page": 6,
+  "quote": "Example 1. ... In parallel, if w1 and w2 are both non-increasing then using Proposition 1(iii), X1 \u2264rh X2 concludes that X1w1 \u2264rh X2w2 .",
+  "kind": "example",
+  "model": "other: weighted distribution",
+  "family": "Weighted power distribution w = w1\u00b7w2^{k1(\u03b8)}",
+  "compared": "X1w1 vs X2w2",
+  "hypotheses": [
+   {
+    "text": "\u03b81 \u2264 \u03b82; k1(\u03b8i) > 0; w1 and w2 both non-increasing (w non-increasing in x)",
+    "formal": "stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "rh",
+   "direction": "X1 <=rh X2 implies X1w1 <=rh X2w2"
+  },
+  "quantifiers": "all x; \u03b8 \u2208 \u03c7",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: In scope: the example asserts preservation of three distinct orders under the power weight; split in"
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Example 2 (lr part)",
+  "page": 6,
+  "quote": "Example 2 (Weighted exponentiated distribution). Consider the weight function w(x, \u03b8i ) = w1 (x)(k1 (\u03b8i ))^{w2 (x)}, i = 1, 2 such that \u03b81 \u2264 \u03b82 \u2208 \u03c7 in which k1 (\u03b8i ) > 0 for i = 1, 2. Presume that w2 and k1 are both non-decreasing (or non-increasing) functions. From Proposition 1(i), X1 \u2264lr X2 yields X1w1 \u2264lr X2w2 .",
+  "kind": "example",
+  "model": "other: weighted distribution",
+  "family": "Weighted exponentiated distribution w = w1\u00b7k1(\u03b8)^{w2}",
+  "compared": "X1w1 vs X2w2",
+  "hypotheses": [
+   {
+    "text": "\u03b81 \u2264 \u03b82; k1(\u03b8i) > 0; w2 and k1 both non-decreasing (or both non-increasing) so w is TP2",
+    "formal": "stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "X1 <=lr X2 implies X1w1 <=lr X2w2"
+  },
+  "quantifiers": "all x; \u03b8 \u2208 \u03c7",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Split into one record per asserted order (lr, hr, rh); each is a preservation claim between two weig"
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Example 2 (hr part)",
+  "page": 6,
+  "quote": "Example 2. ... If w1 is non-decreasing, w2 is non-decreasing and k1 (\u03b8i ) > 1 (resp. w2 is non-increasing and k1 (\u03b8i ) < 1) for i = 1, 2 then by Proposition 1(ii) X1 \u2264hr X2 gives X1w1 \u2264hr X2w2 .",
+  "kind": "example",
+  "model": "other: weighted distribution",
+  "family": "Weighted exponentiated distribution w = w1\u00b7k1(\u03b8)^{w2}",
+  "compared": "X1w1 vs X2w2",
+  "hypotheses": [
+   {
+    "text": "\u03b81 \u2264 \u03b82; w1 non-decreasing; w2 non-decreasing and k1(\u03b8i) > 1 (resp. w2 non-increasing and k1(\u03b8i) < 1)",
+    "formal": "stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "X1 <=hr X2 implies X1w1 <=hr X2w2"
+  },
+  "quantifiers": "all x; \u03b8 \u2208 \u03c7",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Split into one record per asserted order (lr, hr, rh); each is a preservation claim between two weig"
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Example 2 (rh part)",
+  "page": 6,
+  "quote": "Example 2. ... Besides, if w1 is non-increasing, w2 is non-increasing and k1 (\u03b8i ) > 1 (resp. w2 is non-decreasing and k1 (\u03b8i ) < 1) for i = 1, 2 then on applying by Proposition 1(iii) X1 \u2264rh X2 implies X1w1 \u2264rh X2w2 .",
+  "kind": "example",
+  "model": "other: weighted distribution",
+  "family": "Weighted exponentiated distribution w = w1\u00b7k1(\u03b8)^{w2}",
+  "compared": "X1w1 vs X2w2",
+  "hypotheses": [
+   {
+    "text": "\u03b81 \u2264 \u03b82; w1 non-increasing; w2 non-increasing and k1(\u03b8i) > 1 (resp. w2 non-decreasing and k1(\u03b8i) < 1)",
+    "formal": "stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "rh",
+   "direction": "X1 <=rh X2 implies X1w1 <=rh X2w2"
+  },
+  "quantifiers": "all x; \u03b8 \u2208 \u03c7",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Split into one record per asserted order (lr, hr, rh); each is a preservation claim between two weig"
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Example 3 (lr part)",
+  "page": 6,
+  "quote": "Example 3 (Additive-Multiplicative weighted distribution). Let w(x, \u03b8i ) = w1 (x) + k1 (\u03b8i )w2 (x), i = 1, 2, where \u03b81 \u2264 \u03b82 \u2208 \u03c7. Suppose that w1 /w2 is non-increasing (resp. non-decreasing) and k1 is non-decreasing (resp. non-increasing). Proposition 1(i) provides that X1 \u2264lr X2 implies X1w1 \u2264lr X2w2 .",
+  "kind": "example",
+  "model": "other: weighted distribution",
+  "family": "Additive-multiplicative weight w = w1 + k1(\u03b8)w2",
+  "compared": "X1w1 vs X2w2",
+  "hypotheses": [
+   {
+    "text": "\u03b81 \u2264 \u03b82; w1/w2 non-increasing (resp. non-decreasing) and k1 non-decreasing (resp. non-increasing) so w is TP2",
+    "formal": "stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "X1 <=lr X2 implies X1w1 <=lr X2w2"
+  },
+  "quantifiers": "all x; \u03b8 \u2208 \u03c7",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Split into one record per asserted order (lr, hr, rh); the example asserts preservation under two si"
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Example 3 (hr part)",
+  "page": 6,
+  "quote": "Example 3. ... If, moreover, we assume that k1 (\u03b8i ) > 0, i = 1, 2 then when w1 and w2 are both non-decreasing by Proposition 1(ii) we deduce that X1 \u2264hr X2 gives X1w1 \u2264hr X2w2 . In a suchlike manner, whenever k1 (\u03b8i ) \u2264 0, i = 1, 2 then if w1 is non-decreasing and w2 is non-increasing, on applying Proposition 1(ii) X1 \u2264hr X2 assures that X1w1 \u2264hr X2w2 .",
+  "kind": "example",
+  "model": "other: weighted distribution",
+  "family": "Additive-multiplicative weight w = w1 + k1(\u03b8)w2",
+  "compared": "X1w1 vs X2w2",
+  "hypotheses": [
+   {
+    "text": "\u03b81 \u2264 \u03b82; k1(\u03b8i) > 0 with w1,w2 both non-decreasing; or k1(\u03b8i) \u2264 0 with w1 non-decreasing and w2 non-increasing",
+    "formal": "stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "X1 <=hr X2 implies X1w1 <=hr X2w2"
+  },
+  "quantifiers": "all x; \u03b8 \u2208 \u03c7",
+  "numbers": "",
+  "ambiguity": "Two sign regimes for k1 are stated; both give the same hr-preservation conclusion.",
+  "adjudication": "adjudicated: Split into one record per asserted order (lr, hr, rh); the example asserts preservation under two si"
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Example 3 (rh part)",
+  "page": 6,
+  "quote": "Example 3. ... and once w1 and w2 are both non-increasing by Proposition 1(iii) X1 \u2264rh X2 entails that X1w1 \u2264rh X2w2 . ... and similarly when w1 is non-increasing and w2 is non-decreasing by Proposition 1(iii) it is deducible that X1 \u2264rh X2 gives X1w1 \u2264rh X2w2 .",
+  "kind": "example",
+  "model": "other: weighted distribution",
+  "family": "Additive-multiplicative weight w = w1 + k1(\u03b8)w2",
+  "compared": "X1w1 vs X2w2",
+  "hypotheses": [
+   {
+    "text": "\u03b81 \u2264 \u03b82; k1(\u03b8i) > 0 with w1,w2 both non-increasing; or k1(\u03b8i) \u2264 0 with w1 non-increasing and w2 non-decreasing",
+    "formal": "stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "rh",
+   "direction": "X1 <=rh X2 implies X1w1 <=rh X2w2"
+  },
+  "quantifiers": "all x; \u03b8 \u2208 \u03c7",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Split into one record per asserted order (lr, hr, rh); the example asserts preservation under two si"
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Example 4 (lr part)",
+  "page": 6,
+  "quote": "Example 4 (Weighted left-truncated distribution). Let w(x, \u03b8i ) = w1 (x) I [w2 (x) > k1 (\u03b8i )], i = 1, 2 with \u03b81 \u2264 \u03b82 \u2208 \u03c7. Let us suppose that w2 and k1 are both non-decreasing (or non-increasing) functions. By Proposition 1(i), X1 \u2264lr X2 implies X1w1 \u2264lr X2w2 .",
+  "kind": "example",
+  "model": "other: weighted distribution",
+  "family": "Weighted left-truncated distribution w = w1\u00b7I[w2 > k1(\u03b8)]",
+  "compared": "X1w1 vs X2w2",
+  "hypotheses": [
+   {
+    "text": "\u03b81 \u2264 \u03b82; w2 and k1 both non-decreasing (or both non-increasing) so w is TP2",
+    "formal": "stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "X1 <=lr X2 implies X1w1 <=lr X2w2"
+  },
+  "quantifiers": "all x; \u03b8 \u2208 \u03c7",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Split into one record per asserted order (lr, hr, rh) preservation under the left-truncation weight."
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Example 4 (hr part)",
+  "page": 6,
+  "quote": "Example 4. ... If w1 , w2 and k1 are all non-decreasing functions then Proposition 1(ii) establishes that X1 \u2264hr X2 implicate X1w1 \u2264hr X2w2 .",
+  "kind": "example",
+  "model": "other: weighted distribution",
+  "family": "Weighted left-truncated distribution w = w1\u00b7I[w2 > k1(\u03b8)]",
+  "compared": "X1w1 vs X2w2",
+  "hypotheses": [
+   {
+    "text": "\u03b81 \u2264 \u03b82; w1, w2, k1 all non-decreasing",
+    "formal": "stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "X1 <=hr X2 implies X1w1 <=hr X2w2"
+  },
+  "quantifiers": "all x; \u03b8 \u2208 \u03c7",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Split into one record per asserted order (lr, hr, rh) preservation under the left-truncation weight."
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Example 4 (rh part)",
+  "page": 6,
+  "quote": "Example 4. ... In a similar manner, if w1 , w2 and k1 are all non-increasing functions then from Proposition 1(iii) it is deduced that X1 \u2264rh X2 implies X1w1 \u2264rh X2w2 .",
+  "kind": "example",
+  "model": "other: weighted distribution",
+  "family": "Weighted left-truncated distribution w = w1\u00b7I[w2 > k1(\u03b8)]",
+  "compared": "X1w1 vs X2w2",
+  "hypotheses": [
+   {
+    "text": "\u03b81 \u2264 \u03b82; w1, w2, k1 all non-increasing",
+    "formal": "stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "rh",
+   "direction": "X1 <=rh X2 implies X1w1 <=rh X2w2"
+  },
+  "quantifiers": "all x; \u03b8 \u2208 \u03c7",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Split into one record per asserted order (lr, hr, rh) preservation under the left-truncation weight."
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Example 5 (lr part)",
+  "page": 7,
+  "quote": "Example 5 (Weighted right-truncated distribution). Let w(x, \u03b8i ) = w1 (x) I [w2 (x) \u2264 k1 (\u03b8i )], i = 1, 2, in which \u03b81 \u2264 \u03b82 \u2208 \u03c7. We assume that w2 and k1 are both non-decreasing (or non-increasing) functions. Proposition 1(i) guarantees that X1 \u2264lr X2 implies X1w1 \u2264lr X2w2 .",
+  "kind": "example",
+  "model": "other: weighted distribution",
+  "family": "Weighted right-truncated distribution w = w1\u00b7I[w2 \u2264 k1(\u03b8)]",
+  "compared": "X1w1 vs X2w2",
+  "hypotheses": [
+   {
+    "text": "\u03b81 \u2264 \u03b82; w2 and k1 both non-decreasing (or both non-increasing) so w is TP2",
+    "formal": "stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "X1 <=lr X2 implies X1w1 <=lr X2w2"
+  },
+  "quantifiers": "all x; \u03b8 \u2208 \u03c7",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Split into one record per asserted order (lr, hr, rh) preservation under the right-truncation weight"
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Example 5 (hr part)",
+  "page": 7,
+  "quote": "Example 5. ... If w1 is non-decreasing and w2 and k1 are non-increasing functions then by Proposition 1(ii) X1 \u2264hr X2 yields X1w1 \u2264hr X2w2 .",
+  "kind": "example",
+  "model": "other: weighted distribution",
+  "family": "Weighted right-truncated distribution w = w1\u00b7I[w2 \u2264 k1(\u03b8)]",
+  "compared": "X1w1 vs X2w2",
+  "hypotheses": [
+   {
+    "text": "\u03b81 \u2264 \u03b82; w1 non-decreasing; w2 and k1 non-increasing",
+    "formal": "stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "X1 <=hr X2 implies X1w1 <=hr X2w2"
+  },
+  "quantifiers": "all x; \u03b8 \u2208 \u03c7",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Split into one record per asserted order (lr, hr, rh) preservation under the right-truncation weight"
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Example 5 (rh part)",
+  "page": 7,
+  "quote": "Example 5. ... In the dual case, if w1 is non-increasing and further w2 and k1 are both non-decreasing functions then Proposition 1(iii) concludes that X1 \u2264rh X2 gives X1w1 \u2264rh X2w2 .",
+  "kind": "example",
+  "model": "other: weighted distribution",
+  "family": "Weighted right-truncated distribution w = w1\u00b7I[w2 \u2264 k1(\u03b8)]",
+  "compared": "X1w1 vs X2w2",
+  "hypotheses": [
+   {
+    "text": "\u03b81 \u2264 \u03b82; w1 non-increasing; w2 and k1 both non-decreasing",
+    "formal": "stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "rh",
+   "direction": "X1 <=rh X2 implies X1w1 <=rh X2w2"
+  },
+  "quantifiers": "all x; \u03b8 \u2208 \u03c7",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Split into one record per asserted order (lr, hr, rh) preservation under the right-truncation weight"
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Example 7",
+  "page": 12,
+  "quote": "Example 7. Suppose that (X1 , X2 , X3 ) are dependent with a Farlie-Gumbel-Morgenstern (FGM) joint reliability function F\u0304(x1 , x2 , x3 ) = F\u0304(x1 )F\u0304(x2 )F\u0304(x3 )(1 \u2212 \u03b1F(x1 )F(x2 )F(x3 )), where \u03b1 \u2208 [\u22121, 1]. ... Consider the parallel system with lifetime T\u03b1 = max{X1 , X2 , X3 } for which F\u0304\u03b1 (x) = h\u03b1 ( F\u0304 (x)), where h\u03b1 (u) = u3 \u2212 \u03b1(u \u2212 u2 )3 \u2212 3u2 + 3u. It can be shown that if h1 (x) = x3 \u2212 0.5(x \u2212 x2 )3 \u2212 3x2 + 3x and h2 (x) = x3 \u2212 0.75(x \u2212 x2 )3 \u2212 3x2 + 3x then \u03bei\u2217 (x) = (1 \u2212 hi (x))/hi\u2032 (x) is TP2 in (i, x) \u2208 {1, 2} \u00d7 [0, 1] because the function \u03be2\u2217 (x)/\u03be1\u2217 (x) is non-decreasing in x \u2208 [0, 1] as the Figure 1 indicates. Hence, according to Proposition 2(ii) one obtains T0.5 \u2264rrh T0.75 .",
+  "kind": "example",
+  "model": "parallel system",
+  "family": "3-component parallel systems with FGM dependence; domination h\u03b1(u) = u^3 \u2212 \u03b1(u\u2212u^2)^3 \u2212 3u^2 + 3u",
+  "compared": "T_{0.5} vs T_{0.75} (FGM dependence parameter \u03b1 = 0.5 vs 0.75)",
+  "hypotheses": [
+   {
+    "text": "FGM joint reliability; h1 (\u03b1=0.5), h2 (\u03b1=0.75); \u03bei*(x) = (1\u2212hi(x))/h'i(x) TP2 in (i,x) because \u03be2*/\u03be1* non-decreasing (verified graphically via Figure 1)",
+    "formal": "stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: rrh",
+   "direction": "T0.5 <=rrh T0.75"
+  },
+  "quantifiers": "x \u2208 [0,1]",
+  "numbers": "\u03b1 = 0.5 vs 0.75; h\u03b1(u) = u^3 \u2212 \u03b1(u\u2212u^2)^3 \u2212 3u^2 + 3u",
+  "ambiguity": "TP2 condition verified only graphically (Figure 1). \u2264rrh is the relative reversed hazard-rate order (Definition 1(vi)) \u2014 labelled 'ageing: rrh', not standard 'rh'.",
+  "adjudication": "adjudicated: Both passes agree on T0.5 \u2264rrh T0.75; canonical order is 'ageing: rrh' (relative reversed hazard rat"
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Proposition 1 (ii)",
+  "page": 5,
+  "quote": "Proposition 1. Let Xi , i = 1, 2 have support \u03b6 and let w(x, \u03b8) be TP2 in (x, \u03b8) \u2208 \u03b6 \u00d7 \u03c7. Then ... (ii) If \u03b81 \u2264 \u03b82 and w(x, \u03b8) is non-decreasing in x, then X1 \u2264hr X2 implies that X1w1 \u2264hr X2w2 .",
+  "kind": "proposition",
+  "model": "other: weighted distribution",
+  "family": "General weighted distributions f_{iwi}(x,\u03b8i) = w(x,\u03b8i)fi(x)/E[w(Xi,\u03b8i)]",
+  "compared": "X1w1 vs X2w2",
+  "hypotheses": [
+   {
+    "text": "w TP2 in (x,\u03b8); \u03b81 \u2264 \u03b82; w non-decreasing in x; premise X1 \u2264hr X2",
+    "formal": "stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "X1 <=hr X2 implies X1w1 <=hr X2w2"
+  },
+  "quantifiers": "x \u2208 \u03b6; \u03b8 \u2208 \u03c7",
+  "numbers": "",
+  "ambiguity": "Direct consequence of Theorem 3.2 in Misra et al. [16]. Standard hazard-rate order (not the relative order).",
+  "adjudication": "adjudicated: One-sided B item; verdict include \u2014 in-scope preservation claim for the standard hazard-rate order."
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Proposition 1 (iii)",
+  "page": 5,
+  "quote": "Proposition 1. Let Xi , i = 1, 2 have support \u03b6 and let w(x, \u03b8) be TP2 in (x, \u03b8) \u2208 \u03b6 \u00d7 \u03c7. Then ... (iii) If \u03b81 \u2264 \u03b82 and w(x, \u03b8) is non-increasing in x, then X1 \u2264rh X2 implies that X1w1 \u2264rh X2w2 .",
+  "kind": "proposition",
+  "model": "other: weighted distribution",
+  "family": "General weighted distributions f_{iwi}(x,\u03b8i) = w(x,\u03b8i)fi(x)/E[w(Xi,\u03b8i)]",
+  "compared": "X1w1 vs X2w2",
+  "hypotheses": [
+   {
+    "text": "w TP2 in (x,\u03b8); \u03b81 \u2264 \u03b82; w non-increasing in x; premise X1 \u2264rh X2",
+    "formal": "stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "rh",
+   "direction": "X1 <=rh X2 implies X1w1 <=rh X2w2"
+  },
+  "quantifiers": "x \u2208 \u03b6; \u03b8 \u2208 \u03c7",
+  "numbers": "",
+  "ambiguity": "Standard reversed hazard-rate order (Definition 1(iii)) \u2014 distinct from the relative order \u2264rrh of Definition 1(vi).",
+  "adjudication": "adjudicated: One-sided B item; verdict include \u2014 in-scope preservation claim for the standard reversed hazard-rat"
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Proposition 2 (ii)",
+  "page": 12,
+  "quote": "Proposition 2. Let \u03bei (x) = hi (x)/hi\u2032 (x) and \u03bei\u2217 (x) = (1 \u2212 hi (x))/hi\u2032 (x) for i = 1, 2 where h1 and h2 are two domination functions. Let T1 and T2 have respective survival functions h1 ( F\u0304 ) and h2 ( F\u0304 ). Then ... (ii) T1 \u2264rrh T2 , if, and only if, \u03bei\u2217 (x) is TP2 in (i, x) \u2208 {1, 2} \u00d7 [0, 1].",
+  "kind": "proposition",
+  "model": "other: coherent system via domination (distortion) function",
+  "family": "Distorted survival functions h_i(F\u0304) of a common component reliability",
+  "compared": "T1 (survival h1(F\u0304)) vs T2 (survival h2(F\u0304))",
+  "hypotheses": [
+   {
+    "text": "h1, h2 domination functions (non-decreasing, [0,1]\u2192[0,1], h(0)=0, h(1)=1); \u03bei*(x) = (1\u2212hi(x))/h'i(x)",
+    "formal": "stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: rrh",
+   "direction": "T1 <=rrh T2 iff \u03bei*(x) is TP2 in (i,x) \u2208 {1,2} \u00d7 [0,1]"
+  },
+  "quantifiers": "i \u2208 {1,2}; x \u2208 [0,1]",
+  "numbers": "",
+  "ambiguity": "Consequence of Theorem 3. \u2264rrh is the relative reversed hazard-rate order \u2014 'ageing: rrh'.",
+  "adjudication": "adjudicated: One-sided B item; verdict include \u2014 iff characterization of the relative reversed hazard-rate order "
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Theorem 3 (ii)",
+  "page": 10,
+  "quote": "Theorem 3. Let wi (t, \u03b8i ) = vi ( F\u0304 (t), \u03b8i ) and set \u03bei (x, \u03b8i ) = (1/vi (x, \u03b8i )) \u222b_0^x vi (u, \u03b8i ) du and \u03bei\u2217 (x, \u03b8i ) = (1/vi (x, \u03b8i )) \u222b_x^1 vi (u, \u03b8i ) du for i = 1, 2. Then ... (ii) X1w1 \u2264rrh X2w2 if, and only if, \u03be2\u2217 (x,\u03b82 )/\u03be1\u2217 (x,\u03b81 ) is non-decreasing in x.",
+  "kind": "theorem",
+  "model": "other: weighted distribution",
+  "family": "v_i(F\u0304,\u03b8i)-weighted distributions over a common baseline F\u0304",
+  "compared": "X1w1 vs X2w2",
+  "hypotheses": [
+   {
+    "text": "wi(t,\u03b8i) = vi(F\u0304(t),\u03b8i); \u03bei and \u03bei* as defined (Theorem-3 convention: no x/(1\u2212x) factors)",
+    "formal": "stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: rrh",
+   "direction": "X1w1 <=rrh X2w2 iff \u03be2*(x,\u03b82)/\u03be1*(x,\u03b81) is non-decreasing in x"
+  },
+  "quantifiers": "x \u2208 [0,1]; t > 0",
+  "numbers": "",
+  "ambiguity": "\u2264rrh is the relative reversed hazard-rate order (Definition 1(vi)) \u2014 'ageing: rrh', not the standard 'rh' order. Theorem 3's \u03be convention (1/v factor only) differs from Theorems 1\u20132's \u03be = (1/(xv))\u222bv du.",
+  "adjudication": "adjudicated: One-sided B item; verdict include \u2014 iff characterization of the relative reversed hazard-rate order "
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
   "claim": "Example 6",
   "page": 12,
   "quote": "Example 6. Suppose that Xi, i = 1,2,3,4 denote the lifetime of four components having survival function F\u0304. Let T1 = max{min{X1,X2}, min{X2,X3}, min{X3,X4}} and T2 = max{min{X1,X2}, min{X3,X4}} denote the lifetime of two coherent systems. ... when Xi's are independent, T1 and T2 have survival functions h1(F\u0304) and h2(F\u0304), respectively, in which h1(u) = 3u\u00b2 \u2212 2u\u00b3 and h2(u) = 2u\u00b2 \u2212 u\u2074. For all x \u2208 [0,1], we have d/dx[\u03be2(x)/\u03be1(x)] = ... \u2264 0. Hence, \u03bei(x) is RR2 in (i,x) \u2208 {1,2} \u00d7 [0,1]. That is, Proposition 2(i) concludes that T1 \u2264rhr T2.",
@@ -521,31 +1121,6 @@
   },
   "quantifiers": "all x",
   "numbers": "",
-  "ambiguity": "",
-  "adjudication": "example record (pass a)+b"
- },
- {
-  "paper": "doi:10.3390/e22080843",
-  "claim": "Example 7",
-  "page": 12,
-  "quote": "Example 7. Suppose that (X1, X2, X3) are dependent with a Farlie-Gumbel-Morgenstern (FGM) joint reliability function F\u0304(x1,x2,x3) = F\u0304(x1)F\u0304(x2)F\u0304(x3)(1 \u2212 \u03b1F(x1)F(x2)F(x3)), where \u03b1 \u2208 [\u22121,1] ... Consider the parallel system with lifetime T\u03b1 = max{X1, X2, X3} ... h\u03b1(u) = u\u00b3 \u2212 \u03b1(u \u2212 u\u00b2)\u00b3 \u2212 3u\u00b2 + 3u. It can be shown that if h1(x) = x\u00b3 \u2212 0.5(x \u2212 x\u00b2)\u00b3 \u2212 3x\u00b2 + 3x and h2(x) = x\u00b3 \u2212 0.75(x \u2212 x\u00b2)\u00b3 \u2212 3x\u00b2 + 3x then \u03bei*(x) = (1 \u2212 hi(x))/hi'(x) is TP2 in (i,x) \u2208 {1,2} \u00d7 [0,1] because the function \u03be2*(x)/\u03be1*(x) is non-decreasing in x \u2208 [0,1] as the Figure 1 indicates. Hence, according to Proposition 2(ii) one obtains T0.5 \u2264rrh T0.75.",
-  "kind": "example",
-  "model": "parallel system",
-  "family": "FGM-dependent components; parallel system",
-  "compared": "T_{0.5} vs T_{0.75} (dependence parameter \u03b1 = 0.5 vs 0.75)",
-  "hypotheses": [
-   {
-    "text": "FGM dependence; distortion functions with \u03b1 = 0.5 and 0.75",
-    "formal": "stated",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "rrh",
-   "direction": "T0.5 \u2264_rrh T0.75"
-  },
-  "quantifiers": "x \u2208 [0,1]",
-  "numbers": "h\u03b1(u) = u\u00b3 \u2212 \u03b1(u\u2212u\u00b2)\u00b3 \u2212 3u\u00b2 + 3u; \u03b1 = 0.5 vs 0.75",
   "ambiguity": "",
   "adjudication": "example record (pass a)+b"
  }

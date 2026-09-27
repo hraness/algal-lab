@@ -1,0 +1,291 @@
+[
+ {
+  "queue_claim": "counterexample3.1i",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.21136/am.2018.0105-17",
+    "claim": "Counterexample 3.1(i)",
+    "page": 63,
+    "quote": "Counterexample 3.1. (i) Let (X1 , X2 , X3 ) be a set of independent random variables such that Xi ~ NP(1.5, βi ), i = 1, 2, 3 with β1 = 1, β2 = 8, and β3 = 1.1. Further, let (Y1 , Y2 , Y3 ) be a set of independent random variables following Yi ~ NP(1.5, βi∗ ), i = 1, 2, 3 with β1∗ = 8, β2∗ = 1.1, and β3∗ = 4. Clearly, (β1 , β2 , β3 ) ⋡m (β1∗ , β2∗ , β3∗ ), though α > 1. Now, we plot the difference FX3:3 (x) − FY3:3 (x) in Figure 1(a) which shows that X3:3 ≱st Y3:3 .",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "new Pareto type NP(α,β): F(x;α,β) = ((x^α − β^α)/(x^α + β^α))², x > β > 0; common shape α = 1.5",
+    "compared": "X3:3 vs Y3:3; scale vectors β = (1,8,1.1) vs β* = (8,1.1,4), not majorization-ordered (unequal totals 10.1 vs 13.1)",
+    "hypotheses": [
+     {
+      "text": "(β1, β2, β3) ⋡m (β1∗, β2∗, β3∗), though α > 1",
+      "formal": "majorization hypothesis of Theorem 3.1(a) violated while α = 1.5 ≥ 1 holds",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X3:3 ≱st Y3:3 — the cdf difference changes sign in Figure 1(a), refuting Theorem 3.1(a) when the majorization premise is dropped"
+    },
+    "quantifiers": "n = 3; x > max{β_i, β*_i} = 8",
+    "numbers": "α = 1.5; β = (1, 8, 1.1); β* = (8, 1.1, 4)",
+    "ambiguity": "The printed relation is a struck ⩾st glyph (byte-level glyph unmapped in the text layer); the plotted sign-changing difference confirms the negated direction. Totals differ (Σβ = 10.1 ≠ Σβ* = 13.1), so majorization cannot hold."
+   }
+  ],
+  "note": "Passes agree: st conclusion of Theorem 3.1(a) fails without β ⪰m β*. 'B_smaller' = B's negated-order reading. Page 63."
+ },
+ {
+  "queue_claim": "counterexample3.1ii",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.21136/am.2018.0105-17",
+    "claim": "Counterexample 3.1(ii)",
+    "page": 63,
+    "quote": "(ii) Let X1 , X2 , X3 be three independent random variables with Xi ~ NP(0.8, βi ), i = 1, 2, 3, with β1 = 0.1, β2 = 1, and β3 = 9. Also, let Y1 , Y2 , Y3 be three independent random variables with Yi ~ NP(0.8, βi∗ ), i = 1, 2, 3, with β1∗ = 0.1, β2∗ = 4, and β3∗ = 6. It is easy to observe that (β1 , β2 , β3 ) ⪰m (β1∗ , β2∗ , β3∗ ). Note that α = 0.8 < 1. In Figure 1(b), we plot the difference FX3:3 (x) − FY3:3 (x) which ensures that there is a cut between the plots of FX3:3 (x) and FY3:3 (x), that is, X3:3 ≱st Y3:3 .",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "NP(α, β) with common shape α = 0.8 (< 1)",
+    "compared": "X3:3 vs Y3:3; scale vectors β = (0.1,1,9) vs β* = (0.1,4,6), majorization holds",
+    "hypotheses": [
+     {
+      "text": "(β1 , β2 , β3 ) ⪰m (β1∗ , β2∗ , β3∗ ). Note that α = 0.8 < 1",
+      "formal": "majorization holds (equal totals 10.1; largest-first partial sums 9 ≥ 6, 10 ≥ 10) while the α ≥ 1 hypothesis of Theorem 3.1(a) fails",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X3:3 ≱st Y3:3 — the cdfs cross in Figure 1(b), showing the α ≥ 1 restriction of Theorem 3.1(a) cannot be dropped"
+    },
+    "quantifiers": "n = 3; x > 9",
+    "numbers": "α = 0.8; β = (0.1, 1, 9); β* = (0.1, 4, 6)",
+    "ambiguity": "Struck ⩾st glyph per the text layer; the printed 'cut between the plots' confirms crossing."
+   }
+  ],
+  "note": "Passes agree: majorization holds but α = 0.8 < 1 violates Theorem 3.1(a), and X3:3 ≥st Y3:3 fails. Page 63."
+ },
+ {
+  "queue_claim": "counterexample3.2",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.21136/am.2018.0105-17",
+    "claim": "Counterexample 3.2",
+    "page": 64,
+    "quote": "We consider the following counterexample to show that in the second part of Theorem 3.1 if β ⋡m β∗ then, X1:n ⩽st Y1:n need not hold for α > 0. Counterexample 3.2. Let X1 , X2 , X3 be three independent random variables with Xi ~ NP(0.5, βi ), i = 1, 2, 3. Further, let Y1 , Y2 , Y3 be three independent random variables with Yi ~ NP(0.5, βi∗ ), i = 1, 2, 3. Assume that β1 = 2.1, β2 = 1, β3 = 1.8, β1∗ = 3.5, β2∗ = 0.8, and β3∗ = 0.9. Clearly, (β1 , β2 , β3 ) ⋡m (β1∗ , β2∗ , β3∗ ). Now, using graphical plot, it can be shown that X1:3 ≰st Y1:3 . The graph has not been provided for brevity.",
+    "kind": "counterexample",
+    "model": "series system",
+    "family": "NP(α, β) with common shape α = 0.5",
+    "compared": "X1:3 vs Y1:3; scale vectors β = (2.1,1,1.8) vs β* = (3.5,0.8,0.9), not majorization-ordered (unequal totals 4.9 vs 5.2)",
+    "hypotheses": [
+     {
+      "text": "(β1 , β2 , β3 ) ⋡m (β1∗ , β2∗ , β3∗ )",
+      "formal": "majorization hypothesis of Theorem 3.1(b) violated (α > 0 unrestricted)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X1:3 ≰st Y1:3 — claimed via a graphical plot that is not shown ('The graph has not been provided for brevity')"
+    },
+    "quantifiers": "n = 3; x > 3.5",
+    "numbers": "α = 0.5; β = (2.1, 1, 1.8); β* = (3.5, 0.8, 0.9)",
+    "ambiguity": "The failure of X1:3 ≤st Y1:3 is asserted from an unprinted graph — no displayed evidence. Struck ⩽st glyph per the text layer."
+   }
+  ],
+  "note": "Passes agree: X1:3 ≤st Y1:3 fails when β ⋡m β* (Theorem 3.1(b)); the refuting plot is not printed. 'A_smaller' = negated ≤st. Page 64."
+ },
+ {
+  "queue_claim": "counterexample3.3",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.21136/am.2018.0105-17",
+    "claim": "Counterexample 3.3",
+    "page": 65,
+    "quote": "Counterexample 3.3. Consider three independent random variables X1 , X2 , X3 such that Xi ~ NP(0.5, βi ), i = 1, 2, 3. Assume β1 = 0.2, β2 = 0.5, and β3 = 0.7. Take another set of three random variables Y1 , Y2 , Y3 such that Yi ~ NP(0.5, βi∗ ), i = 1, 2, 3. Here, let β1∗ = 0.4, β2∗ = 0.3, and β3∗ = 1.2. Clearly, (β1 , β2 , β3 ) ≯ (β1∗ , β2∗ , β3∗ ). The difference between FX3:3 (x) and FY3:3 (x) is depicted in Figure 2(a) which shows that X3:3 ≱st Y3:3 .",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "NP(α, β) with common shape α = 0.5",
+    "compared": "X3:3 vs Y3:3; scale vectors β = (0.2,0.5,0.7) vs β* = (0.4,0.3,1.2), not componentwise ordered (β3 = 0.7 < 1.2 = β3*)",
+    "hypotheses": [
+     {
+      "text": "(β1 , β2 , β3 ) ≯ (β1∗ , β2∗ , β3∗ )",
+      "formal": "componentwise hypothesis βi ≥ βi* of Theorem 3.3(a) violated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X3:3 ≱st Y3:3 — the cdf difference changes sign in Figure 2(a), showing Theorem 3.3(a)'s componentwise condition cannot be dropped"
+    },
+    "quantifiers": "n = 3; x > 1.2",
+    "numbers": "α = 0.5; β = (0.2, 0.5, 0.7); β* = (0.4, 0.3, 1.2)",
+    "ambiguity": "Struck ⩾st glyph per the text layer."
+   }
+  ],
+  "note": "Passes agree: componentwise ≥ fails and X3:3 ≥st Y3:3 fails (refutes dropping Theorem 3.3(a)'s premise). Page 65."
+ },
+ {
+  "queue_claim": "counterexample3.4",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.21136/am.2018.0105-17",
+    "claim": "Counterexample 3.4",
+    "page": 65,
+    "quote": "Counterexample 3.4. Let X1 , X2 , X3 be a set of independent random variables such that Xi ~ NP(0.8, βi ), i = 1, 2, 3. Here, we take β1 = 1.2, β2 = 0.5, and β3 = 1.7. Take another set of three random variables Y1 , Y2 , Y3 such that Yi ~ NP(0.8, βi∗ ), i = 1, 2, 3. Let β1∗ = 0.4, β2∗ = 0.8, and β3∗ = 1.2. Clearly, (1/β1 , 1/β2 , 1/β3 ) ≯ (1/β1∗ , 1/β2∗ , 1/β3∗ ). Based on this data, we have plotted F̄X1:3 (x) − F̄Y1:3 (x) in Figure 2(b) which guarantees that Y1:3 ≱st X1:3 .",
+    "kind": "counterexample",
+    "model": "series system",
+    "family": "NP(α, β) with common shape α = 0.8",
+    "compared": "Y1:3 vs X1:3; reciprocal scale vectors (1/β) = (0.83,2,0.59) vs (1/β*) = (2.5,1.25,0.83), not componentwise ordered",
+    "hypotheses": [
+     {
+      "text": "(1/β1 , 1/β2 , 1/β3 ) ≯ (1/β1∗ , 1/β2∗ , 1/β3∗ )",
+      "formal": "componentwise reciprocal hypothesis 1/βi ≥ 1/βi* of Theorem 3.3(b) violated (fails at coordinates 1 and 3)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "Y1:3 ≱st X1:3 — the plotted survival difference changes sign in Figure 2(b), refuting Theorem 3.3(b) without the reciprocal componentwise condition"
+    },
+    "quantifiers": "n = 3; x > 1.7",
+    "numbers": "α = 0.8; β = (1.2, 0.5, 1.7); β* = (0.4, 0.8, 1.2)",
+    "ambiguity": "The compared pair is Y1:3 against X1:3 (paper plots F̄X1:3 − F̄Y1:3 and concludes the negated Y ≥st X). Struck ⩾st glyph per the text layer."
+   }
+  ],
+  "note": "Passes agree: the negated relation is Y1:3 ≥st X1:3 (note which side is Y); 'B_smaller' encoding only. Page 65."
+ },
+ {
+  "queue_claim": "counterexample3.5",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.21136/am.2018.0105-17",
+    "claim": "Counterexample 3.5",
+    "page": 69,
+    "quote": "Counterexample 3.5. Let X1 , X2 , X3 , X4 be independent random variables with Xi ~ NP(αi , 1.6), i = 1, 2, 3, 4 with α1 = 0.6, α2 = 1.9, α3 = 0.3, and α4 = 1.8. Further, let Y1 , Y2 , Y3 , Y4 be another set of independent random variables with Yi ~ NP(α∗i , 1.6), i = 1, 2, 3, 4 with α∗1 = 0.4, α∗2 = 2.1, α∗3 = 0.8, and α∗4 = 1.6. It is easy to see that (α1 , α2 , α3 , α4 ) ≱ (α∗1 , α∗2 , α∗3 , α∗4 ). Now, we have plotted rX1:n (x) − rY1:n (x) in Figure 3(a). Thus, X1:4 ≰fr Y1:4 .",
+    "kind": "counterexample",
+    "model": "series system",
+    "family": "NP(αi, β) with common scale β = 1.6",
+    "compared": "X1:4 vs Y1:4 in the failure-rate order; shape vectors α = (0.6,1.9,0.3,1.8) vs α* = (0.4,2.1,0.8,1.6), not componentwise ordered (α2 = 1.9 < 2.1 = α2*)",
+    "hypotheses": [
+     {
+      "text": "(α1 , α2 , α3 , α4 ) ≱ (α∗1 , α∗2 , α∗3 , α∗4 )",
+      "formal": "componentwise hypothesis αi ≥ αi* of Theorem 3.7 violated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "X1:4 ≰fr Y1:4 — the failure-rate difference r_X1:4 − r_Y1:4 changes sign in Figure 3(a), showing Theorem 3.7's componentwise condition cannot be dropped"
+    },
+    "quantifiers": "n = 4; x > 1.6",
+    "numbers": "β = 1.6; α = (0.6, 1.9, 0.3, 1.8); α* = (0.4, 2.1, 0.8, 1.6)",
+    "ambiguity": "The paper's 'fr' is the failure-rate ordering (Definition 2.1(a): X1 ≤fr X2 iff rX1 ≥ rX2), the hazard-rate order — canonical 'hr'. Struck ⩽fr glyph per the text layer."
+   }
+  ],
+  "note": "Passes agree: X1:4 ≤fr Y1:4 fails when α ≱ α* componentwise (refutes relaxing Theorem 3.7). 'fr' = canonical hr. Page 69."
+ },
+ {
+  "queue_claim": "counterexample3.6",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.21136/am.2018.0105-17",
+    "claim": "Counterexample 3.6",
+    "page": 72,
+    "quote": "Counterexample 3.6. Let X1 , X2 be two independent random variables associated with Xi ~ NP(αi , βi ), i = 1, 2. Also, let Y1 , Y2 be two independent random variables associated with Yi ~ NP(α∗i , βi∗ ), i = 1, 2. Let A = (α1 α2 ; β1 β2 ) = (1.5 0.8; 0.6 0.4). We take a T -transform matrix T0.3 = (0.3 0.7; 0.7 0.3). Then B = (α∗1 α∗2 ; β1∗ β2∗ ) = AT0.3 = (1.01 1.29; 0.46 0.54). Thus, according to Definition 2.4, we have A ≫ B. Here, the matrices A and B do not belong to S2 . Now from Figure 3(b), we see that X1:2 ≰st Y1:2 .",
+    "kind": "counterexample",
+    "model": "series system",
+    "family": "NP(αi, βi), i = 1, 2 — both shape and scale heterogeneous",
+    "compared": "X1:2 vs Y1:2; parameter matrices A = (1.5 0.8; 0.6 0.4) vs B = AT0.3 = (1.01 1.29; 0.46 0.54), chain-majorized but outside S2",
+    "hypotheses": [
+     {
+      "text": "A ≫ B via the T-transform T0.3, but A and B do not belong to S2",
+      "formal": "multivariate chain majorization (Definition 2.4) holds while the S2 anti-arrangement condition (α1−α2)(β1−β2) ≤ 0 of (2.1) fails — (1.5−0.8)(0.6−0.4) = 0.14 > 0",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X1:2 ≰st Y1:2 — survival functions cross in Figure 3(b), showing the S2 membership condition of Theorem 3.9 cannot be dropped"
+    },
+    "quantifiers": "n = 2; x > max{β1, β2}",
+    "numbers": "A = (1.5 0.8; 0.6 0.4); T0.3 = (0.3 0.7; 0.7 0.3); B = AT0.3 = (1.01 1.29; 0.46 0.54)",
+    "ambiguity": "Struck ⩽st glyph per the text layer. Arithmetic verifies: AT0.3 = (1.01 1.29; 0.46 0.54) as printed, and (α1−α2)(β1−β2) > 0 keeps both matrices outside S2."
+   }
+  ],
+  "note": "Passes agree: chain majorization holds but S2 membership fails, and X1:2 ≤st Y1:2 fails (refutes dropping S2 in Theorem 3.9). 'A_smaller' = negated ≤st. Page 72 (statement in the page-72 block), not 71."
+ },
+ {
+  "queue_claim": "example4.1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.21136/am.2018.0105-17",
+    "claim": "Example 4.1",
+    "page": 75,
+    "quote": "Example 4.1. Suppose there are two systems, say system-I and system-II. Let each system have three components which are connected in series. Denote the components of system-I as I1 , I2 and I3 and those of system-II as II1 , II2 and II3 . Let the failure times of I1 , I2 and I3 have NP(0.5, 0.1), NP(0.5, 1) and NP(0.5, 9) distributions, respectively. Further, let the failure times of II1 , II2 , and II3 have NP(0.5, 0.1), NP(0.5, 4), and NP(0.5, 6) distributions, respectively. Clearly, (0.1, 1, 9) ⪰m (0.1, 4, 6). Thus, as an application of Corollary 3.1, system-II is preferable to use, since its lifetime has smaller variance.",
+    "kind": "example",
+    "model": "series system",
+    "family": "NP(α, β) with common shape α = 0.5 (≤ 1), scale vectors per component",
+    "compared": "system-I series lifetime X1:3 (scales 0.1,1,9) vs system-II Y1:3 (scales 0.1,4,6); majorized scale vectors",
+    "hypotheses": [
+     {
+      "text": "(0.1, 1, 9) ⪰m (0.1, 4, 6)",
+      "formal": "scale vectors majorized (equal totals 10.1; largest-first partial sums 9 ≥ 6, 10 ≥ 10)",
+      "source": "statement"
+     },
+     {
+      "text": "as an application of Corollary 3.1",
+      "formal": "Corollary 3.1 applies for 0 < α ≤ 1; here α = 0.5",
+      "source": "earlier theorem"
+     }
+    ],
+    "conclusion": {
+     "order": "rs",
+     "direction": "X1:3 (system-I) ≥rs Y1:3 (system-II) per Corollary 3.1, hence Var(X1:3) ≥ Var(Y1:3) — 'system-II is preferable to use, since its lifetime has smaller variance'"
+    },
+    "quantifiers": "n = 3; α = 0.5",
+    "numbers": "α = 0.5; system-I scales (0.1, 1, 9); system-II scales (0.1, 4, 6)",
+    "ambiguity": "The printed conclusion is the variance comparison; the named-order claim is the rs ordering of the two series lifetimes invoked from Corollary 3.1 (Definition 2.1(d))."
+   }
+  ],
+  "note": "Passes agree: via Corollary 3.1, X1:3 ≥rs Y1:3 ⇒ Var(X1:3) ≥ Var(Y1:3) — system-II has smaller variance. 'A_smaller' encoding only. Page 75."
+ },
+ {
+  "queue_claim": "theorem3.9",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.21136/am.2018.0105-17",
+    "claim": "Theorem 3.9",
+    "page": 70,
+    "quote": "Theorem 3.9. Let X1 , X2 be independent random variables with Xi ~ NP(αi , βi ), i = 1, 2 and Y1 , Y2 other independent random variables with Yi ~ NP(α∗i , βi∗ ), i = 1, 2. Let (α1 α2; β1 β2 ) ∈ S2 be defined as in (2.1). Then, for (α1 α2; β1 β2 ) ≫ (α∗1 α∗2; β1∗ β2∗ ), we have X1:2 ⩽st Y1:2 .",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "NP(αi, βi), i = 1, 2 — heterogeneous in both shape α and scale β",
+    "compared": "X1:2 vs Y1:2; 2×2 parameter matrices related by multivariate chain majorization",
+    "hypotheses": [
+     {
+      "text": "(α1 α2; β1 β2 ) ∈ S2 as in (2.1)",
+      "formal": "the parameter matrix lies in S2: (α1 − α2)(β1 − β2) ≤ 0 (rows oppositely ordered)",
+      "source": "statement"
+     },
+     {
+      "text": "(α1 α2; β1 β2 ) ≫ (α∗1 α∗2; β1∗ β2∗ )",
+      "formal": "the (α*,β*) matrix is obtained from the (α,β) matrix by a finite chain of T-transforms (Definition 2.4: M1 ≫ M2 iff M2 = M1 Tw1···Twk)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X1:2 ≤st Y1:2"
+    },
+    "quantifiers": "n = 2; x > max{β1, β2}",
+    "numbers": "",
+    "ambiguity": "≫ denotes the paper's multivariate chain majorization (Definition 2.4). The survival function formula (3.17) is valid for x > max{βi}, reflected in quantifiers."
+   }
+  ],
+  "note": "Passes agree verbatim on X1:2 ≤st Y1:2 under S2 + chain majorization; direction encodings identical semantically. Page 70."
+ }
+]

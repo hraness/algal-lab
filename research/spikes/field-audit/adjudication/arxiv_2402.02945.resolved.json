@@ -1,0 +1,343 @@
+[
+ {
+  "queue_claim": "corollary3.1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2402.02945",
+    "claim": "Corollary 3.1",
+    "page": 8,
+    "quote": "Since Archimedean copula is a particular type of Archimax copula when A(u) ≡ 1, hence theorem 3.1 for stochastic ordering of highest order staistics of two samples from PHR models is holds true. For proof replace A(u) ≡ 1 and proceed as proof of theorem 3.1 or see (Li and Fang 2015).",
+    "kind": "corollary",
+    "model": "parallel system",
+    "family": "PHR(B̄, α): F̄_{X_i}(x) = B̄(x)^{α_i}, coupled by Archimedean copula (Archimax with Pickands A(u) ≡ 1); generator ϕ1 for X-sample, ϕ2 for Y-sample",
+    "compared": "X_{n:n}(α; ϕ1) vs Y_{n:n}(β; ϕ2); exponent vectors α vs β and generators ϕ1 vs ϕ2 as in Theorem 3.1",
+    "hypotheses": [
+     {
+      "text": "A(u) ≡ 1",
+      "formal": "Pickands dependence function identically 1, the Archimedean special case of Archimax",
+      "source": "statement"
+     },
+     {
+      "text": "theorem 3.1 ... is holds true",
+      "formal": "same hypotheses as Theorem 3.1 with A ≡ 1: β ⪯w α; ψ2 ∘ ϕ1 superadditive; ψ2 ∘ ϕ1 (t·A) ≥ A·ψ2 ∘ ϕ1 (t)",
+      "source": "earlier theorem 3.1"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X_{n:n}(α; ϕ1, A) ≥st Y_{n:n}(β; ϕ2, A) under Archimedean copulas (A ≡ 1)"
+    },
+    "quantifiers": "n ≥ 2; all x",
+    "numbers": "",
+    "ambiguity": "With A ≡ 1, condition (ii) reduces to ψ2∘ϕ1(t) ≥ ψ2∘ϕ1(t) (trivially true), so the operative extra condition beyond majorization is super-additivity; the corollary states no conditions explicitly. Same '⪯w' super/sub-majorization glyph ambiguity as Theorem 3.1."
+   }
+  ],
+  "note": "Passes agree: Theorem 3.1's st conclusion X_{n:n} ≥st Y_{n:n} restricted to Archimedean copulas; 'B_smaller' = A's 'Xn:n ⪰st Yn:n'. Page 8 (statement sits in the page-8 block), not 7."
+ },
+ {
+  "queue_claim": "example4.1i",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2402.02945",
+    "claim": "Example 4.1(i)",
+    "page": 8,
+    "quote": "Consider for illustration of the theorem 4.1, the sample X1, X2, X3, X4, X5 from U(0,1) with n = 4 and n + 1 = 5. Now we know that X_{k:n} ~ Beta(k, n + 1 − k). Now we take ℓ from Gumbel-Hougaard Copula ... as the appropriate stdf for Archimax copula model with 5-monotone Archimedean generator ϕ(t) = e^{−t^{1/θ}}, θ ∈ [1, ∞), where stable tail dependence function (stdf) is ℓ(x) = (x1^θ + x2^θ + ... + xn^θ)^{1/θ} with ℓ(x) = ||x|| A(x/||x||). For reverse hazard rate ordering, we calculate tϕ′(t)/ϕ(t) = −(1/θ) t^{1/θ} which is a decreasing function of t ≥ 0, because for θ ∈ [1, ∞), we get d/dt(−(1/θ) t^{1/θ}) = −(1/θ^2) t^{1/θ−1} ≤ 0 for all t ≥ 0. On the other hand F_{X5:5}/F_{X4:4} = x, F_{X4:4}/F_{X3:4} = x^4/(4x^3 − 3x^4) and equating both expression of ℓ we have A = n^{1/θ−1} with n = 4. Plots are shown below which illustrates the theorem 4.1 (i) for θ = 4.",
+    "kind": "example",
+    "model": "order statistic",
+    "family": "U(0,1) margins; Archimax copula with Gumbel-Hougaard stdf ℓ(x) = (Σx_i^θ)^{1/θ} and 5-monotone generator ϕ(t) = e^{−t^{1/θ}}",
+    "compared": "X_{3:4} vs X_{4:4} vs X_{5:5} in rh order; cdf-ratio monotonicity",
+    "hypotheses": [
+     {
+      "text": "θ ∈ [1, ∞)",
+      "formal": "θ ≥ 1",
+      "source": "statement"
+     },
+     {
+      "text": "A = n^{1/θ−1} with n = 4",
+      "formal": "A = 4^{1/θ−1} 'equating both expression of ℓ'",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "X_{3:4} ≤rh X_{4:4} ≤rh X_{5:5}, verifying Theorem 4.1(i) graphically (Figure 1) at θ = 4"
+    },
+    "quantifiers": "n = 4, n + 1 = 5; θ = 4 in plots; x ∈ [0,1]",
+    "numbers": "n = 4; θ = 4; A = 4^{1/4−1} = 4^{−3/4}; tϕ′(t)/ϕ(t) = −(1/θ)t^{1/θ}; printed ratios F_{X5:5}/F_{X4:4} = x, F_{X4:4}/F_{X3:4} = x^4/(4x^3−3x^4) — consistent with U(0,1) order statistics (F = x^5, x^4, 4x^3−3x^4)",
+    "ambiguity": "Printed cdf-ratio line is garbled in the text layer ('FX(4:4) = 4x3x−3x4'); the Beta(k, n+1−k) marginals resolve it. The chain is the instance of Theorem 4.1(i)'s X_{n−1:n} ≤rh X_{n:n} ≤rh X_{n+1:n+1} at n = 4."
+   }
+  ],
+  "note": "Passes agree on the rh chain X3:4 ≤rh X4:4 ≤rh X5:5; only quote granularity differed. Page 8."
+ },
+ {
+  "queue_claim": "example4.1ii",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2402.02945",
+    "claim": "Example 4.1(ii)",
+    "page": 9,
+    "quote": "(ii) For hazard rate ordering, we calculate tϕ′(t)/(1 − ϕ(t)) = −t^{1/θ}/(θ(e^{t^{1/θ}} − 1)) which is an increasing function of t ≥ 0, because for θ ∈ [1, ∞), we get d/dt(−t^{1/θ}/(θ(e^{t^{1/θ}} − 1))) = (t^{1/θ−1} e^{t^{1/θ}} − e^{t^{1/θ}} + 1)/(θ^2 (e^{t^{1/θ}} − 1)^2) ≥ 0 for all t ≥ 0. On the other hand (1 − F_{X5:5})/(1 − F_{X4:4}) = (1 − x^5)/(1 − x^4), (1 − F_{X4:4})/(1 − F_{X3:4}) = (1 − x^4)/(1 + 3x^4 − 4x^3). Plots are shown below which illustrates the theorem 4.1 (ii) for θ = 8.",
+    "kind": "example",
+    "model": "order statistic",
+    "family": "U(0,1) margins (same sample as part (i)); Archimax copula, Gumbel-Hougaard stdf, generator ϕ(t) = e^{−t^{1/θ}}",
+    "compared": "X_{3:4} vs X_{4:4} vs X_{5:5} in hr order; survival-ratio monotonicity",
+    "hypotheses": [
+     {
+      "text": "θ ∈ [1, ∞)",
+      "formal": "θ ≥ 1",
+      "source": "statement"
+     },
+     {
+      "text": "A = 4^{1/θ−1} (same setting as part (i))",
+      "formal": "A = 4^{1/8−1} for the plotted θ = 8",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "X_{3:4} ≤hr X_{4:4} ≤hr X_{5:5}, verifying Theorem 4.1(ii) graphically (Figure 2) at θ = 8"
+    },
+    "quantifiers": "n = 4, n + 1 = 5; θ = 8 in plots; x ∈ [0,1]",
+    "numbers": "θ = 8; A = 4^{1/8−1}; tϕ′/(1−ϕ) = −t^{1/θ}/(θ(e^{t^{1/θ}}−1)); (1−F_{X5:5})/(1−F_{X4:4}) = (1−x^5)/(1−x^4); (1−F_{X4:4})/(1−F_{X3:4}) = (1−x^4)/(1+3x^4−4x^3)",
+    "ambiguity": "Derivative numerator partially garbled in the text layer; the reading 't^{1/θ−1}e^{t^{1/θ}} − e^{t^{1/θ}} + 1' is per the printed fragments (B's transcription). Survival ratios consistent with U(0,1) order statistics."
+   }
+  ],
+  "note": "Passes agree on the hr chain X3:4 ≤hr X4:4 ≤hr X5:5. Page 9."
+ },
+ {
+  "queue_claim": "example4.1iii",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2402.02945",
+    "claim": "Example 4.1(iii)",
+    "page": 9,
+    "quote": "(iii). For likelihood ratio ordering, we calculate tϕ′′(t)/ϕ′(t) = (1 − t^{1/θ})/θ − 1, which is a decreasing function of t ≥ 0, because for θ ∈ [1, ∞), we get d/dt((1 − t^{1/θ})/θ − 1) = −(1/θ^2) t^{1/θ−1} ≤ 0 for all t ≥ 0. On the other hand f_{X5:5}/f_{X4:4} = 5x/4, f_{X4:4}/f_{X3:4} = 4x^3/(12x^2 − 12x^3) [denominator garbled in text layer]. Plots are shown below which illustrates the theorem 4.1 (iii) for θ = 5.",
+    "kind": "example",
+    "model": "order statistic",
+    "family": "U(0,1) margins (same sample as part (i)); Archimax copula, Gumbel-Hougaard stdf, generator ϕ(t) = e^{−t^{1/θ}}",
+    "compared": "X_{3:4} vs X_{4:4} vs X_{5:5} in lr order; density-ratio monotonicity",
+    "hypotheses": [
+     {
+      "text": "θ ∈ [1, ∞)",
+      "formal": "θ ≥ 1",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "X_{3:4} ≤lr X_{4:4} ≤lr X_{5:5}, verifying Theorem 4.1(iii) graphically (Figure 3) at θ = 5"
+    },
+    "quantifiers": "n = 4, n + 1 = 5; θ = 5 in plots; x ∈ [0,1]",
+    "numbers": "θ = 5; A = 4^{1/5−1}; tϕ′′/ϕ′ = (1−t^{1/θ})/θ − 1; f_{X5:5}/f_{X4:4} = 5x/4 (consistent: 5x^4/4x^3 for U(0,1)); f_{X4:4}/f_{X3:4} printed with garbled denominator — for Beta(3,2) density f_{X3:4} = 12x^2(1−x) the ratio is x/(3(1−x))",
+    "ambiguity": "The second density ratio's denominator is garbled in the text layer ('4x / 3x2 −3x3'); the printed '5x/4' and the Beta densities fix the intended ratios."
+   }
+  ],
+  "note": "Passes agree on the lr chain X3:4 ≤lr X4:4 ≤lr X5:5; the only real difference was how each reconstructed a garbled denominator. Page 9."
+ },
+ {
+  "queue_claim": "example5.1i",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2402.02945",
+    "claim": "Example 5.1(i)",
+    "page": 12,
+    "quote": "To illustrate theorem 5.1, we will consider the random sample same as example 4.1 of section 4, Archimax sevival copula model with generator ϕ(t) = (1 + t)^{−θ} where θ ∈ [1, ∞), stable tail dependent function ℓ defined as ℓ(x) = (x1^θ + x2^θ + ... + xn^θ)^{1/θ}, where ℓ(x) = ||x|| A(x/||x||). (i) For hazard rate ordering, we calculate tϕ′(t)/ϕ(t) = θ/(1 + t) − θ which is a decreasing function of t ≥ 0, because for θ ∈ [1, ∞), we get d/dt(θ/(1 + t) − θ) = −θ/(1 + t)^2 ≤ 0 for all t ≥ 0. On the other hand (1 − F_{X1:4})/(1 − F_{X1:5}) = 1/(1 − x), (1 − F_{X2:4})/(1 − F_{X1:4}) = (1 + 8x^3 − 3x^4 − 6x^2)/(x − 1)^4 and equating both expression of ℓ we have A = n^{1/θ−1} with n = 4. Plots are shown below which illustrates the theorem 5.1 (i) for θ = 4.",
+    "kind": "example",
+    "model": "series system",
+    "family": "U(0,1) margins (same sample as Example 4.1); Archimax survival copula with generator ϕ(t) = (1+t)^{−θ} (Lomax/Clayton family), Gumbel-Hougaard stdf",
+    "compared": "X_{1:5} vs X_{1:4} vs X_{2:4} in hr order; survival-ratio monotonicity",
+    "hypotheses": [
+     {
+      "text": "θ ∈ [1, ∞)",
+      "formal": "θ ≥ 1",
+      "source": "statement"
+     },
+     {
+      "text": "A = n^{1/θ−1} with n = 4",
+      "formal": "A = 4^{1/θ−1}",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "X_{1:5} ≤hr X_{1:4} ≤hr X_{2:4}, verifying Theorem 5.1(i) graphically (Figure 4) at θ = 4"
+    },
+    "quantifiers": "n = 4, n + 1 = 5; θ = 4 in plots; x ∈ [0,1]",
+    "numbers": "θ = 4; A = 4^{1/4−1}; tϕ′/ϕ = θ/(1+t) − θ; (1−F_{X1:4})/(1−F_{X1:5}) = 1/(1−x) (consistent: (1−x)^4/(1−x)^5); (1−F_{X2:4})/(1−F_{X1:4}) = (1+8x^3−3x^4−6x^2)/(x−1)^4 as printed",
+    "ambiguity": "Theorem 5.1's printed labels swap the (i)/(ii) names relative to Theorem 4.1: in 5.1, part (i) is the hazard-rate result with tϕ′/ϕ decreasing and part (ii) the reversed-hazard result with tϕ′/(1−ϕ) increasing — the example labels match Theorem 5.1's own part labels."
+   }
+  ],
+  "note": "Passes agree on the hr chain X1:5 ≤hr X1:4 ≤hr X2:4 (Theorems 4.1 vs 5.1 swap the (i)/(ii) order labels; the record follows the printed part labels). Page 12."
+ },
+ {
+  "queue_claim": "example5.1ii",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2402.02945",
+    "claim": "Example 5.1(ii)",
+    "page": 13,
+    "quote": "(ii) For reverse hazard rate ordering, we calculate tϕ′(t)/(1 − ϕ(t)) = tθ/(1 + t − (1 + t)^{θ+1}) which is an increasing function of t ≥ 0, because for θ ∈ [1, ∞), we have d/dt(tθ/(1 + t − (1 + t)^{θ+1})) ≥ 0 for all t ≥ 0 [derivative numerator printed garbled]. On the other hand F_{X1:5}/F_{X1:4} = (1−(x−1)^4)/(1+(x−1)^5) and F_{X2:4}/F_{X1:4} = (3x^4 − 8x^3 + 6x^2)/(1 − (x−1)^4) [fraction layout partially garbled in the text layer]. Plots are shown below which illustrates the theorem 5.1 (ii) for θ = 8.",
+    "kind": "example",
+    "model": "series system",
+    "family": "U(0,1) margins; Archimax survival copula, generator ϕ(t) = (1+t)^{−θ}, Gumbel-Hougaard stdf",
+    "compared": "X_{1:5} vs X_{1:4} vs X_{2:4} in rh order; cdf-ratio monotonicity",
+    "hypotheses": [
+     {
+      "text": "θ ∈ [1, ∞)",
+      "formal": "θ ≥ 1",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "X_{1:5} ≤rh X_{1:4} ≤rh X_{2:4}, verifying Theorem 5.1(ii) graphically (Figure 5) at θ = 8"
+    },
+    "quantifiers": "n = 4, n + 1 = 5; θ = 8 in plots; x ∈ [0,1]",
+    "numbers": "θ = 8; A = 4^{1/8−1}; tϕ′/(1−ϕ) = tθ/(1+t−(1+t)^{θ+1}); printed cdf-ratio fragments: the F_{X1:5}/F_{X1:4} line carries the terms 1−(x−1)^4 and 1+(x−1)^5 (the U(0,1) values are F_{X1:k} = 1−(1−x)^k, so numerator/denominator order is unclear as printed), F_{X2:4}/F_{X1:4} = (3x^4−8x^3+6x^2)/(1−(x−1)^4)",
+    "ambiguity": "Cdf-ratio expressions are garbled in the text layer (signs/exponents and numerator order interleaved); the U(0,1) order-statistic cdfs 1−(1−x)^k resolve the intended ratios only up to the print's layout. The claimed chain direction is unaffected."
+   }
+  ],
+  "note": "Passes agree on the rh chain X1:5 ≤rh X1:4 ≤rh X2:4. Page 13 (part (ii) sits in the page-13 block), not 12."
+ },
+ {
+  "queue_claim": "example5.1iii",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2402.02945",
+    "claim": "Example 5.1(iii)",
+    "page": 13,
+    "quote": "(iii) For likelihood ratio ordering, we calculate tϕ′′(t)/ϕ′(t) = (1 + θ)/(1 + t) − θ − 1 which is a decreasing function of t ≥ 0, because for θ ∈ [1, ∞), we have d/dt((1 + θ)/(1 + t) − θ − 1) = −(1 + θ)/(1 + t)^2 ≤ 0 for all t ≥ 0. On the other hand f_{X1:4}/f_{X1:5} = 4/(5(1 − x)), f_{X2:4}/f_{X1:4} = 3x/(1 − x). Plots are shown below which illustrates the theorem 5.1 (iii) for θ = 5.",
+    "kind": "example",
+    "model": "series system",
+    "family": "U(0,1) margins; Archimax survival copula, generator ϕ(t) = (1+t)^{−θ}, Gumbel-Hougaard stdf",
+    "compared": "X_{1:5} vs X_{1:4} vs X_{2:4} in lr order; density-ratio monotonicity",
+    "hypotheses": [
+     {
+      "text": "θ ∈ [1, ∞)",
+      "formal": "θ ≥ 1",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "X_{1:5} ≤lr X_{1:4} ≤lr X_{2:4}, verifying Theorem 5.1(iii) graphically (Figure 6) at θ = 5"
+    },
+    "quantifiers": "n = 4, n + 1 = 5; θ = 5 in plots; x ∈ [0,1]",
+    "numbers": "θ = 5; A = 4^{1/5−1}; tϕ′′/ϕ′ = (1+θ)/(1+t) − θ − 1; f_{X1:4}/f_{X1:5} = 4/(5(1−x)) (U(0,1) minima: 4(1−x)^3 / 5(1−x)^4); f_{X2:4}/f_{X1:4} = 3x/(1−x) (consistent: 12x(1−x)^2 / 4(1−x)^3); both ratios increasing in x — consistent with the printed chain",
+    "ambiguity": "The print 'fX1:4/fX1:5 = 4 / 5(1−x)' lays the fraction out over two lines; pass A read it as '5(1−x)^4' (the inverted ratio), B's 4/(5(1−x)) is the correct reading. Direction unaffected: increasing density ratios give X1:5 ≤lr X1:4 ≤lr X2:4."
+   }
+  ],
+  "note": "Passes agree on the lr chain X1:5 ≤lr X1:4 ≤lr X2:4; the only substantive fix is B's reading 4/(5(1−x)) of the garbled fraction. Page 13."
+ },
+ {
+  "queue_claim": "theorem3.1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2402.02945",
+    "claim": "Theorem 3.1",
+    "page": 7,
+    "quote": "Suppose (X1, . . . , Xn) following PHR (B̄, α; ϕ1, A) and (Y1, . . . , Yn) following PHR (B̄, β; ϕ2, A) where ϕ1 and ϕ2 are Archimedean n-monotone generators for Archimax copula C_{ϕ1,A} and C_{ϕ2,A} respectively and B̄ the baseline servival function of the model. Then X_{n:n} (α; ϕ1, A) ≥st Y_{n:n} (β; ϕ2, A) if (i) β ⪯w α, ψ2 ∘ ϕ1 is super additive and (ii) ψ2 ∘ ϕ1 (t · A) ≥ A · ψ2 ∘ ϕ1 (t).",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "PHR(B̄, α; ϕ, A): components with survival function F̄_{X_i}(x) = B̄(x)^{α_i}, α_i > 0, coupled by Archimax copula C_{ϕ,A} (n-monotone generator ϕ, Pickands dependence function A)",
+    "compared": "PHR exponent vectors α vs β and Archimax generators ϕ1 vs ϕ2 linked by super-additivity plus condition (ii); same baseline B̄ and same Pickands A",
+    "hypotheses": [
+     {
+      "text": "(X1, . . . , Xn) following PHR (B̄, α; ϕ1, A) and (Y1, . . . , Yn) following PHR (B̄, β; ϕ2, A)",
+      "formal": "X-vector PHR with exponents α under copula C_{ϕ1,A}; Y-vector PHR with exponents β under C_{ϕ2,A}; same baseline B̄ and same Pickands A",
+      "source": "statement"
+     },
+     {
+      "text": "where ϕ1 and ϕ2 are Archimedean n-monotone generators",
+      "formal": "ϕ1, ϕ2 n-monotone Archimedean generators",
+      "source": "statement"
+     },
+     {
+      "text": "(i) β ⪯w α",
+      "formal": "β weakly majorized by α; the printed glyph is shared by Definition 2.1's weak super-majorization (partial sums of smallest components) and weak sub-majorization (partial sums of largest) — the proof's use suggests the super-majorization reading",
+      "source": "statement"
+     },
+     {
+      "text": "ψ2 ∘ ϕ1 is super additive",
+      "formal": "ψ2(ϕ1(s+t)) ≥ ψ2(ϕ1(s)) + ψ2(ϕ1(t)), as applied in the proof",
+      "source": "statement"
+     },
+     {
+      "text": "(ii) ψ2 ∘ ϕ1 (t · A) ≥ A · ψ2 ∘ ϕ1 (t)",
+      "formal": "ψ2(ϕ1(tA)) ≥ A·ψ2(ϕ1(t)) for A ∈ [1/n, 1] — condition (2)/(10) of Lemma A.1",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X_{n:n}(α; ϕ1, A) ≥st Y_{n:n}(β; ϕ2, A)"
+    },
+    "quantifiers": "n ≥ 2; all x; α_i, β_i > 0",
+    "numbers": "",
+    "ambiguity": "Definition 2.1 prints the same '⪯w' symbol for weak super-majorization and weak sub-majorization, so which relation 'β ⪯w α' denotes is typographically ambiguous. The proof derives F_{Y_{n:n}}(x) ≥ F_{X_{n:n}}(x) pointwise, consistent with the printed conclusion X_{n:n} ≥st Y_{n:n}."
+   }
+  ],
+  "note": "Passes agree on st and X_{n:n} ≥st Y_{n:n}; only hypothesis formalization differed. Page 7."
+ },
+ {
+  "queue_claim": "unn3.1:lemma a 1 section 3.1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2402.02945",
+    "claim": "Lemma A.1 (Section 3.1)",
+    "page": 6,
+    "quote": "Let X1, X2, ...., Xn be random variables, ϕ1 and ϕ2 are generators of n-dimentional Archimax copulas C1 and C2 respectively with inverse of ϕ2 is ψ2. If ψ2 ∘ ϕ1 satisfies the following, (1) Super-additive. (2) For A such that, 1/n ≤ A ≤ 1, ψ2 ∘ ϕ1 (t · A) ≥ A ψ2 ∘ ϕ1 (t), where A : [0,1]^n → [1/n, 1] is pickands dependence function as in equation (7). then C1 (x) ≤ C2 (x) for all x ∈ [0,1]^n.",
+    "kind": "lemma",
+    "model": "other: n-dimensional Archimax copulas of the random vectors",
+    "family": "Archimax copula C_{ϕ,A}(x) = ϕ(||ψ(x)|| · A(ψ(x)/||ψ(x)||)); ϕ an n-monotone Archimedean generator, A Pickands dependence function in [1/n, 1]",
+    "compared": "two Archimax copulas C1 (generator ϕ1) and C2 (generator ϕ2) sharing the same Pickands dependence function A",
+    "hypotheses": [
+     {
+      "text": "ϕ1 and ϕ2 are generators of n-dimentional Archimax copulas C1 and C2 respectively with inverse of ϕ2 is ψ2",
+      "formal": "C_i = C_{ϕi,A}; ψ2 = ϕ2^{−1} (pseudo-inverse)",
+      "source": "statement"
+     },
+     {
+      "text": "(1) Super-additive.",
+      "formal": "ψ2(ϕ1(s+t)) ≥ ψ2(ϕ1(s)) + ψ2(ϕ1(t)); the proof applies Σ_i ψ2(ϕ1(u_i)) ≤ ψ2(ϕ1(Σ_i u_i)), the same super-additive direction",
+      "source": "statement"
+     },
+     {
+      "text": "(2) For A such that, 1/n ≤ A ≤ 1, ψ2 ∘ ϕ1 (t · A) ≥ A ψ2 ∘ ϕ1 (t)",
+      "formal": "ψ2(ϕ1(tA)) ≥ A·ψ2(ϕ1(t)) for A ∈ [1/n, 1]",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "other: pointwise ordering of Archimax copula cdfs (concordance/lower-orthant order)",
+     "direction": "C1(x) ≤ C2(x) for all x ∈ [0,1]^n"
+    },
+    "quantifiers": "n ≥ 2; all x ∈ [0,1]^n; A ∈ [1/n,1]",
+    "numbers": "",
+    "ambiguity": "The conclusion orders two multivariate distribution functions pointwise — a concordance ordering, not one of the named univariate stochastic orders; kept because the lemma orders two distributions and is the tool behind Theorem 3.1's st-ordering. The random variables X1,...,Xn named in the statement play no role beyond carrying the copulas."
+   }
+  ],
+  "note": "Pass A only (B-side same lemma queued separately). In scope: it orders two distribution functions (the copulas) under a concordance-type order, labeled 'other:' per spec. Page 6."
+ },
+ {
+  "queue_claim": "unn3.2:example in section 3.2 joe/gumbel generators",
+  "decision": "exclude",
+  "records": [],
+  "note": "Pass A only. §3.2 verifies the generator inequality ψ2∘ϕ1(tA) ≥ A·ψ2∘ϕ1(t) for Joe vs Gumbel generators 'from graphic software' — a hypothesis check for Lemma A.1, not a printed ordering of two distributions; out of scope (consistent with the exclusion of hypothesis-checking remarks elsewhere)."
+ },
+ {
+  "queue_claim": "unn:lemma a 1",
+  "decision": "include",
+  "records": [],
+  "note": "Pass B's record is the same Lemma A.1 queued under a different normalized label; the canonical record is emitted once under the A-side item 'unn3.1:lemma a 1 section 3.1' — included."
+ }
+]
