@@ -78,3 +78,31 @@ broad retained intelligence. A scripted run establishes execution and rollback
 mechanics only. A live result can show whether this particular retained program
 or lesson transfers under the recorded model, data, and limits; a null result is
 an ordinary outcome.
+
+## Observed transfer, September 27, 2026
+
+The live follow-up to seed 11 completed 78 fresh calls using the same
+`openai/gpt-6-luna` model through the OpenAI-only Gateway route. Temperature was
+omitted, preserving the provider default; reasoning was disabled. All three arms
+scored 8/8 on fresh validation and 8/8 on the separate audit, with no invalid
+outputs or false responses. The frozen rule therefore kept the original task.
+This run found no measurable transfer benefit from replacing it with the retained
+program or adding the learned guidance.
+
+The knowledge artifact held one 613-byte lesson. Original learning cost was
+49 calls and 45,648 modeled work units; the full original campaign was 77 calls
+and 67,962 units. Fresh evaluation cost was 78 calls and 61,752 units, with
+21,632 input tokens and 1,170 output tokens. The fresh standard uncached price
+estimate was **$0.0027482**, not an invoice reconciliation.
+
+Offline inspection reproduced all 78 fresh receipts/effects and the complete
+validation, rollback, cost, and audit result without provider calls. The local
+archive is `runs/retention-live-seed11`; generated data is excluded from Git.
+Canonical result digest:
+`sha256:dce5c969236fa1bf18357c68d922fab68f8e9966d7fbcf99bc57f58bb7689138`.
+SHA-256 of saved `result.json` bytes:
+`72c668dca06ae06d0ac0bd9f8b035f34d3254a46657eee38cc9e6aba9c7e2dc5`.
+
+One synthetic transfer set with a perfect baseline has a ceiling and little
+power to detect improvement. It supplies a real null comparison and successful
+rollback evidence, not proof that retained knowledge cannot help other tasks.
