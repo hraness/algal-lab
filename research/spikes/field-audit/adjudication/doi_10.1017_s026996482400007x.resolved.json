@@ -1,0 +1,983 @@
+[
+ {
+  "queue_claim": "counterexample3.1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/s026996482400007x",
+    "claim": "Counterexample 3.1",
+    "page": 9,
+    "quote": "Counterexample 3.1. Let Xi ~ EW(α, λi, k) (i = 1, 2, 3) and Yi ~ EW(α, µi, k) (i = 1, 2, 3). Set α = 0.55, (λ1, λ2, λ3) = (2.14, 1.4, 1) and (µ1, µ2, µ3) = (0.77, 0.8, 0.8). It is then easy to see that (log λ1, log λ2, log λ3) ⪰w (log µ1, log µ2, log µ3). Now, suppose we choose the Gumbel-Hougaard copula with parameters θ1 = 3 and θ2 = 0.6 and k = 1.63. Then, Figure 1 presents plots of FX3:3(x) and FY3:3(x), from which it is evident that when k ≥ 1, the graph of FX3:3(x) intersects with that of FY3:3(x) for some x ≥ 0.",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "EW(α, λi, k) marginals; Gumbel-Hougaard copulas θ1 = 3 (X), θ2 = 0.6 (Y); k = 1.63 ≥ 1",
+    "compared": "log-scale vectors λ = (2.14,1.4,1) vs µ = (0.77,0.8,0.8)",
+    "hypotheses": [
+     {
+      "text": "(log λ1, log λ2, log λ3) ⪰w (log µ1, log µ2, log µ3)",
+      "formal": "log-scale weak majorization holds (largest-first partial sums of log λ ≥ log µ: 0.760 ≥ −0.223, 1.097 ≥ −0.446, 1.097 ≥ −0.670)",
+      "source": "statement"
+     },
+     {
+      "text": "Gumbel-Hougaard copulas θ1 = 3, θ2 = 0.6; k = 1.63",
+      "formal": "same copula/α/k regime as Theorem 3.1 except the extremum is the maximum",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "no usual stochastic order between X3:3 and Y3:3 — the cdfs intersect for some x ≥ 0; Theorem 3.1's ordering does not extend to the largest order statistic under the same conditions"
+    },
+    "quantifiers": "n = 3; some x ≥ 0",
+    "numbers": "α = 0.55; λ = (2.14,1.4,1); µ = (0.77,0.8,0.8); θ1 = 3; θ2 = 0.6; k = 1.63; Figure 1",
+    "ambiguity": "The A_smaller/B_smaller queue codes are reconciliation artifacts — both records substantively agree that the cdfs cross (neither side stochastically smaller). Preamble: 'whether under the same condition, we can establish the inequality between two largest order statistics ... The following counterexample gives the answer to be negative.'"
+   }
+  ],
+  "note": "Both passes agree the cdfs cross; it refutes extending Theorem 3.1 to maxima. Direction fields were normalization artifacts only."
+ },
+ {
+  "queue_claim": "counterexample3.2",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/s026996482400007x",
+    "claim": "Counterexample 3.2",
+    "page": 12,
+    "quote": "Counterexample 3.2. Let Xi ~ EW(α, λi, k) (i = 1, 2) and Yi ~ EW(α, µi, k) (i = 1, 2). Set α = 0.6, (λ1, λ2) = (0.46, 0.5) and (µ1, µ2) = (1.7, 0.43). It is then evident that (µ1, µ2) ⪯w (λ1, λ2). Now, suppose we choose the Gumbel-Hougaard copula with parameters θ1 = 8.9, θ2 = 3.05 and k = 8.06 which violates the condition stated in Theorem 3.2. Figure 2 plots FX2:2(x) and FY2:2(x), from which it is evident that when k ≥ 1, the graph of FX2:2(x) intersects that of FY2:2(x), for some x ≥ 0.",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "EW(α, λi, k) marginals; Gumbel-Hougaard copulas θ1 = 8.9 (X), θ2 = 3.05 (Y); k = 8.06 violates 0 < k ≤ 1",
+    "compared": "same scale vectors as Example 3.1: λ = (0.46,0.5) vs µ = (1.7,0.43)",
+    "hypotheses": [
+     {
+      "text": "(µ1, µ2) ⪯w (λ1, λ2) asserted",
+      "formal": "as printed; numerically only λ ⪯_w µ (λ weakly submajorized by µ) holds — see Example 3.1",
+      "source": "statement"
+     },
+     {
+      "text": "k = 8.06",
+      "formal": "violates the 0 < k ≤ 1 hypothesis of Theorem 3.2",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "no usual stochastic order between X2:2 and Y2:2 — the cdfs intersect; Theorem 3.2 fails when k > 1 (k ≤ 1 is essential)"
+    },
+    "quantifiers": "n = 2; some x ≥ 0",
+    "numbers": "α = 0.6; λ = (0.46,0.5); µ = (1.7,0.43); θ1 = 8.9; θ2 = 3.05; k = 8.06; Figure 2",
+    "ambiguity": "Preamble: 'A natural question ... whether we can extend Theorem 3.2 for k ≥ 1. The answer ... is negative.' The ⪯w glyph direction caveat from Example 3.1 applies."
+   }
+  ],
+  "note": "Both passes agree the cdfs cross; refutes Theorem 3.2 when k > 1. Direction fields were artifacts only."
+ },
+ {
+  "queue_claim": "counterexample3.3",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/s026996482400007x",
+    "claim": "Counterexample 3.3",
+    "page": 16,
+    "quote": "Counterexample 3.3. Let Xi ~ EW(α, λ, ki) (i = 1, 2, 3) and Yi ~ EW(α, µ, li) (i = 1, 2, 3). Set α = 0.5, λ = 4.83, (k1, k2, k3) = (0.5, 1, 3) and (l1, l2, l3) = (1, 1.5, 2). It is easy to see (k1, k2, k3) ⪯m (l1, l2, l3). Now, suppose we choose the copula ϕ(t) = e^{θ/t} − e^θ, for t ≥ 0, that satisfies αtϕ''(t) + ϕ'(t) ≥ 0, where t ≥ 0, as α = 0.5 and the parameters θ1 = 2.48 and θ2 = 2.24 violate the condition of super-additivity of ϕ2 ∘ ψ1. Figure 3 plots FX3:3(x) and FY3:3(x) from it, is evident that when the condition of super-additivity of ϕ2 ∘ ψ1 is violated in Theorem 3.3, FX3:3(x) is greater than FY3:3(x) for some x ≥ 0.",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "EW(α, λ, shape) marginals; copula family with ϕ(t) = e^{θ/t} − e^θ (inverse ψ(t) = θ/ln(t + e^θ)); θ1 = 2.48, θ2 = 2.24",
+    "compared": "shape vectors k = (0.5,1,3) vs l = (1,1.5,2)",
+    "hypotheses": [
+     {
+      "text": "(k1, k2, k3) ⪯m (l1, l2, l3) asserted",
+      "formal": "as printed; numerically the verified relation is l ⪯m k (l majorized by k, k more spread — equal totals 4.5, lower sums of l 1 ≥ 0.5, 2.5 ≥ 1.5)",
+      "source": "statement"
+     },
+     {
+      "text": "θ1 = 2.48 and θ2 = 2.24 violate super-additivity of ϕ2 ∘ ψ1",
+      "formal": "copula condition of Theorem 3.3 fails",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "Theorem 3.3's conclusion X3:3 ⪰st Y3:3 fails — FX3:3(x) is greater than FY3:3(x) for some x ≥ 0 when super-additivity is violated"
+    },
+    "quantifiers": "n = 3; some x ≥ 0",
+    "numbers": "α = 0.5; λ = 4.83; k = (0.5,1,3); l = (1,1.5,2); θ1 = 2.48; θ2 = 2.24; Figure 3",
+    "ambiguity": "Statement prints Yi ~ EW(α, µ, li) while only λ = 4.83 is set (presumed typo for λ, as in Theorem 3.4). The printed (k) ⪯m (l) is numerically false under Definition 2.1; the true relation is l ⪯m k — the paper's majorization glyph direction is unreliable. Copula print 'e t − eθ' rendered as e^{θ/t} − e^θ consistent with the stated inverse ψ(t) = θ/ln(t + e^θ)."
+   }
+  ],
+  "note": "Refutes Theorem 3.3 without super-additivity: FX3:3 > FY3:3 for some x. Passes disagreed only on direction-artifact codes and the ϕ glyph rendering."
+ },
+ {
+  "queue_claim": "counterexample3.4",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/s026996482400007x",
+    "claim": "Counterexample 3.4",
+    "page": 21,
+    "quote": "Counterexample 3.4. Let Xi ~ EW(αi, λ, k) and Yi ~ EW(βi, µ, k), for i = 1, 2, 3. Set k = 3.16, λ = 12.5, (α1, α2, α3) = (0.82, 0.85, 0.95) and (β1, β2, β3) = (0.4, 0.84, 0.87). It is easy to see that (α1, α2, α3) ⪰w (β1, β2, β3). Now, suppose we choose the copula ϕ(t) = e^{θ/t} − e^θ, for t ≥ 0, that satisfies tϕ''(t) + 2ϕ'(t) ≥ 0, where t ≥ 0, and the parameters θ1 = 22.6 and θ2 = 10.7 which violate the condition of super-additivity of ϕ2 ∘ ψ1. Figure 4 plots FX3:3(x) and FY3:3(x), and it is evident from it that when the condition of super-additivity of ϕ2 ∘ ψ1 is violated in Theorem 3.5, FX3:3(x) is greater than FY3:3(x), for some x ≥ 0.",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "EW(αi, λ, k) vs EW(βi, λ, k) marginals (tilt vectors); copula ϕ(t) = e^{θ/t} − e^θ; θ1 = 22.6, θ2 = 10.7",
+    "compared": "tilt vectors α = (0.82,0.85,0.95) vs β = (0.4,0.84,0.87)",
+    "hypotheses": [
+     {
+      "text": "(α1, α2, α3) ⪰w (β1, β2, β3)",
+      "formal": "weak majorization holds in the upper-sums reading (α desc sums 0.95, 1.80, 2.62 ≥ β 0.87, 1.71, 2.11)",
+      "source": "statement"
+     },
+     {
+      "text": "θ1 = 22.6 and θ2 = 10.7 violate super-additivity of ϕ2 ∘ ψ1",
+      "formal": "copula condition of Theorem 3.5 fails",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "Theorem 3.5's conclusion X3:3 ⪰st Y3:3 fails — FX3:3(x) is greater than FY3:3(x) for some x ≥ 0 when super-additivity is violated"
+    },
+    "quantifiers": "n = 3; some x ≥ 0",
+    "numbers": "k = 3.16; λ = 12.5; α = (0.82,0.85,0.95); β = (0.4,0.84,0.87); θ1 = 22.6; θ2 = 10.7; Figure 4",
+    "ambiguity": "Statement prints Yi ~ EW(βi, µ, k) while only λ is set (µ-vs-λ typo as in Example 3.3)."
+   }
+  ],
+  "note": "Refutes Theorem 3.5 without super-additivity: FX3:3 > FY3:3 for some x. Passes agreed substantively; direction artifacts only."
+ },
+ {
+  "queue_claim": "example3.1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/s026996482400007x",
+    "claim": "Example 3.1",
+    "page": 12,
+    "quote": "Example 3.1. Let Xi ~ EW(α, λi, k) (i = 1, 2) and Yi ~ EW(α, µi, k) (i = 1, 2). Set α = 0.6, (λ1, λ2) = (0.46, 0.5) and (µ1, µ2) = (1.7, 0.43). It is then easy to see that (µ1, µ2) ⪯w (λ1, λ2). Now, suppose we choose the Gumbel-Hougaard copula with parameters θ1 = 8.9, θ2 = 3.05 and k = 0.9. ... Then, FX2:2(x) ≤ FY2:2(x), for all x ≥ 0, as already proved in Theorem 3.2.",
+    "kind": "example",
+    "model": "parallel system",
+    "family": "EW(α, λi, k) marginals; Gumbel-Hougaard copulas θ1 = 8.9 (X), θ2 = 3.05 (Y); k = 0.9 ≤ 1",
+    "compared": "scale vectors λ = (0.46,0.5) vs µ = (1.7,0.43)",
+    "hypotheses": [
+     {
+      "text": "(µ1, µ2) ⪯w (λ1, λ2) asserted",
+      "formal": "as printed — but numerically the only Def-2.1 relation holding is λ ⪯_w µ (λ weakly submajorized by µ: upper sums 0.5 ≤ 1.7, 0.96 ≤ 2.13); the printed claim fails for both weak orders (µ_(1)=0.43 < λ_(1)=0.46; µ_(2)=1.7 > λ_(2)=0.5)",
+      "source": "statement"
+     },
+     {
+      "text": "k = 0.9 satisfies 0 < k ≤ 1; GH copulas with θ1 > θ2",
+      "formal": "Theorem 3.2's other conditions",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "FX2:2(x) ≤ FY2:2(x) for all x ≥ 0, i.e., X2:2 ⪰st Y2:2 (X stochastically larger) — verifies Theorem 3.2"
+    },
+    "quantifiers": "n = 2; all x ≥ 0",
+    "numbers": "α = 0.6; λ = (0.46,0.5); µ = (1.7,0.43); θ1 = 8.9; θ2 = 3.05; k = 0.9",
+    "ambiguity": "The printed weak-majorization claim (µ) ⪯w (λ) is false as written under Definition 2.1 for both weak orders; the paper's weak-order glyphs are directionally unreliable (Def 2.1 defines only ⪯-direction 'weakly sub-/super-majorized by' with w subscript vs superscript collapsed in the text layer)."
+   }
+  ],
+  "note": "Passes agree: FX2:2 ≤ FY2:2 ∀x — X stochastically larger, supporting Theorem 3.2. Kept pass A's numerically verified caveat on the printed majorization direction."
+ },
+ {
+  "queue_claim": "example3.2",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/s026996482400007x",
+    "claim": "Example 3.2",
+    "page": 15,
+    "quote": "Example 3.2. Let Xi ~ EW(α, λ, ki) (i = 1, 2, 3) and Yi ~ EW(α, λ, li) (i = 1, 2, 3). Set α = 0.5, λ = 4.83, (k1, k2, k3) = (3, 0.5, 1) and (l1, l2, l3) = (2, 1.5, 1). It is then easy to see that (k1, k2, k3) ⪯m (l1, l2, l3). Now, suppose we choose the copula ϕ(t) = e^{θ/t} − e^θ, for t ≥ 0, that satisfies the relation αtϕ1''(t) + ϕ1'(t) ≥ 0, where t ≥ 0, as α = 0.5 and the parameters θ1 = 2.2 and θ2 = 2.45 ensures the super-additivity of ϕ2 ∘ ψ1. ... Then, FX3:3(x) ≤ FY3:3(x), for all x ≥ 0, as established in Theorem 3.3.",
+    "kind": "example",
+    "model": "parallel system",
+    "family": "EW(α, λ, shape) marginals, common α and λ; copula ϕ(t) = e^{θ/t} − e^θ; θ1 = 2.2, θ2 = 2.45",
+    "compared": "shape vectors k = (3,0.5,1) vs l = (2,1.5,1)",
+    "hypotheses": [
+     {
+      "text": "(k1, k2, k3) ⪯m (l1, l2, l3) asserted",
+      "formal": "as printed — numerically the verified relation is l ⪯m k (l majorized by k; k more spread: equal totals 4.5, lower sums of l 1 ≥ 0.5, 2.5 ≥ 1.5)",
+      "source": "statement"
+     },
+     {
+      "text": "θ1 = 2.2 and θ2 = 2.45 ensure super-additivity of ϕ2 ∘ ψ1; αtϕ1''(t) + ϕ1'(t) ≥ 0",
+      "formal": "Theorem 3.3's copula conditions",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "FX3:3(x) ≤ FY3:3(x) for all x ≥ 0, i.e., X3:3 ⪰st Y3:3 (X stochastically larger) — verifies Theorem 3.3"
+    },
+    "quantifiers": "n = 3; all x ≥ 0",
+    "numbers": "α = 0.5; λ = 4.83; k = (3,0.5,1); l = (2,1.5,1); θ1 = 2.2; θ2 = 2.45",
+    "ambiguity": "Printed '(k) ⪯m (l)' is numerically reversed under Definition 2.1 (k is the more-spread vector, so l ⪯m k holds, not k ⪯m l) — consistent with the unreliable glyph directions noted for Theorem 3.3's 'l ⪰m k' hypothesis."
+   }
+  ],
+  "note": "Passes agree: FX3:3 ≤ FY3:3 ∀x — X stochastically larger, supporting Theorem 3.3. Kept A's verified note that the printed ⪯m direction is backwards vs the numbers."
+ },
+ {
+  "queue_claim": "example3.3",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/s026996482400007x",
+    "claim": "Example 3.3",
+    "page": 20,
+    "quote": "Example 3.3. Let Xi ~ EW(αi, λ, k) and Yi ~ EW(βi, µ, k) for i = 1, 2, 3. Set k = 5.67, λ = 5.37 (α1, α2, α3) = (0.4, 0.9, 0.1) and (β1, β2, β3) = (0.5, 0.8, 0.1). It is now easy to see that (α1, α2, α3) ⪰w (β1, β2, β3). Now, suppose we choose the copula ϕ(t) = e^{θ/t} − e^θ, for t ≥ 0, that satisfies tϕ''(t) + 2ϕ'(t) ≥ 0, where t ≥ 0, and the parameters θ1 = 2.4 and θ2 = 3.7 which ensure the super-additivity of ϕ2 ∘ ψ1. ... Then, FX3:3(x) ≤ FY3:3(x), for all x ≥ 0, as established in Theorem 3.5.",
+    "kind": "example",
+    "model": "parallel system",
+    "family": "EW(αi, λ, k) vs EW(βi, λ, k) marginals (tilt vectors); copula ϕ(t) = e^{θ/t} − e^θ; θ1 = 2.4, θ2 = 3.7",
+    "compared": "tilt vectors α = (0.4,0.9,0.1) vs β = (0.5,0.8,0.1)",
+    "hypotheses": [
+     {
+      "text": "(α1, α2, α3) ⪰w (β1, β2, β3)",
+      "formal": "verified in the upper-sums reading: α desc sums (0.9, 1.3, 1.4) ≥ β (0.8, 1.3, 1.4) — i.e., β weakly submajorized by α, consistent with Theorem 3.5's 'weakly sub-majorization' preamble",
+      "source": "statement"
+     },
+     {
+      "text": "θ1 = 2.4, θ2 = 3.7 ensure super-additivity of ϕ2 ∘ ψ1; tϕ''(t) + 2ϕ'(t) ≥ 0",
+      "formal": "Theorem 3.5's copula conditions",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "FX3:3(x) ≤ FY3:3(x) for all x ≥ 0, i.e., X3:3 ⪰st Y3:3 (X stochastically larger) — verifies Theorem 3.5"
+    },
+    "quantifiers": "n = 3; all x ≥ 0",
+    "numbers": "k = 5.67; λ = 5.37; α = (0.4,0.9,0.1); β = (0.5,0.8,0.1); θ1 = 2.4; θ2 = 3.7",
+    "ambiguity": "Statement prints Yi ~ EW(βi, µ, k) but sets λ = 5.37 and the displayed cdfs use λ for both sides — presumed typo (µ for λ), as in Theorem 3.4/Counterexample 3.4."
+   }
+  ],
+  "note": "Passes agree: FX3:3 ≤ FY3:3 ∀x — X stochastically larger, supporting Theorem 3.5. The ⪰w premise verifies in the upper-sums reading."
+ },
+ {
+  "queue_claim": "lemma3.1",
+  "decision": "exclude",
+  "records": [],
+  "note": "Lemma 3.1 (Saunders and Moran 1978) gives a star-order characterization for an arbitrary parametric family {Fa : a > 0} — an ordering result stated for a fully general class, excluded by spec scope; the paper's family-specific star-order applications are Theorems 3.10/3.11, captured separately."
+ },
+ {
+  "queue_claim": "theorem3.1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/s026996482400007x",
+    "claim": "Theorem 3.1",
+    "page": 8,
+    "quote": "Theorem 3.1. Let Xi ~ EW(α, λi, k) (i = 1, ..., n) and Yi ~ EW(α, µi, k) (i = 1, ..., n) have their associated Archimedean survival copulas to be with generators ψ1 and ψ2, respectively. Further, suppose ϕ2 ∘ ψ1 is super-additive and ψ1 is log-concave. Then, for 0 < α ≤ 1, we have (log λ1, ..., log λn) ⪰w (log µ1, ..., log µn) ⇒ Y1:n ⪰st X1:n.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "extended Weibull EW(α,λ,k): F(x) = (1 − e^{-(λx)^k})/(1 − ᾱ e^{-(λx)^k}), ᾱ = 1 − α; Archimedean survival copulas ψ1 (X), ψ2 (Y)",
+    "compared": "scale vectors λ vs µ on log scale under weak majorization; common α, k",
+    "hypotheses": [
+     {
+      "text": "Xi ~ EW(α,λi,k), Yi ~ EW(α,µi,k) with Archimedean survival copulas generated by ψ1, ψ2",
+      "formal": "stated configuration",
+      "source": "statement"
+     },
+     {
+      "text": "ϕ2 ∘ ψ1 is super-additive and ψ1 is log-concave; 0 < α ≤ 1",
+      "formal": "copula conditions",
+      "source": "statement"
+     },
+     {
+      "text": "(log λ1, ..., log λn) ⪰w (log µ1, ..., log µn)",
+      "formal": "weak majorization between log-scale vectors (paper's ⪰w notation; Def 2.1 defines the ⪯-direction 'majorized by' forms)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "Y1:n ⪰st X1:n (Y stochastically larger; equivalently X1:n ≤st Y1:n)"
+    },
+    "quantifiers": "n ≥ 1; all x ≥ 0",
+    "numbers": "",
+    "ambiguity": "Definition 2.1 defines ⪯_w (weakly submajorized by) and ⪯^w (weakly supermajorized by) which the text layer collapses to '⪯w'; the printed hypothesis ⪰w is the converse-direction glyph — verified reading for these hypotheses is 'log µ weakly submajorized by log λ' (largest-first partial sums). Counterexample 3.1 shows no extension to maxima."
+   }
+  ],
+  "note": "Direction printed Y1:n ⪰st X1:n — A's 'y1n ⪰st x1n' and B's 'A_smaller' are the same content. Page is 8 (printed), not 9."
+ },
+ {
+  "queue_claim": "theorem3.10",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/s026996482400007x",
+    "claim": "Theorem 3.10",
+    "page": 23,
+    "quote": "Theorem 3.10. Let Xi ~ EW(α, λ1, k) (i = 1, ..., p) and Xj ~ EW(α, λ2, k) (j = p + 1, ..., n), and Yi ~ EW(α, µ1, k) (i = 1, ..., p) and Yj ~ EW(α, µ2, k) (j = p + 1, ..., n) be variables with a common Archimedean copula having generator ψ. Then, if (α + ᾱt) ln(t/(α + ᾱt)) [α + 2ᾱt − (α + ᾱt)tϕ''(1 − t)/ϕ'(1 − t)] is increasing with respect to t ∈ [0, 1] and 0 < k ≤ 1, we have (λ1 − λ2)(µ1 − µ2) ≥ 0 and λ2:2/λ1:2 ≥ µ2:2/µ1:2 ⇒ Yn:n ≤* Xn:n, where p + q = n.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "EW(α,λ,k) with two-level scale structure (p components at λ1, q = n−p at λ2); common Archimedean copula ψ",
+    "compared": "two-level scale pairs (λ1,λ2) vs (µ1,µ2): same ordering sign and larger max/min ratio",
+    "hypotheses": [
+     {
+      "text": "common Archimedean copula generator ψ for both vectors (inverse ϕ)",
+      "formal": "stated",
+      "source": "statement"
+     },
+     {
+      "text": "(α + ᾱt) ln(t/(α + ᾱt)) [α + 2ᾱt − (α + ᾱt)tϕ''(1 − t)/ϕ'(1 − t)] is increasing in t ∈ [0, 1]",
+      "formal": "copula-generator monotonicity condition",
+      "source": "statement"
+     },
+     {
+      "text": "0 < k ≤ 1; (λ1 − λ2)(µ1 − µ2) ≥ 0; λ2:2/λ1:2 ≥ µ2:2/µ1:2",
+      "formal": "same ordering of the two levels and ratio comparison (λi:2, µi:2 are the order statistics of the two level values)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "star",
+     "direction": "Yn:n ≤* Xn:n (Y smaller in the star order, per Definition 2.2: FZ^{-1}FY(x)/x increasing)"
+    },
+    "quantifiers": "n = p + q; x ∈ (0,∞); t ∈ [0,1]",
+    "numbers": "",
+    "ambiguity": "The ≤* symbol is the paper's star order (Definition 2.2), not the usual stochastic order — canonical 'star'. The print shows 'µ2;2' (semicolon) for µ2:2."
+   }
+  ],
+  "note": "Conclusion prints Yn:n ≤* Xn:n — the paper's star order (Def 2.2); canonical order 'star' (B right in the record; A's '*' is the raw glyph; B's normalized 'st' header was a reconciliation artifact)."
+ },
+ {
+  "queue_claim": "theorem3.11",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/s026996482400007x",
+    "claim": "Theorem 3.11",
+    "page": 25,
+    "quote": "Theorem 3.11. Let Xi ~ EW(α, λ1, k) (i = 1, ..., p) and Xj ~ EW(α, λ2, k) (j = p + 1, ..., n), and Yi ~ EW(α, µ1, k) (i = 1, ..., p) and Yj ~ EW(α, µ2, k) (j = p + 1, ..., n) be variables with a common Archimedean survival copula having generator ψ. Then, if (α + ᾱt) ln(t/(α + ᾱt)) (α + 2ᾱt) + (αt + ᾱt²)ϕ''(t)/ϕ'(t) is decreasing with respect to t ∈ [0, 1] and 0 ≤ k ≤ 1, we have (λ1 − λ2)(µ1 − µ2) ≥ 0 and λ2:2/λ1:2 ≥ µ2:2/µ1:2 ⇒ Y1:n ≤* X1:n, where p + q = n.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "EW(α,λ,k) with two-level scale structure; common Archimedean survival copula ψ",
+    "compared": "two-level scale pairs (λ1,λ2) vs (µ1,µ2): same ordering sign and larger max/min ratio",
+    "hypotheses": [
+     {
+      "text": "common Archimedean survival copula generator ψ (inverse ϕ)",
+      "formal": "stated",
+      "source": "statement"
+     },
+     {
+      "text": "(α + ᾱt) ln(t/(α + ᾱt)) (α + 2ᾱt) + (αt + ᾱt²)ϕ''(t)/ϕ'(t) is decreasing in t ∈ [0, 1]",
+      "formal": "copula-generator monotonicity condition",
+      "source": "statement"
+     },
+     {
+      "text": "0 ≤ k ≤ 1; (λ1 − λ2)(µ1 − µ2) ≥ 0; λ2:2/λ1:2 ≥ µ2:2/µ1:2",
+      "formal": "shape bound + sign and ratio conditions on scale pairs",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "star",
+     "direction": "Y1:n ≤* X1:n (Y smaller in the star order)"
+    },
+    "quantifiers": "n = p + q; x ∈ (0,∞); t ∈ [0,1]",
+    "numbers": "",
+    "ambiguity": "Star order per Definition 2.2 (not 'st'). A noted the proof's case analysis contains typos (e.g., 'β1 + β2 = µ1 + µ2' in the λ1+λ2=µ1+µ2 case)."
+   }
+  ],
+  "note": "Conclusion prints Y1:n ≤* X1:n — star order; canonical 'star'."
+ },
+ {
+  "queue_claim": "theorem3.12",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/s026996482400007x",
+    "claim": "Theorem 3.12",
+    "page": 28,
+    "quote": "Theorem 3.12. Let Xi ~ EW(α, λi, k) (i = 1, ..., n) and Yi ~ EW(α, λ, k) (i = 1, ..., n) and the associated Archimedean survival copula for both be with generator ψ, 0 ≤ k ≤ 1 and 0 ≤ α ≤ 1. Then, λ ≤ (λ1 ··· λn)^{1/n} implies Y1:n ⪰disp X1:n if ψ/ψ' is decreasing and concave.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "EW(α,λ,k); heterogeneous scales λi (X) vs homogeneous λ (Y); common survival copula ψ",
+    "compared": "scale vector (λ1,...,λn) vs common scalar λ bounded by the geometric mean",
+    "hypotheses": [
+     {
+      "text": "common Archimedean survival copula generator ψ; 0 ≤ k ≤ 1; 0 ≤ α ≤ 1",
+      "formal": "parameter bounds",
+      "source": "statement"
+     },
+     {
+      "text": "λ ≤ (λ1 ··· λn)^{1/n}",
+      "formal": "common scale below geometric mean of the λi",
+      "source": "statement"
+     },
+     {
+      "text": "ψ/ψ' is decreasing and concave",
+      "formal": "generator condition",
+      "source": "statement"
+     },
+     {
+      "text": "λ = (λ1,...,λn) ∈ I+ or D+",
+      "formal": "scale vector monotone — used in the proof (Chebyshev), not printed in the statement",
+      "source": "proof"
+     }
+    ],
+    "conclusion": {
+     "order": "disp",
+     "direction": "Y1:n ⪰disp X1:n (Y larger in the dispersive order, i.e., X1:n ≤disp Y1:n — Y more spread in quantiles)"
+    },
+    "quantifiers": "n ≥ 1; quantile pairs 0 < α ≤ β < 1",
+    "numbers": "",
+    "ambiguity": "Proof invokes λ ∈ I+ or D+ which is absent from the printed statement — flagged as an implicit hypothesis. The 'ψ/ψ′ decreasing and concave' wording is as printed."
+   }
+  ],
+  "note": "Prints Y1:n ⪰disp X1:n — A's direction text and B's 'A_smaller' agree. Implicit I+/D+ hypothesis noted from the proof."
+ },
+ {
+  "queue_claim": "theorem3.13",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/s026996482400007x",
+    "claim": "Theorem 3.13",
+    "page": 31,
+    "quote": "Theorem 3.13. Let Xi ~ EW(α, λi, k), (i = 1, ..., n) and Yi ~ EW(α, µi, k) (i = 1, ..., n) and their associated Archimedean survival copulas be with generators ψ1 and ψ2, respectively. Let N1 be a non-negative integer-valued random variable independently of Xi's and N2 be a non-negative integer-valued random variable independently of Yi's. Further, let N1 ≤st N2, ϕ2 ∘ ψ1 be super-additive and ψ1 be log-concave. Then, for 0 < α ≤ 1, we have (log λ1, ..., log λn) ⪰w (log µ1, ..., log µn) ⇒ Y1:N2 ⪰st X1:N1.",
+    "kind": "theorem",
+    "model": "other: series system of random size",
+    "family": "EW(α,λ,k); Archimedean survival copulas; random numbers of components N1, N2",
+    "compared": "log-scale weak majorization plus random sizes N1 ≤st N2",
+    "hypotheses": [
+     {
+      "text": "Xi ~ EW(α,λi,k), Yi ~ EW(α,µi,k); copulas ψ1, ψ2; N1, N2 independent non-negative integer-valued",
+      "formal": "stated",
+      "source": "statement"
+     },
+     {
+      "text": "N1 ≤st N2; ϕ2 ∘ ψ1 super-additive; ψ1 log-concave; 0 < α ≤ 1",
+      "formal": "random size + copula conditions",
+      "source": "statement"
+     },
+     {
+      "text": "(log λ1, ..., log λn) ⪰w (log µ1, ..., log µn)",
+      "formal": "as Theorem 3.1",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "Y1:N2 ⪰st X1:N1 (Y-side minimum stochastically larger)"
+    },
+    "quantifiers": "all x ≥ 0",
+    "numbers": "",
+    "ambiguity": "Random-size extension of Theorem 3.1; same ⪰w glyph caveat."
+   }
+  ],
+  "note": "Prints Y1:N2 ⪰st X1:N1; passes agree on content."
+ },
+ {
+  "queue_claim": "theorem3.14",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/s026996482400007x",
+    "claim": "Theorem 3.14",
+    "page": 32,
+    "quote": "Theorem 3.14. Let Xi ~ EW(α, λi, k) (i = 1, ..., n) and Yi ~ EW(α, µi, k) (i = 1, ..., n), where 0 < k ≤ 1 and their associated Archimedean copulas be with generators ψ1 and ψ2, respectively. Let N1 be a non-negative integer-valued random variable independently of Xi's and N2 be a non-negative integer-valued random variable independently of Yi's. Also, let N1 ≤st N2 and ϕ2 ∘ ψ1 be super-additive. Then, for 0 < α ≤ 1, we have λ ⪰w µ ⇒ XN1:N1 ⪰st YN2:N2.",
+    "kind": "theorem",
+    "model": "other: parallel system of random size",
+    "family": "EW(α,λ,k), 0 < k ≤ 1; Archimedean copulas; random sizes",
+    "compared": "scale weak majorization plus random sizes N1 ≤st N2",
+    "hypotheses": [
+     {
+      "text": "Xi ~ EW(α,λi,k), Yi ~ EW(α,µi,k), 0 < k ≤ 1; copulas ψ1, ψ2; N1, N2 independent",
+      "formal": "stated",
+      "source": "statement"
+     },
+     {
+      "text": "N1 ≤st N2; ϕ2 ∘ ψ1 super-additive; 0 < α ≤ 1; λ ⪰w µ",
+      "formal": "as Theorem 3.2",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "XN1:N1 ⪰st YN2:N2 (X-side maximum stochastically larger)"
+    },
+    "quantifiers": "all x ≥ 0",
+    "numbers": "",
+    "ambiguity": "Random-size extension of Theorem 3.2; ⪰w caveat as before."
+   }
+  ],
+  "note": "Prints XN1:N1 ⪰st YN2:N2; passes agree."
+ },
+ {
+  "queue_claim": "theorem3.15",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/s026996482400007x",
+    "claim": "Theorem 3.15",
+    "page": 33,
+    "quote": "Theorem 3.15. Let Xi ~ EW(α, λ, ki) (i = 1, ..., n) and Yi ~ EW(α, λ, li) (i = 1, ..., n), and the associated Archimedean copulas be with generators ψ1 and ψ2, respectively. Let N1 be a non-negative integer-valued random variable independently of Xi's and N2 be a non-negative integer-valued random variable independently of Yi's. Further, let N1 ≤st N2, ϕ2 ∘ ψ1 be super-additive and αtϕ1''(t) + ϕ1'(t) ≥ 0. Then, for 0 < α ≤ 1, we have l ⪰m k ⇒ XN1:N1 ⪰st YN2:N2.",
+    "kind": "theorem",
+    "model": "other: parallel system of random size",
+    "family": "EW(α,λ,shape); copulas ψ1, ψ2; random sizes",
+    "compared": "shape vectors k vs l; N1 ≤st N2",
+    "hypotheses": [
+     {
+      "text": "Xi ~ EW(α,λ,ki), Yi ~ EW(α,λ,li); copulas ψ1, ψ2; N1, N2 independent",
+      "formal": "stated",
+      "source": "statement"
+     },
+     {
+      "text": "N1 ≤st N2; ϕ2 ∘ ψ1 super-additive; αtϕ1''(t) + ϕ1'(t) ≥ 0; 0 < α ≤ 1",
+      "formal": "as Theorem 3.3",
+      "source": "statement"
+     },
+     {
+      "text": "l ⪰m k",
+      "formal": "majorization between shape vectors (⪰m-direction caveat as in Theorem 3.3)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "XN1:N1 ⪰st YN2:N2 (X-side maximum stochastically larger)"
+    },
+    "quantifiers": "all x ≥ 0",
+    "numbers": "",
+    "ambiguity": "Random-size extension of Theorem 3.3; same majorization glyph-direction caveat."
+   }
+  ],
+  "note": "Prints XN1:N1 ⪰st YN2:N2; passes agree."
+ },
+ {
+  "queue_claim": "theorem3.16",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/s026996482400007x",
+    "claim": "Theorem 3.16",
+    "page": 33,
+    "quote": "Theorem 3.16. Let Xi ~ EW(α, λ, ki) (i = 1, ..., n) and Yi ~ EW(α, µ, li) (i = 1, ..., n) and the associated Archimedean survival copulas be with generators ψ1 and ψ2, respectively. Let N1 be a non-negative integer-valued random variable independently of Xi's and N2 be a non-negative integer-valued random variable independently of Yi's. Further, let N1 ≤st N2, ϕ2 ∘ ψ1 be super-additive and tϕ1''(t) + ϕ1'(t) ≥ 0. Then, for 0 < α ≤ 1, we have l ⪰m k ⇒ Y1:N2 ⪰st X1:N1.",
+    "kind": "theorem",
+    "model": "other: series system of random size",
+    "family": "EW(α,λ,shape); survival copulas; random sizes",
+    "compared": "shape vectors k vs l; N1 ≤st N2",
+    "hypotheses": [
+     {
+      "text": "Xi ~ EW(α,λ,ki), Yi ~ EW(α,µ,li); copulas ψ1, ψ2; N1, N2 independent",
+      "formal": "statement prints µ for the Y-scale, but the proof and the parent Theorem 3.4 use common scale λ — presumed typo",
+      "source": "statement"
+     },
+     {
+      "text": "N1 ≤st N2; ϕ2 ∘ ψ1 super-additive; tϕ1''(t) + ϕ1'(t) ≥ 0; 0 < α ≤ 1",
+      "formal": "as Theorem 3.4",
+      "source": "statement"
+     },
+     {
+      "text": "l ⪰m k",
+      "formal": "majorization between shape vectors",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "Y1:N2 ⪰st X1:N1 (Y-side minimum stochastically larger)"
+    },
+    "quantifiers": "all x ≥ 0",
+    "numbers": "",
+    "ambiguity": "µ-vs-λ inconsistency carried over from Theorem 3.4; ⪰m glyph caveat as before."
+   }
+  ],
+  "note": "Prints Y1:N2 ⪰st X1:N1; passes agree; µ-vs-λ typo preserved in ambiguity."
+ },
+ {
+  "queue_claim": "theorem3.17",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/s026996482400007x",
+    "claim": "Theorem 3.17",
+    "page": 33,
+    "quote": "Theorem 3.17. Let Xi ~ EW(αi, λ, k) (i = 1, ..., n) and Yi ~ EW(βi, λ, k) (i = 1, ..., n) and the associated Archimedean copulas be with generators ψ1 and ψ2, respectively. Let N1 be a non-negative integer-valued random variable independently of Xi's and N2 be a non-negative integer-valued random variable independently of Yi's. Further, let N1 ≤st N2, ϕ2 ∘ ψ1 be super-additive and tϕ1''(t) + 2ϕ1'(t) ≥ 0. Then, we have α ⪰w β ⇒ XN1:N1 ⪰st YN2:N2.",
+    "kind": "theorem",
+    "model": "other: parallel system of random size",
+    "family": "EW(αi,λ,k) vs EW(βi,λ,k); copulas; random sizes",
+    "compared": "tilt vectors α vs β; N1 ≤st N2",
+    "hypotheses": [
+     {
+      "text": "Xi ~ EW(αi,λ,k), Yi ~ EW(βi,λ,k); copulas ψ1, ψ2; N1, N2 independent",
+      "formal": "stated",
+      "source": "statement"
+     },
+     {
+      "text": "N1 ≤st N2; ϕ2 ∘ ψ1 super-additive; tϕ1''(t) + 2ϕ1'(t) ≥ 0",
+      "formal": "as Theorem 3.5",
+      "source": "statement"
+     },
+     {
+      "text": "α ⪰w β",
+      "formal": "weak majorization between tilt vectors (sub-majorization sense per Theorem 3.5's preamble)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "XN1:N1 ⪰st YN2:N2 (X-side maximum stochastically larger)"
+    },
+    "quantifiers": "all x ≥ 0",
+    "numbers": "",
+    "ambiguity": "Random-size extension of Theorem 3.5; ⪰w weak-order glyph caveat."
+   }
+  ],
+  "note": "Prints XN1:N1 ⪰st YN2:N2; passes agree."
+ },
+ {
+  "queue_claim": "theorem3.18",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/s026996482400007x",
+    "claim": "Theorem 3.18",
+    "page": 34,
+    "quote": "Theorem 3.18. Let Xi ~ EW(αi, λ, k) (i = 1, ..., n) and Yi ~ EW(βi, λ, k) (i = 1, ..., n) and the associated Archimedean survival copulas be with generators ψ1 and ψ2, respectively. Let N1 be a non-negative integer-valued random variable independently of Xi's and N2 be a non-negative integer-valued random variable independently of Yi's. Further, let N1 ≤st N2 and ϕ2 ∘ ψ1 be super-additive. Then, we have α ⪰w β ⇒ X1:N1 ⪰st Y1:N2.",
+    "kind": "theorem",
+    "model": "other: series system of random size",
+    "family": "EW(αi,λ,k) vs EW(βi,λ,k); survival copulas; random sizes",
+    "compared": "tilt vectors α vs β; N1 ≤st N2",
+    "hypotheses": [
+     {
+      "text": "Xi ~ EW(αi,λ,k), Yi ~ EW(βi,λ,k); survival copulas ψ1, ψ2; N1, N2 independent",
+      "formal": "stated",
+      "source": "statement"
+     },
+     {
+      "text": "N1 ≤st N2; ϕ2 ∘ ψ1 super-additive",
+      "formal": "as Theorem 3.6",
+      "source": "statement"
+     },
+     {
+      "text": "α ⪰w β",
+      "formal": "weak super-majorization sense per Theorem 3.6's preamble",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X1:N1 ⪰st Y1:N2 (X-side minimum stochastically larger)"
+    },
+    "quantifiers": "all x ≥ 0",
+    "numbers": "",
+    "ambiguity": "Random-size extension of Theorem 3.6; ⪰w glyph caveat. Printed page is 34 (B), not 33 (A)."
+   }
+  ],
+  "note": "Prints X1:N1 ⪰st Y1:N2 on printed page 34; passes agree on content, differed on page."
+ },
+ {
+  "queue_claim": "theorem3.2",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/s026996482400007x",
+    "claim": "Theorem 3.2",
+    "page": 10,
+    "quote": "Theorem 3.2. Let Xi ~ EW(α, λi, k) (i = 1, ..., n) and Yi ~ EW(α, µi, k) (i = 1, ..., n) where 0 < k ≤ 1, and their associated Archimedean copulas be with generators ψ1 and ψ2, respectively. Also, suppose ϕ2 ∘ ψ1 is super-additive. Then, for 0 < α ≤ 1, we have λ ⪰w µ ⇒ Xn:n ⪰st Yn:n.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "EW(α,λ,k) with Archimedean copulas ψ1 (X), ψ2 (Y)",
+    "compared": "scale vectors λ vs µ under weak majorization; common α, k ≤ 1",
+    "hypotheses": [
+     {
+      "text": "Xi ~ EW(α,λi,k), Yi ~ EW(α,µi,k), 0 < k ≤ 1; copulas ψ1, ψ2",
+      "formal": "stated",
+      "source": "statement"
+     },
+     {
+      "text": "ϕ2 ∘ ψ1 super-additive; 0 < α ≤ 1",
+      "formal": "copula conditions",
+      "source": "statement"
+     },
+     {
+      "text": "λ ⪰w µ",
+      "formal": "weak majorization between scale vectors (see ambiguity)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "Xn:n ⪰st Yn:n (X stochastically larger)"
+    },
+    "quantifiers": "n ≥ 1; all x ≥ 0",
+    "numbers": "",
+    "ambiguity": "The supporting Example 3.1 states the premise from the other side ((µ) ⪯w (λ)) and its numbers satisfy only λ ⪯_w µ — the weak-order glyph directions in the paper are internally inconsistent; transcribed as printed. Remark 3.1 notes k = 1 recovers Theorem 1 of Barmalzan et al. (2020). Counterexample 3.2 shows failure when k > 1."
+   }
+  ],
+  "note": "Prints λ ⪰w µ ⇒ Xn:n ⪰st Yn:n; passes agree on content."
+ },
+ {
+  "queue_claim": "theorem3.3",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/s026996482400007x",
+    "claim": "Theorem 3.3",
+    "page": 13,
+    "quote": "Theorem 3.3. Let Xi ~ EW(α, λ, ki) (i = 1, ..., n) and Yi ~ EW(α, λ, li) (i = 1, ..., n) and the associated Archimedean copula be with generators ψ1 and ψ2, respectively. Further, let ϕ2 ∘ ψ1 be super-additive and αtϕ1''(t) + ϕ1'(t) ≥ 0. Then, for 0 < α ≤ 1, we have l ⪰m k ⇒ Xn:n ⪰st Yn:n.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "EW(α,λ,shape); common α and scale λ; copulas ψ1, ψ2",
+    "compared": "shape vectors k (X) vs l (Y) under majorization",
+    "hypotheses": [
+     {
+      "text": "Xi ~ EW(α,λ,ki), Yi ~ EW(α,λ,li); copulas ψ1, ψ2; 0 < α ≤ 1",
+      "formal": "stated",
+      "source": "statement"
+     },
+     {
+      "text": "ϕ2 ∘ ψ1 super-additive and αtϕ1''(t) + ϕ1'(t) ≥ 0",
+      "formal": "copula conditions",
+      "source": "statement"
+     },
+     {
+      "text": "l ⪰m k",
+      "formal": "majorization between shape vectors (see ambiguity)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "Xn:n ⪰st Yn:n (X stochastically larger)"
+    },
+    "quantifiers": "n ≥ 1; all x ≥ 0",
+    "numbers": "",
+    "ambiguity": "The ⪰m glyph direction is unreliable in this paper: the verifying Example 3.2 prints the converse (k) ⪯m (l), and its numbers (k = (3,0.5,1), l = (2,1.5,1)) actually have k more spread — i.e., under Definition 2.1 the true relation is l ⪯m k. Reading 'l ⪰m k' as the mirror of 'k ⪯m l' would assert l more spread, opposite to the example. Transcribed as printed. Counterexample 3.3 shows failure without super-additivity."
+   }
+  ],
+  "note": "Prints l ⪰m k ⇒ Xn:n ⪰st Yn:n; passes agree on the conclusion; majorization direction caveat documented."
+ },
+ {
+  "queue_claim": "theorem3.4",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/s026996482400007x",
+    "claim": "Theorem 3.4",
+    "page": 16,
+    "quote": "Theorem 3.4. Let Xi ~ EW(α, λ, ki) (i = 1, ..., n) and Yi ~ EW(α, µ, li) (i = 1, ..., n) and the associated Archimedean survival copulas be with generators ψ1 and ψ2, respectively. Also, let ϕ2 ∘ ψ1 be super-additive and tϕ1''(t) + ϕ1'(t) ≥ 0. Then, for 0 < α ≤ 1, we have l ⪰m k ⇒ Y1:n ⪰st X1:n.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "EW(α,λ,shape); survival copulas ψ1, ψ2",
+    "compared": "shape vectors k vs l under majorization",
+    "hypotheses": [
+     {
+      "text": "Xi ~ EW(α,λ,ki), Yi ~ EW(α,µ,li); copulas ψ1, ψ2; 0 < α ≤ 1",
+      "formal": "statement prints µ for the Y-scale, but the proof uses the common scale λ (presumed typo; preamble says 'same conditions as in Theorem 3.3')",
+      "source": "statement"
+     },
+     {
+      "text": "ϕ2 ∘ ψ1 super-additive and tϕ1''(t) + ϕ1'(t) ≥ 0 (no α factor, unlike Theorem 3.3)",
+      "formal": "copula conditions",
+      "source": "statement"
+     },
+     {
+      "text": "l ⪰m k",
+      "formal": "majorization between shape vectors",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "Y1:n ⪰st X1:n (Y stochastically larger; equivalently X1:n ≤st Y1:n)"
+    },
+    "quantifiers": "n ≥ 1; all x ≥ 0",
+    "numbers": "",
+    "ambiguity": "µ-vs-λ print inconsistency preserved. Same ⪰m glyph-direction caveat as Theorem 3.3."
+   }
+  ],
+  "note": "Prints Y1:n ⪰st X1:n; passes agree on direction; µ-vs-λ typo preserved."
+ },
+ {
+  "queue_claim": "theorem3.5",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/s026996482400007x",
+    "claim": "Theorem 3.5",
+    "page": 18,
+    "quote": "Theorem 3.5. Let Xi ~ EW(αi, λ, k) (i = 1, ..., n) and Yi ~ EW(βi, λ, k) (i = 1, ..., n) and the associated Archimedean copulas be with generators ψ1 and ψ2, respectively. Also, let ϕ2 ∘ ψ1 be super-additive and tϕ1''(t) + 2ϕ1'(t) ≥ 0. Then, we have α ⪰w β ⇒ Xn:n ⪰st Yn:n.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "EW(αi,λ,k) vs EW(βi,λ,k); common λ, k; copulas ψ1, ψ2",
+    "compared": "tilt vectors α vs β under weak majorization",
+    "hypotheses": [
+     {
+      "text": "Xi ~ EW(αi,λ,k), Yi ~ EW(βi,λ,k); copulas ψ1, ψ2",
+      "formal": "stated",
+      "source": "statement"
+     },
+     {
+      "text": "ϕ2 ∘ ψ1 super-additive and tϕ1''(t) + 2ϕ1'(t) ≥ 0",
+      "formal": "copula conditions",
+      "source": "statement"
+     },
+     {
+      "text": "α ⪰w β",
+      "formal": "preamble states the tilt vectors are 'connected in weakly sub-majorization order'",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "Xn:n ⪰st Yn:n (X stochastically larger)"
+    },
+    "quantifiers": "n ≥ 1; all x ≥ 0",
+    "numbers": "",
+    "ambiguity": "Preamble says 'weakly sub-majorization' while Theorem 3.6 says 'weakly super-majorization' — yet both conclusions print the same ⪰w glyph; the subscript/superscript-w distinction is invisible in the text layer. Example 3.3's numbers satisfy the upper-sums (sub-majorization) reading. Counterexample 3.4 shows failure without super-additivity."
+   }
+  ],
+  "note": "Prints α ⪰w β ⇒ Xn:n ⪰st Yn:n; passes agree; preamble says weakly sub-majorization."
+ },
+ {
+  "queue_claim": "theorem3.6",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/s026996482400007x",
+    "claim": "Theorem 3.6",
+    "page": 19,
+    "quote": "Theorem 3.6. Let Xi ~ EW(αi, λ, k) (i = 1, ..., n) and Yi ~ EW(βi, λ, k) for (i = 1, ..., n) and the associated Archimedean survival copulas be with generators ψ1 and ψ2, respectively. Further, let ϕ2 ∘ ψ1 be super-additive. Then, α ⪰w β ⇒ X1:n ⪰st Y1:n.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "EW(αi,λ,k) vs EW(βi,λ,k); survival copulas ψ1, ψ2",
+    "compared": "tilt vectors α vs β under weak majorization",
+    "hypotheses": [
+     {
+      "text": "Xi ~ EW(αi,λ,k), Yi ~ EW(βi,λ,k); survival copulas ψ1, ψ2",
+      "formal": "stated",
+      "source": "statement"
+     },
+     {
+      "text": "ϕ2 ∘ ψ1 super-additive",
+      "formal": "copula condition",
+      "source": "statement"
+     },
+     {
+      "text": "α ⪰w β",
+      "formal": "preamble states 'weakly super-majorization order'",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X1:n ⪰st Y1:n (X stochastically larger)"
+    },
+    "quantifiers": "n ≥ 1; all x ≥ 0",
+    "numbers": "",
+    "ambiguity": "Preamble says weakly super-majorization (Theorem 3.5 said sub-majorization) with the same printed ⪰w glyph — sub/superscript-w distinction collapsed in the text layer. Printed page is 19 (A), not 18 (B)."
+   }
+  ],
+  "note": "Prints α ⪰w β ⇒ X1:n ⪰st Y1:n on printed page 19; passes agree on content."
+ },
+ {
+  "queue_claim": "theorem3.7",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/s026996482400007x",
+    "claim": "Theorem 3.7",
+    "page": 22,
+    "quote": "Theorem 3.7. Let Xi ~ EW(α, λi, k) and Yi ~ EW(α, µi, k), for i = 1, ..., n, and the associated Archimedean survival copulas are with generators ψ1 = ψ2 = e^{-x}, that is, Xi's and Yi's are independent random variables. Also, let 0 < α ≤ 1 and k ≥ 1. Then, λ ⪰m µ ⇒ Y1:n ⪰hr X1:n.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "EW(α,λ,k), k ≥ 1; independence copula ψ = e^{-x}",
+    "compared": "scale vectors λ vs µ under majorization",
+    "hypotheses": [
+     {
+      "text": "Xi ~ EW(α,λi,k), Yi ~ EW(α,µi,k); ψ1 = ψ2 = e^{-x} (independence); 0 < α ≤ 1 and k ≥ 1",
+      "formal": "stated",
+      "source": "statement"
+     },
+     {
+      "text": "λ ⪰m µ",
+      "formal": "majorization between scale vectors (proof: hazard rate of X1:n is Schur-convex in λ)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "Y1:n ⪰hr X1:n (Y larger in hazard rate order; equivalently X1:n ≤hr Y1:n)"
+    },
+    "quantifiers": "n ≥ 1; all x ≥ 0",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Prints λ ⪰m µ ⇒ Y1:n ⪰hr X1:n under independence and k ≥ 1; passes agree."
+ },
+ {
+  "queue_claim": "theorem3.8",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/s026996482400007x",
+    "claim": "Theorem 3.8",
+    "page": 22,
+    "quote": "Theorem 3.8. Let Xi ~ EW(αi, λ, k) and Yi ~ EW(βi, λ, k), for i = 1, ..., n, and the associated Archimedean survival copulas be with generators ψ1 = ψ2 = e^{-x}, respectively. Then, α ⪰w β ⇒ Y1:n ⪰hr X1:n.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "EW(αi,λ,k) vs EW(βi,λ,k); independence copula",
+    "compared": "tilt vectors α vs β under weak super-majorization (per preamble)",
+    "hypotheses": [
+     {
+      "text": "Xi ~ EW(αi,λ,k), Yi ~ EW(βi,λ,k); ψ1 = ψ2 = e^{-x} (independence)",
+      "formal": "stated",
+      "source": "statement"
+     },
+     {
+      "text": "α ⪰w β",
+      "formal": "weak majorization between tilt vectors (proof uses Lemma 3.2 of Balakrishnan et al. (2018))",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "Y1:n ⪰hr X1:n (Y larger in hazard rate order)"
+    },
+    "quantifiers": "n ≥ 1; all x ≥ 0",
+    "numbers": "",
+    "ambiguity": "Weak-order glyph caveat as in Theorems 3.5/3.6; preamble describes 'weakly super-majorization order'."
+   }
+  ],
+  "note": "Prints α ⪰w β ⇒ Y1:n ⪰hr X1:n under independence; passes agree."
+ },
+ {
+  "queue_claim": "theorem3.9",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/s026996482400007x",
+    "claim": "Theorem 3.9",
+    "page": 22,
+    "quote": "Theorem 3.9. Let Xi ~ EW(αi, λ, k) and Yi ~ EW(βi, λ, k), for i = 1, ..., n, and the associated Archimedean survival copulas be with generators ψ1 = ψ2 = e^{-x}, respectively. Then, α ⪰w β ⇒ Yn:n ⪰rh Xn:n.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "EW(αi,λ,k) vs EW(βi,λ,k); independence copula",
+    "compared": "tilt vectors α vs β under weak (super-)majorization per preamble",
+    "hypotheses": [
+     {
+      "text": "Xi ~ EW(αi,λ,k), Yi ~ EW(βi,λ,k); ψ1 = ψ2 = e^{-x} (independence)",
+      "formal": "stated",
+      "source": "statement"
+     },
+     {
+      "text": "α ⪰w β",
+      "formal": "weak majorization between tilt vectors",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "Yn:n ⪰rh Xn:n (Y larger in reversed hazard rate order; equivalently Xn:n ≤rh Yn:n)"
+    },
+    "quantifiers": "n ≥ 1; all x ≥ 0",
+    "numbers": "",
+    "ambiguity": "Reversed hazard order denoted ≤rh/⪰rh in this paper's Definition 2.2 (not ≤rhr as in the other paper); same weak-order glyph caveat."
+   }
+  ],
+  "note": "Prints α ⪰w β ⇒ Yn:n ⪰rh Xn:n under independence; passes agree."
+ }
+]

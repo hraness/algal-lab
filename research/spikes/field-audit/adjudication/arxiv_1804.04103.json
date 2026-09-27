@@ -1,0 +1,69 @@
+[
+ {
+  "claim": "counterexample3.1",
+  "a_orders": [
+   "st"
+  ],
+  "b_orders": [
+   "st"
+  ],
+  "a_dirs": [
+   "A_smaller"
+  ],
+  "b_dirs": [
+   "x3 3 >=st y3 3 cdfs ordered figure 1"
+  ],
+  "a_records": [
+   {
+    "paper": "arxiv:1804.04103",
+    "claim": "Counterexample 3.1",
+    "page": 9,
+    "quote": "Counterexample 3.1 For \u03c3 = 0.5 and i = 1, 2, 3, let Ti \u223c LL (\u03c3, \u03bbi ) and Wi \u223c LL (\u03c3, \u03b2i ) be two sets of mutually independent random variables. Let (v1 , v2 , v3 ) = (0.4, 0.4, 0.1) and (v1\u2217 , v2\u2217 , v3\u2217 ) = (0.5, 0.4, 0.2), where vi = 1/(1+\u03bbi^\u03c3) and vi\u2217 = 1/(1+\u03b2i^\u03c3). Now if h(p)= (2, 2, 1) and h(p\u2217 )= (3, 2, 1) are taken, where h(u) = \u2212 log(u), then it can be written that [h(p); v] >w [h(p\u2217 ); v\u2217], where (v, h(p)) \u2208 Un , and (v \u2217 , h(p\u2217 )) \u2208 Un . The figure ... shows that, for all 0 \u2264 x \u2264 1, FX3:3 (x) \u2264 FY3:3 (x) giving that X3:3 \u2265st Y3:3 .",
+    "kind": "example",
+    "model": "parallel system (n = 3) with random shocks",
+    "family": "log-Lindley \u03c3 = 0.5, h(u) = \u2212log u",
+    "compared": "numerical verification of Theorem 3.3: matrix-majorized parameters give st-larger maximum",
+    "hypotheses": [
+     {
+      "text": "v = (0.4,0.4,0.1), v* = (0.5,0.4,0.2); h(p) = (2,2,1), h(p*) = (3,2,1)",
+      "formal": "matrix weak majorization",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X3:3 >=st Y3:3 (F_X3:3 \u2264 F_Y3:3 for 0 \u2264 x \u2264 1)"
+    },
+    "quantifiers": "n = 3; x \u2208 [0,1]",
+    "numbers": "\u03c3 = 0.5; v = (0.4,0.4,0.1); v* = (0.5,0.4,0.2); h(p) = (2,2,1); h(p*) = (3,2,1)",
+    "ambiguity": "Labeled 'Counterexample' but actually a positive numerical illustration of Theorem 3.3; graphical check via Figure 1."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "arxiv:1804.04103",
+    "claim": "Counterexample 3.1 (verification)",
+    "page": 9,
+    "quote": "Counterexample 3.1 For \u03c3 = 0.5 and i = 1, 2, 3, let Ti \u223c LL(\u03c3, \u03bbi) and Wi \u223c LL(\u03c3, \u03b2i). Let (v1, v2, v3) = (0.4, 0.4, 0.1) and (v1*, v2*, v3*) = (0.5, 0.4, 0.2), where vi = 1/(1+\u03bbi\u03c3) and vi* = 1/(1+\u03b2i\u03c3). Now if h(p) = (2, 2, 1) and h(p*) = (3, 2, 1) are taken, where h(u) = \u2212log(u), then it can be written that [h(p); v] \u227bw [h(p*); v*], where (v, h(p)) \u2208 Un and (v*, h(p*)) \u2208 Un. The figure given below also shows that, for all 0 \u2264 x \u2264 1, FX3:3(x) \u2264 FY3:3(x) giving that X3:3 \u2265st Y3:3.",
+    "kind": "example",
+    "model": "three-component parallel systems under shocks",
+    "family": "log-Lindley, \u03c3 = 0.5, h(u) = \u2212log u",
+    "compared": "numerical confirmation of Theorem 3.3's matrix-majorization claim",
+    "hypotheses": [
+     {
+      "text": "v = (0.4,0.4,0.1), v* = (0.5,0.4,0.2), h(p) = (2,2,1), h(p*) = (3,2,1); matrix majorization verified",
+      "formal": "printed values",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X3:3 >=st Y3:3 (CDFs ordered, Figure 1)"
+    },
+    "quantifiers": "n = 3",
+    "numbers": "\u03c3 = 0.5; v = (0.4,0.4,0.1); v* = (0.5,0.4,0.2); h(p) = (2,2,1); h(p*) = (3,2,1)",
+    "ambiguity": "Figure-based check of the CDF ordering on 0 \u2264 x \u2264 1."
+   }
+  ]
+ }
+]

@@ -1,0 +1,308 @@
+[
+ {
+  "paper": "doi:10.19195/0208-4147.38.2.10",
+  "claim": "Theorem 3.1",
+  "page": 447,
+  "quote": "Theorem 3.1. Let X, Y1 and Y2 be continuous and non-negative rv's corresponding to survival functions F̄ (·), H̄(·; θ1 , k1 ) and H̄(·; θ2 , k2 ), respectively. Moreover, let {0 < θ1 ≤ 1, θ2 ≥ 1}. Then: (i) If X ∈ UIPLR (IPLR, ILR), then Y1 ≤plr↑ (≤plr , ≤lr↑ ) Y2 . (ii) If X ∈ DIPLR (DLR), then Y1 ≤plr↓ (≤lr↓ ) Y2 . (iii) If X ∈ UIPFR (IPFR, IFR), then Y1 ≤phr↑ (≤phr , ≤hr↑ ) Y2 . (iv) If X ∈ DIPFR (DFR), then Y1 ≤phr↓ (≤hr↓ ) Y2 .",
+  "kind": "theorem",
+  "model": "Harris family transformation of baseline F (proportional/shifted orders)",
+  "family": "Harris family H(x;θ,k) = 1 − (θ^{1/k}F̄(x)/(1−θ̄F̄^k(x))^{1/k})^...",
+  "compared": "shifted/proportional lr and hr orders between two Harris-family rvs via monotone generalized rate classes of baseline",
+  "hypotheses": [
+   {"text": "0 < θ1 ≤ 1, θ2 ≥ 1; baseline in UIPLR/DIPLR/UIPFR/DIPFR classes", "formal": "as stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "Y1 ≤_{plr↑}/≤_{lr↓}/≤_{phr↑}/≤_{phr↓} Y2 per case — up/down shifted proportional orders"},
+  "quantifiers": "x, t ≥ 0; 0 < λ ≤ 1",
+  "numbers": "",
+  "ambiguity": "plr/phr = proportional likelihood ratio / proportional hazard rate orders."
+ },
+ {
+  "paper": "doi:10.19195/0208-4147.38.2.10",
+  "claim": "Theorem 3.2",
+  "page": 448,
+  "quote": "Theorem 3.2. Let Y1 and Y2 be rv's corresponding to the df's H(·; θ1 , k1 ) and H(·; θ2 , k2 ), respectively. If {0 < θ1 ≤ 1, θ2 ≥ 1} or {0 < θ1 ≤ θ2 , k1 = k2 = k}, then Y1 ≤lr Y2 .",
+  "kind": "theorem",
+  "model": "Harris family, common baseline",
+  "family": "Harris family df's H(·;θ,k)",
+  "compared": "lr order between two Harris transforms of the same baseline across tilt parameters",
+  "hypotheses": [
+   {"text": "{0 < θ1 ≤ 1, θ2 ≥ 1} or {0 < θ1 ≤ θ2, k1 = k2 = k}", "formal": "two alternatives", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "Y1 <=lr Y2"},
+  "quantifiers": "x ∈ R",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.19195/0208-4147.38.2.10",
+  "claim": "Corollary 3.1",
+  "page": 449,
+  "quote": "Corollary 3.1. Let Y1 and Y2 be rv's corresponding to df's H(·; θ1 , k1 ) and H(·; θ2 , k2 ), respectively. If {0 < θ1 ≤ 1, θ2 ≥ 1} or {0 < θ1 ≤ θ2 , k1 = k2 = k}, then Y1 ≤hr (≤rh , ≤st , ≤E ) Y2 .",
+  "kind": "corollary",
+  "model": "Harris family",
+  "family": "Harris family df's",
+  "compared": "hr, reversed-hr, st, and expectation orders as consequences of lr",
+  "hypotheses": [
+   {"text": "same as Theorem 3.2", "formal": "as stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "Y1 <=hr Y2; also ≤rh, ≤st, ≤E"},
+  "quantifiers": "",
+  "numbers": "",
+  "ambiguity": "≤E is expectation order."
+ },
+ {
+  "paper": "doi:10.19195/0208-4147.38.2.10",
+  "claim": "Remark 3.1",
+  "page": 449,
+  "quote": "Remark 3.1. It is worth mentioning that, in view of our Theorem 3.2, Theorem 2.3 of [20] concerning the Marshall–Olkin family is not valid unless θ1 ≥ θ2 is replaced by θ2 ≥ θ1 .",
+  "kind": "counterexample",
+  "model": "Marshall–Olkin family (Harris k = 1)",
+  "family": "Marshall–Olkin",
+  "compared": "correction of an existing literature claim on tilt-parameter direction",
+  "hypotheses": [
+   {"text": "k = 1 special case", "formal": "as stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "literature result valid only with reversed tilt-parameter inequality"},
+  "quantifiers": "",
+  "numbers": "",
+  "ambiguity": "Also flagged in the introduction: 'Theorem 2.2 of [20] is valid only if the support of the tilt parameter is corrected. Hence, their result in Theorem 2.3 is not true.'"
+ },
+ {
+  "paper": "doi:10.19195/0208-4147.38.2.10",
+  "claim": "Theorem 3.3",
+  "page": 449,
+  "quote": "Theorem 3.3. Let Y1 and Y2 be rv's corresponding to Harris family df's H(·; θ1 , k) and H(·; θ2 , k), respectively. Then Y1 ≤AI Y2 provided that θ1 > θ2 .",
+  "kind": "theorem",
+  "model": "Harris family, common k",
+  "family": "Harris family",
+  "compared": "ageing intensity order across tilt parameters",
+  "hypotheses": [
+   {"text": "θ1 > θ2; common k", "formal": "as stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "ageing: AI", "direction": "Y1 <=AI Y2 (smaller tilt ⇒ ages faster in AI sense)"},
+  "quantifiers": "x > 0; k > 0",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.19195/0208-4147.38.2.10",
+  "claim": "Theorem 4.1",
+  "page": 450,
+  "quote": "Theorem 4.1. X1 ≤st X2 if and only if Y1 ≤st Y2 .",
+  "kind": "theorem",
+  "model": "Harris family, same tilt θ, k",
+  "family": "Harris family",
+  "compared": "st-order preservation by Harris transformation (both directions)",
+  "hypotheses": [
+   {"text": "common θ, k in transformation", "formal": "as stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X1 <=st X2 iff Y1 <=st Y2"},
+  "quantifiers": "",
+  "numbers": "",
+  "ambiguity": "By Theorem 3.1 of Abbasi–Alamatsaz–Cramer [1] at α = β."
+ },
+ {
+  "paper": "doi:10.19195/0208-4147.38.2.10",
+  "claim": "Theorem 4.2",
+  "page": 450,
+  "quote": "Theorem 4.2. (i) Assume that θ ≥ 1. If X1 ≤phr↑ (≤phr , ≤hr↑ , ≤hr )X2 , then Y1 ≤phr↑ (≤phr , ≤hr↑ , ≤hr ) Y2 . (ii) Assume that 0 < θ ≤ 1. If Y1 ≤phr↑ (≤phr , ≤hr↑ , ≤hr ) Y2 , then X1 ≤phr↑ (≤phr , ≤hr↑ , ≤hr ) X2 .",
+  "kind": "theorem",
+  "model": "Harris family, same tilt θ",
+  "family": "Harris family",
+  "compared": "two-sided preservation of (proportional/shifted) hazard-rate orders: forward for θ ≥ 1, converse for 0 < θ ≤ 1",
+  "hypotheses": [
+   {"text": "(i) θ ≥ 1; (ii) 0 < θ ≤ 1", "formal": "as stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "θ ≥ 1: X-order ⇒ Y-order; 0 < θ ≤ 1: Y-order ⇒ X-order"},
+  "quantifiers": "x, t ≥ 0; 0 < λ ≤ 1",
+  "numbers": "",
+  "ambiguity": "Restrictive role of tilt range; see Counterexample 4.1 for failure at 0<θ<1 forward."
+ },
+ {
+  "paper": "doi:10.19195/0208-4147.38.2.10",
+  "claim": "Counterexample 4.1",
+  "page": 451,
+  "quote": "Counterexample 4.1. Let X1 and X2 be two rv's having the Erlang distributions with survival functions F̄1 (x) = (1 + 2x)e−2x , F̄2 (x) = (x + 1)e−x and hazard rates rF1 (x) = 4x/(1 + 2x), rF2 (x) = x/(x + 1), for x > 0, respectively. So, X1 ≤hr↑ X2 . However, Figure 1 shows that for some 0 < θ < 1, t > 0 and some x > 0, rH1 (x + t; θ, k) ≯ rH2 (x; θ, k) or, equivalently, H̄2 (x; θ, k)/H̄1 (x + t; θ, k) is not increasing in x, i.e., the up hazard rate order is not preserved by transformation to the Harris family when 0 < θ < 1.",
+  "kind": "counterexample",
+  "model": "Harris family, 0 < θ < 1",
+  "family": "Erlang baselines F̄1 = (1+2x)e^{−2x}, F̄2 = (x+1)e^{−x}",
+  "compared": "failure of forward preservation of ≤hr↑ for θ < 1",
+  "hypotheses": [
+   {"text": "0 < θ < 1", "formal": "as stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X1 ≤hr↑ X2 but Y1 ≰hr↑ Y2"},
+  "quantifiers": "x, t > 0",
+  "numbers": "",
+  "ambiguity": "Graphical evidence (Figure 1). Adapts counterexample 3.2 of [1]."
+ },
+ {
+  "paper": "doi:10.19195/0208-4147.38.2.10",
+  "claim": "Corollary 4.1",
+  "page": 451,
+  "quote": "Corollary 4.1. Let X1 and X2 be two rv's with mean residual life (mrl) functions m1 and m2 and Harris family rv's Y1 and Y2 having mrl functions m∗1 and m∗2 , respectively, such that m1 (t)/m2 (t) increases in t. If X1 ≤mrl X2 , then Y1 ≤mrl Y2 provided that θ ≥ 1. The orders are reversed if m∗1 (t)/m∗2 (t) increases in t and 0 < θ ≤ 1.",
+  "kind": "corollary",
+  "model": "Harris family, same θ",
+  "family": "Harris family; mrl functions",
+  "compared": "mrl-order preservation under increasing mrl ratio",
+  "hypotheses": [
+   {"text": "m1/m2 increasing; θ ≥ 1 (forward) or m*1/m*2 increasing, 0 < θ ≤ 1 (converse)", "formal": "as stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "mrl", "direction": "X1 <=mrl X2 ⇒ Y1 <=mrl Y2 (θ ≥ 1); reversed for θ ≤ 1"},
+  "quantifiers": "t ≥ 0",
+  "numbers": "",
+  "ambiguity": "Via mrl-ratio ⇒ hr and hr ⇒ mrl chains (S&S Thms 2.A.2, 1.D.1)."
+ },
+ {
+  "paper": "doi:10.19195/0208-4147.38.2.10",
+  "claim": "Remark 4.1",
+  "page": 452,
+  "quote": "Remark 4.1. Note that for the special case when k = 1, the log-odds function of an rv X is equal to the log-odds function of the corresponding Harris family rv Y . Consequently, the log-odds ratio order is also preserved by transformation to the Marshall–Olkin family.",
+  "kind": "lemma",
+  "model": "Marshall–Olkin family (k = 1)",
+  "family": "Marshall–Olkin",
+  "compared": "log-odds ratio order preservation",
+  "hypotheses": [
+   {"text": "k = 1", "formal": "as stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: log-odds ratio", "direction": "preserved under MO transformation"},
+  "quantifiers": "",
+  "numbers": "",
+  "ambiguity": "k = 1 only."
+ },
+ {
+  "paper": "doi:10.19195/0208-4147.38.2.10",
+  "claim": "Theorem 4.3",
+  "page": 452,
+  "quote": "Theorem 4.3. Assume that X1 and X2 are non-negative rv's. For all k > 0, if X1 ≤AI X2 and X1 ≤hr X2 , then Y1 ≤AI Y2 provided that θ > 1.",
+  "kind": "theorem",
+  "model": "Harris family, same θ > 1",
+  "family": "Harris family",
+  "compared": "ageing-intensity-order preservation under Harris transformation",
+  "hypotheses": [
+   {"text": "X1 ≤AI X2 AND X1 ≤hr X2; θ > 1; k > 0", "formal": "joint condition", "source": "statement"}
+  ],
+  "conclusion": {"order": "ageing: AI", "direction": "Y1 <=AI Y2"},
+  "quantifiers": "x > 0",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.19195/0208-4147.38.2.10",
+  "claim": "Lemma 4.1",
+  "page": 453,
+  "quote": "Lemma 4.1. If H1 (x) ≡ H1 (x; θ, k) and H2 (x) ≡ H2 (x; θ, k) are two Harris family df's with baseline df's F1 and F2 , respectively, then H2^{−1} H1 (x) = F2^{−1} F1 (x) for all x.",
+  "kind": "lemma",
+  "model": "Harris family",
+  "family": "Harris family",
+  "compared": "quantile-composite equality: transform-order kernel unchanged by Harris transformation",
+  "hypotheses": [
+   {"text": "same (θ, k) on both sides", "formal": "as stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: quantile identity", "direction": "H2^{−1}∘H1 ≡ F2^{−1}∘F1"},
+  "quantifiers": "all x; θ > 0; k > 0",
+  "numbers": "",
+  "ambiguity": "Drives Theorem 4.4 preservations."
+ },
+ {
+  "paper": "doi:10.19195/0208-4147.38.2.10",
+  "claim": "Theorem 4.4",
+  "page": 453,
+  "quote": "Theorem 4.4. The following orders are preserved by transformation from a baseline distribution to its corresponding Harris family and vice versa. (i) convex transform order, (ii) star order, (iii) supper-additive order, (iv) dispersive order.",
+  "kind": "theorem",
+  "model": "Harris family, unrestricted θ, k",
+  "family": "Harris family",
+  "compared": "two-way preservation of ≤c, ≤*, ≤su, ≤disp",
+  "hypotheses": [
+   {"text": "any θ > 0, k > 0", "formal": "no tilt restriction", "source": "statement"}
+  ],
+  "conclusion": {"order": "disp", "direction": "X1 order X2 iff Y1 order Y2 for each of the four transform orders"},
+  "quantifiers": "t, u ≥ 0",
+  "numbers": "",
+  "ambiguity": "All four follow immediately from Lemma 4.1."
+ },
+ {
+  "paper": "doi:10.19195/0208-4147.38.2.10",
+  "claim": "Corollary 4.2",
+  "page": 454,
+  "quote": "Corollary 4.2. If X1 ≤Lorenz X2 , then Y1 ≤Lorenz Y2 provided that the function F2^{−1} (x)/F1^{−1} (x) is increasing for all x > 0.",
+  "kind": "corollary",
+  "model": "Harris family",
+  "family": "Harris family",
+  "compared": "Lorenz-order preservation via star order",
+  "hypotheses": [
+   {"text": "F2^{−1}/F1^{−1} increasing on x > 0", "formal": "quantile-ratio condition", "source": "statement"}
+  ],
+  "conclusion": {"order": "lorenz", "direction": "X1 <=Lorenz X2 ⇒ Y1 <=Lorenz Y2"},
+  "quantifiers": "x > 0",
+  "numbers": "",
+  "ambiguity": "Uses star ⇒ Lorenz implication."
+ },
+ {
+  "paper": "doi:10.19195/0208-4147.38.2.10",
+  "claim": "Remark 4.2",
+  "page": 454,
+  "quote": "Remark 4.2. The usual stochastic, hazard rate, convex transform and star orders are preserved by transformation to the frailty family (proportional hazard family, cf. [26], p. 240) and to Marshall–Olkin family (cf. [23]). By combining these facts with Remark 1 of [11], it follows that such orders are also preserved under transformation to the Harris family.",
+  "kind": "lemma",
+  "model": "Harris family via frailty + Marshall–Olkin composition",
+  "family": "Harris family",
+  "compared": "alternative derivation of preservation of st/hr/c/star orders",
+  "hypotheses": [
+   {"text": "composition of proportional-hazard and MO transformations", "formal": "literature route", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "st, hr, convex-transform, star orders preserved"},
+  "quantifiers": "",
+  "numbers": "",
+  "ambiguity": "Independent check of Theorems 4.1–4.4 conclusions."
+ },
+ {
+  "paper": "doi:10.19195/0208-4147.38.2.10",
+  "claim": "Proposition 5.1 (quoted from [26])",
+  "page": 454,
+  "quote": "Proposition 5.1 ([26], p. 182). The following two statements are equivalent: (i) X has IFRA (DFRA), (ii) X ≤∗ (≥∗ ) X1 , where X1 has an exponential distribution.",
+  "kind": "proposition",
+  "model": "single variable vs exponential benchmark",
+  "family": "arbitrary life distribution vs exponential X1",
+  "compared": "IFRA/DFRA characterization via star order with exponential",
+  "hypotheses": [
+   {"text": "X1 exponential", "formal": "as stated", "source": "quoted"}
+  ],
+  "conclusion": {"order": "star", "direction": "X IFRA iff X ≤* X1; DFRA iff ≥*"},
+  "quantifiers": "",
+  "numbers": "",
+  "ambiguity": "Quoted characterization used to transfer ageing classes."
+ },
+ {
+  "paper": "doi:10.19195/0208-4147.38.2.10",
+  "claim": "Proposition 5.2 (quoted from [26])",
+  "page": 455,
+  "quote": "Proposition 5.2 ([26], p. 182). The following two statements are equivalent: (i) X is NBU (NWU), (ii) X ≤su (≥su ) X1 , where X1 has an exponential distribution.",
+  "kind": "proposition",
+  "model": "single variable vs exponential benchmark",
+  "family": "arbitrary vs exponential",
+  "compared": "NBU/NWU characterization via super-additive order",
+  "hypotheses": [
+   {"text": "X1 exponential", "formal": "as stated", "source": "quoted"}
+  ],
+  "conclusion": {"order": "other: super-additive (≤su)", "direction": "X NBU iff X ≤su X1; NWU iff ≥su"},
+  "quantifiers": "",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.19195/0208-4147.38.2.10",
+  "claim": "Corollary 5.1",
+  "page": 455,
+  "quote": "Corollary 5.1. Let θ > 1 (0 < θ < 1). (i) The IFRA (DFRA) characteristic is preserved by transformation to the Harris family. (ii) The NBU (NWU) characteristic is preserved by transformation to the Harris family.",
+  "kind": "corollary",
+  "model": "Harris family",
+  "family": "Harris family",
+  "compared": "inheritance of ageing classes IFRA/DFRA and NBU/NWU by Harris transformation",
+  "hypotheses": [
+   {"text": "θ > 1 for IFRA/NBU; 0 < θ < 1 for DFRA/NWU", "formal": "as stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "ageing: IFRA/DFRA/NBU/NWU", "direction": "X IFRA ⇒ Y IFRA (θ > 1); X DFRA ⇒ Y DFRA (θ < 1); likewise NBU/NWU"},
+  "quantifiers": "x ≥ 0; k > 0",
+  "numbers": "",
+  "ambiguity": "Via star/su order preservation (Thm 4.4) + IFR/NBU of transformed exponential; Remark 5.1 links to weighted-distribution results of [10],[14] but with larger θ range."
+ }
+]

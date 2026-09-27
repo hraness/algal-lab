@@ -1,0 +1,227 @@
+[
+ {
+  "paper": "arxiv:1804.04103",
+  "claim": "Counterexample 3.2",
+  "page": 11,
+  "quote": "Counterexample 3.2 Let Xi \u223c LL (\u03c3i , \u03bbi ) and Yi \u223c (\u03c3i\u2217 , \u03bbi ) , i = 1, 2, 3. Let \u03bb = (0.5, 0.5, 0.5), (\u03c31 , \u03c32 , \u03c33 ) = (3, 2, 1) \u2208 D+ and (\u03c31\u2217 , \u03c32\u2217 , \u03c33\u2217 ) = (2, 2, 2) \u2208 D+ , giving \u03c3 \u227dm \u03c3 \u2217 . Now, if h(p)= (1, 2, 3) \u2208 E+ is taken, where h(u) = \u2212 log u, then Figure 2(a) shows that there exists no stochastic ordering between X3:3 and Y3:3 . Again, for the same h(u), if h(p)= (0.03, 0.02, 0.01) \u2208 D+ , (\u03c31 , \u03c32 , \u03c33 ) = (3, 2, 1) \u2208 D+ and (\u03c31\u2217 , \u03c32\u2217 , \u03c33\u2217 ) = (2.6, 2.4, 1) \u2208 D+ are taken, giving \u03c3 \u227dm \u03c3 \u2217 , then for \u03bb = (0.5, 0.5, 0.5), Figure 2(b) also shows that there exists no stochastic ordering between X3:3 and Y3:3 .",
+  "kind": "counterexample",
+  "model": "parallel system (n = 3) with random shocks",
+  "family": "log-Lindley, heterogeneous shape vectors, common \u03bb",
+  "compared": "failure of st ordering when SHAPE vectors majorize (analog of Thm 3.5 with \u03c3 varying fails)",
+  "hypotheses": [
+   {
+    "text": "\u03c3 \u227dm \u03c3*; equal \u03bb and h(p) for both systems",
+    "formal": "as stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "NO stochastic ordering \u2014 majorized shape matrix does not yield st-comparable maxima"
+  },
+  "quantifiers": "n = 3",
+  "numbers": "case (a): \u03c3 = (3,2,1), \u03c3* = (2,2,2), h(p) = (1,2,3); case (b): \u03c3* = (2.6,2.4,1), h(p) = (0.03,0.02,0.01)",
+  "ambiguity": "Graphical (Figures 2a, 2b): FX3:3 \u2212 FY3:3 changes sign.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "arxiv:1804.04103",
+  "claim": "Theorem 3.1",
+  "page": 7,
+  "quote": "Theorem 3.1 For i = 1, 2, . . . , n, let Ti and Wi be two sets of mutually independent random variables with Ti \u223c LL (\u03c3, \u03bbi ) and Wi \u223c LL (\u03c3, \u03bbi ). Further, suppose that Ii (Ii\u2217 ) be a set of independent Bernoulli rv, independent of Ti 's (Wi 's) with E(Ii ) = pi (E(Ii\u2217 ) = p\u2217i ), i = 1, 2, ..., n. If h : [0, 1] \u2192 R+ is a differentiable and strictly convex function, then i) h(p) \u227dw h(p\u2217 ) implies Xn:n \u2265st Yn:n if \u03bb \u2208 D+ (E+ ), h(p) \u2208 D+ (E+ ), and h(u) is increasing in u. ii) h(p) \u227dw h(p\u2217 ) implies Xn:n \u2265st Yn:n if \u03bb \u2208 D+ (E+ ), h(p) \u2208 E+ (D+ ), and h(u) is decreasing in u, where h(p) = (h (p1 ) , h (p2 ) , . . . , h (pn )).",
+  "kind": "theorem",
+  "model": "parallel system under random shocks; Xi = Ii\u00b7Ti style model (component fails w.p. pi)",
+  "family": "log-Lindley LL(\u03c3,\u03bb), common shape \u03c3 and scale vector \u03bb",
+  "compared": "usual stochastic order of system lifetimes under weak majorization of transformed shock probabilities",
+  "hypotheses": [
+   {
+    "text": "h strictly convex differentiable; (i) h increasing, \u03bb and h(p) both in D+ (or E+); (ii) h decreasing, \u03bb \u2208 D+ (E+) while h(p) \u2208 E+ (D+)",
+    "formal": "chain-complementation of orders",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "h(p) \u227dw h(p*) \u21d2 Xn:n >=st Yn:n \u2014 majorized shock vector \u21d2 better parallel system"
+  },
+  "quantifiers": "n \u2265 2; 0 \u2264 x \u2264 1 support",
+  "numbers": "",
+  "ambiguity": "D+ = components descending; E+ = ascending; w = weak majorization.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "arxiv:1804.04103",
+  "claim": "Theorem 3.2",
+  "page": 8,
+  "quote": "Theorem 3.2 For i = 1, 2, . . . , n, let Ti and Wi be two sets of mutually independent random variables with Ti \u223c LL (\u03c3, \u03bbi ) and Wi \u223c LL (\u03c3, \u03b4i ). Further, suppose that Ii be a set of independent Bernoulli rvs, independent of Xi 's or Yi 's with E(Ii ) = pi , i = 1, 2, ..., n and h : [0, 1] \u2192 R+ is a differentiable and strictly convex function. If i) either \u03bb \u2208 D+ , h(p) \u2208 D+ (E+ ), and h(u) is increasing (decreasing) in u, ii) or \u03bb \u2208 E+ , h(p) \u2208 E+ (D+ ), and h(u) is increasing (decreasing) in u, then v \u227dw v \u2217 implies Xn:n \u2265st Yn:n , where v = (1/(1+\u03bb1^\u03c3), ..., 1/(1+\u03bbn^\u03c3)) and v \u2217 = (1/(1+\u03b41^\u03c3), ..., 1/(1+\u03b4n^\u03c3)).",
+  "kind": "theorem",
+  "model": "parallel system under random shocks",
+  "family": "log-Lindley LL(\u03c3,\u03bb) vs LL(\u03c3,\u03b4), same shocks pi",
+  "compared": "st order under weak majorization of transformed scale vectors (1/(1+\u03bb^\u03c3))",
+  "hypotheses": [
+   {
+    "text": "h strictly convex; monotone agreement conditions on \u03bb, h(p), and monotonicity of h",
+    "formal": "as stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "v \u227dw v* \u21d2 Xn:n >=st Yn:n \u2014 majorized transformed scale vector \u21d2 larger system lifetime"
+  },
+  "quantifiers": "n \u2265 2",
+  "numbers": "",
+  "ambiguity": "Note 'majorized scale vector leads to SMALLER systems lifetime' phrasing in preamble refers to direction conventions of \u03bb vs v.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "arxiv:1804.04103",
+  "claim": "Theorem 3.3",
+  "page": 9,
+  "quote": "Theorem 3.3 For i = 1, 2, . . . , n, let Ti and Wi be two sets of mutually independent random variables with Ti \u223c LL (\u03c3, \u03bbi ) and Wi \u223c LL (\u03c3, \u03b4i ). Further, suppose that Ii (Ii\u2217 ) be a set of independent Bernoulli rvs ... with E(Ii ) = pi (E(Ii\u2217 ) = p\u2217i ), i = 1, 2, ..., n and h : [0, 1] \u2192 R+ is a differentiable and strictly decreasing and convex function. If (v, h(p)) \u2208 Un , and (v \u2217 , h(p\u2217 )) \u2208 Un , then [h(p); v] >w [h(p\u2217 ); v\u2217] implies Xn:n \u2265st Yn:n .",
+  "kind": "theorem",
+  "model": "parallel system under random shocks",
+  "family": "log-Lindley LL(\u03c3,\u00b7)",
+  "compared": "st order under weak MATRIX majorization of (shock, scale) parameter matrix",
+  "hypotheses": [
+   {
+    "text": "h strictly decreasing convex; both parameter matrices in Un (rows similarly ordered)",
+    "formal": "row-majorization",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "matrix weak-majorization of (h(p), v) \u21d2 Xn:n >=st Yn:n"
+  },
+  "quantifiers": "n \u2265 2",
+  "numbers": "",
+  "ambiguity": "Combines Theorem 3.1(ii) and Theorem 3.2 (bracketed portion).",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "arxiv:1804.04103",
+  "claim": "Theorem 3.4",
+  "page": 10,
+  "quote": "Theorem 3.4 For i = 1, 2, . . . , n, let Ti and Wi be two sets of mutually independent random variables with Ti \u223c LL (\u03c3, \u03bbi ) and Wi \u223c LL (\u03c3, \u03b4i ). Further, suppose that Ii (Ii\u2217 ) be a set of independent Bernoulli rvs ... If h : [0, 1] \u2192 R+ is a differentiable, strictly decreasing and and convex function, and also (v, h(p)), (v \u2217 , h(p\u2217 )) \u2208 Un , then [h(p); v] >> [h(p\u2217 ); v\u2217] implies Xn:n \u2265st Yn:n .",
+  "kind": "theorem",
+  "model": "parallel system under random shocks",
+  "family": "log-Lindley LL(\u03c3,\u00b7)",
+  "compared": "st order under STRICT matrix majorization (chain majorization) of (shock, scale) matrix",
+  "hypotheses": [
+   {
+    "text": "h strictly decreasing convex; matrices in Un; strict matrix majorization >>",
+    "formal": "as stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "[h(p); v] >> [h(p*); v*] \u21d2 Xn:n >=st Yn:n"
+  },
+  "quantifiers": "n \u2265 2",
+  "numbers": "",
+  "ambiguity": "'>>' denotes strict/chain matrix majorization strengthening >w of Theorem 3.3.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "arxiv:1804.04103",
+  "claim": "Theorem 3.5",
+  "page": 10,
+  "quote": "Theorem 3.5 For i = 1, 2, . . . , n, let Ti and Wi be two sets of mutually independent random variables with Ti \u223c LL (\u03c3i , \u03bb) and Wi \u223c LL (\u03c3i , \u03bb). Further, suppose that Ii (Ii\u2217 ) be a set of independent Bernoulli rv ... If h : [0, 1] \u2192 R+ is a differentiable and strictly convex function, then i) h(p) \u227dw h(p\u2217 ) implies Xn:n \u2265st Yn:n if \u03c3 \u2208 D+ , h(p) \u2208 D+ , and h(u) is increasing in u. ii) h(p) \u227dw h(p\u2217 ) implies Xn:n \u2265st Yn:n if \u03bb \u2208 D+ , h(p) \u2208 E+ , and h(u) is decreasing in u.",
+  "kind": "theorem",
+  "model": "parallel system under random shocks",
+  "family": "log-Lindley LL(\u03c3i, \u03bb): heterogeneous shape, common scale \u03bb",
+  "compared": "st order under weak majorization of shock probabilities with heterogeneous shapes",
+  "hypotheses": [
+   {
+    "text": "h strictly convex; (i) \u03c3, h(p) \u2208 D+ and h increasing; (ii) \u03bb \u2208 D+, h(p) \u2208 E+, h decreasing",
+    "formal": "as stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "h(p) \u227dw h(p*) \u21d2 Xn:n >=st Yn:n"
+  },
+  "quantifiers": "n \u2265 2",
+  "numbers": "",
+  "ambiguity": "Shape-heterogeneous analogue of Theorem 3.1.",
+  "adjudication": "agreed"
+ },
+ {
+  "paper": "arxiv:1804.04103",
+  "claim": "Counterexample 3.1",
+  "page": 9,
+  "quote": "Counterexample 3.1 For \u03c3 = 0.5 and i = 1, 2, 3, let Ti \u223c LL (\u03c3, \u03bbi ) and Wi \u223c LL (\u03c3, \u03b2i ) be two sets of mutually independent random variables. Let (v1 , v2 , v3 ) = (0.4, 0.4, 0.1) and (v1\u2217 , v2\u2217 , v3\u2217 ) = (0.5, 0.4, 0.2), where vi = 1/(1+\u03bbi^\u03c3) and vi\u2217 = 1/(1+\u03b2i^\u03c3). Now if h(p)= (2, 2, 1) and h(p\u2217 )= (3, 2, 1) are taken, where h(u) = \u2212 log(u), then it can be written that [h(p); v] >w [h(p\u2217 ); v\u2217], where (v, h(p)) \u2208 Un , and (v \u2217 , h(p\u2217 )) \u2208 Un . The figure ... shows that, for all 0 \u2264 x \u2264 1, FX3:3 (x) \u2264 FY3:3 (x) giving that X3:3 \u2265st Y3:3 .",
+  "kind": "example",
+  "model": "parallel system (n = 3) with random shocks",
+  "family": "log-Lindley \u03c3 = 0.5, h(u) = \u2212log u",
+  "compared": "numerical verification of Theorem 3.3: matrix-majorized parameters give st-larger maximum",
+  "hypotheses": [
+   {
+    "text": "v = (0.4,0.4,0.1), v* = (0.5,0.4,0.2); h(p) = (2,2,1), h(p*) = (3,2,1)",
+    "formal": "matrix weak majorization",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X3:3 >=st Y3:3 (F_X3:3 \u2264 F_Y3:3 for 0 \u2264 x \u2264 1)"
+  },
+  "quantifiers": "n = 3; x \u2208 [0,1]",
+  "numbers": "\u03c3 = 0.5; v = (0.4,0.4,0.1); v* = (0.5,0.4,0.2); h(p) = (2,2,1); h(p*) = (3,2,1)",
+  "ambiguity": "Labeled 'Counterexample' but actually a positive numerical illustration of Theorem 3.3; graphical check via Figure 1.",
+  "adjudication": "example record (pass a)"
+ },
+ {
+  "paper": "arxiv:1804.04103",
+  "claim": "Counterexample 3.2",
+  "page": 11,
+  "quote": "Counterexample 3.2 Let Xi \u223c LL (\u03c3i , \u03bbi ) and Yi \u223c (\u03c3i\u2217 , \u03bbi ) , i = 1, 2, 3. Let \u03bb = (0.5, 0.5, 0.5), (\u03c31 , \u03c32 , \u03c33 ) = (3, 2, 1) \u2208 D+ and (\u03c31\u2217 , \u03c32\u2217 , \u03c33\u2217 ) = (2, 2, 2) \u2208 D+ , giving \u03c3 \u227dm \u03c3 \u2217 . Now, if h(p)= (1, 2, 3) \u2208 E+ is taken, where h(u) = \u2212 log u, then Figure 2(a) shows that there exists no stochastic ordering between X3:3 and Y3:3 . Again, for the same h(u), if h(p)= (0.03, 0.02, 0.01) \u2208 D+ , (\u03c31 , \u03c32 , \u03c33 ) = (3, 2, 1) \u2208 D+ and (\u03c31\u2217 , \u03c32\u2217 , \u03c33\u2217 ) = (2.6, 2.4, 1) \u2208 D+ are taken, giving \u03c3 \u227dm \u03c3 \u2217 , then for \u03bb = (0.5, 0.5, 0.5), Figure 2(b) also shows that there exists no stochastic ordering between X3:3 and Y3:3 .",
+  "kind": "counterexample",
+  "model": "parallel system (n = 3) with random shocks",
+  "family": "log-Lindley, heterogeneous shape vectors, common \u03bb",
+  "compared": "failure of st ordering when SHAPE vectors majorize (analog of Thm 3.5 with \u03c3 varying fails)",
+  "hypotheses": [
+   {
+    "text": "\u03c3 \u227dm \u03c3*; equal \u03bb and h(p) for both systems",
+    "formal": "as stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "NO stochastic ordering \u2014 majorized shape matrix does not yield st-comparable maxima"
+  },
+  "quantifiers": "n = 3",
+  "numbers": "case (a): \u03c3 = (3,2,1), \u03c3* = (2,2,2), h(p) = (1,2,3); case (b): \u03c3* = (2.6,2.4,1), h(p) = (0.03,0.02,0.01)",
+  "ambiguity": "Graphical (Figures 2a, 2b): FX3:3 \u2212 FY3:3 changes sign.",
+  "adjudication": "example record (pass a)+b"
+ },
+ {
+  "paper": "arxiv:1804.04103",
+  "claim": "Counterexample 3.1 (verification)",
+  "page": 9,
+  "quote": "Counterexample 3.1 For \u03c3 = 0.5 and i = 1, 2, 3, let Ti \u223c LL(\u03c3, \u03bbi) and Wi \u223c LL(\u03c3, \u03b2i). Let (v1, v2, v3) = (0.4, 0.4, 0.1) and (v1*, v2*, v3*) = (0.5, 0.4, 0.2), where vi = 1/(1+\u03bbi\u03c3) and vi* = 1/(1+\u03b2i\u03c3). Now if h(p) = (2, 2, 1) and h(p*) = (3, 2, 1) are taken, where h(u) = \u2212log(u), then it can be written that [h(p); v] \u227bw [h(p*); v*], where (v, h(p)) \u2208 Un and (v*, h(p*)) \u2208 Un. The figure given below also shows that, for all 0 \u2264 x \u2264 1, FX3:3(x) \u2264 FY3:3(x) giving that X3:3 \u2265st Y3:3.",
+  "kind": "example",
+  "model": "three-component parallel systems under shocks",
+  "family": "log-Lindley, \u03c3 = 0.5, h(u) = \u2212log u",
+  "compared": "numerical confirmation of Theorem 3.3's matrix-majorization claim",
+  "hypotheses": [
+   {
+    "text": "v = (0.4,0.4,0.1), v* = (0.5,0.4,0.2), h(p) = (2,2,1), h(p*) = (3,2,1); matrix majorization verified",
+    "formal": "printed values",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X3:3 >=st Y3:3 (CDFs ordered, Figure 1)"
+  },
+  "quantifiers": "n = 3",
+  "numbers": "\u03c3 = 0.5; v = (0.4,0.4,0.1); v* = (0.5,0.4,0.2); h(p) = (2,2,1); h(p*) = (3,2,1)",
+  "ambiguity": "Figure-based check of the CDF ordering on 0 \u2264 x \u2264 1.",
+  "adjudication": "example record (pass b)"
+ }
+]
