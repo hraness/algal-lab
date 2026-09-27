@@ -1,0 +1,248 @@
+[
+ {
+  "paper": "doi:10.1017/apr.2020.6",
+  "claim": "Example 3.1",
+  "page": 11,
+  "quote": "Example 3.1. Let X be a nonnegative random variable with density function f(x) = (x² + c)e^{−x}/(c + 2). ... By choosing c ∈ (0, 2) we obtain rX,1 that starts decreasing and eventually becomes increasing, while rX,2 is increasing. That is, X is not 1−IFR but is 2−IFR. Moreover, it is also easy to verify that X is not 1−IFRA.",
+  "kind": "example",
+  "model": "single random variable",
+  "family": "density f(x) = (x² + c)e^{−x}/(c + 2), c ∈ (0, 2)",
+  "compared": "iterated failure-rate monotonicity classes of a single distribution",
+  "hypotheses": [
+   {"text": "c ∈ (0, 2)", "formal": "parameter choice", "source": "statement"}
+  ],
+  "conclusion": {"order": "s-IFR", "direction": "X not 1-IFR but 2-IFR; also not 1-IFRA — supports Corollary 3.1 (s-IFRA monotonicity not hereditary)"},
+  "quantifiers": "s = 1, 2",
+  "numbers": "c ∈ (0, 2)",
+  "ambiguity": "Single-distribution ageing-class example, included because it is the printed example supporting the ordering-related Corollary 3.1."
+ },
+ {
+  "paper": "doi:10.1017/apr.2020.6",
+  "claim": "Proposition 3.1",
+  "page": 11,
+  "quote": "Proposition 3.1. Let Y1 and Y2 be independent exponential random variables with mean 1 and 1/λ, respectively, where λ ≠ 1, and define Y = max(Y1, Y2). Then Y is 1−IFRA, but it is neither 2−IFRA nor 2−DFRA. Moreover, there exists s0 > 2 such that Y is s−DFR for every s ≥ s0.",
+  "kind": "proposition",
+  "model": "parallel system of two exponentials",
+  "family": "Y = max(Y1, Y2), Y1 ~ Exp(1), Y2 ~ Exp(λ), λ ≠ 1",
+  "compared": "ageing monotonicity classes of Y (equivalently, order comparisons of Y against the exponential)",
+  "hypotheses": [
+   {"text": "λ ≠ 1; components independent exponentials with means 1 and 1/λ", "formal": "two-component parallel system", "source": "statement"}
+  ],
+  "conclusion": {"order": "s-IFRA", "direction": "Y is 1-IFRA but neither 2-IFRA nor 2-DFRA, and is s-DFR for all s >= some s0 > 2"},
+  "quantifiers": "all s >= 1",
+  "numbers": "λ ≠ 1",
+  "ambiguity": "Class-membership claim rather than a pairwise ordering; via Theorem 2.1 it is equivalent to ordering comparisons vs exponential variables."
+ },
+ {
+  "paper": "doi:10.1017/apr.2020.6",
+  "claim": "Corollary 3.1",
+  "page": 13,
+  "quote": "Corollary 3.1. The s−IFRA monotonicity does not have the hereditary property.",
+  "kind": "corollary",
+  "model": "single distributions (iterated failure-rate-average class)",
+  "family": "general nonnegative distributions; Example 3.1 and Proposition 3.1 as witnesses",
+  "compared": "s-IFRA class membership across iteration levels",
+  "hypotheses": [
+   {"text": "Example 3.1 and Proposition 3.1", "formal": "witnesses", "source": "statement"}
+  ],
+  "conclusion": {"order": "s-IFRA", "direction": "s-IFRA does not imply (s+1)-IFRA — non-hereditary"},
+  "quantifiers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1017/apr.2020.6",
+  "claim": "Proposition 5.1",
+  "page": 16,
+  "quote": "Proposition 5.1. Let X be a random variable with distribution function FX ∈ F and Y a random variable with exponential distribution. Then X ≤2−IFR Y if and only if X ≤DMRL Y.",
+  "kind": "proposition",
+  "model": "single random variable vs exponential",
+  "family": "arbitrary X; Y exponential",
+  "compared": "equivalence of 2-IFR and DMRL orders against an exponential reference",
+  "hypotheses": [
+   {"text": "Y exponential", "formal": "reference distribution", "source": "statement"}
+  ],
+  "conclusion": {"order": "s-IFR/DMRL", "direction": "X <=2-IFR Y iff X <=DMRL Y"},
+  "quantifiers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1017/apr.2020.6",
+  "claim": "Corollary 5.1",
+  "page": 16,
+  "quote": "Corollary 5.1. Let X be a random variable with distribution function FX ∈ F and Y a random variable with exponential distribution. If, for some s ≥ 1, X ≤s−IFR Y, then X ≤(s+1)−IFR Y.",
+  "kind": "corollary",
+  "model": "single random variable vs exponential",
+  "family": "arbitrary X; Y exponential",
+  "compared": "heredity of s-IFR ordering against exponential reference",
+  "hypotheses": [
+   {"text": "Y exponential", "formal": "reference", "source": "statement"},
+   {"text": "X ≤s−IFR Y", "formal": "given order relation", "source": "statement"}
+  ],
+  "conclusion": {"order": "s-IFR", "direction": "X <=s-IFR Y implies X <=(s+1)-IFR Y"},
+  "quantifiers": "all s >= 1",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1017/apr.2020.6",
+  "claim": "Proposition 5.2",
+  "page": 16,
+  "quote": "Proposition 5.2. Neither the 1−IFR or the DMRL order imply the 2−IFR order. ... A possible choice is X ∼ BP(5, 10) and Y ∼ BP(2, 6). For these parameters, we find d(x) = ... that is decreasing, c2′(x) = ... which is not monotone, and c1(x) = TY,1(TX,1^{−1})(x) = ... which is convex.",
+  "kind": "counterexample",
+  "model": "two single random variables",
+  "family": "branched Pareto BP(c1, c2): T X,1(x) = c1²/(x+c1)² I[0,c1](x) + (c1+c2)²/(4(x+c2)²) I(c1,∞)(x)",
+  "compared": "X ~ BP(5,10) vs Y ~ BP(2,6): 1-IFR and DMRL hold but 2-IFR fails",
+  "hypotheses": [
+   {"text": "X ∼ BP(5,10), Y ∼ BP(2,6)", "formal": "constructed counterexample parameters", "source": "statement"}
+  ],
+  "conclusion": {"order": "s-IFR/DMRL", "direction": "X <=1-IFR Y (c1 convex) and X <=DMRL Y (d decreasing), but not X <=2-IFR Y (c2′ non-monotone)"},
+  "quantifiers": "",
+  "numbers": "c1 = 5, c2 = 10 (X); c1 = 2, c2 = 6 (Y)",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1017/apr.2020.6",
+  "claim": "Proposition 6.1",
+  "page": 18,
+  "quote": "Proposition 6.1. If α > 1, then Weibull(α, θ1) ≤s−IFR Γ(α, θ2), for every s ≥ 1.",
+  "kind": "proposition",
+  "model": "two single random variables",
+  "family": "Weibull(α, θ) vs Gamma Γ(α, θ) (scale parameters immaterial)",
+  "compared": "Weibull vs Gamma with common shape α > 1",
+  "hypotheses": [
+   {"text": "α > 1", "formal": "common shape", "source": "statement"}
+  ],
+  "conclusion": {"order": "s-IFR", "direction": "Weibull(α, θ1) <=s-IFR Γ(α, θ2) for every s >= 1"},
+  "quantifiers": "all s >= 1, θ1, θ2",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1017/apr.2020.6",
+  "claim": "Theorem 6.2",
+  "page": 20,
+  "quote": "Theorem 6.2. Let α′ > α > 0. 1. If X ∼ Γ(α′, θ1) and Y ∼ Γ(α, θ2) then X ≤s−IFR Y. 2. If X ∼ Weibull(α′, θ1) and Y ∼ Weibull(α, θ2) then X ≤s−IFR Y.",
+  "kind": "theorem",
+  "model": "two single random variables within one family",
+  "family": "Gamma and Weibull families",
+  "compared": "same-family distributions with ordered shape parameters",
+  "hypotheses": [
+   {"text": "α′ > α > 0", "formal": "shape ordering", "source": "statement"}
+  ],
+  "conclusion": {"order": "s-IFR", "direction": "(1) Γ(α′, θ1) <=s-IFR Γ(α, θ2); (2) Weibull(α′, θ1) <=s-IFR Weibull(α, θ2) for all s >= 1"},
+  "quantifiers": "all s >= 1, θ1, θ2",
+  "ambiguity": "Case 1 > α′ > α > 0 proved here; remaining cases from Propositions 30-33 of Arab and Oliveira."
+ },
+ {
+  "paper": "doi:10.1017/apr.2020.6",
+  "claim": "Proposition 7.1",
+  "page": 22,
+  "quote": "Proposition 7.1. Let X and Y be defined as in (7.1) [X = max(X1, X2), X1, X2 iid mean-1 exponentials; Y = max(Y1, Y2), Y1 ~ Exp(1), Y2 ~ Exp(mean 1/λ < 1)]. For every s ≥ 1 and x ≥ 0, we have TX,s(x) ≥ TY,s(x).",
+  "kind": "proposition",
+  "model": "parallel systems of exponentials",
+  "family": "max of iid Exp(1) pair vs max of Exp(1) and Exp(λ) (λ > 1) pair",
+  "compared": "s-iterated tails of X and Y",
+  "hypotheses": [
+   {"text": "λ > 1 (Y2 mean 1/λ < 1)", "formal": "heterogeneous Y-system", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "TX,s(x) >= TY,s(x) for all x, s — the s-iterate of X is stochastically larger than the s-iterate of Y"},
+  "quantifiers": "all s >= 1, x >= 0",
+  "ambiguity": "λ > 1 assumed in the proof; (7.1) says mean of Y2 is 1/λ < 1."
+ },
+ {
+  "paper": "doi:10.1017/apr.2020.6",
+  "claim": "Corollary 7.1",
+  "page": 24,
+  "quote": "Corollary 7.1. Let X and Y be defined as in (7.1). Then TY,s(TX,s^{−1}(x))/x ≤ 1, for every x > 0.",
+  "kind": "corollary",
+  "model": "parallel systems of exponentials",
+  "family": "as in (7.1)",
+  "compared": "composition inequality TY,s∘TX,s^{−1}(x) ≤ x",
+  "hypotheses": [
+   {"text": "TX,s(x) ≥ TY,s(x) (Proposition 7.1)", "formal": "tail ordering", "source": "statement"}
+  ],
+  "conclusion": {"order": "s-IFRA-related", "direction": "TY,s(TX,s^{−1}(x)) <= x for all x > 0"},
+  "quantifiers": "all s >= 1, x > 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1017/apr.2020.6",
+  "claim": "Proposition 7.2",
+  "page": 24,
+  "quote": "Proposition 7.2. Let X and Y be defined as in (7.1). For every s ≥ 1, X ≤s−IFRA Y.",
+  "kind": "proposition",
+  "model": "parallel systems of exponentials",
+  "family": "max of iid Exp(1) vs max of Exp(1) and Exp(λ)",
+  "compared": "s-IFRA ordering of the two maxima",
+  "hypotheses": [
+   {"text": "X, Y as in (7.1)", "formal": "structure", "source": "statement"}
+  ],
+  "conclusion": {"order": "s-IFRA", "direction": "X <=s-IFRA Y for every s >= 1"},
+  "quantifiers": "all s >= 1",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1017/apr.2020.6",
+  "claim": "Theorem 7.1",
+  "page": 28,
+  "quote": "Theorem 7.1. Let X and Y be defined as in (7.1). For every s ≥ 1, X ≤s−IFR Y.",
+  "kind": "theorem",
+  "model": "parallel systems of exponentials",
+  "family": "max of iid Exp(1) vs max of Exp(1) and Exp(λ)",
+  "compared": "iterated failure-rate ordering of homogeneous vs heterogeneous two-component parallel systems",
+  "hypotheses": [
+   {"text": "X, Y as in (7.1)", "formal": "structure; partially extends Kochar–Xu Theorem 3.1 (s = 1)", "source": "statement"}
+  ],
+  "conclusion": {"order": "s-IFR", "direction": "X <=s-IFR Y for every s >= 1 (homogeneous system ages faster in s-IFR sense)"},
+  "quantifiers": "all s >= 1",
+  "ambiguity": "Only n = 2 systems treated; the n-component generalization is open (Remark 7.1-7.2)."
+ },
+ {
+  "paper": "doi:10.1017/apr.2020.6",
+  "claim": "Proposition 7.3",
+  "page": 30,
+  "quote": "Proposition 7.3. Let X1, . . . , Xm, m ≥ 3, be independent random variables with exponential distribution with mean 1/λ, and Y1, . . . , Yk, 2 ≤ k < m, independent exponential random variables with mean 1/β. If X(m) = max(X1, . . . , Xm) and Y(k) = max(Y1, . . . , Yk), then X(m) ≤1−IFR Y(k).",
+  "kind": "proposition",
+  "model": "parallel systems of different sizes",
+  "family": "iid exponential components (means 1/λ and 1/β; scale-free so λ = β = 1 w.l.o.g.)",
+  "compared": "max of m iid exponentials vs max of k < m iid exponentials",
+  "hypotheses": [
+   {"text": "2 ≤ k < m; components iid exponential", "formal": "system sizes", "source": "statement"}
+  ],
+  "conclusion": {"order": "s-IFR", "direction": "X(m) <=1-IFR Y(k) (larger system is smaller in 1-IFR order)"},
+  "quantifiers": "m >= 3, 2 <= k < m",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1017/apr.2020.6",
+  "claim": "Corollary 7.2",
+  "page": 30,
+  "quote": "Corollary 7.2. Let X1, . . . , Xn, n ≥ 3, be independent random variables with exponential distribution with mean 1/λ, and define, for each k = 2, . . . , n, X(k) = max(X1, . . . , Xk). Then X(n) ≤1−IFR X(n−1) ≤1−IFR ··· ≤1−IFR X(2).",
+  "kind": "corollary",
+  "model": "nested parallel systems",
+  "family": "iid exponentials",
+  "compared": "maxima over subsets of decreasing size",
+  "hypotheses": [
+   {"text": "n >= 3 iid exponentials", "formal": "structure", "source": "statement"}
+  ],
+  "conclusion": {"order": "s-IFR", "direction": "X(n) <=1-IFR X(n−1) <=1-IFR ... <=1-IFR X(2)"},
+  "quantifiers": "k = 2, ..., n",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1017/apr.2020.6",
+  "claim": "Remark 7.2 counterexample (Kochar–Xu conjecture, s ≥ 2)",
+  "page": 30,
+  "quote": "Write, for simplicity, X = max{X1, X2} and Y = max{Y1, Y2} and consider Vs(x) = TY,s(x) − TX,s(ax), where a > 0. If we choose the parameters (s, λ1/λ2, θ1/θ2, a) = (2, 0.34, 11, 2.89) the sign variation of Vs(x) is “−, +, −” so, according to Theorem 2.2, X and Y are not comparable with respect to the 2−IFRA order, hence they cannot be comparable with respect to the 2−IFR order. ... (λ1, λ2, θ1, θ2) = (1/1474)(408, 1200, 134, 1474)ϑ, with ϑ > 0, generates a whole family of counter-examples for the conjecture when the iteration parameter s = 2.",
+  "kind": "counterexample",
+  "model": "parallel systems of two exponentials with majorized rate vectors",
+  "family": "max of two exponentials, rates (λ1, λ2) ≺ (θ1, θ2)",
+  "compared": "X vs Y under component-rate majorization (Kochar–Xu conjecture stated for 1-IFR)",
+  "hypotheses": [
+   {"text": "(λ1, λ2) ≺ (θ1, θ2) with λ1 + λ2 = θ1 + θ2, λ1 ≥ θ1", "formal": "rate majorization", "source": "statement"},
+   {"text": "s = 2", "formal": "iteration level", "source": "statement"}
+  ],
+  "conclusion": {"order": "s-IFRA", "direction": "Vs has sign variation '−, +, −' — X and Y not comparable in 2-IFRA, hence not in 2-IFR, refuting the iterated-order extension of the Kochar–Xu conjecture"},
+  "quantifiers": "n = 2",
+  "numbers": "(s, λ1/λ2, θ1/θ2, a) = (2, 0.34, 11, 2.89); family (λ1, λ2, θ1, θ2) = (408, 1200, 134, 1474)ϑ/1474, ϑ > 0",
+  "ambiguity": "The s = 1 conjecture itself remains unresolved (no proof or counterexample found)."
+ }
+]

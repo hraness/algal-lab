@@ -1,0 +1,209 @@
+[
+ {
+  "paper": "arxiv:2002.12474",
+  "claim": "Theorem 1",
+  "page": 7,
+  "quote": "Theorem 1. Let X1 , X2 and Y1 , Y2 be 2 pairs of independent random variable such that Xi ∼ W −G(αi , β, γi ) and Yi ∼ W −G(α∗i , β, γi∗ ) for i = 1, 2. Whenever w(x) is an increasing convex function, also w′′ (x) is increasing and (α1 α2 / γ1 γ2 ) ∈ P2 , then (α1 α2 / γ1 γ2 ) ≺≺ (α1∗ α2∗ / γ1 γ2∗ ) ⇒ X1:2 ≥hr Y1:2 .",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Weibull-G W-G(α,β,γ): HWG(x) = 1 − exp(−α [w(γx)]^β) where w(F(x)) = F(x)/(1−F(x)), F baseline cdf; α scale, β shape, γ scale",
+  "compared": "2×2 parameter matrices (α;γ) via chain majorization ≺≺; matrix in P2 (rows similarly ordered)",
+  "hypotheses": [
+   {"text": "β ≥ 2, w increasing and convex, w′′(x) increasing (w′′′ ≥ 0)", "formal": "conditions on β and transform w", "source": "statement/proof"},
+   {"text": "(α1 α2 / γ1 γ2 ) ∈ P2 and (α1 α2 / γ1 γ2 ) ≺≺ (α1∗ α2∗ / γ1 γ2∗ )", "formal": "chain majorization of parameter matrices", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X1:2 >=hr Y1:2 (hazard rate order)"},
+  "quantifiers": "n = 2; x > 0",
+  "numbers": "β >= 2",
+  "ambiguity": "Pn = set of 2×n positive matrices with similarly ordered rows ((ai − aj)(bi − bj) >= 0). '≺≺' is chain majorization (B = A Tλ1 ... Tλk)."
+ },
+ {
+  "paper": "arxiv:2002.12474",
+  "claim": "Example 1",
+  "page": 7,
+  "quote": "Example 1. Let X1 , X2 be independent random variables such that Xi ∼ W − Exp(αi , β, γi ), i = 1, 2. Also let Y1 , Y2 be another pair ... (the baseline distribution is Exponential with cdf, F (x) = 1 − e−γx ). The parameters are given in the form of matrices as (α1∗ α2∗ / γ1∗ γ2∗) = (4.8 3.4 / 2.5 1.6) ∈ P2 and (α1 α2 / γ1 γ2 ) = (4.03 4.17 / 2.005 2.095). It can be observed that (α1 α2 / γ1 γ2 ) = (α1∗ α2∗ / γ1∗ γ2∗) T^{0.45}, and it satisfies ... (α1 α2 / γ1 γ2 ) ≺≺ (α1∗ α2∗ / γ1 γ2∗ ) ⇒ X1:2 ≥hr Y1:2 . The plot of the difference rY1:2 − rX1:2 ... for β = 3.",
+  "kind": "example",
+  "model": "series system",
+  "family": "W-Exp (Weibull-G with exponential baseline), β = 3",
+  "compared": "X1:2 vs Y1:2 in hazard rate under chain majorization (supports Theorem 1)",
+  "hypotheses": [
+   {"text": "parameter matrices as given; A = A* T^{0.45}", "formal": "chain majorization via one T-transform with λ = 0.45", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X1:2 >=hr Y1:2 (Figure 1: rY1:2 − rX1:2 >= 0)"},
+  "quantifiers": "n = 2; x > 0",
+  "numbers": "α* = (4.8, 3.4), γ* = (2.5, 1.6), α = (4.03, 4.17), γ = (2.005, 2.095), λ = 0.45, β = 3",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2002.12474",
+  "claim": "Theorem 2",
+  "page": 8,
+  "quote": "Theorem 2. Let X1 , . . . , Xn be a set of independent random variables such that Xi ∼ W − G(αi , β, γi ), i = 1, . . . , n. Also let Y1 , . . . , Yn be another set of random variable such that Yi ∼ W − G(α∗i , β, γi∗ ), i = 1, . . . , n. If (α1 . . . αn / γ1 . . . γn ) ∈ Pn and (α1∗ . . . α∗n / γ1∗ . . . γn∗ ) = (α1 . . . αn / γ1 . . . γn ) Ti,j^λ , then β ≥ 2, w′ (x) ≥ 0, w′′ (x) ≥ 0, w′′′ (x) ≥ 0 ⇒ X1:n ≥hr Y1:n .",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Weibull-G W-G(α,β,γ); common β",
+  "compared": "n-component parameter matrices related by a single T-transform",
+  "hypotheses": [
+   {"text": "(α; γ) ∈ Pn and (α∗; γ∗) = (α; γ) Tλi,j", "formal": "one T-transform between matrices", "source": "statement"},
+   {"text": "β ≥ 2, w′ ≥ 0, w′′ ≥ 0, w′′′ ≥ 0", "formal": "transform conditions", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X1:n >=hr Y1:n"},
+  "quantifiers": "n > 2 (also covers n >= 2); x > 0",
+  "numbers": "β >= 2",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2002.12474",
+  "claim": "Theorem 3",
+  "page": 8,
+  "quote": "Theorem 3. Let X1 , . . . , Xn be a set of independent random variables such that Xi ∼ W − G(αi , β, γi ), i = 1, . . . , n. Also Y1 , . . . , Yn be another set of random variable such that Yi ∼ W − G(α∗i , β, γi∗ ), i = 1, . . . , n. Presume k ≥ 2, if (α1 . . . αn / γ1 . . . γn ) ∈ Pn , (α1 . . . αn / γ1 . . . γn ) Tλ1 . . . Tλi ∈ Pn , for i = 1, . . . , k − 1, and (α∗; γ∗) = (α; γ) Tλ1 . . . Tλk , then β ≥ 2, w′ (x) ≥ 0, w′′ (x) ≥ 0, w′′′ (x) ≥ 0 ⇒ X1:n ≥hr Y1:n .",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Weibull-G W-G(α,β,γ); common β",
+  "compared": "chain majorization via product of k T-transforms with all intermediate matrices in Pn",
+  "hypotheses": [
+   {"text": "(α; γ) ∈ Pn ; each partial product (α;γ)Tλ1···Tλi ∈ Pn (i = 1,…,k−1); (α∗;γ∗) = (α;γ)Tλ1···Tλk", "formal": "chain majorization with Pn intermediate matrices", "source": "statement"},
+   {"text": "β ≥ 2, w′ ≥ 0, w′′ ≥ 0, w′′′ ≥ 0", "formal": "transform conditions", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X1:n >=hr Y1:n"},
+  "quantifiers": "n >= 2, k >= 2; x > 0",
+  "numbers": "β >= 2",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2002.12474",
+  "claim": "Theorem 4",
+  "page": 9,
+  "quote": "Theorem 4. Let X1 , X2 , . . . , Xn be a set of independent random variables from Weibull-G distributed family of distribution such that Xi ∼ W − G(αi , β, γ) for i = 1, 2, . . . , n. Let Y1 , Y2 , . . . , Yn be another set of independent random variables such that Yi ∼ W − G(α∗i , β, γ) for i = 1, 2, . . . , n. Then α ≺w α∗ ⇒ Xn:n ≤rh Yn:n .",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "Weibull-G W-G(αi,β,γ); common β, γ",
+  "compared": "α vectors via weak submajorization",
+  "hypotheses": [
+   {"text": "α ≺w α∗", "formal": "weak submajorization (upper partial sums, Definition (4))", "source": "statement"}
+  ],
+  "conclusion": {"order": "rhr", "direction": "Xn:n <=rh Yn:n (printed 'rh')"},
+  "quantifiers": "n >= 1; x > 0",
+  "numbers": "",
+  "ambiguity": "Proof yields r̃Xn:n(x) <= r̃Yn:n(x), i.e., Xn:n <=rh Yn:n."
+ },
+ {
+  "paper": "arxiv:2002.12474",
+  "claim": "Theorem 5",
+  "page": 10,
+  "quote": "Theorem 5. Let X1 , X2 , . . . , Xn be a set of independent random variables such that Xi ∼ W − Exp(α, β, γi ) for i = 1, 2, . . . , n. Let Y1 , Y2 , . . . , Yn be another set of independent random variables such that Yi ∼ W − Exp(α, β, γi∗ ) for i = 1, 2, . . . , n. Then γ ≺w γ ∗ ⇒ Xn:n ≤st Yn:n .",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "W-Exp (exponential baseline F(x) = 1 − e^{−γx}, w(γx) = e^{γx} − 1); common α, β",
+  "compared": "γ vectors via weak submajorization",
+  "hypotheses": [
+   {"text": "γ ≺w γ∗", "formal": "weak submajorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn:n <=st Yn:n"},
+  "quantifiers": "n >= 1; x > 0",
+  "numbers": "",
+  "ambiguity": "Restricted to exponential baseline (w(t) = e^t − 1)."
+ },
+ {
+  "paper": "arxiv:2002.12474",
+  "claim": "Theorem 6",
+  "page": 11,
+  "quote": "Theorem 6. Let X1 , X2 and Y1 , Y2 be 2 pairs of independent random variable such that Xi ∼ GM (αi , βi , λ) and Yi ∼ GM (α∗i , β∗i , λ) for i = 1, 2. Let (α1 α2 / β1 β2 ) ∈ P2 , then (α1 α2 / β1 β2 ) ≺≺ (α∗1 α∗2 / β∗1 β∗2 ) ⇒ X1:2 ≥hr Y1:2 .",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Gompertz-Makeham GM(α,β,λ): FGM(x) = 1 − exp(−λx − (α/β)(e^{βx} − 1)); common λ",
+  "compared": "2×2 matrices (α;β) via chain majorization, in P2",
+  "hypotheses": [
+   {"text": "(α1 α2 / β1 β2 ) ∈ P2 and (α;β) ≺≺ (α∗;β∗)", "formal": "chain majorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X1:2 >=hr Y1:2"},
+  "quantifiers": "n = 2; x > 0",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2002.12474",
+  "claim": "Example 2",
+  "page": 12,
+  "quote": "Example 2. Let X1 , X2 be independent random variables such that Xi ∼ GM (αi , βi , λ), i = 1, 2. Also let Y1 , Y2 be another pair ... such that Yi ∼ GM (α∗i , β∗i , λ), i = 1, 2. The parameters satisfy all the given conditions and are given in the form of matrices as (α1∗ α2∗ / β1∗ β2∗) = (4.8 3.4 / 2.5 1.6) ∈ P2 and (α1 α2 / β1 β2 ) = (4.03 4.17 / 2.005 2.095). The plot of the difference rY1:2 − rX1:2 ... for any value of λ.",
+  "kind": "example",
+  "model": "series system",
+  "family": "Gompertz-Makeham GM(α,β,λ)",
+  "compared": "X1:2 vs Y1:2 in hazard rate (supports Theorem 6)",
+  "hypotheses": [
+   {"text": "same numerical matrices as Example 1", "formal": "chain majorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X1:2 >=hr Y1:2 (Figure 2: rY1:2 − rX1:2 >= 0)"},
+  "quantifiers": "n = 2; x > 0; any λ",
+  "numbers": "α* = (4.8,3.4), β* = (2.5,1.6), α = (4.03,4.17), β = (2.005,2.095)",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2002.12474",
+  "claim": "Theorem 7",
+  "page": 12,
+  "quote": "Theorem 7. Let X1 , . . . , Xn be as set of independent random variables such that Xi ∼ GM (αi , βi , λ), i = 1, . . . , n. Also Y1 , . . . , Yn be another set of random variable such that Yi ∼ GM (α∗i , βi∗ , λ), i = 1, . . . , n. If (α1 . . . αn / λ1 . . . λn ) ∈ Pn and (α1∗ . . . α∗n / λ∗1 . . . λ∗n ) = (α1 . . . αn / λ1 . . . λn ) Tδi,j , then X1:n ≥hr Y1:n .",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Gompertz-Makeham GM(αi,βi,λ); λ common per statement",
+  "compared": "n-component matrices via a single T-transform",
+  "hypotheses": [
+   {"text": "(α1 . . . αn / λ1 . . . λn ) ∈ Pn and (α∗;λ∗) = (α;λ)Tδi,j", "formal": "matrix pair in Pn related by one T-transform", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X1:n >=hr Y1:n"},
+  "quantifiers": "n >= 2; x > 0",
+  "numbers": "",
+  "ambiguity": "Internal inconsistency: components are stated GM(αi,βi,λ) with common λ, yet the matrix's second row is printed 'λ1,...,λn' — probably intended to be the βi row (as in Theorem 6/8)."
+ },
+ {
+  "paper": "arxiv:2002.12474",
+  "claim": "Theorem 8",
+  "page": 13,
+  "quote": "Theorem 8. Let X1 , . . . , Xn be a set of independent random variables such that Xi ∼ GM (αi , βi , λ), i = 1, . . . , n. Also let Y1 , . . . , Yn be another set of random variables such that Yi ∼ GM (α∗i , βi∗ , λ), i = 1, . . . , n. For k ≥ 2, if (α1 . . . αn / β1 . . . βn ) ∈ Pn , (α1 . . . αn / β1 . . . βn ) Tδ1 . . . Tδi ∈ Pn , for i = 1, . . . , k − 1, and (α∗;β∗) = (α;β)Tδ1 . . . Tδk , then X1:n ≥hr Y1:n .",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Gompertz-Makeham GM(α,β,λ); common λ",
+  "compared": "chain majorization via product of k T-transforms with Pn intermediates",
+  "hypotheses": [
+   {"text": "(α;β) ∈ Pn ; partial products in Pn; (α∗;β∗) = (α;β)Tδ1···Tδk", "formal": "chain majorization, k >= 2 transforms", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X1:n >=hr Y1:n"},
+  "quantifiers": "n >= 2, k >= 2; x > 0",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2002.12474",
+  "claim": "Theorem 9",
+  "page": 13,
+  "quote": "Theorem 9. Let X1 , X2 , . . . , Xn be a set of independent random variables such that Xi ∼ GM (α, β, λi ) for i = 1, 2, . . . , n. Let Y1 , Y2 , . . . , Yn be another set of independent random variables such that Yi ∼ GM (α, β, λ∗i ) for i = 1, 2, . . . , n. Then λ ≺w λ∗ ⇒ X1:n =st Y1:n .",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Gompertz-Makeham GM(α,β,λi); common α, β",
+  "compared": "λ vectors via weak submajorization",
+  "hypotheses": [
+   {"text": "λ ≺w λ∗", "formal": "weak submajorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X1:n =st Y1:n — equality: the age-independent Makeham parameter λ has no effect on the ordering (φ1(λ) = 0; survival depends only on Σλi)"},
+  "quantifiers": "n >= 1; x > 0",
+  "numbers": "",
+  "ambiguity": "Conclusion printed '=st' — under weak submajorization total sums may differ; proof shows φ1 ≡ 0 so only Schur-structure argument is used. Conclusion says λ has 'absolutely no effect'."
+ },
+ {
+  "paper": "arxiv:2002.12474",
+  "claim": "Theorem 10",
+  "page": 14,
+  "quote": "Theorem 10. Let X1 , X2 , . . . , Xn be a set of independent random variables such that Xi ∼ GM (αi , β, λ) for i = 1, 2, . . . , n. Let Y1 , Y2 , . . . , Yn be another set of independent random variables such that Yi ∼ GM (α∗i , β, λ) for i = 1, 2, . . . , n. Then α ≺w α∗ ⇒ Xn:n ≤st Yn:n .",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "Gompertz-Makeham GM(αi,β,λ); common β, λ",
+  "compared": "α vectors via weak submajorization",
+  "hypotheses": [
+   {"text": "α ≺w α∗", "formal": "weak submajorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn:n <=st Yn:n"},
+  "quantifiers": "n >= 1; x > 0",
+  "numbers": "",
+  "ambiguity": "Proof writes 'FXn:n(x) ≥st FYn:n(x)' at the end — cdf comparison; conclusion Xn:n <=st Yn:n."
+ }
+]

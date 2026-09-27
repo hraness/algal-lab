@@ -1,0 +1,196 @@
+[
+ {
+  "paper": "doi:10.3934/math.2024434",
+  "claim": "Theorem 1",
+  "page": 8909,
+  "quote": "Theorem 1. For X ~ MPHRS(α; θ1; λ1; F̄1; ψ) and Y ~ MPHRS(β; θ1; λ1; F̄2; ψ), if F̄1(x) ≥ F̄2(x), then α ≺w β implies X2:n ≥st Y2:n.",
+  "kind": "theorem",
+  "model": "fail-safe system (second smallest order statistic)",
+  "family": "Modified proportional hazard rates scale (MPHRS) model under Archimedean survival copula ψ; tilt vector α (X) vs β (Y), common scale θ and MPHR λ, baselines F̄1, F̄2",
+  "compared": "X2:n vs Y2:n; tilt vectors α vs β",
+  "hypotheses": [
+   {"text": "X ~ MPHRS(α; θ1; λ1; F̄1; ψ), Y ~ MPHRS(β; θ1; λ1; F̄2; ψ)", "formal": "stated; θ1, λ1 denote common scalar parameters", "source": "statement"},
+   {"text": "F̄1(x) ≥ F̄2(x) for all x", "formal": "stochastic ordering of baselines", "source": "statement"},
+   {"text": "α ≺w β", "formal": "weak supermajorization: Σ_{i=1}^j α_(i) ≥ Σ_{i=1}^j β_(i) (Definition 2(ii))", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:n ⪰_st Y2:n"},
+  "quantifiers": "n ≥ 2; all x ≥ 0",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3934/math.2024434",
+  "claim": "Corollary 1",
+  "page": 8911,
+  "quote": "Corollary 1. For X ~ MPHRS(α1; θ1; λ1; F̄1; ψ) and Y ~ MPHRS(α; θ1; λ1; F̄2; ψ). If F̄1(x) ≥ F̄2(x), then α ≥ (1/n)Σ αi ⇒ X2:n ≥st Y2:n.",
+  "kind": "corollary",
+  "model": "fail-safe system",
+  "family": "MPHRS model; homogeneous tilt α1 (X) vs heterogeneous tilt vector α (Y)",
+  "compared": "X2:n vs Y2:n",
+  "hypotheses": [
+   {"text": "F̄1(x) ≥ F̄2(x)", "formal": "stated", "source": "statement"},
+   {"text": "α ≥ (1/n)Σ_{i=1}^n αi", "formal": "common tilt exceeds mean of heterogeneous tilts", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:n ⪰_st Y2:n"},
+  "quantifiers": "n ≥ 2; all x ≥ 0",
+  "numbers": "",
+  "ambiguity": "Scalar-vs-vector parameter notation: X has common tilt α1 = α (scalar), Y has tilt vector α — the printed 'α ≥ (1/n)Σαi' uses scalar α vs mean of the components."
+ },
+ {
+  "paper": "doi:10.3934/math.2024434",
+  "claim": "Theorem 2",
+  "page": 8911,
+  "quote": "Theorem 2. For X ~ MPHRS(α1; θ; λ1; F̄1; ψ) and Y ~ MPHRS(α1; η; λ1; F̄2; ψ), where 0 < α ≤ 1. If ψ is log-concave, F̄1(x) ≤ F̄2(x), and h2(x) is decreasing in x, then θ ≺w η implies X2:n ≤st Y2:n.",
+  "kind": "theorem",
+  "model": "fail-safe system",
+  "family": "MPHRS model; common scalar tilt α ∈ (0,1], common MPHR λ; scale vectors θ vs η",
+  "compared": "X2:n vs Y2:n; scale vectors θ vs η",
+  "hypotheses": [
+   {"text": "0 < α ≤ 1; ψ log-concave; F̄1(x) ≤ F̄2(x); baseline hazard h2(x) decreasing", "formal": "stated", "source": "statement"},
+   {"text": "θ ≺w η", "formal": "weak supermajorization of θ by η", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:n ⪯_st Y2:n"},
+  "quantifiers": "n ≥ 2; all x ≥ 0",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3934/math.2024434",
+  "claim": "Corollary 2",
+  "page": 8912,
+  "quote": "Corollary 2. For X ~ MPHRS(α1; θ1; λ1; F̄1; ψ) and Y ~ MPHRS(α1; θ; λ1; F̄2; ψ), where 0 < α ≤ 1, if ψ is log-concave, F̄1(x) ≤ F̄2(x), and h2(x) is decreasing in x, then θ ≥ (1/n)Σ θi ⇒ X2:n ≤st Y2:n.",
+  "kind": "corollary",
+  "model": "fail-safe system",
+  "family": "MPHRS model; common scale θ (X) vs scale vector θ (Y)",
+  "compared": "X2:n vs Y2:n",
+  "hypotheses": [
+   {"text": "0 < α ≤ 1; ψ log-concave; F̄1 ≤ F̄2; h2 decreasing", "formal": "stated", "source": "statement"},
+   {"text": "θ ≥ (1/n)Σ_{i=1}^n θi", "formal": "scalar scale exceeds vector mean", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:n ⪯_st Y2:n"},
+  "quantifiers": "n ≥ 2; all x ≥ 0",
+  "numbers": "",
+  "ambiguity": "Scalar θ1 in X's specification is the common scale θ of the condition."
+ },
+ {
+  "paper": "doi:10.3934/math.2024434",
+  "claim": "Example 1",
+  "page": 8912,
+  "quote": "Example 1. Let F̄1(x) = e^{−3x}, F̄2(x) = e^{−2x}, and generator ψ(x) = e^{(1−e^x)/a}, 0 < a ≤ 1. Take n = 4, λ = 0.2, α = 0.2, a = 0.1, and θ = (0.6, 0.7, 0.8, 0.9) ≺w (0.2, 0.3, 0.5, 0.7) = η. It is easy to check that the conditions of Theorem 2 are all satisfied. ... which confirms X2:4 ≤st Y2:4.",
+  "kind": "example",
+  "model": "fail-safe system",
+  "family": "MPHRS; exponential baselines; copula generator ψ(x) = e^{(1−e^x)/a} (a = 0.1)",
+  "compared": "θ = (0.6,0.7,0.8,0.9) vs η = (0.2,0.3,0.5,0.7)",
+  "hypotheses": [
+   {"text": "n = 4, λ = 0.2, α = 0.2; θ ≺w η (lower sums: 0.6,1.3,2.1,3.0 ≥ 0.2,0.5,1.0,1.7 — consistent with weak supermajorization)", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:4 ⪯_st Y2:4 verified numerically (plotted transformed cdfs)"},
+  "quantifiers": "n = 4; all x ≥ 0",
+  "numbers": "F̄1 = e^{−3x}, F̄2 = e^{−2x}, ψ = e^{(1−e^x)/a}, a = 0.1, λ = 0.2, α = 0.2; θ = (0.6,0.7,0.8,0.9), η = (0.2,0.3,0.5,0.7)",
+  "ambiguity": "Note F̄1 = e^{−3x} ≤ F̄2 = e^{−2x} consistent with the condition F̄1 ≤ F̄2."
+ },
+ {
+  "paper": "doi:10.3934/math.2024434",
+  "claim": "Theorem 3",
+  "page": 8913,
+  "quote": "Theorem 3. For X ~ MPRHRS(α1; θ1; λ; F1; ψ) and Y ~ MPRHRS(α1; θ1; µ; F2; ψ), where 0 < α ≤ 1. If ψ is log-concave, F1(x) ≤ F2(x), then λ ≺w µ implies Xn−1:n ≥st Yn−1:n.",
+  "kind": "theorem",
+  "model": "fail-safe system (second largest order statistic)",
+  "family": "Modified proportional reversed hazard rates scale (MPRHRS) model under Archimedean copula ψ; MPRHR vectors λ (X) vs µ (Y); common scalar α, θ",
+  "compared": "X_{n−1:n} vs Y_{n−1:n}; vectors λ vs µ",
+  "hypotheses": [
+   {"text": "0 < α ≤ 1; ψ log-concave; F1(x) ≤ F2(x) (baseline CDFs ordered)", "formal": "stated", "source": "statement"},
+   {"text": "λ ≺w µ", "formal": "weak supermajorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X_{n−1:n} ⪰_st Y_{n−1:n}"},
+  "quantifiers": "n ≥ 2; all x ≥ 0",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3934/math.2024434",
+  "claim": "Corollary 3",
+  "page": 8914,
+  "quote": "Corollary 3. For X ~ MPRHRS(α1; θ1; λ1; F1; ψ) and Y ~ MPRHRS(α1; θ1; λ; F2; ψ), where 0 < α ≤ 1, if ψ is log-concave, F1(x) ≤ F2(x), then λ ≥ (1/n)Σ λi ⇒ Xn−1:n ≥st Yn−1:n.",
+  "kind": "corollary",
+  "model": "fail-safe system (second largest)",
+  "family": "MPRHRS; common scalar λ (X) vs vector λ (Y)",
+  "compared": "X_{n−1:n} vs Y_{n−1:n}",
+  "hypotheses": [
+   {"text": "0 < α ≤ 1; ψ log-concave; F1 ≤ F2; λ ≥ (1/n)Σλi", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X_{n−1:n} ⪰_st Y_{n−1:n}"},
+  "quantifiers": "n ≥ 2; all x ≥ 0",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3934/math.2024434",
+  "claim": "Theorem 4",
+  "page": 8915,
+  "quote": "Theorem 4. For X ~ MPRHRS(α; θ1; λ1; F1; ψ) and Y ~ MPRHRS(β; θ1; λ1; F2; ψ). If F1(x) ≥ F2(x), then α ≺w β implies Xn−1:n ≤st Yn−1:n.",
+  "kind": "theorem",
+  "model": "fail-safe system (second largest)",
+  "family": "MPRHRS model; tilt vectors α (X) vs β (Y); common scalar θ, λ",
+  "compared": "X_{n−1:n} vs Y_{n−1:n}; tilt vectors α vs β",
+  "hypotheses": [
+   {"text": "F1(x) ≥ F2(x)", "formal": "stated", "source": "statement"},
+   {"text": "α ≺w β", "formal": "weak supermajorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X_{n−1:n} ⪯_st Y_{n−1:n}"},
+  "quantifiers": "n ≥ 2; all x ≥ 0",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3934/math.2024434",
+  "claim": "Corollary 4",
+  "page": 8915,
+  "quote": "Corollary 4. For X ~ MPRHRS(α1; θ1; λ1; F1; ψ) and Y ~ MPRHRS(α; θ1; λ1; F2; ψ). If F1(x) ≥ F2(x), then α ≥ (1/n)Σ αi ⇒ Xn−1:n ≤st Yn−1:n.",
+  "kind": "corollary",
+  "model": "fail-safe system (second largest)",
+  "family": "MPRHRS; common tilt (X) vs tilt vector (Y)",
+  "compared": "X_{n−1:n} vs Y_{n−1:n}",
+  "hypotheses": [
+   {"text": "F1(x) ≥ F2(x); α ≥ (1/n)Σαi", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X_{n−1:n} ⪯_st Y_{n−1:n}"},
+  "quantifiers": "n ≥ 2; all x ≥ 0",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3934/math.2024434",
+  "claim": "Example 2",
+  "page": 8915,
+  "quote": "Example 2. Let F1(x) = 1 − e^{−3x} and F2(x) = 1 − e^{−2x}, and generator ψ(x) = (ax + 1)^{−1/a}, a > 0. Take n = 4, λ = 0.5, θ = 0.1, a = 0.6, and α = (0.6, 0.7, 0.8, 0.8) ≺w (0.3, 0.4, 0.5, 0.6) = β. It is easy to check that the conditions of Theorem 4 are all satisfied. Thus, X3:4 ≤st Y3:4, as shown in Figure 2.",
+  "kind": "example",
+  "model": "fail-safe system (second largest)",
+  "family": "MPRHRS; exponential baselines; Clayton-type generator ψ(x) = (ax+1)^{−1/a}, a = 0.6",
+  "compared": "α = (0.6,0.7,0.8,0.8) vs β = (0.3,0.4,0.5,0.6)",
+  "hypotheses": [
+   {"text": "n = 4, λ = 0.5, θ = 0.1; α ≺w β (lower sums consistent)", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X3:4 ⪯_st Y3:4 verified numerically"},
+  "quantifiers": "n = 4; all x ≥ 0",
+  "numbers": "F1 = 1−e^{−3x}, F2 = 1−e^{−2x}; ψ = (ax+1)^{−1/a}, a = 0.6; λ = 0.5; θ = 0.1; α = (0.6,0.7,0.8,0.8), β = (0.3,0.4,0.5,0.6)",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3934/math.2024434",
+  "claim": "Example 3 (counterexample to p-large replacement)",
+  "page": 8915,
+  "quote": "One natural question is whether the condition of weakly supermajorization order can be replaced by p-large order in Theorem 4. The following example gives a negative answer. Example 3. Let F1(x) = F2(x) = 1 − e^{−x}, and generator ψ(x) = (ax + 1)^{−1/a}, a > 0. Take n = 3, α = (3, 4, 5), and β = (2, 4.8, 6), and it holds that α ≺p β while α ⋠w β. The curve of F̄_{(X2:3+1)^{−1}}(x) − F̄_{(Y2:3+1)^{−1}}(x) is displayed in Figure 3, from which we confirm that X2:3 ≱st Y2:3 and X2:3 ≰st Y2:3.",
+  "kind": "counterexample",
+  "model": "fail-safe system (second largest)",
+  "family": "MPRHRS; identical exponential baselines; Clayton-type generator",
+  "compared": "α = (3,4,5) vs β = (2,4.8,6) under p-large order only",
+  "hypotheses": [
+   {"text": "n = 3; F1 = F2 = 1 − e^{−x}; α ≺p β asserted while α ⋠w β", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:3 ≱_st Y2:3 AND X2:3 ≰_st Y2:3 — stochastic order fails when α ≺w β is weakened to α ≺p β"},
+  "quantifiers": "n = 3",
+  "numbers": "α = (3,4,5), β = (2,4.8,6)",
+  "ambiguity": "α ≺p β per Definition 2(iii) requires Π_{i=j}^n α_(i) ≥ Π β_(i): j = 3 gives 5 ≥ 6 which fails — the printed claim conflicts with the printed definition; the lower-products reading Π_{i=1}^j α_(i) ≥ Π β_(i) does hold (3 ≥ 2, 12 ≥ 9.6, 60 ≥ 57.6). Flagged."
+ }
+]
