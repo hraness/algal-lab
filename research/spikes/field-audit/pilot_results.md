@@ -1,8 +1,9 @@
-# Field audit pilot: interim results (8 of 10 papers)
+# Field audit pilot: results (10 papers)
 
-Status 2026-09-27. Both extraction passes have finished 8 pilot papers; the
-Frechet paper and the Remkan page-image re-extraction are in progress. Controls
-C1 and C2 pass for both certificate types (`harness/controls_result.json`,
+Status 2026-09-27. Both extraction passes (separate agents, neither seeing the
+other's output) have finished all 10 pilot papers, including a re-extraction of
+the Remkan paper from page images. Controls C1 and C2 pass for both certificate
+types (`harness/controls_result.json`,
 `harness/controls_closed_result.json`). Per amendment 3 these pilot papers are
 the development set; they are retested with the frozen harness later, and P1 is
 reported with and without them.
@@ -12,7 +13,23 @@ rational harness separates isolating intervals strictly; the closed-form grid is
 scaled to the point where both survival functions fall below 1e-40, since a
 fixed grid out to x = 30 left most points undecidable for fast-decaying models.
 
-## Tally so far (development set, not a rate)
+## Pilot criteria (protocol section 6)
+
+- C1 clean: 20 of 20 known-true theorems hold (rational certificates) and 8 of 8
+  (closed-form certificates).
+- C2 at least 90%: 20 of 20 and 10 of 10 planted false claims refuted.
+- C5 at least 80%: the passes agree on 111 of the 115 theorem-type claims in
+  the union (97%). The 4 extra records are pass B's in the Frechet paper, where
+  pass A left out results stated for general classes; these go to
+  adjudication.
+- C3: every refutation below was re-checked by a separately written evaluator
+  (`harness/c3_*.py`, or a direct evaluation in the pilot script).
+- C4: every refuting instance satisfies pass B's independent reading of the
+  hypotheses.
+
+The pilot passes, so the study scales to the full sample of 100.
+
+## Tally (development set, not a rate)
 
 | paper | theorem-level result | printed evidence |
 |---|---|---|
@@ -23,10 +40,13 @@ fixed grid out to x = 30 left most points undecidable for fast-decaying models.
 | doi:10.1017/s0269964826100199 (q-Weibull) | 4 theorem families survive (80 checks) | 14 of 14 reproduce |
 | arxiv:2407.18801 (second order statistics) | Remark 2 false; the ordering it licenses fails; Proposition 2 misstated | not checked |
 | doi:10.37119/jpss2023.v21i1.637 (MWU) | Theorem (1) refuted in both parts, all three orders (directions reversed) | none printed |
-| doi:10.1080/02331888.2025.2552185 (Kw-G random extremes) | Theorems 3.7 and 3.8 refuted | not yet checked |
+| doi:10.1080/02331888.2025.2552185 (Kw-G random extremes) | Theorems 3.7 and 3.8 refuted | 3 of 3 counterexamples violate other hypotheses of the theorem they address |
+| doi:10.2991/jsta.2018.17.3.8 (Frechet, GE systems) | 6 theorem families survive (165 checks) | 1 of 3 printed claims fails |
+| doi:10.34198/ejms.14224.333347 (Remkan) | Theorem 5's printed conditions are degenerate (both passes); not testable | none printed |
 
-Papers with at least one theorem refuted as stated, no ambiguity: 3 of the 7
-with checkable theorems (CLFRD, MWU, Kw-G).
+Papers with at least one theorem refuted as stated, with no ambiguity: 3 of
+the 8 with checkable theorems (CLFRD, MWU, Kw-G). Papers with failed printed
+evidence: 3 of the 6 with printed examples (Poisson, Kw-G, Frechet).
 
 ## doi:10.52547/jsri.16.1.101 (generalized modified Weibull systems)
 
@@ -93,15 +113,44 @@ exponential baseline, N uniform on {2, 3}):
 - **Theorem 3.8 refuted** (delta majorized by gamma implies X_{1:N} >=hr
   Y_{1:N}): gamma = (3, 2, 1), delta = (2, 2, 2); even the usual order fails,
   S_X(1) = 0.00461 < S_Y(1) = 0.01040.
-- Other theorems and the three printed counterexamples: not yet checked.
+- The three printed counterexamples each relax one hypothesis to show it is
+  needed, and each also breaks another hypothesis of the same theorem, so none
+  isolates the condition it is about: Counterexample 3.1's beta =
+  (2.1, 3.001, 5.0001, 0.001, 0.0001) is not monotone although Theorem 3.1
+  needs alpha and beta similarly ordered; Counterexample 3.2's
+  alpha = (0.01, 7, 9, 9.1, 9.12) increases while gamma and delta decrease;
+  Counterexample 3.3's alpha = (7.1, 2.9, 1.56, 0.03, 0.201) is not monotone.
+- C3 for Theorem 3.7 is a direct hazard evaluation (`harness/c3_kwg37.py`).
 
-## Extraction agreement (C5, 4 papers)
+## doi:10.2991/jsta.2018.17.3.8 (Frechet and generalized-exponential systems)
 
-Pass A and pass B found the same claims in 3 of 4 papers (7/7, 8/9, 23/23;
-pass B added one table record). The fourth (Remkan) has 4 records in each pass
-under different labels because the math glyphs are unreadable. Every matched
-claim agrees on order and direction; hypothesis lists differ only in
-granularity (pass A splits the distributional setup into its own item).
+- Corollaries 3.1, 3.2(i), 3.2(ii) (Frechet parallel systems, where the maximum
+  is Frechet with parameter sum lam_i^a), Corollary 3.4 and both readings of
+  Corollary 3.5 (generalized-exponential series systems): no counterexample in
+  165 checks (`harness/pilot_jsta.py`).
+- Printed Example 3.1: case (i) (not ordered) and case (ii)(1) (X <=st X*)
+  reproduce. **Case (ii)(2) fails:** the paper prints X_{1:2} >=st X*_{1:2}
+  for a = 0.6, lam = (1, 2.25), lam* = (1.1, 2.14), but S_X - S_X* is
+  positive up to x = 0.5 and negative at x = 2 and 5 (rigorous enclosures,
+  `harness/c3_jsta.py`), so the survival functions cross. The example's
+  purpose (p-larger implies neither direction) still holds.
+
+## doi:10.34198/ejms.14224.333347 (Remkan distribution)
+
+Re-extracted from page images by both passes. As printed, Theorem 5's parameter
+conditions collapse to identical parameters or to a single equality and include
+"phi_2 = phi_2"; the distribution label and all four orders are undefined.
+Both passes flagged this independently; the claim is ambiguous as printed and
+excluded from testing.
+
+## Extraction notes
+
+Every matched claim agrees on order and direction; hypothesis lists differ
+mainly in granularity (pass A splits the distributional setup into its own
+item). Both passes independently flagged the same defects in several papers,
+for example Proposition 2 of arxiv:2407.18801, Theorem 5 of the Remkan paper,
+and the Kw-G counterexamples' parameter vectors. The first text-based Remkan
+records (unreadable glyphs) are kept alongside the page-image records.
 
 ## arxiv:2601.07249 (compounded linear failure rate distribution)
 
