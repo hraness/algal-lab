@@ -140,7 +140,13 @@ open problem rather than claiming it — and the answer turned out to be negativ
 6. **Nadeb–Torabi 2022** (CSTM) — online Jul 2020, *earlier* than BKB2022's
    online date: if its PHR-model hr theorems use the lift, it may outrank BKB2022
    as second-misuse (after HF2018).
-7. **BMKB2024** (Metrika) — general family, explicit matrix-change hr/rh.
+7. **BMKB2024** (Metrika 87:681–712, Bhakta–**Majumder**–Kayal–
+   Balakrishnan) — **RESOLVED: probable clean / lift-disciplined**.
+   Citers transmit n≥3 claims only in the additive st domain; its rate
+   theorems recover as n=2 via SPBB Thm 8. Not the lift's entry point
+   (postdates all of Layer 2); a consolidation node. Majumder is the
+   authorial bridge to VKF2025. Residual: if its paywalled rh
+   matrix-change theorems are stated at general n, CERT B/C apply.
 8. **Varghese et al. 2025** (Statistics) — demonstrates spread to a second
    institution (IISER-TVM); hr+rh for α-mixture LS.
 9. Second tier: SBB2022, PKP2022, BKB2024-SPL, BBKP2024, BKKA2024, SMH2026,
