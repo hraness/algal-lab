@@ -1,0 +1,33 @@
+[
+ {
+  "queue_claim": "counterexample3.1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:1804.04103",
+    "claim": "Counterexample 3.1",
+    "page": 9,
+    "quote": "Counterexample 3.1 For σ = 0.5 and i = 1, 2, 3, let Ti ∼ LL (σ, λi ) and Wi ∼ LL (σ, βi ) be two sets of mutually independent random variables. Let (v1 , v2 , v3 ) = (0.4, 0.4, 0.1) and (v1∗ , v2∗ , v3∗ ) = (0.5, 0.4, 0.2), where vi = 1/(1+λi^σ) and vi∗ = 1/(1+βi^σ). Now if h(p)= (2, 2, 1) and h(p∗ )= (3, 2, 1) are taken, where h(u) = − log(u), then it can be written that [h(p); v] >w [h(p∗ ); v∗], where (v, h(p)) ∈ Un , and (v ∗ , h(p∗ )) ∈ Un . The figure given below also shows that, for all 0 ≤ x ≤ 1, FX3:3 (x) ≤ FY3:3 (x) giving that X3:3 ≥st Y3:3 .",
+    "kind": "counterexample",
+    "model": "parallel system (n = 3) under random shocks",
+    "family": "log-Lindley LL(σ, λ), σ = 0.5 common; vi = 1/(1+λi^σ)",
+    "compared": "matrix-majorized parameter pairs (v, h(p)) vs (v*, h(p*))",
+    "hypotheses": [
+     {
+      "text": "(v1,v2,v3) = (0.4,0.4,0.1), (v1*,v2*,v3*) = (0.5,0.4,0.2); h(p) = (2,2,1), h(p*) = (3,2,1), h(u) = −log u",
+      "formal": "[h(p); v] >w [h(p*); v*] matrix weak majorization, both in Un",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X3:3 >=st Y3:3 (F_X3:3(x) <= F_Y3:3(x) for all 0 <= x <= 1; Y side smaller)"
+    },
+    "quantifiers": "n = 3; all x in [0,1]",
+    "numbers": "σ = 0.5; v = (0.4,0.4,0.1); v* = (0.5,0.4,0.2); h(p) = (2,2,1); h(p*) = (3,2,1)",
+    "ambiguity": "Labelled 'Counterexample' but is a positive numerical/graphical confirmation of Theorem 3.3 via Figure 1; CDF inequality checked graphically only."
+   }
+  ],
+  "note": "Paper prints F_X3:3 <= F_Y3:3 giving X3:3 >=st Y3:3 (Y smaller); the A 'A_smaller' flag was a normalizer artifact from the parenthetical CDF clause."
+ }
+]

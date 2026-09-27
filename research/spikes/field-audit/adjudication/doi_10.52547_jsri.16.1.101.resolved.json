@@ -1,0 +1,448 @@
+[
+ {
+  "queue_claim": "example1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Example 1",
+    "page": 106,
+    "quote": "Example 1. Let (X1, X2, X3) ((X1*, X2*, X3*)) be a vector of independent heterogeneous GMW random variables. Set γ = 2, λ = 1.2, β = 0.5, (α1, α2, α3) = (0.1, 4, 6) and (α1*, α2*, α3*) = (0.1, 1, 8). Obviously (α1, α2, α3) ≼^w (α1*, α2*, α3*), and X3:3 and X3:3* are ordered in the reversed hazard rate order, as can be seen in Fig. 1. [Figure 1 caption, p. 107: Plot of the reversed hazard rate functions of X3:3 (black line) and X3:3* (red line).]",
+    "kind": "example",
+    "model": "parallel system",
+    "family": "GMW(αi, γ, λ, β): F_i(x) = (1 − exp(−αi x^γ e^{λx}))^β; common γ = 2, λ = 1.2, β = 0.5",
+    "compared": "X3:3 (α = (0.1, 4, 6)) vs X*3:3 (α* = (0.1, 1, 8))",
+    "hypotheses": [
+     {
+      "text": "vector of independent heterogeneous GMW random variables",
+      "formal": "Xi ∼ GMW(αi, 2, 1.2, 0.5), X*i ∼ GMW(αi*, 2, 1.2, 0.5), independent within each set",
+      "source": "statement"
+     },
+     {
+      "text": "(α1, α2, α3) ≼^w (α1*, α2*, α3*)",
+      "formal": "weak supermajorization: Σ_{i=1}^j α_(i) ≥ Σ_{i=1}^j α*_(i), j = 1,2,3 (0.1 ≥ 0.1, 4.1 ≥ 1.1, 10.1 ≥ 9.1)",
+      "source": "statement; definition 2(ii)"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "not printed in the text ('X3:3 and X3:3* are ordered in the reversed hazard rate order'); per Theorem 1, which this example illustrates, the direction would be X3:3 ≤rh X*3:3"
+    },
+    "quantifiers": "n = 3; plotted x-range not printed",
+    "numbers": "γ = 2, λ = 1.2, β = 0.5; α = (0.1,4,6); α* = (0.1,1,8); evidence graphical only (Fig. 1), no function values printed",
+    "ambiguity": "Direction of the rh order is not stated in the text — it is asserted graphically via Fig. 1 (X3:3 black, X*3:3 red). Printed relation '≼^w' is the paper's weak supermajorization (Definition 2(ii))."
+   }
+  ],
+  "note": "Both passes agree: figure-supported rh comparison illustrating Theorem 1; direction not printed — Theorem 1 predicts X3:3 ≤rh X*3:3. Included with the unstated-direction caveat."
+ },
+ {
+  "queue_claim": "example2i",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Example 2(i)",
+    "page": 109,
+    "quote": "Example 2. (i) Let (X1, X2, X3) ((X1*, X2*, X3*)) be a vector of independent heterogeneous GMW random variables. Set γ = 1.3, λ = 1.6, β = 1.3, (α1, α2, α3) = (5, 2, 0.2) and (α1*, α2*, α3*) = (8, 3, 0.3). Obviously (α1, α2, α3) ≼w (α1*, α2*, α3*), and X1:3 ≥st X1:3*, as can be seen in Fig. 2 (A).",
+    "kind": "example",
+    "model": "series system",
+    "family": "GMW(αi, γ, λ, β); common γ = 1.3, λ = 1.6, β = 1.3",
+    "compared": "X1:3 (α = (5, 2, 0.2)) vs X*1:3 (α* = (8, 3, 0.3))",
+    "hypotheses": [
+     {
+      "text": "vector of independent heterogeneous GMW random variables",
+      "formal": "Xi ∼ GMW(αi, 1.3, 1.6, 1.3), X*i ∼ GMW(αi*, 1.3, 1.6, 1.3), independent within each set",
+      "source": "statement"
+     },
+     {
+      "text": "(α1, α2, α3) ≼w (α1*, α2*, α3*)",
+      "formal": "weak submajorization: Σ_{i=j}^3 α_(i) ≤ Σ_{i=j}^3 α*_(i), j = 1,2,3 (5 ≤ 8, 7 ≤ 11, 7.2 ≤ 11.3)",
+      "source": "statement; definition 2(i)"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X1:3 ≥st X*1:3 as printed (i.e., X*1:3 ≤st X1:3)"
+    },
+    "quantifiers": "n = 3; plotted x-range not printed",
+    "numbers": "γ = 1.3, λ = 1.6, β = 1.3 ≥ 1 (consistent with Theorem 7(i)); α = (5,2,0.2); α* = (8,3,0.3); survival functions plotted in Fig. 2(A)",
+    "ambiguity": "Figure-supported instance of Theorem 7(i). The 'A_smaller'/'B_smaller' queue tags reduce to the same printed direction."
+   }
+  ],
+  "note": "Both passes agree on st and on the printed direction X1:3 ≥st X*1:3 — a figure-based instance of Theorem 7(i) (β = 1.3 ≥ 1, weak submajorization)."
+ },
+ {
+  "queue_claim": "example2ii",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Example 2(ii)",
+    "page": 109,
+    "quote": "(ii) Let (X1, X2, X3) ((X1*, X2*, X3*)) be a vector of independent heterogeneous GMW random variables. Set γ = 1.3, λ = 1.6, β = 0.3, (α1, α2, α3) = (0.2, 4, 9) and (α1*, α2*, α3*) = (0.1, 1, 6). Obviously (α1, α2, α3) ≼^w (α1*, α2*, α3*), and X1:3 ≤st X1:3*, as can be seen in Fig. 2 (B).",
+    "kind": "example",
+    "model": "series system",
+    "family": "GMW(αi, γ, λ, β); common γ = 1.3, λ = 1.6, β = 0.3",
+    "compared": "X1:3 (α = (0.2, 4, 9)) vs X*1:3 (α* = (0.1, 1, 6))",
+    "hypotheses": [
+     {
+      "text": "vector of independent heterogeneous GMW random variables",
+      "formal": "Xi ∼ GMW(αi, 1.3, 1.6, 0.3), X*i ∼ GMW(αi*, 1.3, 1.6, 0.3), independent within each set",
+      "source": "statement"
+     },
+     {
+      "text": "(α1, α2, α3) ≼^w (α1*, α2*, α3*)",
+      "formal": "weak supermajorization: Σ_{i=1}^j α_(i) ≥ Σ_{i=1}^j α*_(i), j = 1,2,3 (0.2 ≥ 0.1, 4.2 ≥ 1.1, 13.2 ≥ 7.1)",
+      "source": "statement; definition 2(ii)"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X1:3 ≤st X*1:3 as printed (X-side smaller)"
+    },
+    "quantifiers": "n = 3; plotted x-range not printed",
+    "numbers": "γ = 1.3, λ = 1.6, β = 0.3 ≤ 1 (consistent with Theorem 7(ii)); α = (0.2,4,9); α* = (0.1,1,6); survival functions plotted in Fig. 2(B)",
+    "ambiguity": "Figure-supported instance of Theorem 7(ii). Note the direction flips relative to part (i): weak supermajorization + β ≤ 1 gives X1:3 ≤st X*1:3."
+   }
+  ],
+  "note": "Both passes agree: st example with printed direction X1:3 ≤st X*1:3 — instance of Theorem 7(ii) (β = 0.3 ≤ 1, weak supermajorization)."
+ },
+ {
+  "queue_claim": "theorem10",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 10",
+    "page": 112,
+    "quote": "Theorem 10. Let X1, ..., Xn be a set of independent random variables with Xi ∼ GMW(α, γ, λi, β), i = 1, ..., n. Further, let X*1, ..., X*n be another set of independent random variables with X*i ∼ GMW(α, γ, λ*i, β), i = 1, ..., n. Then, for (λ1, ..., λn) ≼w (λ*1, ..., λ*n), we have X1:n ≥st X*1:n if β ≥ 1.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "GMW(α, γ, λi, β): F_i(x) = (1 − exp(−αx^γ e^{λi x}))^β; α, γ, β common; λi heterogeneous",
+    "compared": "X1:n (λ vector) vs X*1:n (λ* vector)",
+    "hypotheses": [
+     {
+      "text": "Xi ∼ GMW(α, γ, λi, β) and X*i ∼ GMW(α, γ, λ*i, β), independent within each set",
+      "formal": "two series systems of independent GMW components differing only in λi",
+      "source": "statement"
+     },
+     {
+      "text": "(λ1, ..., λn) ≼w (λ*1, ..., λ*n)",
+      "formal": "weak submajorization: Σ_{i=j}^n λ_(i) ≤ Σ_{i=j}^n λ*_(i), j = 1,...,n",
+      "source": "statement; definition 2(i)"
+     },
+     {
+      "text": "if β ≥ 1",
+      "formal": "β ≥ 1",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X1:n ≥st X*1:n as printed (i.e., X*1:n ≤st X1:n)"
+    },
+    "quantifiers": "any n; all x > 0",
+    "numbers": "",
+    "ambiguity": "Lead-in calls λ 'the scale parameter' while Section 1 calls α the scale parameter — notation inconsistency only. 'A_smaller'/'B_smaller' queue tags are the same printed direction."
+   }
+  ],
+  "note": "Both passes agree on st under weak submajorization of λ with β ≥ 1; printed direction X1:n ≥st X*1:n."
+ },
+ {
+  "queue_claim": "theorem15i",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 15(i)",
+    "page": 116,
+    "quote": "Theorem 15. For X ∼ ES(α, λ, ϕ1) and X* ∼ ES(α*, λ, ϕ2), (i) if ϕ1 or ϕ2 is log-convex, and ψ2 ◦ϕ1 is super-additive, then (α1, . . . , αn) ≽w (α1*, . . . , αn*) implies Xn:n ≥st Xn:n*;",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "ES(αi, λ) marginals: cdf [G(λx)]^{αi} with arbitrary absolutely continuous baseline G; Archimedean copula generators ϕ1 (X) and ϕ2 (X*)",
+    "compared": "Xn:n (exponent vector α, generator ϕ1) vs X*n:n (α*, ϕ2); common λ and baseline G",
+    "hypotheses": [
+     {
+      "text": "if ϕ1 or ϕ2 is log-convex",
+      "formal": "log ϕ1 convex or log ϕ2 convex",
+      "source": "statement"
+     },
+     {
+      "text": "ψ2 ◦ϕ1 is super-additive",
+      "formal": "ψ2(ϕ1(x + y)) ≥ ψ2(ϕ1(x)) + ψ2(ϕ1(y)), where ψi = ϕi^{−1} is the pseudo-inverse",
+      "source": "statement"
+     },
+     {
+      "text": "(α1, . . . , αn) ≽w (α1*, . . . , αn*)",
+      "formal": "converse weak submajorization: α* ≼w α, i.e., Σ_{i=j}^n α*_(i) ≤ Σ_{i=j}^n α_(i) for all j",
+      "source": "statement; definition 2(i)"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "Xn:n ≥st X*n:n as printed (i.e., X*n:n ≤st Xn:n)"
+    },
+    "quantifiers": "any n; all x",
+    "numbers": "",
+    "ambiguity": "Quoted from Bashkar et al. (2018) — stated in the paper without proof as a numbered theorem. ES(α,λ,ϕ) notation: per eq. (10) the generator acts as the survival copula of X1:n; for parallel systems the paper's own Theorem 17 proof (eq. (12)) uses ϕ as the copula of the joint cdf — which convention applies here is not stated. '≽w' is the converse of Definition 2(i)."
+   }
+  ],
+  "note": "Both passes agree on st and direction. Stated as Theorem 15(i) in the paper (recited from Bashkar et al. 2018); included with the generator-role ambiguity noted."
+ },
+ {
+  "queue_claim": "theorem16i",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 16(i)",
+    "page": 116,
+    "quote": "Theorem 16. For X ∼ GMW(β, α, γ, λ, ϕ1) and X* ∼ GMW(β*, α, γ, λ, ϕ2), (i) if ϕ1 or ϕ2 is log-convex, and ψ2 ◦ϕ1 is super-additive, then (β1, . . . , βn) ≽w (β1*, . . . , βn*) implies Xn:n ≥st Xn:n*;",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "GMW marginals Xi ∼ GMW(βi, α, γ, λ): F_i(x) = (1 − exp(−αx^γ e^{λx}))^{βi}; α, γ, λ common; Archimedean copula generators ϕ1, ϕ2",
+    "compared": "Xn:n (exponent vector β, generator ϕ1) vs X*n:n (β*, ϕ2)",
+    "hypotheses": [
+     {
+      "text": "by X ∼ GMW(β, α, γ, λ, ϕ) we mean that X has the Archimedean copula with generator ϕ and Xi ∼ GMW(βi, α, γ, λ)",
+      "formal": "dependent components: Archimedean copula ϕ over GMW marginals with exponent vector β",
+      "source": "section preamble"
+     },
+     {
+      "text": "if ϕ1 or ϕ2 is log-convex",
+      "formal": "log ϕ1 convex or log ϕ2 convex",
+      "source": "statement"
+     },
+     {
+      "text": "ψ2 ◦ϕ1 is super-additive",
+      "formal": "ψ2(ϕ1(x + y)) ≥ ψ2(ϕ1(x)) + ψ2(ϕ1(y))",
+      "source": "statement"
+     },
+     {
+      "text": "(β1, . . . , βn) ≽w (β1*, . . . , βn*)",
+      "formal": "converse weak submajorization: β* ≼w β, i.e., Σ_{i=j}^n β*_(i) ≤ Σ_{i=j}^n β_(i) for all j",
+      "source": "statement; definition 2(i)"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "Xn:n ≥st X*n:n as printed (i.e., X*n:n ≤st Xn:n)"
+    },
+    "quantifiers": "any n; all x",
+    "numbers": "",
+    "ambiguity": "Corollary of Theorem 15 specialized to GMW marginals; no separate proof. '≽w' is the converse of Definition 2(i). Same copula-role ambiguity as Theorem 15 (survival copula in eq. (8) vs cdf copula in eq. (12))."
+   }
+  ],
+  "note": "Both passes agree on st and direction: the GMW specialization of Theorem 15(i) for parallel systems under converse weak submajorization of the exponent vector β."
+ },
+ {
+  "queue_claim": "theorem17",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 17",
+    "page": 117,
+    "quote": "Theorem 17. For X ∼ GMW(β, α, γ, λ, ϕ1) and X* ∼ GMW(β, α*, γ, λ, ϕ2), if ϕ1 or ϕ2 is log-convex, and ψ2 ◦ ϕ1 is super-additive, then (α1, . . . , αn) ≽^w (α1*, . . . , αn*) implies Xn:n ≥st Xn:n*.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "GMW marginals Xi ∼ GMW(β, αi, γ, λ): F_i(x) = (1 − exp(−αi x^γ e^{λx}))^β; β, γ, λ common; Archimedean copula generators ϕ1, ϕ2",
+    "compared": "Xn:n (scale vector α, generator ϕ1) vs X*n:n (α*, ϕ2)",
+    "hypotheses": [
+     {
+      "text": "X ∼ GMW(β, α, γ, λ, ϕ1) and X* ∼ GMW(β, α*, γ, λ, ϕ2)",
+      "formal": "common scalar β; heterogeneous αi, αi*; Archimedean copula via generators (proof eq. (12) uses ϕ as the copula of the joint cdf)",
+      "source": "statement; section preamble; proof eq. (12)"
+     },
+     {
+      "text": "if ϕ1 or ϕ2 is log-convex",
+      "formal": "log ϕ1 convex or log ϕ2 convex (only the ϕ1 log-convex case is proved, 'the other case can be finished similarly')",
+      "source": "statement; proof"
+     },
+     {
+      "text": "ψ2 ◦ ϕ1 is super-additive",
+      "formal": "ψ2(ϕ1(x + y)) ≥ ψ2(ϕ1(x)) + ψ2(ϕ1(y))",
+      "source": "statement"
+     },
+     {
+      "text": "(α1, . . . , αn) ≽^w (α1*, . . . , αn*)",
+      "formal": "converse weak supermajorization: α* ≼^w α, i.e., Σ_{i=1}^j α*_(i) ≥ Σ_{i=1}^j α_(i) for all j",
+      "source": "statement; definition 2(ii)"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "Xn:n ≥st X*n:n as printed (i.e., X*n:n ≤st Xn:n)"
+    },
+    "quantifiers": "any n; all x > 0",
+    "numbers": "",
+    "ambiguity": "Notation GMW(β, α, γ, λ, ϕ) was defined with vector β and scalar α; here α, α* are vectors and β a common scalar (as in proof eq. (12)). The proof uses ϕ as the copula of the joint distribution function, unlike the survival-copula form of eq. (8). '≽^w' is the converse of Definition 2(ii)."
+   }
+  ],
+  "note": "Both passes agree on st and direction: parallel systems with GMW-dependent components under converse weak supermajorization of scale vectors α, with log-convex generator and super-additive ψ2∘ϕ1."
+ },
+ {
+  "queue_claim": "theorem2",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 2",
+    "page": 106,
+    "quote": "Theorem 2. Let the conditions of Theorem 1 be met. Then, for any γ, λ, β > 0, if αi ≤ αi*, i = 1, ..., n, we have Xn:n ≥rh Xn:n*.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "GMW(αi, γ, λ, β); γ, λ, β common; αi heterogeneous",
+    "compared": "Xn:n (α vector) vs X*n:n (α* vector) componentwise",
+    "hypotheses": [
+     {
+      "text": "Let the conditions of Theorem 1 be met",
+      "formal": "Xi ∼ GMW(αi, γ, λ, β) and X*i ∼ GMW(αi*, γ, λ, β), independent within each set — presumably the distributional setup only (see ambiguity)",
+      "source": "statement; theorem 1"
+     },
+     {
+      "text": "for any γ, λ, β > 0",
+      "formal": "γ > 0, λ > 0, β > 0 unrestricted",
+      "source": "statement"
+     },
+     {
+      "text": "if αi ≤ αi*, i = 1, ..., n",
+      "formal": "componentwise αi ≤ αi* for every i",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "Xn:n ≥rh Xn:n* as printed (i.e., X*n:n ≤rh Xn:n)"
+    },
+    "quantifiers": "any n; all x",
+    "numbers": "",
+    "ambiguity": "'Conditions of Theorem 1' is ambiguous: Theorem 1's hypothesis is (α) ≼^w (α*), which together with αi ≤ αi* for all i forces α = α* — so presumably only the distributional setup is meant. Lead-in 'We now generalize Theorem 2' is a self-reference (probably intended Theorem 1). Consistent with the proof's monotonicity: r̃Xn:n decreasing in each αi."
+   }
+  ],
+  "note": "Both passes agree on rh and the printed direction Xn:n ≥rh X*n:n under componentwise αi ≤ αi*."
+ },
+ {
+  "queue_claim": "theorem5ii",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 5(ii)",
+    "page": 108,
+    "quote": "Theorem 5. For i = 1, ..., n, let Xi and X*i be two sets of mutually independent random variables with Xi ∼ GMW(αi, γ, λ, βi) and X*i ∼ GMW(αi, γ, λ, βi*). If (β1, ..., βn) ≼m (β*1, ..., β*n) and ... (ii) β, β*, α ∈ D+, then Xn:n ≥rh Xn:n*",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "GMW(αi, γ, λ, βi); γ, λ and vector α common; βi heterogeneous",
+    "compared": "Xn:n (β vector) vs X*n:n (β* vector); same α",
+    "hypotheses": [
+     {
+      "text": "Xi ∼ GMW(αi, γ, λ, βi) and X*i ∼ GMW(αi, γ, λ, βi*), mutually independent",
+      "formal": "F_i(x) = (1 − exp(−αi x^γ e^{λx}))^{βi}, F*_i(x) = (1 − exp(−αi x^γ e^{λx}))^{βi*}; common α vector",
+      "source": "statement"
+     },
+     {
+      "text": "If (β1, ..., βn) ≼m (β*1, ..., β*n)",
+      "formal": "majorization: Σ βi = Σ βi* and Σ_{i=1}^j β_(i) ≥ Σ_{i=1}^j β*_(i) for j = 1,...,n−1",
+      "source": "statement; definition 2(iii)"
+     },
+     {
+      "text": "(ii) β, β*, α ∈ D+",
+      "formal": "all three vectors decreasingly ordered and positive: β1 ≥ ... ≥ βn > 0, β*1 ≥ ... ≥ β*n > 0, α1 ≥ ... ≥ αn > 0",
+      "source": "statement; notation D+"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "Xn:n ≥rh Xn:n* as printed (i.e., X*n:n ≤rh Xn:n)"
+    },
+    "quantifiers": "any n; all x; γ, λ unrestricted in the statement",
+    "numbers": "",
+    "ambiguity": "Direction flips between parts: (i) gives Xn:n ≤rh X*n:n under β,β* ∈ D+ and α ∈ E+, while (ii) gives Xn:n ≥rh X*n:n when α is also in D+. Statement printed without a terminating period."
+   }
+  ],
+  "note": "Both passes agree on rh and printed direction Xn:n ≥rh X*n:n under majorization of β with all vectors in D+."
+ },
+ {
+  "queue_claim": "theorem6ii",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 6(ii)",
+    "page": 108,
+    "quote": "Theorem 6. For i = 1, ..., n, let Xi and X*i be two sets of mutually independent random variables with Xi ∼ GMW(αi, γ, λ, βi) and X*i ∼ GMW(αi, γ, λ, βi*). ... (ii) If β, β*, α ∈ D+, then (β1, ..., βn) ≼^w (β*1, ..., β*n) implies Xn:n ≥rh Xn:n*",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "GMW(αi, γ, λ, βi); γ, λ and vector α common; βi heterogeneous",
+    "compared": "Xn:n (β vector) vs X*n:n (β* vector); same α",
+    "hypotheses": [
+     {
+      "text": "Xi ∼ GMW(αi, γ, λ, βi) and X*i ∼ GMW(αi, γ, λ, βi*), mutually independent",
+      "formal": "F_i(x) = (1 − exp(−αi x^γ e^{λx}))^{βi}, F*_i(x) = (1 − exp(−αi x^γ e^{λx}))^{βi*}; common α vector",
+      "source": "statement"
+     },
+     {
+      "text": "(ii) If β, β*, α ∈ D+",
+      "formal": "all three vectors decreasingly ordered and positive",
+      "source": "statement; notation D+"
+     },
+     {
+      "text": "(β1, ..., βn) ≼^w (β*1, ..., β*n)",
+      "formal": "weak supermajorization: Σ_{i=1}^j β_(i) ≥ Σ_{i=1}^j β*_(i) for j = 1,...,n",
+      "source": "statement; definition 2(ii)"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "Xn:n ≥rh Xn:n* as printed (i.e., X*n:n ≤rh Xn:n)"
+    },
+    "quantifiers": "any n; all x; γ, λ unrestricted in the statement",
+    "numbers": "",
+    "ambiguity": "Consequence of Lemma 2 and Theorem 5 (weak version: ≼^w instead of ≼m). Direction flips vs part (i): (i) under ≼w with β,β* ∈ D+, α ∈ E+ gives Xn:n ≤rh X*n:n."
+   }
+  ],
+  "note": "Both passes agree on rh and printed direction Xn:n ≥rh X*n:n under weak supermajorization of β with all vectors in D+."
+ },
+ {
+  "queue_claim": "theorem7i",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.52547/jsri.16.1.101",
+    "claim": "Theorem 7(i)",
+    "page": 108,
+    "quote": "Theorem 7. Let X1, ..., Xn be a set of independent random variables with Xi ∼ GMW(αi, γ, λ, β), i = 1, ..., n. Further, let X*1, ..., X*n be another set of independent random variables with X*i ∼ GMW(αi*, γ, λ, β), i = 1, ..., n. Then, (i) for (α1, ..., αn) ≼w (α1*, ..., αn*), we have X1:n ≥st X1:n* if β ≥ 1;",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "GMW(αi, γ, λ, β); γ, λ, β common; αi heterogeneous",
+    "compared": "X1:n (α vector) vs X*1:n (α* vector)",
+    "hypotheses": [
+     {
+      "text": "Xi ∼ GMW(αi, γ, λ, β) and X*i ∼ GMW(αi*, γ, λ, β), independent within each set",
+      "formal": "two series systems of independent GMW components differing only in αi",
+      "source": "statement"
+     },
+     {
+      "text": "for (α1, ..., αn) ≼w (α1*, ..., αn*)",
+      "formal": "weak submajorization: Σ_{i=j}^n α_(i) ≤ Σ_{i=j}^n α*_(i) for all j",
+      "source": "statement; definition 2(i)"
+     },
+     {
+      "text": "if β ≥ 1",
+      "formal": "β ≥ 1",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X1:n ≥st X*1:n as printed (i.e., X*1:n ≤st X1:n)"
+    },
+    "quantifiers": "any n; all x > 0",
+    "numbers": "",
+    "ambiguity": "Lead-in calls α 'the shape parameters (α)' while Section 1 calls α the scale parameter — notation inconsistency only. Statement begins on p. 108 with the conclusion printed on p. 109."
+   }
+  ],
+  "note": "Both passes agree on st and printed direction X1:n ≥st X*1:n under weak submajorization of α with β ≥ 1."
+ }
+]
