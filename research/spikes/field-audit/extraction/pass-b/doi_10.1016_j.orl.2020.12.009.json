@@ -1,0 +1,381 @@
+[
+ {
+  "paper": "doi:10.1016/j.orl.2020.12.009",
+  "claim": "Lemma 2.4",
+  "page": 4,
+  "quote": "Lemma 2.4 [9] For two n-dimensional Archimedean copulas K_phi1 and K_phi2, if phi_2 o phi_1 is superadditive, then K_phi1(u) <= K_phi2(u) for all u in [0, 1]^n.",
+  "kind": "lemma",
+  "model": "other: Archimedean copulas",
+  "family": "n-dimensional Archimedean copulas with generators phi_1, phi_2",
+  "compared": "two copulas pointwise",
+  "hypotheses": [
+   {"text": "phi_2 o phi_1 is superadditive", "formal": "phi_2(phi_1(x+y)) >= phi_2(phi_1(x)) + phi_2(phi_1(y))", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: pointwise copula order", "direction": "K_phi1(u) <= K_phi2(u) for all u"},
+  "quantifiers": "all u in [0,1]^n",
+  "ambiguity": "Cited from Fang et al. [9]; concordance-type ordering of copulas."
+ },
+ {
+  "paper": "doi:10.1016/j.orl.2020.12.009",
+  "claim": "Lemma 3.1",
+  "page": 5,
+  "quote": "Lemma 3.1 For any x in [0, 1], S1(x, alpha, phi) is increasing in alpha_i, i in I_n. Furthermore S1 is Schur-concave with respect to alpha.",
+  "kind": "lemma",
+  "model": "series system",
+  "family": "PO(F_bar, alpha, phi): proportional odds marginals F_bar_{alpha_i}(x) = alpha_i F_bar(x)/(1 - (1-alpha_i) F_bar(x)) with Archimedean survival copula phi",
+  "compared": "series-system survival function S1(F_bar(x), alpha, phi) as a function of the odds-ratio vector alpha",
+  "hypotheses": [
+   {"text": "X ~ PO(F_bar, alpha, phi)", "formal": "PO marginals coupled by Archimedean survival copula phi", "source": "section preamble"}
+  ],
+  "conclusion": {"order": "other: monotonicity/Schur property of the minimum's survival function", "direction": "S1 increasing in each alpha_i and Schur-concave in alpha"},
+  "quantifiers": "i in I_n, x in [0,1]",
+  "ambiguity": "Conclusion is a property of the survival function of X_{1:n}, which is equivalent to X_{1:n}(alpha) >=_st X_{1:n}(beta) under alpha weakly submajorized conditions; recorded for completeness."
+ },
+ {
+  "paper": "doi:10.1016/j.orl.2020.12.009",
+  "claim": "Theorem 3.1",
+  "page": 6,
+  "quote": "Suppose the lifetime vectors X ~ PO(F_bar, alpha, phi_1) and Y ~ PO(F_bar, beta, phi_2). If phi_1 or phi_2 is log-convex and phi_2 o phi_1 is superadditive, then alpha >=^p beta implies X_{1:n} <=st Y_{1:n}.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "PO model F_bar_{alpha_i}(x) = alpha_i F_bar(x)/(1 - (1-alpha_i)F_bar(x)), common baseline F_bar, Archimedean survival copulas",
+  "compared": "odds-ratio vectors alpha vs beta; different generators phi_1, phi_2",
+  "hypotheses": [
+   {"text": "phi_1 or phi_2 is log-convex", "formal": "at least one generator log-convex", "source": "statement"},
+   {"text": "phi_2 o phi_1 is superadditive", "formal": "phi_2(phi_1(s+t)) >= phi_2(phi_1(s)) + phi_2(phi_1(t))", "source": "statement"},
+   {"text": "alpha >=^p beta", "formal": "alpha p-larger than beta: prod_{i<=j} alpha_(i) <= prod_{i<=j} beta_(i) for all j", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X_{1:n} <=_st Y_{1:n}"},
+  "quantifiers": "n >= 2, x >= 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1016/j.orl.2020.12.009",
+  "claim": "Corollary 3.1",
+  "page": 7,
+  "quote": "Corollary 3.1 Suppose the lifetime vectors X ~ PO(F_bar, alpha, phi) and Y ~ PO(F_bar, beta, phi). If phi is log-convex, then alpha >=^p beta implies X_{1:n} <=st Y_{1:n}.",
+  "kind": "corollary",
+  "model": "series system",
+  "family": "PO model with common Archimedean survival copula phi",
+  "compared": "alpha vs beta under a common copula",
+  "hypotheses": [
+   {"text": "phi is log-convex", "formal": "log-convex generator", "source": "statement"},
+   {"text": "alpha >=^p beta", "formal": "alpha p-larger than beta", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X_{1:n} <=_st Y_{1:n}"},
+  "quantifiers": "n >= 2, x >= 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1016/j.orl.2020.12.009",
+  "claim": "Counterexample 3.1",
+  "page": 7,
+  "quote": "Counterexample 3.1 Consider two series systems, each comprising of three dependent and heterogeneous components with respective survival functions F_bar_X1:3(x) = S1(F_bar(x), alpha, phi_1) and F_bar_Y1:3(x) = S1(F_bar(x), beta, phi_2) with F_bar(x) = e^{-x^1.5}, x >= 0, alpha = (2, 3, 5.5), beta = (2.5, 3.5, 3.8) so that alpha >=^p beta. First we take phi_1(x) = (2/(1+e^x))^{1/theta}, theta = 0.9 and phi_2(x) = e^{1-(1+x)^{1/eta}} with eta = 0.3 so that phi_2 o phi_1 is not super additive, and phi_1 and phi_2 are not log-convex. We depict F_bar_X1:3(x) and F_bar_Y1:3(x) in Figure 1 for some finite range of x. From this figure we observe that the stochastic ordering result in Theorem 3.1 is not attained.",
+  "kind": "counterexample",
+  "model": "series system",
+  "family": "PO model, Weibull-like baseline F_bar(x) = e^{-x^{1.5}}, different Archimedean generators",
+  "compared": "X_{1:3} vs Y_{1:3}; shows st ordering fails without the generator conditions",
+  "hypotheses": [
+   {"text": "alpha >=^p beta", "formal": "(2,3,5.5) p-larger than (2.5,3.5,3.8): products of sorted components", "source": "statement"},
+   {"text": "phi_2 o phi_1 not superadditive; phi_1, phi_2 not log-convex", "formal": "violation of Theorem 3.1 hypotheses", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "ordering between X_{1:3} and Y_{1:3} fails (Figure 1)"},
+  "quantifiers": "n = 3",
+  "numbers": "F_bar(x) = e^{-x^{1.5}}; alpha = (2,3,5.5), beta = (2.5,3.5,3.8); phi_1(x) = (2/(1+e^x))^{1/theta}, theta = 0.9; phi_2(x) = e^{1-(1+x)^{1/eta}}, eta = 0.3",
+  "ambiguity": "Baseline printed 'e−(x)1.5' interpreted as exp(-x^{1.5})."
+ },
+ {
+  "paper": "doi:10.1016/j.orl.2020.12.009",
+  "claim": "Theorem 3.2",
+  "page": 8,
+  "quote": "Theorem 3.2 Suppose the lifetime vectors X ~ PO(F_bar, alpha, phi_1) and Y ~ PO(F_bar, beta, phi_2). If phi_2 o phi_1 is superadditive, then alpha >=^w beta implies X_{1:n} <=st Y_{1:n}.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "PO model, Archimedean survival copulas",
+  "compared": "alpha vs beta under weak supermajorization (weaker than p-larger)",
+  "hypotheses": [
+   {"text": "phi_2 o phi_1 is superadditive", "formal": "generator composition superadditive", "source": "statement"},
+   {"text": "alpha >=^w beta", "formal": "alpha weakly supermajorizes beta", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X_{1:n} <=_st Y_{1:n}"},
+  "quantifiers": "n >= 2, x >= 0",
+  "ambiguity": "Weak supermajorization of alpha over beta is a stronger hypothesis than p-larger per Def 2.1 ordering; text says 'we can get the ordering result ... with fewer condition' since log-convexity is dropped."
+ },
+ {
+  "paper": "doi:10.1016/j.orl.2020.12.009",
+  "claim": "Corollary 3.2",
+  "page": 9,
+  "quote": "Corollary 3.2 Suppose the lifetime vectors X ~ PO(F_bar, alpha, phi) and Y ~ PO(F_bar, beta, phi). Then alpha >=^w beta implies X_{1:n} <=st Y_{1:n}.",
+  "kind": "corollary",
+  "model": "series system",
+  "family": "PO model, common Archimedean survival copula phi",
+  "compared": "alpha vs beta, common copula",
+  "hypotheses": [
+   {"text": "alpha >=^w beta", "formal": "alpha weakly supermajorizes beta", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X_{1:n} <=_st Y_{1:n}"},
+  "quantifiers": "n >= 2, x >= 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1016/j.orl.2020.12.009",
+  "claim": "Lemma 3.2",
+  "page": 9,
+  "quote": "Lemma 3.2 I1(u) = [phi'(sum_{i=1}^n u_i) / phi(sum_{i=1}^n u_i)] sum_{i=1}^n [phi(u_i)/phi'(u_i)] (1 - phi(u_i)) is increasing in u_s, s in I_n and Schur-convex with respect to u = (u_1, ..., u_n) if phi is log-concave and phi(1-phi)/phi' is decreasing and concave.",
+  "kind": "lemma",
+  "model": "series system",
+  "family": "PO model, Archimedean survival copula; I1 appears in the hazard rate of X_{1:n}",
+  "compared": "function I1(u) as a function of the transformed argument vector u",
+  "hypotheses": [
+   {"text": "phi is log-concave and phi(1-phi)/phi' is decreasing and concave", "formal": "generator conditions", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: monotonicity/Schur property supporting hr ordering", "direction": "I1 increasing in each u_s and Schur-convex in u"},
+  "quantifiers": "s in I_n",
+  "ambiguity": "Lemma about the multiplier function in r_{X_{1:n}}(x), used for hazard-rate ordering."
+ },
+ {
+  "paper": "doi:10.1016/j.orl.2020.12.009",
+  "claim": "Theorem 3.3",
+  "page": 9,
+  "quote": "Theorem 3.3 Suppose the lifetime vectors X ~ PO(F_bar, alpha, phi) and Y ~ PO(F_bar, beta, phi). If phi is log-concave and phi(1-phi)/phi' is decreasing and concave (or convex), then alpha >=^w beta implies X_{1:n} <=hr Y_{1:n}.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "PO model, common Archimedean survival copula phi",
+  "compared": "alpha vs beta under a common copula",
+  "hypotheses": [
+   {"text": "phi is log-concave", "formal": "generator log-concave", "source": "statement"},
+   {"text": "phi(1-phi)/phi' is decreasing and concave (or convex)", "formal": "phi(1-phi)/phi' decreasing with either concavity or convexity", "source": "statement"},
+   {"text": "alpha >=^w beta", "formal": "alpha weakly supermajorizes beta", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X_{1:n} <=_hr Y_{1:n} (r_{X_{1:n}}(x) >= r_{Y_{1:n}}(x))"},
+  "quantifiers": "n >= 2, x >= 0",
+  "ambiguity": "Two alternative conditions (decreasing-concave or decreasing-convex of phi(1-phi)/phi') give the same conclusion via different proof routes; proof line 'rX1:n >= rX1:n' at line 627 is a typo for r_{Y_{1:n}}."
+ },
+ {
+  "paper": "doi:10.1016/j.orl.2020.12.009",
+  "claim": "Corollary 3.3",
+  "page": 11,
+  "quote": "Corollary 3.3 Suppose the lifetime vectors X ~ PO(F_bar, alpha, phi) and Y ~ PO(F_bar, alpha*1, phi). Then, X_{1:n} <=hr Y_{1:n} if alpha >= (1/n) sum_{i=1}^n alpha_i, phi is log-concave and phi(1-phi)/phi' is decreasing and concave (or convex). This follows from the Theorem 3.3 and using the fact that (alpha_1, alpha_2, ..., alpha_n) >=^w (alpha, alpha, ..., alpha) [n terms] for alpha >= (1/n) sum alpha_i.",
+  "kind": "corollary",
+  "model": "series system",
+  "family": "PO model, common copula; heterogeneous odds ratios vs homogeneous odds ratio alpha",
+  "compared": "heterogeneous alpha-vector vs constant vector (alpha,...,alpha)",
+  "hypotheses": [
+   {"text": "alpha >= (1/n) sum alpha_i", "formal": "common odds ratio at least the mean", "source": "statement"},
+   {"text": "phi log-concave, phi(1-phi)/phi' decreasing and concave (or convex)", "formal": "generator conditions", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X_{1:n} <=_hr Y_{1:n} (homogeneous-odds system hr-larger)"},
+  "quantifiers": "n >= 2, x >= 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1016/j.orl.2020.12.009",
+  "claim": "Counterexample 3.2",
+  "page": 11,
+  "quote": "Counterexample 3.2 Consider two series systems, each comprising of three dependent and heterogeneous components with respective hazard rate functions r_X1:3(x) and r_Y1:3(x), with common baseline survival function F_bar(x) = e^{-(0.5x)^2}, x >= 0, alpha = (0.2, 0.4, 0.6), beta = (0.35, 0.55, 0.95) so that alpha >=^w beta. First we take the common generator phi(x) = log(e + x)^{-1/a}, a = 0.1, which is not log-concave but phi(1-phi)/phi' is decreasing and convex. Next we take phi(x) = (2/(1+e^x))^{1/a}, a = 0.2, which is log-concave but phi(1-phi)/phi' is neither decreasing nor convex. For both the cases r_X1:3(x) and r_Y1:3(x) are depicted in Figure 2(a) and 2(b) respectively for some finite range of x. From both the figures we observe that the hazard rate ordering result in Theorem 3.3 is not attained.",
+  "kind": "counterexample",
+  "model": "series system",
+  "family": "PO model, baseline F_bar(x) = e^{-(0.5x)^2}, common generator violating hypotheses",
+  "compared": "X_{1:3} vs Y_{1:3} under alpha >=^w beta; shows hr ordering fails when generator conditions dropped",
+  "hypotheses": [
+   {"text": "alpha >=^w beta", "formal": "(0.2,0.4,0.6) weakly supermajorizes (0.35,0.55,0.95): sorted partial sums 0.2<=0.35, 0.6<=0.9, 1.2<=1.85", "source": "statement"},
+   {"text": "phi not log-concave (case a) or phi(1-phi)/phi' neither decreasing nor convex (case b)", "formal": "hypothesis violations", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "hr ordering between X_{1:3} and Y_{1:3} fails in both cases (Figure 2a,b)"},
+  "quantifiers": "n = 3",
+  "numbers": "F_bar(x) = e^{-(0.5x)^2}; alpha = (0.2,0.4,0.6), beta = (0.35,0.55,0.95); phi(x) = log(e+x)^{-1/a}, a = 0.1; phi(x) = (2/(1+e^x))^{1/a}, a = 0.2",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1016/j.orl.2020.12.009",
+  "claim": "Lemma 4.1",
+  "page": 12,
+  "quote": "Lemma 4.1 For any x in [0, 1], S2(x, alpha, phi) is decreasing in alpha_i, i in I_n. Furthermore S2 is Schur-convex with respect to alpha whenever phi is log-concave.",
+  "kind": "lemma",
+  "model": "parallel system",
+  "family": "PO model, Archimedean survival copula; S2 = distribution function of X_{n:n}",
+  "compared": "parallel-system distribution function S2(F(x), alpha, phi) in alpha",
+  "hypotheses": [
+   {"text": "X ~ PO(F_bar, alpha, phi)", "formal": "PO marginals with copula phi", "source": "section preamble"},
+   {"text": "phi is log-concave", "formal": "generator log-concave", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: monotonicity/Schur property of the maximum's CDF", "direction": "S2 decreasing in each alpha_i and Schur-convex in alpha"},
+  "quantifiers": "i in I_n, x in [0,1]",
+  "ambiguity": "Supports the st-order results for maxima; the Schur property requires log-concavity of phi."
+ },
+ {
+  "paper": "doi:10.1016/j.orl.2020.12.009",
+  "claim": "Theorem 4.1",
+  "page": 13,
+  "quote": "Theorem 4.1 Suppose the lifetime vectors X ~ PO(F_bar, alpha, phi_1) and Y ~ PO(F_bar, beta, phi_2). If phi_1 or phi_2 is log-concave and phi_1 o phi_2 is superadditive, then alpha >=^w beta implies X_{n:n} <=st Y_{n:n}.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "PO model, Archimedean survival copulas",
+  "compared": "alpha vs beta; different generators",
+  "hypotheses": [
+   {"text": "phi_1 or phi_2 is log-concave", "formal": "at least one generator log-concave", "source": "statement"},
+   {"text": "phi_1 o phi_2 is superadditive", "formal": "reversed composition superadditive (contrast Theorem 3.1)", "source": "statement"},
+   {"text": "alpha >=^w beta", "formal": "alpha weakly supermajorizes beta", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X_{n:n} <=_st Y_{n:n}"},
+  "quantifiers": "n >= 2, x >= 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1016/j.orl.2020.12.009",
+  "claim": "Corollary 4.1",
+  "page": 14,
+  "quote": "Corollary 4.1 Suppose the lifetime vectors X ~ PO(F_bar, alpha, phi) and Y ~ PO(F_bar, beta, phi). If phi is log-concave, then alpha >=^w beta implies X_{n:n} <=st Y_{n:n}.",
+  "kind": "corollary",
+  "model": "parallel system",
+  "family": "PO model, common Archimedean survival copula phi",
+  "compared": "alpha vs beta, common copula",
+  "hypotheses": [
+   {"text": "phi is log-concave", "formal": "generator log-concave", "source": "statement"},
+   {"text": "alpha >=^w beta", "formal": "alpha weakly supermajorizes beta", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X_{n:n} <=_st Y_{n:n}"},
+  "quantifiers": "n >= 2, x >= 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1016/j.orl.2020.12.009",
+  "claim": "Counterexample 4.1",
+  "page": 14,
+  "quote": "Counterexample 4.1 Consider two parallel systems, each comprising of three dependent and heterogeneous components with respective distribution functions F_X3:3(x) = S2(F(x), alpha, phi_1) and F_Y3:3(x) = S2(F(x), beta, phi_2), where F(x) = 1 - e^{-x^0.5}, x >= 0, alpha = (0.9, 1.45, 2.15), beta = (1.2, 1.95, 2.65) so that alpha >=^w beta. First we take phi_1(x) = theta_1 / log(x + e^{theta_1}) and phi_2(x) = e^{1-(1+x)^{1/theta_2}} with theta_1 = 0.9 and theta_2 = 8 so that neither phi_1 nor phi_2 is log-concave but phi_1 o phi_2 is super additive. Next we take phi_1(x) = e^{(1-e^x)/theta_1} and phi_2(x) = (2/(e^x+1))^{1/theta_2} with theta_1 = 0.9 and theta_2 = 0.2 so that phi_1 is log-concave but phi_1 o phi_2 is not super additive. For both the cases F_X3:3(x) and F_Y3:3(x) are depicted in Figure 3(a) and 3(b) respectively for some finite range of x. From both the figures we observe that the stochastic ordering result in Theorem 4.1 is not attained.",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "PO model, baseline F(x) = 1 - e^{-x^{0.5}}, two pairs of generators violating hypotheses",
+  "compared": "X_{3:3} vs Y_{3:3} under alpha >=^w beta; shows st ordering fails when log-concavity or superadditivity dropped",
+  "hypotheses": [
+   {"text": "alpha >=^w beta", "formal": "(0.9,1.45,2.15) weakly supermajorizes (1.2,1.95,2.65)", "source": "statement"},
+   {"text": "case (a): neither generator log-concave; case (b): phi_1 o phi_2 not superadditive", "formal": "hypothesis violations", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "st ordering between X_{3:3} and Y_{3:3} fails in both cases (Figure 3)"},
+  "quantifiers": "n = 3",
+  "numbers": "F(x) = 1-e^{-x^{0.5}}; alpha = (0.9,1.45,2.15), beta = (1.2,1.95,2.65); (a) phi_1(x) = theta_1/log(x+e^{theta_1}), theta_1 = 0.9; phi_2(x) = e^{1-(1+x)^{1/theta_2}}, theta_2 = 8; (b) phi_1(x) = e^{(1-e^x)/theta_1}, theta_1 = 0.9; phi_2(x) = (2/(e^x+1))^{1/theta_2}, theta_2 = 0.2",
+  "ambiguity": "Baseline printed '1 - e^{-x}^0.5' interpreted as 1 - exp(-x^{0.5})."
+ },
+ {
+  "paper": "doi:10.1016/j.orl.2020.12.009",
+  "claim": "Theorem 4.2",
+  "page": 15,
+  "quote": "Theorem 4.2 Suppose the lifetime vectors X ~ PO(F_bar, alpha, phi) and Y ~ PO(F_bar, beta, phi). If phi is log-concave and phi(1-phi)/phi' is decreasing and convex, then alpha >=^w beta implies X_{n:n} <=rhr Y_{n:n}.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "PO model, common Archimedean survival copula phi",
+  "compared": "alpha vs beta under common copula",
+  "hypotheses": [
+   {"text": "phi is log-concave", "formal": "generator log-concave", "source": "statement"},
+   {"text": "phi(1-phi)/phi' is decreasing and convex", "formal": "decreasing convexity of phi(1-phi)/phi'", "source": "statement"},
+   {"text": "alpha >=^w beta", "formal": "alpha weakly supermajorizes beta", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "X_{n:n} <=_rh Y_{n:n} (r~_{X_{n:n}}(x) <= r~_{Y_{n:n}}(x))"},
+  "quantifiers": "n >= 2, x >= 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1016/j.orl.2020.12.009",
+  "claim": "Counterexample 4.2",
+  "page": 16,
+  "quote": "Counterexample 4.2 Consider two parallel systems, each comprising of four dependent and heterogeneous components with respective reversed hazard rate functions r~_X4:4(x) and r~_Y4:4(x), with common baseline survival function F_bar(x) = e^{-x^3}, x >= 0, alpha = (0.2, 0.6, 1.5, 3.5), beta = (0.8, 0.9, 4.5, 5.5) so that alpha >=^w beta. First we take the common generator phi(x) = (1/(ax+1))^{1/a}, a = 0.2, which is not log-concave but phi(1-phi)/phi' is decreasing and convex. Next we take phi(x) = (2/(1+e^x))^{1/a}, a = 0.2, which is log-concave but phi(1-phi)/phi' is neither decreasing nor convex. For both the cases r~_X4:4(x) and r~_Y4:4(x) are depicted in Figure 4(a) and 4(b) respectively for some finite range of x. From both the figures we observe that the reversed hazard rate ordering result in Theorem 4.2 is not attained.",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "PO model, baseline F_bar(x) = e^{-x^3}, generators violating hypotheses",
+  "compared": "X_{4:4} vs Y_{4:4} under alpha >=^w beta; shows rh ordering fails when conditions dropped",
+  "hypotheses": [
+   {"text": "alpha >=^w beta", "formal": "(0.2,0.6,1.5,3.5) weakly supermajorizes (0.8,0.9,4.5,5.5)", "source": "statement"},
+   {"text": "phi not log-concave (case a) or phi(1-phi)/phi' neither decreasing nor convex (case b)", "formal": "hypothesis violations", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "rh ordering between X_{4:4} and Y_{4:4} fails in both cases (Figure 4)"},
+  "quantifiers": "n = 4",
+  "numbers": "F_bar(x) = e^{-x^3}; alpha = (0.2,0.6,1.5,3.5), beta = (0.8,0.9,4.5,5.5); (a) phi(x) = (1/(ax+1))^{1/a}, a = 0.2; (b) phi(x) = (2/(1+e^x))^{1/a}, a = 0.2",
+  "ambiguity": "Baseline printed 'e−x3' interpreted as exp(-x^3)."
+ },
+ {
+  "paper": "doi:10.1016/j.orl.2020.12.009",
+  "claim": "Theorem 5.1",
+  "page": 17,
+  "quote": "Theorem 5.1 Suppose the lifetime vectors X ~ PO(F_bar, alpha, phi_1) and Y ~ PO(F_bar, beta, phi_2). If phi_1 or phi_2 is log-convex, phi_2 o phi_1 is superadditive and prod_i p_i <= prod_i q_i, then alpha >=^p beta implies X*_{1:n} <=st Y*_{1:n}.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "PO model, Archimedean survival copulas; components under Bernoulli random shocks X*_i = X_i I_{p_i}, Y*_i = Y_i I_{q_i}",
+  "compared": "shocked series systems: odds ratios alpha vs beta, generators phi_1 vs phi_2, shock vectors p vs q",
+  "hypotheses": [
+   {"text": "phi_1 or phi_2 log-convex; phi_2 o phi_1 superadditive", "formal": "generator conditions as in Theorem 3.1", "source": "statement"},
+   {"text": "prod p_i <= prod q_i", "formal": "product comparison of shock probabilities", "source": "statement"},
+   {"text": "alpha >=^p beta", "formal": "alpha p-larger than beta", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X*_{1:n} <=_st Y*_{1:n}"},
+  "quantifiers": "n >= 2, x >= 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1016/j.orl.2020.12.009",
+  "claim": "Corollary 5.1",
+  "page": 17,
+  "quote": "Corollary 5.1 Suppose the lifetime vectors X ~ PO(F_bar, alpha, phi) and Y ~ PO(F_bar, beta, phi). If phi is log-convex and prod_i p_i <= prod_i q_i, Then alpha >=^p beta implies X*_{1:n} <=st Y*_{1:n}.",
+  "kind": "corollary",
+  "model": "series system",
+  "family": "PO model, common copula, random shocks",
+  "compared": "shocked series systems, alpha vs beta",
+  "hypotheses": [
+   {"text": "phi log-convex; prod p_i <= prod q_i", "formal": "generator and shock conditions", "source": "statement"},
+   {"text": "alpha >=^p beta", "formal": "alpha p-larger than beta", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X*_{1:n} <=_st Y*_{1:n}"},
+  "quantifiers": "n >= 2, x >= 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1016/j.orl.2020.12.009",
+  "claim": "Theorem 5.2",
+  "page": 17,
+  "quote": "Theorem 5.2 Suppose the lifetime vectors X ~ PO(F_bar, alpha, phi_1) and Y ~ PO(F_bar, beta, phi_2). If phi_2 o phi_1 is superadditive and prod_i p_i <= prod_i q_i, then alpha >=^w beta implies X*_{1:n} <=st Y*_{1:n}.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "PO model, Archimedean survival copulas, random shocks",
+  "compared": "shocked series systems under weak supermajorization",
+  "hypotheses": [
+   {"text": "phi_2 o phi_1 superadditive; prod p_i <= prod q_i", "formal": "generator and shock conditions", "source": "statement"},
+   {"text": "alpha >=^w beta", "formal": "alpha weakly supermajorizes beta", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X*_{1:n} <=_st Y*_{1:n}"},
+  "quantifiers": "n >= 2, x >= 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1016/j.orl.2020.12.009",
+  "claim": "Corollary 5.2",
+  "page": 17,
+  "quote": "Corollary 5.2 Suppose the lifetime vectors X ~ PO(F_bar, alpha, phi) and Y ~ PO(F_bar, beta, phi). If prod_{i=1}^n p_i <= prod_{i=1}^n q_i, then alpha >=^w beta implies X*_{1:n} <=st Y*_{1:n}.",
+  "kind": "corollary",
+  "model": "series system",
+  "family": "PO model, common copula, random shocks",
+  "compared": "shocked series systems, alpha vs beta, common copula",
+  "hypotheses": [
+   {"text": "prod p_i <= prod q_i", "formal": "shock product comparison", "source": "statement"},
+   {"text": "alpha >=^w beta", "formal": "alpha weakly supermajorizes beta", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X*_{1:n} <=_st Y*_{1:n}"},
+  "quantifiers": "n >= 2, x >= 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1016/j.orl.2020.12.009",
+  "claim": "Theorem 5.3",
+  "page": 18,
+  "quote": "Theorem 5.3 Suppose the lifetime vectors X ~ PO(F_bar, alpha, phi) and Y ~ PO(F_bar, beta, phi). If phi is log-concave and phi(1-phi)/phi' is decreasing and concave, then alpha >=^w beta implies X*_{1:n} <=hr Y*_{1:n}.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "PO model, common copula, random shocks",
+  "compared": "shocked series systems, alpha vs beta, common copula",
+  "hypotheses": [
+   {"text": "phi log-concave; phi(1-phi)/phi' decreasing and concave", "formal": "generator conditions", "source": "statement"},
+   {"text": "alpha >=^w beta", "formal": "alpha weakly supermajorizes beta", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X*_{1:n} <=_hr Y*_{1:n}"},
+  "quantifiers": "n >= 2, x >= 0",
+  "ambiguity": "No condition on the shock probabilities (p_i vs q_i) is printed, unlike Theorems 5.1-5.2; the product factor cancels in the hazard ratio but may matter at x = 0 (recorded as printed)."
+ }
+]

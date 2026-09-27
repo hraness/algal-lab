@@ -1,0 +1,168 @@
+[
+ {
+  "paper": "doi:10.17713/ajs.v50i3.1025",
+  "claim": "Theorem 1",
+  "page": 58,
+  "quote": "Theorem 1. Let X1, . . . , Xn (X1*, . . . , Xn*) be independent and non-negative random variables with Xi ∼ r(x; αi, βi) (Xi* ∼ r(x; αi*, βi)), i = 1, . . . , n. Further, suppose that Ip1, . . . , Ipn (Ip*1, . . . , Ip*n) is a set of independent Bernoulli random variables, independent of the Xi's (Xi*'s), with E[Ipi] = pi (E[Ip*i] = p*i), i = 1, . . . , n. Assume that the following conditions hold: (i) r(x; α, β) is increasing [decreasing] and convex in α for any β and any x > 0; (ii) ∂r(x;α,β)/∂α is decreasing (increasing) in β for any α and any x > 0. Then, for (α, β) ∈ Sn− (Sn+) and (α*, β) ∈ Sn− (Sn+), we have Π_{i=1}^n p*i ≤ Π_{i=1}^n pi and (α1, . . . , αn) ≼w [≼^w] (α1*, . . . , αn*) ⇒ Y1:n* ≤hr Y1:n.",
+  "kind": "theorem",
+  "model": "other: smallest claim amount Y1:n of a portfolio of risks Yi = Ipi Xi (Bernoulli occurrence indicators times independent heterogeneous severities); equivalent to series-system minimum",
+  "family": "general model: severities specified only through hazard rate function r(x; α, β) with two parameters",
+  "compared": "occurrence-probability vectors p vs p* (via product comparison) and severity parameter vectors α vs α* (weak majorization); common β vector",
+  "hypotheses": [
+   {"text": "r(x; α, β) is increasing [decreasing] and convex in α for any β and any x > 0", "formal": "r increasing [decreasing] and convex in α", "source": "statement"},
+   {"text": "∂r(x;α,β)/∂α is decreasing (increasing) in β for any α and any x > 0", "formal": "sign condition on mixed behavior of ∂r/∂α in β", "source": "statement"},
+   {"text": "for (α, β) ∈ Sn− (Sn+) and (α*, β) ∈ Sn− (Sn+)", "formal": "α and β oppositely (similarly) ordered: (αi−αj)(βi−βj) <= 0 (>= 0); same for α*", "source": "statement (spaces Sn−/Sn+ defined in Section 2 preamble)"},
+   {"text": "Π_{i=1}^n p*i ≤ Π_{i=1}^n pi and (α1, . . . , αn) ≼w [≼^w] (α1*, . . . , αn*)", "formal": "product of occurrence probabilities smaller for starred portfolio plus weak submajorization [supermajorization] on α", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "Y1:n* <=hr Y1:n (the starred portfolio's smallest claim has the larger hazard rate)"},
+  "quantifiers": "n >= 1, all x >= 0",
+  "ambiguity": "Single printed statement covers two paired variants: increasing-and-convex in α with (α,β),(α*,β) ∈ Sn− and weak submajorization ≼w, versus decreasing in α with Sn+ and weak supermajorization ≼^w. The proof text confirms α sorted decreasing (α1 >= ... >= αn) under Sn− with β increasing. The α* vector is defined with a possibly different symbol αi* but shares the same βi."
+ },
+ {
+  "paper": "doi:10.17713/ajs.v50i3.1025",
+  "claim": "Theorem 2",
+  "page": 59,
+  "quote": "Theorem 2. Let F̄(x; αi, βi) = [F̄(βi x)]^{αi} and F̄(x; αi*, βi) = [F̄(βi x)]^{αi*}, for i = 1, . . . , n. Under the setup of Theorem 1, suppose that the function xr(x) is decreasing (increasing) in x. Then, for (α, β) ∈ Sn− (Sn+) and (α*, β) ∈ Sn− (Sn+), we have Π_{i=1}^n p*i ≤ Π_{i=1}^n pi and (α1, . . . , αn) ≼w (α1*, . . . , αn*) ⇒ Y1:n* ≤hr Y1:n.",
+  "kind": "theorem",
+  "model": "other: smallest claim amount Y1:n of portfolio of risks",
+  "family": "exponentiated scale model F̄(x; α, β) = [F̄(βx)]^α, α, β > 0, baseline survival F̄ (contains PHR model at β = 1 and scale model at α = 1)",
+  "compared": "exponent vectors α vs α* and products of p vs p*; common scale vector β",
+  "hypotheses": [
+   {"text": "Under the setup of Theorem 1", "formal": "portfolio structure Yi = Ipi Xi, Bernoulli indicators independent of severities", "source": "earlier theorem 1"},
+   {"text": "the function xr(x) is decreasing (increasing) in x", "formal": "w r(w) monotone on w > 0", "source": "statement"},
+   {"text": "for (α, β) ∈ Sn− (Sn+) and (α*, β) ∈ Sn− (Sn+)", "formal": "concordance conditions", "source": "statement"},
+   {"text": "Π p*i ≤ Π pi and (α1, . . . , αn) ≼w (α1*, . . . , αn*)", "formal": "probability products plus weak submajorization on α", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "Y1:n* <=hr Y1:n"},
+  "quantifiers": "n >= 1, x >= 0",
+  "ambiguity": "Parenthesized '(increasing)' variant covers the supermajorization/Sn+ case as in Theorem 1; the printed '≼w' does not show the bracketed superscript variant in this statement, though the proof only cites conditions (i)–(ii) of Theorem 1."
+ },
+ {
+  "paper": "doi:10.17713/ajs.v50i3.1025",
+  "claim": "Theorem 3",
+  "page": 59,
+  "quote": "Theorem 3. Let F̄(x; αi, βi) = [F̄(βi x)]^{αi} and F̄(x; αi, βi*) = [F̄(βi* x)]^{αi}, for i = 1, . . . , n. Under the setup of Theorem 1, suppose that the function xr(x) is increasing and convex in x. Then, for (α, β) ∈ Sn+ and (α, β*) ∈ Sn+, we have Π_{i=1}^n p*i ≤ Π_{i=1}^n pi and (β1, . . . , βn) ≼w (β1*, . . . , βn*) ⇒ Y1:n* ≤hr Y1:n.",
+  "kind": "theorem",
+  "model": "other: smallest claim amount Y1:n of portfolio of risks",
+  "family": "exponentiated scale model F̄(x; α, β) = [F̄(βx)]^α (special case αi = 1 gives the scale model, cf. Remark 1)",
+  "compared": "scale vectors β vs β* (weak submajorization) and products of p vs p*; common exponent vector α",
+  "hypotheses": [
+   {"text": "Under the setup of Theorem 1", "formal": "portfolio structure", "source": "earlier theorem 1"},
+   {"text": "the function xr(x) is increasing and convex in x", "formal": "w r(w) increasing convex", "source": "statement"},
+   {"text": "for (α, β) ∈ Sn+ and (α, β*) ∈ Sn+", "formal": "α concordant with both β and β*", "source": "statement"},
+   {"text": "Π p*i ≤ Π pi and (β1, . . . , βn) ≼w (β1*, . . . , βn*)", "formal": "products plus weak submajorization on β", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "Y1:n* <=hr Y1:n"},
+  "quantifiers": "n >= 1, x >= 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.17713/ajs.v50i3.1025",
+  "claim": "Theorem 4",
+  "page": 60,
+  "quote": "Theorem 4. Let F̄(x; αi, βi) = [F̄(βi x)]^{αi} and F̄(x; αi*, βi*) = [F̄(βi* x)]^{αi*}, for i = 1, . . . , n. Under the setup of Theorem 1, suppose that the function xr(x) is increasing and convex in x. Then, for (α, β) ∈ Sn+ and (α*, β*) ∈ Sn+, we have Π_{i=1}^n p*i ≤ Π_{i=1}^n pi and (α1 . . . αn; β1 . . . βn) <row_w (α1* . . . αn*; β1* . . . βn*) ⇒ Y1:n* ≤hr Y1:n.",
+  "kind": "theorem",
+  "model": "other: smallest claim amount Y1:n of portfolio of risks",
+  "family": "exponentiated scale model F̄(x; α, β) = [F̄(βx)]^α",
+  "compared": "2×n parameter matrices (α; β) vs (α*; β*) under row weak submajorization, plus products of p vs p*",
+  "hypotheses": [
+   {"text": "Under the setup of Theorem 1", "formal": "portfolio structure", "source": "earlier theorem 1"},
+   {"text": "the function xr(x) is increasing and convex in x", "formal": "w r(w) increasing convex", "source": "statement"},
+   {"text": "for (α, β) ∈ Sn+ and (α*, β*) ∈ Sn+", "formal": "row concordance within each matrix", "source": "statement"},
+   {"text": "Π p*i ≤ Π pi and (α; β) <row_w (α*; β*)", "formal": "each row of (α;β) weakly submajorized by the corresponding row of (α*;β*) (Definition 4(iv))", "source": "statement"},
+   {"text": "Since the weak submajorization is implied by the chain majorization, the majorization and the row majorization, thus the result of Theorem 4 is also obtained under these majorizations.", "formal": "same conclusion under chain/ordinary/row majorization", "source": "section preamble (text after the proof)"}
+  ],
+  "conclusion": {"order": "hr", "direction": "Y1:n* <=hr Y1:n"},
+  "quantifiers": "n >= 1, x >= 0",
+  "ambiguity": "Matrix relation printed with the 'w' under the row-majorization symbol; denotes row weak submajorization per Definition 4(iv)."
+ },
+ {
+  "paper": "doi:10.17713/ajs.v50i3.1025",
+  "claim": "Theorem 5",
+  "page": 60,
+  "quote": "Theorem 5. Let Xαi ∼ Burr(αi, βi, λ) and Xα*i ∼ Burr(αi*, βi, λ), for i = 1, . . . , n. Under the setup of Theorem 3, for (α, β) ∈ Sn+ and (α*, β) ∈ Sn+ and any λ > 0, we have Π_{i=1}^n p*i ≤ Π_{i=1}^n pi and (α1, . . . , αn) ≼w (α1*, . . . , αn*) ⇒ Y1:n* ≤hr Y1:n.",
+  "kind": "theorem",
+  "model": "other: smallest claim amount Y1:n of portfolio of risks",
+  "family": "Burr severities, survival F̄(x; α, β, λ) = (1 + (βx)^λ)^{−α}, x > 0, α, β, λ > 0 (exponentiated-scale form with log-logistic baseline); α right-tail shape, β rate, λ shape; λ = 1 gives Lomax",
+  "compared": "tail-shape vectors α vs α* and products of p vs p*; common β vector and λ",
+  "hypotheses": [
+   {"text": "Under the setup of Theorem 3", "formal": "portfolio structure as in Theorem 1 with exponentiated-scale parametrization", "source": "earlier theorem 3"},
+   {"text": "for (α, β) ∈ Sn+ and (α*, β) ∈ Sn+ and any λ > 0", "formal": "concordant vectors; arbitrary λ", "source": "statement"},
+   {"text": "Π p*i ≤ Π pi and (α1, . . . , αn) ≼w (α1*, . . . , αn*)", "formal": "products plus weak submajorization on α", "source": "statement"},
+   {"text": "It can be easily verified that xr(x) = λx/(1+x^λ) is increasing in x", "formal": "baseline xr(w) increasing", "source": "proof of Theorem 5"}
+  ],
+  "conclusion": {"order": "hr", "direction": "Y1:n* <=hr Y1:n"},
+  "quantifiers": "n >= 1, λ > 0, x >= 0",
+  "ambiguity": "The proof prints xr(x) = λx/(1+x^λ); for the log-logistic baseline F̄ = (1+x^λ)^{−1} the correct expression is λx^λ/(1+x^λ), which is increasing as claimed."
+ },
+ {
+  "paper": "doi:10.17713/ajs.v50i3.1025",
+  "claim": "Example 1",
+  "page": 61,
+  "quote": "Example 1. Let Xαi ∼ Burr(αi, βi, 2) (Xα*i ∼ Burr(αi*, βi, 2)), for i = 1, 2, 3. Further, suppose that Ip1, Ip2, Ip3 (Ip*1, Ip*2, Ip*3) is a set of independent Bernoulli random variables, independent of the Xαi's (Xα*i's), with E[Ipi] = pi (E[Ip*i] = p*i), for i = 1, 2, 3. We take (α1, α2, α3) = (4, 0.7, 0.2), (α1*, α2*, α3*) = (4.2, 0.6, 0.3), (β1, β2, β3) = (5, 3.5, 1.2), (p1, p2, p3) = (0.2, 0.3, 0.4), and (p*1, p*2, p*3) = (0.25, 0.35, 0.25). It is clear that the conditions of Theorem 5 are satisfied. So, we have Y1:n* ≤hr Y1:n. Figure 1 represents the function rY1:n*(x) − rY1:n(x), which agrees with the intended result.",
+  "kind": "example",
+  "model": "other: smallest claim amount of portfolio",
+  "family": "Burr(α, β, λ = 2) severities",
+  "compared": "α = (4, 0.7, 0.2) vs α* = (4.2, 0.6, 0.3); p = (0.2, 0.3, 0.4) vs p* = (0.25, 0.35, 0.25); common β = (5, 3.5, 1.2)",
+  "hypotheses": [
+   {"text": "It is clear that the conditions of Theorem 5 are satisfied", "formal": "(α,β),(α*,β) ∈ Sn+; Πp* = 0.021875 <= Πp = 0.024; α ≼w α*", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "Y1:n* <=hr Y1:n; plotted difference rY1:n*(x) − rY1:n(x) >= 0 in Figure 1"},
+  "quantifiers": "n = 3",
+  "numbers": "α = (4, 0.7, 0.2); α* = (4.2, 0.6, 0.3); β = (5, 3.5, 1.2); p = (0.2, 0.3, 0.4); p* = (0.25, 0.35, 0.25); λ = 2; Figure 1 shows rY* − rY ranging 0 to about 1.5 on x ∈ [0, 20]",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.17713/ajs.v50i3.1025",
+  "claim": "Example 2",
+  "page": 61,
+  "quote": "Example 2. Under the same setup in Example 1, we take (α1*, α2*, α3*) = (4.2, 0.3, 0.6) with the other unchanged values. It is clear that (α*, β) ∉ Sn+, but it can be easily verified that the other conditions of Theorem 5 are satisfied. Figure 2 represents the function rY1:n*(x) − rY1:n(x), which changes the sign.",
+  "kind": "counterexample",
+  "model": "other: smallest claim amount of portfolio",
+  "family": "Burr(α, β, λ = 2) severities",
+  "compared": "α = (4, 0.7, 0.2) vs α* = (4.2, 0.3, 0.6) (α* discordant with β, violating Sn+); same β, p, p* as Example 1",
+  "hypotheses": [
+   {"text": "(α*, β) ∉ Sn+, but it can be easily verified that the other conditions of Theorem 5 are satisfied", "formal": "only the concordance condition fails", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "rY1:n*(x) − rY1:n(x) changes sign; the hr ordering conclusion of Theorem 5 fails when Sn+ is dropped"},
+  "quantifiers": "n = 3",
+  "numbers": "α* = (4.2, 0.3, 0.6); all other values as in Example 1 (α = (4, 0.7, 0.2), β = (5, 3.5, 1.2), p = (0.2, 0.3, 0.4), p* = (0.25, 0.35, 0.25), λ = 2); Figure 2 shows the difference taking both signs (range about -0.05 to 0.10 implied by axis)",
+  "ambiguity": "Labeled 'Example' but functions as a counterexample demonstrating the Sn+ concordance condition cannot be dropped."
+ },
+ {
+  "paper": "doi:10.17713/ajs.v50i3.1025",
+  "claim": "Theorem 6",
+  "page": 62,
+  "quote": "Theorem 6. Let Xαi ∼ Harris(αi, βi) and Xα*i ∼ Harris(αi*, βi), for i = 1, . . . , n. Further assume that 0 < βi ≤ 1, for i = 1, . . . , n. Under the setup of Theorem 1, for (α, β) ∈ Sn+ and (α*, β) ∈ Sn+, we have Π_{i=1}^n p*i ≤ Π_{i=1}^n pi and (α1, . . . , αn) ≼^w (α1*, . . . , αn*) ⇒ Y1:n* ≤hr Y1:n.",
+  "kind": "theorem",
+  "model": "other: smallest claim amount Y1:n of portfolio of risks",
+  "family": "Harris family severities, survival F̄(x; α, β) = (β F̄^α(x) / (1 − (1 − β)F̄^α(x)))^{1/α}, α, β > 0, baseline F̄ (contains Marshall–Olkin distribution)",
+  "compared": "exponent vectors α vs α* (weak supermajorization) and products of p vs p*; common β vector with 0 < βi <= 1",
+  "hypotheses": [
+   {"text": "Further assume that 0 < βi ≤ 1, for i = 1, . . . , n", "formal": "βi in (0,1]", "source": "statement"},
+   {"text": "Under the setup of Theorem 1, for (α, β) ∈ Sn+ and (α*, β) ∈ Sn+", "formal": "concordant vectors", "source": "statement"},
+   {"text": "Π p*i ≤ Π pi and (α1, . . . , αn) ≼^w (α1*, . . . , αn*)", "formal": "products plus weak supermajorization on α", "source": "statement"},
+   {"text": "r(x; α, β) = r(x)/(1−(1−β)F̄^α(x)) ... imply the condition (i) of Theorem 1. Moreover, the assumption 0 < β ≤ 1 implies the condition (ii) of Theorem 1", "formal": "r decreasing in α (decreasing variant of Theorem 1)", "source": "proof of Theorem 6"}
+  ],
+  "conclusion": {"order": "hr", "direction": "Y1:n* <=hr Y1:n"},
+  "quantifiers": "n >= 1, 0 < βi <= 1, x >= 0",
+  "ambiguity": "Uses the bracketed (decreasing in α, Sn+, supermajorization) variant of Theorem 1; the superscript w is partially lost in the text layer but consistent with r decreasing in α and with Example 3's numbers."
+ },
+ {
+  "paper": "doi:10.17713/ajs.v50i3.1025",
+  "claim": "Example 3",
+  "page": 62,
+  "quote": "Example 3. Let Xαi ∼ Harris(αi, βi) (Xα*i ∼ Harris(αi*, βi)), for i = 1, 2, 3, with the baseline gamma distribution with the shape parameter 2 and the scale parameter 1 in each two sets. Further, suppose that Ip1, Ip2, Ip3 (Ip*1, Ip*2, Ip*3) is a set of independent Bernoulli random variables, independent of the Xαi's (Xα*i's), with E[Ipi] = pi (E[Ip*i] = p*i), for i = 1, 2, 3. We take (α1, α2, α3) = (1.1, 1.6, 2.5), (α1*, α2*, α3*) = (1, 1.7, 2.3), (β1, β2, β3) = (0.1, 0.3, 0.6), (p1, p2, p3) = (0.1, 0.05, 0.15), and (p*1, p*2, p*3) = (0.2, 0.05, 0.05). It is clear that the conditions of Theorem 6 are satisfied. So, we have Y1:n* ≤hr Y1:n. Figure 3 represents the function rY1:n*(x) − rY1:n(x), which coincides with the intended result.",
+  "kind": "example",
+  "model": "other: smallest claim amount of portfolio",
+  "family": "Harris(α, β) severities over gamma(shape 2, scale 1) baseline",
+  "compared": "α = (1.1, 1.6, 2.5) vs α* = (1, 1.7, 2.3); p = (0.1, 0.05, 0.15) vs p* = (0.2, 0.05, 0.05); common β = (0.1, 0.3, 0.6)",
+  "hypotheses": [
+   {"text": "It is clear that the conditions of Theorem 6 are satisfied", "formal": "(α,β),(α*,β) ∈ Sn+; Πp* = 0.0005 <= Πp = 0.00075; α ≼^w α* (partial sums of smallest: 1.1 >= 1.0, 2.7 >= 2.7, 5.2 >= 5.0)", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "Y1:n* <=hr Y1:n; plotted difference rY1:n* − rY1:n >= 0 in Figure 3 (values 0 to about 0.06)"},
+  "quantifiers": "n = 3",
+  "numbers": "α = (1.1, 1.6, 2.5); α* = (1, 1.7, 2.3); β = (0.1, 0.3, 0.6); p = (0.1, 0.05, 0.15); p* = (0.2, 0.05, 0.05); gamma baseline shape 2, scale 1",
+  "ambiguity": ""
+ }
+]

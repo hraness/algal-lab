@@ -1,0 +1,70 @@
+[
+ {
+  "paper": "doi:10.46939/j.sci.arts-26.1-a05",
+  "claim": "Theorem 1",
+  "page": 7,
+  "quote": "Theorem 1. Let the random variable X ~ UTPA(α, θ1) with pdf f_x(x) and the random variable Y ~ UTPA(α, θ2) with the pdf f_y(x). Then, if θ1 < θ2, X is smaller than Y in the likelihood ratio order, the ratio function of the corresponding pdf defined by g(x) = f_x(x)/f_y(x) is decreasing in x.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "Unit two-parameter Aradhana distribution UTPA(α, θ): pdf f(x;ψ) = θ³(α - log(x))² x^(θ-1) / (θ²α² + 2θα + 2), 0 < x < 1, θ > 0, α > 0, ψ = (α, θ)",
+  "compared": "same α, different scale parameter θ1 vs θ2",
+  "hypotheses": [
+   {"text": "Let the random variable X ~ UTPA(α, θ1) with pdf f_x(x) and the random variable Y ~ UTPA(α, θ2) with the pdf f_y(x)", "formal": "X ~ UTPA(α,θ1), Y ~ UTPA(α,θ2), common α", "source": "statement"},
+   {"text": "if θ1 < θ2", "formal": "θ1 < θ2", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "X <=_lr Y, i.e. UTPA(α,θ1) <=_lr UTPA(α,θ2)"},
+  "quantifiers": "all x in (0,1); θ1 < θ2, α > 0",
+  "ambiguity": "Text layer renders the '~' (distributed as) symbol as blank space; the pdf ratio proof shows g'(x) = (θ1 - θ2)/x which is negative iff θ1 < θ2."
+ },
+ {
+  "paper": "doi:10.46939/j.sci.arts-26.1-a05",
+  "claim": "Corollary 1 (hazard rate order)",
+  "page": 8,
+  "quote": "Corollary 1. It follows from [32] that, under the conditions outlined in Theorem 1, X is smaller than Y with respect to the hazard rate, mean residual life, and stochastic orders.",
+  "kind": "corollary",
+  "model": "single",
+  "family": "Unit two-parameter Aradhana distribution UTPA(α, θ): pdf f(x;ψ) = θ³(α - log(x))² x^(θ-1) / (θ²α² + 2θα + 2), 0 < x < 1, θ > 0, α > 0",
+  "compared": "same α, different scale parameter θ1 vs θ2",
+  "hypotheses": [
+   {"text": "under the conditions outlined in Theorem 1", "formal": "X ~ UTPA(α,θ1), Y ~ UTPA(α,θ2), θ1 < θ2", "source": "earlier theorem 1"},
+   {"text": "It follows from [32] (Shaked & Shanthikumar, Stochastic Orders, 2007)", "formal": "lr ordering implies hr ordering", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X <=_hr Y, i.e. UTPA(α,θ1) <=_hr UTPA(α,θ2)"},
+  "quantifiers": "all x in (0,1); θ1 < θ2, α > 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.46939/j.sci.arts-26.1-a05",
+  "claim": "Corollary 1 (mean residual life order)",
+  "page": 8,
+  "quote": "Corollary 1. It follows from [32] that, under the conditions outlined in Theorem 1, X is smaller than Y with respect to the hazard rate, mean residual life, and stochastic orders.",
+  "kind": "corollary",
+  "model": "single",
+  "family": "Unit two-parameter Aradhana distribution UTPA(α, θ): pdf f(x;ψ) = θ³(α - log(x))² x^(θ-1) / (θ²α² + 2θα + 2), 0 < x < 1, θ > 0, α > 0",
+  "compared": "same α, different scale parameter θ1 vs θ2",
+  "hypotheses": [
+   {"text": "under the conditions outlined in Theorem 1", "formal": "X ~ UTPA(α,θ1), Y ~ UTPA(α,θ2), θ1 < θ2", "source": "earlier theorem 1"},
+   {"text": "It follows from [32] (Shaked & Shanthikumar, Stochastic Orders, 2007)", "formal": "lr ordering implies mrl ordering", "source": "statement"}
+  ],
+  "conclusion": {"order": "mrl", "direction": "X <=_mrl Y, i.e. UTPA(α,θ1) <=_mrl UTPA(α,θ2)"},
+  "quantifiers": "all x in (0,1); θ1 < θ2, α > 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.46939/j.sci.arts-26.1-a05",
+  "claim": "Corollary 1 (usual stochastic order)",
+  "page": 8,
+  "quote": "Corollary 1. It follows from [32] that, under the conditions outlined in Theorem 1, X is smaller than Y with respect to the hazard rate, mean residual life, and stochastic orders.",
+  "kind": "corollary",
+  "model": "single",
+  "family": "Unit two-parameter Aradhana distribution UTPA(α, θ): pdf f(x;ψ) = θ³(α - log(x))² x^(θ-1) / (θ²α² + 2θα + 2), 0 < x < 1, θ > 0, α > 0",
+  "compared": "same α, different scale parameter θ1 vs θ2",
+  "hypotheses": [
+   {"text": "under the conditions outlined in Theorem 1", "formal": "X ~ UTPA(α,θ1), Y ~ UTPA(α,θ2), θ1 < θ2", "source": "earlier theorem 1"},
+   {"text": "It follows from [32] (Shaked & Shanthikumar, Stochastic Orders, 2007)", "formal": "lr ordering implies st ordering", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X <=_st Y, i.e. UTPA(α,θ1) <=_st UTPA(α,θ2)"},
+  "quantifiers": "all x in (0,1); θ1 < θ2, α > 0",
+  "ambiguity": ""
+ }
+]

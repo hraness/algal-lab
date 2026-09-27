@@ -1,0 +1,40 @@
+[
+ {
+  "paper": "doi:10.6339/jds.202001_18(1).0001",
+  "claim": "Case I (Section 4.7, θ1 < θ2)",
+  "page": 19,
+  "quote": "Case I : θ1 < θ2. Let X~GIW(α, θ1 , λ, β) and Y~GIW(α, θ2 , λ, β). ... Since θ1 < θ2, d/dx [gX (y)/gY (y)] < 0. Hence, gX (y)/gY (y) is decreasing in y . That is X ≤lr Y . The remaining statement follow from the implication (32).",
+  "kind": "theorem",
+  "model": "single",
+  "family": "GIW (inverse truncated negative binomial Weibull / generalized inverse Weibull), pdf g(y; α, θ, λ, β) = αθ(1 − α)θ θβλβ y−(β+1) e−(λ/y)β / {(1 − αθ)[1 − (1 − α)e−(λ/y)β]θ+1}, Eq. (19)",
+  "compared": "parameter θ1 vs θ2; α, λ, β common",
+  "hypotheses": [
+   {"text": "Let X~GIW(α, θ1 , λ, β) and Y~GIW(α, θ2 , λ, β)", "formal": "X ~ GIW(α, θ1, λ, β), Y ~ GIW(α, θ2, λ, β)", "source": "statement"},
+   {"text": "θ1 < θ2", "formal": "θ1 < θ2", "source": "statement"},
+   {"text": "X ≤rhr Y ⇐ X ≤lr Y ⇒ X ≤hr Y ⇒ X ≤st Y (32)", "formal": "lr order implies hr, st and rhr orders", "source": "section preamble"}
+  ],
+  "conclusion": {"order": "lr", "direction": "X <=lr Y, hence also X <=hr Y, X <=st Y, X <=rhr Y via implication (32)"},
+  "quantifiers": "α, θ1, θ2, λ, β in the GIW parameter space (α, θ, λ, β > 0); all y > 0",
+  "numbers": "",
+  "ambiguity": "Result is an unnumbered 'Case I' in Section 4.7, not a labeled theorem. The density ratio is printed with (1 − α2), (1 − α1) factors whose subscript placement is hard to parse in the text layer; the derivative expression contains garbled sub/superscripts (αθ vs αθ-terms). 'The remaining statement follow' [sic]."
+ },
+ {
+  "paper": "doi:10.6339/jds.202001_18(1).0001",
+  "claim": "Case II (Section 4.7, α2 < α1)",
+  "page": 20,
+  "quote": "Case II : α2 < α1. Let X~GIW(α1 , θ, λ, β) and Y~GIW(α2 , θ, λ, β). ... Since α2 < α1, d/dx [gX (y)/gY (y)] < 0. Hence, gX (y)/gY (y) is decreasing in y . That is X ≤lr Y .. The remaining statement follow from the implication (32).",
+  "kind": "theorem",
+  "model": "single",
+  "family": "GIW (inverse truncated negative binomial Weibull / generalized inverse Weibull), pdf g(y; α, θ, λ, β) = αθ(1 − α)θ θβλβ y−(β+1) e−(λ/y)β / {(1 − αθ)[1 − (1 − α)e−(λ/y)β]θ+1}, Eq. (19)",
+  "compared": "parameter α1 vs α2; θ, λ, β common",
+  "hypotheses": [
+   {"text": "Let X~GIW(α1 , θ, λ, β) and Y~GIW(α2 , θ, λ, β)", "formal": "X ~ GIW(α1, θ, λ, β), Y ~ GIW(α2, θ, λ, β)", "source": "statement"},
+   {"text": "α2 < α1", "formal": "α2 < α1", "source": "statement"},
+   {"text": "X ≤rhr Y ⇐ X ≤lr Y ⇒ X ≤hr Y ⇒ X ≤st Y (32)", "formal": "lr order implies hr, st and rhr orders", "source": "section preamble"}
+  ],
+  "conclusion": {"order": "lr", "direction": "X <=lr Y, hence also X <=hr Y, X <=st Y, X <=rhr Y via implication (32)"},
+  "quantifiers": "α1, α2, θ, λ, β in the GIW parameter space; all y > 0",
+  "numbers": "",
+  "ambiguity": "Unnumbered 'Case II' in Section 4.7, not a labeled theorem. The printed derivative differentiates with respect to x while the ratio is a function of y (variables conflated). Double period 'X ≤lr Y ..' is verbatim. Subscripts in the ratio numerator are garbled in the text layer (e.g. 'α1θ (1 − α1 )(1 − αθ2 )')."
+ }
+]

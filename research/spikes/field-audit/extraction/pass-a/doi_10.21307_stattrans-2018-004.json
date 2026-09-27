@@ -1,0 +1,113 @@
+[
+  {
+    "paper": "doi:10.21307/stattrans-2018-004",
+    "claim": "Theorem 4 (likelihood ratio part)",
+    "page": 66,
+    "quote": "Theorem 4. Let Xi ~ GZD(θi), i = 1, 2 be two random variables. If θ1 ≥ θ2, then X1 ≺lr X2, X1 ≺hr X2, X1 ≺s X2 and X1 ≤cx X2.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "Generalized Zeghdoudi distribution GZD(θ): f(x;θ) = h(θ)p(x)e^{−θx}, p(x) = Σ ak x^k (one-parameter polynomial exponential family)",
+    "compared": "rate-type parameter θ1 vs θ2",
+    "hypotheses": [
+      {
+        "text": "Xi ~ GZD(θi), i = 1, 2",
+        "formal": "same polynomial p(x), different θ",
+        "source": "statement"
+      },
+      {
+        "text": "θ1 ≥ θ2",
+        "formal": "parameter ordering",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "lr",
+      "direction": "X_1 <lr X_2 (f_{X1}/f_{X2} decreasing in t)"
+    },
+    "quantifiers": "θ1, θ2 > 0",
+    "ambiguity": "One of four bundled order conclusions; proof shows d/dt ln(fX1/fX2) = −(θ1−θ2) ≤ 0.",
+    "numbers": ""
+  },
+  {
+    "paper": "doi:10.21307/stattrans-2018-004",
+    "claim": "Theorem 4 (hazard rate part)",
+    "page": 66,
+    "quote": "Theorem 4. Let Xi ~ GZD(θi), i = 1, 2 be two random variables. If θ1 ≥ θ2, then X1 ≺lr X2, X1 ≺hr X2, X1 ≺s X2 and X1 ≤cx X2.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "GZD(θi)",
+    "compared": "θ1 vs θ2",
+    "hypotheses": [
+      {
+        "text": "θ1 ≥ θ2",
+        "formal": "parameter ordering",
+        "source": "statement"
+      },
+      {
+        "text": "likelihood ratio order ⇒ hazard rate order (Remark 3)",
+        "formal": "standard implication chain",
+        "source": "Remark 3"
+      }
+    ],
+    "conclusion": {
+      "order": "hr",
+      "direction": "X_1 <hr X_2"
+    },
+    "quantifiers": "θ1, θ2 > 0",
+    "ambiguity": "Follows from the lr part via Remark 3's implication chain.",
+    "numbers": ""
+  },
+  {
+    "paper": "doi:10.21307/stattrans-2018-004",
+    "claim": "Theorem 4 (usual stochastic part)",
+    "page": 66,
+    "quote": "Theorem 4. Let Xi ~ GZD(θi), i = 1, 2 be two random variables. If θ1 ≥ θ2, then X1 ≺lr X2, X1 ≺hr X2, X1 ≺s X2 and X1 ≤cx X2.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "GZD(θi)",
+    "compared": "θ1 vs θ2",
+    "hypotheses": [
+      {
+        "text": "θ1 ≥ θ2",
+        "formal": "parameter ordering",
+        "source": "statement"
+      },
+      {
+        "text": "hazard rate order ⇒ stochastic order (Remark 3)",
+        "formal": "standard implication chain",
+        "source": "Remark 3"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "X_1 <s X_2"
+    },
+    "quantifiers": "θ1, θ2 > 0",
+    "ambiguity": "",
+    "numbers": ""
+  },
+  {
+    "paper": "doi:10.21307/stattrans-2018-004",
+    "claim": "Theorem 4 (convex order part)",
+    "page": 66,
+    "quote": "Theorem 4. Let Xi ~ GZD(θi), i = 1, 2 be two random variables. If θ1 ≥ θ2, then X1 ≺lr X2, X1 ≺hr X2, X1 ≺s X2 and X1 ≤cx X2.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "GZD(θi)",
+    "compared": "θ1 vs θ2",
+    "hypotheses": [
+      {
+        "text": "θ1 ≥ θ2",
+        "formal": "parameter ordering",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "other: convex (cx)",
+      "direction": "X_1 <=cx X_2"
+    },
+    "quantifiers": "θ1, θ2 > 0; expectations exist for all convex functions",
+    "ambiguity": "The paper's only route to cx is Remark 3: 'If E[X] = E[Y], then Convex order ⇔ Stochastic order' — but θ1 ≥ θ2 gives strictly smaller mean for X1, so the stated justification does not directly yield the cx conclusion; recorded as printed.",
+    "numbers": ""
+  }
+]

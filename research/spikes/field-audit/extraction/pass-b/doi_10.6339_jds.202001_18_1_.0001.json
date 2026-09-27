@@ -1,0 +1,38 @@
+[
+ {
+  "paper": "doi:10.6339/jds.202001_18(1).0001",
+  "claim": "Section 4.7, Case I (θ1 < θ2)",
+  "page": 19,
+  "quote": "Case I : θ1 < θ2. Let X~GIW(α, θ1, λ, β) and Y~GIW(α, θ2, λ, β). Then gX(y)/gY(y) = [α^{θ1} θ1 (1 − α^{θ2}) [1 − (1 − α)e^{−(λ/y)^β}]^{θ2+1}] / [α^{θ2} θ2 (1 − α^{θ1}) [1 − (1 − α)e^{−(λ/y)^β}]^{θ1+1}]. Since θ1 < θ2, d/dx [gX(y)/gY(y)] < 0. Hence, gX(y)/gY(y) is decreasing in y. That is X ≤lr Y. The remaining statement follow from the implication (32).",
+  "kind": "theorem",
+  "model": "single",
+  "family": "GIW = inverse truncated negative binomial Weibull (generalized inverse Weibull), cdf G(y; α, θ, λ, β) = (α^θ/(1 − α^θ)) ([1 − (1 − α)e^{−(λ/y)^β}]^{−θ} − 1) with α, θ, λ, β parameters (α > 0, α ≠ 1; θ, λ, β > 0)",
+  "compared": "parameter θ1 vs θ2; common α, λ, β",
+  "hypotheses": [
+   {"text": "Let X~GIW(α, θ1, λ, β) and Y~GIW(α, θ2, λ, β)", "formal": "X ~ GIW(α, θ1, λ, β), Y ~ GIW(α, θ2, λ, β)", "source": "statement"},
+   {"text": "Case I : θ1 < θ2", "formal": "θ1 < θ2", "source": "statement"},
+   {"text": "The four stochastic orders defined above are related to each other, have the following implications (see, Shaked and Shanthikumar (2007)): X ≤rhr Y ⇐ X ≤lr Y ⇒ X ≤hr Y ⇒ X ≤st Y.", "formal": "lr implies hr, st, rhr", "source": "section preamble (Section 4.7, equation (32))"}
+  ],
+  "conclusion": {"order": "lr", "direction": "X <=lr Y, i.e. GIW(α, θ1, λ, β) <=lr GIW(α, θ2, λ, β) for θ1 < θ2 (hence <=hr, <=st, >=rhr direction reversed: X <=rhr Y follows per printed implication)"},
+  "quantifiers": "θ1 < θ2, α > 0 (α ≠ 1), λ, β > 0, y > 0",
+  "ambiguity": "Unnumbered result presented as 'Case I' with derivation rather than a labeled theorem. The derivative is taken d/dx while the ratio is a function of y. In the ratio expression the exponents are printed as θ2+1 over θ1+1 (rendered in the text layer as θ^{θ2+1}/θ^{θ1+1} attached to α); symbol placement is somewhat garbled in the text layer. The printed implication chain writes 'X ≤rhr Y ⇐ X ≤lr Y ⇒ X ≤hr Y ⇒ X ≤st Y'."
+ },
+ {
+  "paper": "doi:10.6339/jds.202001_18(1).0001",
+  "claim": "Section 4.7, Case II (α2 < α1)",
+  "page": 20,
+  "quote": "Case II : α2 < α1. Let X~GIW(α1, θ, λ, β) and Y~GIW(α2, θ, λ, β). Then gX(y)/gY(y) = [α1^θ (1 − α1)(1 − α^{θ2}) / (α^{θ2} (1 − α2)(1 − α1^θ))] · [1 − (1 − α2)e^{−(λ/y)^β} / (1 − (1 − α1)e^{−(λ/y)^β})]^{θ+1}. Since α2 < α1, d/dx [gX(y)/gY(y)] = −(α1 − α2)(θ + 1) (λ/y)^β (β/y) e^{−(λ/y)^β} [1 − (1 − α2)e^{−(λ/y)^β}]^θ / [1 − (1 − α1)e^{−(λ/y)^β}]^{θ+2} < 0. Hence, gX(y)/gY(y) is decreasing in y. That is X ≤lr Y. The remaining statement follow from the implication (32).",
+  "kind": "theorem",
+  "model": "single",
+  "family": "GIW = inverse truncated negative binomial Weibull (generalized inverse Weibull), cdf G(y; α, θ, λ, β) = (α^θ/(1 − α^θ)) ([1 − (1 − α)e^{−(λ/y)^β}]^{−θ} − 1) with α, θ, λ, β parameters (α > 0, α ≠ 1; θ, λ, β > 0)",
+  "compared": "parameter α1 vs α2; common θ, λ, β",
+  "hypotheses": [
+   {"text": "Let X~GIW(α1, θ, λ, β) and Y~GIW(α2, θ, λ, β)", "formal": "X ~ GIW(α1, θ, λ, β), Y ~ GIW(α2, θ, λ, β)", "source": "statement"},
+   {"text": "Case II : α2 < α1", "formal": "α2 < α1", "source": "statement"},
+   {"text": "X ≤rhr Y ⇐ X ≤lr Y ⇒ X ≤hr Y ⇒ X ≤st Y (equation (32))", "formal": "lr implies hr, st, rhr", "source": "section preamble (Section 4.7, equation (32))"}
+  ],
+  "conclusion": {"order": "lr", "direction": "X <=lr Y, i.e. GIW(α1, θ, λ, β) <=lr GIW(α2, θ, λ, β) for α2 < α1"},
+  "quantifiers": "α2 < α1, θ, λ, β > 0, y > 0",
+  "ambiguity": "Unnumbered result presented as 'Case II'. Derivative written d/dx though the ratio is in y. Note the claim is that the larger α gives the lr-smaller variable. The text-layer math is partially garbled (superscripts on α and on the bracketed terms); the ordering of factors in the printed ratio had to be reconstructed."
+ }
+]

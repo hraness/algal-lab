@@ -1,0 +1,81 @@
+[
+ {
+  "paper": "doi:10.29020/nybg.ejpam.v18i4.6653",
+  "claim": "Theorem 1 (lr part)",
+  "page": 9,
+  "quote": "Let Xi ~ M(theta_i), i = 1, 2 be two random variables. If theta_1 <= theta_2, then X1 <lr X2, X1 <hr X2, X1 <s X2 and X1 <cx X2",
+  "kind": "theorem",
+  "model": "single",
+  "family": "Mgamma distribution M(theta): pdf f(x) = theta^3 x (1 + x/2) e^{-theta x} / (1+theta), x > 0, theta > 0; a finite mixture of Gamma(2, theta) and Gamma(3, theta) with mixing probability theta/(1+theta)",
+  "compared": "parameter theta: theta_1 vs theta_2",
+  "hypotheses": [
+   {"text": "Let Xi ~ M(theta_i), i = 1, 2 be two random variables.", "formal": "X_i ~ Mgamma(theta_i), i = 1, 2", "source": "statement"},
+   {"text": "If theta_1 <= theta_2", "formal": "theta_1 <= theta_2", "source": "statement"},
+   {"text": "Likelihood Ratio order (X <lr Y), if f_X(t)/f_Y(t) is decreasing in t.", "formal": "X <=lr Y iff f_X(t)/f_Y(t) is nonincreasing in t", "source": "section preamble"}
+  ],
+  "conclusion": {"order": "lr", "direction": "X1 ~ M(theta_1) <=lr X2 ~ M(theta_2)"},
+  "quantifiers": "theta_1, theta_2 > 0 with theta_1 <= theta_2; all t > 0",
+  "numbers": "",
+  "ambiguity": "The proof computes d/dt[f_X1(t)/f_X2(t)] = -(theta_1 - theta_2) e^{-(theta_1 - theta_2)t} < 0, 'forall theta_1 >= theta_2', which contradicts the stated hypothesis theta_1 <= theta_2: the ratio decreases in t (giving X1 <=lr X2) only when theta_1 >= theta_2. As printed, the hypothesis and the inequality direction in the proof disagree. The 'X <lr'/'X <s' symbols are written with the prec glyph in the PDF."
+ },
+ {
+  "paper": "doi:10.29020/nybg.ejpam.v18i4.6653",
+  "claim": "Theorem 1 (hr part)",
+  "page": 9,
+  "quote": "Let Xi ~ M(theta_i), i = 1, 2 be two random variables. If theta_1 <= theta_2, then X1 <lr X2, X1 <hr X2, X1 <s X2 and X1 <cx X2",
+  "kind": "theorem",
+  "model": "single",
+  "family": "Mgamma distribution M(theta): pdf f(x) = theta^3 x (1 + x/2) e^{-theta x} / (1+theta), x > 0, theta > 0; a finite mixture of Gamma(2, theta) and Gamma(3, theta) with mixing probability theta/(1+theta)",
+  "compared": "parameter theta: theta_1 vs theta_2",
+  "hypotheses": [
+   {"text": "Let Xi ~ M(theta_i), i = 1, 2 be two random variables.", "formal": "X_i ~ Mgamma(theta_i), i = 1, 2", "source": "statement"},
+   {"text": "If theta_1 <= theta_2", "formal": "theta_1 <= theta_2", "source": "statement"},
+   {"text": "Hazard rate order (X <hr Y), if h_X(t) >= h_Y(t), forall t.", "formal": "X <=hr Y iff h_X(t) >= h_Y(t) for all t", "source": "section preamble"},
+   {"text": "Likelihood ratio order => Hazard rate order", "formal": "lr order implies hr order", "source": "section preamble (Remark 2)"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X1 ~ M(theta_1) <=hr X2 ~ M(theta_2)"},
+  "quantifiers": "theta_1, theta_2 > 0 with theta_1 <= theta_2; all t > 0",
+  "numbers": "",
+  "ambiguity": "Derived via Remark 2 implication from the lr claim, so it inherits the hypothesis-direction conflict noted for the lr part (proof assumes theta_1 >= theta_2)."
+ },
+ {
+  "paper": "doi:10.29020/nybg.ejpam.v18i4.6653",
+  "claim": "Theorem 1 (st part)",
+  "page": 9,
+  "quote": "Let Xi ~ M(theta_i), i = 1, 2 be two random variables. If theta_1 <= theta_2, then X1 <lr X2, X1 <hr X2, X1 <s X2 and X1 <cx X2",
+  "kind": "theorem",
+  "model": "single",
+  "family": "Mgamma distribution M(theta): pdf f(x) = theta^3 x (1 + x/2) e^{-theta x} / (1+theta), x > 0, theta > 0; a finite mixture of Gamma(2, theta) and Gamma(3, theta) with mixing probability theta/(1+theta)",
+  "compared": "parameter theta: theta_1 vs theta_2",
+  "hypotheses": [
+   {"text": "Let Xi ~ M(theta_i), i = 1, 2 be two random variables.", "formal": "X_i ~ Mgamma(theta_i), i = 1, 2", "source": "statement"},
+   {"text": "If theta_1 <= theta_2", "formal": "theta_1 <= theta_2", "source": "statement"},
+   {"text": "Stochastic order (X <s Y), if F_X(t) >= F_Y(t), forall t", "formal": "X <=st Y iff F_X(t) >= F_Y(t) for all t", "source": "section preamble"},
+   {"text": "Likelihood ratio order => Hazard rate order => Stochastic order", "formal": "lr => hr => st", "source": "section preamble (Remark 2)"}
+  ],
+  "conclusion": {"order": "st", "direction": "X1 ~ M(theta_1) <=st X2 ~ M(theta_2)"},
+  "quantifiers": "theta_1, theta_2 > 0 with theta_1 <= theta_2; all t > 0",
+  "numbers": "",
+  "ambiguity": "Derived via Remark 2 implication chain from the lr claim, so it inherits the hypothesis-direction conflict noted for the lr part (proof assumes theta_1 >= theta_2)."
+ },
+ {
+  "paper": "doi:10.29020/nybg.ejpam.v18i4.6653",
+  "claim": "Theorem 1 (cx part)",
+  "page": 9,
+  "quote": "Let Xi ~ M(theta_i), i = 1, 2 be two random variables. If theta_1 <= theta_2, then X1 <lr X2, X1 <hr X2, X1 <s X2 and X1 <cx X2",
+  "kind": "theorem",
+  "model": "single",
+  "family": "Mgamma distribution M(theta): pdf f(x) = theta^3 x (1 + x/2) e^{-theta x} / (1+theta), x > 0, theta > 0; a finite mixture of Gamma(2, theta) and Gamma(3, theta) with mixing probability theta/(1+theta)",
+  "compared": "parameter theta: theta_1 vs theta_2",
+  "hypotheses": [
+   {"text": "Let Xi ~ M(theta_i), i = 1, 2 be two random variables.", "formal": "X_i ~ Mgamma(theta_i), i = 1, 2", "source": "statement"},
+   {"text": "If theta_1 <= theta_2", "formal": "theta_1 <= theta_2", "source": "statement"},
+   {"text": "Convex order (X <cx Y) if for all convex functions phi and provided expectation exist, E[phi(X)] <= E[phi(Y)].", "formal": "X <=cx Y iff E[phi(X)] <= E[phi(Y)] for all convex phi with existing expectations", "source": "section preamble"},
+   {"text": "if E[X] = E[Y], then Convex order <=> Stochastic order.", "formal": "E[X] = E[Y] implies cx <=> st", "source": "section preamble (Remark 2)"}
+  ],
+  "conclusion": {"order": "other: cx (convex order)", "direction": "X1 ~ M(theta_1) <=cx X2 ~ M(theta_2)"},
+  "quantifiers": "theta_1, theta_2 > 0 with theta_1 <= theta_2; all convex phi",
+  "numbers": "",
+  "ambiguity": "The cx conclusion relies on Remark 2's equivalence 'Convex order <=> Stochastic order if E[X] = E[Y]', but E[X] = (2theta+3)/(theta(1+theta)) is strictly decreasing in theta, so E[X1] != E[X2] whenever theta_1 != theta_2; the stated sufficient condition for cx does not hold. Inherits the hypothesis-direction conflict of the lr part."
+ }
+]
