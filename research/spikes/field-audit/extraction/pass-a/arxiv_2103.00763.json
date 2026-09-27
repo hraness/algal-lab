@@ -1,0 +1,137 @@
+[
+  {
+    "paper": "arxiv:2103.00763",
+    "claim": "Theorem 3.1",
+    "page": 6,
+    "quote": "[Section 3.1 preamble:] Let X be a non negative random variable satisfying Poisson distribution with parameter µ(> 0), having probability mass function (PMF) fr = P(X = r) = e^{−µ} µ^r / r!, r = 0, 1, 2, . . . , and cumulative distribution function (CDF) Fr = P(X ≤ r) = Σ_{0≤k≤r} e^{−µ} µ^k / k! = ∫_µ^∞ e^{−t} t^r dt / r!. [...] Let, X1, X2, . . . , Xn and X1∗, X2∗, . . . , Xn∗ be two sets of random variables having Poisson distribution having parameters µ1, µ2, . . . , µn and µ∗1, µ∗2, . . . , µ∗n respectively. Also let, µ = (µ1, µ2, . . . , µn) and µ∗ = (µ∗1, µ∗2, . . . , µ∗n). The following theorem shows that majorized parameter vector of one set of random variables implies greater maximum order statistic than the other, in term of usual stochastic ordering. Theorem 3.1 For i = 1, 2, . . . , n, let Xi and Yi be two sets of mutually independent random variables each satisfying Poisson distribution with parameters µi and µ∗i respectively. Then µ ≽^m µ∗ ⇒ Xn:n ≥st Yn:n.",
+    "kind": "theorem",
+    "model": "order statistic",
+    "family": "Poisson, parameter µ (> 0), PMF e^{−µ} µ^r / r!, r = 0, 1, 2, ...; X side parameters µ1, ..., µn, Y side parameters µ∗1, ..., µ∗n",
+    "compared": "maxima Xn:n vs Yn:n; parameter vectors µ = (µ1, ..., µn) vs µ∗ = (µ∗1, ..., µ∗n)",
+    "hypotheses": [
+      {"text": "let Xi and Yi be two sets of mutually independent random variables", "formal": "X1, ..., Xn mutually independent; Y1, ..., Yn mutually independent", "source": "statement"},
+      {"text": "each satisfying Poisson distribution with parameters µi and µ∗i respectively", "formal": "Xi ~ Poisson(µi), Yi ~ Poisson(µ∗i), P(X = r) = e^{−µ} µ^r / r!, r = 0, 1, 2, ...", "source": "statement; section preamble (Section 3.1 PMF)"},
+      {"text": "Poisson distribution with parameter µ(> 0)", "formal": "µi > 0 and µ∗i > 0 for all i", "source": "section preamble"},
+      {"text": "µ ≽^m µ∗", "formal": "µ majorizes µ∗: Σ_{i=1}^j µ[i] ≥ Σ_{i=1}^j µ∗[i] for j = 1, ..., n−1 and Σ_{i=1}^n µ[i] = Σ_{i=1}^n µ∗[i] (decreasing arrangements)", "source": "statement; definition 2.2"}
+    ],
+    "conclusion": {"order": "st", "direction": "Yn:n ≤st Xn:n (stated as Xn:n ≥st Yn:n)"},
+    "quantifiers": "any n (positive integer, not otherwise restricted); all µi, µ∗i > 0 with µ ≽^m µ∗; st order per Definition 2.1(i): survival functions compared at all discrete t in [0, ∞) (proof works at r = 0, 1, 2, ...)",
+    "numbers": "",
+    "ambiguity": "The majorization relation symbol is missing from the text extraction (only the superscript 'm' survives, in Definition 2.2 and in the statement). Read as 'µ majorizes µ∗' (x ≽^m y of Definition 2.2, same missing glyph), which matches the proof's Schur-concavity step; the glyph direction itself is not visible in the text. The preamble names the second sample X1∗, ..., Xn∗ but the theorem calls it Yi. Mutual independence between the two samples is not addressed (irrelevant to marginal comparison)."
+  },
+  {
+    "paper": "arxiv:2103.00763",
+    "claim": "Counterexample 3.1",
+    "page": 7,
+    "quote": "Now the question arises: whether the result of the above theorem can be upgraded to reversed hazard rate ordering or not. Next counter-example shows that this is not possible. Counterexample 3.1 Let, for n = 3 and for r = 1, 2, . . ., h̃n:n(r) and h̃∗n:n(r) denote the reversed hazard rate functions of Xn:n and Yn:n respectively. Now, if µ = (8, 0.8, 0.1) and µ∗ = (7, 1, 0.9) are taken, then although µ ≽^m µ∗, it can be observed that for r = 5, h̃n:n(r) − h̃∗n:n(r) = 0.0520158 and for r = 2, h̃n:n(r) − h̃∗n:n(r) = −0.0232122, proving that there exist no reversed hazard rate ordering between Xn:n and Yn:n.",
+    "kind": "counterexample",
+    "model": "order statistic",
+    "family": "Poisson, parameter µ (> 0), PMF e^{−µ} µ^r / r!, r = 0, 1, 2, ...",
+    "compared": "maxima Xn:n vs Yn:n with n = 3; parameter vectors µ = (8, 0.8, 0.1) vs µ∗ = (7, 1, 0.9)",
+    "hypotheses": [
+      {"text": "for n = 3", "formal": "n = 3", "source": "statement"},
+      {"text": "µ = (8, 0.8, 0.1) and µ∗ = (7, 1, 0.9)", "formal": "Xi ~ Poisson(µi), Yi ~ Poisson(µ∗i) independent within each sample, µ = (8, 0.8, 0.1), µ∗ = (7, 1, 0.9)", "source": "statement; Theorem 3.1 setting"},
+      {"text": "although µ ≽^m µ∗", "formal": "µ majorizes µ∗ (Definition 2.2), asserted by the authors", "source": "statement; definition 2.2"}
+    ],
+    "conclusion": {"order": "rh", "direction": "neither direction: Xn:n and Yn:n are claimed not to be ordered in reversed hazard rate order (sign of h̃n:n(r) − h̃∗n:n(r) changes between r = 2 and r = 5)"},
+    "quantifiers": "n = 3; reversed hazard rate functions considered for r = 1, 2, ...; evaluated at r = 2 and r = 5",
+    "numbers": "n = 3; µ = (8, 0.8, 0.1); µ∗ = (7, 1, 0.9); r = 5: h̃n:n(r) − h̃∗n:n(r) = 0.0520158; r = 2: h̃n:n(r) − h̃∗n:n(r) = −0.0232122",
+    "ambiguity": "Majorization glyph missing in text extraction; read as 'µ majorizes µ∗' per Definition 2.2. The paper never gives a formula for the discrete reversed hazard rate function (Section 2 only names it), so the exact definition of h̃n:n(r) used for the printed values is not stated. Refutes an rh upgrade of Theorem 3.1."
+  },
+  {
+    "paper": "arxiv:2103.00763",
+    "claim": "Theorem 3.2",
+    "page": 7,
+    "quote": "[Section 3.1 preamble:] Let X be a non negative random variable satisfying Poisson distribution with parameter µ(> 0), having probability mass function (PMF) fr = P(X = r) = e^{−µ} µ^r / r!, r = 0, 1, 2, . . . [...] Let, X1, X2, . . . , Xn and X1∗, X2∗, . . . , Xn∗ be two sets of random variables having Poisson distribution having parameters µ1, µ2, . . . , µn and µ∗1, µ∗2, . . . , µ∗n respectively. Also let, µ = (µ1, µ2, . . . , µn) and µ∗ = (µ∗1, µ∗2, . . . , µ∗n). [...] The next theorem shows that there exits stochastic ordering between X1:n and Y1:n, if there exists majorization ordering between between their parameter vectors. Theorem 3.2 For i = 1, 2, . . . , n, let Xi and Yi be two sets of mutually independent random variables each satisfying Poisson distribution with parameters µi and µ∗i respectively. Then µ ≽^m µ∗ implies X1:n ≤st Y1:n.",
+    "kind": "theorem",
+    "model": "order statistic",
+    "family": "Poisson, parameter µ (> 0), PMF e^{−µ} µ^r / r!, r = 0, 1, 2, ...; X side parameters µ1, ..., µn, Y side parameters µ∗1, ..., µ∗n",
+    "compared": "minima X1:n vs Y1:n; parameter vectors µ vs µ∗",
+    "hypotheses": [
+      {"text": "let Xi and Yi be two sets of mutually independent random variables", "formal": "X1, ..., Xn mutually independent; Y1, ..., Yn mutually independent", "source": "statement"},
+      {"text": "each satisfying Poisson distribution with parameters µi and µ∗i respectively", "formal": "Xi ~ Poisson(µi), Yi ~ Poisson(µ∗i)", "source": "statement; section preamble"},
+      {"text": "Poisson distribution with parameter µ(> 0)", "formal": "µi > 0 and µ∗i > 0 for all i", "source": "section preamble"},
+      {"text": "µ ≽^m µ∗", "formal": "µ majorizes µ∗ (partial sums of decreasing arrangement of µ dominate those of µ∗, equal totals)", "source": "statement; definition 2.2"}
+    ],
+    "conclusion": {"order": "st", "direction": "X1:n ≤st Y1:n"},
+    "quantifiers": "any n (positive integer); all µi, µ∗i > 0 with µ ≽^m µ∗; survival functions compared at all discrete t in [0, ∞) (proof uses r = 0, 1, 2, ...)",
+    "numbers": "",
+    "ambiguity": "Majorization glyph missing in text extraction; read as 'µ majorizes µ∗' per Definition 2.2 and the proof's Schur-concavity step. Preamble names second sample X∗ while statement uses Yi."
+  },
+  {
+    "paper": "arxiv:2103.00763",
+    "claim": "Counterexample 3.2",
+    "page": 8,
+    "quote": "Next one counter-example is given to show that the above theorem cannot be improved further to hazard rate ordering. Counterexample 3.2 For n = 3 and for r = 1, 2, . . ., let hn:n(r) and h∗n:n(r) be the hazard rate functions of X1:n and Y1:n respectively. Now, if µ = (28, 0.8, 0.1) and µ∗ = (27, 1, 0.9) are taken, then although µ ≽^m µ∗, it can be observed that for r = 16, h1:n(r) − h∗1:n(r) = −0.00024431 and for r = 6, h1:n(r) − h∗n:n(r) = 0.0124328, proving that there exist no hazard rate ordering between X1:n and Y1:n.",
+    "kind": "counterexample",
+    "model": "order statistic",
+    "family": "Poisson, parameter µ (> 0), PMF e^{−µ} µ^r / r!, r = 0, 1, 2, ...",
+    "compared": "minima X1:n vs Y1:n with n = 3; parameter vectors µ = (28, 0.8, 0.1) vs µ∗ = (27, 1, 0.9)",
+    "hypotheses": [
+      {"text": "For n = 3", "formal": "n = 3", "source": "statement"},
+      {"text": "µ = (28, 0.8, 0.1) and µ∗ = (27, 1, 0.9)", "formal": "Xi ~ Poisson(µi), Yi ~ Poisson(µ∗i) independent within each sample, µ = (28, 0.8, 0.1), µ∗ = (27, 1, 0.9)", "source": "statement; Theorem 3.2 setting"},
+      {"text": "although µ ≽^m µ∗", "formal": "µ majorizes µ∗ (Definition 2.2), asserted by the authors", "source": "statement; definition 2.2"}
+    ],
+    "conclusion": {"order": "hr", "direction": "neither direction: X1:n and Y1:n are claimed not to be ordered in hazard rate order (sign of the hazard difference changes between r = 6 and r = 16)"},
+    "quantifiers": "n = 3; hazard rates considered for r = 1, 2, ...; evaluated at r = 6 and r = 16",
+    "numbers": "n = 3; µ = (28, 0.8, 0.1); µ∗ = (27, 1, 0.9); r = 16: h1:n(r) − h∗1:n(r) = −0.00024431; r = 6: h1:n(r) − h∗n:n(r) = 0.0124328",
+    "ambiguity": "Notation inconsistent: hazard rates of X1:n and Y1:n are introduced as hn:n(r) and h∗n:n(r), then written h1:n(r), h∗1:n(r), and h∗n:n(r) in the second printed difference; read as hazard rates of the minima. The discrete hazard rate is not defined by formula in Section 2; the geometric subsection uses r(u) = [F̄(u) − F̄(u+1)]/F̄(u). Majorization glyph missing in text extraction; read as 'µ majorizes µ∗'. Refutes an hr upgrade of Theorem 3.2."
+  },
+  {
+    "paper": "arxiv:2103.00763",
+    "claim": "Theorem 3.3",
+    "page": 9,
+    "quote": "[Section 3.2 preamble:] Let X1, X2, . . . , Xn be a sequence of random variables satisfying geometric distribution with parameter q1, q2, . . . , qn. Now, if F̄1:n(u) and Fn:n(u) be the survival function and distribution functions of X1:n and Xn:n respectively, then, for all u = 0, 1, 2, . . ., F̄1:n(u) = Π_{i=1}^n qi^{u+1} and Fn:n(u) = Π_{k=1}^n (1 − qk^{u+1}). Now, if r1:n(u) denotes hazard rate function of the random variable X1:n, then, for all u = 0, 1, 2, . . ., it can be written that, r1:n(u) = [F̄1:n(u) − F̄1:n(u + 1)] / F̄1:n(u) = 1 − Π_{i=1}^n qi^{u+1} / Π_{i=1}^n qi^u = 1 − Π_{i=1}^n qi. Let, X1, X2, . . . , Xn and X1∗, X2∗, . . . , Xn∗ be two sets of random variables following geometric distribution having parameters q1, q2, . . . , qn and q1∗, q2∗, . . . , qn∗ respectively. Also let, q = (q1, q2, . . . , qn) and q∗ = (q1∗, q2∗, . . . , qn∗). The following theorem shows that, under certain condition X1:n is greater than Y1:n in hazard rate ordering. The proof is straight forward and hence omitted. Theorem 3.3 For i = 1, 2, . . . , n, let Xi and Yi be two sets of mutually independent random variables each satisfying geometric distribution with parameters qi and qi∗ respectively. Then Π_{i=1}^n qi ≥ Π_{i=1}^n qi∗ implies X1:n ≥hr Y1:n.",
+    "kind": "theorem",
+    "model": "order statistic",
+    "family": "geometric, parameter qi, with (as implied by the printed survival function of X1:n) P(Xi > u) = qi^{u+1}, u = 0, 1, 2, ...; X side q1, ..., qn, Y side q1∗, ..., qn∗",
+    "compared": "minima X1:n vs Y1:n; parameter vectors q vs q∗ (through their products)",
+    "hypotheses": [
+      {"text": "let Xi and Yi be two sets of mutually independent random variables", "formal": "X1, ..., Xn mutually independent; Y1, ..., Yn mutually independent", "source": "statement"},
+      {"text": "each satisfying geometric distribution with parameters qi and qi∗ respectively", "formal": "P(Xi > u) = qi^{u+1}, P(Yi > u) = (qi∗)^{u+1}, u = 0, 1, 2, ... (inferred from F̄1:n(u) = Π qi^{u+1})", "source": "statement; section preamble"},
+      {"text": "Π_{i=1}^n qi ≥ Π_{i=1}^n qi∗", "formal": "q1 q2 ... qn ≥ q1∗ q2∗ ... qn∗", "source": "statement"}
+    ],
+    "conclusion": {"order": "hr", "direction": "Y1:n ≤hr X1:n (stated as X1:n ≥hr Y1:n)"},
+    "quantifiers": "any n (positive integer); parameters qi, qi∗ (range not stated, presumably in (0, 1)); hr order per Definition 2.1(ii): hazard rates compared at all discrete t in [0, ∞)",
+    "numbers": "",
+    "ambiguity": "The geometric pmf and parameter range are never stated; the parametrization is inferred only from the printed survival function F̄1:n(u) = Π qi^{u+1}. The discrete hazard rate definition is given only through the formula r1:n(u) = [F̄(u) − F̄(u+1)]/F̄(u) in the section preamble. Proof omitted by the authors. Preamble names the second sample X∗ while the statement uses Yi."
+  },
+  {
+    "paper": "arxiv:2103.00763",
+    "claim": "Theorem 3.4",
+    "page": 9,
+    "quote": "[Section 3.2 preamble:] Let X1, X2, . . . , Xn be a sequence of random variables satisfying geometric distribution with parameter q1, q2, . . . , qn. Now, if F̄1:n(u) and Fn:n(u) be the survival function and distribution functions of X1:n and Xn:n respectively, then, for all u = 0, 1, 2, . . ., F̄1:n(u) = Π_{i=1}^n qi^{u+1} and Fn:n(u) = Π_{k=1}^n (1 − qk^{u+1}). [...] Let, X1, X2, . . . , Xn and X1∗, X2∗, . . . , Xn∗ be two sets of random variables following geometric distribution having parameters q1, q2, . . . , qn and q1∗, q2∗, . . . , qn∗ respectively. Also let, q = (q1, q2, . . . , qn) and q∗ = (q1∗, q2∗, . . . , qn∗). [...] The following theorem shows that under certain condition Xn:n will be greater than Yn:n in usual stochastic ordering. Theorem 3.4 For i = 1, 2, . . . , n, let Xi and Yi be two sets of mutually independent random variables each satisfying geometric distribution with parameters qi and qi∗ respectively. Then q ≽^m q∗ implies Xn:n ≥st Yn:n",
+    "kind": "theorem",
+    "model": "order statistic",
+    "family": "geometric, parameter qi, with P(Xi > u) = qi^{u+1}, u = 0, 1, 2, ... (implied by the printed distribution function Fn:n(u) = Π (1 − qk^{u+1})); X side q1, ..., qn, Y side q1∗, ..., qn∗",
+    "compared": "maxima Xn:n vs Yn:n; parameter vectors q vs q∗",
+    "hypotheses": [
+      {"text": "let Xi and Yi be two sets of mutually independent random variables", "formal": "X1, ..., Xn mutually independent; Y1, ..., Yn mutually independent", "source": "statement"},
+      {"text": "each satisfying geometric distribution with parameters qi and qi∗ respectively", "formal": "P(Xi ≤ u) = 1 − qi^{u+1}, P(Yi ≤ u) = 1 − (qi∗)^{u+1}, u = 0, 1, 2, ...", "source": "statement; section preamble"},
+      {"text": "q ≽^m q∗", "formal": "q majorizes q∗: Σ_{i=1}^j q[i] ≥ Σ_{i=1}^j q∗[i] for j = 1, ..., n−1 and Σ q = Σ q∗", "source": "statement; definition 2.2"}
+    ],
+    "conclusion": {"order": "st", "direction": "Yn:n ≤st Xn:n (stated as Xn:n ≥st Yn:n)"},
+    "quantifiers": "any n (positive integer); parameters qi, qi∗ (range not stated, presumably in (0, 1)) with q ≽^m q∗; distribution functions compared at u = 0, 1, 2, ...",
+    "numbers": "",
+    "ambiguity": "Majorization glyph missing in text extraction (only superscript 'm' survives); read as 'q majorizes q∗' per Definition 2.2 and the proof's Schur-concavity step. Geometric pmf and parameter range never stated; parametrization inferred from printed Fn:n(u). Preamble names second sample X∗ while statement uses Yi."
+  },
+  {
+    "paper": "arxiv:2103.00763",
+    "claim": "Counterexample 3.3",
+    "page": 10,
+    "quote": "Although there exists stochastic ordering between Xn:n and Yn:n when q ≽^m q∗, the following counterexample shows that there exists no reversed hazard rate ordering between them. Counterexample 3.3 Let, for n = 3 and for r = 1, 2, . . ., h̃n:n(r) and h̃∗n:n(r) denote the reversed hazard rate functions of Xn:n and Yn:n respectively. Now, if q = (0.99, 0.96, 0.57) and q∗ = (0.9, 0.78, 0.57) are taken, then although q ≽^m q∗, it can be observed that for u = 1, h̃n:n(u) − h̃∗n:n(u) = −0.0010584 and for u = 4, h̃n:n(u) − h̃∗n:n(u) = 0.00628996, proving that there exist no reversed hazard rate ordering between Xn:n and Yn:n.",
+    "kind": "counterexample",
+    "model": "order statistic",
+    "family": "geometric, parameter qi, P(Xi > u) = qi^{u+1}, u = 0, 1, 2, ... (inferred from Section 3.2 preamble)",
+    "compared": "maxima Xn:n vs Yn:n with n = 3; parameter vectors q = (0.99, 0.96, 0.57) vs q∗ = (0.9, 0.78, 0.57)",
+    "hypotheses": [
+      {"text": "for n = 3", "formal": "n = 3", "source": "statement"},
+      {"text": "q = (0.99, 0.96, 0.57) and q∗ = (0.9, 0.78, 0.57)", "formal": "Xi geometric(qi), Yi geometric(qi∗), independent within each sample, q = (0.99, 0.96, 0.57), q∗ = (0.9, 0.78, 0.57)", "source": "statement; Theorem 3.4 setting"},
+      {"text": "although q ≽^m q∗", "formal": "q majorizes q∗ (Definition 2.2), asserted by the authors", "source": "statement; definition 2.2"}
+    ],
+    "conclusion": {"order": "rh", "direction": "neither direction: Xn:n and Yn:n are claimed not to be ordered in reversed hazard rate order (sign of h̃n:n(u) − h̃∗n:n(u) changes between u = 1 and u = 4)"},
+    "quantifiers": "n = 3; reversed hazard rates considered for r = 1, 2, ...; evaluated at u = 1 and u = 4",
+    "numbers": "n = 3; q = (0.99, 0.96, 0.57); q∗ = (0.9, 0.78, 0.57); u = 1: h̃n:n(u) − h̃∗n:n(u) = −0.0010584; u = 4: h̃n:n(u) − h̃∗n:n(u) = 0.00628996",
+    "ambiguity": "Majorization glyph missing in text extraction; read as 'q majorizes q∗' per Definition 2.2. The index is introduced as r but the evaluations use u. The discrete reversed hazard rate function is never defined by formula in the paper. Refutes an rh upgrade of Theorem 3.4."
+  }
+]

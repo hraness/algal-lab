@@ -82,7 +82,6 @@ def _numerator(expr):
     return sp.Poly(sp.expand(num), z), sp.Poly(sp.expand(den), z)
 
 
-EPS = sp.Rational(1, 10 ** 40)
 
 
 def _interior_negative_near(poly, edge, inner):
@@ -96,17 +95,35 @@ def _interior_negative_near(poly, edge, inner):
     raise ArithmeticError("no interior witness found near the edge")
 
 
+def _separated_intervals(poly, lo, hi):
+    """Isolating intervals refined until consecutive ones are strictly apart.
+
+    sympy's isolating intervals are open around irrational roots and may share
+    an endpoint with a neighbouring exact root, as in (0,0), (0,1), (1,1);
+    refining until b_i < a_{i+1} leaves a gap with a sample point between every
+    pair of consecutive roots.
+    """
+    width = hi - lo
+    for k in range(4, 400, 4):
+        raw = poly.intervals(inf=lo, sup=hi, eps=width / 2 ** k)
+        intervals = sorted((sp.Rational(a), sp.Rational(b)) for (a, b), _m in raw)
+        if all(b < a for (_, b), (a, _) in zip(intervals, intervals[1:])):
+            return intervals
+    raise ArithmeticError("could not separate the isolating intervals")
+
+
 def _negative_witness(poly, lo, hi):
     """A rational z0 in (lo, hi) with poly(z0) < 0, or None if poly >= 0 there.
 
     Every open gap between consecutive real roots in (lo, hi) gets one sample:
-    isolating intervals are refined to width EPS, gaps are sampled at their
-    midpoints, and a gap cut off by an interval touching lo or hi takes the
-    sign of poly at that endpoint (no root lies between them).
+    the isolating intervals are disjoint and hold one root each, so the midpoint
+    of the space between two consecutive intervals lies between their roots, and
+    a gap cut off by an interval touching lo or hi takes the sign of poly at that
+    endpoint (no root lies between them).
     """
     if poly.is_zero:
         return None
-    intervals = sorted((sp.Rational(a), sp.Rational(b)) for (a, b), _m in poly.intervals(inf=lo, sup=hi, eps=EPS))
+    intervals = _separated_intervals(poly, lo, hi)
     if not intervals:
         mid = (lo + hi) / 2
         return mid if poly.eval(mid) < 0 else None
@@ -118,7 +135,7 @@ def _negative_witness(poly, lo, hi):
     elif poly.eval(lo) < 0:
         return _interior_negative_near(poly, lo, b1)
     for (_, b), (a, _) in zip(intervals, intervals[1:]):
-        x = (b + a) / 2 if a > b else b
+        x = (b + a) / 2
         if lo < x < hi and poly.eval(x) < 0:
             return x
     a_n, b_n = intervals[-1]

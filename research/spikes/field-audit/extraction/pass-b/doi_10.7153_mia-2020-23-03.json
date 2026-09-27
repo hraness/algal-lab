@@ -1,0 +1,467 @@
+[
+  {
+    "paper": "doi:10.7153/mia-2020-23-03",
+    "claim": "Theorem 3.1",
+    "page": 5,
+    "quote": "Theorem 3.1. Let Xλ1 and Xλ2 be non-negative random variables with Xλi ∼ F̄ (x; λi ), i = 1, 2, and associated copula C. Further, suppose that Ip1 , Ip2 (Ip∗1 , Ip∗2 ) is a set of independent Bernoulli random variables, independent of the Xλi ’s, with E[Ipi ] = pi (E[Ip∗i ] = p∗i ), i = 1, 2. Assume that the following conditions hold: (i) h : (0, 1] → I ⊂ R++ is a differentiable and strictly increasing concave function, with the log-concave inverse; (ii) F̄ (x; λ) is decreasing in λ for any x ∈ R+ ; (iii) C is PQD. Then, for (λ, h(p)) ∈ S and (λ, h(p∗ )) ∈ S, we have (h(p∗1 ), h(p∗2 )) [≼m] (h(p1 ), h(p2 )) =⇒ Y[∗]2:2 ≤st Y2:2 .",
+    "kind": "theorem",
+    "model": "other: largest claim amount Y2:2 = max(Ip1 Xλ1, Ip2 Xλ2) of a two-policy portfolio with copula-dependent severities and independent Bernoulli claim indicators",
+    "family": "general parametric family of severity survival functions F̄(x; λ), decreasing in λ (no specific distribution); copula C; same severities Xλ1, Xλ2 in both portfolios",
+    "compared": "claim probabilities p = (p1, p2) vs p∗ = (p∗1, p∗2) through h(p) vs h(p∗); severity parameters λ common",
+    "hypotheses": [
+      {"text": "Let Xλ1 and Xλ2 be non-negative random variables with Xλi ∼ F̄ (x; λi ), i = 1, 2, and associated copula C", "formal": "(Xλ1, Xλ2) non-negative with marginal survival F̄(x; λi) and copula C", "source": "statement"},
+      {"text": "Ip1 , Ip2 (Ip∗1 , Ip∗2 ) is a set of independent Bernoulli random variables, independent of the Xλi ’s, with E[Ipi ] = pi (E[Ip∗i ] = p∗i )", "formal": "Ipi ~ Bernoulli(pi) independent, Ip∗i ~ Bernoulli(p∗i) independent, both independent of (Xλ1, Xλ2)", "source": "statement"},
+      {"text": "Yi = Ipi Xλi ... another portfolio of risks (Y1∗ , . . . , Yn∗ ) with the parameter vectors λ∗ and p∗", "formal": "Yi = Ipi Xλi, Y∗i = Ip∗i Xλi (here λ∗ = λ); Y2:2 = max(Y1, Y2), Y∗2:2 = max(Y∗1, Y∗2)", "source": "section preamble (Section 1)"},
+      {"text": "(i) h : (0, 1] → I ⊂ R++ is a differentiable and strictly increasing concave function, with the log-concave inverse", "formal": "h differentiable, strictly increasing, concave on (0, 1], values in I ⊂ (0, ∞), h^{-1} log-concave", "source": "statement"},
+      {"text": "(ii) F̄ (x; λ) is decreasing in λ for any x ∈ R+", "formal": "λ ↦ F̄(x; λ) non-increasing for every x ≥ 0", "source": "statement"},
+      {"text": "(iii) C is PQD", "formal": "C(v1, v2) ≥ v1 v2 for all (v1, v2) ∈ [0, 1]^2", "source": "statement; definition 2.5"},
+      {"text": "for (λ, h(p)) ∈ S and (λ, h(p∗ )) ∈ S", "formal": "(λ1 − λ2)(h(p1) − h(p2)) ≤ 0 and (λ1 − λ2)(h(p∗1) − h(p∗2)) ≤ 0", "source": "statement; definition of S (end of Section 2)"},
+      {"text": "(h(p∗1 ), h(p∗2 )) [≼m] (h(p1 ), h(p2 ))", "formal": "(h(p∗1), h(p∗2)) is majorized by (h(p1), h(p2)): equal sums and min(h(p∗1), h(p∗2)) ≥ min(h(p1), h(p2))", "source": "statement; definition 2.2(iii)"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y∗2:2 ≤st Y2:2"},
+    "quantifiers": "n = 2; all x ≥ 0 (st order over R); all p, p∗ in (0, 1]^2 and λ satisfying the conditions",
+    "numbers": "",
+    "ambiguity": "Text is the arXiv preprint 1812.08343v1 of the paper; labels and pages may differ from the journal version. The majorization glyph is unrenderable ('m' above); per Definition 2.2(iii) 'x [symbol] y' means x is majorized by y. The asterisk in the conclusion is displaced in the text; its attachment to the left-hand Y2:2 is resolved from the proof (Ψ(u∗) ≤ Ψ(u) with G = −Ψ1 − Ψ2). Result is for a general parametric family F̄(x; λ); included because the paper specializes the combined result (Theorem 3.3) to specific families and examples."
+  },
+  {
+    "paper": "doi:10.7153/mia-2020-23-03",
+    "claim": "Theorem 3.2",
+    "page": 6,
+    "quote": "Theorem 3.2. Let Xλ1 and Xλ2 (Xλ∗1 and Xλ∗2 ) be non-negative random variables with Xλi ∼ F̄ (x; λi ) (Xλ∗i ∼ F̄ (x; λ∗i )), i = 1, 2, and associated copula C. Further, suppose that Ip1 , Ip2 is a set of independent Bernoulli random variables, independent of the Xλi ’s (Xλ∗i ’s), with E[Ipi ] = pi , i = 1, 2. Assume that the following conditions hold: (i) h : [0, 1] → I ⊂ R+ is a differentiable and strictly increasing function; (ii) F̄ (x; λ) is decreasing and convex in λ for any x ∈ R+ ; (iii) ∂C(v1 ,v2 )/∂v1 ≥ ∂C(v1 ,v2 )/∂v2 , for all 0 ≤ v1 ≤ v2 ≤ 1. Then, for (λ, h(p)) ∈ S and (λ∗ , h(p)) ∈ S, we have (λ∗1 , λ∗2 ) [≼^w] (λ1 , λ2 ) =⇒ Y[∗]2:2 ≤st Y2:2 .",
+    "kind": "theorem",
+    "model": "other: largest claim amount Y2:2 = max(Ip1 Xλ1, Ip2 Xλ2) of a two-policy portfolio with copula-dependent severities and independent Bernoulli claim indicators",
+    "family": "general parametric family F̄(x; λ), decreasing and convex in λ (no specific distribution); copula C common to both portfolios",
+    "compared": "severity parameters λ = (λ1, λ2) vs λ∗ = (λ∗1, λ∗2); claim probabilities p common",
+    "hypotheses": [
+      {"text": "Let Xλ1 and Xλ2 (Xλ∗1 and Xλ∗2 ) be non-negative random variables with Xλi ∼ F̄ (x; λi ) (Xλ∗i ∼ F̄ (x; λ∗i )), i = 1, 2, and associated copula C", "formal": "(Xλ1, Xλ2) and (Xλ∗1, Xλ∗2) non-negative with marginals F̄(x; λi), F̄(x; λ∗i) and the same copula C", "source": "statement"},
+      {"text": "Ip1 , Ip2 is a set of independent Bernoulli random variables, independent of the Xλi ’s (Xλ∗i ’s), with E[Ipi ] = pi", "formal": "Ipi ~ Bernoulli(pi) independent, independent of severities; Yi = Ipi Xλi, Y∗i = Ipi Xλ∗i", "source": "statement; section preamble (Section 1)"},
+      {"text": "(i) h : [0, 1] → I ⊂ R+ is a differentiable and strictly increasing function", "formal": "h differentiable and strictly increasing on [0, 1]", "source": "statement"},
+      {"text": "(ii) F̄ (x; λ) is decreasing and convex in λ for any x ∈ R+", "formal": "λ ↦ F̄(x; λ) non-increasing and convex for every x ≥ 0", "source": "statement"},
+      {"text": "(iii) ∂C(v1 ,v2 )/∂v1 ≥ ∂C(v1 ,v2 )/∂v2 , for all 0 ≤ v1 ≤ v2 ≤ 1", "formal": "∂1C(v1, v2) ≥ ∂2C(v1, v2) whenever 0 ≤ v1 ≤ v2 ≤ 1", "source": "statement"},
+      {"text": "for (λ, h(p)) ∈ S and (λ∗ , h(p)) ∈ S", "formal": "(λ1 − λ2)(h(p1) − h(p2)) ≤ 0 and (λ∗1 − λ∗2)(h(p1) − h(p2)) ≤ 0", "source": "statement; definition of S (end of Section 2)"},
+      {"text": "(λ∗1 , λ∗2 ) [≼^w] (λ1 , λ2 )", "formal": "λ∗ weakly supermajorized by λ: min(λ∗1, λ∗2) ≥ min(λ1, λ2) and λ∗1 + λ∗2 ≥ λ1 + λ2", "source": "statement; definition 2.2(ii)"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y∗2:2 ≤st Y2:2"},
+    "quantifiers": "n = 2; all x ≥ 0; all λ, λ∗, p satisfying the conditions",
+    "numbers": "",
+    "ambiguity": "Text is the arXiv preprint 1812.08343v1. The weak-majorization glyph is unrenderable; the 'w' appears above the symbol, read as weak supermajorization per Definition 2.2(ii) (consistent with the use of the second part of Lemma 2.2 in the proof). Asterisk attachment in the conclusion resolved from the proof (Ψ(λ∗) ≤ Ψ(λ) with Ψ = −G). The domain of h here is [0, 1] with values in R+, unlike (0, 1] and R++ in Theorem 3.1. General parametric family; included because the combined result (Theorem 3.3) is specialized to specific families."
+  },
+  {
+    "paper": "doi:10.7153/mia-2020-23-03",
+    "claim": "Theorem 3.3",
+    "page": 8,
+    "quote": "Theorem 3.3. Let Xλ1 and Xλ2 (Xλ∗1 and Xλ∗2 ) be non-negative random variables with Xλi ∼ F̄ (x; λi ) (Xλ∗i ∼ F̄ (x; λ∗i )), i = 1, 2, and associated copula C. Further, suppose that Ip1 , Ip2 (Ip∗1 , Ip∗2 ) is a set of independent Bernoulli random variables, independent of the Xλi ’s (Xλ∗i ’s), with E[Ipi ] = pi (E[Ip∗i ] = p∗i ), i = 1, 2. Assume that the following conditions hold: (i) h : (0, 1] → I ⊂ R++ is a differentiable and strictly increasing concave function, with a log-concave inverse; (ii) F̄ (x; λ) is decreasing and convex in λ for any x ∈ R+ ; (iii) C is PQD and ∂C(v1 ,v2 )/∂v1 ≥ ∂C(v1 ,v2 )/∂v2 , for all 0 ≤ v1 ≤ v2 ≤ 1. Then, for (λ, h(p)) ∈ S and (λ∗ , h(p∗ )) ∈ S, we have (h(p∗1 ), h(p∗2 )) [≼m] (h(p1 ), h(p2 )) and (λ∗1 , λ∗2 ) [≼^w] (λ1 , λ2 ) =⇒ Y[∗]2:2 ≤st Y2:2 .",
+    "kind": "theorem",
+    "model": "other: largest claim amount Y2:2 = max(Ip1 Xλ1, Ip2 Xλ2) of a two-policy portfolio with copula-dependent severities and independent Bernoulli claim indicators",
+    "family": "general parametric family F̄(x; λ), decreasing and convex in λ (no specific distribution); copula C common to both portfolios",
+    "compared": "claim probabilities p vs p∗ (through h) and severity parameters λ vs λ∗",
+    "hypotheses": [
+      {"text": "Let Xλ1 and Xλ2 (Xλ∗1 and Xλ∗2 ) be non-negative random variables with Xλi ∼ F̄ (x; λi ) (Xλ∗i ∼ F̄ (x; λ∗i )), i = 1, 2, and associated copula C", "formal": "severity vectors with marginals F̄(x; λi), F̄(x; λ∗i) and common copula C", "source": "statement"},
+      {"text": "Ip1 , Ip2 (Ip∗1 , Ip∗2 ) is a set of independent Bernoulli random variables, independent of the Xλi ’s (Xλ∗i ’s), with E[Ipi ] = pi (E[Ip∗i ] = p∗i )", "formal": "Ipi ~ Bernoulli(pi), Ip∗i ~ Bernoulli(p∗i), independent, independent of severities; Yi = Ipi Xλi, Y∗i = Ip∗i Xλ∗i", "source": "statement; section preamble (Section 1)"},
+      {"text": "(i) h : (0, 1] → I ⊂ R++ is a differentiable and strictly increasing concave function, with a log-concave inverse", "formal": "h differentiable, strictly increasing, concave, positive; h^{-1} log-concave", "source": "statement"},
+      {"text": "(ii) F̄ (x; λ) is decreasing and convex in λ for any x ∈ R+", "formal": "λ ↦ F̄(x; λ) non-increasing and convex for all x ≥ 0", "source": "statement"},
+      {"text": "(iii) C is PQD and ∂C(v1 ,v2 )/∂v1 ≥ ∂C(v1 ,v2 )/∂v2 , for all 0 ≤ v1 ≤ v2 ≤ 1", "formal": "C(v1, v2) ≥ v1 v2 and ∂1C ≥ ∂2C on {v1 ≤ v2}", "source": "statement; definition 2.5"},
+      {"text": "for (λ, h(p)) ∈ S and (λ∗ , h(p∗ )) ∈ S", "formal": "(λ1 − λ2)(h(p1) − h(p2)) ≤ 0 and (λ∗1 − λ∗2)(h(p∗1) − h(p∗2)) ≤ 0", "source": "statement; definition of S (end of Section 2)"},
+      {"text": "(h(p∗1 ), h(p∗2 )) [≼m] (h(p1 ), h(p2 ))", "formal": "h(p∗) majorized by h(p)", "source": "statement; definition 2.2(iii)"},
+      {"text": "(λ∗1 , λ∗2 ) [≼^w] (λ1 , λ2 )", "formal": "λ∗ weakly supermajorized by λ", "source": "statement; definition 2.2(ii)"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y∗2:2 ≤st Y2:2"},
+    "quantifiers": "n = 2; all x ≥ 0; all parameters satisfying the conditions",
+    "numbers": "",
+    "ambiguity": "Text is the arXiv preprint 1812.08343v1. Majorization and weak-majorization glyphs unrenderable ('m' and 'w' above); read per Definition 2.2(iii) and (ii). Asterisk attachment in the conclusion resolved from the proofs of Theorems 3.1 and 3.2. General parametric family; specialized in Theorems 3.4-3.6."
+  },
+  {
+    "paper": "doi:10.7153/mia-2020-23-03",
+    "claim": "Theorem 3.4",
+    "page": 8,
+    "quote": "The scale family is an applicable model in reliability theory and actuarial science. Xλ is said to follow the scale family, if its survival function can be expressed as F̄ (x; λ) = F̄ (λx), where F̄ (x) is the baseline survival function with the corresponding density function f (x) and λ > 0. [...] Theorem 3.4. Let F̄ (x; λi ) = F̄ (λi x) and F̄ (x; λ∗i ) = F̄ (λ∗i x), for i = 1, 2. Under the setup of Theorem 3.3, suppose that the following conditions hold: (i) h : (0, 1] → I ⊂ R++ is a differentiable and strictly increasing concave function, with a log-concave inverse; (ii) f (x) is decreasing in x ∈ R+ ; (iii) C is PQD and ∂C(v1 ,v2 )/∂v1 ≥ ∂C(v1 ,v2 )/∂v2 , for all 0 ≤ v1 ≤ v2 ≤ 1. Then, for (λ, h(p)) ∈ S and (λ∗ , h(p∗ )) ∈ S, we have (h(p∗1 ), h(p∗2 )) [≼m] (h(p1 ), h(p2 )) and (λ∗1 , λ∗2 ) [≼^w] (λ1 , λ2 ) =⇒ Y[∗]2:2 ≤st Y2:2 .",
+    "kind": "theorem",
+    "model": "other: largest claim amount Y2:2 = max(Ip1 Xλ1, Ip2 Xλ2) of a two-policy portfolio with copula-dependent severities and independent Bernoulli claim indicators",
+    "family": "scale family F̄(x; λ) = F̄(λx), λ > 0, baseline survival F̄ with density f decreasing on R+ (baseline otherwise unspecified)",
+    "compared": "claim probabilities p vs p∗ (through h) and scale parameters λ vs λ∗",
+    "hypotheses": [
+      {"text": "Let F̄ (x; λi ) = F̄ (λi x) and F̄ (x; λ∗i ) = F̄ (λ∗i x), for i = 1, 2", "formal": "scale family marginals with scale parameters λi, λ∗i > 0", "source": "statement; section preamble"},
+      {"text": "Under the setup of Theorem 3.3", "formal": "copula C common; Ipi ~ Bernoulli(pi), Ip∗i ~ Bernoulli(p∗i) independent and independent of severities; Yi = Ipi Xλi, Y∗i = Ip∗i Xλ∗i", "source": "earlier theorem 3.3"},
+      {"text": "(i) h : (0, 1] → I ⊂ R++ is a differentiable and strictly increasing concave function, with a log-concave inverse", "formal": "h differentiable, strictly increasing, concave, positive; h^{-1} log-concave", "source": "statement"},
+      {"text": "(ii) f (x) is decreasing in x ∈ R+", "formal": "baseline density f non-increasing on [0, ∞)", "source": "statement"},
+      {"text": "(iii) C is PQD and ∂C(v1 ,v2 )/∂v1 ≥ ∂C(v1 ,v2 )/∂v2 , for all 0 ≤ v1 ≤ v2 ≤ 1", "formal": "C(v1, v2) ≥ v1 v2 and ∂1C ≥ ∂2C on {v1 ≤ v2}", "source": "statement; definition 2.5"},
+      {"text": "for (λ, h(p)) ∈ S and (λ∗ , h(p∗ )) ∈ S", "formal": "(λ1 − λ2)(h(p1) − h(p2)) ≤ 0 and (λ∗1 − λ∗2)(h(p∗1) − h(p∗2)) ≤ 0", "source": "statement; definition of S"},
+      {"text": "(h(p∗1 ), h(p∗2 )) [≼m] (h(p1 ), h(p2 )) and (λ∗1 , λ∗2 ) [≼^w] (λ1 , λ2 )", "formal": "h(p∗) majorized by h(p); λ∗ weakly supermajorized by λ", "source": "statement; definition 2.2"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y∗2:2 ≤st Y2:2"},
+    "quantifiers": "n = 2; all x ≥ 0; all parameters satisfying the conditions",
+    "numbers": "",
+    "ambiguity": "Text is the arXiv preprint 1812.08343v1. Majorization glyphs unrenderable; read per Definition 2.2. Asterisk attachment resolved from the proof chain (Theorem 3.3). The baseline distribution is arbitrary apart from a decreasing density."
+  },
+  {
+    "paper": "doi:10.7153/mia-2020-23-03",
+    "claim": "Example 3.1",
+    "page": 9,
+    "quote": "The following example provides a numerical example to illustrate the validity of Theorem 3.4. Example 3.1. Let Xλi ∼ Γ(0.8, λi ) (Xλ∗i ∼ Γ(0.8, λ∗i )), for i = 1, 2, with the associated FGM copula. It is clear that this copula is PQD if θ ∈ [0, 1]. Further, suppose that Ip1 , Ip2 (Ip∗1 , Ip∗2 ) is a set of independent Bernoulli random variables, independent of the Xλi ’s (Xλ∗i ’s), with E[Ipi ] = pi (E[Ip∗i ] = p∗i ), for i = 1, 2. We take h(p) = p, (λ1 , λ2 ) = (0.26, 0.74), (p1 , p2 ) = (0.03, 0.02), (λ∗1 , λ∗2 ) = (0.4, 0.6), (p∗1 , p∗2 ) = (0.026, 0.024) and θ = 0.5. Using Lemma 2.3 and Lemma 2.5, we get the condition (iii) of Theorem 3.4, and obviously can be verified that the other conditions are also satisfied. So, we have Y[∗]2:2 ≤st Y2:2 . Figure 1 represents the survival function of Y2:2 and Y[∗]2:2 , which agrees with the intended result.",
+    "kind": "example",
+    "model": "other: largest claim amount Y2:2 of a two-policy portfolio (FGM copula severities, independent Bernoulli claim indicators)",
+    "family": "gamma Γ(α, λ) with density λ^α x^{α−1} e^{−λx}/Γ(α), shape α = 0.8 common, rate λi; FGM copula Cθ(v) = ∏vi + θ∏vi(1 − vi), θ = 0.5",
+    "compared": "λ = (0.26, 0.74), p = (0.03, 0.02) vs λ∗ = (0.4, 0.6), p∗ = (0.026, 0.024), with h(p) = p",
+    "hypotheses": [
+      {"text": "Let Xλi ∼ Γ(0.8, λi ) (Xλ∗i ∼ Γ(0.8, λ∗i )), for i = 1, 2, with the associated FGM copula", "formal": "gamma(shape 0.8, rate λi) marginals, FGM copula θ = 0.5", "source": "statement"},
+      {"text": "We take h(p) = p, (λ1 , λ2 ) = (0.26, 0.74), (p1 , p2 ) = (0.03, 0.02), (λ∗1 , λ∗2 ) = (0.4, 0.6), (p∗1 , p∗2 ) = (0.026, 0.024) and θ = 0.5", "formal": "printed parameter values", "source": "statement"},
+      {"text": "Using Lemma 2.3 and Lemma 2.5, we get the condition (iii) of Theorem 3.4, and obviously can be verified that the other conditions are also satisfied", "formal": "conditions of Theorem 3.4 claimed to hold", "source": "statement; earlier theorem 3.4"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y∗2:2 ≤st Y2:2 (claimed; illustrated by Figure 1)"},
+    "quantifiers": "n = 2; Figure 1 plots survival functions for x in [0, 10]",
+    "numbers": "Γ shape 0.8; θ = 0.5; h(p) = p; λ = (0.26, 0.74); p = (0.03, 0.02); λ∗ = (0.4, 0.6); p∗ = (0.026, 0.024). Printed result: Y∗2:2 ≤st Y2:2; Figure 1 (survival functions of Y2:2 and Y∗2:2, vertical axis 0.00-0.05, horizontal axis 0-10); no numeric survival values printed.",
+    "ambiguity": "Text is the arXiv preprint 1812.08343v1. The gamma λ is a rate parameter per the stated density (the paper calls it 'scale parameter'). Asterisk placement in the result is displaced in the text; read as Y∗2:2 ≤st Y2:2, consistent with the theorems. The figure legend does not make clear from the text which curve is which."
+  },
+  {
+    "paper": "doi:10.7153/mia-2020-23-03",
+    "claim": "Example 3.2",
+    "page": 9,
+    "quote": "The following example illustrates that the conditions (λ, h(p)) ∈ S and (λ∗ , h(p∗ )) ∈ S is an important condition and can not be dropped. Example 3.2. Under the same setup in Example 3.1, we take (p1 , p2 ) = (0.02, 0.03) and (p∗1 , p∗2 ) = (0.028, 0.022) with the other unchanged values. It is clear that (λ, h(p)) ∉ S, but it can be easily verified that the other conditions of Theorem 3.4 are satisfied. Figure 2 represents the survival function of Y2:2 and Y[∗]2:2 , which cross each other.",
+    "kind": "counterexample",
+    "model": "other: largest claim amount Y2:2 of a two-policy portfolio (FGM copula severities, independent Bernoulli claim indicators)",
+    "family": "gamma Γ(0.8, λi) (rate λi), FGM copula θ = 0.5, h(p) = p (setup of Example 3.1)",
+    "compared": "λ = (0.26, 0.74), p = (0.02, 0.03) vs λ∗ = (0.4, 0.6), p∗ = (0.028, 0.022)",
+    "hypotheses": [
+      {"text": "Under the same setup in Example 3.1, we take (p1 , p2 ) = (0.02, 0.03) and (p∗1 , p∗2 ) = (0.028, 0.022) with the other unchanged values", "formal": "Γ(0.8, ·) marginals, FGM θ = 0.5, h(p) = p, λ = (0.26, 0.74), λ∗ = (0.4, 0.6), p = (0.02, 0.03), p∗ = (0.028, 0.022)", "source": "statement; Example 3.1"},
+      {"text": "It is clear that (λ, h(p)) ∉ S, but it can be easily verified that the other conditions of Theorem 3.4 are satisfied", "formal": "S-condition of Theorem 3.4 fails for (λ, h(p)); all other conditions claimed to hold", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "survival functions of Y2:2 and Y∗2:2 cross, so neither is st-smaller: the S condition of Theorem 3.4 cannot be dropped"},
+    "quantifiers": "n = 2; Figure 2 plots survival functions for x in [0, 4]",
+    "numbers": "Γ shape 0.8; θ = 0.5; h(p) = p; λ = (0.26, 0.74); p = (0.02, 0.03); λ∗ = (0.4, 0.6); p∗ = (0.028, 0.022). Printed result: survival functions cross (Figure 2, vertical axis about 0.01-0.05, horizontal axis 0-4); no crossing point printed.",
+    "ambiguity": "Text is the arXiv preprint 1812.08343v1. The '∉' is rendered as '∈ /' in the text. Labelled 'Example' in the paper; recorded as counterexample because it shows the conclusion fails when a condition is dropped. The crossing is shown only graphically."
+  },
+  {
+    "paper": "doi:10.7153/mia-2020-23-03",
+    "claim": "Theorem 3.5",
+    "page": 10,
+    "quote": "The proportional hazard rate (PHR) model is a flexible family of distributions [...]. Xλ is said to follow PHR model, if its survival function can be expressed as F̄ (x; λ) = [F̄ (x)]λ , where F̄ (x) is the baseline survival function and λ > 0. [...] Theorem 3.5. Let F̄ (x; λi ) = [F̄ (x)]λi and F̄ (x; λ∗i ) = [F̄ (x)]λ[∗]i , for i = 1, 2. Under the setup of Theorem 3.3, suppose that the following conditions hold: (i) h : (0, 1] → I ⊂ R++ is a differentiable and strictly increasing concave function, with the log-concave inverse; (ii) C is PQD and ∂C(v1 ,v2 )/∂v1 ≥ ∂C(v1 ,v2 )/∂v2 , for all 0 ≤ v1 ≤ v2 ≤ 1. Then, for (λ, h(p)) ∈ S and (λ∗ , h(p∗ )) ∈ S, we have (h(p∗1 ), h(p∗2 )) [≼m] (h(p1 ), h(p2 )) and (λ∗1 , λ∗2 ) [≼^w] (λ1 , λ2 ) =⇒ Y[∗]2:2 ≤st Y2:2 .",
+    "kind": "theorem",
+    "model": "other: largest claim amount Y2:2 = max(Ip1 Xλ1, Ip2 Xλ2) of a two-policy portfolio with copula-dependent severities and independent Bernoulli claim indicators",
+    "family": "proportional hazard rate model F̄(x; λ) = [F̄(x)]^λ, λ > 0, arbitrary baseline survival F̄",
+    "compared": "claim probabilities p vs p∗ (through h) and PHR parameters λ vs λ∗",
+    "hypotheses": [
+      {"text": "Let F̄ (x; λi ) = [F̄ (x)]λi and F̄ (x; λ∗i ) = [F̄ (x)]λ[∗]i , for i = 1, 2", "formal": "PHR marginals with parameters λi, λ∗i > 0", "source": "statement; section preamble"},
+      {"text": "Under the setup of Theorem 3.3", "formal": "copula C common; Ipi ~ Bernoulli(pi), Ip∗i ~ Bernoulli(p∗i) independent and independent of severities; Yi = Ipi Xλi, Y∗i = Ip∗i Xλ∗i", "source": "earlier theorem 3.3"},
+      {"text": "(i) h : (0, 1] → I ⊂ R++ is a differentiable and strictly increasing concave function, with the log-concave inverse", "formal": "h differentiable, strictly increasing, concave, positive; h^{-1} log-concave", "source": "statement"},
+      {"text": "(ii) C is PQD and ∂C(v1 ,v2 )/∂v1 ≥ ∂C(v1 ,v2 )/∂v2 , for all 0 ≤ v1 ≤ v2 ≤ 1", "formal": "C(v1, v2) ≥ v1 v2 and ∂1C ≥ ∂2C on {v1 ≤ v2}", "source": "statement; definition 2.5"},
+      {"text": "for (λ, h(p)) ∈ S and (λ∗ , h(p∗ )) ∈ S", "formal": "(λ1 − λ2)(h(p1) − h(p2)) ≤ 0 and (λ∗1 − λ∗2)(h(p∗1) − h(p∗2)) ≤ 0", "source": "statement; definition of S"},
+      {"text": "(h(p∗1 ), h(p∗2 )) [≼m] (h(p1 ), h(p2 )) and (λ∗1 , λ∗2 ) [≼^w] (λ1 , λ2 )", "formal": "h(p∗) majorized by h(p); λ∗ weakly supermajorized by λ", "source": "statement; definition 2.2"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y∗2:2 ≤st Y2:2"},
+    "quantifiers": "n = 2; all x ≥ 0; all parameters satisfying the conditions",
+    "numbers": "",
+    "ambiguity": "Text is the arXiv preprint 1812.08343v1. The exponent of the second marginal is printed as λi with a displaced asterisk; read as λ∗i. Majorization glyphs unrenderable; read per Definition 2.2. Asterisk attachment in the conclusion resolved from the proof chain."
+  },
+  {
+    "paper": "doi:10.7153/mia-2020-23-03",
+    "claim": "Example 3.3",
+    "page": 11,
+    "quote": "The Pareto distribution is a special case of the PHR model [...]. X has the Pareto distribution with parameters β and λ, denoted by X ∼ Pareto(β, λ), if its survival function is given by F̄ (x; β, λ) = (β/x)^λ , x ≥ β. The following example provides a numerical example to illustrate the validity of Theorem 3.5. Example 3.3. Let Xλi ∼ Pareto(1, λi ) (Xλ∗i ∼ Pareto(1, λ∗i )), for i = 1, 2, with the associated Ali-Mikhail-Haq copula, which introduced by Ali et al. (1978), of the form Cθ (v1 , v2 ) = v1 v2 /(1−θ(1−v1 )(1−v2 )), where θ ∈ [−1, 1]. According to Nelsen (2007), this copula is Archimedean and obviously is PQD if θ ∈ [0, 1] . Further, suppose that Ip1 , Ip2 (Ip∗1 , Ip∗2 ) is a set of independent Bernoulli random variables, independent of the Xλi ’s (Xλ∗i ’s), with E[Ipi ] = pi (E[Ip∗i ] = p∗i ), for i = 1, 2. We take h(p) = log(p + 2), (λ1 , λ2 ) = (4, 2), (p1 , p2 ) = (0.02, 0.06), (λ∗1 , λ∗2 ) = (4, 6), (p∗1 , p∗2 ) = (0.0479, 0.0319) and θ = 0.3. Lemma 2.3 and Lemma 2.4 imply the condition (ii) of Theorem 3.5, and it can be easily verified that the other condition is also satisfied. So, we have Y[∗]2:2 ≤st Y2:2 . Figure 3 represents the survival function of Y2:2 and Y[∗]2:2 , which agrees with the intended result.",
+    "kind": "example",
+    "model": "other: largest claim amount Y2:2 of a two-policy portfolio (Ali-Mikhail-Haq copula severities, independent Bernoulli claim indicators)",
+    "family": "Pareto(β, λ) with F̄(x) = (β/x)^λ, x ≥ β; β = 1 common, λi varying (PHR model); AMH copula θ = 0.3",
+    "compared": "λ = (4, 2), p = (0.02, 0.06) vs λ∗ = (4, 6), p∗ = (0.0479, 0.0319), with h(p) = log(p + 2)",
+    "hypotheses": [
+      {"text": "Let Xλi ∼ Pareto(1, λi ) (Xλ∗i ∼ Pareto(1, λ∗i )), for i = 1, 2, with the associated Ali-Mikhail-Haq copula", "formal": "Pareto(1, λi) marginals; AMH copula with θ = 0.3", "source": "statement"},
+      {"text": "We take h(p) = log(p + 2), (λ1 , λ2 ) = (4, 2), (p1 , p2 ) = (0.02, 0.06), (λ∗1 , λ∗2 ) = (4, 6), (p∗1 , p∗2 ) = (0.0479, 0.0319) and θ = 0.3", "formal": "printed parameter values", "source": "statement"},
+      {"text": "Lemma 2.3 and Lemma 2.4 imply the condition (ii) of Theorem 3.5, and it can be easily verified that the other condition is also satisfied", "formal": "conditions of Theorem 3.5 claimed to hold", "source": "statement; earlier theorem 3.5"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y∗2:2 ≤st Y2:2 (claimed; illustrated by Figure 3)"},
+    "quantifiers": "n = 2; Figure 3 plots survival functions for x roughly in [1, 10]",
+    "numbers": "β = 1; θ = 0.3; h(p) = log(p + 2); λ = (4, 2); p = (0.02, 0.06); λ∗ = (4, 6); p∗ = (0.0479, 0.0319). Printed result: Y∗2:2 ≤st Y2:2; Figure 3 (vertical axis 0.00-0.08, horizontal axis 2-10); no numeric survival values printed.",
+    "ambiguity": "Text is the arXiv preprint 1812.08343v1. The AMH copula formula is broken across lines in the text; reconstructed as v1v2/(1 − θ(1 − v1)(1 − v2)). The base of 'log' in h(p) is not stated (presumably natural). Asterisk placement in the result displaced; read as Y∗2:2 ≤st Y2:2."
+  },
+  {
+    "paper": "doi:10.7153/mia-2020-23-03",
+    "claim": "Theorem 3.6",
+    "page": 12,
+    "quote": "The random variables Xλ said to belong to the TG model with the baseline distribution function F (x) and survival F̄ (x), if its survival function can be expressed as F̄ (x; λ) = F̄ (x)(1 − λF (x)), where λ ∈ [−1, 1]. [...] Theorem 3.6. Let F̄ (x; λi ) = F̄ (x)(1 − λi F (x)) and F̄ (x; λ∗i ) = F̄ (x)(1 − λ∗i F (x)), for i = 1, 2. Under the setup of Theorem 3.3, suppose that the following conditions hold: (i) h : (0, 1] → I ⊂ R++ is a differentiable and strictly increasing concave function, with the log-concave inverse; (ii) C is PQD and ∂C(v1 ,v2 )/∂v1 ≥ ∂C(v1 ,v2 )/∂v2 , for all 0 ≤ v1 ≤ v2 ≤ 1. Then, for (λ, h(p)) ∈ S and (λ∗ , h(p∗ )) ∈ S, we have (h(p∗1 ), h(p∗2 )) [≼m] (h(p1 ), h(p2 )) and (λ∗1 , λ∗2 ) [≼^w] (λ1 , λ2 ) =⇒ Y[∗]2:2 ≤st Y2:2 .",
+    "kind": "theorem",
+    "model": "other: largest claim amount Y2:2 = max(Ip1 Xλ1, Ip2 Xλ2) of a two-policy portfolio with copula-dependent severities and independent Bernoulli claim indicators",
+    "family": "transmuted-G (TG) model F̄(x; λ) = F̄(x)(1 − λF(x)), λ ∈ [−1, 1], arbitrary baseline F",
+    "compared": "claim probabilities p vs p∗ (through h) and TG parameters λ vs λ∗",
+    "hypotheses": [
+      {"text": "Let F̄ (x; λi ) = F̄ (x)(1 − λi F (x)) and F̄ (x; λ∗i ) = F̄ (x)(1 − λ∗i F (x)), for i = 1, 2", "formal": "TG marginals with λi, λ∗i ∈ [−1, 1]", "source": "statement; section preamble"},
+      {"text": "Under the setup of Theorem 3.3", "formal": "copula C common; Ipi ~ Bernoulli(pi), Ip∗i ~ Bernoulli(p∗i) independent and independent of severities; Yi = Ipi Xλi, Y∗i = Ip∗i Xλ∗i", "source": "earlier theorem 3.3"},
+      {"text": "(i) h : (0, 1] → I ⊂ R++ is a differentiable and strictly increasing concave function, with the log-concave inverse", "formal": "h differentiable, strictly increasing, concave, positive; h^{-1} log-concave", "source": "statement"},
+      {"text": "(ii) C is PQD and ∂C(v1 ,v2 )/∂v1 ≥ ∂C(v1 ,v2 )/∂v2 , for all 0 ≤ v1 ≤ v2 ≤ 1", "formal": "C(v1, v2) ≥ v1 v2 and ∂1C ≥ ∂2C on {v1 ≤ v2}", "source": "statement; definition 2.5"},
+      {"text": "for (λ, h(p)) ∈ S and (λ∗ , h(p∗ )) ∈ S", "formal": "(λ1 − λ2)(h(p1) − h(p2)) ≤ 0 and (λ∗1 − λ∗2)(h(p∗1) − h(p∗2)) ≤ 0", "source": "statement; definition of S"},
+      {"text": "(h(p∗1 ), h(p∗2 )) [≼m] (h(p1 ), h(p2 )) and (λ∗1 , λ∗2 ) [≼^w] (λ1 , λ2 )", "formal": "h(p∗) majorized by h(p); λ∗ weakly supermajorized by λ", "source": "statement; definition 2.2"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y∗2:2 ≤st Y2:2"},
+    "quantifiers": "n = 2; all x ≥ 0; λi, λ∗i ∈ [−1, 1] satisfying the conditions",
+    "numbers": "",
+    "ambiguity": "Text is the arXiv preprint 1812.08343v1. Majorization glyphs unrenderable; read per Definition 2.2. Asterisk attachment in the conclusion resolved from the proof chain. The TG parameters may be negative, while the weak supermajorization definition is stated for general real vectors."
+  },
+  {
+    "paper": "doi:10.7153/mia-2020-23-03",
+    "claim": "Example 3.4",
+    "page": 12,
+    "quote": "X has the transmuted exponential distribution with parameters µ and λ, denoted by X ∼ TE(µ, λ), if its survival function is given by F̄ (x, µ, λ) = e−x/µ [1 − λ(1 − e−x/µ )], x ≥ 0, µ > 0, −1 ≤ λ ≤ 1. The following example provides a numerical example to illustrate the validity of Theorem 3.6. Example 3.4. Let Xλi ∼ TE(3, λi ) (Xλ∗i ∼ TE(3, λ∗i )), for i = 1, 2, with the associated Gumbel-Hougaard copula, which first introduced by Gumbel (1960b), of the form Cθ (v1 , v2 ) = exp{− [(− log v1 )^θ + (− log v2 )^θ]^{1/θ}}, where θ ∈ [1, ∞). According to Nelsen (2007), this copula is Archimedean and is PQD. Further, suppose that Ip1 , Ip2 (Ip∗1 , Ip∗2 ) is a set of independent Bernoulli random variables, independent of the Xλi ’s (Xλ∗i ’s), with E[Ipi ] = pi (E[Ip∗i ] = p∗i ), for i = 1, 2. We take h(p) = [√]p, (λ1 , λ2 ) = (0.6, −0.2), (p1 , p2 ) = (0.04, 0.09), (λ∗1 , λ∗2 ) = (0.1, 0.4), (p∗1 , p∗2 ) = (0.0676, 0.0576) and θ = 10. Lemma 2.3 and Lemma 2.4 imply the condition (ii) of Theorem 3.6, and it can be easily verified that the other condition is also satisfied. So, we have Y[∗]2:2 ≤st Y2:2 . Figure 4 represents the survival function of Y2:2 and Y[∗]2:2 , which coincides with the intended result.",
+    "kind": "example",
+    "model": "other: largest claim amount Y2:2 of a two-policy portfolio (Gumbel-Hougaard copula severities, independent Bernoulli claim indicators)",
+    "family": "transmuted exponential TE(µ, λ): F̄(x) = e^{−x/µ}[1 − λ(1 − e^{−x/µ})], µ = 3 common, λi ∈ [−1, 1] varying (TG model); Gumbel-Hougaard copula θ = 10",
+    "compared": "λ = (0.6, −0.2), p = (0.04, 0.09) vs λ∗ = (0.1, 0.4), p∗ = (0.0676, 0.0576), with h(p) = √p",
+    "hypotheses": [
+      {"text": "Let Xλi ∼ TE(3, λi ) (Xλ∗i ∼ TE(3, λ∗i )), for i = 1, 2, with the associated Gumbel-Hougaard copula", "formal": "TE(3, λi) marginals; Gumbel-Hougaard copula θ = 10", "source": "statement"},
+      {"text": "We take h(p) = [√]p, (λ1 , λ2 ) = (0.6, −0.2), (p1 , p2 ) = (0.04, 0.09), (λ∗1 , λ∗2 ) = (0.1, 0.4), (p∗1 , p∗2 ) = (0.0676, 0.0576) and θ = 10", "formal": "printed parameter values", "source": "statement"},
+      {"text": "Lemma 2.3 and Lemma 2.4 imply the condition (ii) of Theorem 3.6, and it can be easily verified that the other condition is also satisfied", "formal": "conditions of Theorem 3.6 claimed to hold", "source": "statement; earlier theorem 3.6"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y∗2:2 ≤st Y2:2 (claimed; illustrated by Figure 4)"},
+    "quantifiers": "n = 2; Figure 4 plots survival functions for x in [0, 10]",
+    "numbers": "µ = 3; θ = 10; h(p) = √p; λ = (0.6, −0.2); p = (0.04, 0.09); λ∗ = (0.1, 0.4); p∗ = (0.0676, 0.0576). Printed result: Y∗2:2 ≤st Y2:2; Figure 4 (vertical axis 0.00-0.12, horizontal axis 0-10); no numeric survival values printed.",
+    "ambiguity": "Text is the arXiv preprint 1812.08343v1. The square-root sign in h(p) is displaced onto the line above ('h(p) = p' with '√' above); read as h(p) = √p. The Gumbel-Hougaard formula is broken across lines; reconstructed. Asterisk placement in the result displaced; read as Y∗2:2 ≤st Y2:2."
+  },
+  {
+    "paper": "doi:10.7153/mia-2020-23-03",
+    "claim": "Theorem 3.7",
+    "page": 13,
+    "quote": "Next, we consider the case that the occurrence probabilities are also interdependent. Here, we denote I = (I1 , I2 ) and P (I = µ) = p(µ). The following lemma considers the concept of weakly stochastic arrangement increasing through left tail probability (LWSAI) for I, which is a particular case of Lemma 5.3 of Cai and Wei (2015). Lemma 3.1. A bivariate Bernoulli random vector I is LWSAI, if and only if p(1, 0) ≤ p(0, 1). [...] Theorem 3.7. Let Xλ1 and Xλ2 (Xλ∗1 and Xλ∗2 ) be non-negative random variables with Xλi ∼ F̄ (x; λi ) (Xλ∗i ∼ F̄ (x; λ∗i )), i = 1, 2, and associated copula C. Further, suppose that I is LWSAI, and independent of the Xλi ’s (Xλ∗i ’s). Assume that the following conditions hold: (i) F̄ (x; λ) is decreasing and convex in λ for any x ∈ R+ ; (ii) (λ∗1 , λ∗2 ) [≼m] (λ1 , λ2 ), such that λ1 ≥ λ2 and λ∗1 ≥ λ∗2 ; (iii) C is Schur-concave. Then, we have Y[∗]2:2 ≤st Y2:2 .",
+    "kind": "theorem",
+    "model": "other: largest claim amount Y2:2 = max(I1 Xλ1, I2 Xλ2) of a two-policy portfolio with copula-dependent severities and dependent Bernoulli claim indicators I",
+    "family": "general parametric family F̄(x; λ), decreasing and convex in λ (no specific distribution); copula C common",
+    "compared": "severity parameters λ vs λ∗; the claim-indicator vector I is common",
+    "hypotheses": [
+      {"text": "Let Xλ1 and Xλ2 (Xλ∗1 and Xλ∗2 ) be non-negative random variables with Xλi ∼ F̄ (x; λi ) (Xλ∗i ∼ F̄ (x; λ∗i )), i = 1, 2, and associated copula C", "formal": "severity vectors with marginals F̄(x; λi), F̄(x; λ∗i) and common copula C", "source": "statement"},
+      {"text": "suppose that I is LWSAI, and independent of the Xλi ’s (Xλ∗i ’s)", "formal": "I = (I1, I2) bivariate Bernoulli with P(I = µ) = p(µ) and p(1, 0) ≤ p(0, 1) (Lemma 3.1), independent of severities; Yi = Ii Xλi, Y∗i = Ii Xλ∗i", "source": "statement; section preamble; Lemma 3.1"},
+      {"text": "(i) F̄ (x; λ) is decreasing and convex in λ for any x ∈ R+", "formal": "λ ↦ F̄(x; λ) non-increasing and convex for all x ≥ 0", "source": "statement"},
+      {"text": "(ii) (λ∗1 , λ∗2 ) [≼m] (λ1 , λ2 ), such that λ1 ≥ λ2 and λ∗1 ≥ λ∗2", "formal": "λ∗ majorized by λ (equal sums, λ∗2 ≥ λ2 given the orderings), with λ1 ≥ λ2 and λ∗1 ≥ λ∗2", "source": "statement; definition 2.2(iii)"},
+      {"text": "(iii) C is Schur-concave", "formal": "C(u) ≥ C(v) whenever u is majorized by v (Definition 2.3)", "source": "statement; definition 2.3"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y∗2:2 ≤st Y2:2"},
+    "quantifiers": "n = 2; all x ≥ 0; all λ, λ∗ satisfying (ii)",
+    "numbers": "",
+    "ambiguity": "Text is the arXiv preprint 1812.08343v1. LWSAI is not defined in the paper beyond the characterization in Lemma 3.1 (citing Cai and Wei 2015). Majorization glyph unrenderable; read per Definition 2.2(iii). Asterisk attachment in the conclusion resolved from the proof (G_Y2:2(x) ≤ G_Y∗2:2(x)). General parametric family; specialized in Theorems 3.8-3.10."
+  },
+  {
+    "paper": "doi:10.7153/mia-2020-23-03",
+    "claim": "Theorem 3.8",
+    "page": 14,
+    "quote": "In the following, three special cases of Theorem 3.7 with respect to the scale, PHR and TG models, are represented. Theorem 3.8. Let F̄ (x; λi ) = F̄ (λi x) and F̄ (x; λ∗i ) = F̄ (λ∗i x), for i = 1, 2. Under the setup of Theorem 3.7, suppose that the following conditions hold: (i) f (x) is decreasing in x ∈ R+ ; (ii) (λ∗1 , λ∗2 ) [≼m] (λ1 , λ2 ), such that λ1 ≥ λ2 and λ∗1 ≥ λ∗2 ; (iii) C is Schur-concave. Then, we have Y[∗]2:2 ≤st Y2:2 .",
+    "kind": "theorem",
+    "model": "other: largest claim amount Y2:2 = max(I1 Xλ1, I2 Xλ2) with copula-dependent severities and dependent (LWSAI) claim indicators",
+    "family": "scale family F̄(x; λ) = F̄(λx), λ > 0, baseline density f decreasing on R+",
+    "compared": "scale parameters λ vs λ∗; claim indicators I common",
+    "hypotheses": [
+      {"text": "Let F̄ (x; λi ) = F̄ (λi x) and F̄ (x; λ∗i ) = F̄ (λ∗i x), for i = 1, 2", "formal": "scale family marginals", "source": "statement; section preamble (scale family definition before Theorem 3.4)"},
+      {"text": "Under the setup of Theorem 3.7", "formal": "common copula C; I LWSAI (p(1, 0) ≤ p(0, 1)) and independent of severities; Yi = Ii Xλi, Y∗i = Ii Xλ∗i", "source": "earlier theorem 3.7"},
+      {"text": "(i) f (x) is decreasing in x ∈ R+", "formal": "baseline density non-increasing on [0, ∞)", "source": "statement"},
+      {"text": "(ii) (λ∗1 , λ∗2 ) [≼m] (λ1 , λ2 ), such that λ1 ≥ λ2 and λ∗1 ≥ λ∗2", "formal": "λ∗ majorized by λ, with λ1 ≥ λ2 and λ∗1 ≥ λ∗2", "source": "statement; definition 2.2(iii)"},
+      {"text": "(iii) C is Schur-concave", "formal": "C Schur-concave on [0, 1]^2", "source": "statement; definition 2.3"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y∗2:2 ≤st Y2:2"},
+    "quantifiers": "n = 2; all x ≥ 0",
+    "numbers": "",
+    "ambiguity": "Text is the arXiv preprint 1812.08343v1. Majorization glyph unrenderable; read per Definition 2.2(iii). Asterisk attachment resolved from the proof of Theorem 3.7."
+  },
+  {
+    "paper": "doi:10.7153/mia-2020-23-03",
+    "claim": "Theorem 3.9",
+    "page": 14,
+    "quote": "Theorem 3.9. Let F̄ (x; λi ) = [F̄ (x)]λi and F̄ (x; λ∗i ) = [F̄ (x)]λ[∗]i , for i = 1, 2. Under the setup of Theorem 3.7, suppose that the following conditions hold: (i) (λ∗1 , λ∗2 ) [≼m] (λ1 , λ2 ), such that λ1 ≥ λ2 and λ∗1 ≥ λ∗2 ; (ii) C is Schur-concave. Then, we have Y[∗]2:2 ≤st Y2:2 .",
+    "kind": "theorem",
+    "model": "other: largest claim amount Y2:2 = max(I1 Xλ1, I2 Xλ2) with copula-dependent severities and dependent (LWSAI) claim indicators",
+    "family": "proportional hazard rate model F̄(x; λ) = [F̄(x)]^λ, λ > 0, arbitrary baseline",
+    "compared": "PHR parameters λ vs λ∗; claim indicators I common",
+    "hypotheses": [
+      {"text": "Let F̄ (x; λi ) = [F̄ (x)]λi and F̄ (x; λ∗i ) = [F̄ (x)]λ[∗]i , for i = 1, 2", "formal": "PHR marginals", "source": "statement; section preamble (PHR definition before Theorem 3.5)"},
+      {"text": "Under the setup of Theorem 3.7", "formal": "common copula C; I LWSAI (p(1, 0) ≤ p(0, 1)) and independent of severities; Yi = Ii Xλi, Y∗i = Ii Xλ∗i", "source": "earlier theorem 3.7"},
+      {"text": "(i) (λ∗1 , λ∗2 ) [≼m] (λ1 , λ2 ), such that λ1 ≥ λ2 and λ∗1 ≥ λ∗2", "formal": "λ∗ majorized by λ, with λ1 ≥ λ2 and λ∗1 ≥ λ∗2", "source": "statement; definition 2.2(iii)"},
+      {"text": "(ii) C is Schur-concave", "formal": "C Schur-concave on [0, 1]^2", "source": "statement; definition 2.3"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y∗2:2 ≤st Y2:2"},
+    "quantifiers": "n = 2; all x ≥ 0",
+    "numbers": "",
+    "ambiguity": "Text is the arXiv preprint 1812.08343v1. The exponent of the second marginal is printed with a displaced asterisk; read as λ∗i. Majorization glyph unrenderable. Asterisk attachment in the conclusion resolved from the proof of Theorem 3.7."
+  },
+  {
+    "paper": "doi:10.7153/mia-2020-23-03",
+    "claim": "Theorem 3.10",
+    "page": 15,
+    "quote": "Theorem 3.10. Let F̄ (x; λi ) = F̄ (x)(1 − λi F (x)) and F̄ (x; λ∗i ) = F̄ (x)(1 − λ∗i F (x)), for i = 1, 2. Under the setup of Theorem 3.7, suppose that the following conditions hold: (i) (λ∗1 , λ∗2 ) [≼m] (λ1 , λ2 ), such that λ1 ≥ λ2 and λ∗1 ≥ λ∗2 ; (ii) C is Schur-concave. Then, we have Y[∗]2:2 ≤st Y2:2 .",
+    "kind": "theorem",
+    "model": "other: largest claim amount Y2:2 = max(I1 Xλ1, I2 Xλ2) with copula-dependent severities and dependent (LWSAI) claim indicators",
+    "family": "transmuted-G model F̄(x; λ) = F̄(x)(1 − λF(x)), λ ∈ [−1, 1], arbitrary baseline",
+    "compared": "TG parameters λ vs λ∗; claim indicators I common",
+    "hypotheses": [
+      {"text": "Let F̄ (x; λi ) = F̄ (x)(1 − λi F (x)) and F̄ (x; λ∗i ) = F̄ (x)(1 − λ∗i F (x)), for i = 1, 2", "formal": "TG marginals with λi, λ∗i ∈ [−1, 1]", "source": "statement; section preamble (TG definition before Theorem 3.6)"},
+      {"text": "Under the setup of Theorem 3.7", "formal": "common copula C; I LWSAI (p(1, 0) ≤ p(0, 1)) and independent of severities; Yi = Ii Xλi, Y∗i = Ii Xλ∗i", "source": "earlier theorem 3.7"},
+      {"text": "(i) (λ∗1 , λ∗2 ) [≼m] (λ1 , λ2 ), such that λ1 ≥ λ2 and λ∗1 ≥ λ∗2", "formal": "λ∗ majorized by λ, with λ1 ≥ λ2 and λ∗1 ≥ λ∗2", "source": "statement; definition 2.2(iii)"},
+      {"text": "(ii) C is Schur-concave", "formal": "C Schur-concave on [0, 1]^2", "source": "statement; definition 2.3"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y∗2:2 ≤st Y2:2"},
+    "quantifiers": "n = 2; all x ≥ 0; λi, λ∗i ∈ [−1, 1]",
+    "numbers": "",
+    "ambiguity": "Text is the arXiv preprint 1812.08343v1. Majorization glyph unrenderable. Asterisk attachment in the conclusion resolved from the proof of Theorem 3.7."
+  },
+  {
+    "paper": "doi:10.7153/mia-2020-23-03",
+    "claim": "Example 3.5",
+    "page": 15,
+    "quote": "The following example provides a numerical example to illustrate the validity of Theorem 3.9. Example 3.5. Let Xλi ∼ Pareto(1, λi ) (Xλ∗i ∼ Pareto(1, λ∗i )), for i = 1, 2, with the associated FGM copula, with θ = 0.7. Let (λ1 , λ2 ) = (7, 2), (λ∗1 , λ∗2 ) = (5.5, 3.5), p(0, 0) = 0.89, p(0, 1) = 0.06, p(1, 0) = 0.04 and p(1, 1) = 0.01. Using Lemma 2.5, we get the condition (ii) of Theorem 3.9, and obviously can be verified that the other conditions are also satisfied. So, we have Y[∗]2:2 ≤st Y2:2 . Figure 5 represents the survival function of Y2:2 and Y[∗]2:2 , which approves with the intended result.",
+    "kind": "example",
+    "model": "other: largest claim amount Y2:2 with FGM-copula severities and dependent claim indicators I",
+    "family": "Pareto(1, λ) with F̄(x) = x^{−λ}, x ≥ 1 (PHR model); FGM copula θ = 0.7",
+    "compared": "λ = (7, 2) vs λ∗ = (5.5, 3.5); joint claim-indicator law p(·,·) common",
+    "hypotheses": [
+      {"text": "Let Xλi ∼ Pareto(1, λi ) (Xλ∗i ∼ Pareto(1, λ∗i )), for i = 1, 2, with the associated FGM copula, with θ = 0.7", "formal": "Pareto(1, λi) marginals, FGM copula θ = 0.7", "source": "statement"},
+      {"text": "Let (λ1 , λ2 ) = (7, 2), (λ∗1 , λ∗2 ) = (5.5, 3.5), p(0, 0) = 0.89, p(0, 1) = 0.06, p(1, 0) = 0.04 and p(1, 1) = 0.01", "formal": "printed parameter values", "source": "statement"},
+      {"text": "Using Lemma 2.5, we get the condition (ii) of Theorem 3.9, and obviously can be verified that the other conditions are also satisfied", "formal": "conditions of Theorem 3.9 (including LWSAI via Lemma 3.1) claimed to hold", "source": "statement; earlier theorem 3.9"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y∗2:2 ≤st Y2:2 (claimed; illustrated by Figure 5)"},
+    "quantifiers": "n = 2; Figure 5 plots survival functions for x roughly in [1, 8]",
+    "numbers": "θ = 0.7; λ = (7, 2); λ∗ = (5.5, 3.5); p(0, 0) = 0.89, p(0, 1) = 0.06, p(1, 0) = 0.04, p(1, 1) = 0.01. Printed result: Y∗2:2 ≤st Y2:2; Figure 5 (vertical axis 0.00-0.10, horizontal axis 1-8); no numeric survival values printed.",
+    "ambiguity": "Text is the arXiv preprint 1812.08343v1. Asterisk placement in the result displaced; read as Y∗2:2 ≤st Y2:2."
+  },
+  {
+    "paper": "doi:10.7153/mia-2020-23-03",
+    "claim": "Example 3.6",
+    "page": 15,
+    "quote": "The following example illustrates that the conditions (ii) of Theorem 3.7 can not be dropped. Example 3.6. Under the same setup in Example 3.5, we take (λ1 , λ2 ) = (2, 7) with the other unchanged values. It is clear that λ1 [unrenderable relation] λ2 , but it can be easily verified that the other conditions of Theorem 3.7 are satisfied. Figure 6 represents the survival function of Y2:2 and Y[∗]2:2 , which cross each other.",
+    "kind": "counterexample",
+    "model": "other: largest claim amount Y2:2 with FGM-copula severities and dependent claim indicators I",
+    "family": "Pareto(1, λ) (PHR model), FGM copula θ = 0.7 (setup of Example 3.5)",
+    "compared": "λ = (2, 7) vs λ∗ = (5.5, 3.5); p(·,·) as in Example 3.5",
+    "hypotheses": [
+      {"text": "Under the same setup in Example 3.5, we take (λ1 , λ2 ) = (2, 7) with the other unchanged values", "formal": "Pareto(1, ·) marginals, FGM θ = 0.7, λ = (2, 7), λ∗ = (5.5, 3.5), p(0,0) = 0.89, p(0,1) = 0.06, p(1,0) = 0.04, p(1,1) = 0.01", "source": "statement; Example 3.5"},
+      {"text": "It is clear that λ1 [unrenderable relation] λ2 , but it can be easily verified that the other conditions of Theorem 3.7 are satisfied", "formal": "the ordering requirement λ1 ≥ λ2 in condition (ii) of Theorem 3.7 fails; other conditions claimed to hold", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "survival functions of Y2:2 and Y∗2:2 cross, so neither is st-smaller: condition (ii) of Theorem 3.7 cannot be dropped"},
+    "quantifiers": "n = 2; Figure 6 plots survival functions for x in [1.0, 1.5]",
+    "numbers": "θ = 0.7; λ = (2, 7); λ∗ = (5.5, 3.5); p(0, 0) = 0.89, p(0, 1) = 0.06, p(1, 0) = 0.04, p(1, 1) = 0.01. Printed result: survival functions cross (Figure 6, vertical axis about 0.04-0.10, horizontal axis 1.0-1.5); no crossing point printed.",
+    "ambiguity": "Text is the arXiv preprint 1812.08343v1. The relation symbol between λ1 and λ2 is an unrenderable glyph; from context it expresses that λ1 ≥ λ2 fails. Labelled 'Example' in the paper; recorded as counterexample. The crossing is shown only graphically."
+  },
+  {
+    "paper": "doi:10.7153/mia-2020-23-03",
+    "claim": "Theorem 3.11",
+    "page": 15,
+    "quote": "Theorem 3.11. Let Xλ1 , . . . , Xλn (Xλ∗1 , . . . , Xλ∗n ) be non-negative random variables with Xλi ∼ F̄ (x; λi ) (Xλ∗i ∼ F̄ (x; λ∗i )), i = 1, . . . , n, and associated copula C. Further, suppose that Ip1 , . . . , Ipn is a set of independent Bernoulli random variables, independent of the Xλi ’s (Xλ∗i ’s), with E[Ipi ] = pi , i = 1, . . . , n. Assume that F̄ (x; λ) is decreasing in λ for any x ∈ R+ . Then, we have λi ≤ λ∗i , ∀ i = 1, . . . , n =⇒ Y[∗]n:n ≤st Yn:n .",
+    "kind": "theorem",
+    "model": "other: largest claim amount Yn:n = max(Ip1 Xλ1, ..., Ipn Xλn) with copula-dependent severities and independent Bernoulli claim indicators",
+    "family": "general parametric family F̄(x; λ), decreasing in λ (no specific distribution); copula C common",
+    "compared": "severity parameters λ vs λ∗ (componentwise); claim probabilities p common",
+    "hypotheses": [
+      {"text": "Let Xλ1 , . . . , Xλn (Xλ∗1 , . . . , Xλ∗n ) be non-negative random variables with Xλi ∼ F̄ (x; λi ) (Xλ∗i ∼ F̄ (x; λ∗i )), i = 1, . . . , n, and associated copula C", "formal": "severity vectors with marginals F̄(x; λi), F̄(x; λ∗i) and common copula C", "source": "statement"},
+      {"text": "Ip1 , . . . , Ipn is a set of independent Bernoulli random variables, independent of the Xλi ’s (Xλ∗i ’s), with E[Ipi ] = pi", "formal": "Ipi ~ Bernoulli(pi) independent, independent of severities; Yi = Ipi Xλi, Y∗i = Ipi Xλ∗i", "source": "statement; section preamble (Section 1)"},
+      {"text": "Assume that F̄ (x; λ) is decreasing in λ for any x ∈ R+", "formal": "λ ↦ F̄(x; λ) non-increasing for all x ≥ 0", "source": "statement"},
+      {"text": "λi ≤ λ∗i , ∀ i = 1, . . . , n", "formal": "λ ≤ λ∗ componentwise", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y∗n:n ≤st Yn:n"},
+    "quantifiers": "n ≥ 1 (unspecified); all x ≥ 0",
+    "numbers": "",
+    "ambiguity": "Text is the arXiv preprint 1812.08343v1. Asterisk attachment resolved from the proof (G_Yn:n increasing in each λi). General parametric family; not itself specialized to a named distribution in the paper (the related Theorem 3.13 is), included because it is stated for the parametric family F̄(x; λ)."
+  },
+  {
+    "paper": "doi:10.7153/mia-2020-23-03",
+    "claim": "Theorem 3.12",
+    "page": 17,
+    "quote": "Theorem 3.12. Let Xλ1 , . . . , Xλn be non-negative random variables with Xλi ∼ F̄ (x; λi ), i = 1, . . . , n, and associated copula C (C ∗ ). In addition, suppose that Ip1 , . . . , Ipn is a set of independent Bernoulli random variables, independent of the Xλi ’s, with E[Ipi ] = pi , i = 1, . . . , n. Then, we have C ≺ C ∗ =⇒ Y[∗]n:n ≤st Yn:n .",
+    "kind": "theorem",
+    "model": "other: largest claim amount Yn:n = max(Ip1 Xλ1, ..., Ipn Xλn) with copula-dependent severities and independent Bernoulli claim indicators",
+    "family": "general severity marginals F̄(x; λi) (no specific distribution); copula C vs C∗",
+    "compared": "dependence structure: copula C (for Yn:n) vs C∗ (for Y∗n:n); marginals and p common",
+    "hypotheses": [
+      {"text": "Let Xλ1 , . . . , Xλn be non-negative random variables with Xλi ∼ F̄ (x; λi ), i = 1, . . . , n, and associated copula C (C ∗ )", "formal": "same marginals; joint law via copula C for Y and C∗ for Y∗", "source": "statement"},
+      {"text": "Ip1 , . . . , Ipn is a set of independent Bernoulli random variables, independent of the Xλi ’s, with E[Ipi ] = pi", "formal": "Ipi ~ Bernoulli(pi) independent, independent of severities", "source": "statement"},
+      {"text": "C ≺ C ∗", "formal": "C(v) ≤ C∗(v) for all v ∈ [0, 1]^n (C less PLOD than C∗)", "source": "statement; definition 2.6"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y∗n:n ≤st Yn:n"},
+    "quantifiers": "n ≥ 1 (unspecified); all x ≥ 0",
+    "numbers": "",
+    "ambiguity": "Text is the arXiv preprint 1812.08343v1. Which portfolio carries C∗ is only implied by the parenthetical '(C ∗ )'; Y∗ is read as the portfolio with copula C∗. Asterisk attachment in the conclusion displaced in the text. Result holds for arbitrary marginals (general class); included because it is combined with Theorem 3.11 into Theorem 3.13, which is specialized. The proof of Theorem 3.13 cites 'Theorem 3.12 and Theorem 3.13', presumably meaning Theorems 3.12 and 3.11."
+  },
+  {
+    "paper": "doi:10.7153/mia-2020-23-03",
+    "claim": "Theorem 3.13",
+    "page": 17,
+    "quote": "Theorem 3.13. Let Xλ1 , . . . , Xλn (Xλ∗1 , . . . , Xλ∗n ) be non-negative random variables with Xλi ∼ F̄ (x; λi ) (Xλ∗i ∼ F̄ (x; λ∗i )), i = 1, . . . , n, and associated copula C (C ∗ ). Furthermore, suppose that Ip1 , . . . , Ipn is a set of independent Bernoulli random variables, independent of the Xλi ’s (Xλ∗i ’s), with E[Ipi ] = pi , i = 1, . . . , n. Assume that F̄ (x; λ) is decreasing in λ for any x ∈ R+ . Then, we have C ≺ C ∗ and λi ≤ λ∗i , ∀ i = 1, . . . , n =⇒ Y[∗]n:n ≤st Yn:n .",
+    "kind": "theorem",
+    "model": "other: largest claim amount Yn:n = max(Ip1 Xλ1, ..., Ipn Xλn) with copula-dependent severities and independent Bernoulli claim indicators",
+    "family": "general parametric family F̄(x; λ), decreasing in λ (no specific distribution); copula C vs C∗",
+    "compared": "severity parameters λ vs λ∗ and copula C vs C∗; claim probabilities p common",
+    "hypotheses": [
+      {"text": "Let Xλ1 , . . . , Xλn (Xλ∗1 , . . . , Xλ∗n ) be non-negative random variables with Xλi ∼ F̄ (x; λi ) (Xλ∗i ∼ F̄ (x; λ∗i )), i = 1, . . . , n, and associated copula C (C ∗ )", "formal": "(Xλi) with copula C; (Xλ∗i) with copula C∗", "source": "statement"},
+      {"text": "Ip1 , . . . , Ipn is a set of independent Bernoulli random variables, independent of the Xλi ’s (Xλ∗i ’s), with E[Ipi ] = pi", "formal": "Ipi ~ Bernoulli(pi) independent, independent of severities; Yi = Ipi Xλi, Y∗i = Ipi Xλ∗i", "source": "statement; section preamble (Section 1)"},
+      {"text": "Assume that F̄ (x; λ) is decreasing in λ for any x ∈ R+", "formal": "λ ↦ F̄(x; λ) non-increasing for all x ≥ 0", "source": "statement"},
+      {"text": "C ≺ C ∗", "formal": "C(v) ≤ C∗(v) for all v ∈ [0, 1]^n", "source": "statement; definition 2.6"},
+      {"text": "λi ≤ λ∗i , ∀ i = 1, . . . , n", "formal": "λ ≤ λ∗ componentwise", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y∗n:n ≤st Yn:n"},
+    "quantifiers": "n ≥ 1 (unspecified); all x ≥ 0",
+    "numbers": "",
+    "ambiguity": "Text is the arXiv preprint 1812.08343v1. Asterisk attachment in the conclusion displaced in the text. The proof cites 'Theorem 3.12 and Theorem 3.13' for its two steps, which is self-referential; presumably Theorems 3.12 and 3.11. General parametric family; specialized in Theorems 3.14-3.16."
+  },
+  {
+    "paper": "doi:10.7153/mia-2020-23-03",
+    "claim": "Theorem 3.14",
+    "page": 18,
+    "quote": "The three following theorems consider the scale, PHR and TG models as the special cases of Theorem 3.13. Theorem 3.14. Let F̄ (x; λi ) = F̄ (λi x) and F̄ (x; λ∗i ) = F̄ (λ∗i x), for i = 1, . . . , n. Under the setup of Theorem 3.13, Then, we have Y[∗]n:n ≤st Yn:n .",
+    "kind": "theorem",
+    "model": "other: largest claim amount Yn:n = max(Ip1 Xλ1, ..., Ipn Xλn) with copula-dependent severities and independent Bernoulli claim indicators",
+    "family": "scale family F̄(x; λ) = F̄(λx), λ > 0, arbitrary baseline",
+    "compared": "scale parameters λ vs λ∗ (componentwise) and copula C vs C∗",
+    "hypotheses": [
+      {"text": "Let F̄ (x; λi ) = F̄ (λi x) and F̄ (x; λ∗i ) = F̄ (λ∗i x), for i = 1, . . . , n", "formal": "scale family marginals", "source": "statement; section preamble (scale family definition before Theorem 3.4)"},
+      {"text": "Under the setup of Theorem 3.13", "formal": "copulas C (for Y) and C∗ (for Y∗) with C ≺ C∗; λi ≤ λ∗i for all i; Ipi ~ Bernoulli(pi) independent, independent of severities; F̄(x; λ) decreasing in λ", "source": "earlier theorem 3.13"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y∗n:n ≤st Yn:n"},
+    "quantifiers": "n ≥ 1 (unspecified); all x ≥ 0",
+    "numbers": "",
+    "ambiguity": "Text is the arXiv preprint 1812.08343v1. The statement does not repeat the hypotheses C ≺ C∗ and λi ≤ λ∗i; they are read as part of 'the setup of Theorem 3.13' (they appear there in the implication, not in the setup proper). Asterisk attachment displaced in the text."
+  },
+  {
+    "paper": "doi:10.7153/mia-2020-23-03",
+    "claim": "Theorem 3.15",
+    "page": 18,
+    "quote": "Theorem 3.15. Let F̄ (x; λi ) = [F̄ (x)]λi and F̄ (x; λ∗i ) = [F̄ (x)]λ[∗]i , for i = 1, . . . , n. Under the setup of Theorem 3.13, we have Y[∗]n:n ≤st Yn:n .",
+    "kind": "theorem",
+    "model": "other: largest claim amount Yn:n = max(Ip1 Xλ1, ..., Ipn Xλn) with copula-dependent severities and independent Bernoulli claim indicators",
+    "family": "proportional hazard rate model F̄(x; λ) = [F̄(x)]^λ, λ > 0, arbitrary baseline",
+    "compared": "PHR parameters λ vs λ∗ (componentwise) and copula C vs C∗",
+    "hypotheses": [
+      {"text": "Let F̄ (x; λi ) = [F̄ (x)]λi and F̄ (x; λ∗i ) = [F̄ (x)]λ[∗]i , for i = 1, . . . , n", "formal": "PHR marginals", "source": "statement; section preamble (PHR definition before Theorem 3.5)"},
+      {"text": "Under the setup of Theorem 3.13", "formal": "copulas C, C∗ with C ≺ C∗; λi ≤ λ∗i for all i; Ipi ~ Bernoulli(pi) independent, independent of severities", "source": "earlier theorem 3.13"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y∗n:n ≤st Yn:n"},
+    "quantifiers": "n ≥ 1 (unspecified); all x ≥ 0",
+    "numbers": "",
+    "ambiguity": "Text is the arXiv preprint 1812.08343v1. Exponent asterisk displaced; read as λ∗i. The hypotheses C ≺ C∗ and λi ≤ λ∗i are read as part of 'the setup of Theorem 3.13'. Asterisk attachment in the conclusion displaced."
+  },
+  {
+    "paper": "doi:10.7153/mia-2020-23-03",
+    "claim": "Theorem 3.16",
+    "page": 18,
+    "quote": "Theorem 3.16. Let F̄ (x; λi ) = F̄ (x)(1−λi F (x)) and F̄ (x; λ∗i ) = F̄ (x)(1−λ∗i F (x)), for i = 1, . . . , n. Under the setup of Theorem 3.13, we have Y[∗]n:n ≤st Yn:n .",
+    "kind": "theorem",
+    "model": "other: largest claim amount Yn:n = max(Ip1 Xλ1, ..., Ipn Xλn) with copula-dependent severities and independent Bernoulli claim indicators",
+    "family": "transmuted-G model F̄(x; λ) = F̄(x)(1 − λF(x)), λ ∈ [−1, 1], arbitrary baseline",
+    "compared": "TG parameters λ vs λ∗ (componentwise) and copula C vs C∗",
+    "hypotheses": [
+      {"text": "Let F̄ (x; λi ) = F̄ (x)(1−λi F (x)) and F̄ (x; λ∗i ) = F̄ (x)(1−λ∗i F (x)), for i = 1, . . . , n", "formal": "TG marginals with λi, λ∗i ∈ [−1, 1]", "source": "statement; section preamble (TG definition before Theorem 3.6)"},
+      {"text": "Under the setup of Theorem 3.13", "formal": "copulas C, C∗ with C ≺ C∗; λi ≤ λ∗i for all i; Ipi ~ Bernoulli(pi) independent, independent of severities", "source": "earlier theorem 3.13"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y∗n:n ≤st Yn:n"},
+    "quantifiers": "n ≥ 1 (unspecified); all x ≥ 0; λi, λ∗i ∈ [−1, 1]",
+    "numbers": "",
+    "ambiguity": "Text is the arXiv preprint 1812.08343v1. The hypotheses C ≺ C∗ and λi ≤ λ∗i are read as part of 'the setup of Theorem 3.13'. Asterisk attachment in the conclusion displaced."
+  },
+  {
+    "paper": "doi:10.7153/mia-2020-23-03",
+    "claim": "Example 3.7",
+    "page": 18,
+    "quote": "Another important distribution used as the distribution of claim severity from policyholders is Weibull distribution, which is a special case of the scale model. X has the Weibull distribution with parameters α and λ, denoted by X ∼ Wei(α, λ), if its survival function is given by F̄ (x; α, λ) = e−(λx)^α , x > 0. The following example provides a numerical example to illustrate the validity of Theorem 3.14. Example 3.7. Let Xλi ∼ Wei(3, λi ) (Xλ∗i ∼ Wei(3, λ∗i )), for i = 1, 2, 3, with the associated Frank copula, which introduced by Frank (1979), of the form Cθ (v1 , v2 , v3 ) = −(1/θ) log(1 + (e−θv1 − 1)(e−θv2 − 1)(e−θv3 − 1)/(e−θ − 1)^2), where θ ∈ (0, ∞). Further, suppose that Ip1 , Ip2 , Ip3 is a set of independent Bernoulli random variables, independent of the Xλi ’s (Xλ∗i ’s), with E[Ipi ] = pi , for i = 1, 2, 3. We take (λ1 , λ2 , λ3 ) = (0.5, 0.7, 0.3), (λ∗1 , λ∗2 , λ∗3 ) = (0.51, 0.7, 0.33), (p1 , p2 , p3 ) = (0.01, 0.02, 0.07) and θ = 0.6. Obviously, the conditions of Theorem 3.14 are satisfied. So, we have Y[∗]3:3 ≤st Y3:3 . Figure 7 represents the survival function of Y3:3 and Y[∗]3:3 , which coincides with the intended result.",
+    "kind": "example",
+    "model": "other: largest claim amount Y3:3 with Frank-copula severities and independent Bernoulli claim indicators",
+    "family": "Weibull Wei(α, λ) with F̄(x) = e^{−(λx)^α}, x > 0; shape α = 3 common, scale λi (scale family); trivariate Frank copula θ = 0.6 (same copula for both portfolios)",
+    "compared": "λ = (0.5, 0.7, 0.3) vs λ∗ = (0.51, 0.7, 0.33); p = (0.01, 0.02, 0.07) common",
+    "hypotheses": [
+      {"text": "Let Xλi ∼ Wei(3, λi ) (Xλ∗i ∼ Wei(3, λ∗i )), for i = 1, 2, 3, with the associated Frank copula", "formal": "Weibull(shape 3, scale λi) marginals, Frank copula θ = 0.6", "source": "statement"},
+      {"text": "We take (λ1 , λ2 , λ3 ) = (0.5, 0.7, 0.3), (λ∗1 , λ∗2 , λ∗3 ) = (0.51, 0.7, 0.33), (p1 , p2 , p3 ) = (0.01, 0.02, 0.07) and θ = 0.6", "formal": "printed parameter values", "source": "statement"},
+      {"text": "Obviously, the conditions of Theorem 3.14 are satisfied", "formal": "conditions of Theorem 3.14 (via Theorem 3.13) claimed to hold, with C = C∗", "source": "statement; earlier theorem 3.14"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y∗3:3 ≤st Y3:3 (claimed; illustrated by Figure 7)"},
+    "quantifiers": "n = 3; Figure 7 plots survival functions for x in [0, 8]",
+    "numbers": "Weibull shape 3; Frank θ = 0.6; λ = (0.5, 0.7, 0.3); λ∗ = (0.51, 0.7, 0.33); p = (0.01, 0.02, 0.07). Printed result: Y∗3:3 ≤st Y3:3; Figure 7 (vertical axis 0.00-0.10, horizontal axis 0-8); no numeric survival values printed.",
+    "ambiguity": "Text is the arXiv preprint 1812.08343v1. The Frank copula formula is broken across lines; reconstructed with (e^{−θ} − 1)^2 in the denominator as printed. The same Frank copula is used for both portfolios, so the copula condition C ≺ C∗ of Theorem 3.13 is met with equality (not stated explicitly). Asterisk placement in the result displaced."
+  }
+]

@@ -161,3 +161,17 @@ results, and a paper reporting P1 and P2.
      remains a random subset of the eligible population.
    - The known cone is removed mechanically: a candidate is excluded if its
      DOI or arXiv id appears in any prior audit memo (`prior_audit_ids.json`).
+3. **2026-09-27, during the pilot, after reading the pilot extractions and
+   before running any pilot claim through the harness.** Many pilot families
+   (for example compounded linear failure rate, generalized modified Weibull,
+   q-Weibull) are not rational functions of one shared variable, so the first
+   harness would mark them uncheckable. The harness gains a second certificate
+   type, applied to every claim whose survival function has a closed form:
+   the order's defining expression is evaluated at rational points (near the
+   left boundary, on a linear grid and on a geometric grid) with rigorous
+   interval arithmetic, and a point where the enclosure lies strictly on the
+   wrong side is a refutation. Controls C1 and C2 are extended to this
+   certificate type before it is used. Because this change was prompted by a
+   pilot paper, the pilot serves as the development set: the harness is frozen
+   after the pilot, all sampled papers including the pilot are tested with the
+   frozen harness, and P1 is reported both with and without the pilot papers.
