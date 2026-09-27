@@ -1198,5 +1198,725 @@
   "numbers": "crossing at t = (8 + 2\u221a226)/5 \u2248 7.62",
   "ambiguity": "",
   "adjudication": "example record (pass a)+b"
+ },
+ {
+  "paper": "arxiv:2409.10456",
+  "claim": "Counterexample 2.1",
+  "page": 16,
+  "quote": "Counterexample 2.1. Consider the Weibull family F\u0304_\u03b8(t) = e^{\u2212\u03b8t^\u03b1}, t \u2265 0, \u03b1 > 1, \u03b8 > 0. Since H_\u03b8(t) = \u03b8t^\u03b1, we have L_\u03b8(t) = tH\u2032_\u03b8(t)/H_\u03b8(t) = \u03b1, t > 0, so the FRAI function is independent of \u03b8. ... Since \u03b1 > 1 and \u03b81 \u2260 \u03b82, these limits are unequal, and hence \u00b5_\u03b81 and \u00b5_\u03b82 are not proportional. Therefore, by Theorem 2.2, L^\u00b5_\u03b81 \u2262 L^\u00b5_\u03b82. Thus, equality of the FRAI functions does not imply equality of the corresponding MRLAI functions.",
+  "kind": "counterexample",
+  "model": "other: single distributions (Weibull proportional-hazards family)",
+  "family": "Weibull F\u0304_\u03b8(t) = e^{\u2212\u03b8t^\u03b1}, \u03b1 > 1 common, \u03b81 \u2260 \u03b82",
+  "compared": "equal FRAI functions vs unequal MRLAI functions across \u03b81 \u2260 \u03b82",
+  "hypotheses": [
+   {
+    "text": "\u03b1 > 1, \u03b81 \u2260 \u03b82",
+    "formal": "Weibull PH family",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: MRLAI",
+   "direction": "L_\u03b81(t) = L_\u03b82(t) = \u03b1 (FRAI equal) but L^\u00b5_\u03b81 \u2262 L^\u00b5_\u03b82 \u2014 FRAI equality does not imply MRLAI equality"
+  },
+  "quantifiers": "\u03b1 > 1; \u03b81 \u2260 \u03b82; t > 0",
+  "numbers": "L_\u03b8(t) = \u03b1 for all \u03b8; lim_{t\u21930} \u00b5_\u03b81/\u00b5_\u03b82 = (\u03b82/\u03b81)^{1/\u03b1} vs lim_{t\u2192\u221e} = \u03b82/\u03b81",
+  "ambiguity": "Refutes the converse direction between the two AI functions underlying the paper's orders."
+ },
+ {
+  "paper": "arxiv:2409.10456",
+  "claim": "Counterexample 3.1",
+  "page": 29,
+  "quote": "Counterexample 3.1. Let X1 and X2 be two random variables with respective MRL functions \u00b5_X1(t) = 1/(1 + t), and \u00b5_X2(t) = 1/{2(1 + 2t)}, so that the corresponding MRLAI functions ... are decreasing in t > 0. ... Now, consider the mixture random variable X having survival function F\u0304_X(t) = 0.2 F\u0304_X1(t) + 0.8 F\u0304_X2(t) = 0.2(1 + t)e^{\u2212(t+t\u00b2/2)} + 0.8(1 + 2t)e^{\u2212(2t+2t\u00b2)}. ... the corresponding MRLAI function ... is non-monotonic as Figure 12 shows. Hence, the class of DMRLAI distributions is not closed under mixtures.",
+  "kind": "counterexample",
+  "model": "mixture",
+  "family": "\u00b5_X1 = 1/(1+t), \u00b5_X2 = 1/(2(1+2t)); both DMRLAI",
+  "compared": "0.2/0.8 mixture of two DMRLAI distributions vs DMRLAI membership",
+  "hypotheses": [
+   {
+    "text": "X1, X2 both DMRLAI (L^\u00b5 decreasing); 20/80 mixture",
+    "formal": "as stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: DMRLAI",
+   "direction": "mixture X not DMRLAI \u2014 DMRLAI class NOT closed under mixtures"
+  },
+  "quantifiers": "t > 0",
+  "numbers": "mixture weights 0.2/0.8; non-monotonicity shown in Figure 12 (no printed point values)",
+  "ambiguity": "Class-closure counterexample for the MRLAI-based ageing class; graphical (Figure 12) rather than printed point values."
+ },
+ {
+  "paper": "arxiv:2409.10456",
+  "claim": "Counterexample 3.2",
+  "page": 30,
+  "quote": "Counterexample 3.2. Let X_i, i = 1, 2, be two i.i.d. non-negative random variables with MRL function \u00b5_Xi(t) = (1 + t)^{\u22121/10}, t \u2265 0. ... Thus each X_i belongs to the DMRLAI class. Now, write X = max{X1, X2}. ... Numerical integration gives L^\u00b5_X(0.1) \u2248 0.9701, L^\u00b5_X(2) \u2248 0.8528, and L^\u00b5_X(20) \u2248 0.8981, showing that L^\u00b5_X(t) is non-monotone. Hence, the DMRLAI class is not closed under the formation of a parallel system ... and hence of a k-out-of-n system and coherent system of i.i.d. components.",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "iid with \u00b5_X = (1+t)^{\u22121/10} (DMRLAI)",
+  "compared": "parallel-system lifetime max{X1,X2} vs DMRLAI membership",
+  "hypotheses": [
+   {
+    "text": "X_i iid, \u00b5 = (1+t)^{\u22121/10}, each DMRLAI",
+    "formal": "as stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: DMRLAI",
+   "direction": "X = max{X1,X2} not DMRLAI \u2014 DMRLAI NOT closed under parallel (hence k-out-of-n and coherent) systems"
+  },
+  "quantifiers": "n = 2; t \u2265 0",
+  "numbers": "L^\u00b5_X(0.1) \u2248 0.9701, L^\u00b5_X(2) \u2248 0.8528, L^\u00b5_X(20) \u2248 0.8981",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2409.10456",
+  "claim": "Counterexample 3.3",
+  "page": 31,
+  "quote": "Counterexample 3.3. Let X1 and X2 be i.i.d. lifetime random variables with common MRL function \u00b5_X(t) = 2 (0 \u2264 t \u2264 5/2); 2 \u2212 (3/125)(t \u2212 5/2) (5/2 < t \u2264 5); (97/125)(15/2 \u2212 t) (5 < t < 15/2). ... each component belongs to the DMRLAI class. Now, let X_{1:2} = min{X1, X2} ... Figure 13(b) shows that L^\u00b5_{X_{1:2}}(\u03c4_X x) is non-monotone. Hence, the DMRLAI class is not closed under the formation of a series system.",
+  "kind": "counterexample",
+  "model": "series system",
+  "family": "iid piecewise-linear MRL components on [0, 15/2]",
+  "compared": "series-system lifetime min{X1,X2} vs DMRLAI membership",
+  "hypotheses": [
+   {
+    "text": "Xi iid DMRLAI with piecewise \u00b5_X; \u03c4_X = 15/2",
+    "formal": "as stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: DMRLAI",
+   "direction": "X_{1:2} not DMRLAI \u2014 DMRLAI NOT closed under series systems"
+  },
+  "quantifiers": "n = 2; 0 < x < 1 on the x = t/\u03c4_X scale",
+  "numbers": "\u03c4_X = 15/2; breakpoints t = 5/2, 5 (x = 1/3, 2/3); non-monotonicity per Figure 13(b)",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2409.10456",
+  "claim": "Counterexample 3.4",
+  "page": 34,
+  "quote": "Counterexample 3.4. Let X1 and X2 be i.i.d. standard exponential random variables, which may be considered as DMRLAI. Then the MRLAI function is given by L^\u00b5_X1(t) = L^\u00b5_X2(t) = 1, for all t > 0. Now, take Xc = X1 + X2. The survival function of Xc is given by F\u0304_Xc(t) = (t + 1)e^{\u2212t}, whereas the MRL function comes out as \u00b5_Xc(t) = (t + 2)/(t + 1). Then the MRLAI function of Xc becomes L^\u00b5_Xc(t) = t(t + 2)/{(t + 1)(ln(t + 1) + t)} which is non-monotone as L^\u00b5_Xc(0.20) = 0.9590531, L^\u00b5_Xc(3.0) = 0.8549358, and L^\u00b5_Xc(10.0) = 0.8799147. Thus, we see that the DMRLAI class is not closed under convolution of i.i.d. components.",
+  "kind": "counterexample",
+  "model": "other: convolution of iid components",
+  "family": "iid standard exponentials (L^\u00b5 \u2261 1)",
+  "compared": "convolution Xc = X1+X2 vs DMRLAI membership",
+  "hypotheses": [
+   {
+    "text": "Xi iid Exp(1), hence DMRLAI",
+    "formal": "as stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: DMRLAI",
+   "direction": "Xc not DMRLAI \u2014 DMRLAI NOT closed under convolution (the same example also yields IMRLAI non-closure, the exponential lying in both classes)"
+  },
+  "quantifiers": "n = 2; t > 0",
+  "numbers": "L^\u00b5_Xc(0.20) = 0.9590531, L^\u00b5_Xc(3.0) = 0.8549358, L^\u00b5_Xc(10.0) = 0.8799147",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2409.10456",
+  "claim": "Counterexample 3.5",
+  "page": 34,
+  "quote": "Counterexample 3.5. Let X1 and X2 be two random variables with respective MRL functions given by \u00b5_X1(t) = 1 + 8t and \u00b5_X2(t) = 1 + 0.1t, for t \u2265 0. The corresponding survival functions are obtained as F\u0304_X1(t) = (8t + 1)^{\u22129/8} and F\u0304_X2(t) = (0.1t + 1)^{\u221211} ... the corresponding MRLAI functions as L^\u00b5_X1(t) = (1+8t)/(1+4t) and L^\u00b5_X2(t) = (1+0.1t)/(1+0.05t), which are both increasing. Consider now a random variable X with survival function F\u0304_X(t) = 0.2(8t + 1)^{\u22129/8} + 0.8(0.1t + 1)^{\u221211}. ... Figure 14 shows that L^\u00b5_X(t) is non-monotonic. Consequently, the IMRLAI class is not closed under mixture.",
+  "kind": "counterexample",
+  "model": "mixture",
+  "family": "linear-MRL components (1+8t, 1+0.1t); both IMRLAI",
+  "compared": "0.2/0.8 mixture of two IMRLAI distributions vs IMRLAI membership",
+  "hypotheses": [
+   {
+    "text": "\u00b51 = 1+8t, \u00b52 = 1+0.1t; both IMRLAI; 20/80 mixture",
+    "formal": "as stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: IMRLAI",
+   "direction": "mixture X not IMRLAI \u2014 IMRLAI NOT closed under mixtures"
+  },
+  "quantifiers": "t \u2265 0",
+  "numbers": "weights 0.2/0.8; exponents \u22129/8 and \u221211; non-monotonicity per Figure 14",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2409.10456",
+  "claim": "Counterexample 3.6",
+  "page": 35,
+  "quote": "Counterexample 3.6. Let X1 and X2 be two i.i.d. random variables with survival function F\u0304_X1(t) = (1 + t)^{\u22122}, for t \u2265 0. The corresponding MRL function is \u00b5_Xi(t) = 1 + t, giving that L^\u00b5_Xi(t) = 2(1 + t)/(2 + t), which is increasing in t \u2265 0. Now, write X = max{X1, X2}. ... L^\u00b5_X(t) = 2t(t + 1)(6t\u00b2 + 12t + 5)/{(2t\u00b2 + 4t + 1)[ln(2t\u00b2 + 4t + 1) + 3t(t + 2)]} which is non-monotone, as is clear from Figure 15. Hence, the IMRLAI class is not closed under the formation of a parallel system ... and hence of k-out-of-n systems and coherent systems.",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "iid Pareto F\u0304 = (1+t)^{\u22122} (IMRLAI)",
+  "compared": "parallel-system lifetime vs IMRLAI membership",
+  "hypotheses": [
+   {
+    "text": "Xi iid IMRLAI",
+    "formal": "as stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: IMRLAI",
+   "direction": "X = max{X1,X2} not IMRLAI \u2014 IMRLAI NOT closed under parallel (hence k-out-of-n / coherent) systems"
+  },
+  "quantifiers": "n = 2; t \u2265 0",
+  "numbers": "closed-form L^\u00b5_X printed; non-monotonicity via Figure 15 only",
+  "ambiguity": "No printed point values; non-monotonicity asserted from Figure 15."
+ },
+ {
+  "paper": "arxiv:2409.10456",
+  "claim": "Counterexample 3.7",
+  "page": 36,
+  "quote": "Counterexample 3.7. Let X1 and X2 be i.i.d. lifetime random variables with common MRL function \u00b5_X(t) = 1 + 5\u221at, t \u2265 0. Then L^\u00b5_X(t) = (1 + 5\u221at)/(1 + (10/3)\u221at) which is increasing in t. Thus each component belongs to the IMRLAI class. ... X_{1:2} = min{X1, X2} ... Numerical integration gives L^\u00b5_{X_{1:2}}(1) \u2248 1.5577, L^\u00b5_{X_{1:2}}(4) \u2248 1.5778, and L^\u00b5_{X_{1:2}}(25) \u2248 1.5649. Thus L^\u00b5_{X_{1:2}}(t) is not nondecreasing. Hence, the IMRLAI class is not closed under the formation of a series system.",
+  "kind": "counterexample",
+  "model": "series system",
+  "family": "iid with \u00b5_X = 1 + 5\u221at (IMRLAI)",
+  "compared": "series-system lifetime min{X1,X2} vs IMRLAI membership",
+  "hypotheses": [
+   {
+    "text": "Xi iid IMRLAI",
+    "formal": "as stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: IMRLAI",
+   "direction": "X_{1:2} not IMRLAI \u2014 IMRLAI NOT closed under series systems"
+  },
+  "quantifiers": "n = 2; t > 0",
+  "numbers": "L(1) \u2248 1.5577, L(4) \u2248 1.5778, L(25) \u2248 1.5649",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2409.10456",
+  "claim": "Counterexample 4.4 (vrl part)",
+  "page": 43,
+  "quote": "Counterexample 4.4. Let X and Y have Erlang densities f_X(t) = 9te^{\u22123t} and f_Y(t) = 4te^{\u22122t}, t \u2265 0, respectively. Then F\u0304_X(t) = (1 + 3t)e^{\u22123t} and F\u0304_Y(t) = (1 + 2t)e^{\u22122t}. A direct calculation gives \u222b_t^\u221e\u222b_u^\u221e F\u0304_Y(v)dv du / \u222b_t^\u221e\u222b_u^\u221e F\u0304_X(v)dv du = 3e^t(2t + 3)/[4(t + 1)], whose logarithmic derivative is 1 \u2212 {(2t + 3)(t + 1)}^{\u22121} > 0. Hence X \u2264vrl Y.",
+  "kind": "counterexample",
+  "model": "other: two single distributions",
+  "family": "Erlang shape 2: f_X = 9te^{\u22123t} (rate 3), f_Y = 4te^{\u22122t} (rate 2)",
+  "compared": "X vs Y under the variance-residual-life order",
+  "hypotheses": [
+   {
+    "text": "vrl ratio \u222b\u222bF\u0304_Y/\u222b\u222bF\u0304_X = 3e^t(2t+3)/[4(t+1)] has positive logarithmic derivative",
+    "formal": "Definition 4.2(vi) vrl criterion",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: vrl (variance residual life order)",
+   "direction": "X \u2264vrl Y"
+  },
+  "quantifiers": "t \u2265 0",
+  "numbers": "ratio 3e^t(2t+3)/[4(t+1)]; log-derivative 1 \u2212 1/[(2t+3)(t+1)] > 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2409.10456",
+  "claim": "Counterexample 4.4 (MRLAI part)",
+  "page": 43,
+  "quote": "On the other hand, \u00b5_X(t) = (3t + 2)/{3(3t + 1)} and \u00b5_Y(t) = (t + 1)/(2t + 1), so that R(t) := \u222b_0^t \u00b5_X(u)du/\u222b_0^t \u00b5_Y(u)du = 4{3t + ln(3t + 1)}/[9{2t + ln(2t + 1)}]. Since R(0.1) = 0.653742 > R(1.5) = 0.628701 < R(5) = 0.637118, R(t) is not nonincreasing. Therefore X \u2270MRLAI Y, showing that X \u2264vrl Y \u21cf X \u2264MRLAI Y.",
+  "kind": "counterexample",
+  "model": "other: two single distributions",
+  "family": "Erlang shape 2: rate 3 vs rate 2",
+  "compared": "X vs Y under the MRLAI order \u2014 fails",
+  "hypotheses": [
+   {
+    "text": "same X, Y as above",
+    "formal": "as stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: MRLAI",
+   "direction": "X \u2270MRLAI Y \u2014 A_X/A_Y not nonincreasing (MRLAI order fails while vrl holds)"
+  },
+  "quantifiers": "t \u2265 0",
+  "numbers": "R(0.1) = 0.653742, R(1.5) = 0.628701, R(5) = 0.637118",
+  "ambiguity": "Per Theorem 4.1, X \u2264MRLAI Y iff A_X/A_Y is nonincreasing; R(t) is exactly that ratio."
+ },
+ {
+  "paper": "arxiv:2409.10456",
+  "claim": "Counterexample 4.7",
+  "page": 45,
+  "quote": "Counterexample 4.7. Let X1 and X2 be two i.i.d. random variables having Erlang distribution with survival function F\u0304_Xi(t) = (1 + t)e^{\u2212t}, t \u2265 0. Also, let Y1 and Y2 be two i.i.d. random variables having exponential distribution with survival function F\u0304_Yi(t) = e^{\u22122t}, t \u2265 0. The MRLAI function of Xi is given by L^\u00b5_Xi(t) = t(t + 2)/[(t + 1)(ln(t + 1) + t)] < 1, whereas, for Yi, it is unity, i.e., L^\u00b5_Yi(t) = 1, for all t > 0 and i, j = 1, 2. Thus, Xi \u2264MRLAI Yj, for all i, j = 1, 2. If we write X = max{X1, X2} and Y = max{Y1, Y2} ... Clearly, from Figure 17, the curves of L^\u00b5_X(t) and L^\u00b5_Y(t) intersect. Therefore, the MRLAI order is not preserved under the formation of a parallel system.",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "Xi iid Erlang(2, rate 1): F\u0304 = (1+t)e^{\u2212t}; Yi iid Exp(2): F\u0304 = e^{\u22122t}",
+  "compared": "componentwise MRLAI ordering vs ordering of the two-component maxima",
+  "hypotheses": [
+   {
+    "text": "Xi \u2264MRLAI Yj for all i, j = 1, 2 (verified: L^\u00b5_Xi(t) < 1 = L^\u00b5_Yi(t))",
+    "formal": "componentwise MRLAI order",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: MRLAI",
+   "direction": "Xi \u2264MRLAI Yj \u2200 i,j but X = max{X1,X2} \u2270MRLAI Y = max{Y1,Y2} \u2014 the L^\u00b5 curves of the maxima intersect; MRLAI not preserved under parallel (hence coherent) systems"
+  },
+  "quantifiers": "n = 2 each side; t > 0",
+  "numbers": "closed-form L^\u00b5_X and L^\u00b5_Y printed; crossing asserted graphically (Figure 17), no printed point values",
+  "ambiguity": "Non-preservation shown only graphically via Figure 17 \u2014 no printed crossing abscissa; the trailing text adds 'not closed under coherent systems'."
+ },
+ {
+  "paper": "arxiv:2409.10456",
+  "claim": "Example 2.1",
+  "page": 11,
+  "quote": "Example 2.1. Let X have the Pareto type II survival function F\u0304_X(t) = (1 + t/\u03b2)^{\u2212\u03b1}, t \u2265 0, where \u03b1 > 1 and \u03b2 > 0. Then X has unbounded support, E(X) = \u03b2/(\u03b1 \u2212 1) < \u221e, and \u00b5_X(t) = (\u03b2 + t)/(\u03b1 \u2212 1), t\u00b5\u2032_X(t)/\u00b5_X(t) = t/(\u03b2 + t) \u2192 1 as t \u2192 \u221e. Thus, the assumptions of Theorem 2.7 are satisfied with \u03c1 = 1. Moreover, A_X(t) = (\u03b2t + t\u00b2/2)/(\u03b1 \u2212 1), L^\u00b5_X(t) = t\u00b5_X(t)/A_X(t) = 2(\u03b2 + t)/(2\u03b2 + t) \u2192 2 = 1 + \u03c1 as t \u2192 \u221e.",
+  "kind": "example",
+  "model": "other: single distribution",
+  "family": "Pareto type II, \u03b1 > 1, \u03b2 > 0",
+  "compared": "MRLAI asymptotics vs Theorem 2.7 prediction",
+  "hypotheses": [
+   {
+    "text": "\u03b1 > 1, \u03b2 > 0; finite mean",
+    "formal": "as stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: MRLAI",
+   "direction": "L^\u00b5_X(t) = 2(\u03b2+t)/(2\u03b2+t) \u2192 2 = 1+\u03c1 \u2014 verifies Theorem 2.7"
+  },
+  "quantifiers": "t \u2265 0",
+  "numbers": "\u03c1 = 1; limit 2; E(X) = \u03b2/(\u03b1\u22121)",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2409.10456",
+  "claim": "Example 2.10",
+  "page": 23,
+  "quote": "Example 2.10. Consider a lifetime random variable X with MRL function \u00b5_X(t) = 1 + t (0 \u2264 t \u2264 1), (5 \u2212 t)/2 (1 < t \u2264 2), 3/2 (t > 2). ... Since L^\u00b5_X(0.5) = 1.2, L^\u00b5_X(1) = 1.3333, L^\u00b5_X(2) = 0.9231, and L^\u00b5_X(3) = 0.9474, the MRLAI function is non-monotone. Further, ... the FRAI function is also non-monotone.",
+  "kind": "example",
+  "model": "other: single distribution",
+  "family": "piecewise MRL: 1+t | (5\u2212t)/2 | 3/2",
+  "compared": "MRLAI and FRAI monotonicity interplay",
+  "hypotheses": [
+   {
+    "text": "given piecewise \u00b5_X",
+    "formal": "as stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: MRLAI",
+   "direction": "both L^\u00b5_X and L_X non-monotone"
+  },
+  "quantifiers": "t > 0",
+  "numbers": "L^\u00b5_X(0.5) = 1.2, L^\u00b5_X(1) = 1.3333, L^\u00b5_X(2) = 0.9231, L^\u00b5_X(3) = 0.9474; FRAI non-monotone (Figure accompanying text)",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2409.10456",
+  "claim": "Example 2.11",
+  "page": 24,
+  "quote": "Example 2.11. Suppose a lifetime random variable X has survival function F\u0304_X(t) = exp{\u2212t \u2212 t\u00b2/2}, t \u2265 0. Then r_X(t) = 1 + t, and the corresponding FRAI function is L_X(t) = 2(1 + t)/(2 + t), t > 0, which is strictly increasing; hence X is IAI. Further, ... \u00b5_X(t) < 1/(1+t), ... \u00b5\u2032_X(t) < 0, the MRL function is strictly decreasing. Hence, X is DMRL.",
+  "kind": "example",
+  "model": "other: single distribution",
+  "family": "F\u0304_X = exp(\u2212t \u2212 t\u00b2/2)",
+  "compared": "IAI (FRAI increasing) vs DMRL (MRL decreasing)",
+  "hypotheses": [
+   {
+    "text": "given F\u0304_X",
+    "formal": "as stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: DMRL",
+   "direction": "X is IAI and DMRL \u2014 increasing FRAI may accompany decreasing MRL"
+  },
+  "quantifiers": "t > 0",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2409.10456",
+  "claim": "Example 2.12",
+  "page": 24,
+  "quote": "Example 2.12. Consider a lifetime random variable X with survival function given by F\u0304_X(t) = exp{\u2212t^{1/2} e^{t/10}}, t \u2265 0. ... giving the corresponding FRAI function as L_X(t) = 0.5 + t/10, which is strictly increasing in t. So, the distribution belongs to the IAI class. The MRL function ... is non-monotone as Figure 7 shows.",
+  "kind": "example",
+  "model": "other: single distribution",
+  "family": "F\u0304_X = exp(\u2212\u221at e^{t/10})",
+  "compared": "IAI with non-monotone MRL",
+  "hypotheses": [
+   {
+    "text": "given F\u0304_X",
+    "formal": "as stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: DMRL",
+   "direction": "X is IAI but MRL non-monotone \u2014 IAI does not imply DMRL"
+  },
+  "quantifiers": "t > 0",
+  "numbers": "L_X(t) = 0.5 + t/10; MRL non-monotone per Figure 7",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2409.10456",
+  "claim": "Example 2.13",
+  "page": 24,
+  "quote": "Example 2.13. Let a lifetime random variable X have survival function F\u0304_X(t) = exp{\u2212(2t \u2212 t\u00b2)/4} (0 \u2264 t < 1), 0 (t \u2265 1). ... L_X(t) = 2(1 \u2212 t)/(2 \u2212 t). So, X belongs to the DAI class. ... \u00b5_X(t) ... is strictly decreasing as Figure 8 shows.",
+  "kind": "example",
+  "model": "other: single distribution (bounded support [0,1])",
+  "family": "F\u0304_X = exp(\u2212(2t\u2212t\u00b2)/4) on [0,1)",
+  "compared": "DAI with DMRL",
+  "hypotheses": [
+   {
+    "text": "given F\u0304_X",
+    "formal": "as stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: DMRL",
+   "direction": "X is DAI and DMRL"
+  },
+  "quantifiers": "0 < t < 1",
+  "numbers": "",
+  "ambiguity": "MRL monotonicity shown graphically (Figure 8)."
+ },
+ {
+  "paper": "arxiv:2409.10456",
+  "claim": "Example 2.14",
+  "page": 25,
+  "quote": "Example 2.14. Let a lifetime random variable X have the survival function given by F\u0304_X(t) = 1/(1 + t^{3/2}), t \u2265 0. ... L_X(t) = (3/2)t^{3/2}/[(1 + t^{3/2}) ln(1 + t^{3/2})] which is strictly decreasing in t. So, the distribution belongs to the DAI class. The MRL function ... first decreases and then increases, which is non-monotone, although X is DAI.",
+  "kind": "example",
+  "model": "other: single distribution",
+  "family": "F\u0304_X = (1 + t^{3/2})^{\u22121}",
+  "compared": "DAI with non-monotone MRL",
+  "hypotheses": [
+   {
+    "text": "given F\u0304_X",
+    "formal": "as stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: DMRL",
+   "direction": "X is DAI but MRL first decreases then increases \u2014 DAI does not imply DMRL"
+  },
+  "quantifiers": "t > 0",
+  "numbers": "",
+  "ambiguity": "MRL non-monotonicity via Figure 9."
+ },
+ {
+  "paper": "arxiv:2409.10456",
+  "claim": "Example 2.15",
+  "page": 26,
+  "quote": "Example 2.15. Consider a random variable X with survival function given by F\u0304_X(t) = (1 + t)^{\u2212(1+t)}, t \u2265 0, so that the corresponding hazard rate is r_X(t) = 1 + ln(1 + t) ... L_X(t) = t(1 + ln(1 + t))/[(1 + t) ln(1 + t)] ... Figure 10 shows that the FRAI function L_X(t) is non-monotone, attaining a maximum near t \u2248 5, while the MRL function \u00b5_X(t) is strictly decreasing.",
+  "kind": "example",
+  "model": "other: single distribution",
+  "family": "F\u0304_X = (1+t)^{\u2212(1+t)}",
+  "compared": "non-monotone FRAI with strictly decreasing MRL (DMRL)",
+  "hypotheses": [
+   {
+    "text": "given F\u0304_X",
+    "formal": "as stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: DMRL",
+   "direction": "FRAI non-monotone (max near t \u2248 5) while X is DMRL"
+  },
+  "quantifiers": "t > 0",
+  "numbers": "FRAI maximum near t \u2248 5",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2409.10456",
+  "claim": "Example 2.16",
+  "page": 27,
+  "quote": "Example 2.16. Consider a lifetime random variable X with hazard rate r_X(t) = 1/(t + 1)\u00b2 + t/10 + 1/10, t \u2265 0, having the FRAI function as L_X(t) = [2(t + 1)\u00b3 + 10]/[(t + 1)(t\u00b2 + 3t + 22)] which is non-monotone, as Figure 11(a) demonstrates. The corresponding MRL function ... is non-monotone.",
+  "kind": "example",
+  "model": "other: single distribution",
+  "family": "hazard rate r_X = (t+1)^{\u22122} + t/10 + 1/10",
+  "compared": "both FRAI and MRL non-monotone",
+  "hypotheses": [
+   {
+    "text": "given r_X",
+    "formal": "as stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: MRLAI",
+   "direction": "both L_X (FRAI) and \u00b5_X (MRL) non-monotone"
+  },
+  "quantifiers": "t > 0",
+  "numbers": "",
+  "ambiguity": "Non-monotonicity shown in Figures 11(a),(b)."
+ },
+ {
+  "paper": "arxiv:2409.10456",
+  "claim": "Example 2.2",
+  "page": 17,
+  "quote": "Example 2.2. Consider a random variable having the MRL function as \u00b5_X(t) = 1 + t/2 (0 \u2264 t \u2264 1), t + 1/2 (t > 1). Then L^\u00b5_X(t) = (4 + 2t)/(4 + t) (0 < t \u2264 1), (4t\u00b2 + 2t)/(2t\u00b2 + 2t + 1) (t > 1) which is increasing in t > 0. ... Since L_X(0.99) \u2248 0.8234, L_X(1.01) \u2248 1.0879, L_X(2) \u2248 0.7149, the FRAI function is non-monotone.",
+  "kind": "example",
+  "model": "other: single distribution",
+  "family": "piecewise-linear MRL",
+  "compared": "IMRLAI with non-monotone FRAI",
+  "hypotheses": [
+   {
+    "text": "given \u00b5_X",
+    "formal": "as stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: IMRLAI",
+   "direction": "X is IMRLAI (L^\u00b5_X increasing) but FRAI non-monotone \u2014 IMRLAI does not imply IAI"
+  },
+  "quantifiers": "t > 0",
+  "numbers": "L_X(0.99) \u2248 0.8234, L_X(1.01) \u2248 1.0879, L_X(2) \u2248 0.7149",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2409.10456",
+  "claim": "Example 2.3",
+  "page": 18,
+  "quote": "Example 2.3. Consider a random variable X having \u00b5_X(t) = (1 + t)^{\u22121}, t \u2265 0 so that L^\u00b5_X(t) = t/[(1 + t) ln(1 + t)] which is decreasing in t > 0. However, for this distribution, we have r_X(t) = t(t + 2)/(t + 1) so that L_X(t) = [t\u00b2(t + 2)/(t + 1)\u00b2]/[2 + t \u2212 ln(t + 1)] \u00b7 (t/(t+1)) \u2014 see (3) \u2014 which is non-monotone as Figure 2 shows.",
+  "kind": "example",
+  "model": "other: single distribution",
+  "family": "\u00b5_X = (1+t)^{\u22121}",
+  "compared": "DMRLAI with non-monotone FRAI",
+  "hypotheses": [
+   {
+    "text": "given \u00b5_X",
+    "formal": "as stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: DMRLAI",
+   "direction": "X is DMRLAI but FRAI non-monotone \u2014 DMRLAI does not imply DAI"
+  },
+  "quantifiers": "t > 0",
+  "numbers": "",
+  "ambiguity": "FRAI formula rendered piecewise in the text layer (eq. 3); non-monotonicity via Figure 2."
+ },
+ {
+  "paper": "arxiv:2409.10456",
+  "claim": "Example 2.4",
+  "page": 18,
+  "quote": "Example 2.4. Let X have survival function F\u0304_X(t) = exp{\u2212t^{1/4}(1 + t)^{1/2}}, t \u2265 0. Then ... L_X(t) = tH\u2032_X(t)/H_X(t) = 1/4 + t/[2(1 + t)], t > 0, which is increasing in t. Hence, X belongs to the IAI class. Further, ... the graph of L^\u00b5_X(x/(1 \u2212 x)), 0 < x < 1, displayed in Figure 3, shows that it is increasing. Therefore, X is also IMRLAI.",
+  "kind": "example",
+  "model": "other: single distribution",
+  "family": "F\u0304_X = exp(\u2212t^{1/4}(1+t)^{1/2})",
+  "compared": "IAI and IMRLAI simultaneously",
+  "hypotheses": [
+   {
+    "text": "given F\u0304_X",
+    "formal": "as stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: IMRLAI",
+   "direction": "X is IAI and IMRLAI"
+  },
+  "quantifiers": "t > 0",
+  "numbers": "L_X(t) = 1/4 + t/[2(1+t)]",
+  "ambiguity": "MRLAI monotonicity shown graphically (Figure 3) via the transform x = t/(1+t)."
+ },
+ {
+  "paper": "arxiv:2409.10456",
+  "claim": "Example 2.5",
+  "page": 19,
+  "quote": "Example 2.5. Consider a random variable X \u223c U(0, 1). Then the hazard rate is r_X(t) = (1 \u2212 t)^{\u22121}, 0 < t < 1, and the FRAI function is given by L_X(t) = t/[(1 \u2212 t)(\u2212log(1 \u2212 t))], 0 < t < 1, which is increasing in t. Since the MRL function of X is \u00b5_X(t) = (1 \u2212 t)/2, 0 < t < 1, the corresponding MRLAI function is L^\u00b5_X(t) = 2(1 \u2212 t)/(2 \u2212 t), 0 < t < 1, which is decreasing in t.",
+  "kind": "example",
+  "model": "other: single distribution",
+  "family": "Uniform(0,1)",
+  "compared": "IAI with DMRLAI",
+  "hypotheses": [
+   {
+    "text": "X ~ U(0,1)",
+    "formal": "as stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: DMRLAI",
+   "direction": "X is IAI (L_X increasing) and DMRLAI (L^\u00b5_X decreasing)"
+  },
+  "quantifiers": "0 < t < 1",
+  "numbers": "L_X = t/[(1\u2212t)(\u2212log(1\u2212t))]; L^\u00b5_X = 2(1\u2212t)/(2\u2212t)",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2409.10456",
+  "claim": "Example 2.6",
+  "page": 19,
+  "quote": "Example 2.6. Let X have survival function F\u0304_X(t) = exp{\u2212(2t \u2212 t\u00b2)/4} (0 \u2264 t < 1), 0 (t \u2265 1). On the continuous part 0 < t < 1, we get L_X(t) = 2(1 \u2212 t)/(2 \u2212 t), 0 < t < 1, which is decreasing in t on (0, 1). ... A direct differentiation shows that L^\u00b5_X(t) is decreasing on (0, 1), as illustrated in Figure 4.",
+  "kind": "example",
+  "model": "other: single distribution (bounded support [0,1])",
+  "family": "F\u0304_X = exp(\u2212(2t\u2212t\u00b2)/4) \u2014 same distribution as Example 2.13",
+  "compared": "DAI and DMRLAI simultaneously",
+  "hypotheses": [
+   {
+    "text": "given F\u0304_X",
+    "formal": "as stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: DMRLAI",
+   "direction": "X is DAI and DMRLAI"
+  },
+  "quantifiers": "0 < t < 1",
+  "numbers": "L_X = 2(1\u2212t)/(2\u2212t); L^\u00b5_X = t\u00b5_X(t)/\u222b_0^t \u00b5_X",
+  "ambiguity": "MRLAI decrease shown analytically and in Figure 4; same distribution as Example 2.13 (which reported the MRL decrease)."
+ },
+ {
+  "paper": "arxiv:2409.10456",
+  "claim": "Example 2.7",
+  "page": 20,
+  "quote": "Example 2.7. Let X have hazard rate r_X(t) = 2/(1 + t), t \u2265 0. Then H_X(t) = 2 log(1 + t), and hence L_X(t) = t/[(1 + t) log(1 + t)], t > 0, which is decreasing in t > 0. Also, F\u0304_X(t) = (1 + t)^{\u22122}, so that \u00b5_X(t) = 1 + t, t \u2265 0. Therefore, the corresponding MRLAI function is L^\u00b5_X(t) = 2(t + 1)/(t + 2), t > 0, which is increasing in t. Thus, X is DAI and IMRLAI.",
+  "kind": "example",
+  "model": "other: single distribution",
+  "family": "Pareto F\u0304 = (1+t)^{\u22122} (r_X = 2/(1+t))",
+  "compared": "DAI and IMRLAI simultaneously",
+  "hypotheses": [
+   {
+    "text": "r_X = 2/(1+t)",
+    "formal": "as stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: IMRLAI",
+   "direction": "X is DAI and IMRLAI"
+  },
+  "quantifiers": "t > 0",
+  "numbers": "L_X = t/[(1+t)log(1+t)]; L^\u00b5_X = 2(t+1)/(t+2)",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2409.10456",
+  "claim": "Example 2.8",
+  "page": 20,
+  "quote": "Example 2.8. To see that a distribution may be IAI while having a non-monotone MRLAI, consider a random variable X with survival function given by F\u0304_X(t) = (t + 3\u221at + 2)e^{\u2212t\u22122\u221at}/2, t \u2265 0. ... It can be seen from Figure 5 that FRAI is increasing, whereas MRLAI is non-monotone.",
+  "kind": "example",
+  "model": "other: single distribution",
+  "family": "F\u0304_X = (t+3\u221at+2)e^{\u2212t\u22122\u221at}/2",
+  "compared": "IAI with non-monotone MRLAI",
+  "hypotheses": [
+   {
+    "text": "given F\u0304_X",
+    "formal": "as stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: IMRLAI",
+   "direction": "X is IAI but L^\u00b5_X non-monotone \u2014 IAI does not imply IMRLAI"
+  },
+  "quantifiers": "t > 0",
+  "numbers": "L^\u00b5_X(t) = t(\u221at+1)/{(\u221at+2)(t \u2212 2\u221at + 4ln(\u221at+2) \u2212 4ln2)}",
+  "ambiguity": "Non-monotonicity asserted via Figure 5; pass A's ambiguity note references Remark 2.3(b) reuse of this construction (L(0.01) \u2248 1.015, L(5.5) \u2248 1.082, L(15) \u2248 1.076)."
+ },
+ {
+  "paper": "arxiv:2409.10456",
+  "claim": "Example 2.9",
+  "page": 21,
+  "quote": "Example 2.9. Consider a random variable having an Erlang distribution with density function given by f_X(t) = 4te^{\u22122t}, t \u2265 0. Then we have, for t > 0, L_X(t) = tr_X(t)/\u222b_0^t r_X(u)du = 4t\u00b2/[(2t + 1)(2t \u2212 ln(2t + 1))] which is decreasing in t on (0, \u221e). Further, the MRL function is given by \u00b5_X(t) = (t + 1)/(2t + 1), so that L^\u00b5_X(t) = 4t(t + 1)/[(2t + 1)(ln(2t + 1) + 2t)] which is non-monotone as Figure 6 shows.",
+  "kind": "example",
+  "model": "other: single distribution",
+  "family": "Erlang shape 2, rate 2",
+  "compared": "DAI with non-monotone MRLAI",
+  "hypotheses": [
+   {
+    "text": "given f_X",
+    "formal": "as stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing: DMRLAI",
+   "direction": "X is DAI but L^\u00b5_X non-monotone \u2014 DAI does not imply DMRLAI"
+  },
+  "quantifiers": "t > 0",
+  "numbers": "L_X = 4t\u00b2/[(2t+1)(2t\u2212ln(2t+1))]; L^\u00b5_X = 4t(t+1)/[(2t+1)(ln(2t+1)+2t)]",
+  "ambiguity": "MRLAI non-monotonicity via Figure 6."
+ },
+ {
+  "paper": "arxiv:2409.10456",
+  "claim": "Theorem 2.12",
+  "page": 16,
+  "quote": "Theorem 2.12. Let {X_\u03b8 : \u03b8 > 0} be a proportional hazards family with survival functions F\u0304_\u03b8(t) = {F\u0304_0(t)}^\u03b8, 0 \u2264 t < \u03c4_0, and let H_0(t) = \u2212log F\u0304_0(t). If H_0 is positive and differentiable on (0, \u03c4_0), then L_\u03b8(t) = L_0(t), 0 < t < \u03c4_0. Hence, the FRAI function is invariant under the proportional hazards family.",
+  "kind": "theorem",
+  "model": "other: proportional-hazards family",
+  "family": "PH family F\u0304_\u03b8 = F\u0304_0^\u03b8, H_0 positive differentiable",
+  "compared": "FRAI functions of X_\u03b8 vs X_0 for any \u03b8 > 0",
+  "hypotheses": [
+   {
+    "text": "F\u0304_\u03b8 = F\u0304_0^\u03b8; H_0 positive and differentiable on (0,\u03c4_0)",
+    "formal": "PH family",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: FRAI",
+   "direction": "L_\u03b8(t) = L_0(t) for all \u03b8 > 0 \u2014 every pair in the PH family is FRAI-equal"
+  },
+  "quantifiers": "\u03b8 > 0; 0 < t < \u03c4_0",
+  "numbers": "",
+  "ambiguity": "Invariance/equality claim between family members (the equality case of the FRAI-based order); Counterexample 2.1 shows the analogue fails for MRLAI."
+ },
+ {
+  "paper": "arxiv:2409.10456",
+  "claim": "Theorem 2.2",
+  "page": 5,
+  "quote": "Theorem 2.2. The equality L^\u00b5_X(t) = L^\u00b5_Y(t) holds for all 0 < t < \u03c4_XY if and only if \u00b5_X(t) = c \u00b5_Y(t) for all 0 < t < \u03c4_XY, for some constant c > 0.",
+  "kind": "theorem",
+  "model": "other: two lifetime distributions",
+  "family": "lifetime distributions with MRL functions \u00b5_X, \u00b5_Y; \u03c4_XY = min{\u03c4_X, \u03c4_Y}",
+  "compared": "MRLAI-function equality of X and Y vs proportional MRLs",
+  "hypotheses": [
+   {
+    "text": "X, Y lifetime rvs with MRL functions; \u03c4_XY = min{\u03c4_X,\u03c4_Y}",
+    "formal": "common support",
+    "source": "statement preamble"
+   }
+  ],
+  "conclusion": {
+   "order": "other: MRLAI",
+   "direction": "L^\u00b5_X \u2261 L^\u00b5_Y iff \u00b5_X = c\u00b7\u00b5_Y \u2014 the equality case of the \u2264_MRLAI preorder (both directions of the order hold)"
+  },
+  "quantifiers": "0 < t < \u03c4_XY; some c > 0",
+  "numbers": "",
+  "ambiguity": "Equality characterization rather than a strict ordering; it underpins the antisymmetry discussion of \u2264_MRLAI on p.40 (with \u00b5_X(0+) = \u00b5_Y(0+) and \u03c4_X = \u03c4_Y it yields identical distributions)."
+ },
+ {
+  "paper": "arxiv:2409.10456",
+  "claim": "Theorem 3.1",
+  "page": 32,
+  "quote": "Theorem 3.1. Let n \u2265 1, and let X1, . . . , Xn be i.i.d. absolutely continuous lifetime random variables over the support with common differentiable survival function F\u0304_X, and MRL function \u00b5_X(t) = a + bt, 0 \u2264 t < \u03c4_X, where a > 0 and b > \u22121. If X_{1:n} = min{X1, . . . , Xn}, then L^\u00b5_{X_{1:n}}(t) = L^\u00b5_X(t), 0 < t < \u03c4_X.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "iid components, linear MRL \u00b5_X = a + bt (a > 0, b > \u22121)",
+  "compared": "series-system lifetime X_{1:n} vs component lifetime X under the MRLAI function",
+  "hypotheses": [
+   {
+    "text": "Xi iid absolutely continuous, differentiable F\u0304_X, \u00b5_X = a + bt with a > 0, b > \u22121",
+    "formal": "linear-MRL family",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: MRLAI",
+   "direction": "L^\u00b5_{X_{1:n}}(t) = L^\u00b5_X(t) for all n \u2265 1 \u2014 series system is MRLAI-equal to its component (equality case of \u2264_MRLAI)"
+  },
+  "quantifiers": "n \u2265 1; 0 < t < \u03c4_X (\u03c4_X = \u2212a/b when b < 0; infinite when b \u2265 0)",
+  "numbers": "",
+  "ambiguity": "Exact invariance only within the linear-MRL family \u2014 the text notes preservation of DMRLAI/IMRLAI follows for this family; the general DMRLAI class is not closed under series systems (Counterexample 3.3)."
  }
 ]

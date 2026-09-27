@@ -1,0 +1,619 @@
+[
+ {
+  "queue_claim": "corollary1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2606.07022",
+    "claim": "Corollary 1",
+    "page": 10,
+    "quote": "Corollary 1. Let Xr,γ̃r and Xr,β̃r denote the r-th m-GOS with parameter vectors γ̃r = (γ1, . . . , γr) and β̃r = (β1, . . . , βr) such that γ1:r ≤ ··· ≤ γr:r and β1:r ≤ ··· ≤ βr:r form arithmetic sequences with common differences µ and ν, respectively, and the same baseline distribution function F. Assume further that γ1:r > β1:r together with one of the conditions (i), (iii) or (v) of Lemma 2, or γ1:r = β1:r with µ ≥ ν hold. Then Xr,γ̃r ⪯st Xr,β̃r.",
+    "kind": "corollary",
+    "model": "other: r-th m-generalized order statistics (m-GOS), same order r",
+    "family": "common baseline F (arbitrary), arithmetic parameter sequences",
+    "compared": "same-order m-GOS differing in minimal parameter/common difference (γ1:r > β1:r under Lemma 2 cases, or equal minima with µ ≥ ν)",
+    "hypotheses": [
+     {"text": "γ1:r > β1:r together with one of conditions (i), (iii) or (v) of Lemma 2, or γ1:r = β1:r with µ ≥ ν", "formal": "parameter/M-ratio sign-variation conditions", "source": "statement"},
+     {"text": "parameter vectors sorted nondecreasing, arithmetic with differences µ, ν", "formal": "standing convention of Section 3", "source": "section preamble"}
+    ],
+    "conclusion": {"order": "st", "direction": "Xr,γ̃r ⪯st Xr,β̃r (γ̃r side stochastically smaller)"},
+    "quantifiers": "r ≥ 1",
+    "numbers": "",
+    "ambiguity": "Nonstandard convention: γ1:r is the MINIMAL parameter (sequences nondecreasing), so larger γ1:r yields the st-smaller m-GOS. Passes agreed on order and direction; only phrasing differed."
+   }
+  ],
+  "note": "Both passes agree: st order, γ̃r side smaller; merged."
+ },
+ {
+  "queue_claim": "corollary2",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2606.07022",
+    "claim": "Corollary 2",
+    "page": 11,
+    "quote": "Corollary 2. Suppose that Xr,γ̃r and Xq,β̃q are the GOS with parameter vectors γ̃r = (γ1:r, . . . , γr) and β̃q = (β1, . . . , βq) such that γ1:r ≤ ··· ≤ γr:r and β1:r ≤ ··· ≤ βq:q form arithmetic sequences with identical common differences µ, and common baseline distribution functions F. If γ1:r ≥ β1:q and r ≤ q, then Xr,γ̃r ⪯st Xq,β̃q.",
+    "kind": "corollary",
+    "model": "other: m-GOS of different orders r ≤ q",
+    "family": "common baseline F, identical common difference µ",
+    "compared": "r-th vs q-th m-GOS (γ1:r ≥ β1:q)",
+    "hypotheses": [
+     {"text": "γ1:r ≥ β1:q and r ≤ q; identical common differences µ; common baseline F", "formal": "parameter conditions", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Xr,γ̃r ⪯st Xq,β̃q (r-th side smaller)"},
+    "quantifiers": "r ≤ q",
+    "numbers": "",
+    "ambiguity": "Prose specializations in Section 4: Xi:n ⪯st Xj:m if i < j and n−i > m−j; Rn^(k) ⪯st Rm^(j) if n < m and k > j."
+   }
+  ],
+  "note": "Both passes agree on st and direction; page corrected to 11."
+ },
+ {
+  "queue_claim": "corollary3",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2606.07022",
+    "claim": "Corollary 3",
+    "page": 20,
+    "quote": "Corollary 3. Let i > j and n − i > m − j. Under either of the following conditions (a) F is IFR and Σ_{k=1}^i 1/(n−i+k) ≤ Σ_{k=1}^j 1/(m−j+k) (33); (b) F is α-IGFR for some α > 0 and Π_{k=1}^i (n−i+k)/(α+n−i+k) ≥ Π_{k=1}^j (m−j+k)/(α+m−j+k) (34); (c) F is α-IGFR for some −m−1+j < α < 0 and Π_{k=1}^i (n−i+k)/(α+n−i+k) ≤ Π_{k=1}^j (m−j+k)/(α+m−j+k) (35); the relation Xi:n ⪯icv Xj:m holds.",
+    "kind": "corollary",
+    "model": "order statistic",
+    "family": "parent F IFR or α-IGFR (iid samples of sizes n, m)",
+    "compared": "i-th order statistic of n-sample vs j-th of m-sample (i > j, n−i > m−j)",
+    "hypotheses": [
+     {"text": "i > j and n − i > m − j", "formal": "rank conditions", "source": "statement"},
+     {"text": "(a) F IFR and (33), (b) F α-IGFR, α > 0 and (34), or (c) F α-IGFR, −m−1+j < α < 0 and (35)", "formal": "shape + harmonic/product inequalities", "source": "statement"}
+    ],
+    "conclusion": {"order": "icv", "direction": "Xi:n ⪯icv Xj:m (i:n side icv-smaller)"},
+    "quantifiers": "i ≤ n, j ≤ m",
+    "numbers": "",
+    "ambiguity": "Specialization of Proposition 3 with r = i, q = j, γ1:r = n+1−i, β1:q = m+1−j, µ = ν = 1."
+   }
+  ],
+  "note": "Both passes agree: icv, Xi:n smaller; merged."
+ },
+ {
+  "queue_claim": "corollary4",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2606.07022",
+    "claim": "Corollary 4",
+    "page": 20,
+    "quote": "Corollary 4. Let i < j and n − i > m − j, and either of the following conditions holds: (a) F is DFR and (33), (b) F is α-DGFR for some α > 0 and (34), (c) F is α-DGFR for some −m−1+j < α < 0 and (35). Then Xi:n ⪯icx Xj:m.",
+    "kind": "corollary",
+    "model": "order statistic",
+    "family": "parent F DFR or α-DGFR",
+    "compared": "i-th OS of n-sample vs j-th of m-sample (i < j, n−i > m−j)",
+    "hypotheses": [
+     {"text": "i < j and n − i > m − j", "formal": "rank conditions", "source": "statement"},
+     {"text": "(a) F DFR and (33), (b) F α-DGFR α > 0 and (34), or (c) F α-DGFR −m−1+j < α < 0 and (35)", "formal": "shape + inequalities (33)-(35)", "source": "statement"}
+    ],
+    "conclusion": {"order": "icx", "direction": "Xi:n ⪯icx Xj:m (i:n side icx-smaller)"},
+    "quantifiers": "i ≤ n, j ≤ m",
+    "numbers": "",
+    "ambiguity": "Specialization of Proposition 4."
+   }
+  ],
+  "note": "Both passes agree: icx, Xi:n smaller; merged."
+ },
+ {
+  "queue_claim": "corollary5",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2606.07022",
+    "claim": "Corollary 5",
+    "page": 21,
+    "quote": "Corollary 5. Assume i > j and n − i > m − j. Let x∗ denote the first zero of the difference fi,n+1−i,1 − fj,m+1−j,1 in (0, 1) (cf. (6) and (7)), and either of the following assumptions is valid (a) F is DFRA, and Zi,n+1−i,1,0(−ln(1−x∗)) − Zj,m+1−j,1,0(−ln(1−x∗)) ≤ 0 (36), (b) F is α-DGFRA for some α > 0, and Zi,n+1−i,1,α((1−(1−x∗)^α)/α) − Zj,m+1−j,1,α((1−(1−x∗)^α)/α) ≤ 0 (37), (c) F is α-DGFRA for some −m−1+j < α < 0 and (37). Then Xi:n ⪯ss Xj:m holds.",
+    "kind": "corollary",
+    "model": "order statistic",
+    "family": "parent F DFRA or α-DGFRA",
+    "compared": "i-th OS vs j-th OS in star-shaped order (i > j, n−i > m−j)",
+    "hypotheses": [
+     {"text": "i > j and n − i > m − j; x∗ = first zero of the uniform OS density difference", "formal": "rank conditions + crossing point", "source": "statement"},
+     {"text": "(a) F DFRA + (36), (b) F α-DGFRA α > 0 + (37), or (c) F α-DGFRA −m−1+j < α < 0 + (37)", "formal": "shape + one-point Z condition", "source": "statement"}
+    ],
+    "conclusion": {"order": "star", "direction": "Xi:n ⪯ss Xj:m (i:n side ss-smaller)"},
+    "quantifiers": "i ≤ n, j ≤ m",
+    "numbers": "",
+    "ambiguity": "α = −1, 0, 1 cases earlier in Arab et al. (2025)."
+   }
+  ],
+  "note": "Order is the printed ⪯ss (star-shaped), not st; A's a_orders tag was a normalization artifact — both records actually say star/ss."
+ },
+ {
+  "queue_claim": "corollary6",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2606.07022",
+    "claim": "Corollary 6",
+    "page": 21,
+    "quote": "Corollary 6. Assume n > m and k > j. If either of the conditions (a) F is IFR and n/k ≤ m/j (38), (b) F is α-IGFR for some α > 0 and (k/(α+k))^n ≥ (j/(α+j))^m (39), (c) F is α-IGFR for some −j < α < 0 and (k/(α+k))^n ≤ (j/(α+j))^m (40) holds, then Rn^(k) ⪯icv Rm^(j).",
+    "kind": "corollary",
+    "model": "other: k-th record values",
+    "family": "parent F IFR or α-IGFR",
+    "compared": "n-th k-record vs m-th j-record (n > m, k > j)",
+    "hypotheses": [
+     {"text": "n > m and k > j", "formal": "index conditions", "source": "statement"},
+     {"text": "(a) F IFR + (38), (b) F α-IGFR α > 0 + (39), or (c) F α-IGFR −j < α < 0 + (40)", "formal": "shape + inequalities (38)-(40)", "source": "statement"}
+    ],
+    "conclusion": {"order": "icv", "direction": "Rn^(k) ⪯icv Rm^(j) (n-th k-record icv-smaller)"},
+    "quantifiers": "n > m, k > j",
+    "numbers": "",
+    "ambiguity": "Records obtained by r = n, γ1:r = k, µ = 0."
+   }
+  ],
+  "note": "Both passes agree: icv, Rn^(k) smaller; merged."
+ },
+ {
+  "queue_claim": "corollary7",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2606.07022",
+    "claim": "Corollary 7",
+    "page": 21,
+    "quote": "Corollary 7. Let n < m and k < j, and suppose that either of the following assumptions is satisfied: (a) F is DFR and (38), (b) F is α-DGFR for some positive α and (39), (c) F is α-DGFR for some −k < α < 0, and (40). Then Rn^(k) ⪯icx Rm^(j).",
+    "kind": "corollary",
+    "model": "other: k-th record values",
+    "family": "parent F DFR or α-DGFR",
+    "compared": "n-th k-record vs m-th j-record (n < m, k < j)",
+    "hypotheses": [
+     {"text": "n < m and k < j", "formal": "index conditions", "source": "statement"},
+     {"text": "(a) F DFR + (38), (b) F α-DGFR α > 0 + (39), or (c) F α-DGFR −k < α < 0 + (40)", "formal": "shape + inequalities (38)-(40)", "source": "statement"}
+    ],
+    "conclusion": {"order": "icx", "direction": "Rn^(k) ⪯icx Rm^(j) (n-th k-record icx-smaller)"},
+    "quantifiers": "n < m, k < j",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Both passes agree: icx, Rn^(k) smaller; merged."
+ },
+ {
+  "queue_claim": "corollary8",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2606.07022",
+    "claim": "Corollary 8",
+    "page": 22,
+    "quote": "Corollary 8. Suppose that n > m and k > j, and x∗ is the first zero of the difference fn,k,0 − fm,j,0. Moreover, assume one of the following conditions: (a) F is DFRA, and Zn,k,0,0(−ln(1−x∗)) − Zm,j,0,0(−ln(1−x∗)) ≤ 0 (41); (b) F is α-DGFRA for some α > 0, and Zn,k,0,α((1−(1−x∗)^α)/α) − Zm,j,0,α((1−(1−x∗)^α)/α) ≤ 0 (42); (c) F is α-DGFRA for some −j < α < 0, and (42). It follows that Rn^(k) ⪯ss Rm^(j).",
+    "kind": "corollary",
+    "model": "other: k-th record values",
+    "family": "parent F DFRA or α-DGFRA",
+    "compared": "n-th k-record vs m-th j-record in star-shaped order (n > m, k > j)",
+    "hypotheses": [
+     {"text": "n > m, k > j; x∗ = first zero of density difference fn,k,0 − fm,j,0", "formal": "index conditions + crossing point", "source": "statement"},
+     {"text": "(a) F DFRA + (41), (b) F α-DGFRA α > 0 + (42), or (c) F α-DGFRA −j < α < 0 + (42)", "formal": "shape + one-point Z condition", "source": "statement"}
+    ],
+    "conclusion": {"order": "star", "direction": "Rn^(k) ⪯ss Rm^(j) (n-th k-record ss-smaller)"},
+    "quantifiers": "n > m, k > j",
+    "numbers": "x∗ = 1 − e^{−u∗} with u∗ via Lambert W (Remark 6)",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Order is the printed ⪯ss (star-shaped), not st; page corrected to 22."
+ },
+ {
+  "queue_claim": "example1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2606.07022",
+    "claim": "Example 1 (icx part)",
+    "page": 22,
+    "quote": "Example 1. Let F be some DFR distribution. As the DFR class is included in the DFRA class, we may apply Corollaries 7 and 8 to obtain ordering relations between different record values. ... Take (n, k) = (10, 5). Applying Corollary 7(i), one gets R10^(5) ⪯icx Rm^(j) whenever m > 10, j > 5 and m > 2j. This identifies the shaded area in Figure 1.",
+    "kind": "example",
+    "model": "other: k-th record values",
+    "family": "any DFR parent F (hence DFRA)",
+    "compared": "R10^(5) vs Rm^(j), parameter region for icx ordering",
+    "hypotheses": [
+     {"text": "F DFR; (n,k) = (10,5); m > 10, j > 5 and m > 2j (Corollary 7(i) conditions)", "formal": "printed region", "source": "statement"}
+    ],
+    "conclusion": {"order": "icx", "direction": "R10^(5) ⪯icx Rm^(j) on the shaded region m > 10, j > 5, m > 2j"},
+    "quantifiers": "m > 10, j > 5, m > 2j",
+    "numbers": "(n,k) = (10,5); boundary m > 2j (i.e. m/j > 2, condition (38))",
+    "ambiguity": "Region identified graphically via Figure 1."
+   },
+   {
+    "paper": "arxiv:2606.07022",
+    "claim": "Example 1 (ss part)",
+    "page": 22,
+    "quote": "To this region we may add the points that verify condition (i) in Corollary 8, represented by the points above the line j = m/2, where R10^(5) ⪯ss Rm^(j) will hold.",
+    "kind": "example",
+    "model": "other: k-th record values",
+    "family": "any DFR parent F (hence DFRA)",
+    "compared": "R10^(5) vs Rm^(j), points above j = m/2 for ss ordering",
+    "hypotheses": [
+     {"text": "F DFR; (n,k) = (10,5); points above j = m/2 satisfying Corollary 8(i)", "formal": "printed condition", "source": "statement"}
+    ],
+    "conclusion": {"order": "star", "direction": "R10^(5) ⪯ss Rm^(j) on the marked points above j = m/2"},
+    "quantifiers": "m > 10, j > 5",
+    "numbers": "(n,k) = (10,5); line j = m/2",
+    "ambiguity": "No closed-form x∗ check printed for the ss points; figure-based."
+   }
+  ],
+  "note": "Split per spec: icx conclusion on shaded region (m>10, j>5, m>2j) and ss conclusion on points above j=m/2."
+ },
+ {
+  "queue_claim": "lemma2",
+  "decision": "exclude",
+  "records": [],
+  "note": "Sign-variation characterization of a density difference — no stochastic-order conclusion; analytic engine only, out of spec scope."
+ },
+ {
+  "queue_claim": "lemma3",
+  "decision": "exclude",
+  "records": [],
+  "note": "Same as Lemma 2: concludes only the sign variation of a density difference (−+− or +−), not a named stochastic order between distributions."
+ },
+ {
+  "queue_claim": "lemma4",
+  "decision": "exclude",
+  "records": [],
+  "note": "Quoted criterion (Shaked–Shanthikumar 4.A.22(b)) stated for fully arbitrary r.v.s — a fully general tool, not an ordering result for a specific family; out of scope per spec exclusion."
+ },
+ {
+  "queue_claim": "lemma5",
+  "decision": "exclude",
+  "records": [],
+  "note": "Quoted characterization (S&S 4.A.54) of the ss order for arbitrary life distributions — fully general criterion used as a proof tool; out of scope."
+ },
+ {
+  "queue_claim": "proposition1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2606.07022",
+    "claim": "Proposition 1",
+    "page": 12,
+    "quote": "Proposition 1. Let Xr,γ1:r,µ and Xr,β1:r,ν denote the r-th m-GOS with minimal parameters γ1:r, β1:r, common differences µ and ν, and a common baseline distribution function F. Assume that either γ1:r > β1:r, µ, ν > 0, M(r,γ1:r,µ)/M(r,β1:r,ν) < 1, or βr:r = β1:r + (r−1)ν > γ1:r > β1:r, µ = 0 < ν, M(r,γ1:r,0)/M(r,β1:r,ν) < 1. Under either of conditions (i) F ⪯c W0 (F is IFR) and Σ_{i≤r} 1/(γ1:r+(i−1)µ) ≤ Σ_{i≤r} 1/(β1:r+(i−1)ν) (21); (ii) F ⪯c Wα for some α > 0 (F is α-IGFR) and M(r,γ1:r,µ)/M(r,α+γ1:r,µ) ≥ M(r,β1:r,µ)/M(r,α+β1:r,µ) (22); (iii) F ⪯c Wα for some −β1:r < α < 0 (F is α-IGFR) and the same ≤ (23); we have Xr,γ1:r,µ ⪯icv Xr,β1:r,ν.",
+    "kind": "proposition",
+    "model": "other: r-th m-GOS, common baseline",
+    "family": "baseline F convex-transform ordered below generalized Pareto Wα (IFR / α-IGFR)",
+    "compared": "two r-th m-GOS in increasing concave order (γ1:r > β1:r with M-ratio < 1)",
+    "hypotheses": [
+     {"text": "γ1:r > β1:r, µ,ν > 0, M-ratio < 1; or βr:r > γ1:r > β1:r, µ = 0 < ν, M-ratio < 1", "formal": "parameter conditions (Lemma 2 (ii)/(iv) regime)", "source": "statement"},
+     {"text": "(i) F ⪯c W0 + (21), (ii) F ⪯c Wα α > 0 + (22), or (iii) F ⪯c Wα −β1:r < α < 0 + (23)", "formal": "transform order + mean inequalities", "source": "statement"}
+    ],
+    "conclusion": {"order": "icv", "direction": "Xr,γ1:r,µ ⪯icv Xr,β1:r,ν (γ side icv-smaller)"},
+    "quantifiers": "r ≥ 1; α > −γ1:r in case (iii)",
+    "numbers": "",
+    "ambiguity": "Case (iii) with α = −1 covers the DOR family."
+   }
+  ],
+  "note": "Both passes agree: icv, γ-side smaller; merged."
+ },
+ {
+  "queue_claim": "proposition10",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2606.07022",
+    "claim": "Proposition 10",
+    "page": 20,
+    "quote": "Proposition 10. Let Xr,γ1:r,µ and Xq,β1:q,ν be m-GOS based on the same baseline distribution function F. Assume that the corresponding parameter conditions of Proposition 8 (when q = r) or Proposition 9 (when µ = ν) hold, and let x∗ ∈ (0, 1) be the first zero of fr,γ1:r,µ − fq,β1:q,ν. Assume one of the following conditions: (i) α = 0, F ⪰∗ W̃0 and Zr,γ1:r,µ,0(−log x∗) − Zq,β1:q,ν,0(−log x∗) ≤ Σ_{i≤r} 1/(γ1:r+(i−1)µ) − Σ_{i≤q} 1/(β1:q+(i−1)ν); (ii) α ≠ 0, F ⪰∗ W̃α and Zr,γ1:r,µ,α((1−x∗^α)/α) − Zq,β1:q,ν,α((1−x∗^α)/α) ≤ (1/α)[M(q,β1:q,ν)/M(q,α+β1:q,ν) − M(r,γ1:r,µ)/M(r,α+γ1:r,µ)]. Then Xr,γ1:r,µ ⪯ss Xq,β1:q,ν.",
+    "kind": "proposition",
+    "model": "other: m-GOS, common baseline",
+    "family": "baseline star-ordered above NEGATIVE generalized Pareto W̃α",
+    "compared": "two m-GOS in star-shaped order under negative-GPD star transform",
+    "hypotheses": [
+     {"text": "parameter conditions of Proposition 8 (q = r) or Proposition 9 (µ = ν); x∗ first zero of density difference", "formal": "as stated", "source": "statement"},
+     {"text": "(i) α = 0, F ⪰∗ W̃0, Z-difference bounded by harmonic-sum difference; (ii) α ≠ 0, F ⪰∗ W̃α, Z-difference bounded by M-ratio difference", "formal": "Z-balance vs expected-value corrections", "source": "statement"}
+    ],
+    "conclusion": {"order": "star", "direction": "Xr,γ1:r,µ ⪯ss Xq,β1:q,ν (γ side ss-smaller)"},
+    "quantifiers": "r, q ≥ 1; x∗ = first zero",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Printed order is ⪯ss (star-shaped), not st; direction Xr ⪯ss Xq agreed by both."
+ },
+ {
+  "queue_claim": "proposition11",
+  "decision": "exclude",
+  "records": [],
+  "note": "Conclusion bounds an exceedance probability P(X ≥ EX_{r,γ̃r}) — not an ordering of two distributions; the transform order appears only as hypothesis. Out of scope."
+ },
+ {
+  "queue_claim": "proposition2",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2606.07022",
+    "claim": "Proposition 2",
+    "page": 13,
+    "quote": "Proposition 2. Suppose that either γ1:r < β1:r, µ, ν > 0, M(r,γ1:r,µ)/M(r,β1:r,ν) > 1, or γr:r > β1:r > γ1:r, ν = 0 < µ, M(r,β1:r,0)/M(r,γ1:r,µ) < 1 hold. Under either of conditions (i) F ⪰c W0 (F is DFR) with (21), (ii) F ⪰c Wα for some α > 0 (F is α-DGFR) with (22), (iii) F ⪰c Wα for some −γ1:r < α < 0 (F is α-DGFR) with (23), we get Xr,γ1:r,µ ⪯icx Xr,β1:r,ν with the notation described in Proposition 1.",
+    "kind": "proposition",
+    "model": "other: r-th m-GOS, common baseline",
+    "family": "baseline F convex-transform ordered above Wα (DFR / α-DGFR)",
+    "compared": "two r-th m-GOS in increasing convex order (reversed parameter conditions)",
+    "hypotheses": [
+     {"text": "γ1:r < β1:r, µ,ν > 0, M-ratio > 1; or γr:r > β1:r > γ1:r, ν = 0 < µ, M(r,β1:r,0)/M(r,γ1:r,µ) < 1", "formal": "parameter conditions", "source": "statement"},
+     {"text": "(i) F ⪰c W0 + (21), (ii) F ⪰c Wα α > 0 + (22), or (iii) F ⪰c Wα −γ1:r < α < 0 + (23)", "formal": "transform order + mean inequalities", "source": "statement"}
+    ],
+    "conclusion": {"order": "icx", "direction": "Xr,γ1:r,µ ⪯icx Xr,β1:r,ν (γ side icx-smaller)"},
+    "quantifiers": "r ≥ 1",
+    "numbers": "",
+    "ambiguity": "Case (iii) with α = −1 covers the IOR family."
+   }
+  ],
+  "note": "Both passes agree: icx, γ-side smaller; merged."
+ },
+ {
+  "queue_claim": "proposition3",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2606.07022",
+    "claim": "Proposition 3",
+    "page": 13,
+    "quote": "Proposition 3. Assume the Xr,γ1:r,µ and Xq,β1:q,µ, with r > q and γ1:r > β1:q, denote the r-th and q-th m-GOS with minimal parameters γ1:r and β1:r, respectively, identical common differences µ, and identical baseline distribution function F. Under either of conditions (i) F ⪯c W0 (F is IFR) and Σ_{i≤r} 1/(γ1:r+(i−1)µ) ≤ Σ_{i≤q} 1/(β1:q+(i−1)µ) (26); (ii) F ⪯c Wα for some α > 0 (F is α-IGFR) and M(r,γ1:r,µ)/M(r,α+γ1:r,µ) ≥ M(q,β1:q,µ)/M(q,α+β1:q,µ) (27); (iii) F ⪯c Wα for some −β1:q < α < 0 (F is α-IGFR) and the same ≤ (28); we obtain Xr,γ1:r,µ ⪯icv Xq,β1:q,µ.",
+    "kind": "proposition",
+    "model": "other: m-GOS of different orders (r > q), common baseline",
+    "family": "baseline F ⪯c Wα (IFR / α-IGFR)",
+    "compared": "r-th vs q-th m-GOS in increasing concave order (γ1:r > β1:q)",
+    "hypotheses": [
+     {"text": "r > q, γ1:r > β1:q, identical µ, common F", "formal": "parameter conditions", "source": "statement"},
+     {"text": "(i) F ⪯c W0 + (26), (ii) F ⪯c Wα α > 0 + (27), or (iii) F ⪯c Wα −β1:q < α < 0 + (28)", "formal": "transform order + mean inequalities", "source": "statement"}
+    ],
+    "conclusion": {"order": "icv", "direction": "Xr,γ1:r,µ ⪯icv Xq,β1:q,µ (r-th side icv-smaller)"},
+    "quantifiers": "r > q ≥ 1",
+    "numbers": "",
+    "ambiguity": "Case (iii) with α = −1 covers the DOR family."
+   }
+  ],
+  "note": "Both passes agree: icv, Xr side smaller; merged."
+ },
+ {
+  "queue_claim": "proposition4",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2606.07022",
+    "claim": "Proposition 4",
+    "page": 13,
+    "quote": "Proposition 4. Assume the notation of Proposition 1 with r < q and γ1:r < β1:q. Under either of conditions (i) F ⪰c W0 (F is DFR) and (26), (ii) F ⪰c Wα for some α > 0 (F is α-DGFR) and (27), (iii) F ⪰c Wα for some −γ1:r < α < 0 (F is α-DGFR) and (28), we get Xr,γ1:r,µ ⪯icx Xq,β1:q,µ.",
+    "kind": "proposition",
+    "model": "other: m-GOS of different orders (r < q), common baseline",
+    "family": "baseline F ⪰c Wα (DFR / α-DGFR)",
+    "compared": "r-th vs q-th m-GOS in increasing convex order (γ1:r < β1:q)",
+    "hypotheses": [
+     {"text": "r < q and γ1:r < β1:q", "formal": "parameter conditions", "source": "statement"},
+     {"text": "(i) F ⪰c W0 + (26), (ii) F ⪰c Wα α > 0 + (27), or (iii) F ⪰c Wα −γ1:r < α < 0 + (28)", "formal": "transform order + mean inequalities", "source": "statement"}
+    ],
+    "conclusion": {"order": "icx", "direction": "Xr,γ1:r,µ ⪯icx Xq,β1:q,µ (r-th side icx-smaller)"},
+    "quantifiers": "q > r ≥ 1",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Both passes agree: icx, Xr side smaller; merged."
+ },
+ {
+  "queue_claim": "proposition5",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2606.07022",
+    "claim": "Proposition 5",
+    "page": 14,
+    "quote": "Proposition 5. Let Xr,γ1:r,µ and Xq,β1:q,ν be m-GOS based on the same baseline F. (a) Assume that parameter conditions of Proposition 1 (when q = r) or of Proposition 3 (when µ = ν) hold. Suppose that F ⪯c W̃α for some α ∈ R. (i) If α = 0 and Σ_ℓ (1/ℓ) M(r,γ1:r,µ)/M(r,ℓ+γ1:r,µ) ≥ Σ_ℓ (1/ℓ) M(q,β1:q,ν)/M(q,ℓ+β1:q,ν), then Xr,γ1:r,µ ⪯icv Xq,β1:q,ν. (ii) If α > 0 and Σ_ℓ (−1)^ℓ C(α,ℓ) M(r,γ1:r,µ)/M(r,ℓ+γ1:r,µ) ≤ [same with β], then Xr,γ1:r,µ ⪯icv Xq,β1:q,ν. (iii) If α < 0 with α > −1 and the same inequality ≥, then Xr,γ1:r,µ ⪯icv Xq,β1:q,ν. (b) Assume now that the parameter conditions of Proposition 2 (when q = r) or of Proposition 4 (when µ = ν) hold. If F ⪰c W̃α, then conditions (i), (ii), (iii) above imply Xr,γ1:r,µ ⪯icv Xq,β1:q,ν.",
+    "kind": "proposition",
+    "model": "other: m-GOS (equal or different orders), common baseline",
+    "family": "baseline F transform-ordered w.r.t. negative generalized Pareto W̃α (generalized reversed failure rate classes DRFR/IRFR; α = −1 gives DOR/IOR)",
+    "compared": "two m-GOS in increasing concave order via series conditions on M-ratios",
+    "hypotheses": [
+     {"text": "parameter conditions of Proposition 1/3 (case a) or Proposition 2/4 (case b)", "formal": "as stated", "source": "statement"},
+     {"text": "(a) F ⪯c W̃α, (b) F ⪰c W̃α; series inequalities (i) α = 0, (ii) α > 0, (iii) −1 < α < 0", "formal": "three α regimes", "source": "statement"}
+    ],
+    "conclusion": {"order": "icv", "direction": "Xr,γ1:r,µ ⪯icv Xq,β1:q,ν in all cases (γ side icv-smaller)"},
+    "quantifiers": "r, q ≥ 1; α > −1 in (iii)",
+    "numbers": "",
+    "ambiguity": "As printed, part (b) also concludes ⪯icv despite mirroring the icx assumptions of Propositions 2/4 — probable misprint for ⪯icx; recorded as printed per spec rule 3."
+   }
+  ],
+  "note": "Both passes agree all conclusions print ⪯icv; flag (b)'s likely icx misprint."
+ },
+ {
+  "queue_claim": "proposition6",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2606.07022",
+    "claim": "Proposition 6(i)",
+    "page": 15,
+    "quote": "Proposition 6. Let Xr,γ1:r,µ and Xr,β1:r,ν denote the r-th m-GOS with minimal parameters γ1:r and β1:r, respectively, identical common differences µ and ν, respectively, and common baseline distribution function F. Recall that γi:r = γ1:r + (i−1)µ and βi:r = β1:r + (i−1)ν. (i) If F ⪯c L (F is ILOR), γ1:r ≥ β1:r, M(r,γ1:r,µ)/M(r,β1:r,ν) < 1 and Σ_{i≤r}(1/γi:r − 1/βi:r) ≤ Σ_{ℓ≥1} (1/ℓ)[M(r,γ1:r,µ)/M(r,ℓ+γ1:r,µ) − M(r,β1:r,µ)/M(r,ℓ+β1:r,µ)] (31), then Xr,γ1:r,µ ≤icv Xr,β1:r,ν.",
+    "kind": "proposition",
+    "model": "other: r-th m-GOS, common baseline",
+    "family": "baseline F convex-transform below logistic L (ILOR — increasing log-odds rate)",
+    "compared": "two r-th m-GOS in increasing concave order",
+    "hypotheses": [
+     {"text": "F ⪯c L (ILOR); γ1:r ≥ β1:r; M-ratio < 1; series condition (31)", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "icv", "direction": "Xr,γ1:r,µ ⪯icv Xr,β1:r,ν (γ side icv-smaller)"},
+    "quantifiers": "r ≥ 1",
+    "numbers": "",
+    "ambiguity": "M-ratio < 1 with γ1:r ≥ β1:r implicitly forces µ < ν."
+   },
+   {
+    "paper": "arxiv:2606.07022",
+    "claim": "Proposition 6(ii)",
+    "page": 15,
+    "quote": "(ii) If F ⪰c L (F is DLOR), γ1:r ≥ β1:r, M(r,γ1:r,µ)/M(r,β1:r,ν) < 1 and Σ_{i≤r}(1/γi:r − 1/βi:r) ≥ Σ_{ℓ≥1} (1/ℓ)[M(r,γ1:r,µ)/M(r,ℓ+γ1:r,µ) − M(r,β1:r,µ)/M(r,ℓ+β1:r,µ)] (32), then Xr,γ1:r,µ ≤icx Xr,β1:r,ν.",
+    "kind": "proposition",
+    "model": "other: r-th m-GOS, common baseline",
+    "family": "baseline F convex-transform above logistic L (DLOR — decreasing log-odds rate)",
+    "compared": "two r-th m-GOS in increasing convex order",
+    "hypotheses": [
+     {"text": "F ⪰c L (DLOR); γ1:r ≥ β1:r; M-ratio < 1; series condition (32)", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "icx", "direction": "Xr,γ1:r,µ ⪯icx Xr,β1:r,ν (γ side icx-smaller)"},
+    "quantifiers": "r ≥ 1",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Split per part: (i) prints ≤icv, (ii) prints ≤icx — both with γ-side smaller; passes agreed."
+ },
+ {
+  "queue_claim": "proposition7",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2606.07022",
+    "claim": "Proposition 7(i)",
+    "page": 16,
+    "quote": "Proposition 7. Let Xr,γ1:r,µ and Xq,β1:q,µ denote the r-th and q-th m-GOS with r > q and minimal parameters γ1:r and β1:q, respectively, identical common differences µ, and common baseline distribution function F. (i) If F ⪯c L (F is ILOR), γ1:r ≥ β1:q and Σ_{i≤r} 1/γi:r − Σ_{i≤q} 1/βi:q ≤ Σ_{ℓ≥1} (1/ℓ)[M(r,γ1:r,µ)/M(r,ℓ+γ1:r,µ) − M(r,β1:q,µ)/M(r,ℓ+β1:q,µ)], then Xr,γ1:r,µ ≤icv Xq,β1:q,µ.",
+    "kind": "proposition",
+    "model": "other: m-GOS of different orders (r > q), common baseline",
+    "family": "baseline F ⪯c L (ILOR)",
+    "compared": "r-th vs q-th m-GOS in increasing concave order",
+    "hypotheses": [
+     {"text": "r > q; F ⪯c L; γ1:r ≥ β1:q; series inequality", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "icv", "direction": "Xr,γ1:r,µ ⪯icv Xq,β1:q,µ (r-th side icv-smaller)"},
+    "quantifiers": "r > q ≥ 1",
+    "numbers": "",
+    "ambiguity": ""
+   },
+   {
+    "paper": "arxiv:2606.07022",
+    "claim": "Proposition 7(ii)",
+    "page": 16,
+    "quote": "(ii) If F ⪰c L (F is DLOR), γ1:r ≥ β1:r and Σ_{i≤r} 1/γi:r − Σ_{i≤q} 1/βi:q ≥ Σ_{ℓ≥1} (1/ℓ)[M(r,γ1:r,µ)/M(r,ℓ+γ1:r,µ) − M(r,β1:q,µ)/M(r,ℓ+β1:q,µ)], then Xr,γ1:r,µ ≥icx Xq,β1:q,µ.",
+    "kind": "proposition",
+    "model": "other: m-GOS of different orders (r > q), common baseline",
+    "family": "baseline F ⪰c L (DLOR)",
+    "compared": "r-th vs q-th m-GOS in increasing convex order",
+    "hypotheses": [
+     {"text": "r > q; F ⪰c L; γ1:r ≥ β1:r (as printed; likely β1:q); reversed series inequality", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "icx", "direction": "Xr,γ1:r,µ ⪰icx Xq,β1:q,µ AS PRINTED (r-th side icx-LARGER)"},
+    "quantifiers": "r > q ≥ 1",
+    "numbers": "",
+    "ambiguity": "Conclusion printed ≥icx (reversed) — likely a misprint for ≤icx parallel to Proposition 6(ii); also hypothesis prints γ1:r ≥ β1:r where β1:q is expected. Recorded as printed."
+   }
+  ],
+  "note": "Split per part: (i) ≤icv; (ii) prints ≥icx (reversed) — flagged as likely misprint."
+ },
+ {
+  "queue_claim": "proposition8",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2606.07022",
+    "claim": "Proposition 8",
+    "page": 18,
+    "quote": "Proposition 8. Consider r-th m-GOS Xr,γ1:r,µ and Xr,β1:r,ν with identical parent distribution function F. (a) Let γ1:r > β1:r, M(r,γ1:r,µ)/M(r,β1:r,ν) < 1 and µ, ν > 0. (i) If F ⪰∗ W0 (F is DFRA), and for the first zero x∗ of fr,γ1:r,µ − fr,β1:r,ν in (0, 1) we have Zr,γ1:r,µ,0(−ln(1−x∗)) − Zr,β1:r,ν,0(−ln(1−x∗)) ≤ 0, then Xr,γ1:r,µ ⪯ss Xr,β1:r,ν. (ii) If −β1:r < α ≠ 0, F ⪰∗ Wα (F is α-DGFRA), and for the first zero x∗ we have Zr,γ1:r,µ,α((1−(1−x∗)^α)/α) − Zr,β1:r,ν,α((1−(1−x∗)^α)/α) ≤ 0, then Xr,γ1:r,µ ⪯ss Xr,β1:r,ν. (b) Let γ1:r > β1:r, βr:r > γ1:r, M(r,γ1:r,0)/M(r,β1:r,ν) < 1 and µ = 0 < ν. (i)-(ii) analogous ⇒ Xr,γ1:r,0 ⪯ss Xr,β1:r,ν.",
+    "kind": "proposition",
+    "model": "other: r-th m-GOS, common baseline",
+    "family": "baseline F star-transform ordered above generalized Pareto Wα (DFRA / α-DGFRA)",
+    "compared": "two r-th m-GOS in star-shaped order",
+    "hypotheses": [
+     {"text": "(a) γ1:r > β1:r, M-ratio < 1, µ,ν > 0; or (b) γ1:r > β1:r, βr:r > γ1:r, M-ratio < 1, µ = 0 < ν", "formal": "parameter cases", "source": "statement"},
+     {"text": "F ⪰∗ W0 (DFRA) or F ⪰∗ Wα (α-DGFRA, −β1:r < α ≠ 0); Z-difference ≤ 0 at transformed first density zero x∗", "formal": "verifiable one-point condition", "source": "statement"}
+    ],
+    "conclusion": {"order": "star", "direction": "Xr,γ1:r,µ ⪯ss Xr,β1:r,ν (γ side ss-smaller)"},
+    "quantifiers": "r ≥ 1; x∗ = first zero of density difference",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Printed order is ⪯ss (star-shaped); 'st' order tags were normalization artifacts — dirs agreed all along."
+ },
+ {
+  "queue_claim": "proposition9",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2606.07022",
+    "claim": "Proposition 9",
+    "page": 19,
+    "quote": "Proposition 9. Let Xr,γ1:r,µ and Xq,β1:q,µ denote the r-th and q-th m-GOS with the same common difference µ and baseline distribution function F. Suppose that γ1:r > β1:q and r > q. 1. Assume µ = 0. (i) If F ⪰∗ W0 (F is DFRA), and for the first zero x∗ of fr,γ1:r,0 − fq,β1:q,0 on (0, 1) we have Zr,γ1:r,0,0(−ln(1−x∗)) − Zq,β1:q,0,0(−ln(1−x∗)) ≤ 0, then Xr,γ1:r,0 ⪯ss Xq,β1:q,0. (ii) If −β1:q < α ≠ 0, F ⪰∗ Wα (F is α-DGFRA), and the analogous Z-condition at (1−(1−x∗)^α)/α holds, then Xr,γ1:r,0 ⪯ss Xq,β1:q,0. 2. Take now µ > 0. (i)-(ii) analogous ⇒ Xr,γ1:r,0 ⪯ss Xq,β1:q,0 (as printed).",
+    "kind": "proposition",
+    "model": "other: m-GOS of different orders (r > q), common baseline",
+    "family": "baseline F ⪰∗ Wα (DFRA / α-DGFRA)",
+    "compared": "r-th vs q-th m-GOS in star-shaped order",
+    "hypotheses": [
+     {"text": "γ1:r > β1:q and r > q; µ = 0 (part 1) or µ > 0 (part 2)", "formal": "parameter conditions", "source": "statement"},
+     {"text": "F ⪰∗ W0 (DFRA) or F ⪰∗ Wα (α-DGFRA, −β1:q < α ≠ 0); Z-difference ≤ 0 at first zero x∗", "formal": "one-point Z condition", "source": "statement"}
+    ],
+    "conclusion": {"order": "star", "direction": "Xr,γ1:r,0 ⪯ss Xq,β1:q,0 (r-th side ss-smaller)"},
+    "quantifiers": "r > q ≥ 1",
+    "numbers": "",
+    "ambiguity": "Part 2 (µ > 0) conclusions still print subscript 0 in Xr,γ1:r,0 — retained as printed."
+   }
+  ],
+  "note": "Printed order is ⪯ss (star-shaped), not st; merged."
+ },
+ {
+  "queue_claim": "remark2",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2606.07022",
+    "claim": "Remark 2 (item 1)",
+    "page": 11,
+    "quote": "Remark 2. The following extensions of Corollaries 1 and 2 are immediate: 1. by changing the roles of the parameter vectors γ̃r and β̃q (and β̃r in particular) we obtain analogous results in the cases γ1:r ≤ β1:q;",
+    "kind": "corollary",
+    "model": "other: m-GOS (extensions of Corollaries 1-2)",
+    "family": "common baseline F",
+    "compared": "role-reversed st comparisons when γ1:r ≤ β1:q",
+    "hypotheses": [
+     {"text": "γ1:r ≤ β1:q (role reversal of Corollaries 1-2 conditions)", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "analogous: Xq,β̃q ⪯st Xr,γ̃r (β̃ side smaller when γ1:r ≤ β1:q)"},
+    "quantifiers": "",
+    "numbers": "",
+    "ambiguity": "Printed as a Remark stating 'analogous results' — no explicit new symbol claim; extension of Corollaries 1-2."
+   },
+   {
+    "paper": "arxiv:2606.07022",
+    "claim": "Remark 2 (item 2)",
+    "page": 11,
+    "quote": "2. replacing Xr,γ̃r and Xq,β̃q by Xp,γ̃p, and Xs,β̃s, respectively, where p < r with γ̃p consists of a choice of any p elements of γ̃r, and s > q, β̃s = (β1, . . . , βq, βq+1, . . . , βs) with arbitrary βs+1, . . . , βs > 0 and baseline distribution function G of Xs,β̃s satisfying G ⪰st F we get Xp,γ̃p ⪯st Xs,β̃s.",
+    "kind": "corollary",
+    "model": "other: m-GOS parameter sub-/super-sequences across two baselines",
+    "family": "two baselines F, G with G ⪰st F",
+    "compared": "p-th m-GOS on sub-parameter vector vs s-th m-GOS on extended vector (different baselines)",
+    "hypotheses": [
+     {"text": "p < r, γ̃p any p-subset of γ̃r; s > q, β̃s extends β̃q; G ⪰st F", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Xp,γ̃p ⪯st Xs,β̃s (p-th side stochastically smaller)"},
+    "quantifiers": "p < r, s > q",
+    "numbers": "",
+    "ambiguity": "Printed as a Remark (immediate extension of Corollaries 1-2); kind recorded as corollary-like extension. Section 3.1 preamble notes the st orders imply icx/icv/ss for the same pairs; Remark 5 gives the ss analog."
+   }
+  ],
+  "note": "Remark prints genuine st-order conclusions for a specific model — in scope; two records (role-reversal analog and sub/super-sequence version)."
+ },
+ {
+  "queue_claim": "theorem1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2606.07022",
+    "claim": "Theorem 1",
+    "page": 5,
+    "quote": "Theorem 1. Let H be a family of nondecreasing functions that is closed under compositions. Let Xr,γ̃r and Yq,β̃q denote the r-th and q-th GOS based on parameters γ̃r = (γ1, . . . , γr) and β̃r = (β1, . . . , βq), respectively, and baseline distribution functions F and G, respectively. If F ⪰TH G and Yr,γ̃r ⪰IH Yq,β̃q, then Xr,γ̃r ⪰IH Xq,β̃q.",
+    "kind": "theorem",
+    "model": "other: generalized order statistics (GOS) under quantile representation X = F^{-1}(U)",
+    "family": "arbitrary baselines F, G linked by transform order; arbitrary generator family H",
+    "compared": "r-th GOS on baseline F vs q-th GOS on baseline G, in the H-integral order",
+    "hypotheses": [
+     {"text": "H closed under compositions; F ⪰TH G; Yr,γ̃r ⪰IH Yq,β̃q", "formal": "transform order on baselines + integral order on same-baseline GOS", "source": "statement"}
+    ],
+    "conclusion": {"order": "other: integral order ⪰IH", "direction": "Xr,γ̃r ⪰IH Xq,β̃q (X-side IH-larger; equivalently Xq,β̃q is smaller)"},
+    "quantifiers": "r, q ≥ 1; all h ∈ H with existing expectations",
+    "numbers": "",
+    "ambiguity": "Master transfer theorem stated for a fully general order family H (encompasses st/icx/icv/ss by Definition 3) — generalizes Theorem 3.1 of Arab et al. (2025); kept because the compared objects are specific GOS models and both passes extracted it."
+   }
+  ],
+  "note": "Both passes agree Xr ⪰IH Xq (X-side larger / B smaller); page corrected to 5."
+ }
+]
