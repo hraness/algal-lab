@@ -132,4 +132,8 @@ results, and a paper reporting P1 and P2.
 
 ## Amendments
 
-None yet.
+1. **2026-09-27, before the freeze.** Semantic Scholar withholds the abstracts
+   of some publishers, so the local re-check of the frame rule cannot run on
+   those records. They are kept and flagged `abstract_withheld` (310 of the 858
+   candidates) instead of dropped, because dropping them would bias the frame
+   against those publishers. Screening reads each paper anyway.
