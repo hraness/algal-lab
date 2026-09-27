@@ -1,0 +1,37 @@
+[
+ {
+  "paper": "doi:10.3390/sym13020309",
+  "claim": "Section 3.1 result, Equation (7)",
+  "page": 7,
+  "quote": "We now investigate a first-order stochastic dominance property satisfied by the HLIL distribution, according to the concept described in [19]. Let φ1 = (α1, λ1, β1) and φ2 = (α2, λ2, β2). Then, if α2 ≤ α1, λ1 ≤ λ2 and β1 ≤ β2, we have F(x; φ1) ≤ F(x; φ2). (7) The proof of (7) is given in the Appendix. Thus, under the considered configuration on φ1 and φ2, the HLIL distribution with parameter vector φ1 first-order stochastically dominates the HLIL distribution with parameter vector φ2.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "Half logistic inverse Lomax HLIL(α, λ, β): F(x;φ) = [1 − (1 − (1+(xλ)^{−1})^{−α})^β] / [1 + (1 − (1+(xλ)^{−1})^{−α})^β], x > 0; λ > 0 scale, α, β > 0 shapes (cdf Equation (3); half-logistic generated family (2) applied to inverse Lomax parent (1))",
+  "compared": "parameter vectors φ1 = (α1,λ1,β1) vs φ2 = (α2,λ2,β2) with α2 ≤ α1, λ1 ≤ λ2, β1 ≤ β2",
+  "hypotheses": [
+   {"text": "if α2 ≤ α1, λ1 ≤ λ2 and β1 ≤ β2", "formal": "α2 ≤ α1, λ1 ≤ λ2, β1 ≤ β2", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "F(x;φ1) ≤ F(x;φ2) for all x, i.e. HLIL(φ1) first-order stochastically dominates HLIL(φ2): X(φ2) ≤_st X(φ1)"},
+  "quantifiers": "all x > 0",
+  "numbers": "",
+  "ambiguity": "Unnumbered result stated inline in Section 3.1 with proof relegated to the Appendix; recorded with kind 'theorem' for want of a better label. In the appendix the cdf direction is shown via ∂F/∂α < 0, ∂F/∂λ > 0, ∂F/∂β > 0 (matching the stated inequalities)."
+ },
+ {
+  "paper": "doi:10.3390/sym13020309",
+  "claim": "Section 3.1 result (HLIL vs IL dominance)",
+  "page": 7,
+  "quote": "Also, we can use this result to show that, for β ∈ (0, 1], the HLIL distribution with parameter vector φ = (α, λ, β) first-order stochastically dominates the IL distribution with parameter vector (α, λ). Such property is not immediate for the case β > 1.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "HLIL(α, λ, β) vs inverse Lomax IL(α, λ) (β = 1 boundary case of the half-logistic family)",
+  "compared": "HLIL with β ∈ (0,1] vs IL with same α, λ",
+  "hypotheses": [
+   {"text": "for β ∈ (0, 1]", "formal": "0 < β ≤ 1", "source": "statement"},
+   {"text": "for x > 0, F(x; φ) ≤ F(x; (α, 1, λ)) = G(x; α, λ)/(1 + 1 − (1 + (xλ)^{−1})^{−α}) ≤ G(x; α, λ)", "formal": "F_HLIL(x) ≤ G_IL(x) pointwise", "source": "appendix (proof of (7))"}
+  ],
+  "conclusion": {"order": "st", "direction": "HLIL(α,λ,β) first-order stochastically dominates IL(α,λ): IL(α,λ) ≤_st HLIL(α,λ,β)"},
+  "quantifiers": "x > 0; β ∈ (0,1]",
+  "numbers": "",
+  "ambiguity": "Appendix writes the intermediate cdf as 'F(x; (α, 1, λ))' — argument order inconsistent with φ = (α, λ, β) (β = 1 intended); recorded verbatim. The case β > 1 is explicitly left open."
+ }
+]

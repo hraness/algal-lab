@@ -1,0 +1,382 @@
+[
+ {
+  "paper": "doi:10.1007/s11587-026-01094-9",
+  "claim": "Theorem 3.1",
+  "page": 5,
+  "quote": "Theorem 3.1. Let {U1, . . . , Un} and {V1, . . . , Vn} be two sets of independent random variables with Ui ~ F̄(x; αi) and Vi ~ F̄(x; βi), respectively. Also, let {J1, . . . , Jn} and {J1*, . . . , Jn*} be another two sets of independent Bernoulli random variables, independently of Ui's and Vi's with E(Ji) = pi and E(Ji*) = pi, respectively. Assume that F̄(x; αi) is decreasing and log-convex in αi for any x. Then, for (ψ(p), α; n), (ψ(p), β; n) ∈ Mn, we have α ≺^w β ⇒ T1:n ≥st T1:n*.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "semiparametric family F̄(·;α); claims Ti = JiUi with Bernoulli(pi) occurrence indicators; ψ(p) = (ψ(p1),...,ψ(pn)) transform of occurrence probabilities; fixed n",
+  "compared": "severity parameters α vs β with common occurrence vector p; α weakly supermajorized by β",
+  "hypotheses": [
+   {"text": "Ui ~ F̄(x; αi) and Vi ~ F̄(x; βi); Ji, Ji* Bernoulli with E(Ji) = E(Ji*) = pi", "formal": "independent heterogeneous portfolios, common p", "source": "statement"},
+   {"text": "F̄(x; αi) is decreasing and log-convex in αi for any x", "formal": "α -> F̄(x;α) decreasing, log-convex", "source": "statement"},
+   {"text": "(ψ(p), α; n), (ψ(p), β; n) ∈ Mn; α ≺^w β", "formal": "same-order matrices; α weakly supermajorized by β (Def. 2.2)", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "T1:n* <=_st T1:n (stated as T1:n ≥st T1:n*)"},
+  "quantifiers": "n ≥ 1, x ≥ 0",
+  "ambiguity": "≺^w is the paper's 'weakly supermajorizes' relation (Def. 2.2: partial sums of sorted coordinates)."
+ },
+ {
+  "paper": "doi:10.1007/s11587-026-01094-9",
+  "claim": "Theorem 3.2",
+  "page": 5,
+  "quote": "Theorem 3.2. Let {U1, . . . , Un} and {V1, . . . , Vn} be two sets of independent random variables with Ui ~ F̄(x; αi) and Vi ~ F̄(x; αi), respectively. Also, let {J1, . . . , Jn} and {J1*, . . . , Jn*} be another two sets of independent Bernoulli random variables, independently of Ui's and Vi's with E(Ji) = pi and E(Ji*) = p*i, respectively. Assume that ψ : (0, 1) → (0, ∞) is a differentiable, decreasing, and log-convex function. Then, for (ψ(p), α; n), (ψ(p*), α; n) ∈ Mn, we have ψ(p) ≺^w ψ(p*) ⇒ T1:n ≥st T1:n*.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "semiparametric family F̄(·;α) common α on both sides; occurrence probability transforms ψ(p) vs ψ(p*)",
+  "compared": "occurrence probability vectors p vs p* (transformed by ψ); common severities α",
+  "hypotheses": [
+   {"text": "Ui ~ F̄(x; αi) and Vi ~ F̄(x; αi); E(Ji) = pi, E(Ji*) = p*i", "formal": "common severity parameters, different occurrence probabilities", "source": "statement"},
+   {"text": "ψ : (0, 1) → (0, ∞) is a differentiable, decreasing, and log-convex function", "formal": "ψ decreasing log-convex (⇒ ψ^{−1} decreasing log-convex)", "source": "statement"},
+   {"text": "ψ(p) ≺^w ψ(p*)", "formal": "ψ(p) weakly supermajorized by ψ(p*)", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "T1:n* <=_st T1:n"},
+  "quantifiers": "n ≥ 1, x ≥ 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1007/s11587-026-01094-9",
+  "claim": "Theorem 3.3",
+  "page": 6,
+  "quote": "Theorem 3.3. Let {U1, . . . , Un} and {V1, . . . , Vn} be two sets of independent random variables with Ui ~ F̄(x; αi) and Vi ~ F̄(x; βi), respectively. Also, let {J1, . . . , Jn} and {J1*, . . . , Jn*} be another two sets of independent Bernoulli random variables, independently of Ui's and Vi's with E(Ji) = pi and E(Ji*) = p*i, respectively. Further, let N1 and N2 be two positive integer-valued random variables independently of Ti's and Ti*'s satisfying N1 ≤st N2, respectively. Assume that the following conditions hold: (i) F̄(x; αi) is decreasing and log-convex in αi for any x; (ii) ψ : (0, 1) → (0, ∞) is a differentiable, strictly decreasing and log-convex function. Then, for (ψ(p), α; n), (ψ(p*), β; n) ∈ Mn, we have (ψ(p), α; n) >^w (ψ(p*), β; n) ⇒ T1:N1 ≥st T1:N2*.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "semiparametric family F̄(·;α); random minima over random number of claims N1, N2",
+  "compared": "parameter matrices (ψ(p),α;n) vs (ψ(p*),β;n) in row weak majorization; random sample sizes N1 ≤st N2",
+  "hypotheses": [
+   {"text": "N1 ≤st N2", "formal": "random sample sizes stochastically ordered", "source": "statement"},
+   {"text": "F̄(x; αi) is decreasing and log-convex in αi for any x", "formal": "severity sf monotone log-convex in parameter", "source": "statement"},
+   {"text": "ψ : (0, 1) → (0, ∞) is a differentiable, strictly decreasing and log-convex function", "formal": "transform condition", "source": "statement"},
+   {"text": "(ψ(p), α; n) >^w (ψ(p*), β; n), both in Mn", "formal": "row weak majorization of parameter matrices", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "T1:N2* <=_st T1:N1"},
+  "quantifiers": "n ≥ 1, x ≥ 0, N1,N2 positive integer-valued",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1007/s11587-026-01094-9",
+  "claim": "Counterexample 3.1",
+  "page": 7,
+  "quote": "Counterexample 3.1. Consider the density function of a Gamma distribution (denoted by Gamma(θ, α)), f(x, θ, α) = (1/Γ(α)θ^α) x^{α−1} e^{−x/θ}, x, θ, α > 0. Let ψ(p) = − ln(p). Here both ψ(p) and the survival function of Gamma distribution (F̄(x; α)), are decreasing and log-convex in p and α for fix θ, respectively. Suppose, Ui ~ Gamma(10.09, αi) and Vi ~ Gamma(10.09, βi), for i = 1, 2, 3, 4, 5. Further, set (α1,...,α5) = (1.9, 2, 3, 5, 6) and (β1,...,β5) = (4.9, 6.5, 7.6, 8.2, 10.9), (p1,...,p5) = (e^{−0.7}, e^{−2.1}, e^{−3.2}, e^{−4.9}, e^{−6.9}) and (q1,...,q5) = (e^{−1.5}, e^{−1.6}, e^{−2.6}, e^{−3.9}, e^{−4.2}). Clearly, (ψ(p), α; n) >^w (ψ(p*), β; n). Let N1 ~ Poisson(λ1) and N2 ~ Poisson(λ2), where λ1 = 10.9 and λ2 = 2. ... Here all the conditions are satisfied of Theorem 3.3 except N1 ≤st N2. Figure 2(b) presents that the difference between F̄T1:N1(x) and F̄T1:N2*(x) crosses x axis for some x ≥ 0 which violated the statement of the Theorem 3.3.",
+  "kind": "counterexample",
+  "model": "series system",
+  "family": "Gamma(θ=10.09, shape αi / βi) severities; ψ(p) = −ln p; Poisson claim counts",
+  "compared": "α=(1.9,2,3,5,6) vs β=(4.9,6.5,7.6,8.2,10.9); p vs q transforms; λ1=10.9 vs λ2=2 (violates N1 ≤st N2)",
+  "hypotheses": [
+   {"text": "Ui ~ Gamma(10.09, αi), Vi ~ Gamma(10.09, βi); ψ(p) = −ln(p); (ψ(p),α;n) >^w (ψ(p*),β;n)", "formal": "all Theorem 3.3 conditions except N1 ≤st N2", "source": "statement"},
+   {"text": "N1 ~ Poisson(10.9), N2 ~ Poisson(2)", "formal": "N1 stochastically LARGER than N2 — N1 ≤st N2 violated", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "F̄T1:N1(x) − F̄T1:N2*(x) crosses the axis: T1:N1 ≥st T1:N2* fails"},
+  "quantifiers": "n = 5; N restricted to {3,4,5} in the printed sampling scheme",
+  "numbers": "α=(1.9,2,3,5,6); β=(4.9,6.5,7.6,8.2,10.9); p=(e^{−0.7},e^{−2.1},e^{−3.2},e^{−4.9},e^{−6.9}); q=(e^{−1.5},e^{−1.6},e^{−2.6},e^{−3.9},e^{−4.2}); θ=10.09; λ1=10.9; λ2=2",
+  "ambiguity": "The printed 'selection' description truncates the Poisson pmfs to N ∈ {3,4,5} rather than the full Poisson support."
+ },
+ {
+  "paper": "doi:10.1007/s11587-026-01094-9",
+  "claim": "Theorem 3.4",
+  "page": 7,
+  "quote": "Theorem 3.4. Let {U1, . . . , Un} and {V1, . . . , Vn} be two sets of independent random variables with Ui ~ F̄(x; αi) and Vi ~ F̄(x; βi), respectively. Also, let {J1, . . . , Jn} and {J1*, . . . , Jn*} be another two sets of independent Bernoulli random variables, independently of Ui's and Vi's with E(Ji) = pi and E(Ji*) = p*i, respectively. Assume that the following conditions hold: (i) F̄(x; αi) is decreasing and convex in αi for all x; (ii) ψ : (0, 1) → (0, ∞) is a differentiable, strictly decreasing convex function. Then, for (ψ(p), α; n), (ψ(p*), β; n) ∈ Mn, we have (ψ(p), α; n) >^w (ψ(p*), β; n) ⇒ Tn:n ≥st Tn:n*. [Attributed by the authors to Balakrishnan et al. (2018): 'In Balakrishnan et al. (2018), the authors have proved the following theorem...']",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "semiparametric family F̄(·;α); largest claim amount, fixed n",
+  "compared": "parameter matrices in row weak majorization; common n",
+  "hypotheses": [
+   {"text": "F̄(x; αi) is decreasing and convex in αi for all x", "formal": "severity sf decreasing convex in α", "source": "statement"},
+   {"text": "ψ : (0, 1) → (0, ∞) is a differentiable, strictly decreasing convex function", "formal": "transform condition", "source": "statement"},
+   {"text": "(ψ(p), α; n) >^w (ψ(p*), β; n), both in Mn", "formal": "row weak majorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Tn:n* <=_st Tn:n"},
+  "quantifiers": "n ≥ 1, x ≥ 0",
+  "ambiguity": "Stated as a restatement of Balakrishnan et al. (2018) (fixed claim size); extracted because it is a numbered result in the paper."
+ },
+ {
+  "paper": "doi:10.1007/s11587-026-01094-9",
+  "claim": "Theorem 3.5",
+  "page": 8,
+  "quote": "Theorem 3.5. Let {U1, . . . , Un} and {V1, . . . , Vn} be two sets of independent random variables with Ui ~ F̄(x; αi) and Vi ~ F̄(x; βi), respectively. Also, let {J1, . . . , Jn} and {J1*, . . . , Jn*} be another two sets of independent Bernoulli random variables, independently of Ui's and Vi's with E(Ji) = pi and E(Ji*) = p*i, respectively. Further, let N1 and N2 be two positive integer-valued random variables independently of Ti's and Ti*'s satisfying N1 ≤st N2, respectively. Assume that the following conditions hold: (i) F̄(x; αi) is decreasing and convex in αi for all x; (ii) ψ : (0, 1) → (0, ∞) is a differentiable, strictly decreasing convex function. Then, for (ψ(p), α; n), (ψ(p*), β; n) ∈ Mn, we have (ψ(p), α; n) >^w (ψ(p*), β; n) ⇒ TN1:N1 ≥st TN2*:N2.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "semiparametric family F̄(·;α); random maxima over random claim counts",
+  "compared": "parameter matrices in row weak majorization; N1 ≤st N2",
+  "hypotheses": [
+   {"text": "N1 ≤st N2", "formal": "random sample sizes stochastically ordered", "source": "statement"},
+   {"text": "F̄(x; αi) is decreasing and convex in αi for all x", "formal": "severity sf decreasing convex in α", "source": "statement"},
+   {"text": "ψ : (0, 1) → (0, ∞) is a differentiable, strictly decreasing convex function", "formal": "transform condition", "source": "statement"},
+   {"text": "(ψ(p), α; n) >^w (ψ(p*), β; n), both in Mn", "formal": "row weak majorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "TN2*:N2 <=_st TN1:N1"},
+  "quantifiers": "n ≥ 1, x ≥ 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1007/s11587-026-01094-9",
+  "claim": "Example 3.1",
+  "page": 8,
+  "quote": "Example 3.1. Suppose, Ui ~ Gamma(k, αi) and Vi ~ Gamma(k, βi), with k = 1.5 for i = 1, 2, 3, 4, 5. Further, set (α1,...,α5) = (1.9, 2, 3, 5, 6) and (β1,...,β5) = (4.9, 6.5, 7.6, 8.2, 10.9), ψ(p) = − ln(p), (p1,...,p5) = (e^{−0.7}, e^{−0.9}, e^{−3}, e^{−4.9}, e^{3.9}) and (q1,...,q5) = (e^{−1.2}, e^{−1.5}, e^{−1.6}, e^{−2.6}, e^{3.9}). Clearly, (ψ(p), α; n) >^w (ψ(p*), β; n). Let N1 ~ Poisson(λ1) and N2 ~ Poisson(λ2), where λ1 = 0.9 and λ2 = 1.9. ... It is clear that N1 ≤st N2. Here, all the conditions are satisfied of Theorem 3.5. Figure 1(a) presents that the difference between FTN1:N1(x) and FTN2*:N2(x) takes negative values for all x ≥ 0.",
+  "kind": "example",
+  "model": "parallel system",
+  "family": "Gamma(k=1.5 scale, shape αi / βi) severities; ψ(p) = −ln p; Poisson claim counts λ1=0.9, λ2=1.9",
+  "compared": "α=(1.9,2,3,5,6) vs β=(4.9,6.5,7.6,8.2,10.9); p vs q probability transforms",
+  "hypotheses": [
+   {"text": "all the conditions are satisfied of Theorem 3.5: N1 ~ Poisson(0.9) ≤st N2 ~ Poisson(1.9); (ψ(p),α;n) >^w (ψ(p*),β;n)", "formal": "verification of Theorem 3.5 premises", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "FTN1:N1(x) ≤ FTN2*:N2(x) for all x, i.e. TN2*:N2 <=_st TN1:N1 — confirms Theorem 3.5"},
+  "quantifiers": "n = 5; N ∈ {3,4,5} in the printed scheme",
+  "numbers": "k=1.5; α=(1.9,2,3,5,6); β=(4.9,6.5,7.6,8.2,10.9); p=(e^{−0.7},e^{−0.9},e^{−3},e^{−4.9},e^{3.9}); q=(e^{−1.2},e^{−1.5},e^{−1.6},e^{−2.6},e^{3.9}); λ1=0.9; λ2=1.9",
+  "ambiguity": "p5 and q5 are printed as e^{3.9} ≈ 49.4, exceeding 1 — impossible as Bernoulli probabilities; likely missing minus signs (e^{-3.9}) in the source. Recorded verbatim."
+ },
+ {
+  "paper": "doi:10.1007/s11587-026-01094-9",
+  "claim": "Counterexample 3.2",
+  "page": 9,
+  "quote": "Counterexample 3.2. Suppose, Ui ~ Gamma(k, αi) and Vi ~ Gamma(k, βi), with k = 1.5 for i = 1, 2, 3, 4, 5. Further, set (α1,...,α5) = (1.9, 5, 5.5, 6, 10) and (β1,...,β5) = (0.7, 0.9, 3, 4.9, 3.9), ψ(p) = − ln(p), (p1,...,p5) = (e^{−0.7}, e^{−0.9}, e^{−3}, e^{−4.9}, e^{3.9}) and (q1,...,q5) = (e^{−3.9}, e^{−1.5}, e^{−1.6}, e^{−4.2}, e^{2.6}). Clearly, (ψ(p), α; n) >^w (ψ(p*), β; n). Let N1 ~ Poisson(λ1) and N2 ~ Poisson(λ2), where λ1 = 0.9 and λ2 = 1.9. ... Here it is clear that N1 ≤st N2. Here all the conditions are satisfied of Theorem 3.5 except (ψ(p), α; n), (ψ(p*), β; n) ∈ Mn. Figure 1(b) presents that the difference between FTN1:N1(x) and FTN2*:N2(x) crosses x axis for some x ≥ 0, which violates the statement of the Theorem 3.5.",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "Gamma(1.5, αi / βi) severities; ψ(p) = −ln p; Poisson counts λ1=0.9, λ2=1.9",
+  "compared": "α=(1.9,5,5.5,6,10) vs β=(0.7,0.9,3,4.9,3.9) — not similarly ordered, violating the Mn condition",
+  "hypotheses": [
+   {"text": "all the conditions are satisfied of Theorem 3.5 except (ψ(p), α; n), (ψ(p*), β; n) ∈ Mn", "formal": "row weak majorization holds but the matrices are not in Mn", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "FTN1:N1(x) − FTN2*:N2(x) crosses the axis: TN1:N1 ≥st TN2*:N2 fails"},
+  "quantifiers": "n = 5; N ∈ {3,4,5}",
+  "numbers": "α=(1.9,5,5.5,6,10); β=(0.7,0.9,3,4.9,3.9); p=(e^{−0.7},e^{−0.9},e^{−3},e^{−4.9},e^{3.9}); q=(e^{−3.9},e^{−1.5},e^{−1.6},e^{−4.2},e^{2.6}); λ1=0.9; λ2=1.9",
+  "ambiguity": "p5 = e^{3.9} and q5 = e^{2.6} exceed 1 — invalid probabilities, likely missing minus signs in the source."
+ },
+ {
+  "paper": "doi:10.1007/s11587-026-01094-9",
+  "claim": "Theorem 3.6",
+  "page": 10,
+  "quote": "Theorem 3.6. Let F̄(x; αi) = (1 − Gγ(x))^{αi} and F̄(x; βi) = (1 − Gγ(x))^{βi} for i = 1, . . . , n. Under the set-up of Theorem 3.5, suppose ψ : (0, 1) → (0, ∞) is a differentiable, strictly decreasing convex function. Then, for (ψ(p), α; n), (ψ(p*), β; n) ∈ Mn, we have (ψ(p), α; n) >^w (ψ(p*), β; n) ⇒ TN1:N1 ≥st TN2*:N2.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "Kumaraswamy-G severities F̄(x;α) = (1 − Gγ(x))^α; random maxima",
+  "compared": "Kw-G parameter matrices in row weak majorization",
+  "hypotheses": [
+   {"text": "Under the set-up of Theorem 3.5 (including N1 ≤st N2)", "formal": "random sample sizes ordered", "source": "earlier theorem 3.5"},
+   {"text": "ψ : (0, 1) → (0, ∞) is a differentiable, strictly decreasing convex function", "formal": "transform condition", "source": "statement"},
+   {"text": "(ψ(p), α; n) >^w (ψ(p*), β; n), both in Mn", "formal": "row weak majorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "TN2*:N2 <=_st TN1:N1"},
+  "quantifiers": "n ≥ 1, x ≥ 0, γ, αi, βi > 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1007/s11587-026-01094-9",
+  "claim": "Theorem 3.7",
+  "page": 10,
+  "quote": "Theorem 3.7. Let F̄(x; αi) = F̄(xαi) and F̄(x; βi) = F̄(xβi) for i = 1, . . . , n. Under the set-up of Theorem 3.5, suppose the following two conditions hold: (i) ψ : (0, 1) → (0, ∞) is a differentiable, strictly decreasing convex function; (ii) f(x) is decreasing in x. Then, for (ψ(p), α; n), (ψ(p*), β; n) ∈ Mn, we have (ψ(p), α; n) >^w (ψ(p*), β; n) ⇒ TN1:N1 ≥st TN2*:N2.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "scale family F̄(x;α) = F̄(xα) with decreasing baseline density f",
+  "compared": "scale parameter matrices in row weak majorization",
+  "hypotheses": [
+   {"text": "Under the set-up of Theorem 3.5 (including N1 ≤st N2)", "formal": "random sample sizes ordered", "source": "earlier theorem 3.5"},
+   {"text": "ψ : (0, 1) → (0, ∞) is a differentiable, strictly decreasing convex function; f(x) is decreasing in x", "formal": "transform + baseline density conditions", "source": "statement"},
+   {"text": "(ψ(p), α; n) >^w (ψ(p*), β; n), both in Mn", "formal": "row weak majorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "TN2*:N2 <=_st TN1:N1"},
+  "quantifiers": "n ≥ 1, x ≥ 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1007/s11587-026-01094-9",
+  "claim": "Theorem 3.8",
+  "page": 10,
+  "quote": "Theorem 3.8. Let F̄(x; αi) = F̄^{αi}(x) and F̄(x; βi) = F̄^{βi}(x) for i = 1, . . . , n. Under the set-up of Theorem 3.5, suppose ψ : (0, 1) → (0, ∞) is a differentiable, strictly decreasing convex function. Then, for (ψ(p), α; n), (ψ(p*), β; n) ∈ Mn, we have (ψ(p), α; n) >^w (ψ(p*), β; n) ⇒ TN1:N1 ≥st TN2*:N2.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "proportional hazard rate family F̄(x;α) = F̄(x)^α",
+  "compared": "PHR parameter matrices in row weak majorization",
+  "hypotheses": [
+   {"text": "Under the set-up of Theorem 3.5 (including N1 ≤st N2)", "formal": "random sample sizes ordered", "source": "earlier theorem 3.5"},
+   {"text": "ψ : (0, 1) → (0, ∞) is a differentiable, strictly decreasing convex function", "formal": "transform condition", "source": "statement"},
+   {"text": "(ψ(p), α; n) >^w (ψ(p*), β; n), both in Mn", "formal": "row weak majorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "TN2*:N2 <=_st TN1:N1"},
+  "quantifiers": "n ≥ 1, x ≥ 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1007/s11587-026-01094-9",
+  "claim": "Theorem 3.9",
+  "page": 11,
+  "quote": "Theorem 3.9. Let {U1, . . . , Un} and {V1, . . . , Vn} be two sets of independent random variables with Ui ~ F̄(x; αi) and Vi ~ F̄(x; βi), respectively. Also, let {J1, . . . , Jn} and {J1*, . . . , Jn*} be another two sets of independent Bernoulli random variables, independently of Ui's and Vi's with E(Ji) = pi and E(Ji*) = p*i, respectively. Further, let N1 and N2 be two positive integer-valued random variables independently of Ti's and Ti*'s satisfying N1 ≤st N2, respectively. Assume that the following conditions hold: (i) F̄(x; αi) is decreasing and convex in αi for all x; (ii) ψ : (0, 1) → (0, ∞) is a differentiable, strictly decreasing convex function. Then, for (ψ(p), α; n), (ψ(p*), β; n) ∈ Mn, we have (ψ(p*), β; n) = (ψ(p), α; n)T ⇒ TN1:N1 ≥st TN2*:N2.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "semiparametric family; random maxima; multivariate chain majorization",
+  "compared": "(ψ(p*),β;n) obtained from (ψ(p),α;n) by right-multiplying a doubly stochastic T (chain majorization)",
+  "hypotheses": [
+   {"text": "N1 ≤st N2", "formal": "random sample sizes ordered", "source": "statement"},
+   {"text": "F̄(x; αi) is decreasing and convex in αi for all x", "formal": "severity condition", "source": "statement"},
+   {"text": "ψ : (0, 1) → (0, ∞) is a differentiable, strictly decreasing convex function", "formal": "transform condition", "source": "statement"},
+   {"text": "(ψ(p*), β; n) = (ψ(p), α; n)T", "formal": "chain majorization: B = AT with T doubly stochastic (Def. 2.4)", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "TN2*:N2 <=_st TN1:N1"},
+  "quantifiers": "n ≥ 1, x ≥ 0",
+  "ambiguity": "The T in the implication is a doubly stochastic matrix per Definition 2.4."
+ },
+ {
+  "paper": "doi:10.1007/s11587-026-01094-9",
+  "claim": "Theorem 3.10",
+  "page": 11,
+  "quote": "Theorem 3.10. Let F̄(x; αi) = F̄(xαi) and F̄(x; βi) = F̄(xβi) for i = 1, . . . , n. Under the set-up of Theorem 3.9, suppose the following two conditions hold: (i) ψ : (0, 1) → (0, ∞) is a differentiable, strictly decreasing convex function; (ii) f(x) is decreasing in x. Then, for (ψ(p), α; n), (ψ(p*), β; n) ∈ Mn, we have (ψ(p*), β; n) = (ψ(p), α; n)T ⇒ TN1:N1 ≥st TN2*:N2.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "scale family F̄(x;α) = F̄(xα) with decreasing baseline density",
+  "compared": "scale parameter matrices under chain majorization",
+  "hypotheses": [
+   {"text": "Under the set-up of Theorem 3.9 (including N1 ≤st N2)", "formal": "random sample sizes ordered", "source": "earlier theorem 3.9"},
+   {"text": "ψ strictly decreasing convex; f(x) decreasing in x", "formal": "transform + baseline density conditions", "source": "statement"},
+   {"text": "(ψ(p*), β; n) = (ψ(p), α; n)T", "formal": "chain majorization via doubly stochastic T", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "TN2*:N2 <=_st TN1:N1"},
+  "quantifiers": "n ≥ 1, x ≥ 0",
+  "ambiguity": "Described as a generalization of Theorem 2 of Barmalzan et al. (2017) to random claim sizes."
+ },
+ {
+  "paper": "doi:10.1007/s11587-026-01094-9",
+  "claim": "Counterexample 3.3",
+  "page": 11,
+  "quote": "Counterexample 3.3. Under the same set-up as of Example 3.1, Figure 2(a) presents that the ratio between FTN1:N1(x) and FTN2*:N2(x) is not an increasing function of x for all x ≥ 0, which states that Theorem 3.5 can not be extended to reversed hazard rate order.",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "Gamma(1.5, αi / βi) severities, ψ = −ln p, Poisson counts (Example 3.1 values)",
+  "compared": "same parameter values as Example 3.1",
+  "hypotheses": [
+   {"text": "Under the same set-up as of Example 3.1", "formal": "all Theorem 3.5 conditions hold", "source": "earlier theorem Example 3.1"}
+  ],
+  "conclusion": {"order": "rh", "direction": "TN2*:N2 not <=_rh TN1:N1 — cdf ratio FTN1:N1/FTN2*:N2 not increasing, so the st-order conclusion of Theorem 3.5 does not upgrade to reversed hazard rate"},
+  "quantifiers": "n = 5; x ≥ 0",
+  "numbers": "inherits Example 3.1 numbers: α=(1.9,2,3,5,6); β=(4.9,6.5,7.6,8.2,10.9); λ1=0.9; λ2=1.9",
+  "ambiguity": "Reversed hazard rate order requires F_X/F_Y increasing; the plotted ratio is non-monotone (y-axis range ≈ 0.66–0.82)."
+ },
+ {
+  "paper": "doi:10.1007/s11587-026-01094-9",
+  "claim": "Theorem 3.11",
+  "page": 12,
+  "quote": "Theorem 3.11. Let {U1, . . . , Un} and {V1, . . . , Vn} be two sets of independent random variables with Ui ~ F̄(x; αi) and Vi ~ F̄(x; βi), respectively. Also, let {J1, . . . , Jn} and {J1*, . . . , Jn*} be another two sets of independent Bernoulli random variables, independently of Ui's and Vi's with E(Ji) = pi and E(Ji*) = pi, respectively. Assume that the following conditions hold: (i) ψ : (0, 1) → (0, ∞) is a differentiable and decreasing function; (ii) F̄(x; αi) is decreasing and log-convex in αi for all x; (iii) r(x; αi) is decreasing and convex in αi for all x. Then, for (ψ(p), α; n), (ψ(p), β; n) ∈ Mn, we have α ≺^w β ⇒ Tn:n ≥rh Tn:n*.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "semiparametric family F̄(·;α) with hazard rate r(·;α); fixed n, common p",
+  "compared": "severity parameters α vs β (common p); α weakly supermajorized by β",
+  "hypotheses": [
+   {"text": "ψ : (0, 1) → (0, ∞) is a differentiable and decreasing function", "formal": "ψ decreasing", "source": "statement"},
+   {"text": "F̄(x; αi) is decreasing and log-convex in αi for all x", "formal": "sf condition", "source": "statement"},
+   {"text": "r(x; αi) is decreasing and convex in αi for all x", "formal": "hazard rate condition", "source": "statement"},
+   {"text": "α ≺^w β", "formal": "weak supermajorization (common p)", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "Tn:n* <=_rh Tn:n"},
+  "quantifiers": "n ≥ 1, x ≥ 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1007/s11587-026-01094-9",
+  "claim": "Theorem 3.12",
+  "page": 12,
+  "quote": "Theorem 3.12. Let {U1, . . . , Un} and {V1, . . . , Vn} be two sets of independent random variables with Ui ~ F̄(x; αi) and Vi ~ F̄(x; αi), respectively. Also, let {J1, . . . , Jn} and {J1*, . . . , Jn*} be another two sets of independent Bernoulli random variables, independently of Ui's and Vi's with E(Ji) = pi and E(Ji*) = p*i, respectively. Assume that the following conditions hold: (i) ψ : (0, 1) → (0, ∞) is a differentiable decreasing and log-convex function; (ii) F̄(x; αi) and r(x; αi) are decreasing in αi for all x. Then, for (ψ(p), α; n), (ψ(p*), α; n) ∈ Mn, we have ψ(p) ≺^w ψ(p*) ⇒ Tn:n ≥rh Tn:n*.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "semiparametric family; common severity α; fixed n",
+  "compared": "occurrence probability transforms ψ(p) vs ψ(p*); weak supermajorization",
+  "hypotheses": [
+   {"text": "ψ : (0, 1) → (0, ∞) is a differentiable decreasing and log-convex function", "formal": "transform condition", "source": "statement"},
+   {"text": "F̄(x; αi) and r(x; αi) are decreasing in αi for all x", "formal": "sf and hazard rate decreasing in α", "source": "statement"},
+   {"text": "ψ(p) ≺^w ψ(p*)", "formal": "weak supermajorization of transformed probabilities", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "Tn:n* <=_rh Tn:n"},
+  "quantifiers": "n ≥ 1, x ≥ 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1007/s11587-026-01094-9",
+  "claim": "Theorem 3.13",
+  "page": 14,
+  "quote": "Theorem 3.13. Let {U1, . . . , Un} and {V1, . . . , Vn} be two sets of independent random variables with Ui ~ F̄(x; αi) and Vi ~ F̄(x; βi), respectively with αn ≥ βn and pn ≤ p*n. Also, let {J1, . . . , Jn} and {J1*, . . . , Jn*} be another two sets of independent Bernoulli random variables, independently of Ui's and Vi's with E(Ji) = pi and E(Ji*) = p*i, respectively. Further, let N1 and N2 be two positive integer-valued random variables independently of Ti's and Ti*'s satisfying N1 =st N2 =st N, respectively. Assume that the following conditions hold: (i) ψ : (0, 1) → (0, ∞) is a differentiable, strictly decreasing and log-convex function. (ii) F̄(x; αi) is decreasing and log-convex in αi for all x; (iii) r(x; αi) is decreasing and convex in αi for all x. Then, for (ψ(p), α; n), (ψ(p*), β; n) ∈ Mn, we have (ψ(p), α; n) >^w (ψ(p*), β; n) ⇒ TN:N ≥rh TN*:N.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "semiparametric family; random maxima over common random sample size N",
+  "compared": "parameter matrices in row weak majorization with boundary conditions αn ≥ βn, pn ≤ p*n",
+  "hypotheses": [
+   {"text": "N1 =st N2 =st N (common random sample size); αn ≥ βn and pn ≤ p*n", "formal": "equal-in-law claim counts; boundary coordinate conditions", "source": "statement"},
+   {"text": "ψ differentiable, strictly decreasing and log-convex; F̄(x;αi) decreasing and log-convex in αi; r(x;αi) decreasing and convex in αi", "formal": "transform, sf, hazard conditions", "source": "statement"},
+   {"text": "(ψ(p), α; n) >^w (ψ(p*), β; n), both in Mn", "formal": "row weak majorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "TN*:N <=_rh TN:N"},
+  "quantifiers": "n ≥ 1, x ≥ 0",
+  "ambiguity": "αn, pn, βn, p*n denote the largest coordinates (sorted) implicitly; the assumption list follows the printed statement."
+ },
+ {
+  "paper": "doi:10.1007/s11587-026-01094-9",
+  "claim": "Theorem 3.14",
+  "page": 14,
+  "quote": "Theorem 3.14. Let {U1, . . . , Un} and {V1, . . . , Vn} be two sets of independent random variables with Ui ~ F̄(x; αi) and Vi ~ F̄(x; βi), respectively. Also, let {J1, . . . , Jn} and {J1*, . . . , Jn*} be another two sets of independent Bernoulli random variables, independently of Ui's and Vi's with E(Ji) = pi and E(Ji*) = pi, respectively. Assume that the following conditions hold: (i) ψ : (0, 1) → (0, ∞) is a differentiable function; (ii) F(x; αi) is increasing and log-convex in αi for all x; (iii) r(x; αi) is convex in αi for all x. Then, for (ψ(p), α; n), (ψ(p), β; n) ∈ Mn, we have α ≺^m β ⇒ T1:n ≥rh T1:n*.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "semiparametric family; smallest claim, fixed n, common p",
+  "compared": "severity parameters α vs β under ordinary majorization",
+  "hypotheses": [
+   {"text": "ψ : (0, 1) → (0, ∞) is a differentiable function", "formal": "ψ differentiable (no monotonicity stated)", "source": "statement"},
+   {"text": "F(x; αi) is increasing and log-convex in αi for all x", "formal": "cdf increasing log-convex in α", "source": "statement"},
+   {"text": "r(x; αi) is convex in αi for all x", "formal": "hazard rate convex in α", "source": "statement"},
+   {"text": "α ≺^m β", "formal": "α majorized by β", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "T1:n* <=_rh T1:n"},
+  "quantifiers": "n ≥ 1, x ≥ 0",
+  "ambiguity": "Condition (ii) is on the cdf F (not F̄) as printed; consistent with the proof using F_{T1:n} = 1 − ∏ψ^{−1}(vi)F̄(x;αi)."
+ },
+ {
+  "paper": "doi:10.1007/s11587-026-01094-9",
+  "claim": "Theorem 3.15",
+  "page": 15,
+  "quote": "Theorem 3.15. Suppose X1:n ~ F̄1:n(x) and X1:n ~ Ḡ1:n(x). Also let the support of a positive integer-valued random variable N having pmf p(n) be N+. Now, for all x ≥ l, if r̃Y1:n(x), the reversed hazard rate function of Y1:n is increasing in n ∈ N+ and F1:n(x)/G1:n(x) is increasing in n ∈ N+, then X1:n ≥rh Y1:n implies X1:N ≥rh Y1:N.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "general minima X1:n ~ F̄1:n, Y1:n ~ Ḡ1:n; random sample size N",
+  "compared": "fixed-n minima vs random-N minima of two distributions",
+  "hypotheses": [
+   {"text": "the support of a positive integer-valued random variable N having pmf p(n) be N+", "formal": "N supported on positive integers", "source": "statement"},
+   {"text": "for all x ≥ l, r̃Y1:n(x) is increasing in n ∈ N+", "formal": "reversed hazard rate of the second system's minimum increasing in n", "source": "statement"},
+   {"text": "F1:n(x)/G1:n(x) is increasing in n ∈ N+", "formal": "cdf ratio increasing in n", "source": "statement"},
+   {"text": "X1:n ≥rh Y1:n", "formal": "fixed-n minima rh-ordered", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "Y1:N <=_rh X1:N"},
+  "quantifiers": "n ∈ N+, x ≥ l (l a lower support bound)",
+  "ambiguity": "Printed 'Suppose X1:n ~ F̄1:n(x) and X1:n ~ Ḡ1:n(x)' — the second variable should be Y1:n (typo). Proof invokes Proposition 3.4 and Theorem 3.1 of Kundu et al. (2023)."
+ },
+ {
+  "paper": "doi:10.1007/s11587-026-01094-9",
+  "claim": "Theorem 3.16",
+  "page": 15,
+  "quote": "Theorem 3.16. Let {U1, . . . , Un} and {V1, . . . , Vn} be two sets of independent random variables with Ui ~ F̄(x; αi) and Vi ~ F̄(x; αi), respectively. Also, let {J1, . . . , Jn} and {J1*, . . . , Jn*} be another two sets of independent Bernoulli random variables, independently of Ui's and Vi's with E(Ji) = pi and E(Ji*) = p*i, respectively. Assume that ψ : (0, 1) → (0, ∞) is a differentiable increasing and log-convex function. Then, for (ψ(p), α; n), (ψ(p*), α; n) ∈ Mn, we have ψ(p) ≺^m ψ(p*) ⇒ T1:n ≥rh T1:n*.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "semiparametric family; common severity α; fixed n",
+  "compared": "occurrence probability transforms ψ(p) vs ψ(p*) under majorization",
+  "hypotheses": [
+   {"text": "ψ : (0, 1) → (0, ∞) is a differentiable increasing and log-convex function", "formal": "ψ increasing log-convex (⇒ ψ^{−1} increasing log-convex)", "source": "statement"},
+   {"text": "ψ(p) ≺^m ψ(p*)", "formal": "ψ(p) majorized by ψ(p*)", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "T1:n* <=_rh T1:n"},
+  "quantifiers": "n ≥ 1, x ≥ 0",
+  "ambiguity": "Note ψ is required INCREASING here (cf. decreasing elsewhere); ψ^{−1} then exists on the image of ψ."
+ },
+ {
+  "paper": "doi:10.1007/s11587-026-01094-9",
+  "claim": "Theorem 3.17",
+  "page": 16,
+  "quote": "Theorem 3.17. Let {U1, . . . , Un} and {V1, . . . , Vn} be two sets of independent random variables with Ui ~ F̄(x; αi) and Vi ~ F̄(x; βi), respectively. Also, let {J1, . . . , Jn} and {J1*, . . . , Jn*} be another two sets of independent Bernoulli random variables, independently of Ui's and Vi's with E(Ji) = pi and E(Ji*) = p*i, respectively. Further, let N1 and N2 be two positive integer-valued random variables independently of Ti's and Ti*'s satisfying N1 =st N2 =st N, respectively. Assume that the following conditions hold: (i) ψ : (0, 1) → (0, ∞) is a differentiable, strictly increasing and log-convex function; (ii) F(x; αi) is log-convex in αi for all x; (iii) r(x; αi) is convex in αi for any x. Then, for (ψ(p), α; n), (ψ(p*), β; n) ∈ Mn, we have (ψ(p), α; n) >^row (ψ(p*), β; n) ⇒ T1:N ≥rh T1:N*.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "semiparametric family; random minima over common random sample size N",
+  "compared": "parameter matrices in row majorization",
+  "hypotheses": [
+   {"text": "N1 =st N2 =st N", "formal": "common random sample size", "source": "statement"},
+   {"text": "ψ differentiable, strictly increasing and log-convex; F(x;αi) log-convex in αi; r(x;αi) convex in αi", "formal": "transform, cdf, hazard conditions", "source": "statement"},
+   {"text": "(ψ(p), α; n) >^row (ψ(p*), β; n), both in Mn", "formal": "row majorization of parameter matrices", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "T1:N* <=_rh T1:N"},
+  "quantifiers": "n ≥ 1, x ≥ 0",
+  "ambiguity": "Condition (ii) is on the cdf F as printed; built from Theorems 3.14 (α-part) and 3.16 (ψ-part) via Theorem 3.3 of Kundu et al. (2024)."
+ }
+]

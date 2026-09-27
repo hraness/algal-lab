@@ -1,0 +1,609 @@
+[
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Lemma 2.4 (Li and Fang (2015), Lemma A.1)",
+  "page": 4,
+  "quote": "Lemma 2.4 (Li and Fang (2015), Lemma A.1) For two n-dimensional Archimedean copulas Cψ1 and Cψ2 , if ϕ2 ◦ ψ1 is super-additive, then Cψ1 (u) ≤ Cψ2 (u), for u ∈ [0, 1]n .",
+  "kind": "lemma",
+  "model": "other: copula domination",
+  "family": "n-dimensional Archimedean copulas Cψ(v1,...,vn) = ψ(ϕ(v1)+···+ϕ(vn)) with d-monotone generators ψ (Definition 2.3)",
+  "compared": "two Archimedean copulas Cψ1 vs Cψ2 pointwise",
+  "hypotheses": [
+   {"text": "if ϕ2 ◦ ψ1 is super-additive", "formal": "ϕ2∘ψ1(x+y) >= ϕ2∘ψ1(x) + ϕ2∘ψ1(y) for x,y >= 0", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: pointwise copula (concordance) order", "direction": "Cψ1(u) <= Cψ2(u) for all u in [0,1]^n"},
+  "quantifiers": "all u ∈ [0,1]^n; dimension n",
+  "numbers": "",
+  "ambiguity": "Imported result (Li and Fang 2015); it orders two copulas pointwise rather than two lifetime distributions under a named stochastic order — included because every later theorem relies on it."
+ },
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Example 2.5",
+  "page": 4,
+  "quote": "Example 2.5 Assume that ψ1 (t) = e−t , the generator of the independence copula. For generators ψ2 within the above-mentioned families, the super-additivity assumption holds for a wide range of parameter values. 1. The Clayton case with γ2 ≥ 0. We have that ϕ2 ◦ ψ1 (t) = (eγ2 t − 1)/γ2 , which is easily seen to be convex. As ϕ2 ◦ ψ1 (0) = 0, the super-additivity follows. 2. The Frank case with γ2 > 0. For this copula we find ϕ2 ◦ ψ1 (t) = − log[(e−t (e−γ2 − 1) + 1)/(e−γ2 − 1)] ... convex for t ≥ 0, hence, as ϕ2 ◦ ψ1 (0) = 0, the super-additivity follows. 3. The Gumbel case with γ2 ≥ 1. Then ϕ2 ◦ψ1 (t) = (− log e−t )γ2 = tγ2 , which is super-additive on [0, ∞). 4. The AMH case with γ2 ∈ (0, 1). Then ϕ2 ◦ ψ1 (t) = log[(1 − γ2 (1 − e−t ))/e−t ] = log((1 − γ2 )et + γ2 ). Again, we find a convex function such that ϕ2 ◦ψ1 (0) = 0, thus the super-additivity follows.",
+  "kind": "example",
+  "model": "other: copula domination",
+  "family": "Independence copula ψ1(t) = e^{−t} composed with Clayton/Frank/Gumbel/AMH generators",
+  "compared": "C_independence vs Cψ2 via super-additivity of ϕ2∘ψ1",
+  "hypotheses": [
+   {"text": "Clayton γ2 >= 0; Frank γ2 > 0; Gumbel γ2 >= 1; AMH γ2 ∈ (0,1)", "formal": "parameter ranges for which ϕ2∘ψ1 is convex and vanishes at 0", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: copula domination", "direction": "ϕ2∘ψ1 super-additive hence C_independence <= Cψ2 (supports Lemma 2.4 and later theorems)"},
+  "quantifiers": "t >= 0",
+  "numbers": "Clayton: ϕ2∘ψ1(t) = (e^{γ2 t} − 1)/γ2, γ2 >= 0; Frank: γ2 > 0; Gumbel: ϕ2∘ψ1(t) = t^{γ2}, γ2 >= 1; AMH: ϕ2∘ψ1(t) = log((1 − γ2)e^t + γ2), γ2 ∈ (0,1)",
+  "ambiguity": "Supports the super-additivity hypothesis rather than exhibiting an ordering between two system lifetimes; extracted as a printed example."
+ },
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Example 2.6",
+  "page": 4,
+  "quote": "Example 2.6 Consider now two generators ψ1 and ψ2 from the same family of copulas, with parameters γ1 and γ2 . With the appropriate range of variability for the parameters, the composition ϕ2 ◦ ψ1 is still super-additive. 1. The Clayton family with γ2 ≥ γ1 > 0... ϕ2 ◦ψ1 is convex so, as ϕ2 ◦ ψ1 (0) = 0, this function is super-additive. 2. The Frank copulas with γ2 ≥ γ1 ... easily seen to be convex when γ2 ≥ γ1 , hence ... super-additive. 3. The Gumbel family with γ2 ≥ γ1 ≥ 1. We find that ϕ2 ◦ ψ1 (t) = tγ2 /γ1 which, being convex and null at the origin, is super-additive. 4. The AMH copulas with 1 ≥ γ2 ≥ γ1 ≥ 0. ... proves super-additivity in this case as well.",
+  "kind": "example",
+  "model": "other: copula domination",
+  "family": "Same-family Archimedean copula pairs (Clayton, Frank, Gumbel, AMH)",
+  "compared": "Cψ1(γ1) vs Cψ2(γ2) within the same family",
+  "hypotheses": [
+   {"text": "Clayton γ2 >= γ1 > 0; Frank γ2 >= γ1; Gumbel γ2 >= γ1 >= 1; AMH 1 >= γ2 >= γ1 >= 0", "formal": "γ2 >= γ1 (with family-specific lower bounds)", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: copula domination", "direction": "ϕ2∘ψ1 super-additive hence Cψ1 <= Cψ2"},
+  "quantifiers": "t >= 0",
+  "numbers": "Clayton: ϕ2∘ψ1(t) = ((1 + γ1 t)^{γ2/γ1} − 1)/γ2, γ2 >= γ1 > 0; Frank: γ2 >= γ1; Gumbel: ϕ2∘ψ1(t) = t^{γ2/γ1}, γ2 >= γ1 >= 1; AMH: ϕ2∘ψ1(t) = log(a e^t + b), a = 1 − γ2/(1−γ1), b = (γ2−γ1)/(1−γ1), 1 >= γ2 >= γ1 >= 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Theorem 3.1(1)",
+  "page": 6,
+  "quote": "Theorem 3.1 Assume the parameter vectors α and β are such that αi ≤ βi , for i = 1, . . . , n. 1. If T is increasing in its first argument that is, α ≤ β implies that, for every x ∈ R, T (α, F )(x) ≤ T (β, F )(x) and the generators are such that ϕ2 ◦ ψ1 is super-additive, then Xn:n (α) ≥st Yn:n (β).",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "Transformation model FXi = T(αi, F), FYi = T(βi, F); X coupled by Archimedean copula Cψ1, Y by Cψ2; F arbitrary baseline cdf",
+  "compared": "parameter vectors α vs β coordinatewise; generators ψ1 vs ψ2",
+  "hypotheses": [
+   {"text": "αi ≤ βi , for i = 1, . . . , n", "formal": "coordinatewise αi <= βi", "source": "statement"},
+   {"text": "T is increasing in its first argument ... T (α, F )(x) ≤ T (β, F )(x)", "formal": "α <= β ⇒ T(α,F)(x) <= T(β,F)(x) for all x", "source": "statement"},
+   {"text": "ϕ2 ◦ ψ1 is super-additive", "formal": "super-additive composition", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn:n(α) >=st Yn:n(β)"},
+  "quantifiers": "n >= 1; every x ∈ R",
+  "numbers": "",
+  "ambiguity": "Remark 3.2 restates the monotonicity of T as stochastic dominance T(α,F) >=st T(β,F)."
+ },
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Theorem 3.1(2)",
+  "page": 6,
+  "quote": "2. If T is decreasing in its first argument that is, α ≤ β implies that, for every x ∈ R, T (α, F )(x) ≥ T (β, F )(x) and the generators are such that ϕ1 ◦ ψ2 is super-additive, then Xn:n (α) ≤st Yn:n (β).",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "Transformation model with Archimedean copulas Cψ1 (X), Cψ2 (Y)",
+  "compared": "parameter vectors α vs β coordinatewise; generators ψ1 vs ψ2",
+  "hypotheses": [
+   {"text": "αi ≤ βi , for i = 1, . . . , n", "formal": "coordinatewise αi <= βi", "source": "statement"},
+   {"text": "T is decreasing in its first argument ... T (α, F )(x) ≥ T (β, F )(x)", "formal": "α <= β ⇒ T(α,F)(x) >= T(β,F)(x) for all x", "source": "statement"},
+   {"text": "ϕ1 ◦ ψ2 is super-additive", "formal": "super-additive composition (reversed roles)", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn:n(α) <=st Yn:n(β)"},
+  "quantifiers": "n >= 1; every x ∈ R",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Theorem 3.3",
+  "page": 6,
+  "quote": "Theorem 3.3 Assume the functional T is differentiable with respect to its first argument, the generators are such that ϕ2 ◦ ψ1 is super-additive, ψ2 is d-monotone with d ≥ 3, α ⪰m β and V (β) = [1/(ψ2′ ◦ ϕ2 (T (β, F )))] ∂T /∂β (β, F ), β ∈ A, (4) is increasing, then Xn:n (α) ≥st Yn:n (β).",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "Transformation model; X copula ψ1, Y copula ψ2",
+  "compared": "parameter vectors α vs β via majorization; generators ψ1 vs ψ2",
+  "hypotheses": [
+   {"text": "T is differentiable with respect to its first argument", "formal": "differentiable T", "source": "statement"},
+   {"text": "ϕ2 ◦ ψ1 is super-additive, ψ2 is d-monotone with d ≥ 3", "formal": "super-additive composition; ψ2 d-monotone, d >= 3", "source": "statement"},
+   {"text": "α ⪰m β", "formal": "α majorizes β (Definition 2.7: Σ_{i<=ℓ} α_{i:n} >= Σ β_{i:n}, ℓ <= n−1, equal totals — 'α majorized by β' is denoted α ⪯^m β, so ⪰^m reads 'α majorizes β')", "source": "statement"},
+   {"text": "V (β) = (1/(ψ2′ ◦ ϕ2 (T (β, F )))) · ∂T/∂β (β, F ), β ∈ A, is increasing", "formal": "V increasing in β", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn:n(α) >=st Yn:n(β)"},
+  "quantifiers": "n >= 1; every x ∈ R",
+  "numbers": "",
+  "ambiguity": "Definition 2.7: 'α majorized by β, denoted α ⪯^m β' iff Σ_{i<=ℓ} α_{i:n} >= Σ β_{i:n} (ascending partial sums) with equal totals — hence α ⪰^m β means α majorizes β under this convention."
+ },
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Corollary 3.4",
+  "page": 7,
+  "quote": "Corollary 3.4 Assume the same conditions as in Theorem 3.3. With K2 (x) = −ψ2 (x)/ψ2′ (x), the same conclusion holds if (4) is replaced by V ∗ (β) = [−K2 ◦ ϕ2 (T (β, F ))/T (β, F )] ∂T /∂β (β, F ), β ∈ A. (5)",
+  "kind": "corollary",
+  "model": "parallel system",
+  "family": "Transformation model; X copula ψ1, Y copula ψ2",
+  "compared": "parameter vectors α vs β via majorization; generators ψ1 vs ψ2",
+  "hypotheses": [
+   {"text": "the same conditions as in Theorem 3.3", "formal": "differentiable T; ϕ2∘ψ1 super-additive; ψ2 d-monotone d>=3; α ⪰^m β", "source": "earlier theorem (Theorem 3.3)"},
+   {"text": "K2 (x) = −ψ2 (x)/ψ2′ (x); V ∗ (β) = [−K2 ◦ ϕ2 (T (β, F ))/T (β, F )] ∂T/∂β (β, F ) is increasing", "formal": "V* increasing in β (equivalent reformulation via inverse generator)", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn:n(α) >=st Yn:n(β)"},
+  "quantifiers": "n >= 1",
+  "numbers": "",
+  "ambiguity": "The monotonicity requirement on V* is implicit ('the same conclusion holds if (4) is replaced by (5)') — the increasingness of V* carries over as the condition."
+ },
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Example 3.5",
+  "page": 7,
+  "quote": "Example 3.5 As an application of the previous results, choose as baseline the standard exponential distribution E(x) = 1−e−x , for x ≥ 0, and, for β > 0, T (β, E)(x) = 1−(1−E(x))β = 1−e−βx , the exponential distribution with hazard rate β. Then, with the notation of Theorems 3.1 and 3.3, X = (X1 , . . . , Xn ) and Y = (Y1 , . . . , Yn ) are random vectors with dependent components whose marginal distributions are heterogeneous exponentials. Assume the distributions of X and Y are described using a Clayton copula with parameters γ1 and γ2 , respectively, such that γ2 ≥ γ1 > 0. Then, as referred in Example 2.6, ϕ2 ◦ψ1 is super-additive. Hence, from Theorem 3.1, if αi ≤ βi , i = 1, . . . , n, it follows that Xn:n (α) ≥st Yn:n (β). In case we do not have increasing coordinates for the parameter vectors, but they still satisfy α ⪰m β, we get a conclusion using Theorem 3.3. Moreover, for the Clayton generator ψ2′ ◦ ϕ2 (T (β, E))(x) = −(1 − e−x )1+γ2 , so V (β) = −x(1 − e−βx )−(1+γ2 ) e−βx , which is increasing with respect to β > 0, so again we conclude that Xn:n (α) ≥st Yn:n (β).",
+  "kind": "example",
+  "model": "parallel system",
+  "family": "PHR marginals T(β,E)(x) = 1 − e^{−βx} (exponential hazard β); Clayton copulas γ1 (X), γ2 (Y), γ2 >= γ1 > 0",
+  "compared": "hazard-rate vectors α vs β (coordinatewise or majorized); Clayton generators γ2 >= γ1",
+  "hypotheses": [
+   {"text": "γ2 ≥ γ1 > 0", "formal": "Clayton parameters ordered, giving ϕ2∘ψ1 super-additive (Example 2.6.1)", "source": "statement"},
+   {"text": "if αi ≤ βi ... or α ⪰m β with V(β) increasing", "formal": "two alternative parameter orderings", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn:n(α) >=st Yn:n(β) (under either coordinatewise or majorization ordering)"},
+  "quantifiers": "n >= 1; x >= 0",
+  "numbers": "E(x) = 1 − e^{−x}, x >= 0; T(β,E)(x) = 1 − e^{−βx}; Clayton ψ2'∘ϕ2(T(β,E)) = −(1−e^{−βx})^{1+γ2} (printed −(1−e^{−x})^{1+γ2}); V(β) = −x(1−e^{−βx})^{−(1+γ2)} e^{−βx} increasing in β",
+  "ambiguity": "Printed 'ψ2′ ◦ ϕ2 (T (β, E))(x) = −(1 − e−x )1+γ2' omits β (should involve 1 − e^{−βx}); consistent with Table 2's ψ'∘ϕ(t) = −t^{γ+1}."
+ },
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Corollary 3.6",
+  "page": 8,
+  "quote": "Corollary 3.6 Assume the functional T and the generator of the Archimedean copula describing the distribution of X are such that the function V defined in (4) (with ψ2 = ψ1 ) is increasing. Fix numbers a < b and c ∈ [na, nb), and define Aa,b,c = {α = (α1 , . . . , αn ) ∈ [a, b]n : Σni=1 αi = c}, ᾱ = (c/n, . . . , c/n), q = floor((c − na)/(b − a)), and η = c − qb − (n − q − 1)a. Then η ∈ [a, b) and α∗ = (a, . . . , a [n−q−1 times], η, b, . . . , b [q times]) ∈ Aa,b,c . Moreover, for every α ∈ Aa,b,c , Xn:n (α∗ ) ≥st Xn:n (α) ≥st Xn:n (ᾱ).",
+  "kind": "corollary",
+  "model": "parallel system",
+  "family": "Transformation model; single Archimedean copula ψ1 (ψ2 = ψ1)",
+  "compared": "parameter vectors within Aa,b,c: extremal α* vs generic α vs equalized ᾱ",
+  "hypotheses": [
+   {"text": "the function V defined in (4) (with ψ2 = ψ1 ) is increasing", "formal": "V increasing in its argument under a single generator", "source": "statement"},
+   {"text": "a < b and c ∈ [na, nb)", "formal": "feasible sum c for vectors in [a,b]^n", "source": "statement"},
+   {"text": "α∗ = (a, . . . , a, η, b, . . . , b) ∈ Aa,b,c with q = (c−na)/(b−a) (floor), η = c − qb − (n−q−1)a", "formal": "extremal boundary vector with maximal spread", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn:n(α*) >=st Xn:n(α) >=st Xn:n(ᾱ) for every α ∈ Aa,b,c"},
+  "quantifiers": "n >= 1; every α ∈ Aa,b,c",
+  "numbers": "q = floor((c−na)/(b−a)); η = c − qb − (n−q−1)a; α* has n−q−1 entries a, one η, q entries b",
+  "ambiguity": "Uses majorization α* ⪰^m α ⪰^m ᾱ within the fixed-sum, box-constrained set; same copula ψ1 for all configurations."
+ },
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Theorem 3.7(1)",
+  "page": 9,
+  "quote": "Theorem 3.7 Assume the parameter vectors α and β are such that αi ≤ βi , for i = 1, . . . , n. 1. If T is decreasing in its first argument that is, α ≤ β implies that, for very x ∈ R, T (α, F )(x) ≥ T (β, F )(x) and the generators are such that ϕ2 ◦ ψ1 is super-additive, then X1:n (α) ≤st Y1:n (β).",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Transformation model; X copula ψ1, Y copula ψ2; survival representation h̃(α;ψ1)(x) = ψ1(Σ ϕ1(T̄(αi,F(x)))) with T̄ = 1 − T",
+  "compared": "parameter vectors α vs β coordinatewise; generators ψ1 vs ψ2",
+  "hypotheses": [
+   {"text": "αi ≤ βi , for i = 1, . . . , n", "formal": "coordinatewise αi <= βi", "source": "statement"},
+   {"text": "T is decreasing in its first argument", "formal": "α <= β ⇒ T(α,F)(x) >= T(β,F)(x)", "source": "statement"},
+   {"text": "ϕ2 ◦ ψ1 is super-additive", "formal": "super-additive composition", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X1:n(α) <=st Y1:n(β)"},
+  "quantifiers": "n >= 1; every x ∈ R",
+  "numbers": "",
+  "ambiguity": "Typo 'for very x' verbatim (should be 'for every x')."
+ },
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Theorem 3.7(2)",
+  "page": 9,
+  "quote": "2. If T is increasing in its first argument that is, α ≤ β implies that, for every x ∈ R, T (α, F )(x) ≤ T (β, F )(x) and the generators are such that ϕ1 ◦ ψ2 is super-additive, then X1:n (α) ≥st Y1:n (β).",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Transformation model; X copula ψ1, Y copula ψ2",
+  "compared": "parameter vectors α vs β coordinatewise; generators ψ1 vs ψ2",
+  "hypotheses": [
+   {"text": "αi ≤ βi , for i = 1, . . . , n", "formal": "coordinatewise αi <= βi", "source": "statement"},
+   {"text": "T is increasing in its first argument", "formal": "α <= β ⇒ T(α,F)(x) <= T(β,F)(x)", "source": "statement"},
+   {"text": "ϕ1 ◦ ψ2 is super-additive", "formal": "super-additive composition (reversed roles)", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X1:n(α) >=st Y1:n(β)"},
+  "quantifiers": "n >= 1; every x ∈ R",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Theorem 3.8",
+  "page": 9,
+  "quote": "Theorem 3.8 Assume T is differentiable with respect to its first argument, the generators are such that ϕ2 ◦ ψ1 is super-additive, ψ1 is d-monotone with d ≥ 3, β ⪰m α and V (β) = [1/(ψ1′ ◦ ϕ1 (T (β, F )))] ∂T /∂β (β, F ), β ∈ A, (7) is decreasing, then, X1:n (α) ≤st Y1:n (β).",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Transformation model; X copula ψ1, Y copula ψ2; T̄(β,F) = 1 − T(β,F) inside the survival representation",
+  "compared": "parameter vectors α vs β via majorization; generators ψ1 vs ψ2",
+  "hypotheses": [
+   {"text": "T is differentiable with respect to its first argument", "formal": "differentiable T", "source": "statement"},
+   {"text": "ϕ2 ◦ ψ1 is super-additive, ψ1 is d-monotone with d ≥ 3", "formal": "super-additive composition; ψ1 d-monotone", "source": "statement"},
+   {"text": "β ⪰m α", "formal": "β majorizes α", "source": "statement"},
+   {"text": "V (β) = (1/(ψ1′ ◦ ϕ1 (T (β, F )))) · ∂T/∂β (β, F ), β ∈ A, is decreasing", "formal": "V decreasing in β (note: built on T̄ per Eq. (7) context)", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X1:n(α) <=st Y1:n(β)"},
+  "quantifiers": "n >= 1; every x ∈ R",
+  "numbers": "",
+  "ambiguity": "In the text layer the formula at (7) prints 'T (β, F )' without the bar; the derivation and Eq. (6) context use T̄ = 1 − T — recorded as printed, noting the bar omission may be a text-extraction artifact or a typographical omission."
+ },
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Corollary 3.9",
+  "page": 9,
+  "quote": "Corollary 3.9 Assume the same conditions as in Theorem 3.8. With K1 (x) = −ψ1 (x)/ψ1′ (x), the same conclusion holds if (7) is replaced by V ∗ (β) = [−K1 ◦ ϕ1 (T (β, F ))/T (β, F )] ∂T /∂β (β, F ), β ∈ A. (8)",
+  "kind": "corollary",
+  "model": "series system",
+  "family": "Transformation model; X copula ψ1, Y copula ψ2",
+  "compared": "parameter vectors α vs β via majorization; generators ψ1 vs ψ2",
+  "hypotheses": [
+   {"text": "the same conditions as in Theorem 3.8", "formal": "differentiable T; ϕ2∘ψ1 super-additive; ψ1 d-monotone; β ⪰^m α", "source": "earlier theorem (Theorem 3.8)"},
+   {"text": "K1 (x) = −ψ1 (x)/ψ1′ (x); V*(β) as in (8)", "formal": "reformulated decreasing function", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X1:n(α) <=st Y1:n(β)"},
+  "quantifiers": "n >= 1",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Corollary 3.10",
+  "page": 9,
+  "quote": "Corollary 3.10 Assume the functional T and the generator of the Archimedean copula describing the distribution of X are such that the function V ∗ defined in (8) (with ψ2 = ψ1 ) is decreasing. With the notations of Corollary 3.6, for every α ∈ Aa,b,c , we have that X1:n (α∗ ) ≤st X1:n (α) ≤st X1:n (ᾱ).",
+  "kind": "corollary",
+  "model": "series system",
+  "family": "Transformation model; single copula ψ1",
+  "compared": "parameter vectors within Aa,b,c: extremal α* vs generic α vs equalized ᾱ",
+  "hypotheses": [
+   {"text": "the function V ∗ defined in (8) (with ψ2 = ψ1 ) is decreasing", "formal": "V* decreasing", "source": "statement"},
+   {"text": "notations of Corollary 3.6", "formal": "Aa,b,c = {α ∈ [a,b]^n : Σαi = c}, c ∈ [na,nb), α* boundary vector, ᾱ = (c/n,...,c/n)", "source": "earlier corollary (Corollary 3.6)"}
+  ],
+  "conclusion": {"order": "st", "direction": "X1:n(α*) <=st X1:n(α) <=st X1:n(ᾱ) for every α ∈ Aa,b,c"},
+  "quantifiers": "n >= 1; every α ∈ Aa,b,c",
+  "numbers": "",
+  "ambiguity": "Direction reversed relative to Corollary 3.6: for series systems the spread-out α* gives the smallest lifetime."
+ },
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Theorem 3.16(1)",
+  "page": 13,
+  "quote": "Theorem 3.16 Assume the conditions of Corollary 3.15. 1. If T is increasing in its first argument, that is, α ≤ β implies that T (α, F )(x) ≤ T (β, F )(x), for every x ∈ R, then, for each fixed x ∈ R, the map α = (α1 , . . . , αn ) 7→ Fn−k:n (x) is increasing in each coordinate. ... Consequently, if α = (α1 , . . . , αn ) and β = (β1 , . . . , βn ) are such that αi ≤ βi , for every i = 1, . . . , n, then 1. If T is increasing in its first argument, then Xn−k:n (α) ≥st Xn−k:n (β),",
+  "kind": "theorem",
+  "model": "k-out-of-n system",
+  "family": "Transformation model with a single Archimedean copula ψ for both systems ((n−k)-out-of-n system, lifetime X_{n−k:n}); conditions of Corollary 3.15: T differentiable in its first argument, ψ d-monotone with d >= k+3, ϕ differentiable",
+  "compared": "parameter vectors α vs β coordinatewise under the same copula",
+  "hypotheses": [
+   {"text": "the conditions of Corollary 3.15", "formal": "1 <= k <= n−1; joint distribution Archimedean with generator ψ d-monotone d >= k+3; 0 < T(αi,F)(x) < 1; T differentiable; ϕ differentiable", "source": "earlier corollary (Corollary 3.15, itself assuming Propositions 3.12–3.14)"},
+   {"text": "αi ≤ βi , for every i = 1, . . . , n", "formal": "coordinatewise αi <= βi", "source": "statement"},
+   {"text": "T is increasing in its first argument", "formal": "α <= β ⇒ T(α,F)(x) <= T(β,F)(x)", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn−k:n(α) >=st Xn−k:n(β)"},
+  "quantifiers": "1 <= k <= n−1; every x ∈ R",
+  "numbers": "",
+  "ambiguity": "Both systems use the same copula generator ψ (the coordinatewise monotonicity map is within one copula); no second generator ψ2 appears."
+ },
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Theorem 3.16(2)",
+  "page": 13,
+  "quote": "2. If T is decreasing in its first argument, that is, α ≤ β implies that T (α, F )(x) ≥ T (β, F )(x), for every x ∈ R, then, for each fixed x ∈ R, the same map is decreasing in each coordinate. ... 2. If T is decreasing in its first argument, then Xn−k:n (α) ≤st Xn−k:n (β).",
+  "kind": "theorem",
+  "model": "k-out-of-n system",
+  "family": "Transformation model with single Archimedean copula ψ (d-monotone, d >= k+3)",
+  "compared": "parameter vectors α vs β coordinatewise under the same copula",
+  "hypotheses": [
+   {"text": "the conditions of Corollary 3.15", "formal": "same as part 1", "source": "earlier corollary (Corollary 3.15)"},
+   {"text": "αi ≤ βi , for every i = 1, . . . , n", "formal": "coordinatewise αi <= βi", "source": "statement"},
+   {"text": "T is decreasing in its first argument", "formal": "α <= β ⇒ T(α,F)(x) >= T(β,F)(x)", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn−k:n(α) <=st Xn−k:n(β)"},
+  "quantifiers": "1 <= k <= n−1; every x ∈ R",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Example 3.17",
+  "page": 14,
+  "quote": "Example 3.17 Take E(x) = 1 − e−x , for x ≥ 0, the standard exponential, and the functional T (α, E)(x) = 1−(1−E(x))α = 1−e−αx , where α > 0. Consider a system with n = 3 components with lifetimes T (αi , E), for i = 1, 2, 3, whose joint distribution is described by an Archimedean copula with Clayton generator ψ(t) = (1 + t)−1 , for t ≥ 0. With α = (α1 , α2 , α3 ), the lifetime of a 2-out-of-3 system is X2:3 (α), whose distribution function is obtained by using (12): F2:3(α) (x) = ψ(t1 + t2 ) + ψ(t1 + t3 ) + ψ(t2 + t3 ) − 2ψ(t1 + t2 + t3 ), where ti = (eαi x − 1)−1 . A direct differentiation with respect to αℓ gives ... Choosing now α = (1, 2.5, 4), the plots for (αℓ − αm )(∂F2:3/∂αℓ − ∂F2:3/∂αm ) are shown in Figure 1. Although when taking (ℓ, m) = (1, 3) or (2, 3) the curve has a constant sign, the case (ℓ, m) = (1, 2) changes sign as x ranges (0, +∞). Hence, the map α 7→ F2:3(α) (x) is neither Schur-convex nor Schur-concave.",
+  "kind": "counterexample",
+  "model": "k-out-of-n system",
+  "family": "Exponential marginals T(α,E)(x) = 1 − e^{−αx}; Clayton copula ψ(t) = (1+t)^{−1} (γ = 1)",
+  "compared": "2-out-of-3 system map α → F_{2:3}^{(α)}(x); Schur monotonicity fails at α = (1,2.5,4)",
+  "hypotheses": [
+   {"text": "n = 3, k = 1 (2-out-of-3 system); Clayton generator (1+t)^{-1}; exponential transformation", "formal": "setup of Theorem 3.16 with a specific numerical α", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "refuted for majorization: the map α → F_{2:3}^{(α)}(x) is neither Schur-convex nor Schur-concave, so Theorem 3.16 cannot be extended from coordinatewise ordering to majorization"},
+  "quantifiers": "n = 3; x ∈ (0,∞)",
+  "numbers": "α = (1, 2.5, 4); ψ(t) = (1+t)^{−1}; ti = (e^{αi x} − 1)^{−1}; F_{2:3}(x) = ψ(t1+t2)+ψ(t1+t3)+ψ(t2+t3) − 2ψ(t1+t2+t3); (ℓ,m) = (1,2) sign-changing, (1,3) and (2,3) constant sign (Figure 1)",
+  "ambiguity": "Labeled 'Example' but functions as a counterexample to extending Theorem 3.16 to majorization-ordered parameter vectors."
+ },
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Proposition 4.1",
+  "page": 16,
+  "quote": "Proposition 4.1 With marginal distributions based on the functional Te , assume the parameters α and β satisfy αi ≤ βi , for i = 1, . . . , n, and the copula generators are such that ϕ2 ◦ ψ1 is super-additive. Then Xn:n (α) ≥st Yn:n (β).",
+  "kind": "proposition",
+  "model": "parallel system",
+  "family": "PHR model: Te(β, F) = 1 − (1 − F)^β, β > 0 (increasing in β)",
+  "compared": "exponent vectors α vs β coordinatewise; generators ψ1 vs ψ2",
+  "hypotheses": [
+   {"text": "αi ≤ βi , for i = 1, . . . , n", "formal": "coordinatewise", "source": "statement"},
+   {"text": "ϕ2 ◦ ψ1 is super-additive", "formal": "super-additive composition", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn:n(α) >=st Yn:n(β)"},
+  "quantifiers": "n >= 1; β > 0",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Proposition 4.2",
+  "page": 16,
+  "quote": "Proposition 4.2 With marginal distributions based on the functional Te and copula generators are such that ϕ2 ◦ ψ1 is super-additive and ψ2 is d-monotone with d ≥ 3, assume the parameters satisfy α ⪰m β. If any of the following conditions is fulfilled: 1. (Clayton copula) ψ2 is the Clayton generator with γ2 ≥ −1, 2. (Gumbel copula) ψ2 is the Gumbel generator with γ2 ≥ 1, 3. (AMH copula) ψ2 is the AMH generator with γ2 ∈ (−1, 1), then Xn:n (α) ≥st Yn:n (β).",
+  "kind": "proposition",
+  "model": "parallel system",
+  "family": "PHR model Te(β,F) = 1 − (1−F)^β; Y-side copula Clayton/Gumbel/AMH",
+  "compared": "exponent vectors α vs β via majorization; generators ψ1 vs ψ2",
+  "hypotheses": [
+   {"text": "ϕ2 ◦ ψ1 is super-additive and ψ2 is d-monotone with d ≥ 3", "formal": "generator conditions", "source": "statement"},
+   {"text": "α ⪰m β", "formal": "α majorizes β", "source": "statement"},
+   {"text": "ψ2 Clayton with γ2 ≥ −1, or Gumbel with γ2 ≥ 1, or AMH with γ2 ∈ (−1, 1)", "formal": "one of three copula/range conditions ensuring V(β) increasing (via Se(x) = (1−x)/ψ2'∘ϕ2(x) increasing on (0,1])", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn:n(α) >=st Yn:n(β)"},
+  "quantifiers": "n >= 1; β > 0",
+  "numbers": "Clayton: Se(x) = (x^{−γ2} − x^{−(γ2+1)})/γ2 increasing for γ2 >= −1; Gumbel: Se(x) = (1/γ2)(1 − 1/x)(−log x)^{γ2−1} increasing for γ2 >= 1; AMH: Se increasing for γ2 ∈ (−1,1)",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Proposition 4.3",
+  "page": 16,
+  "quote": "Proposition 4.3 With marginal distributions based on the functional Te , copula generators such that ϕ1 ◦ ψ2 is super-additive and parameters α and β satisfying αi ≤ βi , for i = 1, . . . , n, we have that X1:n (α) ≥st Y1:n (β).",
+  "kind": "proposition",
+  "model": "series system",
+  "family": "PHR model Te(β,F) = 1 − (1−F)^β",
+  "compared": "exponent vectors α vs β coordinatewise; generators ψ1 vs ψ2",
+  "hypotheses": [
+   {"text": "αi ≤ βi , for i = 1, . . . , n", "formal": "coordinatewise", "source": "statement"},
+   {"text": "ϕ1 ◦ ψ2 is super-additive", "formal": "super-additive composition (reversed roles; Tē = (1−F)^β is decreasing in β)", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X1:n(α) >=st Y1:n(β)"},
+  "quantifiers": "n >= 1; β > 0",
+  "numbers": "",
+  "ambiguity": "Consequence of Theorem 3.7(2) — Tē(β,F) = (1−F)^β is decreasing in β."
+ },
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Proposition 4.4",
+  "page": 16,
+  "quote": "Proposition 4.4 With marginal distributions based on the functional Te and copula generators are such that ϕ2 ◦ ψ1 is super-additive and ψ2 is d-monotone with d ≥ 3, assume the parameters satisfy β ⪰m α. If any of the following conditions is fulfilled: 1. (Clayton copula) ψ1 is the Clayton generator with γ1 > 0, 2. (Frank copula) ψ1 is the Frank generator with γ1 ∈ R, 3. (Gumbel copula) ψ1 is the Gumbel generator with γ1 ≥ 1, 4. (AMH copula) ψ1 is the AMH generator with γ1 > 0, then X1:n (α) ≤st Y1:n (β).",
+  "kind": "proposition",
+  "model": "series system",
+  "family": "PHR model Te; X-side copula ψ1 restricted to Clayton/Frank/Gumbel/AMH",
+  "compared": "exponent vectors α vs β via majorization; generators ψ1 vs ψ2",
+  "hypotheses": [
+   {"text": "ϕ2 ◦ ψ1 is super-additive and ψ2 is d-monotone with d ≥ 3", "formal": "generator conditions (as printed — ψ2 d-monotone although the proof uses ψ1; see ambiguity)", "source": "statement"},
+   {"text": "β ⪰m α", "formal": "β majorizes α", "source": "statement"},
+   {"text": "ψ1 Clayton γ1 > 0, or Frank γ1 ∈ R, or Gumbel γ1 ≥ 1, or AMH γ1 > 0", "formal": "one of four conditions on ψ1 ensuring V(β) decreasing via S̃e(x) = ψ1'∘ϕ1(1−x)/(1−x) decreasing on [0,1]", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X1:n(α) <=st Y1:n(β)"},
+  "quantifiers": "n >= 1; β > 0",
+  "numbers": "Clayton: S̃e(x) = −(1−x)^{−γ1} decreasing for γ1 > 0; Frank: S̃e(x) = γ1(1−x)/(1−e^{γ1(1−x)})... decreasing γ1 ∈ R; Gumbel: S̃e(x) = −γ1(−log(1−x))^{γ1−1} decreasing γ1 > 1; AMH: S̃e decreasing for γ1 > 0",
+  "ambiguity": "Statement assumes 'ψ2 d-monotone' (copied from the parallel-system template) while the proof via Theorem 3.8 only requires ψ1 d-monotone — likely a copy-paste artifact. Also printed 'ψ2 is d-monotone' but the listed cases constrain ψ1."
+ },
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Proposition 4.5",
+  "page": 17,
+  "quote": "Proposition 4.5 Let 1 ≤ k ≤ n − 1, α = (α1 , . . . , αn ) and β = (β1 , . . . , βn ), where αi ≤ βi , for every i = 1, . . . , n. With marginal distributions based on the functional Te , if the copula generator ψ1 is d-monotone with d ≥ k + 3 then Xn−k:n (α) ≥st Xn−k:n (β).",
+  "kind": "proposition",
+  "model": "k-out-of-n system",
+  "family": "PHR model Te; single Archimedean copula ψ1",
+  "compared": "exponent vectors α vs β coordinatewise under the same copula",
+  "hypotheses": [
+   {"text": "1 ≤ k ≤ n − 1", "formal": "1 <= k <= n−1", "source": "statement"},
+   {"text": "αi ≤ βi , for every i = 1, . . . , n", "formal": "coordinatewise", "source": "statement"},
+   {"text": "the copula generator ψ1 is d-monotone with d ≥ k + 3", "formal": "d >= k+3 (condition of Theorem 3.16/Corollary 3.15)", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn−k:n(α) >=st Xn−k:n(β)"},
+  "quantifiers": "1 <= k <= n−1",
+  "numbers": "",
+  "ambiguity": "Same copula ψ1 on both sides (comparison of parameter configurations); Te is increasing in β."
+ },
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Proposition 4.6",
+  "page": 18,
+  "quote": "Proposition 4.6 With marginal distributions based on the functional Tc , copula generators such that ϕ1 ◦ ψ2 is super-additive and parameters α and β satisfying αi ≤ βi , for i = 1, . . . , n, we have that Xn:n (α) ≤st Yn:n (β).",
+  "kind": "proposition",
+  "model": "parallel system",
+  "family": "PRHR model: Tc(β, F) = F^β, β > 0 (decreasing in β)",
+  "compared": "exponent vectors α vs β coordinatewise; generators ψ1 vs ψ2",
+  "hypotheses": [
+   {"text": "αi ≤ βi , for i = 1, . . . , n", "formal": "coordinatewise", "source": "statement"},
+   {"text": "ϕ1 ◦ ψ2 is super-additive", "formal": "super-additive composition (reversed roles)", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn:n(α) <=st Yn:n(β)"},
+  "quantifiers": "n >= 1; β > 0",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Proposition 4.7",
+  "page": 18,
+  "quote": "Proposition 4.7 With marginal distributions based on the functional Tc and copula generators are such that ϕ2 ◦ ψ1 is super-additive and ψ2 is d-monotone with d ≥ 3, assume the parameters satisfy α ⪰m β. Assume any of the following conditions is fulfilled: 1. (Clayton copula) ψ2 is the Clayton generator with γ2 ≥ 0, 2. (AMH copula) ψ2 is the AMH generator with γ2 ∈ [0, 1]. Then, Xn:n (α) ≥st Yn:n (β).",
+  "kind": "proposition",
+  "model": "parallel system",
+  "family": "PRHR model Tc(β,F) = F^β; Y-side copula Clayton or AMH",
+  "compared": "exponent vectors α vs β via majorization; generators ψ1 vs ψ2",
+  "hypotheses": [
+   {"text": "ϕ2 ◦ ψ1 is super-additive and ψ2 is d-monotone with d ≥ 3", "formal": "generator conditions", "source": "statement"},
+   {"text": "α ⪰m β", "formal": "α majorizes β", "source": "statement"},
+   {"text": "ψ2 Clayton with γ2 ≥ 0, or AMH with γ2 ∈ [0, 1]", "formal": "ensures V(β) increasing via Sc(x) = x/ψ2'∘ϕ2(x) increasing on [0,1]", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn:n(α) >=st Yn:n(β)"},
+  "quantifiers": "n >= 1; β > 0",
+  "numbers": "Clayton: Sc(x) = −x^{−γ2} increasing γ2 >= 0; AMH: Sc(x) = −(1−γ2)/(1−γ2+γ2 x)... increasing γ2 >= 0",
+  "ambiguity": "AMH parameter range given as [0,1] — elsewhere the AMH range is γ ∈ (−1,1) or (0,1); endpoints may be degenerate, recorded as printed."
+ },
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Proposition 4.8",
+  "page": 18,
+  "quote": "Proposition 4.8 With marginal distributions based on the functional Tc , copula generators such that ϕ2 ◦ ψ1 is super-additive and parameters α and β satisfying αi ≤ βi , for i = 1, . . . , n, we have that X1:n (α) ≤st Y1:n (β).",
+  "kind": "proposition",
+  "model": "series system",
+  "family": "PRHR model Tc(β,F) = F^β",
+  "compared": "exponent vectors α vs β coordinatewise; generators ψ1 vs ψ2",
+  "hypotheses": [
+   {"text": "αi ≤ βi , for i = 1, . . . , n", "formal": "coordinatewise", "source": "statement"},
+   {"text": "ϕ2 ◦ ψ1 is super-additive", "formal": "super-additive composition", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X1:n(α) <=st Y1:n(β)"},
+  "quantifiers": "n >= 1; β > 0",
+  "numbers": "",
+  "ambiguity": "Consequence of Theorem 3.7(1): Tc̄ = 1 − F^β is increasing in β... note Tc decreasing ⇒ Tc̄ increasing; printed application of assertion 1."
+ },
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Proposition 4.9",
+  "page": 18,
+  "quote": "Proposition 4.9 Let 1 ≤ k ≤ n − 1, α = (α1 , . . . , αn ) and β = (β1 , . . . , βn ), where αi ≤ βi , for every i = 1, . . . , n. With marginal distributions based on the functional Tc , if the copula generator ψ1 is d-monotone with d ≥ k + 3 then Xn−k:n (α) ≤st Xn−k:n (β).",
+  "kind": "proposition",
+  "model": "k-out-of-n system",
+  "family": "PRHR model Tc; single copula ψ1",
+  "compared": "exponent vectors α vs β coordinatewise under the same copula",
+  "hypotheses": [
+   {"text": "1 ≤ k ≤ n − 1", "formal": "1 <= k <= n−1", "source": "statement"},
+   {"text": "αi ≤ βi , for every i = 1, . . . , n", "formal": "coordinatewise", "source": "statement"},
+   {"text": "the copula generator ψ1 is d-monotone with d ≥ k + 3", "formal": "d >= k+3", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn−k:n(α) <=st Xn−k:n(β)"},
+  "quantifiers": "1 <= k <= n−1",
+  "numbers": "",
+  "ambiguity": "Tc decreasing in β, giving the reverse direction relative to Proposition 4.5."
+ },
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Proposition 4.10",
+  "page": 19,
+  "quote": "Proposition 4.10 With marginal distributions based on the functional To , copula generators such that ϕ2 ◦ ψ1 is super-additive and parameters α and β satisfying αi ≤ βi , for i = 1, . . . , n, we have that Xn:n (α) ≥st Yn:n (β).",
+  "kind": "proposition",
+  "model": "parallel system",
+  "family": "odds-Marshall-Olkin model: To(β,F) = βF^θ/(βF^θ + F̄), β,θ > 0, Λ_{G_{β,θ}} = β Λ_F^θ; fixed θ (oMO members comparable only for common θ)",
+  "compared": "parameter vectors α vs β coordinatewise (the β of the oMO transform); generators ψ1 vs ψ2",
+  "hypotheses": [
+   {"text": "αi ≤ βi , for i = 1, . . . , n", "formal": "coordinatewise", "source": "statement"},
+   {"text": "ϕ2 ◦ ψ1 is super-additive", "formal": "super-additive composition", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn:n(α) >=st Yn:n(β)"},
+  "quantifiers": "n >= 1; β > 0; common θ",
+  "numbers": "",
+  "ambiguity": "The paper notes distributions in the oMO class are comparable only when they share the same θ, so all comparisons are with respect to β."
+ },
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Proposition 4.11",
+  "page": 19,
+  "quote": "Proposition 4.11 With marginal distributions based on the functional To and copula generators are such that ϕ2 ◦ψ1 is super-additive and ψ2 is d-monotone with d ≥ 3, and parameters satisfying α ⪰m β, assume any of the following conditions is fulfilled: 1. (Clayton copula) ψ2 is the Clayton generator with γ2 ≥ 1, 2. (Frank copula) ψ2 is the Frank generator with γ2 ≥ 0, 3. (Gumbel copula) ψ2 is the Gumbel generator with γ2 ≥ 1, 4. (AMH copula) ψ2 is the AMH generator with γ2 ∈ (−1, 1), then Xn:n (α) ≥st Yn:n (β).",
+  "kind": "proposition",
+  "model": "parallel system",
+  "family": "odds-Marshall-Olkin model To(β,F) = βF^θ/(βF^θ + F̄); Y-side copula Clayton/Frank/Gumbel/AMH",
+  "compared": "parameter vectors α vs β via majorization; generators ψ1 vs ψ2",
+  "hypotheses": [
+   {"text": "ϕ2 ◦ψ1 is super-additive and ψ2 is d-monotone with d ≥ 3", "formal": "generator conditions", "source": "statement"},
+   {"text": "α ⪰m β", "formal": "α majorizes β", "source": "statement"},
+   {"text": "ψ2 Clayton γ2 ≥ 1, or Frank γ2 ≥ 0, or Gumbel γ2 ≥ 1, or AMH γ2 ∈ (−1, 1)", "formal": "one of four conditions ensuring V* increasing (Corollary 3.4 route)", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn:n(α) >=st Yn:n(β)"},
+  "quantifiers": "n >= 1; β > 0; common θ",
+  "numbers": "Clayton: V*(β) = −(1/β^2) G_{β,θ}^{1−γ2} increasing for γ2 >= 1; Gumbel: K2(x) = x^{1−a}, a = 1/γ2; AMH: V*(β) = −(1−γ2)F^θ/(β(βF^θ + (1−γ2)F̄θ))... increasing",
+  "ambiguity": "Clayton case proof writes V*(β) = −(1/β^2) G_{β,θ}^{1−γ2}; the printed Frank-case formula is heavily typeset-garbled in the text layer."
+ },
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Example 4.12",
+  "page": 20,
+  "quote": "Example 4.12 We showed in Example 2.6 that the super-additivity assumption is fulfilled composing two different copulas within the same family. We now show that the Gumbel family allows for some more flexibility on the choice of the copula ψ1 . Choose ψ1 (t) = exp(−t − ct2 ), for some c > 0. Clearly, ψ1 is decreasing, ψ1 (0) = 1 and ψ1 (t) → 0 as t → ∞. Moreover, it is completely monotone and therefore defines a valid Archimedean copula. Then, ϕ2 ◦ ψ1 (t) = (− log ψ1 (t))γ2 = (t + ct2 )γ2 . Taking γ2 > 1, this is an increasing and convex transformation of a super-additive function, hence it is super-additive.",
+  "kind": "example",
+  "model": "other: copula domination",
+  "family": "Custom ψ1(t) = exp(−t − ct^2), c > 0, composed with Gumbel ψ2",
+  "compared": "custom copula Cψ1 vs Gumbel Cψ2 via super-additivity",
+  "hypotheses": [
+   {"text": "γ2 > 1 (Gumbel parameter)", "formal": "γ2 > 1 makes (·)^{γ2} increasing convex", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: copula domination", "direction": "ϕ2∘ψ1(t) = (t + ct^2)^{γ2} super-additive ⇒ Cψ1 <= Cψ2 — extends the choice of ψ1 beyond same-family pairs for Proposition 4.11-type results"},
+  "quantifiers": "t >= 0; c > 0",
+  "numbers": "ψ1(t) = exp(−t − ct^2), c > 0; ϕ2∘ψ1(t) = (t + ct^2)^{γ2}, γ2 > 1",
+  "ambiguity": "Verifies the super-additivity hypothesis; not itself a lifetime-ordering example."
+ },
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Example 4.13",
+  "page": 20,
+  "quote": "Example 4.13 Concerning the super-additivity assumption in Proposition 4.11 when using a AMH generator, we have already verified that we may choose for ψ1 the independent copula or another copula within the AMH family. We show next that we may also take ψ1 within the Gumbel class. Let ψ1 (t) = exp(−t1/α ), α ≥ 1, be the generator function of the Gumbel family of copulas, and assume γ2 > 0. Then ϕ2 ◦ ψ1 (t) = log[(1 − γ2 (1 − e−t1/α ))/e−t1/α ] = log[(1 − γ2 )e^{t1/α} + γ2 ] =: gα (t). ... which proves that gα is super-additive.",
+  "kind": "example",
+  "model": "other: copula domination",
+  "family": "Gumbel ψ1(t) = exp(−t^{1/α}), α >= 1, composed with AMH ψ2 (γ2 > 0)",
+  "compared": "Gumbel Cψ1 vs AMH Cψ2 via super-additivity",
+  "hypotheses": [
+   {"text": "α ≥ 1 and γ2 > 0", "formal": "Gumbel parameter α >= 1; AMH parameter γ2 > 0", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: copula domination", "direction": "ϕ2∘ψ1 = gα super-additive ⇒ Cψ1 <= Cψ2 — extends Proposition 4.11 to Gumbel ψ1 with AMH ψ2"},
+  "quantifiers": "t >= 0",
+  "numbers": "gα(t) = log((1 − γ2)e^{t^{1/α}} + γ2); key bound: (1−γ2)e^{(x+y)^{1/α}} + γ2 >= [(1−γ2)e^{x^{1/α}} + γ2][(1−γ2)e^{y^{1/α}} + γ2] via subadditivity of t^{1/α}",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Proposition 4.14",
+  "page": 21,
+  "quote": "Proposition 4.14 With marginal distributions based on the functional To , copula generators such that ϕ2 ◦ ψ1 is super-additive and parameters α and β satisfying αi ≤ βi , for i = 1, . . . , n, we have that X1:n (α) ≥st Y1:n (β).",
+  "kind": "proposition",
+  "model": "series system",
+  "family": "odds-Marshall-Olkin model To(β,F) = βF^θ/(βF^θ + F̄); common θ",
+  "compared": "parameter vectors α vs β coordinatewise; generators ψ1 vs ψ2",
+  "hypotheses": [
+   {"text": "αi ≤ βi , for i = 1, . . . , n", "formal": "coordinatewise", "source": "statement"},
+   {"text": "ϕ2 ◦ ψ1 is super-additive", "formal": "super-additive composition", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X1:n(α) >=st Y1:n(β)"},
+  "quantifiers": "n >= 1; β > 0; common θ",
+  "numbers": "",
+  "ambiguity": "To increasing in β ⇒ T̄o decreasing in β; application of Theorem 3.7(2)."
+ },
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Proposition 4.15",
+  "page": 21,
+  "quote": "Proposition 4.15 With marginal distributions based on the functional To , ψ1 the Clayton generator with γ1 ≤ 1, ψ2 a copula generator such that ϕ2 ◦ψ1 is super-additive and ψ2 is d-monotone with d ≥ 3, and parameters satisfying β ⪰m α, then X1:n (α) ≤st Y1:n (β).",
+  "kind": "proposition",
+  "model": "series system",
+  "family": "odds-Marshall-Olkin model To; X-side Clayton copula, Y-side arbitrary",
+  "compared": "parameter vectors α vs β via majorization; generators ψ1 vs ψ2",
+  "hypotheses": [
+   {"text": "ψ1 the Clayton generator with γ1 ≤ 1", "formal": "γ1 <= 1 (S̃o(x) = −x^{1−γ1} decreasing)", "source": "statement"},
+   {"text": "ϕ2 ◦ψ1 is super-additive and ψ2 is d-monotone with d ≥ 3", "formal": "generator conditions (ψ2 d-monotone as printed; cf. Prop 4.4 ambiguity)", "source": "statement"},
+   {"text": "β ⪰m α", "formal": "β majorizes α", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X1:n(α) <=st Y1:n(β)"},
+  "quantifiers": "n >= 1; β > 0; common θ",
+  "numbers": "S̃o(x) = ψ1'∘ϕ1(x)/x^2 = −x^{1−γ1} decreasing for γ1 <= 1",
+  "ambiguity": "Only the Clayton copula is listed for ψ1 (in contrast to Proposition 4.4's four cases). As in Prop 4.4, 'ψ2 d-monotone' is printed though the proof only constrains ψ1."
+ },
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Proposition 4.16",
+  "page": 21,
+  "quote": "Proposition 4.16 Let 1 ≤ k ≤ n − 1, α = (α1 , . . . , αn ) and β = (β1 , . . . , βn ), where αi ≤ βi , for every i = 1, . . . , n. With marginal distributions based on the functional To , if the copula generator ψ1 is d-monotone with d ≥ k + 3 then Xn−k:n (α) ≥st Xn−k:n (β).",
+  "kind": "proposition",
+  "model": "k-out-of-n system",
+  "family": "odds-Marshall-Olkin model To; single copula ψ1",
+  "compared": "parameter vectors α vs β coordinatewise under the same copula",
+  "hypotheses": [
+   {"text": "1 ≤ k ≤ n − 1", "formal": "1 <= k <= n−1", "source": "statement"},
+   {"text": "αi ≤ βi , for every i = 1, . . . , n", "formal": "coordinatewise", "source": "statement"},
+   {"text": "the copula generator ψ1 is d-monotone with d ≥ k + 3", "formal": "d >= k+3", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn−k:n(α) >=st Xn−k:n(β)"},
+  "quantifiers": "1 <= k <= n−1",
+  "numbers": "",
+  "ambiguity": ""
+ }
+]

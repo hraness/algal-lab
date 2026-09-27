@@ -1,0 +1,164 @@
+[
+ {
+  "paper": "doi:10.1017/s026996481900041x",
+  "claim": "Theorem 1 (hr equivalence)",
+  "page": 2,
+  "quote": "Theorem 1. For each 1 ≤ k ≤ n, (1) is equivalent to Yk:n ≤hr Xk:n, and also equivalent to Yk:n ≤disp Xk:n. [Condition (1): γ ≥ ((n choose k)^{−1} s_k(λ1, . . . , λn))^{1/k}, where s_k denotes the kth elementary symmetric function. Setup: X1, . . . , Xn independent exponential with rates λ1, . . . , λn; Y1, . . . , Yn iid exponential with common rate γ.]",
+  "kind": "theorem",
+  "model": "order statistics",
+  "family": "independent exponentials Exp(λi) vs iid Exp(γ)",
+  "compared": "kth order statistics of heterogeneous vs homogeneous exponential samples",
+  "hypotheses": [
+   {"text": "γ ≥ ((n choose k)^{−1} s_k(λ1, . . . , λn))^{1/k}", "formal": "γ ≥ (s_k(λ)/C(n,k))^{1/k}", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "Yk:n <=_hr Xk:n (iff condition (1)); resolves Păltănea (2008) conjecture"},
+  "quantifiers": "each 1 ≤ k ≤ n",
+  "ambiguity": "The st equivalence is the cited Bon and Păltănea (2006) result; Theorem 1 adds hr and disp."
+ },
+ {
+  "paper": "doi:10.1017/s026996481900041x",
+  "claim": "Theorem 1 (disp equivalence)",
+  "page": 2,
+  "quote": "Theorem 1. For each 1 ≤ k ≤ n, (1) is equivalent to Yk:n ≤hr Xk:n, and also equivalent to Yk:n ≤disp Xk:n.",
+  "kind": "theorem",
+  "model": "order statistics",
+  "family": "independent exponentials Exp(λi) vs iid Exp(γ)",
+  "compared": "kth order statistics, heterogeneous vs homogeneous",
+  "hypotheses": [
+   {"text": "γ ≥ (s_k(λ)/C(n,k))^{1/k}", "formal": "condition (1)", "source": "statement"}
+  ],
+  "conclusion": {"order": "disp", "direction": "Yk:n <=_disp Xk:n (iff condition (1))"},
+  "quantifiers": "each 1 ≤ k ≤ n",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1017/s026996481900041x",
+  "claim": "Theorem 2",
+  "page": 2,
+  "quote": "Theorem 2. For each 1 ≤ k ≤ n, we have Yk:n ≤* Xk:n. [Star order: X ≤* Y if G^{−1}F(x)/x is increasing in x > 0; equivalently, for each c > 0, F(cx) crosses G(x) at most once, and from below.]",
+  "kind": "theorem",
+  "model": "order statistics",
+  "family": "independent exponentials Exp(λi) vs iid Exp(γ)",
+  "compared": "kth order statistics, heterogeneous vs homogeneous — for ALL γ (no rate condition needed for star order)",
+  "hypotheses": [
+   {"text": "Xi independent exponential rates λi; Yi iid exponential rate γ", "formal": "setup only — unconditional star ordering", "source": "statement"}
+  ],
+  "conclusion": {"order": "star", "direction": "Yk:n <=_* Xk:n for each 1 ≤ k ≤ n"},
+  "quantifiers": "each 1 ≤ k ≤ n; all x > 0",
+  "ambiguity": "Confirms the conjecture of Xu and Balakrishnan (2012) / Open Problem 5 of Balakrishnan and Zhao (2013)."
+ },
+ {
+  "paper": "doi:10.1017/s026996481900041x",
+  "claim": "Corollary 1",
+  "page": 2,
+  "quote": "Corollary 1. For 1 ≤ m < k ≤ n we have Yk:n − Ym:n ≤* Xk:n − Xm:n.",
+  "kind": "corollary",
+  "model": "order statistics",
+  "family": "independent exponentials; general spacings",
+  "compared": "spacings Xk:n − Xm:n vs Yk:n − Ym:n",
+  "hypotheses": [
+   {"text": "same heterogeneous-vs-homogeneous exponential setup", "formal": "rates λi vs γ", "source": "statement"}
+  ],
+  "conclusion": {"order": "star", "direction": "Yk:n − Ym:n <=_* Xk:n − Xm:n"},
+  "quantifiers": "1 ≤ m < k ≤ n",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1017/s026996481900041x",
+  "claim": "Proposition 1 (st part)",
+  "page": 2,
+  "quote": "Proposition 1. For 1 ≤ m < k ≤ n we have Yk:n − Ym:n ≤order Xk:n − Xm:n if and only if (n−m choose k−m) γ^{k−m} ≥ Σ_r [ s^{[r]}_{k−m}(λ) Π_{j=1}^{m} λ_{rj} / (Λ − Σ_{i=1}^{j−1} λ_{ri}) ], where r = (r1, . . . , rm), the outer sum is over all permutations of {1, . . . , n} using m at a time, λ = (λ1, . . . , λn), Λ = Σ_{i=1}^n λi, s^{[r]}_{k−m}(λ) = s_{k−m}(λ \\ {λr1, . . . , λrm}), and ≤order is any of ≤st, ≤hr or ≤disp. [Special case m = 1, k = n: the condition reduces to γ ≥ (Π λi / (Λ/n)^{n−1})^{1/(n−1)} and recovers Theorem 4.1 of Xu and Balakrishnan (2012).]",
+  "kind": "proposition",
+  "model": "order statistics",
+  "family": "independent exponentials; spacing comparisons",
+  "compared": "spacings under condition (2)",
+  "hypotheses": [
+   {"text": "(n−m choose k−m) γ^{k−m} ≥ Σ_r s^{[r]}_{k−m}(λ) Π λ_{rj}/(Λ − Σ_{i<j} λ_{ri})", "formal": "condition (2) on γ and the λ rates", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Yk:n − Ym:n <=_st Xk:n − Xm:n iff (2)"},
+  "quantifiers": "1 ≤ m < k ≤ n",
+  "ambiguity": "Single characterization stated jointly for st, hr, disp; split per order here."
+ },
+ {
+  "paper": "doi:10.1017/s026996481900041x",
+  "claim": "Proposition 1 (hr part)",
+  "page": 2,
+  "quote": "Proposition 1. For 1 ≤ m < k ≤ n we have Yk:n − Ym:n ≤order Xk:n − Xm:n if and only if [condition (2)], where ≤order is any of ≤st, ≤hr or ≤disp.",
+  "kind": "proposition",
+  "model": "order statistics",
+  "family": "independent exponentials; spacings",
+  "compared": "spacings under condition (2)",
+  "hypotheses": [
+   {"text": "condition (2) on γ and λ", "formal": "as in Proposition 1 (st part)", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "Yk:n − Ym:n <=_hr Xk:n − Xm:n iff (2)"},
+  "quantifiers": "1 ≤ m < k ≤ n",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1017/s026996481900041x",
+  "claim": "Proposition 1 (disp part)",
+  "page": 2,
+  "quote": "Proposition 1. For 1 ≤ m < k ≤ n we have Yk:n − Ym:n ≤order Xk:n − Xm:n if and only if [condition (2)], where ≤order is any of ≤st, ≤hr or ≤disp.",
+  "kind": "proposition",
+  "model": "order statistics",
+  "family": "independent exponentials; spacings",
+  "compared": "spacings under condition (2)",
+  "hypotheses": [
+   {"text": "condition (2) on γ and λ", "formal": "as in Proposition 1 (st part)", "source": "statement"}
+  ],
+  "conclusion": {"order": "disp", "direction": "Yk:n − Ym:n <=_disp Xk:n − Xm:n iff (2)"},
+  "quantifiers": "1 ≤ m < k ≤ n",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1017/s026996481900041x",
+  "claim": "Lemma 1 (Xu and Balakrishnan 2012, Lemma 3.1)",
+  "page": 3,
+  "quote": "Lemma 1 (Lemma 3.1 of Xu and Balakrishnan (2012)). Let F be a distribution function with density f supported on (0, ∞) such that f(e^x) is log concave in x ∈ R. Let G1, . . . , Gn be distribution functions with densities g1, . . . , gn supported on (0, ∞) such that F ≤* Gi for each i = 1, . . . , n. Then F ≤* Σ_{i=1}^n pi Gi for pi > 0 such that Σ_{i=1}^n pi = 1.",
+  "kind": "lemma",
+  "model": "mixture",
+  "family": "arbitrary distributions on (0, ∞) with log-concave-in-exponential-scale density for F",
+  "compared": "F vs mixture of Gi, each star-larger than F",
+  "hypotheses": [
+   {"text": "f(e^x) log-concave in x", "formal": "density condition", "source": "statement"},
+   {"text": "F ≤* Gi for each i", "formal": "componentwise star ordering", "source": "statement"}
+  ],
+  "conclusion": {"order": "star", "direction": "F <=_* Σ pi Gi (mixture preserves star ordering)"},
+  "quantifiers": "all mixtures Σpi = 1, pi > 0",
+  "ambiguity": "Cited lemma; included because it states a star-order relation between two distributions."
+ },
+ {
+  "paper": "doi:10.1017/s026996481900041x",
+  "claim": "Lemma 3",
+  "page": 3,
+  "quote": "Lemma 3. For α > 0, if log η ≺w log θ then Fη ≤st Fθ. [Context: Fθ is the distribution function of the weighted sum Σ_{i=1}^n θi Zi for iid Zi ~ gamma(α); ≺w denotes weak sub-majorization.]",
+  "kind": "lemma",
+  "model": "other: weighted gamma convolution",
+  "family": "weighted sums of iid gamma(α)",
+  "compared": "weight vectors η vs θ (log-scale weak submajorization)",
+  "hypotheses": [
+   {"text": "Zi iid gamma(α), α > 0; Fθ the cdf of Σ θi Zi", "formal": "gamma convolution", "source": "statement"},
+   {"text": "log η ≺w log θ", "formal": "weak submajorization of log weights", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Fη <=_st Fθ"},
+  "quantifiers": "weight vectors positive",
+  "ambiguity": "Consequence of Theorem 1 of Yu (2011)."
+ },
+ {
+  "paper": "doi:10.1017/s026996481900041x",
+  "claim": "Lemma 4 (Yu 2016, Theorem 1)",
+  "page": 3,
+  "quote": "Lemma 4 (Theorem 1 of Yu (2016)). Suppose α ≥ 1. Suppose 0 < θ1 ≤ · · · ≤ θn and η1 ≤ · · · ≤ ηn and (a) there exists 2 ≤ k ≤ n such that θi < ηi for i < k and θi > ηi for i ≥ k; (b) Π ηi > Π θi. Then there exists x0 ∈ (0, ∞) such that Fη(x) < Fθ(x) for x ∈ (0, x0) and the inequality is reversed for x > x0.",
+  "kind": "lemma",
+  "model": "other: weighted gamma convolution",
+  "family": "weighted sums of iid gamma(α)",
+  "compared": "weight vectors η vs θ in a crossing configuration",
+  "hypotheses": [
+   {"text": "α ≥ 1; 0 < θ1 ≤ · · · ≤ θn, η1 ≤ · · · ≤ ηn; θi < ηi for i < k and θi > ηi for i ≥ k; Πηi > Πθi", "formal": "interlaced weight configuration with larger geometric mean", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: unique cdf crossing (star-order related)", "direction": "Fη(x) < Fθ(x) below x0 and Fη(x) > Fθ(x) above x0 — a single crossing at x0"},
+  "quantifiers": "x ∈ (0, ∞); 2 ≤ k ≤ n",
+  "ambiguity": "Crossing result rather than a full ordering; included since it compares two distributions' cdfs pointwise."
+ }
+]

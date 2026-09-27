@@ -1,0 +1,273 @@
+[
+ {
+  "paper": "doi:10.1214/21-bjps510",
+  "claim": "Theorem 3.1",
+  "page": 843,
+  "quote": "Theorem 3.1. Suppose that the following conditions are satisfied: (i) for every fixed θ ∈ (a, b) and Δ ≥ 0, gθ(x)/fθ(x + Δ) is increasing in x ∈ (l, u); (ii) for every fixed x ∈ (l, u) and Δ ≥ 0, [gθ(x)h2(θ)]/[fθ(x + Δ)h1(θ)] is increasing (decreasing) in θ ∈ (a, b); (iii) either X(θ1) ≤lr (≥lr) X(θ2), ∀a < θ1 ≤ θ2 < b, or Y(θ1) ≤lr (≥lr) Y(θ2), ∀a < θ1 ≤ θ2 < b. Then, X(Θ1) ≤lr↑ Y(Θ2).",
+  "kind": "theorem",
+  "model": "mixture",
+  "family": "general parametric families {X(θ)}, {Y(θ)}, θ ∈ (a, b), with absolutely continuous s.f.s F̄θ, Ḡθ and common support [l, u]; mixing variables Θ1, Θ2 with densities h1, h2 on (a, b); X(Θ1), Y(Θ2) the corresponding mixtures (equation (1.1))",
+  "compared": "mixtures X(Θ1) vs Y(Θ2)",
+  "hypotheses": [
+   {"text": "for every fixed θ ∈ (a, b) and Δ ≥ 0, gθ(x)/fθ(x + Δ) is increasing in x ∈ (l, u)", "formal": "pointwise up-shifted lr comparison at each θ (i.e., X(θ) ≤lr↑ Y(θ) componentwise)", "source": "statement"},
+   {"text": "for every fixed x ∈ (l, u) and Δ ≥ 0, [gθ(x)h2(θ)]/[fθ(x + Δ)h1(θ)] is increasing (decreasing) in θ ∈ (a, b)", "formal": "TP2/RR2-type monotonicity in θ including the mixing densities", "source": "statement"},
+   {"text": "either X(θ1) ≤lr (≥lr) X(θ2), ∀a < θ1 ≤ θ2 < b, or Y(θ1) ≤lr (≥lr) Y(θ2), ∀a < θ1 ≤ θ2 < b", "formal": "lr monotonicity of the component families in θ", "source": "statement"}
+  ],
+  "conclusion": {"order": "up-shifted lr", "direction": "X(Θ1) <=lr-up Y(Θ2)"},
+  "quantifiers": "all θ ∈ (a,b), all Δ ≥ 0, x ∈ (l,u)",
+  "ambiguity": "Bracketed (decreasing/≥lr) variants are built into a single statement. In the extracted text the shifted-density ratio is garbled (printed as fθ g(x+Δ)/θ(x)); reconstructed as gθ(x)/fθ(x+Δ) from context."
+ },
+ {
+  "paper": "doi:10.1214/21-bjps510",
+  "claim": "Theorem 3.2",
+  "page": 844,
+  "quote": "Theorem 3.2. Suppose that the following conditions are satisfied: (i) X(θ) ≤lr↑ Y(θ), ∀θ ∈ (a, b); (ii) X(θ1) ≤lr (≥lr) X(θ2), ∀a < θ1 ≤ θ2 < b, or Y(θ1) ≤lr (≥lr) Y(θ2), ∀a < θ1 ≤ θ2 < b; (iii) gθ(x)/fθ(x + Δ) is increasing (decreasing) in θ ∈ (a, b), for every fixed x ∈ (l, u) and Δ ≥ 0. Then, X(Θ1) ≤lr↑ Y(Θ2).",
+  "kind": "theorem",
+  "model": "mixture",
+  "family": "general parametric families {X(θ)}, {Y(θ)}; equal-in-distribution mixing variables Θ1 =^d Θ2",
+  "compared": "mixtures X(Θ1) vs Y(Θ2) under identical mixing distribution",
+  "hypotheses": [
+   {"text": "X(θ) ≤lr↑ Y(θ), ∀θ ∈ (a, b)", "formal": "componentwise up-shifted lr", "source": "statement"},
+   {"text": "X(θ1) ≤lr (≥lr) X(θ2) or Y(θ1) ≤lr (≥lr) Y(θ2), ∀a < θ1 ≤ θ2 < b", "formal": "lr monotonicity in θ", "source": "statement"},
+   {"text": "gθ(x)/fθ(x + Δ) is increasing (decreasing) in θ ∈ (a, b)", "formal": "monotonicity of the density ratio in θ", "source": "statement"},
+   {"text": "For the case when Θ1 =^d Θ2, Theorem 3.1 establishes X(Θ1) ≤lr↑ Y(Θ2) as follows", "formal": "common mixing distribution", "source": "section preamble"}
+  ],
+  "conclusion": {"order": "up-shifted lr", "direction": "X(Θ1) <=lr-up Y(Θ2)"},
+  "quantifiers": "all θ ∈ (a,b), all Δ ≥ 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1214/21-bjps510",
+  "claim": "Theorem 3.3",
+  "page": 844,
+  "quote": "Theorem 3.3. Suppose that: (i) X(θ) ≤lr↓ Y(θ), ∀θ ∈ (a, b); (ii) X(θ1) ≤lr (≥lr) X(θ2), ∀a < θ1 ≤ θ2 < b, or Y(θ1) ≤lr (≥lr) Y(θ2), ∀a < θ1 ≤ θ2 < b; (iii) gθ(x + Δ)/fθ(x) is increasing (decreasing) in θ ∈ (a, b), for every fixed x ∈ (l, u) and Δ ≥ 0; (iv) Θ1 ≤lr (≥lr) Θ2. Then, X(Θ1) ≤lr↓ Y(Θ2).",
+  "kind": "theorem",
+  "model": "mixture",
+  "family": "general parametric families {X(θ)}, {Y(θ)}; possibly different mixing variables Θ1, Θ2",
+  "compared": "mixtures X(Θ1) vs Y(Θ2)",
+  "hypotheses": [
+   {"text": "X(θ) ≤lr↓ Y(θ), ∀θ ∈ (a, b)", "formal": "componentwise down-shifted lr", "source": "statement"},
+   {"text": "X(θ1) ≤lr (≥lr) X(θ2) or Y(θ1) ≤lr (≥lr) Y(θ2), ∀a < θ1 ≤ θ2 < b", "formal": "lr monotonicity in θ", "source": "statement"},
+   {"text": "gθ(x + Δ)/fθ(x) is increasing (decreasing) in θ ∈ (a, b), for every fixed x ∈ (l, u) and Δ ≥ 0", "formal": "monotonicity in θ", "source": "statement"},
+   {"text": "Θ1 ≤lr (≥lr) Θ2", "formal": "lr ordering of the mixing variables", "source": "statement"}
+  ],
+  "conclusion": {"order": "down-shifted lr", "direction": "X(Θ1) <=lr-down Y(Θ2)"},
+  "quantifiers": "all θ ∈ (a,b), all Δ ≥ 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1214/21-bjps510",
+  "claim": "Theorem 3.4",
+  "page": 844,
+  "quote": "Theorem 3.4. Suppose that: (i) for every fixed θ ∈ (a, b) and Δ ≥ 0, gθ(x + Δ)/fθ(x) is increasing in x ∈ (l, u); (ii) for every fixed x ∈ (l, u) and Δ ≥ 0, [gθ(x + Δ)h2(θ)]/[fθ(x)h1(θ)] is increasing (decreasing) in θ ∈ (a, b); (iii) either X(θ1) ≤lr (≥lr) X(θ2), ∀a < θ1 ≤ θ2 < b, or Y(θ1) ≤lr (≥lr) Y(θ2), ∀a < θ1 ≤ θ2 < b. Then, X(Θ1) ≤lr↓ Y(Θ2).",
+  "kind": "theorem",
+  "model": "mixture",
+  "family": "general parametric families {X(θ)}, {Y(θ)}",
+  "compared": "mixtures X(Θ1) vs Y(Θ2)",
+  "hypotheses": [
+   {"text": "for every fixed θ ∈ (a, b) and Δ ≥ 0, gθ(x + Δ)/fθ(x) is increasing in x ∈ (l, u)", "formal": "componentwise condition", "source": "statement"},
+   {"text": "for every fixed x ∈ (l, u) and Δ ≥ 0, [gθ(x + Δ)h2(θ)]/[fθ(x)h1(θ)] is increasing (decreasing) in θ", "formal": "monotonicity in θ including mixing densities", "source": "statement"},
+   {"text": "either X(θ1) ≤lr (≥lr) X(θ2) or Y(θ1) ≤lr (≥lr) Y(θ2), ∀a < θ1 ≤ θ2 < b", "formal": "lr monotonicity in θ", "source": "statement"}
+  ],
+  "conclusion": {"order": "down-shifted lr", "direction": "X(Θ1) <=lr-down Y(Θ2)"},
+  "quantifiers": "all θ ∈ (a,b), all Δ ≥ 0",
+  "ambiguity": "Presented as a 'weaker conditions' variant of Theorem 3.3 proved along the lines of Theorem 3.1."
+ },
+ {
+  "paper": "doi:10.1214/21-bjps510",
+  "claim": "Corollary 3.5",
+  "page": 844,
+  "quote": "Corollary 3.5. Suppose that X(θ1) ≤lr↓ (≥lr↓) X(θ2), ∀a < θ1 ≤ θ2 < b, and Θ1 ≤lr (≥lr) Θ2. Then, X(Θ1) ≤lr↓ X(Θ2).",
+  "kind": "corollary",
+  "model": "mixture",
+  "family": "single family {X(θ)} (X(θ) =^d Y(θ) for all θ)",
+  "compared": "mixtures of the same family under two mixing variables",
+  "hypotheses": [
+   {"text": "X(θ1) ≤lr↓ (≥lr↓) X(θ2), ∀a < θ1 ≤ θ2 < b", "formal": "down-shifted lr monotonicity of the family in θ", "source": "statement"},
+   {"text": "Θ1 ≤lr (≥lr) Θ2", "formal": "lr ordering of mixing variables", "source": "statement"},
+   {"text": "for the case that X(θ) =^d Y(θ), ∀θ ∈ (a, b)", "formal": "same component family", "source": "section preamble"}
+  ],
+  "conclusion": {"order": "down-shifted lr", "direction": "X(Θ1) <=lr-down X(Θ2)"},
+  "quantifiers": "all θ1 <= θ2 in (a,b)",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1214/21-bjps510",
+  "claim": "Theorem 3.6",
+  "page": 845,
+  "quote": "Theorem 3.6. Suppose that: (i) X(θ) ≤hr↑ Y(θ), ∀θ ∈ (a, b); (ii) X(θ1) ≤hr (≥hr) X(θ2), ∀a < θ1 ≤ θ2 < b, or Y(θ1) ≤hr (≥hr) Y(θ2), ∀a < θ1 ≤ θ2 < b; (iii) F̄θ(x)/Gθ(x + Δ) is increasing (decreasing) in θ ∈ (a, b), for every fixed x ∈ (l, u) and Δ ≥ 0; (iv) Θ1 ≤hr (≥rh) Θ2. Then, X(Θ1) ≤hr↑ Y(Θ2).",
+  "kind": "theorem",
+  "model": "mixture",
+  "family": "general parametric families {X(θ)}, {Y(θ)}",
+  "compared": "mixtures X(Θ1) vs Y(Θ2)",
+  "hypotheses": [
+   {"text": "X(θ) ≤hr↑ Y(θ), ∀θ ∈ (a, b)", "formal": "componentwise up-shifted hr", "source": "statement"},
+   {"text": "X(θ1) ≤hr (≥hr) X(θ2) or Y(θ1) ≤hr (≥hr) Y(θ2), ∀a < θ1 ≤ θ2 < b", "formal": "hr monotonicity in θ", "source": "statement"},
+   {"text": "F̄θ(x)/Gθ(x + Δ) is increasing (decreasing) in θ ∈ (a, b), for every fixed x ∈ (l, u) and Δ ≥ 0", "formal": "monotonicity of survival-ratio in θ", "source": "statement"},
+   {"text": "Θ1 ≤hr (≥rh) Θ2", "formal": "ordering of mixing variables (hr or reversed-rh variant)", "source": "statement"}
+  ],
+  "conclusion": {"order": "up-shifted hr", "direction": "X(Θ1) <=hr-up Y(Θ2)"},
+  "quantifiers": "all θ ∈ (a,b), all Δ ≥ 0",
+  "ambiguity": "Mixed order symbols in hypothesis (iv) (Θ1 ≤hr or ≥rh Θ2) are printed as bracketed alternatives. The extracted ratio 'FG(x+Δ)/θ(x)' was reconstructed as F̄θ(x)/Gθ(x + Δ) from the proof recipe (ψ1 = F̄θ(x+Δ), ψ2 = Gθ(x))."
+ },
+ {
+  "paper": "doi:10.1214/21-bjps510",
+  "claim": "Theorem 3.7",
+  "page": 845,
+  "quote": "Theorem 3.7. Suppose that: (i) X(θ) ≤hr↓ Y(θ), ∀θ ∈ (a, b); (ii) X(θ1) ≤hr (≥hr) X(θ2), ∀a < θ1 ≤ θ2 < b, or Y(θ1) ≤hr (≥hr) Y(θ2), ∀a < θ1 ≤ θ2 < b; (iii) Gθ(x + Δ)/F̄θ(x) is increasing (decreasing) in θ, for every fixed x ∈ (l, u) and Δ ≥ 0; (iv) Θ1 ≤hr (≥rh) Θ2. Then, X(Θ1) ≤hr↓ Y(Θ2).",
+  "kind": "theorem",
+  "model": "mixture",
+  "family": "general parametric families {X(θ)}, {Y(θ)}",
+  "compared": "mixtures X(Θ1) vs Y(Θ2)",
+  "hypotheses": [
+   {"text": "X(θ) ≤hr↓ Y(θ), ∀θ ∈ (a, b)", "formal": "componentwise down-shifted hr", "source": "statement"},
+   {"text": "X(θ1) ≤hr (≥hr) X(θ2) or Y(θ1) ≤hr (≥hr) Y(θ2), ∀a < θ1 ≤ θ2 < b", "formal": "hr monotonicity in θ", "source": "statement"},
+   {"text": "Gθ(x + Δ)/F̄θ(x) is increasing (decreasing) in θ", "formal": "monotonicity in θ", "source": "statement"},
+   {"text": "Θ1 ≤hr (≥rh) Θ2", "formal": "mixing-variable ordering", "source": "statement"}
+  ],
+  "conclusion": {"order": "down-shifted hr", "direction": "X(Θ1) <=hr-down Y(Θ2)"},
+  "quantifiers": "all θ ∈ (a,b), all Δ ≥ 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1214/21-bjps510",
+  "claim": "Corollary 3.8",
+  "page": 845,
+  "quote": "Corollary 3.8. Assume that X(θ1) ≤hr↓ (≥hr↓) X(θ2), ∀a < θ1 ≤ θ2 < b, and Θ1 ≤hr (≥rh) Θ2. Then, X(Θ1) ≤hr↓ X(Θ2).",
+  "kind": "corollary",
+  "model": "mixture",
+  "family": "single family {X(θ)} (X(θ) =^d Y(θ), θ ∈ (0, ∞))",
+  "compared": "mixtures of the same family under two mixing variables",
+  "hypotheses": [
+   {"text": "X(θ1) ≤hr↓ (≥hr↓) X(θ2), ∀a < θ1 ≤ θ2 < b", "formal": "down-shifted hr monotonicity in θ", "source": "statement"},
+   {"text": "Θ1 ≤hr (≥rh) Θ2", "formal": "mixing-variable ordering", "source": "statement"},
+   {"text": "for the case X(θ) =^d Y(θ), ∀θ ∈ (0, ∞)", "formal": "same component family", "source": "section preamble"}
+  ],
+  "conclusion": {"order": "down-shifted hr", "direction": "X(Θ1) <=hr-down X(Θ2)"},
+  "quantifiers": "all θ1 <= θ2",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1214/21-bjps510",
+  "claim": "Theorem 3.9",
+  "page": 845,
+  "quote": "Theorem 3.9. Suppose that the following conditions are satisfied: (i) X(θ) ≤rh↑ Y(θ), ∀θ ∈ (a, b); (ii) X(θ1) ≤rh (≥rh) X(θ2), ∀a < θ1 ≤ θ2 < b, or Y(θ1) ≤rh (≥rh) Y(θ2), ∀a < θ1 ≤ θ2 < b; (iii) Fθ(x)/Gθ(x + Δ) is increasing (decreasing) in θ ∈ (a, b), for every fixed x ∈ (l, u) and Δ ≥ 0; (iv) Θ1 ≤rh (≥hr) Θ2. Then, X(Θ1) ≤rh↑ Y(Θ2).",
+  "kind": "theorem",
+  "model": "mixture",
+  "family": "general parametric families {X(θ)}, {Y(θ)}",
+  "compared": "mixtures X(Θ1) vs Y(Θ2)",
+  "hypotheses": [
+   {"text": "X(θ) ≤rh↑ Y(θ), ∀θ ∈ (a, b)", "formal": "componentwise up-shifted rh", "source": "statement"},
+   {"text": "X(θ1) ≤rh (≥rh) X(θ2) or Y(θ1) ≤rh (≥rh) Y(θ2), ∀a < θ1 ≤ θ2 < b", "formal": "rh monotonicity in θ", "source": "statement"},
+   {"text": "Fθ(x)/Gθ(x + Δ) is increasing (decreasing) in θ ∈ (a, b), for every fixed x ∈ (l, u) and Δ ≥ 0", "formal": "monotonicity in θ", "source": "statement"},
+   {"text": "Θ1 ≤rh (≥hr) Θ2", "formal": "mixing-variable ordering", "source": "statement"}
+  ],
+  "conclusion": {"order": "up-shifted rh", "direction": "X(Θ1) <=rh-up Y(Θ2)"},
+  "quantifiers": "all θ ∈ (a,b), all Δ ≥ 0",
+  "ambiguity": "The extracted ratio was garbled ('FθG(x+Δ)/θ(x)'); reconstructed as Fθ(x)/Gθ(x + Δ) from the proof recipe (ψ1 = Fθ(x + Δ), ψ2 = Gθ(x) — roles as printed)."
+ },
+ {
+  "paper": "doi:10.1214/21-bjps510",
+  "claim": "Theorem 3.10",
+  "page": 846,
+  "quote": "Theorem 3.10. Suppose that: (i) X(θ) ≤rh↓ Y(θ), ∀θ ∈ (a, b); (ii) X(θ1) ≤rh (≥rh) X(θ2), ∀a < θ1 ≤ θ2 < b, or Y(θ1) ≤rh (≥rh) Y(θ2), ∀a < θ1 ≤ θ2 < b; (iii) Gθ(x + Δ)/Fθ(x) is increasing (decreasing) in θ ∈ (a, b), for every fixed x ∈ (l, u) and Δ > 0; (iv) Θ1 ≤rh (≥hr) Θ2. Then, X(Θ1) ≤rh↓ Y(Θ2).",
+  "kind": "theorem",
+  "model": "mixture",
+  "family": "general parametric families {X(θ)}, {Y(θ)}",
+  "compared": "mixtures X(Θ1) vs Y(Θ2)",
+  "hypotheses": [
+   {"text": "X(θ) ≤rh↓ Y(θ), ∀θ ∈ (a, b)", "formal": "componentwise down-shifted rh", "source": "statement"},
+   {"text": "X(θ1) ≤rh (≥rh) X(θ2) or Y(θ1) ≤rh (≥rh) Y(θ2), ∀a < θ1 ≤ θ2 < b", "formal": "rh monotonicity in θ", "source": "statement"},
+   {"text": "Gθ(x + Δ)/Fθ(x) is increasing (decreasing) in θ ∈ (a, b), for every fixed x ∈ (l, u) and Δ > 0", "formal": "monotonicity in θ", "source": "statement"},
+   {"text": "Θ1 ≤rh (≥hr) Θ2", "formal": "mixing-variable ordering", "source": "statement"}
+  ],
+  "conclusion": {"order": "down-shifted rh", "direction": "X(Θ1) <=rh-down Y(Θ2)"},
+  "quantifiers": "all θ ∈ (a,b), all Δ > 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1214/21-bjps510",
+  "claim": "Convolution preservation result (unnumbered, Section 4)",
+  "page": 846,
+  "quote": "Shanthikumar and Yao (1986) and Lillo et al. (2000) proved that if Xi ≤lr↑ Yi, i = 1, 2, then X1 + X2 ≤lr↑ Y1 + Y2. In addition, Hu and Zhu (2001) proved that if X1 ≤lr↑ Y1 and X2 ≤lr↑ (respectively, ≤hr↑ and ≤rh↑) Y2, then X1 + X2 ≤lr↑ (respectively, ≤hr↑ and ≤rh↑) Y1 + Y2. ... However, using the general result stated in Lemma 2.7, the assertion follows in a straight-forward manner. ... it is easy to see that hypotheses of the theorem are satisfied and hence, X1 + X2 ≤lr↑ (respectively, ≤hr↑ and ≤rh↑) Y1 + Y2.",
+  "kind": "theorem",
+  "model": "convolution",
+  "family": "independent pairs (X1, Y1) and (X2, Y2) of r.v.s with Lebesgue densities",
+  "compared": "convolutions X1 + X2 vs Y1 + Y2",
+  "hypotheses": [
+   {"text": "X1 ≤lr↑ Y1 and X2 ≤lr↑ (respectively, ≤hr↑ and ≤rh↑) Y2", "formal": "componentwise up-shifted orders", "source": "statement"},
+   {"text": "(X1, Y1) and (X2, Y2) pairs of independent random vectors", "formal": "independence within each pair", "source": "section preamble"}
+  ],
+  "conclusion": {"order": "up-shifted lr / hr / rh", "direction": "X1 + X2 <=lr-up (resp. <=hr-up, <=rh-up) Y1 + Y2"},
+  "quantifiers": "all shifts Δ >= 0",
+  "ambiguity": "The result is rederived via Lemma 2.7 but not given a theorem number; the mixed-versions (X1 ≤lr↑ Y1 with X2 ordered in lr↑/hr↑/rh↑) are given while the paired same-order version is attributed to Shanthikumar–Yao and Lillo et al. Note the text also records that down-shifted orders are not closed under convolutions (Hu and Zhu, 2001)."
+ },
+ {
+  "paper": "doi:10.1214/21-bjps510",
+  "claim": "Example 5.1",
+  "page": 848,
+  "quote": "Example 5.1. Let the p.d.f.s of r.v.s X(θ) and Y(θ) be fθ(x) = (θ + 1)(1 − e^{−x})^θ e^{−x}, x > 0, θ ∈ (0, 1), and gθ(x) = ((θ + 1)/θ)(1 − e^{−x})^{1/θ} e^{−x}, x > 0, θ ∈ (0, 1), respectively. It is easy to verify that conditions (i) and (iii) of Theorem 3.1 are satisfied. Further, let us assume that the r.v.s Θ1 and Θ2 have p.d.f.s h1(θ) = 1, 0 < θ < 1; and h2(θ) = 2θ, 0 < θ < 1. Thus, all three conditions of Theorem 3.1 are satisfied, and hence X(Θ1) ≤lr↑ Y(Θ2).",
+  "kind": "example",
+  "model": "mixture",
+  "family": "component densities fθ(x) = (θ+1)(1−e^{−x})^θ e^{−x} and gθ(x) = ((θ+1)/θ)(1−e^{−x})^{1/θ} e^{−x} on x > 0, θ ∈ (0,1); mixers Uniform(0,1) and density 2θ",
+  "compared": "mixtures X(Θ1) vs Y(Θ2)",
+  "hypotheses": [
+   {"text": "conditions (i)–(iii) of Theorem 3.1 satisfied with h1(θ) = 1, h2(θ) = 2θ", "formal": "all three hypotheses verified", "source": "statement"}
+  ],
+  "conclusion": {"order": "up-shifted lr", "direction": "X(Θ1) <=lr-up Y(Θ2)"},
+  "quantifiers": "θ ∈ (0,1), x > 0",
+  "numbers": "h1 = 1; h2 = 2θ; θ ∈ (0, 1)",
+  "ambiguity": "gθ formula partly garbled in extraction; read as ((θ+1)/θ)(1−e^{−x})^{1/θ} e^{−x}."
+ },
+ {
+  "paper": "doi:10.1214/21-bjps510",
+  "claim": "Example 5.2",
+  "page": 848,
+  "quote": "Example 5.2. Assume that the s.f.s of r.v.s X(θ) and Y(θ) be F̄θ(x) = e^{−θx}, x ≥ 0, θ > 1 and Ḡθ(x) = e^{−x/θ}, x ≥ 0, θ > 1, respectively. Also, let the p.d.fs of r.v.s Θ1 and Θ2 be h1(θ) = e^{−(θ−1)}, θ ≥ 1 and h2(θ) = (1/2)e^{−(θ−1)/2}, θ ≥ 1. Thus, it can be seen that all the four assumptions of Theorem 3.6 are satisfied, and hence X(Θ1) ≤hr↑ Y(Θ2).",
+  "kind": "example",
+  "model": "mixture",
+  "family": "component survival functions F̄θ = e^{−θx} (Exp(θ)) and Ḡθ = e^{−x/θ} (Exp(1/θ)) on θ > 1; mixers shifted exponentials rates 1 and 1/2",
+  "compared": "mixtures X(Θ1) vs Y(Θ2)",
+  "hypotheses": [
+   {"text": "all the four assumptions of Theorem 3.6 are satisfied", "formal": "componentwise hr↑, hr monotonicity in θ, survival-ratio monotonicity, Θ1 <=hr Θ2", "source": "statement"}
+  ],
+  "conclusion": {"order": "up-shifted hr", "direction": "X(Θ1) <=hr-up Y(Θ2)"},
+  "quantifiers": "θ > 1, x >= 0",
+  "numbers": "h1(θ) = e^{−(θ−1)}; h2(θ) = (1/2)e^{−(θ−1)/2}; θ >= 1",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1214/21-bjps510",
+  "claim": "Example 5.3",
+  "page": 848,
+  "quote": "Example 5.3. Suppose that the r.v.s X(θ) and Y(θ) have s.f.s F̄θ(x) = (1+x)^{1/(1+θ)}, x ≥ 0, θ > 1 and Ḡθ(x) = (1+x)^{1/(1+1/θ)}, x ≥ 0, θ > 1, respectively. Further, assume that the r.v.s Θ1 and Θ2 have p.d.f.s h1(θ) = e^{−(θ−1)}, θ > 1 and h2(θ) = (1/2)e^{−(θ−1)/2}, θ > 1. Under this set-up, it is evident that conditions of Theorem 3.7 are satisfied, and therefore X(Θ1) ≤hr↓ Y(Θ2).",
+  "kind": "example",
+  "model": "mixture",
+  "family": "component survival functions of Lomax/Pareto type (1+x)^{-1/(1+θ)} and (1+x)^{-1/(1+1/θ)}, θ > 1; mixers shifted exponentials",
+  "compared": "mixtures X(Θ1) vs Y(Θ2)",
+  "hypotheses": [
+   {"text": "conditions of Theorem 3.7 are satisfied", "formal": "componentwise hr↓, hr monotonicity in θ, Gθ(x+Δ)/F̄θ(x) monotone, Θ1 <=hr Θ2", "source": "statement"}
+  ],
+  "conclusion": {"order": "down-shifted hr", "direction": "X(Θ1) <=hr-down Y(Θ2)"},
+  "quantifiers": "θ > 1, x >= 0",
+  "numbers": "h1(θ) = e^{−(θ−1)}; h2(θ) = (1/2)e^{−(θ−1)/2}",
+  "ambiguity": "Survival-function exponents lack minus signs in the extracted text (printed '(1+x)^{1/(1+θ)}'); the negative exponents needed for survival functions are noted."
+ },
+ {
+  "paper": "doi:10.1214/21-bjps510",
+  "claim": "Example 5.4",
+  "page": 848,
+  "quote": "Example 5.4. Let the d.f.s of r.v.s X(θ) and Y(θ) be Fθ(x) = (x/(1+x))^θ, x ≥ 0, θ ∈ (0, 1) and Gθ(x) = (x/(1+x))^{1/θ}, x ≥ 0, θ ∈ (0, 1), respectively. Also, let the p.d.fs of r.v.s Θ1 and Θ2 be h1(θ) = 2θ, 0 < θ < 1 and h2(θ) = 3θ^2, 0 < θ < 1. Thus, conditions of Theorem 3.9 are satisfied, and hence X(Θ1) ≤rh↑ Y(Θ2).",
+  "kind": "example",
+  "model": "mixture",
+  "family": "component d.f.s Fθ = (x/(1+x))^θ and Gθ = (x/(1+x))^{1/θ} (exponentiated log-logistic type), θ ∈ (0,1); mixers Beta-type densities 2θ and 3θ²",
+  "compared": "mixtures X(Θ1) vs Y(Θ2)",
+  "hypotheses": [
+   {"text": "conditions of Theorem 3.9 are satisfied", "formal": "componentwise rh↑, rh monotonicity in θ, cdf-ratio monotonicity, Θ1 <=rh Θ2", "source": "statement"}
+  ],
+  "conclusion": {"order": "up-shifted rh", "direction": "X(Θ1) <=rh-up Y(Θ2)"},
+  "quantifiers": "θ ∈ (0,1), x >= 0",
+  "numbers": "h1 = 2θ; h2 = 3θ²",
+  "ambiguity": ""
+ }
+]

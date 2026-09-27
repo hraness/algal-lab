@@ -1,0 +1,67 @@
+[
+ {
+  "paper": "doi:10.2991/jsta.2017.16.4.2",
+  "claim": "Theorem 1 (lr part)",
+  "page": 25,
+  "quote": "Theorem1: Let X ~ MOKwG(α1, a, b) and Y ~ MOKwG(α2, a, b). If α1 < α2, then X ≤lr Y (X ≤hr Y, X ≤rhr Y, X ≤st Y).",
+  "kind": "theorem",
+  "model": "single",
+  "family": "Marshall-Olkin-Kumaraswamy-G MOKw-G(α, a, b): pdf f(t) = αab g(t) G(t)^{a−1} [1 − G(t)^a]^{b−1} / [1 − ᾱ(1 − G(t)^a)^b]^2, ᾱ = 1 − α, baseline G",
+  "compared": "Marshall-Olkin tilts α1 vs α2; common a, b and baseline G",
+  "hypotheses": [
+   {"text": "X ~ MOKwG(α1, a, b) and Y ~ MOKwG(α2, a, b)", "formal": "same (a, b, G), different α", "source": "statement"},
+   {"text": "If α1 < α2", "formal": "α1 < α2", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "X <=_lr Y"},
+  "quantifiers": "all t ≥ 0; α1 < α2",
+  "ambiguity": "Printed pdf/cdf formulas in the text layer drop the bar on ᾱ; verified against the proof ratio f/g = (α1/α2)[(1−α2[1−G^a]^b)/(1−α1[1−G^a]^b)]^2 which uses ᾱ = 1−α in the denominator."
+ },
+ {
+  "paper": "doi:10.2991/jsta.2017.16.4.2",
+  "claim": "Theorem 1 (hr part)",
+  "page": 25,
+  "quote": "Theorem1: Let X ~ MOKwG(α1, a, b) and Y ~ MOKwG(α2, a, b). If α1 < α2, then X ≤lr Y (X ≤hr Y, X ≤rhr Y, X ≤st Y). 'The remaining statements follow from the implications (24): X ≤rhr Y ⇐ X ≤lr Y ⇒ X ≤hr Y ⇒ X ≤st Y.'",
+  "kind": "theorem",
+  "model": "single",
+  "family": "Marshall-Olkin-Kumaraswamy-G MOKw-G(α, a, b)",
+  "compared": "α1 vs α2; common a, b, G",
+  "hypotheses": [
+   {"text": "X ~ MOKwG(α1, a, b) and Y ~ MOKwG(α2, a, b); α1 < α2", "formal": "α1 < α2", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X <=_hr Y"},
+  "quantifiers": "all t ≥ 0; α1 < α2",
+  "ambiguity": "Hr conclusion stated parenthetically, derived via implication (24)."
+ },
+ {
+  "paper": "doi:10.2991/jsta.2017.16.4.2",
+  "claim": "Theorem 1 (rhr part)",
+  "page": 25,
+  "quote": "Theorem1: Let X ~ MOKwG(α1, a, b) and Y ~ MOKwG(α2, a, b). If α1 < α2, then X ≤lr Y (X ≤hr Y, X ≤rhr Y, X ≤st Y). 'The remaining statements follow from the implications (24): X ≤rhr Y ⇐ X ≤lr Y ⇒ X ≤hr Y ⇒ X ≤st Y.'",
+  "kind": "theorem",
+  "model": "single",
+  "family": "Marshall-Olkin-Kumaraswamy-G MOKw-G(α, a, b)",
+  "compared": "α1 vs α2; common a, b, G",
+  "hypotheses": [
+   {"text": "X ~ MOKwG(α1, a, b) and Y ~ MOKwG(α2, a, b); α1 < α2", "formal": "α1 < α2", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "X <=_rhr Y"},
+  "quantifiers": "all t ≥ 0; α1 < α2",
+  "ambiguity": "Reversed hazard rate conclusion stated parenthetically, derived via implication (24)."
+ },
+ {
+  "paper": "doi:10.2991/jsta.2017.16.4.2",
+  "claim": "Theorem 1 (st part)",
+  "page": 25,
+  "quote": "Theorem1: Let X ~ MOKwG(α1, a, b) and Y ~ MOKwG(α2, a, b). If α1 < α2, then X ≤lr Y (X ≤hr Y, X ≤rhr Y, X ≤st Y). 'The remaining statements follow from the implications (24): X ≤rhr Y ⇐ X ≤lr Y ⇒ X ≤hr Y ⇒ X ≤st Y.'",
+  "kind": "theorem",
+  "model": "single",
+  "family": "Marshall-Olkin-Kumaraswamy-G MOKw-G(α, a, b)",
+  "compared": "α1 vs α2; common a, b, G",
+  "hypotheses": [
+   {"text": "X ~ MOKwG(α1, a, b) and Y ~ MOKwG(α2, a, b); α1 < α2", "formal": "α1 < α2", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X <=_st Y"},
+  "quantifiers": "all t ≥ 0; α1 < α2",
+  "ambiguity": "St-order conclusion stated parenthetically, derived via implication (24)."
+ }
+]

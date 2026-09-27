@@ -1,0 +1,153 @@
+[
+ {
+  "paper": "doi:10.3390/fractalfract9060388",
+  "claim": "Theorem 5",
+  "page": 12,
+  "quote": "Theorem 5. For non-negative absolutely continuous random variables Y1 and Y2 with sfs Ḡ1 and Ḡ2, respectively, if Y1 ≤icvo Y2, then RFGxΦν(Y1) ≥ RFGxΦν(Y2), ν ≥ 1.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "general non-negative absolutely continuous distributions with survival functions Ḡ1, Ḡ2",
+  "compared": "Y1 vs Y2 ordered by the increasing concave order; conclusion compares their residual cumulative generalized fractional extropies",
+  "hypotheses": [
+   {"text": "non-negative absolutely continuous random variables Y1 and Y2 with sfs Ḡ1 and Ḡ2", "formal": "Y1, Y2 ≥ 0 a.c.", "source": "statement"},
+   {"text": "if Y1 ≤icvo Y2", "formal": "E[w(Y1)] ≤ E[w(Y2)] for all increasing concave w (Definition 2.5)", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: residual cumulative generalized fractional extropy inequality", "direction": "RFGxΦν(Y1) >= RFGxΦν(Y2)"},
+  "quantifiers": "ν ≥ 1",
+  "ambiguity": "The conclusion is an inequality of the extropy functional (reverse to the icv order), not itself a stochastic order between the distributions; κ(ν) = 1/Γ(ν+1) and RFGxΦν(Y) = κ(ν)∫Ḡ^ν(y)dy."
+ },
+ {
+  "paper": "doi:10.3390/fractalfract9060388",
+  "claim": "Theorem 6",
+  "page": 13,
+  "quote": "Theorem 6. For non-negative absolutely continuous Y1 and Y2 with survival functions Ḡ1 and Ḡ2, respectively, Y1 ≤sto Y2 implies RFGxΦν(Y1) ≤ RFGxΦν(Y2), ν ≥ 1.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "general non-negative absolutely continuous distributions",
+  "compared": "Y1 vs Y2 ordered by usual stochastic order; conclusion compares extropies in the same direction",
+  "hypotheses": [
+   {"text": "non-negative absolutely continuous Y1 and Y2 with survival functions Ḡ1 and Ḡ2", "formal": "Y1, Y2 ≥ 0 a.c.", "source": "statement"},
+   {"text": "Y1 ≤sto Y2", "formal": "Ḡ1(y) ≤ Ḡ2(y) for all y (Definition 2.3)", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: residual cumulative generalized fractional extropy inequality", "direction": "RFGxΦν(Y1) <= RFGxΦν(Y2)"},
+  "quantifiers": "ν ≥ 1",
+  "ambiguity": "Conclusion is an extropy inequality induced by the st order, not itself a named stochastic order."
+ },
+ {
+  "paper": "doi:10.3390/fractalfract9060388",
+  "claim": "Example 3",
+  "page": 13,
+  "quote": "Example 3. Consider Y1 and Y2 with cdfs G1(y) = y/β1 (0 ≤ y ≤ β1) and G2(y) = y/β2 (0 ≤ y ≤ β2), respectively. For β2 ≥ β1, Y1 ≤sto Y2 holds. Applying Table 1, we compute RFGxΦν(Y1) = β1κ(ν)/(ν+1) ≤ β2κ(ν)/(ν+1) = RFGxΦν(Y2).",
+  "kind": "example",
+  "model": "single",
+  "family": "uniform distributions U(0, βi): Gi(y) = y/βi, 0 ≤ y ≤ βi",
+  "compared": "uniform scales β1 vs β2",
+  "hypotheses": [
+   {"text": "β2 ≥ β1", "formal": "β1 ≤ β2", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Y1 <=_st Y2 (and RFGxΦν(Y1) ≤ RFGxΦν(Y2))"},
+  "quantifiers": "β2 ≥ β1 > 0, ν ≥ 1",
+  "numbers": "G1(y) = y/β1 on [0,β1]; G2(y) = y/β2 on [0,β2]; RFGxΦν(Yi) = βi κ(ν)/(ν+1)",
+  "ambiguity": "Text layer mangled 'y/βi' as 'βi y' and the support endpoint 'βi' as 'βi^{-1}'; corrected from the page image."
+ },
+ {
+  "paper": "doi:10.3390/fractalfract9060388",
+  "claim": "Remark 6 (gamma family)",
+  "page": 13,
+  "quote": "For instance, if Y has a gamma distribution with form parameter α*, it is simple to demonstrate that for α1* < α2*, Yα1* ≤lro Yα2*. Consequently, Yα1* ≤sto Yα2*. RFGxΦν(Yα1*) ≤ RFGxΦν(Yα2*) is what we have.",
+  "kind": "example",
+  "model": "single",
+  "family": "gamma distribution with shape ('form') parameter α*",
+  "compared": "two gamma distributions with shape parameters α1* < α2*",
+  "hypotheses": [
+   {"text": "α1* < α2*", "formal": "shape parameters ordered", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "Yα1* <=_lr Yα2* (with ≤sto and extropy inequality as consequences)"},
+  "quantifiers": "α1* < α2*, ν ≥ 1",
+  "ambiguity": "Appears in a Remark (not a numbered result); the lr claim for the gamma shape parameter is a standard fact asserted without proof."
+ },
+ {
+  "paper": "doi:10.3390/fractalfract9060388",
+  "claim": "Remark 6 (Weibull family)",
+  "page": 13,
+  "quote": "For α1 < α2, Yα1 ≥dispo Yα2, and therefore Yα1 ≥sto Yα2, if Y has a Weibull distribution with a shape parameter α. RFGxΦν(Yα1) ≥ RFGxΦν(Yα2), as a result.",
+  "kind": "example",
+  "model": "single",
+  "family": "Weibull distribution with shape parameter α",
+  "compared": "two Weibull distributions with shape parameters α1 < α2",
+  "hypotheses": [
+   {"text": "α1 < α2", "formal": "shape parameters ordered", "source": "statement"}
+  ],
+  "conclusion": {"order": "disp", "direction": "Yα2 <=_disp Yα1 (stated as Yα1 ≥dispo Yα2; with ≥sto and extropy ≥ as consequences)"},
+  "quantifiers": "α1 < α2, ν ≥ 1",
+  "ambiguity": "Appears in a Remark; asserted without proof. The disp-to-st implication is invoked without the equal-left-endpoint caveat (both Weibull variables share left endpoint 0, so it applies)."
+ },
+ {
+  "paper": "doi:10.3390/fractalfract9060388",
+  "claim": "Corollary 1.1",
+  "page": 13,
+  "quote": "Corollary 1. 1. Assume that Y(k) and Z(K) denote the Kth order statistic from samples Y1, Y2, . . . , Ys and Z1, Z2, . . . , Zs, respectively, both of size s. If Y ≤sto Z, then Y(k) ≤sto Z(k), which implies RFGxΦν(Y(k)) ≥ RFGxΦν(Z(k)) for all k = 1, 2, . . . , s, ν ≥ 1.",
+  "kind": "corollary",
+  "model": "order statistic",
+  "family": "general non-negative distributions; i.i.d. samples of size s",
+  "compared": "kth order statistics of two i.i.d. samples whose parent distributions satisfy Y ≤sto Z",
+  "hypotheses": [
+   {"text": "Y(k) and Z(k) denote the kth order statistic from samples Y1,...,Ys and Z1,...,Zs of size s", "formal": "i.i.d. samples, kth order statistics", "source": "statement"},
+   {"text": "If Y ≤sto Z", "formal": "parent variables ordered in st", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Y(k) <=_st Z(k); printed extropy consequence RFGxΦν(Y(k)) ≥ RFGxΦν(Z(k))"},
+  "quantifiers": "k = 1,...,s; ν ≥ 1",
+  "ambiguity": "The printed extropy consequence uses ≥ while Theorem 6 (invoked as the mechanism) gives ≤ under Y_(k) ≤st Z_(k) — internal inconsistency recorded verbatim."
+ },
+ {
+  "paper": "doi:10.3390/fractalfract9060388",
+  "claim": "Corollary 1.2",
+  "page": 13,
+  "quote": "2. Assume that Us and Vs correspond to the sth record values from the sequences {Ys, s ≥ 1} and {Zs, s ≥ 1}, respectively. When Y ≤sto Z, it follows that Us ≤sto Vs, and consequently, RFGxΦν(Us) ≥ RFGxΦν(Vs) holds for k = 1, 2, . . . , s, ν ≥ 1.",
+  "kind": "corollary",
+  "model": "other: record values",
+  "family": "general non-negative distributions; record values of i.i.d. sequences",
+  "compared": "sth record values of two sequences whose parent distributions satisfy Y ≤sto Z",
+  "hypotheses": [
+   {"text": "Us and Vs correspond to the sth record values from {Ys} and {Zs}", "formal": "record values of i.i.d. sequences", "source": "statement"},
+   {"text": "When Y ≤sto Z", "formal": "parent variables ordered in st", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Us <=_st Vs; printed extropy consequence RFGxΦν(Us) ≥ RFGxΦν(Vs)"},
+  "quantifiers": "s ≥ 1; ν ≥ 1",
+  "ambiguity": "Same ≥/≤ inconsistency with Theorem 6 as in part 1; the stray 'for all k = 1,...,s' quantifier has no free k here."
+ },
+ {
+  "paper": "doi:10.3390/fractalfract9060388",
+  "claim": "Theorem 7(i)",
+  "page": 13,
+  "quote": "Theorem 7. Consider two independent, non-negative random variables, Y1 and Y2, with right-end supporting locations uY*1 = uY*2 < ∞. If the densities of Y1 and Y2 are log-concave, then using ν ≥ 1, we get (i) RFGxΦν(Y1 + Y2) ≤ min{RFGxΦν(Y1), RFGxΦν(Y2)}.",
+  "kind": "theorem",
+  "model": "other: convolution of two independent variables",
+  "family": "non-negative variables with log-concave densities and common finite right support endpoint",
+  "compared": "sum Y1+Y2 vs each component, via dispersive/stochastic order in the proof",
+  "hypotheses": [
+   {"text": "two independent, non-negative random variables Y1 and Y2 with right-end supporting locations uY*1 = uY*2 < ∞", "formal": "independent, common finite right endpoint", "source": "statement"},
+   {"text": "the densities of Y1 and Y2 are log-concave", "formal": "log-concave densities", "source": "statement"},
+   {"text": "ν ≥ 1", "formal": "extropy order parameter", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: residual cumulative generalized fractional extropy inequality", "direction": "RFGxΦν(Y1+Y2) <= min(RFGxΦν(Y1), RFGxΦν(Y2))"},
+  "quantifiers": "ν ≥ 1",
+  "ambiguity": "Proof chain printed as 'Y1 ≤dispo Y1+Y2' then 'Y1 ≥sto Y1+Y2 considering uY*1 = uY*2 < ∞'; for non-negative summands Y1 ≤st Y1+Y2 in fact, so the printed intermediate st direction and the endpoint justification are suspect — recorded verbatim per spec."
+ },
+ {
+  "paper": "doi:10.3390/fractalfract9060388",
+  "claim": "Theorem 7(ii)",
+  "page": 13,
+  "quote": "(ii) RFGxΦν(Y1 + Y2) ≤ RFGxΦν(Y1) + RFGxΦν(Y2).",
+  "kind": "theorem",
+  "model": "other: convolution of two independent variables",
+  "family": "non-negative variables with log-concave densities, common finite right endpoint",
+  "compared": "extropy of sum vs sum of extropies",
+  "hypotheses": [
+   {"text": "two independent, non-negative random variables Y1 and Y2 with right-end supporting locations uY*1 = uY*2 < ∞; densities log-concave; ν ≥ 1", "formal": "as in part (i)", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: residual cumulative generalized fractional extropy inequality", "direction": "RFGxΦν(Y1+Y2) <= RFGxΦν(Y1) + RFGxΦν(Y2)"},
+  "quantifiers": "ν ≥ 1",
+  "ambiguity": "Part (ii) follows trivially from part (i) plus non-negativity of the extropy; inherits the part (i) proof ambiguity."
+ }
+]

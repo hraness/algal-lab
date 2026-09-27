@@ -1,0 +1,79 @@
+[
+ {
+  "paper": "doi:10.29252/jss.12.2.395",
+  "claim": "Theorem 2 (قضیه ٢)",
+  "page": 404,
+  "quote": "قضیه ٢: فرض کنید Xλ١ , · · · , Xλn مجموعه‌ای از متغیرهای تصادفی مستقل نامنفی باشند، که در آن Xλi دارای تابع بقای F̄(·; λi) با λi > ٠ برای i = ١, · · · , n هستند. همچنین فرض کنید Ip١ , · · · , Ipn متغیرهای تصادفی مستقل برنولی با E(Ipi) = pi باشند، که مستقل از Xλi ها هستند. بعلاوه فرض کنید برای i = ١, · · · , n، تابع بقای F̄(·; λi) نسبت به λi صعودی باشد. اگر (h(p١:n), · · · , h(pn:n)) ⪰^m (h(q١:n), · · · , h(qn:n)) آنگاه Σ_{i=1}^n Ip_{i:n} X_{λ_{n−i+1:n}} ≥st Σ_{i=1}^n Iq_{i:n} X_{λ_{n−i+1:n}}، که در آن h(p) = − log p یا h(p) = (١ − p)/p.",
+  "kind": "theorem",
+  "model": "mixture",
+  "family": "General family F̄(·; λ), λ > 0, with F̄ increasing in λ; Bernoulli mixing Ip, Iq; aggregate claim sums",
+  "compared": "Bernoulli probability vectors p vs q via h-transform majorization; same λ vector",
+  "hypotheses": [
+   {"text": "Xλ١,...,Xλn independent nonnegative RVs, Xλi ~ F̄(·;λi), λi > 0", "formal": "independent nonnegative components", "source": "statement"},
+   {"text": "Ip١,...,Ipn independent Bernoulli with E(Ipi) = pi, independent of the Xλi", "formal": "independent Bernoulli claim indicators", "source": "statement"},
+   {"text": "F̄(·; λi) is increasing in λi", "formal": "F̄ ↑ in λ", "source": "statement"},
+   {"text": "(h(p١:n),...,h(pn:n)) ⪰^m (h(q١:n),...,h(qn:n))", "formal": "h(p) order statistics majorize h(q) order statistics", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Σ_i Ip_{i:n} X_{λ_{n−i+1:n}} ≥_st Σ_i Iq_{i:n} X_{λ_{n−i+1:n}}"},
+  "quantifiers": "n ≥ 1; h(p) = −log p or h(p) = (1−p)/p",
+  "numbers": "",
+  "ambiguity": "Persian-language paper; math translated/verified against the printed formulas. Post-proof remark states: if the hypothesis is replaced by (−h(p١:n),...,−h(pn:n)) ⪰^m (−h(q١:n),...,−h(qn:n)) then the direction of inequality (۴) reverses."
+ },
+ {
+  "paper": "doi:10.29252/jss.12.2.395",
+  "claim": "Theorem 3 (قضیه ٣, Li & Li 2016)",
+  "page": 407,
+  "quote": "قضیه ٣ (لی و لی (٢٠١۶)): فرض کنید Xλ١ , · · · , Xλn مجموعه‌ای از متغیرهای تصادفی مستقل نامنفی باشند، که در آن Xλi دارای تابع بقای F̄(·; λi) با λi > ٠ برای i = ١, · · · , n هستند. همچنین فرض کنید Ip١ , · · · , Ipn متغیرهای تصادفی مستقل برنولی با E(Ipi) = pi باشند که مستقل از Xλi ها هستند. بعلاوه فرض کنید شرایط زیر برقرار باشند: (الف) برای i = ١, · · · , n، تابع بقای F̄(·; λi) صعودی و مقعر، نسبت به λi باشد. (ب) تابع بقای Σ_{i=1}^n Xλi تابعی شور-مقعر نسبت به λi ها باشد. در این صورت (λ١ , · · · , λn) ⪰^m (µ١ , · · · , µn) ⇒ Σ_{i=1}^n Ip_{i:n} X_{µ_{n−i+1:n}} ≥st Σ_{i=1}^n Ip_{i:n} X_{λ_{n−i+1:n}}.",
+  "kind": "theorem",
+  "model": "mixture",
+  "family": "General F̄(·; λ) with F̄ increasing and concave in λ; Bernoulli mixing with common p",
+  "compared": "parameter vectors λ vs µ with common p (arrangement pairing i-th smallest p with (n−i+1)-th smallest parameter)",
+  "hypotheses": [
+   {"text": "Xλi ~ F̄(·;λi) independent nonnegative; Ipi Bernoulli E(Ipi) = pi independent", "formal": "stated configuration", "source": "statement"},
+   {"text": "(a) F̄(·;λi) increasing and concave in λi; (b) sf of Σ Xλi Schur-concave in λi's", "formal": "stated", "source": "statement"},
+   {"text": "(λ١ , · · · , λn) ⪰^m (µ١ , · · · , µn)", "formal": "λ more dispersed / majorizes µ (per paper's convention: a ⪰ b ⇒ a more spread)", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Σ_i Ip_{i:n} X_{µ_{n−i+1:n}} ≥_st Σ_i Ip_{i:n} X_{λ_{n−i+1:n}} (less-dispersed vector gives larger sum)"},
+  "quantifiers": "n ≥ 1",
+  "numbers": "",
+  "ambiguity": "Restated result of Li & Li (2016). Paper's convention: a ⪰ b means a is more dispersed (Definition with 'range of a larger'; Schur-convex iff a ⪰^m b ⇒ φ(a) ≥ φ(b))."
+ },
+ {
+  "paper": "doi:10.29252/jss.12.2.395",
+  "claim": "Theorem 4 (قضیه ۴)",
+  "page": 407,
+  "quote": "قضیه ۴: فرض کنید Xλ١ , · · · , Xλn مجموعه‌ای از متغیرهای تصادفی مستقل نامنفی باشند، که در آن Xλi دارای تابع بقای F̄(·; λi) با λi > ٠ برای i = ١, · · · , n هستند. همچنین فرض کنید Ip١ , · · · , Ipn متغیرهای تصادفی مستقل برنولی با E(Ipi) = pi باشند که مستقل از Xλi ها هستند. بعلاوه فرض کنید شرایط زیر برقرار باشند: (الف) برای i = ١, · · · , n، تابع بقای F̄(·; λi) صعودی و مقعر، نسبت به λi باشد. (ب) تابع بقای Σ Xλi تابعی شور-مقعر نسبت به λi ها باشد. آنگاه برای (λ, −h(p)) ∈ Un و (µ, −h(q)) ∈ Un داریم: (λ١...λn ; −h(p١)...−h(pn)) ≫ (µ١...µn ; −h(q١)...−h(qn)) ⇒ Σ_{i=1}^n Iqi Xµi ≥st Σ_{i=1}^n Ipi Xλi، که در آن h(p) = − log p یا h(p) = (١ − p)/p.",
+  "kind": "theorem",
+  "model": "mixture",
+  "family": "General F̄(·; λ) with F̄ increasing and concave in λ; Bernoulli mixing; chain majorization of 2×n matrices in Un = {(a,b): ai > 0, bi < 0, (ai−aj)(bi−bj) ≥ 0}",
+  "compared": "parameter matrices (λ, −h(p)) vs (µ, −h(q)), chain majorization ≫",
+  "hypotheses": [
+   {"text": "Xλi ~ F̄(·;λi) independent; Ipi Bernoulli independent", "formal": "stated configuration", "source": "statement"},
+   {"text": "(a) F̄(·;λi) increasing and concave in λi; (b) sf of Σ Xλi Schur-concave in λi's", "formal": "stated", "source": "statement"},
+   {"text": "(λ, −h(p)) ∈ Un, (µ, −h(q)) ∈ Un and (λ; −h(p)) ≫ (µ; −h(q))", "formal": "chain majorization of matrices", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Σ_i Iqi Xµi ≥_st Σ_i Ipi Xλi"},
+  "quantifiers": "n ≥ 1; h(p) = −log p or h(p) = (1−p)/p",
+  "numbers": "",
+  "ambiguity": "Main result; combines Theorems 2 and 3. Statement spans pages 407-408 of print."
+ },
+ {
+  "paper": "doi:10.29252/jss.12.2.395",
+  "claim": "Theorem 5 (قضیه ۵)",
+  "page": 409,
+  "quote": "قضیه ۵: فرض کنید متغیرهای تصادفی Xλ١ , · · · , Xλn از مدل با نرخ خطر وارون متناسب پیروی کنند [proportional reversed hazard rate model, Fi(x) = F(x)^{λi}]. همچنین فرض کنید Ip١ , · · · , Ipn متغیرهای تصادفی مستقل برنولی با E(Ipi) = pi باشند که مستقل از Xλi ها هستند. آنگاه برای (λ, −h(p)) ∈ Un و (µ, −h(q)) ∈ Un داریم: (λ١...λn ; −h(p١)...−h(pn)) ≫ (µ١...µn ; −h(q١)...−h(qn)) ⇒ Σ_{i=1}^n Iqi Xµi ≥st Σ_{i=1}^n Ipi Xλi، که در آن h(p) = − log p یا h(p) = (١ − p)/p.",
+  "kind": "theorem",
+  "model": "mixture",
+  "family": "Proportional reversed hazard rate model Fi(x) = F(x)^{λi}, λi > 0, baseline cdf F; Bernoulli mixing",
+  "compared": "parameter matrices (λ, −h(p)) vs (µ, −h(q)), chain majorization",
+  "hypotheses": [
+   {"text": "Xλi follow the proportional reversed hazard rate model", "formal": "F_i(x) = F(x)^{λ_i}", "source": "statement"},
+   {"text": "Ipi independent Bernoulli, E(Ipi) = pi, independent of Xλi", "formal": "stated", "source": "statement"},
+   {"text": "(λ, −h(p)) ∈ Un, (µ, −h(q)) ∈ Un, (λ; −h(p)) ≫ (µ; −h(q))", "formal": "chain majorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Σ_i Iqi Xµi ≥_st Σ_i Ipi Xλi"},
+  "quantifiers": "n ≥ 1; h(p) = −log p or h(p) = (1−p)/p",
+  "numbers": "",
+  "ambiguity": "Proof verifies conditions (a),(b) of Theorem 4 via F̄(x;λi) = 1 − F(x)^{λi} increasing & concave in λi and Theorem 5.2 of Balakrishnan et al. (2014) for Schur-concavity of the convolution sf."
+ }
+]

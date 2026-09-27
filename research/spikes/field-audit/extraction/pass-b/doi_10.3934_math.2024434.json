@@ -1,0 +1,189 @@
+[
+ {
+  "paper": "doi:10.3934/math.2024434",
+  "claim": "Theorem 1",
+  "page": 8908,
+  "quote": "Theorem 1. For X ~ MPHRS(α; θ1; λ1; F̄1; ψ) and Y ~ MPHRS(β; θ1; λ1; F̄2; ψ), if F̄1(x) ≥ F̄2(x), then α ≺w β implies X2:n ≥st Y2:n.",
+  "kind": "theorem",
+  "model": "order statistics",
+  "family": "modified proportional hazard rates scale (MPHRS) model with Archimedean survival copula ψ; tilt α, scale θ, proportional rates λ",
+  "compared": "tilt vectors α vs β; baseline F̄1 st-larger than F̄2",
+  "hypotheses": [
+   {"text": "F̄1(x) ≥ F̄2(x)", "formal": "baseline dominance", "source": "statement"},
+   {"text": "α ≺w β", "formal": "weak supermajorization between tilt vectors", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:n >=_st Y2:n"},
+  "quantifiers": "n ≥ 2; x ≥ 0",
+  "ambiguity": "Majorization glyph ≺w transcribed; proofs use Schur-concavity of the second-order-statistic survival function."
+ },
+ {
+  "paper": "doi:10.3934/math.2024434",
+  "claim": "Corollary 1",
+  "page": 8910,
+  "quote": "Corollary 1. For X ~ MPHRS(α1; θ1; λ1; F̄1; ψ) and Y ~ MPHRS(α; θ1; λ1; F̄2; ψ). If F̄1(x) ≥ F̄2(x), then α ≥ (1/n) Σ_{i=1}^n αi ⇒ X2:n ≥st Y2:n.",
+  "kind": "corollary",
+  "model": "order statistics",
+  "family": "MPHRS with Archimedean survival copula",
+  "compared": "heterogeneous tilt vector vs its scalar mean",
+  "hypotheses": [
+   {"text": "F̄1(x) ≥ F̄2(x)", "formal": "baseline dominance", "source": "statement"},
+   {"text": "α ≥ (1/n) Σ αi", "formal": "scalar tilt at least the mean of the vector", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:n >=_st Y2:n"},
+  "quantifiers": "n ≥ 2; x ≥ 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3934/math.2024434",
+  "claim": "Theorem 2",
+  "page": 8910,
+  "quote": "Theorem 2. For X ~ MPHRS(α1; θ; λ1; F̄1; ψ) and Y ~ MPHRS(α1; η; λ1; F̄2; ψ), where 0 < α ≤ 1. If ψ is log-concave, F̄1(x) ≤ F̄2(x), and h2(x) is decreasing in x, then θ ≺w η implies X2:n ≤st Y2:n.",
+  "kind": "theorem",
+  "model": "order statistics",
+  "family": "MPHRS with Archimedean survival copula; common scalar tilt α ≤ 1",
+  "compared": "scale vectors θ vs η under weak supermajorization; baseline F̄1 st-smaller",
+  "hypotheses": [
+   {"text": "0 < α ≤ 1; ψ log-concave; F̄1(x) ≤ F̄2(x); h2(x) decreasing", "formal": "tilt bound, generator and baseline conditions", "source": "statement"},
+   {"text": "θ ≺w η", "formal": "weak supermajorization between scale vectors", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:n <=_st Y2:n"},
+  "quantifiers": "n ≥ 2; x ≥ 0",
+  "ambiguity": "Remark 1: Theorem 4.3 of [20] is the α = λ = 1, F̄1 = F̄2 special case."
+ },
+ {
+  "paper": "doi:10.3934/math.2024434",
+  "claim": "Corollary 2",
+  "page": 8911,
+  "quote": "Corollary 2. For X ~ MPHRS(α1; θ1; λ1; F̄1; ψ) and Y ~ MPHRS(α1; θ; λ1; F̄2; ψ), where 0 < α ≤ 1, if ψ is log-concave, F̄1(x) ≤ F̄2(x), and h2(x) is decreasing in x, then θ ≥ (1/n) Σ_{i=1}^n θi ⇒ X2:n ≤st Y2:n.",
+  "kind": "corollary",
+  "model": "order statistics",
+  "family": "MPHRS; scalar scale vs vector scale",
+  "compared": "scalar θ vs vector (θ1,...,θn)",
+  "hypotheses": [
+   {"text": "0 < α ≤ 1; ψ log-concave; F̄1 ≤ F̄2; h2 decreasing", "formal": "as in Theorem 2", "source": "statement"},
+   {"text": "θ ≥ (1/n) Σ θi", "formal": "scalar scale at least the mean", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:n <=_st Y2:n"},
+  "quantifiers": "n ≥ 2; x ≥ 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3934/math.2024434",
+  "claim": "Example 1",
+  "page": 8911,
+  "quote": "Example 1. Let F̄1(x) = e^{−3x}, F̄2(x) = e^{−2x}, and generator ψ(x) = e^{(1−e^x)/a}, 0 < a ≤ 1. Take n = 4, λ = 0.2, α = 0.2, a = 0.1, and θ = (0.6, 0.7, 0.8, 0.9) ≺w (0.2, 0.3, 0.5, 0.7) = η. It is easy to check that the conditions of Theorem 2 are all satisfied. ... The distribution functions of (X2:4 + 1)^{−1} and (Y2:4 + 1)^{−1} are plotted in Figure 1, which confirms X2:4 ≤st Y2:4.",
+  "kind": "example",
+  "model": "order statistics",
+  "family": "MPHRS with exponential baselines F̄1 = e^{−3x}, F̄2 = e^{−2x}",
+  "compared": "θ = (0.6,0.7,0.8,0.9) vs η = (0.2,0.3,0.5,0.7) under weak supermajorization",
+  "hypotheses": [
+   {"text": "all conditions of Theorem 2 hold", "formal": "verified premise", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:4 <=_st Y2:4 confirmed by plotted distribution functions"},
+  "quantifiers": "n = 4; x ≥ 0",
+  "numbers": "n=4; λ=0.2; α=0.2; a=0.1; θ=(0.6,0.7,0.8,0.9); η=(0.2,0.3,0.5,0.7); F̄1=e^{−3x}; F̄2=e^{−2x}",
+  "ambiguity": "Generator ψ(x) is partially garbled in the text layer (printed 'ψ(x) = e a, 0 < a ≤ 1'); likely Gumbel-type ψ(x) = exp((1 − e^x)/a)."
+ },
+ {
+  "paper": "doi:10.3934/math.2024434",
+  "claim": "Theorem 3",
+  "page": 8913,
+  "quote": "Theorem 3. For X ~ MPRHRS(α1; θ1; λ; F1; ψ) and Y ~ MPRHRS(α1; θ1; µ; F2; ψ), where 0 < α ≤ 1. If ψ is log-concave, F1(x) ≤ F2(x), then λ ≺w µ implies Xn−1:n ≥st Yn−1:n.",
+  "kind": "theorem",
+  "model": "order statistics",
+  "family": "modified proportional reversed hazard rates scale (MPRHRS) model; Archimedean copula ψ",
+  "compared": "modified reversed-hazard-rate vectors λ vs µ; second largest order statistic",
+  "hypotheses": [
+   {"text": "0 < α ≤ 1; ψ log-concave; F1(x) ≤ F2(x)", "formal": "tilt/generator/baseline conditions", "source": "statement"},
+   {"text": "λ ≺w µ", "formal": "weak supermajorization between rate vectors", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn-1:n >=_st Yn-1:n"},
+  "quantifiers": "n ≥ 2; x ≥ 0",
+  "ambiguity": "Remark 2: Theorem 6.2 of [19] is the α = θ = 1, F1 = F2 special case."
+ },
+ {
+  "paper": "doi:10.3934/math.2024434",
+  "claim": "Corollary 3",
+  "page": 8913,
+  "quote": "Corollary 3. For X ~ MPRHRS(α1; θ1; λ1; F1; ψ) and Y ~ MPRHRS(α1; θ1; λ; F2; ψ), where 0 < α ≤ 1, if ψ is log-concave, F1(x) ≤ F2(x), then λ ≥ (1/n) Σ_{i=1}^n λi ⇒ Xn−1:n ≥st Yn−1:n.",
+  "kind": "corollary",
+  "model": "order statistics",
+  "family": "MPRHRS; scalar rate vs rate vector",
+  "compared": "scalar λ vs vector (λ1,...,λn)",
+  "hypotheses": [
+   {"text": "0 < α ≤ 1; ψ log-concave; F1 ≤ F2", "formal": "as in Theorem 3", "source": "statement"},
+   {"text": "λ ≥ (1/n) Σ λi", "formal": "scalar rate at least the mean", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn-1:n >=_st Yn-1:n"},
+  "quantifiers": "n ≥ 2; x ≥ 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3934/math.2024434",
+  "claim": "Theorem 4",
+  "page": 8914,
+  "quote": "Theorem 4. For X ~ MPRHRS(α; θ1; λ1; F1; ψ) and Y ~ MPRHRS(β; θ1; λ1; F2; ψ). If F1(x) ≥ F2(x), then α ≺w β implies Xn−1:n ≤st Yn−1:n.",
+  "kind": "theorem",
+  "model": "order statistics",
+  "family": "MPRHRS; tilt vectors",
+  "compared": "tilt vectors α vs β; baseline F1 st-larger",
+  "hypotheses": [
+   {"text": "F1(x) ≥ F2(x)", "formal": "baseline dominance", "source": "statement"},
+   {"text": "α ≺w β", "formal": "weak supermajorization between tilt vectors", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn-1:n <=_st Yn-1:n"},
+  "quantifiers": "n ≥ 2; x ≥ 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3934/math.2024434",
+  "claim": "Corollary 4",
+  "page": 8914,
+  "quote": "Corollary 4. For X ~ MPRHRS(α1; θ1; λ1; F1; ψ) and Y ~ MPRHRS(α; θ1; λ1; F2; ψ). If F1(x) ≥ F2(x), then α ≥ (1/n) Σ_{i=1}^n αi ⇒ Xn−1:n ≤st Yn−1:n.",
+  "kind": "corollary",
+  "model": "order statistics",
+  "family": "MPRHRS; heterogeneous tilt vector vs scalar mean",
+  "compared": "tilt vector vs scalar α",
+  "hypotheses": [
+   {"text": "F1(x) ≥ F2(x)", "formal": "baseline dominance", "source": "statement"},
+   {"text": "α ≥ (1/n) Σ αi", "formal": "scalar tilt at least the mean", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn-1:n <=_st Yn-1:n"},
+  "quantifiers": "n ≥ 2; x ≥ 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3934/math.2024434",
+  "claim": "Example 2",
+  "page": 8914,
+  "quote": "Example 2. Let F1(x) = 1 − e^{−3x} and F2(x) = 1 − e^{−2x}, and generator ψ(x) = (ax + 1)^{−1/a}, a > 0. Take n = 4, λ = 0.5, θ = 0.1, a = 0.6, and α = (0.6, 0.7, 0.8, 0.8) ≺w (0.3, 0.4, 0.5, 0.6) = β. It is easy to check that the conditions of Theorem 4 are all satisfied. Thus, X3:4 ≤st Y3:4, as shown in Figure 2.",
+  "kind": "example",
+  "model": "order statistics",
+  "family": "MPRHRS with exponential baselines; Clayton copula ψ(x) = (ax+1)^{−1/a}",
+  "compared": "α = (0.6,0.7,0.8,0.8) vs β = (0.3,0.4,0.5,0.6)",
+  "hypotheses": [
+   {"text": "all conditions of Theorem 4 hold", "formal": "verified premise", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X3:4 <=_st Y3:4 confirmed by plotted survival functions"},
+  "quantifiers": "n = 4; x ≥ 0",
+  "numbers": "n=4; λ=0.5; θ=0.1; a=0.6; α=(0.6,0.7,0.8,0.8); β=(0.3,0.4,0.5,0.6); F1=1−e^{−3x}; F2=1−e^{−2x}",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3934/math.2024434",
+  "claim": "Example 3",
+  "page": 8914,
+  "quote": "Example 3. Let F1(x) = F2(x) = 1 − e^{−x}, and generator ψ(x) = (ax + 1)^{−1/a}, a > 0. Take n = 3, α = (3, 4, 5), and β = (2, 4.8, 6), and it holds that α ≺p β while α ⋠w β. The curve of F̄(X2:3+1)^{−1}(x) − F̄(Y2:3+1)^{−1}(x) is displayed in Figure 3, from which we confirm that X2:3 ⋡st Y2:3 and X2:3 ≱st Y2:3.",
+  "kind": "counterexample",
+  "model": "order statistics",
+  "family": "MPRHRS with identical exponential baselines; Clayton copula",
+  "compared": "α = (3,4,5) vs β = (2,4.8,6): p-majorized but not weakly supermajorized",
+  "hypotheses": [
+   {"text": "α ≺p β but α ⋠w β", "formal": "p-large order holds, weak supermajorization fails", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:3 and Y2:3 are not st-comparable (difference of transformed survival functions changes sign) — Theorem 4 fails under p-majorization alone"},
+  "quantifiers": "n = 3; x ≥ 0",
+  "numbers": "n=3; α=(3,4,5); β=(2,4.8,6); F1=F2=1−e^{−x}; ψ(x)=(ax+1)^{−1/a}",
+  "ambiguity": "Prints 'X2:3 ⋡st Y2:3 and X2:3 ≱st Y2:3' (neither direction of st holds)."
+ }
+]

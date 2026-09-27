@@ -1,0 +1,402 @@
+[
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Introduction, quoted result of Barmalzan et al. (2017), usual stochastic order part",
+  "page": 59,
+  "quote": "[Persian] 'Barmalzan et al. (2017) showed that if conditions (a) prod_{i=1}^n p_i <= prod_{i=1}^n p_i^*, (b) (log lambda_1,...,log lambda_n) >=^w (log lambda_1^*,...,log lambda_n^*), (c) t r(t) is increasing in t hold, then Y*_{1:n} >=_st Y_{1:n}.'",
+  "kind": "theorem",
+  "model": "other: smallest claim amount Y_{1:n} = min{I_{p_i} X_{lambda_i}} in heterogeneous insurance portfolio",
+  "family": "general scale model X_{lambda_i} ~ G(lambda_i t), iid Bernoulli I_{p_i} with E(I_{p_i}) = p_i independent of X_{lambda_i}; r(t) = baseline hazard rate",
+  "compared": "two portfolios with scale vectors lambda vs lambda* and Bernoulli probabilities p vs p*",
+  "hypotheses": [
+   {"text": "(الف) prod_{i=1}^n p_i <= prod_{i=1}^n p_i^*", "formal": "prod p_i <= prod p_i^*", "source": "statement"},
+   {"text": "(ب) (log lambda_1,...,log lambda_n) ⪰^w (log lambda_1^*,...,log lambda_n^*)", "formal": "weak supermajorization of log-scale vectors", "source": "statement"},
+   {"text": "(ج) t r(t) تابعی صعودی بر حسب t است", "formal": "t r(t) increasing in t", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Y*_{1:n} >=_st Y_{1:n}"},
+  "quantifiers": "n >= 1; all t",
+  "numbers": "",
+  "ambiguity": "Restatement of a published result (Barmalzan, Payandeh Najafabadi & Balakrishnan 2017) in the introduction; not proved in this paper."
+ },
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Introduction, quoted result of Barmalzan et al. (2017), hazard rate part, first variant",
+  "page": 59,
+  "quote": "[Persian] 'Also they showed under conditions (a) (lambda_1,...,lambda_n) ⪰^w (lambda_1^*,...,lambda_n^*) [weak supermajorization] and (b) t r(t) is increasing and convex in t, the stochastic inequality Y*_{1:n} >=_hr Y_{1:n} holds.'",
+  "kind": "theorem",
+  "model": "other: smallest claim amount in heterogeneous portfolio",
+  "family": "general scale model X_{lambda_i} ~ G(lambda_i t) with Bernoulli claim indicators",
+  "compared": "scale vectors lambda vs lambda*",
+  "hypotheses": [
+   {"text": "(الف) (lambda_1,...,lambda_n) ⪰^w (lambda_1^*,...,lambda_n^*)", "formal": "weak supermajorization (superscript w)", "source": "statement"},
+   {"text": "(ب) t r(t) تابعی صعودی و محدب در t است", "formal": "t r(t) increasing and convex in t", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "Y*_{1:n} >=_hr Y_{1:n}"},
+  "quantifiers": "n >= 1; all x",
+  "numbers": "",
+  "ambiguity": "Restated prior result; printed as '(lambda) ⪰^w (⪰) (lambda*)' with parenthetical alternative giving the second variant below."
+ },
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Introduction, quoted result of Barmalzan et al. (2017), hazard rate part, second variant",
+  "page": 59,
+  "quote": "[Persian] '... under conditions (a) (lambda_1,...,lambda_n) ⪰ (lambda_1^*,...,lambda_n^*) [ordinary majorization] and (b) t r(t) is increasing and concave in t, the stochastic inequality Y*_{1:n} <=_hr Y_{1:n} holds.'",
+  "kind": "theorem",
+  "model": "other: smallest claim amount in heterogeneous portfolio",
+  "family": "general scale model X_{lambda_i} ~ G(lambda_i t) with Bernoulli claim indicators",
+  "compared": "scale vectors lambda vs lambda*",
+  "hypotheses": [
+   {"text": "(الف) (lambda_1,...,lambda_n) ⪰ (lambda_1^*,...,lambda_n^*)", "formal": "ordinary majorization (parenthetical ⪰ in the printed '(⪰^w) (⪰)')", "source": "statement"},
+   {"text": "(ب) t r(t) تابعی صعودی و (مقعر) در t است", "formal": "t r(t) increasing and concave in t", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "Y*_{1:n} <=_hr Y_{1:n}"},
+  "quantifiers": "n >= 1; all x",
+  "numbers": "",
+  "ambiguity": "Restated prior result; printed via the parenthetical alternatives '⪰' and '<=_hr' inside the previous statement."
+ },
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Introduction, quoted result of Barmalzan & Payandeh (2015) / Barmalzan et al. (2016), right-spread part",
+  "page": 59,
+  "quote": "[Persian] 'These authors obtained the following results: (alpha > 0, prod_{i=1}^n p_i = prod_{i=1}^n p_i^*): sum_{i=1}^n lambda_i^alpha <= sum_{i=1}^n (lambda_i^*)^alpha  ==>  Y_{1:n} >=_RS Y*_{1:n}.'",
+  "kind": "theorem",
+  "model": "other: smallest claim amount in heterogeneous portfolio",
+  "family": "Weibull claims X_{lambda_i} ~ W(alpha, lambda_i), Bernoulli I_{p_i}",
+  "compared": "Weibull scale vectors lambda vs lambda*",
+  "hypotheses": [
+   {"text": "(alpha > 0, prod_{i=1}^n p_i = prod_{i=1}^n p_i^*)", "formal": "alpha > 0 and equal products of Bernoulli probabilities", "source": "statement"},
+   {"text": "sum lambda_i^alpha <= sum (lambda_i^*)^alpha", "formal": "sum_{i=1}^n lambda_i^alpha <= sum_{i=1}^n (lambda_i^*)^alpha", "source": "statement"}
+  ],
+  "conclusion": {"order": "rs", "direction": "Y_{1:n} >=_RS Y*_{1:n}"},
+  "quantifiers": "n >= 1; alpha > 0",
+  "numbers": "",
+  "ambiguity": "Restated prior result (Barmalzan & Payandeh 2015; Barmalzan et al. 2016) in the introduction."
+ },
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Introduction, quoted result of Barmalzan & Payandeh (2015) / Barmalzan et al. (2016), convex transform part",
+  "page": 59,
+  "quote": "[Persian] '(alpha > 1, prod_{i=1}^n p_i >= prod_{i=1}^n p_i^*): sum_{i=1}^n lambda_i^alpha <= sum_{i=1}^n (lambda_i^*)^alpha  ==>  Y_{1:n} >=_c Y*_{1:n}.'",
+  "kind": "theorem",
+  "model": "other: smallest claim amount in heterogeneous portfolio",
+  "family": "Weibull claims X_{lambda_i} ~ W(alpha, lambda_i), Bernoulli I_{p_i}",
+  "compared": "Weibull scale vectors lambda vs lambda*",
+  "hypotheses": [
+   {"text": "(alpha > 1, prod_{i=1}^n p_i >= prod_{i=1}^n p_i^*)", "formal": "alpha > 1 and prod p_i >= prod p_i^*", "source": "statement"},
+   {"text": "sum lambda_i^alpha <= sum (lambda_i^*)^alpha", "formal": "sum_{i=1}^n lambda_i^alpha <= sum_{i=1}^n (lambda_i^*)^alpha", "source": "statement"}
+  ],
+  "conclusion": {"order": "star", "direction": "Y_{1:n} >=_c Y*_{1:n} (convex transform order of Definition 2(a): F^{-1}G(x) convex)"},
+  "quantifiers": "n >= 1; alpha > 1",
+  "numbers": "",
+  "ambiguity": "Restated prior result; '≥_c' denotes the convex transform order per Definition 2."
+ },
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Introduction, quoted result of Barmalzan & Payandeh (2015) / Barmalzan et al. (2016), likelihood ratio part",
+  "page": 59,
+  "quote": "[Persian] '(alpha > 0): sum_{i=1}^n lambda_i^alpha <= sum_{i=1}^n (lambda_i^*)^alpha  ==>  Y_{1:n} >=_lr Y*_{1:n}.'",
+  "kind": "theorem",
+  "model": "other: smallest claim amount in heterogeneous portfolio",
+  "family": "Weibull claims X_{lambda_i} ~ W(alpha, lambda_i), Bernoulli I_{p_i}",
+  "compared": "Weibull scale vectors lambda vs lambda*",
+  "hypotheses": [
+   {"text": "(alpha > 0)", "formal": "alpha > 0", "source": "statement"},
+   {"text": "sum lambda_i^alpha <= sum (lambda_i^*)^alpha", "formal": "sum_{i=1}^n lambda_i^alpha <= sum_{i=1}^n (lambda_i^*)^alpha", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "Y_{1:n} >=_lr Y*_{1:n}"},
+  "quantifiers": "n >= 1; alpha > 0",
+  "numbers": "",
+  "ambiguity": "Restated prior result. The paper itself notes that the discreteness of the smallest claim at 0 was neglected in this earlier lr proof, and that prod p_i <= prod p_i^* is a necessary condition for the lr order."
+ },
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Introduction, quoted result of Barmalzan & Payandeh (2015) / Barmalzan et al. (2016), dispersive part",
+  "page": 59,
+  "quote": "[Persian] '(alpha > 0): sum_{i=1}^n lambda_i^alpha <= sum_{i=1}^n (lambda_i^*)^alpha  ==>  X_{1:n} >=_disp X*_{1:n}.'",
+  "kind": "theorem",
+  "model": "order statistic",
+  "family": "Weibull claims X_{lambda_i} ~ W(alpha, lambda_i) (smallest order statistic, no Bernoulli thinning)",
+  "compared": "Weibull scale vectors lambda vs lambda*",
+  "hypotheses": [
+   {"text": "(alpha > 0)", "formal": "alpha > 0", "source": "statement"},
+   {"text": "sum lambda_i^alpha <= sum (lambda_i^*)^alpha", "formal": "sum_{i=1}^n lambda_i^alpha <= sum_{i=1}^n (lambda_i^*)^alpha", "source": "statement"}
+  ],
+  "conclusion": {"order": "disp", "direction": "X_{1:n} >=_disp X*_{1:n}"},
+  "quantifiers": "n >= 1; alpha > 0",
+  "numbers": "",
+  "ambiguity": "Restated prior result."
+ },
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Theorem 3 (قضیه ٣)",
+  "page": 64,
+  "quote": "[Persian] 'Suppose X_{lambda_1},...,X_{lambda_n} are independent Weibull random variables with X_{lambda_i} ~ W(alpha, lambda_i), lambda_i > 0, i = 1,...,n. Also suppose I_{p_1},...,I_{p_n} are independent Bernoulli random variables with E(I_{p_i}) = p_i, independent of the X_{lambda_i}. If the condition prod_{i=1}^n p_i >= prod_{i=1}^n p_i^* holds, then  sum_{i=1}^n lambda_i^alpha <= sum_{i=1}^n (lambda_i^*)^alpha  ==>  Y_{1:n} >=_st (>=_sl) Y*_{1:n}.'",
+  "kind": "theorem",
+  "model": "other: smallest claim amount Y_{1:n} = min{I_{p_i} X_{lambda_i}}",
+  "family": "independent Weibull W(alpha, lambda_i) claims thinned by independent Bernoulli(p_i); F̄_{Y_{1:n}}(t) = (prod p_i) exp(-t^alpha sum lambda_i^alpha)",
+  "compared": "portfolios (lambda, p) vs (lambda*, p*)",
+  "hypotheses": [
+   {"text": "X_{lambda_i} ~ W(alpha, lambda_i), lambda_i > 0", "formal": "independent Weibull claims, common shape alpha", "source": "statement"},
+   {"text": "I_{p_i} independent Bernoulli, E(I_{p_i}) = p_i, independent of X_{lambda_i}", "formal": "independent claim-occurrence indicators", "source": "statement"},
+   {"text": "prod_{i=1}^n p_i >= prod_{i=1}^n p_i^*", "formal": "prod p_i >= prod p_i^*", "source": "statement"},
+   {"text": "sum_{i=1}^n lambda_i^alpha <= sum_{i=1}^n (lambda_i^*)^alpha", "formal": "aggregate scale condition", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Y_{1:n} >=_st Y*_{1:n}"},
+  "quantifiers": "n >= 1; alpha > 0; all t >= 0",
+  "numbers": "",
+  "ambiguity": "The printed conclusion also carries a parenthetical '(>=_sl)'; 'sl' is not defined in the paper (possibly a misprint or stop-loss). Hypothesis direction verified against the rendered page: prod p_i >= prod p_i^* (text layer is misleading here)."
+ },
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Lemma 1 (لم ١, quoted from Barmalzan & Payandeh 2015)",
+  "page": 65,
+  "quote": "[Persian] 'Suppose X_{lambda_1},...,X_{lambda_n} are independent Weibull random variables with X_{lambda_i} ~ W(alpha, lambda_i), lambda_i > 0, i = 1,...,n. Also suppose I_{p_1},...,I_{p_n} are independent Bernoulli with E(I_{p_i}) = p_i, independent of the X_{lambda_i}. If alpha >= 1 and prod_{i=1}^n p_i >= prod_{i=1}^n p_i^*, then Y_{1:n} >=_c (>=_su) Y*_{1:n}.'",
+  "kind": "lemma",
+  "model": "other: smallest claim amount",
+  "family": "independent Weibull W(alpha, lambda_i) claims with Bernoulli thinning",
+  "compared": "portfolios (lambda, p) vs (lambda*, p*)",
+  "hypotheses": [
+   {"text": "alpha >= 1", "formal": "Weibull shape at least 1", "source": "statement"},
+   {"text": "prod_{i=1}^n p_i >= prod_{i=1}^n p_i^*", "formal": "prod p_i >= prod p_i^*", "source": "statement"}
+  ],
+  "conclusion": {"order": "star", "direction": "Y_{1:n} >=_c Y*_{1:n} (convex transform), and parenthetically >=_su (superadditive order)"},
+  "quantifiers": "n >= 1; alpha >= 1",
+  "numbers": "",
+  "ambiguity": "Quoted lemma used in the proof of Theorem 4; as printed it carries no condition on the lambda vectors beyond alpha >= 1 and the product inequality."
+ },
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Theorem 4 (قضیه ۴)",
+  "page": 65,
+  "quote": "[Persian] 'Under the assumptions of Theorem 3, if alpha >= 1 and prod_{i=1}^n p_i >= prod_{i=1}^n p_i^*, then  sum_{i=1}^n lambda_i^alpha <= sum_{i=1}^n (lambda_i^*)^alpha  ==>  Y_{1:n} >=_disp Y*_{1:n}.'",
+  "kind": "theorem",
+  "model": "other: smallest claim amount",
+  "family": "independent Weibull W(alpha, lambda_i) claims with Bernoulli thinning",
+  "compared": "portfolios (lambda, p) vs (lambda*, p*)",
+  "hypotheses": [
+   {"text": "تحت مفروضات قضیه ٣", "formal": "independent Weibull claims W(alpha, lambda_i) and independent Bernoulli I_{p_i} as in Theorem 3", "source": "earlier theorem 3"},
+   {"text": "alpha >= 1", "formal": "alpha >= 1", "source": "statement"},
+   {"text": "prod_{i=1}^n p_i >= prod_{i=1}^n p_i^*", "formal": "prod p_i >= prod p_i^*", "source": "statement"},
+   {"text": "sum lambda_i^alpha <= sum (lambda_i^*)^alpha", "formal": "aggregate scale condition", "source": "statement"}
+  ],
+  "conclusion": {"order": "disp", "direction": "Y_{1:n} >=_disp Y*_{1:n}"},
+  "quantifiers": "n >= 1; alpha >= 1",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Corollary 1 (نتیجه ١)",
+  "page": 66,
+  "quote": "[Persian] 'Under the assumptions of Theorem 3, if alpha >= 1 and prod_{i=1}^n p_i >= prod_{i=1}^n p_i^*, then  sum_{i=1}^n lambda_i^alpha <= sum_{i=1}^n (lambda_i^*)^alpha  ==>  VaR(Y_{1:n}) >= VaR(Y*_{1:n}).'",
+  "kind": "corollary",
+  "model": "other: smallest claim amount",
+  "family": "independent Weibull claims with Bernoulli thinning",
+  "compared": "portfolios (lambda, p) vs (lambda*, p*)",
+  "hypotheses": [
+   {"text": "تحت مفروضات قضیه ٣", "formal": "same model assumptions as Theorem 3", "source": "earlier theorem 3"},
+   {"text": "alpha >= 1 and prod p_i >= prod p_i^*", "formal": "alpha >= 1; prod p_i >= prod p_i^*", "source": "statement"},
+   {"text": "sum lambda_i^alpha <= sum (lambda_i^*)^alpha", "formal": "aggregate scale condition", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "VaR(Y_{1:n}; p) >= VaR(Y*_{1:n}; p) for p in (0,1) — i.e. quantile-wise (st) ordering"},
+  "quantifiers": "n >= 1; alpha >= 1; p in (0,1)",
+  "numbers": "",
+  "ambiguity": "Conclusion printed in VaR (quantile) terms rather than a named order symbol; equivalent to the usual stochastic order for these variables."
+ },
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Corollary 2(a) (نتیجه ٢ الف)",
+  "page": 66,
+  "quote": "[Persian] 'Under the assumptions of Theorem 3 suppose alpha >= 1 and prod_{i=1}^n p_i >= prod_{i=1}^n p_i^*. In this case, (a) if lambda* >= ((1/n) sum_{i=1}^n lambda_i^alpha)^{1/alpha} and p* <= (prod_{i=1}^n p_i)^{1/n}, then Y_{1:n} >=_disp Y*_{1:n}.'",
+  "kind": "corollary",
+  "model": "other: smallest claim amount; homogeneous comparison portfolio (common lambda*, p*)",
+  "family": "independent Weibull claims with Bernoulli thinning; starred portfolio homogeneous",
+  "compared": "heterogeneous portfolio (lambda, p) vs homogeneous portfolio (lambda*, p*)",
+  "hypotheses": [
+   {"text": "تحت مفروضات قضیه ٣", "formal": "same model assumptions as Theorem 3", "source": "earlier theorem 3"},
+   {"text": "alpha >= 1", "formal": "alpha >= 1", "source": "statement"},
+   {"text": "lambda* >= ( (1/n) sum lambda_i^alpha )^{1/alpha}", "formal": "common scale above the alpha-power mean", "source": "statement"},
+   {"text": "p* <= (prod p_i)^{1/n}", "formal": "common probability below geometric mean of p_i", "source": "statement"}
+  ],
+  "conclusion": {"order": "disp", "direction": "Y_{1:n} >=_disp Y*_{1:n}"},
+  "quantifiers": "n >= 1; alpha >= 1",
+  "numbers": "thresholds ( (1/n) sum lambda_i^alpha )^{1/alpha} and (prod p_i)^{1/n}",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Corollary 2(b) (نتیجه ٢ ب)",
+  "page": 66,
+  "quote": "[Persian] 'Under the assumptions of Theorem 3 suppose alpha >= 1 and prod_{i=1}^n p_i >= prod_{i=1}^n p_i^*. In this case, (b) if lambda* <= ((1/n) sum_{i=1}^n lambda_i^alpha)^{1/alpha} and p* >= (prod_{i=1}^n p_i)^{1/n}, then Y*_{1:n} >=_disp Y_{1:n}.'",
+  "kind": "corollary",
+  "model": "other: smallest claim amount; homogeneous comparison portfolio",
+  "family": "independent Weibull claims with Bernoulli thinning; starred portfolio homogeneous",
+  "compared": "homogeneous (lambda*, p*) portfolio vs heterogeneous (lambda, p)",
+  "hypotheses": [
+   {"text": "تحت مفروضات قضیه ٣", "formal": "same model assumptions as Theorem 3", "source": "earlier theorem 3"},
+   {"text": "alpha >= 1", "formal": "alpha >= 1", "source": "statement"},
+   {"text": "lambda* <= ( (1/n) sum lambda_i^alpha )^{1/alpha}", "formal": "common scale below the alpha-power mean", "source": "statement"},
+   {"text": "p* >= (prod p_i)^{1/n}", "formal": "common probability above geometric mean", "source": "statement"}
+  ],
+  "conclusion": {"order": "disp", "direction": "Y*_{1:n} >=_disp Y_{1:n}"},
+  "quantifiers": "n >= 1; alpha >= 1",
+  "numbers": "thresholds ( (1/n) sum lambda_i^alpha )^{1/alpha} and (prod p_i)^{1/n}",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Theorem 5 (قضیه ۵)",
+  "page": 66,
+  "quote": "[Persian] 'Under the assumptions of Theorem 3, if prod_{i=1}^n p_i >= prod_{i=1}^n p_i^* and sum_{i=1}^n lambda_i^alpha <= sum_{i=1}^n (lambda_i^*)^alpha, then for alpha > 0,  (prod_{i=1}^n p_i / prod_{i=1}^n p_i^*)^alpha = sum_{i=1}^n lambda_i^alpha / sum_{i=1}^n (lambda_i^*)^alpha  ==>  Y_{1:n} >=_cx Y*_{1:n}.'",
+  "kind": "theorem",
+  "model": "other: smallest claim amount",
+  "family": "independent Weibull claims with Bernoulli thinning",
+  "compared": "portfolios (lambda, p) vs (lambda*, p*) in the convex order",
+  "hypotheses": [
+   {"text": "تحت مفروضات قضیه ٣", "formal": "same model assumptions as Theorem 3", "source": "earlier theorem 3"},
+   {"text": "prod p_i >= prod p_i^*", "formal": "prod p_i >= prod p_i^*", "source": "statement"},
+   {"text": "sum lambda_i^alpha <= sum (lambda_i^*)^alpha", "formal": "aggregate scale condition", "source": "statement"},
+   {"text": "(prod p_i / prod p_i^*)^alpha = sum lambda_i^alpha / sum (lambda_i^*)^alpha", "formal": "balancing equality that enforces E(Y_{1:n}) = E(Y*_{1:n})", "source": "statement"}
+  ],
+  "conclusion": {"order": "icx", "direction": "Y_{1:n} >=_cx Y*_{1:n} (convex order: E(Y_{1:n}-d)_+ >= E(Y*_{1:n}-d)_+ with equal means)"},
+  "quantifiers": "n >= 1; alpha > 0; all d in R",
+  "numbers": "",
+  "ambiguity": "Order denoted >=_cx (convex order with equal means per Definition 4(c))."
+ },
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Theorem 6(a) (قضیه ۶ الف)",
+  "page": 67,
+  "quote": "[Persian] 'Suppose X_{lambda_1},...,X_{lambda_n} have Archimedean survival copula C-hat(u_1,...,u_n) = psi(phi(u_1) + ... + phi(u_n)), where psi is the generator, phi = psi^{-1}, and X_{lambda_i} ~ W(alpha, lambda_i), i = 1,...,n. Also suppose I_{p_1},...,I_{p_n} are independent Bernoulli with E(I_{p_i}) = p_i independent of the X_{lambda_i}. (a) If (lambda_1^alpha,...,lambda_n^alpha) ⪰_w ((lambda_1^*)^alpha,...,(lambda_n^*)^alpha) and psi is log-convex and prod_{i=1}^n p_i <= prod_{i=1}^n p_i^*, then Y*_{1:n} >=_st Y_{1:n}.'",
+  "kind": "theorem",
+  "model": "other: smallest claim amount with dependent claims (Archimedean survival copula)",
+  "family": "Weibull W(alpha, lambda_i) claims coupled by Archimedean survival copula with generator psi, Bernoulli thinning",
+  "compared": "dependent portfolios (lambda, p) vs (lambda*, p*) under the same Archimedean copula",
+  "hypotheses": [
+   {"text": "Archimedean survival copula C-hat(u) = psi(phi(u_1)+...+phi(u_n)), phi = psi^{-1}", "formal": "common Archimedean survival copula for both vectors", "source": "statement"},
+   {"text": "(lambda_1^alpha,...,lambda_n^alpha) ⪰_w ((lambda_1^*)^alpha,...,(lambda_n^*)^alpha)", "formal": "weak submajorization (subscript w, 'from below'): upper partial sums of lambda^alpha dominate those of lambda*^alpha (Definition 5(c))", "source": "statement"},
+   {"text": "psi تابعی لوگ محدب", "formal": "psi log-convex", "source": "statement"},
+   {"text": "prod_{i=1}^n p_i <= prod_{i=1}^n p_i^*", "formal": "prod p_i <= prod p_i^*", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Y*_{1:n} >=_st Y_{1:n}"},
+  "quantifiers": "n >= 1; all x",
+  "numbers": "",
+  "ambiguity": "Majorization symbol verified from the rendered page: subscript-w (weak submajorization); RTL text layer scrambles the symbol positions."
+ },
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Theorem 6(b) (قضیه ۶ ب)",
+  "page": 67,
+  "quote": "[Persian] '(b) If (lambda_1^alpha,...,lambda_n^alpha) ⪰^w ((lambda_1^*)^alpha,...,(lambda_n^*)^alpha) and psi is log-concave and prod_{i=1}^n p_i^* <= prod_{i=1}^n p_i, then Y_{1:n} >=_st Y*_{1:n}.'",
+  "kind": "theorem",
+  "model": "other: smallest claim amount with dependent claims (Archimedean survival copula)",
+  "family": "Weibull W(alpha, lambda_i) claims coupled by Archimedean survival copula with generator psi, Bernoulli thinning",
+  "compared": "dependent portfolios (lambda, p) vs (lambda*, p*)",
+  "hypotheses": [
+   {"text": "same Archimedean survival copula and Weibull/Bernoulli setup as part (a)", "formal": "model of Theorem 6", "source": "earlier part (a)"},
+   {"text": "(lambda_1^alpha,...,lambda_n^alpha) ⪰^w ((lambda_1^*)^alpha,...,(lambda_n^*)^alpha)", "formal": "weak supermajorization (superscript w, 'from above'): lower partial sums of lambda^alpha are below those of lambda*^alpha (Definition 5(b))", "source": "statement"},
+   {"text": "psi تابعی لوگ مقعر", "formal": "psi log-concave", "source": "statement"},
+   {"text": "prod_{i=1}^n p_i^* <= prod_{i=1}^n p_i", "formal": "prod p_i^* <= prod p_i", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Y_{1:n} >=_st Y*_{1:n}"},
+  "quantifiers": "n >= 1; all x",
+  "numbers": "",
+  "ambiguity": "Majorization symbol verified from the rendered page: superscript-w (weak supermajorization)."
+ },
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Theorem 7 (قضیه ٧)",
+  "page": 68,
+  "quote": "[Persian] 'Suppose X_{lambda_1},...,X_{lambda_n} (X*_{lambda_1},...,X*_{lambda_n}) have Gumbel-Hougaard survival copula C-hat(u_1,...,u_n) = exp{-((-ln u_1)^theta + ... + (-ln u_n)^theta)^{1/theta}}, theta >= 1, where X_{lambda_i} ~ PHR(F-bar, lambda_1,...,lambda_n) (X*_{lambda_i} ~ PHR(G-bar, mu_1,...,mu_n)). Also suppose I_{p_1},...,I_{p_n} are independent Bernoulli with E(I_{p_i}) = p_i, independent of the X_{lambda_i}. If prod_{i=1}^n p_i^* >= prod_{i=1}^n p_i and sum_{i=1}^n lambda_i^theta <= sum_{i=1}^n mu_i^theta and F-bar(x)/G-bar(x) is increasing in x, then Y_{1:n} >=_hr Y*_{1:n}.'",
+  "kind": "theorem",
+  "model": "other: smallest claim amount with dependent claims (Gumbel-Hougaard survival copula)",
+  "family": "PHR margins: F̄_i(x) = F̄(x)^{lambda_i} vs Ḡ_i(x) = Ḡ(x)^{mu_i}; Gumbel-Hougaard survival copula, theta >= 1; Bernoulli thinning",
+  "compared": "PHR vectors lambda (baseline F̄) vs mu (baseline Ḡ)",
+  "hypotheses": [
+   {"text": "Gumbel-Hougaard survival copula, theta >= 1", "formal": "C-hat(u) = exp(-(sum (-ln u_i)^theta)^{1/theta})", "source": "statement"},
+   {"text": "prod_{i=1}^n p_i^* >= prod_{i=1}^n p_i", "formal": "prod p_i^* >= prod p_i", "source": "statement"},
+   {"text": "sum_{i=1}^n lambda_i^theta <= sum_{i=1}^n mu_i^theta", "formal": "aggregate theta-power condition", "source": "statement"},
+   {"text": "F-bar(x)/G-bar(x) نسبت به x صعودی", "formal": "F̄(x)/Ḡ(x) increasing in x", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "Y_{1:n} >=_hr Y*_{1:n}"},
+  "quantifiers": "n >= 1; theta >= 1; all x >= 0",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Theorem 8 (قضیه ٨)",
+  "page": 70,
+  "quote": "[Persian] 'Suppose X_{lambda_1},...,X_{lambda_n} (X*_{lambda_1},...,X*_{lambda_n}) have Gumbel-Hougaard survival copula C-hat(u_1,...,u_n) = exp{-((-ln u_1)^theta + ... + (-ln u_n)^theta)^{1/theta}}, theta >= 1, where X_{lambda_i} ~ PHR(F-bar, lambda_1,...,lambda_n) (X*_{lambda_i} ~ PHR(G-bar, mu_1,...,mu_n)). Also suppose I_{p_1},...,I_{p_n} are independent Bernoulli with E(I_{p_i}) = p_i, independent of the X_{lambda_i}. Under conditions (a) prod_{i=1}^n p_i^* >= prod_{i=1}^n p_i, (b) F-bar(x)/G-bar(x) is increasing in x, (c) -ln F-bar(x) or -ln G-bar(x) is concave,  sum_{i=1}^n lambda_i^theta <= sum_{i=1}^n mu_i^theta  ==>  Y_{1:n} >=_disp Y*_{1:n}.'",
+  "kind": "theorem",
+  "model": "other: smallest claim amount with dependent claims (Gumbel-Hougaard survival copula)",
+  "family": "PHR margins (F̄, lambda) vs (Ḡ, mu); Gumbel-Hougaard survival copula theta >= 1; Bernoulli thinning",
+  "compared": "PHR vectors lambda vs mu",
+  "hypotheses": [
+   {"text": "Gumbel-Hougaard survival copula, theta >= 1", "formal": "same copula as Theorem 7", "source": "statement"},
+   {"text": "(الف) prod p_i^* >= prod p_i", "formal": "prod p_i^* >= prod p_i", "source": "statement"},
+   {"text": "(ب) F̄(x)/Ḡ(x) صعودی در x", "formal": "F̄/Ḡ increasing in x", "source": "statement"},
+   {"text": "(ج) -ln F̄(x) یا -ln Ḡ(x) تابعی مقعر باشند", "formal": "-ln F̄ or -ln Ḡ concave (i.e. one distribution is DFR)", "source": "statement"},
+   {"text": "sum lambda_i^theta <= sum mu_i^theta", "formal": "aggregate theta-power condition", "source": "statement"}
+  ],
+  "conclusion": {"order": "disp", "direction": "Y_{1:n} >=_disp Y*_{1:n}"},
+  "quantifiers": "n >= 1; theta >= 1",
+  "numbers": "",
+  "ambiguity": "The proof invokes Shaked & Shanthikumar (2007) Thm 3.B.20 via the hr ordering plus DFR property; the remark after the theorem notes the theta = 1 case recovers independence and Theorem 4."
+ },
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Theorem 9 (قضیه ٩)",
+  "page": 70,
+  "quote": "[Persian] 'Suppose X_{lambda_1},...,X_{lambda_n} (X*_{lambda_1},...,X*_{lambda_n}) have Gumbel-Hougaard survival copula C-hat(u_1,...,u_n) = exp{-((-ln u_1)^theta + ... + (-ln u_n)^theta)^{1/theta}}, theta >= 1, where X_{lambda_i} ~ PHR(F-bar, lambda_1,...,lambda_n) (X*_{lambda_i} ~ PHR(F-bar, mu_1,...,mu_n)). Also suppose I_{p_1},...,I_{p_n} are independent Bernoulli with E(I_{p_i}) = p_i, independent of the X_{lambda_i}. If prod_{i=1}^n p_i^* >= prod_{i=1}^n p_i, then  (lambda_1,...,lambda_n) ⪰_w (mu_1,...,mu_n)  ==>  Y_{1:n} <=_st Y*_{1:n}.'",
+  "kind": "theorem",
+  "model": "other: smallest claim amount with dependent claims (Gumbel-Hougaard survival copula)",
+  "family": "PHR margins with common baseline F̄: lambda vs mu; Gumbel-Hougaard survival copula theta >= 1; Bernoulli thinning",
+  "compared": "PHR vectors lambda vs mu (common baseline)",
+  "hypotheses": [
+   {"text": "Gumbel-Hougaard survival copula, theta >= 1, common baseline F̄", "formal": "F̄_{Y_{1:n}}(x) = (prod p_i) F̄(x)^{(sum lambda_i^theta)^{1/theta}}", "source": "statement"},
+   {"text": "prod_{i=1}^n p_i^* >= prod_{i=1}^n p_i", "formal": "prod p_i^* >= prod p_i", "source": "statement"},
+   {"text": "(lambda_1,...,lambda_n) ⪰_w (mu_1,...,mu_n)", "formal": "weak submajorization (subscript w): upper partial sums of lambda dominate those of mu", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Y_{1:n} <=_st Y*_{1:n}"},
+  "quantifiers": "n >= 1; theta >= 1",
+  "numbers": "",
+  "ambiguity": "Majorization symbol verified from the rendered page: subscript-w; note the conclusion direction is <=_st."
+ },
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Numerical example after Theorem 9 (independence of the two conditions)",
+  "page": 71,
+  "quote": "[Persian] 'It must be noted that neither of the conditions sum_{i=1}^n lambda_i^theta <= sum_{i=1}^n mu_i^theta and (lambda_1,...,lambda_n) ⪰_w (mu_1,...,mu_n) implies the other. For example, if (lambda_1, lambda_2) = (1, 10) and (mu_1, mu_2) = (4, 8), clearly lambda_1 + lambda_2 <= mu_1 + mu_2 but for theta = 2 we have lambda_1^theta + lambda_2^theta >= mu_1^theta + mu_2^theta.'",
+  "kind": "counterexample",
+  "model": "other: supports the distinction between Theorem 8 and Theorem 9 hypotheses",
+  "family": "numeric vectors in R^2",
+  "compared": "(lambda_1,lambda_2) = (1,10) vs (mu_1,mu_2) = (4,8)",
+  "hypotheses": [
+   {"text": "theta = 2", "formal": "theta = 2", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: comparison of hypothesis conditions (not a stochastic-order conclusion)", "direction": "1 + 10 = 11 <= 12 = 4 + 8, yet 1^2 + 10^2 = 101 >= 80 = 4^2 + 8^2"},
+  "quantifiers": "n = 2; theta = 2",
+  "numbers": "lambda = (1,10), mu = (4,8): sums 11 <= 12, theta-2 power sums 101 >= 80",
+  "ambiguity": "Printed numeric example showing the Theorem 8 condition (sum lambda^theta <= sum mu^theta) and Theorem 9 condition (weak submajorization) are independent; it is not itself a stochastic comparison."
+ },
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Theorem 10 (قضیه ١٠)",
+  "page": 72,
+  "quote": "[Persian] 'Suppose X_{lambda_1},...,X_{lambda_n} (X*_{lambda_1},...,X*_{lambda_n}) have Clayton survival copula C-hat(u_1,...,u_n) = (u_1^theta + ... + u_n^theta)^{-1/theta}, theta >= 1, where X_{lambda_i} ~ PHR(F-bar, lambda_1,...,lambda_n) (X*_{lambda_i} ~ PHR(F-bar, mu_1,...,mu_n)). Also suppose I_{p_1},...,I_{p_n} are independent Bernoulli with E(I_{p_i}) = p_i, independent of the X_{lambda_i}. If prod_{i=1}^n p_i^* >= prod_{i=1}^n p_i, then  (lambda_1,...,lambda_n) ⪰^w (mu_1,...,mu_n)  ==>  Y*_{1:n} >=_st Y_{1:n}.'",
+  "kind": "theorem",
+  "model": "other: smallest claim amount with dependent claims (Clayton survival copula)",
+  "family": "PHR margins with common baseline F̄: lambda vs mu; Clayton survival copula C-hat(u) = (sum u_i^theta)^{-1/theta}, theta >= 1; Bernoulli thinning",
+  "compared": "PHR vectors lambda vs mu (common baseline)",
+  "hypotheses": [
+   {"text": "Clayton survival copula, theta >= 1, common baseline F̄", "formal": "F̄_{Y_{1:n}}(x) = (prod p_i)(F̄^{lambda_1 theta}(x) + ... + F̄^{lambda_n theta}(x))^{-1/theta}", "source": "statement"},
+   {"text": "prod_{i=1}^n p_i^* >= prod_{i=1}^n p_i", "formal": "prod p_i^* >= prod p_i", "source": "statement"},
+   {"text": "(lambda_1,...,lambda_n) ⪰^w (mu_1,...,mu_n)", "formal": "weak supermajorization (superscript w): lower partial sums of lambda are below those of mu", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Y*_{1:n} >=_st Y_{1:n}"},
+  "quantifiers": "n >= 1; theta >= 1",
+  "numbers": "",
+  "ambiguity": "Majorization symbol verified from the rendered page: superscript-w; in the printed text of Theorem 10 the baseline for the starred vector is also F̄ (PHR(F̄, mu))."
+ }
+]

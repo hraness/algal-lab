@@ -1,0 +1,104 @@
+[
+ {
+  "paper": "doi:10.17713/ajs.v48i3.843",
+  "claim": "Theorem 4, case alpha_1 = alpha_2, beta_1 <= beta_2: likelihood ratio part",
+  "page": 62,
+  "quote": "Let Xi ~ GaL(alpha_i, beta_i), i = 1, 2, be two random variables. If alpha_1 = alpha_2 = alpha and beta_1 <= beta_2, and if beta_1 = beta_2 = beta >= 1 with alpha_1 <= alpha_2, then X1 <lr X2 => X1 <hr X2 => X1 <st X2. ... if alpha_1 = alpha_2 = alpha, then X1 is stochastically smaller than X2 with respect to the likelihood ratio if and only if beta_1 <= beta_2.",
+  "kind": "theorem",
+  "model": "other: two distributions of the same family",
+  "family": "GaL (compound gamma-Lindley): pdf proportional to alpha beta^2 (1+alpha+beta+x) x^{alpha-1} e^{-x} / [(1+beta)(beta+x)^{alpha+2}]",
+  "compared": "X1 ~ GaL(alpha, beta_1) vs X2 ~ GaL(alpha, beta_2), shared alpha",
+  "hypotheses": [
+   {"text": "alpha_1 = alpha_2 = alpha; beta_1 <= beta_2", "formal": "common first parameter, ordered beta", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "X1 <=_lr X2; the proof states 'if and only if beta_1 <= beta_2'"},
+  "quantifiers": "x > 0",
+  "numbers": "",
+  "ambiguity": "Proved iff: d/dx log g1(x) = q(beta_2) - q(beta_1) < 0 since q decreasing in beta."
+ },
+ {
+  "paper": "doi:10.17713/ajs.v48i3.843",
+  "claim": "Theorem 4, case alpha_1 = alpha_2: hazard rate part",
+  "page": 62,
+  "quote": "X1 <lr X2 => X1 <hr X2 => X1 <st X2.",
+  "kind": "theorem",
+  "model": "other: two distributions of the same family",
+  "family": "GaL distribution",
+  "compared": "X1 ~ GaL(alpha, beta_1) vs X2 ~ GaL(alpha, beta_2)",
+  "hypotheses": [
+   {"text": "alpha_1 = alpha_2; beta_1 <= beta_2", "formal": "as above", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X1 <=_hr X2"},
+  "quantifiers": "x > 0",
+  "numbers": "",
+  "ambiguity": "Implied by the lr result through the printed implication chain."
+ },
+ {
+  "paper": "doi:10.17713/ajs.v48i3.843",
+  "claim": "Theorem 4, case alpha_1 = alpha_2: usual stochastic order part",
+  "page": 62,
+  "quote": "X1 <lr X2 => X1 <hr X2 => X1 <st X2.",
+  "kind": "theorem",
+  "model": "other: two distributions of the same family",
+  "family": "GaL distribution",
+  "compared": "X1 ~ GaL(alpha, beta_1) vs X2 ~ GaL(alpha, beta_2)",
+  "hypotheses": [
+   {"text": "alpha_1 = alpha_2; beta_1 <= beta_2", "formal": "as above", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X1 <=_st X2"},
+  "quantifiers": "x > 0",
+  "numbers": "",
+  "ambiguity": "Implied by the lr result."
+ },
+ {
+  "paper": "doi:10.17713/ajs.v48i3.843",
+  "claim": "Theorem 4, case beta_1 = beta_2 = beta >= 1, alpha_1 <= alpha_2: likelihood ratio part",
+  "page": 62,
+  "quote": "if beta_1 = beta_2 = beta >= 1 with alpha_1 <= alpha_2, then X1 <lr X2 => X1 <hr X2 => X1 <st X2. ... Hence, if beta_1 = beta_2 = beta >= 1, then X1 is stochastically smaller than X2 with respect to the likelihood ratio if and only if alpha_1 <= alpha_2.",
+  "kind": "theorem",
+  "model": "other: two distributions of the same family",
+  "family": "GaL distribution",
+  "compared": "X1 ~ GaL(alpha_1, beta) vs X2 ~ GaL(alpha_2, beta), shared beta >= 1",
+  "hypotheses": [
+   {"text": "beta_1 = beta_2 = beta >= 1; alpha_1 <= alpha_2", "formal": "common beta >= 1, ordered alpha", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "X1 <=_lr X2; 'if and only if alpha_1 <= alpha_2'"},
+  "quantifiers": "x > 0; beta >= 1",
+  "numbers": "",
+  "ambiguity": "Restriction beta >= 1 needed so du(alpha)/d_alpha > 0 in the proof."
+ },
+ {
+  "paper": "doi:10.17713/ajs.v48i3.843",
+  "claim": "Theorem 4, case beta_1 = beta_2: hazard rate part",
+  "page": 62,
+  "quote": "X1 <lr X2 => X1 <hr X2 => X1 <st X2.",
+  "kind": "theorem",
+  "model": "other: two distributions of the same family",
+  "family": "GaL distribution",
+  "compared": "X1 ~ GaL(alpha_1, beta) vs X2 ~ GaL(alpha_2, beta), beta >= 1",
+  "hypotheses": [
+   {"text": "beta_1 = beta_2 = beta >= 1; alpha_1 <= alpha_2", "formal": "as above", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X1 <=_hr X2"},
+  "quantifiers": "x > 0",
+  "numbers": "",
+  "ambiguity": "Implied by the lr result."
+ },
+ {
+  "paper": "doi:10.17713/ajs.v48i3.843",
+  "claim": "Theorem 4, case beta_1 = beta_2: usual stochastic order part",
+  "page": 62,
+  "quote": "X1 <lr X2 => X1 <hr X2 => X1 <st X2.",
+  "kind": "theorem",
+  "model": "other: two distributions of the same family",
+  "family": "GaL distribution",
+  "compared": "X1 ~ GaL(alpha_1, beta) vs X2 ~ GaL(alpha_2, beta), beta >= 1",
+  "hypotheses": [
+   {"text": "beta_1 = beta_2 = beta >= 1; alpha_1 <= alpha_2", "formal": "as above", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X1 <=_st X2"},
+  "quantifiers": "x > 0",
+  "numbers": "",
+  "ambiguity": "Implied by the lr result."
+ }
+]

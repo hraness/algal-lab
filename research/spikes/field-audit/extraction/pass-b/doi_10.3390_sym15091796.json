@@ -1,0 +1,52 @@
+[
+ {
+  "paper": "doi:10.3390/sym15091796",
+  "claim": "Theorem 1",
+  "page": 7,
+  "quote": "Theorem 1. For two parallel systems with component lifetimes being distributed as (X1, X2) ~ MOE(λ1, λ2, λ3) and (Y1, Y2) ~ MOE(µ1, µ2, λ3), the following implication holds: ((λ1 + λ3)^{−1}, (λ2 + λ3)^{−1}) ≺^m ((µ1 + λ3)^{−1}, (µ2 + λ3)^{−1}) ⇒ X2:2 ≥mrl Y2:2. [Setup:] The random vector (X1, X2) has bivariate Marshall–Olkin exponential distribution with parameters (λ1, λ2, λ3), written as (X1, X2) ~ MOE(λ1, λ2, λ3), if the joint survival function is F̄X1,X2(x1, x2) = exp{−(λ1x1 + λ2x2 + λ3(x1 ∨ x2))}, x1 ≥ 0, x2 ≥ 0, where λ1 > 0, λ2 > 0, λ3 ≥ 0.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "Marshall–Olkin bivariate exponential MOE(λ1,λ2,λ3); common shock parameter λ3",
+  "compared": "reciprocals of marginal hazard rates (λi+λ3)^{−1} vs (µi+λ3)^{−1} under majorization; common λ3",
+  "hypotheses": [
+   {"text": "(X1, X2) ~ MOE(λ1, λ2, λ3) and (Y1, Y2) ~ MOE(µ1, µ2, λ3)", "formal": "bivariate MOE with shared λ3", "source": "statement"},
+   {"text": "((λ1 + λ3)^{−1}, (λ2 + λ3)^{−1}) ≺^m ((µ1 + λ3)^{−1}, (µ2 + λ3)^{−1})", "formal": "reciprocal marginal-rate pair majorized", "source": "statement"}
+  ],
+  "conclusion": {"order": "mrl", "direction": "X2:2 >=_mrl Y2:2"},
+  "quantifiers": "x ≥ 0; λ1, λ2, µ1, µ2 > 0, λ3 ≥ 0",
+  "ambiguity": "The majorization glyph (≺^m) is degraded in the text layer but legible in the PDF."
+ },
+ {
+  "paper": "doi:10.3390/sym15091796",
+  "claim": "Theorem 2",
+  "page": 7,
+  "quote": "Theorem 2. For η ∈ Θn(θ), we have R(X, n) ≥st R(Y, n). [Context:] Let X1, · · · , Xn be independent exponential random variables with respective hazard rates θ1, · · · , θn. The sample range of X = (X1, · · · , Xn) is R(X, n) = Xn:n − X1:n. En+ = {(x1, . . . , xn) ∈ Rn : 0 < x1 ≤ . . . ≤ xn}. For θ = (θ1, . . . , θn) ∈ En+, Θn(θ) = {η ∈ En+ : θ ≺ η and θk ≥ ηk for k = 2, . . . , n} and Ωn(θ) = {η ∈ En+ : θ ≺^w η and θk ≥ ηk for k = 2, . . . , n}.",
+  "kind": "theorem",
+  "model": "other: sample range R(X,n) = Xn:n − X1:n",
+  "family": "independent exponential Exp(θi) variables",
+  "compared": "hazard-rate vectors θ vs η ∈ Θn(θ) (η majorizes θ with ηk ≤ θk for k ≥ 2)",
+  "hypotheses": [
+   {"text": "X1, . . . , Xn independent exponential with hazard rates θ1, . . . , θn; η ∈ Θn(θ)", "formal": "θ ∈ En+, η ∈ En+, θ ≺ η, θk ≥ ηk (k=2..n)", "source": "section preamble"},
+   {"text": "R(Y, n) the range of independent exponentials with rates η", "formal": "second sample's range", "source": "section preamble"}
+  ],
+  "conclusion": {"order": "st", "direction": "R(X,n) >=_st R(Y,n)"},
+  "quantifiers": "n ≥ 2, x ≥ 0",
+  "ambiguity": "The majorization/weak-majorization superscripts on ≺ in the definitions of Θn and Ωn are partly degraded in the text layer; Θn uses ordinary majorization and Ωn weak (sub/super) majorization as printed."
+ },
+ {
+  "paper": "doi:10.3390/sym15091796",
+  "claim": "Theorem 3",
+  "page": 7,
+  "quote": "Theorem 3. For η ∈ Ωn(θ), we have R(X, n) ≥rh R(Y, n). [Context:] Ωn(θ) = {η ∈ En+ : θ ≺^w η and θk ≥ ηk for k = 2, . . . , n}.",
+  "kind": "theorem",
+  "model": "other: sample range R(X,n) = Xn:n − X1:n",
+  "family": "independent exponential Exp(θi) variables",
+  "compared": "hazard-rate vectors θ vs η ∈ Ωn(θ) (η weakly majorizes θ with ηk ≤ θk for k ≥ 2)",
+  "hypotheses": [
+   {"text": "X1, . . . , Xn independent exponential with hazard rates θ; η ∈ Ωn(θ)", "formal": "θ ∈ En+, η ∈ En+, θ ≺^w η, θk ≥ ηk (k=2..n)", "source": "section preamble"}
+  ],
+  "conclusion": {"order": "rh", "direction": "R(X,n) >=_rh R(Y,n)"},
+  "quantifiers": "n ≥ 2, x ≥ 0",
+  "ambiguity": "Superscript w on ≺ degraded in text layer; consistent with the Θn/Ωn distinction (majorization vs weak majorization)."
+ }
+]

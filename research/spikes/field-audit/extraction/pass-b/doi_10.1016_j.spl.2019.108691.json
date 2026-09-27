@@ -1,0 +1,209 @@
+[
+ {
+  "paper": "doi:10.1016/j.spl.2019.108691",
+  "claim": "Section 3, unnumbered FSD statement",
+  "page": 4,
+  "quote": "FSD can be derived straightforwardly: Let FZi = FTi ◦ QY ◦ FXi for i = 1, 2. If X1 ≥1 X2 and T1 ≥1 T2, then Z1 ≥1 Z2.",
+  "kind": "proposition",
+  "model": "other: T-X{Y} decomposable distribution FZ = FT ◦ QY ◦ FX",
+  "family": "general composition of two CDFs and a quantile function",
+  "compared": "Z1 vs Z2 generated from pairs (X1,T1) and (X2,T2)",
+  "hypotheses": [
+   {"text": "FZi = FTi ◦ QY ◦ FXi, i = 1, 2", "formal": "composable CDFs", "source": "statement"},
+   {"text": "X1 ≥1 X2 and T1 ≥1 T2", "formal": "first-order dominance of both components", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Z1 >=_st Z2 (written Z1 ≥1 Z2, first-order dominance)"},
+  "quantifiers": "all supports shared",
+  "ambiguity": "The paper's ≥1 and ≥2 denote first- and second-order stochastic dominance (usual st / increasing-concave order)."
+ },
+ {
+  "paper": "doi:10.1016/j.spl.2019.108691",
+  "claim": "Theorem 1 (part i)",
+  "page": 4,
+  "quote": "Theorem 1. Let FZi = FTi ◦ QY ◦ FXi, for i = 1, 2, where QY ◦ FX2 is convex. Let i) X1 ≥1 X2 or ii) X1 ≥2 X2 and X1, X2 belong to a location-scale family with support R. Then T1 ≥2 T2 implies Z1 ≥2 Z2.",
+  "kind": "theorem",
+  "model": "other: T-X{Y} decomposable distribution",
+  "family": "composable CDFs; QY ◦ FX2 convex (e.g., unit-exponential QY gives IFR condition)",
+  "compared": "Z1 vs Z2 via SSD of generators under FSD of baselines",
+  "hypotheses": [
+   {"text": "QY ◦ FX2 is convex", "formal": "composition convexity", "source": "statement"},
+   {"text": "X1 ≥1 X2", "formal": "baseline first-order dominance", "source": "statement"},
+   {"text": "T1 ≥2 T2", "formal": "generator SSD", "source": "statement"}
+  ],
+  "conclusion": {"order": "icv", "direction": "Z1 >=_2 Z2 (second-order dominance)"},
+  "quantifiers": "all z ∈ R",
+  "ambiguity": "≥2 is SSD (increasing concave order for equal supports/means conventions of the paper)."
+ },
+ {
+  "paper": "doi:10.1016/j.spl.2019.108691",
+  "claim": "Theorem 1 (part ii)",
+  "page": 4,
+  "quote": "Theorem 1. Let FZi = FTi ◦ QY ◦ FXi, for i = 1, 2, where QY ◦ FX2 is convex. Let i) X1 ≥1 X2 or ii) X1 ≥2 X2 and X1, X2 belong to a location-scale family with support R. Then T1 ≥2 T2 implies Z1 ≥2 Z2.",
+  "kind": "theorem",
+  "model": "other: T-X{Y} decomposable distribution",
+  "family": "location-scale baselines on R",
+  "compared": "Z1 vs Z2 via SSD of both components",
+  "hypotheses": [
+   {"text": "QY ◦ FX2 is convex", "formal": "composition convexity", "source": "statement"},
+   {"text": "X1 ≥2 X2 and X1, X2 belong to a location-scale family with support R", "formal": "baseline SSD (equiv. E(X1) ≥ E(X2) and σ1 ≤ σ2)", "source": "statement"},
+   {"text": "T1 ≥2 T2", "formal": "generator SSD", "source": "statement"}
+  ],
+  "conclusion": {"order": "icv", "direction": "Z1 >=_2 Z2"},
+  "quantifiers": "all z ∈ R",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1016/j.spl.2019.108691",
+  "claim": "Theorem 2 (part i)",
+  "page": 8,
+  "quote": "Theorem 2. For i = 1, 2, let FZi = FBi ◦ FXi, where Bi ~ beta(pi, qi) (qi > 1). Let FX2/(1 − FX2) be convex. Let i) X1 ≥1 X2 or ii) X1, X2 belong to a location-scale family with support R and X1 ≥2 X2. Then p1 ≥ p2 and p1/(q1 − 1) ≥ p2/(q2 − 1) imply Z1 ≥2 Z2.",
+  "kind": "theorem",
+  "model": "other: beta-generated (BG) distribution FZ = FB ◦ FX",
+  "family": "BG family; generator beta of the second kind B2(pi, qi)",
+  "compared": "BG distributions Z1 vs Z2",
+  "hypotheses": [
+   {"text": "FX2/(1 − FX2) convex", "formal": "baseline odds convexity", "source": "statement"},
+   {"text": "X1 ≥1 X2", "formal": "baseline FSD", "source": "statement"},
+   {"text": "p1 ≥ p2 and p1/(q1 − 1) ≥ p2/(q2 − 1), qi > 1", "formal": "beta-parameter SSD conditions (yield T1 ≥2 T2 on B2)", "source": "statement"}
+  ],
+  "conclusion": {"order": "icv", "direction": "Z1 >=_2 Z2"},
+  "quantifiers": "all x; qi > 1",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1016/j.spl.2019.108691",
+  "claim": "Theorem 2 (part ii)",
+  "page": 8,
+  "quote": "Theorem 2. For i = 1, 2, let FZi = FBi ◦ FXi, where Bi ~ beta(pi, qi) (qi > 1). Let FX2/(1 − FX2) be convex. Let i) X1 ≥1 X2 or ii) X1, X2 belong to a location-scale family with support R and X1 ≥2 X2. Then p1 ≥ p2 and p1/(q1 − 1) ≥ p2/(q2 − 1) imply Z1 ≥2 Z2.",
+  "kind": "theorem",
+  "model": "other: beta-generated distribution",
+  "family": "BG family with location-scale baselines",
+  "compared": "BG distributions Z1 vs Z2",
+  "hypotheses": [
+   {"text": "FX2/(1 − FX2) convex", "formal": "baseline odds convexity", "source": "statement"},
+   {"text": "X1, X2 in a location-scale family on R and X1 ≥2 X2", "formal": "baseline SSD", "source": "statement"},
+   {"text": "p1 ≥ p2 and p1/(q1 − 1) ≥ p2/(q2 − 1), qi > 1", "formal": "B2 SSD conditions", "source": "statement"}
+  ],
+  "conclusion": {"order": "icv", "direction": "Z1 >=_2 Z2"},
+  "quantifiers": "all x; qi > 1",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1016/j.spl.2019.108691",
+  "claim": "Theorem 2 proof, B2 dominance statement",
+  "page": 8,
+  "quote": "If p1 ≥ p2 and q2 ≥ q1, then T1 ≥1 T2 (implying T1 ≥2 T2), because r is increasing. If p1 > p2 and q1 > q2, then the mode is a maximum and we can apply Theorem 2.2 of Ramos et al. (2000), recalling that E(Xi) = pi/(qi − 1), if qi > 1. Finally we obtain: p1 ≥ p2 and p1/(q1 − 1) ≥ p2/(q2 − 1) (with q1, q2 > 1) implies T1 ≥2 T2.",
+  "kind": "proposition",
+  "model": "single",
+  "family": "beta distribution of the second kind B2(p, q)",
+  "compared": "B2 parameters (p1, q1) vs (p2, q2)",
+  "hypotheses": [
+   {"text": "p1 ≥ p2 and p1/(q1 − 1) ≥ p2/(q2 − 1), q1, q2 > 1", "formal": "shape and mean conditions on B2", "source": "proof"}
+  ],
+  "conclusion": {"order": "icv", "direction": "T1 >=_2 T2 (B2 generators); also T1 >=_1 T2 when additionally q2 ≥ q1"},
+  "quantifiers": "pi, qi > 0, qi > 1",
+  "ambiguity": "Intermediate claim within the proof of Theorem 2."
+ },
+ {
+  "paper": "doi:10.1016/j.spl.2019.108691",
+  "claim": "Table 1 (SSD conditions for BG families)",
+  "page": 8,
+  "quote": "Table 1: SSD sufficient conditions for various BG families satisfying p1 ≥ p2 and p1/(q1 − 1) ≥ p2/(q2 − 1). GB1 (power baseline): a1 ≥ a2, b1 ≥ b2; GB2 (log-logistic): a2 ≥ a1 > 1, b1 ≥ b2; BG-Pareto: a2 ≥ a1 > 1, b1 ≥ b2; BG-uniform: a1 ≥ a2, b1 ≥ b2; BG-normal: µ1 ≥ µ2, σ1 ≤ σ2; BG-logistic: µ1 ≥ µ2, σ1 ≤ σ2.",
+  "kind": "corollary",
+  "model": "other: BG special families",
+  "family": "GB1, GB2, BG-Pareto, BG-uniform, BG-normal, BG-logistic",
+  "compared": "parameter conditions per family yielding Z1 ≥2 Z2",
+  "hypotheses": [
+   {"text": "conditions column combined with p1 ≥ p2 and p1/(q1 − 1) ≥ p2/(q2 − 1)", "formal": "per-family baseline dominance + B2 SSD conditions", "source": "statement"}
+  ],
+  "conclusion": {"order": "icv", "direction": "Z1 >=_2 Z2 within each listed BG family"},
+  "quantifiers": "parameter ranges as in Table 1",
+  "ambiguity": "Tabulated corollary-type conditions rather than a numbered result."
+ },
+ {
+  "paper": "doi:10.1016/j.spl.2019.108691",
+  "claim": "Theorem 3 (part i)",
+  "page": 9,
+  "quote": "Theorem 3. Let X and Y be RVs such that FY/(1 − FY) is convex. Let i) X ≥1 Y or ii) X, Y belong to a location-scale family with support R and X ≥2 Y. Then i ≥ j and i/n ≥ j/m imply Xi:n ≥2 Yj:m.",
+  "kind": "theorem",
+  "model": "order statistics",
+  "family": "order statistics as BG members: Xi:n via beta(i, n − i + 1)",
+  "compared": "order statistics Xi:n (sample of n from X) vs Yj:m (sample of m from Y)",
+  "hypotheses": [
+   {"text": "FY/(1 − FY) is convex", "formal": "odds convexity", "source": "statement"},
+   {"text": "X ≥1 Y", "formal": "baseline FSD", "source": "statement"},
+   {"text": "i ≥ j and i/n ≥ j/m", "formal": "rank/sample-size conditions", "source": "statement"}
+  ],
+  "conclusion": {"order": "icv", "direction": "Xi:n >=_2 Yj:m"},
+  "quantifiers": "ranks i, j; sample sizes n, m",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1016/j.spl.2019.108691",
+  "claim": "Theorem 3 (part ii)",
+  "page": 9,
+  "quote": "Theorem 3. Let X and Y be RVs such that FY/(1 − FY) is convex. Let i) X ≥1 Y or ii) X, Y belong to a location-scale family with support R and X ≥2 Y. Then i ≥ j and i/n ≥ j/m imply Xi:n ≥2 Yj:m.",
+  "kind": "theorem",
+  "model": "order statistics",
+  "family": "location-scale populations",
+  "compared": "order statistics Xi:n vs Yj:m",
+  "hypotheses": [
+   {"text": "FY/(1 − FY) is convex", "formal": "odds convexity", "source": "statement"},
+   {"text": "X, Y in a location-scale family on R and X ≥2 Y", "formal": "baseline SSD", "source": "statement"},
+   {"text": "i ≥ j and i/n ≥ j/m", "formal": "rank/sample-size conditions", "source": "statement"}
+  ],
+  "conclusion": {"order": "icv", "direction": "Xi:n >=_2 Yj:m"},
+  "quantifiers": "ranks i, j; sample sizes n, m",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1016/j.spl.2019.108691",
+  "claim": "Section 4.2 normal-sampling example",
+  "page": 10,
+  "quote": "Let X ~ N(µ1, σ1) and Y ~ N(µ2, σ2). Then, Xi:n and Yj:m have BG-normal distributions. According to Table 1, if µ1 ≥ µ2 and σ1 ≤ σ2, we can apply Theorem 3. For instance, let n = 35, m = 30 and j = 20. The minimum rank i such that Xi:35 ≥2 Y20:30 is given by i = max{j, ⌈nj/m⌉} = 24, where ⌈·⌉ denotes the ceiling function (Xi:35 ≥2 Y20:30 for i ≥ 24).",
+  "kind": "example",
+  "model": "order statistics",
+  "family": "normal baselines → BG-normal order statistics",
+  "compared": "Xi:35 vs Y20:30",
+  "hypotheses": [
+   {"text": "µ1 ≥ µ2 and σ1 ≤ σ2", "formal": "normal FSD/SSD condition", "source": "statement"},
+   {"text": "n = 35, m = 30, j = 20", "formal": "concrete sample sizes/rank", "source": "statement"}
+  ],
+  "conclusion": {"order": "icv", "direction": "Xi:35 >=_2 Y20:30 iff i ≥ 24"},
+  "quantifiers": "n=35, m=30, j=20, i≥24",
+  "numbers": "n=35; m=30; j=20; minimum rank i = max{20, ⌈35·20/30⌉} = 24",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1016/j.spl.2019.108691",
+  "claim": "Corollary 1 (part 1)",
+  "page": 10,
+  "quote": "Corollary 1. Let X be an RV such that the odds function FX/(1 − FX) is convex. Then: 1. Xi+1:n ≥2 Xi:n, ∀i, n (i = 1, . . . , n − 1). 2. Xi:n ≥2 Xi:n+1, ∀i, n.",
+  "kind": "corollary",
+  "model": "order statistics",
+  "family": "any RV with convex odds function",
+  "compared": "consecutive order statistics within one sample",
+  "hypotheses": [
+   {"text": "FX/(1 − FX) convex", "formal": "odds convexity", "source": "statement"}
+  ],
+  "conclusion": {"order": "icv", "direction": "Xi+1:n >=_2 Xi:n for all i = 1, . . . , n − 1"},
+  "quantifiers": "all i, n",
+  "ambiguity": "Extends known Lorenz-order results (Arnold and Villaseñor 1991; Wilfling 1996b) to SSD over a wider class."
+ },
+ {
+  "paper": "doi:10.1016/j.spl.2019.108691",
+  "claim": "Corollary 1 (part 2)",
+  "page": 10,
+  "quote": "Corollary 1. Let X be an RV such that the odds function FX/(1 − FX) is convex. Then: 1. Xi+1:n ≥2 Xi:n, ∀i, n (i = 1, . . . , n − 1). 2. Xi:n ≥2 Xi:n+1, ∀i, n.",
+  "kind": "corollary",
+  "model": "order statistics",
+  "family": "any RV with convex odds function",
+  "compared": "same-rank order statistics across different sample sizes",
+  "hypotheses": [
+   {"text": "FX/(1 − FX) convex", "formal": "odds convexity", "source": "statement"}
+  ],
+  "conclusion": {"order": "icv", "direction": "Xi:n >=_2 Xi:n+1 for all i, n"},
+  "quantifiers": "all i, n",
+  "ambiguity": ""
+ }
+]

@@ -1,0 +1,137 @@
+[
+ {
+  "paper": "doi:10.1239/jap/1363784438",
+  "claim": "Theorem 2.2(a) - stochastic order",
+  "page": 276,
+  "quote": "Theorem 2.2. Let T1 and T2 denote the lifetimes of two mixed systems with the same failure-dependent component lifetimes X_1*, ..., X_n*. Let the PHR assumption (1.3) hold. (a) Let p1(t) and p2(t) denote the vectors of coefficients (2.2) of T1 and T2, respectively. Then the following statements hold for the residual lifetimes of the systems. - If p1(t) <=st p2(t) then (T1 - t | T1 > t) <=st (T2 - t | T2 > t).",
+  "kind": "theorem",
+  "model": "other: mixed coherent system with failure-dependent components",
+  "family": "mixed systems with failure-dependent component lifetimes based on F_i(x) = 1 - (1 - F(x))^{alpha_i} (PHR), signature vectors s1, s2",
+  "compared": "residual lifetimes (T1 - t | T1 > t) vs (T2 - t | T2 > t) of two mixed systems sharing the same component lifetimes but different signatures",
+  "hypotheses": [
+   {"text": "PHR assumption: F_i(x) = 1 - (1 - F(x))^{alpha_i}", "formal": "proportional hazard rate sequential order statistics", "source": "statement"},
+   {"text": "p1(t) <=st p2(t)", "formal": "the coefficient vectors (discrete distributions on {1,...,n}) are st-ordered", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "(T1 - t | T1 > t) <=_st (T2 - t | T2 > t)"},
+  "quantifiers": "t >= 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1239/jap/1363784438",
+  "claim": "Theorem 2.2(a) - hazard rate order",
+  "page": 276,
+  "quote": "- If p1(t) <=hr p2(t) then (T1 - t | T1 > t) <=hr (T2 - t | T2 > t).",
+  "kind": "theorem",
+  "model": "other: mixed coherent system with failure-dependent components",
+  "family": "PHR-based mixed systems",
+  "compared": "residual lifetimes of the two mixed systems",
+  "hypotheses": [
+   {"text": "PHR assumption", "formal": "F_i(x) = 1 - (1 - F(x))^{alpha_i}", "source": "statement"},
+   {"text": "p1(t) <=hr p2(t)", "formal": "hr ordering of the coefficient vectors", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "(T1 - t | T1 > t) <=_hr (T2 - t | T2 > t)"},
+  "quantifiers": "t >= 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1239/jap/1363784438",
+  "claim": "Theorem 2.2(a) - likelihood ratio order",
+  "page": 276,
+  "quote": "- If p1(t) <=lr p2(t) and F is absolutely continuous, then (T1 - t | T1 > t) <=lr (T2 - t | T2 > t).",
+  "kind": "theorem",
+  "model": "other: mixed coherent system with failure-dependent components",
+  "family": "PHR-based mixed systems",
+  "compared": "residual lifetimes of the two mixed systems",
+  "hypotheses": [
+   {"text": "PHR assumption; F absolutely continuous", "formal": "PHR plus regularity of baseline", "source": "statement"},
+   {"text": "p1(t) <=lr p2(t)", "formal": "lr ordering of coefficient vectors", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "(T1 - t | T1 > t) <=_lr (T2 - t | T2 > t)"},
+  "quantifiers": "t >= 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1239/jap/1363784438",
+  "claim": "Theorem 2.2(b) - stochastic order",
+  "page": 276,
+  "quote": "(b) Let p~1(t) and p~2(t) denote the vectors of coefficients (2.4) of T1 and T2, respectively. Then the following statements hold for the inactivity times of the systems. - If p~1(t) <=st p~2(t) then (t - T1 | T1 <= t) >=st (t - T2 | T2 <= t).",
+  "kind": "theorem",
+  "model": "other: mixed coherent system with failure-dependent components",
+  "family": "PHR-based mixed systems",
+  "compared": "inactivity times (t - T | T <= t) of the two mixed systems",
+  "hypotheses": [
+   {"text": "PHR assumption", "formal": "F_i(x) = 1 - (1 - F(x))^{alpha_i}", "source": "statement"},
+   {"text": "p~1(t) <=st p~2(t)", "formal": "st ordering of inactivity coefficient vectors", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "(t - T1 | T1 <= t) >=_st (t - T2 | T2 <= t)"},
+  "quantifiers": "t >= 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1239/jap/1363784438",
+  "claim": "Theorem 2.2(b) - reversed hazard rate order",
+  "page": 276,
+  "quote": "- If p~1(t) <=rh p~2(t) then (t - T1 | T1 <= t) >=rh (t - T2 | T2 <= t).",
+  "kind": "theorem",
+  "model": "other: mixed coherent system with failure-dependent components",
+  "family": "PHR-based mixed systems",
+  "compared": "inactivity times of the two mixed systems",
+  "hypotheses": [
+   {"text": "PHR assumption", "formal": "as above", "source": "statement"},
+   {"text": "p~1(t) <=rh p~2(t)", "formal": "rh ordering of coefficient vectors", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "(t - T1 | T1 <= t) >=_rh (t - T2 | T2 <= t)"},
+  "quantifiers": "t >= 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1239/jap/1363784438",
+  "claim": "Theorem 2.2(b) - likelihood ratio order",
+  "page": 276,
+  "quote": "- If p~1(t) <=lr p~2(t) and F is absolutely continuous, then (t - T1 | T1 <= t) >=lr (t - T2 | T2 <= t).",
+  "kind": "theorem",
+  "model": "other: mixed coherent system with failure-dependent components",
+  "family": "PHR-based mixed systems",
+  "compared": "inactivity times of the two mixed systems",
+  "hypotheses": [
+   {"text": "PHR assumption; F absolutely continuous", "formal": "as above", "source": "statement"},
+   {"text": "p~1(t) <=lr p~2(t)", "formal": "lr ordering of coefficient vectors", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "(t - T1 | T1 <= t) >=_lr (t - T2 | T2 <= t)"},
+  "quantifiers": "t >= 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1239/jap/1363784438",
+  "claim": "Lemma 2.1",
+  "page": 276,
+  "quote": "Lemma 2.1. Let p(t) and p~(t) denote the respective vectors of coefficients (2.2) and (2.4). Under the PHR assumption (1.3), p(t1) <=lr p(t2) and p~(t1) <=lr p~(t2) hold for all 0 <= t1 <= t2.",
+  "kind": "lemma",
+  "model": "other: coefficient vectors of mixture representations",
+  "family": "PHR-based mixed systems (sequential order statistics with F_i(x) = 1 - (1-F(x))^{alpha_i})",
+  "compared": "coefficient vectors (discrete distributions on {1,...,n}) at two different times t1 <= t2",
+  "hypotheses": [
+   {"text": "PHR assumption (1.3)", "formal": "F_i(x) = 1 - (1 - F(x))^{alpha_i}", "source": "statement"},
+   {"text": "0 <= t1 <= t2", "formal": "increasing evaluation times", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "p(t1) <=_lr p(t2) and p~(t1) <=_lr p~(t2)"},
+  "quantifiers": "all 0 <= t1 <= t2",
+  "ambiguity": "The compared objects are discrete probability vectors (dynamic signatures), ordered in the usual lr sense on {1,...,n}."
+ },
+ {
+  "paper": "doi:10.1239/jap/1363784438",
+  "claim": "Remark 2.1",
+  "page": 277,
+  "quote": "Remark 2.1. Exploiting known results for orderings of sequential order statistics based on F1, ..., Fn (see Navarro and Burkschat (2011)), similar results can be obtained by replacing the PHR assumption with other conditions. For instance, if h1, ..., hn denote the respective hazard rates of F1, ..., Fn and the ratios h_k/h_{k+1} are nondecreasing functions for k = 1, ..., n-1, then X*_{r:n} <=hr X*_{r+1:n} holds for r = 1, ..., n-1 and, therefore, the vector of coefficients (2.2) for the corresponding mixed system based on sequential order statistics also satisfies p(t1) <=lr p(t2) for 0 <= t1 <= t2.",
+  "kind": "remark",
+  "model": "other: mixed coherent system with failure-dependent components",
+  "family": "sequential order statistics based on general F_1, ..., F_n with nondecreasing hazard-rate ratios",
+  "compared": "consecutive sequential order statistics; coefficient vectors at two times",
+  "hypotheses": [
+   {"text": "h_k/h_{k+1} nondecreasing for k = 1, ..., n-1", "formal": "monotone ratios of consecutive baseline hazard rates", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X*_{r:n} <=_hr X*_{r+1:n} (hence p(t1) <=_lr p(t2))"},
+  "quantifiers": "r = 1, ..., n-1; 0 <= t1 <= t2",
+  "ambiguity": "Remark gives two conclusions: hr ordering of consecutive sequential order statistics (cited from Navarro and Burkschat 2011) and the induced lr ordering of coefficient vectors."
+ }
+]

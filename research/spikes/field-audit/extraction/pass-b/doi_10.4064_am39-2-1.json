@@ -1,0 +1,99 @@
+[
+ {
+  "paper": "doi:10.4064/am39-2-1",
+  "claim": "Preliminary facts (Section 1)",
+  "page": 130,
+  "quote": "It is easy to prove that the family of gamma distributions is stochastically increasing with respect to both parameters, alpha and lambda. If X and Y have the gamma distributions G(1, alpha1) and G(1, alpha2) respectively, where alpha1 < alpha2, then X >=c Y (see van Zwet [11]) and also X <=disp Y (see Shaked [9]).",
+  "kind": "preliminary",
+  "model": "univariate",
+  "family": "gamma distribution G(lambda, alpha)",
+  "compared": "gamma variates with different shape parameters",
+  "hypotheses": [
+   {"text": "alpha1 < alpha2", "formal": "shape parameter inequality", "source": "statement"}
+  ],
+  "conclusion": {"order": "c/disp", "direction": "X >=_c Y and X <=_disp Y for alpha1 < alpha2 (unit-rate gamma)"},
+  "quantifiers": "all quantile arguments",
+  "ambiguity": "Background facts cited from van Zwet and Shaked; also definitions of <=st, <=disp, <=c orders and stochastically/dispersively increasing families are given at the same location."
+ },
+ {
+  "paper": "doi:10.4064/am39-2-1",
+  "claim": "Theorem 2.1",
+  "page": 131,
+  "quote": "Theorem 2.1. The estimator lambda-hat is stochastically increasing in lambda. [Proof sketch:] X = (X1,...,Xn) from G(lambda1, alpha), Y = (Y1,...,Yn) from G(lambda2, alpha), lambda1 < lambda2; lambda-hat_1 = S_X^2/X_bar <=st lambda-hat_2 = S_Y^2/Y_bar using X_bar <=st Y_bar, ancillarity of S^2/X_bar^2, Basu theorem and Lemma 1.3 (X <=st Y, Z independent => XZ <=st YZ).",
+  "kind": "theorem",
+  "model": "moment estimator of gamma scale",
+  "family": "moment estimator lambda-hat = S^2/X_bar for G(lambda, alpha) samples of size n",
+  "compared": "distributions of lambda-hat under lambda1 vs lambda2",
+  "hypotheses": [
+   {"text": "lambda1 < lambda2; common alpha; samples independent", "formal": "parameter ordering", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "lambda-hat_1 <=_st lambda-hat_2"},
+  "quantifiers": "fixed n, alpha",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.4064/am39-2-1",
+  "claim": "Theorem 2.2",
+  "page": 132,
+  "quote": "Theorem 2.2. The estimator alpha-hat is stochastically increasing in alpha. [Proof:] samples X from G(lambda, alpha1), Y from G(lambda, alpha2), alpha1 < alpha2, WLOG lambda = 1; equivalently sum_i X_i^2/(sum_i X_i)^2 >=st sum_i Y_i^2/(sum_i Y_i)^2. Using order statistics and Y* =st (G^{-1}F(X_(1)),...,G^{-1}F(X_(n))), F <=st G gives pointwise X_(i) <= G^{-1}F(X_(i)); as F >c G, G^{-1}F(x)/x is decreasing, giving majorization (X_(i)/sum X_(j)) succ (Z_(i)/sum Z_(j)); Theorem 1.1 with phi(x) = x^2 completes the proof.",
+  "kind": "theorem",
+  "model": "moment estimator of gamma shape",
+  "family": "moment estimator alpha-hat = X_bar^2/S^2 for G(lambda, alpha) samples",
+  "compared": "distributions of alpha-hat under alpha1 vs alpha2",
+  "hypotheses": [
+   {"text": "alpha1 < alpha2; common lambda (WLOG lambda = 1)", "formal": "parameter ordering", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "alpha-hat_1 <=_st alpha-hat_2"},
+  "quantifiers": "fixed n, lambda",
+  "ambiguity": "Majorization direction rendered symbolically: the normalized order-statistic vector of X is majorized by that of Z = G^{-1}F(X)."
+ },
+ {
+  "paper": "doi:10.4064/am39-2-1",
+  "claim": "Remark 2.3",
+  "page": 132,
+  "quote": "Remark 2.3. Deriving exact distributions of the moment estimators alpha-hat and lambda-hat is tedious for n > 2. One may prove that for n = 2 the statistic 1/alpha-hat has beta distribution B(1/2, alpha) and so alpha-hat is stochastically increasing in alpha.",
+  "kind": "remark",
+  "model": "moment estimator, small sample",
+  "family": "1/alpha-hat ~ Beta(1/2, alpha) when n = 2",
+  "compared": "alpha-hat under different alpha",
+  "hypotheses": [
+   {"text": "n = 2", "formal": "sample size two", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "alpha-hat stochastically increasing in alpha (direct proof for n = 2 via beta distribution)"},
+  "quantifiers": "n = 2",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.4064/am39-2-1",
+  "claim": "Theorem 2.4",
+  "page": 132,
+  "quote": "Theorem 2.4. The estimator 1/alpha-hat is not dispersively monotone in alpha. [Proof:] Var(1/alpha-hat) = psi(alpha) = 2 alpha (alpha+1) / ((n-1)(alpha+1/n)^2 (alpha+2/n)(alpha+3/n)); since lim_{alpha->0} psi(alpha) = lim_{alpha->inf} psi(alpha) = 0, psi is not monotone, so 1/alpha-hat cannot be dispersively monotone.",
+  "kind": "theorem",
+  "model": "moment estimator",
+  "family": "1/alpha-hat for G(lambda, alpha) samples",
+  "compared": "distributions of 1/alpha-hat under different alpha",
+  "hypotheses": [
+   {"text": "dispersive monotonicity would imply Var(1/alpha-hat) monotone in alpha", "formal": "disp <= order implies Var order", "source": "statement"}
+  ],
+  "conclusion": {"order": "disp", "direction": "negative: 1/alpha-hat is NOT dispersively monotone in alpha"},
+  "quantifiers": "n >= 2",
+  "numbers": "psi(alpha) = 2alpha(alpha+1)/[(n-1)(alpha+1/n)^2(alpha+2/n)(alpha+3/n)]",
+  "ambiguity": "Negative result (failure of dispersive monotonicity)."
+ },
+ {
+  "paper": "doi:10.4064/am39-2-1",
+  "claim": "Theorem 3.3",
+  "page": 134,
+  "quote": "Theorem 3.3. Let I1 = (L1, U1) and I2 = (L2, U2) be two random intervals of the form (3.1) for alpha1 and alpha2 respectively, where alpha1 < alpha2. Then U1 - L1 <=st U2 - L2, and I1 is to the left of I2 in probability, i.e. L1 <=st L2 and U1 <=st U2.",
+  "kind": "theorem",
+  "model": "approximate confidence interval for gamma shape",
+  "family": "interval (3.1): L = (n alpha-hat + z^2 - z*sqrt(2n alpha-hat^2 + 2n alpha-hat + z^2))/(n - 2z^2), U = (n alpha-hat + z^2 + z*sqrt(2n alpha-hat^2 + 2n alpha-hat + z^2))/(n - 2z^2), z = z_{gamma/2}",
+  "compared": "random confidence intervals at alpha1 < alpha2",
+  "hypotheses": [
+   {"text": "alpha1 < alpha2; intervals of form (3.1) with n > 2 z_{gamma/2}^2", "formal": "parameter ordering and validity condition", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "U1-L1 <=_st U2-L2; L1 <=_st L2; U1 <=_st U2"},
+  "quantifiers": "n > 2 z_{gamma/2}^2",
+  "ambiguity": "Follows from Theorem 2.2 (stochastic monotonicity of alpha-hat)."
+ }
+]

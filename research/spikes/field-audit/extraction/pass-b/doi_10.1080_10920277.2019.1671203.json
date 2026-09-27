@@ -1,0 +1,249 @@
+[
+  {
+    "paper": "doi:10.1080/10920277.2019.1671203",
+    "claim": "Theorem 3.1",
+    "page": "5-6",
+    "quote": "Let X_{lambda1}, X_{lambda2} (X_{lambda*1}, X_{lambda*2}) be independent non-negative random variables with X_{lambdai} ~ TG(lambdai) (X_{lambda*i} ~ TG(lambda*i)), i = 1, 2. Further, suppose that I_{p1}, I_{p2} (I_{p*1}, I_{p*2}) is a set of independent Bernoulli random variables, independent of the X_{lambdai}'s (X_{lambda*i}'s), with E[I_{pi}] = pi (E[I_{p*i}] = p*i), i = 1, 2. Let h : [0, 1] -> I subset R+ be a differentiable and strictly increasing concave function on [0, 1] with the non-zero derivative. Then for (lambda, h(p)) in S2, we have [lambda*1 lambda*2; h(p*1) h(p*2)] << [lambda1 lambda2; h(p1) h(p2)] ==> Y2:2 <=st Y2:2*.",
+    "kind": "theorem",
+    "model": "parallel system (largest claim amount)",
+    "family": "portfolio aggregate claim Y_i = I_{p_i} X_{lambda_i}, X_{lambda_i} ~ TG(lambda_i) transmuted-G with baseline cdf F; distribution function of Y2:2: G_Y2:2(x) = prod_{i=1}^2 [1 - h^{-1}(u_i) F̄(x)(1 - lambda_i F(x))], u_i = h(p_i)",
+    "compared": "Y2:2 (parameters lambda, p) vs Y2:2* (parameters lambda*, p*); 2x2 matrix (lambda; h(p)) under chain majorization",
+    "hypotheses": [
+      {"text": "h : [0,1] -> I subset R+ differentiable, strictly increasing, concave, non-zero derivative", "formal": "as stated", "source": "statement"},
+      {"text": "(lambda, h(p)) in S2", "formal": "rows oppositely ordered: (lambda1 - lambda2)(h(p1) - h(p2)) <= 0", "source": "statement"},
+      {"text": "[lambda*; h(p*)] << [lambda; h(p)]", "formal": "star matrix chain-majorized by base matrix (Definition 2.5)", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y2:2 <=st Y2:2*"},
+    "quantifiers": "n = 2; x >= 0",
+    "numbers": "",
+    "ambiguity": "'<<' is the paper's chain majorization symbol for matrices; S2 is the set of matrices with similarly/oppositely ordered rows per the paper's definition."
+  },
+  {
+    "paper": "doi:10.1080/10920277.2019.1671203",
+    "claim": "Corollary 3.1",
+    "page": "7-8",
+    "quote": "Let lambda-bar = (1/2)(lambda1 + lambda2) and h(p-bar) = (1/2)(h(p1) + h(p2)). Under the conditions of Theorem 3.1 we have Ḡ_Y2:2(x) >= 1 - [1 - h^{-1}(h(p-bar)) F̄(x) (1 - lambda-bar F(x))]^2.",
+    "kind": "corollary",
+    "model": "parallel system (largest claim amount)",
+    "family": "TG(lambda_i) portfolio model as in Theorem 3.1",
+    "compared": "heterogeneous-portfolio maximum Y2:2 vs the homogeneous counterpart with averaged parameters",
+    "hypotheses": [
+      {"text": "conditions of Theorem 3.1 (h increasing concave, (lambda,h(p)) in S2)", "formal": "as stated", "source": "earlier theorem 3.1"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y2:2 >=st the homogeneous-parameter benchmark (survival-function lower bound as printed)"},
+    "quantifiers": "x >= 0",
+    "numbers": "lambda-bar = (lambda1+lambda2)/2; h(p-bar) = (h(p1)+h(p2))/2",
+    "ambiguity": "The printed conclusion is a pointwise survival-function bound, equivalent to a usual stochastic order comparison against the homogeneous portfolio. The proof cites 'Theorem 2.4', which appears to be a typo for Theorem 3.1."
+  },
+  {
+    "paper": "doi:10.1080/10920277.2019.1671203",
+    "claim": "Theorem 3.2",
+    "page": "7-8",
+    "quote": "Let X_{lambda1}, ..., X_{lambdan} (X_{lambda*1}, ..., X_{lambda*n}) be independent non-negative random variables with X_{lambdai} ~ TG(lambdai) (X_{lambda*i} ~ TG(lambda*i)), i = 1, ..., n. Further, suppose that I_{p1}, ..., I_{pn} (I_{p*1}, ..., I_{p*n}) is a set of independent Bernoulli random variables, independent of the X_{lambdai}'s (X_{lambda*i}'s), with E[I_{pi}] = pi (E[I_{p*i}] = p*i), i = 1, ..., n. Let h : [0, 1] -> I subset R+ be a differentiable and strictly increasing concave function on [0, 1], with non-zero derivative. Then for (lambda, h(p)) in Sn, we have [lambda*1 ... lambda*n; h(p*1) ... h(p*n)] = [lambda1 ... lambdan; h(p1) ... h(pn)] T_omega ==> Yn:n <=st Yn:n*.",
+    "kind": "theorem",
+    "model": "parallel system (largest claim amount)",
+    "family": "TG(lambda_i) portfolio model",
+    "compared": "Yn:n vs Yn:n*; star parameter matrix obtained via a T-transform",
+    "hypotheses": [
+      {"text": "h differentiable, strictly increasing, concave, non-zero derivative on [0,1]", "formal": "as stated", "source": "statement"},
+      {"text": "(lambda, h(p)) in Sn", "formal": "parameter matrix rows oppositely ordered", "source": "statement"},
+      {"text": "[lambda*; h(p*)] = [lambda; h(p)] T_omega", "formal": "single T-transform", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Yn:n <=st Yn:n*"},
+    "quantifiers": "all n",
+    "numbers": "",
+    "ambiguity": "Generalizes Theorem 3.1 to arbitrary n."
+  },
+  {
+    "paper": "doi:10.1080/10920277.2019.1671203",
+    "claim": "Corollary 3.2",
+    "page": 8,
+    "quote": "Under the assumptions of Theorem 3.2, for (lambda, h(p)) in Sn, we have [lambda*1 ... lambda*n; h(p*1) ... h(p*n)] = [lambda1 ... lambdan; h(p1) ... h(pn)] T_{omega1} ... T_{omegam} ==> Yn:n <=st Yn:n*, where T_{omega_i}, i = 1, ..., m, have the same structure.",
+    "kind": "corollary",
+    "model": "parallel system (largest claim amount)",
+    "family": "TG(lambda_i) portfolio model",
+    "compared": "Yn:n vs Yn:n*; products of same-structure T-transforms",
+    "hypotheses": [
+      {"text": "assumptions of Theorem 3.2; (lambda, h(p)) in Sn; star = base x T_{w1}...T_{wm}, same structure", "formal": "as stated", "source": "statement; earlier theorem 3.2"}
+    ],
+    "conclusion": {"order": "st", "direction": "Yn:n <=st Yn:n*"},
+    "quantifiers": "all n; m >= 1",
+    "numbers": "",
+    "ambiguity": ""
+  },
+  {
+    "paper": "doi:10.1080/10920277.2019.1671203",
+    "claim": "Corollary 3.3",
+    "page": 8,
+    "quote": "Under the assumptions of Theorem 3.2, for (lambda, h(p)) in Sn, and (lambda, h(p))T_{omega1}, ..., T_{omega_i} in Sn, for i = 1, ..., m - 1, where m >= 2, we have [lambda*1 ... lambda*n; h(p*1) ... h(p*n)] = [lambda1 ... lambdan; h(p1) ... h(pn)] T_{omega1} ... T_{omegam} ==> Yn:n <=st Yn:n*.",
+    "kind": "corollary",
+    "model": "parallel system (largest claim amount)",
+    "family": "TG(lambda_i) portfolio model",
+    "compared": "Yn:n vs Yn:n*; products of different-structure T-transforms",
+    "hypotheses": [
+      {"text": "base matrix and every partial product (lambda,h(p))T_{w1}...T_{wi} in Sn", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Yn:n <=st Yn:n*"},
+    "quantifiers": "all n; m >= 2",
+    "numbers": "",
+    "ambiguity": ""
+  },
+  {
+    "paper": "doi:10.1080/10920277.2019.1671203",
+    "claim": "Theorem 3.3",
+    "page": 9,
+    "quote": "Under the assumptions of Theorem 3.2 with lambdai = lambda*i = lambda, for i = 1, ..., n, we have (h(p*1), ..., h(p*n)) ≼w (h(p1), ..., h(pn)) ==> Yn:n* <=rh Yn:n.",
+    "kind": "theorem",
+    "model": "parallel system (largest claim amount)",
+    "family": "TG(lambda) portfolio model with common transmuted parameter lambda; reversed hazard rate r̃_Yn:n(x) = sum_i f(x)[1 + lambda(1 - 2F(x))] h^{-1}(u_i)/[1 - h^{-1}(u_i)F̄(x)(1 - lambda F(x))] I[x>0] + I[x=0]",
+    "compared": "Yn:n* vs Yn:n; vectors h(p*) and h(p) under weak majorization",
+    "hypotheses": [
+      {"text": "lambdai = lambda*i = lambda for all i", "formal": "common transmuted parameter", "source": "statement"},
+      {"text": "(h(p*1),...,h(p*n)) ≼w (h(p1),...,h(pn))", "formal": "weak majorization of transformed occurrence probabilities (Definition 2.2)", "source": "statement"}
+    ],
+    "conclusion": {"order": "rh", "direction": "Yn:n* <=rh Yn:n"},
+    "quantifiers": "all n; x >= 0",
+    "numbers": "",
+    "ambiguity": "≼w is the paper's weak majorization symbol (Definition 2.2); exact weak-sub vs weak-super orientation per that definition."
+  },
+  {
+    "paper": "doi:10.1080/10920277.2019.1671203",
+    "claim": "Theorem 4.1",
+    "page": 10,
+    "quote": "Let X_{lambda1}, ..., X_{lambdan} (X_{lambda*1}, ..., X_{lambda*n}) be independent non-negative random variables with X_{lambdai} ~ TG(lambdai) (X_{lambda*i} ~ TG(lambda*i)), i = 1, ..., n. Further, suppose that I_{p1}, ..., I_{pn} (I_{p*1}, ..., I_{p*n}) is a set of independent Bernoulli random variables, independent of the X_{lambdai}'s (X_{lambda*i}'s), with E[I_{pi}] = pi (E[I_{p*i}] = p*i), i = 1, ..., n. Then, we have prod_{i=1}^n p*i <= prod_{i=1}^n pi, (lambda1, ..., lambdan) ≼w (lambda*1, ..., lambda*n) ==> Y1:n* <=st Y1:n.",
+    "kind": "theorem",
+    "model": "series system (smallest claim amount)",
+    "family": "TG(lambda_i) portfolio model; F̄_X1:n(x) = prod_{i=1}^n F̄(x)(1 - lambda_i F(x))",
+    "compared": "Y1:n* (star parameters) vs Y1:n; occurrence-probability product and weak majorization of transmuted parameters",
+    "hypotheses": [
+      {"text": "prod p*i <= prod pi", "formal": "product comparison of occurrence probabilities", "source": "statement"},
+      {"text": "(lambda1,...,lambdan) ≼w (lambda*1,...,lambda*n)", "formal": "weak majorization of transmuted parameter vectors", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y1:n* <=st Y1:n"},
+    "quantifiers": "all n; x >= 0",
+    "numbers": "",
+    "ambiguity": ""
+  },
+  {
+    "paper": "doi:10.1080/10920277.2019.1671203",
+    "claim": "Corollary 4.1",
+    "page": "10-11",
+    "quote": "Under the assumption of Theorem 4.1, Ḡ_Y1:n(x) >= [p-tilde F̄(x) (1 - lambda-tilde F(x))]^n, where p-tilde^n = prod_{i=1}^n pi and lambda-tilde = max{ (1 + lambda1)/2, ..., (1 + lambdan)/2 }.",
+    "kind": "corollary",
+    "model": "series system (smallest claim amount)",
+    "family": "TG(lambda_i) portfolio model",
+    "compared": "Y1:n vs homogeneous-benchmark minimum",
+    "hypotheses": [
+      {"text": "assumptions of Theorem 4.1", "formal": "as stated", "source": "earlier theorem 4.1"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y1:n >=st the homogeneous-benchmark variable (survival-function lower bound)"},
+    "quantifiers": "x >= 0",
+    "numbers": "p-tilde^n = prod pi; lambda-tilde = max_i (1 + lambda_i)/2",
+    "ambiguity": "Printed as a pointwise survival bound rather than an explicit <=st symbol."
+  },
+  {
+    "paper": "doi:10.1080/10920277.2019.1671203",
+    "claim": "Theorem 4.2",
+    "page": 11,
+    "quote": "Under the assumptions of Theorem 4.1, we have prod_{i=1}^n p*i <= prod_{i=1}^n pi, (lambda1, ..., lambdan) ≼w (lambda*1, ..., lambda*n) ==> Y1:n* <=hr Y1:n.",
+    "kind": "theorem",
+    "model": "series system (smallest claim amount)",
+    "family": "TG(lambda_i) portfolio model; hazard rate r_X1:n(x) = sum_i [1 + lambda_i(1 - 2F(x))]/(1 - lambda_i F(x)) r(x)",
+    "compared": "Y1:n* vs Y1:n in hazard rate order under the Theorem 4.1 conditions",
+    "hypotheses": [
+      {"text": "prod p*i <= prod pi and lambda ≼w lambda*", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "hr", "direction": "Y1:n* <=hr Y1:n"},
+    "quantifiers": "all n; x >= 0",
+    "numbers": "",
+    "ambiguity": "Strengthening of Theorem 4.1 under the same conditions."
+  },
+  {
+    "paper": "doi:10.1080/10920277.2019.1671203",
+    "claim": "Theorem 4.3",
+    "page": 12,
+    "quote": "Under the assumptions of Theorem 4.1, if F is DFR, 0 <= lambda*i <= 1, i = 1, ..., n, and f(0) <= [1 - prod_{i=1}^n p*i]/[sum_{i=1}^n (1 + lambda*i)], then we have prod_{i=1}^n p*i <= prod_{i=1}^n pi, (lambda1, ..., lambdan) ≼w (lambda*1, ..., lambda*n) ==> Y1:n* <=disp Y1:n.",
+    "kind": "theorem",
+    "model": "series system (smallest claim amount)",
+    "family": "TG(lambda_i) portfolio model with DFR baseline F",
+    "compared": "Y1:n* vs Y1:n in dispersive order",
+    "hypotheses": [
+      {"text": "F is DFR", "formal": "baseline decreasing failure rate", "source": "statement"},
+      {"text": "0 <= lambda*i <= 1 for all i", "formal": "as stated", "source": "statement"},
+      {"text": "f(0) <= (1 - prod p*i)/(sum (1 + lambda*i))", "formal": "ensures Y1:n* is DFR", "source": "statement"},
+      {"text": "prod p*i <= prod pi and lambda ≼w lambda*", "formal": "Theorem 4.1 assumptions", "source": "statement; earlier theorem 4.1"}
+    ],
+    "conclusion": {"order": "disp", "direction": "Y1:n* <=disp Y1:n"},
+    "quantifiers": "all n; x >= 0",
+    "numbers": "",
+    "ambiguity": "Paper notes the consequence Var(Y1:n*) <= Var(Y1:n). Proof uses Theorem 4.2 (hr) plus Lemma 2.1 (hr + DFR implies disp)."
+  },
+  {
+    "paper": "doi:10.1080/10920277.2019.1671203",
+    "claim": "Section 5.1 transmuted-exponential example for Corollary 3.3",
+    "page": 13,
+    "quote": "Let X_{lambda1}, X_{lambda2}, X_{lambda3} (X_{lambda*1}, X_{lambda*2}, X_{lambda*3}) be independent random variables with X_{lambdai} ~ TE(lambdai, 0.5) (X_{lambda*i} ~ TE(lambda*i, 0.5)), i = 1, 2, 3. Further, suppose that I_{p1}, I_{p2}, I_{p3} (I_{p*1}, I_{p*2}, I_{p*3}) is a set of independent Bernoulli random variables, independent of the X_{lambdai}'s (X_{lambda*i}'s), with E[I_{pi}] = pi (E[I_{p*i}] = p*i), i = 1, 2, 3. Also, suppose that (lambda1, lambda2, lambda3) = (-0.7, 0.8, -0.9), (lambda*1, lambda*2, lambda*3) = (-0.1806, 0.0896, -0.7090), (p1, p2, p3) = (0.4, 0.2, 0.7), and (p*1, p*2, p*3) = (0.4345, 0.3698, 0.4711). Take h(p) = log(2 + p) and the T-transform matrices with the different structures as T0.9, T0.3 and T0.6. It can be easily verified that (lambda, h(p)), (lambda, h(p))T0.9 and (lambda, h(p))T0.9 T0.3 are in S3, and (lambda*, h(p*)) = (lambda, h(p))T0.9 T0.3 T0.6. Thus, Corollary 3.3 implies Y3:3* <=st Y3:3.",
+    "kind": "example",
+    "model": "parallel system (largest claim)",
+    "family": "TE(lambda, 0.5) transmuted exponential with mean theta = 0.5",
+    "compared": "Y3:3* vs Y3:3",
+    "hypotheses": [
+      {"text": "(lambda*, h(p*)) = (lambda, h(p)) T0.9 T0.3 T0.6 with partial products in S3; h(p) = log(2+p)", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y3:3* <=st Y3:3"},
+    "quantifiers": "n = 3",
+    "numbers": "lambda = (-0.7, 0.8, -0.9); lambda* = (-0.1806, 0.0896, -0.7090); p = (0.4, 0.2, 0.7); p* = (0.4345, 0.3698, 0.4711); T0.9 = [[1,0,0],[0,0.9,0.1],[0,0.1,0.9]]; T0.3 = [[0.3,0,0.7],[0,1,0],[0.7,0,0.3]]; T0.6 = [[0.6,0.4,0],[0.4,0.6,0],[0,0,1]]",
+    "ambiguity": ""
+  },
+  {
+    "paper": "doi:10.1080/10920277.2019.1671203",
+    "claim": "Section 5.1 transmuted-exponential example for Theorem 4.1",
+    "page": 13,
+    "quote": "Also, suppose that (lambda1, lambda2, lambda3) = (0.1, 0.3, -0.6), (lambda*1, lambda*2, lambda*3) = (0.5, -0.3, 0.1), (p1, p2, p3) = (0.5, 0.3, 0.7), and (p*1, p*2, p*3) = (0.3, 0.9, 0.1). It can be easily verified that the conditions of Theorem 4.1 hold and so we can conclude that Y1:3* <=st Y1:3.",
+    "kind": "example",
+    "model": "series system (smallest claim)",
+    "family": "TE(lambda, 2) transmuted exponential with mean theta = 2",
+    "compared": "Y1:3* vs Y1:3",
+    "hypotheses": [
+      {"text": "prod p*i <= prod pi and lambda ≼w lambda*", "formal": "prod p* = 0.027 <= prod p = 0.105; lambda weak-majorization per Definition 2.2", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y1:3* <=st Y1:3"},
+    "quantifiers": "n = 3",
+    "numbers": "lambda = (0.1, 0.3, -0.6); lambda* = (0.5, -0.3, 0.1); p = (0.5, 0.3, 0.7); p* = (0.3, 0.9, 0.1)",
+    "ambiguity": ""
+  },
+  {
+    "paper": "doi:10.1080/10920277.2019.1671203",
+    "claim": "Section 5.2 transmuted-Weibull example for Corollary 3.3",
+    "page": "13-14",
+    "quote": "Let X_{lambdai} ~ TW(lambdai, 0.3, 1.5) (X_{lambda*i} ~ TW(lambda*i, 0.3, 1.5)), i = 1, 2, 3. ... (lambda1, lambda2, lambda3) = (0.7, 0.3, -0.9), (lambda*1, lambda*2, lambda*3) = (0.1544, -0.5464, 0.4920), (p1, p2, p3) = (0.1, 0.4, 0.8), and (p*1, p*2, p*3) = (0.3506, 0.6295, 0.2124). Take h(p) = (5p+2)/(p+1) and the T-transform matrices with the different structures as T0.1, T0.4 and T0.8. It can be easily verified that (lambda, h(p)), (lambda, h(p))T0.1 and (lambda, h(p))T0.1 T0.4 are in S3, and (lambda*, h(p*)) = (lambda, h(p))T0.1 T0.4 T0.8. Thus, Corollary 3.3 implies Y3:3* <=st Y3:3.",
+    "kind": "example",
+    "model": "parallel system (largest claim)",
+    "family": "TW(lambda, alpha=0.3, beta=1.5) transmuted Weibull",
+    "compared": "Y3:3* vs Y3:3",
+    "hypotheses": [
+      {"text": "(lambda*, h(p*)) = (lambda, h(p)) T0.1 T0.4 T0.8; partial products in S3; h(p) = (5p+2)/(p+1)", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y3:3* <=st Y3:3"},
+    "quantifiers": "n = 3",
+    "numbers": "lambda = (0.7, 0.3, -0.9); lambda* = (0.1544, -0.5464, 0.4920); p = (0.1, 0.4, 0.8); p* = (0.3506, 0.6295, 0.2124); T0.1 = [[1,0,0],[0,0.1,0.9],[0,0.9,0.1]]; T0.4 = [[0.4,0,0.6],[0,1,0],[0.6,0,0.4]]; T0.8 = [[0.8,0.2,0],[0.2,0.8,0],[0,0,1]]",
+    "ambiguity": ""
+  },
+  {
+    "paper": "doi:10.1080/10920277.2019.1671203",
+    "claim": "Section 5.2 transmuted-Weibull example for Theorem 4.1",
+    "page": 14,
+    "quote": "Also, suppose (lambda1, lambda2, lambda3) = (0.3, 0.7, 0.5), (lambda*1, lambda*2, lambda*3) = (0.8, 0.4, 0.5), (p1, p2, p3) = (0.6, 0.3, 0.2), and (p*1, p*2, p*3) = (0.4, 0.5, 0.1). It can be easily verified that the conditions of Theorem 4.1 hold. Thus we can conclude that Y1:3* <=st Y1:3.",
+    "kind": "example",
+    "model": "series system (smallest claim)",
+    "family": "TW(lambda, alpha=2, beta=0.6) transmuted Weibull",
+    "compared": "Y1:3* vs Y1:3",
+    "hypotheses": [
+      {"text": "prod p*i <= prod pi and lambda ≼w lambda*", "formal": "prod p* = 0.02 <= prod p = 0.036; lambda = lambda* = permuted? lambda* = (0.8,0.4,0.5) vs lambda = (0.3,0.7,0.5) not equal; weak majorization asserted", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y1:3* <=st Y1:3"},
+    "quantifiers": "n = 3",
+    "numbers": "lambda = (0.3, 0.7, 0.5); lambda* = (0.8, 0.4, 0.5); p = (0.6, 0.3, 0.2); p* = (0.4, 0.5, 0.1)",
+    "ambiguity": ""
+  }
+]

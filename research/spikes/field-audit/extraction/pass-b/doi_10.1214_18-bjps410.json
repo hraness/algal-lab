@@ -1,0 +1,399 @@
+[
+  {
+    "paper": "doi:10.1214/18-bjps410",
+    "claim": "Theorem 3",
+    "page": 157,
+    "quote": "Assume that t r̃(t) is decreasing in t in R+. If log mu ≺w_alpha^uo log lambda on Dn and alpha ≺uo beta, then we have Yn:n <=st Xn:n.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "general exponentiated-scale model: Xi ~ F(lambda_i x)^{alpha_i}, Zi ~ F(mu_i x)^{alpha_i}, Yi ~ F(mu_i x)^{beta_i}, where F is an absolutely continuous baseline on R+ with reversed hazard rate r̃ (equation 2.5); paper specializes to EGG later",
+    "compared": "Yn:n (beta exponents, mu scales) vs Xn:n (alpha exponents, lambda scales); Zn:n is the intermediate system (alpha exponents, mu scales)",
+    "hypotheses": [
+      {"text": "t r̃(t) is decreasing in t in R+", "formal": "t*r̃(t) nonincreasing", "source": "statement"},
+      {"text": "log mu ≺w_alpha^uo log lambda on Dn", "formal": "alpha-weighted weak unordered majorization of the log-scale vectors on the decreasing cone Dn", "source": "statement; notation introduced in Section 2 (weighted/unordered majorization)"},
+      {"text": "alpha ≺uo beta", "formal": "alpha unordered-majorized by beta", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Yn:n <=st Xn:n"},
+    "quantifiers": "all n; x in R+",
+    "numbers": "",
+    "ambiguity": "Symbols ≺w_alpha and ≺uo rendered in the PDF as '≺' with super/subscript decorations ('≺w alpha' weighted majorization under weight vector alpha; '≺uo' unordered majorization). Theorem 3 is a general-F auxiliary result; its proof chains Zn:n <=st Xn:n and Yn:n <=st Zn:n."
+  },
+  {
+    "paper": "doi:10.1214/18-bjps410",
+    "claim": "Theorem 4",
+    "page": 157,
+    "quote": "Assume that t r̃(t) is decreasing and convex in t in R+. If mu ≺w_alpha^uo lambda on Gn and alpha ≺uo beta, then we have Yn:n <=rh Xn:n.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "general exponentiated-scale model (equation 2.5), baseline F with reversed hazard rate r̃",
+    "compared": "Yn:n vs Xn:n",
+    "hypotheses": [
+      {"text": "t r̃(t) is decreasing and convex in t in R+", "formal": "t*r̃(t) nonincreasing and convex", "source": "statement"},
+      {"text": "mu ≺w_alpha^uo lambda on Gn", "formal": "alpha-weighted weak unordered majorization of scale vectors on Gn (the cone where unordered majorization is defined for arbitrary orderings)", "source": "statement"},
+      {"text": "alpha ≺uo beta", "formal": "alpha unordered-majorized by beta", "source": "statement"}
+    ],
+    "conclusion": {"order": "rh", "direction": "Yn:n <=rh Xn:n"},
+    "quantifiers": "all n; x in R+",
+    "numbers": "",
+    "ambiguity": "OCR prints 'mu ≺w alpha lambda on Gn' — Gn denotes the paper's cone for vectors in arbitrary coordinate order (used with unordered majorization), Dn the decreasing-coordinate cone."
+  },
+  {
+    "paper": "doi:10.1214/18-bjps410",
+    "claim": "Theorem 5",
+    "page": 158,
+    "quote": "Assume that both functions t r̃(t) and t r̃'(t)/r̃(t) are decreasing in t in R+. If (mu, mú) in G2 and (delta1, delta2) ≺uo (xi1, xi2), then we have Yn:n <=lr Zn:n.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "general exponentiated-scale model with two-group scale structure: mu1 = ... = muk = mu and mu_{k+1} = ... = mun = mú; delta1 = sum_{i<=k} alphai, delta2 = sum_{i>k} alphai, xi1 = sum_{i<=k} betai, xi2 = sum_{i>k} betai",
+    "compared": "Yn:n (beta exponents) vs Zn:n (alpha exponents), both under the two-group mu/mú scales",
+    "hypotheses": [
+      {"text": "t r̃(t) and t r̃'(t)/r̃(t) are decreasing in t in R+", "formal": "both functions nonincreasing", "source": "statement"},
+      {"text": "(mu, mú) in G2", "formal": "ordered two-level scale pair in the G2 cone (mu >= mú)", "source": "statement and preceding paragraph (lines 478-486)"},
+      {"text": "(delta1, delta2) ≺uo (xi1, xi2)", "formal": "unordered majorization of the group sums of exponents", "source": "statement"}
+    ],
+    "conclusion": {"order": "lr", "direction": "Yn:n <=lr Zn:n"},
+    "quantifiers": "k in {1,...,n-1}; x in R+",
+    "numbers": "",
+    "ambiguity": "Compares the two exponent configurations under the common two-level scale (mu, mú); relies on Lemma 6."
+  },
+  {
+    "paper": "doi:10.1214/18-bjps410",
+    "claim": "Theorem 6",
+    "page": 159,
+    "quote": "If log mu ≺w_alpha^uo log lambda on Dn and alpha ≺uo beta, then for all nu in R+ and tau in R+, we have Yn:n <=st Xn:n.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "exponentiated generalized gamma: Xi ~ EGG(alphai, nu, tau, lambdai), Yi ~ EGG(betai, nu, tau, mui) (Section 3 preamble)",
+    "compared": "parallel-system lifetimes of Systems B (Yn:n) and A (Xn:n)",
+    "hypotheses": [
+      {"text": "log mu ≺w_alpha^uo log lambda on Dn", "formal": "alpha-weighted weak unordered majorization of log-scales on Dn", "source": "statement"},
+      {"text": "alpha ≺uo beta", "formal": "unordered majorization of exponent vectors", "source": "statement"},
+      {"text": "Xi ~ EGG(alphai, nu, tau, lambdai) and Yi ~ EGG(betai, nu, tau, mui) for i = 1,...,n", "formal": "common GG shape parameters nu, tau", "source": "section preamble"}
+    ],
+    "conclusion": {"order": "st", "direction": "Yn:n <=st Xn:n"},
+    "quantifiers": "all nu, tau > 0; all n",
+    "numbers": "",
+    "ambiguity": "Extends Khaledi, Farsinezhad and Kochar (2011) generalized-gamma special case (alpha_i = beta_i = 1)."
+  },
+  {
+    "paper": "doi:10.1214/18-bjps410",
+    "claim": "Remark 3 (extension of Theorem 6)",
+    "page": 159,
+    "quote": "The result of Theorem 6 is restricted to the weak weighted majorization order only on the space Dn. However, we can extend its result to the more general case as follows. Assume that log mu ≺w_alpha log lambda on Dn_pi, where pi = (pi1, ..., pin) in Pn, and alpha_pi ≺uo beta_pi. Then, for any nu in R+ and tau in R+, we have Yn:n <=st Xn:n.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "EGG as in Theorem 6",
+    "compared": "Yn:n vs Xn:n under a permutation-relabelled Dn_pi cone",
+    "hypotheses": [
+      {"text": "log mu ≺w_alpha log lambda on Dn_pi and alpha_pi ≺uo beta_pi", "formal": "weighted weak majorization on the permuted cone Dn_pi and unordered majorization after relabelling by pi", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Yn:n <=st Xn:n"},
+    "quantifiers": "any nu, tau > 0; pi in Pn",
+    "numbers": "",
+    "ambiguity": "Stated as a Remark, not a numbered theorem. Dn_pi is the cone Dn after coordinate permutation pi."
+  },
+  {
+    "paper": "doi:10.1214/18-bjps410",
+    "claim": "Example illustrating Theorem 6 (Figure 1)",
+    "page": "159-160",
+    "quote": "Assume that n = 4, nu = 0.4, tau = 0.8, alpha = (1, 3, 5, 0.6), beta = (4.6, 4.4, 0.5, 0.1), lambda = (9, 6, 1, 0.7) and mu = (8, 5, 0.8, 0.75). Then, we have log mu ≺w_alpha log lambda on D4 and alpha ≺uo beta, which according to Theorem 6, imply that Y4:4 <=st X4:4. To see this result graphically, we plot the survival functions of Systems A and B in Figure 1 under the above setting.",
+    "kind": "example",
+    "model": "parallel system",
+    "family": "EGG(alphai, nu, tau, lambdai) vs EGG(betai, nu, tau, mui)",
+    "compared": "Y4:4 vs X4:4",
+    "hypotheses": [
+      {"text": "log mu ≺w_alpha log lambda on D4 and alpha ≺uo beta", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y4:4 <=st X4:4"},
+    "quantifiers": "n = 4",
+    "numbers": "n=4, nu=0.4, tau=0.8, alpha=(1,3,5,0.6), beta=(4.6,4.4,0.5,0.1), lambda=(9,6,1,0.7), mu=(8,5,0.8,0.75)",
+    "ambiguity": ""
+  },
+  {
+    "paper": "doi:10.1214/18-bjps410",
+    "claim": "Theorem 7",
+    "page": "159-160",
+    "quote": "If mu ≺w_alpha lambda on Gn and alpha ≺uo beta, then for any 0 < nu <= 1 and tau in R+, we have Yn:n <=rh Xn:n.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "EGG(alphai, nu, tau, lambdai) vs EGG(betai, nu, tau, mui)",
+    "compared": "Yn:n vs Xn:n",
+    "hypotheses": [
+      {"text": "mu ≺w_alpha lambda on Gn", "formal": "alpha-weighted weak unordered majorization of scales on Gn", "source": "statement"},
+      {"text": "alpha ≺uo beta", "formal": "unordered majorization of exponents", "source": "statement"},
+      {"text": "0 < nu <= 1", "formal": "nu restriction from Lemma 7(i) convexity", "source": "statement"}
+    ],
+    "conclusion": {"order": "rh", "direction": "Yn:n <=rh Xn:n"},
+    "quantifiers": "0 < nu <= 1; tau > 0; all n",
+    "numbers": "",
+    "ambiguity": "Extends Misra and Misra (2013) generalized-gamma result (alpha_i = beta_i = 1). The nu <= 1 restriction is shown necessary by the Section-4 counterexample."
+  },
+  {
+    "paper": "doi:10.1214/18-bjps410",
+    "claim": "Remark 4 (extension of Theorem 7)",
+    "page": 160,
+    "quote": "The result in Theorem 7 can be extended as follows. Assume that mu ≺w_alpha lambda on Gn_pi, where pi = (pi1, ..., pin) in Pn, and alpha_pi ≺uo beta_pi. Then, for any 0 < nu <= 1 and tau in R+, we have Yn:n <=rh Xn:n.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "EGG as in Theorem 7",
+    "compared": "Yn:n vs Xn:n under permuted cone Gn_pi",
+    "hypotheses": [
+      {"text": "mu ≺w_alpha lambda on Gn_pi and alpha_pi ≺uo beta_pi", "formal": "weighted weak majorization on permuted cone; unordered majorization of permuted exponent vectors", "source": "statement"}
+    ],
+    "conclusion": {"order": "rh", "direction": "Yn:n <=rh Xn:n"},
+    "quantifiers": "0 < nu <= 1; tau > 0; pi in Pn",
+    "numbers": "",
+    "ambiguity": "Stated as a Remark, not a numbered theorem."
+  },
+  {
+    "paper": "doi:10.1214/18-bjps410",
+    "claim": "Example illustrating Remark 4 (Figure 2)",
+    "page": 160,
+    "quote": "Set n = 4, nu = 0.5, tau = 2, alpha = (4, 0.8, 3.3, 5), beta = (1, 3, 2.1, 7), lambda = (2, 11, 12, 13) and mu = (5, 6, 10, 14). Setting pi = (4, 3, 2, 1), we can observe that mu ≺w_alpha lambda on G4_pi and alpha_pi ≺uo beta_pi, which according to Remark 4, result in Y4:4 <=rh X4:4. We plot the reversed hazard rate functions of Systems A and B in Figure 2 to observe the established result graphically.",
+    "kind": "example",
+    "model": "parallel system",
+    "family": "EGG(alphai, nu, tau, lambdai) vs EGG(betai, nu, tau, mui)",
+    "compared": "Y4:4 vs X4:4",
+    "hypotheses": [
+      {"text": "mu ≺w_alpha lambda on G4_pi and alpha_pi ≺uo beta_pi with pi = (4,3,2,1)", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "rh", "direction": "Y4:4 <=rh X4:4"},
+    "quantifiers": "n = 4",
+    "numbers": "n=4, nu=0.5, tau=2, alpha=(4,0.8,3.3,5), beta=(1,3,2.1,7), lambda=(2,11,12,13), mu=(5,6,10,14), pi=(4,3,2,1)",
+    "ambiguity": ""
+  },
+  {
+    "paper": "doi:10.1214/18-bjps410",
+    "claim": "Counterexample to hazard-rate strengthening of Theorem 6",
+    "page": 160,
+    "quote": "Set n = 3, nu = 0.5, tau = 0.2, alpha = beta = (4.5, 2, 3), lambda = (9, 3.5, 0.1) and mu = (10, 2.9, 0.3). We then find F̄X3:3(4)/F̄Y3:3(4) = 1.13809, F̄X3:3(5)/F̄Y3:3(5) = 1.14207, F̄X3:3(15)/F̄Y3:3(15) = 1.12199. This observation means that the ratio of the survival functions of X3:3 and Y3:3 is not monotone, i.e., the lifetimes of Systems A and B can not be compared in the sense of the hazard rate order. However, log mu ≺w_alpha log lambda on D3 and alpha ≺uo beta.",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "EGG with alpha = beta = (4.5,2,3)",
+    "compared": "X3:3 vs Y3:3",
+    "hypotheses": [
+      {"text": "log mu ≺w_alpha log lambda on D3 and alpha ≺uo beta hold", "formal": "Theorem 6 hypotheses satisfied", "source": "statement"}
+    ],
+    "conclusion": {"order": "hr", "direction": "F̄X3:3/F̄Y3:3 not monotone, so no hazard-rate order between X3:3 and Y3:3"},
+    "quantifiers": "n = 3",
+    "numbers": "n=3, nu=0.5, tau=0.2, alpha=beta=(4.5,2,3), lambda=(9,3.5,0.1), mu=(10,2.9,0.3); ratios 1.13809 (x=4), 1.14207 (x=5), 1.12199 (x=15)",
+    "ambiguity": "Shows Theorem 6 cannot be extended to the hazard rate order."
+  },
+  {
+    "paper": "doi:10.1214/18-bjps410",
+    "claim": "Counterexample to likelihood-ratio strengthening of Theorem 7",
+    "page": "160-161",
+    "quote": "Let us now assume that n = 3, nu = 0.5, tau = 0.1, alpha = (0.1, 0.6, 0.4), beta = (0.7, 0.2, 0.2), lambda = (7, 6, 1) and mu = (100, 20, 1). Then, it can be checked that mu ≺w_alpha lambda on G3 and alpha ≺uo beta, while fX3:3(0.3)/fY3:3(0.3) approximately 2.92344, fX3:3(0.4)/fY3:3(0.4) approximately 2.95206, fX3:3(0.6)/fY3:3(0.6) approximately 2.91266. Therefore, the ratio of the density functions of X3:3 and Y3:3 is not monotone. So, the likelihood ratio order does not hold between the lifetimes of Systems A and B.",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "EGG with alpha=(0.1,0.6,0.4), beta=(0.7,0.2,0.2)",
+    "compared": "X3:3 vs Y3:3",
+    "hypotheses": [
+      {"text": "mu ≺w_alpha lambda on G3 and alpha ≺uo beta hold", "formal": "Theorem 7 hypotheses satisfied", "source": "statement"}
+    ],
+    "conclusion": {"order": "lr", "direction": "fX3:3/fY3:3 not monotone, so no likelihood-ratio order between X3:3 and Y3:3"},
+    "quantifiers": "n = 3",
+    "numbers": "n=3, nu=0.5, tau=0.1, alpha=(0.1,0.6,0.4), beta=(0.7,0.2,0.2), lambda=(7,6,1), mu=(100,20,1); density ratios approximately 2.92344 (x=0.3), 2.95206 (x=0.4), 2.91266 (x=0.6)",
+    "ambiguity": "Shows Theorem 7 cannot be extended to the likelihood ratio order."
+  },
+  {
+    "paper": "doi:10.1214/18-bjps410",
+    "claim": "Lemma 8(i)",
+    "page": 161,
+    "quote": "Assume that delta_i >= 1, i = 1, 2. If (log mu, log mú) ≺w_(delta1,delta2) (log lambda, log lambdá) on D2, then for 0 < tau <= nu, we have Zn:n <=hr Xn:n.",
+    "kind": "lemma",
+    "model": "parallel system",
+    "family": "EGG with two-group scales: Xi ~ EGG(alphai, nu, tau, lambda or lambdá), Zi ~ EGG(alphai, nu, tau, mu or mú); delta1 = sum_{i<=k} alphai, delta2 = sum_{i>k} alphai",
+    "compared": "Zn:n (mu/mú scales) vs Xn:n (lambda/lambdá scales), same alpha exponents",
+    "hypotheses": [
+      {"text": "delta_i >= 1, i = 1, 2", "formal": "group sums of alpha at least 1", "source": "statement"},
+      {"text": "(log mu, log mú) ≺w_(delta1,delta2) (log lambda, log lambdá) on D2", "formal": "weighted weak majorization of the two log-scale pairs", "source": "statement"},
+      {"text": "0 < tau <= nu", "formal": "shape parameter restriction", "source": "statement"}
+    ],
+    "conclusion": {"order": "hr", "direction": "Zn:n <=hr Xn:n"},
+    "quantifiers": "k in {1,...,n-1}; x in R+",
+    "numbers": "",
+    "ambiguity": ""
+  },
+  {
+    "paper": "doi:10.1214/18-bjps410",
+    "claim": "Lemma 8(ii)",
+    "page": 161,
+    "quote": "If (mu, mú) ≺w_(delta1,delta2) (lambda, lambdá) on G2, then for 0 < tau <= nu <= 1, we have Zn:n <=lr Xn:n.",
+    "kind": "lemma",
+    "model": "parallel system",
+    "family": "EGG with two-group scales, same alpha exponents",
+    "compared": "Zn:n vs Xn:n",
+    "hypotheses": [
+      {"text": "(mu, mú) ≺w_(delta1,delta2) (lambda, lambdá) on G2", "formal": "weighted weak majorization of scale pairs", "source": "statement"},
+      {"text": "0 < tau <= nu <= 1", "formal": "shape restriction", "source": "statement"}
+    ],
+    "conclusion": {"order": "lr", "direction": "Zn:n <=lr Xn:n"},
+    "quantifiers": "k in {1,...,n-1}; x in R+",
+    "numbers": "",
+    "ambiguity": ""
+  },
+  {
+    "paper": "doi:10.1214/18-bjps410",
+    "claim": "Lemma 8(iii)",
+    "page": 161,
+    "quote": "If lambdá = mú and lambdá <= mu <= lambda, then for any nu in R+ and tau in R+, we have Zn:n <=lr Xn:n.",
+    "kind": "lemma",
+    "model": "parallel system",
+    "family": "EGG with two-group scales, same alpha exponents",
+    "compared": "Zn:n vs Xn:n",
+    "hypotheses": [
+      {"text": "lambdá = mú and lambdá <= mu <= lambda", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "lr", "direction": "Zn:n <=lr Xn:n"},
+    "quantifiers": "all nu, tau > 0",
+    "numbers": "",
+    "ambiguity": ""
+  },
+  {
+    "paper": "doi:10.1214/18-bjps410",
+    "claim": "Theorem 8(i)",
+    "page": "161-162",
+    "quote": "Assume that mu <= lambda and delta_i >= 1 for i = 1, 2. If (log mu, log mú) ≺w_(delta1,delta2) (log lambda, log lambdá) on D2 and (delta1, delta2) ≺uo (xi1, xi2), then for 0 < tau <= nu, we have Yn:n <=hr Xn:n.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "EGG with two-group scales: lambda1=...=lambdak=lambda, lambda_{k+1}=...=lambdan=lambdá; mu likewise; Xi ~ EGG(alphai,...), Yi ~ EGG(betai,...)",
+    "compared": "Yn:n (beta exponents, mu scales) vs Xn:n (alpha exponents, lambda scales)",
+    "hypotheses": [
+      {"text": "mu <= lambda and delta_i >= 1 for i = 1, 2", "formal": "mu <= lambda (and mú <= lambdá under the two-group setup); group alpha sums >= 1", "source": "statement"},
+      {"text": "(log mu, log mú) ≺w_(delta1,delta2) (log lambda, log lambdá) on D2", "formal": "weighted weak majorization", "source": "statement"},
+      {"text": "(delta1, delta2) ≺uo (xi1, xi2)", "formal": "unordered majorization of group sums (xi = group sums of beta)", "source": "statement"},
+      {"text": "0 < tau <= nu", "formal": "shape restriction", "source": "statement"}
+    ],
+    "conclusion": {"order": "hr", "direction": "Yn:n <=hr Xn:n"},
+    "quantifiers": "k in {1,...,n-1}; 0 < tau <= nu",
+    "numbers": "",
+    "ambiguity": "'mu <= lambda' denotes the componentwise inequality for the two-group scales (used in the proof as lambdá <= mú <= mu <= lambda-type order). Remark 5 notes the alpha ≺uo beta condition implies (delta1,delta2) ≺uo (xi1,xi2), so the theorem remains true under unordered majorization of the exponent vectors; also extends Zhao and Balakrishnan (2015) gamma framework."
+  },
+  {
+    "paper": "doi:10.1214/18-bjps410",
+    "claim": "Theorem 8(ii)",
+    "page": 162,
+    "quote": "Assume that mu <= lambda, (mu, mú) ≺w_(delta1,delta2) (lambda, lambdá) on G2 and (delta1, delta2) ≺uo (xi1, xi2). Then for 0 < tau <= nu <= 1, we have Yn:n <=lr Xn:n.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "EGG with two-group scales",
+    "compared": "Yn:n vs Xn:n",
+    "hypotheses": [
+      {"text": "mu <= lambda", "formal": "componentwise", "source": "statement"},
+      {"text": "(mu, mú) ≺w_(delta1,delta2) (lambda, lambdá) on G2", "formal": "weighted weak majorization", "source": "statement"},
+      {"text": "(delta1, delta2) ≺uo (xi1, xi2)", "formal": "unordered majorization of group sums", "source": "statement"},
+      {"text": "0 < tau <= nu <= 1", "formal": "shape restriction", "source": "statement"}
+    ],
+    "conclusion": {"order": "lr", "direction": "Yn:n <=lr Xn:n"},
+    "quantifiers": "k in {1,...,n-1}; 0 < tau <= nu <= 1",
+    "numbers": "",
+    "ambiguity": ""
+  },
+  {
+    "paper": "doi:10.1214/18-bjps410",
+    "claim": "Example illustrating Theorem 8(i) (Figure 3)",
+    "page": "162-163",
+    "quote": "At first, set n = 4, k = 1, alpha = (1.1, 2, 0.2, 4), beta = (1.2, 1, 1.5, 3.6), (lambda, lambdá) = (8, 2) and (mu, mú) = (6, 3). We then observe that (delta1, delta2) = (1.1, 6.2) and (xi1, xi2) = (1.2, 6.1). It can be easily checked that (log 6, log 3) ≺w_(1.1,6.2) (log 8, log 2) on D2, (1.1, 6.2) ≺uo (1.2, 6.1) and mu <= lambda. Hence, from Part (i) of Theorem 8, it follows that Y4:4 <=hr X4:4. The graphs of the hazard rate functions of Systems A and B are plotted in Figure 3.",
+    "kind": "example",
+    "model": "parallel system",
+    "family": "EGG, two-group scales",
+    "compared": "Y4:4 vs X4:4",
+    "hypotheses": [
+      {"text": "(log 6, log 3) ≺w_(1.1,6.2) (log 8, log 2) on D2, (1.1, 6.2) ≺uo (1.2, 6.1), mu <= lambda, delta_i >= 1", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "hr", "direction": "Y4:4 <=hr X4:4"},
+    "quantifiers": "n = 4; k = 1",
+    "numbers": "n=4, k=1, alpha=(1.1,2,0.2,4), beta=(1.2,1,1.5,3.6), (lambda,lambdá)=(8,2), (mu,mú)=(6,3), delta=(1.1,6.2), xi=(1.2,6.1)",
+    "ambiguity": "delta2 = 2+0.2+4 = 6.2 = sum of alpha over the second group (k+1..n), xi computed analogously from beta."
+  },
+  {
+    "paper": "doi:10.1214/18-bjps410",
+    "claim": "Example illustrating Theorem 8(ii)",
+    "page": "162-163",
+    "quote": "Let us now set n = 5, k = 3, alpha = (0.4, 0.4, 1, 5, 5.7), beta = (3, 0.8, 3.6, 1.2, 3.9), (lambda, lambdá) = (20, 0.1) and (mu, mú) = (18, 2). It can be easily seen that delta1 = 1.8, delta2 = 10.7, xi1 = 7.4 and xi2 = 5.1. Since (20, 0.1) ≺w_(1.8,10.7) (18, 2) on G2 [i.e., (mu,mú) weighted-majorizes (lambda,lambdá) as stated], (1.8, 10.7) ≺uo (7.4, 5.1) and mu <= lambda, we can conclude from Part (ii) of Theorem 8 that Y5:5 <=lr X5:5.",
+    "kind": "example",
+    "model": "parallel system",
+    "family": "EGG, two-group scales",
+    "compared": "Y5:5 vs X5:5",
+    "hypotheses": [
+      {"text": "weighted weak majorization of the scale pair, unordered majorization of group sums, mu <= lambda", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "lr", "direction": "Y5:5 <=lr X5:5"},
+    "quantifiers": "n = 5; k = 3",
+    "numbers": "n=5, k=3, alpha=(0.4,0.4,1,5,5.7), beta=(3,0.8,3.6,1.2,3.9), (lambda,lambdá)=(20,0.1), (mu,mú)=(18,2), delta=(1.8,10.7), xi=(7.4,5.1)",
+    "ambiguity": "OCR prints '(20, 0.1) ≺_(1.8,10.7) (18, 2) on G2' — the majorization direction is between (mu,mú)=(18,2) and (lambda,lambdá)=(20,0.1) per Theorem 8(ii); delta1 = 0.4+0.4+1 = 1.8, delta2 = 5+5.7 = 10.7, xi1 = 3+0.8+3.6 = 7.4, xi2 = 1.2+3.9 = 5.1."
+  },
+  {
+    "paper": "doi:10.1214/18-bjps410",
+    "claim": "Discussion counterexample to Theorem 7 with nu = 2 (Figure 4)",
+    "page": 163,
+    "quote": "In Theorem 7, we have observed that the restriction 0 < nu <= 1 is appeared in the comparison of the lifetimes of Systems A and B, with respect to the reversed hazard rate order. We shall now present a numerical example to show that the mentioned restriction is necessary for the revered hazard order to hold. Set n = 3, nu = 2, tau = 0.2, alpha = (5, 4, 9), beta = (6, 3.5, 8.5), lambda = (10, 1, 1) and mu = (7, 5, 2). The reversed hazard rate functions of Systems A and B are plotted in Figure 4 to see that the lifetimes of Systems A and B can not be compared in the reversed hazard rate order. Although, one can easily check that mu ≺w_alpha lambda on G3 and alpha ≺uo beta.",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "EGG",
+    "compared": "X3:3 vs Y3:3",
+    "hypotheses": [
+      {"text": "mu ≺w_alpha lambda on G3 and alpha ≺uo beta hold but nu = 2 > 1", "formal": "all Theorem 7 hypotheses except the nu <= 1 restriction", "source": "statement"}
+    ],
+    "conclusion": {"order": "rh", "direction": "reversed hazard rate functions cross; Systems cannot be compared in rh order"},
+    "quantifiers": "n = 3",
+    "numbers": "n=3, nu=2, tau=0.2, alpha=(5,4,9), beta=(6,3.5,8.5), lambda=(10,1,1), mu=(7,5,2)",
+    "ambiguity": "Shows the 0 < nu <= 1 restriction in Theorem 7 is necessary."
+  },
+  {
+    "paper": "doi:10.1214/18-bjps410",
+    "claim": "Theorem 9",
+    "page": 164,
+    "quote": "If mu_nu ≺w_alpha lambda_nu on Gn and alpha ≺uo beta, then for nu in R+ and tau in R+, we have Yn:n <=rh Xn:n.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "EGG with powered scales lambda_i^nu and mu_i^nu (derived via Xi* ~ EGG(alphai, 1, tau^nu, lambdai^nu) auxiliary variables)",
+    "compared": "Yn:n vs Xn:n",
+    "hypotheses": [
+      {"text": "mu_nu ≺w_alpha lambda_nu on Gn", "formal": "alpha-weighted weak unordered majorization of the powered scale vectors (mu_i^nu vs lambda_i^nu)", "source": "statement"},
+      {"text": "alpha ≺uo beta", "formal": "unordered majorization of exponents", "source": "statement"}
+    ],
+    "conclusion": {"order": "rh", "direction": "Yn:n <=rh Xn:n"},
+    "quantifiers": "all nu > 0, tau > 0 (no nu <= 1 restriction)",
+    "numbers": "",
+    "ambiguity": "Via (4.1), mu ≺w_alpha lambda implies mu_nu ≺w_alpha lambda_nu for 0 < nu <= 1, so Theorem 9 uses a less restrictive condition than Theorem 7."
+  },
+  {
+    "paper": "doi:10.1214/18-bjps410",
+    "claim": "Example illustrating Theorem 9",
+    "page": 164,
+    "quote": "Set n = 4, nu = 0.5, tau = 0.8, alpha = (4, 0.8, 3.3, 5), beta = (1, 3, 2.1, 7), lambda = (sqrt(2), sqrt(11), sqrt(12), sqrt(13)) and mu = (sqrt(5), sqrt(6), sqrt(10), sqrt(14)). It is therefore easy to check that lambda ⊀w_alpha mu, however, one can observe that mu_nu ≺w_alpha lambda_nu on G4 [as printed; intended: the powered vectors satisfy the weighted majorization]. Thus, since alpha ≺uo beta, we find from Theorem 9 that X4:4 <=rh X4:4 [printed 'X4:4 <=rh X4:4', i.e., Y4:4 <=rh X4:4 per Theorem 9], while this ordering result can not be concluded from Theorem 7.",
+    "kind": "example",
+    "model": "parallel system",
+    "family": "EGG",
+    "compared": "Y4:4 vs X4:4 (printed conclusion shows X4:4 <=rh X4:4, an OCR/print slip for Y4:4 <=rh X4:4)",
+    "hypotheses": [
+      {"text": "mu_nu ≺w_alpha lambda_nu on G4 and alpha ≺uo beta; lambda ≺w_alpha mu fails so Theorem 7 does not apply", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "rh", "direction": "Y4:4 <=rh X4:4 (per Theorem 9; printed as X4:4 <=rh X4:4)"},
+    "quantifiers": "n = 4; nu = 0.5",
+    "numbers": "n=4, nu=0.5, tau=0.8, alpha=(4,0.8,3.3,5), beta=(1,3,2.1,7), lambda=(sqrt2,sqrt11,sqrt12,sqrt13), mu=(sqrt5,sqrt6,sqrt10,sqrt14)",
+    "ambiguity": "Two OCR/print slips in the example text: 'mu_nu ≺w_alpha mu_nu' should read mu_nu ≺w_alpha lambda_nu, and 'X4:4 <=rh X4:4' should read Y4:4 <=rh X4:4 (the conclusion of Theorem 9)."
+  },
+  {
+    "paper": "doi:10.1214/18-bjps410",
+    "claim": "Theorem 10",
+    "page": "164-165",
+    "quote": "Assuming mu <= lambda, if (mu_nu, mú_nu) ≺w_(delta1,delta2) (lambda_nu, lambdá_nu) on G2 and (delta1, delta2) ≺uo (xi1, xi2), then for 0 < tau <= nu, we have Yn:n <=lr Xn:n.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "EGG with two-group powered scales",
+    "compared": "Yn:n vs Xn:n",
+    "hypotheses": [
+      {"text": "mu <= lambda", "formal": "componentwise two-group scale inequality", "source": "statement"},
+      {"text": "(mu^nu, mú^nu) ≺w_(delta1,delta2) (lambda^nu, lambdá^nu) on G2", "formal": "weighted weak majorization of powered scale pairs", "source": "statement"},
+      {"text": "(delta1, delta2) ≺uo (xi1, xi2)", "formal": "unordered majorization of group exponent sums", "source": "statement"},
+      {"text": "0 < tau <= nu", "formal": "shape restriction", "source": "statement"}
+    ],
+    "conclusion": {"order": "lr", "direction": "Yn:n <=lr Xn:n"},
+    "quantifiers": "0 < tau <= nu; k in {1,...,n-1}",
+    "numbers": "",
+    "ambiguity": "Printed 'mu^nu' as muν etc.; derived from Theorem 8(ii) applied to powered auxiliary variables plus Theorem 1.C.8 of Shaked and Shanthikumar (2007). For 0 < nu <= 1 this is a less restrictive condition than Theorem 8(ii)."
+  }
+]

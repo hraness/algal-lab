@@ -1,0 +1,435 @@
+[
+  {
+    "paper": "doi:10.21136/am.2018.0105-17",
+    "claim": "Theorem 3.1(a)",
+    "page": 62,
+    "quote": "Let X1, X2, ..., Xn be independent random variables with Xi ~ NP(alpha, betai), i = 1, 2, ..., n, and Y1, Y2, ..., Yn independent random variables with Yi ~ NP(alpha, betai*), i = 1, 2, ..., n. Then (a) (beta1, beta2, ..., betan) ≽m (beta1*, beta2*, ..., betan*) implies Xn:n >=st Yn:n for alpha >= 1.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "new Pareto type NP(alpha, beta): independent components with common shape alpha, scale betai (resp. betai*); survival function F̄_Xn:n(x;alpha,beta) = 1 - prod_{i=1}^n (x^alpha - betai^alpha)/(x^alpha + betai^alpha), x > max betai",
+    "compared": "Xn:n vs Yn:n; scale vectors beta vs beta* related by ordinary majorization",
+    "hypotheses": [
+      {"text": "(beta1,...,betan) ≽m (beta1*,...,betan*)", "formal": "beta majorizes beta*", "source": "statement"},
+      {"text": "alpha >= 1 (common shape)", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Xn:n >=st Yn:n"},
+    "quantifiers": "all n; x > max betai; alpha >= 1",
+    "numbers": "",
+    "ambiguity": "≽m denotes (ordinary) vector majorization (Definition 2.x in the paper)."
+  },
+  {
+    "paper": "doi:10.21136/am.2018.0105-17",
+    "claim": "Theorem 3.1(b)",
+    "page": 62,
+    "quote": "Let X1, X2, ..., Xn be independent random variables with Xi ~ NP(alpha, betai), i = 1, 2, ..., n, and Y1, Y2, ..., Yn independent random variables with Yi ~ NP(alpha, betai*), i = 1, 2, ..., n. Then (b) (beta1, beta2, ..., betan) ≽m (beta1*, beta2*, ..., betan*) implies X1:n <=st Y1:n for alpha > 0.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "NP(alpha, beta); survival function F̄_X1:n(x;alpha,beta) = 2^n prod_{i=1}^n betai^alpha/(x^alpha + betai^alpha), x > max betai",
+    "compared": "X1:n vs Y1:n; scale vectors beta vs beta* under majorization",
+    "hypotheses": [
+      {"text": "(beta1,...,betan) ≽m (beta1*,...,betan*)", "formal": "beta majorizes beta*", "source": "statement"},
+      {"text": "alpha > 0 (common shape)", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "X1:n <=st Y1:n"},
+    "quantifiers": "all n; x > max betai; alpha > 0",
+    "numbers": "",
+    "ambiguity": ""
+  },
+  {
+    "paper": "doi:10.21136/am.2018.0105-17",
+    "claim": "Counterexample 3.1(i)",
+    "page": 63,
+    "quote": "Let (X1, X2, X3) be a set of independent random variables such that Xi ~ NP(1.5, betai), i = 1, 2, 3 with beta1 = 1, beta2 = 8, and beta3 = 1.1. Further, let (Y1, Y2, Y3) be a set of independent random variables following Yi ~ NP(1.5, betai*), i = 1, 2, 3 with beta1* = 8, beta2* = 1.1, and beta3* = 4. Clearly, (beta1, beta2, beta3) does not majorize (beta1*, beta2*, beta3*), though alpha > 1. Now, we plot the difference FX3:3(x) - FY3:3(x) in Figure 1(a) which shows that X3:3 is not >=st Y3:3.",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "NP(1.5, beta_i)",
+    "compared": "X3:3 vs Y3:3",
+    "hypotheses": [
+      {"text": "alpha = 1.5 > 1 holds but beta does not majorize beta*", "formal": "beta=(1,8,1.1), beta*=(8,1.1,4): (1,8,1.1) not ≽m (8,1.1,4)", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "X3:3 >=st Y3:3 fails (cdf difference crosses zero in Figure 1(a))"},
+    "quantifiers": "n = 3",
+    "numbers": "alpha = 1.5; beta = (1, 8, 1.1); beta* = (8, 1.1, 4)",
+    "ambiguity": "The printed symbol is 'X3:3 ≱st Y3:3' — negated usual stochastic order. Shows the majorization condition in Theorem 3.1(a) cannot be dropped."
+  },
+  {
+    "paper": "doi:10.21136/am.2018.0105-17",
+    "claim": "Counterexample 3.1(ii)",
+    "page": 63,
+    "quote": "Let X1, X2, X3 be three independent random variables with Xi ~ NP(0.8, betai), i = 1, 2, 3, with beta1 = 0.1, beta2 = 1, and beta3 = 9. Also, let Y1, Y2, Y3 be three independent random variables with Yi ~ NP(0.8, betai*), i = 1, 2, 3, with beta1* = 0.1, beta2* = 4, and beta3* = 6. It is easy to observe that (beta1, beta2, beta3) ≽m (beta1*, beta2*, beta3*). Note that alpha = 0.8 < 1. In Figure 1(b), we plot the difference FX3:3(x) - FY3:3(x) which ensures that there is a cut between the plots of FX3:3(x) and FY3:3(x), that is, X3:3 is not >=st Y3:3.",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "NP(0.8, beta_i)",
+    "compared": "X3:3 vs Y3:3",
+    "hypotheses": [
+      {"text": "beta majorizes beta* but alpha = 0.8 < 1", "formal": "(0.1,1,9) ≽m (0.1,4,6); alpha < 1 violates Theorem 3.1(a)", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "X3:3 >=st Y3:3 fails (cdfs cross in Figure 1(b))"},
+    "quantifiers": "n = 3",
+    "numbers": "alpha = 0.8; beta = (0.1, 1, 9); beta* = (0.1, 4, 6)",
+    "ambiguity": "Shows the alpha >= 1 restriction in Theorem 3.1(a) is necessary."
+  },
+  {
+    "paper": "doi:10.21136/am.2018.0105-17",
+    "claim": "Counterexample 3.2",
+    "page": 64,
+    "quote": "We consider the following counterexample to show that in the second part of Theorem 3.1 if beta does not majorize beta* then, X1:n <=st Y1:n need not hold for alpha > 0. Let X1, X2, X3 be three independent random variables with Xi ~ NP(0.5, betai), i = 1, 2, 3. Further, let Y1, Y2, Y3 be three independent random variables with Yi ~ NP(0.5, betai*), i = 1, 2, 3. Assume that beta1 = 2.1, beta2 = 1, beta3 = 1.8, beta1* = 3.5, beta2* = 0.8, and beta3* = 0.9. Clearly, (beta1, beta2, beta3) does not majorize (beta1*, beta2*, beta3*). Now, using graphical plot, it can be shown that X1:3 is not <=st Y1:3. The graph has not been provided for brevity.",
+    "kind": "counterexample",
+    "model": "series system",
+    "family": "NP(0.5, beta_i)",
+    "compared": "X1:3 vs Y1:3",
+    "hypotheses": [
+      {"text": "beta does not majorize beta*", "formal": "(2.1,1,1.8) not ≽m (3.5,0.8,0.9)", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "X1:3 <=st Y1:3 fails"},
+    "quantifiers": "n = 3",
+    "numbers": "alpha = 0.5; beta = (2.1, 1, 1.8); beta* = (3.5, 0.8, 0.9)",
+    "ambiguity": "Shows the majorization condition in Theorem 3.1(b) cannot be dropped."
+  },
+  {
+    "paper": "doi:10.21136/am.2018.0105-17",
+    "claim": "Theorem 3.2",
+    "page": 64,
+    "quote": "Let X1, X2, ..., Xn be independent random variables with Xi ~ NP(alpha, betai), i = 1, 2, ..., n, and Y1, Y2, ..., Yn independent random variables with Yi ~ NP(alpha, betai*), i = 1, 2, ..., n. Then for alpha <= 1, (1/beta1, 1/beta2, ..., 1/betan) ≽m (1/beta1*, 1/beta2*, ..., 1/betan*) implies X1:n >=st Y1:n.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "NP(alpha, beta)",
+    "compared": "X1:n vs Y1:n; reciprocal scale vectors 1/beta vs 1/beta* under majorization",
+    "hypotheses": [
+      {"text": "alpha <= 1", "formal": "0 < alpha <= 1", "source": "statement"},
+      {"text": "(1/beta1,...,1/betan) ≽m (1/beta1*,...,1/betan*)", "formal": "majorization of reciprocals", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "X1:n >=st Y1:n"},
+    "quantifiers": "all n; alpha <= 1",
+    "numbers": "",
+    "ambiguity": "Note direction: X1:n >=st Y1:n (opposite to Theorem 3.1(b))."
+  },
+  {
+    "paper": "doi:10.21136/am.2018.0105-17",
+    "claim": "Theorem 3.3(a)",
+    "page": "64-65",
+    "quote": "Let X1, X2, ..., Xn be independent random variables with Xi ~ NP(alpha, betai), i = 1, 2, ..., n, and Y1, Y2, ..., Yn independent random variables with Yi ~ NP(alpha, betai*), i = 1, 2, ..., n. If (a) (beta1, beta2, ..., betan) >= (beta1*, beta2*, ..., betan*), i.e., betai >= betai*, then Xn:n >=st Yn:n.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "NP(alpha, beta)",
+    "compared": "Xn:n vs Yn:n; componentwise scale inequality",
+    "hypotheses": [
+      {"text": "betai >= betai* for all i", "formal": "componentwise", "source": "statement (a)"}
+    ],
+    "conclusion": {"order": "st", "direction": "Xn:n >=st Yn:n"},
+    "quantifiers": "all n",
+    "numbers": "",
+    "ambiguity": "Remark 3.1 notes this generalizes Theorem 3.1(a) to a wider range of scale parameters."
+  },
+  {
+    "paper": "doi:10.21136/am.2018.0105-17",
+    "claim": "Theorem 3.3(b)",
+    "page": "64-65",
+    "quote": "(b) (1/beta1, 1/beta2, ..., 1/betan) >= (1/beta1*, 1/beta2*, ..., 1/betan*), i.e., 1/betai >= 1/betai*, then Y1:n >=st X1:n.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "NP(alpha, beta)",
+    "compared": "Y1:n vs X1:n; componentwise reciprocal scale inequality",
+    "hypotheses": [
+      {"text": "1/betai >= 1/betai* for all i", "formal": "componentwise", "source": "statement (b)"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y1:n >=st X1:n"},
+    "quantifiers": "all n",
+    "numbers": "",
+    "ambiguity": ""
+  },
+  {
+    "paper": "doi:10.21136/am.2018.0105-17",
+    "claim": "Counterexample 3.3",
+    "page": 65,
+    "quote": "Consider three independent random variables X1, X2, X3 such that Xi ~ NP(0.5, betai), i = 1, 2, 3. Assume beta1 = 0.2, beta2 = 0.5, and beta3 = 0.7. Take another set of three random variables Y1, Y2, Y3 such that Yi ~ NP(0.5, betai*), i = 1, 2, 3. Here, let beta1* = 0.4, beta2* = 0.3, and beta3* = 1.2. Clearly, (beta1, beta2, beta3) not >= (beta1*, beta2*, beta3*). The difference between FX3:3(x) and FY3:3(x) is depicted in Figure 2(a) which shows that X3:3 is not >=st Y3:3.",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "NP(0.5, beta_i)",
+    "compared": "X3:3 vs Y3:3",
+    "hypotheses": [
+      {"text": "beta not componentwise >= beta*", "formal": "(0.2,0.5,0.7) vs (0.4,0.3,1.2)", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "X3:3 >=st Y3:3 fails"},
+    "quantifiers": "n = 3",
+    "numbers": "alpha = 0.5; beta = (0.2, 0.5, 0.7); beta* = (0.4, 0.3, 1.2)",
+    "ambiguity": "Shows the componentwise condition of Theorem 3.3(a) is needed."
+  },
+  {
+    "paper": "doi:10.21136/am.2018.0105-17",
+    "claim": "Counterexample 3.4",
+    "page": 65,
+    "quote": "Let X1, X2, X3 be a set of independent random variables such that Xi ~ NP(0.8, betai), i = 1, 2, 3. Here, we take beta1 = 1.2, beta2 = 0.5, and beta3 = 1.7. Take another set of three random variables Y1, Y2, Y3 such that Yi ~ NP(0.8, betai*), i = 1, 2, 3. Let beta1* = 0.4, beta2* = 0.8, and beta3* = 1.2. Clearly, (1/beta1, 1/beta2, 1/beta3) not >= (1/beta1*, 1/beta2*, 1/beta3*). Based on this data, we have plotted F̄X1:3(x) - F̄Y1:3(x) in Figure 2(b) which guarantees that Y1:3 is not >=st X1:3.",
+    "kind": "counterexample",
+    "model": "series system",
+    "family": "NP(0.8, beta_i)",
+    "compared": "Y1:3 vs X1:3",
+    "hypotheses": [
+      {"text": "reciprocal scale vectors not componentwise ordered", "formal": "(1/1.2, 1/0.5, 1/1.7) not >= (1/0.4, 1/0.8, 1/1.2)", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y1:3 >=st X1:3 fails"},
+    "quantifiers": "n = 3",
+    "numbers": "alpha = 0.8; beta = (1.2, 0.5, 1.7); beta* = (0.4, 0.8, 1.2)",
+    "ambiguity": "Shows the reciprocal componentwise condition of Theorem 3.3(b) is needed."
+  },
+  {
+    "paper": "doi:10.21136/am.2018.0105-17",
+    "claim": "Theorem 3.4",
+    "page": 65,
+    "quote": "Let X1, X2, ..., Xn be independent random variables with Xi ~ NP(alpha, betai), i = 1, 2, ..., n, and Y1, Y2, ..., Yn independent random variables with Yi ~ NP(alpha, betai*), i = 1, 2, ..., n. Then for alpha >= 1, (beta1, beta2, ..., betan) ≽w (beta1*, beta2*, ..., betan*) implies Xn:n >=st Yn:n.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "NP(alpha, beta)",
+    "compared": "Xn:n vs Yn:n; scale vectors under weak lower majorization",
+    "hypotheses": [
+      {"text": "alpha >= 1", "formal": "as stated", "source": "statement"},
+      {"text": "(beta1,...,betan) ≽w (beta1*,...,betan*)", "formal": "vector weak lower majorization (per paper's Lemma 2.1 usage)", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Xn:n >=st Yn:n"},
+    "quantifiers": "all n; alpha >= 1",
+    "numbers": "",
+    "ambiguity": "≽w is the paper's weak lower majorization symbol; combines Theorem 3.1(a) and Theorem 3.3(a) via an intermediate vector."
+  },
+  {
+    "paper": "doi:10.21136/am.2018.0105-17",
+    "claim": "Theorem 3.5(a)",
+    "page": "65-66",
+    "quote": "Let X1, X2, ..., Xn be independent random variables with Xi ~ NP(alpha, betai), i = 1, 2, ..., n, and Y1, Y2, ..., Yn independent random variables with Yi ~ NP(alpha, betai*), i = 1, 2, ..., n. Then, for 0 < alpha <= 1, (a) (beta1, beta2, ..., betan) ≽m (beta1*, beta2*, ..., betan*) implies X1:n >=fr Y1:n.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "NP(alpha, beta) with failure rate r_X(x) = alpha x^{alpha-1}/(x^alpha + beta^alpha)",
+    "compared": "X1:n vs Y1:n in the failure (hazard) rate order",
+    "hypotheses": [
+      {"text": "0 < alpha <= 1", "formal": "as stated", "source": "statement"},
+      {"text": "(beta1,...,betan) ≽m (beta1*,...,betan*)", "formal": "beta majorizes beta*", "source": "statement"}
+    ],
+    "conclusion": {"order": "hr", "direction": "X1:n >=fr Y1:n (paper's fr symbol; i.e. hazard-rate order with X1:n stochastically larger is not implied — the paper's ≥fr corresponds to standard >=hr)"},
+    "quantifiers": "all n; 0 < alpha <= 1",
+    "numbers": "",
+    "ambiguity": "The paper's notation '>=fr' denotes the failure-rate ordering of Definition 2.1 (X <=fr Y iff r_X >= r_Y); equivalently here r_X1:n <= r_Y1:n, i.e. X1:n >=hr Y1:n in standard hazard-rate order convention."
+  },
+  {
+    "paper": "doi:10.21136/am.2018.0105-17",
+    "claim": "Theorem 3.5(b)",
+    "page": "65-66",
+    "quote": "Then, for 0 < alpha <= 1, (b) (beta1, beta2, ..., betan) ≽m (beta1*, beta2*, ..., betan*) implies X1:n >=disp Y1:n.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "NP(alpha, beta); for alpha <= 1 the NP failure rate is decreasing (DFR)",
+    "compared": "X1:n vs Y1:n in dispersive order",
+    "hypotheses": [
+      {"text": "0 < alpha <= 1", "formal": "as stated", "source": "statement"},
+      {"text": "(beta1,...,betan) ≽m (beta1*,...,betan*)", "formal": "beta majorizes beta*", "source": "statement"}
+    ],
+    "conclusion": {"order": "disp", "direction": "X1:n >=disp Y1:n"},
+    "quantifiers": "all n; 0 < alpha <= 1",
+    "numbers": "",
+    "ambiguity": "Proof uses Lemma 2.3(b) (scale-model dispersive ordering via decreasing failure rate)."
+  },
+  {
+    "paper": "doi:10.21136/am.2018.0105-17",
+    "claim": "Corollary 3.1",
+    "page": 66,
+    "quote": "Let (X1, X2, ..., Xn) and (Y1, Y2, ..., Yn) be two sets of independent random variables as described in Theorem 3.5. Then, for 0 < alpha <= 1, (beta1, beta2, ..., betan) ≽m (beta1*, beta2*, ..., betan*) ==> X1:n >=rs Y1:n ==> Var(X1:n) >= Var(Y1:n).",
+    "kind": "corollary",
+    "model": "series system",
+    "family": "NP(alpha, beta)",
+    "compared": "X1:n vs Y1:n in right-spread order (and consequently variance)",
+    "hypotheses": [
+      {"text": "0 < alpha <= 1 and beta ≽m beta*", "formal": "as stated", "source": "statement; Theorem 3.5"}
+    ],
+    "conclusion": {"order": "rs", "direction": "X1:n >=rs Y1:n"},
+    "quantifiers": "all n; 0 < alpha <= 1",
+    "numbers": "",
+    "ambiguity": "Corollary also asserts the variance comparison Var(X1:n) >= Var(Y1:n), a consequence of the rs ordering."
+  },
+  {
+    "paper": "doi:10.21136/am.2018.0105-17",
+    "claim": "Theorem 3.6(a)",
+    "page": "66-67",
+    "quote": "Let X1, X2, ..., Xn be independent random variables with Xi ~ NP(alphai, beta), i = 1, 2, ..., n and Y1, Y2, ..., Yn independent random variables with Yi ~ NP(alpha*i, beta), i = 1, 2, ..., n. Then (a) (alpha1, alpha2, ..., alphan) ≽m (alpha*1, alpha*2, ..., alpha*n) implies Xn:n >=st Yn:n.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "NP(alpha_i, beta) — common scale beta, heterogeneous shapes",
+    "compared": "Xn:n vs Yn:n; shape vectors alpha vs alpha* under majorization",
+    "hypotheses": [
+      {"text": "(alpha1,...,alphan) ≽m (alpha*1,...,alpha*n)", "formal": "alpha majorizes alpha*", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Xn:n >=st Yn:n"},
+    "quantifiers": "all n; x > beta",
+    "numbers": "",
+    "ambiguity": ""
+  },
+  {
+    "paper": "doi:10.21136/am.2018.0105-17",
+    "claim": "Theorem 3.6(b)",
+    "page": "66-67",
+    "quote": "(b) (alpha1, alpha2, ..., alphan) ≽m (alpha*1, alpha*2, ..., alpha*n) implies X1:n <=st Y1:n.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "NP(alpha_i, beta) — common scale beta",
+    "compared": "X1:n vs Y1:n; shape vectors under majorization",
+    "hypotheses": [
+      {"text": "(alpha1,...,alphan) ≽m (alpha*1,...,alpha*n)", "formal": "alpha majorizes alpha*", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "X1:n <=st Y1:n"},
+    "quantifiers": "all n; x > beta",
+    "numbers": "",
+    "ambiguity": ""
+  },
+  {
+    "paper": "doi:10.21136/am.2018.0105-17",
+    "claim": "Theorem 3.7",
+    "page": "67-68",
+    "quote": "Let X1, X2, ..., Xn be independent random variables with Xi ~ NP(alphai, beta), i = 1, 2, ..., n and Y1, Y2, ..., Yn independent random variables with Yi ~ NP(alpha*i, beta), i = 1, 2, ..., n. If (alpha1, alpha2, ..., alphan) >= (alpha*1, alpha*2, ..., alpha*n), i.e. alphai >= alpha*i, i = 1, 2, ..., n, then X1:n <=fr Y1:n.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "NP(alpha_i, beta); failure rate r_X1:n(x;alpha,beta) = (1/x) sum_i alphai/(1 + (beta/x)^{alphai}), x > beta",
+    "compared": "X1:n vs Y1:n; componentwise shape inequality",
+    "hypotheses": [
+      {"text": "alphai >= alpha*i for all i", "formal": "componentwise", "source": "statement"}
+    ],
+    "conclusion": {"order": "hr", "direction": "X1:n <=fr Y1:n (paper's fr ordering; proof shows r_X1:n - r_Y1:n >= 0, i.e. X1:n <=hr Y1:n in standard convention)"},
+    "quantifiers": "all n; x > beta",
+    "numbers": "",
+    "ambiguity": "Paper's '<=fr' corresponds to the standard hazard-rate order (X1:n <=hr Y1:n)."
+  },
+  {
+    "paper": "doi:10.21136/am.2018.0105-17",
+    "claim": "Counterexample 3.5",
+    "page": 69,
+    "quote": "Let X1, X2, X3, X4 be independent random variables with Xi ~ NP(alphai, 1.6), i = 1, 2, 3, 4 with alpha1 = 0.6, alpha2 = 1.9, alpha3 = 0.3, and alpha4 = 1.8. Further, let Y1, Y2, Y3, Y4 be another set of independent random variables with Yi ~ NP(alpha*i, 1.6), i = 1, 2, 3, 4 with alpha*1 = 0.4, alpha*2 = 2.1, alpha*3 = 0.8, and alpha*4 = 1.6. It is easy to see that (alpha1, alpha2, alpha3, alpha4) not >= (alpha*1, alpha*2, alpha*3, alpha*4). Now, we have plotted rX1:n(x) - rY1:n(x) in Figure 3(a). Thus, X1:4 is not <=fr Y1:4.",
+    "kind": "counterexample",
+    "model": "series system",
+    "family": "NP(alpha_i, 1.6)",
+    "compared": "X1:4 vs Y1:4 in failure-rate order",
+    "hypotheses": [
+      {"text": "alpha not componentwise >= alpha*", "formal": "(0.6,1.9,0.3,1.8) vs (0.4,2.1,0.8,1.6)", "source": "statement"}
+    ],
+    "conclusion": {"order": "hr", "direction": "X1:4 <=fr Y1:4 fails (r_X1:4 - r_Y1:4 changes sign, Figure 3(a))"},
+    "quantifiers": "n = 4",
+    "numbers": "beta = 1.6; alpha = (0.6, 1.9, 0.3, 1.8); alpha* = (0.4, 2.1, 0.8, 1.6)",
+    "ambiguity": "Shows the componentwise condition of Theorem 3.7 cannot be relaxed to majorization."
+  },
+  {
+    "paper": "doi:10.21136/am.2018.0105-17",
+    "claim": "Theorem 3.8",
+    "page": 69,
+    "quote": "Let X1, X2, ..., Xn be n independent random variables with Xi ~ NP(alphai, beta), i = 1, 2, ..., n, and let Y1, Y2, ..., Yn be n independent random variables with Yi ~ NP(alpha*i, beta), i = 1, 2, ..., n. Then, for (alpha1, alpha2, ..., alphan) ≽w (alpha*1, alpha*2, ..., alpha*n), we have X1:n <=st Y1:n.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "NP(alpha_i, beta)",
+    "compared": "X1:n vs Y1:n; shape vectors under weak lower majorization",
+    "hypotheses": [
+      {"text": "(alpha1,...,alphan) ≽w (alpha*1,...,alpha*n)", "formal": "weak lower majorization of shape vectors", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "X1:n <=st Y1:n"},
+    "quantifiers": "all n",
+    "numbers": "",
+    "ambiguity": ""
+  },
+  {
+    "paper": "doi:10.21136/am.2018.0105-17",
+    "claim": "Theorem 3.9",
+    "page": 70,
+    "quote": "Let X1, X2 be independent random variables with Xi ~ NP(alphai, betai), i = 1, 2 and Y1, Y2 other independent random variables with Yi ~ NP(alpha*i, betai*), i = 1, 2. Let the matrix [alpha1 alpha2; beta1 beta2] in S2 be defined as in (2.1). Then, for [alpha1 alpha2; beta1 beta2] >> [alpha*1 alpha*2; beta*1 beta*2], we have X1:2 <=st Y1:2.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "NP(alpha_i, beta_i), i = 1, 2 (heterogeneous in both parameters)",
+    "compared": "X1:2 vs Y1:2; parameter matrices related by multivariate chain majorization",
+    "hypotheses": [
+      {"text": "[alpha; beta] in S2", "formal": "the 2x2 parameter matrix belongs to S2 (columns oppositely ordered: alpha1 <= alpha2 implies beta1 >= beta2)", "source": "statement; condition (2.1)"},
+      {"text": "[alpha1 alpha2; beta1 beta2] >> [alpha*1 alpha*2; beta*1 beta*2]", "formal": "multivariate chain majorization (B = A T_w for a T-transform T_w)", "source": "statement; Definition 2.4"}
+    ],
+    "conclusion": {"order": "st", "direction": "X1:2 <=st Y1:2"},
+    "quantifiers": "n = 2; x > max{beta1, beta2}",
+    "numbers": "",
+    "ambiguity": "'>>' denotes the paper's matrix (chain) majorization symbol."
+  },
+  {
+    "paper": "doi:10.21136/am.2018.0105-17",
+    "claim": "Counterexample 3.6",
+    "page": 72,
+    "quote": "Let X1, X2 be two independent random variables associated with Xi ~ NP(alphai, betai), i = 1, 2. Also, let Y1, Y2 be two independent random variables associated with Yi ~ NP(alpha*i, betai*), i = 1, 2. Let A = [alpha1 alpha2; beta1 beta2] = [1.5 0.8; 0.6 0.4]. We take a T-transform matrix T0.3 = [0.3 0.7; 0.7 0.3]. Then B = [alpha*1 alpha*2; beta*1 beta*2] = A T0.3 = [1.01 1.29; 0.46 0.54]. Thus, according to Definition 2.4, we have A >> B. Here, the matrices A and B do not belong to S2. Now from Figure 3(b), we see that X1:2 is not <=st Y1:2.",
+    "kind": "counterexample",
+    "model": "series system",
+    "family": "NP(alpha_i, beta_i), i = 1, 2",
+    "compared": "X1:2 vs Y1:2",
+    "hypotheses": [
+      {"text": "A >> B via T0.3 but A and B do not belong to S2", "formal": "chain majorization holds without the S2 membership condition of Theorem 3.9", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "X1:2 <=st Y1:2 fails (survival functions cross, Figure 3(b))"},
+    "quantifiers": "n = 2",
+    "numbers": "A = [1.5 0.8; 0.6 0.4]; T0.3 = [0.3 0.7; 0.7 0.3]; B = A T0.3 = [1.01 1.29; 0.46 0.54]",
+    "ambiguity": "Shows the S2-membership requirement of Theorem 3.9 cannot be dropped."
+  },
+  {
+    "paper": "doi:10.21136/am.2018.0105-17",
+    "claim": "Theorem 3.10",
+    "page": "71-72",
+    "quote": "Let X1, X2, ..., Xn be independent random variables with Xi ~ NP(alphai, betai), i = 1, 2, ..., n. Further, let Y1, Y2, ..., Yn be another set of independent random variables with Yi ~ NP(alpha*i, betai*). Then, for [alpha1 alpha2 ... alphan; beta1 beta2 ... betan] in Sn, we have [alpha*1 alpha*2 ... alpha*n; beta*1 beta*2 ... beta*n] = [alpha1 alpha2 ... alphan; beta1 beta2 ... betan] Tw ==> X1:n <=st Y1:n.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "NP(alpha_i, beta_i), heterogeneous in both parameters",
+    "compared": "X1:n vs Y1:n; parameter matrix transformed by a single T-transform Tw",
+    "hypotheses": [
+      {"text": "[alpha; beta] in Sn", "formal": "the 2xn parameter matrix belongs to Sn (oppositely ordered rows condition)", "source": "statement; condition (2.1)"},
+      {"text": "[alpha*; beta*] = [alpha; beta] Tw", "formal": "star parameters obtained from a T-transform", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "X1:n <=st Y1:n"},
+    "quantifiers": "all n; x > max betai",
+    "numbers": "",
+    "ambiguity": "Extends Theorem 3.9 from n = 2 to general n."
+  },
+  {
+    "paper": "doi:10.21136/am.2018.0105-17",
+    "claim": "Corollary 3.2",
+    "page": 73,
+    "quote": "Let X1, X2, ..., Xn be independent random variables with Xi ~ NP(alphai, betai), i = 1, 2, ..., n. Further, let Y1, Y2, ..., Yn be another set of independent random variables with Yi ~ NP(alpha*i, betai*). Then, for [alpha1 alpha2 ... alphan; beta1 beta2 ... betan] in Sn we have [alpha*1 alpha*2 ... alpha*n; beta*1 beta*2 ... beta*n] = [alpha1 alpha2 ... alphan; beta1 beta2 ... betan] Tw1 ... Twk, where Twi, i = 1, 2, ..., k, have the same structure, we get X1:n <=st Y1:n.",
+    "kind": "corollary",
+    "model": "series system",
+    "family": "NP(alpha_i, beta_i)",
+    "compared": "X1:n vs Y1:n; parameter matrix transformed by a product of same-structure T-transforms",
+    "hypotheses": [
+      {"text": "[alpha; beta] in Sn; [alpha*; beta*] = [alpha; beta] Tw1 ... Twk with Twi of the same structure", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "X1:n <=st Y1:n"},
+    "quantifiers": "all n; k >= 1",
+    "numbers": "",
+    "ambiguity": "Immediate consequence of Theorem 3.10 plus the closure of same-structure T-transforms under multiplication."
+  },
+  {
+    "paper": "doi:10.21136/am.2018.0105-17",
+    "claim": "Theorem 3.11",
+    "page": 73,
+    "quote": "Let X1, X2, ..., Xn be independent random variables with Xi ~ NP(alphai, betai), i = 1, 2, ..., n. Further, let Y1, Y2, ..., Yn be another set of independent random variables with Yi ~ NP(alpha*i, betai*), i = 1, 2, ..., n. For i = 1, 2, ..., k, where k >= 1, let [alpha1 alpha2 ... alphan; beta1 beta2 ... betan] in Sn and [alpha1 alpha2 ... alphan; beta1 beta2 ... betan] Tw1 ... Twi in Sn. Then [alpha*1 alpha*2 ... alpha*n; beta*1 beta*2 ... beta*n] = [alpha1 alpha2 ... alphan; beta1 beta2 ... betan] Tw1 ... Twk ==> X1:n <=st Y1:n.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "NP(alpha_i, beta_i)",
+    "compared": "X1:n vs Y1:n; parameter matrix transformed by a product of T-transforms with possibly different structures",
+    "hypotheses": [
+      {"text": "base matrix and each partial product matrix Tw1...Twi belong to Sn", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "X1:n <=st Y1:n"},
+    "quantifiers": "all n; k >= 1",
+    "numbers": "",
+    "ambiguity": "Extends Corollary 3.2 to T-transforms of different structures."
+  },
+  {
+    "paper": "doi:10.21136/am.2018.0105-17",
+    "claim": "Example 4.1",
+    "page": 75,
+    "quote": "Suppose there are two systems, say system-I and system-II. Let each system have three components which are connected in series. Denote the components of system-I as I1, I2 and I3 and those of system-II as II1, II2 and II3. Let the failure times of I1, I2 and I3 have NP(0.5, 0.1), NP(0.5, 1) and NP(0.5, 9) distributions, respectively. Further, let the failure times of II1, II2, and II3 have NP(0.5, 0.1), NP(0.5, 4), and NP(0.5, 6) distributions, respectively. Clearly, (0.1, 1, 9) ≽m (0.1, 4, 6). Thus, as an application of Corollary 3.1, system-II is preferable to use, since its lifetime has smaller variance.",
+    "kind": "example",
+    "model": "series system",
+    "family": "NP(0.5, beta_i)",
+    "compared": "system-I series lifetime X1:3 vs system-II Y1:3; via Corollary 3.1 right-spread ordering",
+    "hypotheses": [
+      {"text": "(0.1, 1, 9) ≽m (0.1, 4, 6) and alpha = 0.5 <= 1", "formal": "majorization of scale vectors", "source": "statement"}
+    ],
+    "conclusion": {"order": "rs", "direction": "X1:3 (system-I) >=rs Y1:3 (system-II), hence Var(X1:3) >= Var(Y1:3), system-II preferable"},
+    "quantifiers": "n = 3",
+    "numbers": "alpha = 0.5; system-I betas (0.1, 1, 9); system-II betas (0.1, 4, 6)",
+    "ambiguity": "The paper states the conclusion as a variance comparison (system-II has smaller variance); the underlying named-order claim is X1:3 >=rs Y1:3 per Corollary 3.1."
+  }
+]

@@ -1,0 +1,19 @@
+[
+ {
+  "paper": "doi:10.35914/mathstat.v2i1.180",
+  "claim": "Section 10 likelihood-ratio ordering claim for the MGS(MGSD) distribution",
+  "page": 22,
+  "quote": "Prove that the MSG distribution complies with the ordering with the highest likelihood (the likelihood ratio ordering). Assume that X and Y are two independent Random variables with probability distribution function f_x(x; lambda, theta) and f_y(x; beta, alpha). If lambda < alpha and theta < beta, then Lambda = f_x(x;lambda,theta)/f_y(x;beta,alpha) = [theta^2 (beta+1) (lambda theta x^2/2 + (theta+x)/(theta^2+1))] / [alpha^2 (lambda+1) (beta alpha x^2/2 + (alpha+x)/(alpha^2+1))] e^{-(theta-alpha)x}. ... Hence, d log[Lambda]/dx < 0 if lambda < beta, theta < alpha.",
+  "kind": "theorem",
+  "model": "other: two distributions of the same family",
+  "family": "mixture of Gamma(3,theta) and Shanker(theta): f(x;lambda,theta) = theta^2/(lambda+1) * (lambda theta x^2/2 + (theta+x)/(theta^2+1)) e^{-theta x}",
+  "compared": "X ~ MGS(lambda, theta) vs Y ~ MGS(beta, alpha) (parameter roles swapped in the paper's notation)",
+  "hypotheses": [
+   {"text": "If lambda < alpha and theta < beta (statement); conclusion requires lambda < beta, theta < alpha (as printed)", "formal": "inconsistent parameter inequalities between hypothesis and conclusion", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "X <=_LR Y (likelihood-ratio ordering, density ratio decreasing)"},
+  "quantifiers": "x > 0",
+  "numbers": "",
+  "ambiguity": "Heavily garbled/inconsistent: hypothesis says lambda < alpha, theta < beta while the conclusion condition reads lambda < beta, theta < alpha; only the lr order is claimed (not hr/mrl/st). Parameter symbols switch roles between the two distributions (theta vs alpha as rate, lambda vs beta as mixing weight). No proof rigor; differentiation shown without justification of sign."
+ }
+]

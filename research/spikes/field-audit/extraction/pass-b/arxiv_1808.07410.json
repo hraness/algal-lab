@@ -1,0 +1,32 @@
+[
+ {
+  "paper": "arxiv:1808.07410",
+  "claim": "Section 8 definitions and implications",
+  "page": 8,
+  "quote": "A random variable Z is said to be greater than Y in the: (a) Stochastic order (Y <=st Z) if G_Z(z) <= G_Y(z) for all z; (b) Hazard rate order (Y <=hr Z) if h_Z(z) <= h_Y(z) for all z; (c) Mean residual order (Y <=mlr Z) if m_Z(z) <= m_Y(z) for all z; (d) Likelihood ratio order (Y <=lr Z) if g_Z(z)/g_Y(z) is an increasing function of z. The following results (Shaked and Shanthikumar 1994) are well known: Z <=lr Y => Z <=hr Y => Z <=mrl Y => Z <=st Y.",
+  "kind": "definition",
+  "model": "univariate lifetime distributions",
+  "family": "Exponentiated Inverse Power Lindley distribution EIPLD(alpha, beta, theta)",
+  "compared": "Y ~ G_Y vs Z ~ G_Z",
+  "hypotheses": [],
+  "conclusion": {"order": "lr", "direction": "lr => hr => mrl => st (implication chain)"},
+  "quantifiers": "all z in support",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:1808.07410",
+  "claim": "Theorem 4",
+  "page": 8,
+  "quote": "Theorem 4: Let Y ~ EIPLD(alpha1, beta1, theta1) and Z ~ EIPLD(alpha2, beta2, theta2). If beta1 = beta2 and theta2 >= theta1 (or if beta2 >= beta1 and theta1 = theta2) then (Y <=lr Z) for all z. Setting alpha1 = alpha2: Case 1: for beta1 = beta2 and theta2 >= theta1 we obtained d/dz [g_Z(z)/g_Y(z)] as an increasing function of z. Case 2: beta2 >= beta1 and theta1 = theta2 we obtained d/dz [g_Z(z)/g_Y(z)] as an increasing function of z. This implies that Y <=lr Z for all z. Hence Y <=hr Z, Y <=mrl Z and Y <=st Z.",
+  "kind": "theorem",
+  "model": "univariate",
+  "family": "EIPLD(alpha,beta,theta) - exponentiated inverse power Lindley",
+  "compared": "two EIPLD variables with common alpha, differing in beta or theta",
+  "hypotheses": [
+   {"text": "alpha1 = alpha2 (imposed in proof) and either (beta1 = beta2, theta2 >= theta1) or (beta2 >= beta1, theta1 = theta2)", "formal": "parameter configurations", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "Y <=_lr Z; hence Y <=_hr Z, Y <=_mrl Z and Y <=_st Z"},
+  "quantifiers": "all z in support",
+  "ambiguity": "Theorem statement omits alpha1 = alpha2 but the proof explicitly sets alpha1 = alpha2 before considering the two cases; recorded as a hypothesis."
+ }
+]

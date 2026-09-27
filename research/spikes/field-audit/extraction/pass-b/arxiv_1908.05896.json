@@ -1,0 +1,206 @@
+[
+ {
+  "paper": "arxiv:1908.05896",
+  "claim": "Theorem 3.1",
+  "page": 5,
+  "quote": "Theorem 3.1. Let X1, X2, . . . , Xn and Y1, Y2, . . . , Yn be the two sets of independent random variables with Xk ~ TL-G(αk, θ, ξ) and Yk ~ TL-G(αk*, θ, ξ) for k = 1, 2, . . . , n, respectively. Then, for fixed θ > 0 and for any fixed ξ, we have α* = (α1*, α2*, . . . , αn*) ⪯^m (α1, α2, . . . , αn) = α ⟹ X1:n ≤hr Y1:n.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Topp–Leone generated (TL-G) family: F(x; α, θ, ξ) = [G(x;ξ)^θ (2 − G(x;ξ)^θ)]^α, x ≥ 0; arbitrary baseline cdf G(x;ξ)",
+  "compared": "shape-parameter vectors α vs α* under majorization (α* majorized by α, i.e. α more dispersed)",
+  "hypotheses": [
+   {"text": "α* ⪯^m α", "formal": "α* majorized by α (equal sums, partial sums of smallest of α* >= those of α)", "source": "statement"},
+   {"text": "common θ > 0 and common baseline ξ", "formal": "fixed scale parameter and baseline", "source": "statement"},
+   {"text": "independence", "formal": "two sets of independent random variables", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X1:n <=hr Y1:n (rX1:n >= rY1:n pointwise)"},
+  "quantifiers": "n >= 1, x > 0, αk > 0",
+  "ambiguity": "Directions verified against the rendered PDF page 5 (the text layer garbles the order symbols): α* ⪯^m α ⟹ X1:n ≤hr Y1:n."
+ },
+ {
+  "paper": "arxiv:1908.05896",
+  "claim": "Example 3.1",
+  "page": 6,
+  "quote": "Example 3.1. Consider that G(x; ξ) = 1 − e^{−x}, x ≥ 0. Let X1, X2 and Y1, Y2 be the two sets of independent random variables with Xk ~ TL-G(αk, θ, ξ) and Yk ~ TL-G(αk*, θ, ξ) for k = 1, 2, respectively. Assume α1 = 1, α2 = 9, α1* = 4, α2* = 6, and θ = 0.5. Clearly, (α1*, α2*) ⪯^m (α1, α2), and therefore, using Theorem 3.1, we have X1:2 ≤hr Y1:2. This can also be concluded from the Figure 1(a) where we plot rX1:2(x) − rY1:2(x) which is non-negative for x ≥ 0.",
+  "kind": "example",
+  "model": "series system",
+  "family": "TL-G with exponential baseline G(x) = 1 − e^{−x} (TL-exponential)",
+  "compared": "α = (1, 9) vs α* = (4, 6) under majorization",
+  "hypotheses": [
+   {"text": "(α1*, α2*) = (4, 6) ⪯^m (1, 9) = (α1, α2)", "formal": "equal sums 10; smallest components 1 <= 4", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X1:2 <=hr Y1:2 (Figure 1(a): rX1:2 − rY1:2 >= 0)"},
+  "quantifiers": "n = 2",
+  "numbers": "α = (1,9); α* = (4,6); θ = 0.5",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:1908.05896",
+  "claim": "Counterexample 3.1",
+  "page": 6,
+  "quote": "Counterexample 3.1. Continuing with the Example 3.1, if we plot fY1:2(x)/fX1:2(x), we get the Figure 1(b), which shows that as the value of x increases, the ratio first increases and then decreases. Hence the result in Theorem 3.1 cannot be extended to the likelihood ratio order.",
+  "kind": "counterexample",
+  "model": "series system",
+  "family": "TL-G with exponential baseline; same parameters as Example 3.1",
+  "compared": "α = (1, 9) vs α* = (4, 6)",
+  "hypotheses": [
+   {"text": "Continuing with the Example 3.1", "formal": "α* ⪯^m α holds", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "density ratio fY1:2/fX1:2 non-monotone — no likelihood-ratio ordering (Figure 1(b))"},
+  "quantifiers": "n = 2",
+  "numbers": "Figure 1(b) plots the ratio over x ∈ [0, 30], peaking near x ≈ 5",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:1908.05896",
+  "claim": "Theorem 3.2",
+  "page": 7,
+  "quote": "Theorem 3.2. Let X1, X2, . . . , Xn and Y1, Y2, . . . , Yn be the two sets of independent random variables with Xk ~ TL-G(α, θk, ξ) and Yk ~ TL-G(α, θk*, ξ) for k = 1, 2, . . . , n, respectively. Then, for fixed α > 0 and for any fixed ξ, we have θ = (θ1, θ2, . . . , θn) ⪯_w (θ1*, θ2*, . . . , θn*) = θ* ⟹ Xn:n ≤st Yn:n.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "TL-G family; common shape α and baseline ξ, heterogeneous scale/power parameters θk",
+  "compared": "scale vectors θ vs θ* under weak majorization (subscript w)",
+  "hypotheses": [
+   {"text": "θ ⪯_w θ*", "formal": "θ weakly majorized by θ* — proof uses increasing Schur-convexity of −φ(θ) = −FXn:n(x), consistent with weak submajorization", "source": "statement"},
+   {"text": "fixed α > 0 and any fixed ξ", "formal": "common shape and baseline", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn:n <=st Yn:n (FYn:n <= FXn:n pointwise)"},
+  "quantifiers": "n >= 1, x >= 0",
+  "ambiguity": "The weak-majorization glyph (subscript w) is printed ⪯_w; the paper never explicitly defines which of the two weak orders it is, but the proof logic (increasing Schur-convex −φ) identifies it as weak submajorization."
+ },
+ {
+  "paper": "arxiv:1908.05896",
+  "claim": "Corollary 3.1",
+  "page": 8,
+  "quote": "Corollary 3.1. Let X1, X2, . . . , Xn and Y1, Y2, . . . , Yn be the two sets of independent random variables with Xk ~ TL-G(α, θk, ξ) and Yk ~ TL-G(α, θk*, ξ), k = 1, 2, . . . , n, respectively. Then, for fixed α > 0 and for any fixed ξ, we have θ ⪯^m θ* ⟹ Xn:n ≤st Yn:n.",
+  "kind": "corollary",
+  "model": "parallel system",
+  "family": "TL-G family; common α, ξ",
+  "compared": "scale vectors under ordinary majorization",
+  "hypotheses": [
+   {"text": "θ ⪯^m θ*", "formal": "θ majorized by θ*", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn:n <=st Yn:n"},
+  "quantifiers": "n >= 1",
+  "ambiguity": "Verified on rendered page 8: relation is ⪯^m and conclusion Xn:n ≤st Yn:n."
+ },
+ {
+  "paper": "arxiv:1908.05896",
+  "claim": "Example 3.2",
+  "page": 8,
+  "quote": "Example 3.2. Consider that G(x; ξ) = 1 − e^{−x}, x ≥ 0. Let X1, X2 and Y1, Y2 be the two sets of independent random variables with Xk ~ TL-G(α, θk, ξ) and Yk ~ TL-G(α, θk*, ξ) for k = 1, 2, respectively. Assume θ1 = 0.1, θ2 = 0.4, θ1* = 0.2, θ2* = 0.5, and α = 0.5. Clearly, (θ1, θ2) ⪯_w (θ1*, θ2*), and therefore, using Theorem 3.2, we have X2:2 ≤st Y2:2. This can also be seen from the Figure 2(a) where we plot FX2:2(x) − FY2:2(x) which is non-negative for x ≥ 0.",
+  "kind": "example",
+  "model": "parallel system",
+  "family": "TL-G with exponential baseline G(x) = 1 − e^{−x}",
+  "compared": "θ = (0.1, 0.4) vs θ* = (0.2, 0.5) under weak majorization",
+  "hypotheses": [
+   {"text": "(θ1, θ2) = (0.1, 0.4) ⪯_w (0.2, 0.5) = (θ1*, θ2*)", "formal": "partial sums of smallest: 0.1 <= 0.2, 0.5 <= 0.7; largest-first also satisfy weak submajorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:2 <=st Y2:2 (Figure 2(a): FX2:2 − FY2:2 >= 0)"},
+  "quantifiers": "n = 2",
+  "numbers": "θ = (0.1, 0.4); θ* = (0.2, 0.5); α = 0.5",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:1908.05896",
+  "claim": "Counterexample 3.2",
+  "page": 8,
+  "quote": "Counterexample 3.2. Continuing with the Example 3.2, if we plot fY2:2(x)/fX2:2(x), we get the Figure 2(b), which shows that as the value of x increases, the ratio first increases and then decreases. Thus, the result in Theorem 3.2 cannot be extended to the likelihood ratio order.",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "TL-G with exponential baseline; same parameters as Example 3.2",
+  "compared": "θ = (0.1, 0.4) vs θ* = (0.2, 0.5)",
+  "hypotheses": [
+   {"text": "Continuing with the Example 3.2", "formal": "θ ⪯_w θ* holds", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "density ratio non-monotone — no likelihood-ratio ordering (Figure 2(b))"},
+  "quantifiers": "n = 2",
+  "numbers": "Figure 2(b): ratio rises to ~1.62 near x ≈ 3 then decreases",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:1908.05896",
+  "claim": "Theorem 3.3",
+  "page": 9,
+  "quote": "Theorem 3.3. Let X1, X2, . . . , Xn and Y1, Y2, . . . , Yn be the two sets of independent random variables with Xk ~ TL-G(α, θk, ξ) and Yk ~ TL-G(α, θk*, ξ), k = 1, 2, . . . , n, respectively. For fixed α > 0 and for any fixed ξ, if (θ1, θ2, . . . , θn) ≤ (θ1*, θ2*, . . . , θn*), that is, θk ≤ θk*, k = 1, 2, . . . , n, then Xn:n ≤st Yn:n.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "TL-G family; common α, ξ",
+  "compared": "scale vectors under coordinatewise ordering",
+  "hypotheses": [
+   {"text": "(θ1, . . . , θn) ≤ (θ1*, . . . , θn*), i.e. θk ≤ θk* for all k", "formal": "coordinatewise inequality", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn:n <=st Yn:n"},
+  "quantifiers": "n >= 1, x >= 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:1908.05896",
+  "claim": "Theorem 3.4",
+  "page": 9,
+  "quote": "Theorem 3.4. Let X1, X2, . . . , Xn and Y1, Y2, . . . , Yn be the two sets of independent random variables with Xk ~ TL-G(αk, θ, ξ) and Yk ~ TL-G(αk*, θ, ξ), k = 1, 2, . . . , n, respectively. Then, for fixed θ > 0 and for any fixed ξ, Xn:n ≤lr Yn:n if, and only if, Σ_{k=1}^n αk ≤ Σ_{k=1}^n αk*.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "TL-G family; common θ, ξ; heterogeneous shapes",
+  "compared": "shape-parameter sums (iff condition)",
+  "hypotheses": [
+   {"text": "Σ αk ≤ Σ αk*", "formal": "necessary and sufficient aggregate condition", "source": "statement"},
+   {"text": "fixed θ > 0 and any fixed ξ", "formal": "common scale and baseline", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "Xn:n <=lr Yn:n iff Σαk <= Σαk* (fYn:n/fXn:n = (Σαk*/Σαk)·(G^θ(2−G^θ))^{Σαk*−Σαk} increasing)"},
+  "quantifiers": "n >= 1, x >= 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:1908.05896",
+  "claim": "Theorem 3.5",
+  "page": 10,
+  "quote": "Theorem 3.5. Let U1, U2, . . . , Un and V1, V2, . . . , Vn be the two set of independent random variables with Uk ~ TL-G(αk, θ, G1) and Vk ~ TL-G(αk*, θ, G2) for k = 1, 2, . . . , n, respectively, and let α* ⪯^m α. Then, for fixed θ > 0, X1* ≤st X2* ⟹ U1:n ≤st V1:n.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "TL-G family with two different baselines G1, G2 (X1* ~ G1, X2* ~ G2)",
+  "compared": "shape vectors under majorization plus a baseline stochastic-order condition",
+  "hypotheses": [
+   {"text": "α* ⪯^m α", "formal": "majorization of shape vectors", "source": "statement"},
+   {"text": "X1* ≤st X2*, where X1* ~ G1 and X2* ~ G2", "formal": "baseline variables stochastically ordered (proof uses G2(x) <= G1(x) — i.e., G2 <=st-wise smaller per this paper's convention X <=st Y iff FX >= FY)", "source": "statement"},
+   {"text": "fixed θ > 0", "formal": "common scale", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "U1:n <=st V1:n"},
+  "quantifiers": "n >= 1, x >= 0",
+  "ambiguity": "Verified on rendered page 10: baseline condition is X1* ≤st X2*; since the proof converts it to G2(x) <= G1(x), it corresponds to X2*'s distribution being stochastically larger — noted as printed."
+ },
+ {
+  "paper": "arxiv:1908.05896",
+  "claim": "Theorem 3.6(i)",
+  "page": 10,
+  "quote": "Theorem 3.6. Let W1, W2, . . . , Wn and W1*, W2*, . . . , Wn* be the two sets of independent random variables with Wk ~ TL-G(α, θk, G1) and Wk* ~ TL-G(α, θk*, G2) for k = 1, 2, . . . , n, respectively. For fixed α > 0, if (i) θ ⪯_w θ*, then X1* ≤st X2* implies Wn:n ≤st Wn:n*;",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "TL-G with two baselines G1, G2; common α",
+  "compared": "scale vectors under weak majorization plus baseline ordering",
+  "hypotheses": [
+   {"text": "θ ⪯_w θ*", "formal": "weak majorization of scale vectors", "source": "statement"},
+   {"text": "X1* ≤st X2*", "formal": "baseline ordering", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Wn:n <=st Wn:n*"},
+  "quantifiers": "n >= 1",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:1908.05896",
+  "claim": "Theorem 3.6(ii)",
+  "page": 10,
+  "quote": "(ii) (θ1, θ2, . . . , θn) ≤ (θ1*, θ2*, . . . , θn*), i.e., if θk ≤ θk*, k = 1, 2, . . . , n, then X1* ≤st X2* implies Wn:n ≤st Wn:n*.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "TL-G with two baselines G1, G2; common α",
+  "compared": "coordinatewise scale ordering plus baseline ordering",
+  "hypotheses": [
+   {"text": "θk ≤ θk* for all k", "formal": "coordinatewise inequality", "source": "statement"},
+   {"text": "X1* ≤st X2*", "formal": "baseline ordering", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Wn:n <=st Wn:n*"},
+  "quantifiers": "n >= 1",
+  "ambiguity": ""
+ }
+]

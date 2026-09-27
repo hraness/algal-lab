@@ -1,0 +1,56 @@
+[
+ {
+  "paper": "doi:10.3390/sym15091796",
+  "claim": "Theorem 1",
+  "page": 6,
+  "quote": "Theorem 1. For two parallel systems with component lifetimes being distributed as (X1, X2) ~ MOE(λ1, λ2, λ3) and (Y1, Y2) ~ MOE(µ1, µ2, λ3), the following implication holds: ((λ1 + λ3)−1, (λ2 + λ3)−1) ⪰^m ((µ1 + λ3)−1, (µ2 + λ3)−1) ⇒ X2:2 ≥mrl Y2:2.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "Marshall–Olkin bivariate exponential MOE(λ1,λ2,λ3): F̄(x1,x2) = exp{−(λ1 x1 + λ2 x2 + λ3 (x1 ∨ x2))}",
+  "compared": "X2:2 (parallel system of MOE pair) vs Y2:2, sharing common λ3",
+  "hypotheses": [
+   {"text": "(X1, X2) ~ MOE(λ1, λ2, λ3) and (Y1, Y2) ~ MOE(µ1, µ2, λ3)", "formal": "MOE pairs with shared shock rate λ3", "source": "statement"},
+   {"text": "((λ1 + λ3)−1, (λ2 + λ3)−1) ⪰^m ((µ1 + λ3)−1, (µ2 + λ3)−1)", "formal": "vector of marginal means majorizes the other", "source": "statement"}
+  ],
+  "conclusion": {"order": "mrl", "direction": "X2:2 ≥_mrl Y2:2"},
+  "quantifiers": "n = 2; all t ≥ 0",
+  "numbers": "",
+  "ambiguity": "Symbol verified via PDF rendering: ⪰^m (majorization). Condition couples marginal means rather than marginal rates."
+ },
+ {
+  "paper": "doi:10.3390/sym15091796",
+  "claim": "Theorem 2",
+  "page": 7,
+  "quote": "Theorem 2. For η ∈ Θn(θ), we have R(X, n) ≥st R(Y, n). [with Θn(θ) = {η = (η1,...,ηn) ∈ En+ : θ ⪰^p η and θk ≥ ηk for k = 2,...,n}, where X1,...,Xn are independent exponential with hazard rates θ1,...,θn, Y1,...,Yn independent exponential with hazard rates η1,...,ηn, and R(X,n) = Xn:n − X1:n is the sample range]",
+  "kind": "theorem",
+  "model": "sample range",
+  "family": "Independent exponential variables with hazard rates θi (for X) and ηi (for Y); En+ = {x ∈ Rn : 0 < x1 ≤ ... ≤ xn}",
+  "compared": "R(X,n) vs R(Y,n), hazard-rate vectors θ vs η",
+  "hypotheses": [
+   {"text": "X1,...,Xn independent exponential with hazard rates θi; Y's likewise with rates ηi", "formal": "stated in section preamble", "source": "surrounding text"},
+   {"text": "η ∈ Θn(θ): θ ⪰^p η (p-majorization) and θk ≥ ηk for k = 2,...,n", "formal": "θ p-majorizes η (Π θ_(j) ≤ Π η_(j) by Definition 2(iii) reading 'a is said to p-majorize b' for θ vs η) plus componentwise domination of all but the smallest rate", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "R(X,n) ≥_st R(Y,n)"},
+  "quantifiers": "all x ≥ 0; n ≥ 2",
+  "numbers": "",
+  "ambiguity": "Symbol verified via PDF rendering: ⪰^p = p-majorization with θ the majorizing (more spread) vector."
+ },
+ {
+  "paper": "doi:10.3390/sym15091796",
+  "claim": "Theorem 3",
+  "page": 7,
+  "quote": "Theorem 3. For η ∈ Ωn(θ), we have R(X, n) ≥rh R(Y, n). [with Ωn(θ) = {η = (η1,...,ηn) ∈ En+ : θ ⪰^w η and θk ≥ ηk for k = 2,...,n}; independent exponentials with hazard rates θi (X) and ηi (Y); R(X,n) = Xn:n − X1:n]",
+  "kind": "theorem",
+  "model": "sample range",
+  "family": "Independent exponential variables; weak majorization",
+  "compared": "R(X,n) vs R(Y,n)",
+  "hypotheses": [
+   {"text": "independent exponential X with rates θ, Y with rates η", "formal": "section setup", "source": "surrounding text"},
+   {"text": "η ∈ Ωn(θ): θ ⪰^w η and θk ≥ ηk for k = 2,...,n", "formal": "θ weakly majorizes η plus componentwise domination", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "R(X,n) ≥_rh R(Y,n)"},
+  "quantifiers": "all x ≥ 0; n ≥ 2",
+  "numbers": "",
+  "ambiguity": "Symbol verified via PDF rendering: ⪰^w (weak majorization). Since p-majorization implies weak majorization for positive vectors, Ωn(θ) ⊇ Θn(θ)."
+ }
+]

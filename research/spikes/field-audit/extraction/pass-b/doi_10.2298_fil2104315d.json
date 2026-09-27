@@ -1,0 +1,787 @@
+[
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Theorem 3.1(i)",
+  "page": 6,
+  "quote": "For n = 2, let (A1), (A2) and (C1) hold. Also, assume alpha = beta = alpha 1_2 (alpha <= 1). (i) Suppose the function psi satisfies (C9). If theta = delta = theta 1_2 and (psi(p), lambda; 2) in M_2, then (psi(p), lambda; 2) >> (psi(q), mu; 2) => U_{2:2} >=st V_{2:2}.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "ELS model X ~ F^{alpha_i}((x - lambda_i)/theta_i) (exponentiated location-scale) with Bernoulli claim indicators; baseline hazard r(x) decreasing (C1)",
+  "compared": "transformed shock probability vector psi(p) vs psi(q), location vectors lambda vs mu; common scalar theta and alpha",
+  "hypotheses": [
+   {"text": "(A1),(A2),(C1); alpha = beta = alpha 1_2, alpha <= 1", "formal": "independence, Bernoulli shocks, decreasing baseline hazard, common shape alpha <= 1", "source": "statement"},
+   {"text": "psi satisfies (C9)", "formal": "psi convex and increasing", "source": "statement"},
+   {"text": "theta = delta = theta 1_2; (psi(p), lambda; 2) in M_2", "formal": "common scalar scale; matrix rows similarly ordered", "source": "statement"},
+   {"text": "(psi(p), lambda; 2) >> (psi(q), mu; 2)", "formal": "matrix chain majorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "U_{2:2} >=_st V_{2:2}"},
+  "quantifiers": "n = 2; t > max{lambda_i, mu_i}",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Theorem 3.1(ii)",
+  "page": 6,
+  "quote": "(ii) Suppose the function psi satisfies (C10). If lambda = mu = mu 1_2 and (psi(p), 1/theta; 2) in M_2, then (psi(p), 1/theta; 2) >> (psi(q), 1/delta; 2) => U_{2:2} >=st V_{2:2}.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "ELS model with Bernoulli claim indicators; baseline hazard decreasing",
+  "compared": "psi(p) vs psi(q), reciprocal scale vectors 1/theta vs 1/delta; common lambda, alpha",
+  "hypotheses": [
+   {"text": "(A1),(A2),(C1); alpha = beta = alpha 1_2, alpha <= 1", "formal": "common shape, decreasing baseline hazard", "source": "statement"},
+   {"text": "psi satisfies (C10)", "formal": "psi convex and decreasing", "source": "statement"},
+   {"text": "lambda = mu = mu 1_2; (psi(p), 1/theta; 2) in M_2", "formal": "common location; matrix rows similarly ordered", "source": "statement"},
+   {"text": "(psi(p), 1/theta; 2) >> (psi(q), 1/delta; 2)", "formal": "chain majorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "U_{2:2} >=_st V_{2:2}"},
+  "quantifiers": "n = 2",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Remark 3.1",
+  "page": 7,
+  "quote": "Remark 3.1. On using Theorem 3.1(ii), one can easily find out a lower bound for the reliability function of the largest claims having heterogeneous portfolios of risks in the form of reliability of the largest claims having homogeneous portfolio of risks. Consider a T-transform matrix T_{0.5} of order 2 x 2, where the first and second rows are same and equal to (1/2, 1/2). Let (psi(p1), psi(p2)) = (e^{-p1}, e^{-p2}) and 1/theta = (1/theta_1, 1/theta_2). Further, assume (psi(q1), psi(q2)) = ((e^{-p1} + e^{-p2})/2, (e^{-p1} + e^{-p2})/2) and (1/delta_1, 1/delta_2) = ((theta_1+theta_2)/(2 theta_1 theta_2), (theta_1+theta_2)/(2 theta_1 theta_2)). ... by Theorem 3.1(ii), we can propose a lower bound of the reliability function of U_{2:2} as F_bar_{2:2}(t) >= [1 - {1 + ln((e^{-p1}+e^{-p2})/2)} {1 - F^alpha((t - lambda)(theta_1+theta_2)/(2 theta_1 theta_2))}]^2.",
+  "kind": "remark",
+  "model": "parallel system",
+  "family": "ELS model, n = 2; psi(p) = e^{-p}; homogeneous reference portfolio with averaged psi(q) and 1/delta",
+  "compared": "heterogeneous U_{2:2} vs homogeneous V_{2:2} (averaged parameters)",
+  "hypotheses": [
+   {"text": "(psi(q1),psi(q2)) = average of (psi(p1),psi(p2)); (1/delta_i) = harmonic-mean-like average (theta_1+theta_2)/(2 theta_1 theta_2)", "formal": "T_{0.5} averaging matrix gives the chain majorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "U_{2:2} >=_st V_{2:2} yielding explicit lower bound on F_bar_{2:2}(t)"},
+  "quantifiers": "n = 2",
+  "numbers": "psi(p_i) = e^{-p_i}; 1/delta_i = (theta_1+theta_2)/(2 theta_1 theta_2)",
+  "ambiguity": "Remark derives a bound rather than a named claim; included as printed stochastic comparison application."
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Counterexample 3.1",
+  "page": 7,
+  "quote": "Counterexample 3.1. Let F(t) = 1 - (1 + t/5)^{-4}, t > 0 and psi(p) = 1 - p^3. It is easy to check that psi(p) is decreasing and concave. So, the condition in (C10) is relaxed. Let us take (alpha_1, alpha_2) = (beta_1, beta_2) = (0.01, 0.01), (1/theta_1, 1/theta_2) = (0.7, 0.6), (1/delta_1, 1/delta_2) = (0.66, 0.64), (lambda_1, lambda_2) = (mu_1, mu_2) = (0.9, 0.9), (p_1, p_2) = ((0.2)^{1/3}, (0.5)^{1/3}) and (q_1, q_2) = ((0.32)^{1/3}, (0.38)^{1/3}). Consider a T-transform matrix T_{0.6} = ((0.6, 0.4),(0.4, 0.6)). It can be shown that (psi(q_1), psi(q_2); 1/delta_1, 1/delta_2) = (psi(p_1), psi(p_2); 1/theta_1, 1/theta_2) T_{0.6}, which produces chain majorization. Further, the matrix is in M_2. Based on this present setup, we have F_{2:2}(1.5) - G_{2:2}(1.5) = 1.5928 x 10^{-5} (> 0) and F_{2:2}(1.6) - G_{2:2}(1.6) = -1.9324 x 10^{-4} (< 0). ... It establishes that Theorem 3.1(ii) does not hold, if (C10) is taken out.",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "ELS baseline F(t) = 1 - (1 + t/5)^{-4}; psi(p) = 1 - p^3 (concave, violating C10)",
+  "compared": "U_{2:2} vs V_{2:2} under chain-majorized (psi(p), 1/theta) vs (psi(q), 1/delta)",
+  "hypotheses": [
+   {"text": "(psi(p), 1/theta; 2) >> (psi(q), 1/delta; 2) and matrix in M_2, but psi not convex", "formal": "chain majorization holds; C10 violated", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "no st ordering (F_{2:2} - G_{2:2} changes sign)"},
+  "quantifiers": "n = 2",
+  "numbers": "alpha = beta = (0.01, 0.01); 1/theta = (0.7, 0.6); 1/delta = (0.66, 0.64); lambda = mu = (0.9, 0.9); p = ((0.2)^{1/3}, (0.5)^{1/3}); q = ((0.32)^{1/3}, (0.38)^{1/3}); F_{2:2}(1.5)-G_{2:2}(1.5) = 1.5928e-5, F_{2:2}(1.6)-G_{2:2}(1.6) = -1.9324e-4; Figure 1(a)",
+  "ambiguity": "Sign differences shown at two t values and in Figure 1(a)."
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Counterexample 3.2",
+  "page": 8,
+  "quote": "Counterexample 3.2. Consider the same baseline distribution function as in Counterexample 3.1. Suppose psi(p) = - ln p. Here, one can check that (C1) and (C10) are satisfied. Set (alpha_1, alpha_2) = (beta_1, beta_2) = (0.01, 0.01), (1/theta_1, 1/theta_2) = (0.5, 0.3), (1/delta_1, 1/delta_2) = (0.32, 0.48), (lambda_1, lambda_2) = (mu_1, mu_2) = (0.9, 0.9), (psi(p_1), psi(p_2)) = (0.23, 0.69) and (psi(q_1), psi(q_2)) = (0.644, 0.276). For a T-transform matrix T_{0.1} = ((0.1, 0.9),(0.9, 0.1)), we have (psi(q); 1/delta) = (psi(p); 1/theta) T_{0.1}. Thus, from Definition 2.4, chain majorization holds. Again, (psi(p); 1/theta) does not belong to M_2. Now, considering the assumed numerical values, we get F_{2:2}(1.6) - G_{2:2}(1.6) = -9.2138 x 10^{-6} (< 0) and F_{2:2}(1.7) - G_{2:2}(1.7) = 5.0560 x 10^{-5} (> 0), which negates the usual stochastic order, stated in Theorem 3.1(ii).",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "ELS baseline F(t) = 1 - (1 + t/5)^{-4}; psi(p) = -ln p (C10 satisfied), matrix not in M_2",
+  "compared": "U_{2:2} vs V_{2:2} when chain majorization holds but M_2 membership fails",
+  "hypotheses": [
+   {"text": "chain majorization holds but (psi(p), 1/theta; 2) not in M_2", "formal": "violation of the M_2 hypothesis of Theorem 3.1(ii)", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "no st ordering (sign change of F_{2:2} - G_{2:2})"},
+  "quantifiers": "n = 2",
+  "numbers": "1/theta = (0.5, 0.3); 1/delta = (0.32, 0.48); lambda = mu = (0.9, 0.9); psi(p) = (0.23, 0.69); psi(q) = (0.644, 0.276); T_{0.1}; F_{2:2}(1.6)-G_{2:2}(1.6) = -9.2138e-6, F_{2:2}(1.7)-G_{2:2}(1.7) = 5.056e-5; Figure 1(b)",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Theorem 3.2(i)",
+  "page": 9,
+  "quote": "Let us assume that (A1), (A2) and (C1) hold. Further, alpha = beta = alpha 1_n (alpha <= 1). Suppose T_w is a T-transform matrix. (i) Let psi satisfy (C9). If theta = delta = theta 1_n and (psi(p), lambda; n) in M_n, then (psi(q), mu; n) = (psi(p), lambda; n) T_w => U_{n:n} >=st V_{n:n}.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "ELS model, n >= 2 (generalization of Theorem 3.1(i) to arbitrary n)",
+  "compared": "(psi(q), mu; n) obtained via single T-transform from (psi(p), lambda; n)",
+  "hypotheses": [
+   {"text": "(A1),(A2),(C1); alpha = beta = alpha 1_n, alpha <= 1; psi satisfies (C9)", "formal": "common shape <= 1, decreasing baseline hazard, psi convex increasing", "source": "statement"},
+   {"text": "theta = delta = theta 1_n; (psi(p), lambda; n) in M_n", "formal": "common scalar scale; similarly ordered rows", "source": "statement"},
+   {"text": "(psi(q), mu; n) = (psi(p), lambda; n) T_w", "formal": "one-step T-transform chain majorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "U_{n:n} >=_st V_{n:n}"},
+  "quantifiers": "n >= 3 (arbitrary n)",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Theorem 3.2(ii)",
+  "page": 9,
+  "quote": "(ii) Let psi satisfy (C10). If lambda = mu = mu 1_n and (psi(p), 1/theta; n) in M_n, then (psi(q), 1/delta; n) = (psi(p), 1/theta; n) T_w => U_{n:n} >=st V_{n:n}.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "ELS model",
+  "compared": "(psi(q), 1/delta; n) via single T-transform from (psi(p), 1/theta; n)",
+  "hypotheses": [
+   {"text": "(A1),(A2),(C1); alpha = beta = alpha 1_n, alpha <= 1; psi satisfies (C10)", "formal": "common shape, decreasing hazard, psi convex decreasing", "source": "statement"},
+   {"text": "lambda = mu = mu 1_n; (psi(p), 1/theta; n) in M_n", "formal": "common location; M_n membership", "source": "statement"},
+   {"text": "(psi(q), 1/delta; n) = (psi(p), 1/theta; n) T_w", "formal": "one-step chain majorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "U_{n:n} >=_st V_{n:n}"},
+  "quantifiers": "n >= 3",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Corollary 3.1(i)",
+  "page": 9,
+  "quote": "Corollary 3.1. Suppose (A1), (A2) and (C1) hold. Also, let alpha = beta = alpha 1_n (alpha <= 1). (i) Let psi satisfy (C9). If theta = delta = theta 1_n and (psi(p), lambda; n) in M_n, then (psi(q), mu; n) = (psi(p), lambda; n) T_{w*} => U_{n:n} >=st V_{n:n}.",
+  "kind": "corollary",
+  "model": "parallel system",
+  "family": "ELS model; T_{w*} = T_{w1} ... T_{wk} product of same-structure T-transforms",
+  "compared": "finite same-structure chain of T-transforms",
+  "hypotheses": [
+   {"text": "same as Theorem 3.2(i) with T_w replaced by T_{w*}", "formal": "product of finitely many same-structure T-transforms", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "U_{n:n} >=_st V_{n:n}"},
+  "quantifiers": "n >= 3",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Corollary 3.1(ii)",
+  "page": 9,
+  "quote": "(ii) Let psi satisfy (C10). If lambda = mu = mu 1_n and (psi(p), 1/theta; n) in M_n, then (psi(q), 1/delta; n) = (psi(p), 1/theta; n) T_{w*} => U_{n:n} >=st V_{n:n}.",
+  "kind": "corollary",
+  "model": "parallel system",
+  "family": "ELS model",
+  "compared": "finite same-structure T-transform chain on (psi(p), 1/theta)",
+  "hypotheses": [
+   {"text": "same as Theorem 3.2(ii) with T_{w*}", "formal": "product of same-structure T-transforms", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "U_{n:n} >=_st V_{n:n}"},
+  "quantifiers": "n >= 3",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Theorem 3.3(i)",
+  "page": 9,
+  "quote": "Theorem 3.3. Let (A1), (A2) and (C1) hold. Assume alpha = beta = alpha 1_n (alpha <= 1). Further, let T_{w1}, ..., T_{wj} be the T-transform matrices with different structures for j = 1, ..., k-1, (k >= 2). (i) Suppose psi satisfies (C9). If theta = delta = theta 1_n and (psi(p), lambda; n) in M_n, then (psi(q), mu; n) = (psi(p), lambda; n) T_{w1} ... T_{wk} => U_{n:n} >=st V_{n:n}.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "ELS model; chain via T-transform matrices of different structures",
+  "compared": "(psi(q), mu; n) obtained via differently structured T-transform product",
+  "hypotheses": [
+   {"text": "(A1),(A2),(C1); alpha = beta = alpha 1_n, alpha <= 1; psi (C9); theta = delta = theta 1_n; (psi(p), lambda; n) in M_n", "formal": "same structural assumptions", "source": "statement"},
+   {"text": "(psi(q), mu; n) = (psi(p), lambda; n) T_{w1} ... T_{wk}", "formal": "finite chain majorization via different-structure T-transforms", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "U_{n:n} >=_st V_{n:n}"},
+  "quantifiers": "n >= 3",
+  "ambiguity": "Numbered 'different structures for j = 1, ..., k-1' — intermediate matrices preserve M_n membership at each step per proof."
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Theorem 3.3(ii)",
+  "page": 10,
+  "quote": "(ii) Suppose psi satisfies (C10). If lambda = mu = mu 1_n and (psi(p), 1/theta; n) in M_n, then (psi(q), 1/delta; n) = (psi(p), 1/theta; n) T_{w1} ... T_{wk} => U_{n:n} >=st V_{n:n}.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "ELS model",
+  "compared": "(psi(q), 1/delta; n) via differently structured T-transform chain",
+  "hypotheses": [
+   {"text": "same as part (i) with lambda = mu, psi (C10), (psi(p), 1/theta; n) in M_n", "formal": "common location, convex decreasing psi", "source": "statement"},
+   {"text": "(psi(q), 1/delta; n) = (psi(p), 1/theta; n) T_{w1} ... T_{wk}", "formal": "chain majorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "U_{n:n} >=_st V_{n:n}"},
+  "quantifiers": "n >= 3",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Theorem 3.4(i)",
+  "page": 10,
+  "quote": "Theorem 3.4. For n = 2, let (A1) and (A2) hold. Further, take alpha = beta = 1_2. (i) If theta = delta (= theta 1_2), p = q (= p 1_2) and (lambda, 1/theta; 2) in Q_2, then we have (lambda, 1/theta; 2) >> (mu, 1/delta; 2) => U_{2:2} >=rh V_{2:2}, provided (C2), C(3), (C4) and (C5) are satisfied.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "ELS model (alpha = 1), n = 2; baseline conditions C2 (xr(x) dec), C3 (x^2 r(x) dec), C4 (r'/r inc), C5 (xr(x) convex)",
+  "compared": "(lambda, 1/theta) vs (mu, 1/delta) matrices under chain majorization; rows oppositely ordered (Q_2)",
+  "hypotheses": [
+   {"text": "alpha = beta = 1_2; theta = delta; p = q; (lambda, 1/theta; 2) in Q_2", "formal": "scale model, common scalar scale and shocks, oppositely ordered rows", "source": "statement"},
+   {"text": "(lambda, 1/theta; 2) >> (mu, 1/delta; 2)", "formal": "chain majorization", "source": "statement"},
+   {"text": "(C2),(C3),(C4),(C5) satisfied", "formal": "baseline hazard monotonicity/convexity conditions", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "U_{2:2} >=_rh V_{2:2}"},
+  "quantifiers": "n = 2",
+  "ambiguity": "Text prints 'C(3)' typo for (C3)."
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Theorem 3.4(ii)",
+  "page": 10,
+  "quote": "(ii) Let psi satisfy (C9). If theta = delta (= theta 1_2) and (lambda, psi(p); 2) in M_2, then (lambda, psi(p); 2) >> (mu, psi(q); 2) => U_{2:2} >=rh V_{2:2}, provided (C1) and (C8) hold.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "ELS model (alpha = 1), n = 2; C1 (r decreasing), C8 (r convex)",
+  "compared": "(lambda, psi(p)) vs (mu, psi(q)) under chain majorization, similarly ordered rows",
+  "hypotheses": [
+   {"text": "alpha = beta = 1_2; theta = delta; psi satisfies (C9); (lambda, psi(p); 2) in M_2", "formal": "common scalar scale, convex increasing psi, similarly ordered rows", "source": "statement"},
+   {"text": "(lambda, psi(p); 2) >> (mu, psi(q); 2)", "formal": "chain majorization", "source": "statement"},
+   {"text": "(C1) and (C8)", "formal": "r decreasing and convex", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "U_{2:2} >=_rh V_{2:2}"},
+  "quantifiers": "n = 2",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Theorem 3.4(iii)",
+  "page": 10,
+  "quote": "(iii) Let psi satisfy (C9). If lambda = mu (= lambda 1_2) and (1/theta, psi(p); 2) in Q_2, then (1/theta, psi(p); 2) >> (1/delta, psi(q); 2) => U_{2:2} >=rh V_{2:2}, provided (C2) and (C5) are satisfied.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "ELS model (alpha = 1), n = 2; C2 (xr(x) dec), C5 (xr(x) convex)",
+  "compared": "(1/theta, psi(p)) vs (1/delta, psi(q)), oppositely ordered rows",
+  "hypotheses": [
+   {"text": "alpha = beta = 1_2; lambda = mu; psi (C9); (1/theta, psi(p); 2) in Q_2", "formal": "common location, convex increasing psi, oppositely ordered rows", "source": "statement"},
+   {"text": "(1/theta, psi(p); 2) >> (1/delta, psi(q); 2)", "formal": "chain majorization", "source": "statement"},
+   {"text": "(C2) and (C5)", "formal": "xr(x) decreasing and convex", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "U_{2:2} >=_rh V_{2:2}"},
+  "quantifiers": "n = 2",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Counterexample 3.3",
+  "page": 11,
+  "quote": "Counterexample 3.3. Consider the baseline distribution function as F(t) = 1 - (1 + 5t)^{-1/5}, t > 0, for which the hazard rate function r(x) is decreasing and convex. Let psi(p) = 1 - p^2. Clearly, psi(p) does not satisfy (C9). Set (alpha_1, alpha_2) = (beta_1, beta_2) = (1, 1), (theta_1, theta_2) = (delta_1, delta_2) = (sqrt(0.5), sqrt(0.5)), (lambda_1, lambda_2) = (0.9, 0.6), (mu_1, mu_2) = (0.81, 0.69), (p_1, p_2) = (sqrt(0.2), sqrt(0.3)) and (q_1, q_2) = (sqrt(0.23), sqrt(0.27)). Consider a T-transform matrix T_{0.7} = ((0.7, 0.3),(0.3, 0.7)). It can be shown that (mu; psi(q)) = (lambda; psi(p)) T_{0.7}, which yields chain majorization. Further, (lambda; psi(p)) in M_2. Denote eta(t) = r~_{2:2}(t) - s~_{2:2}(t). Then, eta(1.7) = 1.3522 x 10^{-4} (> 0) and eta(1.8) = -2.0998 x 10^{-4} (< 0), which shows that eta(t) changes sign, when t travels from 0 to infinity. Graph is presented in Figure 2(a) for clear view. Thus, U_{2:2} is not rh-ordered with V_{2:2}.",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "ELS baseline F(t) = 1 - (1+5t)^{-1/5} (r decreasing convex, so C1 & C8 hold); psi(p) = 1 - p^2 violates C9",
+  "compared": "U_{2:2} vs V_{2:2} under chain-majorized (lambda, psi(p)) vs (mu, psi(q))",
+  "hypotheses": [
+   {"text": "chain majorization and M_2 membership hold, but psi not convex-increasing", "formal": "C9 violated", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "no rh ordering; U_{2:2} not >=_rh V_{2:2} (eta(t) changes sign)"},
+  "quantifiers": "n = 2",
+  "numbers": "alpha = beta = (1,1); theta = delta = (sqrt(0.5), sqrt(0.5)); lambda = (0.9, 0.6); mu = (0.81, 0.69); p = (sqrt(0.2), sqrt(0.3)); q = (sqrt(0.23), sqrt(0.27)); eta(1.7) = 1.3522e-4 > 0, eta(1.8) = -2.0998e-4 < 0; Figure 2(a)",
+  "ambiguity": "Parameter values contain square-root typesetting ('sqrt 1', 'sqrt(0.5)', 'sqrt 0.2' etc.); interpreted as sqrt of each entry."
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Theorem 3.5(i)",
+  "page": 12,
+  "quote": "Theorem 3.5. Let (A1) and (A2) hold, and alpha = beta = 1_n. Let T_w be a T-transform matrix. (i) If theta = delta (= theta 1_n), p = q (= p 1_n) and (lambda, 1/theta; n) in Q_n hold, then we have (mu, 1/delta; n) = (lambda, 1/theta; n) T_w => U_{n:n} >=rh V_{n:n}, provided (C2), (C3), (C4) and (C5) are satisfied.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "ELS model (alpha = 1), arbitrary n",
+  "compared": "single T-transform of (lambda, 1/theta) matrix",
+  "hypotheses": [
+   {"text": "alpha = beta = 1_n; theta = delta; p = q; (lambda, 1/theta; n) in Q_n; (C2)-(C5)", "formal": "scale model, common scale/shocks, oppositely ordered rows, baseline conditions", "source": "statement"},
+   {"text": "(mu, 1/delta; n) = (lambda, 1/theta; n) T_w", "formal": "one-step chain majorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "U_{n:n} >=_rh V_{n:n}"},
+  "quantifiers": "n >= 3",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Theorem 3.5(ii)",
+  "page": 12,
+  "quote": "(ii) Suppose psi satisfies (C9). Then, for theta = delta (= theta 1_n) and (lambda, psi(p); n) in M_n, we have (mu, psi(q); n) = (lambda, psi(p); n) T_w => U_{n:n} >=rh V_{n:n}, provided (C1), (C8) hold.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "ELS model (alpha = 1), arbitrary n",
+  "compared": "(lambda, psi(p)) vs (mu, psi(q)) via T_w",
+  "hypotheses": [
+   {"text": "theta = delta; (lambda, psi(p); n) in M_n; psi (C9); (C1),(C8)", "formal": "common scale, similarly ordered rows, convex increasing psi, r decreasing convex", "source": "statement"},
+   {"text": "(mu, psi(q); n) = (lambda, psi(p); n) T_w", "formal": "chain majorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "U_{n:n} >=_rh V_{n:n}"},
+  "quantifiers": "n >= 3",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Theorem 3.5(iii)",
+  "page": 12,
+  "quote": "(iii) Suppose psi satisfies (C9). Then, for lambda = mu (= lambda 1_n) and (1/theta, psi(p); n) in Q_n, we have (1/delta, psi(q); n) = (1/theta, psi(p); n) T_w => U_{n:n} >=rh V_{n:n}, provided (C2), (C5) hold.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "ELS model (alpha = 1), arbitrary n",
+  "compared": "(1/theta, psi(p)) vs (1/delta, psi(q)) via T_w",
+  "hypotheses": [
+   {"text": "lambda = mu; (1/theta, psi(p); n) in Q_n; psi (C9); (C2),(C5)", "formal": "common location, oppositely ordered rows, convex increasing psi", "source": "statement"},
+   {"text": "(1/delta, psi(q); n) = (1/theta, psi(p); n) T_w", "formal": "chain majorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "U_{n:n} >=_rh V_{n:n}"},
+  "quantifiers": "n >= 3",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Corollary 3.2(i)",
+  "page": 12,
+  "quote": "Corollary 3.2. Under the assumptions in (A1) and (A2), let alpha = beta = 1_n. (i) Then, for theta = delta (= theta 1_n), p = q (= p 1_n) and (lambda, 1/theta; n) in Q_n, we get (mu, 1/delta; n) = (lambda, 1/theta; n) T_{w*} => U_{n:n} >=rh V_{n:n}, provided (C2), (C3), (C4) and (C5) hold.",
+  "kind": "corollary",
+  "model": "parallel system",
+  "family": "ELS model (alpha = 1), finite same-structure T-transform product T_{w*}",
+  "compared": "chain via same-structure T-transforms",
+  "hypotheses": [
+   {"text": "same as Theorem 3.5(i) with T_{w*}", "formal": "product of same-structure T-transforms", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "U_{n:n} >=_rh V_{n:n}"},
+  "quantifiers": "n >= 3",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Corollary 3.2(ii)",
+  "page": 12,
+  "quote": "(ii) Suppose psi satisfies (C9). Let (C1) and (C8) hold. Then, for theta = delta (= theta 1_n) and (lambda, psi(p); n) in M_n, we get (mu, psi(q); n) = (lambda, psi(p); n) T_{w*} => U_{n:n} >=rh V_{n:n}.",
+  "kind": "corollary",
+  "model": "parallel system",
+  "family": "ELS model (alpha = 1)",
+  "compared": "chain via same-structure T-transforms on (lambda, psi(p))",
+  "hypotheses": [
+   {"text": "same as Theorem 3.5(ii) with T_{w*}", "formal": "product of same-structure T-transforms", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "U_{n:n} >=_rh V_{n:n}"},
+  "quantifiers": "n >= 3",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Corollary 3.2(iii)",
+  "page": 12,
+  "quote": "(iii) Suppose psi satisfies (C9). Let (C2) and (C5) be satisfied. Further, assume lambda = mu (= lambda 1_n) and (1/theta, psi(p); n) in Q_n. Then, (1/delta, psi(q); n) = (1/theta, psi(p); n) T_{w*} => U_{n:n} >=rh V_{n:n}.",
+  "kind": "corollary",
+  "model": "parallel system",
+  "family": "ELS model (alpha = 1)",
+  "compared": "chain via same-structure T-transforms on (1/theta, psi(p))",
+  "hypotheses": [
+   {"text": "same as Theorem 3.5(iii) with T_{w*}", "formal": "product of same-structure T-transforms", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "U_{n:n} >=_rh V_{n:n}"},
+  "quantifiers": "n >= 3",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Theorem 3.6(i)",
+  "page": 12,
+  "quote": "Theorem 3.6. Under (A1) and (A2), let alpha = beta = 1_n. Further, let T_{w1}, ..., T_{wj} be the T-transform matrices with different structures, for j = 1, ..., k-1, where k >= 2. (i) Then, for theta = delta (= theta 1_n), p = q (= p 1_n) and (lambda, 1/theta; n) in Q_n, we get (mu, 1/delta; n) = (lambda, 1/theta; n) T_{w1} ... T_{wk} => U_{n:n} >=rh V_{n:n}, provided (C2), (C3), (C4) and (C5) hold.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "ELS model (alpha = 1), differently structured T-transform chain",
+  "compared": "chain majorization via different-structure T-transforms",
+  "hypotheses": [
+   {"text": "same as Theorem 3.5(i) with a different-structure product T_{w1}...T_{wk}", "formal": "chain majorization via differently structured transforms", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "U_{n:n} >=_rh V_{n:n}"},
+  "quantifiers": "n >= 3",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Theorem 3.6(ii)",
+  "page": 12,
+  "quote": "(ii) Suppose psi satisfies (C9). Let (C1) and (C8) hold. Then, for theta = delta (= theta 1_n) and (lambda, psi(p); n) in M_n, we get (mu, psi(q); n) = (lambda, psi(p); n) T_{w1} ... T_{wk} => U_{n:n} >=rh V_{n:n}.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "ELS model (alpha = 1)",
+  "compared": "chain via differently structured T-transforms on (lambda, psi(p))",
+  "hypotheses": [
+   {"text": "same as Theorem 3.5(ii) with different-structure product", "formal": "chain majorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "U_{n:n} >=_rh V_{n:n}"},
+  "quantifiers": "n >= 3",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Theorem 3.6(iii)",
+  "page": 13,
+  "quote": "(iii) Suppose psi satisfies (C9). For lambda = mu (= lambda 1_n) and (1/theta, psi(p); n) in Q_n, we have (1/delta, psi(q); n) = (1/theta, psi(p); n) T_{w1} ... T_{wk} => U_{n:n} >=rh V_{n:n}, provided (C2) and (C5) hold.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "ELS model (alpha = 1)",
+  "compared": "chain via differently structured T-transforms on (1/theta, psi(p))",
+  "hypotheses": [
+   {"text": "same as Theorem 3.5(iii) with different-structure product", "formal": "chain majorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "U_{n:n} >=_rh V_{n:n}"},
+  "quantifiers": "n >= 3",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Theorem 4.1",
+  "page": 13,
+  "quote": "Theorem 4.1. Let (A1) and (A2) hold. Also, for i = 1, ..., n, assume theta_i = delta_i = theta, p_i = q_i, lambda_i = mu_i = lambda and alpha, beta in E+ (D+), p in D+ (E+). Then, alpha >=^w beta implies U_{n:n} <=st V_{n:n}.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "ELS model, common scalar theta and lambda, shock vector p shared",
+  "compared": "shape vectors alpha vs beta under weak supermajorization; oppositely arranged shock vector",
+  "hypotheses": [
+   {"text": "theta_i = delta_i = theta, p_i = q_i, lambda_i = mu_i = lambda", "formal": "common scale, shocks, locations", "source": "statement"},
+   {"text": "alpha, beta in E+ (D+), p in D+ (E+)", "formal": "alpha vectors ascending (descending), p descending (ascending)", "source": "statement"},
+   {"text": "alpha >=^w beta", "formal": "alpha weakly supermajorizes beta", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "U_{n:n} <=_st V_{n:n}"},
+  "quantifiers": "n >= 2",
+  "ambiguity": "Conclusion direction U_{n:n} <=_st V_{n:n} combined with alpha >=^w beta (supermajorization of shape exponents reduces the largest claim)."
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Theorem 4.2",
+  "page": 14,
+  "quote": "Theorem 4.2. Suppose psi be a differentiable function. Let (A1) and (A2) hold. Further, take alpha_i = beta_i, theta_i = delta_i and lambda_i = mu_i, for i = 1, ..., n. If psi(.) satisfies (C9), then psi(p) >=^w psi(q) => U_{n:n} >=st V_{n:n}, provided theta, lambda, alpha, p, q in E+ (D+).",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "ELS model, common alpha, theta, lambda vectors; transformed shock probabilities",
+  "compared": "psi(p) vs psi(q) under weak supermajorization",
+  "hypotheses": [
+   {"text": "alpha_i = beta_i, theta_i = delta_i, lambda_i = mu_i", "formal": "identical marginal parameters", "source": "statement"},
+   {"text": "psi satisfies (C9)", "formal": "psi convex increasing", "source": "statement"},
+   {"text": "theta, lambda, alpha, p, q in E+ (D+)", "formal": "all vectors similarly ordered", "source": "statement"},
+   {"text": "psi(p) >=^w psi(q)", "formal": "transformed shock vectors weakly supermajorized", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "U_{n:n} >=_st V_{n:n}"},
+  "quantifiers": "n >= 2",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Theorem 4.3(i)",
+  "page": 14,
+  "quote": "Theorem 4.3. Suppose (A1) and (A2) hold. For i = 1, ..., n, let alpha_i = beta_i = alpha <= 1, p_i = q_i and lambda_i = mu_i. Take p, theta, delta, lambda in E+ (D+). (i) If (C2) holds, then 1/theta >=^p 1/delta implies U_{n:n} >=st V_{n:n}.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "ELS model, common scalar alpha <= 1, shocks and locations; reciprocal-scale comparison",
+  "compared": "reciprocal scale vectors 1/theta vs 1/delta via p-larger order",
+  "hypotheses": [
+   {"text": "alpha_i = beta_i = alpha <= 1, p_i = q_i, lambda_i = mu_i; p, theta, delta, lambda in E+ (D+)", "formal": "common scalars; similarly ordered vectors", "source": "statement"},
+   {"text": "(C2) holds", "formal": "xr(x) decreasing", "source": "statement"},
+   {"text": "1/theta >=^p 1/delta", "formal": "(1/theta_i) p-larger than (1/delta_i)", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "U_{n:n} >=_st V_{n:n}"},
+  "quantifiers": "n >= 2",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Theorem 4.3(ii)",
+  "page": 15,
+  "quote": "(ii) If (C3) holds, then 1/theta >=^rm 1/delta implies U_{n:n} >=st V_{n:n}.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "ELS model, common scalar alpha <= 1",
+  "compared": "reciprocal scale vectors via reciprocal majorization",
+  "hypotheses": [
+   {"text": "same common-scalar setup as 4.3(i)", "formal": "alpha common <= 1, common p, lambda vectors", "source": "statement"},
+   {"text": "(C3) holds", "formal": "x^2 r(x) decreasing", "source": "statement"},
+   {"text": "1/theta >=^rm 1/delta", "formal": "reciprocal majorization: sum of reciprocals of (1/theta_i) <= that of (1/delta_i), i.e., sum theta_(i) <= sum delta_(i) on sorted prefixes", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "U_{n:n} >=_st V_{n:n}"},
+  "quantifiers": "n >= 2",
+  "ambiguity": "rm majorization direction: x <=^rm y iff sums of 1/x_(i) <= sums of 1/y_(i); here applied to the reciprocal vectors 1/theta, 1/delta."
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Theorem 4.4",
+  "page": 16,
+  "quote": "Theorem 4.4. Let (A1), (A2) and (C2) hold. If theta, lambda, mu, p in D+ (E+), then we have lambda >=^w mu => U_{n:n} >=st V_{n:n}, provided alpha = beta = alpha 1_n (alpha <= 1), theta = delta and p = q.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "ELS model, common scalar alpha <= 1, theta = delta, p = q",
+  "compared": "location vectors lambda vs mu under weak supermajorization",
+  "hypotheses": [
+   {"text": "(C2); alpha = beta = alpha 1_n (alpha <= 1); theta = delta; p = q", "formal": "xr(x) decreasing, common shape/scale/shocks", "source": "statement"},
+   {"text": "theta, lambda, mu, p in D+ (E+)", "formal": "similarly ordered vectors", "source": "statement"},
+   {"text": "lambda >=^w mu", "formal": "lambda weakly supermajorizes mu", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "U_{n:n} >=_st V_{n:n}"},
+  "quantifiers": "n >= 2",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Theorem 4.5(i)",
+  "page": 16,
+  "quote": "Theorem 4.5. Let a function psi be differentiable. Suppose (A1) and (A2) hold. Further, let alpha = beta = alpha 1_n (alpha <= 1) and theta, lambda, mu, delta, p, q in E+ (D+). (i) If (C2) and (C9) hold, then 1/theta >=^p 1/delta, psi(p) >=^w psi(q) and lambda >=^w mu imply U_{n:n} >=st V_{n:n}.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "ELS model, common scalar alpha <= 1; joint heterogeneity in scale, shocks, location",
+  "compared": "joint majorization of 1/theta, psi(p), lambda",
+  "hypotheses": [
+   {"text": "alpha = beta = alpha 1_n (alpha <= 1); theta, lambda, mu, delta, p, q in E+ (D+)", "formal": "common shape; similarly ordered vectors", "source": "statement"},
+   {"text": "(C2) and (C9)", "formal": "xr(x) decreasing; psi convex increasing", "source": "statement"},
+   {"text": "1/theta >=^p 1/delta, psi(p) >=^w psi(q), lambda >=^w mu", "formal": "p-order, weak supermajorization, weak supermajorization", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "U_{n:n} >=_st V_{n:n}"},
+  "quantifiers": "n >= 2",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Theorem 4.5(ii)",
+  "page": 16,
+  "quote": "(ii) If (C2), (C3) and (C9) hold, then 1/theta >=^rm 1/delta, psi(p) >=^w psi(q) and lambda >=^w mu imply U_{n:n} >=st V_{n:n}.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "ELS model, common scalar alpha <= 1",
+  "compared": "joint reciprocal majorization of 1/theta plus supermajorizations",
+  "hypotheses": [
+   {"text": "(C2),(C3),(C9); 1/theta >=^rm 1/delta; psi(p) >=^w psi(q); lambda >=^w mu", "formal": "baseline and majorization conditions", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "U_{n:n} >=_st V_{n:n}"},
+  "quantifiers": "n >= 2",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Theorem 4.6",
+  "page": 16,
+  "quote": "Theorem 4.6. Let (A1) and (A2) hold, and psi be a differentiable function. Also, let lambda_i = mu_i = lambda, theta_i = delta_i = theta, for i = 1, ..., n. Then, alpha >=^m beta => U_{k:n} <=st V_{k:n}, provided psi(p) = psi(q) = v.",
+  "kind": "theorem",
+  "model": "other: general k-th largest claim",
+  "family": "ELS model, common scalar location/scale, equal transformed shock vector",
+  "compared": "shape vectors alpha vs beta under majorization; kth order statistic",
+  "hypotheses": [
+   {"text": "lambda_i = mu_i = lambda, theta_i = delta_i = theta; psi(p) = psi(q) = v", "formal": "all but alpha common scalars; identical shock transform", "source": "statement"},
+   {"text": "alpha >=^m beta", "formal": "alpha majorizes beta", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "U_{k:n} <=_st V_{k:n}"},
+  "quantifiers": "1 <= k <= n",
+  "ambiguity": "Proof via Pledger and Proschan (1971) Theorem 3.5."
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Theorem 4.7",
+  "page": 16,
+  "quote": "Theorem 4.7. Assume that (A1) and (A2) hold. Further, let alpha = beta = 1_n, p = q, theta = delta and lambda, theta, mu, p in E+ (D+). Then, lambda >=^w mu => U_{n:n} >=rh V_{n:n} if (C2), (C3) and (C4) are satisfied.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "ELS scale model (alpha = 1), common shocks and scale",
+  "compared": "location vectors lambda vs mu",
+  "hypotheses": [
+   {"text": "alpha = beta = 1_n, p = q, theta = delta; lambda, theta, mu, p in E+ (D+)", "formal": "scale model, common vectors, sortedness", "source": "statement"},
+   {"text": "(C2),(C3),(C4)", "formal": "xr(x) dec, x^2 r(x) dec, r'/r inc", "source": "statement"},
+   {"text": "lambda >=^w mu", "formal": "lambda weakly supermajorizes mu", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "U_{n:n} >=_rh V_{n:n}"},
+  "quantifiers": "n >= 2",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Theorem 4.8(i)",
+  "page": 17,
+  "quote": "Theorem 4.8. Suppose (A1) and (A2) hold. Further, we assume alpha = beta = 1_n, p = q, lambda = mu and lambda, theta, delta, p in E+ (D+). (i) If (C2) and (C5) hold, then 1/theta >=^w 1/delta => U_{n:n} >=rh V_{n:n}.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "ELS scale model, common locations and shocks",
+  "compared": "reciprocal scale vectors under weak supermajorization",
+  "hypotheses": [
+   {"text": "alpha = beta = 1_n, p = q, lambda = mu; lambda, theta, delta, p in E+ (D+)", "formal": "scale model, common lambda and p, sortedness", "source": "statement"},
+   {"text": "(C2) and (C5)", "formal": "xr(x) decreasing and convex", "source": "statement"},
+   {"text": "1/theta >=^w 1/delta", "formal": "weak supermajorization of reciprocal scales", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "U_{n:n} >=_rh V_{n:n}"},
+  "quantifiers": "n >= 2",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Theorem 4.8(ii)",
+  "page": 17,
+  "quote": "(ii) If (C2), (C6) and (C7) hold, then 1/theta >=^rm 1/delta => U_{n:n} >=rh V_{n:n}.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "ELS scale model, common locations and shocks",
+  "compared": "reciprocal scale vectors under reciprocal majorization",
+  "hypotheses": [
+   {"text": "same setup; (C2),(C6),(C7)", "formal": "xr(x) dec; x^3 r(x)^2 dec; x^2 [xr(x)]' inc", "source": "statement"},
+   {"text": "1/theta >=^rm 1/delta", "formal": "reciprocal majorization of reciprocal scales", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "U_{n:n} >=_rh V_{n:n}"},
+  "quantifiers": "n >= 2",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Theorem 4.9(i)",
+  "page": 17,
+  "quote": "Theorem 4.9. Let (A1), (A2) and (C2) hold. Then, (i) {alpha = beta = 1_n, theta >= delta, lambda >= mu, p >= q} => U_{n:n} >=rh V_{n:n}.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "ELS scale model",
+  "compared": "componentwise-ordered scale, location and shock vectors",
+  "hypotheses": [
+   {"text": "alpha = beta = 1_n; theta >= delta; lambda >= mu; p >= q; (C2)", "formal": "componentwise vector inequalities plus xr(x) decreasing", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "U_{n:n} >=_rh V_{n:n}"},
+  "quantifiers": "n >= 2",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Theorem 4.9(ii)",
+  "page": 17,
+  "quote": "(ii) {alpha = beta = alpha < 1, theta >= delta, lambda >= mu, p >= q} => U_{n:n} >=rh V_{n:n}.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "ELS model, common scalar shape alpha < 1",
+  "compared": "componentwise-ordered scale, location, shock vectors with common alpha < 1",
+  "hypotheses": [
+   {"text": "alpha = beta = alpha < 1; theta >= delta; lambda >= mu; p >= q", "formal": "componentwise inequalities, common scalar alpha < 1", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "U_{n:n} >=_rh V_{n:n}"},
+  "quantifiers": "n >= 2",
+  "ambiguity": "'alpha = beta = alpha < 1' printed as 'α = β = α < 1' — common scalar shape parameter."
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Theorem 4.10",
+  "page": 18,
+  "quote": "Theorem 4.10. Suppose psi : (0, 1) -> (0, infinity) be a differentiable function satisfying (C9). Let (A1), (A2) and (C2) hold. Again, theta = delta, lambda = mu, alpha = beta = alpha 1_n (<= 1) and lambda, theta, p, q in E+ (D+). Then, psi(p) >=^w psi(q) => U_{n:n} >=rh V_{n:n}.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "ELS model, common scale/location, common scalar alpha <= 1",
+  "compared": "transformed shock vectors psi(p) vs psi(q)",
+  "hypotheses": [
+   {"text": "psi satisfies (C9); (C2); theta = delta; lambda = mu; alpha = beta = alpha 1_n <= 1; lambda, theta, p, q in E+ (D+)", "formal": "convex increasing psi; xr(x) decreasing; sortedness", "source": "statement"},
+   {"text": "psi(p) >=^w psi(q)", "formal": "weak supermajorization of transformed shocks", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "U_{n:n} >=_rh V_{n:n}"},
+  "quantifiers": "n >= 2",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Theorem 4.11(i)",
+  "page": 19,
+  "quote": "Theorem 4.11. Let psi be a differentiable function. Further, let (A1) and (A2) hold. Also, assume alpha = beta = 1_n and theta, lambda, mu, delta, p, q in E+ (D+). (i) Suppose (C2), (C5) and (C9) hold. Then, 1/theta >=^w 1/delta, psi(p) >=^w psi(q) and lambda >=^w mu imply U_{n:n} >=rh V_{n:n}.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "ELS scale model; joint heterogeneity in 1/theta, psi(p), lambda",
+  "compared": "joint majorization conditions (weak supermajorization on all three)",
+  "hypotheses": [
+   {"text": "(C2),(C5),(C9); alpha = beta = 1_n; vectors in E+ (D+)", "formal": "baseline and psi conditions", "source": "statement"},
+   {"text": "1/theta >=^w 1/delta, psi(p) >=^w psi(q), lambda >=^w mu", "formal": "three weak supermajorizations", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "U_{n:n} >=_rh V_{n:n}"},
+  "quantifiers": "n >= 2",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Theorem 4.11(ii)",
+  "page": 19,
+  "quote": "(ii) Suppose (C2), (C3), (C6), (C7) and (C9) hold. Then, 1/theta >=^rm 1/delta, psi(p) >=^w psi(q) and lambda >=^w mu imply U_{n:n} >=rh V_{n:n}.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "ELS scale model; reciprocal majorization variant",
+  "compared": "joint majorization with reciprocal majorization on 1/theta",
+  "hypotheses": [
+   {"text": "(C2),(C3),(C6),(C7),(C9); 1/theta >=^rm 1/delta; psi(p) >=^w psi(q); lambda >=^w mu", "formal": "baseline conditions plus majorizations", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "U_{n:n} >=_rh V_{n:n}"},
+  "quantifiers": "n >= 2",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Corollary 5.1",
+  "page": 19,
+  "quote": "Corollary 5.1. Under the assumptions of Theorem 4.3 (i), 1/theta >=^p 1/delta => U_{n:n} >=st V_{n:n}.",
+  "kind": "corollary",
+  "model": "parallel system",
+  "family": "generalized linear failure rate baseline F(x) = 1 - exp(-(ax + (b/2)x^2)^d), a,b,d > 0 (d = 0.5, a = 1, b = 0 satisfy C1-C4)",
+  "compared": "GLFR-based largest claims via reciprocal-scale p-order",
+  "hypotheses": [
+   {"text": "assumptions of Theorem 4.3(i)", "formal": "GLFR baseline satisfying C1-C4", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "U_{n:n} >=_st V_{n:n}"},
+  "quantifiers": "n >= 2",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Corollary 5.2",
+  "page": 19,
+  "quote": "Corollary 5.2. Let the assumptions of Theorem 4.7 hold. Then, lambda >=^w mu => U_{n:n} >=rh V_{n:n}.",
+  "kind": "corollary",
+  "model": "parallel system",
+  "family": "GLFR baseline",
+  "compared": "location vectors lambda vs mu",
+  "hypotheses": [
+   {"text": "assumptions of Theorem 4.7", "formal": "GLFR baseline; scale model, common scale/shocks, sorted vectors", "source": "statement"},
+   {"text": "lambda >=^w mu", "formal": "weak supermajorization of locations", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "U_{n:n} >=_rh V_{n:n}"},
+  "quantifiers": "n >= 2",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Example 5.1",
+  "page": 19,
+  "quote": "Example 5.1. Consider {X1, X2, X3} and {Y1, Y2, Y3} to be the collections of independent random variables such that Xi ~ F^alpha((x - lambda_i)/theta_i) and Yi ~ F^alpha((x - mu_i)/theta_i), for i = 1, 2, 3. Also, suppose that {J1, J2, J3} is a set of independent Bernoulli random variables ... Set lambda = (1, 2.5, 5), mu = (0.5, 2, 3), theta = (2, 5, 9), p = q = (0.2, 0.8, 0.9), alpha = 1. Clearly, lambda, mu in E+ and lambda >=^w mu. Also (C2)-(C4) hold, for d = 0.5, a = 1, b = 0. Thus, as an application of Corollary 5.2, we have U_{3:3} >=rh V_{3:3}. The graphs of r~_{3:3}(t) and s~_{3:3}(t) are given in Figure 2(b), that verifies Corollary 5.3 [sic].",
+  "kind": "example",
+  "model": "parallel system",
+  "family": "GLFR baseline (d = 0.5, a = 1, b = 0), n = 3",
+  "compared": "U_{3:3} vs V_{3:3} with specified numeric parameters",
+  "hypotheses": [
+   {"text": "lambda, mu in E+; lambda >=^w mu; (C2)-(C4) hold", "formal": "weak supermajorization plus baseline conditions", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "U_{3:3} >=_rh V_{3:3}"},
+  "quantifiers": "n = 3",
+  "numbers": "lambda = (1, 2.5, 5), mu = (0.5, 2, 3), theta = (2, 5, 9), p = q = (0.2, 0.8, 0.9), alpha = 1; Figure 2(b)",
+  "ambiguity": "Text says 'verifies Corollary 5.3' but context indicates Corollary 5.2 (typo)."
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Corollary 5.3",
+  "page": 20,
+  "quote": "Corollary 5.3. Suppose the assumptions of Theorem 3.1 (i) hold. Again, let psi(p) = p^2. Then, we have (psi(p1), psi(p2); lambda1, lambda2) >> (psi(q1), psi(q2); mu1, mu2) => U_{2:2} >=st V_{2:2}.",
+  "kind": "corollary",
+  "model": "parallel system",
+  "family": "Marshall-Olkin extended quasi Lindley baseline F(x) = [1 - ((b+1)/(b+1+dx)) e^{-dx}]/[1 - (1-a)((b+1)/(b+1+dx)) e^{-dx}], a,d > 0, b > -1 (a = 0.1, b = -0.9, d = 0.8 satisfy C1-C8); psi(p) = p^2",
+  "compared": "chain-majorized (psi(p), lambda) matrices, n = 2",
+  "hypotheses": [
+   {"text": "assumptions of Theorem 3.1(i); psi(p) = p^2", "formal": "convex increasing psi; MO quasi Lindley baseline", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "U_{2:2} >=_st V_{2:2}"},
+  "quantifiers": "n = 2",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Corollary 5.4",
+  "page": 20,
+  "quote": "Corollary 5.4. Let us assume psi(p) = e^p. If all the assumptions of Theorem 4.11 (i) hold, then 1/theta >=^w 1/delta, psi(p) >=^w psi(q) and lambda >=^w mu imply U_{n:n} >=rh V_{n:n}.",
+  "kind": "corollary",
+  "model": "parallel system",
+  "family": "MO extended quasi Lindley baseline; psi(p) = e^p",
+  "compared": "joint majorizations as in Theorem 4.11(i)",
+  "hypotheses": [
+   {"text": "assumptions of Theorem 4.11(i); psi(p) = e^p", "formal": "baseline C1-C8 hold for (a,b,d) = (0.1,-0.9,0.8)", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "U_{n:n} >=_rh V_{n:n}"},
+  "quantifiers": "n >= 2",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.2298/FIL2104315D",
+  "claim": "Example 5.2",
+  "page": 20,
+  "quote": "Example 5.2. Let {X1, X2} and {Y1, Y2} be two collections of independent random variables such that Xi ~ F^alpha((x - lambda_i)/theta) and Yi ~ F^alpha((x - mu_i)/theta), for i = 1, 2. Set the baseline distribution function as Marshall-Olkin extended quasi Lindley distribution. ... Consider lambda = (5, 6.1), mu = (5.44, 5.66), theta = 0.01, alpha = 0.52, psi(p) = (0.2, 0.5), psi(q) = (0.32, 0.38). Here, psi(p) = p^2, which is increasing and convex with respect to p. Let T_{0.6} = ((0.6, 0.4),(0.4, 0.6)). Then, (psi(p1), psi(p2); lambda1, lambda2) >> (psi(q1), psi(q2); mu1, mu2). Thus, as an application of Corollary 5.3, we have U_{2:2} >=st V_{2:2}. The graph of F_{2:2}(t) - G_{2:2}(t) is given in Figure 3(a), that verifies Corollary 5.3.",
+  "kind": "example",
+  "model": "parallel system",
+  "family": "MO extended quasi Lindley baseline, n = 2",
+  "compared": "U_{2:2} vs V_{2:2} with specified numeric parameters and T_{0.6} transform",
+  "hypotheses": [
+   {"text": "chain majorization via T_{0.6}; psi(p) = p^2 convex increasing", "formal": "matrix chain majorization holds numerically", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "U_{2:2} >=_st V_{2:2}"},
+  "quantifiers": "n = 2",
+  "numbers": "lambda = (5, 6.1), mu = (5.44, 5.66), theta = 0.01, alpha = 0.52, psi(p) = (0.2, 0.5), psi(q) = (0.32, 0.38); Figure 3(a) plots F_{2:2}(t) - G_{2:2}(t)",
+  "ambiguity": ""
+ }
+]

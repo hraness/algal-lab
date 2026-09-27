@@ -1,0 +1,20 @@
+[
+  {
+    "paper": "doi:10.3390/sym12010075",
+    "claim": "Proposition 1",
+    "page": "9-10",
+    "quote": "Let X1 and X2 be two random variables such that X1 and X2 have the pdfs of the TIIPTL-G family given by f(x; alpha1, beta, xi) and f(x; alpha2, beta, xi), respectively. Then, we have X1 <=lr X2. ... which is negative if alpha2 < alpha1. Therefore, log[f(x; alpha1, beta, xi)/f(x; alpha2, beta, xi)] is decreasing, implying that f(x; alpha1, beta, xi)/f(x; alpha2, beta, xi) is decreasing. This proves the desired likelihood ratio.",
+    "kind": "proposition",
+    "model": "single",
+    "family": "TIIPTL-G family with pdfs f(x; alpha_i, beta, xi); baseline cdf G(x; xi); parameters alpha_i > 0, beta > 0, xi parameter vector of baseline",
+    "compared": "two TIIPTL-G variables X1, X2 differing only in the alpha parameter",
+    "hypotheses": [
+      {"text": "X1 and X2 have the pdfs f(x; alpha1, beta, xi) and f(x; alpha2, beta, xi)", "formal": "common beta and baseline xi; alpha1, alpha2 > 0", "source": "statement"},
+      {"text": "which is negative if alpha2 < alpha1", "formal": "d/dx log[f(x;alpha1)/f(x;alpha2)] = 2 beta (alpha2 - alpha1) g(x;xi)[1-G(x;xi)]^{beta-1} / ((1-G(x;xi))(2 - (1-G(x;xi))^beta)) < 0 iff alpha2 < alpha1, i.e. alpha1 > alpha2", "source": "proof (condition alpha1 > alpha2 is required for the stated order but omitted from the printed statement)"}
+    ],
+    "conclusion": {"order": "lr", "direction": "X1 <=lr X2"},
+    "quantifiers": "all x in the support; alpha_i, beta > 0",
+    "numbers": "",
+    "ambiguity": "The printed statement asserts X1 <=lr X2 with no parameter inequality, but the proof shows the log pdf-ratio derivative is negative only when alpha2 < alpha1 (i.e. alpha1 > alpha2); the condition alpha1 > alpha2 must be understood as implicit. The paper defines X <=lr Y by f_X/f_Y decreasing, consistent with the printed proof. PDF renders 'X1lr X2' with the order symbol partially lost."
+  }
+]

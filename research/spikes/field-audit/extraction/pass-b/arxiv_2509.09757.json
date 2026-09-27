@@ -1,0 +1,67 @@
+[
+ {
+  "paper": "arxiv:2509.09757",
+  "claim": "Theorem 1 (lr part)",
+  "page": 7,
+  "quote": "Theorem 1. Let X ~ RBTLL(γ, υ, p1) and Y ~ RBTLL(γ, υ, p2). If p1 < p2 then X is less than Y in the likelihood ratio order, that is, the ratio function of the corresponding PDFs decreases in x.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "record-based transmuted log-logistic RBTLL(γ, υ, p): pdf f(x) = e^γ υ x^{υ−1}(1 + p log(1 + e^γ x^υ) − p)/(1 + e^γ x^υ)^2 (up to normalization)",
+  "compared": "transmutation parameters p1 < p2; common γ, υ",
+  "hypotheses": [
+   {"text": "X ~ RBTLL(γ, υ, p1) and Y ~ RBTLL(γ, υ, p2)", "formal": "same γ, υ; different p", "source": "statement"},
+   {"text": "If p1 < p2", "formal": "p1 < p2", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "X <=_lr Y"},
+  "quantifiers": "x > 0; 0 < p1 < p2 < 1",
+  "ambiguity": "The pdf ratio printed in the proof mixes (α, β) and (γ, υ) notation; conclusion is lr order."
+ },
+ {
+  "paper": "arxiv:2509.09757",
+  "claim": "Theorem 1 (hr consequence)",
+  "page": 7,
+  "quote": "We notice that it follows that X is also less than Y in the hazard ratio, the mean residual life, and the stochastic orders under the conditions given in Theorem 1 from [20].",
+  "kind": "theorem",
+  "model": "single",
+  "family": "RBTLL(γ, υ, p)",
+  "compared": "p1 < p2; common γ, υ",
+  "hypotheses": [
+   {"text": "conditions given in Theorem 1 (p1 < p2)", "formal": "same premises", "source": "earlier theorem 1"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X <=_hr Y"},
+  "quantifiers": "x > 0",
+  "ambiguity": "Stated as a consequence via standard implications (citing ref. [20]); 'hazard ratio order' as printed."
+ },
+ {
+  "paper": "arxiv:2509.09757",
+  "claim": "Theorem 1 (mrl consequence)",
+  "page": 7,
+  "quote": "We notice that it follows that X is also less than Y in the hazard ratio, the mean residual life, and the stochastic orders under the conditions given in Theorem 1 from [20].",
+  "kind": "theorem",
+  "model": "single",
+  "family": "RBTLL(γ, υ, p)",
+  "compared": "p1 < p2; common γ, υ",
+  "hypotheses": [
+   {"text": "conditions given in Theorem 1 (p1 < p2)", "formal": "same premises", "source": "earlier theorem 1"}
+  ],
+  "conclusion": {"order": "mrl", "direction": "X <=_mrl Y"},
+  "quantifiers": "x > 0",
+  "ambiguity": "Consequence claim citing implications from [20]."
+ },
+ {
+  "paper": "arxiv:2509.09757",
+  "claim": "Theorem 1 (st consequence)",
+  "page": 7,
+  "quote": "We notice that it follows that X is also less than Y in the hazard ratio, the mean residual life, and the stochastic orders under the conditions given in Theorem 1 from [20].",
+  "kind": "theorem",
+  "model": "single",
+  "family": "RBTLL(γ, υ, p)",
+  "compared": "p1 < p2; common γ, υ",
+  "hypotheses": [
+   {"text": "conditions given in Theorem 1 (p1 < p2)", "formal": "same premises", "source": "earlier theorem 1"}
+  ],
+  "conclusion": {"order": "st", "direction": "X <=_st Y"},
+  "quantifiers": "x > 0",
+  "ambiguity": ""
+ }
+]

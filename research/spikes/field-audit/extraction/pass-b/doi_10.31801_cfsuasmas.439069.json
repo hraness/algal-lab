@@ -1,0 +1,35 @@
+[
+ {
+  "paper": "doi:10.31801/cfsuasmas.439069",
+  "claim": "Lemma 2.5",
+  "page": 4,
+  "quote": "Lemma 2.5. By considering (4) [h_F(x;phi,alpha) = alpha h(x)(phi + H(x))^{...}], we have - if r(x) is increasing and phi >= 1 then r_F(x;phi,alpha) is increasing. - if r(x) is decreasing and phi >= 1 then r_F(x;phi,alpha) is decreasing.",
+  "kind": "lemma",
+  "model": "univariate hazard shape",
+  "family": "NLCH_G family: new lifetime distribution generated from cumulative hazard rate H(x) of baseline G; hazard h_F(x) = alpha h(x)(phi+H(x))^{phi-1} (weighted baseline hazard)",
+  "compared": "monotonicity (IFR/DFR) preservation from baseline hazard r(x) to model hazard r_F(x)",
+  "hypotheses": [
+   {"text": "phi >= 1", "formal": "parameter condition (OCR: ' 1')", "source": "statement"}
+  ],
+  "conclusion": {"order": "other", "direction": "hazard-rate monotonicity preserved: increasing r(x) => increasing r_F; decreasing r(x) => decreasing r_F"},
+  "quantifiers": "x > 0",
+  "ambiguity": "Shape-preservation lemma rather than a comparison of two random variables; included because it bounds the model hazard behavior relevant to ordering results. Parameter symbols are OCR-damaged (alpha, phi inferred from context)."
+ },
+ {
+  "paper": "doi:10.31801/cfsuasmas.439069",
+  "claim": "Lemma 2.6",
+  "page": 4,
+  "quote": "Lemma 2.6. Let X_F and X_G be two random variables corresponding with proposed model (1) and distribution G respectively, then under the condition phi >= 1: - if alpha > 1 then X_F <=hr X_G. - if alpha < 1 then X_G <=hr X_F. [Definition recalled:] X is less than Y in hazard rate order, X <=hr Y, if h_X(x) >= h_Y(x), for all x in the union of supports of X and Y.",
+  "kind": "lemma",
+  "model": "univariate",
+  "family": "NLCH_G model vs its baseline distribution G",
+  "compared": "X_F (NLCH_G variate) vs X_G (baseline G variate)",
+  "hypotheses": [
+   {"text": "phi >= 1", "formal": "shape parameter condition", "source": "statement"},
+   {"text": "alpha > 1 or alpha < 1", "formal": "scale/power parameter alternatives", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "alpha > 1 => X_F <=_hr X_G; alpha < 1 => X_G <=_hr X_F"},
+  "quantifiers": "all x in union of supports",
+  "ambiguity": "The <= symbol between X_F and X_G is dropped in OCR; direction inferred from hazard weight w(x) = (phi+H(x))^{phi-1} with alpha > 1 inflating the hazard (X_F smaller in hr order). Verify against source PDF if precision is required."
+ }
+]

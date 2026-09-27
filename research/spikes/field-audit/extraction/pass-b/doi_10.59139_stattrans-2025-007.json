@@ -1,0 +1,19 @@
+[
+ {
+  "paper": "doi:10.59139/stattrans-2025-007",
+  "claim": "Theorem 1",
+  "page": 7,
+  "quote": "Theorem 1 Let X ~ GMOPG ⇄ (θ, α1, λ) and Y ~ GMOPG(θ, α2, λ). If α1 < α2, then X ≤lr Y. [Context:] Let X and Y be two random variables with cdfs F and G, respectively, corresponding pdf's f and g. Then X is said to be smaller than Y in the likelihood ratio order (X ≤lr Y) if f(t)/g(t) is decreasing in t ≥ 0. Here we present a result of likelihood ratio ordering.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "generalized Marshall-Olkin Poisson-G family GMOPG(θ, α, λ): survival function F̄(t) = α^θ (e^{−λG(t)} − e^{−λ})^θ / (1 − e^{−λ})^θ with baseline cdf G (sf/cdf garbled in text layer, Eq. (4))",
+  "compared": "shape parameter α1 vs α2; common θ, λ and baseline G",
+  "hypotheses": [
+   {"text": "X ~ GMOPG(θ, α1, λ) and Y ~ GMOPG(θ, α2, λ)", "formal": "same θ, λ, baseline G; different α", "source": "statement"},
+   {"text": "If α1 < α2", "formal": "α1 < α2", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "X <=_lr Y, i.e. GMOPG(θ,α1,λ) <=_lr GMOPG(θ,α2,λ)"},
+  "quantifiers": "all t ≥ 0; α1 < α2",
+  "ambiguity": "The text layer drops most math glyphs; statement verified on the page image, where X's family appears with a stray '⇄' symbol between GMOPG and the parameter list. Proof computes f(t)/g(t) = (α1/α2)^θ [(1−α2e^{−λ}−ᾱ2e^{−λG(t)})/(1−α1e^{−λ}−ᾱ1e^{−λG(t)})]^{θ+1} and asserts its derivative is negative when α1 < α2."
+ }
+]

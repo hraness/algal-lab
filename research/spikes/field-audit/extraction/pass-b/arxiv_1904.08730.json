@@ -1,0 +1,260 @@
+[
+  {
+    "paper": "arxiv:1904.08730",
+    "claim": "Theorem 3.1",
+    "page": "6",
+    "quote": "Let X1, X2 and X1*, X2* be two pairs of non-negative independent random variables such that Xi ~ EG2(thetai, phi, alphai), and Xi* ~ EG2(thetai*, phi, alphai*) for i = 1, 2. Then, if [alpha1 alpha2; theta1 theta2] in S2 we have [alpha1 alpha2; theta1 theta2] >> [alpha*1 alpha*2; theta*1 theta*2] ==> X1:2 <=st X1:2*.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "exponentiated Gumbel type-II EG2(theta, phi, alpha): reliability F̄_X1:2(x) = prod_{i=1}^2 (1 - e^{-theta_i x^{-phi}})^{alpha_i}; common inner shape phi",
+    "compared": "X1:2 vs X1:2*; 2x2 parameter matrices (alpha; theta) under multivariate chain majorization",
+    "hypotheses": [
+      {"text": "[alpha1 alpha2; theta1 theta2] in S2", "formal": "rows oppositely ordered: (alpha1 - alpha2)(theta1 - theta2) <= 0", "source": "statement; S2 defined earlier (set of matrices with oppositely-ordered rows)"},
+      {"text": "[alpha; theta] >> [alpha*; theta*]", "formal": "chain majorization: [alpha*; theta*] = [alpha; theta] T_w for a T-transform", "source": "statement; Definition 2.5"}
+    ],
+    "conclusion": {"order": "st", "direction": "X1:2 <=st X1:2* (equivalently X1:2* >=st X1:2)"},
+    "quantifiers": "n = 2; x > 0",
+    "numbers": "",
+    "ambiguity": "The printed conclusion symbol is garbled ('==> X1:2* >= X1:2'); Example 3.3 confirms the direction X1:2 <=st X1:2*. Page-number markers are bottom-centered; Theorem 3.1's statement begins the page following marker 5."
+  },
+  {
+    "paper": "arxiv:1904.08730",
+    "claim": "Theorem 3.2",
+    "page": "7",
+    "quote": "Let X1, X2 and X1*, X2* be two pairs of non-negative independent random variables such that Xi ~ EG2(thetai, phi, alphai), and Xi* ~ EG2(thetai*, phi, alphai*) for i = 1, 2. Then, if [alpha1 alpha2; theta1 theta2] in T2 we have [alpha1 alpha2; theta1 theta2] >> [alpha*1 alpha*2; theta*1 theta*2] ==> X2:2 >=st X2:2*.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "EG2(theta, phi, alpha); cdf F_X2:2(x) = prod_{i=1}^2 [1 - (1 - e^{-theta_i x^{-phi}})^{alpha_i}]",
+    "compared": "X2:2 vs X2:2*; parameter matrices under chain majorization with T2 cone",
+    "hypotheses": [
+      {"text": "[alpha1 alpha2; theta1 theta2] in T2", "formal": "oppositely ordered rows and alpha_i >= 1 (T2 = S2 with the alpha >= 1 restriction per the proof)", "source": "statement and proof (line ~449: 'alpha1, alpha2 >= 1')"},
+      {"text": "[alpha; theta] >> [alpha*; theta*]", "formal": "chain majorization", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "X2:2 >=st X2:2*"},
+    "quantifiers": "n = 2; x > 0",
+    "numbers": "",
+    "ambiguity": "T2 membership includes the condition alpha_i >= 1, used in the proof but only implicit in the printed statement."
+  },
+  {
+    "paper": "arxiv:1904.08730",
+    "claim": "Example 3.3",
+    "page": "9",
+    "quote": "Let X1, X2 be a pair of independent random variables such that Xi ~ EG2(thetai, phi, alphai), i = 1, 2. Furthermore, let X1*, X2* be an another pair of independent random variables with Xi* ~ EG2(thetai*, phi, alphai*), i = 1, 2. Set [alpha1 alpha2; theta1 theta2] = [0.54 0.66; 1.7 1.4] and [alpha*1 alpha*2; theta*1 theta*2] = [0.5 0.7; 1.8 1.3]. We can see that both the matrices belong in S2. Consider a T-transform matrix: T0.8 = 0.8 I + 0.2 Pi = [0.8 0.2; 0.2 0.8], and we have [alpha1 alpha2; theta1 theta2] = [alpha*1 alpha*2; theta*1 theta*2] T0.8, which satisfies the Definition 2.5, so we have [alpha; theta] >> [alpha*; theta*]. Therefore, from Theorem 3.1, we get X1:2 <=st X1:2*, for any x > 0.",
+    "kind": "example",
+    "model": "series system",
+    "family": "EG2(thetai, phi, alphai)",
+    "compared": "X1:2 vs X1:2*",
+    "hypotheses": [
+      {"text": "both matrices in S2; base matrix = starred matrix times T0.8", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "X1:2 <=st X1:2*"},
+    "quantifiers": "n = 2; x > 0",
+    "numbers": "[alpha;theta] = [0.54 0.66; 1.7 1.4]; [alpha*;theta*] = [0.5 0.7; 1.8 1.3]; T0.8 = [0.8 0.2; 0.2 0.8]",
+    "ambiguity": ""
+  },
+  {
+    "paper": "arxiv:1904.08730",
+    "claim": "Example 3.4",
+    "page": "9",
+    "quote": "Set [alpha1 alpha2; theta1 theta2] = [2.34 2.26; 1.32 1.38] and [alpha*1 alpha*2; theta*1 theta*2] = [2.1 2.5; 1.5 1.2]. We can see that both the matrices belong in T2. Consider a T-transform matrix: T0.6 = 0.4 I + 0.6 Pi = [0.4 0.6; 0.6 0.4], and we have [alpha1 alpha2; theta1 theta2] = [alpha*1 alpha*2; theta*1 theta*2] T0.4. So, according to the Definition 2.5 we have [alpha; theta] >> [alpha*; theta*]. Therefore, from Theorem 3.2, we get X2:2 >=st X2:2*, for any x > 0.",
+    "kind": "example",
+    "model": "parallel system",
+    "family": "EG2(thetai, phi, alphai)",
+    "compared": "X2:2 vs X2:2*",
+    "hypotheses": [
+      {"text": "both matrices in T2; base = starred x T0.4", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "X2:2 >=st X2:2*"},
+    "quantifiers": "n = 2; x > 0",
+    "numbers": "[alpha;theta] = [2.34 2.26; 1.32 1.38]; [alpha*;theta*] = [2.1 2.5; 1.5 1.2]; T0.6 = [0.4 0.6; 0.6 0.4] (printed 'T0.6 = 0.4 I + 0.6 Pi', and product uses T0.4 notation in text)",
+    "ambiguity": "Text interchanges the labels T0.6 and T0.4 for the same matrix [0.4 0.6; 0.6 0.4]."
+  },
+  {
+    "paper": "arxiv:1904.08730",
+    "claim": "Theorem 3.5(1)",
+    "page": "9-10",
+    "quote": "Let X1, ...., Xn and X1*, ...., Xn* be two sets of non-negative independent random variables such that Xi ~ EG2(thetai, phi, alphai), and Xi* ~ EG2(thetai*, phi, alphai*) for i = 1, ..., n. (1) Assume that [alpha1 .... alphan; theta1 .... thetan] in Tn, and [alpha*1 .... alpha*n; theta*1 .... theta*n] = [alpha1 .... alphan; theta1 .... thetan] Tw^{(i,j)}. Then, we have Xn:n >=st Xn:n*.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "EG2(thetai, phi, alphai)",
+    "compared": "Xn:n vs Xn:n*; single (i,j) T-transform on the parameter matrix",
+    "hypotheses": [
+      {"text": "[alpha; theta] in Tn", "formal": "oppositely ordered rows (with alpha_i >= 1)", "source": "statement"},
+      {"text": "[alpha*; theta*] = [alpha; theta] Tw^{(i,j)}", "formal": "star matrix obtained by a T-transform interchanging coordinates i and j", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Xn:n >=st Xn:n*"},
+    "quantifiers": "all n; the transform interchanges coordinates i, j",
+    "numbers": "",
+    "ambiguity": ""
+  },
+  {
+    "paper": "arxiv:1904.08730",
+    "claim": "Theorem 3.5(2)",
+    "page": "9-10",
+    "quote": "(2) Assume that [alpha1 .... alphan; theta1 .... thetan] in Sn, and [alpha*1 .... alpha*n; theta*1 .... theta*n] = [alpha1 .... alphan; theta1 .... thetan] Tw^{(i,j)}. Then, we have X1:n <=st X1:n*.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "EG2(thetai, phi, alphai)",
+    "compared": "X1:n vs X1:n*",
+    "hypotheses": [
+      {"text": "[alpha; theta] in Sn and star matrix = base x Tw^{(i,j)}", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "X1:n <=st X1:n*"},
+    "quantifiers": "all n",
+    "numbers": "",
+    "ambiguity": ""
+  },
+  {
+    "paper": "arxiv:1904.08730",
+    "claim": "Corollary 3.6(1)",
+    "page": "9-10",
+    "quote": "(1) Assume that [alpha1 .... alphan; theta1 .... thetan] in Tn, and [alpha*1 .... alpha*n; theta*1 .... theta*n] = [alpha1 .... alphan; theta1 .... thetan] Tw1^{(i,j)} ... Twk^{(i,j)}. Where Twi, i = 1, 2, ...., k have the same structure. Then, we have Xn:n >=st Xn:n*.",
+    "kind": "corollary",
+    "model": "parallel system",
+    "family": "EG2(thetai, phi, alphai)",
+    "compared": "Xn:n vs Xn:n*; product of same-structure T-transforms",
+    "hypotheses": [
+      {"text": "[alpha; theta] in Tn; star matrix = base x Tw1...Twk, all Twi same structure", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Xn:n >=st Xn:n*"},
+    "quantifiers": "all n; k finite",
+    "numbers": "",
+    "ambiguity": ""
+  },
+  {
+    "paper": "arxiv:1904.08730",
+    "claim": "Corollary 3.6(2)",
+    "page": "9-10",
+    "quote": "(2) Assume that [alpha1 .... alphan; theta1 .... thetan] in Sn, and [alpha*1 .... alpha*n; theta*1 .... theta*n] = [alpha1 .... alphan; theta1 .... thetan] Tw1^{(i,j)} ... Twk^{(i,j)}. Where Twi, i = 1, 2, ..., k have the same structure. Then, we have X1:n <=st X1:n*.",
+    "kind": "corollary",
+    "model": "series system",
+    "family": "EG2(thetai, phi, alphai)",
+    "compared": "X1:n vs X1:n*",
+    "hypotheses": [
+      {"text": "[alpha; theta] in Sn; star matrix = base x product of same-structure T-transforms", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "X1:n <=st X1:n*"},
+    "quantifiers": "all n; k finite",
+    "numbers": "",
+    "ambiguity": ""
+  },
+  {
+    "paper": "arxiv:1904.08730",
+    "claim": "Theorem 3.7(1)",
+    "page": "10",
+    "quote": "(1) Assume that [alpha1 .... alphan; theta1 .... thetan] in Tn, [alpha1 .... alphan; theta1 .... thetan] Tw1 ... Twi in Tn for i = 1, ...., k - 1, (k >= 2). If [alpha*1 .... alpha*n; theta*1 .... theta*n] = [alpha1 .... alphan; theta1 .... thetan] Tw1 ... Twk, then, we have Xn:n >=st Xn:n*.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "EG2(thetai, phi, alphai)",
+    "compared": "Xn:n vs Xn:n*; product of T-transforms with possibly different structures",
+    "hypotheses": [
+      {"text": "base matrix in Tn and every partial product Tw1...Twi remains in Tn (i = 1,...,k-1)", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Xn:n >=st Xn:n*"},
+    "quantifiers": "all n; k >= 2",
+    "numbers": "",
+    "ambiguity": ""
+  },
+  {
+    "paper": "arxiv:1904.08730",
+    "claim": "Theorem 3.7(2)",
+    "page": "10-11",
+    "quote": "(2) Assume that [alpha1 .... alphan; theta1 .... thetan] in Sn, [alpha1 .... alphan; theta1 .... thetan] Tw1 ... Twi in Sn for i = 1, ...., k - 1, (k >= 2). If [alpha*1 .... alpha*n; theta*1 .... theta*n] = [alpha1 .... alphan; theta1 .... thetan] Tw1 ... Twk, then, we have X1:n <=st X1:n*.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "EG2(thetai, phi, alphai)",
+    "compared": "X1:n vs X1:n*",
+    "hypotheses": [
+      {"text": "base matrix in Sn and every partial product remains in Sn", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "X1:n <=st X1:n*"},
+    "quantifiers": "all n; k >= 2",
+    "numbers": "",
+    "ambiguity": ""
+  },
+  {
+    "paper": "arxiv:1904.08730",
+    "claim": "Theorem 3.8",
+    "page": "11",
+    "quote": "Let X1, ......, Xn, and X1*, ....., Xn* be two sets of non-negative independent random variables such that Xi ~ EG2(theta, phi, alphai), and Xi* ~ EG2(theta, phi, alphai*), i = 1, 2, ...., n. Then, if (alpha1, ..., alphan) ≽m (alpha*1, ..., alpha*n), we have X1:n =st X1:n*.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "EG2(theta, phi, alphai) — common scale theta and inner shape phi; only outer shape alphai varies",
+    "compared": "X1:n vs X1:n*; equality in distribution of the minima despite heterogeneous alphas",
+    "hypotheses": [
+      {"text": "(alpha1,...,alphan) ≽m (alpha*1,...,alpha*n)", "formal": "alpha majorizes alpha* (though the conclusion is equality regardless)", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "X1:n =st X1:n* (stochastic equality)"},
+    "quantifiers": "all n; x > 0",
+    "numbers": "",
+    "ambiguity": "The minimum's survival function depends on alpha only through sum alphai, so equality holds under common sum (majorization preserves sum). The paper prints '=st'."
+  },
+  {
+    "paper": "arxiv:1904.08730",
+    "claim": "Theorem 3.9",
+    "page": "11",
+    "quote": "Let X1, ......, Xn, and X1*, ....., Xn* be two sets of non-negative independent random variables such that Xi ~ EG2(theta, phi, alphai), and Xi* ~ EG2(theta, phi, alphai*), i = 1, 2, ...., n. Then, if (alpha1, ..., alphan) ≽m (alpha*1, ..., alpha*n), we have Xn:n >=rf Xn:n*.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "EG2(theta, phi, alphai); reversed failure rate r̃_Xn:n(x) = theta phi x^{-phi-1} e^{-theta x^{-phi}} sum_i alpha_i (1 - e^{-theta x^{-phi}})^{alpha_i - 1}/(1 - (1 - e^{-theta x^{-phi}})^{alpha_i})",
+    "compared": "Xn:n vs Xn:n* in the reversed failure rate order",
+    "hypotheses": [
+      {"text": "(alpha1,...,alphan) ≽m (alpha*1,...,alpha*n)", "formal": "alpha majorizes alpha*", "source": "statement"}
+    ],
+    "conclusion": {"order": "rh", "direction": "Xn:n >=rf Xn:n* (paper's rf = reversed failure rate ordering)"},
+    "quantifiers": "all n; x > 0",
+    "numbers": "",
+    "ambiguity": "The paper denotes the reversed failure rate order by 'rf'; mapped to rh. Proof uses Schur-convexity of sum_i phi(alphai, .) via Lemma 2.9."
+  },
+  {
+    "paper": "arxiv:1904.08730",
+    "claim": "Theorem 3.10",
+    "page": "12",
+    "quote": "Let X1, ......, Xn, and X1*, ....., Xn* be two sets of non-negative independent random variables such that Xi ~ EG2(theta, phi, alphai), and Xi* ~ EG2(theta, phi, alphai*), i = 1, 2, ...., n. Then if sum_{i=1}^n alphai <= sum_{i=1}^n alphai*, we have X1:n <=lr X1:n*.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "EG2(theta, phi, alphai)",
+    "compared": "X1:n vs X1:n*; sums of outer shape parameters",
+    "hypotheses": [
+      {"text": "sum alphai <= sum alphai*", "formal": "Σ_i alpha_i <= Σ_i alpha_i*", "source": "statement"}
+    ],
+    "conclusion": {"order": "lr", "direction": "X1:n <=lr X1:n*"},
+    "quantifiers": "all n; x > 0; theta, phi > 0",
+    "numbers": "",
+    "ambiguity": ""
+  },
+  {
+    "paper": "arxiv:1904.08730",
+    "claim": "Theorem 3.11",
+    "page": "13",
+    "quote": "Let X1, ......, Xn, and X1*, ....., Xn* be two sets of non-negative independent random variables such that Xi ~ EG2(theta, phii, alpha), and Xi* ~ EG2(theta, phi*i, alpha), i = 1, 2, ...., n. Then, if (phi1, ..., phin) ≽m (phi*1, ..., phi*n), we have X1:n <=st X1:n*.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "EG2(theta, phii, alpha) — common scale theta and outer shape alpha; inner shape phii varies",
+    "compared": "X1:n vs X1:n*; inner shape vectors phi vs phi* under majorization",
+    "hypotheses": [
+      {"text": "(phi1,...,phin) ≽m (phi*1,...,phi*n)", "formal": "phi majorizes phi*", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "X1:n <=st X1:n*"},
+    "quantifiers": "all n; x > 0",
+    "numbers": "",
+    "ambiguity": "Proof claims F̄_X1:n Schur-concave in phi; the sign analysis uses g(theta,phi) monotonicity piecewise in x in (0,1) vs x >= 1."
+  },
+  {
+    "paper": "arxiv:1904.08730",
+    "claim": "Example 3.12",
+    "page": "14",
+    "quote": "Let X1, X2, X3 and X1*, X2*, X3* be two sets of non-negative independent random variables such that Xi ~ EG2(5, phii, 2), and Xi* ~ EG2(5, phi*i, 2), i = 1, 2, 3. Let us choose phi1 = 0.1, phi2 = 1.14, phi3 = 0.3 and phi*1 = 0.6, phi*2 = 0.9, phi*3 = 0.04. It is clear that (phi1, ..., phin) ≽m (phi*1, ..., phi*n). Now, from the Figure 1, in the next page, we observe that the reliability functions cross each other. This implies that Xn:n is not >=st Xn:n* [printed: Xn:n ≁st Xn:n*].",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "EG2(5, phii, 2)",
+    "compared": "Xn:n vs Xn:n* under phi majorization",
+    "hypotheses": [
+      {"text": "phi = (0.1,1.14,0.3) majorizes phi* = (0.6,0.9,0.04)", "formal": "as stated (sums 1.54 both)", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "no usual stochastic ordering between Xn:n and Xn:n* (reliability functions cross, Figure 1)"},
+    "quantifiers": "n = 3",
+    "numbers": "theta = 5, alpha = 2; phi = (0.1, 1.14, 0.3); phi* = (0.6, 0.9, 0.04)",
+    "ambiguity": "Shows the min-only result of Theorem 3.11 does not extend to the largest order statistic: with phi ≽m phi*, Xn:n and Xn:n* are not st-comparable."
+  }
+]

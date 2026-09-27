@@ -1,0 +1,121 @@
+[
+ {
+  "paper": "doi:10.3390/math9233069",
+  "claim": "Proposition 3",
+  "page": 5,
+  "quote": "Let X ~ MEG(eta, beta_1) and Y ~ MEG(eta, beta_2). If beta_2 > beta_1, then X <=LR Y.",
+  "kind": "proposition",
+  "model": "other: two distributions of the same family",
+  "family": "modified exponentiated family MEG(eta,beta): cdf F(y; eta, beta) = ([1+G(y;eta)]^beta - 1)/(2^beta - 1), pdf f = beta g (1+G)^{beta-1}/(2^beta - 1)",
+  "compared": "shape parameter beta_1 vs beta_2, same parent G(eta)",
+  "hypotheses": [
+   {"text": "beta_2 > beta_1", "formal": "ordered shape parameters", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "X <=_LR Y"},
+  "quantifiers": "all y in support; beta_i > 0",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3390/math9233069",
+  "claim": "Corollary 1, hazard rate part",
+  "page": 5,
+  "quote": "Let X ~ MEG(eta, beta_1) and Y ~ MEG(eta, beta_2). If beta_2 > beta_1, then 1. X <=HR Y and X <=ST Y. 2. E(X^k) <= E(Y^k) for all k in Z+.",
+  "kind": "corollary",
+  "model": "other: two distributions of the same family",
+  "family": "MEG(eta, beta)",
+  "compared": "beta_1 vs beta_2",
+  "hypotheses": [
+   {"text": "beta_2 > beta_1", "formal": "ordered shape parameters", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X <=_HR Y"},
+  "quantifiers": "all x",
+  "numbers": "",
+  "ambiguity": "Consequence of Proposition 3 via the printed implications LR => HR => ST."
+ },
+ {
+  "paper": "doi:10.3390/math9233069",
+  "claim": "Corollary 1, usual stochastic order part",
+  "page": 5,
+  "quote": "If beta_2 > beta_1, then 1. X <=HR Y and X <=ST Y. 2. E(X^k) <= E(Y^k) for all k in Z+.",
+  "kind": "corollary",
+  "model": "other: two distributions of the same family",
+  "family": "MEG(eta, beta)",
+  "compared": "beta_1 vs beta_2",
+  "hypotheses": [
+   {"text": "beta_2 > beta_1", "formal": "ordered shape parameters", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X <=_ST Y (plus moment ordering E(X^k) <= E(Y^k))"},
+  "quantifiers": "all x",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3390/math9233069",
+  "claim": "Proposition 4",
+  "page": 5,
+  "quote": "Let X1 and X2 be two Poisson-MEG mixtures with cdfs H1(x; beta_1) and H2(x; beta_2), respectively. If beta_2 > beta_1, then X1 <=LR X2.",
+  "kind": "proposition",
+  "model": "mixture",
+  "family": "Poisson-MEG mixture: X|Lambda=lambda ~ Poisson(lambda), Lambda ~ MEG(eta, beta)",
+  "compared": "mixing parameter beta_1 vs beta_2",
+  "hypotheses": [
+   {"text": "beta_2 > beta_1", "formal": "ordered shape parameters", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "X1 <=_LR X2"},
+  "quantifiers": "x >= 0; lambda > 0",
+  "numbers": "",
+  "ambiguity": "Via Lambda_1 <=LR Lambda_2 (Prop. 3), Poisson TP2 property, and mixture preservation (Shaked-Shanthikumar Thm 1.C.17)."
+ },
+ {
+  "paper": "doi:10.3390/math9233069",
+  "claim": "Corollary 2, hazard rate part",
+  "page": 6,
+  "quote": "Let X1 and X2 be two Poisson-MEG mixtures with cdfs H1(x; beta_1) and H2(x; beta_2) and hrfs h1 and h2, respectively. If beta_2 > beta_1 then 1. X1 <=HR X2 and X1 <=ST X2. 2. E(X1^k) <= E(X2^k), for k in Z+.",
+  "kind": "corollary",
+  "model": "mixture",
+  "family": "Poisson-MEG mixture",
+  "compared": "beta_1 vs beta_2",
+  "hypotheses": [
+   {"text": "beta_2 > beta_1", "formal": "ordered shape parameters", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X1 <=_HR X2"},
+  "quantifiers": "x >= 0",
+  "numbers": "",
+  "ambiguity": "Proof omitted; implication of Proposition 4."
+ },
+ {
+  "paper": "doi:10.3390/math9233069",
+  "claim": "Corollary 2, usual stochastic order part",
+  "page": 6,
+  "quote": "If beta_2 > beta_1 then 1. X1 <=HR X2 and X1 <=ST X2. 2. E(X1^k) <= E(X2^k), for k in Z+.",
+  "kind": "corollary",
+  "model": "mixture",
+  "family": "Poisson-MEG mixture",
+  "compared": "beta_1 vs beta_2",
+  "hypotheses": [
+   {"text": "beta_2 > beta_1", "formal": "ordered shape parameters", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X1 <=_ST X2"},
+  "quantifiers": "x >= 0",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3390/math9233069",
+  "claim": "Corollary 3",
+  "page": 6,
+  "quote": "Let X ~ MEG(eta, beta_1) and Y ~ MEG(eta, beta_2). If beta_2 > beta_1, then 1. X_{r:n} <=ST Y_{r:n} for r = 1, ..., n. 2. E(X_{r:n}) <= E(Y_{r:n}), provided the expectations exist.",
+  "kind": "corollary",
+  "model": "order statistic",
+  "family": "MEG(eta, beta); iid samples from each distribution",
+  "compared": "rth order statistics of iid samples from the two MEG laws",
+  "hypotheses": [
+   {"text": "beta_2 > beta_1", "formal": "ordered shape parameters", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X_{r:n} <=_ST Y_{r:n} for every r = 1,...,n"},
+  "quantifiers": "n >= 1; 1 <= r <= n",
+  "numbers": "",
+  "ambiguity": "Via st-ordering preservation of order statistics (ref. [22], Theorem 4.4.1)."
+ }
+]

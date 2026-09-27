@@ -1,0 +1,56 @@
+[
+ {
+  "paper": "doi:10.3390/fractalfract9060388",
+  "claim": "Example 3",
+  "page": 13,
+  "quote": "Example 3. Consider Y1 and Y2 with cdfs G1(y) = y/β1 (0 ≤ y ≤ β1) and G2(y) = y/β2 (0 ≤ y ≤ β2), respectively. For β2 ≥ β1, Y1 ≤sto Y2 holds. Applying Table 1, we compute RFGxΦν(Y1) = β1 κ(ν)/(ν + 1) ≤ β2 κ(ν)/(ν + 1) = RFGxΦν(Y2).",
+  "kind": "example",
+  "model": "single",
+  "family": "Uniform on (0, β): G(y) = y/β; parameters β1, β2 > 0",
+  "compared": "uniform cdfs with β2 ≥ β1",
+  "hypotheses": [
+   {"text": "G1(y) = y/β1 (0 ≤ y ≤ β1) and G2(y) = y/β2 (0 ≤ y ≤ β2)", "formal": "Y_i ~ Uniform(0, β_i)", "source": "statement"},
+   {"text": "For β2 ≥ β1", "formal": "β2 ≥ β1", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Y1 ≤_st Y2"},
+  "quantifiers": "all y; ν ≥ 1 for the extropy comparison",
+  "numbers": "RFGxΦν(Y1) = β1 κ(ν)/(ν+1) ≤ β2 κ(ν)/(ν+1) = RFGxΦν(Y2), supporting Theorem 6",
+  "ambiguity": "Text layer garbles the cdf fractions ('G1(y) = β y'); reconstructed as y/β1, uniform on (0,β1), consistent with Table 1's uniform row."
+ },
+ {
+  "paper": "doi:10.3390/fractalfract9060388",
+  "claim": "Corollary 1(1) (order statistics)",
+  "page": 13,
+  "quote": "Corollary 1. 1. Assume that Y(k) and Z(K) denote the Kth order statistic from samples Y1, Y2, . . . , Ys and Z1, Z2, . . . , Zs, respectively, both of size s. If Y ≤sto Z, then Y(k) ≤sto Z(k), which implies RFGxΦν(Y(k)) ≥ RFGxΦν(Z(k)) for all k = 1, 2, . . . , s, ν ≥ 1.",
+  "kind": "corollary",
+  "model": "order statistic",
+  "family": "i.i.d. samples from arbitrary nonnegative distributions Y and Z",
+  "compared": "parent distributions Y vs Z; same sample size s and same rank k",
+  "hypotheses": [
+   {"text": "Y(k) and Z(K) denote the Kth order statistic from samples Y1,...,Ys and Z1,...,Zs, both of size s", "formal": "i.i.d. samples of size s", "source": "statement"},
+   {"text": "If Y ≤sto Z", "formal": "Y ≤_st Z", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Y(k) ≤_st Z(k)"},
+  "quantifiers": "all k = 1,...,s; ν ≥ 1",
+  "numbers": "",
+  "ambiguity": "The printed extropy consequence 'RFGxΦν(Y(k)) ≥ RFGxΦν(Z(k))' conflicts with Theorem 6, which under Y(k) ≤sto Z(k) gives ≤; recorded as printed."
+ },
+ {
+  "paper": "doi:10.3390/fractalfract9060388",
+  "claim": "Corollary 1(2) (record values)",
+  "page": 13,
+  "quote": "2. Assume that Us and Vs correspond to the sth record values from the sequences {Ys, s ≥ 1} and {Zs, s ≥ 1}, respectively. When Y ≤sto Z, it follows that Us ≤sto Vs, and consequently, RFGxΦν(Us) ≥ RFGxΦν(Vs) holds for k = 1, 2, . . . , s, ν ≥ 1.",
+  "kind": "corollary",
+  "model": "other: record values",
+  "family": "i.i.d. sequences from arbitrary nonnegative distributions Y and Z",
+  "compared": "parent distributions Y vs Z; same record index s",
+  "hypotheses": [
+   {"text": "Us and Vs correspond to the sth record values from {Ys} and {Zs}", "formal": "sth record values of i.i.d. sequences", "source": "statement"},
+   {"text": "When Y ≤sto Z", "formal": "Y ≤_st Z", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Us ≤_st Vs"},
+  "quantifiers": "s ≥ 1; ν ≥ 1",
+  "numbers": "",
+  "ambiguity": "Same direction conflict for the extropy inequality as in part 1. Quantifier 'for all k = 1, 2, . . . , s' refers to nothing in this part (record values are indexed by s) — recorded verbatim."
+ }
+]

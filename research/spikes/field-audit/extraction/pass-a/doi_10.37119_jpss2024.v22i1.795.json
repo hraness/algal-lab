@@ -1,0 +1,20 @@
+[
+ {
+  "paper": "doi:10.37119/jpss2024.v22i1.795",
+  "claim": "Section 10 (Stochastic Ordering) result",
+  "page": 92,
+  "quote": "Prove that the mixture of Gompertz and gamma distribution complies with the ordering with the highest likelihood (the likelihood ratio ordering). Assume that X and Y are two independent Random variables with probability distribution function f_X(x; η, β) and f_Y(x; ψ, δ). If η < ψ and β < δ, then Λ = f_X(x;η,β)/f_Y(x;ψ,δ) = [η/(1+β)(e^{βx} e^{−(η/β)(e^{βx}−1)}) + (η²β/2) x² e^{−ηx}] / [ψ/(1+δ)(e^{δx} e^{−(ψ/δ)(e^{δx}−1)}) + (ψ²δ/2) x² e^{−ψx}]. Therefore, log[Λ] = ... Differentiating with respect to x, ∂log[Λ]/∂x = ... Hence, [∂log[Λ]/∂x] < 0, if η < ψ, β < δ.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "Mixture of Gompertz and gamma (MGGD): f(x;η,β) = η/(1+β)·e^{βx}e^{−(η/β)(e^{βx}−1)} + (η²β/2)·x²e^{−ηx}, x > 0, η,β > 0 (equation (1); Gompertz pdf ηe^{βx}e^{−η/β(e^{βx}−1)} mixed with gamma(3,η) pdf (η³/2)x²e^{−ηx} — weights appear to be 1/(1+β) and β/(1+β))",
+  "compared": "parameter pairs (η,β) vs (ψ,δ) with η < ψ and β < δ",
+  "hypotheses": [
+   {"text": "X and Y are two independent Random variables with probability distribution function f_X(x; η, β) and f_Y(x; ψ, δ)", "formal": "X ~ MGGD(η,β), Y ~ MGGD(ψ,δ)", "source": "statement"},
+   {"text": "If η < ψ and β < δ", "formal": "η < ψ and β < δ", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "X ≤_lr Y (likelihood ratio f_X/f_Y decreasing in x)"},
+  "quantifiers": "all x > 0",
+  "numbers": "",
+  "ambiguity": "Unnumbered claim embedded in Section 10 narrative ('Prove that ... complies with ... likelihood ratio ordering'), then proved inline. Text layer drops most math glyphs; statement reconstructed from rendered PDF page 92. Preamble definitions are loosely written (e.g., hazard-rate order defined as h_X(x) ≥ F_Y(x), and MRL order comparing MRL(X) ≤ MRL(X)); recorded verbatim. The 'Hence [·] < 0' line refers to ∂log[Λ]/∂x."
+ }
+]

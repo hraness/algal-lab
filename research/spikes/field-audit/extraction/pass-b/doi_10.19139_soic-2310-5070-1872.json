@@ -1,0 +1,34 @@
+[
+ {
+  "paper": "doi:10.19139/soic-2310-5070-1872",
+  "claim": "Section 3.6 Theorem (lr)",
+  "page": 10,
+  "quote": "Theorem: Suppose X1 ~ TL − TIIEHL − MO − G(b1, α, δ, ξ) and X2 ~ TL − TIIEHL − MO − G(b2, α, δ, ξ). If b1 < b2, then f(x;b1,α,δ,ξ)/f(x;b2,α,δ,ξ) is decreasing in x. ... If b1 < b2, then ∂/∂x [f(x;b1,α,δ,ξ)/f(x;b2,α,δ,ξ)] < 0, which implies that likelihood ratio order exist among X1 and X2, that is, X2 <lr X1.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "Topp-Leone type II exponentiated half logistic–Marshall-Olkin-G family TL-TIIEHL-MO-G(b, α, δ, ξ) over baseline G(·;ξ)",
+  "compared": "Topp-Leone parameters b1 < b2; common α, δ, ξ",
+  "hypotheses": [
+   {"text": "X1 ~ TL-TIIEHL-MO-G(b1, α, δ, ξ), X2 ~ TL-TIIEHL-MO-G(b2, α, δ, ξ); b1 < b2", "formal": "b1 < b2", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "X2 <=_lr X1 as printed (the ratio f1/f2 decreasing would instead mean X1 <=_lr X2 — see ambiguity)"},
+  "quantifiers": "all x",
+  "ambiguity": "The printed conclusion 'X2 <lr X1' is inconsistent with f1/f2 decreasing, which under the stated definition (f_X/f_Y decreasing ⟹ X <lr Y) gives X1 <lr X2; direction likely transposed in print."
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-1872",
+  "claim": "Section 3.6 Theorem (st)",
+  "page": 10,
+  "quote": "As a result, we conclude that X1 and X2 are stochastically ordered, that is, X1 <st X2.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "TL-TIIEHL-MO-G(b, α, δ, ξ)",
+  "compared": "b1 < b2; common α, δ, ξ",
+  "hypotheses": [
+   {"text": "same conditions (b1 < b2)", "formal": "from the lr argument", "source": "earlier theorem"}
+  ],
+  "conclusion": {"order": "st", "direction": "X1 <=_st X2 (as printed; opposite to the printed lr direction)"},
+  "quantifiers": "all x",
+  "ambiguity": "Printed 'X1 <st X2' contradicts the printed 'X2 <lr X1' (since lr ⟹ st same direction); at least one direction is misprinted."
+ }
+]

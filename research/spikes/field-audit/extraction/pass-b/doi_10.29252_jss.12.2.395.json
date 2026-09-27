@@ -1,0 +1,126 @@
+[
+ {
+  "paper": "doi:10.29252/jss.12.2.395",
+  "claim": "Introduction, Eq. (1)",
+  "page": 4,
+  "quote": "(p1, · · · , pn) ≽^m (p*1, · · · , p*n) ⇒ Σ_{i=1}^n I_{p_i} ≤cx Σ_{i=1}^n I_{p*_i},   (1) [context: let Ip1, . . . , Ipn be independent Bernoulli random variables with E(Ipi) = pi and Ip*1, . . . , Ip*n independent Bernoulli with E(Ip*i) = p*i; presented as the result of Ma (2000) which the paper then generalizes].",
+  "kind": "theorem",
+  "model": "other: sum of independent Bernoulli occurrence indicators (claim counts)",
+  "family": "independent Bernoulli(pi) variables; no parametric claim-size family",
+  "compared": "occurrence probability vectors p vs p* under majorization",
+  "hypotheses": [
+   {"text": "(p1, · · · , pn) ≽^m (p*1, · · · , p*n)", "formal": "p majorized by p* (equal totals implied by majorization)", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: convex (cx) order", "direction": "Σ I_{pi} <=_cx Σ I_{p*i}"},
+  "quantifiers": "n ≥ 1",
+  "ambiguity": "Paper is in Persian; math verified on rendered pages. ≽^m denotes 'is majorized by'. Statement is a restated result of Ma (2000) used as background."
+ },
+ {
+  "paper": "doi:10.29252/jss.12.2.395",
+  "claim": "Introduction, Eq. (2)",
+  "page": 4,
+  "quote": "(p1, · · · , pn) ≽^m (p*1, · · · , p*n) ⇒ Sn(λ, p) ≤cx Sn(λ, p*)   (2) [context: Sn(λ, p) = Σ_{i=1}^n I_{p_i}X_{λi} is the aggregate claim amount; presented as the paper's generalization of Ma (2000) result (1) to the case of different claim counts but the same severities].",
+  "kind": "theorem",
+  "model": "other: aggregate claim amount (random sum over Bernoulli-activated severities)",
+  "family": "severity variables X_{λi} (distribution unrestricted in the display); Bernoulli occurrence indicators",
+  "compared": "occurrence probability vectors p vs p* under majorization; common severity vector λ",
+  "hypotheses": [
+   {"text": "(p1, · · · , pn) ≽^m (p*1, · · · , p*n)", "formal": "p majorized by p*", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: convex (cx) order", "direction": "Sn(λ,p) <=_cx Sn(λ,p*)"},
+  "quantifiers": "n ≥ 1",
+  "ambiguity": "Displayed without separate numbering as a theorem; stated in the introduction as a proved result."
+ },
+ {
+  "paper": "doi:10.29252/jss.12.2.395",
+  "claim": "Introduction, Eq. (3)",
+  "page": 4,
+  "quote": "(h(p1), · · · , h(pn)) ≽^m (h(p*1), · · · , h(p*n)) ⇒ Sn(λ, p) ≥st Sn(λ, p*)   (3) [context: where h(p) = −log p or h(p) = (1 − p)/p; the non-negative rvs X_{λ1}, . . . , X_{λn} satisfy X_{λ1} ≤st · · · ≤st X_{λn} and (h(p1), . . . , h(pn)) ∈ D_n^+ where D_n^+ = {(a1, . . . , an) : a1 ≥ · · · ≥ an ≥ 0}].",
+  "kind": "theorem",
+  "model": "other: aggregate claim amount",
+  "family": "severities X_{λi} already st-ordered ascending; transformed probabilities h(p)",
+  "compared": "transformed occurrence vectors h(p) vs h(p*) under majorization; common λ",
+  "hypotheses": [
+   {"text": "X_{λ1} ≤st · · · ≤st X_{λn} and (h(p1), . . . , h(pn)) ∈ D_n^+", "formal": "severities st-increasing; transformed probabilities sorted descending non-negative", "source": "statement"},
+   {"text": "h(p) = −log p or h(p) = (1 − p)/p", "formal": "two admissible transforms", "source": "statement"},
+   {"text": "(h(p1), · · · , h(pn)) ≽^m (h(p*1), · · · , h(p*n))", "formal": "h(p) majorized by h(p*)", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Sn(λ,p) >=_st Sn(λ,p*)"},
+  "quantifiers": "n ≥ 1",
+  "ambiguity": "Introductory display summarizing an existing/prior result (attributed to the author's earlier work); included as a stated claim."
+ },
+ {
+  "paper": "doi:10.29252/jss.12.2.395",
+  "claim": "Theorem 2 (قضیه ٢)",
+  "page": 10,
+  "quote": "Theorem 2. Suppose X_{λ1}, . . . , X_{λn} is a set of independent non-negative random variables where X_{λi} has survival function F̄(·; λi), i = 1, . . . , n with λi > 0. Also suppose Ip1, . . . , Ipn are independent Bernoulli random variables with E(Ipi) = pi, independent of the X_{λi}. Then if (h(p1:n), . . . , h(pn:n)) ≽^m (h(q1:n), . . . , h(qn:n)), we have Σ_{i=1}^n I_{p_{i:n}} X_{λ_{n−i+1:n}} ≥st Σ_{i=1}^n I_{q_{i:n}} X_{λ_{n−i+1:n}},  (4) where h(p) = −log p or h(p) = (1 − p)/p.",
+  "kind": "theorem",
+  "model": "other: aggregate claim amount",
+  "family": "semiparametric severities X_{λi} ~ F̄(·;λi); Bernoulli indicators",
+  "compared": "occurrence probability vectors p vs q (sorted transforms majorized); common severities λ",
+  "hypotheses": [
+   {"text": "X_{λi} ~ F̄(·; λi) independent non-negative, λi > 0; I_{pi} Bernoulli(pi) independent of the X_{λi}", "formal": "independent portfolios", "source": "statement"},
+   {"text": "(h(p1:n), . . . , h(pn:n)) ≽^m (h(q1:n), . . . , h(qn:n))", "formal": "sorted transformed probabilities majorized", "source": "statement"},
+   {"text": "h(p) = −log p or h(p) = (1 − p)/p", "formal": "admissible transforms", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Σ I_{q_{i:n}} X_{λ_{n−i+1:n}} <=_st Σ I_{p_{i:n}} X_{λ_{n−i+1:n}}"},
+  "quantifiers": "n ≥ 1; i:n denotes the ith order statistic of the probability vector; λ_{n−i+1:n} descending severity",
+  "ambiguity": "Written in Persian; statement verified from the page image. The pairing couples the ith smallest probability with the ith largest severity."
+ },
+ {
+  "paper": "doi:10.29252/jss.12.2.395",
+  "claim": "Theorem 3 (قضیه ٣)",
+  "page": 13,
+  "quote": "Theorem 3 (Li and Li, 2016). Suppose X_{λ1}, . . . , X_{λn} is a set of independent non-negative random variables where X_{λi} has survival function F̄(·; λi), i = 1, . . . , n with λi > 0. Also suppose Ip1, . . . , Ipn are independent Bernoulli random variables with E(Ipi) = pi, independent of the X_{λi}. Suppose (a) F̄(·; λi) is increasing and concave in λi; (b) Σ_{i=1}^n X_{λi} is Schur-concave in the λi's. Then (λ1, . . . , λn) ≽^m (μ1, . . . , μn) ⇒ Σ_{i=1}^n I_{p_{i:n}} X_{μ_{n−i+1:n}} ≥st Σ_{i=1}^n I_{p_{i:n}} X_{λ_{n−i+1:n}}.",
+  "kind": "theorem",
+  "model": "other: aggregate claim amount",
+  "family": "semiparametric severities X_{λi} ~ F̄(·;λi); Bernoulli indicators",
+  "compared": "severity vectors λ vs μ under majorization; common occurrence vector p",
+  "hypotheses": [
+   {"text": "(a) F̄(·; λi) is increasing and concave in λi", "formal": "λ -> F̄(x;λ) increasing concave", "source": "statement"},
+   {"text": "(b) Σ_{i=1}^n X_{λi} is Schur-concave in the λi's", "formal": "aggregate severity survival sum Schur-concave", "source": "statement"},
+   {"text": "(λ1, . . . , λn) ≽^m (μ1, . . . , μn)", "formal": "λ majorized by μ", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Σ I_{p_{i:n}} X_{λ_{n−i+1:n}} <=_st Σ I_{p_{i:n}} X_{μ_{n−i+1:n}}"},
+  "quantifiers": "n ≥ 1",
+  "ambiguity": "Explicitly attributed to Li and Li (2016); restated as a numbered theorem in this paper."
+ },
+ {
+  "paper": "doi:10.29252/jss.12.2.395",
+  "claim": "Theorem 4 (قضیه ٤)",
+  "page": 13,
+  "quote": "Theorem 4. Suppose X_{λ1}, . . . , X_{λn} is a set of independent non-negative random variables where X_{λi} has survival function F̄(·; λi), i = 1, . . . , n with λi > 0. Also suppose Ip1, . . . , Ipn are independent Bernoulli random variables with E(Ipi) = pi, independent of the X_{λi}. Suppose (a) F̄(·; λi) is increasing and concave in λi; (b) Σ_{i=1}^n X_{λi} is Schur-concave in the λi's. If (λ, −h(p)) ∈ Un and (μ, −h(q)) ∈ Un, where Un = {(a, b) = (a1 . . . an ; b1 . . . bn) : ai > 0, bi < 0, (ai − aj)(bi − bj) ≥ 0}, then (matrix) (λ1 . . . λn ; −h(p1) . . . −h(pn)) >> (μ1 . . . μn ; −h(q1) . . . −h(qn)) implies Σ_{i=1}^n I_{qi} X_{μi} ≥st Σ_{i=1}^n I_{pi} X_{λi}, where h(p) = −log p or h(p) = (1 − p)/p.",
+  "kind": "theorem",
+  "model": "other: aggregate claim amount",
+  "family": "semiparametric severities; Bernoulli indicators; chain majorization of (λ, −h(p)) matrices in Un",
+  "compared": "joint severity-probability matrices (λ,−h(p)) vs (μ,−h(q)) under chain majorization",
+  "hypotheses": [
+   {"text": "(a) F̄(·; λi) increasing and concave in λi; (b) ΣX_{λi} Schur-concave in λi", "formal": "severity monotonicity + Schur-concavity", "source": "statement"},
+   {"text": "(λ, −h(p)) ∈ Un and (μ, −h(q)) ∈ Un", "formal": "matrix rows similarly ordered (same-order space)", "source": "statement"},
+   {"text": "(λ1 . . . λn ; −h(p1) . . . −h(pn)) >> (μ1 . . . μn ; −h(q1) . . . −h(qn))", "formal": "multivariate chain majorization (B = AT, T doubly stochastic)", "source": "statement"},
+   {"text": "h(p) = −log p or h(p) = (1 − p)/p", "formal": "admissible transforms", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Σ I_{pi} X_{λi} <=_st Σ I_{qi} X_{μi}"},
+  "quantifiers": "n ≥ 1",
+  "ambiguity": "Direct corollary-type consequence of Theorems 2 and 3; the '>>' symbol is the paper's chain-majorization notation."
+ },
+ {
+  "paper": "doi:10.29252/jss.12.2.395",
+  "claim": "Theorem 5 (قضیه ۵)",
+  "page": 15,
+  "quote": "Theorem 5. Suppose the random variables X_{λ1}, . . . , X_{λn} follow the proportional reversed hazard rate model (F̄(x; λi) = 1 − F^{λi}(x)). Let Ip1, . . . , Ipn be independent Bernoulli random variables with E(Ipi) = pi, independent of the X_{λi}. If (λ, −h(p)) ∈ Un and (μ, −h(q)) ∈ Un, then (λ1 . . . λn ; −h(p1) . . . −h(pn)) >> (μ1 . . . μn ; −h(q1) . . . −h(qn)) implies Σ_{i=1}^n I_{qi} X_{μi} ≥st Σ_{i=1}^n I_{pi} X_{λi}, where h(p) = −log p or h(p) = (1 − p)/p.",
+  "kind": "theorem",
+  "model": "other: aggregate claim amount",
+  "family": "proportional reversed hazard rate severities F̄(x;λi) = 1 − F(x)^{λi}",
+  "compared": "joint severity-probability matrices under chain majorization (as in Theorem 4)",
+  "hypotheses": [
+   {"text": "X_{λi} from the proportional reversed hazard rate model, F̄(x; λi) = 1 − F^{λi}(x)", "formal": "PRH family; thence F̄ increasing concave in λi and ΣX_{λi} Schur-concave in λ (Balakrishnan et al. 2014, Thm 5.2 / Hu 1995)", "source": "statement"},
+   {"text": "(λ, −h(p)) ∈ Un and (μ, −h(q)) ∈ Un", "formal": "same-order matrix space", "source": "statement"},
+   {"text": "(λ ; −h(p)) >> (μ ; −h(q))", "formal": "chain majorization", "source": "statement"},
+   {"text": "h(p) = −log p or h(p) = (1 − p)/p", "formal": "admissible transforms", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Σ I_{pi} X_{λi} <=_st Σ I_{qi} X_{μi}"},
+  "quantifiers": "n ≥ 1",
+  "ambiguity": "Section 4 'application' theorem: verifies Theorem 4's conditions (a),(b) for the PRH family."
+ }
+]

@@ -1,0 +1,53 @@
+[
+ {
+  "paper": "doi:10.2991/jsta.d.210607.001",
+  "claim": "Theorem 1, likelihood ratio part",
+  "page": 323,
+  "quote": "Let Xi ~ XL_{theta_i}, i = 1, 2 be two random variables. If theta_1 >= theta_2, then X1 <lr X2, X1 <hr X2, X1 <S X2.",
+  "kind": "theorem",
+  "model": "other: two distributions of the same family",
+  "family": "XLindley (XLD): f(x;theta) = theta^2 (2+theta+x) e^{-theta x} / (1+theta)^2, x,theta > 0",
+  "compared": "X1 ~ XL(theta_1) vs X2 ~ XL(theta_2)",
+  "hypotheses": [
+   {"text": "theta_1 >= theta_2", "formal": "parameter ordering", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "X1 <=_lr X2 (f_{X1}(t)/f_{X2}(t) decreasing)"},
+  "quantifiers": "t > 0; theta_i > 0",
+  "numbers": "",
+  "ambiguity": "Proved by showing d/dt ln(f_X1/f_X2) <= 0."
+ },
+ {
+  "paper": "doi:10.2991/jsta.d.210607.001",
+  "claim": "Theorem 1, hazard rate part",
+  "page": 323,
+  "quote": "If theta_1 >= theta_2, then X1 <lr X2, X1 <hr X2, X1 <S X2.",
+  "kind": "theorem",
+  "model": "other: two distributions of the same family",
+  "family": "XLindley (XLD)",
+  "compared": "X1 ~ XL(theta_1) vs X2 ~ XL(theta_2)",
+  "hypotheses": [
+   {"text": "theta_1 >= theta_2", "formal": "parameter ordering", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X1 <=_hr X2"},
+  "quantifiers": "t > 0",
+  "numbers": "",
+  "ambiguity": "Follows via Remark 1 implication lr => hr."
+ },
+ {
+  "paper": "doi:10.2991/jsta.d.210607.001",
+  "claim": "Theorem 1, usual stochastic order part",
+  "page": 323,
+  "quote": "If theta_1 >= theta_2, then X1 <lr X2, X1 <hr X2, X1 <S X2.",
+  "kind": "theorem",
+  "model": "other: two distributions of the same family",
+  "family": "XLindley (XLD)",
+  "compared": "X1 ~ XL(theta_1) vs X2 ~ XL(theta_2)",
+  "hypotheses": [
+   {"text": "theta_1 >= theta_2", "formal": "parameter ordering", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X1 <=_st X2"},
+  "quantifiers": "t > 0",
+  "numbers": "",
+  "ambiguity": "Follows via Remark 1 implication chain (lr => hr => st); 'S' denotes the usual stochastic order."
+ }
+]

@@ -1,0 +1,73 @@
+[
+  {
+    "paper": "doi:10.21307/stattrans-2018-004",
+    "claim": "Theorem 4 (likelihood ratio order)",
+    "page": "66-67",
+    "quote": "Let Xi ~ GZD(thetai), i = 1, 2 be two random variables. If theta1 >= theta2, then X1 ≺lr X2, X1 ≺hr X2, X1 ≺s X2 and X1 <=cx X2. Proof. We have fX1(t)/fX2(t) = (sum_{k=0}^n ak k!/theta2^{k+1})/(sum_{k=0}^n ak k!/theta1^{k+1}) * e^{-(theta1 - theta2) t}. For simplification, we use ln(fX1(t)/fX2(t)). Now, we can find d/dt ln(fX1(t)/fX2(t)) = -(theta1 - theta2). To this end, if theta1 >= theta2, we have d/dt ln(fX1(t)/fX2(t)) <= 0. This means that X1 ≺lr X2. Also, according to Remark 3 the theorem is proved.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "generalized zero-truncated distribution GZD(theta): f(t) = (sum_{k=0}^n a_k t^k) e^{-theta t} / (sum_{k=0}^n a_k k!/theta^{k+1}), theta > 0, coefficients a_k >= 0",
+    "compared": "two GZD variables differing only in theta",
+    "hypotheses": [
+      {"text": "Xi ~ GZD(thetai), i = 1, 2", "formal": "same coefficient vector (a_0,...,a_n); only theta differs", "source": "statement"},
+      {"text": "theta1 >= theta2", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "lr", "direction": "X1 ≺lr X2 (theta1 >= theta2 implies X1 smaller in lr)"},
+    "quantifiers": "all t > 0",
+    "numbers": "",
+    "ambiguity": "Directly proved via d/dt log pdf-ratio = -(theta1 - theta2) <= 0; the paper's definition d) has X ≺lr Y iff f_Y/f_X decreasing — note the proof differentiates fX1/fX2 and concludes X1 ≺lr X2 with the ratio fX1/fX2 decreasing (equivalent formulation)."
+  },
+  {
+    "paper": "doi:10.21307/stattrans-2018-004",
+    "claim": "Theorem 4 (hazard rate order)",
+    "page": "66-67",
+    "quote": "If theta1 >= theta2, then X1 ≺lr X2, X1 ≺hr X2, X1 ≺s X2 and X1 <=cx X2. ... Also, according to Remark 3 the theorem is proved. [Remark 3: Likelihood ratio order => Hazard rate order => Stochastic order. If E[X] = E[Y], then Convex order <=> Stochastic order.]",
+    "kind": "theorem",
+    "model": "single",
+    "family": "GZD(theta)",
+    "compared": "X1 vs X2 with theta1 >= theta2",
+    "hypotheses": [
+      {"text": "theta1 >= theta2", "formal": "as stated", "source": "statement"},
+      {"text": "X1 ≺lr X2 (proved) and Remark 3 implication chain", "formal": "lr => hr", "source": "Remark 3"}
+    ],
+    "conclusion": {"order": "hr", "direction": "X1 ≺hr X2"},
+    "quantifiers": "all t",
+    "numbers": "",
+    "ambiguity": "Follows from the lr result via Remark 3, not proved independently."
+  },
+  {
+    "paper": "doi:10.21307/stattrans-2018-004",
+    "claim": "Theorem 4 (stochastic order)",
+    "page": "66-67",
+    "quote": "If theta1 >= theta2, then X1 ≺lr X2, X1 ≺hr X2, X1 ≺s X2 and X1 <=cx X2. ... Also, according to Remark 3 the theorem is proved.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "GZD(theta)",
+    "compared": "X1 vs X2 with theta1 >= theta2",
+    "hypotheses": [
+      {"text": "theta1 >= theta2", "formal": "as stated", "source": "statement"},
+      {"text": "lr => hr => st via Remark 3", "formal": "implication chain", "source": "Remark 3"}
+    ],
+    "conclusion": {"order": "st", "direction": "X1 ≺s X2 (F_X1(t) >= F_X2(t) for all t, per the paper's Definition 1a)"},
+    "quantifiers": "all t",
+    "numbers": "",
+    "ambiguity": ""
+  },
+  {
+    "paper": "doi:10.21307/stattrans-2018-004",
+    "claim": "Theorem 4 (convex order)",
+    "page": "66-67",
+    "quote": "If theta1 >= theta2, then X1 ≺lr X2, X1 ≺hr X2, X1 ≺s X2 and X1 <=cx X2.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "GZD(theta)",
+    "compared": "X1 vs X2 with theta1 >= theta2",
+    "hypotheses": [
+      {"text": "theta1 >= theta2", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "other: convex (cx)", "direction": "X1 <=cx X2"},
+    "quantifiers": "all convex phi with existing expectations",
+    "numbers": "",
+    "ambiguity": "Remark 3 states 'If E[X] = E[Y], then Convex order <=> Stochastic order'; the means of X1 and X2 are not equal in general under theta1 >= theta2, so the cx assertion's derivation is not transparent from the printed proof — recorded as stated."
+  }
+]

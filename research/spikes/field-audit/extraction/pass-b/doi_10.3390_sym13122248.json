@@ -1,0 +1,334 @@
+[
+  {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Theorem 1",
+    "page": "7-8",
+    "quote": "Suppose X1, ..., Xn (X1*, ..., Xn*) be a set of dependent MOTL-G random variables having Archimedean copula with generator psi1 (psi2) such that Xi ~ MOTL-G(alphai, betai, G1(x)) (Xi* ~ MOTL-G(alphai, deltai, G2(x))), i = 1, 2, ..., n. Further assume Ip1, ..., Ipn (Ip1*, ..., Ip*n) be a set of independent Bernoulli random variables with E(Ipi) = pi (E(Ipi*) = pi*), independent of Xi's (Xi*'s), i = 1, 2, ..., n. If (i) (alpha, beta) in Un and (alpha, delta) in Un, (ii) Z1 <=st Z2, (iii) prod_{i=1}^n pi <= prod_{i=1}^n pi* and (iv) phi2 o psi1 is super-additive and psi1 or psi2 is log-convex, then (beta1, beta2, ..., betan) >=w (delta1, delta2, ..., deltan) ==> Y1:n <=st Y1:n*.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "MOTL-G with baseline G, Xi ~ MOTL-G(alphai, betai, G1(x)), cdf F(x;alpha,beta) = [1-(1-G(x))^2]^beta / (alpha + (1-alpha)[1-(1-G(x))^2]^beta); components dependent via Archimedean copulas (generators psi1, psi2) and subject to independent Bernoulli random shocks with survival probabilities pi (pi*)",
+    "compared": "series-system lifetimes Y1:n vs Y1:n*; second-shape vectors beta vs delta under weak supermajorization; also different baselines G1, G2 and shock probabilities p vs p*",
+    "hypotheses": [
+      {"text": "(alpha, beta) in Un and (alpha, delta) in Un", "formal": "the 2xn matrices (alpha; beta) and (alpha; delta) have similarly ordered rows, i.e. (alpha_i - alpha_j)(beta_i - beta_j) >= 0", "source": "statement; Un defined in Section 2.4 (p.5)"},
+      {"text": "Z1 <=st Z2", "formal": "baseline lifetimes satisfy F̄_{Z1}(x) <= F̄_{Z2}(x) for all x", "source": "statement (ii); Zi denotes baseline variables with cdf Gi"},
+      {"text": "prod_{i=1}^n pi <= prod_{i=1}^n pi*", "formal": "product of shock survival probabilities", "source": "statement (iii)"},
+      {"text": "phi2 o psi1 is super-additive and psi1 or psi2 is log-convex", "formal": "phi2(psi1(s+t)) >= phi2(psi1(s)) + phi2(psi1(t)); psi1 or psi2 log-convex", "source": "statement (iv)"},
+      {"text": "(beta1, ..., betan) >=w (delta1, ..., deltan)", "formal": "beta weakly supermajorizes delta: sums of j smallest components satisfy sum x_{i:n} <= sum y_{i:n} (this paper's >=w notation)", "source": "statement; Definition 2(ii)"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y1:n <=st Y1:n*"},
+    "quantifiers": "all n; all x; i = 1,...,n",
+    "numbers": "",
+    "ambiguity": "Statement begins on printed page 7 and concludes on page 8. The paper's >=w denotes weak supermajorization per its own Definition 2(ii) (OCR renders the symbol ambiguously; text reads 'weakly supermajorize y (denoted by x >=w y)')."
+  },
+  {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Theorem 2",
+    "page": 10,
+    "quote": "Suppose X1, ..., Xn (X1*, ..., Xn*) is a set of dependent MOTL-G random variables having Archimedean copula with generator psi1 (psi2) such that Xi ~ MOTL-G(alphai, betai, G1(x)) (Xi* ~ MOTL-G(gammai, betai, G2(x))), i = 1, 2, ..., n. Further, assume that Ip1, ..., Ipn (Ip1*, ..., Ip*n) is a set of independent Bernoulli random variables with E(Ipi) = pi (E(Ipi*) = pi*), independent of Xi's (Xi*'s), i = 1, 2, ..., n. If (i) (alpha, beta) in Un and (gamma, beta) in Un, (ii) Z1 <=st Z2, (iii) prod_{i=1}^n pi <= prod_{i=1}^n pi* and (iv) phi2 o psi1 is super-additive, then (alpha1, alpha2, ..., alphan) >=w (gamma1, gamma2, ..., gamman) ==> Y1:n <=st Y1:n*.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "MOTL-G; Xi ~ MOTL-G(alphai, betai, G1), Xi* ~ MOTL-G(gammai, betai, G2); dependent via Archimedean copulas; Bernoulli shocks",
+    "compared": "series-system lifetimes Y1:n vs Y1:n*; first-shape vectors alpha vs gamma under weak supermajorization with common beta",
+    "hypotheses": [
+      {"text": "(alpha, beta) in Un and (gamma, beta) in Un", "formal": "paired vectors have similarly ordered components", "source": "statement (i)"},
+      {"text": "Z1 <=st Z2", "formal": "baseline stochastic order between the G1 and G2 variables", "source": "statement (ii)"},
+      {"text": "prod pi <= prod pi*", "formal": "prod_{i=1}^n p_i <= prod_{i=1}^n p_i*", "source": "statement (iii)"},
+      {"text": "phi2 o psi1 is super-additive", "formal": "phi2(psi1(s+t)) >= phi2(psi1(s))+phi2(psi1(t))", "source": "statement (iv)"},
+      {"text": "(alpha1,...,alphan) >=w (gamma1,...,gamman)", "formal": "alpha weakly supermajorizes gamma", "source": "statement; Definition 2(ii)"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y1:n <=st Y1:n*"},
+    "quantifiers": "all n; i = 1,...,n",
+    "numbers": "",
+    "ambiguity": "Proof omitted ('similar proof method with that of Theorem 1'). >=w is the paper's weak supermajorization symbol (Definition 2(ii))."
+  },
+  {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Theorem 3",
+    "page": 10,
+    "quote": "Suppose X1, ..., Xn (X1*, ..., Xn*) is a set of dependent MOTL-G random variables having Archimedean copula with generator psi1 (psi2) such that Xi ~ MOTL-G(alphai, betai, G1(x)) (Xi* ~ MOTL-G(gammai, deltai, G2(x))), i = 1, 2, ..., n. Further, assume Ip1, ..., Ipn (Ip1*, ..., Ip*n) be a set of independent Bernoulli random variables with E(Ipi) = pi (E(Ipi*) = pi*), independent of Xi's (Xi*'s), i = 1, 2, ..., n. If (i) (alpha, beta) in Un, (alpha, delta) in Un and (gamma, beta) in Un, (ii) Z1 <=st Z2, (iii) prod pi <= prod pi* and (iv) phi2 o psi1 is super-additive and psi1 or psi2 is log-convex, then [alpha; beta] >w [gamma; delta] ==> Y1:n <=st Y1:n*.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "MOTL-G; Xi ~ MOTL-G(alphai, betai, G1), Xi* ~ MOTL-G(gammai, deltai, G2); Archimedean copulas psi1, psi2; Bernoulli shocks",
+    "compared": "series-system lifetimes; 2xn parameter matrices (alpha; beta) vs (gamma; delta) under row weak majorization",
+    "hypotheses": [
+      {"text": "(alpha, beta) in Un, (alpha, delta) in Un and (gamma, beta) in Un", "formal": "the three 2xn parameter matrices have similarly ordered rows", "source": "statement (i)"},
+      {"text": "Z1 <=st Z2", "formal": "baseline stochastic order", "source": "statement (ii)"},
+      {"text": "prod pi <= prod pi*", "formal": "prod_{i=1}^n p_i <= prod_{i=1}^n p_i*", "source": "statement (iii)"},
+      {"text": "phi2 o psi1 super-additive and psi1 or psi2 log-convex", "formal": "as stated", "source": "statement (iv)"},
+      {"text": "[alpha; beta] >w [gamma; delta]", "formal": "row weak majorization: alpha >=w gamma and beta >=w delta componentwise by rows", "source": "statement; Definition 4(ii)"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y1:n <=st Y1:n*"},
+    "quantifiers": "all n; i = 1,...,n",
+    "numbers": "",
+    "ambiguity": "Combines Theorems 1 and 2; >w denotes row weak majorization (each row of A weakly supermajorizes the corresponding row of B)."
+  },
+  {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Example 1",
+    "page": "10-11",
+    "quote": "Consider two series systems. Let G1(x) = 1 - 1/(1+x^2) and G2(x) = e^{-x} for x > 0. suppose that (p1, p2, p3) = (e^{-0.05}, e^{-0.08}, e^{-0.22}), (p1*, p2*, p3*) = (e^{-0.01}, e^{-0.21}, e^{-0.03}), (beta1, beta2, beta3) = (2, 5, 6) >=w (4.5, 5, 5.8) = (delta1, delta2, delta3) and (alpha1, alpha2, alpha3) = (1.1, 4, 6.5) >=w (3.5, 4, 6.3) = (gamma1, gamma2, gamma3). As mentioned in Remark 4, we choose the Clayton copula with generator psi(x) = (theta x + 1)^{-1/theta} for theta >= 0, set theta1 = 2 and theta2 = 4. Clearly, the conditions of Theorem 3 are satisfied. To plot the whole of distributions functions curves the lifetime of Y1:3 and Y1:3* on [0, inf), we take the transformation (x+1)^{-1} : [0,inf) -> [0,1]. Then Y1:3 <=st Y1:3* is equivalent to (Y1:3+1)^{-1} >=st (Y1:3*+1)^{-1}. Figure 1 shows that the distribution of (Y1:3+1)^{-1} is always larger than the distribution of (Y1:3*+1)^{-1}, and this confirms that Y1:3 <=st Y1:3*.",
+    "kind": "example",
+    "model": "series system",
+    "family": "MOTL-G with baselines G1(x) = 1 - 1/(1+x^2) and G2(x) = e^{-x}; Clayton Archimedean copulas",
+    "compared": "Y1:3 vs Y1:3*; vectors alpha=(1.1,4,6.5) vs gamma=(3.5,4,6.3) and beta=(2,5,6) vs delta=(4.5,5,5.8); shock probabilities p vs p*",
+    "hypotheses": [
+      {"text": "all conditions of Theorem 3 verified numerically", "formal": "beta >=w delta, alpha >=w gamma (row weak majorization), prod pi <= prod pi*", "source": "statement (Example 1 text)"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y1:3 <=st Y1:3*"},
+    "quantifiers": "n = 3",
+    "numbers": "G1(x) = 1 - 1/(1+x^2); G2(x) = e^{-x}; p = (e^{-0.05}, e^{-0.08}, e^{-0.22}); p* = (e^{-0.01}, e^{-0.21}, e^{-0.03}); beta = (2,5,6); delta = (4.5,5,5.8); alpha = (1.1,4,6.5); gamma = (3.5,4,6.3); Clayton generators psi(x) = (theta x + 1)^{-1/theta} with theta1 = 2, theta2 = 4",
+    "ambiguity": "OCR prints '(p1, p1, p3)' and '(beta1, beta2, beta2)'/'(alpha1, alpha2, alpha2)' but intends p = (p1,p2,p3), beta = (beta1,beta2,beta3), alpha = (alpha1,alpha2,alpha3). The plot is of the transformed variable (x+1)^{-1}."
+  },
+  {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Example 2",
+    "page": 11,
+    "quote": "Under the setup of Example 1, let generators psi1(x) = (theta1 x + 1)^{-1/theta1} and psi2(x) = (theta2 x + 1)^{-1/theta2} for theta >= 0. When theta1 = 4 and theta2 = 0.2, note that [phi2 o psi1(t)]'' >= 0. Thus, the super-additive of phi2 o psi1 is not satisfied. As is seen in Figure 2, (Y1:3+1)^{-1} is not always beneath that of (Y1:3*+1)^{-1}, that is, neither Y1:3 >=st Y1:3* nor Y1:3 <=st Y1:3*.",
+    "kind": "counterexample",
+    "model": "series system",
+    "family": "MOTL-G; Example 1 baselines; Clayton generators",
+    "compared": "Y1:3 vs Y1:3*",
+    "hypotheses": [
+      {"text": "[phi2 o psi1(t)]'' >= 0, i.e. the super-additivity condition of Theorem 3 fails", "formal": "second derivative of phi2 o psi1 nonnegative", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "neither Y1:3 >=st Y1:3* nor Y1:3 <=st Y1:3*"},
+    "quantifiers": "n = 3",
+    "numbers": "theta1 = 4, theta2 = 0.2; generators psi1(x) = (theta1 x + 1)^{-1/theta1}, psi2(x) = (theta2 x + 1)^{-1/theta2}",
+    "ambiguity": "The OCR renders the derivative condition as '[phi2 o psi1(t)]'' >=/not <= 0' with a damaged symbol; text asserts super-additivity fails. Example demonstrates the condition cannot be dropped from Theorem 3."
+  },
+  {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Theorem 4",
+    "page": "11-12",
+    "quote": "Suppose X1, X2, ..., Xn and X1*, X2*, ..., Xn* are two sets of dependent MOTL-G random variables having common Archimedean copula with generator psi such that Xi ~ MOTL-G(alphai, betai, G1(x)) and Xi* ~ MOTL-G(gammai, deltai, G2(x)), i = 1, 2, ..., n. Further, assume Ip1, Ip2, ..., Ipn (Ip1*, Ip2*, ..., Ip*n) be a set of independent Bernoulli random variables with E(Ipi) = pi (E(Ipi*) = pi*), independent of Xi's (Xi*'s), i = 1, 2, ..., n. If Z1 <=st Z2, alphai = gammai and betai = deltai (i = 1, 2, ..., n), then prod_{i=1}^n pi <= prod_{i=1}^n pi* ==> Y1:n <=st Y1:n*.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "MOTL-G; Xi ~ MOTL-G(alphai, betai, G1), Xi* ~ MOTL-G(alphai, betai, G2) (common shapes after substitution); common copula psi; Bernoulli shocks",
+    "compared": "series-system lifetimes; only the product of shock survival probabilities differs",
+    "hypotheses": [
+      {"text": "Z1 <=st Z2", "formal": "baseline stochastic order G1 vs G2", "source": "statement"},
+      {"text": "alphai = gammai and betai = deltai (i = 1,...,n)", "formal": "same shape parameters in both systems", "source": "statement"},
+      {"text": "prod pi <= prod pi*", "formal": "prod_{i=1}^n p_i <= prod_{i=1}^n p_i*", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y1:n <=st Y1:n*"},
+    "quantifiers": "all n; i = 1,...,n",
+    "numbers": "",
+    "ambiguity": ""
+  },
+  {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Theorem 5",
+    "page": "12-13",
+    "quote": "Suppose X1, ..., Xn and X1*, ..., Xn* are two sets of dependent MOTL-G random variables having a common Archimedean copula with generator psi such that Xi ~ MOTL-G(alphai, beta, G1) and Xi* ~ MOTL-G(gammai, beta, G2), i = 1, 2, ..., n. Further, assume Ip1, ..., Ipn (Ip1*, ..., Ip*n) be a set of independent Bernoulli random variables with E(Ipi) = pi (E(Ipi*) = pi*), independent of Xi's (Xi*'s), i = 1, 2, ..., n. If (i) prod_{i=1}^n pi <= prod_{i=1}^n pi*; (ii) psi is log-concave; and (iii) psi'(1-psi)/psi' is decreasing and concave (or convex) [printed: 'psi(1 - psi)/psi' with a prime on the denominator factor], then (alpha1, alpha2, ..., alphan) >=w (gamma1, gamma2, ..., gamman) ==> Y1:n <=hr Y1:n*.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "MOTL-G; Xi ~ MOTL-G(alphai, beta, G1), Xi* ~ MOTL-G(gammai, beta, G2); common copula psi and common shape beta; Bernoulli shocks",
+    "compared": "series-system lifetimes; alpha vs gamma under weak supermajorization",
+    "hypotheses": [
+      {"text": "prod pi <= prod pi*", "formal": "prod_{i=1}^n p_i <= prod_{i=1}^n p_i*", "source": "statement (i)"},
+      {"text": "psi is log-concave", "formal": "log psi concave", "source": "statement (ii)"},
+      {"text": "psi'(1 - psi)/psi' is decreasing and concave (or convex)", "formal": "the function psi'(t)(1-psi(t))/psi'(t)-type ratio is monotone and concave/convex (OCR garbles exact form)", "source": "statement (iii)"},
+      {"text": "(alpha1,...,alphan) >=w (gamma1,...,gamman)", "formal": "alpha weakly supermajorizes gamma", "source": "statement; Definition 2(ii)"}
+    ],
+    "conclusion": {"order": "hr", "direction": "Y1:n <=hr Y1:n*"},
+    "quantifiers": "all n; i = 1,...,n; x >= 0",
+    "numbers": "",
+    "ambiguity": "Condition (iii) printed as 'psi(1 - psi)/psi is decreasing and concave (or convex)' with the prime placement damaged by OCR; interpreted as a ratio involving psi' (derivative). Remark 6 notes this corrects a neglected boundary term in Panja et al. Theorem 5.3."
+  },
+  {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Example 3",
+    "page": 13,
+    "quote": "Consider the case of n = 2. Let G(x) = x, 0 <= x <= 1, and generator psi(x) = 2/(1 + e^x). Set beta = 1, alpha1 = 2, alpha2 = 3, gamma1 = 4, gamma2 = 6, and prod_{i=1}^n pi* / prod_{i=1}^n pi = 0.3. However, F̄_{Y1:2}*(x)/F̄_{Y1:2}(x) is not monotone (see Figure 3). Therefore, the condition of prod pi <= prod pi* cannot be removed.",
+    "kind": "counterexample",
+    "model": "series system",
+    "family": "MOTL-G with baseline G(x) = x on [0,1]; generator psi(x) = 2/(1+e^x)",
+    "compared": "Y1:2 vs Y1:2* (hazard-rate/survival-ratio comparison)",
+    "hypotheses": [
+      {"text": "prod pi* / prod pi = 0.3 violates prod pi <= prod pi*", "formal": "product ratio = 0.3 < 1", "source": "statement"}
+    ],
+    "conclusion": {"order": "hr", "direction": "F̄_{Y1:2}*(x)/F̄_{Y1:2}(x) is not monotone, so Y1:2 <=hr Y1:2* fails (hr ordering does not hold)"},
+    "quantifiers": "n = 2",
+    "numbers": "n=2; G(x)=x, 0<=x<=1; psi(x)=2/(1+e^x); beta=1; alpha=(2,3); gamma=(4,6); prod pi*/prod pi = 0.3",
+    "ambiguity": "The example concerns Theorem 5 (hr order); the printed symbol in the PDF is the ratio of survival functions being non-monotone, i.e. hazard-rate order fails."
+  },
+  {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Example 4",
+    "page": "13-14",
+    "quote": "Let G(x) = x and 0 <= x <= 1; it is assumed that alpha = 1.2, beta1 = 2, beta2 = 7, delta1 = 6, delta2 = 9 and prod_{i=1}^n pi* / prod_{i=1}^n pi = 3. As is displayed in Figure 4, F̄_{Y1:2}*(x)/F̄_{Y1:2}(x) is not monotone in x. Therefore, neither of Y1:2* >=hr Y1:2 and Y1:2* <=hr Y1:2 is true.",
+    "kind": "counterexample",
+    "model": "series system",
+    "family": "MOTL-G with baseline G(x) = x on [0,1]",
+    "compared": "Y1:2* vs Y1:2 under beta >=w delta (weak majorization)",
+    "hypotheses": [
+      {"text": "beta = (2,7), delta = (6,9) so that beta >=w delta-type relation holds; prod pi*/prod pi = 3", "formal": "survival-ratio function F̄*/F̄ not monotone", "source": "statement"}
+    ],
+    "conclusion": {"order": "hr", "direction": "neither Y1:2* >=hr Y1:2 nor Y1:2* <=hr Y1:2"},
+    "quantifiers": "n = 2",
+    "numbers": "alpha = 1.2; beta = (2,7); delta = (6,9); prod pi*/prod pi = 3",
+    "ambiguity": "Shows hazard-rate order fails even for the independent case when beta is majorized by delta; Figure 4 illustrates the non-monotone survival ratio."
+  },
+  {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Theorem 6",
+    "page": "14-15",
+    "quote": "Let X1, ..., Xn (X1*, ..., Xn*) be a set of independent MOTL-G random variables such that Xi ~ MOTL-G(alphai, betai, G1(x)) (Xi* ~ MOTL-G(alphai, betai, G2(x))), i = 1, 2. Further, assume Ip1, ..., Ipn (Ip1*, ..., Ip*n) be a set of independent Bernoulli random variables with E(Ipi) = pi (E(Ipi*) = pi*), independent of Xi's (Xi*'s), i = 1, 2. If (i) Z1 >=st Z2, (ii) (alpha, beta) in U2, (beta, h(p)) in V2 and (beta, h(p*)) in V2 and (iii) h : [0,1] -> (0, inf) is a differentiable and strictly decreasing convex function, then (h(p1), h(p2)) >=w (h(p1*), h(p2*)) ==> Y2:2 >=st Y2:2*.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "MOTL-G; Xi ~ MOTL-G(alphai, betai, G1), Xi* ~ MOTL-G(alphai, betai, G2); independent components; Bernoulli shocks with survival probabilities transformed by h",
+    "compared": "parallel-system (max) lifetimes Y2:2 vs Y2:2*; transformed shock probabilities h(p) vs h(p*)",
+    "hypotheses": [
+      {"text": "Z1 >=st Z2", "formal": "baseline G1 stochastically larger than G2", "source": "statement (i)"},
+      {"text": "(alpha, beta) in U2; (beta, h(p)) in V2; (beta, h(p*)) in V2", "formal": "componentwise ordering/compatibility of the paired vectors (U2: same order; V2: opposite order)", "source": "statement (ii); Section 2.4 definitions"},
+      {"text": "h differentiable, strictly decreasing and convex on [0,1]", "formal": "as stated", "source": "statement (iii)"},
+      {"text": "(h(p1), h(p2)) >=w (h(p1*), h(p2*))", "formal": "weak supermajorization of the transformed probability vectors", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y2:2 >=st Y2:2*"},
+    "quantifiers": "n = 2 components",
+    "numbers": "",
+    "ambiguity": ""
+  },
+  {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Theorem 7",
+    "page": "16-17",
+    "quote": "Suppose X1, ..., Xn (X1*, ..., Xn*) is a set of independent MOTL-G random variables such that Xi ~ MOTL-G(alphai, betai, G1(x)) (Xi* ~ MOTL-G(alphai, betai, G2(x))), i = 1, 2, ..., n. Further, assume Ip1, ..., Ipn (Ip1*, ..., Ip*n) is a set of independent Bernoulli random variables with E(Ipi) = pi (E(Ipi*) = pi*), independent of Xi's (Xi*'s), i = 1, 2, ..., n. If (i) Z1 >=st Z2; (ii) (alpha, beta) in Un, (beta, h(p)) in Vn, and (beta, h(p*)) in Vn; and (iii) h : [0,1] -> (0,inf) is differentiable and strictly decreasing convex function, then prod_{i=1}^n (1-pi) <= prod_{i=1}^n (1-pi*), h(p) >=w h(p*) ==> Yn:n >=st Yn:n*.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "MOTL-G; independent components; Bernoulli shocks transformed by h",
+    "compared": "parallel-system lifetimes Yn:n vs Yn:n*; transformed shock probabilities h(p) vs h(p*)",
+    "hypotheses": [
+      {"text": "Z1 >=st Z2", "formal": "baseline stochastic order", "source": "statement (i)"},
+      {"text": "(alpha, beta) in Un; (beta, h(p)) in Vn; (beta, h(p*)) in Vn", "formal": "ordering compatibility of parameter vectors", "source": "statement (ii)"},
+      {"text": "h differentiable, strictly decreasing, convex", "formal": "as stated", "source": "statement (iii)"},
+      {"text": "prod(1-pi) <= prod(1-pi*) and h(p) >=w h(p*)", "formal": "prod_{i=1}^n (1-p_i) <= prod_{i=1}^n (1-p_i*) plus weak supermajorization", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Yn:n >=st Yn:n*"},
+    "quantifiers": "all n; i = 1,...,n",
+    "numbers": "",
+    "ambiguity": ""
+  },
+  {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Theorem 8(i)",
+    "page": 18,
+    "quote": "Let X1, ..., Xn (X1*, ..., Xn*) be a set of independent MOTL-G random variables such that Xi ~ MOTL-G(alphai, betai, G1(x)) (Xi* ~ MOTL-G(gammai, deltai, G2(x))), i = 1, 2, ..., n. Further assume Ip1, ..., Ipn be a set of independent Bernoulli random variables with E(Ipi) = pi, independent of Xi's (Xi*'s), i = 1, 2, ..., n. If Z1 <=st Z2 and h : [0,1] -> (0,inf) is a differentiable and decreasing function. Then, (i) for alphai = gammai = alpha >= 1 (i = 1, 2, ..., n) and (beta, h(p)), (delta, h(p)) in Un, we have beta >=w delta ==> Yn:n <=st Yn:n*.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "MOTL-G; independent components; common shocks p; common first shape alpha >= 1",
+    "compared": "Yn:n vs Yn:n*; second-shape vectors beta vs delta",
+    "hypotheses": [
+      {"text": "Z1 <=st Z2", "formal": "baseline stochastic order", "source": "statement"},
+      {"text": "h differentiable and decreasing", "formal": "as stated", "source": "statement"},
+      {"text": "alphai = gammai = alpha >= 1; (beta, h(p)) and (delta, h(p)) in Un; beta >=w delta", "formal": "common alpha >= 1, compatibility, weak supermajorization", "source": "statement (i)"}
+    ],
+    "conclusion": {"order": "st", "direction": "Yn:n <=st Yn:n*"},
+    "quantifiers": "all n; i = 1,...,n; alpha >= 1",
+    "numbers": "",
+    "ambiguity": ""
+  },
+  {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Theorem 8(ii)",
+    "page": 18,
+    "quote": "(ii) for betai = gammai = beta (i = 1, 2, ..., n) and (alpha, h(p)), (gamma, h(p)) in Un, we have alpha >=w gamma ==> Yn:n <=st Yn:n*.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "MOTL-G; independent components; common shocks p; common second shape beta",
+    "compared": "Yn:n vs Yn:n*; first-shape vectors alpha vs gamma",
+    "hypotheses": [
+      {"text": "Z1 <=st Z2; h differentiable and decreasing", "formal": "same standing hypotheses as Theorem 8 preamble", "source": "statement"},
+      {"text": "betai = gammai = beta; (alpha, h(p)) and (gamma, h(p)) in Un; alpha >=w gamma", "formal": "common beta, compatibility, weak supermajorization", "source": "statement (ii)"}
+    ],
+    "conclusion": {"order": "st", "direction": "Yn:n <=st Yn:n*"},
+    "quantifiers": "all n; i = 1,...,n",
+    "numbers": "",
+    "ambiguity": ""
+  },
+  {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Example 5",
+    "page": "19-20",
+    "quote": "Suppose Xi ~ MOTL-G(1, betai, G1(x)) (Xi* ~ MOTL-G(1, deltai, G2(x))), i = 1, 2. Let Z1 and Z2 be two exponential random variables with continuous distributions G1(x) = 1 - e^{-lambda1 x} and G2(x) = 1 - e^{-lambda2 x} (lambda1 >= lambda2), respectively. Taking h(p) = -log(p). Then, the distribution functions of Y2:2 and Y2:2* are given by FY2:2(x) = prod_{i=1}^2 [1 - e^{-ui}(1 - (1 - e^{-2 lambda1 x})^{beta_i})] and FY2:2*(x) = prod_{i=1}^2 [1 - e^{-ui}(1 - (1 - e^{-2 lambda2 x})^{delta_i})] for all x >= 0. ... According to the part (i) of Theorem 8, we set beta1 <= beta2 and u1 <= u2. Then, we obtain ... From Lemma 6, we obtain that FY2:2(x) is decreasing and Schur-convex. Thus, we have FY2:2(x) >= FY*2:2(x), which implies Y2:2 <=st Y2:2*.",
+    "kind": "example",
+    "model": "parallel system",
+    "family": "MOTL-G(1, ., exponential baseline); G1(x) = 1 - e^{-lambda1 x}, G2(x) = 1 - e^{-lambda2 x}",
+    "compared": "Y2:2 vs Y2:2*; illustrates Theorem 8(i)",
+    "hypotheses": [
+      {"text": "lambda1 >= lambda2 (so Z1 >=st Z2 baseline inequality), h(p) = -log p, beta1 <= beta2 and u1 <= u2", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y2:2 <=st Y2:2*"},
+    "quantifiers": "n = 2; x >= 0",
+    "numbers": "alpha = 1 (fixed); h(p) = -log(p); lambda1 >= lambda2 unspecified numerically",
+    "ambiguity": "Worked analytically rather than with specific parameter values; derivative signs are computed symbolically."
+  },
+  {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Example 6",
+    "page": "20-21",
+    "quote": "Let G(x) = 1 - 1/(1+x), x > 0 and h(p) = -log(p). (i) For alpha = 1 and h(p) = (4.2, 0.01), let beta = (1, 2.7) and delta = (2.4, 2.69). Clearly, (beta, h(p)), (delta, h(p)) in Vn and beta >=w delta. As is seen in Figure 5a, neither Y2:2 <=st Y2:2* nor Y2:2 >=st Y2:2*. (ii) For beta = 1 and h(p) = (3.2, 2), let alpha = (1.1, 5) and gamma = (3.5, 4). It is easy to check that (alpha, h(p)), (gamma, h(p)) in Vn and alpha >=w gamma. The survival function F̄_{(Y2:2+1)^{-1}}(x) - F̄_{(Y*2:2+1)^{-1}}(x) is plotted in Figure 5b, from which can confirm that no exists stochastic ordering between Y2:2 and Y2:2*.",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "MOTL-G with G(x) = 1 - 1/(1+x); h(p) = -log p",
+    "compared": "Y2:2 vs Y2:2*",
+    "hypotheses": [
+      {"text": "(beta, h(p)), (delta, h(p)) in Vn rather than Un; beta >=w delta (resp. alpha >=w gamma)", "formal": "V-space membership instead of the U-space condition of Theorem 8", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "no stochastic ordering between Y2:2 and Y2:2* in either part"},
+    "quantifiers": "n = 2",
+    "numbers": "(i) alpha=1, h(p)=(4.2,0.01), beta=(1,2.7), delta=(2.4,2.69); (ii) beta=1, h(p)=(3.2,2), alpha=(1.1,5), gamma=(3.5,4)",
+    "ambiguity": "Demonstrates the Un-space condition of Theorem 8 cannot be relaxed to Vn. OCR prints 'no exists stochastic ordering'."
+  },
+  {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Example 7",
+    "page": 21,
+    "quote": "Let Xi ~ MOTL-G(alphai, betai, G(x)) and Xi* ~ MOTL-G(gammai, deltai, G(x)), i = 1, 2, assume that Ip1, Ip2 be two independent Bernoulli random variables with E(Ipi) = pi, independent of Xi's (Xi*'s), i = 1, 2. Let G(x) = x for 0 <= x <= 1, h(p) = -log(p), and (h(p1), h(p2)) = (1, 1.2). (i) Let beta1 = delta1 = 2, beta2 = delta2 = 5.5, (alpha1, alpha2) = (1, 8) and (gamma1, gamma2) = (4, 6). Then, (alpha, h(p)), (gamma, h(p)) in Un and alpha >=w gamma. In this case, the distribution function FY2:2(x) - FY2:2*(x) is displayed in Figure 6a, which implies that the usual stochastic ordering does not hold between Y2:2 and Y2:2*. (ii) Let alpha1 = gamma1 = 1, alpha2 = gamma2 = 8, (beta1, beta2) = (2, 5.5) and (delta1, delta2) = (3, 5). Then, (beta, h(p)), (delta, h(p)) in Un and beta >=w delta. However, Figure 6b shows that there exists no usual stochastic ordering between Y2:2 and Y2:2*. (iii) Let (alpha1, alpha2) = (1, 8) and (gamma1, gamma2) = (4, 6), (beta1, beta2) = (2, 5.5) and (delta1, delta2) = (3, 5). Then, (alpha, h(p)), (gamma, h(p)) in Un and (beta, h(p)), (delta, h(p)) in Un, alpha >=w gamma and beta >=w delta. However, Figure 6c shows that there exists no usual stochastic ordering between Y2:2 and Y2:2*.",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "MOTL-G with G(x) = x on [0,1]; h(p) = -log p",
+    "compared": "Y2:2 vs Y2:2*",
+    "hypotheses": [
+      {"text": "Un-membership and weak majorization hold but the equal-shared-parameter structure of Theorem 8 is violated", "formal": "in (i) beta is not a constant vector (Theorem 8(ii) requires betai = gammai = beta); in (ii) alpha is not constant; in (iii) both vary", "source": "surrounding discussion (lines ~1512-1519) and Theorem 8 conditions"}
+    ],
+    "conclusion": {"order": "st", "direction": "no usual stochastic ordering between Y2:2 and Y2:2* in any of parts (i)-(iii)"},
+    "quantifiers": "n = 2",
+    "numbers": "G(x)=x on [0,1]; h(p)=-log p; (h(p1),h(p2))=(1,1.2); (i) beta1=delta1=2, beta2=delta2=5.5, alpha=(1,8), gamma=(4,6); (ii) alpha1=gamma1=1, alpha2=gamma2=8, beta=(2,5.5), delta=(3,5); (iii) alpha=(1,8), gamma=(4,6), beta=(2,5.5), delta=(3,5)",
+    "ambiguity": "The example shows Theorem 8's requirement that the complementary parameter be constant across components cannot be weakened."
+  },
+  {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Example 8",
+    "page": "21-22",
+    "quote": "Under the same setup as part (i) of Example 7, we take beta1 = beta2 = delta1 = delta2 = 2 with the other conditions remaining unchanged. Similarly, in part (ii) of example 7, we take alpha1 = alpha2 = gamma1 = gamma2 = 1 with the other conditions remaining unchanged. Figure 7 shows that FY2:2(x)/FY2:2*(x) is not monotone in x. Therefore, neither Y2:2 <=rh Y2:2* of Y2:2 >=rh Y2:2* is true.",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "MOTL-G with G(x) = x; h(p) = -log p",
+    "compared": "Y2:2 vs Y2:2* in reversed hazard rate order",
+    "hypotheses": [
+      {"text": "Theorem 8 conditions hold (constant complementary parameter) but rh ordering is asked instead of st", "formal": "FY2:2/FY2:2* not monotone", "source": "statement"}
+    ],
+    "conclusion": {"order": "rh", "direction": "neither Y2:2 <=rh Y2:2* nor Y2:2 >=rh Y2:2*"},
+    "quantifiers": "n = 2",
+    "numbers": "beta1 = beta2 = delta1 = delta2 = 2 (case i); alpha1 = alpha2 = gamma1 = gamma2 = 1 (case ii); other parameters as in Example 7",
+    "ambiguity": "OCR prints 'of' for 'or' in 'neither ... nor'. Demonstrates Theorem 8 cannot be strengthened from st to rh."
+  },
+  {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Section 4/5 real-data illustration (Figures 8 and 9)",
+    "page": "22-23",
+    "quote": "we used the observed data of wind speeds from two wind farms ... Xie et al. estimated the dependent parameter theta-hat = 3.32 by a two-stage maximum likelihood estimation (MLE) ... Rayleigh distribution F(x) = 1 - e^{-x^2/2b^2}, x >= 0 ... estimator to obtain parameter b-hat1 = 3.3662 and b-hat2 = 3.4271 at site A and site B ... set the vectors of shape parameters alpha1 = (0.2, 2.6, 5.4), alpha2 = (0.85, 2.6, 5.1) and alpha3 = (2.96, 2.96, 2.96). Based on the real data and Theorem 2, the reliability of series system (Y1:3) can be expressed by F̄_{Y1:3}(x) = prod pi psi sum phi(zeta(alphai, 2, 1 - e^{-x^2/2b^2})) ... Figure 8 indicates that the weaker heterogeneity among shape parameters according to the weak majorization order leads to larger reliability of the series systems. ... [Section 5] two curves ... heterogeneity among shape parameters according to the row weak majorization order leads to larger reliability of the series system ... consistent as Remark 3.",
+    "kind": "example",
+    "model": "series system",
+    "family": "MOTL-G with Rayleigh baseline G(x) = 1 - e^{-x^2/(2b^2)}; Gumbel copula with estimated theta-hat = 3.32",
+    "compared": "Y1:3 reliability curves under alpha vectors alpha1 vs alpha2 vs alpha3 ordered by (row) weak majorization",
+    "hypotheses": [
+      {"text": "shape parameter vectors alpha1 = (0.2,2.6,5.4), alpha2 = (0.85,2.6,5.1), alpha3 = (2.96,2.96,2.96) ordered by weak majorization; Theorems 2/3 invoked", "formal": "alpha1 >=w alpha2 >=w alpha3-type relation", "source": "Section 4 text and Remark 3"}
+    ],
+    "conclusion": {"order": "st", "direction": "the more weakly-majorized (more homogeneous) shape vector yields the larger series-system reliability, i.e. Y1:3(alpha3) >=st Y1:3(alpha2) >=st Y1:3(alpha1) interpreted via reliability curves"},
+    "quantifiers": "n = 3; x >= 0",
+    "numbers": "theta-hat = 3.32 (Gumbel copula, two-stage MLE); Rayleigh b-hat1 = 3.3662, b-hat2 = 3.4271; alpha vectors (0.2,2.6,5.4), (0.85,2.6,5.1), (2.96,2.96,2.96); beta = 2",
+    "ambiguity": "The ordering is asserted through plotted reliability curves ('leads to larger reliability'), not as a formal <=st statement; recorded as st per the paper's Definition 1(i) (survival-function domination). Wind-speed sites labeled Eidhoven (Site A) and Volkel (Site B)."
+  }
+]

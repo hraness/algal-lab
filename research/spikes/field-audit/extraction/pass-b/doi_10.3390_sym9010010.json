@@ -1,0 +1,141 @@
+[
+ {
+  "paper": "doi:10.3390/sym9010010",
+  "claim": "Theorem 1 (parallel-system part)",
+  "page": 4,
+  "quote": "Theorem 1. Let X1, . . . , Xn be independent random variables with Xi ∼ Fré(µ, θ, αi), i = 1, . . . , n, and Y1, . . . , Yn be independent random variables with Yi ∼ Fré(µ, θ, αi∗), i = 1, . . . , n. If (α1, . . . , αn) ≽m (α1∗, . . . , α∗n), then Xn:n ≥st Yn:n and X1:n ≤st Y1:n.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "Fréchet Fré(µ, θ, α): F(x) = exp(−((x−µ)/θ)^{−α}), x > µ; common location µ and scale θ, heterogeneous shape vectors α vs α*",
+  "compared": "shape-parameter vectors under majorization",
+  "hypotheses": [
+   {"text": "(α1, . . . , αn) ≽m (α1∗, . . . , α∗n)", "formal": "α* majorized by α (equal sums; partial sums of smallest of α <= α*)", "source": "statement"},
+   {"text": "common location µ and scale θ in both systems", "formal": "Xi ∼ Fré(µ, θ, αi), Yi ∼ Fré(µ, θ, αi*)", "source": "statement"},
+   {"text": "independence", "formal": "Xi, Yi mutually independent", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn:n >=st Yn:n"},
+  "quantifiers": "n >= 1, x > µ",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3390/sym9010010",
+  "claim": "Theorem 1 (series-system part)",
+  "page": 4,
+  "quote": "... then Xn:n ≥st Yn:n and X1:n ≤st Y1:n.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Fréchet Fré(µ, θ, α); common µ, θ; heterogeneous shapes",
+  "compared": "shape-parameter vectors under majorization",
+  "hypotheses": [
+   {"text": "(α1, . . . , αn) ≽m (α1∗, . . . , α∗n)", "formal": "α* majorized by α", "source": "statement"},
+   {"text": "common location µ and scale θ", "formal": "same µ, θ", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X1:n <=st Y1:n"},
+  "quantifiers": "n >= 1, x > µ",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3390/sym9010010",
+  "claim": "Theorem 2",
+  "page": 5,
+  "quote": "Theorem 2. Let X1, . . . , Xn be independent random variables with Xi ∼ Fré(µ, θi, α), i = 1, . . . , n, and Y1, . . . , Yn be independent random variables with Yi ∼ Fré(µ, θi∗, α), i = 1, . . . , n. If (1/θ1, . . . , 1/θn) ≽w (1/θ1∗, . . . , 1/θ∗n), then Xn:n ≥rh Yn:n.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "Fréchet Fré(µ, θi, α); common location µ and shape α, heterogeneous scales θi vs θi*",
+  "compared": "reciprocal scale vectors (1/θi) under weak upper majorization",
+  "hypotheses": [
+   {"text": "(1/θ1, . . . , 1/θn) ≽w (1/θ1∗, . . . , 1/θ∗n)", "formal": "reciprocal-scale vector of Y weak upper majorized by that of X (partial sums of smallest 1/θ(i) <= 1/θ*(i), total <=)", "source": "statement"},
+   {"text": "common location µ and common shape α", "formal": "Xi ∼ Fré(µ, θi, α)", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "Xn:n >=rh Yn:n (r̃Xn:n >= r̃Yn:n pointwise)"},
+  "quantifiers": "n >= 1, x > µ",
+  "ambiguity": "Notation: this paper defines 'λ* is weak upper majorized by λ, denoted λ ≽w λ*' by partial sums of smallest components; the ≽w superscript here corresponds to 'weak submajorization' of Marshall–Olkin but on the reciprocal scales."
+ },
+ {
+  "paper": "doi:10.3390/sym9010010",
+  "claim": "Theorem 3",
+  "page": 6,
+  "quote": "Theorem 3. Let X1, . . . , Xn be independent random variables with Xi ∼ Fré(µ, θi, α), i = 1, . . . , n, and Y1, . . . , Yn be independent random variables with Yi ∼ Fré(µ, θi∗, α), i = 1, . . . , n. If Σ_{i=1}^n θi^α ≥ Σ_{i=1}^n θi∗^α, then Xn:n ≥lr Yn:n.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "Fréchet Fré(µ, θi, α); common µ, α; heterogeneous scales",
+  "compared": "scale vectors under an aggregate α-power-sum inequality",
+  "hypotheses": [
+   {"text": "Σ θi^α ≥ Σ θi∗^α", "formal": "power-sum comparison of scales", "source": "statement"},
+   {"text": "common location µ and common shape α", "formal": "same µ, α", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "Xn:n >=lr Yn:n (fXn:n/gYn:n nondecreasing... check direction below)"},
+  "quantifiers": "n >= 1, x > µ",
+  "ambiguity": "Proof computes fXn:n/gYn:n = (Σθi^α/Σθi*^α)·exp(((x−µ)/...)·(Σθi*^α − Σθi^α)) and declares it nondecreasing when Σθi^α >= Σθi*^α — for Xn:n >=lr Yn:n in their convention (Y >=lr X iff g/f nondecreasing? Definition 1(iii): X smaller than Y in lr iff g(x)/f(x) nondecreasing, denoted Y >=lr X). So they need gY/fX nondecreasing; the text says 'gXn:n(x)/fXn:n ... nonnonincreasing' — garbled fraction labels; the displayed ratio is fXn:n/gYn:n nondecreasing, which is the OPPOSITE direction (i.e., Xn:n >=lr Yn:n would need gY/fX increasing). Recorded as printed; possible direction slip in the proof."
+ },
+ {
+  "paper": "doi:10.3390/sym9010010",
+  "claim": "Theorem 4",
+  "page": 6,
+  "quote": "Theorem 4. Let X1, . . . , Xn be independent random variables with Xi ∼ Fré(µ, θi, α), i = 1, . . . , n, and Y1, . . . , Yn be independent random variables with Yi ∼ Fré(µ, θ, α), i = 1, . . . , n. If 1/θ = (Π_{i=1}^n 1/θi)^{1/n}, then Xn:n ≥lr Yn:n.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "Fréchet Fré(µ, θi, α) vs homogeneous Fré(µ, θ, α); common µ, α",
+  "compared": "heterogeneous scales vs homogeneous scale equal to the geometric mean of θi",
+  "hypotheses": [
+   {"text": "1/θ = (Π 1/θi)^{1/n}", "formal": "equivalently θ = geometric mean of the θi", "source": "statement"},
+   {"text": "common location µ and common shape α", "formal": "same µ, α", "source": "statement"},
+   {"text": "From the result of Theorem 3 in Gupta et al. [6], we have 1/θ = (Π 1/θi)^{1/n} implies Xn:n ≥rh Yn:n", "formal": "earlier rh result invoked", "source": "proof"}
+  ],
+  "conclusion": {"order": "lr", "direction": "Xn:n >=lr Yn:n"},
+  "quantifiers": "n >= 1, x > µ",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3390/sym9010010",
+  "claim": "Lemma 5",
+  "page": 7,
+  "quote": "Lemma 5. Let X1, . . . , Xn be independent random variables with Xi ∼ Fré(µ, θi, α), i = 1, . . . , n, and Y1, . . . , Yn be independent random variables with Yi ∼ Fré(µ, θ∗, α), i = 1, . . . , n. If 0 < α ≤ 1 and (θ1, . . . , θn) ≽m (θ1∗, . . . , θn∗), then X1:n ≤lr Y1:n.",
+  "kind": "lemma",
+  "model": "series system",
+  "family": "Fréchet Fré(µ, θi, α) vs homogeneous Fré(µ, θ*, α); small shape 0 < α <= 1",
+  "compared": "scale vectors under majorization (θ vs θ*)",
+  "hypotheses": [
+   {"text": "0 < α ≤ 1", "formal": "small shape restriction", "source": "statement"},
+   {"text": "(θ1, . . . , θn) ≽m (θ1∗, . . . , θn∗)", "formal": "θ* majorized by θ", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "X1:n <=lr Y1:n"},
+  "quantifiers": "n >= 1, x > µ, θi > 0",
+  "ambiguity": "Yi is described as homogeneous Fré(µ, θ*, α) while the hypothesis mentions a vector (θ1*,...,θn*); presumably θi* = θ* for all i. The proof in fact verifies rX1:n >= rY1:n, i.e. the stronger hr ordering, and states lr as the conclusion."
+ },
+ {
+  "paper": "doi:10.3390/sym9010010",
+  "claim": "Theorem 5(1)",
+  "page": 7,
+  "quote": "Theorem 5. Let X1, . . . , Xn be independent random variables with Xi ∼ Fré(µ, θi, α), i = 1, . . . , n, and Y1, . . . , Yn be independent random variables with Yi ∼ Fré(µ, θ∗, α), i = 1, . . . , n. (1) If θ∗^α = (1/n) Σ_{i=1}^n θi^α, then X1:n ≤lr Y1:n;",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Fréchet Fré(µ, θi, α) vs homogeneous Fré(µ, θ*, α)",
+  "compared": "heterogeneous scales vs homogeneous scale set to the α-power mean",
+  "hypotheses": [
+   {"text": "θ∗^α = (1/n) Σ θi^α", "formal": "θ* = (mean of θi^α)^{1/α}", "source": "statement"},
+   {"text": "θ∗^α = (1/n) Σ θi^α implies (θ1^α, . . . , θn^α) ≽m (θ∗^α, ..., θ∗^α)", "formal": "majorization to constant vector used with Theorem 4 of Gupta et al. for the survival-ratio part", "source": "proof"}
+  ],
+  "conclusion": {"order": "lr", "direction": "X1:n <=lr Y1:n"},
+  "quantifiers": "n >= 1, x > µ",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3390/sym9010010",
+  "claim": "Theorem 5(2)",
+  "page": 7,
+  "quote": "(2) If 0 < α ≤ 1, θ∗ = (1/n) Σ_{i=1}^n θi, then X1:n ≤lr Y1:n.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Fréchet Fré(µ, θi, α) vs homogeneous Fré(µ, θ*, α); 0 < α <= 1",
+  "compared": "heterogeneous scales vs homogeneous scale equal to the arithmetic mean",
+  "hypotheses": [
+   {"text": "0 < α ≤ 1", "formal": "small shape restriction", "source": "statement"},
+   {"text": "θ∗ = (1/n) Σ θi", "formal": "θ* = arithmetic mean of θi, giving (θi) ≽m (θ*,...,θ*)", "source": "statement"},
+   {"text": "Upon using Lemma 5, this proof is similar to that of Part (1)", "formal": "Lemma 5 provides the hr part", "source": "proof"}
+  ],
+  "conclusion": {"order": "lr", "direction": "X1:n <=lr Y1:n"},
+  "quantifiers": "n >= 1, x > µ",
+  "ambiguity": ""
+ }
+]

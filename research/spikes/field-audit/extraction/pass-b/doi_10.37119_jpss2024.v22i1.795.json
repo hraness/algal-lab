@@ -1,0 +1,19 @@
+[
+ {
+  "paper": "doi:10.37119/jpss2024.v22i1.795",
+  "claim": "Section 10, likelihood-ratio ordering result (unnumbered)",
+  "page": 10,
+  "quote": "10. Stochastic Ordering. A crucial technique in reliability and finance for evaluating the relative performance of the models is stochastic ordering. Let X and Y be two random variables with pdf, cdf, and reliability functions f(x), f(y), F(x), F(y), S(x) = 1 − F(x) and F(y). 1- Likelihood ratio order (X ≤ Y) if f(x;η,β)/f(x;η,β) decreases in x. 2- Stochastic order (X ≤ Y) if F(x;x;η,β) ≥ F(x;η,β) ∀ x. 3- Hazard rate order (X ≤ Y) if h(x;η,β) ≥ F(x;η,β) ∀ x. 4- Mean residual life order (X ≤ Y) if MRL(X) ≤ MRL(X) ∀ x. Prove that the mixture of Gompertz and gamma distribution complies with the ordering with the highest likelihood (the likelihood ratio ordering). Assume that X and Y are two independent Random variables with probability distribution function f(x; η, β) and f(x; ψ, δ). If η < ψ and β < δ, then Λ = f(x;η,β)/f(x;ψ,δ) = [η/(1+β) e^{ηx}e^{βe^{ηx}−1} + (η²β/2)x e^{−ηx}] / [ψ/(1+δ) e^{ψx}e^{δe^{ψx}−1} + (ψ²δ/2)x e^{−ψx}]. Therefore, log[Λ] = log(η(1+δ)/ψ(1+β)) + log(...) − log(...). Differentiating with respect to x, ∂log[Λ]/∂x = [...] Hence, [∂logΛ/∂x] < 0, if η < ψ, β < δ.",
+  "kind": "proposition",
+  "model": "single",
+  "family": "mixture of Gompertz(η,β) and gamma(2,η) (MGGD): f(x;η,β) = (η/(1+β)) e^{ηx} e^{β e^{ηx} − 1} + (η²β/2) x e^{−ηx}, x > 0, η,β > 0",
+  "compared": "both parameters differ: η vs ψ and β vs δ",
+  "hypotheses": [
+   {"text": "Assume that X and Y are two independent Random variables with probability distribution function f(x; η, β) and f(x; ψ, δ)", "formal": "X ~ MGGD(η,β), Y ~ MGGD(ψ,δ)", "source": "statement"},
+   {"text": "If η < ψ and β < δ", "formal": "η < ψ, β < δ", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "X <=_lr Y, i.e. MGGD(η,β) <=_lr MGGD(ψ,δ)"},
+  "quantifiers": "all x > 0; η < ψ, β < δ",
+  "ambiguity": "Text layer badly garbles the formulas; the pdf exponents (e.g. e^{ηx} e^{β e^{ηx} − 1} for the Gompertz part) are reconstructed from context. The conclusion symbol is implied by '∂logΛ/∂x < 0', i.e. the likelihood ratio is decreasing, giving X ≤lr Y. The printed list of order definitions is corrupted (e.g. 'F(x;x;η,β) ≥ F(x;η,β)', 'MRL(X) ≤ MRL(X)')."
+ }
+]
