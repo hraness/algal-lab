@@ -1,0 +1,70 @@
+[
+ {
+  "paper": "doi:10.1007/s40745-019-00211-w",
+  "claim": "Theorem (Section 3.4), likelihood ratio part",
+  "page": 7,
+  "quote": "Let X ~ IXGD(theta_1) and Y ~ IXGD(theta_2). If theta_1 > theta_2, then X <=lr Y and hence it implies ordering in others also.",
+  "kind": "theorem",
+  "model": "other: two distributions of the same family",
+  "family": "inverse xgamma IXGD(theta): f(x) = theta^2/(1+theta) x^{-2} (1 + theta/(2x^2)) e^{-theta/x}, x, theta > 0",
+  "compared": "X ~ IXGD(theta_1) vs Y ~ IXGD(theta_2)",
+  "hypotheses": [
+   {"text": "theta_1 > theta_2", "formal": "ordered shape parameters", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "X <=_lr Y (density ratio phi(x) = f_{theta_1}/f_{theta_2} decreasing)"},
+  "quantifiers": "x > 0; theta_i > 0",
+  "numbers": "",
+  "ambiguity": "Proof's final line reads 'this implies X <=st Y' though the computation shows phi decreasing, i.e. lr; printed verbatim."
+ },
+ {
+  "paper": "doi:10.1007/s40745-019-00211-w",
+  "claim": "Theorem (Section 3.4), hazard rate part",
+  "page": 7,
+  "quote": "If theta_1 > theta_2, then X <=lr Y and hence it implies ordering in others also.",
+  "kind": "theorem",
+  "model": "other: two distributions of the same family",
+  "family": "IXGD(theta)",
+  "compared": "X vs Y",
+  "hypotheses": [
+   {"text": "theta_1 > theta_2", "formal": "ordered shape parameters", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X <=_hr Y (via lr => hr implication chain printed above the theorem)"},
+  "quantifiers": "x > 0",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1007/s40745-019-00211-w",
+  "claim": "Theorem (Section 3.4), mean residual life part",
+  "page": 7,
+  "quote": "If theta_1 > theta_2, then X <=lr Y and hence it implies ordering in others also.",
+  "kind": "theorem",
+  "model": "other: two distributions of the same family",
+  "family": "IXGD(theta)",
+  "compared": "X vs Y",
+  "hypotheses": [
+   {"text": "theta_1 > theta_2", "formal": "ordered shape parameters", "source": "statement"}
+  ],
+  "conclusion": {"order": "mrl", "direction": "X <=_mrl Y (via lr => hr => mrl chain)"},
+  "quantifiers": "x > 0",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1007/s40745-019-00211-w",
+  "claim": "Theorem (Section 3.4), usual stochastic order part",
+  "page": 7,
+  "quote": "If theta_1 > theta_2, then X <=lr Y and hence it implies ordering in others also.",
+  "kind": "theorem",
+  "model": "other: two distributions of the same family",
+  "family": "IXGD(theta)",
+  "compared": "X vs Y",
+  "hypotheses": [
+   {"text": "theta_1 > theta_2", "formal": "ordered shape parameters", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X <=_st Y"},
+  "quantifiers": "x > 0",
+  "numbers": "",
+  "ambiguity": ""
+ }
+]

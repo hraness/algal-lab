@@ -1,0 +1,88 @@
+[
+ {
+  "paper": "doi:10.1017/s026996481900041x",
+  "claim": "Restated result of Bon & Pǎltǎnea (2006) [Introduction, eq. (1)]",
+  "page": 1,
+  "quote": "Let X1,...,Xn be independent exponential random variables with rates λ1,...,λn respectively. Let Y1,...,Yn be another set of independent exponential random variables with a common rate γ. Then the kth order statistic of the heterogeneous sample is larger than that of the homogeneous sample in the usual stochastic order, that is, Yk:n ≤st Xk:n, if and only if γ ≥ ( C(n,k)^{-1} sk(λ1,...,λn) )^{1/k} [γ ≥ (sk(λ1,...,λn)/\binom{n}{k})^{1/k}], where sk denotes the kth elementary symmetric function.",
+  "kind": "theorem",
+  "model": "generic",
+  "family": "Independent exponential samples: heterogeneous rates λi (X) vs homogeneous rate γ (Y)",
+  "compared": "Yk:n vs Xk:n",
+  "hypotheses": [
+   {"text": "Xi ~ exponential(λi) independent; Yi ~ exponential(γ) iid", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Yk:n ≤_st Xk:n iff γ ≥ (sk(λ)/C(n,k))^{1/k}"},
+  "quantifiers": "all 1 ≤ k ≤ n",
+  "numbers": "",
+  "ambiguity": "Background result quoted; related restated facts: k = n case implies hazard rate and dispersive orders (Khaledi & Kochar 2000), k = 2 equivalence with ≤hr (Pǎltǎnea 2008)."
+ },
+ {
+  "paper": "doi:10.1017/s026996481900041x",
+  "claim": "Theorem 1",
+  "page": 2,
+  "quote": "Theorem 1. For each 1 ≤ k ≤ n, (1) is equivalent to Yk:n ≤hr Xk:n, and also equivalent to Yk:n ≤disp Xk:n.",
+  "kind": "theorem",
+  "model": "generic",
+  "family": "Independent exponential samples, heterogeneous vs homogeneous",
+  "compared": "Yk:n vs Xk:n",
+  "hypotheses": [
+   {"text": "Xi ~ exponential(λi) independent; Yi ~ exponential(γ) iid; condition (1): γ ≥ (sk(λ)/C(n,k))^{1/k}", "formal": "elementary symmetric function threshold", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "(1) ⇔ Yk:n ≤hr Xk:n ⇔ Yk:n ≤disp Xk:n (also ⇔ ≤st)"},
+  "quantifiers": "1 ≤ k ≤ n",
+  "numbers": "",
+  "ambiguity": "Confirms the conjecture of Pǎltǎnea (2008); '≤order' encompasses hr and disp equivalences."
+ },
+ {
+  "paper": "doi:10.1017/s026996481900041x",
+  "claim": "Theorem 2",
+  "page": 2,
+  "quote": "Theorem 2. For each 1 ≤ k ≤ n, we have Yk:n ≤* Xk:n.",
+  "kind": "theorem",
+  "model": "generic",
+  "family": "Independent exponential samples, heterogeneous vs homogeneous (unconditional)",
+  "compared": "Yk:n vs Xk:n in star order",
+  "hypotheses": [
+   {"text": "Xi ~ exponential(λi) independent; Yi ~ exponential(γ) iid", "formal": "setup of the paper", "source": "statement"}
+  ],
+  "conclusion": {"order": "*", "direction": "Yk:n ≤_* Xk:n (star order, no condition on γ needed)"},
+  "quantifiers": "1 ≤ k ≤ n",
+  "numbers": "",
+  "ambiguity": "Confirms conjecture of Xu & Balakrishnan (2012); implies Lorenz ordering Yk:n ≤L Xk:n (Da et al. 2014 strengthening)."
+ },
+ {
+  "paper": "doi:10.1017/s026996481900041x",
+  "claim": "Corollary 1",
+  "page": 3,
+  "quote": "Corollary 1. For 1 ≤ m < k ≤ n we have Yk:n − Ym:n ≤* Xk:n − Xm:n.",
+  "kind": "corollary",
+  "model": "generic",
+  "family": "Independent exponentials, heterogeneous vs homogeneous",
+  "compared": "general spacings Yk:n − Ym:n vs Xk:n − Xm:n",
+  "hypotheses": [
+   {"text": "same setup; 1 ≤ m < k ≤ n", "formal": "follows from Theorem 2 via Lemma 2 representation", "source": "statement"}
+  ],
+  "conclusion": {"order": "*", "direction": "Yk:n − Ym:n ≤_* Xk:n − Xm:n"},
+  "quantifiers": "1 ≤ m < k ≤ n",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.1017/s026996481900041x",
+  "claim": "Proposition 1",
+  "page": 3,
+  "quote": "Proposition 1. For 1 ≤ m < k ≤ n we have Yk:n − Ym:n ≤order Xk:n − Xm:n if and only if ( γ^{n−m}/\binom{k−m}{...} )^{k−m} ≥ s_{k−m}^{[r]}(λ) Σ_r Π_{j=1}^{m} λ_{rj}/(Λ − Σ_{i=1}^j λ_{ri}) where r = (r1,...,rm), the outer sum is over all permutations of {1,...,n} using m at a time, λ = (λ1,...,λn), Λ = Σ λi, s_{k−m}^{[r]}(λ) = s_{k−m}(λ\\{λr1,...,λrm}), and ≤order is any of ≤st, ≤hr or ≤disp.",
+  "kind": "proposition",
+  "model": "generic",
+  "family": "Independent exponentials; general spacings",
+  "compared": "Yk:n − Ym:n vs Xk:n − Xm:n",
+  "hypotheses": [
+   {"text": "Xi ~ exponential(λi) independent; Yi ~ exponential(γ) iid", "formal": "stated", "source": "statement"},
+   {"text": "condition (2): γ^{k−m} ≥ [C(n−m,k−m)]^{-1} s_{k−m}^{[r]}(λ) Σ_r Π_{j=1}^m λ_{rj}/(Λ − Σ_{i=1}^j λ_{ri})", "formal": "threshold inequality on γ; text layer partially garbled", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Yk:n − Ym:n ≤order Xk:n − Xm:n iff (2) holds, for ≤order ∈ {≤st, ≤hr, ≤disp}"},
+  "quantifiers": "1 ≤ m < k ≤ n",
+  "numbers": "m = 1, k = n case reduces to γ ≥ (Π λi)^{1/(n−1)}/(Λ/n), recovering Theorem 4.1 of Xu & Balakrishnan (2012)",
+  "ambiguity": "Left side of condition (2) partially garbled in text layer; likely (n−m)!/(k−m)! · γ^{k−m}-type coefficient — record printed expression verbatim."
+ }
+]

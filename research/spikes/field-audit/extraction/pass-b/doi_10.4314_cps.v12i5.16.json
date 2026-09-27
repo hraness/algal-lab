@@ -1,0 +1,37 @@
+[
+  {
+    "paper": "doi:10.4314/cps.v12i5.16",
+    "claim": "Proposition 2.1",
+    "page": "1643-1644",
+    "quote": "Proposition 2.I: Let F1(x; alpha, beta, theta) and G1(x; alpha, beta, theta) be the cdfs of the EPAD and EWD, each with parameters alpha, beta and theta. Then F1(x; alpha, beta, theta) <= G1(x; alpha, beta, theta). That is the EPAD(alpha, beta, theta) exhibits first-order stochastic dominance over the EWD(alpha, beta, theta). Proof: Certainly, if x < 0, F1(x, alpha, beta, theta) = 0 and G1(x, alpha, beta, theta) = 0. Thus, the inequality holds when x < 0. If x >= 0, 1 + theta x^beta >= 0 indicating that F1(x; alpha, beta, theta) = [1 - (1 + theta x^beta)e^{-theta x^beta}]^alpha <= G1(x; alpha, beta, theta) = [1 - e^{-theta x^beta}]^alpha. This completes the proof.",
+    "kind": "proposition",
+    "model": "single",
+    "family": "EPAD (Exponentiated Power Ailamujia distribution) F1(x) = [1 - (1 + theta x^beta)e^{-theta x^beta}]^alpha vs EWD (exponentiated Weibull distribution) G1(x) = [1 - e^{-theta x^beta}]^alpha, common parameters alpha, beta, theta",
+    "compared": "EPAD vs EWD random variables with the same parameters",
+    "hypotheses": [
+      {"text": "F1 and G1 have the same parameters alpha, beta, theta", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "F1(x) <= G1(x) for all x, i.e., the EPAD variable is larger than the EWD variable in the usual stochastic order (first-order stochastic dominance)"},
+    "quantifiers": "all x (x < 0 both cdfs are 0; x >= 0 the stated inequality)",
+    "numbers": "",
+    "ambiguity": "The paper states the result as 'first-order stochastic dominance' of EPAD over EWD via F1 <= G1; under the usual convention X >=st Y iff F_X <= F_Y, this means EPAD >=st EWD. Printed as 'Proposition 2.I'."
+  },
+  {
+    "paper": "doi:10.4314/cps.v12i5.16",
+    "claim": "Proposition 2.2",
+    "page": "1644-1645",
+    "quote": "Proposition 2.2: let X1 and X2 refers to two random variables having the EPAD such that the distribution of X1 has the parameters alpha1, beta1, and theta1 and the distribution of X2 has the parameters alpha2, beta2, and theta2. If beta1 = beta2 and theta1 = theta2, X2 is larger than [X1] based on the likelihood ratio ordering if alpha1 < alpha2. Proof: To prove proposition 2.2, it becomes important to determine the condition under which the ratio f1(x)/f2(x) decreases in x, where f1(x) and f2(x) are the pdfs of X1 and X2 respectively. ... If beta1 = beta2 = beta and theta1 = theta2 = theta, then d/dx ln[f1(x)/f2(x)] = [beta theta^2 x^{2beta-1} e^{-theta x^beta}/(1 - (1 + theta + x^beta)e^{-theta x^beta})] (alpha1 - alpha2). In this case, d/dx ln[f1(x)/f2(x)] < 0 if alpha1 < alpha2. That is f1(x)/f2(x) decreases in x whenever alpha1 < alpha2, beta1 = beta2 and theta1 = theta2. This ends the proof.",
+    "kind": "proposition",
+    "model": "single",
+    "family": "EPAD(alpha_i, beta_i, theta_i)",
+    "compared": "X1 vs X2 differing only in the exponentiation parameter alpha",
+    "hypotheses": [
+      {"text": "beta1 = beta2 and theta1 = theta2", "formal": "as stated", "source": "statement"},
+      {"text": "alpha1 < alpha2", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "lr", "direction": "X1 <=lr X2, i.e. X2 larger in likelihood ratio order (f1/f2 decreasing)"},
+    "quantifiers": "x > 0",
+    "numbers": "",
+    "ambiguity": "The statement prints 'X2 is larger than based on the likelihood ratio ordering' with the object omitted; the proof's sign of d/dx ln(f1/f2) = negative factor x (alpha1 - alpha2) shows f1/f2 decreasing, i.e., X1 <=lr X2. The denominator of the derivative expression prints '1 - (1 + theta + x^beta)e^{-theta x^beta}', likely an OCR slip for (1 + theta x^beta)."
+  }
+]

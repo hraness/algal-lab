@@ -1,0 +1,20 @@
+[
+ {
+  "paper": "doi:10.19139/soic-2310-5070-1872",
+  "claim": "Theorem (unnumbered, Section 3.6 Stochastic Order)",
+  "page": 2234,
+  "quote": "Theorem: Suppose X1 ~ TL-TIIEHL-MO-G(b1, α, δ, ξ) and X2 ~ TL-TIIEHL-MO-G(b2, α, δ, ξ). If b1 < b2, then f(x;b1,α,δ,ξ)/f(x;b2,α,δ,ξ) is decreasing in x. ... If b1 < b2, then ∂/∂x [f(x;b1,α,δ,ξ)/f(x;b2,α,δ,ξ)] < 0, which implies that likelihood ratio order exist among X1 and X2, that is, X2 <lr X1. As a result, we conclude that X1 and X2 are stochastically ordered, that is, X1 <st X2.",
+  "kind": "theorem",
+  "model": "generic",
+  "family": "Topp-Leone type II Exponentiated-Half Logistic-Marshall-Olkin-G family TL-TIIEHL-MO-G(b,α,δ,ξ)",
+  "compared": "X1 vs X2 differing only in parameter b (b1 < b2; common α, δ, ξ)",
+  "hypotheses": [
+   {"text": "X1 ~ TL-TIIEHL-MO-G(b1,α,δ,ξ), X2 ~ TL-TIIEHL-MO-G(b2,α,δ,ξ)", "formal": "stated", "source": "statement"},
+   {"text": "b1 < b2", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "f(x;b1)/f(x;b2) decreasing in x ⇒ X1 ≤lr X2; paper prints 'X2 <lr X1' and then 'X1 <st X2' — with hr and st consequences per X <lr Y ⟹ X <hr Y ⟹ X <st Y"},
+  "quantifiers": "all x in the support",
+  "numbers": "",
+  "ambiguity": "Printed conclusion is internally inconsistent: the decreasing density ratio implies X1 <lr X2 (X1 stochastically smaller), matching the printed 'X1 <st X2', but the paper prints 'X2 <lr X1'. The lr direction appears to be a typo; consistent reading: X1 <lr X2 and X1 <st X2 when b1 < b2."
+ }
+]

@@ -1,0 +1,329 @@
+[
+ {
+  "paper": "doi:10.19139/soic-2310-5070-863",
+  "claim": "Lemma 1",
+  "page": 4,
+  "quote": "Lemma 1. Let X and Y be the random vectors as given in (5) [X ∼ NVMMd(µ, Σ, λ, h), Y ∼ NVMMd(µ′, Σ′, λ′, h)]. If µ ≤ µ′, λ ≤ λ′, σ = σ′, σij ≤ σij′ for all 1 ≤ i, j ≤ d, then P(X ≥ t) ≤ P(Y ≥ t) for all t ∈ Rd. If µi < µ′i or λi < λ′i for some i or σij < σij′ for some (i, j), then the above inequality is in fact strict.",
+  "kind": "lemma",
+  "model": "multivariate random vectors",
+  "family": "normal mean-variance mixture NMVM_d(µ, Σ, λ, h): X|W ~ Nd(µ + Wλ, WΣ), W ~ h mixing distribution (includes generalized hyperbolic submodels)",
+  "compared": "X vs Y under componentwise ordering of location, skewness parameter and covariances",
+  "hypotheses": [
+   {"text": "µ ≤ µ′, λ ≤ λ′, σ = σ′, σij ≤ σij′ for all i, j", "formal": "componentwise inequalities; common diagonal", "source": "statement"}
+  ],
+  "conclusion": {"order": "upper orthant", "direction": "P(X ≥ t) <= P(Y ≥ t) for all t (strict if some inequality strict) — Slepian-type inequality"},
+  "quantifiers": "all t ∈ Rd",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-863",
+  "claim": "Lemma 2",
+  "page": 4,
+  "quote": "Lemma 2. Let X and Y be the random vectors as given in (5) and ϕp(.|w) = ϕd(.; µp + wλp, wΣp), 0 ≤ p ≤ 1, where µp = pµ + (1−p)µ′, λp = pλ + (1−p)λ′, Σp = pΣ + (1−p)Σ′. Further, let f : Rd → R be twice continuously differentiable and, for any w ∈ SH, satisfy the following conditions (i)-(iii) [boundary limits vanish]. If the following conditions Σi(µ′i − µi) ∂f/∂xi ≥ 0, Σi(λ′i − λi) ∂f/∂xi ≥ 0, ΣiΣj(σ′ij − σij) ∂²f/∂xi∂xj ≥ 0 hold, then E(f(X)) ≤ E(f(Y)).",
+  "kind": "lemma",
+  "model": "multivariate random vectors",
+  "family": "NMVM_d(µ, Σ, λ, h)",
+  "compared": "X vs Y under integral-order generator conditions (sign of directional derivatives of f in direction of parameter differences)",
+  "hypotheses": [
+   {"text": "f twice continuously differentiable with boundary regularity (i)-(iii)", "formal": "polynomial-growth regularity", "source": "statement"},
+   {"text": "Σi(µ′i − µi) ∂f/∂xi ≥ 0; Σi(λ′i − λi) ∂f/∂xi ≥ 0; Σij(σ′ij − σij) ∂²f/∂xi∂xj ≥ 0", "formal": "conditions (7)", "source": "statement"}
+  ],
+  "conclusion": {"order": "integral", "direction": "E f(X) <= E f(Y)"},
+  "quantifiers": "all such f",
+  "ambiguity": "Generic integral-order sufficient condition; basis for Corollary 3 and the icx/dcx/cx results."
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-863",
+  "claim": "Lemma 3",
+  "page": 6,
+  "quote": "Lemma 3. Let X and Y be the random vectors as given in (14) [X|τ ∼ SNd(µ, a1(τ1)Σ, a2(τ)α), Y|τ ∼ SNd(µ′, a1(τ1)Σ′, a2(τ)α′)]. If µ ≤ µ′, λτ ≤ λ′τ for all τ ∈ SH, σ = σ′, σij ≤ σij′ for all 1 ≤ i, j ≤ d, then P(X ≥ t) ≤ P(Y ≥ t) for all t ∈ Rd. If µi < µ′i or λτ,i < λ′τ,i for some i or σij < σij′ for some (i, j), then the above inequality is indeed strict.",
+  "kind": "lemma",
+  "model": "multivariate random vectors",
+  "family": "scale-shape mixture of multivariate skew-normal SSMSN: X|τ ∼ SNd(µ, a1(τ1)Σ, a2(τ)α)",
+  "compared": "X vs Y under componentwise ordering of location, skewness coefficient λτ and covariances",
+  "hypotheses": [
+   {"text": "µ ≤ µ′, λτ ≤ λ′τ for all τ ∈ SH, σ = σ′, σij ≤ σij′", "formal": "componentwise inequalities", "source": "statement"}
+  ],
+  "conclusion": {"order": "upper orthant", "direction": "P(X ≥ t) <= P(Y ≥ t) for all t (strict under strict inequalities) — Slepian-type"},
+  "quantifiers": "all t ∈ Rd, τ ∈ SH",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-863",
+  "claim": "Lemma 4",
+  "page": 7,
+  "quote": "Lemma 4. Let X and Y be the random vectors as given in (14), and µp = pµ + (1−p)µ′, λp = pλτ + (1−p)λ′τ, Σp = pΣ + (1−p)Σ′, for 0 ≤ p ≤ 1. Further, let f : Rd → R be twice continuously differentiable and for all τ ∈ SH, k = 1, 2 satisfy conditions (i)-(iii) [...]. If Σi(µ′i − µi) ∂f/∂xi ≥ 0, Σi(λ′τ,i − λτ,i) ∂f/∂xi ≥ 0, Σij(σ′ij − σij) ∂²f/∂xi∂xj ≥ 0 hold, then E(f(X)) ≤ E(f(Y)).",
+  "kind": "lemma",
+  "model": "multivariate random vectors",
+  "family": "SSMSN",
+  "compared": "X vs Y under integral-order generator conditions on f",
+  "hypotheses": [
+   {"text": "f twice continuously differentiable with boundary regularity (i)-(iii)", "formal": "regularity", "source": "statement"},
+   {"text": "Σi(µ′i − µi) ∂f/∂xi ≥ 0; Σi(λ′τ,i − λτ,i) ∂f/∂xi ≥ 0; Σij(σ′ij − σij) ∂²f/∂xi∂xj ≥ 0", "formal": "conditions (17)", "source": "statement"}
+  ],
+  "conclusion": {"order": "integral", "direction": "E f(X) <= E f(Y)"},
+  "quantifiers": "all such f, all τ ∈ SH",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-863",
+  "claim": "Lemma 5",
+  "page": 8,
+  "quote": "Lemma 5. Let X1 and X2 be two SSMSN random variables given by Xi|τ ∼ SN1(µi, a1(τ1)σi², a2(τ)αi), i = 1, 2. Then, X1 ≼st X2 if and only if µ1 ≤ µ2, σ1 = σ2 and α1 ≤ α2 (λτ,1 ≤ λτ,2).",
+  "kind": "lemma",
+  "model": "univariate random variables",
+  "family": "univariate SSMSN",
+  "compared": "X1 vs X2; necessary and sufficient parameter conditions",
+  "hypotheses": [
+   {"text": "µ1 ≤ µ2, σ1 = σ2 and α1 ≤ α2 (λτ,1 ≤ λτ,2)", "formal": "iff conditions (common scale, ordered location and shape)", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X1 <=st X2 iff the conditions hold"},
+  "quantifiers": "all t",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-863",
+  "claim": "Figure 1 illustration (Lemma 5)",
+  "page": 9,
+  "quote": "To illustrate the result of Lemma 5, the survival functions for two special cases of univariate SSMSN distributions are plotted in Figure 1: (i) the skew-t-normal distributions denoted by STN(µ, σ, α, ν), and (ii) the skew-Cauchy distribution denoted by SC(µ, σ, α). Distributions whose parameters satisfy the conditions of Lemma 5 are stochastically ordered. Otherwise, their survival functions intersect each other and are therefore not stochastically ordered.",
+  "kind": "example",
+  "model": "univariate random variables",
+  "family": "skew-t-normal STN(µ, σ, α, ν) and skew-Cauchy SC(µ, σ, α)",
+  "compared": "survival functions at several printed parameter settings",
+  "hypotheses": [
+   {"text": "parameter settings printed in Figure 1", "formal": "satisfying or violating Lemma 5 conditions", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "ordered (nested survival functions) when µ1 <= µ2, σ1 = σ2, α1 <= α2; survival functions cross otherwise"},
+  "quantifiers": "",
+  "numbers": "Figure 1(i): STN(0,1,0.25,5), STN(0,1,0.50,5), STN(1,2,0.25,5), STN(1,2,0.50,5); Figure 1(ii): SC(0,1,−0.5), SC(0,4,−0.5), SC(1,1,+0.5), SC(1,4,−0.5)",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-863",
+  "claim": "Lemma 6",
+  "page": 10,
+  "quote": "Lemma 6. Let X1 and X2 be the random variables as given in (21) [Xi ∼ NVMM1(µi, σi², λi, h)]. (i) If µ1 = µ2, then X1 ≼st X2 if and only if σ1 = σ2 and λ1 ≤ λ2; (ii) If λ1 = λ2, then X1 ≼st X2 if and only if σ1 = σ2 and µ1 ≤ µ2.",
+  "kind": "lemma",
+  "model": "univariate random variables",
+  "family": "univariate NMVM_1(µ, σ², λ, h)",
+  "compared": "X1 vs X2; iff characterizations under one common parameter",
+  "hypotheses": [
+   {"text": "(i) µ1 = µ2; (ii) λ1 = λ2", "formal": "common parameter in each part", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "(i) X1 <=st X2 iff σ1 = σ2 and λ1 <= λ2; (ii) iff σ1 = σ2 and µ1 <= µ2"},
+  "quantifiers": "all t",
+  "ambiguity": "Full characterization only when one parameter is common; for general parameters sufficiency holds but necessity is not established (text p.9)."
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-863",
+  "claim": "Figure 2 illustration (Lemma 6)",
+  "page": 10,
+  "quote": "To illustrate the result of Lemma 6, we consider the special case of univariate NMVM distributions with W ∼ Exp(1), which is a univariate generalized hyperbolic distribution (hyperbolic distribution) denoted by GH(µ, σ, λ). Plots of the survival functions of two cases of GH distribution with common locations (i) and GH distribution with common skewness parameters (ii) are shown in Figure 2. Distributions whose parameters satisfy the conditions of Lemma 6 are stochastically ordered, and are not ordered otherwise.",
+  "kind": "example",
+  "model": "univariate random variables",
+  "family": "univariate generalized hyperbolic GH(µ, σ, λ) with W ~ Exp(1)",
+  "compared": "survival functions at printed parameter settings",
+  "hypotheses": [
+   {"text": "parameter settings printed in Figure 2", "formal": "common µ (case i) or common λ (case ii)", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "ordered when Lemma 6 conditions hold; crossing survival functions otherwise"},
+  "quantifiers": "",
+  "numbers": "Figure 2(i): GH(0,1,0.5), GH(0,1,1.0), GH(0,2,0.5), GH(0,2,1.0); Figure 2(ii): GH(0,1,1), GH(0.5,1,1), GH(0,2,1), GH(0.5,2,1)",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-863",
+  "claim": "Lemma 7",
+  "page": 11,
+  "quote": "Lemma 7. Let the random variables X1 and X2 distributed as Xi|τ ∼ SN1(µi, a1(τ)σi², αi), i = 1, 2. If µ1 = µ2, then X1 ≼icx X2 if and only if λ1 ≤ λ2 and σ1 ≤ σ2, where λi = σiαi/√(1+αi²).",
+  "kind": "lemma",
+  "model": "univariate random variables",
+  "family": "univariate scale-mixture of skew-normal (SSMSN with a2(τ) = 1)",
+  "compared": "X1 vs X2 in increasing convex (stop-loss) order under common location",
+  "hypotheses": [
+   {"text": "µ1 = µ2", "formal": "common location", "source": "statement"}
+  ],
+  "conclusion": {"order": "icx", "direction": "X1 <=icx X2 iff λ1 <= λ2 and σ1 <= σ2"},
+  "quantifiers": "all t",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-863",
+  "claim": "Lemma 8",
+  "page": 11,
+  "quote": "Lemma 8. Let the random variables X1 and X2 be distributed as Xi ∼ NVMM1(µi, σi², λi, h), i = 1, 2. If µ1 = µ2, then X1 ≼icx X2 if and only if λ1 ≤ λ2 and σ1 ≤ σ2.",
+  "kind": "lemma",
+  "model": "univariate random variables",
+  "family": "univariate NMVM",
+  "compared": "X1 vs X2 in increasing convex (stop-loss) order under common location",
+  "hypotheses": [
+   {"text": "µ1 = µ2", "formal": "common location", "source": "statement"}
+  ],
+  "conclusion": {"order": "icx", "direction": "X1 <=icx X2 iff λ1 <= λ2 and σ1 <= σ2"},
+  "quantifiers": "all t",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-863",
+  "claim": "Lemma 9",
+  "page": 12,
+  "quote": "Lemma 9. Consider the random vectors (X1, X2), (Y1, Y2) ∈ ℜ2(F1, F2). Then, (X1, X2) ≼conc (Y1, Y2) if and only if Cov(h1(X1), h2(X2)) ≤ Cov(h1(Y1), h2(Y2)) for all increasing functions h1 and h2, when the involved covariances exist.",
+  "kind": "lemma",
+  "model": "bivariate random vectors in the Fréchet space ℜ2(F1, F2) (fixed marginals)",
+  "family": "Fréchet class with marginals F1, F2",
+  "compared": "concordance order vs ordering of covariances of increasing transforms",
+  "hypotheses": [
+   {"text": "same marginals; covariances exist", "formal": "(X1,X2), (Y1,Y2) ∈ ℜ2(F1,F2)", "source": "statement"}
+  ],
+  "conclusion": {"order": "concordance", "direction": "(X1,X2) <=conc (Y1,Y2) iff Cov(h1(X1), h2(X2)) <= Cov(h1(Y1), h2(Y2)) for all increasing h1, h2"},
+  "quantifiers": "all increasing h1, h2",
+  "ambiguity": "Cited characterization (Dhaene–Goovaerts / Müller–Stoyan), restated for use."
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-863",
+  "claim": "Corollary 1",
+  "page": 12,
+  "quote": "Corollary 1. Consider the bivariate SSMSN random vectors X and Y in (25) [X|τ ∼ SN2(µX, a1(τ)ΣX, αX), Y|τ ∼ SN2(µY, a1(τ)ΣY, αY)]. Then, X ≼conc Y if and only if ρX ≤ ρY.",
+  "kind": "corollary",
+  "model": "bivariate random vectors with common marginals",
+  "family": "bivariate SSMSN",
+  "compared": "concordance vs generalized correlation coefficient ordering",
+  "hypotheses": [
+   {"text": "X, Y ∈ ℜ2(F1, F2)", "formal": "same marginals", "source": "context (25)"}
+  ],
+  "conclusion": {"order": "concordance", "direction": "X <=conc Y iff ρX <= ρY (generalized correlation coefficients)"},
+  "quantifiers": "d = 2",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-863",
+  "claim": "Corollary 2",
+  "page": 12,
+  "quote": "Corollary 2. Consider the bivariate NMVM random vectors X, Y ∈ ℜ2(F1, F2) as X ∼ NVMM2(µX, ΣX, λX, h), Y ∼ NVMM2(µY, ΣY, λY, h). Then, X ≼conc Y if and only if ρX ≤ ρY.",
+  "kind": "corollary",
+  "model": "bivariate random vectors with common marginals",
+  "family": "bivariate NMVM",
+  "compared": "concordance vs correlation ordering",
+  "hypotheses": [
+   {"text": "X, Y ∈ ℜ2(F1, F2)", "formal": "same marginals", "source": "statement"}
+  ],
+  "conclusion": {"order": "concordance", "direction": "X <=conc Y iff ρX <= ρY"},
+  "quantifiers": "d = 2",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-863",
+  "claim": "Proposition 1",
+  "page": 12,
+  "quote": "Proposition 1. Consider X, Y ∈ ℜ2(F1, F2), where X and Y are random vectors for both cases (25) and (27). Then, X1 + X2 ≼icx Y1 + Y2 if and only if ρX ≤ ρY.",
+  "kind": "proposition",
+  "model": "portfolio risk (sum of two risks)",
+  "family": "bivariate SSMSN and bivariate NMVM vectors in the Fréchet space",
+  "compared": "stop-loss ordering of the aggregate risk vs correlation ordering",
+  "hypotheses": [
+   {"text": "X, Y ∈ ℜ2(F1, F2); common marginals", "formal": "same marginals so σX,ii = σY,ii", "source": "statement"}
+  ],
+  "conclusion": {"order": "icx", "direction": "X1 + X2 <=icx Y1 + Y2 iff ρX <= ρY"},
+  "quantifiers": "d = 2",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-863",
+  "claim": "Corollary 3",
+  "page": 13,
+  "quote": "Corollary 3. Let the random vectors X and Y be as given in (5) and (14). (i) If µ ≤ µ′, Σ = Σ′ and λτ ≤ λ′τ for all τ ∈ SH (λ ≤ λ′), then X ≼st Y; (ii) If µ = µ′, Σ′ − Σ is positive semi-definite and λτ = λ′τ for all τ ∈ SH (λ = λ′), then X ≼cx Y; (iii) If µ ≤ µ′, Σ′ − Σ is positive semi-definite and λτ ≤ λ′τ for all τ ∈ SH (λ ≤ λ′), then X ≼icx Y; (iv) If µ = µ′, σij ≤ σij′ and λτ = λ′τ for all τ ∈ SH (λ = λ′), then X ≼dcx Y and X ≼sm Y.",
+  "kind": "corollary",
+  "model": "multivariate random vectors",
+  "family": "NMVM (5) and SSMSN (14)",
+  "compared": "sufficient parameter conditions for four integral orders",
+  "hypotheses": [
+   {"text": "(i) µ ≤ µ′, Σ = Σ′, λτ ≤ λ′τ (λ ≤ λ′)", "formal": "st conditions", "source": "statement"},
+   {"text": "(ii) µ = µ′, Σ′ − Σ psd, λτ = λ′τ (λ = λ′)", "formal": "cx conditions", "source": "statement"},
+   {"text": "(iii) µ ≤ µ′, Σ′ − Σ psd, λτ ≤ λ′τ (λ ≤ λ′)", "formal": "icx conditions", "source": "statement"},
+   {"text": "(iv) µ = µ′, σij ≤ σij′, λτ = λ′τ (λ = λ′)", "formal": "dcx/sm conditions", "source": "statement"}
+  ],
+  "conclusion": {"order": "st/cx/icx/dcx/sm", "direction": "(i) X <=st Y; (ii) X <=cx Y; (iii) X <=icx Y; (iv) X <=dcx Y and X <=sm Y"},
+  "quantifiers": "all τ ∈ SH",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-863",
+  "claim": "Proposition 2",
+  "page": 13,
+  "quote": "Proposition 2. Suppose X and Y are SSMSN distributed random vectors as given in (14). Then, X ≼st Y if and only if µ ≤ µ′, Σ = Σ′ and λτ ≤ λ′τ for all τ ∈ SH.",
+  "kind": "proposition",
+  "model": "multivariate random vectors",
+  "family": "SSMSN",
+  "compared": "usual stochastic order; iff characterization",
+  "hypotheses": [
+   {"text": "µ ≤ µ′, Σ = Σ′, λτ ≤ λ′τ for all τ", "formal": "iff conditions", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X <=st Y iff the conditions hold"},
+  "quantifiers": "all τ ∈ SH",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-863",
+  "claim": "Proposition 3",
+  "page": 13,
+  "quote": "Proposition 3. Suppose X and Y are the NMVM distributed random vectors as given in (5). (i) If µ = µ′, then X ≼st Y if and only if λ ≤ λ′ and Σ = Σ′; (ii) If λ = λ′, then X ≼st Y if and only if µ ≤ µ′ and Σ = Σ′.",
+  "kind": "proposition",
+  "model": "multivariate random vectors",
+  "family": "NMVM",
+  "compared": "usual stochastic order; iff characterizations under a common parameter",
+  "hypotheses": [
+   {"text": "(i) µ = µ′; (ii) λ = λ′", "formal": "common parameter in each part", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "(i) X <=st Y iff λ <= λ′ and Σ = Σ′; (ii) X <=st Y iff µ <= µ′ and Σ = Σ′"},
+  "quantifiers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-863",
+  "claim": "Proposition 4",
+  "page": 13,
+  "quote": "Proposition 4. Suppose the random vectors X and Y are as given in both cases (2) and (28). Then, X ≼sm Y if and only if X and Y have the same marginals (Xi = Yi, i = 1, ..., d) and σij ≤ σij′ for any 1 ≤ i ≠ j ≤ d.",
+  "kind": "proposition",
+  "model": "multivariate random vectors",
+  "family": "NMVM (2) and scale-mixture SN (28: a2(τ) = 1 SSMSN)",
+  "compared": "supermodular order; iff characterization via identical marginals and covariance ordering",
+  "hypotheses": [
+   {"text": "same marginals and σij ≤ σij′ for i ≠ j", "formal": "iff conditions", "source": "statement"}
+  ],
+  "conclusion": {"order": "supermodular", "direction": "X <=sm Y iff same marginals and σij <= σij′ for i != j"},
+  "quantifiers": "all i ≠ j",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-863",
+  "claim": "Proposition 5",
+  "page": 14,
+  "quote": "Proposition 5 (i) If µ = µ′, then X ≼cx Y if and only if λ = λ′ and Σ′ − Σ is positive semi-definite; (ii) If λ = λ′, then X ≼cx Y if and only if µ = µ′ and Σ′ − Σ is positive semi-definite.",
+  "kind": "proposition",
+  "model": "multivariate random vectors",
+  "family": "NMVM and SSMSN (context of Propositions 4-6)",
+  "compared": "convex order; iff characterizations under a common parameter",
+  "hypotheses": [
+   {"text": "(i) µ = µ′; (ii) λ = λ′", "formal": "common parameter", "source": "statement"}
+  ],
+  "conclusion": {"order": "cx", "direction": "(i) X <=cx Y iff λ = λ′ and Σ′ − Σ psd; (ii) iff µ = µ′ and Σ′ − Σ psd"},
+  "quantifiers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-863",
+  "claim": "Proposition 6",
+  "page": 14,
+  "quote": "Proposition 6 (i) If µ = µ′, then X ≼dcx Y if and only if λ = λ′ and σij ≤ σij′ for all 1 ≤ i ≠ j ≤ d; (ii) If λ = λ′, then X ≼dcx Y if and only if µ = µ′ and σij ≤ σij′ for all 1 ≤ i ≠ j ≤ d.",
+  "kind": "proposition",
+  "model": "multivariate random vectors",
+  "family": "NMVM and SSMSN",
+  "compared": "directionally convex order; iff characterizations under a common parameter",
+  "hypotheses": [
+   {"text": "(i) µ = µ′; (ii) λ = λ′", "formal": "common parameter", "source": "statement"}
+  ],
+  "conclusion": {"order": "dcx", "direction": "(i) X <=dcx Y iff λ = λ′ and σij <= σij′ for i != j; (ii) iff µ = µ′ and σij <= σij′ for i != j"},
+  "quantifiers": "all i ≠ j",
+  "ambiguity": ""
+ }
+]

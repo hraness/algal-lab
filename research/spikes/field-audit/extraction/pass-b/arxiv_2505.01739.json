@@ -1,0 +1,137 @@
+[
+ {
+  "paper": "arxiv:2505.01739",
+  "claim": "Theorem 1",
+  "page": 8,
+  "quote": "Theorem 1. If F ∈ H, then F satisfies (SD).",
+  "kind": "theorem",
+  "model": "linear combination of iid risks",
+  "family": "inverted concave class H: F(1/x) concave in x ∈ R++ (equivalently, for densities, x²f(x) increasing); includes infinite-mean Pareto, Fréchet (α ≤ 1), absolute Cauchy, inverse Gamma (α ≤ 1), Feller–Pareto (γ ≥ γ1), etc.",
+  "compared": "linear combinations ΣηiXi vs ΣθiXi of iid X ~ F under majorization of weights",
+  "hypotheses": [
+   {"text": "F ∈ H", "formal": "F inverted concave", "source": "statement"},
+   {"text": "θ ⪯ η (majorization) on Rn+", "formal": "the (SD) relation itself: ΣηiXi ≤st ΣθiXi for θ ≼ η", "source": "definition of (SD), Section 2.1"},
+   {"text": "X1, ..., Xn iid with infinite mean (implied by (SD))", "formal": "infinite mean necessary", "source": "Proposition 1(i) / surrounding text"}
+  ],
+  "conclusion": {"order": "st", "direction": "ΣηiXi <=st ΣθiXi whenever θ ≼ η (more equal weights give stochastically larger combination)"},
+  "quantifiers": "all θ, η ∈ Rn+, n >= 2, all x",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2505.01739",
+  "claim": "Proposition 3",
+  "page": 11,
+  "quote": "Proposition 3. Let X1, . . . , Xn ∼ F be iid where F ∈ H. For vectors (θ1, . . . , θn) and (η1, . . . , ηn) in Rn+ such that (θ1, . . . , θn) ⪯w (η1, . . . , ηn), ΣηiXi ≤st ΣθiXi.",
+  "kind": "proposition",
+  "model": "linear combination of iid risks",
+  "family": "inverted concave class H",
+  "compared": "linear combinations under weak supermajorization of weights",
+  "hypotheses": [
+   {"text": "F ∈ H", "formal": "inverted concave", "source": "statement"},
+   {"text": "θ ⪯w η", "formal": "weak supermajorization: partial sums of smallest of θ >= η's", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "ΣηiXi <=st ΣθiXi"},
+  "quantifiers": "all θ, η ∈ Rn+, n >= 2",
+  "ambiguity": "Weak-supermajorization extension of Theorem 1; note θ ≼w η here means θ 'more equal' in the sense that smallest partial sums of θ are larger (Definition 1(i))."
+ },
+ {
+  "paper": "arxiv:2505.01739",
+  "claim": "Theorem 2",
+  "page": 12,
+  "quote": "Theorem 2. If F ∈ H∗, then F satisfies (SD*).",
+  "kind": "theorem",
+  "model": "linear combination of iid risks vs concentrated position",
+  "family": "inverted subadditive class H*: F(1/x1) + F(1/x2) >= F(1/(x1+x2)); larger than H, contains super-Pareto distributions",
+  "compared": "(Σθi)X1 vs ΣθiXi",
+  "hypotheses": [
+   {"text": "F ∈ H∗", "formal": "inverted subadditive", "source": "statement"},
+   {"text": "(SD*): (Σθi) X1 ≤st ΣθiXi for all θ ∈ Rn+", "formal": "the (SD*) relation", "source": "statement/definition"}
+  ],
+  "conclusion": {"order": "st", "direction": "(Σθi)X1 <=st ΣθiXi for all θ ∈ Rn+"},
+  "quantifiers": "all θ ∈ Rn+, n >= 2",
+  "ambiguity": "Also established in Arab et al. (2025, Theorem 3.1); noted as implied by the proof of Theorem 1 here."
+ },
+ {
+  "paper": "arxiv:2505.01739",
+  "claim": "Theorem 3",
+  "page": 14,
+  "quote": "Theorem 3. Let F be a continuous distribution function with ess-inf F = 0. Then CP(λ, F) satisfies (SD) for all λ ∈ R++ if and only if F ∈ H.",
+  "kind": "theorem",
+  "model": "linear combination of iid compound Poisson sums",
+  "family": "compound Poisson CP(λ, F): X = Σ_{j=1}^N Yj, N ~ Poisson(λ), Yj iid ~ F",
+  "compared": "weighted sums of iid CP(λ, F) variables under weight majorization (iff characterization)",
+  "hypotheses": [
+   {"text": "F continuous with ess-inf F = 0", "formal": "regularity", "source": "statement"},
+   {"text": "F ∈ H", "formal": "necessary and sufficient condition", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "CP(λ, F) satisfies (SD) for all λ > 0 iff F inverted concave: ΣηiXi <=st ΣθiXi for θ ≼ η"},
+  "quantifiers": "all λ > 0, n >= 2",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2505.01739",
+  "claim": "Remark 5 (compound mixed Poisson)",
+  "page": 16,
+  "quote": "Remark 5. By Theorem 3, if F ∈ H, CP(λ, F) satisfies (SD) for any λ ∈ R++. As usual stochastic order is preserved under mixtures (see, e.g., Shaked and Shanthikumar, 2007, Theorem 1.A.3 (d)), if F ∈ H, (SD) holds for the compound mixed Poisson distribution CP(Λ, F) where Λ is a random variable.",
+  "kind": "theorem",
+  "model": "linear combination of iid compound mixed Poisson sums",
+  "family": "compound mixed Poisson CP(Λ, F) with random intensity Λ",
+  "compared": "weighted sums under weight majorization",
+  "hypotheses": [
+   {"text": "F ∈ H", "formal": "inverted concave summand distribution", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "CP(Λ, F) satisfies (SD): ΣηiXi <=st ΣθiXi for θ ≼ η"},
+  "quantifiers": "n >= 2",
+  "ambiguity": "Stated as a remark (no separate proof) via preservation of st under mixtures."
+ },
+ {
+  "paper": "arxiv:2505.01739",
+  "claim": "Theorem 4",
+  "page": 16,
+  "quote": "Theorem 4. Let F be a continuous distribution function with ess-inf F = 0. Then CP(λ, F) satisfies (SD*) for all λ ∈ R++ if and only if F ∈ H∗.",
+  "kind": "theorem",
+  "model": "linear combination of iid compound Poisson sums vs concentrated position",
+  "family": "compound Poisson CP(λ, F)",
+  "compared": "(Σθi)X1 vs ΣθiXi for CP summands (iff characterization)",
+  "hypotheses": [
+   {"text": "F continuous with ess-inf F = 0", "formal": "regularity", "source": "statement"},
+   {"text": "F ∈ H∗", "formal": "necessary and sufficient condition", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "CP(λ, F) satisfies (SD*) for all λ > 0 iff F inverted subadditive"},
+  "quantifiers": "all λ > 0, n >= 2",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:2505.01739",
+  "claim": "Theorem 5",
+  "page": 17,
+  "quote": "Theorem 5. The stable distribution Sα(1, β, 0) satisfies (SD) if and only if one of the following conditions holds. (i) α = 1 and β ∈ R+; (ii) α < 1 and β = 1.",
+  "kind": "theorem",
+  "model": "linear combination of iid stable risks",
+  "family": "standard stable distributions Sα(1, β, 0)",
+  "compared": "weighted sums of iid stable variables under weight majorization (iff characterization of (SD))",
+  "hypotheses": [
+   {"text": "α = 1 and β ∈ R+, or α < 1 and β = 1", "formal": "parameter regions", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Sα(1, β, 0) satisfies (SD) iff the stated parameter conditions hold"},
+  "quantifiers": "n >= 2",
+  "ambiguity": "Part (ii) coincides with the one-sided positive stable case; Theorem 5(ii) noted as equivalent to Theorem 1.2.4 of Ibragimov (2005)."
+ },
+ {
+  "paper": "arxiv:2505.01739",
+  "claim": "Simulation illustration (Figures 1-2, Section 4)",
+  "page": 18,
+  "quote": "We use the stochastic representation of stable random variables in Weron (1996) to simulate 10000 random samples of two independent stable random variables X1, X2 ∼ Sα(1, β, 0); ... Let Y1 = a1|X1| + a2|X2| and Y2 = b1|X1| + b2|X2|. We consider three cases of the weight vector (a1, a2, b1, b2) = (1, 4, 2, 3), (2, 6, 3, 5) or (3, 8, 5, 6). Figure 1 plots the empirical distribution functions of Y1 and Y2 with α = 0.10 and β = 0 or −0.40, respectively. Figure 2 ... α = 0.90 and β = 0 or 0.30. ... we find that the empirical distributions F̂1 and F̂2 of Y1 and Y2 seem to satisfy F̂1(x) ≥ F̂2(x) for all x.",
+  "kind": "example",
+  "model": "linear combination of absolute values of iid stable variables",
+  "family": "absolute stable |Sα(1, β, 0)|",
+  "compared": "Y1 (weights (1,4)/(2,6)/(3,8)) vs Y2 (weights (2,3)/(3,5)/(5,6)) — each b-vector is majorized by the matching a-vector (b ≼ a: b more equal), so (SD) predicts Y1 <=st Y2, i.e. F̂1 >= F̂2 as observed",
+  "hypotheses": [
+   {"text": "10000 simulated samples; α = 0.1 (β = 0, −0.4) and α = 0.9 (β = 0, 0.3)", "formal": "simulation settings", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "empirical cdfs satisfy F̂1(x) >= F̂2(x) for all x, i.e. Y1 <=st Y2 — supporting the conjecture that absolute stable variables with α <= 1 satisfy (SD)"},
+  "quantifiers": "n = 2",
+  "numbers": "weights (a1,a2,b1,b2) = (1,4,2,3), (2,6,3,5), (3,8,5,6); α ∈ {0.10, 0.90}; β ∈ {0, −0.40, 0.30}",
+  "ambiguity": "Simulation-based evidence only (a conjecture, not a theorem); weight pairs are nested majorization-wise: (2,3),(3,5),(5,6) are progressively more dispersed than (1,4),(2,6),(3,8)."
+ }
+]

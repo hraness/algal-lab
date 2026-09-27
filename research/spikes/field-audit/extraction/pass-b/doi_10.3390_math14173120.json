@@ -1,0 +1,36 @@
+[
+ {
+  "paper": "doi:10.3390/math14173120",
+  "claim": "Theorem 6",
+  "page": 13,
+  "quote": "Theorem 6 (Likelihood ratio ordering in δ = α/θ). Let X1 ∼ LBD(λ, α1, θ1) and X2 ∼ LBD(λ, α2, θ2) be random variables with common scale parameter λ > 0, and let δi = αi/θi for i = 1, 2. If δ1 < δ2, then X2 ≤lr X1, and consequently, X2 ≤hr X1 and X2 ≤st X1.",
+  "kind": "theorem",
+  "model": "single random variables",
+  "family": "Lomax–Bilal distribution LBD(λ, α, θ), Bilal-G family applied to Lomax baseline: G(x) = 1 − (3 − 2u)u² with u = (λ/(x + λ))^{α/θ}; density depends on α, θ only through δ = α/θ",
+  "compared": "two LBD variables with common λ and differing shape-ratio δ = α/θ",
+  "hypotheses": [
+   {"text": "common scale λ > 0", "formal": "same λ", "source": "statement"},
+   {"text": "δ1 < δ2 where δi = αi/θi", "formal": "shape-ratio ordering", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "X2 <=lr X1 (equivalently g(x;δ2)/g(x;δ1) decreasing), hence X2 <=hr X1 and X2 <=st X1"},
+  "quantifiers": "x > 0",
+  "ambiguity": "Direction is as printed: smaller δ gives the stochastically larger variable (X2 ≤lr X1 when δ1 < δ2); the proof shows g(x;δ1)/g(x;δ2) increasing in x."
+ },
+ {
+  "paper": "doi:10.3390/math14173120",
+  "claim": "Theorem 7",
+  "page": 14,
+  "quote": "Theorem 7 (Likelihood ratio ordering in λ). Let X1 ∼ LBD(λ1, α, θ) and X2 ∼ LBD(λ2, α, θ) be random variables with common shape ratio δ = α/θ. If λ1 < λ2, then X1 ≤lr X2, and consequently, X1 ≤hr X2 and X1 ≤st X2.",
+  "kind": "theorem",
+  "model": "single random variables",
+  "family": "Lomax–Bilal distribution LBD(λ, α, θ)",
+  "compared": "two LBD variables with common δ = α/θ and differing scale λ",
+  "hypotheses": [
+   {"text": "common shape ratio δ = α/θ", "formal": "same α, θ", "source": "statement"},
+   {"text": "λ1 < λ2", "formal": "scale ordering", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "X1 <=lr X2 (g(x;λ1,δ)/g(x;λ2,δ) decreasing), hence X1 <=hr X2 and X1 <=st X2"},
+  "quantifiers": "x > 0",
+  "ambiguity": ""
+ }
+]

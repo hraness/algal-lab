@@ -1,0 +1,114 @@
+[
+ {
+  "paper": "arxiv:1905.00425",
+  "claim": "Theorem 3.1",
+  "page": 6,
+  "quote": "Theorem 3.1. Let X1, ...., Xn (Y1, ...., Yn) be the set of continuous independent random variables having Xi ~ Gum(µi, σ) (Yi ~ Gum(µ*i, σ)), i = 1, 2, ...., n. Then, if µi ≥ µ*i, we have Xn:n ≥lr Yn:n.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "independent Gumbel Gum(µ, σ): F(x) = e^{−e^{−(x−µ)/σ}}, common σ",
+  "compared": "componentwise location shift µi ≥ µ*i",
+  "hypotheses": [
+   {"text": "µi ≥ µ*i for i = 1,...,n", "formal": "componentwise location ordering", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "Xn:n >=_lr Yn:n"},
+  "quantifiers": "n ≥ 1; all x",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:1905.00425",
+  "claim": "Theorem 3.2",
+  "page": 7,
+  "quote": "Theorem 3.2. Let X1, ...., Xn (Y1, ...., Yn) be the set of continuous independent random variables having Xi ~ Gum(µi, σ) (Yi ~ Gum(µ*i, σ)), i = 1, 2, ...., n. Then, if (µ1, ···, µn) ≽m (µ*1, ···, µ*n), we have Xn:n ≥rh Yn:n.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "independent Gumbel, common σ",
+  "compared": "location vectors µ vs µ* under majorization",
+  "hypotheses": [
+   {"text": "(µ1, ···, µn) ≽m (µ*1, ···, µ*n)", "formal": "majorization between location vectors", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "Xn:n >=_rh Yn:n"},
+  "quantifiers": "n ≥ 1; all x",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:1905.00425",
+  "claim": "Corollary 3.3",
+  "page": 7,
+  "quote": "Corollary 3.3. Let X1, ...., Xn (Y1, ...., Yn) be the set of continuous independent random variables having Xi ~ Gum(µi, σ) (Yi ~ Gum(µi, σ)), i = 1, 2, ...., n. Then, if (µ1, ···, µn) ≽m (µ*1, ···, µ*n), and let T be any random variable which is independent of X and Y. Then we have X^T_{n:n} ≥rh Y^T_{n:n}.",
+  "kind": "corollary",
+  "model": "parallel system",
+  "family": "independent Gumbel plus independent common shift T",
+  "compared": "Xn:n + T vs Yn:n + T under majorized locations",
+  "hypotheses": [
+   {"text": "µ ≽m µ*; T independent of X and Y", "formal": "majorization + independent shift", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "Xn:n + T >=_rh Yn:n + T"},
+  "quantifiers": "n ≥ 1; all x",
+  "ambiguity": "Superscript-T notation X^T_{n:n} denotes the shifted maximum; premise vector printed 'Yi ~ Gum(µi, σ)' (µ* presumably intended)."
+ },
+ {
+  "paper": "arxiv:1905.00425",
+  "claim": "Theorem 3.4",
+  "page": 7,
+  "quote": "Theorem 3.4. Let X1, ...., Xn (Y1, ...., Yn) be the set of continuous independent random variables having Xi ~ Gum(µi, σ) (Yi ~ Gum(µ*i, σ)), i = 1, 2, ...., n. Then, if (µ1, ···, µn) ≽m (µ*1, ···, µ*n), we have X1:n ≤hr Y1:n.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "independent Gumbel, common σ",
+  "compared": "location vectors under majorization",
+  "hypotheses": [
+   {"text": "(µ1, ···, µn) ≽m (µ*1, ···, µ*n)", "formal": "majorization between location vectors", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X1:n <=_hr Y1:n"},
+  "quantifiers": "n ≥ 1; all x",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:1905.00425",
+  "claim": "Corollary 3.5",
+  "page": 8,
+  "quote": "Corollary 3.5. Let X1, ...., Xn (Y1, ...., Yn) be the set of continuous independent random variables having Xi ~ Gum(µi, σ) (Yi ~ Gum(µ*i, σ)), i = 1, 2, ...., n. Then, if (µ1, ···, µn) ≽m (µ*1, ···, µ*n), and let T be any random variable which is independent of X and Y. Then we have X^T_{1:n} ≤hr Y^T_{1:n}.",
+  "kind": "corollary",
+  "model": "series system",
+  "family": "independent Gumbel plus independent common shift T",
+  "compared": "X1:n + T vs Y1:n + T under majorized locations",
+  "hypotheses": [
+   {"text": "µ ≽m µ*; T independent of X and Y", "formal": "majorization + independent shift", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X1:n + T <=_hr Y1:n + T"},
+  "quantifiers": "n ≥ 1; all x",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:1905.00425",
+  "claim": "Theorem 3.6 (disp part)",
+  "page": 9,
+  "quote": "Theorem 3.6. Let X1, ...., Xn (Y1, ...., Yn) be the set of continuous independent random variables having Xi ~ Gum(µi, σ) (Yi ~ Gum(µ*i, σ)), i = 1, 2, ...., n. Then, if (µ1, ···, µn) ≽m (µ*1, ···, µ*n), we have 1. X1:n ≤disp Y1:n; 2. X1:n ≤LU Y1:n.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "independent Gumbel, common σ",
+  "compared": "location vectors under majorization",
+  "hypotheses": [
+   {"text": "(µ1, ···, µn) ≽m (µ*1, ···, µ*n)", "formal": "majorization between location vectors", "source": "statement"}
+  ],
+  "conclusion": {"order": "disp", "direction": "X1:n <=_disp Y1:n"},
+  "quantifiers": "n ≥ 1; all x",
+  "ambiguity": "Proof routes through X1:n ≤hr Y1:n and the DHR property via cited Theorems 2.8–2.9."
+ },
+ {
+  "paper": "arxiv:1905.00425",
+  "claim": "Theorem 3.6 (LU part)",
+  "page": 9,
+  "quote": "Theorem 3.6. ... we have 1. X1:n ≤disp Y1:n; 2. X1:n ≤LU Y1:n.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "independent Gumbel, common σ",
+  "compared": "location vectors under majorization",
+  "hypotheses": [
+   {"text": "(µ1, ···, µn) ≽m (µ*1, ···, µ*n)", "formal": "majorization between location vectors", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: LU (less uncertainty order of Ebrahimi–Pellerey)", "direction": "X1:n <=_LU Y1:n"},
+  "quantifiers": "n ≥ 1; all x",
+  "ambiguity": ""
+ }
+]

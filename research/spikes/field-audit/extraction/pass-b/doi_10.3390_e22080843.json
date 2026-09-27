@@ -1,0 +1,445 @@
+[
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Proposition 1 (i)",
+  "page": 5,
+  "quote": "Proposition 1. Let Xi, i = 1, 2 have support ζ and let w(x, θ) be TP2 in (x, θ) ∈ ζ × χ. Then (i) If θ1 ≤ θ2, then X1 ≤lr X2 implies that X1w1 ≤lr X2w2. (ii) If θ1 ≤ θ2 and w(x, θ) is non-decreasing in x, then X1 ≤hr X2 implies that X1w1 ≤hr X2w2. (iii) If θ1 ≤ θ2 and w(x, θ) is non-increasing in x, then X1 ≤rh X2 implies that X1w1 ≤rh X2w2.",
+  "kind": "proposition",
+  "model": "other: weighted distribution Xw with pdf w(x,θ)f(x)/E[w(X,θ)]",
+  "family": "general weighted distributions",
+  "compared": "weighted versions X1w1 vs X2w2 at θ1 ≤ θ2",
+  "hypotheses": [
+   {"text": "w(x, θ) TP2 in (x, θ); θ1 ≤ θ2; X1 ≤lr X2", "formal": "TP2 weight + lr premise", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "X1w1 <=_lr X2w2"},
+  "quantifiers": "all x ∈ ζ",
+  "ambiguity": "Direct conclusion of Theorem 3.2 in Misra et al. [16]."
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Proposition 1 (ii)",
+  "page": 5,
+  "quote": "(ii) If θ1 ≤ θ2 and w(x, θ) is non-decreasing in x, then X1 ≤hr X2 implies that X1w1 ≤hr X2w2.",
+  "kind": "proposition",
+  "model": "other: weighted distribution",
+  "family": "general weighted distributions",
+  "compared": "weighted versions at θ1 ≤ θ2",
+  "hypotheses": [
+   {"text": "w TP2 and non-decreasing in x; θ1 ≤ θ2; X1 ≤hr X2", "formal": "monotone TP2 weight + hr premise", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X1w1 <=_hr X2w2"},
+  "quantifiers": "all x ∈ ζ",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Proposition 1 (iii)",
+  "page": 5,
+  "quote": "(iii) If θ1 ≤ θ2 and w(x, θ) is non-increasing in x, then X1 ≤rh X2 implies that X1w1 ≤rh X2w2.",
+  "kind": "proposition",
+  "model": "other: weighted distribution",
+  "family": "general weighted distributions",
+  "compared": "weighted versions at θ1 ≤ θ2",
+  "hypotheses": [
+   {"text": "w TP2 and non-increasing in x; θ1 ≤ θ2; X1 ≤rh X2", "formal": "decreasing TP2 weight + rh premise", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "X1w1 <=_rh X2w2"},
+  "quantifiers": "all x ∈ ζ",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Example 1 (weighted power distribution)",
+  "page": 6,
+  "quote": "Example 1 (Weighted power distribution). Assume that w(x, θi) = w1(x)(w2(x))^{k1(θi)}, i = 1, 2, in which θ1 ≤ θ2 ∈ χ. Suppose that w2 and k1 are both non-decreasing (or non-increasing) functions. By Proposition 1(i), if X1 ≤lr X2 then X1w1 ≤lr X2w2. Let us further assume that k1(θi) > 0 for i = 1, 2. Then, by Proposition 1(ii) X1 ≤hr X2 implies X1w1 ≤hr X2w2 provided that w1 and w2 are both non-decreasing. In parallel, if w1 and w2 are both non-increasing then using Proposition 1(iii), X1 ≤rh X2 concludes that X1w1 ≤rh X2w2.",
+  "kind": "example",
+  "model": "other: weighted distribution",
+  "family": "power-type weight w = w1(x)·w2(x)^{k1(θ)}",
+  "compared": "weighted distributions vs each other",
+  "hypotheses": [
+   {"text": "θ1 ≤ θ2; monotonicity conditions on w1, w2, k1", "formal": "weight monotonicities", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr|hr|rh", "direction": "X1w1 <=_lr/hr/rh X2w2 under the respective monotonicity assumptions"},
+  "quantifiers": "all x",
+  "ambiguity": "Single example asserts preservation of all three orders."
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Example 2 (weighted exponentiated distribution)",
+  "page": 6,
+  "quote": "Example 2 (Weighted exponentiated distribution). Consider the weight function w(x, θi) = w1(x)(k1(θi))^{w2(x)}, i = 1, 2, such that θ1 ≤ θ2 ∈ χ in which k1(θi) > 0 for i = 1, 2. Presume that w2 and k1 are both non-decreasing (or non-increasing) functions. From Proposition 1(i), X1 ≤lr X2 yields X1w1 ≤lr X2w2. If w1 is non-decreasing, w2 is non-decreasing and k1(θi) > 1 (resp. w2 is non-increasing and k1(θi) < 1) for i = 1, 2 then by Proposition 1(ii) X1 ≤hr X2 gives X1w1 ≤hr X2w2. Besides, if w1 is non-increasing, w2 is non-increasing and k1(θi) > 1 (resp. w2 is non-decreasing and k1(θi) < 1) for i = 1, 2 then on applying by Proposition 1(iii) X1 ≤rh X2 implies X1w1 ≤rh X2w2.",
+  "kind": "example",
+  "model": "other: weighted distribution",
+  "family": "exponentiated weight w = w1(x)·k1(θ)^{w2(x)}",
+  "compared": "weighted distributions vs each other",
+  "hypotheses": [
+   {"text": "θ1 ≤ θ2; k1(θi) > 0; monotonicity and k1 > 1 / k1 < 1 regimes", "formal": "weight conditions", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr|hr|rh", "direction": "X1w1 <=_lr/hr/rh X2w2 under the stated regimes"},
+  "quantifiers": "all x",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Example 3 (additive-multiplicative weighted distribution)",
+  "page": 6,
+  "quote": "Example 3 (Additive-Multiplicative weighted distribution). Let w(x, θi) = w1(x) + k1(θi)w2(x), i = 1, 2, where θ1 ≤ θ2 ∈ χ. Suppose that w1/w2 is non-increasing (resp. non-decreasing) and k1 is non-decreasing (resp. non-increasing). Proposition 1(i) provides that X1 ≤lr X2 implies X1w1 ≤lr X2w2. If, moreover, we assume that k1(θi) > 0, i = 1, 2 then when w1 and w2 are both non-decreasing by Proposition 1(ii) we deduce that X1 ≤hr X2 gives X1w1 ≤hr X2w2 and once w1 and w2 are both non-increasing by Proposition 1(iii) X1 ≤rh X2 entails that X1w1 ≤rh X2w2. In a suchlike manner, whenever k1(θi) ≤ 0 ...",
+  "kind": "example",
+  "model": "other: weighted distribution",
+  "family": "additive weight w = w1(x) + k1(θ)w2(x)",
+  "compared": "weighted distributions vs each other",
+  "hypotheses": [
+   {"text": "θ1 ≤ θ2; w1/w2 monotone; k1 sign/monotonicity regimes", "formal": "weight conditions", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr|hr|rh", "direction": "X1w1 <=_lr/hr/rh X2w2 under the stated regimes"},
+  "quantifiers": "all x",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Example 4 (weighted left-truncated distribution)",
+  "page": 6,
+  "quote": "Example 4 (Weighted left-truncated distribution). Let w(x, θi) = w1(x) I[w2(x) > k1(θi)], i = 1, 2 with θ1 ≤ θ2 ∈ χ. Let us suppose that w2 and k1 are both non-decreasing (or non-increasing) functions. By Proposition 1(i), X1 ≤lr X2 implies X1w1 ≤lr X2w2. If w1, w2 and k1 are all non-decreasing functions then Proposition 1(ii) establishes that X1 ≤hr X2 implicate X1w1 ≤hr X2w2. In a similar manner, if w1, w2 and k1 are all non-increasing functions then from Proposition 1(iii) it is deduced that X1 ≤rh X2 implies X1w1 ≤rh X2w2.",
+  "kind": "example",
+  "model": "other: weighted distribution",
+  "family": "left-truncation weight w = w1(x)I[w2(x) > k1(θ)]",
+  "compared": "weighted distributions vs each other",
+  "hypotheses": [
+   {"text": "θ1 ≤ θ2; joint monotonicity of w1, w2, k1", "formal": "weight conditions", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr|hr|rh", "direction": "X1w1 <=_lr/hr/rh X2w2"},
+  "quantifiers": "all x",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Example 5 (weighted right-truncated distribution)",
+  "page": 7,
+  "quote": "Example 5 (Weighted right-truncated distribution). Let w(x, θi) = w1(x) I[w2(x) ≤ k1(θi)], i = 1, 2, in which θ1 ≤ θ2 ∈ χ. We assume that w2 and k1 are both non-decreasing (or non-increasing) functions. Proposition 1(i) guarantees that X1 ≤lr X2 implies X1w1 ≤lr X2w2. If w1 is non-decreasing and w2 and k1 are non-increasing functions then by Proposition 1(ii) X1 ≤hr X2 yields X1w1 ≤hr X2w2. In the dual case, if w1 is non-increasing and further w2 and k1 are both non-decreasing functions then Proposition 1(iii) concludes that X1 ≤rh X2 gives X1w1 ≤rh X2w2.",
+  "kind": "example",
+  "model": "other: weighted distribution",
+  "family": "right-truncation weight w = w1(x)I[w2(x) ≤ k1(θ)]",
+  "compared": "weighted distributions vs each other",
+  "hypotheses": [
+   {"text": "θ1 ≤ θ2; mixed monotonicity regimes", "formal": "weight conditions", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr|hr|rh", "direction": "X1w1 <=_lr/hr/rh X2w2"},
+  "quantifiers": "all x",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Theorem 1",
+  "page": 8,
+  "quote": "Theorem 1. Suppose that wi(t, θi) = v(F̄i(t), θi), i = 1, 2 so that θ1 ≤ θ2 and X1 ≤hr X2. Let xξ'(x, θ)/ξ(x, θ) is non-increasing (resp. non-decreasing) in x, for all θ and non-increasing (resp. non-decreasing) in θ, for all x where ξ(x, θ) is non-decreasing (resp. non-increasing) in x, for all θ ∈ χ. Then, X1 ≤rhr X2 implies that X1w1 ≤rhr X2w2. [ξ(x, θ) = (1/v(x,θ))∫₀ˣ v(u,θ)du]",
+  "kind": "theorem",
+  "model": "other: weighted distribution",
+  "family": "weights of survival-function type v(F̄,θ)",
+  "compared": "relative hazard rate order preserved under weighting",
+  "hypotheses": [
+   {"text": "wi(t,θi) = v(F̄i(t),θi); θ1 ≤ θ2; X1 ≤hr X2", "formal": "survival-weight + hr premise", "source": "statement"},
+   {"text": "xξ'(x,θ)/ξ(x,θ) monotone in x and θ as stated; ξ monotone in x", "formal": "elasticity conditions", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: rhr (relative hazard rate order)", "direction": "X1w1 <=_rhr X2w2 given X1 <=_rhr X2"},
+  "quantifiers": "t > 0; θ ∈ χ",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Theorem 2",
+  "page": 9,
+  "quote": "Theorem 2. Let wi(t, θi) = v(F̄i(t), θi), i = 1, 2 so that θ1 ≤ θ2 and X1 ≤rh X2. If (1 − x)ξ*'(x, θ)/ξ*(x, θ) is non-decreasing (resp. non-increasing) in x, for all θ and non-decreasing (resp. non-increasing) in θ, for all x, in which ξ*(x, θ) is non-decreasing (non-increasing) in x for all θ ∈ χ, then X1 ≤rrh X2 implies that X1w1 ≤rrh X2w2. [ξ*(x, θ) = (1/(1−x)v(x,θ))∫ₓ¹ v(u,θ)du]",
+  "kind": "theorem",
+  "model": "other: weighted distribution",
+  "family": "survival-function weights",
+  "compared": "relative reversed hazard rate order preserved under weighting",
+  "hypotheses": [
+   {"text": "wi = v(F̄i, θi); θ1 ≤ θ2; X1 ≤rh X2", "formal": "weight + rh premise", "source": "statement"},
+   {"text": "(1−x)ξ*'/ξ* monotone in x and θ as stated", "formal": "elasticity conditions", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: rrh (relative reversed hazard rate order)", "direction": "X1w1 <=_rrh X2w2 given X1 <=_rrh X2"},
+  "quantifiers": "t > 0; θ ∈ χ",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Corollary 1 (i)",
+  "page": 9,
+  "quote": "Corollary 1. Let wi(t) = v(F̄i(t)), i = 1, 2 such that X1 ≤hr X2. Set ξ(x) = (1/(xv(x)))∫₀ˣ v(u)du and ξ*(x) = (1/((1−x)v(x)))∫ₓ¹ v(u)du. (i) If xξ'(x)/ξ(x) is non-increasing (resp. non-decreasing) in x ∈ [0, 1], in which ξ(x) is non-decreasing (non-increasing) in x, then X1 ≤rhr X2 implies that X1w1 ≤rhr X2w2.",
+  "kind": "corollary",
+  "model": "other: weighted distribution",
+  "family": "parameter-free survival weights",
+  "compared": "rhr preservation without parameter shift",
+  "hypotheses": [
+   {"text": "wi = v(F̄i); X1 ≤hr X2; xξ'/ξ monotone; ξ monotone", "formal": "elasticity conditions", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: rhr", "direction": "X1w1 <=_rhr X2w2 given X1 <=_rhr X2"},
+  "quantifiers": "x ∈ [0,1]; t > 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Corollary 1 (ii)",
+  "page": 10,
+  "quote": "(ii) If (1 − x)ξ*'(x)/ξ*(x) is non-decreasing (resp. non-increasing) in x ∈ [0, 1], in which ξ*(x) is non-decreasing (non-increasing) in x, then X1 ≤rrh X2 implies that X1w1 ≤rrh X2w2.",
+  "kind": "corollary",
+  "model": "other: weighted distribution",
+  "family": "parameter-free survival weights",
+  "compared": "rrh preservation without parameter shift",
+  "hypotheses": [
+   {"text": "wi = v(F̄i); (1−x)ξ*'/ξ* monotone; ξ* monotone", "formal": "elasticity conditions", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: rrh", "direction": "X1w1 <=_rrh X2w2 given X1 <=_rrh X2"},
+  "quantifiers": "x ∈ [0,1]; t > 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Theorem 3 (i)",
+  "page": 10,
+  "quote": "Theorem 3. Let wi(t, θi) = vi(F̄(t), θi) and set ξi(x, θi) = (1/vi(x, θi))∫₀ˣ vi(u, θi)du and ξi*(x, θi) = (1/vi(x, θi))∫ₓ¹ vi(u, θi)du for i = 1, 2. Then (i) X1w1 ≤rhr X2w2 if, and only if, ξ2(x,θ2)/ξ1(x,θ1) is non-increasing in x. (ii) X1w1 ≤rrh X2w2 if, and only if, ξ2*(x,θ2)/ξ1*(x,θ1) is non-decreasing in x.",
+  "kind": "theorem",
+  "model": "other: weighted distribution",
+  "family": "common baseline F̄ with distinct weight functions",
+  "compared": "iff characterization of rhr between weighted versions",
+  "hypotheses": [
+   {"text": "wi = vi(F̄, θi); ξi, ξi* as defined", "formal": "setup", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: rhr", "direction": "X1w1 <=_rhr X2w2 iff ξ2(·,θ2)/ξ1(·,θ1) non-increasing in x"},
+  "quantifiers": "x ∈ [0,1]; t > 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Theorem 3 (ii)",
+  "page": 10,
+  "quote": "(ii) X1w1 ≤rrh X2w2 if, and only if, ξ2*(x,θ2)/ξ1*(x,θ1) is non-decreasing in x.",
+  "kind": "theorem",
+  "model": "other: weighted distribution",
+  "family": "common baseline F̄",
+  "compared": "iff characterization of rrh",
+  "hypotheses": [
+   {"text": "wi = vi(F̄, θi); ξi* as defined", "formal": "setup", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: rrh", "direction": "X1w1 <=_rrh X2w2 iff ξ2*(·,θ2)/ξ1*(·,θ1) non-decreasing in x"},
+  "quantifiers": "x ∈ [0,1]; t > 0",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Corollary 2 (i)",
+  "page": 10,
+  "quote": "Corollary 2. Suppose that the random variable X(θ1) and X(θ2) for θ1, θ2 ∈ χ have density functions fθ1(t) = v(F̄(t),θ1)f(t)/∫₀^∞ v(F̄(t),θ1)f(t)dt and fθ2(t) = v(F̄(t),θ2)f(t)/∫₀^∞ v(F̄(t),θ2)f(t)dt. For ξ(x, θ) = (1/v(x,θ))∫₀ˣ v(u,θ)du and ξ*(x, θ) = (1/v(x,θ))∫ₓ¹ v(u,θ)du, we have: (i) X(θ1) ≤rhr X(θ2), for all θ1 ≤ θ2 ∈ χ if, and only if, ξ(x, θ) is RR2 in (x, θ). (ii) X(θ1) ≤rrh X(θ2), for all θ1 ≤ θ2 ∈ χ if, and only if, ξ*(x, θ) TP2 in (x, θ).",
+  "kind": "corollary",
+  "model": "other: parametric weighted family",
+  "family": "v(F̄,θ)-weighted family over a common baseline",
+  "compared": "family members across parameter values",
+  "hypotheses": [
+   {"text": "θ1 ≤ θ2", "formal": "parameter ordering", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: rhr", "direction": "X(θ1) <=_rhr X(θ2) for all θ1 ≤ θ2 iff ξ(x,θ) is RR2"},
+  "quantifiers": "θ ∈ χ; x ∈ [0,1]",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Corollary 2 (ii)",
+  "page": 10,
+  "quote": "(ii) X(θ1) ≤rrh X(θ2), for all θ1 ≤ θ2 ∈ χ if, and only if, ξ*(x, θ) TP2 in (x, θ).",
+  "kind": "corollary",
+  "model": "other: parametric weighted family",
+  "family": "v(F̄,θ)-weighted family",
+  "compared": "family members across parameter values",
+  "hypotheses": [
+   {"text": "θ1 ≤ θ2", "formal": "parameter ordering", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: rrh", "direction": "X(θ1) <=_rrh X(θ2) for all θ1 ≤ θ2 iff ξ*(x,θ) is TP2"},
+  "quantifiers": "θ ∈ χ; x ∈ [0,1]",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Proposition 2 (i)",
+  "page": 12,
+  "quote": "Proposition 2. Let ξi(x) = hi(x)/h'i(x) and ξi*(x) = (1 − hi(x))/h'i(x) for i = 1, 2 where h1 and h2 are two domination functions. Let T1 and T2 have respective survival functions h1(F̄) and h2(F̄). Then, (i) T1 ≤rhr T2, if, and only if, ξi(x) is RR2 in (i, x) ∈ {1, 2} × [0, 1]. (ii) T1 ≤rrh T2, if, and only if, ξi*(x) is TP2 in (i, x) ∈ {1, 2} × [0, 1].",
+  "kind": "proposition",
+  "model": "other: coherent system via domination function",
+  "family": "distorted survival functions h(F̄) (Navarro et al. representation of coherent systems)",
+  "compared": "two systems/domination functions h1 vs h2",
+  "hypotheses": [
+   {"text": "T1, T2 have survival functions h1(F̄), h2(F̄)", "formal": "distortion representations", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: rhr", "direction": "T1 <=_rhr T2 iff ξi(x) = hi/h'i is RR2 in (i,x)"},
+  "quantifiers": "x ∈ [0,1]",
+  "ambiguity": "Direct consequence of Theorem 3."
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Proposition 2 (ii)",
+  "page": 12,
+  "quote": "(ii) T1 ≤rrh T2, if, and only if, ξi*(x) is TP2 in (i, x) ∈ {1, 2} × [0, 1].",
+  "kind": "proposition",
+  "model": "other: coherent system via domination function",
+  "family": "distorted survival functions",
+  "compared": "two domination functions",
+  "hypotheses": [
+   {"text": "as in Proposition 2(i)", "formal": "setup", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: rrh", "direction": "T1 <=_rrh T2 iff ξi*(x) = (1−hi)/h'i is TP2 in (i,x)"},
+  "quantifiers": "x ∈ [0,1]",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Example 6",
+  "page": 12,
+  "quote": "Example 6. Suppose that Xi, i = 1, 2, 3, 4 denote the lifetime of four components having survival function F̄. Let T1 = max{min{X1, X2}, min{X2, X3}, min{X3, X4}} and T2 = max{min{X1, X2}, min{X3, X4}} denote the lifetime of two coherent systems. According to Table I in Navarro et al. [29], when Xi's are independent, T1 and T2 have survival functions h1(F̄) and h2(F̄), respectively, in which h1(u) = 3u² − 2u³ and h2(u) = 2u² − u⁴. For all x ∈ [0, 1], we have d/dx [ξ2(x)/ξ1(x)] = ... ≤ 0. Hence, ξi(x) is RR2 in (i, x) ∈ {1, 2} × [0, 1]. That is, Proposition 2(i) concludes that T1 ≤rhr T2.",
+  "kind": "example",
+  "model": "other: coherent system",
+  "family": "domination functions h1(u) = 3u² − 2u³ and h2(u) = 2u² − u⁴",
+  "compared": "two coherent systems of 4 independent components",
+  "hypotheses": [
+   {"text": "independent components, common survival F̄", "formal": "independence", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: rhr", "direction": "T1 <=_rhr T2"},
+  "quantifiers": "x ∈ [0,1]",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Example 7",
+  "page": 12,
+  "quote": "Example 7. Suppose that (X1, X2, X3) are dependent with a Farlie-Gumbel-Morgenstern (FGM) joint reliability function ... Consider the parallel system with lifetime Tα = max{X1, X2, X3} for which F̄α(x) = hα(F̄(x)), where hα(u) = u³ − α(u − u²)³ − 3u² + 3u. It can be shown that if h1(x) = x³ − 0.5(x − x²)³ − 3x² + 3x and h2(x) = x³ − 0.75(x − x²)³ − 3x² + 3x then ξi*(x) = (1 − hi(x))/h'i(x) is TP2 in (i, x) ∈ {1, 2} × [0, 1] because the function ξ2*(x)/ξ1*(x) is non-decreasing in x ∈ [0, 1] as the Figure 1 indicates. Hence, according to Proposition 2(ii) one obtains T0.5 ≤rrh T0.75.",
+  "kind": "example",
+  "model": "parallel system",
+  "family": "3-component parallel systems with FGM dependence parameters α = 0.5 vs 0.75",
+  "compared": "T0.5 vs T0.75",
+  "hypotheses": [
+   {"text": "FGM copula; hα(u) = u³ − α(u − u²)³ − 3u² + 3u", "formal": "dependence structure", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: rrh", "direction": "T0.5 <=_rrh T0.75"},
+  "quantifiers": "x ∈ [0,1]",
+  "numbers": "α = 0.5 vs 0.75",
+  "ambiguity": "TP2 verified graphically via Figure 1."
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Example 8",
+  "page": 13,
+  "quote": "Example 8. Suppose that the incorporated weight function is w(x, θ) = v(F̄(x), θ) = 1/(1 − θ̄F̄(x))², where θ̄ = 1 − θ and θ > 0. The random variable Xw has survival function F̄w(x, θ) = θF̄(x)/(1 − θ̄F̄(x)) = hθ(F̄(x)) ... the family of distributions characterized via (8) is called the proportional odds family ... Let T1 and T2 be two random variables with respective survival functions hθ1(F̄) and hθ2(F̄) such that θ1 > θ2. It can be seen that ξi(x) = hθi(x)/h'θi(x) = x(1 − θ̄i x), i = 1, 2. It follows that d/dx [ξ2(x)/ξ1(x)] = (θ2 − θ1)/(1 − θ̄1 x)² < 0, that is ξi(x) is RR2 in i = 1, 2 and x > 0. Thus, according to Proposition 2(i) we deduce that T1 ≤rhr T2.",
+  "kind": "example",
+  "model": "other: proportional odds family",
+  "family": "Marshall–Olkin proportional odds hθ(u) = θu/(1 − θ̄u)",
+  "compared": "odds parameters θ1 > θ2",
+  "hypotheses": [
+   {"text": "θ1 > θ2 > 0", "formal": "parameter ordering", "source": "statement"}
+  ],
+  "conclusion": {"order": "other: rhr", "direction": "T1 <=_rhr T2 for θ1 > θ2"},
+  "quantifiers": "x ∈ [0,1]",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Theorem 4",
+  "page": 14,
+  "quote": "Theorem 4. Let w(x, θ) be TP2 (resp. RR2) in (x, θ) ∈ ζ × χ. Then, Θ1 ≤lr Θ2 implies X1* ≤lr (resp. ≥lr) X2*. [Model: X_i* has mixture density f_i*(x) = ∫_χ w(x,θ)f(x)/µ(θ) gi(θ) dθ = E(w(x,Θ)f(x)/µ(Θ)).]",
+  "kind": "theorem",
+  "model": "mixture",
+  "family": "weighted mixture over random Θ ~ Gi",
+  "compared": "mixture variables X1* vs X2* under lr-ordered mixing distributions",
+  "hypotheses": [
+   {"text": "w(x,θ) TP2 (resp. RR2) in (x,θ)", "formal": "weight total positivity", "source": "statement"},
+   {"text": "Θ1 ≤lr Θ2", "formal": "lr order of mixing distributions", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "X1* <=_lr X2* if w TP2 (>=_lr if RR2)"},
+  "quantifiers": "all x ∈ ζ; θ ∈ χ",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Theorem 5",
+  "page": 14,
+  "quote": "Theorem 5. Let w(x, θ) be TP2 (resp. RR2) in (x, θ) ∈ ζ × χ. Then, Θ1 ≤hr Θ2 implies X1* ≤hr (resp. ≥hr) X2*.",
+  "kind": "theorem",
+  "model": "mixture",
+  "family": "weighted mixture over random Θ",
+  "compared": "mixture variables under hr-ordered mixing distributions",
+  "hypotheses": [
+   {"text": "w TP2 (resp. RR2) in (x,θ)", "formal": "weight total positivity", "source": "statement"},
+   {"text": "Θ1 ≤hr Θ2", "formal": "hr order of mixing distributions", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X1* <=_hr X2* if w TP2 (>=_hr if RR2)"},
+  "quantifiers": "all x ∈ ζ; θ ∈ χ",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Theorem 6",
+  "page": 16,
+  "quote": "Theorem 6. Let w(x, θ) be TP2 (resp. RR2) in (x, θ) ∈ ζ × χ. Then, Θ1 ≤rh Θ2 implies X1* ≤rh (resp. ≥rh) X2*.",
+  "kind": "theorem",
+  "model": "mixture",
+  "family": "weighted mixture over random Θ",
+  "compared": "mixture variables under rh-ordered mixing distributions",
+  "hypotheses": [
+   {"text": "w TP2 (resp. RR2) in (x,θ)", "formal": "weight total positivity", "source": "statement"},
+   {"text": "Θ1 ≤rh Θ2", "formal": "rh order of mixing distributions", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "X1* <=_rh X2* if w TP2 (>=_rh if RR2)"},
+  "quantifiers": "all x ∈ ζ; θ ∈ χ",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Theorem 7",
+  "page": 17,
+  "quote": "Theorem 7. Let (Θ | X1** > x) ≤st (Θ | X2** > x), for all x > 0. Let w(x, θ) be TP2 in (x, θ) ∈ ζ × χ and that it is non-decreasing in x ∈ ζ, for all θ ∈ χ. Then X1 ≤hr X2 implies X1** ≤hr X2**. [Model (13): f_i**(x) = f_i(x) E[w(x,Θ)/µi(Θ)] — baseline-varied mixture weighted model.]",
+  "kind": "theorem",
+  "model": "mixture",
+  "family": "baseline-varied weighted mixtures sharing mixing variable Θ",
+  "compared": "X1** vs X2**",
+  "hypotheses": [
+   {"text": "(Θ | X1** > x) ≤st (Θ | X2** > x) for all x > 0", "formal": "posterior st ordering", "source": "statement"},
+   {"text": "w TP2 and non-decreasing in x; X1 ≤hr X2", "formal": "weight + hr premise", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X1** <=_hr X2**"},
+  "quantifiers": "x > 0; θ ∈ χ",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Theorem 8",
+  "page": 19,
+  "quote": "Theorem 8. Let (Θ | X1** ≤ x) ≤st (Θ | X2** ≤ x), for all x > 0, and let (X1** | Θ = θ1) ≤rh (X2** | Θ = θ2), for all θ1 ≤ θ2 ∈ χ. Furthermore, let w(x, θ) be TP2 in (x, θ) ∈ ζ × χ. Then X1 ≤rh X2 implies X1** ≤rh X2**.",
+  "kind": "theorem",
+  "model": "mixture",
+  "family": "baseline-varied weighted mixtures",
+  "compared": "X1** vs X2**",
+  "hypotheses": [
+   {"text": "(Θ | X1** ≤ x) ≤st (Θ | X2** ≤ x)", "formal": "truncated-posterior st ordering", "source": "statement"},
+   {"text": "(X1** | Θ = θ1) ≤rh (X2** | Θ = θ2) for θ1 ≤ θ2", "formal": "conditional rh ordering", "source": "statement"},
+   {"text": "w TP2", "formal": "weight total positivity", "source": "statement"},
+   {"text": "X1 ≤rh X2", "formal": "rh premise", "source": "statement"}
+  ],
+  "conclusion": {"order": "rh", "direction": "X1** <=_rh X2**"},
+  "quantifiers": "x > 0; θ1 ≤ θ2 ∈ χ",
+  "ambiguity": ""
+ },
+ {
+  "paper": "doi:10.3390/e22080843",
+  "claim": "Theorem 9",
+  "page": 20,
+  "quote": "Theorem 9. Let Xwθ and Yvθ be the weighted versions of X and Y with weight functions wθ(x) = dθ(F(x)) and vθ(x) = dθ(G(x)), respectively, where θ ∈ χ is a parameter and dθ is a non-negative function so that ∫₀¹ dθ(u)du < ∞ for any θ ∈ χ. Then, X ≤disp Y implies H(Xwθ) ≤ H(Yvθ) for all θ ∈ χ.",
+  "kind": "theorem",
+  "model": "other: weighted distribution",
+  "family": "weights depending on x through the cdf",
+  "compared": "dispersive ordering implies entropy ordering of weighted versions",
+  "hypotheses": [
+   {"text": "wθ(x) = dθ(F(x)), vθ(x) = dθ(G(x)); ∫₀¹ dθ < ∞", "formal": "cdf-composed weights", "source": "statement"},
+   {"text": "X ≤disp Y", "formal": "dispersive ordering premise", "source": "statement"}
+  ],
+  "conclusion": {"order": "disp", "direction": "X <=_disp Y ⟹ H(Xwθ) ≤ H(Yvθ) (Shannon entropy ordering)"},
+  "quantifiers": "all θ ∈ χ",
+  "ambiguity": "Conclusion is an entropy comparison driven by the dispersive order premise."
+ }
+]

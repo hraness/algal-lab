@@ -1,0 +1,19 @@
+[
+ {
+  "paper": "arxiv:2509.09757",
+  "claim": "Theorem 1",
+  "page": 7,
+  "quote": "Theorem 1. Let X ~ RBTLL(γ, υ, p1) and Y ~ RBTLL(γ, υ, p2). If p1 < p2 then X is less than Y in the likelihood ratio order, that is, the ratio function of the corresponding PDFs decreases in x. ... We notice that it follows that X is also less than Y in the hazard ratio, the mean residual life, and the stochastic orders under the conditions given in Theorem 1 from [20].",
+  "kind": "theorem",
+  "model": "generic",
+  "family": "Record-based transmuted log-logistic distribution RBTLL(γ,υ,p): density f(x;γ,υ,p) = γυx^{υ−1}(1+e^γ x^υ)^{−2} [1 − p log(e^γ x^υ/(1+e^γ x^υ)) + p] type; ratio g(x) = (1 + p1 log(1 + e^γ x^υ) − p1)/(1 + p2 log(1 + e^γ x^υ) − p2)",
+  "compared": "X vs Y differing only in transmutation parameter p1 < p2 (common γ, υ)",
+  "hypotheses": [
+   {"text": "X ~ RBTLL(γ,υ,p1), Y ~ RBTLL(γ,υ,p2) with p1 < p2", "formal": "stated", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "X ≤_lr Y (density ratio decreasing in x); consequently X ≤hr Y, X ≤mrl Y, X ≤st Y"},
+  "quantifiers": "all x > 0",
+  "numbers": "",
+  "ambiguity": "The derivative formula in the proof mixes α, β notation with γ, υ (notational inconsistency in the paper); the ordering claim itself is clear."
+ }
+]

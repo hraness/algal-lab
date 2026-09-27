@@ -1,0 +1,209 @@
+[
+ {
+  "paper": "arxiv:1908.05896",
+  "claim": "Theorem 3.1",
+  "page": 5,
+  "quote": "Theorem 3.1. Let X1, X2, . . . , Xn and Y1, Y2, . . . , Yn be the two sets of independent random variables with Xk ∼ TL-G(αk , θ, ξ) and Yk ∼ TL-G(αk∗ , θ, ξ) for k = 1, 2, . . . , n, respectively. Then, for fixed θ > 0 and for any fixed ξ, we have α∗ = (α1∗ , α2∗ , . . . , αn∗ ) ⪯m (α1 , α2 , . . . , αn ) = α ⇒ X1:n ≤hr Y1:n .",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Topp-Leone generated TL-G(α,θ,ξ): F(x;α,θ,ξ) = (G(x;ξ)^θ (2 − G(x;ξ)^θ))^α; common θ, baseline G(·;ξ); differing shape α",
+  "compared": "shape vectors α* vs α via majorization (α* less dispersed)",
+  "hypotheses": [
+   {"text": "α∗ ⪯m α", "formal": "α* majorized by α (Definition 2.2(i): lower partial sums of α* >= α's, equal totals)", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X1:n <=hr Y1:n"},
+  "quantifiers": "n >= 1; x > 0; fixed θ > 0, ξ",
+  "numbers": "",
+  "ambiguity": "This paper's convention: X <=hr Y iff rX(x) >= rY(x). The majorization symbol is ⪯^m (majorized by)."
+ },
+ {
+  "paper": "arxiv:1908.05896",
+  "claim": "Example 3.1",
+  "page": 6,
+  "quote": "Example 3.1. Consider that G(x; ξ) = 1 − e−x , x ≥ 0. Let X1, X2 and Y1, Y2 be the two sets of independent random variables with Xk ∼ TL-G(αk , θ, ξ) and Yk ∼ TL-G(αk∗ , θ, ξ) for k = 1, 2, respectively. Assume α1 = 1, α2 = 9, α1∗ = 4, α2∗ = 6, and θ = 0.5. Clearly, (α1∗ , α2∗ ) ⪯m (α1 , α2 ), and therefore, using Theorem 3.1, we have X1:2 ≤hr Y1:2 . This can also be concluded from the Figure 1(a) where we plot rX1:2 (x) − rY1:2 (x) which is non-negative for x ≥ 0.",
+  "kind": "example",
+  "model": "series system",
+  "family": "TL-G with exponential baseline G(x;ξ) = 1 − e^{−x}",
+  "compared": "X1:2 vs Y1:2 in hazard-rate order (supports Theorem 3.1)",
+  "hypotheses": [
+   {"text": "(4, 6) ⪯m (1, 9), θ = 0.5", "formal": "α* majorized by α", "source": "statement"}
+  ],
+  "conclusion": {"order": "hr", "direction": "X1:2 <=hr Y1:2"},
+  "quantifiers": "n = 2; x >= 0",
+  "numbers": "α = (1, 9), α* = (4, 6), θ = 0.5",
+  "ambiguity": "Baseline printed as '1 − e−9x'/'1 − e−x' in the garbled text layer; read as standard exponential."
+ },
+ {
+  "paper": "arxiv:1908.05896",
+  "claim": "Counterexample 3.1",
+  "page": 6,
+  "quote": "Counterexample 3.1. Continuing with the Example 3.1, if we plot fY1:2 (x)/fX1:2 (x) we get the Figure 1(b), which shows that as the value of x increases, the ratio first increases and then decreases. Hence the result in Theorem 3.1 cannot be extended to the likelihood ratio order.",
+  "kind": "counterexample",
+  "model": "series system",
+  "family": "TL-G, exponential baseline; same parameters as Example 3.1",
+  "compared": "X1:2 vs Y1:2 in likelihood ratio — refutes lr extension of Theorem 3.1",
+  "hypotheses": [
+   {"text": "same as Example 3.1: α = (1,9), α* = (4,6), θ = 0.5", "formal": "α* ⪯^m α", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "refuted: fY1:2/fX1:2 non-monotone (increases then decreases)"},
+  "quantifiers": "n = 2; x >= 0",
+  "numbers": "α = (1,9), α* = (4,6), θ = 0.5; Figure 1(b)",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:1908.05896",
+  "claim": "Theorem 3.2",
+  "page": 7,
+  "quote": "Theorem 3.2. Let X1, X2, . . . , Xn and Y1, Y2, . . . , Yn be the two sets of independent random variables with Xk ∼ TL-G(α, θk , ξ) and Yk ∼ TL-G(α, θk∗ , ξ) for k = 1, 2, . . . , n, respectively. Then, for fixed α > 0 and for any fixed ξ, we have θ = (θ1 , θ2 , . . . , θn ) ⪯w (θ1∗ , θ2∗ , . . . , θn∗ ) = θ∗ ⇒ Xn:n ≤st Yn:n .",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "TL-G(α,θ,ξ); common α, baseline ξ; differing scale θ",
+  "compared": "scale vectors θ vs θ* via weak submajorization",
+  "hypotheses": [
+   {"text": "θ ⪯w θ∗", "formal": "θ weakly submajorized by θ* (Definition 2.2(ii): upper partial sums Σ_{k>=i} θ(k) <= θ*(k))", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn:n <=st Yn:n"},
+  "quantifiers": "n >= 1; x >= 0; fixed α > 0, ξ",
+  "numbers": "",
+  "ambiguity": "Paper's convention: X <=st Y iff FY(x) <= FX(x)."
+ },
+ {
+  "paper": "arxiv:1908.05896",
+  "claim": "Corollary 3.1",
+  "page": 8,
+  "quote": "Corollary 3.1. Let X1, X2, . . . , Xn and Y1, Y2, . . . , Yn be the two sets of independent random variables with Xk ∼ TL-G(α, θk , ξ) and Yk ∼ TL-G(α, θk∗ , ξ), k = 1, 2, . . . , n, respectively. Then, for fixed α > 0 and for any fixed ξ, we have θ ⪯m θ∗ ⇒ Xn:n ≤st Yn:n .",
+  "kind": "corollary",
+  "model": "parallel system",
+  "family": "TL-G(α,θ,ξ); common α; differing scales",
+  "compared": "scale vectors θ vs θ* via majorization",
+  "hypotheses": [
+   {"text": "θ ⪯m θ∗", "formal": "θ majorized by θ*", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn:n <=st Yn:n"},
+  "quantifiers": "n >= 1; x >= 0",
+  "numbers": "",
+  "ambiguity": "Rendered at top of page 8 (statement starts on page 7 in the running text)."
+ },
+ {
+  "paper": "arxiv:1908.05896",
+  "claim": "Example 3.2",
+  "page": 8,
+  "quote": "Example 3.2. Consider that G(x; ξ) = 1 − e−x , x ≥ 0. Let X1, X2 and Y1, Y2 be the two sets of independent random variables with Xk ∼ TL-G(α, θk , ξ) and Yk ∼ TL-G(α, θk∗ , ξ) for k = 1, 2, respectively. Assume θ1 = 0.1, θ2 = 0.4, θ1∗ = 0.2, θ2∗ = 0.5, and α = 0.5. Clearly, (θ1 , θ2 ) ⪯w (θ1∗ , θ2∗ ), and therefore, using Theorem 3.2, we have X2:2 ≤st Y2:2 . This can also be seen from the Figure 2(a) where we plot FX2:2 (x) − FY2:2 (x) which is non-negative for x ≥ 0.",
+  "kind": "example",
+  "model": "parallel system",
+  "family": "TL-G, exponential baseline G(x) = 1 − e^{−x}",
+  "compared": "X2:2 vs Y2:2 in usual stochastic order (supports Theorem 3.2)",
+  "hypotheses": [
+   {"text": "(0.1, 0.4) ⪯w (0.2, 0.5), α = 0.5", "formal": "weak submajorization of scales", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "X2:2 <=st Y2:2"},
+  "quantifiers": "n = 2; x >= 0",
+  "numbers": "θ = (0.1, 0.4), θ* = (0.2, 0.5), α = 0.5",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:1908.05896",
+  "claim": "Counterexample 3.2",
+  "page": 8,
+  "quote": "Counterexample 3.2. Continuing with the Example 3.2, if we plot fY2:2 (x)/fX2:2 (x), we get the Figure 2(b), which shows that as the value of x increases, the ratio first increases and then decreases. Thus, the result in Theorem 3.2 cannot be extended to the likelihood ratio order.",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "TL-G, exponential baseline; same parameters as Example 3.2",
+  "compared": "X2:2 vs Y2:2 in likelihood ratio — refutes lr extension of Theorem 3.2",
+  "hypotheses": [
+   {"text": "θ = (0.1,0.4), θ* = (0.2,0.5), α = 0.5", "formal": "θ ⪯_w θ*", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "refuted: fY2:2/fX2:2 non-monotone (increases then decreases)"},
+  "quantifiers": "n = 2; x >= 0",
+  "numbers": "θ = (0.1,0.4), θ* = (0.2,0.5), α = 0.5; Figure 2(b)",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:1908.05896",
+  "claim": "Theorem 3.3",
+  "page": 9,
+  "quote": "Theorem 3.3. Let X1, X2, . . . , Xn and Y1, Y2, . . . , Yn be the two sets of independent random variables with Xk ∼ TL-G(α, θk , ξ) and Yk ∼ TL-G(α, θk∗ , ξ), k = 1, 2, . . . , n, respectively. For fixed α > 0 and for any fixed ξ, if (θ1 , θ2 , . . . , θn ) ≤ (θ1∗ , θ2∗ , . . . , θn∗ ), that is, θk ≤ θk∗ , k = 1, 2, . . . , n, then Xn:n ≤st Yn:n .",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "TL-G(α,θ,ξ); common α; differing scales",
+  "compared": "scale vectors θ vs θ* coordinatewise — generalization of Theorem 3.2 to a wider range of scale parameters",
+  "hypotheses": [
+   {"text": "θk ≤ θk∗ , k = 1, 2, . . . , n", "formal": "coordinatewise θ <= θ*", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Xn:n <=st Yn:n"},
+  "quantifiers": "n >= 1; x >= 0; fixed α > 0, ξ",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:1908.05896",
+  "claim": "Theorem 3.4",
+  "page": 9,
+  "quote": "Theorem 3.4. Let X1, X2, . . . , Xn and Y1, Y2, . . . , Yn be the two sets of independent random variables with Xk ∼ TL-G(αk , θ, ξ) and Yk ∼ TL-G(αk∗ , θ, ξ), k = 1, 2, . . . , n, respectively. Then, for fixed θ > 0 and for any fixed ξ, Xn:n ≤lr Yn:n if, and only if, Σnk=1 αk ≤ Σnk=1 αk∗ .",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "TL-G(αk,θ,ξ); common θ; differing shapes",
+  "compared": "shape sums Σαk vs Σαk*; necessary and sufficient condition for lr",
+  "hypotheses": [
+   {"text": "Σnk=1 αk ≤ Σnk=1 αk∗", "formal": "sum of shape parameters", "source": "statement"}
+  ],
+  "conclusion": {"order": "lr", "direction": "Xn:n <=lr Yn:n iff Σαk <= Σαk* (paper's convention: X <=lr Y iff fY/fX increasing)"},
+  "quantifiers": "n >= 1; x > 0; fixed θ > 0, ξ",
+  "numbers": "",
+  "ambiguity": "If-and-only-if characterization; uses convention X <=lr Y iff fY/fX increasing in x."
+ },
+ {
+  "paper": "arxiv:1908.05896",
+  "claim": "Theorem 3.5",
+  "page": 10,
+  "quote": "Theorem 3.5. Let U1, U2, . . . , Un and V1, V2, . . . , Vn be the two set of independent random variables with Uk ∼ TL-G(αk , θ, G1 ) and Vk ∼ TL-G(αk∗ , θ, G2 ) for k = 1, 2, . . . , n, respectively, and let α∗ ⪯m α. Then, for fixed θ > 0, X1∗ ≤st X2∗ ⇒ U1:n ≤st V1:n .",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "TL-G with different baselines: X1* ~ G1, X2* ~ G2; Uk on G1, Vk on G2",
+  "compared": "series systems with different baseline distributions; shape majorization + baseline st ordering",
+  "hypotheses": [
+   {"text": "α∗ ⪯m α", "formal": "shape vectors majorized (α* less dispersed)", "source": "statement"},
+   {"text": "X1∗ ≤st X2∗", "formal": "baseline ordered: G2(x) <= G1(x) for all x", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "U1:n <=st V1:n"},
+  "quantifiers": "n >= 1; x >= 0; fixed θ > 0",
+  "numbers": "",
+  "ambiguity": "Under this paper's ≤st convention, X1* <=st X2* iff G2 <= G1 (smaller cdf on the left = larger variable? as printed: 'X1* ≤st X2* implies that G2(x) ≤ G1(x)')."
+ },
+ {
+  "paper": "arxiv:1908.05896",
+  "claim": "Theorem 3.6(i)",
+  "page": 10,
+  "quote": "Theorem 3.6. Let W1, W2, . . . , Wn and W1∗ , W2∗ , . . . , Wn∗ be the two sets of independent random variables with Wk ∼ TL-G(α, θk , G1 ) and Wk∗ ∼ TL-G(α, θk∗ , G2 ) for k = 1, 2, . . . , n, respectively. For fixed α > 0, if (i) θ ⪯w θ∗ , then X1∗ ≤st X2∗ implies Wn:n ≤st Wn:n∗ ;",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "TL-G with different baselines G1 (X1*) and G2 (X2*); common α; differing scales",
+  "compared": "scale vectors via weak submajorization + baseline st ordering",
+  "hypotheses": [
+   {"text": "θ ⪯w θ∗", "formal": "weak submajorization of scales", "source": "statement"},
+   {"text": "X1∗ ≤st X2∗", "formal": "baseline G1-dominated-by G2 in ≤st", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Wn:n <=st Wn:n*"},
+  "quantifiers": "n >= 1; x >= 0; fixed α > 0",
+  "numbers": "",
+  "ambiguity": ""
+ },
+ {
+  "paper": "arxiv:1908.05896",
+  "claim": "Theorem 3.6(ii)",
+  "page": 10,
+  "quote": "(ii) (θ1 , θ2 , . . . , θn ) ≤ (θ1∗ , θ2∗ , . . . , θn∗ ), i.e., if θk ≤ θk∗ , k = 1, 2, . . . , n, then X1∗ ≤st X2∗ implies Wn:n ≤st Wn:n∗ .",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "TL-G with different baselines; common α; differing scales",
+  "compared": "coordinatewise scale ordering + baseline st ordering",
+  "hypotheses": [
+   {"text": "θk ≤ θk∗ , k = 1, 2, . . . , n", "formal": "coordinatewise", "source": "statement"},
+   {"text": "X1∗ ≤st X2∗", "formal": "baseline ordering", "source": "statement"}
+  ],
+  "conclusion": {"order": "st", "direction": "Wn:n <=st Wn:n*"},
+  "quantifiers": "n >= 1; x >= 0; fixed α > 0",
+  "numbers": "",
+  "ambiguity": ""
+ }
+]

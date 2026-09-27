@@ -1,0 +1,194 @@
+[
+  {
+    "paper": "arxiv:1704.06329",
+    "claim": "Theorem 3.2",
+    "page": 6,
+    "quote": "Let X1, ..., Xn (X1*, ..., Xn*) be independent random variables with Xi ~ ENH(alphai, lambda, beta) (Xi* ~ ENH(alphai*, lambda, beta)), i = 1, ..., n. Then, for any lambda, beta > 0, we have (alpha1, ..., alphan) ≽w (alpha1*, ..., alphan*) ==> Xn:n >=st Xn:n*.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "exponentiated Nadarajah-Haghighi ENH(alpha, lambda, beta): G_Xn:n(x) = prod_{i=1}^n [1 - e^{1-(1+lambda x)^{alpha_i}}]^beta",
+    "compared": "largest order statistics Xn:n vs Xn:n*; shape vectors under weak majorization",
+    "hypotheses": [
+      {"text": "(alpha1,...,alphan) ≽w (alpha1*,...,alphan*)", "formal": "weak majorization of shape vectors (paper's ≽w symbol; applied via Lemma 2.6 to the increasing Schur-concave G_Xn:n)", "source": "statement"},
+      {"text": "lambda, beta > 0 common", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Xn:n >=st Xn:n*"},
+    "quantifiers": "all n; x > 0",
+    "numbers": "",
+    "ambiguity": "The ≽w symbol in the text denotes the weak majorization relation of Lemma 2.6 (Marshall et al. 3.A.8-type); exact sub/super-majorization orientation per Definition 2.4."
+  },
+  {
+    "paper": "arxiv:1704.06329",
+    "claim": "Theorem 3.3",
+    "page": 7,
+    "quote": "Let X1, ..., Xn (X1*, ..., Xn*) be independent random variables with Xi ~ ENH(alphai, lambda, beta) (Xi* ~ ENH(alphai*, lambda, beta)), i = 1, ..., n. Then, for any lambda, beta > 0, if (alpha1, ..., alphan) <= (alpha1*, ..., alphan*), that is, alphai <= alphai*, i = 1, ..., n, we have Xn:n >=st Xn:n*.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "ENH(alphai, lambda, beta)",
+    "compared": "Xn:n vs Xn:n*; componentwise shape inequality",
+    "hypotheses": [
+      {"text": "alphai <= alphai* for all i", "formal": "componentwise", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Xn:n >=st Xn:n*"},
+    "quantifiers": "all n; lambda, beta > 0",
+    "numbers": "",
+    "ambiguity": ""
+  },
+  {
+    "paper": "arxiv:1704.06329",
+    "claim": "Theorem 3.4",
+    "page": 7,
+    "quote": "Let X1, ..., Xn (X1*, ..., Xn*) be independent random variables with Xi ~ ENH(alpha, lambdai, beta) (Xi* ~ ENH(alpha, lambda*i, beta)), i = 1, ..., n. If 0 < alpha <= 1 and (lambda1, ..., lambdan) ≽w (lambda*1, ..., lambda*n), then Xn:n >=st Xn:n*.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "ENH(alpha, lambdai, beta) — common shape alpha, heterogeneous scales lambdai",
+    "compared": "Xn:n vs Xn:n*; scale vectors under weak majorization",
+    "hypotheses": [
+      {"text": "0 < alpha <= 1", "formal": "as stated", "source": "statement"},
+      {"text": "(lambda1,...,lambdan) ≽w (lambda*1,...,lambda*n)", "formal": "weak majorization of scale vectors", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Xn:n >=st Xn:n*"},
+    "quantifiers": "all n; x > 0",
+    "numbers": "",
+    "ambiguity": ""
+  },
+  {
+    "paper": "arxiv:1704.06329",
+    "claim": "Theorem 3.5",
+    "page": 8,
+    "quote": "Let X1, ..., Xn (X1*, ..., Xn*) be independent random variables with Xi ~ ENH(alpha, lambdai, beta) (Xi* ~ ENH(alpha, lambda*i, beta)), i = 1, ..., n. If 0 < alpha <= 1 and (lambda1, ..., lambdan) <= (lambda*1, ..., lambda*n), that is, lambdai <= lambda*i, i = 1, ..., n, then Xn:n >=st Xn:n*.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "ENH(alpha, lambdai, beta)",
+    "compared": "Xn:n vs Xn:n*; componentwise scale inequality",
+    "hypotheses": [
+      {"text": "0 < alpha <= 1 and lambdai <= lambda*i for all i", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Xn:n >=st Xn:n*"},
+    "quantifiers": "all n",
+    "numbers": "",
+    "ambiguity": ""
+  },
+  {
+    "paper": "arxiv:1704.06329",
+    "claim": "Theorem 3.6",
+    "page": 8,
+    "quote": "Let X1, ..., Xn be independent random variables with Xi ~ ENH(alpha, lambda, betai) and X1*, ..., Xn* be another set of independent random variables with Xi* ~ ENH(alpha, lambda, betai*), i = 1, ..., n. Then, Xn:n >=lr Xn:n* if and only if sum_{i=1}^n betai >= sum_{i=1}^n betai*.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "ENH(alpha, lambda, betai); Xn:n has cdf (1 - e^{1-(1+lambda x)^alpha})^{sum betai} so the maximum depends on beta only through the sum",
+    "compared": "Xn:n vs Xn:n*; sums of exponentiation parameters",
+    "hypotheses": [
+      {"text": "sum betai >= sum betai*", "formal": "as stated (if and only if)", "source": "statement"}
+    ],
+    "conclusion": {"order": "lr", "direction": "Xn:n >=lr Xn:n* iff sum betai >= sum betai*"},
+    "quantifiers": "all n; x > 0",
+    "numbers": "",
+    "ambiguity": "An iff characterization; density ratio shown increasing iff the sum inequality holds."
+  },
+  {
+    "paper": "arxiv:1704.06329",
+    "claim": "Theorem 3.7",
+    "page": 8,
+    "quote": "Let X1, ..., Xn be independent random variables with Xi ~ ENH(alpha, lambda, betai), and X1*, ..., Xn* be another set of independent random variables with Xi* ~ ENH(alpha, lambda, betai*), i = 1, ..., n. Then for alpha < 1 and lambda > 0, we have sum_{i=1}^n betai* <= sum_{i=1}^n betai < 1 ==> Xn:n >=disp Xn:n*.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "ENH(alpha, lambda, betai)",
+    "compared": "Xn:n vs Xn:n* in dispersive order",
+    "hypotheses": [
+      {"text": "alpha < 1 and lambda > 0", "formal": "as stated", "source": "statement"},
+      {"text": "sum betai* <= sum betai < 1", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "disp", "direction": "Xn:n >=disp Xn:n*"},
+    "quantifiers": "all n",
+    "numbers": "",
+    "ambiguity": "Proof combines Theorem 3.6 (lr order implies hr) with the DHR property of the maximum when sum betai < 1, via Theorem 3.B.20 of Shaked and Shanthikumar (2007)."
+  },
+  {
+    "paper": "arxiv:1704.06329",
+    "claim": "Theorem 3.8",
+    "page": "8-9",
+    "quote": "Suppose X1, ..., Xn and X1*, ..., Xn* are independent samples with Xi ~ ENH(alpha1, lambda1, betai), and Xi* ~ ENH(alpha2, lambda2, betai*), i = 1, ..., n. Then for alpha1 <= alpha2 and lambda > 0, we have sum_{i=1}^n betai = sum_{i=1}^n betai* ==> Xn:n >=c Xn:n*.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "ENH(alpha1, lambda1, betai) vs ENH(alpha2, lambda2, betai*)",
+    "compared": "Xn:n vs Xn:n* in convex transform order",
+    "hypotheses": [
+      {"text": "alpha1 <= alpha2 and lambda > 0 (printed; lambda1, lambda2 appear in the proof's quantile-composition h(x) = ((1+lambda2 x)^{alpha2/alpha1} - 1)/lambda1)", "formal": "as stated", "source": "statement"},
+      {"text": "sum betai = sum betai*", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "other: convex transform (>=c)", "direction": "Xn:n >=c Xn:n*"},
+    "quantifiers": "all n; x > 0",
+    "numbers": "",
+    "ambiguity": "'>=c' is the convex transform order (Definition 2.x of the paper). The printed condition says 'lambda > 0' while the proof uses separate lambda1, lambda2 > 0."
+  },
+  {
+    "paper": "arxiv:1704.06329",
+    "claim": "Corollary 3.9",
+    "page": 9,
+    "quote": "Suppose X1, ..., Xn and X1*, ..., Xn* are independent samples with Xi ~ ENH(alpha1, lambda1, betai), and Xi* ~ ENH(alpha2, lambda2, betai*), i = 1, ..., n. Then for alpha1 <= alpha2 and lambda > 0, we have sum_{i=1}^n betai = sum_{i=1}^n betai* ==> Xn:n >=Lorenz Xn:n*.",
+    "kind": "corollary",
+    "model": "parallel system",
+    "family": "ENH(alpha1, lambda1, betai) vs ENH(alpha2, lambda2, betai*)",
+    "compared": "Xn:n vs Xn:n* in Lorenz order",
+    "hypotheses": [
+      {"text": "alpha1 <= alpha2 and sum betai = sum betai*", "formal": "as stated", "source": "statement; earlier theorem 3.8"}
+    ],
+    "conclusion": {"order": "lorenz", "direction": "Xn:n >=Lorenz Xn:n*"},
+    "quantifiers": "all n",
+    "numbers": "",
+    "ambiguity": "Direct consequence of Theorem 3.8 via the convex-transform-to-Lorenz implication; noted to be of interest in economics."
+  },
+  {
+    "paper": "arxiv:1704.06329",
+    "claim": "Theorem 3.10",
+    "page": 10,
+    "quote": "For X ~ ES(alpha, lambda, phi1) and X* ~ ES(alpha*, lambda, phi2), if psi2 o phi1 is super-additive, then alpha ≽w alpha* implies X1:n <=st X1:n*.",
+    "kind": "theorem",
+    "model": "series system (dependent components)",
+    "family": "exponentiated scale ES(alpha, lambda) marginals with Archimedean survival copula generators phi1 and phi2; Ḡ_X1:n(x) = phi( sum_i psi(1 - F^{alpha_i}(lambda x)) ) = J(alpha, lambda, x, phi) (equation 7)",
+    "compared": "dependent-sample minima X1:n vs X1:n*; weakly supermajorized shape vectors and possibly different copulas",
+    "hypotheses": [
+      {"text": "psi2 o phi1 is super-additive", "formal": "psi = phi^{-1} is the copula generator inverse; composition psi2 o phi1 super-additive", "source": "statement"},
+      {"text": "alpha ≽w alpha*", "formal": "weak supermajorization of shape vectors (Lemma 2.6)", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "X1:n <=st X1:n*"},
+    "quantifiers": "all n; x >= 0",
+    "numbers": "",
+    "ambiguity": "Generalizes Bashkar et al. Theorem 4.1 (common copula case) to possibly different Archimedean copulas."
+  },
+  {
+    "paper": "arxiv:1704.06329",
+    "claim": "Corollary 3.11",
+    "page": 11,
+    "quote": "Suppose X ~ PRH(alpha, phi1) and X* ~ PRH(alpha*, phi2) and phi2 o psi1 is super-additive. Then alpha ≽w alpha* implies X1:n <=st X1:n*.",
+    "kind": "corollary",
+    "model": "series system (dependent components)",
+    "family": "proportional reversed hazards (PRH) model with Archimedean copulas (lambda = 1 special case of Theorem 3.10)",
+    "compared": "X1:n vs X1:n*",
+    "hypotheses": [
+      {"text": "phi2 o psi1 super-additive; alpha ≽w alpha*", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "X1:n <=st X1:n*"},
+    "quantifiers": "all n",
+    "numbers": "",
+    "ambiguity": "The composition is printed 'phi2 o psi1' here versus 'psi2 o phi1' in Theorem 3.10 — recorded as printed."
+  },
+  {
+    "paper": "arxiv:1704.06329",
+    "claim": "Corollary 3.12",
+    "page": 11,
+    "quote": "Suppose X ~ ENH(alpha, lambda, beta, phi1) and X* ~ ENH(alpha, lambda, beta*, phi2) and phi2 o psi1 is super-additive. Then beta ≽w beta* implies X1:n <=st X1:n*.",
+    "kind": "corollary",
+    "model": "series system (dependent components)",
+    "family": "ENH with Archimedean copulas (four-parameter dependent ENH notation)",
+    "compared": "X1:n vs X1:n*; beta vectors under weak supermajorization",
+    "hypotheses": [
+      {"text": "phi2 o psi1 super-additive; beta ≽w beta*", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "X1:n <=st X1:n*"},
+    "quantifiers": "all n",
+    "numbers": "",
+    "ambiguity": "Same psi/phi composition printing as Corollary 3.11; follows from Theorem 3.10."
+  }
+]

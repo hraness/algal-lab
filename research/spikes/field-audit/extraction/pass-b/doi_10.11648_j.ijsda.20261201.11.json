@@ -1,0 +1,110 @@
+[
+  {
+    "paper": "doi:10.11648/j.ijsda.20261201.11",
+    "claim": "Theorem 9.1 (i): likelihood ratio order",
+    "page": "6-7",
+    "quote": "Let X ~ KwEE(alpha1, beta1, lambda1) and Y ~ KwEE(alpha2, beta2, lambda2), then, If alpha1 = alpha2, beta1 = beta2, and lambda1 > lambda2, then X <=lr Y ==> X <=hr Y ==> X <=st Y.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "Kumaraswamy Exponential-Exponential KwEE(alpha, beta, lambda): pdf f(x) = alpha beta lambda^2 exp(-lambda^2 x) (1 - exp(-lambda^2 x))^{alpha-1} {1 - (1 - exp(-lambda^2 x))^alpha}^{beta-1} (Section 2.1)",
+    "compared": "X vs Y differing only in lambda",
+    "hypotheses": [
+      {"text": "alpha1 = alpha2, beta1 = beta2", "formal": "common alpha and beta", "source": "statement"},
+      {"text": "lambda1 > lambda2", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "lr", "direction": "X <=lr Y"},
+    "quantifiers": "all x > 0",
+    "numbers": "",
+    "ambiguity": "The printed proof differentiates ln(f_X/f_Y) and asserts negativity 'since lambda1 > lambda2 => -lambda1^2 + lambda2^2 < 0'; the other summands' signs are not separately argued in the printed text — recorded as printed."
+  },
+  {
+    "paper": "doi:10.11648/j.ijsda.20261201.11",
+    "claim": "Theorem 9.1 (i): hazard rate order",
+    "page": "6-7",
+    "quote": "If alpha1 = alpha2, beta1 = beta2, and lambda1 > lambda2, then X <=lr Y ==> X <=hr Y ==> X <=st Y.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "KwEE(alpha, beta, lambda)",
+    "compared": "X vs Y (same parameter regime as the lr claim)",
+    "hypotheses": [
+      {"text": "alpha1 = alpha2, beta1 = beta2, lambda1 > lambda2", "formal": "as stated", "source": "statement"},
+      {"text": "X <=lr Y ==> X <=hr Y (well-known implication chain cited to [18] Shaked and Shanthikumar)", "formal": "implication", "source": "section preamble (line ~490)"}
+    ],
+    "conclusion": {"order": "hr", "direction": "X <=hr Y"},
+    "quantifiers": "all x > 0",
+    "numbers": "",
+    "ambiguity": "The paper's printed definition of <=hr repeats the <=st condition ('if F_X(x) >= F_Y(x) for all x') — an evident typo; the intended hazard-rate definition is the standard one. Recorded as printed."
+  },
+  {
+    "paper": "doi:10.11648/j.ijsda.20261201.11",
+    "claim": "Theorem 9.1 (i): usual stochastic order",
+    "page": "6-7",
+    "quote": "If alpha1 = alpha2, beta1 = beta2, and lambda1 > lambda2, then X <=lr Y ==> X <=hr Y ==> X <=st Y.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "KwEE(alpha, beta, lambda)",
+    "compared": "X vs Y (same parameter regime)",
+    "hypotheses": [
+      {"text": "alpha1 = alpha2, beta1 = beta2, lambda1 > lambda2", "formal": "as stated", "source": "statement"},
+      {"text": "implication chain lr => hr => st", "formal": "implication", "source": "section preamble"}
+    ],
+    "conclusion": {"order": "st", "direction": "X <=st Y (F_X(x) >= F_Y(x) for all x per the paper's definition)"},
+    "quantifiers": "all x",
+    "numbers": "",
+    "ambiguity": ""
+  },
+  {
+    "paper": "doi:10.11648/j.ijsda.20261201.11",
+    "claim": "Theorem 9.1 (ii): likelihood ratio order",
+    "page": "6-7",
+    "quote": "If alpha1 < alpha2, beta1 < beta2, and lambda1 = lambda2, then X <=lr Y ==> X <=hr Y ==> X <=st Y.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "KwEE(alpha, beta, lambda)",
+    "compared": "X vs Y differing in alpha and beta, common lambda",
+    "hypotheses": [
+      {"text": "alpha1 < alpha2 and beta1 < beta2", "formal": "as stated", "source": "statement"},
+      {"text": "lambda1 = lambda2", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "lr", "direction": "X <=lr Y"},
+    "quantifiers": "all x > 0",
+    "numbers": "",
+    "ambiguity": "Case (ii) is not proved in detail: 'Similarly (ii) also can be easily proved.' Recorded as stated."
+  },
+  {
+    "paper": "doi:10.11648/j.ijsda.20261201.11",
+    "claim": "Theorem 9.1 (ii): hazard rate order",
+    "page": "6-7",
+    "quote": "If alpha1 < alpha2, beta1 < beta2, and lambda1 = lambda2, then X <=lr Y ==> X <=hr Y ==> X <=st Y.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "KwEE(alpha, beta, lambda)",
+    "compared": "X vs Y",
+    "hypotheses": [
+      {"text": "alpha1 < alpha2, beta1 < beta2, lambda1 = lambda2", "formal": "as stated", "source": "statement"},
+      {"text": "lr => hr implication", "formal": "implication", "source": "section preamble"}
+    ],
+    "conclusion": {"order": "hr", "direction": "X <=hr Y"},
+    "quantifiers": "all x > 0",
+    "numbers": "",
+    "ambiguity": "hr definition printed with the st condition (typo); see record (i)-hr."
+  },
+  {
+    "paper": "doi:10.11648/j.ijsda.20261201.11",
+    "claim": "Theorem 9.1 (ii): usual stochastic order",
+    "page": "6-7",
+    "quote": "If alpha1 < alpha2, beta1 < beta2, and lambda1 = lambda2, then X <=lr Y ==> X <=hr Y ==> X <=st Y.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "KwEE(alpha, beta, lambda)",
+    "compared": "X vs Y",
+    "hypotheses": [
+      {"text": "alpha1 < alpha2, beta1 < beta2, lambda1 = lambda2", "formal": "as stated", "source": "statement"},
+      {"text": "lr => hr => st implication chain", "formal": "implication", "source": "section preamble"}
+    ],
+    "conclusion": {"order": "st", "direction": "X <=st Y"},
+    "quantifiers": "all x",
+    "numbers": "",
+    "ambiguity": ""
+  }
+]
