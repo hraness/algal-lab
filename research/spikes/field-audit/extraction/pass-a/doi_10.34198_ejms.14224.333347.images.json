@@ -1,0 +1,82 @@
+[
+  {
+    "paper": "doi:10.34198/ejms.14224.333347",
+    "claim": "Theorem 5, usual stochastic order (≤_stor)",
+    "page": 10,
+    "quote": "2.6. Stochastic ordering. Theorem 5. Let S∼ CD(η_1, ϕ_1) and Q∼ CD(η_2, ϕ_2). If η_1 = η_2 and ϕ_1 = ϕ_2 and ϕ_1 ≥ ϕ_2 (or if ϕ_2 = ϕ_2 and η_1 = η_2 and η_1 ≥ η_2), then S ≤_stor Q and hence S ≤_Ror Q, S ≤_mrl Q and S ≤_lor Q.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "Remkan distribution: three-component mixture of exponential(η), gamma(3, η) and gamma(4, η) with mixing proportions τ_1 = η/(η+2ϕ+6), τ_2 = 2ϕ/(η+2ϕ+6), τ_3 = 6/(η+2ϕ+6); pdf (3) g(x; η, ϕ) = η^2/(η+2ϕ+6) [1 + ϕηx^2 + η^2x^3] e^{−ηx}; x > 0, η > 0, ϕ > 0; cdf (4) as printed G(x; η, ϕ) = 1 − [1 + (η^3x^3 + (3+ϕ)η^2x^3 + (6+2ϕ)ηx)/(η+2ϕ+6)] e^{−ηx}; survival (30) as printed s(x) = [1 + (η^3x^3 + (3+ϕ)η^2x^3 + (6+2ϕ)ηx)/(η+2ϕ+6)] e^{−ηx}",
+    "compared": "parameters (η_1, ϕ_1) of S vs (η_2, ϕ_2) of Q, under the printed conditions",
+    "hypotheses": [
+      {"text": "Let S∼ CD(η_1, ϕ_1) and Q∼ CD(η_2, ϕ_2)", "formal": "S and Q have pdf (3) with parameters (η_1, ϕ_1) and (η_2, ϕ_2) respectively (CD read as the paper's Remkan distribution)", "source": "statement"},
+      {"text": "x > 0, η > 0, ϕ > 0", "formal": "η_1, η_2 > 0; ϕ_1, ϕ_2 > 0; support x > 0", "source": "definition eq. (3)"},
+      {"text": "If η_1 = η_2 and ϕ_1 = ϕ_2 and ϕ_1 ≥ ϕ_2", "formal": "as printed: η_1 = η_2 and ϕ_1 = ϕ_2, so ϕ_1 ≥ ϕ_2 is implied and S, Q are identically distributed", "source": "statement"},
+      {"text": "(or if ϕ_2 = ϕ_2 and η_1 = η_2 and η_1 ≥ η_2)", "formal": "as printed: ϕ_2 = ϕ_2 is vacuous and η_1 = η_2 implies η_1 ≥ η_2, so this alternative reads η_1 = η_2 with ϕ_1, ϕ_2 unrestricted", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "S ≤_stor Q"},
+    "quantifiers": "all x > 0; η_i > 0, ϕ_i > 0 subject to the printed conditions",
+    "numbers": "",
+    "ambiguity": "The printed conditions are degenerate: the first alternative forces η_1 = η_2 and ϕ_1 = ϕ_2 (identical distributions), and the second contains the tautology 'ϕ_2 = ϕ_2' plus η_1 = η_2, which makes 'η_1 ≥ η_2' redundant. The intended conditions cannot be recovered from the text. '≤_stor' is never defined; the sentence after the proof writes '≤_sor', and 'stochastic orderings' is the only gloss. 'CD(η, ϕ)' is never defined (the paper studies the Remkan distribution; the reference list includes the Copoun distribution). The printed cdf (4) and survival (30) contain the term (3+ϕ)η^2x^3, whereas the quantile function (10)/(14) has (3+ϕ)η^2x_q^2, so the printed forms conflict. Eq. (1) writes τ_2 g_3 (τ_2 twice), and the introduction first defines a second 'τ_2 = 6/(η+2ϕ+6)'. Proof eq. (37) gives f_S/f_Q = η_1^2(η_2+ϕ_2+6)/(η_2^2(η_1+2ϕ_1+6)) · e^{−(η_1−η_2)φ}, omitting the factor [1 + ϕηφ^2 + η^2φ^3] of pdf (3) and printing (η_2+ϕ_2+6) rather than (η_2+2ϕ_2+6). No stochastic-order definitions appear anywhere in the paper. Page 10 is the image index; the printed page is 342."
+  },
+  {
+    "paper": "doi:10.34198/ejms.14224.333347",
+    "claim": "Theorem 5, risk measurement (hazard rate) order (≤_Ror)",
+    "page": 10,
+    "quote": "2.6. Stochastic ordering. Theorem 5. Let S∼ CD(η_1, ϕ_1) and Q∼ CD(η_2, ϕ_2). If η_1 = η_2 and ϕ_1 = ϕ_2 and ϕ_1 ≥ ϕ_2 (or if ϕ_2 = ϕ_2 and η_1 = η_2 and η_1 ≥ η_2), then S ≤_stor Q and hence S ≤_Ror Q, S ≤_mrl Q and S ≤_lor Q.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "Remkan distribution: pdf (3) g(x; η, ϕ) = η^2/(η+2ϕ+6) [1 + ϕηx^2 + η^2x^3] e^{−ηx}; x > 0, η > 0, ϕ > 0 (mixture of exponential(η), gamma(3, η), gamma(4, η) with weights η, 2ϕ, 6 over η+2ϕ+6); risk measurement (hazard) function h(x) = g(x)/(1 − G(x)) per eq. (32)",
+    "compared": "parameters (η_1, ϕ_1) of S vs (η_2, ϕ_2) of Q, under the printed conditions",
+    "hypotheses": [
+      {"text": "Let S∼ CD(η_1, ϕ_1) and Q∼ CD(η_2, ϕ_2)", "formal": "S, Q Remkan with parameters (η_1, ϕ_1), (η_2, ϕ_2) (CD undefined)", "source": "statement"},
+      {"text": "x > 0, η > 0, ϕ > 0", "formal": "positive parameters; support x > 0", "source": "definition eq. (3)"},
+      {"text": "If η_1 = η_2 and ϕ_1 = ϕ_2 and ϕ_1 ≥ ϕ_2", "formal": "as printed: identical parameters", "source": "statement"},
+      {"text": "(or if ϕ_2 = ϕ_2 and η_1 = η_2 and η_1 ≥ η_2)", "formal": "as printed: η_1 = η_2, ϕ's unrestricted", "source": "statement"}
+    ],
+    "conclusion": {"order": "hr", "direction": "S ≤_Ror Q (Ror read as the risk measurement, i.e. hazard rate, order)"},
+    "quantifiers": "all x > 0; η_i > 0, ϕ_i > 0 subject to the printed conditions",
+    "numbers": "",
+    "ambiguity": "'≤_Ror' is never defined. Its reading as the hazard rate order rests on the paper calling the hazard function the 'risk measurement function' (Section 2.5.2) and on the post-proof sentence ('... has risk measurement, average residual measurement life, and stochastic orderings'). The theorem says this order follows 'hence' from ≤_stor, while the post-proof sentence gives the chain S ≤_lor Q ⟹ S ≤_Ror Q ⟹ {S ≤_sor Q, S ≤_mrl Q}; the direction of derivation conflicts. The degenerate printed conditions, undefined CD, and formula inconsistencies are as described in the ≤_stor record."
+  },
+  {
+    "paper": "doi:10.34198/ejms.14224.333347",
+    "claim": "Theorem 5, mean residual life order (≤_mrl)",
+    "page": 10,
+    "quote": "2.6. Stochastic ordering. Theorem 5. Let S∼ CD(η_1, ϕ_1) and Q∼ CD(η_2, ϕ_2). If η_1 = η_2 and ϕ_1 = ϕ_2 and ϕ_1 ≥ ϕ_2 (or if ϕ_2 = ϕ_2 and η_1 = η_2 and η_1 ≥ η_2), then S ≤_stor Q and hence S ≤_Ror Q, S ≤_mrl Q and S ≤_lor Q.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "Remkan distribution: pdf (3) g(x; η, ϕ) = η^2/(η+2ϕ+6) [1 + ϕηx^2 + η^2x^3] e^{−ηx}; x > 0, η > 0, ϕ > 0; average residual measurement lifetime m(x) = E[X − x | X > x] per eq. (35)",
+    "compared": "parameters (η_1, ϕ_1) of S vs (η_2, ϕ_2) of Q, under the printed conditions",
+    "hypotheses": [
+      {"text": "Let S∼ CD(η_1, ϕ_1) and Q∼ CD(η_2, ϕ_2)", "formal": "S, Q Remkan with parameters (η_1, ϕ_1), (η_2, ϕ_2) (CD undefined)", "source": "statement"},
+      {"text": "x > 0, η > 0, ϕ > 0", "formal": "positive parameters; support x > 0", "source": "definition eq. (3)"},
+      {"text": "If η_1 = η_2 and ϕ_1 = ϕ_2 and ϕ_1 ≥ ϕ_2", "formal": "as printed: identical parameters", "source": "statement"},
+      {"text": "(or if ϕ_2 = ϕ_2 and η_1 = η_2 and η_1 ≥ η_2)", "formal": "as printed: η_1 = η_2, ϕ's unrestricted", "source": "statement"}
+    ],
+    "conclusion": {"order": "mrl", "direction": "S ≤_mrl Q"},
+    "quantifiers": "all x > 0; η_i > 0, ϕ_i > 0 subject to the printed conditions",
+    "numbers": "",
+    "ambiguity": "'≤_mrl' is never defined in the paper. The only related notion is the 'average residual measurement lifetime function' m(x) of Section 2.5.3. The post-proof sentence derives ≤_mrl from ≤_Ror, conflicting with the theorem's 'hence' from ≤_stor. The degenerate printed conditions, undefined CD, and formula inconsistencies are as described in the ≤_stor record."
+  },
+  {
+    "paper": "doi:10.34198/ejms.14224.333347",
+    "claim": "Theorem 5, likelihood ratio order (≤_lor)",
+    "page": 10,
+    "quote": "2.6. Stochastic ordering. Theorem 5. Let S∼ CD(η_1, ϕ_1) and Q∼ CD(η_2, ϕ_2). If η_1 = η_2 and ϕ_1 = ϕ_2 and ϕ_1 ≥ ϕ_2 (or if ϕ_2 = ϕ_2 and η_1 = η_2 and η_1 ≥ η_2), then S ≤_stor Q and hence S ≤_Ror Q, S ≤_mrl Q and S ≤_lor Q.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "Remkan distribution: pdf (3) g(x; η, ϕ) = η^2/(η+2ϕ+6) [1 + ϕηx^2 + η^2x^3] e^{−ηx}; x > 0, η > 0, ϕ > 0",
+    "compared": "parameters (η_1, ϕ_1) of S vs (η_2, ϕ_2) of Q, under the printed conditions",
+    "hypotheses": [
+      {"text": "Let S∼ CD(η_1, ϕ_1) and Q∼ CD(η_2, ϕ_2)", "formal": "S, Q Remkan with parameters (η_1, ϕ_1), (η_2, ϕ_2) (CD undefined)", "source": "statement"},
+      {"text": "x > 0, η > 0, ϕ > 0", "formal": "positive parameters; support x > 0", "source": "definition eq. (3)"},
+      {"text": "If η_1 = η_2 and ϕ_1 = ϕ_2 and ϕ_1 ≥ ϕ_2", "formal": "as printed: identical parameters", "source": "statement"},
+      {"text": "(or if ϕ_2 = ϕ_2 and η_1 = η_2 and η_1 ≥ η_2)", "formal": "as printed: η_1 = η_2, ϕ's unrestricted", "source": "statement"}
+    ],
+    "conclusion": {"order": "lr", "direction": "S ≤_lor Q (lor read as the likelihood ratio order)"},
+    "quantifiers": "all x > 0; η_i > 0, ϕ_i > 0 subject to the printed conditions",
+    "numbers": "",
+    "ambiguity": "'≤_lor' is never defined. The reading as the likelihood ratio order rests on the post-proof sentence ('the Remkan distribution is ordered in the likelihood ratio'). The proof works with log(f_S/f_Q) via eqs. (37)–(39), where d/dφ log(f_S/f_Q) = −(η_2 − η_1), but it does not state which sign or monotonicity defines ≤_lor. The ratio (37) omits the polynomial factor [1 + ϕηφ^2 + η^2φ^3] of pdf (3). The theorem derives ≤_lor 'hence' from ≤_stor, whereas the post-proof chain starts from ≤_lor. The degenerate printed conditions and undefined CD are as described in the ≤_stor record."
+  }
+]

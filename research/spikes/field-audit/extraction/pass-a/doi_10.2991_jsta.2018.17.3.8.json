@@ -1,0 +1,395 @@
+[
+  {
+    "paper": "doi:10.2991/jsta.2018.17.3.8",
+    "claim": "Theorem 3.1(i)",
+    "page": 6,
+    "quote": "A random variable X is said to be distributed according to the Frèchet distribution, and will be denoted by X ∼ Frè(µ, λ, α), if the distribution function is given by G(x; µ, λ, α) = exp{−((x − µ)/λ)^{−α}}, x > µ, where µ ∈ R is a location parameter, λ > 0 is a scale parameter and α > 0 is a shape parameter. [...] Theorem 3.1. Let X_1, ..., X_n (X*_1, ..., X*_n) be independent random variables where X_i ∼ Frè(µ, λ_i, α) (X*_i ∼ Frè(µ, λ*_i, α)), i = 1, ..., n. Let us consider an strictly decreasing (increasing) function f. (i) If (f^{−1}(·))'(f^{−1}(·))^{α−1} is increasing (decreasing) and (λ_1, ..., λ_n) ⪰^{wf} (λ*_1, ..., λ*_n) then X_{n:n} ≥_rh (≤_rh) X*_{n:n}. (ii) If (f^{−1}(·))'(f^{−1}(·))^{α−1} is decreasing (increasing) and (λ*_1, ..., λ*_n) ⪰_{wf} (λ_1, ..., λ_n) then X_{n:n} ≤_rh (≥_rh) X*_{n:n}.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "Fréchet Frè(µ, λ, α): cdf exp{−((x − µ)/λ)^{−α}}, x > µ; µ ∈ R location, λ > 0 scale, α > 0 shape; common µ and α, heterogeneous scales λ_i",
+    "compared": "scale vectors λ vs λ* (through f-transformed weak supermajorization)",
+    "hypotheses": [
+      {"text": "X_1, ..., X_n (X*_1, ..., X*_n) be independent random variables where X_i ∼ Frè(µ, λ_i, α) (X*_i ∼ Frè(µ, λ*_i, α))", "formal": "independent components; common µ, α", "source": "statement"},
+      {"text": "Let us consider an strictly decreasing (increasing) function f", "formal": "reading A: f strictly decreasing; reading B: f strictly increasing", "source": "statement"},
+      {"text": "(f^{−1}(·))'(f^{−1}(·))^{α−1} is increasing (decreasing)", "formal": "reading A: y ↦ (f^{−1})'(y)(f^{−1}(y))^{α−1} increasing; reading B: decreasing", "source": "statement"},
+      {"text": "(λ_1, ..., λ_n) ⪰^{wf} (λ*_1, ..., λ*_n)", "formal": "read as λ* ⪯^{wf} λ, i.e. f(λ*) ⪯^w f(λ): Σ_{i=1}^j f(λ*)_(i) ≥ Σ_{i=1}^j f(λ)_(i), j = 1, ..., n", "source": "statement; definition 2.3(ii), definition 2.2(ii) (converse symbol not defined)"},
+      {"text": "Let X and Y be two random variables with common support R_{++}", "formal": "standing assumption of the order definitions", "source": "definition 2.1"}
+    ],
+    "conclusion": {"order": "rh", "direction": "reading A (f strictly decreasing, expression increasing): X*_{n:n} ≤_rh X_{n:n}; reading B (f strictly increasing, expression decreasing): X_{n:n} ≤_rh X*_{n:n}"},
+    "quantifiers": "n unrestricted; any common µ ∈ R, α > 0; all x > µ",
+    "numbers": "",
+    "ambiguity": "The parenthetical alternatives define two claims (readings A and B). The converse symbol ⪰^{wf} is not defined (Definition 2.3 defines ⪯^{wf}). Definition 2.1 assumes a common support R_{++}, while the Fréchet support is (µ, ∞)."
+  },
+  {
+    "paper": "doi:10.2991/jsta.2018.17.3.8",
+    "claim": "Theorem 3.1(ii)",
+    "page": 7,
+    "quote": "Theorem 3.1. Let X_1, ..., X_n (X*_1, ..., X*_n) be independent random variables where X_i ∼ Frè(µ, λ_i, α) (X*_i ∼ Frè(µ, λ*_i, α)), i = 1, ..., n. Let us consider an strictly decreasing (increasing) function f. (i) If (f^{−1}(·))'(f^{−1}(·))^{α−1} is increasing (decreasing) and (λ_1, ..., λ_n) ⪰^{wf} (λ*_1, ..., λ*_n) then X_{n:n} ≥_rh (≤_rh) X*_{n:n}. (ii) If (f^{−1}(·))'(f^{−1}(·))^{α−1} is decreasing (increasing) and (λ*_1, ..., λ*_n) ⪰_{wf} (λ_1, ..., λ_n) then X_{n:n} ≤_rh (≥_rh) X*_{n:n}.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "Fréchet Frè(µ, λ, α), cdf exp{−((x − µ)/λ)^{−α}}, x > µ; common µ, α; heterogeneous λ_i",
+    "compared": "scale vectors λ vs λ* (through f-transformed weak submajorization)",
+    "hypotheses": [
+      {"text": "X_i ∼ Frè(µ, λ_i, α) (X*_i ∼ Frè(µ, λ*_i, α)), independent", "formal": "independent components; common µ, α", "source": "statement"},
+      {"text": "Let us consider an strictly decreasing (increasing) function f", "formal": "reading A: f strictly decreasing; reading B: f strictly increasing", "source": "statement"},
+      {"text": "(f^{−1}(·))'(f^{−1}(·))^{α−1} is decreasing (increasing)", "formal": "reading A: decreasing; reading B: increasing", "source": "statement"},
+      {"text": "(λ*_1, ..., λ*_n) ⪰_{wf} (λ_1, ..., λ_n)", "formal": "read as λ ⪯_{wf} λ*, i.e. f(λ) ⪯_w f(λ*): Σ_{i=j}^n f(λ)_(i) ≤ Σ_{i=j}^n f(λ*)_(i), j = 1, ..., n", "source": "statement; definition 2.3(i), definition 2.2(i)"},
+      {"text": "common support R_{++}", "formal": "standing assumption of the order definitions", "source": "definition 2.1"}
+    ],
+    "conclusion": {"order": "rh", "direction": "reading A (f strictly decreasing, expression decreasing): X_{n:n} ≤_rh X*_{n:n}; reading B (f strictly increasing, expression increasing): X*_{n:n} ≤_rh X_{n:n}"},
+    "quantifiers": "n unrestricted; any common µ, α; all x > µ",
+    "numbers": "",
+    "ambiguity": "The proof is omitted ('similar to part (i)'). Two readings from the parentheticals. The converse symbol ⪰_{wf} is undefined. Definition 2.1 assumes support R_{++}."
+  },
+  {
+    "paper": "doi:10.2991/jsta.2018.17.3.8",
+    "claim": "Corollary 3.1",
+    "page": 7,
+    "quote": "In Theorem 3.1, if we let f(x) = 1/x, we can get the following corollary that generalizes the corresponding result in Theorem 2 of [17]. In particular the majorization assumption is relaxed to the weak majorization and the usual stochastic order is replaced by the stronger reversed hazard rate order. Corollary 3.1. Let X_1, ..., X_n (X*_1, ..., X*_n) be independent random variables where X_i ∼ Frè(µ, λ_i, α) (X*_i ∼ Frè(µ, λ*_i, α)), i = 1, ..., n. If (1/λ_1, ..., 1/λ_n) ⪰^w (1/λ*_1, ..., 1/λ*_n) then X_{n:n} ≥_rh X*_{n:n}.",
+    "kind": "corollary",
+    "model": "parallel system",
+    "family": "Fréchet Frè(µ, λ, α); common µ, α; heterogeneous λ_i",
+    "compared": "reciprocal scale vectors (1/λ_i) vs (1/λ*_i)",
+    "hypotheses": [
+      {"text": "X_i ∼ Frè(µ, λ_i, α) (X*_i ∼ Frè(µ, λ*_i, α)), independent", "formal": "independent components; common µ, α", "source": "statement"},
+      {"text": "(1/λ_1, ..., 1/λ_n) ⪰^w (1/λ*_1, ..., 1/λ*_n)", "formal": "read as (1/λ*) ⪯^w (1/λ): Σ_{i=1}^j (1/λ*)_(i) ≥ Σ_{i=1}^j (1/λ)_(i), j = 1, ..., n", "source": "statement; definition 2.2(ii)"},
+      {"text": "common support R_{++}", "formal": "standing assumption of the order definitions", "source": "definition 2.1"}
+    ],
+    "conclusion": {"order": "rh", "direction": "X*_{n:n} ≤_rh X_{n:n} (printed as X_{n:n} ≥_rh X*_{n:n})"},
+    "quantifiers": "n unrestricted; any µ, α > 0 (no restriction on α stated); all x > µ",
+    "numbers": "",
+    "ambiguity": "No condition on α is stated. The corollary is obtained from Theorem 3.1 with f(x) = 1/x (strictly decreasing), whose hypothesis on (f^{−1})'(f^{−1})^{α−1} is not discussed in the corollary. The converse symbol ⪰^w is undefined."
+  },
+  {
+    "paper": "doi:10.2991/jsta.2018.17.3.8",
+    "claim": "Corollary 3.2(i)",
+    "page": 7,
+    "quote": "In Theorem 3.1, if we let f(x) = x^r, r > 0, we can easily get the following result. Corollary 3.2. Let X_1, ..., X_n (X*_1, ..., X*_n) be independent random variables where X_i ∼ Frè(µ, λ_i, α) (X*_i ∼ Frè(µ, λ*_i, α)), i = 1, ..., n. (i) If α ≥ r, and (λ_1^r, ..., λ_n^r) ⪰_w ((λ*_1)^r, ..., (λ*_n)^r) then X_{n:n} ≥_rh X*_{n:n}. (ii) If 0 < α ≤ r and (λ_1^r, ..., λ_n^r) ⪰^w ((λ*_1)^r, ..., (λ*_n)^r) then X_{n:n} ≤_rh X*_{n:n}.",
+    "kind": "corollary",
+    "model": "parallel system",
+    "family": "Fréchet Frè(µ, λ, α); common µ, α; heterogeneous λ_i",
+    "compared": "powered scale vectors (λ_i^r) vs ((λ*_i)^r)",
+    "hypotheses": [
+      {"text": "X_i ∼ Frè(µ, λ_i, α) (X*_i ∼ Frè(µ, λ*_i, α)), independent", "formal": "independent components; common µ, α", "source": "statement"},
+      {"text": "f(x) = x^r, r > 0", "formal": "r > 0", "source": "section preamble (sentence before the corollary)"},
+      {"text": "α ≥ r", "formal": "α ≥ r", "source": "statement"},
+      {"text": "(λ_1^r, ..., λ_n^r) ⪰_w ((λ*_1)^r, ..., (λ*_n)^r)", "formal": "read as (λ*)^r ⪯_w λ^r: Σ_{i=j}^n (λ*_(i))^r ≤ Σ_{i=j}^n λ_(i)^r, j = 1, ..., n", "source": "statement; definition 2.2(i)"},
+      {"text": "common support R_{++}", "formal": "standing assumption", "source": "definition 2.1"}
+    ],
+    "conclusion": {"order": "rh", "direction": "X*_{n:n} ≤_rh X_{n:n} (printed as X_{n:n} ≥_rh X*_{n:n})"},
+    "quantifiers": "n unrestricted; r > 0; α ≥ r; all x > µ",
+    "numbers": "",
+    "ambiguity": "The corollary does not say which part or reading of Theorem 3.1 (with f(x) = x^r, strictly increasing) it instantiates. The converse symbol ⪰_w is undefined."
+  },
+  {
+    "paper": "doi:10.2991/jsta.2018.17.3.8",
+    "claim": "Corollary 3.2(ii)",
+    "page": 7,
+    "quote": "In Theorem 3.1, if we let f(x) = x^r, r > 0, we can easily get the following result. Corollary 3.2. Let X_1, ..., X_n (X*_1, ..., X*_n) be independent random variables where X_i ∼ Frè(µ, λ_i, α) (X*_i ∼ Frè(µ, λ*_i, α)), i = 1, ..., n. (i) If α ≥ r, and (λ_1^r, ..., λ_n^r) ⪰_w ((λ*_1)^r, ..., (λ*_n)^r) then X_{n:n} ≥_rh X*_{n:n}. (ii) If 0 < α ≤ r and (λ_1^r, ..., λ_n^r) ⪰^w ((λ*_1)^r, ..., (λ*_n)^r) then X_{n:n} ≤_rh X*_{n:n}.",
+    "kind": "corollary",
+    "model": "parallel system",
+    "family": "Fréchet Frè(µ, λ, α); common µ, α; heterogeneous λ_i",
+    "compared": "powered scale vectors (λ_i^r) vs ((λ*_i)^r)",
+    "hypotheses": [
+      {"text": "X_i ∼ Frè(µ, λ_i, α) (X*_i ∼ Frè(µ, λ*_i, α)), independent", "formal": "independent components; common µ, α", "source": "statement"},
+      {"text": "f(x) = x^r, r > 0", "formal": "r > 0", "source": "section preamble"},
+      {"text": "0 < α ≤ r", "formal": "0 < α ≤ r", "source": "statement"},
+      {"text": "(λ_1^r, ..., λ_n^r) ⪰^w ((λ*_1)^r, ..., (λ*_n)^r)", "formal": "read as (λ*)^r ⪯^w λ^r: Σ_{i=1}^j (λ*_(i))^r ≥ Σ_{i=1}^j λ_(i)^r, j = 1, ..., n", "source": "statement; definition 2.2(ii)"},
+      {"text": "common support R_{++}", "formal": "standing assumption", "source": "definition 2.1"}
+    ],
+    "conclusion": {"order": "rh", "direction": "X_{n:n} ≤_rh X*_{n:n}"},
+    "quantifiers": "n unrestricted; r > 0; 0 < α ≤ r; all x > µ",
+    "numbers": "",
+    "ambiguity": "The converse symbol ⪰^w is undefined."
+  },
+  {
+    "paper": "doi:10.2991/jsta.2018.17.3.8",
+    "claim": "Corollary 3.3(i)",
+    "page": 7,
+    "quote": "In the next corollary, which is an immediate consequence of Corollary 3.2, we discuss the stochastic comparison of two maximum order statistics, one from a heterogeneous population and the other one from a homogeneous population. Heterogeneity (or homogeneity) of a population is considered with respect to the scale parameters. Corollary 3.3. Let X_1, ..., X_n (X*_1, ..., X*_n) be independent random variables where X_i ∼ Frè(µ, λ_i, α), i = 1, ..., n (X*_i ∼ Frè(µ, λ, α)). (i) If α ≥ r, and λ ≤ (λ̄^r)^{1/r} then X_{n:n} ≥_rh X*_{n:n}. (ii) If 0 < α ≤ r and λ ≥ (λ̄^r)^{1/r} then X_{n:n} ≤_rh X*_{n:n}, where λ̄^r = Σ_{i=1}^n λ_i^r / n, r > 0.",
+    "kind": "corollary",
+    "model": "parallel system",
+    "family": "Fréchet Frè(µ, λ, α); heterogeneous scales λ_i for X, common scale λ for X*; common µ, α",
+    "compared": "heterogeneous scales (λ_1, ..., λ_n) vs homogeneous scale λ",
+    "hypotheses": [
+      {"text": "X_i ∼ Frè(µ, λ_i, α), i = 1, ..., n (X*_i ∼ Frè(µ, λ, α)), independent", "formal": "independent components; X* i.i.d.", "source": "statement"},
+      {"text": "α ≥ r", "formal": "α ≥ r, r > 0", "source": "statement"},
+      {"text": "λ ≤ (λ̄^r)^{1/r}, where λ̄^r = Σ_{i=1}^n λ_i^r / n", "formal": "λ ≤ ((1/n) Σ λ_i^r)^{1/r}", "source": "statement"},
+      {"text": "common support R_{++}", "formal": "standing assumption", "source": "definition 2.1"}
+    ],
+    "conclusion": {"order": "rh", "direction": "X*_{n:n} ≤_rh X_{n:n} (printed as X_{n:n} ≥_rh X*_{n:n})"},
+    "quantifiers": "n unrestricted; r > 0; α ≥ r; all x > µ",
+    "numbers": "",
+    "ambiguity": ""
+  },
+  {
+    "paper": "doi:10.2991/jsta.2018.17.3.8",
+    "claim": "Corollary 3.3(ii)",
+    "page": 8,
+    "quote": "Corollary 3.3. Let X_1, ..., X_n (X*_1, ..., X*_n) be independent random variables where X_i ∼ Frè(µ, λ_i, α), i = 1, ..., n (X*_i ∼ Frè(µ, λ, α)). (i) If α ≥ r, and λ ≤ (λ̄^r)^{1/r} then X_{n:n} ≥_rh X*_{n:n}. (ii) If 0 < α ≤ r and λ ≥ (λ̄^r)^{1/r} then X_{n:n} ≤_rh X*_{n:n}, where λ̄^r = Σ_{i=1}^n λ_i^r / n, r > 0.",
+    "kind": "corollary",
+    "model": "parallel system",
+    "family": "Fréchet Frè(µ, λ, α); heterogeneous scales λ_i for X, common scale λ for X*; common µ, α",
+    "compared": "heterogeneous scales (λ_1, ..., λ_n) vs homogeneous scale λ",
+    "hypotheses": [
+      {"text": "X_i ∼ Frè(µ, λ_i, α) (X*_i ∼ Frè(µ, λ, α)), independent", "formal": "independent components; X* i.i.d.", "source": "statement"},
+      {"text": "0 < α ≤ r", "formal": "0 < α ≤ r", "source": "statement"},
+      {"text": "λ ≥ (λ̄^r)^{1/r}", "formal": "λ ≥ ((1/n) Σ λ_i^r)^{1/r}", "source": "statement"},
+      {"text": "common support R_{++}", "formal": "standing assumption", "source": "definition 2.1"}
+    ],
+    "conclusion": {"order": "rh", "direction": "X_{n:n} ≤_rh X*_{n:n}"},
+    "quantifiers": "n unrestricted; r > 0; 0 < α ≤ r; all x > µ",
+    "numbers": "",
+    "ambiguity": "The following paragraph says r̃_{X_{n:n}}(x; µ, λ, α) 'is a increasing function of λ' and compares the bounds with the arithmetic-mean bound via the Lyapunov inequality; this is interpretive and not part of the statement."
+  },
+  {
+    "paper": "doi:10.2991/jsta.2018.17.3.8",
+    "claim": "Theorem 3.2",
+    "page": 8,
+    "quote": "The following theorem present a generalization of Theorem 1 of [17] where sufficient condition is based on the weak submajorization and by Lemma 2.2 (ii) is true under weak f submajorization for any increasing concave function f of the location parameters. Theorem 3.2. Let X_1, ..., X_n (X*_1, ..., X*_n) be independent random variables where X_i ∼ Frè(µ_i, λ, α) (X*_i ∼ Frè(µ*_i, λ, α)), i = 1, ..., n. If (µ_1, ..., µ_n) ⪰_w (µ*_1, ..., µ*_n), then X_{n:n} ≥_rh X*_{n:n}.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "Fréchet Frè(µ, λ, α); heterogeneous locations µ_i, common scale λ and shape α",
+    "compared": "location vectors µ vs µ*",
+    "hypotheses": [
+      {"text": "X_i ∼ Frè(µ_i, λ, α) (X*_i ∼ Frè(µ*_i, λ, α)), independent", "formal": "independent components; common λ, α", "source": "statement"},
+      {"text": "(µ_1, ..., µ_n) ⪰_w (µ*_1, ..., µ*_n)", "formal": "read as µ* ⪯_w µ: Σ_{i=j}^n µ*_(i) ≤ Σ_{i=j}^n µ_(i), j = 1, ..., n", "source": "statement; definition 2.2(i)"},
+      {"text": "common support R_{++}", "formal": "standing assumption of the order definitions", "source": "definition 2.1"}
+    ],
+    "conclusion": {"order": "rh", "direction": "X*_{n:n} ≤_rh X_{n:n} (printed as X_{n:n} ≥_rh X*_{n:n})"},
+    "quantifiers": "n unrestricted; any common λ > 0, α > 0; x > max(µ_1, ..., µ_n) in the proof",
+    "numbers": "",
+    "ambiguity": "The supports (max µ_i, ∞) and (max µ*_i, ∞) generally differ, whereas Definition 2.1 assumes a common support R_{++}; the proof works only for x > max(µ_1, ..., µ_n). The converse symbol ⪰_w is undefined. The lead-in says the result also holds under weak f-submajorization for increasing concave f (via Lemma 2.2(ii))."
+  },
+  {
+    "paper": "doi:10.2991/jsta.2018.17.3.8",
+    "claim": "Theorem 3.3(i)",
+    "page": 9,
+    "quote": "Independent random variables X_1, ..., X_n are said to belong to the scale family of distributions if X_i ∼ G(λ_i x) where λ_i > 0, i = 1, ..., n and G is called the baseline distribution and is an absolutely continuous distribution function with density function g. In the Theorem 3.3 we extend result of Theorem 2.1 of [18] to the case when the two sets of scale parameters weakly majorize each other instead of usual majorization which by Lemma 2.2 is true under weak f majorization of the scale parameters. Theorem 3.3. Suppose X_i and X*_i as in the setting of Theorem 3.3. If xr(x) is increasing in x, x^2 r'(x) is decreasing (increasing) in x and (λ_1, ..., λ_n) ⪰^w (⪰_w)(λ*_1, ..., λ*_n), then (i) X_{1:n} ≥_hr (≤_hr) X*_{1:n}, and (ii) if r(x) is decreasing then X_{1:n} ≥_disp (≤_disp) X*_{1:n}.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "Scale family X_i ∼ G(λ_i x), λ_i > 0, arbitrary absolutely continuous baseline G with density g (r presumably the baseline hazard rate g/Ḡ)",
+    "compared": "scale vectors λ vs λ*",
+    "hypotheses": [
+      {"text": "X_i ∼ G(λ_i x) where λ_i > 0 ... G ... absolutely continuous distribution function with density function g", "formal": "X_i independent with cdf G(λ_i x); X*_i with cdf G(λ*_i x) (assumed)", "source": "section preamble"},
+      {"text": "xr(x) is increasing in x", "formal": "x r(x) increasing (r = g/Ḡ assumed)", "source": "statement"},
+      {"text": "x^2 r'(x) is decreasing (increasing) in x", "formal": "reading A: x^2 r'(x) decreasing; reading B: increasing", "source": "statement"},
+      {"text": "(λ_1, ..., λ_n) ⪰^w (⪰_w)(λ*_1, ..., λ*_n)", "formal": "reading A: λ* ⪯^w λ (Σ_{i=1}^j λ*_(i) ≥ Σ_{i=1}^j λ_(i)); reading B: λ* ⪯_w λ (Σ_{i=j}^n λ*_(i) ≤ Σ_{i=j}^n λ_(i))", "source": "statement; definition 2.2(i),(ii)"},
+      {"text": "common support R_{++}", "formal": "standing assumption", "source": "definition 2.1"}
+    ],
+    "conclusion": {"order": "hr", "direction": "reading A: X*_{1:n} ≤_hr X_{1:n}; reading B: X_{1:n} ≤_hr X*_{1:n}"},
+    "quantifiers": "n unrestricted; all x > 0",
+    "numbers": "",
+    "ambiguity": "'As in the setting of Theorem 3.3' refers to itself; the setting is presumably the section preamble (scale family), with X*_i ∼ G(λ*_i x) not stated explicitly. r(x) is not defined in this section (Section 2 defines r_F = f/F̄). This is a general semiparametric class; it is included because the note after the theorem states it for the generalized gamma and Weibull families (recorded separately). The converse symbols are undefined."
+  },
+  {
+    "paper": "doi:10.2991/jsta.2018.17.3.8",
+    "claim": "Theorem 3.3(ii)",
+    "page": 9,
+    "quote": "Theorem 3.3. Suppose X_i and X*_i as in the setting of Theorem 3.3. If xr(x) is increasing in x, x^2 r'(x) is decreasing (increasing) in x and (λ_1, ..., λ_n) ⪰^w (⪰_w)(λ*_1, ..., λ*_n), then (i) X_{1:n} ≥_hr (≤_hr) X*_{1:n}, and (ii) if r(x) is decreasing then X_{1:n} ≥_disp (≤_disp) X*_{1:n}.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "Scale family X_i ∼ G(λ_i x), arbitrary absolutely continuous baseline G with density g",
+    "compared": "scale vectors λ vs λ*",
+    "hypotheses": [
+      {"text": "X_i ∼ G(λ_i x) ... density function g", "formal": "independent scale-family components", "source": "section preamble"},
+      {"text": "xr(x) is increasing in x", "formal": "x r(x) increasing", "source": "statement"},
+      {"text": "x^2 r'(x) is decreasing (increasing) in x", "formal": "reading A: decreasing; reading B: increasing", "source": "statement"},
+      {"text": "(λ_1, ..., λ_n) ⪰^w (⪰_w)(λ*_1, ..., λ*_n)", "formal": "reading A: λ* ⪯^w λ; reading B: λ* ⪯_w λ", "source": "statement; definition 2.2"},
+      {"text": "if r(x) is decreasing", "formal": "baseline DFR", "source": "statement"}
+    ],
+    "conclusion": {"order": "disp", "direction": "reading A: X*_{1:n} ≤_disp X_{1:n}; reading B: X_{1:n} ≤_disp X*_{1:n}"},
+    "quantifiers": "n unrestricted",
+    "numbers": "",
+    "ambiguity": "The same setting and notation issues as part (i). The proof cites external results (Theorem 2.1 in [2], Theorem 1 in [5]). This is a general class, included because the paper names specific baselines for Theorem 3.3 (though the note covers only the conditions of part (i))."
+  },
+  {
+    "paper": "doi:10.2991/jsta.2018.17.3.8",
+    "claim": "Note after Theorem 3.3 (generalized gamma baseline, unnumbered)",
+    "page": 9,
+    "quote": "Note that the conditions of Theorem 3.3 are satisfied by the generalized gamma distribution as [18] proved that for X ∼ GG(p, q), xr(x) is an increasing function of x and x^2 r'(x) is an increasing function of x when p, q > 1 and is a decreasing function of x when p, q < 1. Recall that a random variable X has a generalized gamma distribution, denoted by X ∼ GG(p, q), when its density function has the following form g(x) = (p/Γ(q/p)) x^{q−1} e^{−x^p}, x > 0, where p, q > 0 are the shapes parameters.",
+    "kind": "corollary",
+    "model": "series system",
+    "family": "Scale family X_i ∼ G(λ_i x) with generalized gamma baseline GG(p, q): g(x) = (p/Γ(q/p)) x^{q−1} e^{−x^p}, x > 0, p, q > 0",
+    "compared": "scale vectors λ vs λ*",
+    "hypotheses": [
+      {"text": "the conditions of Theorem 3.3 are satisfied by the generalized gamma distribution", "formal": "Theorem 3.3(i) applies with G = GG(p, q)", "source": "statement; earlier theorem 3.3"},
+      {"text": "x^2 r'(x) is an increasing function of x when p, q > 1 and is a decreasing function of x when p, q < 1", "formal": "p, q < 1 gives reading A of Theorem 3.3; p, q > 1 gives reading B", "source": "statement"}
+    ],
+    "conclusion": {"order": "hr", "direction": "implied: for p, q < 1, λ ⪰^w λ* ⟹ X*_{1:n} ≤_hr X_{1:n}; for p, q > 1, λ ⪰_w λ* ⟹ X_{1:n} ≤_hr X*_{1:n}"},
+    "quantifiers": "p, q both < 1 or both > 1; n unrestricted",
+    "numbers": "",
+    "ambiguity": "This is an unnumbered note recorded as kind 'corollary'. The ordering conclusion is implied (the note only says the conditions of Theorem 3.3 are satisfied). The mixed cases (p < 1 < q, etc.) are not covered. The disp part (ii) additionally needs r decreasing, which the note does not address."
+  },
+  {
+    "paper": "doi:10.2991/jsta.2018.17.3.8",
+    "claim": "Note after Theorem 3.3 (Weibull baseline, unnumbered)",
+    "page": 9,
+    "quote": "The conditions of Theorem 3.3 are also satisfied by the Weibull distribution because for X_i ∼ W(α, λ), xr(x) is an increasing function of x and x^2 r'(x) is an increasing function of x when α ≥ 1 and is a decreasing function of x when α ≤ 1, so Theorem 3.3 is also a generalization of Theorem 2.3 of [21].",
+    "kind": "corollary",
+    "model": "series system",
+    "family": "Scale family with Weibull baseline W(α, λ) (shape α presumed; parametrization not given in the paper)",
+    "compared": "scale vectors λ vs λ*",
+    "hypotheses": [
+      {"text": "The conditions of Theorem 3.3 are also satisfied by the Weibull distribution", "formal": "Theorem 3.3(i) applies with a Weibull baseline of shape α", "source": "statement; earlier theorem 3.3"},
+      {"text": "x^2 r'(x) is an increasing function of x when α ≥ 1 and is a decreasing function of x when α ≤ 1", "formal": "α ≤ 1 gives reading A; α ≥ 1 gives reading B", "source": "statement"}
+    ],
+    "conclusion": {"order": "hr", "direction": "implied: for α ≤ 1, λ ⪰^w λ* ⟹ X*_{1:n} ≤_hr X_{1:n}; for α ≥ 1, λ ⪰_w λ* ⟹ X_{1:n} ≤_hr X*_{1:n}"},
+    "quantifiers": "any shape α > 0; n unrestricted",
+    "numbers": "",
+    "ambiguity": "This is an unnumbered note recorded as kind 'corollary'; the conclusion is implied. The Weibull parametrization W(α, λ) is not defined in this paper, and λ here clashes with the scale-model λ_i. Part (ii) (disp) is not addressed."
+  },
+  {
+    "paper": "doi:10.2991/jsta.2018.17.3.8",
+    "claim": "Theorem 3.4",
+    "page": 10,
+    "quote": "Lastly, we get some new results on the lifetimes of parallel systems in terms of the usual stochastic order. It is noteworthy that [18] in Theorem 2.1 proved Theorem 3.4 when f(x) = log(x) and [19] in Theorem 2.2 proved Theorem 3.4 when the baseline distribution in the scale model is exponential and f(x) = log(x). Theorem 3.4. Let X_1, ..., X_n be a set of independent nonnegative random variables with X_i ∼ G(λ_i x), i = 1, ..., n. Let X*_1, ..., X*_n be another set of independent nonnegative random variables with X*_i ∼ G(λ*_i x), i = 1, ..., n. If (f^{−1})'(y) r̃(f^{−1}(y)) is decreasing in y, where f is a strictly increasing function, then (λ_1, ..., λ_n) ⪰^{wf} (λ*_1, ..., λ*_n) ⟹ X_{n:n} ≥_st X*_{n:n}. (3.1)",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "Scale family X_i ∼ G(λ_i x), arbitrary absolutely continuous baseline G with density g; r̃ presumably the baseline reversed hazard rate g/G",
+    "compared": "scale vectors λ vs λ* (via f-transformed weak supermajorization)",
+    "hypotheses": [
+      {"text": "X_i ∼ G(λ_i x) ... X*_i ∼ G(λ*_i x), independent nonnegative", "formal": "independent scale-family components with common baseline G", "source": "statement; section preamble"},
+      {"text": "f is a strictly increasing function", "formal": "f strictly increasing", "source": "statement"},
+      {"text": "(f^{−1})'(y) r̃(f^{−1}(y)) is decreasing in y", "formal": "y ↦ (f^{−1})'(y) r̃(f^{−1}(y)) decreasing (r̃ = g/G assumed)", "source": "statement"},
+      {"text": "(λ_1, ..., λ_n) ⪰^{wf} (λ*_1, ..., λ*_n)", "formal": "read as f(λ*) ⪯^w f(λ): Σ_{i=1}^j f(λ*)_(i) ≥ Σ_{i=1}^j f(λ)_(i), j = 1, ..., n", "source": "statement; definition 2.3(ii)"}
+    ],
+    "conclusion": {"order": "st", "direction": "X*_{n:n} ≤_st X_{n:n} (printed as X_{n:n} ≥_st X*_{n:n})"},
+    "quantifiers": "n unrestricted; all t > 0",
+    "numbers": "",
+    "ambiguity": "This is a general semiparametric class. It is included because the paper cites the special case with an exponential baseline and f = log as proved in [19]. r̃ without a subscript is not defined in this section. The converse symbol ⪰^{wf} is undefined. The proof works with the 'survival function' 1 − Π G(f^{−1}(a_i)t) and claims it is decreasing in a_i."
+  },
+  {
+    "paper": "doi:10.2991/jsta.2018.17.3.8",
+    "claim": "Theorem 3.5",
+    "page": 11,
+    "quote": "Recall that random variable X belongs to the exponentiated scale family of distributions if X ∼ H(x) = [G(λx)]^α, where α, λ > 0 and G is called the baseline distribution and is an absolutely continuous distribution function. We denote this family by ES(α, λ). [...] Again by Lemma 2.2, this result is true under weak f-supermajorization where f is a non-negative strictly increasing convex function. Theorem 3.5. Let X_1, ..., X_n (X*_1, ..., X*_n) be independent random variables with X_i ∼ ES(α_i, λ) (X*_i ∼ ES(α*_i, λ)), i = 1, ..., n. Then, for any λ > 0, we have (α_1, ..., α_n) ⪰^w (α*_1, ..., α*_n) ⟹ X_{1:n} ≤_hr X*_{1:n}.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "Exponentiated scale family ES(α, λ): cdf [G(λx)]^α, α, λ > 0, arbitrary absolutely continuous baseline G; heterogeneous α_i, common λ",
+    "compared": "exponent vectors α vs α*",
+    "hypotheses": [
+      {"text": "X_i ∼ ES(α_i, λ) (X*_i ∼ ES(α*_i, λ)), independent", "formal": "independent components with cdf G(λx)^{α_i}, G(λx)^{α*_i}", "source": "statement; section preamble"},
+      {"text": "for any λ > 0", "formal": "λ > 0", "source": "statement"},
+      {"text": "(α_1, ..., α_n) ⪰^w (α*_1, ..., α*_n)", "formal": "read as α* ⪯^w α: Σ_{i=1}^j α*_(i) ≥ Σ_{i=1}^j α_(i), j = 1, ..., n", "source": "statement; definition 2.2(ii)"}
+    ],
+    "conclusion": {"order": "hr", "direction": "X_{1:n} ≤_hr X*_{1:n}"},
+    "quantifiers": "n unrestricted; all λ > 0; all x > 0",
+    "numbers": "",
+    "ambiguity": "This is a general semiparametric class; it is included because the paper states it for the GE family (Corollary 3.4). The converse symbol ⪰^w is undefined."
+  },
+  {
+    "paper": "doi:10.2991/jsta.2018.17.3.8",
+    "claim": "Corollary 3.4",
+    "page": 11,
+    "quote": "Recall that, a random variable X is said to be distributed according the generalized exponential distribution, and will be denoted by X ∼ GE(α, λ), if the distribution function is given by G(x) = (1 − exp{−λx})^α, x > 0, where α > 0 is a shape parameter and λ > 0 is a scale parameter. GE distribution is a member of ES family with underlying distribution G(x) = 1 − exp{−x}. Therefore, we can get the following corollary that generalizes the corresponding result in Theorem 15 of [3]. In particular the majorization assumption is relaxed to the weak supermajorization. Corollary 3.4. For i = 1, ..., n, let X_i and X*_i be two sets of mutually independent random variables with X_i ∼ GE(α_i, λ) and X*_i ∼ GE(α*_i, λ). Then, for any λ > 0, we have (α_1, ..., α_n) ⪰^w (α*_1, ..., α*_n) ⟹ X_{1:n} ≤_hr X*_{1:n}.",
+    "kind": "corollary",
+    "model": "series system",
+    "family": "Generalized exponential GE(α, λ): cdf (1 − exp{−λx})^α, x > 0, α > 0 shape, λ > 0 scale; heterogeneous α_i, common λ",
+    "compared": "shape vectors α vs α*",
+    "hypotheses": [
+      {"text": "X_i ∼ GE(α_i, λ) and X*_i ∼ GE(α*_i, λ), mutually independent", "formal": "independent components; common λ", "source": "statement"},
+      {"text": "for any λ > 0", "formal": "λ > 0", "source": "statement"},
+      {"text": "(α_1, ..., α_n) ⪰^w (α*_1, ..., α*_n)", "formal": "read as α* ⪯^w α: Σ_{i=1}^j α*_(i) ≥ Σ_{i=1}^j α_(i), j = 1, ..., n", "source": "statement; definition 2.2(ii)"}
+    ],
+    "conclusion": {"order": "hr", "direction": "X_{1:n} ≤_hr X*_{1:n}"},
+    "quantifiers": "n unrestricted; all λ > 0; all x > 0",
+    "numbers": "",
+    "ambiguity": "The converse symbol ⪰^w is undefined."
+  },
+  {
+    "paper": "doi:10.2991/jsta.2018.17.3.8",
+    "claim": "Theorem 3.6",
+    "page": 11,
+    "quote": "The following result considers the comparison on the lifetimes of series systems in terms of the usual stochastic order when two sets of scale parameters weakly majorize each other. Theorem 3.6. Let X_1, ..., X_n (X*_1, ..., X*_n) be independent random variables with X_i ∼ ES(α, λ_i) (X*_i ∼ ES(α, λ*_i)), i = 1, ..., n. If q(α, x) = α r̃(x) G^α(x)/(1 − G^α(x)) is decreasing (increasing) in x, (λ_1, ..., λ_n) ⪰^w (⪰_w)(λ*_1, ..., λ*_n), then X_{1:n} ≥_st (≤_st) X*_{1:n}.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "Exponentiated scale family ES(α, λ_i): cdf [G(λ_i x)]^α, common α, heterogeneous λ_i, arbitrary baseline G; r̃ presumably the baseline reversed hazard rate",
+    "compared": "scale vectors λ vs λ*",
+    "hypotheses": [
+      {"text": "X_i ∼ ES(α, λ_i) (X*_i ∼ ES(α, λ*_i)), independent", "formal": "independent components; common α", "source": "statement; section preamble"},
+      {"text": "q(α, x) = α r̃(x) G^α(x)/(1 − G^α(x)) is decreasing (increasing) in x", "formal": "reading A: q decreasing in x; reading B: q increasing in x", "source": "statement"},
+      {"text": "(λ_1, ..., λ_n) ⪰^w (⪰_w)(λ*_1, ..., λ*_n)", "formal": "reading A: λ* ⪯^w λ; reading B: λ* ⪯_w λ", "source": "statement; definition 2.2"}
+    ],
+    "conclusion": {"order": "st", "direction": "reading A: X*_{1:n} ≤_st X_{1:n}; reading B: X_{1:n} ≤_st X*_{1:n}"},
+    "quantifiers": "n unrestricted; all x > 0",
+    "numbers": "",
+    "ambiguity": "This is a general semiparametric class; it is included because the paper states it for GE (Corollary 3.5). r̃ is not defined in this section. The converse symbols are undefined. The printed survival function (3.4) has an unbalanced parenthesis: Π(1 − G(λ_i x))^α)."
+  },
+  {
+    "paper": "doi:10.2991/jsta.2018.17.3.8",
+    "claim": "Corollary 3.5",
+    "page": 12,
+    "quote": "According to Lemma 2.1, for the GE distribution q(α, x) = h(α, 1 − exp{−x}) is decreasing (increasing) in x for any 0 < α ≤ 1 (α ≥ 1), so we have the following corollary. Corollary 3.5. Let X_1, ..., X_n (X*_1, ..., X*_n) be independent random variables with X_i ∼ GE(α, λ_i) (X*_i ∼ GE(α, λ*_i)), i = 1, ..., n. If 0 < α ≤ 1 (α ≥ 1) and (λ_1, ..., λ_n) ⪰^w (⪰_w)(λ*_1, ..., λ*_n), then X_{1:n} ≥_st (≤_st) X*_{1:n}.",
+    "kind": "corollary",
+    "model": "series system",
+    "family": "Generalized exponential GE(α, λ): cdf (1 − exp{−λx})^α; common shape α, heterogeneous scales λ_i",
+    "compared": "scale vectors λ vs λ*",
+    "hypotheses": [
+      {"text": "X_i ∼ GE(α, λ_i) (X*_i ∼ GE(α, λ*_i)), independent", "formal": "independent components; common α", "source": "statement"},
+      {"text": "0 < α ≤ 1 (α ≥ 1)", "formal": "reading A: 0 < α ≤ 1; reading B: α ≥ 1", "source": "statement"},
+      {"text": "(λ_1, ..., λ_n) ⪰^w (⪰_w)(λ*_1, ..., λ*_n)", "formal": "reading A: λ* ⪯^w λ (Σ_{i=1}^j λ*_(i) ≥ Σ_{i=1}^j λ_(i)); reading B: λ* ⪯_w λ (Σ_{i=j}^n λ*_(i) ≤ Σ_{i=j}^n λ_(i))", "source": "statement; definition 2.2"}
+    ],
+    "conclusion": {"order": "st", "direction": "reading A (0 < α ≤ 1): X*_{1:n} ≤_st X_{1:n}; reading B (α ≥ 1): X_{1:n} ≤_st X*_{1:n}"},
+    "quantifiers": "n unrestricted; all x > 0",
+    "numbers": "",
+    "ambiguity": "Two readings from the parentheticals. The converse symbols are undefined."
+  },
+  {
+    "paper": "doi:10.2991/jsta.2018.17.3.8",
+    "claim": "Example 3.1(i)",
+    "page": 12,
+    "quote": "Naturally, one may wonder whether the following two statements are actually also true: (i) For α ≥ 1, (λ_1, ..., λ_n) ⪰_{w,exp} (λ*_1, ..., λ*_n) gives rise to the usual stochastic order between X_{1:n} and X*_{1:n}; (ii) For 0 < α ≤ 1, (λ_1, ..., λ_n) ⪰^p (λ*_1, ..., λ*_n) gives rise to the usual stochastic order between X_{1:n} and X*_{1:n}. The following example gives negative answers to these two conjectures. Example 3.1. Let (X_1, X_2) ((X*_1, X*_2)) be a vector of independent heterogeneous GE random variables. (i) Set α = 2, (λ_1, λ_2) = (4, 0.5) and (λ*_1, λ*_2) = (2, 3). Obviously (λ_1, λ_2) ⪰_{w,exp} (λ*_1, λ*_2), however X_{1:2} and X*_{1:2} are not ordered in the usual stochastic order as can be seen in Fig. 1.",
+    "kind": "counterexample",
+    "model": "series system",
+    "family": "Generalized exponential GE(α, λ_i), cdf (1 − exp{−λ_i x})^α, with α = 2",
+    "compared": "scale vectors (4, 0.5) vs (2, 3)",
+    "hypotheses": [
+      {"text": "vector of independent heterogeneous GE random variables", "formal": "independent components", "source": "statement"},
+      {"text": "Obviously (λ_1, λ_2) ⪰_{w,exp} (λ*_1, λ*_2)", "formal": "read as λ* ⪯_{w,exp} λ: Σ_{i=j}^2 e^{λ*_(i)} ≤ Σ_{i=j}^2 e^{λ_(i)}, j = 1, 2 (Definition 2.4)", "source": "statement; definition 2.4 (converse symbol not defined)"},
+      {"text": "α = 2", "formal": "α ≥ 1, as in conjecture (i)", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "neither X_{1:2} ≤_st X*_{1:2} nor X*_{1:2} ≤_st X_{1:2} ('not ordered in the usual stochastic order')"},
+    "quantifiers": "n = 2; x plotted from 0 to 2.5 (Fig. 1)",
+    "numbers": "n = 2; α = 2; (λ_1, λ_2) = (4, 0.5); (λ*_1, λ*_2) = (2, 3). Printed result: (λ_1, λ_2) ⪰_{w,exp} (λ*_1, λ*_2) ('Obviously'); X_{1:2} and X*_{1:2} not ordered in st (Fig. 1: survival functions of X_{1:2} dashed and X*_{1:2} continuous, both falling from 1 at x = 0 to about 0 by x ≈ 1.5 and visually almost coincident). No numerical crossing point is printed.",
+    "ambiguity": "The refuted statement is a conjecture, not a theorem of the paper. The converse symbol ⪰_{w,exp} is not defined (Definition 2.4 defines ⪯_{w,exp}). Non-ordering is asserted from a figure in which the two curves are visually nearly indistinguishable."
+  },
+  {
+    "paper": "doi:10.2991/jsta.2018.17.3.8",
+    "claim": "Example 3.1(ii), first case",
+    "page": 12,
+    "quote": "(ii) For 0 < α ≤ 1, (λ_1, ..., λ_n) ⪰^p (λ*_1, ..., λ*_n) gives rise to the usual stochastic order between X_{1:n} and X*_{1:n}. The following example gives negative answers to these two conjectures. Example 3.1. Let (X_1, X_2) ((X*_1, X*_2)) be a vector of independent heterogeneous GE random variables. [...] (ii) Set α = 0.6. For (λ_1, λ_2) = (1, 5.5) ⪰^p (2, 3) = (λ*_1, λ*_2), X_{1:2} ≤_st X*_{1:2}; however, for (λ_1, λ_2) = (1, 2.25) ⪰^p (1.1, 2.14) = (λ*_1, λ*_2), X_{1:2} ≥_st X*_{1:2}. So, (λ_1, λ_2) ⪰^p (λ*_1, λ*_2) implies neither X_{1:2} ≤_st X*_{1:2} nor X_{1:2} ≥_st X*_{1:2} for 0 < α ≤ 1.",
+    "kind": "counterexample",
+    "model": "series system",
+    "family": "Generalized exponential GE(α, λ_i), cdf (1 − exp{−λ_i x})^α, with α = 0.6",
+    "compared": "scale vectors (1, 5.5) vs (2, 3)",
+    "hypotheses": [
+      {"text": "vector of independent heterogeneous GE random variables", "formal": "independent components", "source": "statement"},
+      {"text": "(λ_1, λ_2) = (1, 5.5) ⪰^p (2, 3) = (λ*_1, λ*_2)", "formal": "(1, 5.5) p-larger than (2, 3): Π_{i=1}^j λ_(i) ≤ Π_{i=1}^j λ*_(i), j = 1, 2", "source": "statement; definition 2.2(v)"},
+      {"text": "α = 0.6", "formal": "0 < α ≤ 1, as in conjecture (ii)", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "X_{1:2} ≤_st X*_{1:2}; with the second case, the paper concludes ⪰^p implies neither direction for 0 < α ≤ 1"},
+    "quantifiers": "n = 2; all x > 0",
+    "numbers": "n = 2; α = 0.6; (λ_1, λ_2) = (1, 5.5); (λ*_1, λ*_2) = (2, 3). Printed result: (1, 5.5) ⪰^p (2, 3) and X_{1:2} ≤_st X*_{1:2}. No figure or numerical values are given for this case.",
+    "ambiguity": "The refuted statement is a conjecture. No supporting figure or computation is printed for this case."
+  },
+  {
+    "paper": "doi:10.2991/jsta.2018.17.3.8",
+    "claim": "Example 3.1(ii), second case",
+    "page": 12,
+    "quote": "(ii) Set α = 0.6. For (λ_1, λ_2) = (1, 5.5) ⪰^p (2, 3) = (λ*_1, λ*_2), X_{1:2} ≤_st X*_{1:2}; however, for (λ_1, λ_2) = (1, 2.25) ⪰^p (1.1, 2.14) = (λ*_1, λ*_2), X_{1:2} ≥_st X*_{1:2}. So, (λ_1, λ_2) ⪰^p (λ*_1, λ*_2) implies neither X_{1:2} ≤_st X*_{1:2} nor X_{1:2} ≥_st X*_{1:2} for 0 < α ≤ 1.",
+    "kind": "counterexample",
+    "model": "series system",
+    "family": "Generalized exponential GE(α, λ_i), cdf (1 − exp{−λ_i x})^α, with α = 0.6",
+    "compared": "scale vectors (1, 2.25) vs (1.1, 2.14)",
+    "hypotheses": [
+      {"text": "vector of independent heterogeneous GE random variables", "formal": "independent components", "source": "statement"},
+      {"text": "(λ_1, λ_2) = (1, 2.25) ⪰^p (1.1, 2.14) = (λ*_1, λ*_2)", "formal": "Π_{i=1}^j λ_(i) ≤ Π_{i=1}^j λ*_(i), j = 1, 2", "source": "statement; definition 2.2(v)"},
+      {"text": "α = 0.6", "formal": "0 < α ≤ 1", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "X*_{1:2} ≤_st X_{1:2} (printed as X_{1:2} ≥_st X*_{1:2}); with the first case, ⪰^p implies neither direction for 0 < α ≤ 1"},
+    "quantifiers": "n = 2; all x > 0",
+    "numbers": "n = 2; α = 0.6; (λ_1, λ_2) = (1, 2.25); (λ*_1, λ*_2) = (1.1, 2.14). Printed result: (1, 2.25) ⪰^p (1.1, 2.14) and X_{1:2} ≥_st X*_{1:2}. No figure or numerical values are given for this case.",
+    "ambiguity": "The refuted statement is a conjecture. No supporting figure or computation is printed."
+  }
+]

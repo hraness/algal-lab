@@ -1,0 +1,938 @@
+[
+  {
+    "paper": "doi:10.1080/02331888.2025.2552185",
+    "claim": "Theorem 3.1",
+    "page": 5,
+    "quote": "Assumption 3.1. Suppose {X_1, · · · , X_n} [{Y_1, · · · , Y_n}] are n interdependent variables coupled with Archimedean (survival) copula with generator ψ_1 [ψ_2], where, for i = 1, · · · , n, X_i ∼ Kw-G(x, α_i, γ_i; G) [Y_i ∼ Kw-G(x, β_i, δ_i; H)] and G [H] is the baseline distribution function. Further, let N_1 [N_2] be a positive integer-valued random variable independently of X'_i [Y'_i]. Also, let us denote r_g(x) = G'(x)/Ḡ(x) and r_h(x) = H'(x)/H̄(x). We start this section by the following theorem which states that under some sufficient conditions, if α ⪰^w β, then the random maxima X_{N_1:N_1} is stochastically larger than Y_{N_2:N_2}. Theorem 3.1. Let Assumption 3.1 hold with α, β ∈ E_+(D_+), γ = δ(≥ 1_n), G ≤ H . Also, suppose ϕ_2 ∘ ψ_1 is super-additive and ψ_1 or ψ_2 is log-concave. Then, α ⪰^w β ⇒ X_{N_1:N_1} ≥_st Y_{N_2:N_2}, whenever N_1 ≤_st N_2.",
+    "kind": "theorem",
+    "model": "other: random maximum (parallel system with a random number N of dependent components)",
+    "family": "Kumaraswamy generalized family Kw-G(x, α, γ; G): F(x, α, γ) = 1 − (1 − G^α(x))^γ, α, γ > 0 (eq. (1.1)), arbitrary baseline cdf G; X_i ∼ Kw-G(x, α_i, γ_i; G), Y_i ∼ Kw-G(x, β_i, δ_i; H) with baselines G and H; here γ = δ ≥ 1_n common, α_i and β_i heterogeneous",
+    "compared": "parameter vectors α vs β, baselines G vs H, copula generators ψ_1 vs ψ_2, random sample sizes N_1 vs N_2",
+    "hypotheses": [
+      {
+        "text": "Assumption 3.1. Suppose {X_1, · · · , X_n} [{Y_1, · · · , Y_n}] are n interdependent variables coupled with Archimedean (survival) copula with generator ψ_1 [ψ_2], where, for i = 1, · · · , n, X_i ∼ Kw-G(x, α_i, γ_i; G) [Y_i ∼ Kw-G(x, β_i, δ_i; H)] and G [H] is the baseline distribution function. Further, let N_1 [N_2] be a positive integer-valued random variable independently of X'_i [Y'_i]. Also, let us denote r_g(x) = G'(x)/Ḡ(x) and r_h(x) = H'(x)/H̄(x).",
+        "formal": "X = (X_1, ..., X_n) with Archimedean (survival) copula generator ψ_1 and marginals Kw-G(α_i, γ_i; G); Y likewise with ψ_2, Kw-G(β_i, δ_i; H); N_1, N_2 positive integer-valued, independent of the X's and Y's; r_g, r_h baseline hazard rates",
+        "source": "section preamble (Assumption 3.1)"
+      },
+      {
+        "text": "Let ψ : [0, ∞) → [0, 1] be a non-increasing and continuous function, satisfying ψ(0) = 1 and ψ(∞) = 0. Also, let ϕ = ψ^{−1} = sup{x ∈ R : ψ(x) > v} be the right continuous inverse. Further, suppose ψ satisfies the conditions (i)(−1)^i ψ^i(x) ≥ 0, i = 0, 1, · · · , d − 2, and (ii)(−1)^{d−2}ψ^{d−2} is non-increasing and convex.",
+        "formal": "ψ_1, ψ_2 d-monotone Archimedean generators, ϕ_k = ψ_k^{−1}",
+        "source": "definition (Section 2)"
+      },
+      {
+        "text": "α, β ∈ E_+(D_+)",
+        "formal": "α, β both increasing (E_+) or both decreasing (D_+)",
+        "source": "statement"
+      },
+      {
+        "text": "γ = δ(≥ 1_n)",
+        "formal": "γ_i = δ_i ≥ 1 for all i",
+        "source": "statement"
+      },
+      {
+        "text": "G ≤ H",
+        "formal": "G(x) ≤ H(x) for all x (presumed meaning)",
+        "source": "statement"
+      },
+      {
+        "text": "ϕ_2 ∘ ψ_1 is super-additive",
+        "formal": "ϕ_2(ψ_1(x + y)) ≥ ϕ_2(ψ_1(x)) + ϕ_2(ψ_1(y)) (super-additivity not defined in the paper)",
+        "source": "statement"
+      },
+      {
+        "text": "ψ_1 or ψ_2 is log-concave",
+        "formal": "log ψ_1 or log ψ_2 concave",
+        "source": "statement"
+      },
+      {
+        "text": "α ⪰^w β",
+        "formal": "β ⪯^w α: read as the converse of weak supermajorization (only x ⪯^w y is defined: Σ_{i=1}^l x_{i:n} ≥ Σ_{i=1}^l y_{i:n} for l = 1, ..., n)",
+        "source": "statement; definition (Section 2)"
+      },
+      {
+        "text": "whenever N_1 ≤_st N_2",
+        "formal": "N_1 ≤_st N_2",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "Y_{N_2:N_2} <= X_{N_1:N_1}"
+    },
+    "quantifiers": "n unspecified; N_1, N_2 supported on {1, ..., n}; all x > 0",
+    "numbers": "",
+    "ambiguity": "Assumption 3.1 says 'Archimedean (survival) copula' without specifying which applies; the formulas use the copula for maxima (P(X_{n:n} < x) = ψ_1(Σϕ_1{F_i})) and the survival copula for minima. 'G ≤ H' / 'G ≥ H' between baseline distributions is not defined; presumably pointwise G(x) ≤ H(x) for all x. The symbol ⪰^w is not defined in Section 2. Section 4.1 applies Theorem 3.1 to Kw-Weibull components with Poisson sample sizes."
+  },
+  {
+    "paper": "doi:10.1080/02331888.2025.2552185",
+    "claim": "Counterexample 3.1",
+    "page": 6,
+    "quote": "Next, we consider a counterexample to show that the condition ψ_1 or ψ_2 is log-concave plays a crucial role for the result in Theorem 3.1 to hold. Counterexample 3.1. Let, X_i ∼ Kw-G(x, α_i, γ_i; G) and Y_i ∼ Kw-G(x, β_i, γ_i; H), for i = 1, 2, 3, 4, 5. Set (γ_1, γ_2, γ_3, γ_4, γ_5) = (1.2, 1.5, 1.9, 2, 2.1), (α_1, α_2, α_3, α_4, α_5) = (1.1, 0.001, 0.0001, 0.00001, 0.00001) and (β_1, β_2, β_3, β_4, β_5) = (2.1, 3.001, 5.0001, 0.001, 0.0001). Clearly, (α_1, α_2, α_3, α_4, α_5) ⪰^w (β_1, β_2, β_3, β_4, β_5). Let G(x) = e^{−1/x} and H(x) = 1 − e^{−x}, for x > 0. Also, let (X_1, X_2, X_3) be selected with probability P(N_1 = 3) = p(3) = 1/5, (X_1, X_2, X_3, X_4) be selected with probability P(N_1 = 4) = p(4) = 2/5 and, (X_1, X_2, X_3, X_4, X_5) be selected with probability P(N_1 = 5) = p(5) = 2/5; further let (Y_1, Y_2, Y_3) be selected with probability P(N_2 = 3) = p(3) = 1/5, (Y_1, Y_2, Y_3, Y_4) be selected with probability P(N_2 = 4) = p(4) = 3/5 and (Y_1, Y_2, Y_3, Y_4, Y_5) be selected with probability P(N_2 = 5) = p(5) = 1/5. Here, N_1 ≤_st N_2. Let us use the Gumbel copula with generators ψ_1(x) = e^{−x^{1/a}} and ψ_2(x) = e^{−x^{1/b}}, x > 0, with a = 2 and b = 2.1. Clearly, all the conditions are satisfied except ψ_1 and ψ_2 are log-concave. Figure 1(a) displays that the difference between F_{X_{N_1:N_1}}(x) and F_{Y_{N_2:N_2}}(x) crosses x axis, which violates the result in Theorem 3.1.",
+    "kind": "counterexample",
+    "model": "other: random maximum (parallel system with a random number N of dependent components)",
+    "family": "Kw-G with baselines G(x) = e^{−1/x} (for X) and H(x) = 1 − e^{−x} (for Y), x > 0; Gumbel copula generators ψ_1(x) = e^{−x^{1/2}}, ψ_2(x) = e^{−x^{1/2.1}}",
+    "compared": "α = (1.1, 0.001, 0.0001, 0.00001, 0.00001) vs β = (2.1, 3.001, 5.0001, 0.001, 0.0001); common γ; baselines G vs H; N_1 vs N_2",
+    "hypotheses": [
+      {
+        "text": "X_i ∼ Kw-G(x, α_i, γ_i; G) and Y_i ∼ Kw-G(x, β_i, γ_i; H), for i = 1, 2, 3, 4, 5",
+        "formal": "n = 5, common γ",
+        "source": "statement"
+      },
+      {
+        "text": "(γ_1, ..., γ_5) = (1.2, 1.5, 1.9, 2, 2.1), (α_1, ..., α_5) = (1.1, 0.001, 0.0001, 0.00001, 0.00001) and (β_1, ..., β_5) = (2.1, 3.001, 5.0001, 0.001, 0.0001)",
+        "formal": "parameter values",
+        "source": "statement"
+      },
+      {
+        "text": "Clearly, (α_1, ..., α_5) ⪰^w (β_1, ..., β_5).",
+        "formal": "asserted hypothesis of Theorem 3.1",
+        "source": "statement"
+      },
+      {
+        "text": "P(N_1 = 3) = 1/5, P(N_1 = 4) = 2/5, P(N_1 = 5) = 2/5; P(N_2 = 3) = 1/5, P(N_2 = 4) = 3/5, P(N_2 = 5) = 1/5. Here, N_1 ≤_st N_2.",
+        "formal": "sample-size distributions",
+        "source": "statement"
+      },
+      {
+        "text": "Gumbel copula with generators ψ_1(x) = e^{−x^{1/a}} and ψ_2(x) = e^{−x^{1/b}}, x > 0, with a = 2 and b = 2.1",
+        "formal": "generators not log-concave",
+        "source": "statement"
+      },
+      {
+        "text": "Clearly, all the conditions are satisfied except ψ_1 and ψ_2 are log-concave.",
+        "formal": "all other hypotheses of Theorem 3.1 asserted to hold",
+        "source": "statement; earlier theorem 3.1"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "neither: the difference of the distribution functions of X_{N_1:N_1} and Y_{N_2:N_2} changes sign, so the conclusion of Theorem 3.1 fails without log-concavity"
+    },
+    "quantifiers": "n = 5; x > 0 (Fig. 1(a) plots x from 0 to about 95)",
+    "numbers": "n = 5; γ = (1.2, 1.5, 1.9, 2, 2.1); α = (1.1, 0.001, 0.0001, 0.00001, 0.00001); β = (2.1, 3.001, 5.0001, 0.001, 0.0001); G(x) = e^{−1/x}; H(x) = 1 − e^{−x}; P(N_1 = 3, 4, 5) = (1/5, 2/5, 2/5); P(N_2 = 3, 4, 5) = (1/5, 3/5, 1/5); Gumbel a = 2, b = 2.1. Printed result: the difference crosses the x axis (Fig. 1(a): from about −1.3 near x = 0 to about 0.75 for large x).",
+    "ambiguity": "The text speaks of the difference of distribution functions F, while the Fig. 1 caption says F̄_{X_{N_1:N_1}}(x) − F̄_{Y_{N_2:N_2}}(x) 'when ψ_1 and ψ_2 are both log-concave', contradicting the text that the generators are not log-concave. β as printed is not monotone, although Theorem 3.1 requires α, β ∈ E_+(D_+) and the text says all other conditions hold. Plotted values below −1 cannot be a difference of two probabilities, so what is plotted is unclear."
+  },
+  {
+    "paper": "doi:10.1080/02331888.2025.2552185",
+    "claim": "Theorem 3.2",
+    "page": 6,
+    "quote": "As in Theorem 3.1, the following theorem shows that if δ ⪰^w γ, then the opposite inequality holds between the two random maxima X_{N_1:N_1} and Y_{N_2:N_2}. Theorem 3.2. Let Assumption 3.1 hold with α = β, α, γ, δ ∈ E_+(D_+) and G ≤ H. Also, suppose ϕ_2 ∘ ψ_1 is super-additive and ψ_1 or ψ_2 is log-concave.Then, δ ⪰^w γ ⇒ X_{N_1:N_1} ≤_st Y_{N_2:N_2}, whenever N_1 ≥_st N_2.",
+    "kind": "theorem",
+    "model": "other: random maximum (parallel system with a random number N of dependent components)",
+    "family": "Kumaraswamy generalized family Kw-G(x, α, γ; G): F(x, α, γ) = 1 − (1 − G^α(x))^γ, α, γ > 0 (eq. (1.1)), arbitrary baseline cdf G; X_i ∼ Kw-G(x, α_i, γ_i; G), Y_i ∼ Kw-G(x, β_i, δ_i; H) with baselines G and H; here α = β common, γ_i and δ_i heterogeneous",
+    "compared": "parameter vectors γ vs δ, baselines G vs H, copula generators ψ_1 vs ψ_2, random sample sizes N_1 vs N_2",
+    "hypotheses": [
+      {
+        "text": "Assumption 3.1. Suppose {X_1, · · · , X_n} [{Y_1, · · · , Y_n}] are n interdependent variables coupled with Archimedean (survival) copula with generator ψ_1 [ψ_2], where, for i = 1, · · · , n, X_i ∼ Kw-G(x, α_i, γ_i; G) [Y_i ∼ Kw-G(x, β_i, δ_i; H)] and G [H] is the baseline distribution function. Further, let N_1 [N_2] be a positive integer-valued random variable independently of X'_i [Y'_i]. Also, let us denote r_g(x) = G'(x)/Ḡ(x) and r_h(x) = H'(x)/H̄(x).",
+        "formal": "X = (X_1, ..., X_n) with Archimedean (survival) copula generator ψ_1 and marginals Kw-G(α_i, γ_i; G); Y likewise with ψ_2, Kw-G(β_i, δ_i; H); N_1, N_2 positive integer-valued, independent of the X's and Y's; r_g, r_h baseline hazard rates",
+        "source": "section preamble (Assumption 3.1)"
+      },
+      {
+        "text": "Let ψ : [0, ∞) → [0, 1] be a non-increasing and continuous function, satisfying ψ(0) = 1 and ψ(∞) = 0. Also, let ϕ = ψ^{−1} = sup{x ∈ R : ψ(x) > v} be the right continuous inverse. Further, suppose ψ satisfies the conditions (i)(−1)^i ψ^i(x) ≥ 0, i = 0, 1, · · · , d − 2, and (ii)(−1)^{d−2}ψ^{d−2} is non-increasing and convex.",
+        "formal": "ψ_1, ψ_2 d-monotone Archimedean generators, ϕ_k = ψ_k^{−1}",
+        "source": "definition (Section 2)"
+      },
+      {
+        "text": "α = β, α, γ, δ ∈ E_+(D_+)",
+        "formal": "α = β; α, γ, δ all increasing or all decreasing",
+        "source": "statement"
+      },
+      {
+        "text": "G ≤ H",
+        "formal": "G(x) ≤ H(x) for all x (presumed meaning)",
+        "source": "statement"
+      },
+      {
+        "text": "ϕ_2 ∘ ψ_1 is super-additive",
+        "formal": "ϕ_2(ψ_1(x + y)) ≥ ϕ_2(ψ_1(x)) + ϕ_2(ψ_1(y)) (super-additivity not defined in the paper)",
+        "source": "statement"
+      },
+      {
+        "text": "ψ_1 or ψ_2 is log-concave",
+        "formal": "log ψ_1 or log ψ_2 concave",
+        "source": "statement"
+      },
+      {
+        "text": "δ ⪰^w γ",
+        "formal": "γ ⪯^w δ: read as the converse of weak supermajorization (only x ⪯^w y is defined: Σ_{i=1}^l x_{i:n} ≥ Σ_{i=1}^l y_{i:n} for l = 1, ..., n)",
+        "source": "statement; definition (Section 2)"
+      },
+      {
+        "text": "whenever N_1 ≥_st N_2",
+        "formal": "N_2 ≤_st N_1",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "X_{N_1:N_1} <= Y_{N_2:N_2}"
+    },
+    "quantifiers": "n unspecified; all x > 0",
+    "numbers": "",
+    "ambiguity": "No proof is given. Assumption 3.1 says 'Archimedean (survival) copula' without specifying which applies; the formulas use the copula for maxima (P(X_{n:n} < x) = ψ_1(Σϕ_1{F_i})) and the survival copula for minima. 'G ≤ H' / 'G ≥ H' between baseline distributions is not defined; presumably pointwise G(x) ≤ H(x) for all x. ⪰^w is not defined in Section 2."
+  },
+  {
+    "paper": "doi:10.1080/02331888.2025.2552185",
+    "claim": "Theorem 3.3",
+    "page": 6,
+    "quote": "In the above two theorems, we have presented some conditions for comparing two random maxima. The following theorem provides a comparison between two random minima when γ ⪰_w δ. Theorem 3.3. Let Assumption 3.1 hold with α = β, α, γ, δ ∈ E_+(D_+) and G ≥ H. Also, suppose ϕ_2 ∘ ψ_1 is super-additive and ψ_1 or ψ_2 is log-convex. Then, γ ⪰_w δ ⇒ X_{1:N_1} ≤_st Y_{1:N_2}, whenever N_1 ≤_st N_2.",
+    "kind": "theorem",
+    "model": "other: random minimum (series system with a random number N of dependent components)",
+    "family": "Kumaraswamy generalized family Kw-G(x, α, γ; G): F(x, α, γ) = 1 − (1 − G^α(x))^γ, α, γ > 0 (eq. (1.1)), arbitrary baseline cdf G; X_i ∼ Kw-G(x, α_i, γ_i; G), Y_i ∼ Kw-G(x, β_i, δ_i; H) with baselines G and H; here α = β common, γ_i and δ_i heterogeneous",
+    "compared": "parameter vectors γ vs δ, baselines G vs H, copula generators ψ_1 vs ψ_2, random sample sizes N_1 vs N_2",
+    "hypotheses": [
+      {
+        "text": "Assumption 3.1. Suppose {X_1, · · · , X_n} [{Y_1, · · · , Y_n}] are n interdependent variables coupled with Archimedean (survival) copula with generator ψ_1 [ψ_2], where, for i = 1, · · · , n, X_i ∼ Kw-G(x, α_i, γ_i; G) [Y_i ∼ Kw-G(x, β_i, δ_i; H)] and G [H] is the baseline distribution function. Further, let N_1 [N_2] be a positive integer-valued random variable independently of X'_i [Y'_i]. Also, let us denote r_g(x) = G'(x)/Ḡ(x) and r_h(x) = H'(x)/H̄(x).",
+        "formal": "X = (X_1, ..., X_n) with Archimedean (survival) copula generator ψ_1 and marginals Kw-G(α_i, γ_i; G); Y likewise with ψ_2, Kw-G(β_i, δ_i; H); N_1, N_2 positive integer-valued, independent of the X's and Y's; r_g, r_h baseline hazard rates",
+        "source": "section preamble (Assumption 3.1)"
+      },
+      {
+        "text": "Let ψ : [0, ∞) → [0, 1] be a non-increasing and continuous function, satisfying ψ(0) = 1 and ψ(∞) = 0. Also, let ϕ = ψ^{−1} = sup{x ∈ R : ψ(x) > v} be the right continuous inverse. Further, suppose ψ satisfies the conditions (i)(−1)^i ψ^i(x) ≥ 0, i = 0, 1, · · · , d − 2, and (ii)(−1)^{d−2}ψ^{d−2} is non-increasing and convex.",
+        "formal": "ψ_1, ψ_2 d-monotone Archimedean generators, ϕ_k = ψ_k^{−1}",
+        "source": "definition (Section 2)"
+      },
+      {
+        "text": "α = β, α, γ, δ ∈ E_+(D_+)",
+        "formal": "α = β; α, γ, δ all increasing or all decreasing",
+        "source": "statement"
+      },
+      {
+        "text": "G ≥ H",
+        "formal": "G(x) ≥ H(x) for all x (presumed meaning)",
+        "source": "statement"
+      },
+      {
+        "text": "ϕ_2 ∘ ψ_1 is super-additive",
+        "formal": "ϕ_2(ψ_1(x + y)) ≥ ϕ_2(ψ_1(x)) + ϕ_2(ψ_1(y)) (super-additivity not defined in the paper)",
+        "source": "statement"
+      },
+      {
+        "text": "ψ_1 or ψ_2 is log-convex",
+        "formal": "log ψ_1 or log ψ_2 convex",
+        "source": "statement"
+      },
+      {
+        "text": "γ ⪰_w δ",
+        "formal": "δ ⪯_w γ: read as the converse of weak submajorization (only x ⪯_w y is defined: Σ_{i=l}^n x_{i:n} ≤ Σ_{i=l}^n y_{i:n} for l = 1, ..., n)",
+        "source": "statement; definition (Section 2)"
+      },
+      {
+        "text": "whenever N_1 ≤_st N_2",
+        "formal": "N_1 ≤_st N_2",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "X_{1:N_1} <= Y_{1:N_2}"
+    },
+    "quantifiers": "n unspecified; all x > 0",
+    "numbers": "",
+    "ambiguity": "Assumption 3.1 says 'Archimedean (survival) copula' without specifying which applies; the formulas use the copula for maxima (P(X_{n:n} < x) = ψ_1(Σϕ_1{F_i})) and the survival copula for minima. 'G ≤ H' / 'G ≥ H' between baseline distributions is not defined; presumably pointwise G(x) ≤ H(x) for all x. ⪰_w is not defined in Section 2. The proof defines L_1(α, δ, ψ_2; H) with H^{α_i}."
+  },
+  {
+    "paper": "doi:10.1080/02331888.2025.2552185",
+    "claim": "Counterexample 3.2",
+    "page": 7,
+    "quote": "Next, we present another counterexample to show that if we replace the condition 'G ≤ H' in Theorem 3.3 by 'G ≥ H', then the above theorem may not be true. Counterexample 3.2. Let, X_i ∼ Kw-G(x, α_i, γ_i; G) and Y_i ∼ Kw-G(x, α_i, δ_i; H), for i = 1, 2, 3, 4, 5. Further, let (γ_1, γ_2, γ_3, γ_4, γ_5) = (3.9, 3.1, 2.9, 2.8, 2.1), (δ_1, δ_2, δ_3, δ_4, δ_5) = (3.2, 2.6, 1.9, 1.2, 1) and (α_1, α_2, α_3, α_4, α_5) = (β_1, β_2, β_3, β_4, β_5) = (0.01, 7, 9, 9.1, 9.12). Clearly, (γ_1, γ_2, γ_3, γ_4, γ_5) ⪰_w (δ_1, δ_2, δ_3, δ_4, δ_5). Let G(x) = e^{−1/x} and H(x) = 1 − e^{−x}, for x > 0. Also, let (X_1, X_2, X_3) be selected with probability P(N_1 = 3) = p(3) = 1/5, (X_1, X_2, X_3, X_4) be selected with probability P(N_1 = 4) = p(4) = 2/5 and (X_1, X_2, X_3, X_4, X_5) be selected with probability P(N_1 = 5) = p(5) = 2/5; further let (Y_1, Y_2, Y_3) be selected with probability P(N_2 = 3) = p(3) = 1/5, (Y_1, Y_2, Y_3, Y_4) be selected with probability P(N_2 = 4) = p(4) = 3/5 and (Y_1, Y_2, Y_3, Y_4, Y_5) be selected with probability P(N_2 = 5) = p(5) = 1/5. Here, N_1 ≤_st N_2. Consider the Gumbel copula with generators ψ_1(x) = e^{−x^{1/a}} and ψ_2(x) = e^{−x^{1/b}}, x > 0, with a = 1.4 and b = 2.5. Here, all the conditions of Theorem 3.3 are satisfied except G ≥ H. Figure 1(b) displays the difference between F̄_{X_{1:N_1}}(x) and F̄_{Y_{1:N_2}}(x) crosses x axis for some x ≥ 0, which violates the statement of Theorem 3.3.",
+    "kind": "counterexample",
+    "model": "other: random minimum (series system with a random number N of dependent components)",
+    "family": "Kw-G with baselines G(x) = e^{−1/x} (for X) and H(x) = 1 − e^{−x} (for Y), x > 0; Gumbel copula generators ψ_1(x) = e^{−x^{1/1.4}}, ψ_2(x) = e^{−x^{1/2.5}}",
+    "compared": "γ = (3.9, 3.1, 2.9, 2.8, 2.1) vs δ = (3.2, 2.6, 1.9, 1.2, 1); α = β common; baselines G vs H; N_1 vs N_2",
+    "hypotheses": [
+      {
+        "text": "X_i ∼ Kw-G(x, α_i, γ_i; G) and Y_i ∼ Kw-G(x, α_i, δ_i; H), for i = 1, 2, 3, 4, 5",
+        "formal": "n = 5, α = β",
+        "source": "statement"
+      },
+      {
+        "text": "(γ_1, ..., γ_5) = (3.9, 3.1, 2.9, 2.8, 2.1), (δ_1, ..., δ_5) = (3.2, 2.6, 1.9, 1.2, 1) and (α_1, ..., α_5) = (β_1, ..., β_5) = (0.01, 7, 9, 9.1, 9.12)",
+        "formal": "parameter values",
+        "source": "statement"
+      },
+      {
+        "text": "Clearly, (γ_1, ..., γ_5) ⪰_w (δ_1, ..., δ_5).",
+        "formal": "asserted hypothesis of Theorem 3.3",
+        "source": "statement"
+      },
+      {
+        "text": "P(N_1 = 3) = 1/5, P(N_1 = 4) = 2/5, P(N_1 = 5) = 2/5; P(N_2 = 3) = 1/5, P(N_2 = 4) = 3/5, P(N_2 = 5) = 1/5. Here, N_1 ≤_st N_2.",
+        "formal": "sample-size distributions",
+        "source": "statement"
+      },
+      {
+        "text": "Gumbel copula with generators ψ_1(x) = e^{−x^{1/a}} and ψ_2(x) = e^{−x^{1/b}}, x > 0, with a = 1.4 and b = 2.5",
+        "formal": "generators",
+        "source": "statement"
+      },
+      {
+        "text": "Here, all the conditions of Theorem 3.3 are satisfied except G ≥ H.",
+        "formal": "violated hypothesis: G ≥ H",
+        "source": "statement; earlier theorem 3.3"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "neither: F̄_{X_{1:N_1}} − F̄_{Y_{1:N_2}} changes sign, so the conclusion of Theorem 3.3 fails without G ≥ H"
+    },
+    "quantifiers": "n = 5; x ≥ 0 (Fig. 1(b) plots x from about 0.7 to 6)",
+    "numbers": "n = 5; γ = (3.9, 3.1, 2.9, 2.8, 2.1); δ = (3.2, 2.6, 1.9, 1.2, 1); α = β = (0.01, 7, 9, 9.1, 9.12); G(x) = e^{−1/x}; H(x) = 1 − e^{−x}; P(N_1 = 3, 4, 5) = (1/5, 2/5, 2/5); P(N_2 = 3, 4, 5) = (1/5, 3/5, 1/5); Gumbel a = 1.4, b = 2.5. Printed result: F̄_{X_{1:N_1}} − F̄_{Y_{1:N_2}} crosses the x axis (Fig. 1(b), scale ×10^{−9}: from about −17 × 10^{−9} near x ≈ 0.7 to slightly positive values around x ≈ 2-4).",
+    "ambiguity": "The lead-in speaks of replacing 'G ≤ H' in Theorem 3.3 by 'G ≥ H', but Theorem 3.3 already assumes G ≥ H, and the example says only G ≥ H fails. Theorem 3.3 requires α, γ, δ all in E_+ or all in D_+, but here α is increasing while γ and δ are decreasing, although the text says all other conditions hold. Plotted differences are of order 10^{−9}."
+  },
+  {
+    "paper": "doi:10.1080/02331888.2025.2552185",
+    "claim": "Theorem 3.4",
+    "page": 7,
+    "quote": "In Theorem 3.1, we have established the conditions for which 'α ⪰^w β ⇒ X_{N_1:N_1} ≥_st Y_{N_2:N_2}' holds. Now, a natural question that arises is whether the result is true for random minima. The following theorem provides an affirmative answer to this question. Theorem 3.4. Let Assumption 3.1 hold with γ = δ, α, β, δ ∈ E_+(D_+) and G ≥ H. Also, suppose ϕ_2 ∘ ψ_1 is super-additive and ψ_1 or ψ_2 is log-convex. Then, α ⪰^w β ⇒ X_{1:N_1} ≤_st Y_{1:N_2}, whenever N_1 ≤_st N_2.",
+    "kind": "theorem",
+    "model": "other: random minimum (series system with a random number N of dependent components)",
+    "family": "Kumaraswamy generalized family Kw-G(x, α, γ; G): F(x, α, γ) = 1 − (1 − G^α(x))^γ, α, γ > 0 (eq. (1.1)), arbitrary baseline cdf G; X_i ∼ Kw-G(x, α_i, γ_i; G), Y_i ∼ Kw-G(x, β_i, δ_i; H) with baselines G and H; here γ = δ common, α_i and β_i heterogeneous",
+    "compared": "parameter vectors α vs β, baselines G vs H, copula generators ψ_1 vs ψ_2, random sample sizes N_1 vs N_2",
+    "hypotheses": [
+      {
+        "text": "Assumption 3.1. Suppose {X_1, · · · , X_n} [{Y_1, · · · , Y_n}] are n interdependent variables coupled with Archimedean (survival) copula with generator ψ_1 [ψ_2], where, for i = 1, · · · , n, X_i ∼ Kw-G(x, α_i, γ_i; G) [Y_i ∼ Kw-G(x, β_i, δ_i; H)] and G [H] is the baseline distribution function. Further, let N_1 [N_2] be a positive integer-valued random variable independently of X'_i [Y'_i]. Also, let us denote r_g(x) = G'(x)/Ḡ(x) and r_h(x) = H'(x)/H̄(x).",
+        "formal": "X = (X_1, ..., X_n) with Archimedean (survival) copula generator ψ_1 and marginals Kw-G(α_i, γ_i; G); Y likewise with ψ_2, Kw-G(β_i, δ_i; H); N_1, N_2 positive integer-valued, independent of the X's and Y's; r_g, r_h baseline hazard rates",
+        "source": "section preamble (Assumption 3.1)"
+      },
+      {
+        "text": "Let ψ : [0, ∞) → [0, 1] be a non-increasing and continuous function, satisfying ψ(0) = 1 and ψ(∞) = 0. Also, let ϕ = ψ^{−1} = sup{x ∈ R : ψ(x) > v} be the right continuous inverse. Further, suppose ψ satisfies the conditions (i)(−1)^i ψ^i(x) ≥ 0, i = 0, 1, · · · , d − 2, and (ii)(−1)^{d−2}ψ^{d−2} is non-increasing and convex.",
+        "formal": "ψ_1, ψ_2 d-monotone Archimedean generators, ϕ_k = ψ_k^{−1}",
+        "source": "definition (Section 2)"
+      },
+      {
+        "text": "γ = δ, α, β, δ ∈ E_+(D_+)",
+        "formal": "γ = δ; α, β, δ all increasing or all decreasing",
+        "source": "statement"
+      },
+      {
+        "text": "G ≥ H",
+        "formal": "G(x) ≥ H(x) for all x (presumed meaning)",
+        "source": "statement"
+      },
+      {
+        "text": "ϕ_2 ∘ ψ_1 is super-additive",
+        "formal": "ϕ_2(ψ_1(x + y)) ≥ ϕ_2(ψ_1(x)) + ϕ_2(ψ_1(y)) (super-additivity not defined in the paper)",
+        "source": "statement"
+      },
+      {
+        "text": "ψ_1 or ψ_2 is log-convex",
+        "formal": "log ψ_1 or log ψ_2 convex",
+        "source": "statement"
+      },
+      {
+        "text": "α ⪰^w β",
+        "formal": "β ⪯^w α: read as the converse of weak supermajorization (only x ⪯^w y is defined: Σ_{i=1}^l x_{i:n} ≥ Σ_{i=1}^l y_{i:n} for l = 1, ..., n)",
+        "source": "statement; definition (Section 2)"
+      },
+      {
+        "text": "whenever N_1 ≤_st N_2",
+        "formal": "N_1 ≤_st N_2",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "X_{1:N_1} <= Y_{1:N_2}"
+    },
+    "quantifiers": "n unspecified; all x > 0",
+    "numbers": "",
+    "ambiguity": "Proof omitted ('quite similar to that of Theorem 3.3'). Assumption 3.1 says 'Archimedean (survival) copula' without specifying which applies; the formulas use the copula for maxima (P(X_{n:n} < x) = ψ_1(Σϕ_1{F_i})) and the survival copula for minima. 'G ≤ H' / 'G ≥ H' between baseline distributions is not defined; presumably pointwise G(x) ≤ H(x) for all x. ⪰^w is not defined in Section 2. Section 4 applies Theorem 3.4 to Kw-Weibull and Kw-exponential components with Poisson sample sizes."
+  },
+  {
+    "paper": "doi:10.1080/02331888.2025.2552185",
+    "claim": "Counterexample 3.3",
+    "page": 7,
+    "quote": "The following counterexample shows that the log-convexity condition is required for Theorem 3.4. Counterexample 3.3. Suppose X_i ∼ Kw-G(x, α_i, γ_i; G) and Y_i ∼ Kw-G(x, α_i, δ_i; H), for i = 1, 2, 3, 4, 5. Further, let (α_1, α_2, α_3, α_4, α_5) = (7.1, 2.9, 1.56, 0.03, 0.201), (β_1, β_2, β_3, β_4, β_5) = (8.1, 3.009, 2.6, 1.06, 0.01) and (γ_1, γ_2, γ_3, γ_4, γ_5) = (δ_1, δ_2, δ_3, δ_4, δ_5) = (5.02, 2.05, 1.09, 0.01, 0.001). It is easy to see that (α_1, α_2, α_3, α_4, α_5) ⪰^w (β_1, β_2, β_3, β_4, β_5). Let H(x) = e^{−1/x} and G(x) = 1 − e^{−x}, for x > 0. Also, let (X_1, X_2, X_3) be selected with probability P(N_1 = 3) = p(3) = 1/5, (X_1, X_2, X_3, X_4) be selected with probability P(N_1 = 4) = p(4) = 2/5 and (X_1, X_2, X_3, X_4, X_5) be selected with probability P(N_1 = 5) = p(5) = 2/5; further, let (Y_1, Y_2, Y_3) be selected with probability P(N_2 = 3) = p(3) = 1/5, (Y_1, Y_2, Y_3, Y_4) be selected with probability P(N_2 = 4) = p(4) = 3/5 and (Y_1, Y_2, Y_3, Y_4, Y_5) be selected with probability P(N_2 = 5) = p(5) = 1/5, which satisfy the condition N_1 ≤_st N_2. Choose the Gumbel-Hougaard copula with generators ψ_1(x) = e^{1−(1+x)^{1/a}} and ψ_2(x) = e^{1−(1+x)^{1/b}}, x > 0, with a = 4.0002 and b = 4.0001. So, all the conditions of Theorem 3.4 are satisfied except the log-convexity of ψ_1 and ψ_2. Figure 2 displays the difference between F̄_{X_{1:N_1}}(x) and F̄_{Y_{1:N_2}}(x) crosses x axis for some x ≥ 0. Therefore, Theorem 3.4 can not be possible without the log-convexity property of the generators.",
+    "kind": "counterexample",
+    "model": "other: random minimum (series system with a random number N of dependent components)",
+    "family": "Kw-G with baselines G(x) = 1 − e^{−x} (for X) and H(x) = e^{−1/x} (for Y), x > 0; Gumbel-Hougaard generators ψ_1(x) = e^{1−(1+x)^{1/4.0002}}, ψ_2(x) = e^{1−(1+x)^{1/4.0001}}",
+    "compared": "α = (7.1, 2.9, 1.56, 0.03, 0.201) vs β = (8.1, 3.009, 2.6, 1.06, 0.01); γ = δ common; baselines G vs H; N_1 vs N_2",
+    "hypotheses": [
+      {
+        "text": "X_i ∼ Kw-G(x, α_i, γ_i; G) and Y_i ∼ Kw-G(x, α_i, δ_i; H), for i = 1, 2, 3, 4, 5",
+        "formal": "n = 5 (Y written with α_i although a separate β is given)",
+        "source": "statement"
+      },
+      {
+        "text": "(α_1, ..., α_5) = (7.1, 2.9, 1.56, 0.03, 0.201), (β_1, ..., β_5) = (8.1, 3.009, 2.6, 1.06, 0.01) and (γ_1, ..., γ_5) = (δ_1, ..., δ_5) = (5.02, 2.05, 1.09, 0.01, 0.001)",
+        "formal": "parameter values",
+        "source": "statement"
+      },
+      {
+        "text": "It is easy to see that (α_1, ..., α_5) ⪰^w (β_1, ..., β_5).",
+        "formal": "asserted hypothesis of Theorem 3.4",
+        "source": "statement"
+      },
+      {
+        "text": "P(N_1 = 3) = 1/5, P(N_1 = 4) = 2/5, P(N_1 = 5) = 2/5; P(N_2 = 3) = 1/5, P(N_2 = 4) = 3/5, P(N_2 = 5) = 1/5 ... N_1 ≤_st N_2",
+        "formal": "sample-size distributions",
+        "source": "statement"
+      },
+      {
+        "text": "Gumbel-Hougaard copula with generators ψ_1(x) = e^{1−(1+x)^{1/a}} and ψ_2(x) = e^{1−(1+x)^{1/b}}, x > 0, with a = 4.0002 and b = 4.0001",
+        "formal": "generators",
+        "source": "statement"
+      },
+      {
+        "text": "So, all the conditions of Theorem 3.4 are satisfied except the log-convexity of ψ_1 and ψ_2.",
+        "formal": "violated hypothesis: log-convexity",
+        "source": "statement; earlier theorem 3.4"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "neither: F̄_{X_{1:N_1}} − F̄_{Y_{1:N_2}} changes sign, so the conclusion of Theorem 3.4 fails without log-convexity"
+    },
+    "quantifiers": "n = 5; x ≥ 0 (Fig. 2 plots x up to about 20)",
+    "numbers": "n = 5; α = (7.1, 2.9, 1.56, 0.03, 0.201); β = (8.1, 3.009, 2.6, 1.06, 0.01); γ = δ = (5.02, 2.05, 1.09, 0.01, 0.001); H(x) = e^{−1/x}; G(x) = 1 − e^{−x}; P(N_1 = 3, 4, 5) = (1/5, 2/5, 2/5); P(N_2 = 3, 4, 5) = (1/5, 3/5, 1/5); a = 4.0002, b = 4.0001. Printed result: the difference crosses the x axis (Fig. 2: from about 0.75 near x ≈ 0.5, through 0 near x ≈ 1.5, to about −1.15 at x ≈ 20).",
+    "ambiguity": "Y_i is written Kw-G(x, α_i, δ_i; H) although a separate β vector is given. α as printed is not monotone, although Theorem 3.4 requires α, β, δ ∈ E_+(D_+). Plotted values below −1 cannot be a difference of two survival functions, so what is plotted is unclear. The Fig. 2 caption says the generators are 'both log-concave'."
+  },
+  {
+    "paper": "doi:10.1080/02331888.2025.2552185",
+    "claim": "Remark 3.2",
+    "page": 7,
+    "quote": "Remark 3.2. It is also of interest to show that if we consider γ = δ(= 1_n) in Theorem 3.4, then under the condition (1−ψ_1)/ψ_1 or (1−ψ_2)/ψ_2 (instead of ψ_1 or ψ_2) being log-convex, the result can also be true.",
+    "kind": "corollary",
+    "model": "other: random minimum (series system with a random number N of dependent components)",
+    "family": "Kumaraswamy generalized family Kw-G(x, α, γ; G): F(x, α, γ) = 1 − (1 − G^α(x))^γ, α, γ > 0 (eq. (1.1)), arbitrary baseline cdf G; X_i ∼ Kw-G(x, α_i, γ_i; G), Y_i ∼ Kw-G(x, β_i, δ_i; H) with baselines G and H; here γ = δ = 1_n (so X_i has cdf G^{α_i}, Y_i has cdf H^{β_i})",
+    "compared": "parameter vectors α vs β, baselines G vs H, copula generators ψ_1 vs ψ_2, random sample sizes N_1 vs N_2",
+    "hypotheses": [
+      {
+        "text": "if we consider γ = δ(= 1_n) in Theorem 3.4",
+        "formal": "hypotheses of Theorem 3.4 with γ = δ = 1_n",
+        "source": "earlier theorem 3.4"
+      },
+      {
+        "text": "under the condition (1−ψ_1)/ψ_1 or (1−ψ_2)/ψ_2 (instead of ψ_1 or ψ_2) being log-convex",
+        "formal": "(1 − ψ_1)/ψ_1 or (1 − ψ_2)/ψ_2 log-convex replaces log-convexity of ψ_1 or ψ_2",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "X_{1:N_1} <= Y_{1:N_2} (the result of Theorem 3.4 'can also be true')"
+    },
+    "quantifiers": "as in Theorem 3.4",
+    "numbers": "",
+    "ambiguity": "Stated as a remark with hedged wording ('the result can also be true') and no proof; recorded with kind 'corollary' because the spec's kind list has no 'remark'."
+  },
+  {
+    "paper": "doi:10.1080/02331888.2025.2552185",
+    "claim": "Theorem 3.7",
+    "page": 8,
+    "quote": "Next, we develop a necessary and sufficient condition for comparing random minima under same (random) sample size in the sense of the hazard rate order when the observations are independent and heterogeneous. It is important to note that in the remaining part of this section, to establish the ordering results, we will consider N_1 =^st N_2 =^st N, and ψ_1(x) = ψ_2(x) = ψ(x) = e^{−x}, x > 0. [...] Theorem 3.7. Let Assumption 3.1 hold with α = β = 1_n, r_g ≤ r_h. Then, Σ_{i=1}^n γ_i ≤ Σ_{i=1}^n δ_i holds if and only if X_{1:N} ≥_hr Y_{1:N}.",
+    "kind": "theorem",
+    "model": "other: random minimum (series system with a common random number N of independent components)",
+    "family": "Kumaraswamy generalized family Kw-G(x, α, γ; G): F(x, α, γ) = 1 − (1 − G^α(x))^γ, α, γ > 0 (eq. (1.1)), arbitrary baseline cdf G; X_i ∼ Kw-G(x, α_i, γ_i; G), Y_i ∼ Kw-G(x, β_i, δ_i; H) with baselines G and H; here α = β = 1_n (X_i survival (1 − G)^{γ_i}, Y_i survival (1 − H)^{δ_i})",
+    "compared": "parameter vectors γ vs δ (through their sums) and baselines G vs H",
+    "hypotheses": [
+      {
+        "text": "Assumption 3.1. Suppose {X_1, · · · , X_n} [{Y_1, · · · , Y_n}] are n interdependent variables coupled with Archimedean (survival) copula with generator ψ_1 [ψ_2], where, for i = 1, · · · , n, X_i ∼ Kw-G(x, α_i, γ_i; G) [Y_i ∼ Kw-G(x, β_i, δ_i; H)] and G [H] is the baseline distribution function. Further, let N_1 [N_2] be a positive integer-valued random variable independently of X'_i [Y'_i]. Also, let us denote r_g(x) = G'(x)/Ḡ(x) and r_h(x) = H'(x)/H̄(x).",
+        "formal": "X = (X_1, ..., X_n) with Archimedean (survival) copula generator ψ_1 and marginals Kw-G(α_i, γ_i; G); Y likewise with ψ_2, Kw-G(β_i, δ_i; H); N_1, N_2 positive integer-valued, independent of the X's and Y's; r_g, r_h baseline hazard rates",
+        "source": "section preamble (Assumption 3.1)"
+      },
+      {
+        "text": "It is important to note that in the remaining part of this section, to establish the ordering results, we will consider N_1 =^st N_2 =^st N, and ψ_1(x) = ψ_2(x) = ψ(x) = e^{−x}, x > 0.",
+        "formal": "same random sample size N for both samples and independence copula (independent components)",
+        "source": "section preamble"
+      },
+      {
+        "text": "α = β = 1_n",
+        "formal": "α_i = β_i = 1",
+        "source": "statement"
+      },
+      {
+        "text": "r_g ≤ r_h",
+        "formal": "baseline hazard rates r_g(x) ≤ r_h(x) for all x",
+        "source": "statement"
+      },
+      {
+        "text": "Σ_{i=1}^n γ_i ≤ Σ_{i=1}^n δ_i",
+        "formal": "Σ γ_i ≤ Σ δ_i (necessary and sufficient)",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "hr",
+      "direction": "Y_{1:N} <= X_{1:N} if and only if Σ γ_i ≤ Σ δ_i"
+    },
+    "quantifiers": "n unspecified; common random N; all x",
+    "numbers": "",
+    "ambiguity": "Stated as an equivalence ('if and only if'); the proof only argues the sufficiency direction via Theorem 3.6. The standing assumption of independence (ψ = e^{−x}) and a common N comes from the text before Theorem 3.5. [...] in the quote marks omitted cited Theorems 3.5-3.6."
+  },
+  {
+    "paper": "doi:10.1080/02331888.2025.2552185",
+    "claim": "Theorem 3.8",
+    "page": 9,
+    "quote": "Next, we develop a necessary and sufficient condition for comparing random minima under same (random) sample size in the sense of the hazard rate order when the observations are independent and heterogeneous. It is important to note that in the remaining part of this section, to establish the ordering results, we will consider N_1 =^st N_2 =^st N, and ψ_1(x) = ψ_2(x) = ψ(x) = e^{−x}, x > 0. [...] The next theorem states that if γ ⪰^m δ, then we can also compare the random minima according to the hazard rate order, under the conditions α = β = α1_n and G = H. Theorem 3.8. Let Assumption 3.1 hold with α = β = α1_n. Then, γ ⪰^m δ ⇒ X_{1:N} ≥_hr Y_{1:N}, whenever G = H.",
+    "kind": "theorem",
+    "model": "other: random minimum (series system with a common random number N of independent components)",
+    "family": "Kumaraswamy generalized family Kw-G(x, α, γ; G): F(x, α, γ) = 1 − (1 − G^α(x))^γ, α, γ > 0 (eq. (1.1)), arbitrary baseline cdf G; X_i ∼ Kw-G(x, α_i, γ_i; G), Y_i ∼ Kw-G(x, β_i, δ_i; H) with baselines G and H; here α_i = β_i = α common and G = H",
+    "compared": "parameter vectors γ vs δ",
+    "hypotheses": [
+      {
+        "text": "Assumption 3.1. Suppose {X_1, · · · , X_n} [{Y_1, · · · , Y_n}] are n interdependent variables coupled with Archimedean (survival) copula with generator ψ_1 [ψ_2], where, for i = 1, · · · , n, X_i ∼ Kw-G(x, α_i, γ_i; G) [Y_i ∼ Kw-G(x, β_i, δ_i; H)] and G [H] is the baseline distribution function. Further, let N_1 [N_2] be a positive integer-valued random variable independently of X'_i [Y'_i]. Also, let us denote r_g(x) = G'(x)/Ḡ(x) and r_h(x) = H'(x)/H̄(x).",
+        "formal": "X = (X_1, ..., X_n) with Archimedean (survival) copula generator ψ_1 and marginals Kw-G(α_i, γ_i; G); Y likewise with ψ_2, Kw-G(β_i, δ_i; H); N_1, N_2 positive integer-valued, independent of the X's and Y's; r_g, r_h baseline hazard rates",
+        "source": "section preamble (Assumption 3.1)"
+      },
+      {
+        "text": "It is important to note that in the remaining part of this section, to establish the ordering results, we will consider N_1 =^st N_2 =^st N, and ψ_1(x) = ψ_2(x) = ψ(x) = e^{−x}, x > 0.",
+        "formal": "same random sample size N for both samples and independence copula (independent components)",
+        "source": "section preamble"
+      },
+      {
+        "text": "α = β = α1_n",
+        "formal": "α_i = β_i = α for all i",
+        "source": "statement"
+      },
+      {
+        "text": "γ ⪰^m δ",
+        "formal": "δ ⪯^m γ: read as the converse of majorization (only x ⪯^m y is defined: Σ_{i=1}^l x_{i:n} ≥ Σ_{i=1}^l y_{i:n}, l = 1, ..., n − 1, with equal totals)",
+        "source": "statement; definition (Section 2)"
+      },
+      {
+        "text": "whenever G = H",
+        "formal": "common baseline",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "hr",
+      "direction": "Y_{1:N} <= X_{1:N}"
+    },
+    "quantifiers": "n unspecified; common random N; all x",
+    "numbers": "",
+    "ambiguity": "⪰^m is not defined in Section 2 (read as the converse of ⪯^m). Independence and common N from the standing assumption before Theorem 3.5."
+  },
+  {
+    "paper": "doi:10.1080/02331888.2025.2552185",
+    "claim": "Theorem 3.9",
+    "page": 9,
+    "quote": "Next, we develop a necessary and sufficient condition for comparing random minima under same (random) sample size in the sense of the hazard rate order when the observations are independent and heterogeneous. It is important to note that in the remaining part of this section, to establish the ordering results, we will consider N_1 =^st N_2 =^st N, and ψ_1(x) = ψ_2(x) = ψ(x) = e^{−x}, x > 0. [...] The following theorem provides additional sufficient conditions on α and β for comparing random minima according to the hazard rate order. Theorem 3.9. Let Assumption 3.1 hold with γ = δ, α, β, γ ∈ E_+(D_+). Then, α ⪰^w β ⇒ X_{1:N} ≥_hr Y_{1:N}, whenever G = H.",
+    "kind": "theorem",
+    "model": "other: random minimum (series system with a common random number N of independent components)",
+    "family": "Kumaraswamy generalized family Kw-G(x, α, γ; G): F(x, α, γ) = 1 − (1 − G^α(x))^γ, α, γ > 0 (eq. (1.1)), arbitrary baseline cdf G; X_i ∼ Kw-G(x, α_i, γ_i; G), Y_i ∼ Kw-G(x, β_i, δ_i; H) with baselines G and H; here γ = δ common and G = H",
+    "compared": "parameter vectors α vs β",
+    "hypotheses": [
+      {
+        "text": "Assumption 3.1. Suppose {X_1, · · · , X_n} [{Y_1, · · · , Y_n}] are n interdependent variables coupled with Archimedean (survival) copula with generator ψ_1 [ψ_2], where, for i = 1, · · · , n, X_i ∼ Kw-G(x, α_i, γ_i; G) [Y_i ∼ Kw-G(x, β_i, δ_i; H)] and G [H] is the baseline distribution function. Further, let N_1 [N_2] be a positive integer-valued random variable independently of X'_i [Y'_i]. Also, let us denote r_g(x) = G'(x)/Ḡ(x) and r_h(x) = H'(x)/H̄(x).",
+        "formal": "X = (X_1, ..., X_n) with Archimedean (survival) copula generator ψ_1 and marginals Kw-G(α_i, γ_i; G); Y likewise with ψ_2, Kw-G(β_i, δ_i; H); N_1, N_2 positive integer-valued, independent of the X's and Y's; r_g, r_h baseline hazard rates",
+        "source": "section preamble (Assumption 3.1)"
+      },
+      {
+        "text": "It is important to note that in the remaining part of this section, to establish the ordering results, we will consider N_1 =^st N_2 =^st N, and ψ_1(x) = ψ_2(x) = ψ(x) = e^{−x}, x > 0.",
+        "formal": "same random sample size N for both samples and independence copula (independent components)",
+        "source": "section preamble"
+      },
+      {
+        "text": "γ = δ, α, β, γ ∈ E_+(D_+)",
+        "formal": "γ = δ; α, β, γ all increasing or all decreasing",
+        "source": "statement"
+      },
+      {
+        "text": "α ⪰^w β",
+        "formal": "β ⪯^w α: read as the converse of weak supermajorization (only x ⪯^w y is defined: Σ_{i=1}^l x_{i:n} ≥ Σ_{i=1}^l y_{i:n} for l = 1, ..., n)",
+        "source": "statement; definition (Section 2)"
+      },
+      {
+        "text": "whenever G = H",
+        "formal": "common baseline",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "hr",
+      "direction": "Y_{1:N} <= X_{1:N}"
+    },
+    "quantifiers": "n unspecified; common random N; all x",
+    "numbers": "",
+    "ambiguity": "⪰^w is not defined in Section 2. Independence and common N from the standing assumption before Theorem 3.5."
+  },
+  {
+    "paper": "doi:10.1080/02331888.2025.2552185",
+    "claim": "Theorem 3.10",
+    "page": 9,
+    "quote": "Next, we develop a necessary and sufficient condition for comparing random minima under same (random) sample size in the sense of the hazard rate order when the observations are independent and heterogeneous. It is important to note that in the remaining part of this section, to establish the ordering results, we will consider N_1 =^st N_2 =^st N, and ψ_1(x) = ψ_2(x) = ψ(x) = e^{−x}, x > 0. [...] In the above theorem, we have considered the case when the baseline distributions are equal. But, it will be of more interest to study the case when the baseline distributions are not equal. The following result provides a positive answer to this question. Theorem 3.10. Let Assumption 3.1 hold with γ = δ, α, β, γ ∈ E_+(D_+). Then, α ⪰^w β ⇒ X_{1:N} ≤_hr Y_{1:N}, whenever r_g ≥ r_h.",
+    "kind": "theorem",
+    "model": "other: random minimum (series system with a common random number N of independent components)",
+    "family": "Kumaraswamy generalized family Kw-G(x, α, γ; G): F(x, α, γ) = 1 − (1 − G^α(x))^γ, α, γ > 0 (eq. (1.1)), arbitrary baseline cdf G; X_i ∼ Kw-G(x, α_i, γ_i; G), Y_i ∼ Kw-G(x, β_i, δ_i; H) with baselines G and H; here γ = δ common, baselines G and H with r_g ≥ r_h",
+    "compared": "parameter vectors α vs β and baselines G vs H",
+    "hypotheses": [
+      {
+        "text": "Assumption 3.1. Suppose {X_1, · · · , X_n} [{Y_1, · · · , Y_n}] are n interdependent variables coupled with Archimedean (survival) copula with generator ψ_1 [ψ_2], where, for i = 1, · · · , n, X_i ∼ Kw-G(x, α_i, γ_i; G) [Y_i ∼ Kw-G(x, β_i, δ_i; H)] and G [H] is the baseline distribution function. Further, let N_1 [N_2] be a positive integer-valued random variable independently of X'_i [Y'_i]. Also, let us denote r_g(x) = G'(x)/Ḡ(x) and r_h(x) = H'(x)/H̄(x).",
+        "formal": "X = (X_1, ..., X_n) with Archimedean (survival) copula generator ψ_1 and marginals Kw-G(α_i, γ_i; G); Y likewise with ψ_2, Kw-G(β_i, δ_i; H); N_1, N_2 positive integer-valued, independent of the X's and Y's; r_g, r_h baseline hazard rates",
+        "source": "section preamble (Assumption 3.1)"
+      },
+      {
+        "text": "It is important to note that in the remaining part of this section, to establish the ordering results, we will consider N_1 =^st N_2 =^st N, and ψ_1(x) = ψ_2(x) = ψ(x) = e^{−x}, x > 0.",
+        "formal": "same random sample size N for both samples and independence copula (independent components)",
+        "source": "section preamble"
+      },
+      {
+        "text": "γ = δ, α, β, γ ∈ E_+(D_+)",
+        "formal": "γ = δ; α, β, γ all increasing or all decreasing",
+        "source": "statement"
+      },
+      {
+        "text": "α ⪰^w β",
+        "formal": "β ⪯^w α: read as the converse of weak supermajorization (only x ⪯^w y is defined: Σ_{i=1}^l x_{i:n} ≥ Σ_{i=1}^l y_{i:n} for l = 1, ..., n)",
+        "source": "statement; definition (Section 2)"
+      },
+      {
+        "text": "whenever r_g ≥ r_h",
+        "formal": "r_g(x) ≥ r_h(x) for all x",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "hr",
+      "direction": "X_{1:N} <= Y_{1:N}"
+    },
+    "quantifiers": "n unspecified; common random N; all x",
+    "numbers": "",
+    "ambiguity": "The proof first treats 'the case when α, β ≥ 1_n' and says the other part is similar; no such restriction appears in the statement. Theorem 3.9 (G = H) and Theorem 3.10 (r_g ≥ r_h, which includes G = H) state opposite hr directions under the same α ⪰^w β hypothesis, as printed. ⪰^w is not defined in Section 2."
+  },
+  {
+    "paper": "doi:10.1080/02331888.2025.2552185",
+    "claim": "Theorem 3.12",
+    "page": 10,
+    "quote": "Next, we develop a necessary and sufficient condition for comparing random minima under same (random) sample size in the sense of the hazard rate order when the observations are independent and heterogeneous. It is important to note that in the remaining part of this section, to establish the ordering results, we will consider N_1 =^st N_2 =^st N, and ψ_1(x) = ψ_2(x) = ψ(x) = e^{−x}, x > 0. [...] In the following result, we establish some sufficient conditions for comparing two random maxima according to the reversed hazard rate order. [...] Theorem 3.12. Let Assumption 3.1 hold with γ = δ = γ1_n, α, β ∈ E_+(D_+). Then, α ⪰^w β ⇒ X_{N:N} ≥_rh Y_{N:N}, whenever α, β ≥ 1_n, G ≤ H and g ≥ h.",
+    "kind": "theorem",
+    "model": "other: random maximum (parallel system with a common random number N of independent components)",
+    "family": "Kumaraswamy generalized family Kw-G(x, α, γ; G): F(x, α, γ) = 1 − (1 − G^α(x))^γ, α, γ > 0 (eq. (1.1)), arbitrary baseline cdf G; X_i ∼ Kw-G(x, α_i, γ_i; G), Y_i ∼ Kw-G(x, β_i, δ_i; H) with baselines G and H; here γ_i = δ_i = γ common",
+    "compared": "parameter vectors α vs β and baselines G vs H",
+    "hypotheses": [
+      {
+        "text": "Assumption 3.1. Suppose {X_1, · · · , X_n} [{Y_1, · · · , Y_n}] are n interdependent variables coupled with Archimedean (survival) copula with generator ψ_1 [ψ_2], where, for i = 1, · · · , n, X_i ∼ Kw-G(x, α_i, γ_i; G) [Y_i ∼ Kw-G(x, β_i, δ_i; H)] and G [H] is the baseline distribution function. Further, let N_1 [N_2] be a positive integer-valued random variable independently of X'_i [Y'_i]. Also, let us denote r_g(x) = G'(x)/Ḡ(x) and r_h(x) = H'(x)/H̄(x).",
+        "formal": "X = (X_1, ..., X_n) with Archimedean (survival) copula generator ψ_1 and marginals Kw-G(α_i, γ_i; G); Y likewise with ψ_2, Kw-G(β_i, δ_i; H); N_1, N_2 positive integer-valued, independent of the X's and Y's; r_g, r_h baseline hazard rates",
+        "source": "section preamble (Assumption 3.1)"
+      },
+      {
+        "text": "It is important to note that in the remaining part of this section, to establish the ordering results, we will consider N_1 =^st N_2 =^st N, and ψ_1(x) = ψ_2(x) = ψ(x) = e^{−x}, x > 0.",
+        "formal": "same random sample size N for both samples and independence copula (independent components)",
+        "source": "section preamble"
+      },
+      {
+        "text": "γ = δ = γ1_n, α, β ∈ E_+(D_+)",
+        "formal": "γ_i = δ_i = γ; α, β both increasing or both decreasing",
+        "source": "statement"
+      },
+      {
+        "text": "α ⪰^w β",
+        "formal": "β ⪯^w α: read as the converse of weak supermajorization (only x ⪯^w y is defined: Σ_{i=1}^l x_{i:n} ≥ Σ_{i=1}^l y_{i:n} for l = 1, ..., n)",
+        "source": "statement; definition (Section 2)"
+      },
+      {
+        "text": "whenever α, β ≥ 1_n, G ≤ H and g ≥ h",
+        "formal": "α_i, β_i ≥ 1; G(x) ≤ H(x); g(x) ≥ h(x) (g, h presumably baseline densities)",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "rh",
+      "direction": "Y_{N:N} <= X_{N:N}"
+    },
+    "quantifiers": "n unspecified; common random N; all x",
+    "numbers": "",
+    "ambiguity": "g and h are not defined (presumably the densities of G and H). 'G ≤ H' / 'G ≥ H' between baseline distributions is not defined; presumably pointwise G(x) ≤ H(x) for all x. ⪰^w is not defined in Section 2. The quote omits the cited Theorem 3.11."
+  },
+  {
+    "paper": "doi:10.1080/02331888.2025.2552185",
+    "claim": "Theorem 3.13",
+    "page": 10,
+    "quote": "Next, we develop a necessary and sufficient condition for comparing random minima under same (random) sample size in the sense of the hazard rate order when the observations are independent and heterogeneous. It is important to note that in the remaining part of this section, to establish the ordering results, we will consider N_1 =^st N_2 =^st N, and ψ_1(x) = ψ_2(x) = ψ(x) = e^{−x}, x > 0. [...] In the following, we develop some sufficient conditions for comparing two random minima under same (random) sample size in terms of dispersive order. We use the idea of Theorem 3.B.20 of Shaked and Shanthikumar (2007) and Theorem 3.10 to establish these results. Theorem 3.13. Let Assumption 3.1 hold with γ = δ, α, β, γ ∈ E_+(D_+). Then, α ⪰^w β ⇒ X_{1:N} ≤_disp Y_{1:N}, whenever α, β ≤ 1_n, r_g ≥ r_h and r_g(x) or r_h(x) is decreasing.",
+    "kind": "theorem",
+    "model": "other: random minimum (series system with a common random number N of independent components)",
+    "family": "Kumaraswamy generalized family Kw-G(x, α, γ; G): F(x, α, γ) = 1 − (1 − G^α(x))^γ, α, γ > 0 (eq. (1.1)), arbitrary baseline cdf G; X_i ∼ Kw-G(x, α_i, γ_i; G), Y_i ∼ Kw-G(x, β_i, δ_i; H) with baselines G and H; here γ = δ common",
+    "compared": "parameter vectors α vs β and baselines G vs H",
+    "hypotheses": [
+      {
+        "text": "Assumption 3.1. Suppose {X_1, · · · , X_n} [{Y_1, · · · , Y_n}] are n interdependent variables coupled with Archimedean (survival) copula with generator ψ_1 [ψ_2], where, for i = 1, · · · , n, X_i ∼ Kw-G(x, α_i, γ_i; G) [Y_i ∼ Kw-G(x, β_i, δ_i; H)] and G [H] is the baseline distribution function. Further, let N_1 [N_2] be a positive integer-valued random variable independently of X'_i [Y'_i]. Also, let us denote r_g(x) = G'(x)/Ḡ(x) and r_h(x) = H'(x)/H̄(x).",
+        "formal": "X = (X_1, ..., X_n) with Archimedean (survival) copula generator ψ_1 and marginals Kw-G(α_i, γ_i; G); Y likewise with ψ_2, Kw-G(β_i, δ_i; H); N_1, N_2 positive integer-valued, independent of the X's and Y's; r_g, r_h baseline hazard rates",
+        "source": "section preamble (Assumption 3.1)"
+      },
+      {
+        "text": "It is important to note that in the remaining part of this section, to establish the ordering results, we will consider N_1 =^st N_2 =^st N, and ψ_1(x) = ψ_2(x) = ψ(x) = e^{−x}, x > 0.",
+        "formal": "same random sample size N for both samples and independence copula (independent components)",
+        "source": "section preamble"
+      },
+      {
+        "text": "γ = δ, α, β, γ ∈ E_+(D_+)",
+        "formal": "γ = δ; α, β, γ all increasing or all decreasing",
+        "source": "statement"
+      },
+      {
+        "text": "α ⪰^w β",
+        "formal": "β ⪯^w α: read as the converse of weak supermajorization (only x ⪯^w y is defined: Σ_{i=1}^l x_{i:n} ≥ Σ_{i=1}^l y_{i:n} for l = 1, ..., n)",
+        "source": "statement; definition (Section 2)"
+      },
+      {
+        "text": "whenever α, β ≤ 1_n, r_g ≥ r_h and r_g(x) or r_h(x) is decreasing",
+        "formal": "α_i, β_i ≤ 1; r_g ≥ r_h; r_g or r_h decreasing",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "disp",
+      "direction": "X_{1:N} <= Y_{1:N}"
+    },
+    "quantifiers": "n unspecified; common random N",
+    "numbers": "",
+    "ambiguity": "No proof is given beyond a reference to Theorem 3.B.20 of Shaked and Shanthikumar (2007) and Theorem 3.10. ⪰^w is not defined in Section 2."
+  },
+  {
+    "paper": "doi:10.1080/02331888.2025.2552185",
+    "claim": "Theorem 3.14",
+    "page": 10,
+    "quote": "Next, we develop a necessary and sufficient condition for comparing random minima under same (random) sample size in the sense of the hazard rate order when the observations are independent and heterogeneous. It is important to note that in the remaining part of this section, to establish the ordering results, we will consider N_1 =^st N_2 =^st N, and ψ_1(x) = ψ_2(x) = ψ(x) = e^{−x}, x > 0. [...] Using the same argument as in Theorem 3.13, we can establish the following theorem. Theorem 3.14. Under the assumptions of Theorem 3.8, we have γ ⪰^m δ ⇒ X_{1:N} ≤_disp Y_{1:N}, whenever r_g(x) is decreasing.",
+    "kind": "theorem",
+    "model": "other: random minimum (series system with a common random number N of independent components)",
+    "family": "Kumaraswamy generalized family Kw-G(x, α, γ; G): F(x, α, γ) = 1 − (1 − G^α(x))^γ, α, γ > 0 (eq. (1.1)), arbitrary baseline cdf G; X_i ∼ Kw-G(x, α_i, γ_i; G), Y_i ∼ Kw-G(x, β_i, δ_i; H) with baselines G and H; here α_i = β_i = α common and G = H (assumptions of Theorem 3.8)",
+    "compared": "parameter vectors γ vs δ",
+    "hypotheses": [
+      {
+        "text": "Assumption 3.1. Suppose {X_1, · · · , X_n} [{Y_1, · · · , Y_n}] are n interdependent variables coupled with Archimedean (survival) copula with generator ψ_1 [ψ_2], where, for i = 1, · · · , n, X_i ∼ Kw-G(x, α_i, γ_i; G) [Y_i ∼ Kw-G(x, β_i, δ_i; H)] and G [H] is the baseline distribution function. Further, let N_1 [N_2] be a positive integer-valued random variable independently of X'_i [Y'_i]. Also, let us denote r_g(x) = G'(x)/Ḡ(x) and r_h(x) = H'(x)/H̄(x).",
+        "formal": "X = (X_1, ..., X_n) with Archimedean (survival) copula generator ψ_1 and marginals Kw-G(α_i, γ_i; G); Y likewise with ψ_2, Kw-G(β_i, δ_i; H); N_1, N_2 positive integer-valued, independent of the X's and Y's; r_g, r_h baseline hazard rates",
+        "source": "section preamble (Assumption 3.1)"
+      },
+      {
+        "text": "It is important to note that in the remaining part of this section, to establish the ordering results, we will consider N_1 =^st N_2 =^st N, and ψ_1(x) = ψ_2(x) = ψ(x) = e^{−x}, x > 0.",
+        "formal": "same random sample size N for both samples and independence copula (independent components)",
+        "source": "section preamble"
+      },
+      {
+        "text": "Under the assumptions of Theorem 3.8",
+        "formal": "α = β = α1_n and G = H",
+        "source": "earlier theorem 3.8"
+      },
+      {
+        "text": "γ ⪰^m δ",
+        "formal": "δ ⪯^m γ: read as the converse of majorization (only x ⪯^m y is defined: Σ_{i=1}^l x_{i:n} ≥ Σ_{i=1}^l y_{i:n}, l = 1, ..., n − 1, with equal totals)",
+        "source": "statement; definition (Section 2)"
+      },
+      {
+        "text": "whenever r_g(x) is decreasing",
+        "formal": "baseline G has decreasing hazard rate",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "disp",
+      "direction": "X_{1:N} <= Y_{1:N}"
+    },
+    "quantifiers": "n unspecified; common random N",
+    "numbers": "",
+    "ambiguity": "No proof is given. ⪰^m is not defined in Section 2."
+  },
+  {
+    "paper": "doi:10.1080/02331888.2025.2552185",
+    "claim": "Theorem 3.15",
+    "page": 11,
+    "quote": "Next, we develop a necessary and sufficient condition for comparing random minima under same (random) sample size in the sense of the hazard rate order when the observations are independent and heterogeneous. It is important to note that in the remaining part of this section, to establish the ordering results, we will consider N_1 =^st N_2 =^st N, and ψ_1(x) = ψ_2(x) = ψ(x) = e^{−x}, x > 0. [...] We complete this Section with the following theorems related to likelihood ratio order. Theorem 3.15. Suppose Assumption 3.1 hold with γ = δ = γ1_n. Also, for i = 1, · · · , p, let α_i = α_1, β_i = β_1 and for i = p + 1, · · · , n, α_i = α_2, β_i = β_2 satisfying α_1 ≤ α_2 ≤ β_2 ≤ β_1. Then, (α_1 1_p, α_2 1_q) ⪰^m (β_1 1_p, β_2 1_q) ⇒ X_{1:N} ≥_lr Y_{1:N}.",
+    "kind": "theorem",
+    "model": "other: random minimum (series system with a common random number N of independent components)",
+    "family": "Kumaraswamy generalized family Kw-G(x, α, γ; G): F(x, α, γ) = 1 − (1 − G^α(x))^γ, α, γ > 0 (eq. (1.1)), arbitrary baseline cdf G; X_i ∼ Kw-G(x, α_i, γ_i; G), Y_i ∼ Kw-G(x, β_i, δ_i; H) with baselines G and H; here γ_i = δ_i = γ common; two-level α and β vectors",
+    "compared": "two-level parameter vectors (α_1 1_p, α_2 1_q) vs (β_1 1_p, β_2 1_q)",
+    "hypotheses": [
+      {
+        "text": "Assumption 3.1. Suppose {X_1, · · · , X_n} [{Y_1, · · · , Y_n}] are n interdependent variables coupled with Archimedean (survival) copula with generator ψ_1 [ψ_2], where, for i = 1, · · · , n, X_i ∼ Kw-G(x, α_i, γ_i; G) [Y_i ∼ Kw-G(x, β_i, δ_i; H)] and G [H] is the baseline distribution function. Further, let N_1 [N_2] be a positive integer-valued random variable independently of X'_i [Y'_i]. Also, let us denote r_g(x) = G'(x)/Ḡ(x) and r_h(x) = H'(x)/H̄(x).",
+        "formal": "X = (X_1, ..., X_n) with Archimedean (survival) copula generator ψ_1 and marginals Kw-G(α_i, γ_i; G); Y likewise with ψ_2, Kw-G(β_i, δ_i; H); N_1, N_2 positive integer-valued, independent of the X's and Y's; r_g, r_h baseline hazard rates",
+        "source": "section preamble (Assumption 3.1)"
+      },
+      {
+        "text": "It is important to note that in the remaining part of this section, to establish the ordering results, we will consider N_1 =^st N_2 =^st N, and ψ_1(x) = ψ_2(x) = ψ(x) = e^{−x}, x > 0.",
+        "formal": "same random sample size N for both samples and independence copula (independent components)",
+        "source": "section preamble"
+      },
+      {
+        "text": "γ = δ = γ1_n",
+        "formal": "γ_i = δ_i = γ",
+        "source": "statement"
+      },
+      {
+        "text": "for i = 1, · · · , p, let α_i = α_1, β_i = β_1 and for i = p + 1, · · · , n, α_i = α_2, β_i = β_2",
+        "formal": "two-level vectors, n = p + q",
+        "source": "statement"
+      },
+      {
+        "text": "satisfying α_1 ≤ α_2 ≤ β_2 ≤ β_1",
+        "formal": "α_1 ≤ α_2 ≤ β_2 ≤ β_1",
+        "source": "statement"
+      },
+      {
+        "text": "(α_1 1_p, α_2 1_q) ⪰^m (β_1 1_p, β_2 1_q)",
+        "formal": "(β_1 1_p, β_2 1_q) ⪯^m (α_1 1_p, α_2 1_q): read as the converse of majorization (only x ⪯^m y is defined: Σ_{i=1}^l x_{i:n} ≥ Σ_{i=1}^l y_{i:n}, l = 1, ..., n − 1, with equal totals)",
+        "source": "statement; definition (Section 2)"
+      }
+    ],
+    "conclusion": {
+      "order": "lr",
+      "direction": "Y_{1:N} <= X_{1:N}"
+    },
+    "quantifiers": "n = p + q; common random N",
+    "numbers": "",
+    "ambiguity": "No relation between the baselines G and H is stated (the proof writes both densities with G). ⪰^m is not defined in Section 2. '1q' is printed for 1_q."
+  },
+  {
+    "paper": "doi:10.1080/02331888.2025.2552185",
+    "claim": "Theorem 3.16",
+    "page": 11,
+    "quote": "Theorem 3.16. Suppose Assumption 3.1 hold with ψ_1 = ψ_2 = ψ, F = G and α = β = 1_n. Also, for i = 1, · · · , p, let γ_i = γ_1, δ_i = δ_1 and i = p + 1, · · · , n, γ_i = γ, δ_i = γ. If ψ''/ψ' is decreasing, ψ ln ψ/ψ' is increasing and concave, then γ_1 ≥ γ ≥ δ_1 ⇒ X_{1:n} ≤_lr Y_{1:n}. Here, p ≥ 1 and p + q = n ≥ 2.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "Kumaraswamy generalized family Kw-G(x, α, γ; G): F(x, α, γ) = 1 − (1 − G^α(x))^γ, α, γ > 0 (eq. (1.1)), arbitrary baseline cdf G; X_i ∼ Kw-G(x, α_i, γ_i; G), Y_i ∼ Kw-G(x, β_i, δ_i; H) with baselines G and H; here α = β = 1_n, a common Archimedean generator ψ, two-level γ and δ vectors",
+    "compared": "two-level vectors (γ_1 1_p, γ 1_q) vs (δ_1 1_p, γ 1_q)",
+    "hypotheses": [
+      {
+        "text": "Assumption 3.1. Suppose {X_1, · · · , X_n} [{Y_1, · · · , Y_n}] are n interdependent variables coupled with Archimedean (survival) copula with generator ψ_1 [ψ_2], where, for i = 1, · · · , n, X_i ∼ Kw-G(x, α_i, γ_i; G) [Y_i ∼ Kw-G(x, β_i, δ_i; H)] and G [H] is the baseline distribution function. Further, let N_1 [N_2] be a positive integer-valued random variable independently of X'_i [Y'_i]. Also, let us denote r_g(x) = G'(x)/Ḡ(x) and r_h(x) = H'(x)/H̄(x).",
+        "formal": "X = (X_1, ..., X_n) with Archimedean (survival) copula generator ψ_1 and marginals Kw-G(α_i, γ_i; G); Y likewise with ψ_2, Kw-G(β_i, δ_i; H); N_1, N_2 positive integer-valued, independent of the X's and Y's; r_g, r_h baseline hazard rates",
+        "source": "section preamble (Assumption 3.1)"
+      },
+      {
+        "text": "ψ_1 = ψ_2 = ψ",
+        "formal": "common Archimedean generator ψ (dependent components)",
+        "source": "statement"
+      },
+      {
+        "text": "F = G",
+        "formal": "undefined symbol F; presumably common baselines (G = H)",
+        "source": "statement"
+      },
+      {
+        "text": "α = β = 1_n",
+        "formal": "α_i = β_i = 1",
+        "source": "statement"
+      },
+      {
+        "text": "for i = 1, · · · , p, let γ_i = γ_1, δ_i = δ_1 and i = p + 1, · · · , n, γ_i = γ, δ_i = γ",
+        "formal": "two-level vectors",
+        "source": "statement"
+      },
+      {
+        "text": "If ψ''/ψ' is decreasing, ψ ln ψ/ψ' is increasing and concave",
+        "formal": "ψ''/ψ' decreasing; ψ ln ψ/ψ' increasing and concave",
+        "source": "statement"
+      },
+      {
+        "text": "γ_1 ≥ γ ≥ δ_1",
+        "formal": "γ_1 ≥ γ ≥ δ_1",
+        "source": "statement"
+      },
+      {
+        "text": "Here, p ≥ 1 and p + q = n ≥ 2.",
+        "formal": "p ≥ 1, n = p + q ≥ 2",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "lr",
+      "direction": "X_{1:n} <= Y_{1:n}"
+    },
+    "quantifiers": "fixed n = p + q ≥ 2, p ≥ 1",
+    "numbers": "",
+    "ambiguity": "The symbol F in 'F = G' is not defined (presumably G = H). The theorem uses a general generator ψ and a fixed sample size n, conflicting with the standing assumption (stated before Theorem 3.5) that the rest of the section uses ψ = e^{−x} and a random N. The proof writes g^{γ}(x), apparently for the baseline survival function."
+  },
+  {
+    "paper": "doi:10.1080/02331888.2025.2552185",
+    "claim": "Theorem 3.17",
+    "page": 12,
+    "quote": "Next, we develop a necessary and sufficient condition for comparing random minima under same (random) sample size in the sense of the hazard rate order when the observations are independent and heterogeneous. It is important to note that in the remaining part of this section, to establish the ordering results, we will consider N_1 =^st N_2 =^st N, and ψ_1(x) = ψ_2(x) = ψ(x) = e^{−x}, x > 0. [...] Theorem 3.17. Suppose Assumption 3.1 hold with F = G and α = β = 1_n. Also, for i = 1, · · · , p, let γ_i = γ_1, δ_i = δ_1 and i = p + 1, · · · , n, γ_i = γ, δ_i = γ. Then γ_1 ≥ γ ≥ δ_1 ⇒ X_{1:N} ≤_lr Y_{1:N}. Here, p ≥ 1 and p + q = n ≥ 2.",
+    "kind": "theorem",
+    "model": "other: random minimum (series system with a common random number N of independent components)",
+    "family": "Kumaraswamy generalized family Kw-G(x, α, γ; G): F(x, α, γ) = 1 − (1 − G^α(x))^γ, α, γ > 0 (eq. (1.1)), arbitrary baseline cdf G; X_i ∼ Kw-G(x, α_i, γ_i; G), Y_i ∼ Kw-G(x, β_i, δ_i; H) with baselines G and H; here α = β = 1_n, two-level γ and δ vectors",
+    "compared": "two-level vectors (γ_1 1_p, γ 1_q) vs (δ_1 1_p, γ 1_q)",
+    "hypotheses": [
+      {
+        "text": "Assumption 3.1. Suppose {X_1, · · · , X_n} [{Y_1, · · · , Y_n}] are n interdependent variables coupled with Archimedean (survival) copula with generator ψ_1 [ψ_2], where, for i = 1, · · · , n, X_i ∼ Kw-G(x, α_i, γ_i; G) [Y_i ∼ Kw-G(x, β_i, δ_i; H)] and G [H] is the baseline distribution function. Further, let N_1 [N_2] be a positive integer-valued random variable independently of X'_i [Y'_i]. Also, let us denote r_g(x) = G'(x)/Ḡ(x) and r_h(x) = H'(x)/H̄(x).",
+        "formal": "X = (X_1, ..., X_n) with Archimedean (survival) copula generator ψ_1 and marginals Kw-G(α_i, γ_i; G); Y likewise with ψ_2, Kw-G(β_i, δ_i; H); N_1, N_2 positive integer-valued, independent of the X's and Y's; r_g, r_h baseline hazard rates",
+        "source": "section preamble (Assumption 3.1)"
+      },
+      {
+        "text": "It is important to note that in the remaining part of this section, to establish the ordering results, we will consider N_1 =^st N_2 =^st N, and ψ_1(x) = ψ_2(x) = ψ(x) = e^{−x}, x > 0.",
+        "formal": "same random sample size N for both samples and independence copula (independent components)",
+        "source": "section preamble"
+      },
+      {
+        "text": "F = G",
+        "formal": "undefined symbol F; presumably common baselines (G = H)",
+        "source": "statement"
+      },
+      {
+        "text": "α = β = 1_n",
+        "formal": "α_i = β_i = 1",
+        "source": "statement"
+      },
+      {
+        "text": "for i = 1, · · · , p, let γ_i = γ_1, δ_i = δ_1 and i = p + 1, · · · , n, γ_i = γ, δ_i = γ",
+        "formal": "two-level vectors",
+        "source": "statement"
+      },
+      {
+        "text": "γ_1 ≥ γ ≥ δ_1",
+        "formal": "γ_1 ≥ γ ≥ δ_1",
+        "source": "statement"
+      },
+      {
+        "text": "Here, p ≥ 1 and p + q = n ≥ 2.",
+        "formal": "p ≥ 1, n = p + q ≥ 2",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "lr",
+      "direction": "X_{1:N} <= Y_{1:N}"
+    },
+    "quantifiers": "n = p + q ≥ 2; common random N",
+    "numbers": "",
+    "ambiguity": "The symbol F in 'F = G' is not defined. Proof omitted ('same idea as in Theorem 3.16')."
+  },
+  {
+    "paper": "doi:10.1080/02331888.2025.2552185",
+    "claim": "Theorem 3.18",
+    "page": 12,
+    "quote": "Next, we develop a necessary and sufficient condition for comparing random minima under same (random) sample size in the sense of the hazard rate order when the observations are independent and heterogeneous. It is important to note that in the remaining part of this section, to establish the ordering results, we will consider N_1 =^st N_2 =^st N, and ψ_1(x) = ψ_2(x) = ψ(x) = e^{−x}, x > 0. [...] The proof of the following theorem is similar to the last theorem, and so it is not presented. Theorem 3.18. Suppose Assumption 3.1 holds with γ = δ = 1_n. Also, for i = 1, · · · , p, let α_i = α_1, β_i = β_1 and i = p + 1, · · · , n, α_i = α, β_i = α. Then, α_1 ≥ α ≥ β_1 ⇒ X_{1:N} ≤_lr Y_{1:N}. Here, p ≥ 1 and p + q = n ≥ 2. Note that the sufficient conditions provided in the above theorem is distribution-free and so the presented result is applicable to all life distributions.",
+    "kind": "theorem",
+    "model": "other: random minimum (series system with a common random number N of independent components)",
+    "family": "Kumaraswamy generalized family Kw-G(x, α, γ; G): F(x, α, γ) = 1 − (1 − G^α(x))^γ, α, γ > 0 (eq. (1.1)), arbitrary baseline cdf G; X_i ∼ Kw-G(x, α_i, γ_i; G), Y_i ∼ Kw-G(x, β_i, δ_i; H) with baselines G and H; here γ = δ = 1_n (X_i cdf G^{α_i}, Y_i cdf H^{β_i}), two-level α and β vectors",
+    "compared": "two-level vectors (α_1 1_p, α 1_q) vs (β_1 1_p, α 1_q)",
+    "hypotheses": [
+      {
+        "text": "Assumption 3.1. Suppose {X_1, · · · , X_n} [{Y_1, · · · , Y_n}] are n interdependent variables coupled with Archimedean (survival) copula with generator ψ_1 [ψ_2], where, for i = 1, · · · , n, X_i ∼ Kw-G(x, α_i, γ_i; G) [Y_i ∼ Kw-G(x, β_i, δ_i; H)] and G [H] is the baseline distribution function. Further, let N_1 [N_2] be a positive integer-valued random variable independently of X'_i [Y'_i]. Also, let us denote r_g(x) = G'(x)/Ḡ(x) and r_h(x) = H'(x)/H̄(x).",
+        "formal": "X = (X_1, ..., X_n) with Archimedean (survival) copula generator ψ_1 and marginals Kw-G(α_i, γ_i; G); Y likewise with ψ_2, Kw-G(β_i, δ_i; H); N_1, N_2 positive integer-valued, independent of the X's and Y's; r_g, r_h baseline hazard rates",
+        "source": "section preamble (Assumption 3.1)"
+      },
+      {
+        "text": "It is important to note that in the remaining part of this section, to establish the ordering results, we will consider N_1 =^st N_2 =^st N, and ψ_1(x) = ψ_2(x) = ψ(x) = e^{−x}, x > 0.",
+        "formal": "same random sample size N for both samples and independence copula (independent components)",
+        "source": "section preamble"
+      },
+      {
+        "text": "γ = δ = 1_n",
+        "formal": "γ_i = δ_i = 1",
+        "source": "statement"
+      },
+      {
+        "text": "for i = 1, · · · , p, let α_i = α_1, β_i = β_1 and i = p + 1, · · · , n, α_i = α, β_i = α",
+        "formal": "two-level vectors",
+        "source": "statement"
+      },
+      {
+        "text": "α_1 ≥ α ≥ β_1",
+        "formal": "α_1 ≥ α ≥ β_1",
+        "source": "statement"
+      },
+      {
+        "text": "Here, p ≥ 1 and p + q = n ≥ 2.",
+        "formal": "p ≥ 1, n = p + q ≥ 2",
+        "source": "statement"
+      }
+    ],
+    "conclusion": {
+      "order": "lr",
+      "direction": "X_{1:N} <= Y_{1:N}"
+    },
+    "quantifiers": "n = p + q ≥ 2; common random N",
+    "numbers": "",
+    "ambiguity": "No proof. No relation between the baselines G and H is stated, and the text calls the conditions 'distribution-free'."
+  }
+]

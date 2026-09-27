@@ -85,14 +85,35 @@ def expression(order, X, Y):
     raise ValueError("unsupported order %s" % order)
 
 
-def grid(lo, hi):
+def resolvable_top(survivals, lo):
+    """Smallest x (a dyadic rational) where every survival function is below 1e-40.
+
+    Beyond it the survivals cannot be separated at any working precision, so a
+    fixed grid out to a large x would spend its points where nothing can be
+    decided; the grid is scaled to this point instead.
+    """
+    from mpmath import mp, mpf
+    mp.dps = 60
+    funcs = [sp.lambdify(x, S, modules="mpmath") for S in survivals]
+    tiny = mpf(10) ** -40
+    small = lambda t: all(abs(f(mpf(t))) < tiny for f in funcs)
+    top = sp.Rational(1, 64)
+    while top < 10 ** 6 and not small(top):
+        top *= 2
+    return top
+
+
+def grid(lo, hi, survivals=()):
     lo = sp.Rational(lo)
     points = [lo + sp.Rational(1, 10 ** k) for k in range(1, 13)]
-    top = sp.Rational(30) if hi == sp.oo else sp.Rational(hi)
-    span = top - lo
-    points += [lo + span * sp.Rational(i, 60) for i in range(1, 60)]
     if hi == sp.oo:
-        points += [sp.Rational(2) ** k for k in range(5, 9)]
+        top = resolvable_top(survivals, lo) if survivals else sp.Rational(30)
+    else:
+        top = sp.Rational(hi)
+    span = top - lo
+    points += [lo + span * sp.Rational(i, 120) for i in range(1, 120)]
+    if hi == sp.oo:
+        points += [top * 2, top * 4]
     else:
         points += [top - sp.Rational(1, 10 ** k) for k in range(1, 13)]
     return sorted({p for p in points if p > lo and (hi == sp.oo or p < hi)})
@@ -103,7 +124,7 @@ def check(order, X, Y, precisions=(60, 150, 400)):
     assert X.lo == Y.lo and X.hi == Y.hi, "sides must share the support"
     E = expression(order, X, Y)
     undecided = 0
-    for point in grid(X.lo, X.hi):
+    for point in grid(X.lo, X.hi, (X.survival, Y.survival)):
         decided = False
         for dps in precisions:
             iv.dps = dps

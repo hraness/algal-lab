@@ -1,0 +1,158 @@
+[
+  {
+    "paper": "doi:10.34198/ejms.14224.333347",
+    "claim": "Theorem 5 [stor]",
+    "page": 10,
+    "quote": "2.6. Stochastic ordering. Theorem 5. Let S∼ CD(η_1, ϕ_1) and Q∼ CD(η_2, ϕ_2). If η_1 = η_2 and ϕ_1 = ϕ_2 and ϕ_1 ≥ ϕ_2 (or if ϕ_2 = ϕ_2 and η_1 = η_2 and η_1 ≥ η_2), then S ≤_stor Q and hence S ≤_Ror Q, S ≤_mrl Q and S ≤_lor Q.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "Remkan distribution: pdf g(x; η, ϕ) = η^2/(η + 2ϕ + 6) [1 + ϕηx^2 + η^2 x^3] e^{−ηx}; x > 0, η > 0, ϕ > 0 (eq. (3)), a mixture of ηe^{−ηx}, η^3 x^2 e^{−ηx}/Γ(3) and η^4 x^3 e^{−ηx}/Γ(4) with weights η/(η+2ϕ+6), 2ϕ/(η+2ϕ+6), 6/(η+2ϕ+6) (eq. (2)); cdf as printed G(x; η, ϕ) = 1 − [1 + (η^3 x^3 + (3+ϕ)η^2 x^3 + (6+2ϕ)ηx)/(η+2ϕ+6)] e^{−ηx} (eq. (4)); survival as printed s(x) = [1 + (η^3 x^3 + (3+ϕ)η^2 x^3 + (6+2ϕ)ηx)/(η+2ϕ+6)] e^{−ηx} (eq. (30))",
+    "compared": "parameters (η_1, ϕ_1) vs (η_2, ϕ_2) under the printed equality/inequality conditions",
+    "hypotheses": [
+      {
+        "text": "Let S∼ CD(η_1, ϕ_1) and Q∼ CD(η_2, ϕ_2).",
+        "formal": "S has the paper's distribution with parameters (η_1, ϕ_1), Q with (η_2, ϕ_2) (the label CD is not defined; read as the Remkan distribution g(x; η, ϕ))",
+        "source": "statement"
+      },
+      {
+        "text": "If η_1 = η_2 and ϕ_1 = ϕ_2 and ϕ_1 ≥ ϕ_2",
+        "formal": "first alternative as printed: η_1 = η_2 ∧ ϕ_1 = ϕ_2 ∧ ϕ_1 ≥ ϕ_2",
+        "source": "statement"
+      },
+      {
+        "text": "(or if ϕ_2 = ϕ_2 and η_1 = η_2 and η_1 ≥ η_2)",
+        "formal": "second alternative as printed: ϕ_2 = ϕ_2 ∧ η_1 = η_2 ∧ η_1 ≥ η_2",
+        "source": "statement"
+      },
+      {
+        "text": "x > 0, η > 0, ϕ > 0",
+        "formal": "η_1, η_2, ϕ_1, ϕ_2 > 0; support x > 0",
+        "source": "definition eq. (3)"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "S <= Q"
+    },
+    "quantifiers": "all positive (η_1, ϕ_1, η_2, ϕ_2) satisfying either printed alternative; all x > 0",
+    "numbers": "",
+    "ambiguity": "Printed as ≤_stor (≤_sor after the proof); read as the usual stochastic order from the section title and the phrase 'stochastic orderings'. The printed parameter conditions are degenerate: the first alternative (η_1 = η_2, ϕ_1 = ϕ_2, ϕ_1 ≥ ϕ_2) forces identical parameters, and the second contains the tautology 'ϕ_2 = ϕ_2' together with 'η_1 = η_2 and η_1 ≥ η_2', so it constrains only η_1 = η_2 and leaves ϕ_1, ϕ_2 free; conditions such as ϕ_1 ≥ ϕ_2 with η_1 = η_2, or η_1 ≥ η_2 with ϕ_1 = ϕ_2, are not what is printed. 'CD(η, ϕ)' is never defined in the paper (the introduction cites 'the Copoun distribution (Uwaeme et al. [23])'); it is read as the Remkan distribution. None of the four orders is defined in the paper. The text after the proof reads: 'This implies that S ≤_lor Q ⟹ S ≤_Ror Q ⟹ {S ≤_sor Q, S ≤_mrl Q}. This clearly indicates that the Remkan distribution is ordered in the likelihood ratio and consequently has risk measurement, average residual measurement life, and stochastic orderings.' The statement derives the Ror, mrl and lor orders 'hence' from stor, the reverse of that implication chain. The cdf (4) and survival function (30) print the second numerator term as (3+ϕ)η^2 x^3, while the quantile function (10) has (3+ϕ)η^2 x_q^2. The proof's density ratio (37), f_S(φ)/f_Q(φ) = η_1^2(η_2+ϕ_2+6)/(η_2^2(η_1+2ϕ_1+6)) · e^{−(η_1−η_2)φ}, omits the polynomial factors of (3) and writes η_2+ϕ_2+6 rather than η_2+2ϕ_2+6. Transcribed from page image p-10 (printed p. 342), checked against a higher-resolution render of the same PDF page."
+  },
+  {
+    "paper": "doi:10.34198/ejms.14224.333347",
+    "claim": "Theorem 5 [Ror]",
+    "page": 10,
+    "quote": "2.6. Stochastic ordering. Theorem 5. Let S∼ CD(η_1, ϕ_1) and Q∼ CD(η_2, ϕ_2). If η_1 = η_2 and ϕ_1 = ϕ_2 and ϕ_1 ≥ ϕ_2 (or if ϕ_2 = ϕ_2 and η_1 = η_2 and η_1 ≥ η_2), then S ≤_stor Q and hence S ≤_Ror Q, S ≤_mrl Q and S ≤_lor Q.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "Remkan distribution: pdf g(x; η, ϕ) = η^2/(η + 2ϕ + 6) [1 + ϕηx^2 + η^2 x^3] e^{−ηx}; x > 0, η > 0, ϕ > 0 (eq. (3)), a mixture of ηe^{−ηx}, η^3 x^2 e^{−ηx}/Γ(3) and η^4 x^3 e^{−ηx}/Γ(4) with weights η/(η+2ϕ+6), 2ϕ/(η+2ϕ+6), 6/(η+2ϕ+6) (eq. (2)); cdf as printed G(x; η, ϕ) = 1 − [1 + (η^3 x^3 + (3+ϕ)η^2 x^3 + (6+2ϕ)ηx)/(η+2ϕ+6)] e^{−ηx} (eq. (4)); survival as printed s(x) = [1 + (η^3 x^3 + (3+ϕ)η^2 x^3 + (6+2ϕ)ηx)/(η+2ϕ+6)] e^{−ηx} (eq. (30))",
+    "compared": "parameters (η_1, ϕ_1) vs (η_2, ϕ_2) under the printed equality/inequality conditions",
+    "hypotheses": [
+      {
+        "text": "Let S∼ CD(η_1, ϕ_1) and Q∼ CD(η_2, ϕ_2).",
+        "formal": "S has the paper's distribution with parameters (η_1, ϕ_1), Q with (η_2, ϕ_2) (the label CD is not defined; read as the Remkan distribution g(x; η, ϕ))",
+        "source": "statement"
+      },
+      {
+        "text": "If η_1 = η_2 and ϕ_1 = ϕ_2 and ϕ_1 ≥ ϕ_2",
+        "formal": "first alternative as printed: η_1 = η_2 ∧ ϕ_1 = ϕ_2 ∧ ϕ_1 ≥ ϕ_2",
+        "source": "statement"
+      },
+      {
+        "text": "(or if ϕ_2 = ϕ_2 and η_1 = η_2 and η_1 ≥ η_2)",
+        "formal": "second alternative as printed: ϕ_2 = ϕ_2 ∧ η_1 = η_2 ∧ η_1 ≥ η_2",
+        "source": "statement"
+      },
+      {
+        "text": "x > 0, η > 0, ϕ > 0",
+        "formal": "η_1, η_2, ϕ_1, ϕ_2 > 0; support x > 0",
+        "source": "definition eq. (3)"
+      }
+    ],
+    "conclusion": {
+      "order": "hr",
+      "direction": "S <= Q"
+    },
+    "quantifiers": "all positive (η_1, ϕ_1, η_2, ϕ_2) satisfying either printed alternative; all x > 0",
+    "numbers": "",
+    "ambiguity": "Printed as ≤_Ror; read as the hazard rate order because the paper calls the hazard rate the 'risk measurement function' (Section 2.5.2). The printed parameter conditions are degenerate: the first alternative (η_1 = η_2, ϕ_1 = ϕ_2, ϕ_1 ≥ ϕ_2) forces identical parameters, and the second contains the tautology 'ϕ_2 = ϕ_2' together with 'η_1 = η_2 and η_1 ≥ η_2', so it constrains only η_1 = η_2 and leaves ϕ_1, ϕ_2 free; conditions such as ϕ_1 ≥ ϕ_2 with η_1 = η_2, or η_1 ≥ η_2 with ϕ_1 = ϕ_2, are not what is printed. 'CD(η, ϕ)' is never defined in the paper (the introduction cites 'the Copoun distribution (Uwaeme et al. [23])'); it is read as the Remkan distribution. None of the four orders is defined in the paper. The text after the proof reads: 'This implies that S ≤_lor Q ⟹ S ≤_Ror Q ⟹ {S ≤_sor Q, S ≤_mrl Q}. This clearly indicates that the Remkan distribution is ordered in the likelihood ratio and consequently has risk measurement, average residual measurement life, and stochastic orderings.' The statement derives the Ror, mrl and lor orders 'hence' from stor, the reverse of that implication chain. The cdf (4) and survival function (30) print the second numerator term as (3+ϕ)η^2 x^3, while the quantile function (10) has (3+ϕ)η^2 x_q^2. The proof's density ratio (37), f_S(φ)/f_Q(φ) = η_1^2(η_2+ϕ_2+6)/(η_2^2(η_1+2ϕ_1+6)) · e^{−(η_1−η_2)φ}, omits the polynomial factors of (3) and writes η_2+ϕ_2+6 rather than η_2+2ϕ_2+6. Transcribed from page image p-10 (printed p. 342), checked against a higher-resolution render of the same PDF page."
+  },
+  {
+    "paper": "doi:10.34198/ejms.14224.333347",
+    "claim": "Theorem 5 [mrl]",
+    "page": 10,
+    "quote": "2.6. Stochastic ordering. Theorem 5. Let S∼ CD(η_1, ϕ_1) and Q∼ CD(η_2, ϕ_2). If η_1 = η_2 and ϕ_1 = ϕ_2 and ϕ_1 ≥ ϕ_2 (or if ϕ_2 = ϕ_2 and η_1 = η_2 and η_1 ≥ η_2), then S ≤_stor Q and hence S ≤_Ror Q, S ≤_mrl Q and S ≤_lor Q.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "Remkan distribution: pdf g(x; η, ϕ) = η^2/(η + 2ϕ + 6) [1 + ϕηx^2 + η^2 x^3] e^{−ηx}; x > 0, η > 0, ϕ > 0 (eq. (3)), a mixture of ηe^{−ηx}, η^3 x^2 e^{−ηx}/Γ(3) and η^4 x^3 e^{−ηx}/Γ(4) with weights η/(η+2ϕ+6), 2ϕ/(η+2ϕ+6), 6/(η+2ϕ+6) (eq. (2)); cdf as printed G(x; η, ϕ) = 1 − [1 + (η^3 x^3 + (3+ϕ)η^2 x^3 + (6+2ϕ)ηx)/(η+2ϕ+6)] e^{−ηx} (eq. (4)); survival as printed s(x) = [1 + (η^3 x^3 + (3+ϕ)η^2 x^3 + (6+2ϕ)ηx)/(η+2ϕ+6)] e^{−ηx} (eq. (30))",
+    "compared": "parameters (η_1, ϕ_1) vs (η_2, ϕ_2) under the printed equality/inequality conditions",
+    "hypotheses": [
+      {
+        "text": "Let S∼ CD(η_1, ϕ_1) and Q∼ CD(η_2, ϕ_2).",
+        "formal": "S has the paper's distribution with parameters (η_1, ϕ_1), Q with (η_2, ϕ_2) (the label CD is not defined; read as the Remkan distribution g(x; η, ϕ))",
+        "source": "statement"
+      },
+      {
+        "text": "If η_1 = η_2 and ϕ_1 = ϕ_2 and ϕ_1 ≥ ϕ_2",
+        "formal": "first alternative as printed: η_1 = η_2 ∧ ϕ_1 = ϕ_2 ∧ ϕ_1 ≥ ϕ_2",
+        "source": "statement"
+      },
+      {
+        "text": "(or if ϕ_2 = ϕ_2 and η_1 = η_2 and η_1 ≥ η_2)",
+        "formal": "second alternative as printed: ϕ_2 = ϕ_2 ∧ η_1 = η_2 ∧ η_1 ≥ η_2",
+        "source": "statement"
+      },
+      {
+        "text": "x > 0, η > 0, ϕ > 0",
+        "formal": "η_1, η_2, ϕ_1, ϕ_2 > 0; support x > 0",
+        "source": "definition eq. (3)"
+      }
+    ],
+    "conclusion": {
+      "order": "mrl",
+      "direction": "S <= Q"
+    },
+    "quantifiers": "all positive (η_1, ϕ_1, η_2, ϕ_2) satisfying either printed alternative; all x > 0",
+    "numbers": "",
+    "ambiguity": "Printed as ≤_mrl; read as the mean residual life order ('average residual measurement life', Section 2.5.3). The printed parameter conditions are degenerate: the first alternative (η_1 = η_2, ϕ_1 = ϕ_2, ϕ_1 ≥ ϕ_2) forces identical parameters, and the second contains the tautology 'ϕ_2 = ϕ_2' together with 'η_1 = η_2 and η_1 ≥ η_2', so it constrains only η_1 = η_2 and leaves ϕ_1, ϕ_2 free; conditions such as ϕ_1 ≥ ϕ_2 with η_1 = η_2, or η_1 ≥ η_2 with ϕ_1 = ϕ_2, are not what is printed. 'CD(η, ϕ)' is never defined in the paper (the introduction cites 'the Copoun distribution (Uwaeme et al. [23])'); it is read as the Remkan distribution. None of the four orders is defined in the paper. The text after the proof reads: 'This implies that S ≤_lor Q ⟹ S ≤_Ror Q ⟹ {S ≤_sor Q, S ≤_mrl Q}. This clearly indicates that the Remkan distribution is ordered in the likelihood ratio and consequently has risk measurement, average residual measurement life, and stochastic orderings.' The statement derives the Ror, mrl and lor orders 'hence' from stor, the reverse of that implication chain. The cdf (4) and survival function (30) print the second numerator term as (3+ϕ)η^2 x^3, while the quantile function (10) has (3+ϕ)η^2 x_q^2. The proof's density ratio (37), f_S(φ)/f_Q(φ) = η_1^2(η_2+ϕ_2+6)/(η_2^2(η_1+2ϕ_1+6)) · e^{−(η_1−η_2)φ}, omits the polynomial factors of (3) and writes η_2+ϕ_2+6 rather than η_2+2ϕ_2+6. Transcribed from page image p-10 (printed p. 342), checked against a higher-resolution render of the same PDF page."
+  },
+  {
+    "paper": "doi:10.34198/ejms.14224.333347",
+    "claim": "Theorem 5 [lor]",
+    "page": 10,
+    "quote": "2.6. Stochastic ordering. Theorem 5. Let S∼ CD(η_1, ϕ_1) and Q∼ CD(η_2, ϕ_2). If η_1 = η_2 and ϕ_1 = ϕ_2 and ϕ_1 ≥ ϕ_2 (or if ϕ_2 = ϕ_2 and η_1 = η_2 and η_1 ≥ η_2), then S ≤_stor Q and hence S ≤_Ror Q, S ≤_mrl Q and S ≤_lor Q.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "Remkan distribution: pdf g(x; η, ϕ) = η^2/(η + 2ϕ + 6) [1 + ϕηx^2 + η^2 x^3] e^{−ηx}; x > 0, η > 0, ϕ > 0 (eq. (3)), a mixture of ηe^{−ηx}, η^3 x^2 e^{−ηx}/Γ(3) and η^4 x^3 e^{−ηx}/Γ(4) with weights η/(η+2ϕ+6), 2ϕ/(η+2ϕ+6), 6/(η+2ϕ+6) (eq. (2)); cdf as printed G(x; η, ϕ) = 1 − [1 + (η^3 x^3 + (3+ϕ)η^2 x^3 + (6+2ϕ)ηx)/(η+2ϕ+6)] e^{−ηx} (eq. (4)); survival as printed s(x) = [1 + (η^3 x^3 + (3+ϕ)η^2 x^3 + (6+2ϕ)ηx)/(η+2ϕ+6)] e^{−ηx} (eq. (30))",
+    "compared": "parameters (η_1, ϕ_1) vs (η_2, ϕ_2) under the printed equality/inequality conditions",
+    "hypotheses": [
+      {
+        "text": "Let S∼ CD(η_1, ϕ_1) and Q∼ CD(η_2, ϕ_2).",
+        "formal": "S has the paper's distribution with parameters (η_1, ϕ_1), Q with (η_2, ϕ_2) (the label CD is not defined; read as the Remkan distribution g(x; η, ϕ))",
+        "source": "statement"
+      },
+      {
+        "text": "If η_1 = η_2 and ϕ_1 = ϕ_2 and ϕ_1 ≥ ϕ_2",
+        "formal": "first alternative as printed: η_1 = η_2 ∧ ϕ_1 = ϕ_2 ∧ ϕ_1 ≥ ϕ_2",
+        "source": "statement"
+      },
+      {
+        "text": "(or if ϕ_2 = ϕ_2 and η_1 = η_2 and η_1 ≥ η_2)",
+        "formal": "second alternative as printed: ϕ_2 = ϕ_2 ∧ η_1 = η_2 ∧ η_1 ≥ η_2",
+        "source": "statement"
+      },
+      {
+        "text": "x > 0, η > 0, ϕ > 0",
+        "formal": "η_1, η_2, ϕ_1, ϕ_2 > 0; support x > 0",
+        "source": "definition eq. (3)"
+      }
+    ],
+    "conclusion": {
+      "order": "lr",
+      "direction": "S <= Q"
+    },
+    "quantifiers": "all positive (η_1, ϕ_1, η_2, ϕ_2) satisfying either printed alternative; all x > 0",
+    "numbers": "",
+    "ambiguity": "Printed as ≤_lor; read as the likelihood ratio order ('ordered in the likelihood ratio'). The printed parameter conditions are degenerate: the first alternative (η_1 = η_2, ϕ_1 = ϕ_2, ϕ_1 ≥ ϕ_2) forces identical parameters, and the second contains the tautology 'ϕ_2 = ϕ_2' together with 'η_1 = η_2 and η_1 ≥ η_2', so it constrains only η_1 = η_2 and leaves ϕ_1, ϕ_2 free; conditions such as ϕ_1 ≥ ϕ_2 with η_1 = η_2, or η_1 ≥ η_2 with ϕ_1 = ϕ_2, are not what is printed. 'CD(η, ϕ)' is never defined in the paper (the introduction cites 'the Copoun distribution (Uwaeme et al. [23])'); it is read as the Remkan distribution. None of the four orders is defined in the paper. The text after the proof reads: 'This implies that S ≤_lor Q ⟹ S ≤_Ror Q ⟹ {S ≤_sor Q, S ≤_mrl Q}. This clearly indicates that the Remkan distribution is ordered in the likelihood ratio and consequently has risk measurement, average residual measurement life, and stochastic orderings.' The statement derives the Ror, mrl and lor orders 'hence' from stor, the reverse of that implication chain. The cdf (4) and survival function (30) print the second numerator term as (3+ϕ)η^2 x^3, while the quantile function (10) has (3+ϕ)η^2 x_q^2. The proof's density ratio (37), f_S(φ)/f_Q(φ) = η_1^2(η_2+ϕ_2+6)/(η_2^2(η_1+2ϕ_1+6)) · e^{−(η_1−η_2)φ}, omits the polynomial factors of (3) and writes η_2+ϕ_2+6 rather than η_2+2ϕ_2+6. Transcribed from page image p-10 (printed p. 342), checked against a higher-resolution render of the same PDF page."
+  }
+]

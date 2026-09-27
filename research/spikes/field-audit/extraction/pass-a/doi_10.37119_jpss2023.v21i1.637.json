@@ -1,0 +1,122 @@
+[
+  {
+    "paper": "doi:10.37119/jpss2023.v21i1.637",
+    "claim": "Theorem (1)(i), likelihood ratio order",
+    "page": 10,
+    "quote": "The MWU distribution is ordered with respect to the strongest 'likelihood ratio' ordering as shown in the following theorem: Theorem (1) Let X ∼ MWU (α_1, λ_1) and Y ∼ MWU (α_2, λ_2), Then the following results hold true i) If α_1 < α_2 and λ_1 = λ_2 then X ≤_lr Y, X ≤_hr Y and X ≤_st Y ii) If α_1 = α_2 and λ_2 > λ_1 then X ≤_lr Y, X ≤_hr Y and X ≤_st Y",
+    "kind": "theorem",
+    "model": "single",
+    "family": "Modified weighted uniform MWU(α, λ): pdf f_WU(x) = λ(α + 1)(1 − λx)^α, 0 ≤ x ≤ 1/λ, α ≥ 0, λ ≥ 0 (eq. (6)); cdf F_WU(x) = 1 − (1 − λx)^{α+1} (eq. (7)); λ called the scale parameter and α the shape parameter",
+    "compared": "shape α_1 < α_2 with common λ",
+    "hypotheses": [
+      {"text": "Let X ∼ MWU (α_1, λ_1) and Y ∼ MWU (α_2, λ_2)", "formal": "X has pdf λ_1(α_1 + 1)(1 − λ_1 x)^{α_1} on [0, 1/λ_1]; Y has pdf λ_2(α_2 + 1)(1 − λ_2 x)^{α_2} on [0, 1/λ_2]", "source": "statement; eq. (6)"},
+      {"text": "α ≥ 0, λ ≥ 0", "formal": "α_1, α_2 ≥ 0; λ_1, λ_2 ≥ 0", "source": "definition eq. (6)"},
+      {"text": "If α_1 < α_2 and λ_1 = λ_2", "formal": "α_1 < α_2, λ_1 = λ_2 = λ", "source": "statement"},
+      {"text": "likelihood ratio order (X ≤_lr Y) if f_X(x)/f_Y(x) decreases in x", "formal": "X ≤_lr Y iff f_X/f_Y decreasing on the support", "source": "Section 3.6 definition (iii)"}
+    ],
+    "conclusion": {"order": "lr", "direction": "X ≤_lr Y, i.e. MWU(α_1, λ) ≤_lr MWU(α_2, λ) for α_1 < α_2"},
+    "quantifiers": "all α_1 < α_2 (α ≥ 0), all λ ≥ 0 common; x ∈ [0, 1/λ) (proof: 'increasing if x < 1/λ')",
+    "numbers": "",
+    "ambiguity": "λ = 0 is allowed by 'λ ≥ 0' but makes the pdf degenerate. The definitions in Section 3.6 (i)–(iii) do not mention supports."
+  },
+  {
+    "paper": "doi:10.37119/jpss2023.v21i1.637",
+    "claim": "Theorem (1)(i), hazard rate order",
+    "page": 10,
+    "quote": "The MWU distribution is ordered with respect to the strongest 'likelihood ratio' ordering as shown in the following theorem: Theorem (1) Let X ∼ MWU (α_1, λ_1) and Y ∼ MWU (α_2, λ_2), Then the following results hold true i) If α_1 < α_2 and λ_1 = λ_2 then X ≤_lr Y, X ≤_hr Y and X ≤_st Y ii) If α_1 = α_2 and λ_2 > λ_1 then X ≤_lr Y, X ≤_hr Y and X ≤_st Y",
+    "kind": "theorem",
+    "model": "single",
+    "family": "Modified weighted uniform MWU(α, λ): pdf λ(α + 1)(1 − λx)^α, 0 ≤ x ≤ 1/λ, α ≥ 0, λ ≥ 0; cdf 1 − (1 − λx)^{α+1}; survival (1 − λx)^{α+1}",
+    "compared": "shape α_1 < α_2 with common λ",
+    "hypotheses": [
+      {"text": "Let X ∼ MWU (α_1, λ_1) and Y ∼ MWU (α_2, λ_2)", "formal": "MWU marginals as in eq. (6)", "source": "statement; eq. (6)"},
+      {"text": "α ≥ 0, λ ≥ 0", "formal": "parameter ranges", "source": "definition eq. (6)"},
+      {"text": "If α_1 < α_2 and λ_1 = λ_2", "formal": "α_1 < α_2, λ_1 = λ_2", "source": "statement"},
+      {"text": "hazard rate order (X ≤_hr Y) if h_X(x) ≥ h_Y(x) for all x", "formal": "h_X(x) ≥ h_Y(x) for all x", "source": "Section 3.6 definition (ii)"}
+    ],
+    "conclusion": {"order": "hr", "direction": "X ≤_hr Y, i.e. MWU(α_1, λ) ≤_hr MWU(α_2, λ) for α_1 < α_2"},
+    "quantifiers": "all α_1 < α_2, common λ; all x in the support",
+    "numbers": "",
+    "ambiguity": "The proof derives hr from lr via the stated implication chain."
+  },
+  {
+    "paper": "doi:10.37119/jpss2023.v21i1.637",
+    "claim": "Theorem (1)(i), usual stochastic order",
+    "page": 10,
+    "quote": "The MWU distribution is ordered with respect to the strongest 'likelihood ratio' ordering as shown in the following theorem: Theorem (1) Let X ∼ MWU (α_1, λ_1) and Y ∼ MWU (α_2, λ_2), Then the following results hold true i) If α_1 < α_2 and λ_1 = λ_2 then X ≤_lr Y, X ≤_hr Y and X ≤_st Y ii) If α_1 = α_2 and λ_2 > λ_1 then X ≤_lr Y, X ≤_hr Y and X ≤_st Y",
+    "kind": "theorem",
+    "model": "single",
+    "family": "Modified weighted uniform MWU(α, λ): pdf λ(α + 1)(1 − λx)^α, 0 ≤ x ≤ 1/λ, α ≥ 0, λ ≥ 0; cdf 1 − (1 − λx)^{α+1}",
+    "compared": "shape α_1 < α_2 with common λ",
+    "hypotheses": [
+      {"text": "Let X ∼ MWU (α_1, λ_1) and Y ∼ MWU (α_2, λ_2)", "formal": "MWU marginals as in eq. (6)", "source": "statement; eq. (6)"},
+      {"text": "α ≥ 0, λ ≥ 0", "formal": "parameter ranges", "source": "definition eq. (6)"},
+      {"text": "If α_1 < α_2 and λ_1 = λ_2", "formal": "α_1 < α_2, λ_1 = λ_2", "source": "statement"},
+      {"text": "stochastic ordering (X ≤_st Y) if F_X(x) ≥ F_Y(x) for all x", "formal": "F_X(x) ≥ F_Y(x) for all x", "source": "Section 3.6 definition (i)"}
+    ],
+    "conclusion": {"order": "st", "direction": "X ≤_st Y, i.e. MWU(α_1, λ) ≤_st MWU(α_2, λ) for α_1 < α_2"},
+    "quantifiers": "all α_1 < α_2, common λ; all x",
+    "numbers": "",
+    "ambiguity": "The proof derives st from lr via the stated implication chain."
+  },
+  {
+    "paper": "doi:10.37119/jpss2023.v21i1.637",
+    "claim": "Theorem (1)(ii), likelihood ratio order",
+    "page": 10,
+    "quote": "The MWU distribution is ordered with respect to the strongest 'likelihood ratio' ordering as shown in the following theorem: Theorem (1) Let X ∼ MWU (α_1, λ_1) and Y ∼ MWU (α_2, λ_2), Then the following results hold true i) If α_1 < α_2 and λ_1 = λ_2 then X ≤_lr Y, X ≤_hr Y and X ≤_st Y ii) If α_1 = α_2 and λ_2 > λ_1 then X ≤_lr Y, X ≤_hr Y and X ≤_st Y",
+    "kind": "theorem",
+    "model": "single",
+    "family": "Modified weighted uniform MWU(α, λ): pdf λ(α + 1)(1 − λx)^α, 0 ≤ x ≤ 1/λ, α ≥ 0, λ ≥ 0; cdf 1 − (1 − λx)^{α+1}",
+    "compared": "scale λ_2 > λ_1 with common shape α",
+    "hypotheses": [
+      {"text": "Let X ∼ MWU (α_1, λ_1) and Y ∼ MWU (α_2, λ_2)", "formal": "X on [0, 1/λ_1], Y on [0, 1/λ_2]", "source": "statement; eq. (6)"},
+      {"text": "α ≥ 0, λ ≥ 0", "formal": "parameter ranges", "source": "definition eq. (6)"},
+      {"text": "If α_1 = α_2 and λ_2 > λ_1", "formal": "α_1 = α_2 = α, λ_2 > λ_1", "source": "statement"},
+      {"text": "likelihood ratio order (X ≤_lr Y) if f_X(x)/f_Y(x) decreases in x", "formal": "f_X/f_Y decreasing", "source": "Section 3.6 definition (iii)"}
+    ],
+    "conclusion": {"order": "lr", "direction": "X ≤_lr Y, i.e. MWU(α, λ_1) ≤_lr MWU(α, λ_2) for λ_2 > λ_1"},
+    "quantifiers": "all common α ≥ 0; all λ_2 > λ_1; x < 1/λ (proof, λ unspecified)",
+    "numbers": "",
+    "ambiguity": "In this part the supports differ ([0, 1/λ_1] for X versus the shorter [0, 1/λ_2] for Y). The proof's range 'increasing in x < 1/λ' does not say which λ, and the definitions ignore supports. λ is called a scale parameter, but the larger λ gives the shorter support."
+  },
+  {
+    "paper": "doi:10.37119/jpss2023.v21i1.637",
+    "claim": "Theorem (1)(ii), hazard rate order",
+    "page": 10,
+    "quote": "The MWU distribution is ordered with respect to the strongest 'likelihood ratio' ordering as shown in the following theorem: Theorem (1) Let X ∼ MWU (α_1, λ_1) and Y ∼ MWU (α_2, λ_2), Then the following results hold true i) If α_1 < α_2 and λ_1 = λ_2 then X ≤_lr Y, X ≤_hr Y and X ≤_st Y ii) If α_1 = α_2 and λ_2 > λ_1 then X ≤_lr Y, X ≤_hr Y and X ≤_st Y",
+    "kind": "theorem",
+    "model": "single",
+    "family": "Modified weighted uniform MWU(α, λ): pdf λ(α + 1)(1 − λx)^α, 0 ≤ x ≤ 1/λ, α ≥ 0, λ ≥ 0; survival (1 − λx)^{α+1}",
+    "compared": "scale λ_2 > λ_1 with common shape α",
+    "hypotheses": [
+      {"text": "Let X ∼ MWU (α_1, λ_1) and Y ∼ MWU (α_2, λ_2)", "formal": "MWU marginals", "source": "statement; eq. (6)"},
+      {"text": "α ≥ 0, λ ≥ 0", "formal": "parameter ranges", "source": "definition eq. (6)"},
+      {"text": "If α_1 = α_2 and λ_2 > λ_1", "formal": "α_1 = α_2, λ_2 > λ_1", "source": "statement"},
+      {"text": "hazard rate order (X ≤_hr Y) if h_X(x) ≥ h_Y(x) for all x", "formal": "h_X(x) ≥ h_Y(x) for all x", "source": "Section 3.6 definition (ii)"}
+    ],
+    "conclusion": {"order": "hr", "direction": "X ≤_hr Y, i.e. MWU(α, λ_1) ≤_hr MWU(α, λ_2) for λ_2 > λ_1"},
+    "quantifiers": "all common α; all λ_2 > λ_1; all x",
+    "numbers": "",
+    "ambiguity": "The supports differ ([0, 1/λ_1] vs [0, 1/λ_2]); how 'for all x' in the hr definition treats points outside Y's support is unspecified. The conclusion is derived from lr in the proof."
+  },
+  {
+    "paper": "doi:10.37119/jpss2023.v21i1.637",
+    "claim": "Theorem (1)(ii), usual stochastic order",
+    "page": 10,
+    "quote": "The MWU distribution is ordered with respect to the strongest 'likelihood ratio' ordering as shown in the following theorem: Theorem (1) Let X ∼ MWU (α_1, λ_1) and Y ∼ MWU (α_2, λ_2), Then the following results hold true i) If α_1 < α_2 and λ_1 = λ_2 then X ≤_lr Y, X ≤_hr Y and X ≤_st Y ii) If α_1 = α_2 and λ_2 > λ_1 then X ≤_lr Y, X ≤_hr Y and X ≤_st Y",
+    "kind": "theorem",
+    "model": "single",
+    "family": "Modified weighted uniform MWU(α, λ): pdf λ(α + 1)(1 − λx)^α, 0 ≤ x ≤ 1/λ, α ≥ 0, λ ≥ 0; cdf 1 − (1 − λx)^{α+1}",
+    "compared": "scale λ_2 > λ_1 with common shape α",
+    "hypotheses": [
+      {"text": "Let X ∼ MWU (α_1, λ_1) and Y ∼ MWU (α_2, λ_2)", "formal": "MWU marginals", "source": "statement; eq. (6)"},
+      {"text": "α ≥ 0, λ ≥ 0", "formal": "parameter ranges", "source": "definition eq. (6)"},
+      {"text": "If α_1 = α_2 and λ_2 > λ_1", "formal": "α_1 = α_2, λ_2 > λ_1", "source": "statement"},
+      {"text": "stochastic ordering (X ≤_st Y) if F_X(x) ≥ F_Y(x) for all x", "formal": "F_X(x) ≥ F_Y(x) for all x", "source": "Section 3.6 definition (i)"}
+    ],
+    "conclusion": {"order": "st", "direction": "X ≤_st Y, i.e. MWU(α, λ_1) ≤_st MWU(α, λ_2) for λ_2 > λ_1"},
+    "quantifiers": "all common α; all λ_2 > λ_1; all x",
+    "numbers": "",
+    "ambiguity": "The supports differ ([0, 1/λ_1] vs [0, 1/λ_2]). The conclusion is derived from lr via the implication chain."
+  }
+]

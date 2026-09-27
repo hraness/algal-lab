@@ -1,0 +1,236 @@
+[
+  {
+    "paper": "doi:10.37119/jpss2023.v21i1.637",
+    "claim": "Theorem (1)(i) [lr]",
+    "page": 10,
+    "quote": "3.6. Stochastic Ordering. The stochastic ordering of positive continuous random variables is an important tool for judging their comparative behavior. A continuous random variable X is said to be smaller than a continuous random variable Y in the i) stochastic ordering (X ≤_st Y) if F_X(x) ≥ F_Y(x) for all x ii) hazard rate order (X ≤_hr Y) if h_X(x) ≥ h_Y(x) for all x iii) likelihood ratio order (X ≤_lr Y) if f_X(x)/f_Y(x) decreases in x. The following stochastic ordering relationships due to Shaked and Shanthikumar (1994) are well known for establishing stochastic ordering for continuous distributions X ≤_lr Y ⇒ X ≤_hr Y ⇓ X ≤_st Y. The MWU distribution is ordered with respect to the strongest 'likelihood ratio' ordering as shown in the following theorem: Theorem (1) Let X ∼ MWU(α_1, λ_1) and Y ∼ MWU(α_2, λ_2), Then the following results hold true i) If α_1 < α_2 and λ_1 = λ_2 then X ≤_lr Y, X ≤_hr Y and X ≤_st Y ii) If α_1 = α_2 and λ_2 > λ_1 then X ≤_lr Y, X ≤_hr Y and X ≤_st Y",
+    "kind": "theorem",
+    "model": "single",
+    "family": "Modified weighted uniform MWU(α, λ): pdf f_WU(x) = λ(α + 1)(1 − λx)^α, 0 ≤ x ≤ 1/λ, α ≥ 0, λ ≥ 0 (eq. (6)); cdf F_WU(x) = 1 − (1 − λx)^{α+1} (eq. (7)); 'λ is the scale parameter and α is the shape parameter'",
+    "compared": "shape α_1 vs α_2 with common scale λ",
+    "hypotheses": [
+      {
+        "text": "Let X ∼ MWU(α_1, λ_1) and Y ∼ MWU(α_2, λ_2)",
+        "formal": "X has pdf λ_1(α_1 + 1)(1 − λ_1 x)^{α_1} on [0, 1/λ_1]; Y has pdf λ_2(α_2 + 1)(1 − λ_2 x)^{α_2} on [0, 1/λ_2]",
+        "source": "statement"
+      },
+      {
+        "text": "If α_1 < α_2 and λ_1 = λ_2",
+        "formal": "α_1 < α_2 and λ_1 = λ_2 (common scale)",
+        "source": "statement"
+      },
+      {
+        "text": "0 ≤ x ≤ 1/λ, α ≥ 0, λ ≥ 0",
+        "formal": "α_1, α_2 ≥ 0; λ_1, λ_2 ≥ 0 (λ = 0 would make the support unbounded and the density zero)",
+        "source": "definition eq. (6)"
+      },
+      {
+        "text": "likelihood ratio order (X ≤_lr Y) if f_X(x)/f_Y(x) decreases in x",
+        "formal": "X ≤_lr Y iff f_X/f_Y decreasing in x",
+        "source": "section preamble (definition iii)"
+      }
+    ],
+    "conclusion": {
+      "order": "lr",
+      "direction": "X <= Y"
+    },
+    "quantifiers": "all admissible α_1, α_2 ≥ 0 and λ_1, λ_2 > 0 satisfying the part's condition; all x",
+    "numbers": "",
+    "ambiguity": "The orders are defined 'for all x' and via f_X/f_Y without addressing the different supports [0, 1/λ_1] and [0, 1/λ_2]. The parameter range λ ≥ 0 in eq. (6) includes the degenerate λ = 0. The theorem lists three orders per part; one record per order. The section preamble spans PDF pages 9-10; the theorem is on PDF page 10 (printed p. 93)."
+  },
+  {
+    "paper": "doi:10.37119/jpss2023.v21i1.637",
+    "claim": "Theorem (1)(i) [hr]",
+    "page": 10,
+    "quote": "3.6. Stochastic Ordering. The stochastic ordering of positive continuous random variables is an important tool for judging their comparative behavior. A continuous random variable X is said to be smaller than a continuous random variable Y in the i) stochastic ordering (X ≤_st Y) if F_X(x) ≥ F_Y(x) for all x ii) hazard rate order (X ≤_hr Y) if h_X(x) ≥ h_Y(x) for all x iii) likelihood ratio order (X ≤_lr Y) if f_X(x)/f_Y(x) decreases in x. The following stochastic ordering relationships due to Shaked and Shanthikumar (1994) are well known for establishing stochastic ordering for continuous distributions X ≤_lr Y ⇒ X ≤_hr Y ⇓ X ≤_st Y. The MWU distribution is ordered with respect to the strongest 'likelihood ratio' ordering as shown in the following theorem: Theorem (1) Let X ∼ MWU(α_1, λ_1) and Y ∼ MWU(α_2, λ_2), Then the following results hold true i) If α_1 < α_2 and λ_1 = λ_2 then X ≤_lr Y, X ≤_hr Y and X ≤_st Y ii) If α_1 = α_2 and λ_2 > λ_1 then X ≤_lr Y, X ≤_hr Y and X ≤_st Y",
+    "kind": "theorem",
+    "model": "single",
+    "family": "Modified weighted uniform MWU(α, λ): pdf f_WU(x) = λ(α + 1)(1 − λx)^α, 0 ≤ x ≤ 1/λ, α ≥ 0, λ ≥ 0 (eq. (6)); cdf F_WU(x) = 1 − (1 − λx)^{α+1} (eq. (7)); 'λ is the scale parameter and α is the shape parameter'",
+    "compared": "shape α_1 vs α_2 with common scale λ",
+    "hypotheses": [
+      {
+        "text": "Let X ∼ MWU(α_1, λ_1) and Y ∼ MWU(α_2, λ_2)",
+        "formal": "X has pdf λ_1(α_1 + 1)(1 − λ_1 x)^{α_1} on [0, 1/λ_1]; Y has pdf λ_2(α_2 + 1)(1 − λ_2 x)^{α_2} on [0, 1/λ_2]",
+        "source": "statement"
+      },
+      {
+        "text": "If α_1 < α_2 and λ_1 = λ_2",
+        "formal": "α_1 < α_2 and λ_1 = λ_2 (common scale)",
+        "source": "statement"
+      },
+      {
+        "text": "0 ≤ x ≤ 1/λ, α ≥ 0, λ ≥ 0",
+        "formal": "α_1, α_2 ≥ 0; λ_1, λ_2 ≥ 0 (λ = 0 would make the support unbounded and the density zero)",
+        "source": "definition eq. (6)"
+      },
+      {
+        "text": "hazard rate order (X ≤_hr Y) if h_X(x) ≥ h_Y(x) for all x",
+        "formal": "X ≤_hr Y iff h_X(x) ≥ h_Y(x) for all x",
+        "source": "section preamble (definition ii)"
+      }
+    ],
+    "conclusion": {
+      "order": "hr",
+      "direction": "X <= Y"
+    },
+    "quantifiers": "all admissible α_1, α_2 ≥ 0 and λ_1, λ_2 > 0 satisfying the part's condition; all x",
+    "numbers": "",
+    "ambiguity": "The orders are defined 'for all x' and via f_X/f_Y without addressing the different supports [0, 1/λ_1] and [0, 1/λ_2]. The parameter range λ ≥ 0 in eq. (6) includes the degenerate λ = 0. The theorem lists three orders per part; one record per order."
+  },
+  {
+    "paper": "doi:10.37119/jpss2023.v21i1.637",
+    "claim": "Theorem (1)(i) [st]",
+    "page": 10,
+    "quote": "3.6. Stochastic Ordering. The stochastic ordering of positive continuous random variables is an important tool for judging their comparative behavior. A continuous random variable X is said to be smaller than a continuous random variable Y in the i) stochastic ordering (X ≤_st Y) if F_X(x) ≥ F_Y(x) for all x ii) hazard rate order (X ≤_hr Y) if h_X(x) ≥ h_Y(x) for all x iii) likelihood ratio order (X ≤_lr Y) if f_X(x)/f_Y(x) decreases in x. The following stochastic ordering relationships due to Shaked and Shanthikumar (1994) are well known for establishing stochastic ordering for continuous distributions X ≤_lr Y ⇒ X ≤_hr Y ⇓ X ≤_st Y. The MWU distribution is ordered with respect to the strongest 'likelihood ratio' ordering as shown in the following theorem: Theorem (1) Let X ∼ MWU(α_1, λ_1) and Y ∼ MWU(α_2, λ_2), Then the following results hold true i) If α_1 < α_2 and λ_1 = λ_2 then X ≤_lr Y, X ≤_hr Y and X ≤_st Y ii) If α_1 = α_2 and λ_2 > λ_1 then X ≤_lr Y, X ≤_hr Y and X ≤_st Y",
+    "kind": "theorem",
+    "model": "single",
+    "family": "Modified weighted uniform MWU(α, λ): pdf f_WU(x) = λ(α + 1)(1 − λx)^α, 0 ≤ x ≤ 1/λ, α ≥ 0, λ ≥ 0 (eq. (6)); cdf F_WU(x) = 1 − (1 − λx)^{α+1} (eq. (7)); 'λ is the scale parameter and α is the shape parameter'",
+    "compared": "shape α_1 vs α_2 with common scale λ",
+    "hypotheses": [
+      {
+        "text": "Let X ∼ MWU(α_1, λ_1) and Y ∼ MWU(α_2, λ_2)",
+        "formal": "X has pdf λ_1(α_1 + 1)(1 − λ_1 x)^{α_1} on [0, 1/λ_1]; Y has pdf λ_2(α_2 + 1)(1 − λ_2 x)^{α_2} on [0, 1/λ_2]",
+        "source": "statement"
+      },
+      {
+        "text": "If α_1 < α_2 and λ_1 = λ_2",
+        "formal": "α_1 < α_2 and λ_1 = λ_2 (common scale)",
+        "source": "statement"
+      },
+      {
+        "text": "0 ≤ x ≤ 1/λ, α ≥ 0, λ ≥ 0",
+        "formal": "α_1, α_2 ≥ 0; λ_1, λ_2 ≥ 0 (λ = 0 would make the support unbounded and the density zero)",
+        "source": "definition eq. (6)"
+      },
+      {
+        "text": "stochastic ordering (X ≤_st Y) if F_X(x) ≥ F_Y(x) for all x",
+        "formal": "X ≤_st Y iff F_X(x) ≥ F_Y(x) for all x",
+        "source": "section preamble (definition i)"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "X <= Y"
+    },
+    "quantifiers": "all admissible α_1, α_2 ≥ 0 and λ_1, λ_2 > 0 satisfying the part's condition; all x",
+    "numbers": "",
+    "ambiguity": "The orders are defined 'for all x' and via f_X/f_Y without addressing the different supports [0, 1/λ_1] and [0, 1/λ_2]. The parameter range λ ≥ 0 in eq. (6) includes the degenerate λ = 0. The theorem lists three orders per part; one record per order."
+  },
+  {
+    "paper": "doi:10.37119/jpss2023.v21i1.637",
+    "claim": "Theorem (1)(ii) [lr]",
+    "page": 10,
+    "quote": "3.6. Stochastic Ordering. The stochastic ordering of positive continuous random variables is an important tool for judging their comparative behavior. A continuous random variable X is said to be smaller than a continuous random variable Y in the i) stochastic ordering (X ≤_st Y) if F_X(x) ≥ F_Y(x) for all x ii) hazard rate order (X ≤_hr Y) if h_X(x) ≥ h_Y(x) for all x iii) likelihood ratio order (X ≤_lr Y) if f_X(x)/f_Y(x) decreases in x. The following stochastic ordering relationships due to Shaked and Shanthikumar (1994) are well known for establishing stochastic ordering for continuous distributions X ≤_lr Y ⇒ X ≤_hr Y ⇓ X ≤_st Y. The MWU distribution is ordered with respect to the strongest 'likelihood ratio' ordering as shown in the following theorem: Theorem (1) Let X ∼ MWU(α_1, λ_1) and Y ∼ MWU(α_2, λ_2), Then the following results hold true i) If α_1 < α_2 and λ_1 = λ_2 then X ≤_lr Y, X ≤_hr Y and X ≤_st Y ii) If α_1 = α_2 and λ_2 > λ_1 then X ≤_lr Y, X ≤_hr Y and X ≤_st Y",
+    "kind": "theorem",
+    "model": "single",
+    "family": "Modified weighted uniform MWU(α, λ): pdf f_WU(x) = λ(α + 1)(1 − λx)^α, 0 ≤ x ≤ 1/λ, α ≥ 0, λ ≥ 0 (eq. (6)); cdf F_WU(x) = 1 − (1 − λx)^{α+1} (eq. (7)); 'λ is the scale parameter and α is the shape parameter'",
+    "compared": "scale λ_1 vs λ_2 with common shape α",
+    "hypotheses": [
+      {
+        "text": "Let X ∼ MWU(α_1, λ_1) and Y ∼ MWU(α_2, λ_2)",
+        "formal": "X has pdf λ_1(α_1 + 1)(1 − λ_1 x)^{α_1} on [0, 1/λ_1]; Y has pdf λ_2(α_2 + 1)(1 − λ_2 x)^{α_2} on [0, 1/λ_2]",
+        "source": "statement"
+      },
+      {
+        "text": "If α_1 = α_2 and λ_2 > λ_1",
+        "formal": "α_1 = α_2 (common shape) and λ_2 > λ_1",
+        "source": "statement"
+      },
+      {
+        "text": "0 ≤ x ≤ 1/λ, α ≥ 0, λ ≥ 0",
+        "formal": "α_1, α_2 ≥ 0; λ_1, λ_2 ≥ 0 (λ = 0 would make the support unbounded and the density zero)",
+        "source": "definition eq. (6)"
+      },
+      {
+        "text": "likelihood ratio order (X ≤_lr Y) if f_X(x)/f_Y(x) decreases in x",
+        "formal": "X ≤_lr Y iff f_X/f_Y decreasing in x",
+        "source": "section preamble (definition iii)"
+      }
+    ],
+    "conclusion": {
+      "order": "lr",
+      "direction": "X <= Y"
+    },
+    "quantifiers": "all admissible α_1, α_2 ≥ 0 and λ_1, λ_2 > 0 satisfying the part's condition; all x",
+    "numbers": "",
+    "ambiguity": "The orders are defined 'for all x' and via f_X/f_Y without addressing the different supports [0, 1/λ_1] and [0, 1/λ_2]. The parameter range λ ≥ 0 in eq. (6) includes the degenerate λ = 0. The theorem lists three orders per part; one record per order. In part ii) Y is supported on [0, 1/λ_2], a shorter interval than X's support [0, 1/λ_1]. The section preamble spans PDF pages 9-10; the theorem is on PDF page 10 (printed p. 93)."
+  },
+  {
+    "paper": "doi:10.37119/jpss2023.v21i1.637",
+    "claim": "Theorem (1)(ii) [hr]",
+    "page": 10,
+    "quote": "3.6. Stochastic Ordering. The stochastic ordering of positive continuous random variables is an important tool for judging their comparative behavior. A continuous random variable X is said to be smaller than a continuous random variable Y in the i) stochastic ordering (X ≤_st Y) if F_X(x) ≥ F_Y(x) for all x ii) hazard rate order (X ≤_hr Y) if h_X(x) ≥ h_Y(x) for all x iii) likelihood ratio order (X ≤_lr Y) if f_X(x)/f_Y(x) decreases in x. The following stochastic ordering relationships due to Shaked and Shanthikumar (1994) are well known for establishing stochastic ordering for continuous distributions X ≤_lr Y ⇒ X ≤_hr Y ⇓ X ≤_st Y. The MWU distribution is ordered with respect to the strongest 'likelihood ratio' ordering as shown in the following theorem: Theorem (1) Let X ∼ MWU(α_1, λ_1) and Y ∼ MWU(α_2, λ_2), Then the following results hold true i) If α_1 < α_2 and λ_1 = λ_2 then X ≤_lr Y, X ≤_hr Y and X ≤_st Y ii) If α_1 = α_2 and λ_2 > λ_1 then X ≤_lr Y, X ≤_hr Y and X ≤_st Y",
+    "kind": "theorem",
+    "model": "single",
+    "family": "Modified weighted uniform MWU(α, λ): pdf f_WU(x) = λ(α + 1)(1 − λx)^α, 0 ≤ x ≤ 1/λ, α ≥ 0, λ ≥ 0 (eq. (6)); cdf F_WU(x) = 1 − (1 − λx)^{α+1} (eq. (7)); 'λ is the scale parameter and α is the shape parameter'",
+    "compared": "scale λ_1 vs λ_2 with common shape α",
+    "hypotheses": [
+      {
+        "text": "Let X ∼ MWU(α_1, λ_1) and Y ∼ MWU(α_2, λ_2)",
+        "formal": "X has pdf λ_1(α_1 + 1)(1 − λ_1 x)^{α_1} on [0, 1/λ_1]; Y has pdf λ_2(α_2 + 1)(1 − λ_2 x)^{α_2} on [0, 1/λ_2]",
+        "source": "statement"
+      },
+      {
+        "text": "If α_1 = α_2 and λ_2 > λ_1",
+        "formal": "α_1 = α_2 (common shape) and λ_2 > λ_1",
+        "source": "statement"
+      },
+      {
+        "text": "0 ≤ x ≤ 1/λ, α ≥ 0, λ ≥ 0",
+        "formal": "α_1, α_2 ≥ 0; λ_1, λ_2 ≥ 0 (λ = 0 would make the support unbounded and the density zero)",
+        "source": "definition eq. (6)"
+      },
+      {
+        "text": "hazard rate order (X ≤_hr Y) if h_X(x) ≥ h_Y(x) for all x",
+        "formal": "X ≤_hr Y iff h_X(x) ≥ h_Y(x) for all x",
+        "source": "section preamble (definition ii)"
+      }
+    ],
+    "conclusion": {
+      "order": "hr",
+      "direction": "X <= Y"
+    },
+    "quantifiers": "all admissible α_1, α_2 ≥ 0 and λ_1, λ_2 > 0 satisfying the part's condition; all x",
+    "numbers": "",
+    "ambiguity": "The orders are defined 'for all x' and via f_X/f_Y without addressing the different supports [0, 1/λ_1] and [0, 1/λ_2]. The parameter range λ ≥ 0 in eq. (6) includes the degenerate λ = 0. The theorem lists three orders per part; one record per order. In part ii) Y is supported on [0, 1/λ_2], a shorter interval than X's support [0, 1/λ_1]."
+  },
+  {
+    "paper": "doi:10.37119/jpss2023.v21i1.637",
+    "claim": "Theorem (1)(ii) [st]",
+    "page": 10,
+    "quote": "3.6. Stochastic Ordering. The stochastic ordering of positive continuous random variables is an important tool for judging their comparative behavior. A continuous random variable X is said to be smaller than a continuous random variable Y in the i) stochastic ordering (X ≤_st Y) if F_X(x) ≥ F_Y(x) for all x ii) hazard rate order (X ≤_hr Y) if h_X(x) ≥ h_Y(x) for all x iii) likelihood ratio order (X ≤_lr Y) if f_X(x)/f_Y(x) decreases in x. The following stochastic ordering relationships due to Shaked and Shanthikumar (1994) are well known for establishing stochastic ordering for continuous distributions X ≤_lr Y ⇒ X ≤_hr Y ⇓ X ≤_st Y. The MWU distribution is ordered with respect to the strongest 'likelihood ratio' ordering as shown in the following theorem: Theorem (1) Let X ∼ MWU(α_1, λ_1) and Y ∼ MWU(α_2, λ_2), Then the following results hold true i) If α_1 < α_2 and λ_1 = λ_2 then X ≤_lr Y, X ≤_hr Y and X ≤_st Y ii) If α_1 = α_2 and λ_2 > λ_1 then X ≤_lr Y, X ≤_hr Y and X ≤_st Y",
+    "kind": "theorem",
+    "model": "single",
+    "family": "Modified weighted uniform MWU(α, λ): pdf f_WU(x) = λ(α + 1)(1 − λx)^α, 0 ≤ x ≤ 1/λ, α ≥ 0, λ ≥ 0 (eq. (6)); cdf F_WU(x) = 1 − (1 − λx)^{α+1} (eq. (7)); 'λ is the scale parameter and α is the shape parameter'",
+    "compared": "scale λ_1 vs λ_2 with common shape α",
+    "hypotheses": [
+      {
+        "text": "Let X ∼ MWU(α_1, λ_1) and Y ∼ MWU(α_2, λ_2)",
+        "formal": "X has pdf λ_1(α_1 + 1)(1 − λ_1 x)^{α_1} on [0, 1/λ_1]; Y has pdf λ_2(α_2 + 1)(1 − λ_2 x)^{α_2} on [0, 1/λ_2]",
+        "source": "statement"
+      },
+      {
+        "text": "If α_1 = α_2 and λ_2 > λ_1",
+        "formal": "α_1 = α_2 (common shape) and λ_2 > λ_1",
+        "source": "statement"
+      },
+      {
+        "text": "0 ≤ x ≤ 1/λ, α ≥ 0, λ ≥ 0",
+        "formal": "α_1, α_2 ≥ 0; λ_1, λ_2 ≥ 0 (λ = 0 would make the support unbounded and the density zero)",
+        "source": "definition eq. (6)"
+      },
+      {
+        "text": "stochastic ordering (X ≤_st Y) if F_X(x) ≥ F_Y(x) for all x",
+        "formal": "X ≤_st Y iff F_X(x) ≥ F_Y(x) for all x",
+        "source": "section preamble (definition i)"
+      }
+    ],
+    "conclusion": {
+      "order": "st",
+      "direction": "X <= Y"
+    },
+    "quantifiers": "all admissible α_1, α_2 ≥ 0 and λ_1, λ_2 > 0 satisfying the part's condition; all x",
+    "numbers": "",
+    "ambiguity": "The orders are defined 'for all x' and via f_X/f_Y without addressing the different supports [0, 1/λ_1] and [0, 1/λ_2]. The parameter range λ ≥ 0 in eq. (6) includes the degenerate λ = 0. The theorem lists three orders per part; one record per order. In part ii) Y is supported on [0, 1/λ_2], a shorter interval than X's support [0, 1/λ_1]."
+  }
+]

@@ -109,6 +109,28 @@ def arxiv_by_title(title):
     return None
 
 
+UNPAYWALL_EMAIL = "hraness@pm.me"
+
+
+def unpaywall_locations(doi):
+    """Open-access locations for a DOI from Unpaywall, cached under RUNS/unpaywall/."""
+    path = os.path.join(RUNS, "unpaywall", safe(doi) + ".json")
+    if os.path.exists(path):
+        return json.load(open(path))
+    url = "https://api.unpaywall.org/v2/%s?email=%s" % (urllib.parse.quote(doi), UNPAYWALL_EMAIL)
+    try:
+        data, _ = fetch(url)
+        record = json.loads(data.decode("utf-8"))
+        locations = [{k: loc.get(k) for k in ("url_for_pdf", "url", "host_type", "version")}
+                     for loc in (record.get("oa_locations") or [])]
+    except Exception as error:
+        locations = [{"error": str(error)[:120]}]
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    json.dump(locations, open(path, "w"))
+    time.sleep(0.2)
+    return locations
+
+
 def candidate_urls(record):
     urls = []
     if record["arxiv"]:
@@ -120,6 +142,16 @@ def candidate_urls(record):
         urls.append("https://link.springer.com/content/pdf/%s.pdf" % doi)
     if record["oa_pdf"] and doi.lower().startswith("10.3390/"):
         urls.extend(mdpi_cdn_urls(doi))
+    if doi:
+        locations = [loc for loc in unpaywall_locations(doi) if "error" not in loc]
+        # Repository copies first: publisher PDFs are the ones most often bot-blocked.
+        locations.sort(key=lambda loc: loc.get("host_type") != "repository")
+        for loc in locations:
+            for key in ("url_for_pdf", "url"):
+                if loc.get(key) and loc[key] not in urls:
+                    urls.append(loc[key])
+        if doi.lower().startswith("10.3390/") and not record["oa_pdf"]:
+            urls.extend(mdpi_cdn_urls(doi))
     return urls
 
 
@@ -155,6 +187,8 @@ def write(path, target, candidates):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--target", type=int, default=130)
+    parser.add_argument("--retry", action="store_true",
+                        help="re-attempt retrieval for no_open_full_text and download_failed candidates")
     args = parser.parse_args()
 
     frame = {r["key"]: r for r in json.load(open("frame.json"))["records"]}
@@ -169,7 +203,7 @@ def main():
     for position, key in enumerate(order):
         if flagged >= args.target:
             break
-        if key in done:
+        if key in done and not (args.retry and done[key]["status"] in ("no_open_full_text", "download_failed")):
             candidate = done[key]
         else:
             record = frame[key]
@@ -194,6 +228,11 @@ def main():
                                     raise
                                 candidate["source_url"] = download(["https://arxiv.org/pdf/%s" % preprint], pdf)
                                 candidate["preprint"] = preprint
+                            if record["doi"]:
+                                for loc in unpaywall_locations(record["doi"]):
+                                    if candidate.get("source_url") in (loc.get("url_for_pdf"), loc.get("url")):
+                                        candidate["oa_version"] = loc.get("version")
+                                        candidate["oa_host"] = loc.get("host_type")
                             time.sleep(3)
                         subprocess.run(["pdftotext", "-layout", pdf, txt], check=True, timeout=120)
                         text = open(txt, encoding="utf-8", errors="replace").read()
