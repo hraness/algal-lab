@@ -144,3 +144,20 @@ results, and a paper reporting P1 and P2.
    those records. They are kept and flagged `abstract_withheld` (310 of the 858
    candidates) instead of dropped, because dropping them would bias the frame
    against those publishers. Screening reads each paper anyway.
+2. **2026-09-27, before extraction and testing.** Clarifications from the first
+   screening pass:
+   - Eligibility covers parametric and semiparametric families (a baseline
+     distribution with explicit parameters, such as scale, proportional hazards
+     or transmuted families). Papers whose ordering results concern only
+     arbitrary distributions with no parameters, or stochastic processes, are
+     ineligible.
+   - Unnumbered stated results count as theorems.
+   - Candidates whose open-access link is blocked by the publisher's bot
+     protection are marked `retrieval_blocked`, not ineligible. They are retried
+     through a browser session before the sample of 100 is frozen, and join it
+     in screening order if they turn out to be eligible.
+   - The pilot is the first 10 eligible papers in screening order among those
+     whose text was retrieved. Retrieval failures are technical, so the pilot
+     remains a random subset of the eligible population.
+   - The known cone is removed mechanically: a candidate is excluded if its
+     DOI or arXiv id appears in any prior audit memo (`prior_audit_ids.json`).
