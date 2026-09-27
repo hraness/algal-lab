@@ -106,6 +106,19 @@ not a T-transform); Example 1's hypothesis sentence is false; GY2024's
 printed T-matrices are not doubly stochastic (intended transforms reproduce
 the result); BHKKB2025 Cex 5.7's mixture weights do not normalize.
 
+## Final classification (cluster-expand/ + shape-sweep/)
+
+Citer enumeration (S2 + COCI union; OpenAlex throttled): **143 distinct
+citing works**, 100 keyword-kept. Defect cone ≈ 31 papers; **17 carry the
+defect** (9 verbatim/transmitted-certified + 8 claim-shape) + 3
+sibling-defect carriers; every st claim proved by the additive lift is
+clean (the two st failures, BTDK Thm 4.2 and VKF2025's scale-vector
+claims, come from other mechanisms). Every order
+family in the cone vocabulary is now verdicted: st (legit), hr, rh, lr,
+dispersive, star, Lorenz, ageing-faster — all refuted at claim shape
+(CERTs A–I; ageing-faster via the BKKA2024 Thm 3.10 certificate). Open follow-ups: the uniform dispersive-order audit of
+SB2022's text (paywalled); OA completeness pass for the citer graph.
+
 ## Provenance
 
 MOA (1979) → systems-side valid uses (series hazards are sums) → BHM2015
