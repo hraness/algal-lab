@@ -185,3 +185,21 @@ results, and a paper reporting P1 and P2.
    recorded per paper. A refutation found on a manuscript version is reported
    with that version, since the published text may differ. The pilot keeps its
    fixed membership.
+
+## Amendment 5 (2026-09-27, post-freeze): duplicate works in the sample
+
+Two pairs of sample entries are the same underlying paper in two versions
+(arXiv preprint + published version):
+
+- positions 335 (arxiv:1612.00571) and 479 (doi:10.1080/02331888.2020.1722670)
+  — "Reliability study of series and parallel systems ... proportional odds"
+- positions 59 (doi:10.2991/jsta.2018.17.3.8) and 244 (arxiv:1704.03656)
+  — "f-majorization ... extreme order statistics"
+
+The frozen 100-paper sample is unchanged (positions and hashes stand).
+For every headline statistic each pair counts as ONE unit: the canonical
+claim set is the union of both versions' adjudicated records, with the
+published version's text preferred where they differ. Extraction across
+both versions still counts toward pass-agreement evidence (it is a
+within-sample robustness check, not two papers). This yields a headline
+denominator of 98 distinct papers. Report rates both ways.
