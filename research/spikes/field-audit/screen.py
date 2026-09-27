@@ -72,6 +72,43 @@ def download(urls, path):
     raise ValueError(" | ".join(errors))
 
 
+MDPI_JOURNALS = {"math": "mathematics", "sym": "symmetry", "axioms": "axioms", "e": "entropy",
+                 "stats": "stats", "risks": "risks", "appliedmath": "appliedmath", "mca": "mca",
+                 "fractalfract": "fractalfract", "foundations": "foundations"}
+
+
+def mdpi_cdn_urls(doi):
+    """MDPI serves article PDFs from its mdpi-res.com CDN without bot protection."""
+    match = re.fullmatch(r"10\.3390/([a-z]+)(\d+)", doi.lower())
+    if not match or match.group(1) not in MDPI_JOURNALS:
+        return []
+    slug, digits = MDPI_JOURNALS[match.group(1)], match.group(2)
+    urls = []
+    for article_len in (4, 5):
+        vol, article = digits[:-(article_len + 2)], digits[-article_len:]
+        if vol.isdigit():
+            name = "%s-%02d-%05d" % (slug, int(vol), int(article))
+            urls.append("https://mdpi-res.com/d_attachment/%s/%s/article_deploy/%s.pdf" % (slug, name, name))
+    return urls
+
+
+def arxiv_by_title(title):
+    """An arXiv preprint whose normalized title matches exactly, if any."""
+    norm = lambda value: re.sub(r"[^a-z0-9]+", " ", (value or "").lower()).strip()
+    words = norm(title).split()
+    if len(words) < 4:
+        return None
+    query = urllib.parse.urlencode({"search_query": "ti:\"%s\"" % " ".join(words[:12]), "max_results": 5})
+    data, _ = fetch("https://export.arxiv.org/api/query?" + query)
+    feed = data.decode("utf-8", "replace")
+    for entry in re.findall(r"<entry>(.*?)</entry>", feed, re.S):
+        found = re.search(r"<title>(.*?)</title>", entry, re.S)
+        ident = re.search(r"<id>https?://arxiv.org/abs/([^<]+?)(v\d+)?</id>", entry)
+        if found and ident and norm(found.group(1)) == norm(title):
+            return ident.group(1)
+    return None
+
+
 def candidate_urls(record):
     urls = []
     if record["arxiv"]:
@@ -81,6 +118,8 @@ def candidate_urls(record):
     doi = record["doi"] or ""
     if record["oa_pdf"] and doi.lower().startswith(("10.1007/", "10.1186/")):
         urls.append("https://link.springer.com/content/pdf/%s.pdf" % doi)
+    if record["oa_pdf"] and doi.lower().startswith("10.3390/"):
+        urls.extend(mdpi_cdn_urls(doi))
     return urls
 
 
@@ -138,7 +177,14 @@ def main():
                     txt = pdf[:-4] + ".txt"
                     try:
                         if not os.path.exists(pdf):
-                            candidate["source_url"] = download(urls, pdf)
+                            try:
+                                candidate["source_url"] = download(urls, pdf)
+                            except ValueError:
+                                preprint = arxiv_by_title(record["title"])
+                                if not preprint:
+                                    raise
+                                candidate["source_url"] = download(["https://arxiv.org/pdf/%s" % preprint], pdf)
+                                candidate["preprint"] = preprint
                             time.sleep(3)
                         subprocess.run(["pdftotext", "-layout", pdf, txt], check=True, timeout=120)
                         text = open(txt, encoding="utf-8", errors="replace").read()
