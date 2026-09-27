@@ -164,9 +164,10 @@ filenames are retained, not source-root paths.
 
 The application identity also binds every file under the installed lab's `src/`,
 its package manifest and lockfile, and the installed ALGAL source/wasm identity.
-The archive records the exact Bun version and full ALGAL revision
-`f899456e497656eb292d97d7c0aef5e06f1437dc`. The public fixture passes at that pin;
-this interface introduces no runtime upgrade.
+The archive records the exact Bun version and full ALGAL revision. The original
+public fixture was qualified at `f899456e497656eb292d97d7c0aef5e06f1437dc`;
+the current dependency is listed in [architecture](architecture.md). A runtime
+upgrade changes the recorded identity and does not rewrite earlier archives.
 
 Consumers install this repository using a **full immutable Git commit pin** in
 their package manifest and committed lockfile. Keep that lockfile and the
