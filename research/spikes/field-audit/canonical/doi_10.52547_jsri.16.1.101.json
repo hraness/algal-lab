@@ -743,35 +743,5 @@
   "numbers": "\u03b3 = 1.3, \u03bb = 1.6, \u03b2 = 0.3; (\u03b1_1, \u03b1_2, \u03b1_3) = (0.2, 4, 9); (\u03b1*_1, \u03b1*_2, \u03b1*_3) = (0.1, 1, 6). Printed result: \u03b1 \u2aaf^w \u03b1* and X_{1:3} \u2264_st X*_{1:3}, shown graphically in Fig. 2(B); no numerical survival values printed.",
   "ambiguity": "Result is graphical only; plot range not given.",
   "adjudication": "example record (pass a)+b"
- },
- {
-  "paper": "doi:10.52547/jsri.16.1.101",
-  "claim": "Example 3",
-  "page": 110,
-  "quote": "Naturally, one may wonder whether the following statement is actually also true: For 0 < \u03b2 \u2264 1, (\u03b1_1, ..., \u03b1_n) \u2aaf^p (\u03b1*_1, ..., \u03b1*_n) gives rise to the usual stochastic order between X_{1:n} and X*_{1:n}. The following example gives negative answer to these two conjecture. Example 3. Let (X_1, X_2) ((X*_1, X*_2)) be a vector of independent heterogeneous GMW random variables. Set \u03b2 = 0.5, \u03b3 = 2 and \u03bb = 3. For (\u03b1_1, \u03b1_2) = (2, 3) \u2aaf^p (1, 5.5) = (\u03b1*_1, \u03b1*_2), X_{1:2} \u2265_st X*_{1:2}, as can be seen in Fig. 3 (A); however, for (\u03b1_1, \u03b1_2) = (1.1, 6) \u2aaf^p (1, 2.25) = (\u03b1*_1, \u03b1*_2), X_{1:2} \u2264_st X*_{1:2}, as can be seen in Fig. 3 (B) So, (\u03b1_1, \u03b1_2) \u2aaf^p (\u03b1*_1, \u03b1*_2) implies neither X_{1:2} \u2264_st X*_{1:2} nor X_{1:2} \u2265_st X*_{1:2} for 0 < \u03b2 \u2264 1. [Caption, p. 111:] Figure 3. Plot of the survival functions of X_{1:2} (red line) and X*_{1:3} (black line)",
-  "kind": "counterexample",
-  "model": "series system",
-  "family": "GMW(\u03b1_i, \u03b3, \u03bb, \u03b2) independent components with \u03b2 = 0.5, \u03b3 = 2, \u03bb = 3",
-  "compared": "case (A): \u03b1 = (2, 3) vs \u03b1* = (1, 5.5); case (B): \u03b1 = (1.1, 6) vs \u03b1* = (1, 2.25)",
-  "hypotheses": [
-   {
-    "text": "Let (X_1, X_2) ((X*_1, X*_2)) be a vector of independent heterogeneous GMW random variables. Set \u03b2 = 0.5, \u03b3 = 2 and \u03bb = 3.",
-    "formal": "X_i \u223c GMW(\u03b1_i, 2, 3, 0.5), X*_i \u223c GMW(\u03b1*_i, 2, 3, 0.5), independent, n = 2",
-    "source": "statement"
-   },
-   {
-    "text": "(\u03b1_1, \u03b1_2) = (2, 3) \u2aaf^p (1, 5.5) = (\u03b1*_1, \u03b1*_2); (\u03b1_1, \u03b1_2) = (1.1, 6) \u2aaf^p (1, 2.25) = (\u03b1*_1, \u03b1*_2)",
-    "formal": "\u03b1* p-larger than \u03b1: \u220f_{i=1}^{j} \u03b1*_(i) \u2264 \u220f_{i=1}^{j} \u03b1_(i), j = 1, 2",
-    "source": "statement; definition 3"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "no fixed direction: case (A) X*_{1:2} \u2264_st X_{1:2}; case (B) X_{1:2} \u2264_st X*_{1:2}; hence \u03b1 \u2aaf^p \u03b1* implies neither X_{1:2} \u2264_st X*_{1:2} nor X_{1:2} \u2265_st X*_{1:2} for 0 < \u03b2 \u2264 1"
-  },
-  "quantifiers": "n = 2; \u03b2 = 0.5; plotting range of x not stated",
-  "numbers": "\u03b2 = 0.5, \u03b3 = 2, \u03bb = 3. Case (A): (\u03b1_1, \u03b1_2) = (2, 3), (\u03b1*_1, \u03b1*_2) = (1, 5.5); printed: \u03b1 \u2aaf^p \u03b1* and X_{1:2} \u2265_st X*_{1:2} (Fig. 3(A)). Case (B): (\u03b1_1, \u03b1_2) = (1.1, 6), (\u03b1*_1, \u03b1*_2) = (1, 2.25); printed: \u03b1 \u2aaf^p \u03b1* and X_{1:2} \u2264_st X*_{1:2} (Fig. 3(B)). Results graphical only.",
-  "ambiguity": "The symbol \u2aaf^p is used, but Definition 3 only defines x \u2ab0^p y ('x p-larger than y' iff \u220f_{i=1}^{j} x_(i) \u2264 \u220f_{i=1}^{j} y_(i), j = 1, ..., n); \u03b1 \u2aaf^p \u03b1* read as \u03b1* \u2ab0^p \u03b1. The text says 'these two conjecture' though one statement (direction unspecified) is posed. Figure 3 caption says X*_{1:3} (apparently X*_{1:2}). Labelled 'Example 3' in the paper; recorded as counterexample because it is used to refute the conjectured statement.",
-  "adjudication": "example record (pass a)+b"
  }
 ]

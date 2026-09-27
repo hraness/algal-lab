@@ -1,0 +1,600 @@
+[
+ {
+  "queue_claim": "corollary2.1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/apr.2020.6",
+    "claim": "Corollary 2.1 (s-IFR clause)",
+    "page": 8,
+    "quote": "Corollary 2.1. Let X and Y be random variables with distribution functions FX , FY ∈ F , and s ≥ 1 an integer. If X is s−IFR and Y is s−DFR, then X ≤s−IFR Y .",
+    "kind": "corollary",
+    "model": "single",
+    "family": "Non-negative lifetimes F = {F : F(0) = 0}",
+    "compared": "X (s-IFR) vs Y (s-DFR)",
+    "hypotheses": [
+     {
+      "text": "X is s-IFR and Y is s-DFR; equivalently an s-IFR class member vs an s-DFR class member",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "ageing: s-IFR",
+     "direction": "X <=s-IFR Y"
+    },
+    "quantifiers": "s >= 1",
+    "numbers": "",
+    "ambiguity": "Direct consequence of Theorem 2.1: s-IFR class member X and s-DFR class member Y are s-IFR comparable to the exponential, hence to each other."
+   },
+   {
+    "paper": "doi:10.1017/apr.2020.6",
+    "claim": "Corollary 2.1 (s-IFRA clause)",
+    "page": 8,
+    "quote": "Corollary 2.1. ... The same holds replacing IFR and DFR by IFRA and DFRA, respectively.",
+    "kind": "corollary",
+    "model": "single",
+    "family": "Non-negative lifetimes F = {F : F(0) = 0}",
+    "compared": "X (s-IFRA) vs Y (s-DFRA)",
+    "hypotheses": [
+     {
+      "text": "X is s-IFRA and Y is s-DFRA",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "ageing: s-IFRA",
+     "direction": "X <=s-IFRA Y"
+    },
+    "quantifiers": "s >= 1",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "In-scope ordering claim between two distributions; pass A was one-sided, verdict as stated. Split into one record per order (s-IFR and s-IFRA)."
+ },
+ {
+  "queue_claim": "corollary3.1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/apr.2020.6",
+    "claim": "Corollary 3.1",
+    "page": 13,
+    "quote": "Corollary 3.1. The s−IFRA monotonicity does not have the hereditary property.",
+    "kind": "corollary",
+    "model": "other: single-distribution class-heredity statement",
+    "family": "Non-negative lifetimes F",
+    "compared": "s-IFRA class membership across iteration levels (witnesses: Example 3.1, Proposition 3.1)",
+    "hypotheses": [
+     {
+      "text": "Immediate consequence of Example 3.1 and Proposition 3.1: X (c in (0,2)) is 2-IFR but not 1-IFRA; Y = max(Y1,Y2) exponential parallel system is 1-IFRA but neither 2-IFRA nor 2-DFRA",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "ageing: s-IFRA",
+     "direction": "s-IFRA does not imply (s+1)-IFRA in general (class not hereditary), in contrast to Lemma 3.1 for s-IFR/s-DFR"
+    },
+    "quantifiers": "s >= 1",
+    "numbers": "",
+    "ambiguity": "Class-membership (non-heredity) claim rather than a pairwise ordering; retained because the s-IFRA class is defined by s-IFRA-comparability to the exponential (Theorem 2.1). Pass A listed page 12; the corollary is printed on page 13."
+   }
+  ],
+  "note": "Both passes kept the claim; canonical order label is 'ageing: s-IFRA' (not 'hr'), and the direction records non-heredity, not a pairwise inequality."
+ },
+ {
+  "queue_claim": "corollary4.1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/apr.2020.6",
+    "claim": "Corollary 4.1",
+    "page": 14,
+    "quote": "Corollary 4.1. Let X be s−IFR, for some s ≥ 1, random variable, with distribution function F ∈ F and density function f . Let Y(n) = max(Y1 , . . . , Yn ) where Yi are independent with tail function T̄ X,s (x). Then Y(n) is s−IFR, for every s ≥ 1.",
+    "kind": "corollary",
+    "model": "parallel system",
+    "family": "Independent components each with s-iterated tail T̄_{X,s} of an s-IFR baseline X",
+    "compared": "Parallel maximum Y(n) against the exponential reference (s-IFR class)",
+    "hypotheses": [
+     {
+      "text": "X s-IFR; Y1,...,Yn iid with survival function T̄_{X,s}",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "ageing: s-IFR",
+     "direction": "Y(n) is s-IFR for every s >= 1 (equivalently Y(n) <=s-IFR Exp by Theorem 2.1)"
+    },
+    "quantifiers": "s >= 1; n >= 1",
+    "numbers": "",
+    "ambiguity": "Closure/class-membership claim for the parallel system; equivalently an s-IFR ordering against the exponential."
+   }
+  ],
+  "note": "In scope: class-heredity/closure claim equivalent to an s-IFR ordering vs the exponential via Theorem 2.1; pass A one-sided, verdict matches."
+ },
+ {
+  "queue_claim": "corollary7.1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/apr.2020.6",
+    "claim": "Corollary 7.1",
+    "page": 24,
+    "quote": "Corollary 7.1. Let X and Y be defined as in (7.1). Then T̄_{Y,s}(T̄_{X,s}^{-1}(x))/x ≤ 1, for every x > 0.",
+    "kind": "corollary",
+    "model": "parallel system",
+    "family": "X = max of two iid Exp(mean 1); Y = max{Y1,Y2}, Y1 ~ Exp(1), Y2 ~ Exp(1/lambda), lambda > 1, as in (7.1)",
+    "compared": "Ordering function c_s(x) = T̄_{Y,s}(T̄_{X,s}^{-1}(x)) bounded by the diagonal",
+    "hypotheses": [
+     {
+      "text": "X, Y as in (7.1); uses Proposition 7.1's T̄_{X,s}(x) >= T̄_{Y,s}(x) for all x >= 0",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "ageing: s-IFRA",
+     "direction": "T̄_{Y,s}(T̄_{X,s}^{-1}(x))/x <= 1 for all x > 0 (the s-IFRA ordering function t_s(x) <= 1)"
+    },
+    "quantifiers": "x > 0; s >= 1",
+    "numbers": "",
+    "ambiguity": "Pass A's quote had the inverse attached to T̄_{Y,s}; per the paper (and consistency with Definition 2.4/Proposition 7.2) the statement is T̄_{Y,s}(T̄_{X,s}^{-1}(x))/x <= 1. This is the c_s ordering-function bound underlying the s-IFRA ordering of Proposition 7.2."
+   }
+  ],
+  "note": "Quote corrected: the inverse applies to T̄_{X,s}, not T̄_{Y,s} (pass A mis-transcribed). Order coded 'ageing: s-IFRA' since it bounds the star-ordering function c_s(x)/x."
+ },
+ {
+  "queue_claim": "example3.1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/apr.2020.6",
+    "claim": "Example 3.1",
+    "page": 11,
+    "quote": "Example 3.1. Let X be a nonnegative random variable with density function f (x) = (x2 + c)e−x /(c + 2). ... By choosing c ∈ (0, 2) we obtain rX,1 that starts decreasing and eventually becomes increasing, while rX,2 is increasing. That is, X is not 1−IFR but is 2−IFR. Moreover, it is also easy to verify that X is not 1−IFRA.",
+    "kind": "counterexample",
+    "model": "single",
+    "family": "Density f(x) = (x^2 + c)e^{-x}/(c+2), c in (0,2)",
+    "compared": "1-IFR / 1-IFRA vs 2-IFR class membership of a single distribution",
+    "hypotheses": [
+     {
+      "text": "f(x) = (x^2 + c) e^{-x}/(c+2); choose c in (0,2); r_{X,1} eventually increasing after decreasing start; r_{X,2} increasing",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "ageing: 1-IFR",
+     "direction": "X is 2-IFR but is not 1-IFR and not 1-IFRA — hence (s+1)-IFR does not imply s-IFR and s-IFRA is not hereditary (with Proposition 3.1, yields Corollary 3.1)"
+    },
+    "quantifiers": "c in (0,2); s = 1,2",
+    "numbers": "c ∈ (0,2)",
+    "ambiguity": "Class-membership example used to witness non-heredity of s-IFRA."
+   }
+  ],
+  "note": "Both passes kept it; it is a counterexample-style class-membership claim (not a pairwise ordering) witnessing Corollary 3.1's non-heredity; canonical order 'ageing: s-IFR' family."
+ },
+ {
+  "queue_claim": "lemma3.1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/apr.2020.6",
+    "claim": "Lemma 3.1",
+    "page": 10,
+    "quote": "Lemma 3.1. Let X be a nonnegative random variable. For every integer s ≥ 1, the following relations hold. a) If X is s−IFR, then X is (s + 1)−IFR. b) If X is s−DFR, then X is (s + 1)−DFR.",
+    "kind": "lemma",
+    "model": "other: single-distribution class-heredity statement",
+    "family": "Non-negative lifetimes",
+    "compared": "s-IFR/s-DFR class nesting across iteration levels",
+    "hypotheses": [
+     {
+      "text": "X s-IFR (part a) or s-DFR (part b)",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "ageing: s-IFR",
+     "direction": "s-IFR implies (s+1)-IFR and s-DFR implies (s+1)-DFR (classes nested upward)"
+    },
+    "quantifiers": "s >= 1",
+    "numbers": "",
+    "ambiguity": "Class-membership (heredity) result, not a pairwise ordering; via Theorem 2.1 equivalently X <=s-IFR Exp implies X <=(s+1)-IFR Exp. Attributed to Theorem 2 in Navarro and Hernández [28]."
+   }
+  ],
+  "note": "In scope by the audit's broad reading of ageing-order claims (class nesting = ordering vs exponential comparator via Theorem 2.1); pass A one-sided."
+ },
+ {
+  "queue_claim": "proposition4.1",
+  "decision": "exclude",
+  "records": [],
+  "note": "Proposition 4.1 gives moment inequalities for E(X-x)_+^k under s-IFR/s-DFR — it characterizes a single distribution's moments, not an ordering of two distributions; out of scope per spec ('results that only characterize one distribution (moments, shape, estimation)')."
+ },
+ {
+  "queue_claim": "proposition4.2",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/apr.2020.6",
+    "claim": "Proposition 4.2",
+    "page": 14,
+    "quote": "Proposition 4.2. Let X1 , . . . , Xn be independent and identically distributed 1 − IFR random variables, with distribution function F ∈ F and density function f . Then X(n) = max(X1 , . . . , Xn ) is s−IFR, for every s ≥ 1.",
+    "kind": "proposition",
+    "model": "parallel system",
+    "family": "iid 1-IFR components (F in F)",
+    "compared": "Parallel maximum vs exponential reference (s-IFR class)",
+    "hypotheses": [
+     {
+      "text": "X1,...,Xn iid 1-IFR",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "ageing: s-IFR",
+     "direction": "X(n) = max(X1,...,Xn) is s-IFR for every s >= 1 (equivalently X(n) <=s-IFR Exp by Theorem 2.1)"
+    },
+    "quantifiers": "n >= 1; s >= 1",
+    "numbers": "",
+    "ambiguity": "Attributed as already proved by Barlow and Proschan (1-IFR case); the s-IFR closure is new. Class/closure claim equivalent to s-IFR ordering vs exponential."
+   }
+  ],
+  "note": "In scope: closure claim for parallel maxima under the s-IFR ageing order; pass A one-sided, verdict matches."
+ },
+ {
+  "queue_claim": "proposition4.3",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/apr.2020.6",
+    "claim": "Proposition 4.3",
+    "page": 14,
+    "quote": "Proposition 4.3. Let X1 , . . . , Xn be independent and identically distributed s−IFR, s ≥ 2, random variables, with distribution function F ∈ F and density function f . Let Yi be random variables with tail function T̄ X,s−1 , i = 1, . . . , n. Then Y(n) = max(Y1 , . . . , Yn ) is s−IFR.",
+    "kind": "proposition",
+    "model": "parallel system",
+    "family": "iid components with tail T̄_{X,s-1} of an s-IFR baseline (s >= 2)",
+    "compared": "Parallel maximum vs exponential reference (s-IFR class)",
+    "hypotheses": [
+     {
+      "text": "X1,...,Xn iid s-IFR, s >= 2; Yi iid with survival function T̄_{X,s-1}",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "ageing: s-IFR",
+     "direction": "Y(n) = max(Y1,...,Yn) is s-IFR (equivalently Y(n) <=s-IFR Exp)"
+    },
+    "quantifiers": "n >= 1; s >= 2",
+    "numbers": "",
+    "ambiguity": "Class/closure claim equivalent to an s-IFR ordering vs the exponential via Theorem 2.1."
+   }
+  ],
+  "note": "In scope: s-IFR closure claim for the parallel system built on s-iterated tails; pass A one-sided."
+ },
+ {
+  "queue_claim": "remark7.2",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/apr.2020.6",
+    "claim": "Remark 7.2 (counterexample to iterated Kochar-Xu conjecture, s = 2)",
+    "page": 30,
+    "quote": "Remark 7.2. ... Write, for simplicity, X = max{X1 , X2 } and Y = max{Y1 , Y2 } and consider Vs (x) = T̄ Y,s (x) − T̄ X,s (ax), where a > 0. ... If we choose the parameters (s, λ1 /λ2 , θ1 /θ2 , a) = (2, 0.34, 11, 2.89) the sign variation of Vs (x) is “−, +, −” so, according to Theorem 2.2, X and Y are not comparable with respect to the 2−IFRA order, hence they cannot be comparable with respect to the 2−IFR order. ... (λ1 , λ2 , θ1 , θ2 ) = (1/1474)(408, 1200, 134, 1474)ϑ, with ϑ > 0, generates a whole family of counter-examples for the conjecture when the iteration parameter s = 2.",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "Two-component parallel systems of independent exponentials; rate vectors (lambda1,lambda2) majorized by (theta1,theta2) with lambda1+lambda2 = theta1+theta2",
+    "compared": "X = max{X1,X2} vs Y = max{Y1,Y2} under majorized rate vectors",
+    "hypotheses": [
+     {
+      "text": "Kochar-Xu setup: majorized rate vectors would conjecturally give X <=s-IFR Y; here s=2, lambda1/lambda2=0.34, theta1/theta2=11, a=2.89",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "ageing: 2-IFRA",
+     "direction": "X and Y are not comparable in the 2-IFRA order (sign variation of V_s is -,+,-), hence not in the 2-IFR order; the iterated Kochar-Xu conjecture fails at s = 2"
+    },
+    "quantifiers": "s = 2; n = 2; theta > 0 scaling gives a family of counterexamples",
+    "numbers": "(s, λ1/λ2, θ1/θ2, a) = (2, 0.34, 11, 2.89); (λ1, λ2, θ1, θ2) = (408, 1200, 134, 1474)ϑ/1474, ϑ > 0; sign variation '−,+,−'",
+    "ambiguity": "The s = 1 case of the Kochar-Xu conjecture remains unresolved."
+   }
+  ],
+  "note": "Both passes agreed on substance; canonical order 'ageing: 2-IFRA' (relative/iterated ageing order), and the no-comparability verdict is verbatim."
+ },
+ {
+  "queue_claim": "theorem2.1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/apr.2020.6",
+    "claim": "Theorem 2.1 (part 1, s-IFR equivalences)",
+    "page": 8,
+    "quote": "Theorem 2.1. Let X be a random variable with distribution function FX ∈ F and Y be an exponential random variable. Then, 1. X is s−IFR if and only if X ≤s−IFR Y . Similarly, X is s−DFR if and only if Y ≤s−IFR X .",
+    "kind": "theorem",
+    "model": "single",
+    "family": "F non-negative lifetimes vs exponential Y",
+    "compared": "X vs exponential Y",
+    "hypotheses": [
+     {
+      "text": "Y exponential",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "ageing: s-IFR",
+     "direction": "X s-IFR iff X <=s-IFR Y; X s-DFR iff Y <=s-IFR X (equivalences against the exponential reference)"
+    },
+    "quantifiers": "s >= 1",
+    "numbers": "",
+    "ambiguity": "Stated from Nanda et al. [27] (Theorem 3.2). Establishes the exponential as the boundary element of the s-IFR class."
+   },
+   {
+    "paper": "doi:10.1017/apr.2020.6",
+    "claim": "Theorem 2.1 (part 2, s-IFRA equivalences)",
+    "page": 8,
+    "quote": "Theorem 2.1. ... 2. X is s−IFRA if and only if X ≤s−IFRA Y . Similarly, X is s−DFRA if and only if Y ≤s−IFRA X .",
+    "kind": "theorem",
+    "model": "single",
+    "family": "F non-negative lifetimes vs exponential Y",
+    "compared": "X vs exponential Y",
+    "hypotheses": [
+     {
+      "text": "Y exponential",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "ageing: s-IFRA",
+     "direction": "X s-IFRA iff X <=s-IFRA Y; X s-DFRA iff Y <=s-IFRA X"
+    },
+    "quantifiers": "s >= 1",
+    "numbers": "",
+    "ambiguity": "Stated from Nanda et al. [27] (Theorem 4.3)."
+   }
+  ],
+  "note": "In scope: equivalences that make each s-IFR-class membership an s-IFR ordering vs the exponential. Split into one record per order (s-IFR, s-IFRA)."
+ },
+ {
+  "queue_claim": "theorem2.2",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/apr.2020.6",
+    "claim": "Theorem 2.2 (part 1, s-IFR characterization)",
+    "page": 8,
+    "quote": "Theorem 2.2. Let X and Y be random variables with distribution functions FX , FY ∈ F , respectively. 1. We have X ≤s−IFR Y if, and only if, the sign variation of T̄ Y,s (x) − T̄ X,s (ax + b) is, at most, “+, −, +”, for every a ∈ R and b ∈ R (the case a > 0 and b ∈ R is sufficient, based on Remark 2.1).",
+    "kind": "theorem",
+    "model": "single",
+    "family": "F non-negative lifetimes",
+    "compared": "X vs Y under the sign-variation criterion on T̄_{Y,s}(x) - T̄_{X,s}(ax+b)",
+    "hypotheses": [
+     {
+      "text": "FX, FY in F; sign variation of T̄_{Y,s}(x) - T̄_{X,s}(ax+b) at most '+,-,+' for all a,b (a>0 suffices)",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "ageing: s-IFR",
+     "direction": "X <=s-IFR Y iff the sign-variation bound holds"
+    },
+    "quantifiers": "s >= 1; all a > 0, b in R",
+    "numbers": "",
+    "ambiguity": ""
+   },
+   {
+    "paper": "doi:10.1017/apr.2020.6",
+    "claim": "Theorem 2.2 (part 2, s-IFRA characterization)",
+    "page": 8,
+    "quote": "Theorem 2.2. ... 2. We have X ≤s−IFRA Y if, and only if, the sign variation of T̄ Y,s (x) − T̄ X,s (ax) is, at most, “−, +”, for every a ∈ R.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "F non-negative lifetimes",
+    "compared": "X vs Y under the sign-variation criterion on T̄_{Y,s}(x) - T̄_{X,s}(ax)",
+    "hypotheses": [
+     {
+      "text": "FX, FY in F; sign variation of T̄_{Y,s}(x) - T̄_{X,s}(ax) at most '-,+' for all a>0",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "ageing: s-IFRA",
+     "direction": "X <=s-IFRA Y iff the sign-variation bound holds"
+    },
+    "quantifiers": "s >= 1; all a > 0",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "In scope: sign-change characterizations of the s-IFR and s-IFRA orders; split into one record per order."
+ },
+ {
+  "queue_claim": "theorem2.3",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/apr.2020.6",
+    "claim": "Theorem 2.3",
+    "page": 9,
+    "quote": "Theorem 2.3. Let X and Y be random variables with absolutely continuous distribution functions FX , FY ∈ F , such that limx→∞ (FY (x)/FX (x)) = l ∈ [0, ∞). Then FX ≤s−IFR FY if either of the following two conditions holds for the function Hs (x) = T̄ Y,s (x) − T̄ X,s (ax + b) (or the corresponding version Hs−1 for Ps (x) − Ps−1 (ax + b)): for every a > 0 and b ∈ R, the sign variation of Hs (x) is at most '+,-' (one crossing), or the sign variation is at most '-,+' with the stated crossing conditions on the derivative.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "F non-negative lifetimes, absolutely continuous",
+    "compared": "X vs Y (sufficient sign-variation criterion for s-IFR)",
+    "hypotheses": [
+     {
+      "text": "lim FY/FX = l in [0,infty); for every a>0, b in R the sign variation of H_s (or the P_s/P_{s-1} analogue) meets the stated crossing conditions",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "ageing: s-IFR",
+     "direction": "FX <=s-IFR FY under the sign-variation criterion"
+    },
+    "quantifiers": "s >= 1; all a > 0, b in R",
+    "numbers": "",
+    "ambiguity": "Theorem 2.3 is quoted from Theorem 3.1 in [3]; the text-layer formula is compressed, so the quote paraphrases the printed sign-variation clauses verbatim intent. See PDF for exact clause wording."
+   }
+  ],
+  "note": "In scope: sufficient criterion for the s-IFR ordering (ageing order); pass A one-sided."
+ },
+ {
+  "queue_claim": "theorem2.4",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/apr.2020.6",
+    "claim": "Theorem 2.4",
+    "page": 9,
+    "quote": "Theorem 2.4. Let X and Y be random variables with absolutely continuous distribution functions FX , FY ∈ F such that limx→∞ (FY (x)/FX (x)) = l ∈ [0, ∞). Then FX ≤s−IFRA FY whenever the sign variation of Hs (x) = T̄ Y,s (x) − T̄ X,s (ax) (equivalently Ps (x) − Ps−1 (ax)) is at most '−, +' for every a > 0.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "F non-negative lifetimes, absolutely continuous",
+    "compared": "X vs Y (sufficient sign-variation criterion for s-IFRA)",
+    "hypotheses": [
+     {
+      "text": "lim FY/FX = l in [0,infty); sign variation of T̄_{Y,s}(x)-T̄_{X,s}(ax) at most '-,+' for every a>0 (b=0 case of the s-IFR criterion)",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "ageing: s-IFRA",
+     "direction": "FX <=s-IFRA FY under the sign-variation criterion"
+    },
+    "quantifiers": "s >= 1; all a > 0",
+    "numbers": "",
+    "ambiguity": "Stated without proof in the paper."
+   }
+  ],
+  "note": "In scope: sufficient criterion for the s-IFRA ordering; pass A one-sided."
+ },
+ {
+  "queue_claim": "theorem5.1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/apr.2020.6",
+    "claim": "Theorem 5.1",
+    "page": 15,
+    "quote": "Theorem 5.1. (Theorem 4.B.20 in Shaked, Shanthikumar [33].) Let X and Y be random variables with distribution functions FX , FY ∈ F , and survival functions F̄ X and F̄ Y , respectively. Then X ≤1−IFR Y implies X ≤DMRL Y .",
+    "kind": "theorem",
+    "model": "single",
+    "family": "F non-negative lifetimes",
+    "compared": "X vs Y",
+    "hypotheses": [
+     {
+      "text": "X <=1-IFR Y",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "ageing: DMRL",
+     "direction": "X <=1-IFR Y implies X <=DMRL Y"
+    },
+    "quantifiers": "s = 1",
+    "numbers": "",
+    "ambiguity": "Quoted result (Shaked & Shanthikumar Theorem 4.B.20); the DMRL order is defined in Definition 5.1 via the integrals of survival functions."
+   }
+  ],
+  "note": "In scope: implication between two ageing orders on a pair of distributions; canonical label 'ageing: DMRL'."
+ },
+ {
+  "queue_claim": "theorem6.1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/apr.2020.6",
+    "claim": "Theorem 6.1",
+    "page": 18,
+    "quote": "Theorem 6.1. Let X and Y be random variables with distribution functions FX , FY ∈ F , respectively. Assume that, for each a > 0 and b ≥ 0, the function Hs (x) = T̄ Y,s (x) − T̄ X,s (ax + b) changes sign at most once, and when a change occurs it is from '−' to '+'. If X ≤s−IFRA Y , then X ≤s−IFR Y .",
+    "kind": "theorem",
+    "model": "single",
+    "family": "F non-negative lifetimes",
+    "compared": "X vs Y",
+    "hypotheses": [
+     {
+      "text": "X <=s-IFRA Y; for each a>0, b>=0, H_s(x) = T̄_{Y,s}(x) - T̄_{X,s}(ax+b) has at most one sign change, from '-' to '+'",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "ageing: s-IFR",
+     "direction": "X <=s-IFR Y"
+    },
+    "quantifiers": "s >= 1; a > 0; b >= 0",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "In scope: upgrades s-IFRA ordering to s-IFR under a crossing condition; canonical label 'ageing: s-IFR'."
+ },
+ {
+  "queue_claim": "theorem6.2",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/apr.2020.6",
+    "claim": "Theorem 6.2 (Gamma clause)",
+    "page": 20,
+    "quote": "Theorem 6.2. Let α′ > α > 0. (i) If X ∼ Γ(α, θ1 ) and Y ∼ Γ(α′ , θ2 ), then Y ≤s−IFR X .",
+    "kind": "theorem",
+    "model": "single",
+    "family": "Gamma distributions G(alpha,theta)",
+    "compared": "Gamma(alpha',theta2) vs Gamma(alpha,theta1) with alpha' > alpha > 0",
+    "hypotheses": [
+     {
+      "text": "alpha' > alpha > 0; both Gamma with the stated shape parameters",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "ageing: s-IFR",
+     "direction": "Y (Gamma(alpha',theta2)) <=s-IFR X (Gamma(alpha,theta1))"
+    },
+    "quantifiers": "alpha' > alpha > 0; s >= 1",
+    "numbers": "shape parameters alpha' > alpha > 0",
+    "ambiguity": "Direction as printed: the larger-shape Gamma is smaller in the s-IFR order."
+   },
+   {
+    "paper": "doi:10.1017/apr.2020.6",
+    "claim": "Theorem 6.2 (Weibull clause)",
+    "page": 20,
+    "quote": "Theorem 6.2. Let α′ > α > 0. ... (ii) If X ∼ Weibull(α, θ1 ) and Y ∼ Weibull(α′ , θ2 ), then Y ≤s−IFR X .",
+    "kind": "theorem",
+    "model": "single",
+    "family": "Weibull distributions",
+    "compared": "Weibull(alpha',theta2) vs Weibull(alpha,theta1) with alpha' > alpha > 0",
+    "hypotheses": [
+     {
+      "text": "alpha' > alpha > 0; both Weibull with the stated shape parameters",
+      "formal": "stated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "ageing: s-IFR",
+     "direction": "Y (Weibull(alpha',theta2)) <=s-IFR X (Weibull(alpha,theta1))"
+    },
+    "quantifiers": "alpha' > alpha > 0; s >= 1",
+    "numbers": "shape parameters alpha' > alpha > 0",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Split into one record per part per spec rule 5 (pass A's split was correct); canonical order 'ageing: s-IFR'. The printed direction is the larger-shape distribution being s-IFR-smaller."
+ }
+]

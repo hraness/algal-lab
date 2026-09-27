@@ -1,6 +1,456 @@
 [
  {
   "paper": "doi:10.19139/soic-2310-5070-863",
+  "claim": "Corollary 1",
+  "page": 12,
+  "quote": "Corollary 1. Consider the bivariate SSMSN random vectors X and Y in (25). Then, X \u227cconc Y if and only if \u03c1X \u2264 \u03c1Y.",
+  "kind": "corollary",
+  "model": "other: bivariate scale-shape mixture of skew-normal (SSMSN) vectors in the Fr\u00e9chet space R^2(F1,F2)",
+  "family": "X|\u03c4 \u223c SN2(\u00b5X, a1(\u03c4)\u03a3X, \u03b1X), Y|\u03c4 \u223c SN2(\u00b5Y, a1(\u03c4)\u03a3Y, \u03b1Y) ((25))",
+  "compared": "concordance order vs ordering of generalized correlation coefficients \u03c1X, \u03c1Y",
+  "hypotheses": [
+   {
+    "text": "X, Y \u2208 \u211c2(F1, F2) (same marginals); \u03c1 defined as \u03c312/\u221a(\u03c311\u03c322) \u2014 generalized coefficient even when covariances do not exist",
+    "formal": "same marginals",
+    "source": "section preamble / (26)"
+   }
+  ],
+  "conclusion": {
+   "order": "other: concordance (\u227cconc)",
+   "direction": "X \u227cconc Y iff \u03c1X \u2264 \u03c1Y (X concordance-smaller)"
+  },
+  "quantifiers": "bivariate",
+  "numbers": "",
+  "ambiguity": "Both passes agree on the iff; only the order label spelling differed (conc vs concordance).",
+  "adjudication": "adjudicated: Same order under two spellings: \u227cconc = concordance order; X-side smaller iff \u03c1X \u2264 \u03c1Y."
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-863",
+  "claim": "Corollary 2",
+  "page": 12,
+  "quote": "Corollary 2. Consider the bivariate NMVM random vectors X, Y \u2208 \u211c2(F1, F2) as X \u223c NMVM2(\u00b5X, \u03a3X, \u03bbX, h), Y \u223c NMVM2(\u00b5Y, \u03a3Y, \u03bbY, h). Then, X \u227cconc Y if and only if \u03c1X \u2264 \u03c1Y.",
+  "kind": "corollary",
+  "model": "other: bivariate normal mean-variance mixture (NMVM) vectors in R^2(F1,F2)",
+  "family": "X \u223c NMVM2(\u00b5X, \u03a3X, \u03bbX, h), Y \u223c NMVM2(\u00b5Y, \u03a3Y, \u03bbY, h) ((27))",
+  "compared": "concordance order vs ordering of generalized correlation coefficients",
+  "hypotheses": [
+   {
+    "text": "X, Y \u2208 \u211c2(F1, F2) (same marginals)",
+    "formal": "same marginals",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: concordance (\u227cconc)",
+   "direction": "X \u227cconc Y iff \u03c1X \u2264 \u03c1Y"
+  },
+  "quantifiers": "bivariate",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Same as Corollary 1 for the NMVM family; conc = concordance."
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-863",
+  "claim": "Corollary 3(ii)",
+  "page": 13,
+  "quote": "Corollary 3. Let the random vectors X and Y be as given in (5) and (14). ... (ii) If \u00b5 = \u00b5\u2032, \u03a3\u2032 \u2212 \u03a3 is positive semi-definite and \u03bb\u03c4 = \u03bb\u2032\u03c4 for all \u03c4 \u2208 SH (\u03bb = \u03bb\u2032), then X \u227ccx Y;",
+  "kind": "corollary",
+  "model": "other: multivariate NMVM ((5)) and SSMSN ((14)) vectors",
+  "family": "NMVM_d(\u00b5, \u03a3, \u03bb, h) and SSMSN via SN_d(\u00b5, a1(\u03c41)\u03a3, a2(\u03c4)\u03b1)",
+  "compared": "convex order between vectors with equal locations and skewness, ordered dispersion",
+  "hypotheses": [
+   {
+    "text": "\u00b5 = \u00b5\u2032; \u03a3\u2032 \u2212 \u03a3 positive semi-definite; \u03bb\u03c4 = \u03bb\u2032\u03c4 for all \u03c4 \u2208 SH",
+    "formal": "common location/skewness, psd dispersion difference",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: cx",
+   "direction": "X \u227ccx Y (X convex-smaller)"
+  },
+  "quantifiers": "all \u03c4 \u2208 SH",
+  "numbers": "",
+  "ambiguity": "Applies to both model cases (5) and (14); when a2(\u03c4) = 1 the index \u03c4 in \u03bb\u03c4 is dropped.",
+  "adjudication": "adjudicated: One-sided A; in scope \u2014 cx characterization for specific families."
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-863",
+  "claim": "Corollary 3(iii)",
+  "page": 13,
+  "quote": "(iii) If \u00b5 \u2264 \u00b5\u2032, \u03a3\u2032 \u2212 \u03a3 is positive semi-definite and \u03bb\u03c4 \u2264 \u03bb\u2032\u03c4 for all \u03c4 \u2208 SH (\u03bb \u2264 \u03bb\u2032), then X \u227cicx Y;",
+  "kind": "corollary",
+  "model": "other: multivariate NMVM ((5)) and SSMSN ((14)) vectors",
+  "family": "NMVM_d / SSMSN",
+  "compared": "increasing convex order with componentwise-ordered parameters",
+  "hypotheses": [
+   {
+    "text": "\u00b5 \u2264 \u00b5\u2032; \u03a3\u2032 \u2212 \u03a3 positive semi-definite; \u03bb\u03c4 \u2264 \u03bb\u2032\u03c4 for all \u03c4 \u2208 SH",
+    "formal": "ordered location + skewness, psd dispersion difference",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "icx",
+   "direction": "X \u227cicx Y (X icx-smaller)"
+  },
+  "quantifiers": "all \u03c4 \u2208 SH",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: One-sided A; in scope \u2014 icx order under ordered parameters."
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-863",
+  "claim": "Corollary 3(iv) \u2014 dcx part",
+  "page": 13,
+  "quote": "(iv) If \u00b5 = \u00b5\u2032, \u03c3ij \u2264 \u03c3\u2032ij and \u03bb\u03c4 = \u03bb\u2032\u03c4 for all \u03c4 \u2208 SH (\u03bb = \u03bb\u2032), then X \u227cdcx Y and X \u227csm Y.",
+  "kind": "corollary",
+  "model": "other: multivariate NMVM ((5)) and SSMSN ((14)) vectors",
+  "family": "NMVM_d / SSMSN",
+  "compared": "directionally convex order under entrywise-ordered covariance entries",
+  "hypotheses": [
+   {
+    "text": "\u00b5 = \u00b5\u2032; \u03c3ij \u2264 \u03c3\u2032ij for all 1 \u2264 i, j \u2264 d; \u03bb\u03c4 = \u03bb\u2032\u03c4",
+    "formal": "common location/skewness, entrywise dispersion order",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: dcx",
+   "direction": "X \u227cdcx Y (X dcx-smaller)"
+  },
+  "quantifiers": "all \u03c4 \u2208 SH",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: One-sided A; in scope \u2014 printed dcx AND sm conclusions split into two records."
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-863",
+  "claim": "Corollary 3(iv) \u2014 sm part",
+  "page": 13,
+  "quote": "(iv) If \u00b5 = \u00b5\u2032, \u03c3ij \u2264 \u03c3\u2032ij and \u03bb\u03c4 = \u03bb\u2032\u03c4 for all \u03c4 \u2208 SH (\u03bb = \u03bb\u2032), then X \u227cdcx Y and X \u227csm Y.",
+  "kind": "corollary",
+  "model": "other: multivariate NMVM ((5)) and SSMSN ((14)) vectors",
+  "family": "NMVM_d / SSMSN",
+  "compared": "supermodular order under entrywise-ordered covariance entries",
+  "hypotheses": [
+   {
+    "text": "\u00b5 = \u00b5\u2032; \u03c3ij \u2264 \u03c3\u2032ij for all 1 \u2264 i, j \u2264 d; \u03bb\u03c4 = \u03bb\u2032\u03c4",
+    "formal": "common location/skewness, entrywise dispersion order",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: sm",
+   "direction": "X \u227csm Y (X supermodular-smaller)"
+  },
+  "quantifiers": "all \u03c4 \u2208 SH",
+  "numbers": "",
+  "ambiguity": "Two conclusions printed in one item; split per spec.",
+  "adjudication": "adjudicated: One-sided A; in scope \u2014 printed dcx AND sm conclusions split into two records."
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-863",
+  "claim": "Lemma 1",
+  "page": 4,
+  "quote": "Lemma 1. Let X and Y be the random vectors as given in (5). If \u00b5 \u2264 \u00b5\u2032, \u03bb \u2264 \u03bb\u2032, \u03c3 = \u03c3\u2032, \u03c3ij \u2264 \u03c3\u2032ij for all 1 \u2264 i, j \u2264 d, then P(X \u2265 t) \u2264 P(Y \u2265 t) for all t \u2208 Rd. If \u00b5i < \u00b5\u2032i or \u03bbi < \u03bb\u2032i for some i or \u03c3ij < \u03c3\u2032ij for some (i, j), then the above inequality is in fact strict.",
+  "kind": "lemma",
+  "model": "other: multivariate NMVM vectors",
+  "family": "X \u223c NMVM_d(\u00b5, \u03a3, \u03bb, h), Y \u223c NMVM_d(\u00b5\u2032, \u03a3\u2032, \u03bb\u2032, h) ((5))",
+  "compared": "upper orthant order (joint survival probabilities) under ordered parameters",
+  "hypotheses": [
+   {
+    "text": "\u00b5 \u2264 \u00b5\u2032, \u03bb \u2264 \u03bb\u2032, \u03c3 = \u03c3\u2032, \u03c3ij \u2264 \u03c3\u2032ij for all 1 \u2264 i, j \u2264 d",
+    "formal": "ordered location/skewness, equal diagonal, ordered covariances",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: uo",
+   "direction": "X \u227cuo Y, i.e., P(X \u2265 t) \u2264 P(Y \u2265 t) for all t (X upper-orthant smaller; strict under any strict inequality)"
+  },
+  "quantifiers": "all t \u2208 R^d",
+  "numbers": "",
+  "ambiguity": "Slepian-type inequality; B's 'B_smaller' tag is wrong \u2014 the printed inequality makes X (the A side) smaller.",
+  "adjudication": "adjudicated: Direction resolved to A_smaller: P(X \u2265 t) \u2264 P(Y \u2265 t) means X \u2264uo Y."
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-863",
+  "claim": "Lemma 3",
+  "page": 6,
+  "quote": "Lemma 3. Let X and Y be the random vectors as given in (14). If \u00b5 \u2264 \u00b5\u2032, \u03bb\u03c4 \u2264 \u03bb\u2032\u03c4 for all \u03c4 \u2208 SH, \u03c3 = \u03c3\u2032, \u03c3ij \u2264 \u03c3\u2032ij, for all 1 \u2264 i, j \u2264 d, then P(X \u2265 t) \u2264 P(Y \u2265 t) for all t \u2208 Rd. If \u00b5i < \u00b5\u2032i or \u03bb\u03c4,i < \u03bb\u2032\u03c4,i for some i or \u03c3ij < \u03c3\u2032ij for some (i, j), then the above inequality is indeed strict.",
+  "kind": "lemma",
+  "model": "other: multivariate SSMSN vectors",
+  "family": "X|\u03c4 \u223c SN_d(\u00b5, a1(\u03c41)\u03a3, a2(\u03c4)\u03b1), Y|\u03c4 \u223c SN_d(\u00b5\u2032, a1(\u03c41)\u03a3\u2032, a2(\u03c4)\u03b1\u2032) ((14))",
+  "compared": "upper orthant order (joint survival probabilities) under ordered parameters",
+  "hypotheses": [
+   {
+    "text": "\u00b5 \u2264 \u00b5\u2032, \u03bb\u03c4 \u2264 \u03bb\u2032\u03c4 for all \u03c4 \u2208 SH, \u03c3 = \u03c3\u2032, \u03c3ij \u2264 \u03c3\u2032ij for all i, j",
+    "formal": "ordered parameters",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: uo",
+   "direction": "X \u227cuo Y, i.e., P(X \u2265 t) \u2264 P(Y \u2265 t) for all t (X upper-orthant smaller; strict under strict inequalities)"
+  },
+  "quantifiers": "all t \u2208 R^d, all \u03c4 \u2208 SH",
+  "numbers": "",
+  "ambiguity": "Slepian inequality for SSMSN; B's 'B_smaller' tag is wrong \u2014 X (A side) is smaller.",
+  "adjudication": "adjudicated: Direction resolved to A_smaller as in Lemma 1; SSMSN analog."
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-863",
+  "claim": "Lemma 5",
+  "page": 8,
+  "quote": "Lemma 5. Let X1 and X2 be two SSMSN random variables given by Xi|\u03c4 \u223c SN1(\u00b5i, a1(\u03c41)\u03c3i\u00b2, a2(\u03c4)\u03b1i), i = 1, 2. Then, X1 \u227cst X2 if and only if \u00b51 \u2264 \u00b52, \u03c31 = \u03c32 and \u03b11 \u2264 \u03b12 (\u03bb\u03c4,1 \u2264 \u03bb\u03c4,2).",
+  "kind": "lemma",
+  "model": "single",
+  "family": "univariate SSMSN (19): Xi|\u03c4 \u223c SN1(\u00b5i, a1(\u03c41)\u03c3i\u00b2, a2(\u03c4)\u03b1i)",
+  "compared": "usual stochastic order characterized by location/shape parameters (equal scale)",
+  "hypotheses": [
+   {
+    "text": "Xi|\u03c4 \u223c SN1(\u00b5i, a1(\u03c41)\u03c3i\u00b2, a2(\u03c4)\u03b1i), i = 1, 2",
+    "formal": "model (19)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X1 \u227cst X2 iff \u00b51 \u2264 \u00b52, \u03c31 = \u03c32, \u03b11 \u2264 \u03b12 (\u03bb\u03c4,1 \u2264 \u03bb\u03c4,2)"
+  },
+  "quantifiers": "univariate",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Both passes agree on the iff; also keep B's Figure-1 example record (printed parameter sets, surviva"
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-863",
+  "claim": "Lemma 5 \u2014 Figure 1 illustration",
+  "page": 9,
+  "quote": "To illustrate the result of Lemma 5, the survival functions for two special cases of univariate SSMSN distributions are plotted in Figure 1: (i) the skew-t-normal distributions denoted by STN(\u00b5, \u03c3, \u03b1, \u03bd), and (ii) the skew-Cauchy distribution denoted by SC(\u00b5, \u03c3, \u03b1). Distributions whose parameters satisfy the conditions of Lemma 5 are stochastically ordered. Otherwise, their survival functions intersect each other and are therefore not stochastically ordered.",
+  "kind": "example",
+  "model": "single",
+  "family": "univariate skew-t-normal STN and skew-Cauchy SC (SSMSN subfamilies)",
+  "compared": "plotted survival-function nesting vs crossing under the Lemma 5 conditions",
+  "hypotheses": [
+   {
+    "text": "\u00b51 \u2264 \u00b52, \u03c31 = \u03c32, \u03b11 \u2264 \u03b12 for ordering; violated for crossing",
+    "formal": "Lemma 5 conditions",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "st-ordered (nested survival functions) when \u00b51 \u2264 \u00b52, \u03c31 = \u03c32, \u03b11 \u2264 \u03b12; survival functions cross otherwise"
+  },
+  "quantifiers": "univariate",
+  "numbers": "STN(0,1,0.25,5), STN(0,1,0.50,5), STN(1,2,0.25,5), STN(1,2,0.50,5); SC(0,1,\u22120.5), SC(0,4,\u22120.5), SC(1,1,+0.5), SC(1,4,\u22120.5)",
+  "ambiguity": "Graphical illustration only (Figure 1); parameters printed in figure labels.",
+  "adjudication": "adjudicated: Both passes agree on the iff; also keep B's Figure-1 example record (printed parameter sets, surviva"
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-863",
+  "claim": "Lemma 6(i)",
+  "page": 10,
+  "quote": "Lemma 6. Let X1 and X2 be the random variables as given in (21). (i) If \u00b51 = \u00b52, then X1 \u227cst X2 if and only if \u03c31 = \u03c32 and \u03bb1 \u2264 \u03bb2;",
+  "kind": "lemma",
+  "model": "single",
+  "family": "univariate NMVM (21): Xi \u223c NMVM1(\u00b5i, \u03c3i\u00b2, \u03bbi, h)",
+  "compared": "usual stochastic order under common location",
+  "hypotheses": [
+   {
+    "text": "\u00b51 = \u00b52",
+    "formal": "common location",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X1 \u227cst X2 iff \u03c31 = \u03c32 and \u03bb1 \u2264 \u03bb2"
+  },
+  "quantifiers": "univariate",
+  "numbers": "",
+  "ambiguity": "Text states sufficiency holds generally but necessity is only proved under the equal-\u00b5 or equal-\u03bb restriction: 'we are not able to show that these conditions are necessary ... in general'.",
+  "adjudication": "adjudicated: Split into the two printed iff parts plus B's Figure-2 example record."
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-863",
+  "claim": "Lemma 6(ii)",
+  "page": 10,
+  "quote": "(ii) If \u03bb1 = \u03bb2, then X1 \u227cst X2 if and only if \u03c31 = \u03c32 and \u00b51 \u2264 \u00b52.",
+  "kind": "lemma",
+  "model": "single",
+  "family": "univariate NMVM (21)",
+  "compared": "usual stochastic order under common skewness",
+  "hypotheses": [
+   {
+    "text": "\u03bb1 = \u03bb2",
+    "formal": "common skewness",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X1 \u227cst X2 iff \u03c31 = \u03c32 and \u00b51 \u2264 \u00b52"
+  },
+  "quantifiers": "univariate",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Split into the two printed iff parts plus B's Figure-2 example record."
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-863",
+  "claim": "Lemma 6 \u2014 Figure 2 illustration",
+  "page": 10,
+  "quote": "To illustrate the result of Lemma 6, we consider the special case of univariate NMVM distributions with W \u223c Exp(1), which is a univariate generalized hyperbolic distribution denoted by GH(\u00b5, \u03c3, \u03bb). Plots of the survival functions of two cases of GH distribution with common locations (i) and GH distribution with common skewness parameters (ii) are shown in Figure 2. Distributions whose parameters satisfy the conditions of Lemma 6 are stochastically ordered, and are not ordered otherwise.",
+  "kind": "example",
+  "model": "single",
+  "family": "univariate GH = NMVM with W \u223c Exp(1)",
+  "compared": "plotted survival-function nesting vs crossing under the Lemma 6 conditions",
+  "hypotheses": [
+   {
+    "text": "common \u00b5 with \u03bb1 \u2264 \u03bb2, or common \u03bb with \u00b51 \u2264 \u00b52, equal \u03c3",
+    "formal": "Lemma 6 conditions",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "st-ordered when Lemma 6 conditions hold; survival functions cross otherwise"
+  },
+  "quantifiers": "univariate",
+  "numbers": "GH(0,1,0.5), GH(0,1,1.0), GH(0,2,0.5), GH(0,2,1.0) [\u00b51 = \u00b52 = 0]; GH(0.0,1,1), GH(0.5,1,1), GH(0.0,2,1), GH(0.5,2,1) [\u03bb1 = \u03bb2 = 1]",
+  "ambiguity": "Graphical illustration only (Figure 2); parameters printed in figure labels.",
+  "adjudication": "adjudicated: Split into the two printed iff parts plus B's Figure-2 example record."
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-863",
+  "claim": "Lemma 9",
+  "page": 12,
+  "quote": "Lemma 9. Consider the random vectors (X1, X2), (Y1, Y2) \u2208 \u211c2(F1, F2). Then, (X1, X2) \u227cconc (Y1, Y2) if and only if Cov(h1(X1), h2(X2)) \u2264 Cov(h1(Y1), h2(Y2)) for all increasing functions h1 and h2, when the involved covariances exist.",
+  "kind": "lemma",
+  "model": "other: bivariate vectors in the Fr\u00e9chet space R^2(F1,F2) (common marginals)",
+  "family": "arbitrary marginals F1, F2",
+  "compared": "concordance order iff ordering of all increasing-covariance functionals",
+  "hypotheses": [
+   {
+    "text": "(X1,X2), (Y1,Y2) \u2208 \u211c2(F1,F2); covariances exist",
+    "formal": "same marginals",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: concordance (\u227cconc)",
+   "direction": "(X1,X2) \u227cconc (Y1,Y2) iff Cov(h1(X1),h2(X2)) \u2264 Cov(h1(Y1),h2(Y2)) for all increasing h1, h2"
+  },
+  "quantifiers": "all increasing h1, h2",
+  "numbers": "",
+  "ambiguity": "Cited characterization (Dhaene\u2013Goovaerts / M\u00fcller\u2013Stoyan) restated for use; general class but the paper specializes it in Corollaries 1-2 and Proposition 4 (2-d equivalence with \u227csm).",
+  "adjudication": "adjudicated: Same order under two spellings; keep \u2014 applied to SSMSN/NMVM in the corollaries that follow."
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-863",
+  "claim": "Proposition 3(ii)",
+  "page": 13,
+  "quote": "Proposition 3. Suppose X and Y are the NMVM distributed random vectors as given in (5). (i) If \u00b5 = \u00b5\u2032, then X \u227cst Y if and only if \u03bb \u2264 \u03bb\u2032 and \u03a3 = \u03a3\u2032; (ii) If \u03bb = \u03bb\u2032, then X \u227cst Y if and only if \u00b5 \u2264 \u00b5\u2032 and \u03a3 = \u03a3\u2032.",
+  "kind": "proposition",
+  "model": "other: multivariate NMVM vectors",
+  "family": "X \u223c NMVM_d(\u00b5, \u03a3, \u03bb, h), Y \u223c NMVM_d(\u00b5\u2032, \u03a3\u2032, \u03bb\u2032, h) ((5))",
+  "compared": "usual stochastic order under common skewness",
+  "hypotheses": [
+   {
+    "text": "\u03bb = \u03bb\u2032",
+    "formal": "common skewness vector",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X \u227cst Y iff \u00b5 \u2264 \u00b5\u2032 and \u03a3 = \u03a3\u2032"
+  },
+  "quantifiers": "multivariate d",
+  "numbers": "",
+  "ambiguity": "Proof omitted in paper ('along the lines of Proposition 2').",
+  "adjudication": "adjudicated: One-sided A; in scope \u2014 st characterization for NMVM under common \u03bb."
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-863",
+  "claim": "Proposition 4",
+  "page": 13,
+  "quote": "Proposition 4. Suppose the random vectors X and Y are as given in both cases (2) and (28). Then, X \u227csm Y if and only if X and Y have the same marginals (Xi =^d Yi, i = 1, ..., d) and \u03c3ij \u2264 \u03c3\u2032ij for any 1 \u2264 i \u2260 j \u2264 d.",
+  "kind": "proposition",
+  "model": "other: multivariate NMVM ((2)/(5)) and SSMSN scale-mixture ((28)) vectors",
+  "family": "NMVM_d and SN_d(\u00b5, a1(\u03c41)\u03a3, \u03b1) (a2(\u03c4) = 1 case)",
+  "compared": "supermodular order iff same marginals and ordered off-diagonal covariances",
+  "hypotheses": [
+   {
+    "text": "X, Y as in cases (2) and (28)",
+    "formal": "both model setups",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: sm",
+   "direction": "X \u227csm Y iff identical marginals and \u03c3ij \u2264 \u03c3\u2032ij for i \u2260 j"
+  },
+  "quantifiers": "1 \u2264 i \u2260 j \u2264 d",
+  "numbers": "",
+  "ambiguity": "Equal marginals force equal diagonal \u03c3ii; only off-diagonal entries ordered. sm = supermodular order.",
+  "adjudication": "adjudicated: sm = supermodular order, same conclusion under both spellings."
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-863",
+  "claim": "Proposition 5(ii)",
+  "page": 14,
+  "quote": "Proposition 5. (i) If \u00b5 = \u00b5\u2032, then X \u227ccx Y if and only if \u03bb = \u03bb\u2032 and \u03a3\u2032 \u2212 \u03a3 is positive semi-definite; (ii) If \u03bb = \u03bb\u2032, then X \u227ccx Y if and only if \u00b5 = \u00b5\u2032 and \u03a3\u2032 \u2212 \u03a3 is positive semi-definite.",
+  "kind": "proposition",
+  "model": "other: multivariate NMVM ((2)) and SSMSN scale-mixture ((28)) vectors",
+  "family": "NMVM_d and SN_d(\u00b5, a1(\u03c41)\u03a3, \u03b1)",
+  "compared": "convex order under common skewness",
+  "hypotheses": [
+   {
+    "text": "\u03bb = \u03bb\u2032",
+    "formal": "common skewness",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: cx",
+   "direction": "X \u227ccx Y iff \u00b5 = \u00b5\u2032 and \u03a3\u2032 \u2212 \u03a3 positive semi-definite"
+  },
+  "quantifiers": "multivariate d",
+  "numbers": "",
+  "ambiguity": "Convex order (not increasing convex) \u2014 requires equal means, hence \u00b5 = \u00b5\u2032 in the characterization.",
+  "adjudication": "adjudicated: One-sided A; in scope \u2014 cx characterization under common \u03bb."
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-863",
+  "claim": "Proposition 6(ii)",
+  "page": 14,
+  "quote": "Proposition 6. (i) If \u00b5 = \u00b5\u2032, then X \u227cdcx Y if and only if \u03bb = \u03bb\u2032 and \u03c3ij \u2264 \u03c3\u2032ij for all 1 \u2264 i \u2260 j \u2264 d; (ii) If \u03bb = \u03bb\u2032, then X \u227cdcx Y if and only if \u00b5 = \u00b5\u2032 and \u03c3ij \u2264 \u03c3\u2032ij for all 1 \u2264 i \u2260 j \u2264 d.",
+  "kind": "proposition",
+  "model": "other: multivariate NMVM ((2)) and SSMSN scale-mixture ((28)) vectors",
+  "family": "NMVM_d and SN_d(\u00b5, a1(\u03c41)\u03a3, \u03b1)",
+  "compared": "directionally convex order under common skewness",
+  "hypotheses": [
+   {
+    "text": "\u03bb = \u03bb\u2032",
+    "formal": "common skewness",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: dcx",
+   "direction": "X \u227cdcx Y iff \u00b5 = \u00b5\u2032 and \u03c3ij \u2264 \u03c3\u2032ij for all 1 \u2264 i \u2260 j \u2264 d"
+  },
+  "quantifiers": "1 \u2264 i \u2260 j \u2264 d",
+  "numbers": "",
+  "ambiguity": "dcx = directionally convex order.",
+  "adjudication": "adjudicated: One-sided A; in scope \u2014 dcx characterization under common \u03bb."
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-863",
   "claim": "Corollary 3(i)",
   "page": 13,
   "quote": "Corollary 3. Let the random vectors X and Y be as given in (5) and (14). (i) If \u00b5 \u2264 \u00b5\u2032 , \u03a3 = \u03a3\u2032 and \u03bb\u03c4 \u2264 \u03bb\u2032\u03c4 for all \u03c4 \u2208 SH (\u03bb \u2264 \u03bb\u2032 ), then X \u227cst Y;",
@@ -308,437 +758,5 @@
   "numbers": "Figure 2(i): GH(0,1,0.5), GH(0,1,1.0), GH(0,2,0.5), GH(0,2,1.0); Figure 2(ii): GH(0,1,1), GH(0.5,1,1), GH(0,2,1), GH(0.5,2,1)",
   "ambiguity": "",
   "adjudication": "example record (pass b)"
- },
- {
-  "paper": "doi:10.19139/soic-2310-5070-863",
-  "claim": "Corollary 1",
-  "page": 12,
-  "quote": "Corollary 1. Consider the bivariate SSMSN random vectors X and Y in (25). Then, X \u227cconc Y if and only if \u03c1X \u2264 \u03c1Y.",
-  "kind": "corollary",
-  "model": "other: bivariate scale-shape mixture of skew-normal (SSMSN) vectors in the Fr\u00e9chet space R^2(F1,F2)",
-  "family": "X|\u03c4 \u223c SN2(\u00b5X, a1(\u03c4)\u03a3X, \u03b1X), Y|\u03c4 \u223c SN2(\u00b5Y, a1(\u03c4)\u03a3Y, \u03b1Y) ((25))",
-  "compared": "concordance order vs ordering of generalized correlation coefficients \u03c1X, \u03c1Y",
-  "hypotheses": [
-   {
-    "text": "X, Y \u2208 \u211c2(F1, F2) (same marginals); \u03c1 defined as \u03c312/\u221a(\u03c311\u03c322) \u2014 generalized coefficient even when covariances do not exist",
-    "formal": "same marginals",
-    "source": "section preamble / (26)"
-   }
-  ],
-  "conclusion": {
-   "order": "other: concordance (\u227cconc)",
-   "direction": "X \u227cconc Y iff \u03c1X \u2264 \u03c1Y (X concordance-smaller)"
-  },
-  "quantifiers": "bivariate",
-  "numbers": "",
-  "ambiguity": "Both passes agree on the iff; only the order label spelling differed (conc vs concordance)."
- },
- {
-  "paper": "doi:10.19139/soic-2310-5070-863",
-  "claim": "Corollary 2",
-  "page": 12,
-  "quote": "Corollary 2. Consider the bivariate NMVM random vectors X, Y \u2208 \u211c2(F1, F2) as X \u223c NMVM2(\u00b5X, \u03a3X, \u03bbX, h), Y \u223c NMVM2(\u00b5Y, \u03a3Y, \u03bbY, h). Then, X \u227cconc Y if and only if \u03c1X \u2264 \u03c1Y.",
-  "kind": "corollary",
-  "model": "other: bivariate normal mean-variance mixture (NMVM) vectors in R^2(F1,F2)",
-  "family": "X \u223c NMVM2(\u00b5X, \u03a3X, \u03bbX, h), Y \u223c NMVM2(\u00b5Y, \u03a3Y, \u03bbY, h) ((27))",
-  "compared": "concordance order vs ordering of generalized correlation coefficients",
-  "hypotheses": [
-   {
-    "text": "X, Y \u2208 \u211c2(F1, F2) (same marginals)",
-    "formal": "same marginals",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "other: concordance (\u227cconc)",
-   "direction": "X \u227cconc Y iff \u03c1X \u2264 \u03c1Y"
-  },
-  "quantifiers": "bivariate",
-  "numbers": "",
-  "ambiguity": ""
- },
- {
-  "paper": "doi:10.19139/soic-2310-5070-863",
-  "claim": "Corollary 3(ii)",
-  "page": 13,
-  "quote": "Corollary 3. Let the random vectors X and Y be as given in (5) and (14). ... (ii) If \u00b5 = \u00b5\u2032, \u03a3\u2032 \u2212 \u03a3 is positive semi-definite and \u03bb\u03c4 = \u03bb\u2032\u03c4 for all \u03c4 \u2208 SH (\u03bb = \u03bb\u2032), then X \u227ccx Y;",
-  "kind": "corollary",
-  "model": "other: multivariate NMVM ((5)) and SSMSN ((14)) vectors",
-  "family": "NMVM_d(\u00b5, \u03a3, \u03bb, h) and SSMSN via SN_d(\u00b5, a1(\u03c41)\u03a3, a2(\u03c4)\u03b1)",
-  "compared": "convex order between vectors with equal locations and skewness, ordered dispersion",
-  "hypotheses": [
-   {
-    "text": "\u00b5 = \u00b5\u2032; \u03a3\u2032 \u2212 \u03a3 positive semi-definite; \u03bb\u03c4 = \u03bb\u2032\u03c4 for all \u03c4 \u2208 SH",
-    "formal": "common location/skewness, psd dispersion difference",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "other: cx",
-   "direction": "X \u227ccx Y (X convex-smaller)"
-  },
-  "quantifiers": "all \u03c4 \u2208 SH",
-  "numbers": "",
-  "ambiguity": "Applies to both model cases (5) and (14); when a2(\u03c4) = 1 the index \u03c4 in \u03bb\u03c4 is dropped."
- },
- {
-  "paper": "doi:10.19139/soic-2310-5070-863",
-  "claim": "Corollary 3(iii)",
-  "page": 13,
-  "quote": "(iii) If \u00b5 \u2264 \u00b5\u2032, \u03a3\u2032 \u2212 \u03a3 is positive semi-definite and \u03bb\u03c4 \u2264 \u03bb\u2032\u03c4 for all \u03c4 \u2208 SH (\u03bb \u2264 \u03bb\u2032), then X \u227cicx Y;",
-  "kind": "corollary",
-  "model": "other: multivariate NMVM ((5)) and SSMSN ((14)) vectors",
-  "family": "NMVM_d / SSMSN",
-  "compared": "increasing convex order with componentwise-ordered parameters",
-  "hypotheses": [
-   {
-    "text": "\u00b5 \u2264 \u00b5\u2032; \u03a3\u2032 \u2212 \u03a3 positive semi-definite; \u03bb\u03c4 \u2264 \u03bb\u2032\u03c4 for all \u03c4 \u2208 SH",
-    "formal": "ordered location + skewness, psd dispersion difference",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "icx",
-   "direction": "X \u227cicx Y (X icx-smaller)"
-  },
-  "quantifiers": "all \u03c4 \u2208 SH",
-  "numbers": "",
-  "ambiguity": ""
- },
- {
-  "paper": "doi:10.19139/soic-2310-5070-863",
-  "claim": "Corollary 3(iv) \u2014 dcx part",
-  "page": 13,
-  "quote": "(iv) If \u00b5 = \u00b5\u2032, \u03c3ij \u2264 \u03c3\u2032ij and \u03bb\u03c4 = \u03bb\u2032\u03c4 for all \u03c4 \u2208 SH (\u03bb = \u03bb\u2032), then X \u227cdcx Y and X \u227csm Y.",
-  "kind": "corollary",
-  "model": "other: multivariate NMVM ((5)) and SSMSN ((14)) vectors",
-  "family": "NMVM_d / SSMSN",
-  "compared": "directionally convex order under entrywise-ordered covariance entries",
-  "hypotheses": [
-   {
-    "text": "\u00b5 = \u00b5\u2032; \u03c3ij \u2264 \u03c3\u2032ij for all 1 \u2264 i, j \u2264 d; \u03bb\u03c4 = \u03bb\u2032\u03c4",
-    "formal": "common location/skewness, entrywise dispersion order",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "other: dcx",
-   "direction": "X \u227cdcx Y (X dcx-smaller)"
-  },
-  "quantifiers": "all \u03c4 \u2208 SH",
-  "numbers": "",
-  "ambiguity": ""
- },
- {
-  "paper": "doi:10.19139/soic-2310-5070-863",
-  "claim": "Corollary 3(iv) \u2014 sm part",
-  "page": 13,
-  "quote": "(iv) If \u00b5 = \u00b5\u2032, \u03c3ij \u2264 \u03c3\u2032ij and \u03bb\u03c4 = \u03bb\u2032\u03c4 for all \u03c4 \u2208 SH (\u03bb = \u03bb\u2032), then X \u227cdcx Y and X \u227csm Y.",
-  "kind": "corollary",
-  "model": "other: multivariate NMVM ((5)) and SSMSN ((14)) vectors",
-  "family": "NMVM_d / SSMSN",
-  "compared": "supermodular order under entrywise-ordered covariance entries",
-  "hypotheses": [
-   {
-    "text": "\u00b5 = \u00b5\u2032; \u03c3ij \u2264 \u03c3\u2032ij for all 1 \u2264 i, j \u2264 d; \u03bb\u03c4 = \u03bb\u2032\u03c4",
-    "formal": "common location/skewness, entrywise dispersion order",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "other: sm",
-   "direction": "X \u227csm Y (X supermodular-smaller)"
-  },
-  "quantifiers": "all \u03c4 \u2208 SH",
-  "numbers": "",
-  "ambiguity": "Two conclusions printed in one item; split per spec."
- },
- {
-  "paper": "doi:10.19139/soic-2310-5070-863",
-  "claim": "Lemma 1",
-  "page": 4,
-  "quote": "Lemma 1. Let X and Y be the random vectors as given in (5). If \u00b5 \u2264 \u00b5\u2032, \u03bb \u2264 \u03bb\u2032, \u03c3 = \u03c3\u2032, \u03c3ij \u2264 \u03c3\u2032ij for all 1 \u2264 i, j \u2264 d, then P(X \u2265 t) \u2264 P(Y \u2265 t) for all t \u2208 Rd. If \u00b5i < \u00b5\u2032i or \u03bbi < \u03bb\u2032i for some i or \u03c3ij < \u03c3\u2032ij for some (i, j), then the above inequality is in fact strict.",
-  "kind": "lemma",
-  "model": "other: multivariate NMVM vectors",
-  "family": "X \u223c NMVM_d(\u00b5, \u03a3, \u03bb, h), Y \u223c NMVM_d(\u00b5\u2032, \u03a3\u2032, \u03bb\u2032, h) ((5))",
-  "compared": "upper orthant order (joint survival probabilities) under ordered parameters",
-  "hypotheses": [
-   {
-    "text": "\u00b5 \u2264 \u00b5\u2032, \u03bb \u2264 \u03bb\u2032, \u03c3 = \u03c3\u2032, \u03c3ij \u2264 \u03c3\u2032ij for all 1 \u2264 i, j \u2264 d",
-    "formal": "ordered location/skewness, equal diagonal, ordered covariances",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "other: uo",
-   "direction": "X \u227cuo Y, i.e., P(X \u2265 t) \u2264 P(Y \u2265 t) for all t (X upper-orthant smaller; strict under any strict inequality)"
-  },
-  "quantifiers": "all t \u2208 R^d",
-  "numbers": "",
-  "ambiguity": "Slepian-type inequality; B's 'B_smaller' tag is wrong \u2014 the printed inequality makes X (the A side) smaller."
- },
- {
-  "paper": "doi:10.19139/soic-2310-5070-863",
-  "claim": "Lemma 3",
-  "page": 6,
-  "quote": "Lemma 3. Let X and Y be the random vectors as given in (14). If \u00b5 \u2264 \u00b5\u2032, \u03bb\u03c4 \u2264 \u03bb\u2032\u03c4 for all \u03c4 \u2208 SH, \u03c3 = \u03c3\u2032, \u03c3ij \u2264 \u03c3\u2032ij, for all 1 \u2264 i, j \u2264 d, then P(X \u2265 t) \u2264 P(Y \u2265 t) for all t \u2208 Rd. If \u00b5i < \u00b5\u2032i or \u03bb\u03c4,i < \u03bb\u2032\u03c4,i for some i or \u03c3ij < \u03c3\u2032ij for some (i, j), then the above inequality is indeed strict.",
-  "kind": "lemma",
-  "model": "other: multivariate SSMSN vectors",
-  "family": "X|\u03c4 \u223c SN_d(\u00b5, a1(\u03c41)\u03a3, a2(\u03c4)\u03b1), Y|\u03c4 \u223c SN_d(\u00b5\u2032, a1(\u03c41)\u03a3\u2032, a2(\u03c4)\u03b1\u2032) ((14))",
-  "compared": "upper orthant order (joint survival probabilities) under ordered parameters",
-  "hypotheses": [
-   {
-    "text": "\u00b5 \u2264 \u00b5\u2032, \u03bb\u03c4 \u2264 \u03bb\u2032\u03c4 for all \u03c4 \u2208 SH, \u03c3 = \u03c3\u2032, \u03c3ij \u2264 \u03c3\u2032ij for all i, j",
-    "formal": "ordered parameters",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "other: uo",
-   "direction": "X \u227cuo Y, i.e., P(X \u2265 t) \u2264 P(Y \u2265 t) for all t (X upper-orthant smaller; strict under strict inequalities)"
-  },
-  "quantifiers": "all t \u2208 R^d, all \u03c4 \u2208 SH",
-  "numbers": "",
-  "ambiguity": "Slepian inequality for SSMSN; B's 'B_smaller' tag is wrong \u2014 X (A side) is smaller."
- },
- {
-  "paper": "doi:10.19139/soic-2310-5070-863",
-  "claim": "Lemma 5",
-  "page": 8,
-  "quote": "Lemma 5. Let X1 and X2 be two SSMSN random variables given by Xi|\u03c4 \u223c SN1(\u00b5i, a1(\u03c41)\u03c3i\u00b2, a2(\u03c4)\u03b1i), i = 1, 2. Then, X1 \u227cst X2 if and only if \u00b51 \u2264 \u00b52, \u03c31 = \u03c32 and \u03b11 \u2264 \u03b12 (\u03bb\u03c4,1 \u2264 \u03bb\u03c4,2).",
-  "kind": "lemma",
-  "model": "single",
-  "family": "univariate SSMSN (19): Xi|\u03c4 \u223c SN1(\u00b5i, a1(\u03c41)\u03c3i\u00b2, a2(\u03c4)\u03b1i)",
-  "compared": "usual stochastic order characterized by location/shape parameters (equal scale)",
-  "hypotheses": [
-   {
-    "text": "Xi|\u03c4 \u223c SN1(\u00b5i, a1(\u03c41)\u03c3i\u00b2, a2(\u03c4)\u03b1i), i = 1, 2",
-    "formal": "model (19)",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "X1 \u227cst X2 iff \u00b51 \u2264 \u00b52, \u03c31 = \u03c32, \u03b11 \u2264 \u03b12 (\u03bb\u03c4,1 \u2264 \u03bb\u03c4,2)"
-  },
-  "quantifiers": "univariate",
-  "numbers": "",
-  "ambiguity": ""
- },
- {
-  "paper": "doi:10.19139/soic-2310-5070-863",
-  "claim": "Lemma 5 \u2014 Figure 1 illustration",
-  "page": 9,
-  "quote": "To illustrate the result of Lemma 5, the survival functions for two special cases of univariate SSMSN distributions are plotted in Figure 1: (i) the skew-t-normal distributions denoted by STN(\u00b5, \u03c3, \u03b1, \u03bd), and (ii) the skew-Cauchy distribution denoted by SC(\u00b5, \u03c3, \u03b1). Distributions whose parameters satisfy the conditions of Lemma 5 are stochastically ordered. Otherwise, their survival functions intersect each other and are therefore not stochastically ordered.",
-  "kind": "example",
-  "model": "single",
-  "family": "univariate skew-t-normal STN and skew-Cauchy SC (SSMSN subfamilies)",
-  "compared": "plotted survival-function nesting vs crossing under the Lemma 5 conditions",
-  "hypotheses": [
-   {
-    "text": "\u00b51 \u2264 \u00b52, \u03c31 = \u03c32, \u03b11 \u2264 \u03b12 for ordering; violated for crossing",
-    "formal": "Lemma 5 conditions",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "st-ordered (nested survival functions) when \u00b51 \u2264 \u00b52, \u03c31 = \u03c32, \u03b11 \u2264 \u03b12; survival functions cross otherwise"
-  },
-  "quantifiers": "univariate",
-  "numbers": "STN(0,1,0.25,5), STN(0,1,0.50,5), STN(1,2,0.25,5), STN(1,2,0.50,5); SC(0,1,\u22120.5), SC(0,4,\u22120.5), SC(1,1,+0.5), SC(1,4,\u22120.5)",
-  "ambiguity": "Graphical illustration only (Figure 1); parameters printed in figure labels."
- },
- {
-  "paper": "doi:10.19139/soic-2310-5070-863",
-  "claim": "Lemma 6(i)",
-  "page": 10,
-  "quote": "Lemma 6. Let X1 and X2 be the random variables as given in (21). (i) If \u00b51 = \u00b52, then X1 \u227cst X2 if and only if \u03c31 = \u03c32 and \u03bb1 \u2264 \u03bb2;",
-  "kind": "lemma",
-  "model": "single",
-  "family": "univariate NMVM (21): Xi \u223c NMVM1(\u00b5i, \u03c3i\u00b2, \u03bbi, h)",
-  "compared": "usual stochastic order under common location",
-  "hypotheses": [
-   {
-    "text": "\u00b51 = \u00b52",
-    "formal": "common location",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "X1 \u227cst X2 iff \u03c31 = \u03c32 and \u03bb1 \u2264 \u03bb2"
-  },
-  "quantifiers": "univariate",
-  "numbers": "",
-  "ambiguity": "Text states sufficiency holds generally but necessity is only proved under the equal-\u00b5 or equal-\u03bb restriction: 'we are not able to show that these conditions are necessary ... in general'."
- },
- {
-  "paper": "doi:10.19139/soic-2310-5070-863",
-  "claim": "Lemma 6(ii)",
-  "page": 10,
-  "quote": "(ii) If \u03bb1 = \u03bb2, then X1 \u227cst X2 if and only if \u03c31 = \u03c32 and \u00b51 \u2264 \u00b52.",
-  "kind": "lemma",
-  "model": "single",
-  "family": "univariate NMVM (21)",
-  "compared": "usual stochastic order under common skewness",
-  "hypotheses": [
-   {
-    "text": "\u03bb1 = \u03bb2",
-    "formal": "common skewness",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "X1 \u227cst X2 iff \u03c31 = \u03c32 and \u00b51 \u2264 \u00b52"
-  },
-  "quantifiers": "univariate",
-  "numbers": "",
-  "ambiguity": ""
- },
- {
-  "paper": "doi:10.19139/soic-2310-5070-863",
-  "claim": "Lemma 6 \u2014 Figure 2 illustration",
-  "page": 10,
-  "quote": "To illustrate the result of Lemma 6, we consider the special case of univariate NMVM distributions with W \u223c Exp(1), which is a univariate generalized hyperbolic distribution denoted by GH(\u00b5, \u03c3, \u03bb). Plots of the survival functions of two cases of GH distribution with common locations (i) and GH distribution with common skewness parameters (ii) are shown in Figure 2. Distributions whose parameters satisfy the conditions of Lemma 6 are stochastically ordered, and are not ordered otherwise.",
-  "kind": "example",
-  "model": "single",
-  "family": "univariate GH = NMVM with W \u223c Exp(1)",
-  "compared": "plotted survival-function nesting vs crossing under the Lemma 6 conditions",
-  "hypotheses": [
-   {
-    "text": "common \u00b5 with \u03bb1 \u2264 \u03bb2, or common \u03bb with \u00b51 \u2264 \u00b52, equal \u03c3",
-    "formal": "Lemma 6 conditions",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "st-ordered when Lemma 6 conditions hold; survival functions cross otherwise"
-  },
-  "quantifiers": "univariate",
-  "numbers": "GH(0,1,0.5), GH(0,1,1.0), GH(0,2,0.5), GH(0,2,1.0) [\u00b51 = \u00b52 = 0]; GH(0.0,1,1), GH(0.5,1,1), GH(0.0,2,1), GH(0.5,2,1) [\u03bb1 = \u03bb2 = 1]",
-  "ambiguity": "Graphical illustration only (Figure 2); parameters printed in figure labels."
- },
- {
-  "paper": "doi:10.19139/soic-2310-5070-863",
-  "claim": "Lemma 9",
-  "page": 12,
-  "quote": "Lemma 9. Consider the random vectors (X1, X2), (Y1, Y2) \u2208 \u211c2(F1, F2). Then, (X1, X2) \u227cconc (Y1, Y2) if and only if Cov(h1(X1), h2(X2)) \u2264 Cov(h1(Y1), h2(Y2)) for all increasing functions h1 and h2, when the involved covariances exist.",
-  "kind": "lemma",
-  "model": "other: bivariate vectors in the Fr\u00e9chet space R^2(F1,F2) (common marginals)",
-  "family": "arbitrary marginals F1, F2",
-  "compared": "concordance order iff ordering of all increasing-covariance functionals",
-  "hypotheses": [
-   {
-    "text": "(X1,X2), (Y1,Y2) \u2208 \u211c2(F1,F2); covariances exist",
-    "formal": "same marginals",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "other: concordance (\u227cconc)",
-   "direction": "(X1,X2) \u227cconc (Y1,Y2) iff Cov(h1(X1),h2(X2)) \u2264 Cov(h1(Y1),h2(Y2)) for all increasing h1, h2"
-  },
-  "quantifiers": "all increasing h1, h2",
-  "numbers": "",
-  "ambiguity": "Cited characterization (Dhaene\u2013Goovaerts / M\u00fcller\u2013Stoyan) restated for use; general class but the paper specializes it in Corollaries 1-2 and Proposition 4 (2-d equivalence with \u227csm)."
- },
- {
-  "paper": "doi:10.19139/soic-2310-5070-863",
-  "claim": "Proposition 3(ii)",
-  "page": 13,
-  "quote": "Proposition 3. Suppose X and Y are the NMVM distributed random vectors as given in (5). (i) If \u00b5 = \u00b5\u2032, then X \u227cst Y if and only if \u03bb \u2264 \u03bb\u2032 and \u03a3 = \u03a3\u2032; (ii) If \u03bb = \u03bb\u2032, then X \u227cst Y if and only if \u00b5 \u2264 \u00b5\u2032 and \u03a3 = \u03a3\u2032.",
-  "kind": "proposition",
-  "model": "other: multivariate NMVM vectors",
-  "family": "X \u223c NMVM_d(\u00b5, \u03a3, \u03bb, h), Y \u223c NMVM_d(\u00b5\u2032, \u03a3\u2032, \u03bb\u2032, h) ((5))",
-  "compared": "usual stochastic order under common skewness",
-  "hypotheses": [
-   {
-    "text": "\u03bb = \u03bb\u2032",
-    "formal": "common skewness vector",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "X \u227cst Y iff \u00b5 \u2264 \u00b5\u2032 and \u03a3 = \u03a3\u2032"
-  },
-  "quantifiers": "multivariate d",
-  "numbers": "",
-  "ambiguity": "Proof omitted in paper ('along the lines of Proposition 2')."
- },
- {
-  "paper": "doi:10.19139/soic-2310-5070-863",
-  "claim": "Proposition 4",
-  "page": 13,
-  "quote": "Proposition 4. Suppose the random vectors X and Y are as given in both cases (2) and (28). Then, X \u227csm Y if and only if X and Y have the same marginals (Xi =^d Yi, i = 1, ..., d) and \u03c3ij \u2264 \u03c3\u2032ij for any 1 \u2264 i \u2260 j \u2264 d.",
-  "kind": "proposition",
-  "model": "other: multivariate NMVM ((2)/(5)) and SSMSN scale-mixture ((28)) vectors",
-  "family": "NMVM_d and SN_d(\u00b5, a1(\u03c41)\u03a3, \u03b1) (a2(\u03c4) = 1 case)",
-  "compared": "supermodular order iff same marginals and ordered off-diagonal covariances",
-  "hypotheses": [
-   {
-    "text": "X, Y as in cases (2) and (28)",
-    "formal": "both model setups",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "other: sm",
-   "direction": "X \u227csm Y iff identical marginals and \u03c3ij \u2264 \u03c3\u2032ij for i \u2260 j"
-  },
-  "quantifiers": "1 \u2264 i \u2260 j \u2264 d",
-  "numbers": "",
-  "ambiguity": "Equal marginals force equal diagonal \u03c3ii; only off-diagonal entries ordered. sm = supermodular order."
- },
- {
-  "paper": "doi:10.19139/soic-2310-5070-863",
-  "claim": "Proposition 5(ii)",
-  "page": 14,
-  "quote": "Proposition 5. (i) If \u00b5 = \u00b5\u2032, then X \u227ccx Y if and only if \u03bb = \u03bb\u2032 and \u03a3\u2032 \u2212 \u03a3 is positive semi-definite; (ii) If \u03bb = \u03bb\u2032, then X \u227ccx Y if and only if \u00b5 = \u00b5\u2032 and \u03a3\u2032 \u2212 \u03a3 is positive semi-definite.",
-  "kind": "proposition",
-  "model": "other: multivariate NMVM ((2)) and SSMSN scale-mixture ((28)) vectors",
-  "family": "NMVM_d and SN_d(\u00b5, a1(\u03c41)\u03a3, \u03b1)",
-  "compared": "convex order under common skewness",
-  "hypotheses": [
-   {
-    "text": "\u03bb = \u03bb\u2032",
-    "formal": "common skewness",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "other: cx",
-   "direction": "X \u227ccx Y iff \u00b5 = \u00b5\u2032 and \u03a3\u2032 \u2212 \u03a3 positive semi-definite"
-  },
-  "quantifiers": "multivariate d",
-  "numbers": "",
-  "ambiguity": "Convex order (not increasing convex) \u2014 requires equal means, hence \u00b5 = \u00b5\u2032 in the characterization."
- },
- {
-  "paper": "doi:10.19139/soic-2310-5070-863",
-  "claim": "Proposition 6(ii)",
-  "page": 14,
-  "quote": "Proposition 6. (i) If \u00b5 = \u00b5\u2032, then X \u227cdcx Y if and only if \u03bb = \u03bb\u2032 and \u03c3ij \u2264 \u03c3\u2032ij for all 1 \u2264 i \u2260 j \u2264 d; (ii) If \u03bb = \u03bb\u2032, then X \u227cdcx Y if and only if \u00b5 = \u00b5\u2032 and \u03c3ij \u2264 \u03c3\u2032ij for all 1 \u2264 i \u2260 j \u2264 d.",
-  "kind": "proposition",
-  "model": "other: multivariate NMVM ((2)) and SSMSN scale-mixture ((28)) vectors",
-  "family": "NMVM_d and SN_d(\u00b5, a1(\u03c41)\u03a3, \u03b1)",
-  "compared": "directionally convex order under common skewness",
-  "hypotheses": [
-   {
-    "text": "\u03bb = \u03bb\u2032",
-    "formal": "common skewness",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "other: dcx",
-   "direction": "X \u227cdcx Y iff \u00b5 = \u00b5\u2032 and \u03c3ij \u2264 \u03c3\u2032ij for all 1 \u2264 i \u2260 j \u2264 d"
-  },
-  "quantifiers": "1 \u2264 i \u2260 j \u2264 d",
-  "numbers": "",
-  "ambiguity": "dcx = directionally convex order."
  }
 ]

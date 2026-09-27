@@ -1276,66 +1276,6 @@
  },
  {
   "paper": "doi:10.1017/s0269964826100199",
-  "claim": "Example 3.3 (case 0 < q < 1)",
-  "page": 7,
-  "quote": "Theorem 3.1 demonstrated that under the stated conditions, the smallest order statistics are comparable in hazard rate order. A natural question arises: Does this conclusion hold when substituting the hazard rate order by the likelihood ratio order? The following counterexample furnishes the answer. Example 3.3. Let U_i \u223c q\u2212W(q, \u03bb_i, \u03b2) and V_i \u223c q\u2212W(q, \u03bb\u2605_i, \u03b2), i = 1, 2. Choose q = 0.5, \u03b2 = 0.5, \u03bb_1 = 0.5, \u03bb_2 = 1.5, \u03bb\u2605_1 = 0.3, and \u03bb\u2605_2 = 1.7. Then, Figure 2(a) represents the plot of f_{V_{1:2}}(t)/f_{U_{1:2}}(t) in a subset of (0, D) = (0, 1.38), from which it is clear that f_{V_{1:2}}(t)/f_{U_{1:2}}(t) is not an increasing function in t. Thus, for 0 < q < 1, U_{1:n} and V_{1:n} are not comparable in likelihood ratio order when (\u03bb_1, \u03bb_2) \u2264^m (\u03bb\u2605_1, \u03bb\u2605_2). A similar conclusion can also be drawn when q is larger than 1. Set, q = 1.5, \u03b2 = 2, \u03bb_1 = 0.5, \u03bb_2 = 1.5, \u03bb\u2605_1 = 0.3, and \u03bb\u2605_2 = 1.7. Then, from Figure 2(b) it is clear that f_{V_{1:2}}(t)/f_{U_{1:2}}(t) is also not an increasing function, which enables us to say that U_{1:n} and V_{1:n} are not comparable in likelihood ratio order.",
-  "kind": "counterexample",
-  "model": "series system",
-  "family": "q-Weibull q-W(q, \u03bb_i, \u03b2) with q = 0.5, \u03b2 = 0.5",
-  "compared": "\u03bb = (0.5, 1.5) vs \u03bb\u2605 = (0.3, 1.7)",
-  "hypotheses": [
-   {
-    "text": "U_i \u223c q\u2212W(q, \u03bb_i, \u03b2) and V_i \u223c q\u2212W(q, \u03bb\u2605_i, \u03b2), i = 1, 2",
-    "formal": "independent components",
-    "source": "statement; section preamble"
-   },
-   {
-    "text": "(\u03bb_1, \u03bb_2) \u2264^m (\u03bb\u2605_1, \u03bb\u2605_2)",
-    "formal": "\u03bb_1 + \u03bb_2 = \u03bb\u2605_1 + \u03bb\u2605_2 and \u03bb_(1) \u2265 \u03bb\u2605_(1)",
-    "source": "statement; definition 2.2"
-   }
-  ],
-  "conclusion": {
-   "order": "lr",
-   "direction": "no lr ordering: f_{V_{1:2}}/f_{U_{1:2}} is not increasing, so U_{1:2} \u2264_lr V_{1:2} fails; the paper concludes the two are not comparable in lr order"
-  },
-  "quantifiers": "n = 2; 0 < q < 1 (q = 0.5); t in a subset of (0, D) = (0, 1.38) (Fig. 2(a): t from 0 to 0.4)",
-  "numbers": "n = 2; q = 0.5, \u03b2 = 0.5, \u03bb_1 = 0.5, \u03bb_2 = 1.5, \u03bb\u2605_1 = 0.3, \u03bb\u2605_2 = 1.7; (0, D) = (0, 1.38). Printed result: f_{V_{1:2}}(t)/f_{U_{1:2}}(t) not increasing in t; U_{1:n}, V_{1:n} not comparable in lr order when (\u03bb_1, \u03bb_2) \u2264^m (\u03bb\u2605_1, \u03bb\u2605_2). Fig. 2(a) shows the ratio rising from 1.00 at t = 0 to about 1.026 near t \u2248 0.12, then falling to about 0.984 at t = 0.4.",
-  "ambiguity": "The refuted statement is the lr analogue of Theorem 3.1 under majorization; the text writes U_{1:n}, V_{1:n} although n = 2. The printed argument ('not an increasing function') by itself only rules out U_{1:2} \u2264_lr V_{1:2}; non-comparability in the other direction rests on the plotted non-monotone shape.",
-  "adjudication": "example record (pass a)"
- },
- {
-  "paper": "doi:10.1017/s0269964826100199",
-  "claim": "Example 3.3 (case q > 1)",
-  "page": 7,
-  "quote": "Theorem 3.1 demonstrated that under the stated conditions, the smallest order statistics are comparable in hazard rate order. A natural question arises: Does this conclusion hold when substituting the hazard rate order by the likelihood ratio order? The following counterexample furnishes the answer. Example 3.3. Let U_i \u223c q\u2212W(q, \u03bb_i, \u03b2) and V_i \u223c q\u2212W(q, \u03bb\u2605_i, \u03b2), i = 1, 2. Choose q = 0.5, \u03b2 = 0.5, \u03bb_1 = 0.5, \u03bb_2 = 1.5, \u03bb\u2605_1 = 0.3, and \u03bb\u2605_2 = 1.7. Then, Figure 2(a) represents the plot of f_{V_{1:2}}(t)/f_{U_{1:2}}(t) in a subset of (0, D) = (0, 1.38), from which it is clear that f_{V_{1:2}}(t)/f_{U_{1:2}}(t) is not an increasing function in t. Thus, for 0 < q < 1, U_{1:n} and V_{1:n} are not comparable in likelihood ratio order when (\u03bb_1, \u03bb_2) \u2264^m (\u03bb\u2605_1, \u03bb\u2605_2). A similar conclusion can also be drawn when q is larger than 1. Set, q = 1.5, \u03b2 = 2, \u03bb_1 = 0.5, \u03bb_2 = 1.5, \u03bb\u2605_1 = 0.3, and \u03bb\u2605_2 = 1.7. Then, from Figure 2(b) it is clear that f_{V_{1:2}}(t)/f_{U_{1:2}}(t) is also not an increasing function, which enables us to say that U_{1:n} and V_{1:n} are not comparable in likelihood ratio order.",
-  "kind": "counterexample",
-  "model": "series system",
-  "family": "q-Weibull q-W(q, \u03bb_i, \u03b2) with q = 1.5, \u03b2 = 2",
-  "compared": "\u03bb = (0.5, 1.5) vs \u03bb\u2605 = (0.3, 1.7)",
-  "hypotheses": [
-   {
-    "text": "U_i \u223c q\u2212W(q, \u03bb_i, \u03b2) and V_i \u223c q\u2212W(q, \u03bb\u2605_i, \u03b2), i = 1, 2",
-    "formal": "independent components",
-    "source": "statement; section preamble"
-   },
-   {
-    "text": "(\u03bb_1, \u03bb_2) \u2264^m (\u03bb\u2605_1, \u03bb\u2605_2) (carried over from the first case)",
-    "formal": "\u03bb_1 + \u03bb_2 = \u03bb\u2605_1 + \u03bb\u2605_2 and \u03bb_(1) \u2265 \u03bb\u2605_(1)",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "lr",
-   "direction": "no lr ordering: f_{V_{1:2}}/f_{U_{1:2}} is not increasing; the paper concludes U_{1:n} and V_{1:n} are not comparable in lr order"
-  },
-  "quantifiers": "n = 2; q = 1.5; Fig. 2(b) plotted for t from 0 to 2",
-  "numbers": "n = 2; q = 1.5, \u03b2 = 2, \u03bb_1 = 0.5, \u03bb_2 = 1.5, \u03bb\u2605_1 = 0.3, \u03bb\u2605_2 = 1.7. Printed result: f_{V_{1:2}}(t)/f_{U_{1:2}}(t) not an increasing function; not comparable in lr order. Fig. 2(b) shows the ratio falling from 1.00 at t = 0 to about 0.965 near t \u2248 0.9, then rising to about 1.045 at t = 2.",
-  "ambiguity": "The majorization condition is not restated for this case; the \u03bb values are the same as in the first case. The text writes U_{1:n}, V_{1:n} although n = 2.",
-  "adjudication": "example record (pass a)"
- },
- {
-  "paper": "doi:10.1017/s0269964826100199",
   "claim": "Example 3.5 (case q < 1)",
   "page": 7,
   "quote": "We now present a numerical example to illustrate the result established in Theorem 3.4. Example 3.5. Let U_i \u223c q \u2212 W(q_i, \u03bb, \u03b2) and V_i \u223c q \u2212 W(q\u2605_i, \u03bb_i, \u03b2), i = 1, 2. For the case q < 1, consider q_1 = 0.3, q_2 = 0.5, q\u2605_1 = 0.1, q\u2605_2 = 0.6, \u03b2 = 2, and \u03bb = 0.5, where (q_1, q_2) \u2264^w (q\u2605_1, q\u2605_2). Figure 3(a) displays the plot of F\u0304_{U_{1:2}}(t)/F\u0304_{V_{1:2}}(t) over the interval (0, D) = (0, 1.49). The figure clearly shows that F\u0304_{U_{1:2}}(t)/F\u0304_{V_{1:2}}(t) is increasing function in t, which implies that U_{1:2} \u2265_hr V_{1:2}. Similarly, for the case of q > 1, let q_1 = 1.3, q_2 = 1.5, q\u2605_1 = 1.1, q\u2605_2 = 1.6, \u03b2 = 2, and \u03bb = 0.5, with (q_1, q_2) \u2264^w (q\u2605_1, q\u2605_2). As illustrated in Figure 3(b), F\u0304_{U_{1:2}}(t)/F\u0304_{V_{1:2}}(t) is again increasing, confirming that, U_{1:2} \u2265_hr V_{1:2}.",
@@ -1362,66 +1302,6 @@
   "quantifiers": "n = 2; t \u2208 (0, D) = (0, 1.49)",
   "numbers": "n = 2; q_1 = 0.3, q_2 = 0.5, q\u2605_1 = 0.1, q\u2605_2 = 0.6, \u03b2 = 2, \u03bb = 0.5; (0, D) = (0, 1.49). Printed result: (q_1, q_2) \u2264^w (q\u2605_1, q\u2605_2); F\u0304_{U_{1:2}}(t)/F\u0304_{V_{1:2}}(t) increasing in t, hence U_{1:2} \u2265_hr V_{1:2}. Fig. 3(a) shows the ratio near 1 until t \u2248 1.3, then rising sharply to about 50 near t \u2248 1.47.",
   "ambiguity": "The setup writes V_i \u223c q \u2212 W(q\u2605_i, \u03bb_i, \u03b2) with a subscripted \u03bb_i, but only a single \u03bb = 0.5 is given. Supports Theorem 3.4(1).",
-  "adjudication": "example record (pass a)"
- },
- {
-  "paper": "doi:10.1017/s0269964826100199",
-  "claim": "Example 3.6 (case 0 < max_l{q_l, q\u2605_l} < 1)",
-  "page": 8,
-  "quote": "The above theorem establishes the comparison result with respect to the hazard rate order. A natural question is whether this conclusion also holds when the hazard rate order is replaced by the likelihood ratio order. The following counterexample provides an answer. Example 3.6. Let U_i \u223c q \u2212 W(q_i, \u03bb, \u03b2) and V_i \u223c q \u2212 W(q\u2605_i, \u03bb, \u03b2), i = 1, 2. Choose q_1 = 0.2, q_2 = 0.7, q\u2605_1 = 0.1, q\u2605_2 = 0.8, \u03b2 = 2, and \u03bb = 0.5. Then, (q_1, q_2) \u2264^m (q\u2605_1, q\u2605_2). Figure 4(a) represents the plot of f_{V_{1:2}}(t)/f_{U_{1:2}}(t) in a subset of (0, D) = (0, 1.49), from which it is clear that f_{V_{1:2}}(t)/f_{U_{1:2}}(t) is not an increasing function in t. Thus, for 0 < max_l{q_l, q\u2605_l} < 1, U_{1:n} and V_{1:n} are not comparable in likelihood ratio order. By setting, q_1 = 1.2, q_2 = 1.7, q\u2605_1 = 1.1, q\u2605_2 = 1.8, \u03b2 = 2, and \u03bb = 0.5 similar, conclusion can also be drawn from Figure 4(b), when 1 < min_l{q_l, q\u2605_l} < 2.",
-  "kind": "counterexample",
-  "model": "series system",
-  "family": "q-Weibull q-W(q_i, \u03bb, \u03b2) with \u03b2 = 2, \u03bb = 0.5",
-  "compared": "q = (0.2, 0.7) vs q\u2605 = (0.1, 0.8)",
-  "hypotheses": [
-   {
-    "text": "U_i \u223c q \u2212 W(q_i, \u03bb, \u03b2) and V_i \u223c q \u2212 W(q\u2605_i, \u03bb, \u03b2), i = 1, 2",
-    "formal": "independent components",
-    "source": "statement; section preamble"
-   },
-   {
-    "text": "(q_1, q_2) \u2264^m (q\u2605_1, q\u2605_2)",
-    "formal": "q_1 + q_2 = q\u2605_1 + q\u2605_2 and q_(1) \u2265 q\u2605_(1)",
-    "source": "statement; definition 2.2"
-   }
-  ],
-  "conclusion": {
-   "order": "lr",
-   "direction": "no lr ordering: f_{V_{1:2}}/f_{U_{1:2}} is not increasing; the paper concludes U_{1:n} and V_{1:n} are not comparable in lr order"
-  },
-  "quantifiers": "n = 2; t in a subset of (0, D) = (0, 1.49) (Fig. 4(a): t from about 0.1 to 1.1)",
-  "numbers": "n = 2; q_1 = 0.2, q_2 = 0.7, q\u2605_1 = 0.1, q\u2605_2 = 0.8, \u03b2 = 2, \u03bb = 0.5; (0, D) = (0, 1.49). Printed result: (q_1, q_2) \u2264^m (q\u2605_1, q\u2605_2); f_{V_{1:2}}(t)/f_{U_{1:2}}(t) not increasing in t; not comparable in lr order. Fig. 4(a) shows the ratio rising from about 1.000 to about 1.0155 near t \u2248 0.95, then falling to about 1.009 at t \u2248 1.1.",
-  "ambiguity": "The text writes U_{1:n}, V_{1:n} although n = 2. The printed argument ('not an increasing function') only rules out U_{1:2} \u2264_lr V_{1:2}; the other direction rests on the plotted non-monotone shape.",
-  "adjudication": "example record (pass a)"
- },
- {
-  "paper": "doi:10.1017/s0269964826100199",
-  "claim": "Example 3.6 (case 1 < min_l{q_l, q\u2605_l} < 2)",
-  "page": 8,
-  "quote": "The above theorem establishes the comparison result with respect to the hazard rate order. A natural question is whether this conclusion also holds when the hazard rate order is replaced by the likelihood ratio order. The following counterexample provides an answer. Example 3.6. Let U_i \u223c q \u2212 W(q_i, \u03bb, \u03b2) and V_i \u223c q \u2212 W(q\u2605_i, \u03bb, \u03b2), i = 1, 2. Choose q_1 = 0.2, q_2 = 0.7, q\u2605_1 = 0.1, q\u2605_2 = 0.8, \u03b2 = 2, and \u03bb = 0.5. Then, (q_1, q_2) \u2264^m (q\u2605_1, q\u2605_2). Figure 4(a) represents the plot of f_{V_{1:2}}(t)/f_{U_{1:2}}(t) in a subset of (0, D) = (0, 1.49), from which it is clear that f_{V_{1:2}}(t)/f_{U_{1:2}}(t) is not an increasing function in t. Thus, for 0 < max_l{q_l, q\u2605_l} < 1, U_{1:n} and V_{1:n} are not comparable in likelihood ratio order. By setting, q_1 = 1.2, q_2 = 1.7, q\u2605_1 = 1.1, q\u2605_2 = 1.8, \u03b2 = 2, and \u03bb = 0.5 similar, conclusion can also be drawn from Figure 4(b), when 1 < min_l{q_l, q\u2605_l} < 2.",
-  "kind": "counterexample",
-  "model": "series system",
-  "family": "q-Weibull q-W(q_i, \u03bb, \u03b2) with \u03b2 = 2, \u03bb = 0.5",
-  "compared": "q = (1.2, 1.7) vs q\u2605 = (1.1, 1.8)",
-  "hypotheses": [
-   {
-    "text": "U_i \u223c q \u2212 W(q_i, \u03bb, \u03b2) and V_i \u223c q \u2212 W(q\u2605_i, \u03bb, \u03b2), i = 1, 2",
-    "formal": "independent components",
-    "source": "statement; section preamble"
-   },
-   {
-    "text": "1 < min_l{q_l, q\u2605_l} < 2",
-    "formal": "all q values in (1, 2)",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "lr",
-   "direction": "no lr ordering ('similar conclusion'): U_{1:n} and V_{1:n} not comparable in lr order"
-  },
-  "quantifiers": "n = 2; Fig. 4(b) plotted for t from about 0.1 to 2.0",
-  "numbers": "n = 2; q_1 = 1.2, q_2 = 1.7, q\u2605_1 = 1.1, q\u2605_2 = 1.8, \u03b2 = 2, \u03bb = 0.5. Printed result: 'similar conclusion' (no lr order) from Fig. 4(b). Fig. 4(b) shows f_{V_{1:2}}/f_{U_{1:2}} rising from about 1.00 to about 1.05 near t \u2248 1.4, then falling to about 1.013 at t = 2.",
-  "ambiguity": "The majorization relation is not restated for this case (q = (1.2, 1.7), q\u2605 = (1.1, 1.8) have equal sums).",
   "adjudication": "example record (pass a)"
  },
  {
@@ -1453,66 +1333,6 @@
   "numbers": "n = 2; q = 0.5, \u03b2_1 = 0.5, \u03b2_2 = 1.5, \u03b2\u2605_1 = 0.3, \u03b2\u2605_2 = 1.7, \u03bb = 1; (0, D) = (0, 1.5). Printed result: (\u03b2_1, \u03b2_2) \u2264^m (\u03b2\u2605_1, \u03b2\u2605_2); F\u0304_{U_{1:2}}(t) \u2212 F\u0304_{V_{1:2}}(t) \u2265 0 for all t, hence U_{1:2} \u2265_st V_{1:2}. Fig. 5(a) shows the difference rising to about 0.20 near t \u2248 0.03 and decaying to about 0 by t \u2248 0.8.",
   "ambiguity": "The setup writes V_i \u223c q \u2212 W(q, \u03bb_i, \u03b2\u2605_i) with a subscripted \u03bb_i, but a single \u03bb = 1 is given. Supports Theorem 3.7(1).",
   "adjudication": "example record (pass a)+b"
- },
- {
-  "paper": "doi:10.1017/s0269964826100199",
-  "claim": "Example 3.9 (case 0 < q < 1)",
-  "page": 10,
-  "quote": "The following counterexample illustrates that the condition in Theorem 3.7 is not sufficient for the hazard rate ordering between U_{1:n} and V_{1:n}. Example 3.9. Let U_i \u223c q \u2212 W(q, \u03bb, \u03b2_i) and V_i \u223c q \u2212 W(q, \u03bb, \u03b2\u2605_i), i = 1, 2. Consider q = 0.3, \u03b2_1 = 0.5, \u03b2_2 = 0.5, \u03b2\u2605_1 = 0.3, \u03b2\u2605_2 = 0.7, and \u03bb = 0.5. From Figure 6(a), it is clear that F\u0304_{V_{1:2}}(t)/F\u0304_{U_{1:2}}(t) is not monotone in a subset of (0, D) = (0, 4.48). Then for 0 < q < 1, (\u03b2_1, \u03b2_2) \u2264^m (\u03b2\u2605_1, \u03b2\u2605_2) does not imply V_{1:n} \u2264_hr U_{1:n}. Similarly, taking, q = 1.3, \u03b2_1 = 0.5, \u03b2_2 = 0.5, \u03b2\u2605_1 = 0.3, \u03b2\u2605_2 = 0.7, and \u03bb = 0.5 we can conclude from Figure 6(b) that U_{1:n} and V_{1:n} are not comparable in hazard rate order when 1 < q < 2 and (\u03b2_1, \u03b2_2) \u2264^m (\u03b2\u2605_1, \u03b2\u2605_2).",
-  "kind": "counterexample",
-  "model": "series system",
-  "family": "q-Weibull q-W(q, \u03bb, \u03b2_i) with q = 0.3, \u03bb = 0.5",
-  "compared": "\u03b2 = (0.5, 0.5) vs \u03b2\u2605 = (0.3, 0.7)",
-  "hypotheses": [
-   {
-    "text": "U_i \u223c q \u2212 W(q, \u03bb, \u03b2_i) and V_i \u223c q \u2212 W(q, \u03bb, \u03b2\u2605_i), i = 1, 2",
-    "formal": "independent components",
-    "source": "statement; section preamble"
-   },
-   {
-    "text": "(\u03b2_1, \u03b2_2) \u2264^m (\u03b2\u2605_1, \u03b2\u2605_2)",
-    "formal": "\u03b2_1 + \u03b2_2 = \u03b2\u2605_1 + \u03b2\u2605_2 and \u03b2_(1) \u2265 \u03b2\u2605_(1)",
-    "source": "statement; definition 2.2"
-   }
-  ],
-  "conclusion": {
-   "order": "hr",
-   "direction": "no hr ordering: F\u0304_{V_{1:2}}/F\u0304_{U_{1:2}} is not monotone, so the hypothesis of Theorem 3.7 does not imply V_{1:n} \u2264_hr U_{1:n}"
-  },
-  "quantifiers": "n = 2; t in a subset of (0, D) = (0, 4.48) (Fig. 6(a): t from about 0.1 to 1.5)",
-  "numbers": "n = 2; q = 0.3, \u03b2_1 = 0.5, \u03b2_2 = 0.5, \u03b2\u2605_1 = 0.3, \u03b2\u2605_2 = 0.7, \u03bb = 0.5; (0, D) = (0, 4.48). Printed result: F\u0304_{V_{1:2}}(t)/F\u0304_{U_{1:2}}(t) not monotone; (\u03b2_1, \u03b2_2) \u2264^m (\u03b2\u2605_1, \u03b2\u2605_2) does not imply V_{1:n} \u2264_hr U_{1:n}. Fig. 6(a) shows the ratio rising from about 0.93 (t \u2248 0.1) to 1.00 at t = 1, then falling to about 0.98 at t = 1.5.",
-  "ambiguity": "The text writes V_{1:n}, U_{1:n} although n = 2.",
-  "adjudication": "example record (pass a)"
- },
- {
-  "paper": "doi:10.1017/s0269964826100199",
-  "claim": "Example 3.9 (case 1 < q < 2)",
-  "page": 10,
-  "quote": "The following counterexample illustrates that the condition in Theorem 3.7 is not sufficient for the hazard rate ordering between U_{1:n} and V_{1:n}. Example 3.9. Let U_i \u223c q \u2212 W(q, \u03bb, \u03b2_i) and V_i \u223c q \u2212 W(q, \u03bb, \u03b2\u2605_i), i = 1, 2. Consider q = 0.3, \u03b2_1 = 0.5, \u03b2_2 = 0.5, \u03b2\u2605_1 = 0.3, \u03b2\u2605_2 = 0.7, and \u03bb = 0.5. From Figure 6(a), it is clear that F\u0304_{V_{1:2}}(t)/F\u0304_{U_{1:2}}(t) is not monotone in a subset of (0, D) = (0, 4.48). Then for 0 < q < 1, (\u03b2_1, \u03b2_2) \u2264^m (\u03b2\u2605_1, \u03b2\u2605_2) does not imply V_{1:n} \u2264_hr U_{1:n}. Similarly, taking, q = 1.3, \u03b2_1 = 0.5, \u03b2_2 = 0.5, \u03b2\u2605_1 = 0.3, \u03b2\u2605_2 = 0.7, and \u03bb = 0.5 we can conclude from Figure 6(b) that U_{1:n} and V_{1:n} are not comparable in hazard rate order when 1 < q < 2 and (\u03b2_1, \u03b2_2) \u2264^m (\u03b2\u2605_1, \u03b2\u2605_2).",
-  "kind": "counterexample",
-  "model": "series system",
-  "family": "q-Weibull q-W(q, \u03bb, \u03b2_i) with q = 1.3, \u03bb = 0.5",
-  "compared": "\u03b2 = (0.5, 0.5) vs \u03b2\u2605 = (0.3, 0.7)",
-  "hypotheses": [
-   {
-    "text": "U_i \u223c q \u2212 W(q, \u03bb, \u03b2_i) and V_i \u223c q \u2212 W(q, \u03bb, \u03b2\u2605_i), i = 1, 2",
-    "formal": "independent components",
-    "source": "statement; section preamble"
-   },
-   {
-    "text": "(\u03b2_1, \u03b2_2) \u2264^m (\u03b2\u2605_1, \u03b2\u2605_2)",
-    "formal": "\u03b2_1 + \u03b2_2 = \u03b2\u2605_1 + \u03b2\u2605_2 and \u03b2_(1) \u2265 \u03b2\u2605_(1)",
-    "source": "statement; definition 2.2"
-   }
-  ],
-  "conclusion": {
-   "order": "hr",
-   "direction": "no hr ordering: U_{1:n} and V_{1:n} not comparable in hr order when 1 < q < 2"
-  },
-  "quantifiers": "n = 2; q = 1.3; Fig. 6(b) plotted for t from about 0.1 to 4.5",
-  "numbers": "n = 2; q = 1.3, \u03b2_1 = 0.5, \u03b2_2 = 0.5, \u03b2\u2605_1 = 0.3, \u03b2\u2605_2 = 0.7, \u03bb = 0.5. Printed result: U_{1:n}, V_{1:n} not comparable in hr order. Fig. 6(b) shows F\u0304_{V_{1:2}}/F\u0304_{U_{1:2}} rising from about 0.979 to 1.00 at t = 1, then falling to about 0.962 at t \u2248 4.5.",
-  "ambiguity": "The text writes U_{1:n}, V_{1:n} although n = 2.",
-  "adjudication": "example record (pass a)"
  },
  {
   "paper": "doi:10.1017/s0269964826100199",

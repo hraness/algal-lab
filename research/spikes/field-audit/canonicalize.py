@@ -79,8 +79,20 @@ for s in SAMPLE:
         res = json.load(open(rp))
         resolved_bases = {item.get('queue_claim') for item in res}
         for item in res:
-            canon.extend(item.get('records') or [])
+            for r in (item.get('records') or []):
+                r2 = dict(r); r2['adjudication'] = 'adjudicated: ' + str(item.get('note',''))[:100]
+                canon.append(r2)
         queue = [q for q in queue if q['claim'] not in resolved_bases]
+    # dedupe: prefer records that came from adjudication when claim label
+    # and order coincide with an auto-merged record
+    deduped, seen = [], set()
+    canon.sort(key=lambda r: 0 if 'adjudicated' in str(r.get('adjudication','')) else (1 if 'agreed' in str(r.get('adjudication','')) else 2))
+    for r in canon:
+        k = (re.sub(r'\W+','', r.get('claim','').lower()), r.get('kind',''),
+             norm_order((r.get('conclusion') or {}).get('order')))
+        if k in seen: continue
+        seen.add(k); deduped.append(r)
+    canon = deduped
     json.dump(canon, open(f'{ROOT}/canonical/{name}','w'), indent=1)
     qp = f'{ROOT}/adjudication/{name}'
     if queue:

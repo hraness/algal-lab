@@ -1,0 +1,499 @@
+[
+ {
+  "queue_claim": "example1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3390/math6100197",
+    "claim": "Example 1",
+    "page": 6,
+    "quote": "Assume that, in each case, the network is subjected to failure based on the GCPs with the same MVFs. Denote the lifetimes of the network corresponding to (a) and (b) by T and T*, respectively. Comparing the corresponding survival signatures of network for two cases shows that S̄_i ≤ S̄_i*, for i = 0, 1, ..., 9, and hence based on (3) we have T ≤st T* implying that the network with two-terminal connectivity is more reliable than the network with all-terminal connectivity, as expected intuitively.",
+    "kind": "example",
+    "model": "other: coherent network, two terminal sets",
+    "family": "6-node 10-link network; signature s = (0,0,1/30,9/70,29/90,65/126,0,0,0,0) (all-terminal) vs s* = (0,0,1/120,37/840,179/1260,379/1260,19/70,1/6,1/15,0) (two-terminal {c,f})",
+    "compared": "network lifetime T (all-terminal) vs T* (two-terminal) under the same GCP",
+    "hypotheses": [
+     {"text": "same GCP MVFs for both cases", "formal": "common component-failure process", "source": "statement"},
+     {"text": "S̄_i ≤ S̄_i* for i = 0,1,...,9 (survival signatures ordered)", "formal": "signature tail-sums ordered", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "T ≤st T*"},
+    "quantifiers": "i = 0,...,9; all t > 0; n = 10 components",
+    "numbers": "signatures s and s* as quoted in the record's family field",
+    "ambiguity": "Text layer prints the star as '?' (s?, T?). Adjacent printed observation: for MVF Λ(t) = t^a the network reliability is not ordered in a (increasing for 0 < t < 1, decreasing for t > 1)."
+   }
+  ],
+  "note": "Printed verbatim on p.6 (signature lists verified against pp.5–6); st ordering of two network lifetimes — in scope."
+ },
+ {
+  "queue_claim": "example2",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3390/math6100197",
+    "claim": "Example 2",
+    "page": 7,
+    "quote": "Example 2. Consider the network described in Example 1. Figure 4 shows that the reliability functions of the network for part (a). As the plots show the reliability functions are not ordered in NHPP and GCP models with the same MVFs Λ(t) = t. The reliability of the network in the NHPP model is higher than the GCP model for the early times of operating of the network. However, when the time goes ahead, the network reliability in NHPP declines rapidly and stays below the reliability of the GCP model.",
+    "kind": "counterexample",
+    "model": "other: coherent (non-series) network",
+    "family": "Example-1 network, all-terminal case; Λ(t) = t",
+    "compared": "network reliability under NHPP vs GCP component failure",
+    "hypotheses": [
+     {"text": "non-series network; same MVF Λ(t) = t in both models", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "neither T_NP ≤st T_GP nor T_GP ≤st T_NP — reliability curves cross"},
+    "quantifiers": "t > 0",
+    "numbers": "Λ(t) = t; comparison graphical via Figure 4 (no printed point values)",
+    "ambiguity": "Labeled 'Example 2' in the paper but functions as a counterexample to extending the series-network result T_NP ≤st T_GP to arbitrary networks."
+   }
+  ],
+  "note": "Printed on p.7; refutes the ordering's extension beyond series networks — kept as a printed counterexample."
+ },
+ {
+  "queue_claim": "example3",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3390/math6100197",
+    "claim": "Example 3",
+    "page": 9,
+    "quote": "Example 3. Consider two networks with signature vectors s = (0, 2/3, 1/3) and s* = (1/3, 0, 2/3). It is easy to see that s ≤mrl s*. However, s ≰st s* and hence s ≰hr s*. Assume that the components of both networks fail based on the same GCPs with MVF Λ(t) = t². Then, a straightforward calculation gives E(T) = 2.5525 > E(T*) = 2.4871, which, in turn, implies that T ≰mrl T*.",
+    "kind": "counterexample",
+    "model": "other: coherent networks (3-component signatures)",
+    "family": "signature vectors s = (0,2/3,1/3) vs s* = (1/3,0,2/3); common GCP with Λ(t) = t²",
+    "compared": "T vs T* under an mrl-signature hypothesis",
+    "hypotheses": [
+     {"text": "s ≤mrl s* but s ≰st s* (hence s ≰hr s*)", "formal": "signature mrl ordering only", "source": "statement"},
+     {"text": "same GCP for both networks, Λ(t) = t²", "formal": "as stated", "source": "statement"}
+    ],
+    "conclusion": {"order": "mrl", "direction": "T ≰mrl T* (E(T) = 2.5525 > E(T*) = 2.4871) — the hr hypothesis in Theorem 3(ii) cannot be weakened to mrl"},
+    "quantifiers": "n = 3 components",
+    "numbers": "s = (0,2/3,1/3), s* = (1/3,0,2/3); Λ(t) = t²; E(T) = 2.5525, E(T*) = 2.4871",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Both passes substantively agree — mrl non-ordering witnessed by E(T) > E(T*); direction-text diff was a normalization artifact."
+ },
+ {
+  "queue_claim": "example6",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3390/math6100197",
+    "claim": "Example 6",
+    "page": 16,
+    "quote": "Example 6. Consider again the network presented in Example 5. It can be seen that, for every i, j = 1, . . . , 14, S̄_{i,j} ≥ S̄_i^(1) S̄_j^(2). This implies that I and J are PQD. Hence, if the components fail according to a GCP, then T1 and T2 are PQD.",
+    "kind": "example",
+    "model": "other: three-state network",
+    "family": "14-link, 8-node network of Example 5; GCP failures",
+    "compared": "PQD verification: signature-matrix tails S̄_{i,j} vs product of marginals",
+    "hypotheses": [
+     {"text": "S̄_{i,j} ≥ S̄_i^(1) S̄_j^(2) for every i, j = 1,...,14", "formal": "PQD condition on I, J verified", "source": "statement"}
+    ],
+    "conclusion": {"order": "other: PQD", "direction": "I, J PQD ⇒ T1, T2 PQD (dependence transfer, Theorem 9 applied)"},
+    "quantifiers": "i, j = 1,...,14",
+    "numbers": "n = 14 links",
+    "ambiguity": "Dependence claim (positive quadrant dependence), not a distributional ordering; no printed numeric values — the inequality is asserted over all 14×14 pairs."
+   }
+  ],
+  "note": "Printed on p.16; the concrete verification example for Theorem 9 — kept with its dependence-claim nature flagged."
+ },
+ {
+  "queue_claim": "lemma2",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3390/math6100197",
+    "claim": "Lemma 2",
+    "page": 14,
+    "quote": "Lemma 2. Assume that {ξ1(t), t ≥ 0} and {ξ2(t), t ≥ 0} are two GCPs with intensity functions λ1(t) = λ1 > 0, and λ2(t) = λ2 > 0, respectively. Let ϑ1,1, ϑ1,2, . . . and ϑ2,1, ϑ2,2, . . . denote the arrival times corresponding to the two processes, respectively. If λ1 ≥ λ2, then (ϑ1,1, . . . , ϑ1,n) ≤st (ϑ2,1, . . . , ϑ2,n) for every n ≥ 1.",
+    "kind": "lemma",
+    "model": "other: GCP arrival-time vectors",
+    "family": "homogeneous GCPs, constant intensities λ1 ≥ λ2 > 0",
+    "compared": "joint arrival-time vectors (ϑ1,1,...,ϑ1,n) vs (ϑ2,1,...,ϑ2,n)",
+    "hypotheses": [
+     {"text": "λ1 ≥ λ2 (constant intensities)", "formal": "intensity ordering", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "(ϑ1,1,...,ϑ1,n) ≤st (ϑ2,1,...,ϑ2,n) — multivariate usual stochastic order"},
+    "quantifiers": "every n ≥ 1",
+    "numbers": "",
+    "ambiguity": "Proof uses MTP2 density ratio and Theorem 6.B.8 of Shaked–Shanthikumar."
+   }
+  ],
+  "note": "Both passes agree on st and on the direction; the a_dirs/b_dirs diff was a normalization artifact. Lemma has a genuine ordering conclusion — include."
+ },
+ {
+  "queue_claim": "theorem1",
+  "decision": "exclude",
+  "records": [],
+  "note": "Single-distribution characterization: 'the hazard rate of network is increasing iff ψ(u) is increasing' — an IFR-type monotonicity characterization of one network lifetime, no ordering of two distributions; out of spec scope (pass A's own ambiguity flags it)."
+ },
+ {
+  "queue_claim": "theorem3",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3390/math6100197",
+    "claim": "mrl consequence of Theorem 3",
+    "page": 9,
+    "quote": "From part (ii) of Theorem 3, since hr-ordering implies mrl-ordering, we conclude that if s ≤hr s* then T ≤mrl T*. However, the following example shows that the assumption s ≤hr s* can not be replaced with s ≤mrl s* to have T ≤mrl T*.",
+    "kind": "corollary",
+    "model": "other: coherent network lifetimes",
+    "family": "two networks sharing the same GCP",
+    "compared": "network lifetimes under signature hr ordering (mrl consequence)",
+    "hypotheses": [
+     {"text": "s ≤hr s*; same GCPs for both networks", "formal": "signature hr ordering", "source": "statement"}
+    ],
+    "conclusion": {"order": "mrl", "direction": "T ≤mrl T*"},
+    "quantifiers": "t ≥ 0",
+    "numbers": "",
+    "ambiguity": "Unnumbered printed corollary immediately after the proof of Theorem 3; the companion warning (hr cannot be weakened to mrl) is witnessed by Example 3."
+   }
+  ],
+  "note": "Pass A bundled all four parts; pass B split them and additionally caught the printed mrl corollary. Parts (i)–(iv) are canonicalized under the theorem3i–iv queue items; this item contributes the mrl consequence record."
+ },
+ {
+  "queue_claim": "theorem3i",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3390/math6100197",
+    "claim": "Theorem 3 (i)",
+    "page": 9,
+    "quote": "Theorem 3. For two networks as described in Theorem 2, assume that the failure of components of both networks appear according to the same GCPs: 1. If s ≤st s*, then T ≤st T*.",
+    "kind": "theorem",
+    "model": "other: coherent network lifetimes",
+    "family": "two networks with signature vectors s, s*; same GCP for both",
+    "compared": "network lifetimes via signature st ordering",
+    "hypotheses": [
+     {"text": "same GCPs; s ≤st s*", "formal": "signature st ordering", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "T ≤st T*"},
+    "quantifiers": "all t > 0",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Printed verbatim on p.9 — part (i) of Theorem 3."
+ },
+ {
+  "queue_claim": "theorem3ii",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3390/math6100197",
+    "claim": "Theorem 3 (ii)",
+    "page": 9,
+    "quote": "Theorem 3. For two networks as described in Theorem 2, assume that the failure of components of both networks appear according to the same GCPs: 2. If s ≤hr s*, then T ≤hr T*.",
+    "kind": "theorem",
+    "model": "other: coherent network lifetimes",
+    "family": "two networks; same GCP for both",
+    "compared": "network lifetimes via signature hr ordering",
+    "hypotheses": [
+     {"text": "same GCPs; s ≤hr s*", "formal": "signature hr ordering", "source": "statement"}
+    ],
+    "conclusion": {"order": "hr", "direction": "T ≤hr T*"},
+    "quantifiers": "all t > 0",
+    "numbers": "",
+    "ambiguity": "Proof cites Theorem 1.B.14 of Shaked–Shanthikumar via ϑ_k ≤lr ϑ_{k+1}."
+   }
+  ],
+  "note": "Printed verbatim on p.9 — part (ii) of Theorem 3."
+ },
+ {
+  "queue_claim": "theorem3iii",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3390/math6100197",
+    "claim": "Theorem 3 (iii)",
+    "page": 9,
+    "quote": "Theorem 3. For two networks as described in Theorem 2, assume that the failure of components of both networks appear according to the same GCPs: 3. If s ≤rh s*, then T ≤rh T*.",
+    "kind": "theorem",
+    "model": "other: coherent network lifetimes",
+    "family": "two networks; same GCP for both",
+    "compared": "network lifetimes via signature rh ordering",
+    "hypotheses": [
+     {"text": "same GCPs; s ≤rh s*", "formal": "signature rh ordering", "source": "statement"}
+    ],
+    "conclusion": {"order": "rh", "direction": "T ≤rh T*"},
+    "quantifiers": "all t > 0",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Printed verbatim on p.9 — part (iii) of Theorem 3."
+ },
+ {
+  "queue_claim": "theorem3iv",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3390/math6100197",
+    "claim": "Theorem 3 (iv)",
+    "page": 9,
+    "quote": "Theorem 3. For two networks as described in Theorem 2, assume that the failure of components of both networks appear according to the same GCPs: 4. If s ≤lr s*, then T ≤lr T*.",
+    "kind": "theorem",
+    "model": "other: coherent network lifetimes",
+    "family": "two networks; same GCP for both",
+    "compared": "network lifetimes via signature lr ordering",
+    "hypotheses": [
+     {"text": "same GCPs; s ≤lr s*", "formal": "signature lr ordering", "source": "statement"}
+    ],
+    "conclusion": {"order": "lr", "direction": "T ≤lr T*"},
+    "quantifiers": "all t > 0",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Printed verbatim on p.9 — part (iv) of Theorem 3."
+ },
+ {
+  "queue_claim": "theorem5ii",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3390/math6100197",
+    "claim": "Theorem 5 (ii)",
+    "page": 10,
+    "quote": "Theorem 5. Consider a network whose components fail based on two different GCPs with MVFs Λ(t) and Λ*(t), respectively. Denote by s(t) and s*(t) the corresponding conditional signatures of the two networks. Then, ... • Λ(t) ≤ Λ*(t) implies that s(t) ≤st s*(t) for all t ≥ 0.",
+    "kind": "theorem",
+    "model": "other: conditional signature vectors",
+    "family": "same network under two GCPs with MVFs Λ, Λ*",
+    "compared": "conditional signatures s(t) vs s*(t) under MVF ordering",
+    "hypotheses": [
+     {"text": "Λ(t) ≤ Λ*(t) for all t ≥ 0", "formal": "MVF ordering", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "s(t) ≤st s*(t) for all t ≥ 0"},
+    "quantifiers": "t ≥ 0",
+    "numbers": "",
+    "ambiguity": "Part (i) — conditional signatures st-increasing in t — is already canonical via the agreed bundled 'Theorem 5' record."
+   }
+  ],
+  "note": "Printed verbatim on p.10 (second bullet of Theorem 5); part (i) already covered by the agreed bundled record."
+ },
+ {
+  "queue_claim": "theorem7i",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3390/math6100197",
+    "claim": "Theorem 7 (i)",
+    "page": 12,
+    "quote": "Theorem 7. Let s(t) and s*(t) be the conditional signatures of two networks with lifetimes T and T*, respectively. Suppose that the component failure in both networks appear based on the same GCPs. 1. If s(t) ≤st s*(t), then (T − t| T > t) ≤st (T* − t| T* > t).",
+    "kind": "theorem",
+    "model": "other: residual lifetimes of used networks",
+    "family": "two networks; same GCPs; conditional signatures",
+    "compared": "residual lifetimes at age t under conditional-signature st ordering",
+    "hypotheses": [
+     {"text": "same GCPs; s(t) ≤st s*(t) for the given t", "formal": "conditional signature st ordering", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "(T − t | T > t) ≤st (T* − t | T* > t)"},
+    "quantifiers": "t ≥ 0; x > 0",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Both passes print the same direction — B_smaller in b_dirs was a normalization artifact of the conditional notation; conclusion identical."
+ },
+ {
+  "queue_claim": "theorem7ii",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3390/math6100197",
+    "claim": "Theorem 7 (ii)",
+    "page": 12,
+    "quote": "Theorem 7. ... 2. If s(t) ≤hr s*(t), then (T − t| T > t) ≤hr (T* − t| T* > t).",
+    "kind": "theorem",
+    "model": "other: residual lifetimes of used networks",
+    "family": "two networks; same GCPs; conditional signatures",
+    "compared": "residual lifetimes at age t under conditional-signature hr ordering",
+    "hypotheses": [
+     {"text": "same GCPs; s(t) ≤hr s*(t)", "formal": "conditional signature hr ordering", "source": "statement"}
+    ],
+    "conclusion": {"order": "hr", "direction": "(T − t | T > t) ≤hr (T* − t | T* > t)"},
+    "quantifiers": "t ≥ 0; x > 0",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Printed verbatim on p.12 — part (ii) of Theorem 7."
+ },
+ {
+  "queue_claim": "theorem7iii",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3390/math6100197",
+    "claim": "Theorem 7 (iii)",
+    "page": 12,
+    "quote": "Theorem 7. ... 3. If s(t) ≤rh s*(t), then (T − t| T > t) ≤rh (T* − t| T* > t).",
+    "kind": "theorem",
+    "model": "other: residual lifetimes of used networks",
+    "family": "two networks; same GCPs; conditional signatures",
+    "compared": "residual lifetimes at age t under conditional-signature rh ordering",
+    "hypotheses": [
+     {"text": "same GCPs; s(t) ≤rh s*(t)", "formal": "conditional signature rh ordering", "source": "statement"}
+    ],
+    "conclusion": {"order": "rh", "direction": "(T − t | T > t) ≤rh (T* − t | T* > t)"},
+    "quantifiers": "t ≥ 0; x > 0",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Printed verbatim on p.12 — part (iii) of Theorem 7."
+ },
+ {
+  "queue_claim": "theorem7iv",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3390/math6100197",
+    "claim": "Theorem 7 (iv)",
+    "page": 12,
+    "quote": "Theorem 7. ... 4. If s(t) ≤lr s*(t), then (T − t| T > t) ≤lr (T* − t| T* > t).",
+    "kind": "theorem",
+    "model": "other: residual lifetimes of used networks",
+    "family": "two networks; same GCPs; conditional signatures",
+    "compared": "residual lifetimes at age t under conditional-signature lr ordering",
+    "hypotheses": [
+     {"text": "same GCPs; s(t) ≤lr s*(t)", "formal": "conditional signature lr ordering", "source": "statement"}
+    ],
+    "conclusion": {"order": "lr", "direction": "(T − t | T > t) ≤lr (T* − t | T* > t)"},
+    "quantifiers": "t ≥ 0; x > 0",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Printed verbatim on p.12 — part (iv) of Theorem 7."
+ },
+ {
+  "queue_claim": "theorem8i",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3390/math6100197",
+    "claim": "Theorem 8 (i)",
+    "page": 15,
+    "quote": "Theorem 8. Consider two three-state networks that each consist of n components having signature matrices S1 and S2, respectively. Let the components of ith network fail according to GCP {ξ_i(t), t ≥ 0}, i = 1, 2 with intensity function Λ_i(t) = λ_i. Let ϑ_{i,1}, ϑ_{i,2}, ... denote the arrival times corresponding to {ξ_i(t), t ≥ 0}. Suppose that (T1^(1), T2^(1)) and (T1^(2), T2^(2)) are the corresponding state lifetimes of the two networks, respectively: • If λ1 ≥ λ2 and S1 ≤uo S2, then (T1^(1), T2^(1)) ≤uo (T1^(2), T2^(2)).",
+    "kind": "theorem",
+    "model": "other: three-state networks (bivariate state lifetimes)",
+    "family": "two n-component three-state networks; GCP failures with Λ_i(t) = λ_i t (constant intensity); two-dimensional signature matrices",
+    "compared": "joint state lifetimes (T1^(1),T2^(1)) vs (T1^(2),T2^(2)) under signature-matrix uo ordering",
+    "hypotheses": [
+     {"text": "λ1 ≥ λ2", "formal": "intensity ordering", "source": "statement"},
+     {"text": "S1 ≤uo S2", "formal": "signature-matrix upper orthant ordering", "source": "statement"}
+    ],
+    "conclusion": {"order": "other: uo (upper orthant order, Definition 2)", "direction": "(T1^(1), T2^(1)) ≤uo (T1^(2), T2^(2))"},
+    "quantifiers": "t1, t2 ≥ 0; n components",
+    "numbers": "",
+    "ambiguity": "Section 3 assumes MVF Λ(t) = λt; the statement's 'intensity function Λ_i(t) = λ_i' reads as constant intensity/equivalently linear MVF."
+   }
+  ],
+  "note": "Both passes print the same uo conclusion; dir diff was a normalization artifact. Order is the upper orthant order of Definition 2 — labeled 'other: uo' per the paper's own definition."
+ },
+ {
+  "queue_claim": "theorem8ii",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3390/math6100197",
+    "claim": "Theorem 8 (ii)",
+    "page": 15,
+    "quote": "Theorem 8. ... • If λ1 ≥ λ2 and S1 ≤st S2, then (T1^(1), T2^(1)) ≤st (T1^(2), T2^(2)).",
+    "kind": "theorem",
+    "model": "other: three-state networks (bivariate state lifetimes)",
+    "family": "two n-component three-state networks; GCP failures; signature matrices",
+    "compared": "joint state lifetimes under signature-matrix st ordering",
+    "hypotheses": [
+     {"text": "λ1 ≥ λ2", "formal": "intensity ordering", "source": "statement"},
+     {"text": "S1 ≤st S2", "formal": "signature-matrix (multivariate) st ordering", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "(T1^(1), T2^(1)) ≤st (T1^(2), T2^(2)) — multivariate usual stochastic order (Definition 2)"},
+    "quantifiers": "t1, t2 ≥ 0",
+    "numbers": "",
+    "ambiguity": "Bivariate st order per Definition 2; proof via Theorem 3.3 of Belzunce–Mercader–Ruiz–Spizzichino (2009)."
+   }
+  ],
+  "note": "Printed verbatim on p.15 — part (b) of Theorem 8."
+ },
+ {
+  "queue_claim": "theorem9i",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3390/math6100197",
+    "claim": "Theorem 9 (i)",
+    "page": 15,
+    "quote": "Theorem 9. Let T1 be the lifetime of a three-state network in state K = 2 and T2 be the lifetime of the network. Let the components failure of the network appear according to the GCP {ξ(t), t ≥ 0} with arrival times ϑ1, . . . , ϑn. • If I and J are PQD, then T1 and T2 are PQD.",
+    "kind": "theorem",
+    "model": "other: three-state network",
+    "family": "single-step three-state network; GCP failures; I (J) = number of failed components at entry to state K = 1 (K = 0)",
+    "compared": "dependence between the two state lifetimes T1, T2",
+    "hypotheses": [
+     {"text": "I and J are PQD (Definition 3)", "formal": "positive quadrant dependence of the transition counts", "source": "statement"}
+    ],
+    "conclusion": {"order": "other: PQD", "direction": "T1 and T2 are PQD — dependence transfers from (I,J) to the lifetimes"},
+    "quantifiers": "n components",
+    "numbers": "",
+    "ambiguity": "A positive-dependence claim about a pair of lifetimes rather than a distributional ordering of two distributions; kept as the paper's stated stochastic-dependence result (Definition 3 notions)."
+   }
+  ],
+  "note": "Printed on p.15 (B's p.16 corrected via page headers); a dependence conclusion between two lifetimes — included and labeled 'other: PQD'."
+ },
+ {
+  "queue_claim": "theorem9ii",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3390/math6100197",
+    "claim": "Theorem 9 (ii)",
+    "page": 15,
+    "quote": "Theorem 9. ... • If I and J are associated, then T1 and T2 are associated.",
+    "kind": "theorem",
+    "model": "other: three-state network",
+    "family": "single-step three-state network; GCP failures",
+    "compared": "association between the two state lifetimes T1, T2",
+    "hypotheses": [
+     {"text": "I and J are associated (Definition 3)", "formal": "association of the transition counts", "source": "statement"}
+    ],
+    "conclusion": {"order": "other: association", "direction": "T1 and T2 are associated"},
+    "quantifiers": "n components",
+    "numbers": "",
+    "ambiguity": "Association is a dependence notion, not a distributional ordering; recorded as printed."
+   }
+  ],
+  "note": "Printed on p.15 — part (b) of Theorem 9; dependence claim flagged in ambiguity."
+ },
+ {
+  "queue_claim": "unn1:definitions 1 3 stochastic orders and",
+  "decision": "exclude",
+  "records": [],
+  "note": "A summary record of Definitions 1–3 (standard stochastic-order definitions) — a definition statement with no ordering conclusion and no numerical content; pass A's own ambiguity calls it 'definition record only'. Out of scope."
+ },
+ {
+  "queue_claim": "unn:series network comparison gcp vs nhpp",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3390/math6100197",
+    "claim": "Series-network comparison GCP vs NHPP (unnumbered, Section 2)",
+    "page": 7,
+    "quote": "In the sequel, we show that, if the network has a series structure, then the reliability of the network in the GCP model dominates the reliability of the network in an NHPP model. ... If ϑ1,NP and ϑ1,GP denote the arrival times of the first component failure based on NHPP and GCP, respectively, then, from inequality e^x > (1 + x), x > 0, we can write P(ϑ1,NP > t) = e^{−Λ(t)} < 1/(1 + Λ(t)) = P(ϑ1,GP > t). Hence, based on the fact that, for a series network s = (1, 0, ..., 0), relation (2) implies that TNP ≤st TGP.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "two-state series network; component failures via GCP vs NHPP with the same MVF Λ(t)",
+    "compared": "TNP (NHPP failure model) vs TGP (GCP failure model)",
+    "hypotheses": [
+     {"text": "series structure (s = (1,0,...,0)); same MVF Λ(t) for both processes", "formal": "as stated", "source": "statement"},
+     {"text": "P(ϑ1,NP > t) = e^{−Λ(t)} < 1/(1+Λ(t)) = P(ϑ1,GP > t)", "formal": "first-arrival st ordering from e^x > 1+x", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "TNP ≤st TGP"},
+    "quantifiers": "all t ≥ 0",
+    "numbers": "P(ϑ1,NP > t) = e^{−Λ(t)} < 1/(1+Λ(t)) = P(ϑ1,GP > t)",
+    "ambiguity": "Unnumbered result proved inline in the text; Example 2 shows it fails for non-series networks."
+   }
+  ],
+  "note": "Genuine printed st-ordering claim for series networks (unnumbered in-text result, verified verbatim on p.7) — include."
+ }
+]
