@@ -54,12 +54,12 @@ graph, if one exists, would have to avoid everything those checks covered.
 
 ## Log
 
-- 2026-09-27, circulants (`circulants.py`): every 9-regular circulant on
-  Z_40 checked exhaustively (3876 candidates: degree 9 forces the antipodal
-  generator 20 plus 4 of {1..19}; 484 triangle-free; none with alpha <= 9).
-  No circulant (3,10,40)-graph exists. Lower-degree circulants are excluded
-  by e(3,10,40) >= 161, higher by Delta <= 9. Certified negative on the
-  class; likely folklore but we found no published exclusion.
+- 2026-09-27, circulants (`circulants.py`): every circulant on Z_40 of
+  degree <= 9 checked exhaustively (10,072 candidates; degree > 9 is
+  impossible since a vertex's neighbourhood is an independent set and
+  alpha <= 9). 2,921 are triangle-free; none has alpha <= 9. No circulant
+  (3,10,40)-graph exists — unconditional, no e-value bound needed. Likely
+  folklore; we found no published exclusion.
 
 ## Approach
 

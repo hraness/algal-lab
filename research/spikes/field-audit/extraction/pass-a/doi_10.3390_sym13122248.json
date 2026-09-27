@@ -1,0 +1,402 @@
+[
+  {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Theorem 1",
+    "page": 7,
+    "quote": "Theorem 1. Suppose X1, . . . , Xn (X1∗, . . . , Xn∗) be a set of dependent MOTL-G random variables having Archimedean copula with generator ψ1 (ψ2) such that Xi ∼ MOTL − G(αi, βi, G1(x)) (Xi∗ ∼ MOTL − G(αi, δi, G2(x))), i = 1, 2, . . . , n. Further assume Ip1, . . . , Ipn (Ip1∗, . . . , Ip∗n) be a set of independent Bernoulli random variables with E(Ipi) = pi (E(Ipi∗) = pi∗), independent of Xi's(Xi∗'s), i = 1, 2, . . . , n. If (i) (α, β) ∈ Un and (α, δ) ∈ Un, (ii) Z1 ≤st Z2, (iii) ∏_{i=1}^n pi ≤ ∏_{i=1}^n pi∗ and (iv) φ2 ◦ ψ1 is super-additive and ψ1 or ψ2 is log-convex, then (β1, β2, . . . , βn) ≽w (δ1, δ2, . . . , δn) =⇒ Y1:n ≤st Y1:n∗.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "MOTL-G family: Xi ∼ MOTL-G(αi, βi, G1(x)), Xi∗ ∼ MOTL-G(αi, δi, G2(x)) with F_MOTL-G(x; α, β, ξ) = [1-(1-G(x,ξ))^2]^β / (α + ᾱ[1-(1-G(x,ξ))^2]^β); Archimedean copulas with generators ψ1, ψ2; independent Bernoulli shock indicators Ip_i, Yi = Xi·Ip_i",
+    "compared": "second shape vector β vs δ (weak majorization), baselines Z1 ≤st Z2, copula generators ψ1 vs ψ2, shock-probability products ∏pi ≤ ∏pi∗",
+    "hypotheses": [
+      {"text": "(α, β) ∈ Un and (α, δ) ∈ Un", "formal": "the pairs (α_i, β_i) and (α_i, δ_i) are similarly ordered: (α_i-α_j)(β_i-β_j) ≥ 0 and (α_i-α_j)(δ_i-δ_j) ≥ 0 for all i,j", "source": "statement (i), Un defined in Section 2.4 preamble"},
+      {"text": "Z1 ≤st Z2", "formal": "Ḡ1(x) ≤ Ḡ2(x) for all x", "source": "statement (ii); Z1, Z2 are r.v.s with cdfs G1, G2 from Section 3 preamble"},
+      {"text": "∏_{i=1}^n pi ≤ ∏_{i=1}^n pi∗", "formal": "product of shock survival probabilities ordered", "source": "statement (iii)"},
+      {"text": "φ2 ◦ ψ1 is super-additive and ψ1 or ψ2 is log-convex", "formal": "φ2(ψ1(a+b)) ≤ φ2(ψ1(a)) + φ2(ψ1(b)); log ψ1 or log ψ2 convex", "source": "statement (iv)"},
+      {"text": "random variables are non-negative and absolutely continuous", "formal": "standing assumption", "source": "section preamble, Section 2"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y_{1:n} <=st Y*_{1:n}"},
+    "quantifiers": "n components, i = 1,...,n; x ≥ 0",
+    "ambiguity": "Xi∗ is written as MOTL-G(αi, δi, G2(x)) with the same αi as the first system, although the Section 3 preamble defines Xi∗ ∼ MOTL-G(γi, δi, G2(x)); per the conclusion only β vs δ differ. Statement straddles pages 7-8."
+  },
+  {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Theorem 2",
+    "page": 10,
+    "quote": "Theorem 2. Suppose X1, . . . , Xn (X1∗, . . . , Xn∗) is a set of dependent MOTL-G random variables having Archimedean copula with generator ψ1 (ψ2) such that Xi ∼ MOTL − G(αi, βi, G1(x)) (Xi∗ ∼ MOTL − G(γi, βi, G2(x))), i = 1, 2, . . . , n. Further, assume that Ip1, . . . , Ipn (Ip1∗, . . . , Ip∗n) is a set of independent Bernoulli random variables with E(Ipi) = pi (E(Ipi∗) = pi∗), independent of Xi's(Xi∗'s), i = 1, 2, . . . , n. If (i) (α, β) ∈ Un and (γ, β) ∈ Un, (ii) Z1 ≤st Z2, (iii) ∏_{i=1}^n pi ≤ ∏_{i=1}^n pi∗ and (iv) φ2 ◦ ψ1 is super-additive, then (α1, α2, . . . , αn) ≽w (γ1, γ2, . . . , γn) =⇒ Y1:n ≤st Y1:n∗.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "MOTL-G family: Xi ∼ MOTL-G(αi, βi, G1(x)), Xi∗ ∼ MOTL-G(γi, βi, G2(x)); Archimedean copulas ψ1, ψ2; Bernoulli shocks, Yi = Xi·Ip_i",
+    "compared": "first shape vector α vs γ (weak majorization), baselines Z1 ≤st Z2, copulas ψ1 vs ψ2, shock products ∏pi ≤ ∏pi∗",
+    "hypotheses": [
+      {"text": "(α, β) ∈ Un and (γ, β) ∈ Un", "formal": "(α_i-α_j)(β_i-β_j) ≥ 0 and (γ_i-γ_j)(β_i-β_j) ≥ 0", "source": "statement (i)"},
+      {"text": "Z1 ≤st Z2", "formal": "Ḡ1(x) ≤ Ḡ2(x)", "source": "statement (ii)"},
+      {"text": "∏_{i=1}^n pi ≤ ∏_{i=1}^n pi∗", "formal": "shock product ordered", "source": "statement (iii)"},
+      {"text": "φ2 ◦ ψ1 is super-additive", "formal": "φ2(ψ1(a+b)) ≤ φ2(ψ1(a)) + φ2(ψ1(b))", "source": "statement (iv)"},
+      {"text": "random variables are non-negative and absolutely continuous", "formal": "standing assumption", "source": "Section 2 preamble"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y_{1:n} <=st Y*_{1:n}"},
+    "quantifiers": "i = 1,...,n; x ≥ 0",
+    "ambiguity": "Theorem 2 drops the 'ψ1 or ψ2 is log-convex' condition that appeared in Theorem 1 (proof claimed similar and omitted)."
+  },
+  {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Theorem 3",
+    "page": 10,
+    "quote": "Theorem 3. Suppose X1, . . . , Xn (X1∗, . . . , Xn∗) is a set of dependent MOTL-G random variables having Archimedean copula with generator ψ1 (ψ2) such that Xi ∼ MOTL − G(αi, βi, G1(x)) (Xi∗ ∼ MOTL − G(γi, δi, G2(x))), i = 1, 2, . . . , n. Further, assume that Ip1, . . . , Ipn (Ip1∗, . . . , Ip∗n) is a set of independent Bernoulli random variables with E(Ipi) = pi (E(Ipi∗) = pi∗), independent of Xi's(Xi∗'s), i = 1, 2, . . . , n. If (i) (α, β) ∈ Un, (α, δ) ∈ Un and (γ, β) ∈ Un, (ii) Z1 ≤st Z2, (iii) ∏_{i=1}^n pi ≤ ∏_{i=1}^n pi∗ and (iv) φ2 ◦ ψ1 is super-additive and ψ1 or ψ2 is log-convex, then [α; β] >w [γ; δ] =⇒ Y1:n ≤st Y1:n∗ (row weak majorization of the parameter matrices).",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "MOTL-G: Xi ∼ MOTL-G(αi, βi, G1(x)), Xi∗ ∼ MOTL-G(γi, δi, G2(x)); Archimedean copulas ψ1, ψ2; Bernoulli shocks",
+    "compared": "both shape vectors (α,β) vs (γ,δ) via row weak majorization of the 2×n matrices; baselines Z1 ≤st Z2; copulas ψ1, ψ2; shock products ∏pi ≤ ∏pi∗",
+    "hypotheses": [
+      {"text": "(α, β) ∈ Un, (α, δ) ∈ Un and (γ, β) ∈ Un", "formal": "componentwise co-monotonicity of the listed pairs", "source": "statement (i)"},
+      {"text": "Z1 ≤st Z2", "formal": "Ḡ1 ≤ Ḡ2", "source": "statement (ii)"},
+      {"text": "∏_{i=1}^n pi ≤ ∏_{i=1}^n pi∗", "formal": "shock product ordered", "source": "statement (iii)"},
+      {"text": "φ2 ◦ ψ1 is super-additive and ψ1 or ψ2 is log-convex", "formal": "as in Theorem 1", "source": "statement (iv)"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y_{1:n} <=st Y*_{1:n}"},
+    "quantifiers": "i = 1,...,n; x ≥ 0",
+    "ambiguity": "Matrix majorization notation [α;β] >w [γ;δ] means both rows weakly majorize (α ≽w γ and β ≽w δ) per Definition 4(ii)."
+  },
+  {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Theorem 4",
+    "page": 11,
+    "quote": "Theorem 4. Suppose X1, X2, . . . , Xn and X1∗, X2∗, . . . , Xn∗ are two sets of dependent MOTL-G random variables having common Archimedean copula with generator ψ such that Xi ∼ MOTL − G(αi, βi, G1(x)) and Xi∗ ∼ MOTL − G(γi, δi, G2(x)), i = 1, 2, . . . , n. Further, assume Ip1, Ip2, . . . , Ipn (Ip1∗, Ip2∗, . . . , Ip∗n) be a set of independent Bernoulli random variables with E(Ipi) = pi (E(Ipi∗) = pi∗), independent of Xi's(Xi∗'s), i = 1, 2, . . . , n. If Z1 ≤st Z2 (αi = γi and βi = δi (i = 1, 2, . . . , n)), then ∏_{i=1}^n pi ≤ ∏_{i=1}^n pi∗ =⇒ Y1:n ≤st Y1:n∗.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "MOTL-G with common Archimedean copula ψ; Xi ∼ MOTL-G(αi, βi, G1), Xi∗ ∼ MOTL-G(γi, δi, G2)",
+    "compared": "only shock probabilities p vs p∗ (same shape parameters αi=γi, βi=δi, common copula); baselines Z1 ≤st Z2",
+    "hypotheses": [
+      {"text": "Z1 ≤st Z2", "formal": "Ḡ1 ≤ Ḡ2", "source": "statement"},
+      {"text": "αi = γi and βi = δi (i = 1, 2, . . . , n)", "formal": "identical shape parameters on both sides", "source": "statement"},
+      {"text": "∏_{i=1}^n pi ≤ ∏_{i=1}^n pi∗", "formal": "shock product ordered", "source": "statement (conclusion premise)"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y_{1:n} <=st Y*_{1:n}"},
+    "quantifiers": "i = 1,...,n; x ≥ 0",
+    "ambiguity": "Remark 5 notes ∏pi ≤ ∏pi∗ is weaker than (p) ≽w (p∗)."
+  },
+  {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Theorem 5",
+    "page": 12,
+    "quote": "Theorem 5. Suppose X1, . . . , Xn and X1∗, . . . , Xn∗ are two sets of dependent MOTL-G random variables having a common Archimedean copula with generator ψ such that Xi ∼ MOTL − G(αi, β, G1) and Xi∗ ∼ MOTL − G(γi, β, G2), i = 1, 2, . . . , n. Further, assume Ip1, . . . , Ipn (Ip1∗, . . . , Ip∗n) be a set of independent Bernoulli random variables with E(Ipi) = pi (E(Ipi∗) = pi∗), independent of Xi's(Xi∗'s), i = 1, 2, . . . , n. If (i) ∏_{i=1}^n pi ≤ ∏_{i=1}^n pi∗; (ii) ψ is log-concave; and (iii) ψ'(1 − ψ)/ψ' is decreasing and concave (or convex), then (α1, α2, . . . , αn) ≽w (γ1, γ2, . . . , γn) =⇒ Y1:n ≤hr Y1:n∗.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "MOTL-G with common Archimedean copula ψ; common second shape β; Xi ∼ MOTL-G(αi, β, G1), Xi∗ ∼ MOTL-G(γi, β, G2)",
+    "compared": "shape vector α vs γ (weak majorization); baselines G1 vs G2 appear unrestricted; shock products ∏pi ≤ ∏pi∗",
+    "hypotheses": [
+      {"text": "∏_{i=1}^n pi ≤ ∏_{i=1}^n pi∗", "formal": "shock product ordered", "source": "statement (i)"},
+      {"text": "ψ is log-concave", "formal": "log ψ concave", "source": "statement (ii)"},
+      {"text": "ψ'(1 − ψ)/ψ' is decreasing and concave (or convex)", "formal": "the expression involving the generator derivative; exact form partially garbled in text layer (printed as 'ψ(1 − ψ)/ψ' with a stray prime)", "source": "statement (iii)"}
+    ],
+    "conclusion": {"order": "hr", "direction": "Y_{1:n} <=hr Y*_{1:n}"},
+    "quantifiers": "i = 1,...,n; x ≥ 0",
+    "ambiguity": "Unlike Theorems 1-4 the statement imposes no order between the baselines G1 and G2 even though they may differ. Condition (iii) symbol string is garbled in the text layer ('ψ(1 − ψ)/ψ' preceded by a stray 0/prime). Remark 6 notes this theorem fixes an error in Panja et al. (2021) Theorem 5.3 concerning the survival-ratio value at x = 0."
+  },
+  {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Theorem 6",
+    "page": 14,
+    "quote": "Theorem 6. Let X1, . . . , Xn (X1∗, . . . , Xn∗) be a set of independent MOTL-G random variables such that Xi ∼ MOTL − G(αi, βi, G1(x)) (Xi∗ ∼ MOTL − G(αi, βi, G2(x))), i = 1, 2. Further, assume Ip1, . . . , Ipn (Ip1∗, . . . , Ip∗n) be a set of independent Bernoulli random variables with E(Ipi) = pi (E(Ipi∗) = pi∗), independent of Xi's(Xi∗'s), i = 1, 2. If (i) Z1 ≥st Z2, (ii) (α, β) ∈ U2, (β, h(p)) ∈ V2 and (β, h(p∗)) ∈ V2 and (iii) h : [0, 1] → (0, ∞) is a differentiable and strictly decreasing convex function, then (h(p1), h(p2)) ≽w (h(p1∗), h(p2∗)) =⇒ Y2:2 ≥st Y2:2∗.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "MOTL-G, Xi ∼ MOTL-G(αi, βi, G1(x)), Xi∗ ∼ MOTL-G(αi, βi, G2(x)), n = 2; transformed shock probabilities ui = h(pi)",
+    "compared": "transformed shock-probability pairs (h(p1),h(p2)) vs (h(p1∗),h(p2∗)) via weak majorization; baselines Z1 ≥st Z2; same αi, βi on both sides",
+    "hypotheses": [
+      {"text": "Z1 ≥st Z2", "formal": "Ḡ1 ≥ Ḡ2", "source": "statement (i)"},
+      {"text": "(α, β) ∈ U2, (β, h(p)) ∈ V2 and (β, h(p∗)) ∈ V2", "formal": "(α1-α2)(β1-β2) ≥ 0; (β1-β2)(h(p1)-h(p2)) ≤ 0; (β1-β2)(h(p1∗)-h(p2∗)) ≤ 0", "source": "statement (ii); U2, V2 defined in Section 2.4"},
+      {"text": "h : [0, 1] → (0, ∞) is a differentiable and strictly decreasing convex function", "formal": "h' < 0, h'' > 0", "source": "statement (iii)"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y_{2:2} >=st Y*_{2:2}"},
+    "quantifiers": "n = 2 only (i = 1, 2); x ≥ 0",
+    "ambiguity": "Statement says 'independent MOTL-G random variables' but it sits in the dependent-components Section 3.1.2 and its proof uses the joint survival function F̄X1:2(x) = ψ(∑φ(...)) built from an Archimedean copula — 'independent' appears to be a misprint for 'dependent'."
+  },
+  {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Theorem 7",
+    "page": 16,
+    "quote": "Theorem 7. Suppose X1, . . . , Xn (X1∗, . . . , Xn∗) is a set of independent MOTL-G random variables such that Xi ∼ MOTL − G(αi, βi, G1(x)) (Xi∗ ∼ MOTL − G(αi, βi, G2(x))), i = 1, 2, . . . , n. Further, assume Ip1, . . . , Ipn (Ip1∗, . . . , Ip∗n) is a set of independent Bernoulli random variables with E(Ipi) = pi (E(Ipi∗) = pi∗), independent of Xi's(Xi∗'s), i = 1, 2, . . . , n. If (i) Z1 ≥st Z2; (ii) (α, β) ∈ Un, (β, h(p)) ∈ Vn, and (β, h(p∗)) ∈ Vn; and (iii) h : [0, 1] → (0, ∞) is differentiable and strictly decreasing convex function, then ∏_{i=1}^n (1 − pi) ≤ ∏_{i=1}^n (1 − pi∗), h(p) ≽w h(p∗) =⇒ Yn:n ≥st Yn:n∗.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "MOTL-G independent components, Xi ∼ MOTL-G(αi, βi, G1(x)), Xi∗ ∼ MOTL-G(αi, βi, G2(x)); ui = h(pi)",
+    "compared": "transformed shock probabilities h(p) vs h(p∗) weakly majorized plus product condition ∏(1-pi) ≤ ∏(1-pi∗); baselines Z1 ≥st Z2",
+    "hypotheses": [
+      {"text": "Z1 ≥st Z2", "formal": "Ḡ1 ≥ Ḡ2, i.e. G1(x) ≤ G2(x)", "source": "statement (i)"},
+      {"text": "(α, β) ∈ Un, (β, h(p)) ∈ Vn, and (β, h(p∗)) ∈ Vn", "formal": "(α_i-α_j)(β_i-β_j) ≥ 0; (β_i-β_j)(h(p_i)-h(p_j)) ≤ 0; same for p∗", "source": "statement (ii)"},
+      {"text": "h : [0, 1] → (0, ∞) is differentiable and strictly decreasing convex function", "formal": "h' < 0, h'' > 0", "source": "statement (iii)"},
+      {"text": "∏_{i=1}^n (1 − pi) ≤ ∏_{i=1}^n (1 − pi∗)", "formal": "shock-failure product ordered", "source": "statement (conclusion premise)"},
+      {"text": "h(p) ≽w h(p∗)", "formal": "weak supermajorization of transformed shock vectors", "source": "statement (conclusion premise)"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y_{n:n} >=st Y*_{n:n}"},
+    "quantifiers": "i = 1,...,n; x ≥ 0",
+    "ambiguity": ""
+  },
+  {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Theorem 8(i)",
+    "page": 17,
+    "quote": "Theorem 8. Let X1, . . . , Xn (X1∗, . . . , Xn∗) be a set of independent MOTL-G random variables such that Xi ∼ MOTL − G(αi, βi, G1(x)) (Xi∗ ∼ MOTL − G(γi, δi, G2(x))), i = 1, 2, . . . , n. Further assume Ip1, . . . , Ipn be a set of independent Bernoulli random variables with E(Ipi) = pi, independent of Xi's(Xi∗'s), i = 1, 2, . . . , n. If Z1 ≤st Z2 and h : [0, 1] → (0, ∞) is a differentiable and decreasing function. Then, (i) for αi = γi = α ≥ 1 (i = 1, 2, . . . , n) and (β, h(p)), (δ, h(p)) ∈ Un, we have β ≽w δ =⇒ Yn:n ≤st Yn:n∗.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "MOTL-G independent components; common scalar shape α ≥ 1; Xi ∼ MOTL-G(α, βi, G1), Xi∗ ∼ MOTL-G(α, δi, G2); Bernoulli shocks with common p on both sides",
+    "compared": "shape vector β vs δ (weak majorization); baselines Z1 ≤st Z2; same shock probabilities p on both sides",
+    "hypotheses": [
+      {"text": "Z1 ≤st Z2", "formal": "Ḡ1 ≤ Ḡ2", "source": "statement"},
+      {"text": "h : [0, 1] → (0, ∞) is a differentiable and decreasing function", "formal": "h' ≤ 0", "source": "statement"},
+      {"text": "αi = γi = α ≥ 1 (i = 1, 2, . . . , n)", "formal": "common scalar first shape parameter", "source": "statement (i)"},
+      {"text": "(β, h(p)), (δ, h(p)) ∈ Un", "formal": "(β_i-β_j)(h(p_i)-h(p_j)) ≥ 0 and (δ_i-δ_j)(h(p_i)-h(p_j)) ≥ 0", "source": "statement (i)"},
+      {"text": "β ≽w δ", "formal": "weak supermajorization", "source": "statement (conclusion premise)"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y_{n:n} <=st Y*_{n:n}"},
+    "quantifiers": "i = 1,...,n; x ≥ 0; α ≥ 1",
+    "ambiguity": "Theorem 8 assumes the same Bernoulli vector p on both sides (no p∗ defined)."
+  },
+  {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Theorem 8(ii)",
+    "page": 17,
+    "quote": "Theorem 8. Let X1, . . . , Xn (X1∗, . . . , Xn∗) be a set of independent MOTL-G random variables such that Xi ∼ MOTL − G(αi, βi, G1(x)) (Xi∗ ∼ MOTL − G(γi, δi, G2(x))), i = 1, 2, . . . , n. Further assume Ip1, . . . , Ipn be a set of independent Bernoulli random variables with E(Ipi) = pi, independent of Xi's(Xi∗'s), i = 1, 2, . . . , n. If Z1 ≤st Z2 and h : [0, 1] → (0, ∞) is a differentiable and decreasing function. Then, ... (ii) for βi = γi = β (i = 1, 2, . . . , n) and (α, h(p)), (γ, h(p)) ∈ Un, we have α ≽w γ =⇒ Yn:n ≤st Yn:n∗.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "MOTL-G independent components; common scalar second shape β; Xi ∼ MOTL-G(αi, β, G1), Xi∗ ∼ MOTL-G(γi, β, G2); common shocks p",
+    "compared": "shape vector α vs γ (weak majorization); baselines Z1 ≤st Z2",
+    "hypotheses": [
+      {"text": "Z1 ≤st Z2", "formal": "Ḡ1 ≤ Ḡ2", "source": "statement"},
+      {"text": "h : [0, 1] → (0, ∞) is a differentiable and decreasing function", "formal": "h' ≤ 0", "source": "statement"},
+      {"text": "βi = γi = β (i = 1, 2, . . . , n)", "formal": "common scalar second shape parameter", "source": "statement (ii)"},
+      {"text": "(α, h(p)), (γ, h(p)) ∈ Un", "formal": "co-monotonicity conditions", "source": "statement (ii)"},
+      {"text": "α ≽w γ", "formal": "weak supermajorization", "source": "statement (conclusion premise)"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y_{n:n} <=st Y*_{n:n}"},
+    "quantifiers": "i = 1,...,n; x ≥ 0",
+    "ambiguity": "Statement writes 'βi = γi = β' where it presumably means βi = δi = β (γ belongs to the first shape parameter); recorded as printed."
+  },
+  {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Example 1",
+    "page": 10,
+    "quote": "Example 1. Consider two series systems. Let G1(x) = 1 − 1/(1+x) and G2(x) = e^{−x} for x > 0. Suppose that (p1, p1, p3) = (e^{−0.05}, e^{−0.08}, e^{−0.22}), (p1∗, p2∗, p3∗) = (e^{−0.01}, e^{−0.21}, e^{−0.03}), (β1, β2, β2) = (2, 5, 6) ≽w (4.5, 5, 5.8) = (δ1, δ2, δ3) and (α1, α2, α2) = (1.1, 4, 6.5) ≽w (3.5, 4, 6.3) = (γ1, γ2, γ3). As mentioned in Remark 4, we choose the Clayton copula with generator ψ(x) = (θx + 1)^{−1/θ} for θ ≥ 0, set θ1 = 2 and θ2 = 4. Clearly, the conditions of Theorem 3 are satisfied. To plot the whole of distributions functions curves the lifetime of Y1:3 and Y1:3∗ on [0, ∞), we take the transformation (x + 1)^{−1} : [0, ∞) → [0, 1]. Then Y1:3 ≤st Y1:3∗ is equivalent to (Y1:3 + 1)^{−1} ≥st (Y1:3∗ + 1)^{−1}. Figure 1 shows that the distribution of (Y1:3 + 1)^{−1} is always larger than the distribution of (Y1:3∗ + 1)^{−1}, and this confirms that Y1:3 ≤st Y1:3∗.",
+    "kind": "example",
+    "model": "series system",
+    "family": "MOTL-G with baselines G1(x) = 1 − 1/(1+x) and G2(x) = e^{−x}; Clayton copulas θ1 = 2, θ2 = 4",
+    "compared": "β vs δ and α vs γ weakly majorized; shock probabilities e^{-a} values",
+    "hypotheses": [
+      {"text": "(p1, p1, p3) = (e^{−0.05}, e^{−0.08}, e^{−0.22}), (p1∗, p2∗, p3∗) = (e^{−0.01}, e^{−0.21}, e^{−0.03})", "formal": "shock probabilities", "source": "statement"},
+      {"text": "(β1, β2, β2) = (2, 5, 6) ≽w (4.5, 5, 5.8) = (δ1, δ2, δ3)", "formal": "weak majorization of shape vectors", "source": "statement"},
+      {"text": "(α1, α2, α2) = (1.1, 4, 6.5) ≽w (3.5, 4, 6.3) = (γ1, γ2, γ3)", "formal": "weak majorization", "source": "statement"},
+      {"text": "Clayton copula generator ψ(x) = (θx + 1)^{−1/θ}, θ1 = 2, θ2 = 4", "formal": "copula choice", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y_{1:3} <=st Y*_{1:3} (verified via plotted distribution functions)"},
+    "quantifiers": "n = 3",
+    "numbers": "p = (e^{-0.05}, e^{-0.08}, e^{-0.22}); p∗ = (e^{-0.01}, e^{-0.21}, e^{-0.03}); β = (2,5,6); δ = (4.5,5,5.8); α = (1.1,4,6.5); γ = (3.5,4,6.3); Clayton θ1 = 2, θ2 = 4",
+    "ambiguity": "Printed index typos: '(p1, p1, p3)', '(β1, β2, β2)', '(α1, α2, α2)'. Figure-based confirmation only."
+  },
+  {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Example 2",
+    "page": 11,
+    "quote": "Example 2. Under the setup of Example 1, let generators ψ1(x) = (θ1x + 1)^{−1/θ1} and ψ2(x) = (θ2x + 1)^{−1/θ2} for θ ≥ 0. When θ1 = 4 and θ2 = 0.2, note that [φ2 ◦ ψ1(t)]'' ≤ 0. Thus, the super-additive of φ2 ◦ ψ1 is not satisfied. As is seen in Figure 2, (Y1:3 + 1)^{−1} is not always beneath that of (Y1:3∗ + 1)^{−1}, that is, neither Y1:3 ≥st Y1:3∗ nor Y1:3 ≤st Y1:3∗.",
+    "kind": "counterexample",
+    "model": "series system",
+    "family": "MOTL-G, Clayton generators, baselines of Example 1",
+    "compared": "same data as Example 1 but θ1 = 4, θ2 = 0.2 so super-additivity fails",
+    "hypotheses": [
+      {"text": "[φ2 ◦ ψ1(t)]'' ≤ 0 so φ2 ◦ ψ1 not super-additive", "formal": "violated hypothesis of Theorem 3", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "no stochastic order either way: neither Y_{1:3} >=st Y*_{1:3} nor Y_{1:3} <=st Y*_{1:3}"},
+    "quantifiers": "n = 3",
+    "numbers": "θ1 = 4, θ2 = 0.2",
+    "ambiguity": "Demonstrates the super-additivity condition in Theorem 3 cannot be dropped."
+  },
+  {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Example 3",
+    "page": 13,
+    "quote": "Example 3. Consider the case of n = 2. Let G(x) = x, 0 ≤ x ≤ 1, and generator ψ(x) = 2/(1 + e^x). Set β = 1, α1 = 2, α2 = 3, γ1 = 4, γ2 = 6, and ∏_{i=1}^n pi∗ / ∏_{i=1}^n pi = 0.3. However, F̄Y1:2∗(x)/F̄Y1:2(x) is not monotone (see Figure 3). Therefore, the condition of ∏_{i=1}^n pi ≤ ∏_{i=1}^n pi∗ cannot be removed.",
+    "kind": "counterexample",
+    "model": "series system",
+    "family": "MOTL-G with baseline G(x) = x on [0,1] (uniform), generator ψ(x) = 2/(1+e^x)",
+    "compared": "α = (2,3) vs γ = (4,6); shock product ratio ∏pi∗/∏pi = 0.3 (violates ∏pi ≤ ∏pi∗)",
+    "hypotheses": [
+      {"text": "∏pi∗/∏pi = 0.3, i.e. ∏pi > ∏pi∗", "formal": "hypothesis (i) of Theorem 5 violated", "source": "statement"}
+    ],
+    "conclusion": {"order": "hr", "direction": "survival ratio F̄*_{1:2}(x)/F̄_{1:2}(x) not monotone — no hazard rate order"},
+    "quantifiers": "n = 2",
+    "numbers": "β = 1, α1 = 2, α2 = 3, γ1 = 4, γ2 = 6, ∏pi∗/∏pi = 0.3",
+    "ambiguity": "Shows condition ∏pi ≤ ∏pi∗ in Theorem 5 cannot be removed."
+  },
+  {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Example 4",
+    "page": 13,
+    "quote": "Example 4. Let G(x) = x and 0 ≤ x ≤ 1; it is assumed that α = 1.2, β1 = 2, β2 = 7, δ1 = 6, δ2 = 9 and ∏_{i=1}^n pi∗ / ∏_{i=1}^n pi = 3. As is displayed in Figure 4, F̄Y1:2∗(x)/F̄Y1:2(x) is not monotone in x. Therefore, neither of Y1:2 ≥hr Y1:2∗ and Y1:2 ≤hr Y1:2∗ is true.",
+    "kind": "counterexample",
+    "model": "series system",
+    "family": "MOTL-G, G(x) = x on [0,1]; independent case mentioned in preamble",
+    "compared": "β = (2,7) vs δ = (6,9) weakly majorized, common α = 1.2, shock product ratio 3",
+    "hypotheses": [
+      {"text": "β ≽w δ for fixed shape parameter α", "formal": "the analogue hazard-rate question to Theorem 5 in β", "source": "section preamble before example"}
+    ],
+    "conclusion": {"order": "hr", "direction": "no hazard rate order either way between Y_{1:2} and Y*_{1:2}"},
+    "quantifiers": "n = 2",
+    "numbers": "α = 1.2, β1 = 2, β2 = 7, δ1 = 6, δ2 = 9, ∏pi∗/∏pi = 3",
+    "ambiguity": "Answers negatively whether Y_{1:n} ≤hr Y*_{1:n} holds under β ≽w δ, even in the independent case."
+  },
+  {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Example 5",
+    "page": 19,
+    "quote": "Example 5. Suppose Xi ∼ MOTL − G(1, βi, G1(x)) (Xi∗ ∼ MOTL − G(1, δi, G2(x))), i = 1, 2. Let Z1 and Z2 be two exponential random variables with continuous distributions G1(x) = 1 − e^{−λ1x} and G2(x) = 1 − e^{−λ2x} (λ1 ≥ λ2), respectively. Taking h(p) = −log(p). Then, the distribution functions of Y2:2 and Y2:2∗ are given by FY2:2(x) = ∏_{i=1}^2 [1 − e^{−ui}(1 − (1 − e^{−2λ1x})^{βi})] and FY2:2∗(x) = ∏_{i=1}^2 [1 − e^{−ui}(1 − (1 − e^{−2λ2x})^{δi})] for all x ≥ 0. ... According to the part (i) of Theorem 8, we set β1 ≤ β2 and u1 ≤ u2. Then, we obtain ∂FY2:2/∂β1 − ∂FY2:2/∂β2 ≤ 0. From Lemma 6, we obtain that FY2:2(x) is decreasing and Schur-convex. Thus, we have FY2:2(x) ≥ FY2:2∗(x), which implies Y2:2 ≤st Y2:2∗.",
+    "kind": "example",
+    "model": "parallel system",
+    "family": "MOTL-G with α = 1, exponential baselines G1(x) = 1−e^{−λ1x}, G2(x) = 1−e^{−λ2x}, λ1 ≥ λ2; h(p) = −log p",
+    "compared": "β = (β1,β2) vs δ = (δ1,δ2); exponential rates λ1 ≥ λ2",
+    "hypotheses": [
+      {"text": "λ1 ≥ λ2", "formal": "G1 ≤st ordering for exponentials: Z1 ≤st Z2", "source": "statement"},
+      {"text": "β1 ≤ β2 and u1 ≤ u2", "formal": "(β, h(p)) ∈ U2 arrangement", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y_{2:2} <=st Y*_{2:2}"},
+    "quantifiers": "n = 2; x ≥ 0",
+    "numbers": "no numeric parameter values printed; symbolic λ1 ≥ λ2, h(p) = −log p",
+    "ambiguity": "Worked symbolic verification of Theorem 8(i) rather than a fully numeric example; no explicit β, δ numbers given."
+  },
+  {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Example 6(i)",
+    "page": 20,
+    "quote": "Example 6. Let G(x) = 1 − 1/(1+x), x > 0 and h(p) = −log(p). (i) For α = 1 and h(p) = (4.2, 0.01), let β = (1, 2.7) and δ = (2.4, 2.69). Clearly, (β, h(p)), (δ, h(p)) ∈ Vn and β ≽w δ. As is seen in Figure 5a, neither Y2:2 ≤st Y2:2∗ nor Y2:2 ≥st Y2:2∗.",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "MOTL-G, baseline G(x) = 1 − 1/(1+x) (Lomax-type), h(p) = −log p",
+    "compared": "β = (1, 2.7) vs δ = (2.4, 2.69) weakly majorized but under Vn arrangement instead of Un",
+    "hypotheses": [
+      {"text": "(β, h(p)), (δ, h(p)) ∈ Vn and β ≽w δ", "formal": "anti-comonotone arrangement violating Theorem 8(i)'s Un hypothesis", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "no usual stochastic order either way between Y_{2:2} and Y*_{2:2}"},
+    "quantifiers": "n = 2",
+    "numbers": "α = 1; h(p) = (4.2, 0.01); β = (1, 2.7); δ = (2.4, 2.69)",
+    "ambiguity": "Shows the Un condition in Theorem 8(i) cannot be replaced by Vn."
+  },
+  {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Example 6(ii)",
+    "page": 20,
+    "quote": "Example 6. ... (ii) For β = 1 and h(p) = (3.2, 2), let α = (1.1, 5) and γ = (3.5, 4). It is easy to check that (α, h(p)), (γ, h(p)) ∈ Vn and α ≽w γ. The survival function F̄(Y2:2+1)^{−1}(x) − F̄(Y2:2∗+1)^{−1}(x) is plotted in Figure 5b, from which can confirm that no exists stochastic ordering between Y2:2 and Y2:2∗.",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "MOTL-G, baseline G(x) = 1 − 1/(1+x), h(p) = −log p",
+    "compared": "α = (1.1, 5) vs γ = (3.5, 4) weakly majorized under Vn arrangement",
+    "hypotheses": [
+      {"text": "(α, h(p)), (γ, h(p)) ∈ Vn and α ≽w γ", "formal": "violates Theorem 8(ii)'s Un hypothesis", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "no usual stochastic order between Y_{2:2} and Y*_{2:2}"},
+    "quantifiers": "n = 2",
+    "numbers": "β = 1; h(p) = (3.2, 2); α = (1.1, 5); γ = (3.5, 4)",
+    "ambiguity": "Shows the Un condition in Theorem 8(ii) cannot be replaced by Vn."
+  },
+  {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Example 7(i)",
+    "page": 21,
+    "quote": "Example 7. Let Xi ∼ MOTL − G(αi, βi, G(x)) and Xi∗ ∼ MOTL − G(γi, δi, G(x)), i = 1, 2, assume that Ip1, Ip2 be two independent Bernoulli random variables with E(Ipi) = pi, independent of Xi's(Xi∗'s), i = 1, 2. Let G(x) = x for 0 ≤ x ≤ 1, h(p) = −log(p), and (h(p1), h(p2)) = (1, 1.2). (i) Let β1 = δ1 = 2, β2 = δ2 = 5.5, (α1, α2) = (1, 8) and (γ1, γ2) = (4, 6). Then, (α, h(p)), (γ, h(p)) ∈ Un and α ≽w γ. In this case, the distribution function FY2:2(x) − FY2:2∗(x) is displayed in Figure 6a, which implies that the usual stochastic ordering does not hold between Y2:2 and Y2:2∗.",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "MOTL-G, G(x) = x on [0,1] uniform, h(p) = −log p",
+    "compared": "α = (1,8) vs γ = (4,6) weakly majorized; common but heterogeneous β = δ = (2, 5.5)",
+    "hypotheses": [
+      {"text": "(α, h(p)), (γ, h(p)) ∈ Un and α ≽w γ", "formal": "satisfies the majorization premise of Theorem 8(ii) but with heterogeneous common β rather than scalar β", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "usual stochastic order fails between Y_{2:2} and Y*_{2:2}"},
+    "quantifiers": "n = 2",
+    "numbers": "h(p) = (1, 1.2); β1 = δ1 = 2, β2 = δ2 = 5.5; α = (1, 8); γ = (4, 6)",
+    "ambiguity": "Shows Theorem 8(ii)'s requirement βi = δi = scalar β cannot be relaxed to a heterogeneous common vector."
+  },
+  {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Example 7(ii)",
+    "page": 21,
+    "quote": "Example 7. ... (ii) Let α1 = γ1 = 1, α2 = γ2 = 8, (β1, β2) = (2, 5.5) and (δ1, δ2) = (3, 5). Then, (β, h(p)), (δ, h(p)) ∈ Un and β ≽w δ. However, Figure 6b shows that there exists no usual stochastic ordering between Y2:2 and Y2:2∗.",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "MOTL-G, G(x) = x on [0,1], h(p) = −log p, (h(p1),h(p2)) = (1,1.2)",
+    "compared": "β = (2, 5.5) vs δ = (3, 5) weakly majorized; common but heterogeneous α = γ = (1, 8)",
+    "hypotheses": [
+      {"text": "(β, h(p)), (δ, h(p)) ∈ Un and β ≽w δ", "formal": "majorization premise of Theorem 8(i) but with heterogeneous common α instead of scalar α ≥ 1", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "no usual stochastic order between Y_{2:2} and Y*_{2:2}"},
+    "quantifiers": "n = 2",
+    "numbers": "h(p) = (1, 1.2); α1 = γ1 = 1, α2 = γ2 = 8; β = (2, 5.5); δ = (3, 5)",
+    "ambiguity": "Shows Theorem 8(i)'s scalar-α condition cannot be relaxed to a heterogeneous common α vector."
+  },
+  {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Example 7(iii)",
+    "page": 21,
+    "quote": "Example 7. ... (iii) Let (α1, α2) = (1, 8) and (γ1, γ2) = (4, 6), (β1, β2) = (2, 5.5) and (δ1, δ2) = (3, 5). Then, (α, h(p)), (γ, h(p)) ∈ Un and (β, h(p)), (δ, h(p)) ∈ Un, α ≽w γ and β ≽w δ. However, Figure 6c shows that there exists no usual stochastic ordering between Y2:2 and Y2:2∗.",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "MOTL-G, G(x) = x on [0,1], h(p) = −log p, (h(p1),h(p2)) = (1,1.2)",
+    "compared": "both shape vectors vary: α = (1,8) vs γ = (4,6), β = (2,5.5) vs δ = (3,5)",
+    "hypotheses": [
+      {"text": "(α, h(p)), (γ, h(p)) ∈ Un and (β, h(p)), (δ, h(p)) ∈ Un, α ≽w γ and β ≽w δ", "formal": "both majorization premises hold simultaneously without either scalar-shape condition", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "no usual stochastic order between Y_{2:2} and Y*_{2:2}"},
+    "quantifiers": "n = 2",
+    "numbers": "α = (1,8); γ = (4,6); β = (2,5.5); δ = (3,5); h(p) = (1,1.2)",
+    "ambiguity": "Shows jointly weakly majorized (α,β) vs (γ,δ) does not suffice for st order of parallel systems without the common-parameter conditions."
+  },
+  {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Example 8",
+    "page": 21,
+    "quote": "Example 8. Under the same setup as part (i) of Example 7, we take β1 = β2 = δ1 = δ2 = 2 with the other conditions remaining unchanged. Similarly, in part (ii) of example 7, we take α1 = α2 = γ1 = γ2 = 1 with the other conditions remaining unchanged. Figure 7 shows that FY2:2(x)/FY2:2∗(x) is not monotone in x. Therefore, neither Y2:2 ≤rh Y2:2∗ of Y2:2 ≥rh Y2:2∗ is true.",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "MOTL-G, G(x) = x on [0,1], h(p) = −log p",
+    "compared": "setups of Example 7(i) and 7(ii) with equal scalar parameters so that Theorem 8's st conclusion applies",
+    "hypotheses": [
+      {"text": "β1 = β2 = δ1 = δ2 = 2 (resp. α1 = α2 = γ1 = γ2 = 1), other conditions as in Example 7", "formal": "conditions under which Theorem 8 yields st order", "source": "statement"}
+    ],
+    "conclusion": {"order": "rh", "direction": "distribution-function ratio not monotone: neither Y_{2:2} <=rh Y*_{2:2} nor Y_{2:2} >=rh Y*_{2:2}"},
+    "quantifiers": "n = 2",
+    "numbers": "β1 = β2 = δ1 = δ2 = 2 for case (a); α1 = α2 = γ1 = γ2 = 1 for case (b); h(p) = (1,1.2)",
+    "ambiguity": "Demonstrates Theorem 8 cannot be strengthened from usual stochastic to reversed hazard rate order. Typo 'neither Y2:2 ≤rh Y2:2∗ of Y2:2 ≥rh Y2:2∗' printed as in source."
+  },
+  {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Section 4 real-data application (Figure 8)",
+    "page": 22,
+    "quote": "Further, we choose the Rayleigh distribution as the baseline distribution, and set the vectors of shape parameters α1 = (0.2, 2.6, 5.4), α2 = (0.85, 2.6, 5.1) and α3 = (2.96, 2.96, 2.96). Based on the real data and Theorem 2, the reliability of series system (Y1:3) can be expressed by F̄Y1:3(x) = ∏_{i=1}^3 pi ψ(∑_{i=1}^3 φ(ζ(αi, 2, 1 − e^{−x^2/(2b1)}))) = exp{−[(−ln c1)^{3.32} + (−ln c2)^{3.32} + (−ln c3)^{3.32}]^{1/3.32}} ... Figure 8 indicates that the weaker heterogeneity among shape parameters according to the weak majorization order leads to larger reliability of the series systems.",
+    "kind": "example",
+    "model": "series system",
+    "family": "MOTL-G with Rayleigh baseline G1(x) = 1 − e^{−x^2/(2b1)}; Gumbel copula C(u1,u2) = exp{−[(−ln u1)^θ + (−ln u2)^θ]^{1/θ}}, θ̂ = 3.32; shock probabilities p = p∗ = (1,1,1)",
+    "compared": "three shape vectors α1 = (0.2,2.6,5.4), α2 = (0.85,2.6,5.1), α3 = (2.96,2.96,2.96) with decreasing heterogeneity",
+    "hypotheses": [
+      {"text": "p = p∗ = (1, 1, 1)", "formal": "shock has no effect", "source": "statement"},
+      {"text": "Gumbel copula θ̂ = 3.32 estimated by two-stage MLE (Xie et al.)", "formal": "dependence structure", "source": "statement"},
+      {"text": "Rayleigh MLE b̂1 = 3.3662 (site A), b̂2 = 3.4271 (site B)", "formal": "baseline fit from Eryilmaz and Kan", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "plotted survival functions ordered: weaker heterogeneity among α (weak majorization) gives larger Y_{1:3} reliability, consistent with Theorem 2"},
+    "quantifiers": "n = 3",
+    "numbers": "α1 = (0.2,2.6,5.4); α2 = (0.85,2.6,5.1); α3 = (2.96,2.96,2.96); θ̂ = 3.32; b̂1 = 3.3662; b̂2 = 3.4271; wind-speed means 4.25/4.14, s.d. 2.33/2.35; second shape fixed at 2",
+    "ambiguity": "Real-data illustration rather than a numbered example; conclusion drawn visually from Figure 8."
+  },
+  {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Section 5 result analysis (Figure 9)",
+    "page": 23,
+    "quote": "To compare the results of the experiment with the obtained theoretical data, we use the Clayton copula C(u1, u2) = [max(u1^{−θ} + u2^{−θ} − 1, 0)]^{−1/θ}, θ ≥ 0 and Rayleigh distribution conducting experiment analysis, where Wang and Li estimated the Clayton copula parameters θ̂ = 0.6474 and Eryilmae and kan used the maximum likelihood estimator to obtain Rayleigh distribution parameter b̂1 = 3.3662 and b̂2 = 3.4271 by real data. Based on the obtained theoretical data of Example 1 and the estimator value of parameters, we plot the curves of reliability functions of under the different parameters as shown in Figure 9. First, we can see from the graph that two curves do not intersect each other, which means that the theoretical approach is feasible. Second, for different shape and copula parameters, the more positive dependence, the weaker heterogeneity among shape parameters according to the row weak majorization order leads to larger reliability of the series system.",
+    "kind": "example",
+    "model": "series system",
+    "family": "MOTL-G with Rayleigh baseline and Clayton copula, θ̂ = 0.6474 vs Example-1 parameters",
+    "compared": "survival curves of Y1:3 vs Y1:3∗ under (θ1, α, β) vs (θ2, γ, δ)",
+    "hypotheses": [
+      {"text": "theoretical data of Example 1 and estimated parameters θ̂ = 0.6474, b̂1 = 3.3662, b̂2 = 3.4271", "formal": "numerical setup", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "non-intersecting survival curves taken as confirmation that Y_{1:3} <=st Y*_{1:3}, consistent with Theorem 3 / Remark 3"},
+    "quantifiers": "n = 3",
+    "numbers": "Clayton θ̂ = 0.6474; Rayleigh b̂1 = 3.3662, b̂2 = 3.4271",
+    "ambiguity": "Figure-9-based numerical comparison mixing Example-1 data with estimated parameters; exact parameter assignment to curves is not fully specified."
+  }
+]
