@@ -34,8 +34,10 @@ claims the harness can check at all.
   ordering" or "stochastic order", together with one of "majorization",
   "heterogeneous", "mixture", "order statistic", "coherent system", "series
   system" or "parallel system", published 2010-01-01 to 2026-09-27, as returned
-  by Semantic Scholar and Crossref (OpenAlex too if its API is not throttled),
-  deduplicated by DOI.
+  by the Semantic Scholar bulk search (which applies this boolean rule to title
+  and abstract), re-checked locally against the same rule, and deduplicated by
+  DOI. OpenAlex is used as a cross-check if its API is not throttled, and the
+  overlap is reported.
 - Eligible: the paper states at least one theorem ordering two parametric
   distributions under a named order (usual stochastic, hazard rate, reversed
   hazard rate, likelihood ratio, dispersive, star, Lorenz, ageing orders), and
@@ -46,10 +48,15 @@ claims the harness can check at all.
 
 ## 2. Freeze and sample
 
-- Commit the eligible list (DOI, title, venue, year, text source) and its
-  SHA-256 before testing any claim.
-- Draw a simple random sample of 100 papers (all of them if fewer are eligible)
-  with a seed derived from that hash, so the sample cannot be chosen by hand.
+- Commit the candidate frame (every work matching the query, before any
+  eligibility screening) and its SHA-256.
+- Order the frame by a random permutation seeded from that hash, so the order
+  cannot be chosen by hand.
+- Screen candidates in that order and take the first 100 eligible papers (all
+  eligible papers if the frame runs out). This is a simple random sample of the
+  eligible population without screening every candidate.
+- Record every screening decision with its reason, and commit the screened list
+  before testing any claim.
 
 ## 3. Claim extraction
 
