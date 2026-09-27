@@ -143,6 +143,15 @@ def statements(text):
     return found
 
 
+def write(path, target, candidates):
+    """Rewrite the candidates file atomically so an interrupted run keeps its progress."""
+    tmp = path + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as out:
+        json.dump({"target": target, "candidates": candidates}, out, ensure_ascii=False, indent=1)
+        out.write("\n")
+    os.replace(tmp, path)
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--target", type=int, default=130)
@@ -200,10 +209,10 @@ def main():
             print("%4d %-26s %s" % (position, candidate["status"], (candidate["title"] or "")[:60]), flush=True)
         candidates.append(candidate)
         flagged += candidate["status"] == "flagged"
+        if len(candidates) % 10 == 0:
+            write(out_path, args.target, candidates)
 
-    with open(out_path, "w", encoding="utf-8") as out:
-        json.dump({"target": args.target, "candidates": candidates}, out, ensure_ascii=False, indent=1)
-        out.write("\n")
+    write(out_path, args.target, candidates)
     counts = {}
     for c in candidates:
         counts[c["status"]] = counts.get(c["status"], 0) + 1

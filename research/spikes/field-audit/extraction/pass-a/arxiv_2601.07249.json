@@ -1,0 +1,157 @@
+[
+  {
+    "paper": "arxiv:2601.07249",
+    "claim": "Theorem 3.2",
+    "page": 18,
+    "quote": "[Section 3.5 preamble:] In the area of reliability and survival analysis, various stochastic orderings between two random variables have been considered. The following theorem gives the conditions under which CLFRD preserves likelihood ratio ordering. A random variable X is said to be larger than another random variable Y in likelihood ratio order (written as X ≥LR Y) if for all x ≥ 0, gX(x)/gY(x) is increasing in x. Theorem 3.2. Let X and Y be two random variables following CLFRD with parameters α1, β1, λ1 and α2, β2, λ2 respectively, then X ≥LR (≤LR) Y provided (i) α1 ≤ (≥) α2; (ii) β1 ≤ (≥) β2; (iii) λ1 ≤ (≥) λ2.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "Compounded linear failure rate distribution CLFRD(α, β, λ): survival Ḡ(x) = P(U ≥ x) = exp(−αx − (β/2)x² − λ + λ exp(−αx − (β/2)x²)), x ≥ 0, α, β, λ > 0 (eq. (1)); pdf g(x) = (α + βx)[1 + λ exp(−αx − (β/2)x²)] / exp(αx + (β/2)x² + λ − λ exp(−αx − (β/2)x²)) (eq. (3)); arises as U = min{X1, ..., XN}, Xi iid LFRD(α, β), N − 1 ~ Poisson(λ)",
+    "compared": "all three parameters: (α1, β1, λ1) for X vs (α2, β2, λ2) for Y",
+    "hypotheses": [
+      {"text": "Let X and Y be two random variables following CLFRD with parameters α1, β1, λ1 and α2, β2, λ2 respectively", "formal": "X ~ CLFRD(α1, β1, λ1), Y ~ CLFRD(α2, β2, λ2)", "source": "statement; definition (Section 2, eqs. (1)-(3))"},
+      {"text": "x ≥ 0, α, β, λ > 0", "formal": "α1, β1, λ1, α2, β2, λ2 > 0; support x ≥ 0", "source": "definition (Section 2, eq. (1))"},
+      {"text": "(i) α1 ≤ (≥)α2", "formal": "α1 ≤ α2 (for X ≥LR Y); α1 ≥ α2 (for X ≤LR Y)", "source": "statement"},
+      {"text": "(ii) β1 ≤ (≥)β2", "formal": "β1 ≤ β2 (for X ≥LR Y); β1 ≥ β2 (for X ≤LR Y)", "source": "statement"},
+      {"text": "(iii) λ1 ≤ (≥)λ2", "formal": "λ1 ≤ λ2 (for X ≥LR Y); λ1 ≥ λ2 (for X ≤LR Y)", "source": "statement"},
+      {"text": "X is said to be larger than another random variable Y in likelihood ratio order (written as X ≥LR Y) if for all x ≥ 0, gX(x)/gY(x) is increasing in x", "formal": "X ≥lr Y iff gX(x)/gY(x) nondecreasing on x ≥ 0", "source": "section preamble"}
+    ],
+    "conclusion": {"order": "lr", "direction": "Y ≤lr X when α1 ≤ α2, β1 ≤ β2, λ1 ≤ λ2; mirror statement X ≤lr Y when α1 ≥ α2, β1 ≥ β2, λ1 ≥ λ2"},
+    "quantifiers": "all parameter values α1, β1, λ1, α2, β2, λ2 > 0 satisfying (i)-(iii); likelihood ratio monotone for all x ≥ 0",
+    "numbers": "",
+    "ambiguity": "The statement lists (i)-(iii) with semicolons and does not say whether they are required jointly or whether each alone suffices; the proof's last line reads '(i) α1 ≤ α2, (ii) β1 ≤ β2, and (iii) λ1 ≤ λ2', so recorded as joint conditions. The proof only says 'By simple calculations it can be shown'. Subscripts in the proof ('gXCLFRD', 'gYCLFRD') are garbled in the text extraction."
+  },
+  {
+    "paper": "arxiv:2601.07249",
+    "claim": "Remark 3.3 (usual stochastic order)",
+    "page": 18,
+    "quote": "Remark 3.3. From the relationship among the various stochastic orders and the LR order, we have the following. X ≥∗ (≤∗)Y provided (i) α1 ≤ (≥)α2; (ii) β1 ≤ (≥)β2; (iii) λ1 ≤ (≥)λ2. where ∗ stands for ‘usual stochastic order’, ‘hazard rate order’, ‘reversed hazard rate order’, ‘convex order’, ‘concave order’, ‘mean residual life order’, ‘harmonic average mean residual life order’ and so on [34].",
+    "kind": "corollary",
+    "model": "single",
+    "family": "CLFRD(α, β, λ): survival exp(−αx − (β/2)x² − λ + λ exp(−αx − (β/2)x²)), x ≥ 0, α, β, λ > 0",
+    "compared": "(α1, β1, λ1) for X vs (α2, β2, λ2) for Y",
+    "hypotheses": [
+      {"text": "Let X and Y be two random variables following CLFRD with parameters α1, β1, λ1 and α2, β2, λ2 respectively", "formal": "X ~ CLFRD(α1, β1, λ1), Y ~ CLFRD(α2, β2, λ2)", "source": "earlier theorem 3.2"},
+      {"text": "x ≥ 0, α, β, λ > 0", "formal": "all parameters positive", "source": "definition (Section 2, eq. (1))"},
+      {"text": "(i) α1 ≤ (≥)α2; (ii) β1 ≤ (≥)β2; (iii) λ1 ≤ (≥)λ2", "formal": "α1 ≤ α2, β1 ≤ β2, λ1 ≤ λ2 (for X ≥ Y); all reversed (for X ≤ Y)", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y ≤st X when α1 ≤ α2, β1 ≤ β2, λ1 ≤ λ2; X ≤st Y under the reversed inequalities"},
+    "quantifiers": "all positive parameter values satisfying (i)-(iii)",
+    "numbers": "",
+    "ambiguity": "Labelled 'Remark 3.3' in the paper; kind set to corollary because the spec has no 'remark' kind. The remark lists several orders at once ('and so on'); this record covers the usual stochastic order only. Whether (i)-(iii) are joint is not stated (read as joint, following Theorem 3.2's proof). No proof beyond 'From the relationship among the various stochastic orders and the LR order'."
+  },
+  {
+    "paper": "arxiv:2601.07249",
+    "claim": "Remark 3.3 (hazard rate order)",
+    "page": 18,
+    "quote": "Remark 3.3. From the relationship among the various stochastic orders and the LR order, we have the following. X ≥∗ (≤∗)Y provided (i) α1 ≤ (≥)α2; (ii) β1 ≤ (≥)β2; (iii) λ1 ≤ (≥)λ2. where ∗ stands for ‘usual stochastic order’, ‘hazard rate order’, ‘reversed hazard rate order’, ‘convex order’, ‘concave order’, ‘mean residual life order’, ‘harmonic average mean residual life order’ and so on [34].",
+    "kind": "corollary",
+    "model": "single",
+    "family": "CLFRD(α, β, λ): survival exp(−αx − (β/2)x² − λ + λ exp(−αx − (β/2)x²)), x ≥ 0, α, β, λ > 0",
+    "compared": "(α1, β1, λ1) for X vs (α2, β2, λ2) for Y",
+    "hypotheses": [
+      {"text": "Let X and Y be two random variables following CLFRD with parameters α1, β1, λ1 and α2, β2, λ2 respectively", "formal": "X ~ CLFRD(α1, β1, λ1), Y ~ CLFRD(α2, β2, λ2)", "source": "earlier theorem 3.2"},
+      {"text": "x ≥ 0, α, β, λ > 0", "formal": "all parameters positive", "source": "definition (Section 2, eq. (1))"},
+      {"text": "(i) α1 ≤ (≥)α2; (ii) β1 ≤ (≥)β2; (iii) λ1 ≤ (≥)λ2", "formal": "α1 ≤ α2, β1 ≤ β2, λ1 ≤ λ2 (for X ≥ Y); all reversed (for X ≤ Y)", "source": "statement"}
+    ],
+    "conclusion": {"order": "hr", "direction": "Y ≤hr X when α1 ≤ α2, β1 ≤ β2, λ1 ≤ λ2; X ≤hr Y under the reversed inequalities"},
+    "quantifiers": "all positive parameter values satisfying (i)-(iii)",
+    "numbers": "",
+    "ambiguity": "Labelled 'Remark 3.3'; kind set to corollary because the spec has no 'remark' kind. This record covers the hazard rate order only. Joint vs separate conditions not stated (read as joint). Hazard rate order is not defined in the paper (reference [34])."
+  },
+  {
+    "paper": "arxiv:2601.07249",
+    "claim": "Remark 3.3 (reversed hazard rate order)",
+    "page": 18,
+    "quote": "Remark 3.3. From the relationship among the various stochastic orders and the LR order, we have the following. X ≥∗ (≤∗)Y provided (i) α1 ≤ (≥)α2; (ii) β1 ≤ (≥)β2; (iii) λ1 ≤ (≥)λ2. where ∗ stands for ‘usual stochastic order’, ‘hazard rate order’, ‘reversed hazard rate order’, ‘convex order’, ‘concave order’, ‘mean residual life order’, ‘harmonic average mean residual life order’ and so on [34].",
+    "kind": "corollary",
+    "model": "single",
+    "family": "CLFRD(α, β, λ): survival exp(−αx − (β/2)x² − λ + λ exp(−αx − (β/2)x²)), x ≥ 0, α, β, λ > 0",
+    "compared": "(α1, β1, λ1) for X vs (α2, β2, λ2) for Y",
+    "hypotheses": [
+      {"text": "Let X and Y be two random variables following CLFRD with parameters α1, β1, λ1 and α2, β2, λ2 respectively", "formal": "X ~ CLFRD(α1, β1, λ1), Y ~ CLFRD(α2, β2, λ2)", "source": "earlier theorem 3.2"},
+      {"text": "x ≥ 0, α, β, λ > 0", "formal": "all parameters positive", "source": "definition (Section 2, eq. (1))"},
+      {"text": "(i) α1 ≤ (≥)α2; (ii) β1 ≤ (≥)β2; (iii) λ1 ≤ (≥)λ2", "formal": "α1 ≤ α2, β1 ≤ β2, λ1 ≤ λ2 (for X ≥ Y); all reversed (for X ≤ Y)", "source": "statement"}
+    ],
+    "conclusion": {"order": "rh", "direction": "Y ≤rh X when α1 ≤ α2, β1 ≤ β2, λ1 ≤ λ2; X ≤rh Y under the reversed inequalities"},
+    "quantifiers": "all positive parameter values satisfying (i)-(iii)",
+    "numbers": "",
+    "ambiguity": "Labelled 'Remark 3.3'; kind set to corollary because the spec has no 'remark' kind. This record covers the reversed hazard rate order only. Joint vs separate conditions not stated (read as joint). Order not defined in the paper (reference [34])."
+  },
+  {
+    "paper": "arxiv:2601.07249",
+    "claim": "Remark 3.3 (convex order)",
+    "page": 18,
+    "quote": "Remark 3.3. From the relationship among the various stochastic orders and the LR order, we have the following. X ≥∗ (≤∗)Y provided (i) α1 ≤ (≥)α2; (ii) β1 ≤ (≥)β2; (iii) λ1 ≤ (≥)λ2. where ∗ stands for ‘usual stochastic order’, ‘hazard rate order’, ‘reversed hazard rate order’, ‘convex order’, ‘concave order’, ‘mean residual life order’, ‘harmonic average mean residual life order’ and so on [34].",
+    "kind": "corollary",
+    "model": "single",
+    "family": "CLFRD(α, β, λ): survival exp(−αx − (β/2)x² − λ + λ exp(−αx − (β/2)x²)), x ≥ 0, α, β, λ > 0",
+    "compared": "(α1, β1, λ1) for X vs (α2, β2, λ2) for Y",
+    "hypotheses": [
+      {"text": "Let X and Y be two random variables following CLFRD with parameters α1, β1, λ1 and α2, β2, λ2 respectively", "formal": "X ~ CLFRD(α1, β1, λ1), Y ~ CLFRD(α2, β2, λ2)", "source": "earlier theorem 3.2"},
+      {"text": "x ≥ 0, α, β, λ > 0", "formal": "all parameters positive", "source": "definition (Section 2, eq. (1))"},
+      {"text": "(i) α1 ≤ (≥)α2; (ii) β1 ≤ (≥)β2; (iii) λ1 ≤ (≥)λ2", "formal": "α1 ≤ α2, β1 ≤ β2, λ1 ≤ λ2 (for X ≥ Y); all reversed (for X ≤ Y)", "source": "statement"}
+    ],
+    "conclusion": {"order": "other: convex order", "direction": "Y ≤cx X when α1 ≤ α2, β1 ≤ β2, λ1 ≤ λ2; X ≤cx Y under the reversed inequalities"},
+    "quantifiers": "all positive parameter values satisfying (i)-(iii)",
+    "numbers": "",
+    "ambiguity": "Labelled 'Remark 3.3'; kind set to corollary because the spec has no 'remark' kind. This record covers the 'convex order' only; the paper does not define it or say whether plain convex or increasing convex order is meant (reference [34]). Joint vs separate conditions not stated (read as joint)."
+  },
+  {
+    "paper": "arxiv:2601.07249",
+    "claim": "Remark 3.3 (concave order)",
+    "page": 18,
+    "quote": "Remark 3.3. From the relationship among the various stochastic orders and the LR order, we have the following. X ≥∗ (≤∗)Y provided (i) α1 ≤ (≥)α2; (ii) β1 ≤ (≥)β2; (iii) λ1 ≤ (≥)λ2. where ∗ stands for ‘usual stochastic order’, ‘hazard rate order’, ‘reversed hazard rate order’, ‘convex order’, ‘concave order’, ‘mean residual life order’, ‘harmonic average mean residual life order’ and so on [34].",
+    "kind": "corollary",
+    "model": "single",
+    "family": "CLFRD(α, β, λ): survival exp(−αx − (β/2)x² − λ + λ exp(−αx − (β/2)x²)), x ≥ 0, α, β, λ > 0",
+    "compared": "(α1, β1, λ1) for X vs (α2, β2, λ2) for Y",
+    "hypotheses": [
+      {"text": "Let X and Y be two random variables following CLFRD with parameters α1, β1, λ1 and α2, β2, λ2 respectively", "formal": "X ~ CLFRD(α1, β1, λ1), Y ~ CLFRD(α2, β2, λ2)", "source": "earlier theorem 3.2"},
+      {"text": "x ≥ 0, α, β, λ > 0", "formal": "all parameters positive", "source": "definition (Section 2, eq. (1))"},
+      {"text": "(i) α1 ≤ (≥)α2; (ii) β1 ≤ (≥)β2; (iii) λ1 ≤ (≥)λ2", "formal": "α1 ≤ α2, β1 ≤ β2, λ1 ≤ λ2 (for X ≥ Y); all reversed (for X ≤ Y)", "source": "statement"}
+    ],
+    "conclusion": {"order": "other: concave order", "direction": "X ≥ Y in 'concave order' (as written, X ≥∗ Y) when α1 ≤ α2, β1 ≤ β2, λ1 ≤ λ2; reversed under reversed inequalities"},
+    "quantifiers": "all positive parameter values satisfying (i)-(iii)",
+    "numbers": "",
+    "ambiguity": "Labelled 'Remark 3.3'; kind set to corollary because the spec has no 'remark' kind. This record covers the 'concave order' only; the paper does not define it or say whether plain concave or increasing concave order is meant, nor the sign convention for 'X ≥ Y' in this order (reference [34]). Joint vs separate conditions not stated (read as joint)."
+  },
+  {
+    "paper": "arxiv:2601.07249",
+    "claim": "Remark 3.3 (mean residual life order)",
+    "page": 18,
+    "quote": "Remark 3.3. From the relationship among the various stochastic orders and the LR order, we have the following. X ≥∗ (≤∗)Y provided (i) α1 ≤ (≥)α2; (ii) β1 ≤ (≥)β2; (iii) λ1 ≤ (≥)λ2. where ∗ stands for ‘usual stochastic order’, ‘hazard rate order’, ‘reversed hazard rate order’, ‘convex order’, ‘concave order’, ‘mean residual life order’, ‘harmonic average mean residual life order’ and so on [34].",
+    "kind": "corollary",
+    "model": "single",
+    "family": "CLFRD(α, β, λ): survival exp(−αx − (β/2)x² − λ + λ exp(−αx − (β/2)x²)), x ≥ 0, α, β, λ > 0",
+    "compared": "(α1, β1, λ1) for X vs (α2, β2, λ2) for Y",
+    "hypotheses": [
+      {"text": "Let X and Y be two random variables following CLFRD with parameters α1, β1, λ1 and α2, β2, λ2 respectively", "formal": "X ~ CLFRD(α1, β1, λ1), Y ~ CLFRD(α2, β2, λ2)", "source": "earlier theorem 3.2"},
+      {"text": "x ≥ 0, α, β, λ > 0", "formal": "all parameters positive", "source": "definition (Section 2, eq. (1))"},
+      {"text": "(i) α1 ≤ (≥)α2; (ii) β1 ≤ (≥)β2; (iii) λ1 ≤ (≥)λ2", "formal": "α1 ≤ α2, β1 ≤ β2, λ1 ≤ λ2 (for X ≥ Y); all reversed (for X ≤ Y)", "source": "statement"}
+    ],
+    "conclusion": {"order": "mrl", "direction": "Y ≤mrl X when α1 ≤ α2, β1 ≤ β2, λ1 ≤ λ2; X ≤mrl Y under the reversed inequalities"},
+    "quantifiers": "all positive parameter values satisfying (i)-(iii)",
+    "numbers": "",
+    "ambiguity": "Labelled 'Remark 3.3'; kind set to corollary because the spec has no 'remark' kind. This record covers the mean residual life order only. Joint vs separate conditions not stated (read as joint). Order not defined in the paper (reference [34])."
+  },
+  {
+    "paper": "arxiv:2601.07249",
+    "claim": "Remark 3.3 (harmonic average mean residual life order)",
+    "page": 18,
+    "quote": "Remark 3.3. From the relationship among the various stochastic orders and the LR order, we have the following. X ≥∗ (≤∗)Y provided (i) α1 ≤ (≥)α2; (ii) β1 ≤ (≥)β2; (iii) λ1 ≤ (≥)λ2. where ∗ stands for ‘usual stochastic order’, ‘hazard rate order’, ‘reversed hazard rate order’, ‘convex order’, ‘concave order’, ‘mean residual life order’, ‘harmonic average mean residual life order’ and so on [34].",
+    "kind": "corollary",
+    "model": "single",
+    "family": "CLFRD(α, β, λ): survival exp(−αx − (β/2)x² − λ + λ exp(−αx − (β/2)x²)), x ≥ 0, α, β, λ > 0",
+    "compared": "(α1, β1, λ1) for X vs (α2, β2, λ2) for Y",
+    "hypotheses": [
+      {"text": "Let X and Y be two random variables following CLFRD with parameters α1, β1, λ1 and α2, β2, λ2 respectively", "formal": "X ~ CLFRD(α1, β1, λ1), Y ~ CLFRD(α2, β2, λ2)", "source": "earlier theorem 3.2"},
+      {"text": "x ≥ 0, α, β, λ > 0", "formal": "all parameters positive", "source": "definition (Section 2, eq. (1))"},
+      {"text": "(i) α1 ≤ (≥)α2; (ii) β1 ≤ (≥)β2; (iii) λ1 ≤ (≥)λ2", "formal": "α1 ≤ α2, β1 ≤ β2, λ1 ≤ λ2 (for X ≥ Y); all reversed (for X ≤ Y)", "source": "statement"}
+    ],
+    "conclusion": {"order": "other: harmonic average mean residual life order", "direction": "Y ≤hmrl X when α1 ≤ α2, β1 ≤ β2, λ1 ≤ λ2; X ≤hmrl Y under the reversed inequalities"},
+    "quantifiers": "all positive parameter values satisfying (i)-(iii)",
+    "numbers": "",
+    "ambiguity": "Labelled 'Remark 3.3'; kind set to corollary because the spec has no 'remark' kind. This record covers the harmonic average mean residual life order only. The remark ends with 'and so on', so further unnamed orders are implied but cannot be recorded. Joint vs separate conditions not stated (read as joint). Order not defined in the paper (reference [34])."
+  }
+]
