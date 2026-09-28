@@ -414,6 +414,12 @@ encoding. Its [proof bundle](https://github.com/hraness/algal-lab/releases/tag/r
 contains the formula, proof and verification programs. This result does not
 settle R(3,10), and publication priority remains unresolved.
 
+The [degree-six search](research/spikes/moonshot-r310/degree_six/README.md)
+uses incremental SAT with exact graph checks and explicit resource limits.
+Two reviewed formulations each reached their 100,000-constraint limit;
+neither produced a witness or an exclusion. The [run report](research/spikes/moonshot-r310/degree_six/RESULTS.md)
+records their coverage, verified stopping points and reproducible controls.
+
 The broader literature-corpus audit is a separate study. Its author-response
 process remains a prerequisite to releasing its paper-by-paper findings.
 Investigations of sphere and plane counts, H1 quadruples and covering arrays

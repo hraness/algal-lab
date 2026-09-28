@@ -2,8 +2,9 @@
 
 Status, 2026-09-28: the vertex-transitive class and the degree-four case are
 excluded by complete, checked computations. No witness was found and the
-Ramsey number remains unresolved. The next pilot searches graphs with a
-degree-six vertex without imposing a graph symmetry.
+Ramsey number remains unresolved. Both independently reviewed degree-six
+SAT formulations reached their cut limits without a witness or an exclusion.
+Their final graphs still contain verified independent ten-sets.
 
 ## Target and present evidence
 
@@ -46,6 +47,13 @@ certificates, and complete run summaries remain in ignored `runs/`.
 The [degree-four report](degree_four/README.md) gives the mathematical
 reduction, formula and proof hashes, published uniqueness premise, exact
 controls, portable audit and reproduction commands.
+The [immutable degree-four proof release](https://github.com/hraness/algal-lab/releases/tag/r310-degree-four-proof-20260928)
+was published on 2026-09-28 after PR #89 merged as
+`5a47c4e7558b5a99f041f4fc9e4f7e0adbd2b8a8` and main's required check passed.
+A fresh release download matched archive SHA-256
+`7df0a45dbe16d9be94494e5dd054337c8bac049acc0146737b5bb0a9e54daf0d`.
+All 24 manifest entries, exact formula regeneration, seven focused tests,
+the project LRAT checker, the independent audit and `lrat-trim` passed.
 
 ## Correction to the previous record
 
@@ -83,7 +91,7 @@ degree four since 1 + 4 + 4 × 8 = 37 < 40. Lower degrees are already excluded
 by R(3,9) = 36. This repairs arithmetic slips in the preprint's proof without
 changing its stated result.
 
-## Next pilot: incremental SAT with a degree-six vertex
+## Current pilot: incremental SAT with a degree-six vertex
 
 Search on all 40 labelled vertices with no assumed automorphisms. Fix one
 vertex and its six neighbors by relabelling, require degrees between six
@@ -108,7 +116,27 @@ without its own proof and review. A reported UNSAT must be followed by a
 fresh proof-producing solve of the final formula and independent proof
 verification before supporting an exclusion. A timeout or unchecked UNSAT
 changes neither Ramsey bound. This approach is a research pilot, not a claim
-of algorithmic or publication novelty. The long run has not started.
+of algorithmic or publication novelty.
+
+The reviewed baseline reached its 100,000-cut limit after 6,251 models,
+using 281.690 CPU seconds, 376.928 wall seconds and 90,488,832 peak bytes.
+Every recorded mask and corresponding 45-literal clause passed replay.
+The final model satisfied all recorded cuts, but an independent check found
+the ten-set {0,7,8,9,10,18,19,23,29,30}. This remains an unresolved search.
+Its source was frozen separately from the next implementation.
+
+The opt-in [stronger profile](degree_six/PROFILE.md) uses the published
+e(3,9,33) = 118 bound, sorts outside-neighborhood signatures without
+assuming automorphisms, and limits each private-neighbor class to four.
+It has 17,933 variables and 78,702 initial clauses; its independent edge
+recount and exhaustive small controls pass. The unchanged baseline remains
+the default. The combined 26-test suite passes, including isolated-source
+execution and interruption recovery; three additional independent controls
+also pass. The reviewed comparison stopped at 100,000 cuts after 6,251
+models, using 153.808 total CPU seconds. Its final graph still contains
+the independently verified ten-set {0,7,8,9,10,22,26,27,33,36}. Both runs
+remain inconclusive; their [report](degree_six/RESULTS.md) records the exact
+coverage and formula checks.
 
 ## Budget and reporting
 
@@ -128,6 +156,8 @@ its exact coverage, even if the overall research objective remains open.
 
 The degree-four solve used 30.517 CPU seconds and 39.999 wall seconds.
 Its three proof checks took about eight seconds in total, plus small controls
-and packaging checks. The retained proof has 20,723,074 bytes. The next SAT
-pilot has a separate proposed ceiling of 600 CPU seconds on one core, with
-wall time, memory, iteration and output bounds fixed before it starts.
+and packaging checks. The retained proof has 20,723,074 bytes. Each completed
+SAT pilot had a separate ceiling of 600 CPU seconds on one core, with wall
+time, memory, iteration and output bounds fixed before it started. Together,
+the two pilot supervisors and their workers recorded 435.498 CPU seconds;
+this subtotal excludes controls, independent audits and earlier experiments.

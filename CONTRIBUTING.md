@@ -141,3 +141,13 @@ unseeded `control` run at the seeded budget; `claims.check` labels a claim
 `control-missing` when no control exists. The native searches in
 `research/extremal/native/` are compiled by the tests when a C compiler is
 present.
+
+The [degree-six Ramsey pilot](research/spikes/moonshot-r310/degree_six/README.md)
+has native SAT controls as well as small exhaustive checks. CI builds
+CaDiCaL 3.0.1 from commit
+`c60730422e758ef1cebe7aeddf2dda31c996bf04` with `./configure -fPIC`, links its
+static library through the checked local helper, and sets `CADICAL_LIBRARY`
+before running every `test_*.py` in that directory. Follow its README for the
+local commands. Without that variable, unittest explicitly skips the native
+controls; such a run does not replace the complete check. The CI tests use
+short controls, not the long research experiments.
