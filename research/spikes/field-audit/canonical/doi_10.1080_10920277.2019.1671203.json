@@ -1,6 +1,351 @@
 [
  {
   "paper": "doi:10.1080/10920277.2019.1671203",
+  "claim": "Corollary 3.1",
+  "page": 7,
+  "quote": "Corollary 3.1. Let \u03bb\u0304 = (1/2)(\u03bb1 + \u03bb2) and h(p\u0304) = (1/2)(h(p1) + h(p2)). Under the conditions of Theorem 3.1 we have G\u0304Y2:2(x) \u2265 1 \u2212 [1 \u2212 h^{\u22121}(h(p\u0304))F\u0304(x)(1 \u2212 \u03bb\u0304F(x))]^2.",
+  "kind": "corollary",
+  "model": "other: portfolio \u2014 largest claim amount (parallel structure)",
+  "family": "TG(\u03bbi) portfolio vs homogeneous TG(\u03bb\u0304) portfolio with averaged h(p\u0304)",
+  "compared": "heterogeneous portfolio maximum Y2:2 vs homogeneous-mean-parameter counterpart \u02322:2",
+  "hypotheses": [
+   {
+    "text": "conditions of Theorem 3.1 ((\u03bb,h(p)) \u2208 S2, h differentiable strictly increasing concave with non-zero derivative)",
+    "formal": "Theorem 3.1 premises",
+    "source": "earlier theorem 3.1"
+   },
+   {
+    "text": "[\u03bb\u0304 \u03bb\u0304; h(p\u0304) h(p\u0304)] = [\u03bb1 \u03bb2; h(p1) h(p2)]T0.5",
+    "formal": "averaged matrix via w = 0.5 T-transform (used in proof)",
+    "source": "proof"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y2:2 \u2265st \u02322:2 \u2014 printed as the survival-function lower bound G\u0304Y2:2(x) \u2265 1 \u2212 [1 \u2212 h^{\u22121}(h(p\u0304))F\u0304(x)(1 \u2212 \u03bb\u0304F(x))]^2, i.e., heterogeneous portfolio's maximum is stochastically at least the homogeneous counterpart's"
+  },
+  "quantifiers": "n = 2; x \u2265 0",
+  "numbers": "",
+  "ambiguity": "Pass B's bracket placement (1 \u2212 [\u00b7]\u00b2) matches the print; pass A's '[1 \u2212 (\u00b7)]\u00b2' misgroups. Paper prints 'h(p)' for h(p\u0304) \u2014 p\u0304 defined implicitly through h. Proof cites 'Theorem 2.4', apparently a typo for Theorem 3.1.",
+  "adjudication": "adjudicated: Printed bound is G\u0304Y2:2 \u2265 1\u2212[1\u2212h^{-1}(h(p\u0304))F\u0304(1\u2212\u03bb\u0304F)]\u00b2 (B's bracketing right); direction: heterogen"
+ },
+ {
+  "paper": "doi:10.1080/10920277.2019.1671203",
+  "claim": "Corollary 3.3",
+  "page": 8,
+  "quote": "Corollary 3.3. Under the assumptions of Theorem 3.2, for (\u03bb, h(p)) \u2208 Sn, and (\u03bb, h(p))T\u03c91, . . . , T\u03c9i \u2208 Sn, for i = 1, . . . , m \u2212 1, where m \u2265 2, we have [\u03bb*1 ... \u03bb*n; h(p*1) ... h(p*n)] = [\u03bb1 ... \u03bbn; h(p1) ... h(pn)]T\u03c91 . . . T\u03c9m \u21d2 Yn:n \u2264st Y*n:n.",
+  "kind": "corollary",
+  "model": "other: portfolio \u2014 largest claim amount",
+  "family": "TG(\u03bbi) portfolio model as in Theorem 3.2",
+  "compared": "parameter matrices related by a different-structure T-transform chain, all partial products staying in Sn",
+  "hypotheses": [
+   {
+    "text": "(\u03bb,h(p)) \u2208 Sn and (\u03bb,h(p))T\u03c91...T\u03c9i \u2208 Sn for i = 1,...,m\u22121, m \u2265 2",
+    "formal": "base matrix and every partial product anti-comonotone (in Sn)",
+    "source": "statement"
+   },
+   {
+    "text": "[\u03bb*; h(p*)] = [\u03bb; h(p)]T\u03c91...T\u03c9m",
+    "formal": "starred matrix equals unstarred times the T-chain (starred \u226a unstarred, Definition 2.5)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Yn:n \u2264st Y*n:n (unstarred maximum smaller)"
+  },
+  "quantifiers": "n \u2265 2; m \u2265 2",
+  "numbers": "",
+  "ambiguity": "Caution: the Section 5 applications of this corollary print the converse direction Y*3:3 \u2264st Y3:3 \u2014 see ambiguity on those records.",
+  "adjudication": "adjudicated: Corollary prints Yn:n \u2264st Y*n:n but both applications print the converse Y*3:3 \u2264st Y3:3 \u2014 recorded a"
+ },
+ {
+  "paper": "doi:10.1080/10920277.2019.1671203",
+  "claim": "Application 5.1, first bullet (transmuted exponential, Corollary 3.3)",
+  "page": 12,
+  "quote": "Let X\u03bb1, X\u03bb2, X\u03bb3 (X\u03bb*1, X\u03bb*2, X\u03bb*3) be independent random variables with X\u03bbi \u223c TE(\u03bbi, 0.5) (X\u03bb*i \u223c TE(\u03bb*i, 0.5)), i = 1, 2, 3. Further, suppose that Ip1, Ip2, Ip3 (Ip*1, Ip*2, Ip*3) is a set of independent Bernoulli random variables, independent of the X\u03bbi's (X\u03bb*i's), with E[Ipi] = pi (E[Ip*i] = p*i), i = 1, 2, 3. Also, suppose that (\u03bb1, \u03bb2, \u03bb3) = (\u22120.7, 0.8, \u22120.9), (\u03bb*1, \u03bb*2, \u03bb*3) = (\u22120.1806, 0.0896, \u22120.7090), (p1, p2, p3) = (0.4, 0.2, 0.7), and (p*1, p*2, p*3) = (0.4345, 0.3698, 0.4711). Take h(p) = log(2 + p) and the T-transform matrices with the different structures as T0.9, T0.3 and T0.6. It can be easily verified that (\u03bb, h(p)), (\u03bb, h(p))T0.9 and (\u03bb, h(p))T0.9T0.3 are in S3, and (\u03bb*, h(p*)) = (\u03bb, h(p))T0.9T0.3T0.6. Thus, Corollary 3.3 implies Y*3:3 \u2264st Y3:3.",
+  "kind": "example",
+  "model": "other: portfolio \u2014 largest claim amount",
+  "family": "TE(\u03bb, \u03b8 = 0.5) transmuted exponential baseline",
+  "compared": "\u03bb = (\u22120.7,0.8,\u22120.9), p = (0.4,0.2,0.7) vs \u03bb* = (\u22120.1806,0.0896,\u22120.7090), p* = (0.4345,0.3698,0.4711); h(p) = log(2+p)",
+  "hypotheses": [
+   {
+    "text": "(\u03bb,h(p)), (\u03bb,h(p))T0.9, (\u03bb,h(p))T0.9T0.3 \u2208 S3 and (\u03bb*,h(p*)) = (\u03bb,h(p))T0.9T0.3T0.6",
+    "formal": "Corollary 3.3 conditions verified numerically (checked: \u03bb\u00b7T0.9\u00b7T0.3\u00b7T0.6 = (\u22120.1806, 0.0896, \u22120.709) = \u03bb* per printed matrices)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y*3:3 \u2264st Y3:3 (as printed; Figure 1 top-left)"
+  },
+  "quantifiers": "n = 3",
+  "numbers": "\u03bb = (\u22120.7,0.8,\u22120.9); \u03bb* = (\u22120.1806,0.0896,\u22120.7090); p = (0.4,0.2,0.7); p* = (0.4345,0.3698,0.4711); h(p) = log(2+p); T0.9 = [[1,0,0],[0,0.9,0.1],[0,0.1,0.9]], T0.3 = [[0.3,0,0.7],[0,1,0],[0.7,0,0.3]], T0.6 = [[0.6,0.4,0],[0.4,0.6,0],[0,0,1]]",
+  "ambiguity": "Printed application conclusion Y*3:3 \u2264st Y3:3 is the CONVERSE of Corollary 3.3's printed direction (Yn:n \u2264st Y*n:n) under the same premise form (\u03bb*,h(p*)) = (\u03bb,h(p))\u00b7T-chain \u2014 internal inconsistency in the paper, recorded as printed (spec rule 3).",
+  "adjudication": "adjudicated: Corollary prints Yn:n \u2264st Y*n:n but both applications print the converse Y*3:3 \u2264st Y3:3 \u2014 recorded a"
+ },
+ {
+  "paper": "doi:10.1080/10920277.2019.1671203",
+  "claim": "Application 5.2, first bullet (transmuted Weibull, Corollary 3.3)",
+  "page": 13,
+  "quote": "Let X\u03bb1, X\u03bb2, X\u03bb3 (X\u03bb*1, X\u03bb*2, X\u03bb*3) be independent random variables with X\u03bbi \u223c TW(\u03bbi, 0.3, 1.5) (X\u03bb*i \u223c TW(\u03bb*i, 0.3, 1.5)), i = 1, 2, 3. ... Also, suppose that (\u03bb1, \u03bb2, \u03bb3) = (0.7, 0.3, \u22120.9), (\u03bb*1, \u03bb*2, \u03bb*3) = (0.1544, \u22120.5464, 0.4920), (p1, p2, p3) = (0.1, 0.4, 0.8), and (p*1, p*2, p*3) = (0.3506, 0.6295, 0.2124). Take h(p) = (5p+2)/(p+1) and the T-transform matrices with the different structures as T0.1, T0.4 and T0.8. It can be easily verified that (\u03bb, h(p)), (\u03bb, h(p))T0.1 and (\u03bb, h(p))T0.1T0.4 are in S3, and (\u03bb*, h(p*)) = (\u03bb, h(p))T0.1T0.4T0.8. Thus, Corollary 3.3 implies Y*3:3 \u2264st Y3:3.",
+  "kind": "example",
+  "model": "other: portfolio \u2014 largest claim amount",
+  "family": "TW(\u03bb, \u03b1 = 0.3, \u03b2 = 1.5) transmuted Weibull baseline",
+  "compared": "\u03bb = (0.7,0.3,\u22120.9), p = (0.1,0.4,0.8) vs \u03bb* = (0.1544,\u22120.5464,0.4920), p* = (0.3506,0.6295,0.2124); h(p) = (5p+2)/(p+1)",
+  "hypotheses": [
+   {
+    "text": "(\u03bb,h(p)), (\u03bb,h(p))T0.1, (\u03bb,h(p))T0.1T0.4 \u2208 S3 and (\u03bb*,h(p*)) = (\u03bb,h(p))T0.1T0.4T0.8",
+    "formal": "Corollary 3.3 conditions",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y*3:3 \u2264st Y3:3 (as printed; Figure 1 bottom-left)"
+  },
+  "quantifiers": "n = 3",
+  "numbers": "\u03bb = (0.7,0.3,\u22120.9); \u03bb* = (0.1544,\u22120.5464,0.4920); p = (0.1,0.4,0.8); p* = (0.3506,0.6295,0.2124); h(p) = (5p+2)/(p+1); T0.1 = [[1,0,0],[0,0.1,0.9],[0,0.9,0.1]], T0.4 = [[0.4,0,0.6],[0,1,0],[0.6,0,0.4]], T0.8 = [[0.8,0.2,0],[0.2,0.8,0],[0,0,1]]",
+  "ambiguity": "Same printed-direction inconsistency as the TE bullet: application prints converse of Corollary 3.3's stated direction. h(p) prints as '5p+2/p+1' \u2014 presumably (5p+2)/(p+1).",
+  "adjudication": "adjudicated: Corollary prints Yn:n \u2264st Y*n:n but both applications print the converse Y*3:3 \u2264st Y3:3 \u2014 recorded a"
+ },
+ {
+  "paper": "doi:10.1080/10920277.2019.1671203",
+  "claim": "Theorem 3.1",
+  "page": 6,
+  "quote": "Theorem 3.1. Let X\u03bb1, X\u03bb2 (X\u03bb*1, X\u03bb*2) be independent non-negative random variables with X\u03bbi \u223c TG(\u03bbi) (X\u03bb*i \u223c TG(\u03bb*i)), i = 1, 2. Further, suppose that Ip1, Ip2 (Ip*1, Ip*2) is a set of independent Bernoulli random variables, independent of the X\u03bbi's (X\u03bb*i's), with E[Ipi] = pi (E[Ip*i] = p*i), i = 1, 2. Let h : [0, 1] \u2192 I \u2282 R+ be a differentiable and strictly increasing concave function on [0, 1] with the non-zero derivative. Then for (\u03bb, h(p)) \u2208 S2, we have [\u03bb*1 \u03bb*2; h(p*1) h(p*2)] \u226a [\u03bb1 \u03bb2; h(p1) h(p2)] \u21d2 Y2:2 \u2264st Y*2:2.",
+  "kind": "theorem",
+  "model": "other: portfolio \u2014 largest claim amount of Bernoulli-thinned transmuted-G risks Yi = Ipi X\u03bbi",
+  "family": "transmuted-G TG(\u03bb), arbitrary absolutely continuous baseline F, \u22121 \u2264 \u03bb \u2264 1",
+  "compared": "2\u00d72 parameter matrices (\u03bb; h(p)) vs (\u03bb*; h(p*)) under chain majorization",
+  "hypotheses": [
+   {
+    "text": "h : [0,1] \u2192 I \u2282 R+ differentiable, strictly increasing, concave, non-zero derivative",
+    "formal": "h^{\u22121} increasing and convex",
+    "source": "statement"
+   },
+   {
+    "text": "(\u03bb, h(p)) \u2208 S2",
+    "formal": "matrix rows oppositely ordered (anti-comonotone): (\u03bb1 \u2212 \u03bb2)(h(p1) \u2212 h(p2)) \u2264 0",
+    "source": "statement"
+   },
+   {
+    "text": "[\u03bb*; h(p*)] \u226a [\u03bb; h(p)]",
+    "formal": "starred matrix chain-majorized by unstarred, i.e., starred = unstarred \u00d7 T-chain (Definition 2.5)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y2:2 \u2264st Y*2:2 (unstarred/more-spread portfolio's maximum is smaller)"
+  },
+  "quantifiers": "n = 2; x \u2265 0",
+  "numbers": "",
+  "ambiguity": "Direction as printed: unstarred \u2264st starred under starred \u226a unstarred. Both passes agree on direction; dir codes differ only cosmetically.",
+  "adjudication": "adjudicated: Paper prints Y2:2 \u2264st Y*2:2 under [\u03bb*;h(p*)] \u226a [\u03bb;h(p)]; both passes concur on direction."
+ },
+ {
+  "paper": "doi:10.1080/10920277.2019.1671203",
+  "claim": "Theorem 3.3",
+  "page": 9,
+  "quote": "Theorem 3.3. Under the assumptions of Theorem 3.2 with \u03bbi = \u03bb*i = \u03bb, for i = 1, . . . , n, we have (h(p*1), . . . , h(p*n)) \u227cw (h(p1), . . . , h(pn)) \u21d2 Y*n:n \u2264rh Yn:n.",
+  "kind": "theorem",
+  "model": "other: portfolio \u2014 largest claim amount",
+  "family": "TG(\u03bb) portfolio with common transmutation parameter \u03bb across both portfolios",
+  "compared": "claim-probability vectors via weak submajorization of h(p*) by h(p)",
+  "hypotheses": [
+   {
+    "text": "\u03bbi = \u03bb*i = \u03bb for all i (assumptions of Theorem 3.2 otherwise)",
+    "formal": "common transmuted parameter; h increasing concave premise of Theorem 3.2",
+    "source": "statement"
+   },
+   {
+    "text": "(h(p*1),...,h(p*n)) \u227cw (h(p1),...,h(pn))",
+    "formal": "weak submajorization per Definition 2.2(i)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "rh",
+   "direction": "Y*n:n \u2264rh Yn:n (starred maximum smaller in reversed hazard rate order)"
+  },
+  "quantifiers": "n \u2265 2; x \u2265 0",
+  "numbers": "",
+  "ambiguity": "The a_dirs/b_dirs code disagreement is an artifact \u2014 both passes' records state Y*n:n \u2264rh Yn:n, matching the print.",
+  "adjudication": "adjudicated: Both passes' records agree: Y*n:n \u2264rh Yn:n under h(p*) \u227cw h(p) with common \u03bb; direction-code diff is"
+ },
+ {
+  "paper": "doi:10.1080/10920277.2019.1671203",
+  "claim": "Theorem 4.1",
+  "page": 10,
+  "quote": "Theorem 4.1. Let X\u03bb1, . . . , X\u03bbn (X\u03bb*1, . . . , X\u03bb*n) be independent non-negative random variables with X\u03bbi \u223c TG(\u03bbi) (X\u03bb*i \u223c TG(\u03bb*i)), i = 1, . . . , n. Further, suppose that Ip1, . . . , Ipn (Ip*1, . . . , Ip*n) is a set of independent Bernoulli random variables, independent of the X\u03bbi's (X\u03bb*i's), with E[Ipi] = pi (E[Ip*i] = p*i), i = 1, . . . , n. Then, we have \u220f_{i=1}^n p*i \u2264 \u220f_{i=1}^n pi, (\u03bb1, . . . , \u03bbn) \u227cw (\u03bb*1, . . . , \u03bb*n) \u21d2 Y*1:n \u2264st Y1:n.",
+  "kind": "theorem",
+  "model": "other: portfolio \u2014 smallest claim amount (series structure)",
+  "family": "TG(\u03bbi) portfolio model, common baseline F",
+  "compared": "occurrence-probability products and weak submajorization of transmutation vectors",
+  "hypotheses": [
+   {
+    "text": "\u220f_{i=1}^n p*i \u2264 \u220f_{i=1}^n pi",
+    "formal": "product of occurrence probabilities smaller on starred side",
+    "source": "statement"
+   },
+   {
+    "text": "(\u03bb1,...,\u03bbn) \u227cw (\u03bb*1,...,\u03bb*n)",
+    "formal": "weak submajorization of \u03bb by \u03bb* (Definition 2.2(i))",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y*1:n \u2264st Y1:n (starred portfolio's minimum claim smaller)"
+  },
+  "quantifiers": "n \u2265 2; x \u2265 0",
+  "numbers": "",
+  "ambiguity": "Direction printed Y*1:n \u2264st Y1:n; both passes' records state this \u2014 dir codes artifact.",
+  "adjudication": "adjudicated: Theorem and both applications print the same direction Y* \u2264st Y; the a/b dir-code diff is an artifac"
+ },
+ {
+  "paper": "doi:10.1080/10920277.2019.1671203",
+  "claim": "Application 5.1, second bullet (transmuted exponential, Theorem 4.1)",
+  "page": 12,
+  "quote": "Let X\u03bb1, X\u03bb2, X\u03bb3 (X\u03bb*1, X\u03bb*2, X\u03bb*3) be independent random variables with X\u03bbi \u223c TE(\u03bbi, 2) (X\u03bb*i \u223c TE(\u03bb*i, 2)), i = 1, 2, 3. ... Also, suppose that (\u03bb1, \u03bb2, \u03bb3) = (0.1, 0.3, \u22120.6), (\u03bb*1, \u03bb*2, \u03bb*3) = (0.5, \u22120.3, 0.1), (p1, p2, p3) = (0.5, 0.3, 0.7), and (p*1, p*2, p*3) = (0.3, 0.9, 0.1). It can be easily verified that the conditions of Theorem 4.1 hold and so we can conclude that Y*1:3 \u2264st Y1:3.",
+  "kind": "example",
+  "model": "other: portfolio \u2014 smallest claim amount",
+  "family": "TE(\u03bb, \u03b8 = 2) transmuted exponential",
+  "compared": "\u03bb = (0.1,0.3,\u22120.6), p = (0.5,0.3,0.7) vs \u03bb* = (0.5,\u22120.3,0.1), p* = (0.3,0.9,0.1)",
+  "hypotheses": [
+   {
+    "text": "the conditions of Theorem 4.1 hold",
+    "formal": "\u220fp* = 0.027 \u2264 \u220fp = 0.105 and \u03bb \u227cw \u03bb*",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y*1:3 \u2264st Y1:3 (Figure 1 top-right)"
+  },
+  "quantifiers": "n = 3",
+  "numbers": "\u03bb = (0.1,0.3,\u22120.6); \u03bb* = (0.5,\u22120.3,0.1); p = (0.5,0.3,0.7); p* = (0.3,0.9,0.1); \u03b8 = 2; \u220fp* = 0.027 \u2264 \u220fp = 0.105",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Theorem and both applications print the same direction Y* \u2264st Y; the a/b dir-code diff is an artifac"
+ },
+ {
+  "paper": "doi:10.1080/10920277.2019.1671203",
+  "claim": "Application 5.2, second bullet (transmuted Weibull, Theorem 4.1)",
+  "page": 14,
+  "quote": "Let X\u03bb1, X\u03bb2, X\u03bb3 (X\u03bb*1, X\u03bb*2, X\u03bb*3) be independent random variables with X\u03bbi \u223c TW(\u03bbi, 2, 0.6) (X\u03bb*i \u223c TW(\u03bb*i, 2, 0.6)), i = 1, 2, 3. ... Also, suppose (\u03bb1, \u03bb2, \u03bb3) = (0.3, 0.7, 0.5), (\u03bb*1, \u03bb*2, \u03bb*3) = (0.8, 0.4, 0.5), (p1, p2, p3) = (0.6, 0.3, 0.2), and (p*1, p*2, p*3) = (0.4, 0.5, 0.1). It can be easily verified that the conditions of Theorem 4.1 hold. Thus we can conclude that Y*1:3 \u2264st Y1:3.",
+  "kind": "example",
+  "model": "other: portfolio \u2014 smallest claim amount",
+  "family": "TW(\u03bb, \u03b1 = 2, \u03b2 = 0.6) transmuted Weibull",
+  "compared": "\u03bb = (0.3,0.7,0.5), p = (0.6,0.3,0.2) vs \u03bb* = (0.8,0.4,0.5), p* = (0.4,0.5,0.1)",
+  "hypotheses": [
+   {
+    "text": "the conditions of Theorem 4.1 hold",
+    "formal": "\u220fp* = 0.02 \u2264 \u220fp = 0.036 and \u03bb \u227cw \u03bb*",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y*1:3 \u2264st Y1:3 (Figure 1 bottom-right)"
+  },
+  "quantifiers": "n = 3",
+  "numbers": "\u03b1 = 2; \u03b2 = 0.6; \u03bb = (0.3,0.7,0.5); \u03bb* = (0.8,0.4,0.5); p = (0.6,0.3,0.2); p* = (0.4,0.5,0.1); \u220fp* = 0.02 \u2264 \u220fp = 0.036",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Theorem and both applications print the same direction Y* \u2264st Y; the a/b dir-code diff is an artifac"
+ },
+ {
+  "paper": "doi:10.1080/10920277.2019.1671203",
+  "claim": "Theorem 4.2",
+  "page": 11,
+  "quote": "Theorem 4.2. Under the assumptions of Theorem 4.1, we have \u220f_{i=1}^n p*i \u2264 \u220f_{i=1}^n pi, (\u03bb1, . . . , \u03bbn) \u227cw (\u03bb*1, . . . , \u03bb*n) \u21d2 Y*1:n \u2264hr Y1:n.",
+  "kind": "theorem",
+  "model": "other: portfolio \u2014 smallest claim amount",
+  "family": "TG(\u03bbi) portfolio model",
+  "compared": "same hypotheses as Theorem 4.1 with hazard-rate conclusion",
+  "hypotheses": [
+   {
+    "text": "\u220f p*i \u2264 \u220f pi and (\u03bb1,...,\u03bbn) \u227cw (\u03bb*1,...,\u03bb*n)",
+    "formal": "Theorem 4.1 hypotheses",
+    "source": "statement; earlier theorem 4.1"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "Y*1:n \u2264hr Y1:n"
+  },
+  "quantifiers": "n \u2265 2; x \u2265 0",
+  "numbers": "",
+  "ambiguity": "Strengthens Theorem 4.1's st order to hr under the same conditions; proof uses survival-ratio monotonicity plus X*1:n \u2264hr X1:n.",
+  "adjudication": "adjudicated: Both passes agree: Y*1:n \u2264hr Y1:n under the Theorem 4.1 hypotheses; dir-code diff is an artifact."
+ },
+ {
+  "paper": "doi:10.1080/10920277.2019.1671203",
+  "claim": "Theorem 4.3",
+  "page": 11,
+  "quote": "Theorem 4.3. Under the assumptions of Theorem 4.1, if F is DFR, 0 \u2264 \u03bb*i \u2264 1, i = 1, . . . , n, and f(0) \u2264 (1 \u2212 \u220f_{i=1}^n p*i)/(\u2211_{i=1}^n (1 + \u03bb*i)), then we have \u220f_{i=1}^n p*i \u2264 \u220f_{i=1}^n pi, (\u03bb1, . . . , \u03bbn) \u227cw (\u03bb*1, . . . , \u03bb*n) \u21d2 Y*1:n \u2264disp Y1:n.",
+  "kind": "theorem",
+  "model": "other: portfolio \u2014 smallest claim amount",
+  "family": "TG(\u03bbi) portfolio model with DFR baseline F",
+  "compared": "same majorization setup, dispersive-order conclusion",
+  "hypotheses": [
+   {
+    "text": "F is DFR",
+    "formal": "baseline has decreasing failure rate",
+    "source": "statement"
+   },
+   {
+    "text": "0 \u2264 \u03bb*i \u2264 1, i = 1,...,n",
+    "formal": "starred transmutation parameters nonnegative",
+    "source": "statement"
+   },
+   {
+    "text": "f(0) \u2264 (1 \u2212 \u220f_{i=1}^n p*i)/(\u2211_{i=1}^n (1 + \u03bb*i))",
+    "formal": "baseline density at 0 bounded \u2014 ensures Y*1:n is DFR",
+    "source": "statement"
+   },
+   {
+    "text": "\u220f p*i \u2264 \u220f pi and \u03bb \u227cw \u03bb*",
+    "formal": "Theorem 4.1 hypotheses",
+    "source": "statement; earlier theorem 4.1"
+   }
+  ],
+  "conclusion": {
+   "order": "disp",
+   "direction": "Y*1:n \u2264disp Y1:n"
+  },
+  "quantifiers": "n \u2265 2; x \u2265 0",
+  "numbers": "",
+  "ambiguity": "Proof route: Theorem 4.2's hr order plus DFR-ness of Y*1:n, then Lemma 2.1.",
+  "adjudication": "adjudicated: Theorem prints Y*1:n \u2264disp Y1:n (both passes agree); A's extra record is a genuinely printed varianc"
+ },
+ {
+  "paper": "doi:10.1080/10920277.2019.1671203",
+  "claim": "Variance consequence of Theorem 4.3 (unnumbered note)",
+  "page": 11,
+  "quote": "Note that under the assumptions of Theorem 4.3, we can conclude that the variance of Y*1:n is equal or less than the variance of Y1:n.",
+  "kind": "corollary",
+  "model": "other: portfolio \u2014 smallest claim amount",
+  "family": "TG(\u03bbi) portfolio model with DFR baseline",
+  "compared": "variances of the two smallest claim amounts",
+  "hypotheses": [
+   {
+    "text": "assumptions of Theorem 4.3",
+    "formal": "DFR baseline, 0 \u2264 \u03bb*i \u2264 1, f(0) bound, \u220fp* \u2264 \u220fp, \u03bb \u227cw \u03bb*",
+    "source": "statement; earlier theorem 4.3"
+   }
+  ],
+  "conclusion": {
+   "order": "other: variance",
+   "direction": "Var(Y*1:n) \u2264 Var(Y1:n) \u2014 consequence of the dispersive order"
+  },
+  "quantifiers": "n \u2265 2",
+  "numbers": "",
+  "ambiguity": "Unnumbered printed remark after Theorem 4.3's proof; a variance comparison, not itself a named stochastic order \u2014 recorded as 'other: variance'.",
+  "adjudication": "adjudicated: Theorem prints Y*1:n \u2264disp Y1:n (both passes agree); A's extra record is a genuinely printed varianc"
+ },
+ {
+  "paper": "doi:10.1080/10920277.2019.1671203",
   "claim": "Corollary 3.2",
   "page": 8,
   "quote": "Corollary 3.2. Under the assumptions of Theorem 3.2, for (\u03bb, h(p)) \u2208 Sn, we have (\u03bb\u22171 ... \u03bb\u2217n; h(p\u22171) ... h(p\u2217n)) = (\u03bb1 ... \u03bbn; h(p1) ... h(pn)) T\u03c91 ... T\u03c9m \u27f9 Yn:n \u2264st Y\u2217n:n, where T\u03c9i, i = 1, . . . , m, have the same structure.",
@@ -93,106 +438,6 @@
   "ambiguity": "",
   "numbers": "",
   "adjudication": "agreed"
- },
- {
-  "paper": "doi:10.1080/10920277.2019.1671203",
-  "claim": "Application 5.1, first bullet (transmuted exponential, Corollary 3.3)",
-  "page": 12,
-  "quote": "Let X\u03bb1, X\u03bb2, X\u03bb3 (X\u03bb\u22171, X\u03bb\u22172, X\u03bb\u22173) be independent random variables with X\u03bbi ~ TE(\u03bbi, 0.5) (X\u03bb\u2217i ~ TE(\u03bb\u2217i, 0.5)), i = 1, 2, 3. Further, suppose that Ip1, Ip2, Ip3 (Ip\u22171, Ip\u22172, Ip\u22173) is a set of independent Bernoulli random variables, independent of the X\u03bbi's (X\u03bb\u2217i's), with E[Ipi] = pi (E[Ip\u2217i] = p\u2217i), i = 1, 2, 3. Also, suppose that (\u03bb1, \u03bb2, \u03bb3) = (\u22120.7, 0.8, \u22120.9), (\u03bb\u22171, \u03bb\u22172, \u03bb\u22173) = (\u22120.1806, 0.0896, \u22120.7090), (p1, p2, p3) = (0.4, 0.2, 0.7), and (p\u22171, p\u22172, p\u22173) = (0.4345, 0.3698, 0.4711). Take h(p) = log(2 + p) and the T-transform matrices with the different structures as T0.9, T0.3 and T0.6. It can be easily verified that (\u03bb, h(p)), (\u03bb, h(p))T0.9 and (\u03bb, h(p))T0.9T0.3 are in S3, and (\u03bb\u2217, h(p\u2217)) = (\u03bb, h(p))T0.9T0.3T0.6. Thus, Corollary 3.3 implies Y\u22173:3 \u2264st Y3:3.",
-  "kind": "example",
-  "model": "other: portfolio \u2014 largest claim amount",
-  "family": "TE(\u03bb, \u03b8 = 0.5): transmuted exponential baseline F(x) = 1 \u2212 e^{\u2212x/\u03b8}",
-  "compared": "\u03bb = (\u22120.7,0.8,\u22120.9), p = (0.4,0.2,0.7) vs \u03bb* = (\u22120.1806,0.0896,\u22120.7090), p* = (0.4345,0.3698,0.4711); h(p) = log(2+p)",
-  "hypotheses": [
-   {
-    "text": "(\u03bb,h(p)), (\u03bb,h(p))T0.9, (\u03bb,h(p))T0.9T0.3 \u2208 S3 and (\u03bb*;h(p*)) = (\u03bb;h(p))T0.9T0.3T0.6",
-    "formal": "Corollary 3.3 conditions with different-structure T-transforms",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "Y*_{3:3} <=st Y_{3:3} (survival functions in Figure 1, top-left)"
-  },
-  "quantifiers": "n = 3",
-  "numbers": "\u03bb = (\u22120.7,0.8,\u22120.9); \u03bb* = (\u22120.1806,0.0896,\u22120.7090); p = (0.4,0.2,0.7); p* = (0.4345,0.3698,0.4711); h(p) = log(2+p); T-matrices T0.9 = I-diag variant, T0.3, T0.6 as printed",
-  "ambiguity": "Direction flipped relative to Theorem 3.1's statement (starred matrix here equals unstarred times T-chain, consistent with \u226a convention).",
-  "adjudication": "example record (pass a)"
- },
- {
-  "paper": "doi:10.1080/10920277.2019.1671203",
-  "claim": "Application 5.1, second bullet (transmuted exponential, Theorem 4.1)",
-  "page": 12,
-  "quote": "Let X\u03bb1, X\u03bb2, X\u03bb3 (X\u03bb\u22171, X\u03bb\u22172, X\u03bb\u22173) be independent random variables with X\u03bbi ~ TE(\u03bbi, 2) (X\u03bb\u2217i ~ TE(\u03bb\u2217i, 2)), i = 1, 2, 3. ... Also, suppose that (\u03bb1, \u03bb2, \u03bb3) = (0.1, 0.3, \u22120.6), (\u03bb\u22171, \u03bb\u22172, \u03bb\u22173) = (0.5, \u22120.3, 0.1), (p1, p2, p3) = (0.5, 0.3, 0.7), and (p\u22171, p\u22172, p\u22173) = (0.3, 0.9, 0.1). It can be easily verified that the conditions of Theorem 4.1 hold and so we can conclude that Y\u22171:3 \u2264st Y1:3.",
-  "kind": "example",
-  "model": "other: portfolio \u2014 smallest claim amount",
-  "family": "TE(\u03bb, \u03b8 = 2)",
-  "compared": "\u03bb = (0.1,0.3,\u22120.6) vs \u03bb* = (0.5,\u22120.3,0.1); p = (0.5,0.3,0.7) vs p* = (0.3,0.9,0.1)",
-  "hypotheses": [
-   {
-    "text": "conditions of Theorem 4.1 hold",
-    "formal": "\u03a0 p* = 0.027 \u2264 \u03a0 p = 0.105; \u03bb \u227cw \u03bb* (as verified by the authors)",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "Y*_{1:3} <=st Y_{1:3} (Figure 1, top-right)"
-  },
-  "quantifiers": "n = 3",
-  "numbers": "\u03bb = (0.1,0.3,\u22120.6); \u03bb* = (0.5,\u22120.3,0.1); p = (0.5,0.3,0.7); p* = (0.3,0.9,0.1); \u03b8 = 2",
-  "ambiguity": "",
-  "adjudication": "example record (pass a)"
- },
- {
-  "paper": "doi:10.1080/10920277.2019.1671203",
-  "claim": "Application 5.2, first bullet (transmuted Weibull, Corollary 3.3)",
-  "page": 13,
-  "quote": "Let X\u03bb1, X\u03bb2, X\u03bb3 (X\u03bb\u22171, X\u03bb\u22172, X\u03bb\u22173) be independent random variables with X\u03bbi ~ TW(\u03bbi, 0.3, 1.5) (X\u03bb\u2217i ~ TW(\u03bb\u2217i, 0.3, 1.5)), i = 1, 2, 3. ... Also, suppose that (\u03bb1, \u03bb2, \u03bb3) = (0.7, 0.3, \u22120.9), (\u03bb\u22171, \u03bb\u22172, \u03bb\u22173) = (0.1544, \u22120.5464, 0.4920), (p1, p2, p3) = (0.1, 0.4, 0.8), and (p\u22171, p\u22172, p\u22173) = (0.3506, 0.6295, 0.2124). Take h(p) = 5p+2/p+1 and the T-transform matrices with the different structures as T0.1, T0.4 and T0.8. It can be easily verified that (\u03bb, h(p)), (\u03bb, h(p))T0.1 and (\u03bb, h(p))T0.1T0.4 are in S3, and (\u03bb\u2217, h(p\u2217)) = (\u03bb, h(p))T0.1T0.4T0.8. Thus, Corollary 3.3 implies Y\u22173:3 \u2264st Y3:3.",
-  "kind": "example",
-  "model": "other: portfolio \u2014 largest claim amount",
-  "family": "TW(\u03bb, \u03b1 = 0.3, \u03b2 = 1.5): transmuted Weibull baseline",
-  "compared": "\u03bb = (0.7,0.3,\u22120.9) vs \u03bb* = (0.1544,\u22120.5464,0.4920); p = (0.1,0.4,0.8) vs p* = (0.3506,0.6295,0.2124); h(p) = 5p+2/(p+1) (as printed '5p+2/p+1')",
-  "hypotheses": [
-   {
-    "text": "intermediate matrices in S3; (\u03bb*;h(p*)) = (\u03bb;h(p))T0.1T0.4T0.8",
-    "formal": "Corollary 3.3 conditions",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "Y*_{3:3} <=st Y_{3:3} (Figure 1, bottom-left)"
-  },
-  "quantifiers": "n = 3",
-  "numbers": "Weibull \u03b1 = 0.3, \u03b2 = 1.5; \u03bb = (0.7,0.3,\u22120.9); \u03bb* = (0.1544,\u22120.5464,0.4920); p = (0.1,0.4,0.8); p* = (0.3506,0.6295,0.2124); h(p) = 5p+2/(p+1); T0.1, T0.4, T0.8",
-  "ambiguity": "h(p) printed as '5p+2/p+1' without parentheses \u2014 presumably (5p+2)/(p+1).",
-  "adjudication": "example record (pass a)"
- },
- {
-  "paper": "doi:10.1080/10920277.2019.1671203",
-  "claim": "Application 5.2, second bullet (transmuted Weibull, Theorem 4.1)",
-  "page": 14,
-  "quote": "Let X\u03bb1, X\u03bb2, X\u03bb3 (X\u03bb\u22171, X\u03bb\u22172, X\u03bb\u22173) be independent random variables with X\u03bbi ~ TW(\u03bbi, 2, 0.6) (X\u03bb\u2217i ~ TW(\u03bb\u2217i, 2, 0.6)), i = 1, 2, 3. ... Also, suppose (\u03bb1, \u03bb2, \u03bb3) = (0.3, 0.7, 0.5), (\u03bb\u22171, \u03bb\u22172, \u03bb\u22173) = (0.8, 0.4, 0.5), (p1, p2, p3) = (0.6, 0.3, 0.2), and (p\u22171, p\u22172, p\u22173) = (0.4, 0.5, 0.1). It can be easily verified that the conditions of Theorem 4.1 hold. Thus we can conclude that Y\u22171:3 \u2264st Y1:3.",
-  "kind": "example",
-  "model": "other: portfolio \u2014 smallest claim amount",
-  "family": "TW(\u03bb, \u03b1 = 2, \u03b2 = 0.6)",
-  "compared": "\u03bb = (0.3,0.7,0.5) vs \u03bb* = (0.8,0.4,0.5); p = (0.6,0.3,0.2) vs p* = (0.4,0.5,0.1)",
-  "hypotheses": [
-   {
-    "text": "conditions of Theorem 4.1 hold",
-    "formal": "\u03a0 p* = 0.02 \u2264 \u03a0 p = 0.036; \u03bb \u227cw \u03bb*",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "Y*_{1:3} <=st Y_{1:3} (Figure 1, bottom-right)"
-  },
-  "quantifiers": "n = 3",
-  "numbers": "\u03b1 = 2; \u03b2 = 0.6; \u03bb = (0.3,0.7,0.5); \u03bb* = (0.8,0.4,0.5); p = (0.6,0.3,0.2); p* = (0.4,0.5,0.1)",
-  "ambiguity": "",
-  "adjudication": "example record (pass a)"
  },
  {
   "paper": "doi:10.1080/10920277.2019.1671203",

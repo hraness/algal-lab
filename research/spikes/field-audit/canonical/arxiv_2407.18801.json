@@ -1,6 +1,96 @@
 [
  {
   "paper": "arxiv:2407.18801",
+  "claim": "Unnumbered Example (SC model, Section 3, p.10)",
+  "page": 10,
+  "quote": "Example. First we consider the scale (SC) model in the family of semi-parametric distributions, where the baseline distribution is the EW distribution(\u03b1 = \u03b2 = 0.9), and according to remark 2, this model satisfies condition 2 of Theorem 3.1. Take (\u03b81,...,\u03b85) = (0.12, 0.28, 0.51, 0.62, 0.73), (\u03b81*,...,\u03b85*) = (0.21, 0.42, 0.73, 0.89, 0.92) and the generator \u03c8(x) = exp((1/\u03b8)(1 \u2212 e^x)), where \u03b8 = 0.2 corresponding to Gumble\u2013Barnett copula. By simple mathematical calculations, we can find that (\u03b81,...,\u03b85) \u2ab0^p (\u03b81*,...,\u03b85*) and \u03c8(x) is log-concave. Therefore, the above conditions satisfy the three requirements of Theorem 3.1. ... In Figure 1, we plot the survival functions of X2:5 and Y2:5. We find that the image of F\u0304_{X2:5}(x) is always higher than that of F\u0304_{Y2:5}(x). That illustrates F\u0304_{X2:5}(x) \u2265 F\u0304_{Y2:5}(x), for all x > 0. This confirms the result given in Theorem 3.1.",
+  "kind": "example",
+  "model": "other: fail-safe system X2:5 (second order statistic, Archimedean copula dependence)",
+  "family": "semi-parametric family with EW baseline (\u03b1 = \u03b2 = 0.9); Gumbel\u2013Barnett copula \u03c8(x) = exp((1/\u03b8)(1\u2212e^x)), \u03b8 = 0.2",
+  "compared": "p-majorized scale vectors \u03b8 vs \u03b8*",
+  "hypotheses": [
+   {
+    "text": "(\u03b81,...,\u03b85) \u2ab0^p (\u03b81*,...,\u03b85*)",
+    "formal": "p-majorization",
+    "source": "statement"
+   },
+   {
+    "text": "\u03c8(x) is log-concave",
+    "formal": "generator condition (i) of Theorem 3.1",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X2:5 >=st Y2:5 (F\u0304_{X2:5} >= F\u0304_{Y2:5} for all x > 0, per Figure 1)"
+  },
+  "quantifiers": "n = 5; all x > 0",
+  "numbers": "\u03b8 = (0.12,0.28,0.51,0.62,0.73); \u03b8* = (0.21,0.42,0.73,0.89,0.92); copula \u03b8 = 0.2; EW \u03b1 = \u03b2 = 0.9",
+  "ambiguity": "Unnumbered 'Example.'; graphical verification via Figure 1; explicit survival formulas printed.",
+  "adjudication": "adjudicated: Printed numerical example confirming Theorem 3.1: F\u0304_{X2:5} >= F\u0304_{Y2:5}; A and B items are the same"
+ },
+ {
+  "paper": "arxiv:2407.18801",
+  "claim": "Unnumbered counterexample (labeled 'Example', Section 3, p.12)",
+  "page": 12,
+  "quote": "Logarithmic concavity of \u03c8(x) is essential in Theorem 3.1, and the following counterexample shows that log-concave cannot be replaced by log-convex. Example. First we consider F\u0304(x; \u03b8i) = e^{\u2212(\u03b8i x)^{0.9}} and F\u0304(x; \u03b8*i) = e^{\u2212(\u03b8*i x)^{0.9}}, i = 1,...,5 in the family of semi-parametric distributions. Take (\u03b81,...,\u03b85) = (0.13, 0.31, 0.49, 0.61, 0.72), (\u03b81*,...,\u03b85*) = (0.22, 0.41, 0.71, 0.88, 0.92) and the generator \u03c8(x) = (\u03b8x + 1)^{\u22121/\u03b8}, where \u03b8 = 10 corresponding to Clayton copula. By simple mathematical calculations, we can find that (\u03b81,...,\u03b85) \u2ab0^p (\u03b81*,...,\u03b85*) and \u03c8(x) is log-convex. ... In Figure 2, we plot F\u0304_{X2:5}(x) \u2212 F\u0304_{Y2:5}(x) and y = 0, for all x \u2208 (0, 10]. We find that the curve of F\u0304_{X2:5}(x) \u2212 F\u0304_{Y2:5}(x) intersects curve y = 0. That means it's neither F\u0304_{X2:5}(x) \u2265 F\u0304_{Y2:5}(x) nor F\u0304_{X2:5}(x) \u2264 F\u0304_{Y2:5}(x), for all x > 0. Therefore, log-concave cannot be replaced by log-convex.",
+  "kind": "counterexample",
+  "model": "other: fail-safe system X2:5 (second order statistic, Archimedean copula dependence)",
+  "family": "Weibull-type survival F\u0304(x;\u03b8i) = e^{\u2212(\u03b8i x)^0.9}; Clayton copula \u03c8(x) = (\u03b8x+1)^{\u22121/\u03b8}, \u03b8 = 10",
+  "compared": "p-majorized vectors \u03b8 vs \u03b8* with log-convex (not log-concave) generator",
+  "hypotheses": [
+   {
+    "text": "(\u03b81,...,\u03b85) \u2ab0^p (\u03b81*,...,\u03b85*)",
+    "formal": "p-majorization",
+    "source": "statement"
+   },
+   {
+    "text": "\u03c8(x) is log-convex",
+    "formal": "violates condition (i) of Theorem 3.1",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "neither X2:5 >=st Y2:5 nor X2:5 <=st Y2:5 (survival difference crosses zero on (0,10]) \u2014 refutes Theorem 3.1 without log-concavity"
+  },
+  "quantifiers": "n = 5; x \u2208 (0,10]",
+  "numbers": "\u03b8 = (0.13,0.31,0.49,0.61,0.72); \u03b8* = (0.22,0.41,0.71,0.88,0.92); copula \u03b8 = 10; exponent 0.9",
+  "ambiguity": "Labelled 'Example' in print but functions as a counterexample to Theorem 3.1; sign change verified via Figure 2.",
+  "adjudication": "adjudicated: Printed counterexample: st order fails with log-convex Clayton generator \u2014 include; A and B items co"
+ },
+ {
+  "paper": "arxiv:2407.18801",
+  "claim": "Section 5 unnumbered application (cable tensile strength)",
+  "page": 19,
+  "quote": "From Table 4, we know that weibull is the best fitting distribution F\u0304(x) = e^{\u2212(x/a)^b}, and the parameters are estimated as \u00e2 = 67.739, b\u0302 = 341.65. ... Let us consider two sets of two four-component cable network systems made of #wire 1, 3, 7, 8 and #wire 2, 4, 5, 9 respectively, which follow the fail-safe system (X2:4, Y2:4). ... we can verify that the establishment (341.3373, 341.6547, 342.1098, 343.2238) \u2ab0^p (340.3877, 342.6283, 344.6258, 345.1538). ... The conditions of Theorem 3.1 are well satisfied and we next plot the survival functions of X2:4 and Y2:4. In Figure 3, we find that the image of F\u0304_{X2:4}(x) is always higher than that of F\u0304_{Y2:4}(x).",
+  "kind": "example",
+  "model": "other: fail-safe system X2:4 (4-component cable network)",
+  "family": "Weibull fit F\u0304(x) = e^{\u2212(x/a)^b}, \u00e2 = 67.739, b\u0302 = 341.65; Clayton copula (parameter 1.0822, best of Table 5)",
+  "compared": "wire sets {1,3,7,8} vs {2,4,5,9} via p-majorization of fitted parameter vectors",
+  "hypotheses": [
+   {
+    "text": "(341.3373, 341.6547, 342.1098, 343.2238) \u2ab0^p (340.3877, 342.6283, 344.6258, 345.1538)",
+    "formal": "p-majorization of the wire-parameter vectors",
+    "source": "statement"
+   },
+   {
+    "text": "conditions of Theorem 3.1 are well satisfied",
+    "formal": "log-concave generator + model condition",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X2:4 >=st Y2:4 (F\u0304_{X2:4} always above F\u0304_{Y2:4} in Figure 3)"
+  },
+  "quantifiers": "n = 4 components per cable set",
+  "numbers": "Weibull \u00e2 = 67.739, b\u0302 = 341.65; AIC/BIC: Exp 124.8621/125.0593, Gamma 62.1677/62.5621, Weibull 60.5968/60.9913, Burr 62.7108/63.3025; copulas: Clayton 1.0822 (p = 0.3358), Gumbel 1.5104 (p = 0.3010), Frank 2.9428 (p = 0.3308); vectors (341.3373,341.6547,342.1098,343.2238) vs (340.3877,342.6283,344.6258,345.1538)",
+  "ambiguity": "Real-data application; the conclusion is graphical (Figure 3). The paper applies Theorem 3.1 to claim the #wire 1,3,7,8 cable is superior.",
+  "adjudication": "adjudicated: Real-data example applying the st ordering to cable wire sets; include \u2014 B and A items coincide."
+ },
+ {
+  "paper": "arxiv:2407.18801",
   "claim": "Proposition 1",
   "page": 17,
   "quote": "Das and Kayal (2021) defined a new distribution, which is called modified proportional hazard rates scale (MPHRS) model. The survival function of this model is given by F\u0304(x; \u03b1, \u03bb, \u03bc) = \u03b1 F\u0304(x\u03bc)^\u03bb / (1 \u2212 \u1fb1 F\u0304(x\u03bc)^\u03bb) where (x, \u03b1, \u03bb, \u03bc > 0), \u1fb1 = 1 \u2212 \u03b1. (13) [...] Now we apply Theorem 3.1 to MPHRS model, and get the following Corollary 1. Through the conditions of Theorem 3.1 we only need to verify the decreasing property and logarithmic convexity of the model survival function. Proposition 1. Let X and Y be two vectors of dependent and heterogeneous random variables with Archimedean distributional copula with common generator \u03c8. Assume X \u223c MPHRS(\u03b1, \u03bb, \u03bc, F\u0304) and Y \u223c MPHRS(\u03b1*, \u03bb*, \u03bc*, F\u0304), If \u03c8 is log-concave and the baseline hazard rate function xh_F(x) is decreasing in x, where \u03b1 = \u03b1* = \u03b11_n with \u03b1 \u2208 (0, 1] and \u03bb = \u03bb* = \u03bb1_n. Then, \u03bc \u2ab0^p \u03bc* \u21d2 X_{2:n} \u2265_st Y_{2:n}.",

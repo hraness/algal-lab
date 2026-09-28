@@ -1,0 +1,332 @@
+[
+ {
+  "queue_claim": "example3.11",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Example 3.11 (case q < 1)",
+    "page": 11,
+    "quote": "Example 3.11. Let Ui ∼ q − W(q, λi, β) and Vi ∼ q − W(q, λ★i, β), i = 1, 2. For the case q < 1, consider q = 0.5, β = 0.5, λ1 = 0.5, λ2 = 1.5, λ★1 = 0.3, and λ★2 = 1.6, where (λ1, λ2) ≼w (λ★1, λ★2). Figure 7(a) presents the plot of FU2:2(t) − FV2:2(t) in the interval (0, D) = (0, 1.56). The plot clearly indicates that FU2:2(t) − FV2:2(t) ≥ 0 in t, which implies U2:2 ≤st V2:2.",
+    "kind": "example",
+    "model": "parallel system",
+    "family": "q-Weibull q − W(q, λ, β); q = 0.5, β = 0.5, λ heterogeneous",
+    "compared": "λ = (0.5, 1.5) vs λ★ = (0.3, 1.6)",
+    "hypotheses": [
+     {
+      "text": "(λ1, λ2) ≼w (λ★1, λ★2)",
+      "formal": "weak majorization relation asserted (paper's ≼w notation)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "U2:2 ≤st V2:2 (FU2:2 − FV2:2 ≥ 0 on (0, 1.56)) — supports Theorem 3.10(1)"
+    },
+    "quantifiers": "n = 2; t ∈ (0, D) = (0, 1.56)",
+    "numbers": "q = 0.5; β = 0.5; λ = (0.5, 1.5); λ★ = (0.3, 1.6); Fig. 7(a)",
+    "ambiguity": "Graphical verification."
+   },
+   {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Example 3.11 (case q > 1)",
+    "page": 12,
+    "quote": "Similarly, for the case of q > 1, choose q = 1.5, β = 0.5, λ1 = 0.5, λ2 = 1.5, λ★1 = 0.3, and λ★2 = 1.6, with (λ1, λ2) ≼w (λ★1, λ★2). As shown in Figure 7(b), we again find that FU2:2(t) − FV2:2(t) ≥ 0, confirming that, U2:2 ≤st V2:2.",
+    "kind": "example",
+    "model": "parallel system",
+    "family": "q-Weibull q − W(q, λ, β); q = 1.5, β = 0.5, λ heterogeneous",
+    "compared": "λ = (0.5, 1.5) vs λ★ = (0.3, 1.6)",
+    "hypotheses": [
+     {
+      "text": "(λ1, λ2) ≼w (λ★1, λ★2)",
+      "formal": "weak majorization asserted",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "U2:2 ≤st V2:2 — supports Theorem 3.10(2)"
+    },
+    "quantifiers": "n = 2; t > 0",
+    "numbers": "q = 1.5; β = 0.5; λ = (0.5, 1.5); λ★ = (0.3, 1.6); Fig. 7(b)",
+    "ambiguity": "Graphical verification."
+   }
+  ],
+  "note": "Both passes agree: U2:2 ≤st V2:2 in both cases; only cosmetic direction-format diff."
+ },
+ {
+  "queue_claim": "example3.2",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Example 3.2 (case 0 < q < 1)",
+    "page": 6,
+    "quote": "Example 3.2. Let Ui ∼ q − W(q, λi, β) and Vi ∼ q − W(q, λ★i, β), i = 1, 2. First, consider he case 0 < q < 1 with q = 0.5, β = 0.5, λ1 = 0.5, λ2 = 1.5, λ★1 = 0.3, and λ★2 = 1.8. Here (λ1, λ2) ≼w (λ★1, λ★2). Figure 1(a) represents the plot of F̄U1:2(t)/F̄V1:2(t) in (0, D) = (0, 1.23). The plot clearly indicates that F̄U1:2(t)/F̄V1:2(t) is increasing in t, which in turn implies hU1:2 ≤ hV1:2 and hence U1:2 ≥hr V1:2.",
+    "kind": "example",
+    "model": "series system",
+    "family": "q-Weibull q − W(q, λ, β); q = 0.5, β = 0.5, λ heterogeneous",
+    "compared": "λ = (0.5, 1.5) vs λ★ = (0.3, 1.8)",
+    "hypotheses": [
+     {
+      "text": "(λ1, λ2) ≼w (λ★1, λ★2) — prints with subscript w",
+      "formal": "weak majorization asserted (Theorem 3.1(1) hypothesis)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "U1:2 ≥hr V1:2 (equivalently V1:2 ≤hr U1:2) — supports Theorem 3.1(1)"
+    },
+    "quantifiers": "n = 2; t ∈ (0, D) = (0, 1.23)",
+    "numbers": "q = 0.5; β = 0.5; λ = (0.5, 1.5); λ★ = (0.3, 1.8); Fig. 1(a)",
+    "ambiguity": "Printed 'consider he case' [sic]. Survival-ratio increasing ⇒ hU ≤ hV ⇒ U1:2 ≥hr V1:2."
+   },
+   {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Example 3.2 (case q > 1)",
+    "page": 6,
+    "quote": "Similarly, for the case of q > 1, consider q = 1.5, β = 0.5, λ1 = 0.6, λ2 = 1.5, λ★1 = 0.3, and λ★2 = 1.7, where (λ1, λ2) ≼w (λ★1, λ★2). Then from Figure 1(b), it is clear that F̄U1:2(t)/F̄V1:2(t) is decreasing in t, which leads to U1:2 ≤hr V1:2.",
+    "kind": "example",
+    "model": "series system",
+    "family": "q-Weibull q − W(q, λ, β); q = 1.5, β = 0.5, λ heterogeneous",
+    "compared": "λ = (0.6, 1.5) vs λ★ = (0.3, 1.7)",
+    "hypotheses": [
+     {
+      "text": "(λ1, λ2) ≼w (λ★1, λ★2) — prints with superscript w",
+      "formal": "weak majorization asserted (Theorem 3.1(2) hypothesis)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "U1:2 ≤hr V1:2 — supports Theorem 3.1(2)"
+    },
+    "quantifiers": "n = 2; t > 0 (Fig. 1(b) plotted to t ≈ 10000)",
+    "numbers": "q = 1.5; β = 0.5; λ = (0.6, 1.5); λ★ = (0.3, 1.7); Fig. 1(b)",
+    "ambiguity": "Opposite direction to case (a) as printed: decreasing survival ratio gives U1:2 ≤hr V1:2."
+   }
+  ],
+  "note": "Two printed cases with opposite hr directions (U1:2 ≥hr V1:2 for q<1, U1:2 ≤hr V1:2 for q>1); both passes captured both — cosmetic diff only."
+ },
+ {
+  "queue_claim": "example3.5",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Example 3.5 (case q < 1)",
+    "page": 7,
+    "quote": "Example 3.5. Let Ui ∼ q − W(qi, λ, β) and Vi ∼ q − W(q★i, λi, β), i = 1, 2. For the case q < 1, consider q1 = 0.3, q2 = 0.5, q★1 = 0.1, q★2 = 0.6, β = 2, and λ = 0.5, where (q1, q2) ≼w (q★1, q★2). Figure 3(a) displays the plot of F̄U1:2(t)/F̄V1:2(t) over the interval (0, D) = (0, 1.49). The figure clearly shows that F̄U1:2(t)/F̄V1:2(t) is increasing function in t, which implies that U1:2 ≥hr V1:2.",
+    "kind": "example",
+    "model": "series system",
+    "family": "q-Weibull q − W(q, λ, β); heterogeneous q, common λ = 0.5, β = 2",
+    "compared": "q = (0.3, 0.5) vs q★ = (0.1, 0.6)",
+    "hypotheses": [
+     {
+      "text": "(q1, q2) ≼w (q★1, q★2)",
+      "formal": "weak majorization asserted (Theorem 3.4(1) hypothesis)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "U1:2 ≥hr V1:2 (equivalently V1:2 ≤hr U1:2) — supports Theorem 3.4(1)"
+    },
+    "quantifiers": "n = 2; t ∈ (0, D) = (0, 1.49)",
+    "numbers": "q = (0.3, 0.5); q★ = (0.1, 0.6); β = 2; λ = 0.5; Fig. 3(a)",
+    "ambiguity": "Setup prints Vi ∼ q − W(q★i, λi, β) with subscripted λi though only one λ = 0.5 is given; read as common λ."
+   },
+   {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Example 3.5 (case q > 1)",
+    "page": 7,
+    "quote": "Similarly, for the case of q > 1, let q1 = 1.3, q2 = 1.5, q★1 = 1.1, q★2 = 1.6, β = 2, and λ = 0.5, with (q1, q2) ≼w (q★1, q★2). As illustrated in Figure 3(b), F̄U1:2(t)/F̄V1:2(t) is again increasing, confirming that, U1:2 ≥hr V1:2.",
+    "kind": "example",
+    "model": "series system",
+    "family": "q-Weibull q − W(q, λ, β); heterogeneous q, common λ = 0.5, β = 2",
+    "compared": "q = (1.3, 1.5) vs q★ = (1.1, 1.6)",
+    "hypotheses": [
+     {
+      "text": "(q1, q2) ≼w (q★1, q★2)",
+      "formal": "weak majorization asserted (Theorem 3.4(2) hypothesis)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "U1:2 ≥hr V1:2 — supports Theorem 3.4(2)"
+    },
+    "quantifiers": "n = 2; t > 0 (Fig. 3(b) plotted to t ≈ 10000)",
+    "numbers": "q = (1.3, 1.5); q★ = (1.1, 1.6); β = 2; λ = 0.5; Fig. 3(b)",
+    "ambiguity": "Same λi-subscript misprint as case (a)."
+   }
+  ],
+  "note": "Both passes agree: U1:2 ≥hr V1:2 in both q-regimes; direction-format diff only."
+ },
+ {
+  "queue_claim": "example3.8",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Example 3.8 (case q < 1)",
+    "page": 9,
+    "quote": "Example 3.8. Let Ui ∼ q − W(q, λ, βi) and Vi ∼ q − W(q, λi, β★i), i = 1, 2. For the case q < 1, consider q = 0.5, β1 = 0.5, β2 = 1.5, β★1 = 0.3, β★2 = 1.7, and λ = 1, where (β1, β2) ≼m (β★1, β★2). Figure 5(a) shows the plot of F̄U1:2(t) − F̄V1:2(t) in the interval (0, D) = (0, 1.5). It is evident from the figure that F̄U1:2(t) − F̄V1:2(t) ≥ 0 for all t, which implies that U1:2 ≥st V1:2.",
+    "kind": "example",
+    "model": "series system",
+    "family": "q-Weibull q − W(q, λ, β); heterogeneous β, q = 0.5, λ = 1",
+    "compared": "β = (0.5, 1.5) vs β★ = (0.3, 1.7)",
+    "hypotheses": [
+     {
+      "text": "(β1, β2) ≼m (β★1, β★2)",
+      "formal": "majorization asserted (Theorem 3.7(1) hypothesis)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "U1:2 ≥st V1:2 (equivalently V1:2 ≤st U1:2) — supports Theorem 3.7(1)"
+    },
+    "quantifiers": "n = 2; t ∈ (0, D) = (0, 1.5)",
+    "numbers": "q = 0.5; β = (0.5, 1.5); β★ = (0.3, 1.7); λ = 1; Fig. 5(a)",
+    "ambiguity": "Setup prints Vi ∼ q − W(q, λi, β★i) with subscripted λi though only λ = 1 is given; read as common λ."
+   },
+   {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Example 3.8 (case q > 1)",
+    "page": 9,
+    "quote": "Similarly, for the case of q > 1, take q = 1.5, β1 = 0.5, β2 = 1.5, β★1 = 0.3, β★2 = 1.7, and λ = 0.5, with (β1, β2) ≼m (β★1, β★2). As illustrated in Figure 6(b), F̄U1:2 − F̄V1:2 ≥ 0, confirming that U1:2 ≥st V1:2.",
+    "kind": "example",
+    "model": "series system",
+    "family": "q-Weibull q − W(q, λ, β); heterogeneous β, q = 1.5, λ = 0.5",
+    "compared": "β = (0.5, 1.5) vs β★ = (0.3, 1.7)",
+    "hypotheses": [
+     {
+      "text": "(β1, β2) ≼m (β★1, β★2)",
+      "formal": "majorization asserted (Theorem 3.7(2) hypothesis)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "U1:2 ≥st V1:2 — supports Theorem 3.7(2)"
+    },
+    "quantifiers": "n = 2; t > 0",
+    "numbers": "q = 1.5; β = (0.5, 1.5); β★ = (0.3, 1.7); λ = 0.5; 'Figure 6(b)' as printed",
+    "ambiguity": "Text cites 'Figure 6(b)', which belongs to Example 3.9; Figure 5(b)'s caption lists exactly these parameters — presumably 5(b) meant."
+   }
+  ],
+  "note": "Both passes agree: U1:2 ≥st V1:2 in both cases under β majorization; figure-citation slip (6(b) vs 5(b)) flagged by both."
+ },
+ {
+  "queue_claim": "example4.2",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Example 4.2 (case 0 < q < 1)",
+    "page": 14,
+    "quote": "Example 4.2. Let Ui ∼ q − W(q, λi, β) and Vi ∼ q − W(q, λ*i, β) for i = 1, 2 be two sets of components being mutually dependent with the Clayton copula (member of the Archimedean copula family). Here, we have considered the generators of the Clayton copula as ψ1(u) = 1/(1−u) and ψ2(u) = 1/√(2u+1). Then ϕ1(u) = (1−u)/u and ϕ2(u) = (1−u²)/(2u²). It is easy to verify that ψ1 and ψ2 are log-convex and ϕ2 ◦ ψ1 is super-additive. Set λ1 = 0.3, λ2 = 1.7, λ★1 = 0.5, λ★2 = 1.6, β = 0.5 and q = 0.5, then Figure 8(a) demonstrates that FUn:n − FVn:n ≤ 0 on (0, D) = (0, 1.384) when 0 < q < 1.",
+    "kind": "example",
+    "model": "parallel system",
+    "family": "q-Weibull marginals q − W(q, λ, β), q = 0.5, β = 0.5; dependence via Clayton copulas (generators ψ1 for U, ψ2 for V)",
+    "compared": "λ = (0.3, 1.7) vs λ★ = (0.5, 1.6) plus generators ψ1 vs ψ2",
+    "hypotheses": [
+     {
+      "text": "mutually dependent with the Clayton copula; ψ1 and ψ2 are log-convex and ϕ2 ◦ ψ1 is super-additive",
+      "formal": "Theorem 4.1(1) copula hypotheses asserted",
+      "source": "statement; earlier theorem 4.1"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "V2:2 ≤st U2:2 (FU2:2 − FV2:2 ≤ 0 on (0, 1.384)) — supports Theorem 4.1(1)"
+    },
+    "quantifiers": "n = 2 (paper writes U_{n:n}, V_{n:n}); t ∈ (0, D) = (0, 1.384)",
+    "numbers": "λ = (0.3, 1.7); λ★ = (0.5, 1.6); β = 0.5; q = 0.5; ψ1(u) = 1/(1−u), ψ2(u) = 1/√(2u+1), ϕ1(u) = (1−u)/u, ϕ2(u) = (1−u²)/(2u²); Fig. 8(a)",
+    "ambiguity": "Printed ψ1(u) = 1/(1−u) is inconsistent with the printed inverse ϕ1(u) = (1−u)/u (inverse of 1/(1−u) is 1/(1+u)). The example does not print the weak-supermajorization relation between λ★ and λ that Theorem 4.1 requires."
+   },
+   {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Example 4.2 (case 1 < q < 2)",
+    "page": 15,
+    "quote": "Figure 8(a) demonstrates that the result for 1 < q < 2 also holds. In this case, we have considered λ1 = 0.3, λ2 = 1.7, λ★1 = 0.5, λ★2 = 1.6, β = 0.5 and q = 1.5.",
+    "kind": "example",
+    "model": "parallel system",
+    "family": "q-Weibull marginals q − W(q, λ, β), q = 1.5, β = 0.5; same Clayton generators",
+    "compared": "λ = (0.3, 1.7) vs λ★ = (0.5, 1.6)",
+    "hypotheses": [
+     {
+      "text": "same dependence setup; 'the result for 1 < q < 2 also holds'",
+      "formal": "Theorem 4.1(2) copula hypotheses asserted",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "V2:2 ≤st U2:2 (same FU − FV ≤ 0 assertion carried over) — supports Theorem 4.1(2)"
+    },
+    "quantifiers": "n = 2; q = 1.5; Fig. 8(b) plotted to t = 100",
+    "numbers": "λ = (0.3, 1.7); λ★ = (0.5, 1.6); β = 0.5; q = 1.5; Fig. 8(b) (caption has these parameters)",
+    "ambiguity": "Text cites 'Figure 8(a)' for the q = 1.5 case; Figure 8(b)'s caption carries these parameters. Same ψ1/ϕ1 inconsistency."
+   }
+  ],
+  "note": "Both passes agree: FU−FV ≤ 0 gives V2:2 ≤st U2:2 in both cases; printed ψ1 = 1/(1−u) conflicts with printed inverse ϕ1 — flagged."
+ },
+ {
+  "queue_claim": "example4.4",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Example 4.4 (case 0 < q < 1)",
+    "page": 17,
+    "quote": "Example 4.4. Let Ui ∼ q − W(q, λi, β) and Vi ∼ q − W(q, λ*i, β) for i = 1, 2 be two sets of components being mutually dependent. For the case of 0 < q < 1, we have used Clayton copula with generators ψ1(u) = 1/(1−u) and ψ2(u) = 1/√(2u+1) to model the dependence. With the choice of these generators, it is easy to check that the conditions of Theorem 4.3 hold. Figure 9(a) demonstrates that F̄U1:n − F̄V1:n ≤ 0 on (0, D) = (0, 1.384) where λ1 = 0.5, λ2 = 1.7, λ★1 = 0.6, λ★2 = 1.5, β = 0.5, and q = 0.5.",
+    "kind": "example",
+    "model": "series system",
+    "family": "q-Weibull marginals q − W(q, λ, β), q = 0.5, β = 0.5; Clayton copulas (ψ1 for U, ψ2 for V)",
+    "compared": "λ = (0.5, 1.7) vs λ★ = (0.6, 1.5) plus generators",
+    "hypotheses": [
+     {
+      "text": "Clayton copula generators ψ1(u) = 1/(1−u), ψ2(u) = 1/√(2u+1); 'it is easy to check that the conditions of Theorem 4.3 hold'",
+      "formal": "Theorem 4.3 hypotheses asserted (copula side)",
+      "source": "statement; earlier theorem 4.3"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "U1:2 ≤st V1:2 (F̄U1:n − F̄V1:n ≤ 0 on (0, 1.384)) — supports Theorem 4.3"
+    },
+    "quantifiers": "n = 2 (paper writes 1:n); t ∈ (0, D) = (0, 1.384)",
+    "numbers": "λ = (0.5, 1.7); λ★ = (0.6, 1.5); β = 0.5; q = 0.5; Fig. 9(a)",
+    "ambiguity": "Same ψ1/ϕ1 print inconsistency as Example 4.2. The example does not print the majorization relation between λ★ and λ that Theorem 4.3 requires."
+   },
+   {
+    "paper": "doi:10.1017/s0269964826100199",
+    "claim": "Example 4.4 (case 1 < q < 2)",
+    "page": 17,
+    "quote": "For the case of 1 < q < 2, to model the dependence, we employ the Gumbel-Hougaard copula (member of Archimedean copula family) with generators ψ1(u) = e^{1−(1+u)^8} and ψ2(u) = e^{1−(1+u)^3}. Then ϕ1(u) = (1 − ln u)^{1/8} − 1 and ϕ2(u) = (1 − ln u)^{1/3} − 1. Observe that both ψ1(u) and ψ2(u) are log-concave and ϕ2 ◦ ψ1 is super-additive. With the parameter choices λ1 = 0.5, λ2 = 0.8, λ★1 = 0.3, λ★2 = 0.9, β = 0.5, and q = 1.5, Figure 9(b) demonstrates that the result also holds for 1 < q < 2.",
+    "kind": "example",
+    "model": "series system",
+    "family": "q-Weibull marginals q − W(q, λ, β), q = 1.5, β = 0.5; Gumbel-Hougaard copulas",
+    "compared": "λ = (0.5, 0.8) vs λ★ = (0.3, 0.9)",
+    "hypotheses": [
+     {
+      "text": "Gumbel-Hougaard generators ψ1(u) = e^{1−(1+u)^8}, ψ2(u) = e^{1−(1+u)^3}; ψ1, ψ2 log-concave and ϕ2 ◦ ψ1 super-additive",
+      "formal": "Theorem 4.3 hypotheses asserted for the q > 1 case",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "U1:2 ≤st V1:2 ('the result also holds' — same F̄U − F̄V ≤ 0 assertion) — supports Theorem 4.3's q > 1 case"
+    },
+    "quantifiers": "n = 2; q = 1.5",
+    "numbers": "λ = (0.5, 0.8); λ★ = (0.3, 0.9); β = 0.5; q = 1.5; ψ1 = e^{1−(1+u)^8}, ψ2 = e^{1−(1+u)^3}, ϕ1 = (1−ln u)^{1/8}−1, ϕ2 = (1−ln u)^{1/3}−1; Fig. 9(b)",
+    "ambiguity": "Note the exponents differ between generator and inverse (8 vs 1/8, 3 vs 1/3) — consistent with inversion if the inner exponent of ψ is the reciprocal; printed as stated."
+   }
+  ],
+  "note": "Both passes agree: F̄U − F̄V ≤ 0 gives U1:2 ≤st V1:2 in both copula cases; cosmetic diff only."
+ }
+]

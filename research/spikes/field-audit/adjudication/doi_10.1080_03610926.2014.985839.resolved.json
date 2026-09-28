@@ -1,0 +1,110 @@
+[
+ {
+  "queue_claim": "lemma4.3",
+  "decision": "exclude",
+  "records": [],
+  "note": "Lemma 4.3 only proves tr'(t)/r(t) is decreasing for a single GG(beta,alpha) variable — a shape property of one distribution used to verify hypotheses of Theorems 4.1/4.2, not an ordering of two variables."
+ },
+ {
+  "queue_claim": "theorem3.1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1080/03610926.2014.985839",
+    "claim": "Theorem 3.1",
+    "page": 6,
+    "quote": "Theorem 3.1 Let X_{lambda_1}, ..., X_{lambda_n} be independent nonnegative random variables with X_{lambda_i} ~ F(lambda_i t), i = 1, ..., n, where lambda_i > 0, i = 1, ..., n and F is an absolutely continuous distribution. Let r be the reverse hazard rate function of F, respectively. If t^2 r'(t) is increasing in t, then (lambda_1, ..., lambda_n) <=^m (theta_1, ..., theta_n) => X^lambda_{n:n} <=rh X^theta_{n:n}.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "scale model X_{lambda_i} ~ F(lambda_i t), lambda_i > 0, F absolutely continuous (baseline general; GG cited as application)",
+    "compared": "scale vectors lambda vs theta under majorization",
+    "hypotheses": [
+     {"text": "If t^2 r'(t) is increasing in t", "formal": "t^2 r'(t) increasing, r = reversed hazard rate of F", "source": "statement"},
+     {"text": "(lambda_1, ..., lambda_n) <=^m (theta_1, ..., theta_n)", "formal": "lambda majorized by theta", "source": "statement"}
+    ],
+    "conclusion": {"order": "rh", "direction": "X^lambda_{n:n} <=rh X^theta_{n:n} (lambda side smaller)"},
+    "quantifiers": "n >= 2; all t",
+    "numbers": "",
+    "ambiguity": "The theorem is attributed to Khaledi et al. (2011) in the preamble ('Khaledi et al. (2011) proved the following result'); it is a numbered statement of this paper restating that result."
+   }
+  ],
+  "note": "Order is the reversed hazard rate order (rh); 'rhr' vs 'rh' was a label-only disagreement."
+ },
+ {
+  "queue_claim": "theorem3.2",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1080/03610926.2014.985839",
+    "claim": "Theorem 3.2",
+    "page": 6,
+    "quote": "Theorem 3.2 Let X_{lambda_1}, X_{lambda_2}, ..., X_{lambda_n} be independent random variables with X_{lambda_i} ~ F(lambda_i t) where lambda_i > 0, i = 1, ..., n. If tr(t) is decreasing in t and t^2 r'(t) is increasing in t, then (lambda_1, ..., lambda_n) <=^w (theta_1, ..., theta_n) => X^lambda_{n:n} <=rh X^theta_{n:n}.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "scale model X_{lambda_i} ~ F(lambda_i t), lambda_i > 0",
+    "compared": "scale vectors lambda vs theta under weak majorization",
+    "hypotheses": [
+     {"text": "If tr(t) is decreasing in t and t^2 r'(t) is increasing in t", "formal": "tr(t) decreasing and t^2 r'(t) increasing", "source": "statement"},
+     {"text": "(lambda_1, ..., lambda_n) <=^w (theta_1, ..., theta_n)", "formal": "lambda weakly majorized by theta", "source": "statement"}
+    ],
+    "conclusion": {"order": "rh", "direction": "X^lambda_{n:n} <=rh X^theta_{n:n} (lambda side rh-smaller)"},
+    "quantifiers": "n >= 2; all t",
+    "numbers": "",
+    "ambiguity": "The running text says 'the weakly majorized scale parameter vector leads to a larger system's lifetime'; read formally, the printed conclusion keeps X^lambda_{n:n} <=rh X^theta_{n:n} for (lambda) <=^w (theta), so the theta-side maximum is rh-larger. The loose English remark is noted, statement direction retained."
+   }
+  ],
+  "note": "Theorem 3.2 prints the rh conclusion for weakly majorized scale vectors; direction is X^lambda_{n:n} <=rh X^theta_{n:n} as printed."
+ },
+ {
+  "queue_claim": "theorem4.1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1080/03610926.2014.985839",
+    "claim": "Theorem 4.1",
+    "page": 8,
+    "quote": "Theorem 4.1 Let X_{lambda_1}, X_lambda be independent nonnegative random variables with X_{lambda_1} ~ F(lambda_1 t) and X_lambda ~ F(lambda t), where lambda_1, lambda > 0 and F is an absolutely continuous distribution. Let Y_{lambda*_1}, Y_lambda be independent nonnegative random variables with Y_{lambda*_1} ~ F(lambda*_1 t) and Y_lambda ~ F(lambda t), where lambda*_1, lambda > 0. Let r be the reverse hazard rate function of F. Assume tr(t) and tr'(t)/r(t) are both decreasing in t. Suppose lambda*_1 = min(lambda, lambda_1, lambda*_1), then (lambda_1, lambda) <=^w (lambda*_1, lambda) => r*_{2:2}(t)/r_{2:2}(t) is increasing in t.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "scale model F(lambda_i t): system A = {X_{lambda_1}, X_lambda}, system B = {Y_{lambda*_1}, Y_lambda}",
+    "compared": "two-component scale vectors (lambda_1, lambda) vs (lambda*_1, lambda) under weak majorization",
+    "hypotheses": [
+     {"text": "Assume tr(t) and tr'(t)/r(t) are both decreasing in t", "formal": "tr(t) decreasing and tr'(t)/r(t) decreasing", "source": "statement"},
+     {"text": "Suppose lambda*_1 = min(lambda, lambda_1, lambda*_1)", "formal": "lambda*_1 is the smallest of the three scales", "source": "statement"},
+     {"text": "(lambda_1, lambda) <=^w (lambda*_1, lambda)", "formal": "weak majorization of scale pairs", "source": "statement"}
+    ],
+    "conclusion": {"order": "rh", "direction": "r*_{2:2}(t)/r_{2:2}(t) is increasing in t — the ratio characterization of X_{2:2} <=rh Y_{2:2} (X-side maximum rh-smaller)"},
+    "quantifiers": "n = 2; all t > 0",
+    "numbers": "",
+    "ambiguity": "Conclusion is printed as reversed-hazard-rate ratio monotonicity rather than <=rh notation; this is the ratio characterization of the rh order (used next to derive lr in Theorem 4.2). 'rhr'/'rh-ratio' labels were equivalent."
+   }
+  ],
+  "note": "Theorem 4.1's printed conclusion 'r*_{2:2}(t)/r_{2:2}(t) increasing in t' is the ratio form of X_{2:2} <=rh Y_{2:2}; canonical order rh."
+ },
+ {
+  "queue_claim": "theorem4.5",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1080/03610926.2014.985839",
+    "claim": "Theorem 4.5",
+    "page": 11,
+    "quote": "Theorem 4.5 Let X_1, ..., X_n be independent nonnegative random variables such that X_i ~ F(lambda_1 t) for i = 1, ..., p and X_j ~ F(lambda t) for j = p+1, ..., n, with lambda_1, lambda > 0 and F is an absolutely continuous distribution. Let Y_1, ..., Y_n be independent nonnegative random variables with Y_i ~ F(lambda*_1 t) for i = 1, ..., p and Y_j ~ F(lambda t) for j = p+1, ..., n, with lambda*_1, lambda > 0. Let r be the reverse hazard rate function of F. Assume tr(t) and tr'(t)/r(t) are both decreasing in t. Suppose lambda*_1 = min(lambda, lambda_1, lambda*_1), then (lambda_1,...,lambda_1, lambda,...,lambda; p of lambda_1, q of lambda) <=^w (lambda*_1,...,lambda*_1, lambda,...,lambda; p of lambda*_1, q of lambda) => r*_{n:n}(t)/r_{n:n}(t) is increasing in t, where q = n - p.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "multiple-outlier scale model: p components with scale lambda_1 (resp. lambda*_1) and q = n - p with common scale lambda",
+    "compared": "outlier scale lambda_1 vs lambda*_1 under weak majorization of the block vectors",
+    "hypotheses": [
+     {"text": "Assume tr(t) and tr'(t)/r(t) are both decreasing in t", "formal": "tr(t) decreasing and tr'(t)/r(t) decreasing", "source": "statement"},
+     {"text": "Suppose lambda*_1 = min(lambda, lambda_1, lambda*_1)", "formal": "lambda*_1 smallest of the scales", "source": "statement"},
+     {"text": "(lambda_1 repeated p, lambda repeated q) <=^w (lambda*_1 repeated p, lambda repeated q)", "formal": "weak majorization of n-vectors", "source": "statement"}
+    ],
+    "conclusion": {"order": "rh", "direction": "r*_{n:n}(t)/r_{n:n}(t) is increasing in t — ratio characterization of X_{n:n} <=rh Y_{n:n} (X-side maximum rh-smaller)"},
+    "quantifiers": "n >= 2, 1 <= p <= n, q = n - p; all t > 0",
+    "numbers": "",
+    "ambiguity": "Same ratio-form rh conclusion as Theorem 4.1, extended to the multiple-outlier model; used to derive the lr ordering printed immediately after (X_{n:n} <=lr Y_{n:n} when t^2 r'(t) is also increasing)."
+   }
+  ],
+  "note": "Theorem 4.5's printed conclusion 'r*_{n:n}(t)/r_{n:n}(t) increasing in t' is the ratio characterization of X_{n:n} <=rh Y_{n:n}; canonical order rh."
+ }
+]

@@ -1,6 +1,150 @@
 [
  {
   "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Corollary 1 (\u0646\u062a\u06cc\u062c\u0647 \u0661)",
+  "page": 66,
+  "quote": "\u0646\u062a\u06cc\u062c\u0647 \u0661: \u062a\u062d\u062a \u0645\u0641\u0631\u0648\u0636\u0627\u062a \u0642\u0636\u06cc\u0647 \u0663\u060c \u0627\u06af\u0631 \u03b1 >= \u0661 \u0648 \u03a0_{i=1}^n p_i >= \u03a0_{i=1}^n p*_i\u060c \u0622\u0646\u06af\u0627\u0647 \u03a3_{i=1}^n \u03bb_i^\u03b1 <= \u03a3_{i=1}^n (\u03bb*_i)^\u03b1 \u27f9 VaR(Y_{1:n}) >= VaR(Y*_{1:n}).",
+  "kind": "corollary",
+  "model": "series system",
+  "family": "Weibull W(alpha, lambda_i) marginals with Bernoulli thinning: Y_i = I_{p_i} X_{lambda_i}, X_{lambda_i} ~ W(alpha, lambda_i)",
+  "compared": "scale vectors lambda vs lambda* (power-sum comparison) and coverage-probability products",
+  "hypotheses": [
+   {
+    "text": "\u062a\u062d\u062a \u0645\u0641\u0631\u0648\u0636\u0627\u062a \u0642\u0636\u06cc\u0647 \u0663 (under the assumptions of Theorem 3)",
+    "formal": "Y_i = I_{p_i} X_{lambda_i}, Y*_i = I_{p*_i} X_{lambda*_i}, all independent",
+    "source": "earlier theorem 3"
+   },
+   {
+    "text": "\u03b1 >= \u0661 \u0648 \u03a0 p_i >= \u03a0 p*_i",
+    "formal": "alpha >= 1 and prod p_i >= prod p*_i",
+    "source": "statement"
+   },
+   {
+    "text": "\u03a3 \u03bb_i^\u03b1 <= \u03a3 (\u03bb*_i)^\u03b1",
+    "formal": "sum lambda_i^alpha <= sum lambda*_i^alpha",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "VaR(Y_{1:n}; p) >= VaR(Y*_{1:n}; p) for all probability levels p, i.e. Y*_{1:n} <=st Y_{1:n} (Y-star side smaller)"
+  },
+  "quantifiers": "all levels p in (0,1); n >= 1",
+  "numbers": "",
+  "ambiguity": "Printed as a Value-at-Risk (quantile) inequality VaR(Y_{1:n}) >= VaR(Y*_{1:n}); a quantile ordering at all levels coincides with the usual stochastic order. Pass B's label 'VaR (quantile) order' records the printed form.",
+  "adjudication": "adjudicated: Corollary 1 prints VaR(Y_{1:n}) >= VaR(Y*_{1:n}) \u2014 a quantile/VaR ordering over all levels, which is"
+ },
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Lemma 1 (\u0644\u0645 \u0661; convex transform order part)",
+  "page": 65,
+  "quote": "\u0644\u0645 \u0661 (\u0628\u0631\u0645\u0627\u0644\u0632\u0646 \u0648 \u067e\u0627\u06cc\u0646\u062f\u0647 \u0662\u0660\u0661\u06f5): \u0641\u0631\u0636 \u06a9\u0646\u06cc\u062f X_{\u03bb1}, ..., X_{\u03bbn} \u0645\u062c\u0645\u0648\u0639\u0647\u200c\u0627\u06cc \u0627\u0632 \u0645\u062a\u063a\u06cc\u0631\u0647\u0627\u06cc \u062a\u0635\u0627\u062f\u0641\u06cc \u0645\u0633\u062a\u0642\u0644 \u0648\u0627\u06cc\u0628\u0644 \u0628\u0627\u0634\u0646\u062f \u0628\u0647\u200c\u06af\u0648\u0646\u0647\u200c\u0627\u06cc \u06a9\u0647 X_{\u03bbi} ~ W(\u03b1, \u03bbi), \u03bbi > 0, i = 1, ..., n. \u0647\u0645\u0686\u0646\u06cc\u0646 \u0641\u0631\u0636 \u06a9\u0646\u06cc\u062f I_{p1}, ..., I_{pn} \u0645\u062a\u063a\u06cc\u0631\u0647\u0627\u06cc \u062a\u0635\u0627\u062f\u0641\u06cc \u0645\u0633\u062a\u0642\u0644 \u0628\u0631\u0646\u0648\u0644\u06cc \u0628\u0627 E(I_{pi}) = p_i \u0628\u0627\u0634\u0646\u062f \u06a9\u0647 \u0645\u0633\u062a\u0642\u0644 \u0627\u0632 X_{\u03bbi} \u0647\u0627 \u0647\u0633\u062a\u0646\u062f. \u0627\u06af\u0631 \u03b1 >= \u0661 \u0648 \u03a0_{i=1}^n p_i >= \u03a0_{i=1}^n p*_i\u060c \u0622\u0646\u06af\u0627\u0647 Y_{1:n} >=c (>=su) Y*_{1:n}.",
+  "kind": "lemma",
+  "model": "series system",
+  "family": "Weibull W(alpha, lambda_i) with Bernoulli thinning: Y_i = I_{p_i} X_{lambda_i}",
+  "compared": "scale vectors lambda vs lambda* under the conditions of Theorem 3; coverage products prod p_i vs prod p*_i",
+  "hypotheses": [
+   {
+    "text": "\u03b1 >= \u0661 \u0648 \u03a0 p_i >= \u03a0 p*_i",
+    "formal": "alpha >= 1 and prod p_i >= prod p*_i",
+    "source": "statement"
+   },
+   {
+    "text": "\u03a3 \u03bb_i^\u03b1 <= \u03a3 (\u03bb*_i)^\u03b1 (from the theorem-3 assumptions context)",
+    "formal": "power-sum comparison of scales",
+    "source": "section preamble"
+   }
+  ],
+  "conclusion": {
+   "order": "star",
+   "direction": "Y_{1:n} >=c Y*_{1:n} (convex transform order; Y side larger)"
+  },
+  "quantifiers": "n >= 1",
+  "numbers": "",
+  "ambiguity": "Numbered lemma explicitly attributed to Barmalzan and Payandeh (2015); retained as a numbered statement of the paper. The print gives >=c with (>=su) parenthetically \u2014 split into two records.",
+  "adjudication": "adjudicated: Lemma 1 (restated from Barmalzan & Payandeh 2015) prints two transform orders, >=c (convex transform"
+ },
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Lemma 1 (\u0644\u0645 \u0661; superadditive order part)",
+  "page": 65,
+  "quote": "\u0627\u06af\u0631 \u03b1 >= \u0661 \u0648 \u03a0_{i=1}^n p_i >= \u03a0_{i=1}^n p*_i\u060c \u0622\u0646\u06af\u0627\u0647 Y_{1:n} >=c (>=su) Y*_{1:n}.",
+  "kind": "lemma",
+  "model": "series system",
+  "family": "Weibull W(alpha, lambda_i) with Bernoulli thinning",
+  "compared": "scale vectors lambda vs lambda*; coverage products",
+  "hypotheses": [
+   {
+    "text": "\u03b1 >= \u0661 \u0648 \u03a0 p_i >= \u03a0 p*_i",
+    "formal": "alpha >= 1 and prod p_i >= prod p*_i",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: su (superadditive order)",
+   "direction": "Y_{1:n} >=su Y*_{1:n} (Y side larger)"
+  },
+  "quantifiers": "n >= 1",
+  "numbers": "",
+  "ambiguity": "Printed parenthetically alongside >=c in the same conclusion.",
+  "adjudication": "adjudicated: Lemma 1 (restated from Barmalzan & Payandeh 2015) prints two transform orders, >=c (convex transform"
+ },
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Theorem 9 (\u0642\u0636\u06cc\u0647 \u0669)",
+  "page": 70,
+  "quote": "\u0642\u0636\u06cc\u0647 \u0669: \u0641\u0631\u0636 \u06a9\u0646\u06cc\u062f X_{\u03bb1}, ..., X_{\u03bbn} (X_{\u03bb*1}, ..., X_{\u03bb*n}) \u062f\u0627\u0631\u0627\u06cc \u062a\u0627\u0628\u0639 \u0645\u0641\u0635\u0644 \u0628\u0642\u0627\u06cc \u06af\u0627\u0645\u0628\u0644-\u0647\u0648\u06af\u0627\u0631\u062f \u0108(u_1, ..., u_n) = exp{-((-ln u_1)^\u03b8 + ... + (-ln u_n)^\u03b8)^{1/\u03b8}}, \u03b8 >= \u0661, \u0628\u0627\u0634\u0646\u062f\u060c \u06a9\u0647 \u062f\u0631 \u0622\u0646 X_{\u03bbi} ~ PHR(F\u0304, \u03bb_1, ..., \u03bb_n) (X_{\u03bb*i} ~ PHR(F\u0304, \u00b5_1, ..., \u00b5_n)). \u0647\u0645\u0686\u0646\u06cc\u0646 \u0641\u0631\u0636 \u06a9\u0646\u06cc\u062f I_{p1}, ..., I_{pn} \u0645\u062a\u063a\u06cc\u0631\u0647\u0627\u06cc \u062a\u0635\u0627\u062f\u0641\u06cc \u0645\u0633\u062a\u0642\u0644 \u0628\u0631\u0646\u0648\u0644\u06cc \u0628\u0627 E(I_{pi}) = p_i \u0628\u0627\u0634\u0646\u062f \u06a9\u0647 \u0645\u0633\u062a\u0642\u0644 \u0627\u0632 X_{\u03bbi} \u0647\u0627 \u0647\u0633\u062a\u0646\u062f. \u0627\u06af\u0631 \u03a0_{i=1}^n p*_i >= \u03a0_{i=1}^n p_i\u060c \u0622\u0646\u06af\u0627\u0647 (\u03bb_1, ..., \u03bb_n) >=^w (\u00b5_1, ..., \u00b5_n) \u27f9 Y_{1:n} <=st Y*_{1:n}.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "PHR(F\u0304, lambda) marginals under Gumbel-Hougaard survival copula, theta >= 1; Bernoulli-thinned claims Y_i = I_{p_i} X_{lambda_i}",
+  "compared": "PHR parameter vectors lambda vs mu under weak supermajorization; coverage products prod p*_i vs prod p_i",
+  "hypotheses": [
+   {
+    "text": "\u03a0_{i=1}^n p*_i >= \u03a0_{i=1}^n p_i",
+    "formal": "prod p*_i >= prod p_i",
+    "source": "statement"
+   },
+   {
+    "text": "(\u03bb_1, ..., \u03bb_n) \u2ab0w (\u00b5_1, ..., \u00b5_n)",
+    "formal": "lambda weakly supermajorizes mu",
+    "source": "statement"
+   },
+   {
+    "text": "Gumbel-Hougaard survival copula, \u03b8 >= \u0661",
+    "formal": "C^(u) = exp{-(sum (-ln u_i)^theta)^{1/theta}}",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y_{1:n} <=st Y*_{1:n} (Y side smaller; the starred portfolio minimum is stochastically larger)"
+  },
+  "quantifiers": "n >= 1",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Theorem 9 prints Y_{1:n} <=st Y*_{1:n} under prod p* >= prod p plus lambda weakly supermajorizing mu"
+ },
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Numerical remark after Theorem 9 (independence of the two conditions)",
+  "page": 71,
+  "quote": "\u0644\u0627\u0632\u0645 \u0627\u0633\u062a \u062a\u0648\u062c\u0647 \u0634\u0648\u062f \u06a9\u0647 \u0647\u06cc\u0686\u06a9\u062f\u0627\u0645 \u0627\u0632 \u0634\u0631\u0627\u06cc\u0637 \u03a3 \u03bb_i^\u03b8 <= \u03a3 \u00b5_i^\u03b8 \u0648 (\u03bb_1, ..., \u03bb_n) \u2ab0w (\u00b5_1, ..., \u00b5_n) \u06cc\u06a9\u062f\u06cc\u06af\u0631 \u0631\u0627 \u0646\u062a\u06cc\u062c\u0647 \u0646\u0645\u06cc\u200c\u062f\u0647\u0646\u062f. \u0628\u0647 \u0639\u0646\u0648\u0627\u0646 \u0645\u062b\u0627\u0644\u060c \u0627\u06af\u0631 (\u03bb_1, \u03bb_2) = (\u0661\u0660, \u0661) \u0648 (\u00b5_1, \u00b5_2) = (\u06f4, \u0668) \u0628\u0627\u0634\u0646\u062f \u0628\u062f\u06cc\u0647\u06cc \u0627\u0633\u062a \u03bb_1 + \u03bb_2 <= \u00b5_1 + \u00b5_2 \u0627\u0645\u0627 \u0628\u0631\u0627\u06cc \u03b8 = \u0662 \u062f\u0627\u0631\u06cc\u0645 \u03bb_1^\u03b8 + \u03bb_2^\u03b8 >= \u00b5_1^\u03b8 + \u00b5_2^\u03b8.",
+  "kind": "example",
+  "model": "other: hypothesis comparison",
+  "family": "PHR marginals under Gumbel-Hougaard copula (context of Theorems 8 and 9)",
+  "compared": "vectors (lambda_1, lambda_2) = (10, 1) vs (mu_1, mu_2) = (4, 8)",
+  "hypotheses": [],
+  "conclusion": {
+   "order": "other: none (hypothesis comparison)",
+   "direction": "10 + 1 = 11 <= 12 = 4 + 8 (weak supermajorization condition holds) yet 10^2 + 1^2 = 101 >= 80 = 4^2 + 8^2 (power-sum condition fails for theta = 2); neither condition implies the other"
+  },
+  "quantifiers": "n = 2",
+  "numbers": "lambda = (10, 1); mu = (4, 8); sums 11 <= 12; squared sums 101 >= 80 at theta = 2",
+  "ambiguity": "Not a stochastic-ordering conclusion: the printed numbers show the two hypotheses of Theorems 8/9 are independent. Kept because both passes extracted it as an example attached to Theorem 9; it does not assert or refute an ordering.",
+  "adjudication": "adjudicated: Theorem 9 prints Y_{1:n} <=st Y*_{1:n} under prod p* >= prod p plus lambda weakly supermajorizing mu"
+ },
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
   "claim": "Corollary 2(a) (\u0646\u062a\u06cc\u062c\u0647 \u0662 \u0627\u0644\u0641)",
   "page": 66,
   "quote": "[Persian] 'Under the assumptions of Theorem 3 suppose alpha >= 1 and prod_{i=1}^n p_i >= prod_{i=1}^n p_i^*. In this case, (a) if lambda* >= ((1/n) sum_{i=1}^n lambda_i^alpha)^{1/alpha} and p* <= (prod_{i=1}^n p_i)^{1/n}, then Y_{1:n} >=_disp Y*_{1:n}.'",

@@ -1,0 +1,123 @@
+[
+ {
+  "queue_claim": "corollary1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.29252/jss.13.1.57",
+    "claim": "Corollary 1 (نتیجه ١)",
+    "page": 66,
+    "quote": "نتیجه ١: تحت مفروضات قضیه ٣، اگر α >= ١ و Π_{i=1}^n p_i >= Π_{i=1}^n p*_i، آنگاه Σ_{i=1}^n λ_i^α <= Σ_{i=1}^n (λ*_i)^α ⟹ VaR(Y_{1:n}) >= VaR(Y*_{1:n}).",
+    "kind": "corollary",
+    "model": "series system",
+    "family": "Weibull W(alpha, lambda_i) marginals with Bernoulli thinning: Y_i = I_{p_i} X_{lambda_i}, X_{lambda_i} ~ W(alpha, lambda_i)",
+    "compared": "scale vectors lambda vs lambda* (power-sum comparison) and coverage-probability products",
+    "hypotheses": [
+     {"text": "تحت مفروضات قضیه ٣ (under the assumptions of Theorem 3)", "formal": "Y_i = I_{p_i} X_{lambda_i}, Y*_i = I_{p*_i} X_{lambda*_i}, all independent", "source": "earlier theorem 3"},
+     {"text": "α >= ١ و Π p_i >= Π p*_i", "formal": "alpha >= 1 and prod p_i >= prod p*_i", "source": "statement"},
+     {"text": "Σ λ_i^α <= Σ (λ*_i)^α", "formal": "sum lambda_i^alpha <= sum lambda*_i^alpha", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "VaR(Y_{1:n}; p) >= VaR(Y*_{1:n}; p) for all probability levels p, i.e. Y*_{1:n} <=st Y_{1:n} (Y-star side smaller)"},
+    "quantifiers": "all levels p in (0,1); n >= 1",
+    "numbers": "",
+    "ambiguity": "Printed as a Value-at-Risk (quantile) inequality VaR(Y_{1:n}) >= VaR(Y*_{1:n}); a quantile ordering at all levels coincides with the usual stochastic order. Pass B's label 'VaR (quantile) order' records the printed form."
+   }
+  ],
+  "note": "Corollary 1 prints VaR(Y_{1:n}) >= VaR(Y*_{1:n}) — a quantile/VaR ordering over all levels, which is the usual stochastic order; normalized to 'st' with the printed VaR form kept in direction."
+ },
+ {
+  "queue_claim": "lemma1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.29252/jss.13.1.57",
+    "claim": "Lemma 1 (لم ١; convex transform order part)",
+    "page": 65,
+    "quote": "لم ١ (برمالزن و پاینده ٢٠١۵): فرض کنید X_{λ1}, ..., X_{λn} مجموعه‌ای از متغیرهای تصادفی مستقل وایبل باشند به‌گونه‌ای که X_{λi} ~ W(α, λi), λi > 0, i = 1, ..., n. همچنین فرض کنید I_{p1}, ..., I_{pn} متغیرهای تصادفی مستقل برنولی با E(I_{pi}) = p_i باشند که مستقل از X_{λi} ها هستند. اگر α >= ١ و Π_{i=1}^n p_i >= Π_{i=1}^n p*_i، آنگاه Y_{1:n} >=c (>=su) Y*_{1:n}.",
+    "kind": "lemma",
+    "model": "series system",
+    "family": "Weibull W(alpha, lambda_i) with Bernoulli thinning: Y_i = I_{p_i} X_{lambda_i}",
+    "compared": "scale vectors lambda vs lambda* under the conditions of Theorem 3; coverage products prod p_i vs prod p*_i",
+    "hypotheses": [
+     {"text": "α >= ١ و Π p_i >= Π p*_i", "formal": "alpha >= 1 and prod p_i >= prod p*_i", "source": "statement"},
+     {"text": "Σ λ_i^α <= Σ (λ*_i)^α (from the theorem-3 assumptions context)", "formal": "power-sum comparison of scales", "source": "section preamble"}
+    ],
+    "conclusion": {"order": "star", "direction": "Y_{1:n} >=c Y*_{1:n} (convex transform order; Y side larger)"},
+    "quantifiers": "n >= 1",
+    "numbers": "",
+    "ambiguity": "Numbered lemma explicitly attributed to Barmalzan and Payandeh (2015); retained as a numbered statement of the paper. The print gives >=c with (>=su) parenthetically — split into two records."
+   },
+   {
+    "paper": "doi:10.29252/jss.13.1.57",
+    "claim": "Lemma 1 (لم ١; superadditive order part)",
+    "page": 65,
+    "quote": "اگر α >= ١ و Π_{i=1}^n p_i >= Π_{i=1}^n p*_i، آنگاه Y_{1:n} >=c (>=su) Y*_{1:n}.",
+    "kind": "lemma",
+    "model": "series system",
+    "family": "Weibull W(alpha, lambda_i) with Bernoulli thinning",
+    "compared": "scale vectors lambda vs lambda*; coverage products",
+    "hypotheses": [
+     {"text": "α >= ١ و Π p_i >= Π p*_i", "formal": "alpha >= 1 and prod p_i >= prod p*_i", "source": "statement"}
+    ],
+    "conclusion": {"order": "other: su (superadditive order)", "direction": "Y_{1:n} >=su Y*_{1:n} (Y side larger)"},
+    "quantifiers": "n >= 1",
+    "numbers": "",
+    "ambiguity": "Printed parenthetically alongside >=c in the same conclusion."
+   }
+  ],
+  "note": "Lemma 1 (restated from Barmalzan & Payandeh 2015) prints two transform orders, >=c (convex transform/star) and parenthetical >=su; split into two records. Pass A labelled only star, pass B bundled both."
+ },
+ {
+  "queue_claim": "theorem9",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.29252/jss.13.1.57",
+    "claim": "Theorem 9 (قضیه ٩)",
+    "page": 70,
+    "quote": "قضیه ٩: فرض کنید X_{λ1}, ..., X_{λn} (X_{λ*1}, ..., X_{λ*n}) دارای تابع مفصل بقای گامبل-هوگارد Ĉ(u_1, ..., u_n) = exp{-((-ln u_1)^θ + ... + (-ln u_n)^θ)^{1/θ}}, θ >= ١, باشند، که در آن X_{λi} ~ PHR(F̄, λ_1, ..., λ_n) (X_{λ*i} ~ PHR(F̄, µ_1, ..., µ_n)). همچنین فرض کنید I_{p1}, ..., I_{pn} متغیرهای تصادفی مستقل برنولی با E(I_{pi}) = p_i باشند که مستقل از X_{λi} ها هستند. اگر Π_{i=1}^n p*_i >= Π_{i=1}^n p_i، آنگاه (λ_1, ..., λ_n) >=^w (µ_1, ..., µ_n) ⟹ Y_{1:n} <=st Y*_{1:n}.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "PHR(F̄, lambda) marginals under Gumbel-Hougaard survival copula, theta >= 1; Bernoulli-thinned claims Y_i = I_{p_i} X_{lambda_i}",
+    "compared": "PHR parameter vectors lambda vs mu under weak supermajorization; coverage products prod p*_i vs prod p_i",
+    "hypotheses": [
+     {"text": "Π_{i=1}^n p*_i >= Π_{i=1}^n p_i", "formal": "prod p*_i >= prod p_i", "source": "statement"},
+     {"text": "(λ_1, ..., λ_n) ⪰w (µ_1, ..., µ_n)", "formal": "lambda weakly supermajorizes mu", "source": "statement"},
+     {"text": "Gumbel-Hougaard survival copula, θ >= ١", "formal": "C^(u) = exp{-(sum (-ln u_i)^theta)^{1/theta}}", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y_{1:n} <=st Y*_{1:n} (Y side smaller; the starred portfolio minimum is stochastically larger)"},
+    "quantifiers": "n >= 1",
+    "numbers": "",
+    "ambiguity": ""
+   },
+   {
+    "paper": "doi:10.29252/jss.13.1.57",
+    "claim": "Numerical remark after Theorem 9 (independence of the two conditions)",
+    "page": 71,
+    "quote": "لازم است توجه شود که هیچکدام از شرایط Σ λ_i^θ <= Σ µ_i^θ و (λ_1, ..., λ_n) ⪰w (µ_1, ..., µ_n) یکدیگر را نتیجه نمی‌دهند. به عنوان مثال، اگر (λ_1, λ_2) = (١٠, ١) و (µ_1, µ_2) = (۴, ٨) باشند بدیهی است λ_1 + λ_2 <= µ_1 + µ_2 اما برای θ = ٢ داریم λ_1^θ + λ_2^θ >= µ_1^θ + µ_2^θ.",
+    "kind": "example",
+    "model": "other: hypothesis comparison",
+    "family": "PHR marginals under Gumbel-Hougaard copula (context of Theorems 8 and 9)",
+    "compared": "vectors (lambda_1, lambda_2) = (10, 1) vs (mu_1, mu_2) = (4, 8)",
+    "hypotheses": [],
+    "conclusion": {"order": "other: none (hypothesis comparison)", "direction": "10 + 1 = 11 <= 12 = 4 + 8 (weak supermajorization condition holds) yet 10^2 + 1^2 = 101 >= 80 = 4^2 + 8^2 (power-sum condition fails for theta = 2); neither condition implies the other"},
+    "quantifiers": "n = 2",
+    "numbers": "lambda = (10, 1); mu = (4, 8); sums 11 <= 12; squared sums 101 >= 80 at theta = 2",
+    "ambiguity": "Not a stochastic-ordering conclusion: the printed numbers show the two hypotheses of Theorems 8/9 are independent. Kept because both passes extracted it as an example attached to Theorem 9; it does not assert or refute an ordering."
+   }
+  ],
+  "note": "Theorem 9 prints Y_{1:n} <=st Y*_{1:n} under prod p* >= prod p plus lambda weakly supermajorizing mu; both passes agree. The appended numerical remark compares hypothesis conditions, not distributions; kept as a flagged example since both passes extracted it."
+ },
+ {
+  "queue_claim": "unn:introduction quoted result of barmalzan &",
+  "decision": "exclude",
+  "records": [],
+  "note": "These are literature results quoted in the introduction ('Barmalzan and Payandeh (2015) and Barmalzan et al. (2016) obtained...' >=RS / >=c / >=lr / >=disp claims), not numbered statements claimed by this paper; out of scope."
+ },
+ {
+  "queue_claim": "unn:introduction quoted result of barmalzan et",
+  "decision": "exclude",
+  "records": [],
+  "note": "Introduction-quoted results of Barmalzan et al. (2017) (Y*_{1:n} >=st / >=hr / <=hr variants under listed conditions); external theorems restated in prose, not this paper's numbered claims; out of scope."
+ }
+]

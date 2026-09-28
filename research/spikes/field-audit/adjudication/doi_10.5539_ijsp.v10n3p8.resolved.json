@@ -1,0 +1,131 @@
+[
+ {
+  "queue_claim": "unn3.7:section 3.7 definitions",
+  "decision": "exclude",
+  "records": [],
+  "note": "This is a definitions block ('X is said to be smaller than Z in stochastic order if...') plus the standard implication diagram — definitional, not a theorem ordering two specific distributions; out of scope per spec."
+ },
+ {
+  "queue_claim": "unn3.7:theorem section 3.7 likelihood ratio part",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.5539/ijsp.v10n3p8",
+    "claim": "Section 3.7 unnumbered Theorem (lr part)",
+    "page": 19,
+    "quote": "Theorem: let X ~ LFP(α1, ν1, γ, ω) and Z ~ LFP(α2, ν2, γ, ω). If α1 < α2 and ν1 < ν2, then X ≤rh Z ⟸ X ≤lr Z ⟹ X ≤hr Z ⟹ X ≤st Z. Proof: d/dx log(g(x)/f(x)) = ... < 0 for α1 < α2 and ν1 < ν2.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "Lomax-Frechet-Poisson (LFP) distribution LFP(α, ν, γ, ω), common γ and ω",
+    "compared": "LFP(α1,ν1,γ,ω) vs LFP(α2,ν2,γ,ω) with α1 < α2 and ν1 < ν2",
+    "hypotheses": [
+     {"text": "If α1 < α2 and ν1 < ν2", "formal": "componentwise parameter ordering", "source": "statement"}
+    ],
+    "conclusion": {"order": "lr", "direction": "X <=lr Z (g(x)/f(x) decreasing in x)"},
+    "quantifiers": "x >= 0",
+    "numbers": "",
+    "ambiguity": "Unnumbered 'Theorem:'; subscripts garbled in extraction — the printed diagram reads X <=rh Z <= X <=lr Z => X <=hr Z => X <=st Z (lr directly proved)."
+   }
+  ],
+  "note": "Unnumbered theorem directly proves lr (density ratio decreasing); include as lr record."
+ },
+ {
+  "queue_claim": "unn3.7:theorem section 3.7 hazard rate part",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.5539/ijsp.v10n3p8",
+    "claim": "Section 3.7 unnumbered Theorem (hr part)",
+    "page": 19,
+    "quote": "Theorem: let X ~ LFP(α1, ν1, γ, ω) and Z ~ LFP(α2, ν2, γ, ω). If α1 < α2 and ν1 < ν2, then X ≤rh Z ⟸ X ≤lr Z ⟹ X ≤hr Z ⟹ X ≤st Z.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "Lomax-Frechet-Poisson (LFP) distribution, common γ and ω",
+    "compared": "LFP(α1,ν1,γ,ω) vs LFP(α2,ν2,γ,ω) with α1 < α2 and ν1 < ν2",
+    "hypotheses": [
+     {"text": "If α1 < α2 and ν1 < ν2", "formal": "componentwise parameter ordering", "source": "statement"},
+     {"text": "X ≤lr Z ⟹ X ≤hr Z", "formal": "lr implies hr per the printed diagram", "source": "statement"}
+    ],
+    "conclusion": {"order": "hr", "direction": "X <=hr Z"},
+    "quantifiers": "x >= 0",
+    "numbers": "",
+    "ambiguity": "hr asserted only via the printed implication diagram; no separate proof."
+   }
+  ],
+  "note": "hr conclusion asserted by the theorem's printed implication chain; include."
+ },
+ {
+  "queue_claim": "unn3.7:theorem section 3.7 reversed hazard rate",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.5539/ijsp.v10n3p8",
+    "claim": "Section 3.7 unnumbered Theorem (rh part)",
+    "page": 19,
+    "quote": "Theorem: let X ~ LFP(α1, ν1, γ, ω) and Z ~ LFP(α2, ν2, γ, ω). If α1 < α2 and ν1 < ν2, then X ≤rh Z ⟸ X ≤lr Z ⟹ X ≤hr Z ⟹ X ≤st Z.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "Lomax-Frechet-Poisson (LFP) distribution, common γ and ω",
+    "compared": "LFP(α1,ν1,γ,ω) vs LFP(α2,ν2,γ,ω) with α1 < α2 and ν1 < ν2",
+    "hypotheses": [
+     {"text": "If α1 < α2 and ν1 < ν2", "formal": "componentwise parameter ordering", "source": "statement"},
+     {"text": "X ≤lr Z ⟹ X ≤rh Z", "formal": "lr implies rh per the printed diagram (leftward arrow)", "source": "statement"}
+    ],
+    "conclusion": {"order": "rh", "direction": "X <=rh Z"},
+    "quantifiers": "x >= 0",
+    "numbers": "",
+    "ambiguity": "rh asserted only via the printed diagram (X <=rh Z ⟸ X <=lr Z); consistent with the standard lr => rh implication."
+   }
+  ],
+  "note": "rh asserted by the printed chain (lr => rh); include as separate record per spec."
+ },
+ {
+  "queue_claim": "unn3.7:theorem section 3.7 usual stochastic order",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.5539/ijsp.v10n3p8",
+    "claim": "Section 3.7 unnumbered Theorem (st part)",
+    "page": 19,
+    "quote": "Theorem: let X ~ LFP(α1, ν1, γ, ω) and Z ~ LFP(α2, ν2, γ, ω). If α1 < α2 and ν1 < ν2, then X ≤rh Z ⟸ X ≤lr Z ⟹ X ≤hr Z ⟹ X ≤st Z.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "Lomax-Frechet-Poisson (LFP) distribution, common γ and ω",
+    "compared": "LFP(α1,ν1,γ,ω) vs LFP(α2,ν2,γ,ω) with α1 < α2 and ν1 < ν2",
+    "hypotheses": [
+     {"text": "If α1 < α2 and ν1 < ν2", "formal": "componentwise parameter ordering", "source": "statement"},
+     {"text": "X ≤hr Z ⟹ X ≤st Z", "formal": "hr implies st per the printed diagram", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "X <=st Z"},
+    "quantifiers": "x >= 0",
+    "numbers": "",
+    "ambiguity": "st asserted only via the printed chain lr => hr => st; no separate proof."
+   }
+  ],
+  "note": "st asserted by the printed chain; include."
+ },
+ {
+  "queue_claim": "unn3.7:theorem unnumbered section 3.7",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.5539/ijsp.v10n3p8",
+    "claim": "Section 3.7 unnumbered Theorem (lr part)",
+    "page": 19,
+    "quote": "Theorem: let X ~ LFP(α1, ν1, γ, ω) and Z ~ LFP(α2, ν2, γ, ω). If α1 < α2 and ν1 < ν2, then X ≤rh Z ⟸ X ≤lr Z ⟹ X ≤hr Z ⟹ X ≤st Z. Proof: d/dx log(g(x)/f(x)) = ... < 0 for α1 < α2 and ν1 < ν2.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "Lomax-Frechet-Poisson (LFP) distribution, common γ and ω",
+    "compared": "LFP(α1,ν1,γ,ω) vs LFP(α2,ν2,γ,ω) with α1 < α2 and ν1 < ν2",
+    "hypotheses": [
+     {"text": "If α1 < α2 and ν1 < ν2", "formal": "componentwise parameter ordering", "source": "statement"}
+    ],
+    "conclusion": {"order": "lr", "direction": "X <=lr Z"},
+    "quantifiers": "x >= 0",
+    "numbers": "",
+    "ambiguity": "Same statement as the A-side items; B bundled the whole chain into one lr record — canonical split is the four per-order records emitted under the A-side items."
+   }
+  ],
+  "note": "Same unnumbered theorem; B's bundled record corresponds to the four canonical records (lr, hr, rh, st) emitted under the A-side items."
+ }
+]

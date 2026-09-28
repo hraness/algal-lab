@@ -1,6 +1,121 @@
 [
  {
   "paper": "doi:10.5539/ijsp.v10n3p8",
+  "claim": "Section 3.7 unnumbered Theorem (lr part)",
+  "page": 19,
+  "quote": "Theorem: let X ~ LFP(\u03b11, \u03bd1, \u03b3, \u03c9) and Z ~ LFP(\u03b12, \u03bd2, \u03b3, \u03c9). If \u03b11 < \u03b12 and \u03bd1 < \u03bd2, then X \u2264rh Z \u27f8 X \u2264lr Z \u27f9 X \u2264hr Z \u27f9 X \u2264st Z. Proof: d/dx log(g(x)/f(x)) = ... < 0 for \u03b11 < \u03b12 and \u03bd1 < \u03bd2.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "Lomax-Frechet-Poisson (LFP) distribution LFP(\u03b1, \u03bd, \u03b3, \u03c9), common \u03b3 and \u03c9",
+  "compared": "LFP(\u03b11,\u03bd1,\u03b3,\u03c9) vs LFP(\u03b12,\u03bd2,\u03b3,\u03c9) with \u03b11 < \u03b12 and \u03bd1 < \u03bd2",
+  "hypotheses": [
+   {
+    "text": "If \u03b11 < \u03b12 and \u03bd1 < \u03bd2",
+    "formal": "componentwise parameter ordering",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "X <=lr Z (g(x)/f(x) decreasing in x)"
+  },
+  "quantifiers": "x >= 0",
+  "numbers": "",
+  "ambiguity": "Unnumbered 'Theorem:'; subscripts garbled in extraction \u2014 the printed diagram reads X <=rh Z <= X <=lr Z => X <=hr Z => X <=st Z (lr directly proved).",
+  "adjudication": "adjudicated: Unnumbered theorem directly proves lr (density ratio decreasing); include as lr record."
+ },
+ {
+  "paper": "doi:10.5539/ijsp.v10n3p8",
+  "claim": "Section 3.7 unnumbered Theorem (hr part)",
+  "page": 19,
+  "quote": "Theorem: let X ~ LFP(\u03b11, \u03bd1, \u03b3, \u03c9) and Z ~ LFP(\u03b12, \u03bd2, \u03b3, \u03c9). If \u03b11 < \u03b12 and \u03bd1 < \u03bd2, then X \u2264rh Z \u27f8 X \u2264lr Z \u27f9 X \u2264hr Z \u27f9 X \u2264st Z.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "Lomax-Frechet-Poisson (LFP) distribution, common \u03b3 and \u03c9",
+  "compared": "LFP(\u03b11,\u03bd1,\u03b3,\u03c9) vs LFP(\u03b12,\u03bd2,\u03b3,\u03c9) with \u03b11 < \u03b12 and \u03bd1 < \u03bd2",
+  "hypotheses": [
+   {
+    "text": "If \u03b11 < \u03b12 and \u03bd1 < \u03bd2",
+    "formal": "componentwise parameter ordering",
+    "source": "statement"
+   },
+   {
+    "text": "X \u2264lr Z \u27f9 X \u2264hr Z",
+    "formal": "lr implies hr per the printed diagram",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "X <=hr Z"
+  },
+  "quantifiers": "x >= 0",
+  "numbers": "",
+  "ambiguity": "hr asserted only via the printed implication diagram; no separate proof.",
+  "adjudication": "adjudicated: hr conclusion asserted by the theorem's printed implication chain; include."
+ },
+ {
+  "paper": "doi:10.5539/ijsp.v10n3p8",
+  "claim": "Section 3.7 unnumbered Theorem (rh part)",
+  "page": 19,
+  "quote": "Theorem: let X ~ LFP(\u03b11, \u03bd1, \u03b3, \u03c9) and Z ~ LFP(\u03b12, \u03bd2, \u03b3, \u03c9). If \u03b11 < \u03b12 and \u03bd1 < \u03bd2, then X \u2264rh Z \u27f8 X \u2264lr Z \u27f9 X \u2264hr Z \u27f9 X \u2264st Z.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "Lomax-Frechet-Poisson (LFP) distribution, common \u03b3 and \u03c9",
+  "compared": "LFP(\u03b11,\u03bd1,\u03b3,\u03c9) vs LFP(\u03b12,\u03bd2,\u03b3,\u03c9) with \u03b11 < \u03b12 and \u03bd1 < \u03bd2",
+  "hypotheses": [
+   {
+    "text": "If \u03b11 < \u03b12 and \u03bd1 < \u03bd2",
+    "formal": "componentwise parameter ordering",
+    "source": "statement"
+   },
+   {
+    "text": "X \u2264lr Z \u27f9 X \u2264rh Z",
+    "formal": "lr implies rh per the printed diagram (leftward arrow)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "rh",
+   "direction": "X <=rh Z"
+  },
+  "quantifiers": "x >= 0",
+  "numbers": "",
+  "ambiguity": "rh asserted only via the printed diagram (X <=rh Z \u27f8 X <=lr Z); consistent with the standard lr => rh implication.",
+  "adjudication": "adjudicated: rh asserted by the printed chain (lr => rh); include as separate record per spec."
+ },
+ {
+  "paper": "doi:10.5539/ijsp.v10n3p8",
+  "claim": "Section 3.7 unnumbered Theorem (st part)",
+  "page": 19,
+  "quote": "Theorem: let X ~ LFP(\u03b11, \u03bd1, \u03b3, \u03c9) and Z ~ LFP(\u03b12, \u03bd2, \u03b3, \u03c9). If \u03b11 < \u03b12 and \u03bd1 < \u03bd2, then X \u2264rh Z \u27f8 X \u2264lr Z \u27f9 X \u2264hr Z \u27f9 X \u2264st Z.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "Lomax-Frechet-Poisson (LFP) distribution, common \u03b3 and \u03c9",
+  "compared": "LFP(\u03b11,\u03bd1,\u03b3,\u03c9) vs LFP(\u03b12,\u03bd2,\u03b3,\u03c9) with \u03b11 < \u03b12 and \u03bd1 < \u03bd2",
+  "hypotheses": [
+   {
+    "text": "If \u03b11 < \u03b12 and \u03bd1 < \u03bd2",
+    "formal": "componentwise parameter ordering",
+    "source": "statement"
+   },
+   {
+    "text": "X \u2264hr Z \u27f9 X \u2264st Z",
+    "formal": "hr implies st per the printed diagram",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X <=st Z"
+  },
+  "quantifiers": "x >= 0",
+  "numbers": "",
+  "ambiguity": "st asserted only via the printed chain lr => hr => st; no separate proof.",
+  "adjudication": "adjudicated: st asserted by the printed chain; include."
+ },
+ {
+  "paper": "doi:10.5539/ijsp.v10n3p8",
   "claim": "Section 3.7 definitions",
   "page": 19,
   "quote": "Suppose X and Z are two random variables with cdf's G and F respectively. Survival functions G_bar = 1-G and F_bar = 1-F and densities g and f. Then X is said to be smaller than Z in stochastic order (X <=st Z) if G_bar(x) <= F_bar(x) for all x >= 0; in likelihood ratio order (X <=lr Z) if g(x)/f(x) is decreasing in all x >= 0; hazard rate order (X <=hr Z) if G_bar(x)/F_bar(x) is decreasing in all x >= 0; reversed hazard rate order (X <=rh Z) if G(x)/F(x) is decreasing in all x >= 0. These four stochastic orders are related as X <=rh Z <= X <=lr Z => X <=hr Z => X <=st Z.",

@@ -1,6 +1,231 @@
 [
  {
   "paper": "doi:10.1017/s0269964826100199",
+  "claim": "Example 3.11 (case q < 1)",
+  "page": 11,
+  "quote": "Example 3.11. Let Ui \u223c q \u2212 W(q, \u03bbi, \u03b2) and Vi \u223c q \u2212 W(q, \u03bb\u2605i, \u03b2), i = 1, 2. For the case q < 1, consider q = 0.5, \u03b2 = 0.5, \u03bb1 = 0.5, \u03bb2 = 1.5, \u03bb\u26051 = 0.3, and \u03bb\u26052 = 1.6, where (\u03bb1, \u03bb2) \u227cw (\u03bb\u26051, \u03bb\u26052). Figure 7(a) presents the plot of FU2:2(t) \u2212 FV2:2(t) in the interval (0, D) = (0, 1.56). The plot clearly indicates that FU2:2(t) \u2212 FV2:2(t) \u2265 0 in t, which implies U2:2 \u2264st V2:2.",
+  "kind": "example",
+  "model": "parallel system",
+  "family": "q-Weibull q \u2212 W(q, \u03bb, \u03b2); q = 0.5, \u03b2 = 0.5, \u03bb heterogeneous",
+  "compared": "\u03bb = (0.5, 1.5) vs \u03bb\u2605 = (0.3, 1.6)",
+  "hypotheses": [
+   {
+    "text": "(\u03bb1, \u03bb2) \u227cw (\u03bb\u26051, \u03bb\u26052)",
+    "formal": "weak majorization relation asserted (paper's \u227cw notation)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "U2:2 \u2264st V2:2 (FU2:2 \u2212 FV2:2 \u2265 0 on (0, 1.56)) \u2014 supports Theorem 3.10(1)"
+  },
+  "quantifiers": "n = 2; t \u2208 (0, D) = (0, 1.56)",
+  "numbers": "q = 0.5; \u03b2 = 0.5; \u03bb = (0.5, 1.5); \u03bb\u2605 = (0.3, 1.6); Fig. 7(a)",
+  "ambiguity": "Graphical verification.",
+  "adjudication": "adjudicated: Both passes agree: U2:2 \u2264st V2:2 in both cases; only cosmetic direction-format diff."
+ },
+ {
+  "paper": "doi:10.1017/s0269964826100199",
+  "claim": "Example 3.2 (case 0 < q < 1)",
+  "page": 6,
+  "quote": "Example 3.2. Let Ui \u223c q \u2212 W(q, \u03bbi, \u03b2) and Vi \u223c q \u2212 W(q, \u03bb\u2605i, \u03b2), i = 1, 2. First, consider he case 0 < q < 1 with q = 0.5, \u03b2 = 0.5, \u03bb1 = 0.5, \u03bb2 = 1.5, \u03bb\u26051 = 0.3, and \u03bb\u26052 = 1.8. Here (\u03bb1, \u03bb2) \u227cw (\u03bb\u26051, \u03bb\u26052). Figure 1(a) represents the plot of F\u0304U1:2(t)/F\u0304V1:2(t) in (0, D) = (0, 1.23). The plot clearly indicates that F\u0304U1:2(t)/F\u0304V1:2(t) is increasing in t, which in turn implies hU1:2 \u2264 hV1:2 and hence U1:2 \u2265hr V1:2.",
+  "kind": "example",
+  "model": "series system",
+  "family": "q-Weibull q \u2212 W(q, \u03bb, \u03b2); q = 0.5, \u03b2 = 0.5, \u03bb heterogeneous",
+  "compared": "\u03bb = (0.5, 1.5) vs \u03bb\u2605 = (0.3, 1.8)",
+  "hypotheses": [
+   {
+    "text": "(\u03bb1, \u03bb2) \u227cw (\u03bb\u26051, \u03bb\u26052) \u2014 prints with subscript w",
+    "formal": "weak majorization asserted (Theorem 3.1(1) hypothesis)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "U1:2 \u2265hr V1:2 (equivalently V1:2 \u2264hr U1:2) \u2014 supports Theorem 3.1(1)"
+  },
+  "quantifiers": "n = 2; t \u2208 (0, D) = (0, 1.23)",
+  "numbers": "q = 0.5; \u03b2 = 0.5; \u03bb = (0.5, 1.5); \u03bb\u2605 = (0.3, 1.8); Fig. 1(a)",
+  "ambiguity": "Printed 'consider he case' [sic]. Survival-ratio increasing \u21d2 hU \u2264 hV \u21d2 U1:2 \u2265hr V1:2.",
+  "adjudication": "adjudicated: Two printed cases with opposite hr directions (U1:2 \u2265hr V1:2 for q<1, U1:2 \u2264hr V1:2 for q>1); both p"
+ },
+ {
+  "paper": "doi:10.1017/s0269964826100199",
+  "claim": "Example 3.2 (case q > 1)",
+  "page": 6,
+  "quote": "Similarly, for the case of q > 1, consider q = 1.5, \u03b2 = 0.5, \u03bb1 = 0.6, \u03bb2 = 1.5, \u03bb\u26051 = 0.3, and \u03bb\u26052 = 1.7, where (\u03bb1, \u03bb2) \u227cw (\u03bb\u26051, \u03bb\u26052). Then from Figure 1(b), it is clear that F\u0304U1:2(t)/F\u0304V1:2(t) is decreasing in t, which leads to U1:2 \u2264hr V1:2.",
+  "kind": "example",
+  "model": "series system",
+  "family": "q-Weibull q \u2212 W(q, \u03bb, \u03b2); q = 1.5, \u03b2 = 0.5, \u03bb heterogeneous",
+  "compared": "\u03bb = (0.6, 1.5) vs \u03bb\u2605 = (0.3, 1.7)",
+  "hypotheses": [
+   {
+    "text": "(\u03bb1, \u03bb2) \u227cw (\u03bb\u26051, \u03bb\u26052) \u2014 prints with superscript w",
+    "formal": "weak majorization asserted (Theorem 3.1(2) hypothesis)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "U1:2 \u2264hr V1:2 \u2014 supports Theorem 3.1(2)"
+  },
+  "quantifiers": "n = 2; t > 0 (Fig. 1(b) plotted to t \u2248 10000)",
+  "numbers": "q = 1.5; \u03b2 = 0.5; \u03bb = (0.6, 1.5); \u03bb\u2605 = (0.3, 1.7); Fig. 1(b)",
+  "ambiguity": "Opposite direction to case (a) as printed: decreasing survival ratio gives U1:2 \u2264hr V1:2.",
+  "adjudication": "adjudicated: Two printed cases with opposite hr directions (U1:2 \u2265hr V1:2 for q<1, U1:2 \u2264hr V1:2 for q>1); both p"
+ },
+ {
+  "paper": "doi:10.1017/s0269964826100199",
+  "claim": "Example 3.5 (case q < 1)",
+  "page": 7,
+  "quote": "Example 3.5. Let Ui \u223c q \u2212 W(qi, \u03bb, \u03b2) and Vi \u223c q \u2212 W(q\u2605i, \u03bbi, \u03b2), i = 1, 2. For the case q < 1, consider q1 = 0.3, q2 = 0.5, q\u26051 = 0.1, q\u26052 = 0.6, \u03b2 = 2, and \u03bb = 0.5, where (q1, q2) \u227cw (q\u26051, q\u26052). Figure 3(a) displays the plot of F\u0304U1:2(t)/F\u0304V1:2(t) over the interval (0, D) = (0, 1.49). The figure clearly shows that F\u0304U1:2(t)/F\u0304V1:2(t) is increasing function in t, which implies that U1:2 \u2265hr V1:2.",
+  "kind": "example",
+  "model": "series system",
+  "family": "q-Weibull q \u2212 W(q, \u03bb, \u03b2); heterogeneous q, common \u03bb = 0.5, \u03b2 = 2",
+  "compared": "q = (0.3, 0.5) vs q\u2605 = (0.1, 0.6)",
+  "hypotheses": [
+   {
+    "text": "(q1, q2) \u227cw (q\u26051, q\u26052)",
+    "formal": "weak majorization asserted (Theorem 3.4(1) hypothesis)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "U1:2 \u2265hr V1:2 (equivalently V1:2 \u2264hr U1:2) \u2014 supports Theorem 3.4(1)"
+  },
+  "quantifiers": "n = 2; t \u2208 (0, D) = (0, 1.49)",
+  "numbers": "q = (0.3, 0.5); q\u2605 = (0.1, 0.6); \u03b2 = 2; \u03bb = 0.5; Fig. 3(a)",
+  "ambiguity": "Setup prints Vi \u223c q \u2212 W(q\u2605i, \u03bbi, \u03b2) with subscripted \u03bbi though only one \u03bb = 0.5 is given; read as common \u03bb.",
+  "adjudication": "adjudicated: Both passes agree: U1:2 \u2265hr V1:2 in both q-regimes; direction-format diff only."
+ },
+ {
+  "paper": "doi:10.1017/s0269964826100199",
+  "claim": "Example 3.8 (case q < 1)",
+  "page": 9,
+  "quote": "Example 3.8. Let Ui \u223c q \u2212 W(q, \u03bb, \u03b2i) and Vi \u223c q \u2212 W(q, \u03bbi, \u03b2\u2605i), i = 1, 2. For the case q < 1, consider q = 0.5, \u03b21 = 0.5, \u03b22 = 1.5, \u03b2\u26051 = 0.3, \u03b2\u26052 = 1.7, and \u03bb = 1, where (\u03b21, \u03b22) \u227cm (\u03b2\u26051, \u03b2\u26052). Figure 5(a) shows the plot of F\u0304U1:2(t) \u2212 F\u0304V1:2(t) in the interval (0, D) = (0, 1.5). It is evident from the figure that F\u0304U1:2(t) \u2212 F\u0304V1:2(t) \u2265 0 for all t, which implies that U1:2 \u2265st V1:2.",
+  "kind": "example",
+  "model": "series system",
+  "family": "q-Weibull q \u2212 W(q, \u03bb, \u03b2); heterogeneous \u03b2, q = 0.5, \u03bb = 1",
+  "compared": "\u03b2 = (0.5, 1.5) vs \u03b2\u2605 = (0.3, 1.7)",
+  "hypotheses": [
+   {
+    "text": "(\u03b21, \u03b22) \u227cm (\u03b2\u26051, \u03b2\u26052)",
+    "formal": "majorization asserted (Theorem 3.7(1) hypothesis)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "U1:2 \u2265st V1:2 (equivalently V1:2 \u2264st U1:2) \u2014 supports Theorem 3.7(1)"
+  },
+  "quantifiers": "n = 2; t \u2208 (0, D) = (0, 1.5)",
+  "numbers": "q = 0.5; \u03b2 = (0.5, 1.5); \u03b2\u2605 = (0.3, 1.7); \u03bb = 1; Fig. 5(a)",
+  "ambiguity": "Setup prints Vi \u223c q \u2212 W(q, \u03bbi, \u03b2\u2605i) with subscripted \u03bbi though only \u03bb = 1 is given; read as common \u03bb.",
+  "adjudication": "adjudicated: Both passes agree: U1:2 \u2265st V1:2 in both cases under \u03b2 majorization; figure-citation slip (6(b) vs 5"
+ },
+ {
+  "paper": "doi:10.1017/s0269964826100199",
+  "claim": "Example 4.2 (case 0 < q < 1)",
+  "page": 14,
+  "quote": "Example 4.2. Let Ui \u223c q \u2212 W(q, \u03bbi, \u03b2) and Vi \u223c q \u2212 W(q, \u03bb*i, \u03b2) for i = 1, 2 be two sets of components being mutually dependent with the Clayton copula (member of the Archimedean copula family). Here, we have considered the generators of the Clayton copula as \u03c81(u) = 1/(1\u2212u) and \u03c82(u) = 1/\u221a(2u+1). Then \u03d51(u) = (1\u2212u)/u and \u03d52(u) = (1\u2212u\u00b2)/(2u\u00b2). It is easy to verify that \u03c81 and \u03c82 are log-convex and \u03d52 \u25e6 \u03c81 is super-additive. Set \u03bb1 = 0.3, \u03bb2 = 1.7, \u03bb\u26051 = 0.5, \u03bb\u26052 = 1.6, \u03b2 = 0.5 and q = 0.5, then Figure 8(a) demonstrates that FUn:n \u2212 FVn:n \u2264 0 on (0, D) = (0, 1.384) when 0 < q < 1.",
+  "kind": "example",
+  "model": "parallel system",
+  "family": "q-Weibull marginals q \u2212 W(q, \u03bb, \u03b2), q = 0.5, \u03b2 = 0.5; dependence via Clayton copulas (generators \u03c81 for U, \u03c82 for V)",
+  "compared": "\u03bb = (0.3, 1.7) vs \u03bb\u2605 = (0.5, 1.6) plus generators \u03c81 vs \u03c82",
+  "hypotheses": [
+   {
+    "text": "mutually dependent with the Clayton copula; \u03c81 and \u03c82 are log-convex and \u03d52 \u25e6 \u03c81 is super-additive",
+    "formal": "Theorem 4.1(1) copula hypotheses asserted",
+    "source": "statement; earlier theorem 4.1"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "V2:2 \u2264st U2:2 (FU2:2 \u2212 FV2:2 \u2264 0 on (0, 1.384)) \u2014 supports Theorem 4.1(1)"
+  },
+  "quantifiers": "n = 2 (paper writes U_{n:n}, V_{n:n}); t \u2208 (0, D) = (0, 1.384)",
+  "numbers": "\u03bb = (0.3, 1.7); \u03bb\u2605 = (0.5, 1.6); \u03b2 = 0.5; q = 0.5; \u03c81(u) = 1/(1\u2212u), \u03c82(u) = 1/\u221a(2u+1), \u03d51(u) = (1\u2212u)/u, \u03d52(u) = (1\u2212u\u00b2)/(2u\u00b2); Fig. 8(a)",
+  "ambiguity": "Printed \u03c81(u) = 1/(1\u2212u) is inconsistent with the printed inverse \u03d51(u) = (1\u2212u)/u (inverse of 1/(1\u2212u) is 1/(1+u)). The example does not print the weak-supermajorization relation between \u03bb\u2605 and \u03bb that Theorem 4.1 requires.",
+  "adjudication": "adjudicated: Both passes agree: FU\u2212FV \u2264 0 gives V2:2 \u2264st U2:2 in both cases; printed \u03c81 = 1/(1\u2212u) conflicts with "
+ },
+ {
+  "paper": "doi:10.1017/s0269964826100199",
+  "claim": "Example 4.2 (case 1 < q < 2)",
+  "page": 15,
+  "quote": "Figure 8(a) demonstrates that the result for 1 < q < 2 also holds. In this case, we have considered \u03bb1 = 0.3, \u03bb2 = 1.7, \u03bb\u26051 = 0.5, \u03bb\u26052 = 1.6, \u03b2 = 0.5 and q = 1.5.",
+  "kind": "example",
+  "model": "parallel system",
+  "family": "q-Weibull marginals q \u2212 W(q, \u03bb, \u03b2), q = 1.5, \u03b2 = 0.5; same Clayton generators",
+  "compared": "\u03bb = (0.3, 1.7) vs \u03bb\u2605 = (0.5, 1.6)",
+  "hypotheses": [
+   {
+    "text": "same dependence setup; 'the result for 1 < q < 2 also holds'",
+    "formal": "Theorem 4.1(2) copula hypotheses asserted",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "V2:2 \u2264st U2:2 (same FU \u2212 FV \u2264 0 assertion carried over) \u2014 supports Theorem 4.1(2)"
+  },
+  "quantifiers": "n = 2; q = 1.5; Fig. 8(b) plotted to t = 100",
+  "numbers": "\u03bb = (0.3, 1.7); \u03bb\u2605 = (0.5, 1.6); \u03b2 = 0.5; q = 1.5; Fig. 8(b) (caption has these parameters)",
+  "ambiguity": "Text cites 'Figure 8(a)' for the q = 1.5 case; Figure 8(b)'s caption carries these parameters. Same \u03c81/\u03d51 inconsistency.",
+  "adjudication": "adjudicated: Both passes agree: FU\u2212FV \u2264 0 gives V2:2 \u2264st U2:2 in both cases; printed \u03c81 = 1/(1\u2212u) conflicts with "
+ },
+ {
+  "paper": "doi:10.1017/s0269964826100199",
+  "claim": "Example 4.4 (case 0 < q < 1)",
+  "page": 17,
+  "quote": "Example 4.4. Let Ui \u223c q \u2212 W(q, \u03bbi, \u03b2) and Vi \u223c q \u2212 W(q, \u03bb*i, \u03b2) for i = 1, 2 be two sets of components being mutually dependent. For the case of 0 < q < 1, we have used Clayton copula with generators \u03c81(u) = 1/(1\u2212u) and \u03c82(u) = 1/\u221a(2u+1) to model the dependence. With the choice of these generators, it is easy to check that the conditions of Theorem 4.3 hold. Figure 9(a) demonstrates that F\u0304U1:n \u2212 F\u0304V1:n \u2264 0 on (0, D) = (0, 1.384) where \u03bb1 = 0.5, \u03bb2 = 1.7, \u03bb\u26051 = 0.6, \u03bb\u26052 = 1.5, \u03b2 = 0.5, and q = 0.5.",
+  "kind": "example",
+  "model": "series system",
+  "family": "q-Weibull marginals q \u2212 W(q, \u03bb, \u03b2), q = 0.5, \u03b2 = 0.5; Clayton copulas (\u03c81 for U, \u03c82 for V)",
+  "compared": "\u03bb = (0.5, 1.7) vs \u03bb\u2605 = (0.6, 1.5) plus generators",
+  "hypotheses": [
+   {
+    "text": "Clayton copula generators \u03c81(u) = 1/(1\u2212u), \u03c82(u) = 1/\u221a(2u+1); 'it is easy to check that the conditions of Theorem 4.3 hold'",
+    "formal": "Theorem 4.3 hypotheses asserted (copula side)",
+    "source": "statement; earlier theorem 4.3"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "U1:2 \u2264st V1:2 (F\u0304U1:n \u2212 F\u0304V1:n \u2264 0 on (0, 1.384)) \u2014 supports Theorem 4.3"
+  },
+  "quantifiers": "n = 2 (paper writes 1:n); t \u2208 (0, D) = (0, 1.384)",
+  "numbers": "\u03bb = (0.5, 1.7); \u03bb\u2605 = (0.6, 1.5); \u03b2 = 0.5; q = 0.5; Fig. 9(a)",
+  "ambiguity": "Same \u03c81/\u03d51 print inconsistency as Example 4.2. The example does not print the majorization relation between \u03bb\u2605 and \u03bb that Theorem 4.3 requires.",
+  "adjudication": "adjudicated: Both passes agree: F\u0304U \u2212 F\u0304V \u2264 0 gives U1:2 \u2264st V1:2 in both copula cases; cosmetic diff only."
+ },
+ {
+  "paper": "doi:10.1017/s0269964826100199",
+  "claim": "Example 4.4 (case 1 < q < 2)",
+  "page": 17,
+  "quote": "For the case of 1 < q < 2, to model the dependence, we employ the Gumbel-Hougaard copula (member of Archimedean copula family) with generators \u03c81(u) = e^{1\u2212(1+u)^8} and \u03c82(u) = e^{1\u2212(1+u)^3}. Then \u03d51(u) = (1 \u2212 ln u)^{1/8} \u2212 1 and \u03d52(u) = (1 \u2212 ln u)^{1/3} \u2212 1. Observe that both \u03c81(u) and \u03c82(u) are log-concave and \u03d52 \u25e6 \u03c81 is super-additive. With the parameter choices \u03bb1 = 0.5, \u03bb2 = 0.8, \u03bb\u26051 = 0.3, \u03bb\u26052 = 0.9, \u03b2 = 0.5, and q = 1.5, Figure 9(b) demonstrates that the result also holds for 1 < q < 2.",
+  "kind": "example",
+  "model": "series system",
+  "family": "q-Weibull marginals q \u2212 W(q, \u03bb, \u03b2), q = 1.5, \u03b2 = 0.5; Gumbel-Hougaard copulas",
+  "compared": "\u03bb = (0.5, 0.8) vs \u03bb\u2605 = (0.3, 0.9)",
+  "hypotheses": [
+   {
+    "text": "Gumbel-Hougaard generators \u03c81(u) = e^{1\u2212(1+u)^8}, \u03c82(u) = e^{1\u2212(1+u)^3}; \u03c81, \u03c82 log-concave and \u03d52 \u25e6 \u03c81 super-additive",
+    "formal": "Theorem 4.3 hypotheses asserted for the q > 1 case",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "U1:2 \u2264st V1:2 ('the result also holds' \u2014 same F\u0304U \u2212 F\u0304V \u2264 0 assertion) \u2014 supports Theorem 4.3's q > 1 case"
+  },
+  "quantifiers": "n = 2; q = 1.5",
+  "numbers": "\u03bb = (0.5, 0.8); \u03bb\u2605 = (0.3, 0.9); \u03b2 = 0.5; q = 1.5; \u03c81 = e^{1\u2212(1+u)^8}, \u03c82 = e^{1\u2212(1+u)^3}, \u03d51 = (1\u2212ln u)^{1/8}\u22121, \u03d52 = (1\u2212ln u)^{1/3}\u22121; Fig. 9(b)",
+  "ambiguity": "Note the exponents differ between generator and inverse (8 vs 1/8, 3 vs 1/3) \u2014 consistent with inversion if the inner exponent of \u03c8 is the reciprocal; printed as stated.",
+  "adjudication": "adjudicated: Both passes agree: F\u0304U \u2212 F\u0304V \u2264 0 gives U1:2 \u2264st V1:2 in both copula cases; cosmetic diff only."
+ },
+ {
+  "paper": "doi:10.1017/s0269964826100199",
   "claim": "Example 3.3 (case 0 < q < 1)",
   "page": 7,
   "quote": "Theorem 3.1 demonstrated that under the stated conditions, the smallest order statistics are comparable in hazard rate order. A natural question arises: Does this conclusion hold when substituting the hazard rate order by the likelihood ratio order? The following counterexample furnishes the answer. Example 3.3. Let U_i \u223c q\u2212W(q, \u03bb_i, \u03b2) and V_i \u223c q\u2212W(q, \u03bb\u2605_i, \u03b2), i = 1, 2. Choose q = 0.5, \u03b2 = 0.5, \u03bb_1 = 0.5, \u03bb_2 = 1.5, \u03bb\u2605_1 = 0.3, and \u03bb\u2605_2 = 1.7. Then, Figure 2(a) represents the plot of f_{V_{1:2}}(t)/f_{U_{1:2}}(t) in a subset of (0, D) = (0, 1.38), from which it is clear that f_{V_{1:2}}(t)/f_{U_{1:2}}(t) is not an increasing function in t. Thus, for 0 < q < 1, U_{1:n} and V_{1:n} are not comparable in likelihood ratio order when (\u03bb_1, \u03bb_2) \u2264^m (\u03bb\u2605_1, \u03bb\u2605_2). A similar conclusion can also be drawn when q is larger than 1. Set, q = 1.5, \u03b2 = 2, \u03bb_1 = 0.5, \u03bb_2 = 1.5, \u03bb\u2605_1 = 0.3, and \u03bb\u2605_2 = 1.7. Then, from Figure 2(b) it is clear that f_{V_{1:2}}(t)/f_{U_{1:2}}(t) is also not an increasing function, which enables us to say that U_{1:n} and V_{1:n} are not comparable in likelihood ratio order.",
@@ -1213,276 +1438,6 @@
   "numbers": "",
   "ambiguity": "The same issues as part (1).",
   "adjudication": "agreed"
- },
- {
-  "paper": "doi:10.1017/s0269964826100199",
-  "claim": "Example 3.2 (case 0 < q < 1)",
-  "page": 6,
-  "quote": "In the following, we consider a numerical example to demonstrate the result stated in the above theorem. Example 3.2. Let U_i \u223c q \u2212 W(q, \u03bb_i, \u03b2) and V_i \u223c q \u2212 W(q, \u03bb\u2605_i, \u03b2), i = 1, 2. First, consider he case 0 < q < 1 with q = 0.5, \u03b2 = 0.5, \u03bb_1 = 0.5, \u03bb_2 = 1.5, \u03bb\u2605_1 = 0.3, and \u03bb\u2605_2 = 1.8. Here (\u03bb_1, \u03bb_2) \u2264_w (\u03bb\u2605_1, \u03bb\u2605_2). Figure 1(a) represents the plot of F\u0304_{U_{1:2}}(t)/F\u0304_{V_{1:2}}(t) in (0, D) = (0, 1.23). The plot clearly indicates that F\u0304_{U_{1:2}}(t)/F\u0304_{V_{1:2}}(t) is increasing in t, which in turn implies h_{U_{1:2}} \u2264 h_{V_{1:2}} and hence U_{1:2} \u2265_hr V_{1:2}. Similarly, for the case of q > 1, consider q = 1.5, \u03b2 = 0.5, \u03bb_1 = 0.6, \u03bb_2 = 1.5, \u03bb\u2605_1 = 0.3, and \u03bb\u2605_2 = 1.7, where (\u03bb_1, \u03bb_2) \u2264^w (\u03bb\u2605_1, \u03bb\u2605_2). Then from Figure 1(b), it is clear that F\u0304_{U_{1:2}}(t)/F\u0304_{V_{1:2}}(t) is decreasing in t, which leads to U_{1:2} \u2264_hr V_{1:2}.",
-  "kind": "example",
-  "model": "series system",
-  "family": "q-Weibull q-W(q, \u03bb_i, \u03b2) with q = 0.5, \u03b2 = 0.5",
-  "compared": "\u03bb = (0.5, 1.5) vs \u03bb\u2605 = (0.3, 1.8)",
-  "hypotheses": [
-   {
-    "text": "U_i \u223c q \u2212 W(q, \u03bb_i, \u03b2) and V_i \u223c q \u2212 W(q, \u03bb\u2605_i, \u03b2), i = 1, 2",
-    "formal": "independent components (Section 3 setting)",
-    "source": "statement; section preamble"
-   },
-   {
-    "text": "Here (\u03bb_1, \u03bb_2) \u2264_w (\u03bb\u2605_1, \u03bb\u2605_2)",
-    "formal": "\u03bb_(2) \u2264 \u03bb\u2605_(2) and \u03bb_1 + \u03bb_2 \u2264 \u03bb\u2605_1 + \u03bb\u2605_2",
-    "source": "statement; definition 2.2"
-   }
-  ],
-  "conclusion": {
-   "order": "hr",
-   "direction": "V_{1:2} \u2264_hr U_{1:2} (printed as U_{1:2} \u2265_hr V_{1:2})"
-  },
-  "quantifiers": "n = 2; t \u2208 (0, D) = (0, 1.23)",
-  "numbers": "n = 2; q = 0.5, \u03b2 = 0.5, \u03bb_1 = 0.5, \u03bb_2 = 1.5, \u03bb\u2605_1 = 0.3, \u03bb\u2605_2 = 1.8; (0, D) = (0, 1.23). Printed result: (\u03bb_1, \u03bb_2) \u2264_w (\u03bb\u2605_1, \u03bb\u2605_2); F\u0304_{U_{1:2}}(t)/F\u0304_{V_{1:2}}(t) increasing in t on (0, 1.23), hence h_{U_{1:2}} \u2264 h_{V_{1:2}} and U_{1:2} \u2265_hr V_{1:2}. Fig. 1(a) shows the ratio rising from about 1 near t = 0 to beyond 50 at t \u2248 1.1.",
-  "ambiguity": "Supports Theorem 3.1(1).",
-  "adjudication": "example record (pass a)"
- },
- {
-  "paper": "doi:10.1017/s0269964826100199",
-  "claim": "Example 3.2 (case q > 1)",
-  "page": 6,
-  "quote": "In the following, we consider a numerical example to demonstrate the result stated in the above theorem. Example 3.2. Let U_i \u223c q \u2212 W(q, \u03bb_i, \u03b2) and V_i \u223c q \u2212 W(q, \u03bb\u2605_i, \u03b2), i = 1, 2. First, consider he case 0 < q < 1 with q = 0.5, \u03b2 = 0.5, \u03bb_1 = 0.5, \u03bb_2 = 1.5, \u03bb\u2605_1 = 0.3, and \u03bb\u2605_2 = 1.8. Here (\u03bb_1, \u03bb_2) \u2264_w (\u03bb\u2605_1, \u03bb\u2605_2). Figure 1(a) represents the plot of F\u0304_{U_{1:2}}(t)/F\u0304_{V_{1:2}}(t) in (0, D) = (0, 1.23). The plot clearly indicates that F\u0304_{U_{1:2}}(t)/F\u0304_{V_{1:2}}(t) is increasing in t, which in turn implies h_{U_{1:2}} \u2264 h_{V_{1:2}} and hence U_{1:2} \u2265_hr V_{1:2}. Similarly, for the case of q > 1, consider q = 1.5, \u03b2 = 0.5, \u03bb_1 = 0.6, \u03bb_2 = 1.5, \u03bb\u2605_1 = 0.3, and \u03bb\u2605_2 = 1.7, where (\u03bb_1, \u03bb_2) \u2264^w (\u03bb\u2605_1, \u03bb\u2605_2). Then from Figure 1(b), it is clear that F\u0304_{U_{1:2}}(t)/F\u0304_{V_{1:2}}(t) is decreasing in t, which leads to U_{1:2} \u2264_hr V_{1:2}.",
-  "kind": "example",
-  "model": "series system",
-  "family": "q-Weibull q-W(q, \u03bb_i, \u03b2) with q = 1.5, \u03b2 = 0.5",
-  "compared": "\u03bb = (0.6, 1.5) vs \u03bb\u2605 = (0.3, 1.7)",
-  "hypotheses": [
-   {
-    "text": "U_i \u223c q \u2212 W(q, \u03bb_i, \u03b2) and V_i \u223c q \u2212 W(q, \u03bb\u2605_i, \u03b2), i = 1, 2",
-    "formal": "independent components",
-    "source": "statement; section preamble"
-   },
-   {
-    "text": "where (\u03bb_1, \u03bb_2) \u2264^w (\u03bb\u2605_1, \u03bb\u2605_2)",
-    "formal": "\u03bb_(1) \u2265 \u03bb\u2605_(1) and \u03bb_1 + \u03bb_2 \u2265 \u03bb\u2605_1 + \u03bb\u2605_2",
-    "source": "statement; definition 2.2"
-   }
-  ],
-  "conclusion": {
-   "order": "hr",
-   "direction": "U_{1:2} \u2264_hr V_{1:2}"
-  },
-  "quantifiers": "n = 2; t > 0 (Fig. 1(b) plotted for t from about 500 to 10000)",
-  "numbers": "n = 2; q = 1.5, \u03b2 = 0.5, \u03bb_1 = 0.6, \u03bb_2 = 1.5, \u03bb\u2605_1 = 0.3, \u03bb\u2605_2 = 1.7. Printed result: (\u03bb_1, \u03bb_2) \u2264^w (\u03bb\u2605_1, \u03bb\u2605_2); F\u0304_{U_{1:2}}(t)/F\u0304_{V_{1:2}}(t) decreasing in t, hence U_{1:2} \u2264_hr V_{1:2}. Fig. 1(b) shows the ratio decreasing from about 0.637 (t \u2248 500) to about 0.584 (t = 10000).",
-  "ambiguity": "Supports Theorem 3.1(2). The figure does not show t below about 500.",
-  "adjudication": "example record (pass a)"
- },
- {
-  "paper": "doi:10.1017/s0269964826100199",
-  "claim": "Example 3.5 (case q < 1)",
-  "page": 7,
-  "quote": "We now present a numerical example to illustrate the result established in Theorem 3.4. Example 3.5. Let U_i \u223c q \u2212 W(q_i, \u03bb, \u03b2) and V_i \u223c q \u2212 W(q\u2605_i, \u03bb_i, \u03b2), i = 1, 2. For the case q < 1, consider q_1 = 0.3, q_2 = 0.5, q\u2605_1 = 0.1, q\u2605_2 = 0.6, \u03b2 = 2, and \u03bb = 0.5, where (q_1, q_2) \u2264^w (q\u2605_1, q\u2605_2). Figure 3(a) displays the plot of F\u0304_{U_{1:2}}(t)/F\u0304_{V_{1:2}}(t) over the interval (0, D) = (0, 1.49). The figure clearly shows that F\u0304_{U_{1:2}}(t)/F\u0304_{V_{1:2}}(t) is increasing function in t, which implies that U_{1:2} \u2265_hr V_{1:2}. Similarly, for the case of q > 1, let q_1 = 1.3, q_2 = 1.5, q\u2605_1 = 1.1, q\u2605_2 = 1.6, \u03b2 = 2, and \u03bb = 0.5, with (q_1, q_2) \u2264^w (q\u2605_1, q\u2605_2). As illustrated in Figure 3(b), F\u0304_{U_{1:2}}(t)/F\u0304_{V_{1:2}}(t) is again increasing, confirming that, U_{1:2} \u2265_hr V_{1:2}.",
-  "kind": "example",
-  "model": "series system",
-  "family": "q-Weibull q-W(q_i, \u03bb, \u03b2) with \u03b2 = 2, \u03bb = 0.5",
-  "compared": "q = (0.3, 0.5) vs q\u2605 = (0.1, 0.6)",
-  "hypotheses": [
-   {
-    "text": "U_i \u223c q \u2212 W(q_i, \u03bb, \u03b2) and V_i \u223c q \u2212 W(q\u2605_i, \u03bb_i, \u03b2), i = 1, 2",
-    "formal": "independent components, common \u03bb = 0.5 and \u03b2 = 2",
-    "source": "statement"
-   },
-   {
-    "text": "(q_1, q_2) \u2264^w (q\u2605_1, q\u2605_2)",
-    "formal": "q_(1) \u2265 q\u2605_(1), q_1 + q_2 \u2265 q\u2605_1 + q\u2605_2",
-    "source": "statement; definition 2.2"
-   }
-  ],
-  "conclusion": {
-   "order": "hr",
-   "direction": "V_{1:2} \u2264_hr U_{1:2} (printed as U_{1:2} \u2265_hr V_{1:2})"
-  },
-  "quantifiers": "n = 2; t \u2208 (0, D) = (0, 1.49)",
-  "numbers": "n = 2; q_1 = 0.3, q_2 = 0.5, q\u2605_1 = 0.1, q\u2605_2 = 0.6, \u03b2 = 2, \u03bb = 0.5; (0, D) = (0, 1.49). Printed result: (q_1, q_2) \u2264^w (q\u2605_1, q\u2605_2); F\u0304_{U_{1:2}}(t)/F\u0304_{V_{1:2}}(t) increasing in t, hence U_{1:2} \u2265_hr V_{1:2}. Fig. 3(a) shows the ratio near 1 until t \u2248 1.3, then rising sharply to about 50 near t \u2248 1.47.",
-  "ambiguity": "The setup writes V_i \u223c q \u2212 W(q\u2605_i, \u03bb_i, \u03b2) with a subscripted \u03bb_i, but only a single \u03bb = 0.5 is given. Supports Theorem 3.4(1).",
-  "adjudication": "example record (pass a)"
- },
- {
-  "paper": "doi:10.1017/s0269964826100199",
-  "claim": "Example 3.8 (case q < 1)",
-  "page": 9,
-  "quote": "A numerical example is provided below to illustrate Theorem 3.7. Example 3.8. Let U_i \u223c q \u2212 W(q, \u03bb, \u03b2_i) and V_i \u223c q \u2212 W(q, \u03bb_i, \u03b2\u2605_i), i = 1, 2. For the case q < 1, consider q = 0.5, \u03b2_1 = 0.5, \u03b2_2 = 1.5, \u03b2\u2605_1 = 0.3, \u03b2\u2605_2 = 1.7, and \u03bb = 1, where (\u03b2_1, \u03b2_2) \u2264^m (\u03b2\u2605_1, \u03b2\u2605_2). Figure 5(a) shows the plot of F\u0304_{U_{1:2}}(t) \u2212 F\u0304_{V_{1:2}}(t) in the interval (0, D) = (0, 1.5). It is evident from the figure that F\u0304_{U_{1:2}}(t) \u2212 F\u0304_{V_{1:2}}(t) \u2265 0 for all t, which implies that U_{1:2} \u2265_st V_{1:2}. Similarly, for the case of q > 1, take q = 1.5, \u03b2_1 = 0.5, \u03b2_2 = 1.5, \u03b2\u2605_1 = 0.3, \u03b2\u2605_2 = 1.7, and \u03bb = 0.5, with (\u03b2_1, \u03b2_2) \u2264^m (\u03b2\u2605_1, \u03b2\u2605_2). As illustrated in Figure 6(b), F\u0304_{U_{1:2}} \u2212 F\u0304_{V_{1:2}} \u2265 0, confirming that U_{1:2} \u2265_st V_{1:2}.",
-  "kind": "example",
-  "model": "series system",
-  "family": "q-Weibull q-W(q, \u03bb, \u03b2_i) with q = 0.5, \u03bb = 1",
-  "compared": "\u03b2 = (0.5, 1.5) vs \u03b2\u2605 = (0.3, 1.7)",
-  "hypotheses": [
-   {
-    "text": "U_i \u223c q \u2212 W(q, \u03bb, \u03b2_i) and V_i \u223c q \u2212 W(q, \u03bb_i, \u03b2\u2605_i), i = 1, 2",
-    "formal": "independent components; common q = 0.5, \u03bb = 1",
-    "source": "statement"
-   },
-   {
-    "text": "(\u03b2_1, \u03b2_2) \u2264^m (\u03b2\u2605_1, \u03b2\u2605_2)",
-    "formal": "\u03b2_1 + \u03b2_2 = \u03b2\u2605_1 + \u03b2\u2605_2 and \u03b2_(1) \u2265 \u03b2\u2605_(1)",
-    "source": "statement; definition 2.2"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "V_{1:2} \u2264_st U_{1:2} (printed as U_{1:2} \u2265_st V_{1:2})"
-  },
-  "quantifiers": "n = 2; t \u2208 (0, D) = (0, 1.5)",
-  "numbers": "n = 2; q = 0.5, \u03b2_1 = 0.5, \u03b2_2 = 1.5, \u03b2\u2605_1 = 0.3, \u03b2\u2605_2 = 1.7, \u03bb = 1; (0, D) = (0, 1.5). Printed result: (\u03b2_1, \u03b2_2) \u2264^m (\u03b2\u2605_1, \u03b2\u2605_2); F\u0304_{U_{1:2}}(t) \u2212 F\u0304_{V_{1:2}}(t) \u2265 0 for all t, hence U_{1:2} \u2265_st V_{1:2}. Fig. 5(a) shows the difference rising to about 0.20 near t \u2248 0.03 and decaying to about 0 by t \u2248 0.8.",
-  "ambiguity": "The setup writes V_i \u223c q \u2212 W(q, \u03bb_i, \u03b2\u2605_i) with a subscripted \u03bb_i, but a single \u03bb = 1 is given. Supports Theorem 3.7(1).",
-  "adjudication": "example record (pass a)+b"
- },
- {
-  "paper": "doi:10.1017/s0269964826100199",
-  "claim": "Example 3.11 (case q < 1)",
-  "page": 11,
-  "quote": "Below, we consider a numerical example to demonstrate the result stated in Theorem 3.10. Example 3.11. Let U_i \u223c q \u2212 W(q, \u03bb_i, \u03b2) and V_i \u223c q \u2212 W(q, \u03bb\u2605_i, \u03b2), i = 1, 2. For the case q < 1, consider q = 0.5, \u03b2 = 0.5, \u03bb_1 = 0.5, \u03bb_2 = 1.5, \u03bb\u2605_1 = 0.3, and \u03bb\u2605_2 = 1.6, where (\u03bb_1, \u03bb_2) \u2264^w (\u03bb\u2605_1, \u03bb\u2605_2). Figure 7(a) presents the plot of F_{U_{2:2}}(t) \u2212 F_{V_{2:2}}(t) in the interval (0, D) = (0, 1.56). The plot clearly indicates that F_{U_{2:2}}(t) \u2212 F_{V_{2:2}}(t) \u2265 0 in t, which implies U_{2:2} \u2264_st V_{2:2}. Similarly, for the case of q > 1, choose q = 1.5, \u03b2 = 0.5, \u03bb_1 = 0.5, \u03bb_2 = 1.5, \u03bb\u2605_1 = 0.3, and \u03bb\u2605_2 = 1.6, with (\u03bb_1, \u03bb_2) \u2264^w (\u03bb\u2605_1, \u03bb\u2605_2). As shown in Figure 7(b), we again find that F_{U_{2:2}}(t) \u2212 F_{V_{2:2}}(t) \u2265 0, confirming that, U_{2:2} \u2264_st V_{2:2}.",
-  "kind": "example",
-  "model": "parallel system",
-  "family": "q-Weibull q-W(q, \u03bb_i, \u03b2) with q = 0.5, \u03b2 = 0.5",
-  "compared": "\u03bb = (0.5, 1.5) vs \u03bb\u2605 = (0.3, 1.6)",
-  "hypotheses": [
-   {
-    "text": "U_i \u223c q \u2212 W(q, \u03bb_i, \u03b2) and V_i \u223c q \u2212 W(q, \u03bb\u2605_i, \u03b2), i = 1, 2",
-    "formal": "independent components",
-    "source": "statement; section preamble"
-   },
-   {
-    "text": "(\u03bb_1, \u03bb_2) \u2264^w (\u03bb\u2605_1, \u03bb\u2605_2)",
-    "formal": "\u03bb_(1) \u2265 \u03bb\u2605_(1), \u03bb_1 + \u03bb_2 \u2265 \u03bb\u2605_1 + \u03bb\u2605_2",
-    "source": "statement; definition 2.2"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "U_{2:2} \u2264_st V_{2:2}"
-  },
-  "quantifiers": "n = 2; t \u2208 (0, D) = (0, 1.56)",
-  "numbers": "n = 2; q = 0.5, \u03b2 = 0.5, \u03bb_1 = 0.5, \u03bb_2 = 1.5, \u03bb\u2605_1 = 0.3, \u03bb\u2605_2 = 1.6; (0, D) = (0, 1.56). Printed result: (\u03bb_1, \u03bb_2) \u2264^w (\u03bb\u2605_1, \u03bb\u2605_2); F_{U_{2:2}}(t) \u2212 F_{V_{2:2}}(t) \u2265 0, hence U_{2:2} \u2264_st V_{2:2}. Fig. 7(a) shows the difference rising from 0 at t = 0 to about 0.21 at t \u2248 1.56.",
-  "ambiguity": "Supports Theorem 3.10(1).",
-  "adjudication": "example record (pass a)"
- },
- {
-  "paper": "doi:10.1017/s0269964826100199",
-  "claim": "Example 4.2 (case 0 < q < 1)",
-  "page": 14,
-  "quote": "The next example illustrates the validity of the preceding theorem. Example 4.2. Let U_i \u223c q \u2212 W(q, \u03bb_i, \u03b2) and V_i \u223c q \u2212 W(q, \u03bb\u2217_i, \u03b2) for i = 1, 2 be two sets of components being mutually dependent with the Clayton copula (member of the Archimedean copula family). Here, we have considered the generators of the Clayton copula as \u03c8_1(u) = 1/(1\u2212u) and \u03c8_2(u) = 1/\u221a(2u+1). Then \u03d5_1(u) = (1\u2212u)/u and \u03d5_2(u) = (1\u2212u^2)/(2u^2). It is easy to verify that \u03c8_1 and \u03c8_2 are log-convex and \u03d5_2 \u25e6 \u03c8_1 is super-additive. Set \u03bb_1 = 0.3, \u03bb_2 = 1.7, \u03bb\u2605_1 = 0.5, \u03bb\u2605_2 = 1.6, \u03b2 = 0.5 and q = 0.5, then Figure 8(a) demonstrates that F_{U_{n:n}} \u2212 F_{V_{n:n}} \u2264 0 on (0, D) = (0, 1.384) when 0 < q < 1. Figure 8(a) demonstrates that the result for 1 < q < 2 also holds. In this case, we have considered \u03bb_1 = 0.3, \u03bb_2 = 1.7, \u03bb\u2605_1 = 0.5, \u03bb\u2605_2 = 1.6, \u03b2 = 0.5 and q = 1.5.",
-  "kind": "example",
-  "model": "parallel system",
-  "family": "q-Weibull q-W(q, \u03bb_i, \u03b2) marginals with q = 0.5, \u03b2 = 0.5; Clayton copula generators \u03c8_1(u) = 1/(1\u2212u) (as printed) for U and \u03c8_2(u) = 1/\u221a(2u+1) for V",
-  "compared": "\u03bb = (0.3, 1.7) vs \u03bb\u2605 = (0.5, 1.6) and generators \u03c8_1 vs \u03c8_2",
-  "hypotheses": [
-   {
-    "text": "two sets of components being mutually dependent with the Clayton copula",
-    "formal": "U with generator \u03c8_1, V with generator \u03c8_2",
-    "source": "statement"
-   },
-   {
-    "text": "\u03c8_1 and \u03c8_2 are log-convex and \u03d5_2 \u25e6 \u03c8_1 is super-additive",
-    "formal": "hypotheses of Theorem 4.1(1) asserted to hold",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "V_{2:2} \u2264_st U_{2:2} (F_{U_{n:n}} \u2212 F_{V_{n:n}} \u2264 0 on (0, D))"
-  },
-  "quantifiers": "n = 2; t \u2208 (0, D) = (0, 1.384)",
-  "numbers": "n = 2; \u03bb_1 = 0.3, \u03bb_2 = 1.7, \u03bb\u2605_1 = 0.5, \u03bb\u2605_2 = 1.6, \u03b2 = 0.5, q = 0.5; \u03c8_1(u) = 1/(1\u2212u), \u03c8_2(u) = 1/\u221a(2u+1), \u03d5_1(u) = (1\u2212u)/u, \u03d5_2(u) = (1\u2212u^2)/(2u^2); (0, D) = (0, 1.384). Printed result: F_{U_{n:n}} \u2212 F_{V_{n:n}} \u2264 0 on (0, 1.384). Fig. 8(a) shows the difference decreasing from about \u22120.08 (t \u2248 0.1) to about \u22120.205 (t \u2248 1.4).",
-  "ambiguity": "The printed \u03c8_1(u) = 1/(1\u2212u) conflicts with the printed inverse \u03d5_1(u) = (1\u2212u)/u, which is the inverse of 1/(1+u). The example does not state the majorization relation between \u03bb\u2605 and \u03bb or which of D_+/E_+ holds (\u03bb = (0.3, 1.7) is increasing). The example writes \u03bb\u2217_i in the setup and \u03bb\u2605 in the values.",
-  "adjudication": "example record (pass a)"
- },
- {
-  "paper": "doi:10.1017/s0269964826100199",
-  "claim": "Example 4.2 (case 1 < q < 2)",
-  "page": 15,
-  "quote": "The next example illustrates the validity of the preceding theorem. Example 4.2. Let U_i \u223c q \u2212 W(q, \u03bb_i, \u03b2) and V_i \u223c q \u2212 W(q, \u03bb\u2217_i, \u03b2) for i = 1, 2 be two sets of components being mutually dependent with the Clayton copula (member of the Archimedean copula family). Here, we have considered the generators of the Clayton copula as \u03c8_1(u) = 1/(1\u2212u) and \u03c8_2(u) = 1/\u221a(2u+1). Then \u03d5_1(u) = (1\u2212u)/u and \u03d5_2(u) = (1\u2212u^2)/(2u^2). It is easy to verify that \u03c8_1 and \u03c8_2 are log-convex and \u03d5_2 \u25e6 \u03c8_1 is super-additive. Set \u03bb_1 = 0.3, \u03bb_2 = 1.7, \u03bb\u2605_1 = 0.5, \u03bb\u2605_2 = 1.6, \u03b2 = 0.5 and q = 0.5, then Figure 8(a) demonstrates that F_{U_{n:n}} \u2212 F_{V_{n:n}} \u2264 0 on (0, D) = (0, 1.384) when 0 < q < 1. Figure 8(a) demonstrates that the result for 1 < q < 2 also holds. In this case, we have considered \u03bb_1 = 0.3, \u03bb_2 = 1.7, \u03bb\u2605_1 = 0.5, \u03bb\u2605_2 = 1.6, \u03b2 = 0.5 and q = 1.5.",
-  "kind": "example",
-  "model": "parallel system",
-  "family": "q-Weibull q-W(q, \u03bb_i, \u03b2) marginals with q = 1.5, \u03b2 = 0.5; Clayton generators \u03c8_1(u) = 1/(1\u2212u) (as printed), \u03c8_2(u) = 1/\u221a(2u+1)",
-  "compared": "\u03bb = (0.3, 1.7) vs \u03bb\u2605 = (0.5, 1.6) and generators \u03c8_1 vs \u03c8_2",
-  "hypotheses": [
-   {
-    "text": "mutually dependent with the Clayton copula",
-    "formal": "U with generator \u03c8_1, V with generator \u03c8_2",
-    "source": "statement"
-   },
-   {
-    "text": "\u03c8_1 and \u03c8_2 are log-convex and \u03d5_2 \u25e6 \u03c8_1 is super-additive",
-    "formal": "hypotheses of Theorem 4.1(2) asserted to hold",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "V_{2:2} \u2264_st U_{2:2} ('the result for 1 < q < 2 also holds')"
-  },
-  "quantifiers": "n = 2; q = 1.5; Fig. 8(b) plotted for t from 0 to 100",
-  "numbers": "n = 2; \u03bb_1 = 0.3, \u03bb_2 = 1.7, \u03bb\u2605_1 = 0.5, \u03bb\u2605_2 = 1.6, \u03b2 = 0.5, q = 1.5. Printed result: the result (F_{U_{n:n}} \u2212 F_{V_{n:n}} \u2264 0) also holds for 1 < q < 2. Fig. 8(b) (caption q = 1.5) shows the difference going from about \u22120.095 down to about \u22120.123 near t \u2248 25 and back to about \u22120.11 at t = 100.",
-  "ambiguity": "The text cites 'Figure 8(a)' for the q = 1.5 case; the plot with q = 1.5 is Figure 8(b). \u03c8_1 as printed conflicts with \u03d5_1.",
-  "adjudication": "example record (pass a)+b"
- },
- {
-  "paper": "doi:10.1017/s0269964826100199",
-  "claim": "Example 4.4 (case 0 < q < 1)",
-  "page": 17,
-  "quote": "Now, we present an example to demonstrate that if the smallest order statistics satisfy the conditions of Theorem 4.3, then the survival function of one will be smaller than the other. Example 4.4. Let U_i \u223c q \u2212 W(q, \u03bb_i, \u03b2) and V_i \u223c q \u2212 W(q, \u03bb\u2217_i, \u03b2) for i = 1, 2 be two sets of components being mutually dependent. For the case of 0 < q < 1, we have used Clayton copula with generators \u03c8_1(u) = 1/(1\u2212u) and \u03c8_2(u) = 1/\u221a(2u+1) to model the dependence. With the choice of these generators, it is easy to check that the conditions of Theorem 4.3 hold. Figure 9(a) demonstrates that F\u0304_{U_{1:n}} \u2212 F\u0304_{V_{1:n}} \u2264 0 on (0, D) = (0, 1.384) where \u03bb_1 = 0.5, \u03bb_2 = 1.7, \u03bb\u2605_1 = 0.6, \u03bb\u2605_2 = 1.5, \u03b2 = 0.5, and q = 0.5. For the case of 1 < q < 2, to model the dependence, we employ the Gumbel-Hougaard copula (member of Archimedean copula family) with generators \u03c8_1(u) = e^{1\u2212(1+u)^8} and \u03c8_2(u) = e^{1\u2212(1+u)^3}. Then \u03d5_1(u) = (1 \u2212 ln u)^{1/8} \u2212 1 and \u03d5_2(u) = (1 \u2212 ln u)^{1/3} \u2212 1. Observe that both \u03c8_1(u) and \u03c8_2(u) are log-concave and \u03d5_2\u25e6\u03c8_1 is super-additive. With the parameter choices \u03bb_1 = 0.5, \u03bb_2 = 0.8, \u03bb\u2605_1 = 0.3, \u03bb\u2605_2 = 0.9, \u03b2 = 0.5, and q = 1.5, Figure 9(b) demonstrates that the result also holds for 1 < q < 2.",
-  "kind": "example",
-  "model": "series system",
-  "family": "q-Weibull q-W(q, \u03bb_i, \u03b2) marginals with q = 0.5, \u03b2 = 0.5; Clayton generators \u03c8_1(u) = 1/(1\u2212u) (as printed), \u03c8_2(u) = 1/\u221a(2u+1)",
-  "compared": "\u03bb = (0.5, 1.7) vs \u03bb\u2605 = (0.6, 1.5) and generators \u03c8_1 vs \u03c8_2",
-  "hypotheses": [
-   {
-    "text": "two sets of components being mutually dependent ... Clayton copula with generators \u03c8_1(u) = 1/(1\u2212u) and \u03c8_2(u) = 1/\u221a(2u+1)",
-    "formal": "U with generator \u03c8_1, V with generator \u03c8_2",
-    "source": "statement"
-   },
-   {
-    "text": "it is easy to check that the conditions of Theorem 4.3 hold",
-    "formal": "hypotheses of Theorem 4.3(1) asserted to hold",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "U_{1:2} \u2264_st V_{1:2} (F\u0304_{U_{1:n}} \u2212 F\u0304_{V_{1:n}} \u2264 0 on (0, D))"
-  },
-  "quantifiers": "n = 2; t \u2208 (0, D) = (0, 1.384)",
-  "numbers": "n = 2; \u03bb_1 = 0.5, \u03bb_2 = 1.7, \u03bb\u2605_1 = 0.6, \u03bb\u2605_2 = 1.5, \u03b2 = 0.5, q = 0.5; \u03c8_1(u) = 1/(1\u2212u), \u03c8_2(u) = 1/\u221a(2u+1); (0, D) = (0, 1.384). Printed result: F\u0304_{U_{1:n}} \u2212 F\u0304_{V_{1:n}} \u2264 0 on (0, 1.384). Fig. 9(a) shows the difference going from 0 down to about \u22120.062 near t \u2248 0.15 and back up to about \u22120.002 at t = 1.4.",
-  "ambiguity": "The printed \u03c8_1(u) = 1/(1\u2212u) conflicts with the inverse \u03d5_1(u) = (1\u2212u)/u given in Example 4.2. The example does not state the weak-majorization relation or the D_+/E_+ membership it relies on (\u03bb = (0.5, 1.7) is increasing). The Figure 9 caption has a stray ']'.",
-  "adjudication": "example record (pass a)"
- },
- {
-  "paper": "doi:10.1017/s0269964826100199",
-  "claim": "Example 4.4 (case 1 < q < 2)",
-  "page": 17,
-  "quote": "Now, we present an example to demonstrate that if the smallest order statistics satisfy the conditions of Theorem 4.3, then the survival function of one will be smaller than the other. Example 4.4. Let U_i \u223c q \u2212 W(q, \u03bb_i, \u03b2) and V_i \u223c q \u2212 W(q, \u03bb\u2217_i, \u03b2) for i = 1, 2 be two sets of components being mutually dependent. For the case of 0 < q < 1, we have used Clayton copula with generators \u03c8_1(u) = 1/(1\u2212u) and \u03c8_2(u) = 1/\u221a(2u+1) to model the dependence. With the choice of these generators, it is easy to check that the conditions of Theorem 4.3 hold. Figure 9(a) demonstrates that F\u0304_{U_{1:n}} \u2212 F\u0304_{V_{1:n}} \u2264 0 on (0, D) = (0, 1.384) where \u03bb_1 = 0.5, \u03bb_2 = 1.7, \u03bb\u2605_1 = 0.6, \u03bb\u2605_2 = 1.5, \u03b2 = 0.5, and q = 0.5. For the case of 1 < q < 2, to model the dependence, we employ the Gumbel-Hougaard copula (member of Archimedean copula family) with generators \u03c8_1(u) = e^{1\u2212(1+u)^8} and \u03c8_2(u) = e^{1\u2212(1+u)^3}. Then \u03d5_1(u) = (1 \u2212 ln u)^{1/8} \u2212 1 and \u03d5_2(u) = (1 \u2212 ln u)^{1/3} \u2212 1. Observe that both \u03c8_1(u) and \u03c8_2(u) are log-concave and \u03d5_2\u25e6\u03c8_1 is super-additive. With the parameter choices \u03bb_1 = 0.5, \u03bb_2 = 0.8, \u03bb\u2605_1 = 0.3, \u03bb\u2605_2 = 0.9, \u03b2 = 0.5, and q = 1.5, Figure 9(b) demonstrates that the result also holds for 1 < q < 2.",
-  "kind": "example",
-  "model": "series system",
-  "family": "q-Weibull q-W(q, \u03bb_i, \u03b2) marginals with q = 1.5, \u03b2 = 0.5; Gumbel-Hougaard generators \u03c8_1(u) = e^{1\u2212(1+u)^8}, \u03c8_2(u) = e^{1\u2212(1+u)^3}",
-  "compared": "\u03bb = (0.5, 0.8) vs \u03bb\u2605 = (0.3, 0.9) and generators \u03c8_1 vs \u03c8_2",
-  "hypotheses": [
-   {
-    "text": "Gumbel-Hougaard copula ... with generators \u03c8_1(u) = e^{1\u2212(1+u)^8} and \u03c8_2(u) = e^{1\u2212(1+u)^3}",
-    "formal": "U with generator \u03c8_1, V with generator \u03c8_2; \u03d5_1(u) = (1 \u2212 ln u)^{1/8} \u2212 1, \u03d5_2(u) = (1 \u2212 ln u)^{1/3} \u2212 1",
-    "source": "statement"
-   },
-   {
-    "text": "both \u03c8_1(u) and \u03c8_2(u) are log-concave and \u03d5_2\u25e6\u03c8_1 is super-additive",
-    "formal": "hypotheses of Theorem 4.3(2) asserted to hold",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "U_{1:2} \u2264_st V_{1:2} ('the result also holds')"
-  },
-  "quantifiers": "n = 2; q = 1.5; Fig. 9(b) plotted for t from 0 to 100",
-  "numbers": "n = 2; \u03bb_1 = 0.5, \u03bb_2 = 0.8, \u03bb\u2605_1 = 0.3, \u03bb\u2605_2 = 0.9, \u03b2 = 0.5, q = 1.5; \u03c8_1(u) = e^{1\u2212(1+u)^8}, \u03c8_2(u) = e^{1\u2212(1+u)^3}. Printed result: the result holds for 1 < q < 2 (F\u0304_{U_{1:n}} \u2212 F\u0304_{V_{1:n}} \u2264 0). Fig. 9(b) shows the difference going from 0 down to about \u22120.065 near t \u2248 7 and back up to about \u22120.022 at t = 100.",
-  "ambiguity": "The example does not state the weak-majorization relation (Theorem 4.3(2) requires \u03bb \u2264^w \u03bb\u2217) or the D_+/E_+ membership (\u03bb = (0.5, 0.8) is increasing).",
-  "adjudication": "example record (pass a)"
  },
  {
   "paper": "doi:10.1017/s0269964826100199",
