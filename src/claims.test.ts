@@ -3,7 +3,7 @@ import { mkdtemp, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { buildEvaluationEvidence, type EvaluationEvidence, type EvaluationOutcome, type EvaluationOutcomeCase } from "@hraness/algal";
-import { digest } from "./artifacts";
+import { ArtifactStore, digest } from "./artifacts";
 import {
   assessClaim, buildClaim, buildClaimsLedger, CLAIM_CATEGORIES, evidenceSufficiency, parseClaim,
   parseClaimsLedger, promotableTo, recordsEvidenceResolver, verifyClaimsLedger, verifyStudyClaims, writeStudyClaims,
@@ -196,8 +196,6 @@ test("a claims ledger over a real study cites archived evidence and retains the 
       citations: [{ evidence: reference, role: "support" }] },
     { id: "b-effectiveness", statement: "shared artifacts improve resilience on real networks", asked: "effectiveness",
       citations: [{ evidence: reference, role: "support" }] },
-    { id: "c-absent", statement: "backed by a record that is not in this archive", asked: "replay",
-      citations: [{ evidence: digest({ absent: "citation" }), role: "support" }] },
   ]};
   const draftsFile = join(root, "drafts.json");
   await writeFile(draftsFile, JSON.stringify(drafts));
@@ -207,7 +205,50 @@ test("a claims ledger over a real study cites archived evidence and retains the 
   // Study evidence is replay-grade only: the effectiveness ask is retained as
   // insufficient-evidence with its replay-grade partial grant, not promoted.
   expect(byId.get("b-effectiveness")).toMatchObject({ outcome: "insufficient-evidence", granted: "replay" });
-  expect(byId.get("c-absent")).toMatchObject({ outcome: "insufficient-evidence", granted: null });
-  expect(await verifyStudyClaims(directory)).toEqual({ ok: true, claims: 3, insufficient: 2, contradicted: 0, claimsDigest: ledger.digest });
+  expect(await verifyStudyClaims(directory)).toEqual({ ok: true, claims: 2, insufficient: 1, contradicted: 0, claimsDigest: ledger.digest });
   await expect(writeStudyClaims(directory, draftsFile)).rejects.toThrow();
+}, 30000);
+
+test("a citation outside the run's evidence envelope refuses at write and fails at verify", async () => {
+  const root = await mkdtemp(join(tmpdir(), "algal-lab-claims-test-"));
+  roots.push(root);
+  const directory = join(root, "run");
+  await runStudy({ contract: "algal.lab.study.v1", name: "claims-foreign", replicateSeeds: [7], researchers: 2, rounds: 1,
+    nodes: 6, edges: 7, failureSteps: 2, discoverySeeds: [11], holdoutSeeds: [101] }, directory);
+  await writeStudyEvidence(directory);
+  // A forged record can sit in the same content-addressed store; it is not
+  // evidence for this run because the envelope does not list it.
+  const forged = record("forged", "replay", [kase("f-h0", "complete")]);
+  const forgedRef = await new ArtifactStore(directory).put(json(forged));
+  const draftsFile = join(root, "drafts.json");
+  await writeFile(draftsFile, JSON.stringify({ drafts: [
+    { id: "foreign", statement: "held up by an unattested record", asked: "replay", citations: [{ evidence: forgedRef, role: "support" }] },
+  ] }));
+  await expect(writeStudyClaims(directory, draftsFile)).rejects.toThrow(/outside this run's evidence envelope/);
+  // A self-consistent ledger written by hand fails the same check: under a
+  // store-wide resolver the forged record really does grade the claim
+  // supported, so only the envelope gate catches it.
+  const claim = await buildClaim({ id: "foreign", statement: "held up by an unattested record", asked: "replay",
+    citations: [{ evidence: forgedRef, role: "support" }] }, recordsEvidenceResolver([forged]));
+  expect(claim.outcome).toBe("supported");
+  const ledger = buildClaimsLedger([claim]);
+  await writeFile(join(directory, "claims.json"), JSON.stringify({ ledger, digest: ledger.digest }));
+  await expect(verifyStudyClaims(directory)).rejects.toThrow(/outside this run's evidence envelope/);
+}, 30000);
+
+test("claims require the run's evidence.json at write and at verify", async () => {
+  const root = await mkdtemp(join(tmpdir(), "algal-lab-claims-test-"));
+  roots.push(root);
+  const directory = join(root, "run");
+  // `lab claims` before `lab evidence` must refuse rather than write an
+  // all-insufficient ledger that would then verify forever.
+  await runStudy({ contract: "algal.lab.study.v1", name: "claims-noev", replicateSeeds: [7], researchers: 2, rounds: 1,
+    nodes: 6, edges: 7, failureSteps: 2, discoverySeeds: [11], holdoutSeeds: [101] }, directory);
+  const draftsFile = join(root, "drafts.json");
+  await writeFile(draftsFile, JSON.stringify({ drafts: [] }));
+  await expect(writeStudyClaims(directory, draftsFile)).rejects.toThrow(/evidence\.json/);
+  // A claims.json that exists without evidence.json fails verification too.
+  const ledger = buildClaimsLedger([await buildClaim({ id: "unsupported", statement: "s", asked: "replay", citations: [] }, recordsEvidenceResolver([]))]);
+  await writeFile(join(directory, "claims.json"), JSON.stringify({ ledger, digest: ledger.digest }));
+  await expect(verifyStudyClaims(directory)).rejects.toThrow(/evidence\.json/);
 }, 30000);

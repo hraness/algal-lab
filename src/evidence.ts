@@ -24,12 +24,12 @@
 import { writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import {
-  buildEvaluationEvidence, canonicalize, parseEvaluationEvidence, parseRunReceipt,
+  buildEvaluationEvidence, canonicalize, HOST_CONTRACT_BOUNDS, parseEvaluationEvidence, parseRunReceipt, receiptDigest,
   type Digest, type EvaluationEvidence, type EvaluationOutcome, type EvaluationOutcomeCase, type RunReceipt,
 } from "@hraness/algal";
-import { ArtifactStore, digest, digestString, readJsonFile, readRuntimeSources, runtimeDigest } from "./artifacts";
+import { ArtifactStore, digest, digestString, readJsonFile, readRuntimeSources, runtimeDigest, sourceIdentities } from "./artifacts";
 import {
-  ALGAL_REVISION, CONDITIONS, equal, instrumentOf, integer, json, object, parseProtocol,
+  ALGAL_REVISION, CONDITIONS, equal, instrumentOf, integer, json, MAX_REPLICATES, MAX_TRANSFER_REGIMES, object, parseProtocol,
   protocolSettings, type Condition, type Phase, type Protocol,
 } from "./contracts";
 import { mean, researchManifest, researchManifestV2 } from "./researcher";
@@ -76,6 +76,19 @@ const CONTEXT_KEYS: Record<string, string[]> = {
 };
 const PHASES = ["primed", "discovery", "transfer"] as const;
 
+/** Admission bounds derived from the protocol contract. A legal report carries
+ * one summary per replicate/condition cell (at most MAX_REPLICATES seeds times
+ * CONDITIONS.length conditions = 8 x 3 = 24 summaries), and each summary names
+ * one primary portfolio plus at most MAX_TRANSFER_REGIMES transfer portfolios.
+ * The maximal legal projection therefore lists at most 24 x (1 + 2) = 72
+ * distinct portfolio digests — a protocol such as `replicateSeeds: 8,
+ * researchers: 2, rounds: 4` with two transfer regimes reaches exactly the
+ * MAX_ATTEMPTS cap and that count. */
+const MAX_SUMMARIES = MAX_REPLICATES * CONDITIONS.length;
+const MAX_PORTFOLIO_REFERENCES = MAX_SUMMARIES * (1 + MAX_TRANSFER_REGIMES);
+/** Matches the records bound in `parseStudyEvidence`. */
+const MAX_EVIDENCE_RECORDS = 64;
+
 function condition(value: unknown, label: string): Condition {
   if (typeof value !== "string" || !(CONDITIONS as readonly string[]).includes(value)) throw new Error(`${label}: unknown condition`);
   return value as Condition;
@@ -105,6 +118,7 @@ function admitAttempt(id: Digest, value: unknown, instrumentDigest: Digest): Loa
   if (digestString(raw.instrumentDigest) !== instrumentDigest) throw new Error("attempt: instrument identity differs");
   const context = admitContext(raw.context);
   const receipt = parseRunReceipt(json(raw.receipt));
+  if (receiptDigest(receipt) !== receipt.digest) throw new Error("attempt: receipt body does not match its digest");
   let score: number | null = null;
   if (raw.measurement !== null) {
     const measurement = object(raw.measurement, ["proposal", "results", "score", "predictionError"], "attempt.measurement");
@@ -147,10 +161,10 @@ export function admitStudyView(value: unknown): EvidenceStudyView {
   if (!Array.isArray(raw.attempts) || raw.attempts.length > 2048) throw new Error("study report.attempts: invalid attempt list");
   const attempts = raw.attempts.map(digestString);
   if (new Set(attempts).size !== attempts.length) throw new Error("study report.attempts: repeated attempt digest");
-  if (!Array.isArray(raw.summaries)) throw new Error("study report.summaries: expected a list");
+  if (!Array.isArray(raw.summaries) || raw.summaries.length > MAX_SUMMARIES) throw new Error(`study report.summaries: expected at most ${MAX_SUMMARIES} entries`);
   const summaries = raw.summaries.map((entry) => {
     const summary = object(entry, SUMMARY_KEYS, "study summary");
-    if (!Array.isArray(summary.transfers)) throw new Error("study summary.transfers: expected a list");
+    if (!Array.isArray(summary.transfers) || summary.transfers.length > MAX_TRANSFER_REGIMES) throw new Error(`study summary.transfers: expected at most ${MAX_TRANSFER_REGIMES} entries`);
     return {
       replicate: integer(summary.replicate, 0, 0xffffffff, "study summary.replicate"),
       condition: condition(summary.condition, "study summary.condition"),
@@ -189,9 +203,9 @@ function attemptCase(attempt: LoadedAttempt, group: string): EvaluationOutcomeCa
     feedback: `${phaseLabel}; ${attempt.receipt.failure?.message ?? "run failed before measurement"}`.slice(0, 4096) };
 }
 
-function sortedUnique(values: Iterable<string>, label: string): string[] {
+function sortedUnique(values: Iterable<string>, label: string, max: number): string[] {
   const result = [...new Set(values)].sort();
-  if (result.length > 64) throw new Error(`${label}: exceeds group bound`);
+  if (result.length > max) throw new Error(`${label}: exceeds bound ${max}`);
   return result;
 }
 
@@ -207,6 +221,13 @@ export async function studyEvidence(report: unknown, store: ArtifactStore): Prom
   const settings = protocolSettings(view.protocol);
   const instrument = instrumentOf(view.protocol);
   const manifest = instrument === "network.v2" ? researchManifestV2 : researchManifest;
+  // The record binds two source states: the study-time identities recorded in
+  // the report (instrumentDigest, and the runtime embedded in the scorer's
+  // applicationDigest) and evaluator.runtimeDigest, the runtime installed at
+  // projection time. When they differ the projection still runs — the record
+  // discloses the drift — and verification refuses the result.
+  const runtimeSources = await readRuntimeSources();
+  const projectionIdentities = await sourceIdentities(instrument);
   const attempts = new Map<Digest, LoadedAttempt>();
   for (const id of view.attempts) attempts.set(id, admitAttempt(id, await store.get(id), view.instrumentDigest));
 
@@ -243,7 +264,7 @@ export async function studyEvidence(report: unknown, store: ArtifactStore): Prom
     if (designs === 0) emptyHoldoutGroups++;
   }
 
-  const groups = sortedUnique(view.summaries.map((summary) => cellGroup(summary.replicate, summary.condition)), "dataset.groups");
+  const groups = sortedUnique(view.summaries.map((summary) => cellGroup(summary.replicate, summary.condition)), "dataset.groups", MAX_SUMMARIES);
   const agentEffects = [...attempts.values()].flatMap((attempt) => attempt.receipt.effects.filter((effect) => !effect.executor.startsWith("tool:")));
   const routeDigests = new Set(agentEffects.map((effect) => effect.configurationDigest).filter((d): d is Digest => d !== undefined));
   const usageUnits = `${view.backend}-agent-effects`;
@@ -266,11 +287,14 @@ export async function studyEvidence(report: unknown, store: ArtifactStore): Prom
   if (settings.primedDesigns > 0) limitations.push("train cases include host-primed control designs identical across conditions by construction; they are not researcher discoveries.");
   if (emptyHoldoutGroups > 0) limitations.push(`${emptyHoldoutGroups} replicate/condition group(s) froze empty portfolios; their holdout outcomes contain no cases.`);
   if (routeDigests.size !== 1) limitations.push("no single executor configuration digest binds the agent effects, so routeDigest is null.");
+  if (projectionIdentities.instrumentDigest !== view.instrumentDigest || projectionIdentities.applicationDigest !== view.applicationDigest) {
+    limitations.push("the installed laboratory and runtime sources at projection time differ from the study's recorded instrumentDigest/applicationDigest; evaluator.runtimeDigest names the projection-time runtime, not the study-time install.");
+  }
 
   const record = buildEvaluationEvidence({
     contract: "algal.evaluation-evidence.v1",
     baseArtifact: view.instrumentDigest,
-    candidateArtifact: digest({ contract: "algal.lab.evaluation-candidate.v1", reportDigest, portfolios: sortedUnique(portfolios, "portfolios") }),
+    candidateArtifact: digest({ contract: "algal.lab.evaluation-candidate.v1", reportDigest, portfolios: sortedUnique(portfolios, "portfolios", MAX_PORTFOLIO_REFERENCES) }),
     dataset: {
       digest: digest(view.protocol),
       groups,
@@ -280,7 +304,7 @@ export async function studyEvidence(report: unknown, store: ArtifactStore): Prom
       labelProvenance: "scores are instrument measurements produced by the lab simulator, not human or model labels",
       redactionPolicy: "no personal data is collected; researcher text is bounded protocol content and nothing is redacted",
     },
-    evaluator: { scorerDigest: view.applicationDigest, runtimeDigest: runtimeDigest(await readRuntimeSources()), routeDigest: routeDigests.size === 1 ? [...routeDigests][0]! : null },
+    evaluator: { scorerDigest: view.applicationDigest, runtimeDigest: runtimeDigest(runtimeSources), routeDigest: routeDigests.size === 1 ? [...routeDigests][0]! : null },
     usage: {
       modelCalls: attempts.size === 0 ? 0 : [...attempts.values()].reduce((sum, attempt) => sum + attempt.receipt.work.agentCalls, 0),
       tokensIn: agentEffects.reduce((sum, effect) => sum + (effect.usage?.tokensIn ?? 0), 0),
@@ -295,14 +319,14 @@ export async function studyEvidence(report: unknown, store: ArtifactStore): Prom
     outcomes: { train: outcomeCases(train), validation: outcomeCases(validation), holdout: outcomeCases(holdout) },
     independentReview: { status: "not-reviewed", reviewer: null, notes: null },
     claimCategory: "replay",
-    limitations: sortedUnique(limitations, "limitations"),
+    limitations: sortedUnique(limitations, "limitations", HOST_CONTRACT_BOUNDS.maxLimitEntries),
   });
   const records = [record];
   // Records list the artifact-store reference of each record: the digest of the
   // stored object including its signed `digest` field, which is the name
   // `ArtifactStore.get` retrieves and re-verifies.
   const body: Omit<StudyEvidence, "digest"> = { contract: STUDY_EVIDENCE_CONTRACT, reportDigest, backend: view.backend, instrumentDigest: view.instrumentDigest, applicationDigest: view.applicationDigest,
-    records: sortedUnique(records.map((r) => digest(r)), "records") as Digest[] };
+    records: sortedUnique(records.map((r) => digest(r)), "records", MAX_EVIDENCE_RECORDS) as Digest[] };
   return { records, envelope: { ...body, digest: digest(body) } };
 }
 
@@ -310,7 +334,7 @@ export function parseStudyEvidence(value: unknown): StudyEvidence {
   const raw = object(value, ["contract", "reportDigest", "backend", "instrumentDigest", "applicationDigest", "records", "digest"], "study evidence");
   if (raw.contract !== STUDY_EVIDENCE_CONTRACT) throw new Error("study evidence: unsupported contract");
   if (raw.backend !== "scripted" && raw.backend !== "random" && raw.backend !== "command") throw new Error("study evidence: unknown backend");
-  if (!Array.isArray(raw.records) || raw.records.length === 0 || raw.records.length > 64) throw new Error("study evidence.records: expected 1..64 digests");
+  if (!Array.isArray(raw.records) || raw.records.length === 0 || raw.records.length > MAX_EVIDENCE_RECORDS) throw new Error(`study evidence.records: expected 1..${MAX_EVIDENCE_RECORDS} digests`);
   const records = raw.records.map(digestString);
   if (records.some((record, index) => index > 0 && record <= records[index - 1]!)) throw new Error("study evidence.records: must be sorted and unique");
   const body: Omit<StudyEvidence, "digest"> = { contract: STUDY_EVIDENCE_CONTRACT, reportDigest: digestString(raw.reportDigest), backend: raw.backend as StudyEvidence["backend"],
@@ -342,6 +366,14 @@ export async function verifyStudyEvidence(directory: string): Promise<{ ok: true
   const raw = object(await readJsonFile(join(directory, "study.json")), ["report", "digest"], "study envelope");
   if (digest(raw.report) !== digestString(raw.digest)) throw new Error("study report digest mismatch");
   if (envelope.reportDigest !== digestString(raw.digest)) throw new Error("evidence binds a different report");
+  // The envelope's recorded source identities must still describe the installed
+  // laboratory and runtime: evaluator.runtimeDigest is projection-time while
+  // scorerDigest embeds the study-time runtime, so a drifted install fails here
+  // rather than silently reproducing a record that describes another state.
+  const identities = await sourceIdentities(instrumentOf(admitStudyView(raw.report).protocol));
+  if (envelope.instrumentDigest !== identities.instrumentDigest || envelope.applicationDigest !== identities.applicationDigest) {
+    throw new Error("source identity changed; verify evidence with the exact recorded source version");
+  }
   const store = new ArtifactStore(directory);
   const rebuilt = await studyEvidence(raw.report, store);
   if (!equal(rebuilt.envelope, envelope)) throw new Error("evidence differs from reproduced projection");
