@@ -165,3 +165,10 @@ The [nine demand certificates](research/spikes/moonshot-r310/demand_certificates
 use only Python's standard library. CI runs their five control tests and then
 verifies every published certificate, including all 150,902 required
 endpoint unions. Their README gives the same two commands for local use.
+
+The [expanded sample](research/spikes/moonshot-r310/demand_certificates/SAMPLE.md)
+contains integer certificates for 113 of 128 specified graphs, including the
+original nine. CI runs `test_verify_sample.py` and `verify_sample.py` in the
+same directory: six controls and 311,618 endpoint-union checks. The proof
+uses only the standard library and exact integer arithmetic. The other
+15 sample graphs remain unresolved by these certificates.
