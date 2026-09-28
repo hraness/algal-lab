@@ -6,6 +6,7 @@ export const CONDITIONS = ["isolated", "shared-artifacts", "shared-artifacts-and
 export type Condition = typeof CONDITIONS[number];
 export const ALGAL_REVISION = "0f73388df2093c52291687a9fccb6d170bdf2928";
 export const MAX_ATTEMPTS = 288;
+export const MAX_REPLICATES = 8;
 export const PROPOSAL_CONTRACT = "algal.lab.proposal.v2";
 
 export function freeze<T>(value: T): T {
@@ -134,7 +135,7 @@ export function parseProtocol(value: unknown): Protocol {
   const budget = parseBudget({ nodes: p.nodes, edges: p.edges, failureSteps: p.failureSteps }, "protocol");
   const base: ProtocolV1 = {
     contract: "algal.lab.study.v1", name,
-    replicateSeeds: seeds(p.replicateSeeds, 8, "replicateSeeds"),
+    replicateSeeds: seeds(p.replicateSeeds, MAX_REPLICATES, "replicateSeeds"),
     researchers: integer(p.researchers, 2, 8, "researchers"),
     rounds: integer(p.rounds, 1, 12, "rounds"),
     ...budget,

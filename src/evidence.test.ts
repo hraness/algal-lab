@@ -1,10 +1,10 @@
 import { afterEach, expect, test } from "bun:test";
-import { mkdtemp, rm, writeFile } from "node:fs/promises";
+import { mkdir, mkdtemp, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { parseEvaluationEvidence, type EvaluationEvidence, type Executor } from "@hraness/algal";
-import { ArtifactStore, digest, readJsonFile } from "./artifacts";
-import { CONDITIONS, json, object } from "./contracts";
+import { ArtifactStore, digest, readJsonFile, sourceIdentities } from "./artifacts";
+import { ALGAL_REVISION, CONDITIONS, json, object } from "./contracts";
 import { admitStudyView, parseStudyEvidence, studyEvidence, verifyStudyEvidence, writeStudyEvidence } from "./evidence";
 import { researchManifest } from "./researcher";
 import { runStudy, type Attempt, type StudyReport } from "./study";
@@ -161,3 +161,87 @@ test("admitStudyView rejects foreign and drifted reports before any projection",
   const store = new ArtifactStore(directory);
   await expect(studyEvidence(drifted, store)).rejects.toThrow(/does not bind its portfolio/);
 });
+
+/** A synthetic report over the largest legal protocol: 8 replicate seeds times
+ * 3 conditions times (1 primary + 2 transfer) portfolios = 72 distinct
+ * portfolio digests, the count that overflowed the old fixed bound. */
+async function maximalReport(store: ArtifactStore) {
+  const maximal = {
+    contract: "algal.lab.study.v2", name: "max", replicateSeeds: [0, 1, 2, 3, 4, 5, 6, 7], researchers: 2, rounds: 4,
+    nodes: 6, edges: 7, failureSteps: 2, discoverySeeds: [11], holdoutSeeds: [101],
+    primedDesigns: 0, counterbalance: false,
+    transferRegimes: [{ nodes: 7, edges: 9, failureSteps: 2 }, { nodes: 8, edges: 10, failureSteps: 2 }],
+  };
+  const identities = await sourceIdentities("network.v1");
+  const scores = { attempts: 0, primedDesigns: 0, validExperiments: 0, uniqueDesigns: 0, predictionMae: null,
+    meanHoldoutAuc: null, bestHoldoutAuc: null, coverageAt075: 0, selectedAttempt: null, selectedScore: null,
+    selectedRandomAuc: null, selectedTargetedAuc: null };
+  const summaries = [];
+  for (const replicate of maximal.replicateSeeds) {
+    for (const name of CONDITIONS) {
+      const slot = async (tag: string) => {
+        const portfolioDigest = digest({ portfolio: `${replicate}:${name}:${tag}` });
+        const evaluation = await store.put({ contract: "algal.lab.evaluation.v1", instrumentDigest: identities.instrumentDigest,
+          portfolioDigest, holdoutSeeds: maximal.holdoutSeeds, designs: [] });
+        return { portfolioDigest, evaluation };
+      };
+      const [primary, t0, t1] = [await slot("primary"), await slot("t0"), await slot("t1")];
+      summaries.push({ replicate, condition: name, ...scores, portfolioDigest: primary.portfolioDigest, evaluation: primary.evaluation,
+        transfers: [t0, t1].map((t) => ({ regime: maximal.transferRegimes[0], attempts: 0, validExperiments: 0, uniqueDesigns: 0,
+          predictionMae: null, selectedAttempt: null, selectedScore: null, selectedRandomAuc: null, selectedTargetedAuc: null,
+          portfolioDigest: t.portfolioDigest, evaluation: t.evaluation })) });
+    }
+  }
+  return { contract: "algal.lab.report.v3", algalRevision: ALGAL_REVISION, backend: "scripted", protocol: maximal, ...identities,
+    researcherManifest: digest({ manifest: "synthetic" }), conditionOrders: [], attempts: [], summaries };
+}
+
+test("a maximal legal protocol's 72 distinct portfolio digests project within the derived bound", async () => {
+  const directory = await location();
+  await mkdir(directory);
+  const store = new ArtifactStore(directory);
+  await store.initialize();
+  const report = await maximalReport(store);
+  const admitted = admitStudyView(json(report));
+  expect(admitted.summaries).toHaveLength(24); // 8 replicate seeds x 3 conditions
+  const { records } = await studyEvidence(json(report), store);
+  expect(records).toHaveLength(1);
+  expect(records[0]!.dataset.groups).toHaveLength(24);
+  // One summary or one transfer beyond the derived bounds refuses admission.
+  expect(() => admitStudyView({ ...report, summaries: [...report.summaries, report.summaries[0]!] })).toThrow(/summaries/);
+  const extraTransfer = report.summaries.map((s, i) => i === 0 ? { ...s, transfers: [...s.transfers, s.transfers[0]!] } : s);
+  expect(() => admitStudyView({ ...report, summaries: extraTransfer })).toThrow(/transfers/);
+});
+
+test("an attempt receipt whose digest does not match its body is rejected", async () => {
+  const directory = await location();
+  const report = await runStudy(protocol, directory);
+  const store = new ArtifactStore(directory);
+  const attempt = (await store.get(report.attempts[0]!)) as Attempt;
+  const tamperedId = await store.put({ ...attempt, receipt: { ...attempt.receipt, digest: digest({ tampered: true }) } });
+  await expect(studyEvidence(json({ ...report, attempts: [tamperedId], summaries: [] }), store)).rejects.toThrow(/receipt body does not match its digest/);
+});
+
+test("a drifted projection install is disclosed in the record and refused at verification", async () => {
+  const directory = await location();
+  const report = await runStudy(protocol, directory);
+  const store = new ArtifactStore(directory);
+  // A report recorded under different source identities still projects: the
+  // record discloses the drift rather than silently mixing install states.
+  const drifted = { ...report, instrumentDigest: digest({ other: "instrument" }), applicationDigest: digest({ other: "application" }),
+    attempts: [], summaries: [] };
+  const { records } = await studyEvidence(json(drifted), store);
+  expect(records[0]!.limitations.some((line) => line.includes("differ from the study's recorded"))).toBe(true);
+  const clean = await studyEvidence(json({ ...report, attempts: [], summaries: [] }), store);
+  expect(clean.records[0]!.limitations.some((line) => line.includes("differ from the study's recorded"))).toBe(false);
+  // And an evidence envelope whose recorded identities do not match the
+  // installed sources fails verification before any record is checked.
+  await writeStudyEvidence(directory);
+  const file = object(await readJsonFile(join(directory, "evidence.json")), ["envelope", "digest"], "evidence file");
+  const env = file.envelope as Record<string, unknown>;
+  const forgedBody = { contract: env.contract, reportDigest: env.reportDigest, backend: env.backend,
+    instrumentDigest: digest({ other: "instrument" }), applicationDigest: env.applicationDigest, records: env.records };
+  const forged = { ...forgedBody, digest: digest(forgedBody) };
+  await writeFile(join(directory, "evidence.json"), JSON.stringify({ envelope: forged, digest: forged.digest }));
+  await expect(verifyStudyEvidence(directory)).rejects.toThrow(/source identity changed/);
+}, 30000);

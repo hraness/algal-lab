@@ -28,6 +28,7 @@ import { join } from "node:path";
 import { canonicalize, parseEvaluationEvidence, type Digest, type EvaluationEvidence } from "@hraness/algal";
 import { ArtifactStore, digest, digestString, readJsonFile } from "./artifacts";
 import { equal, json, object, text } from "./contracts";
+import { parseStudyEvidence, type StudyEvidence } from "./evidence";
 
 export const CLAIM_CONTRACT = "algal.lab.claim.v1";
 export const CLAIMS_LEDGER_CONTRACT = "algal.lab.claims-ledger.v1";
@@ -73,6 +74,40 @@ export function recordsEvidenceResolver(records: Iterable<EvaluationEvidence>): 
   const byDigest = new Map<Digest, EvaluationEvidence>();
   for (const record of records) byDigest.set(digest(record), record);
   return async (reference) => byDigest.get(reference) ?? null;
+}
+
+/** The run's evidence envelope: the set of `algal.evaluation-evidence.v1`
+ * records a claim may cite. The envelope is what separates this run's attested
+ * evidence from any other record that happens to sit in the shared
+ * content-addressed store — a record dropped into the store is not evidence for
+ * this run unless the envelope lists it. Absent or malformed envelopes fail
+ * closed, at write and at verify. */
+async function evidenceEnvelope(directory: string): Promise<StudyEvidence> {
+  let file: Record<string, unknown>;
+  try {
+    file = object(await readJsonFile(join(directory, "evidence.json")), ["envelope", "digest"], "evidence file");
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === "ENOENT") {
+      throw new Error(`${directory}/evidence.json is missing; run \`lab evidence\` first so the envelope names the records claims may cite`);
+    }
+    throw error;
+  }
+  const envelope = parseStudyEvidence(file.envelope);
+  if (envelope.digest !== digestString(file.digest)) throw new Error("evidence digest mismatch");
+  return envelope;
+}
+
+/** Every citation must name a record the run's evidence envelope attests.
+ * Resolving against the whole store would let a forged record prop up a claim,
+ * so an outside-envelope citation is an error — never a silent downgrade to
+ * insufficient-evidence. */
+function requireEnvelopeCitations(claims: Iterable<{ id: string; citations: ClaimCitation[] }>, envelope: StudyEvidence): void {
+  const attested = new Set<Digest>(envelope.records);
+  for (const claim of claims) {
+    for (const citation of claim.citations) {
+      if (!attested.has(citation.evidence)) throw new Error(`claim ${claim.id}: cites evidence outside this run's evidence envelope`);
+    }
+  }
 }
 
 /** Grade one record's evidentiary sufficiency. A record where nothing
@@ -198,25 +233,34 @@ export async function verifyClaimsLedger(value: unknown, resolve: EvidenceResolv
 }
 
 /** Read `{ drafts: [claim drafts] }`, assess each against the evidence records
- * in one run directory's artifact store, and write claims.json once. Drafts
- * name asked categories and citations only; outcomes are always derived. */
+ * the run's evidence envelope attests, and write claims.json once. The
+ * envelope must exist first — without it nothing is attested, and a ledger
+ * written now could never verify. Drafts name asked categories and citations
+ * only; outcomes are always derived. */
 export async function writeStudyClaims(directory: string, draftsFile: string): Promise<ClaimsLedger> {
+  const envelope = await evidenceEnvelope(directory);
   const raw = object(await readJsonFile(draftsFile), ["drafts"], "claims drafts");
   if (!Array.isArray(raw.drafts) || raw.drafts.length > CLAIM_BOUNDS.claims) throw new Error(`claims drafts: at most ${CLAIM_BOUNDS.claims}`);
   const resolve = storeEvidenceResolver(new ArtifactStore(directory));
   const claims: Claim[] = [];
-  for (const draft of raw.drafts) claims.push(await buildClaim(draft, resolve));
+  for (const draft of raw.drafts) {
+    const admitted = admitClaimDraft(draft);
+    requireEnvelopeCitations([admitted], envelope);
+    claims.push(await buildClaim(admitted, resolve));
+  }
   const ledger = buildClaimsLedger(claims);
   await writeFile(join(directory, "claims.json"), canonicalize(json({ ledger, digest: ledger.digest })) + "\n", { flag: "wx", mode: 0o600 });
   return ledger;
 }
 
-/** Check a run directory's claims.json: the envelope digest binds the ledger
- * and every claim's recorded outcome re-derives from the archived evidence. */
+/** Check a run directory's claims.json: the file digest binds the ledger,
+ * every citation names a record the run's evidence envelope attests, and every
+ * claim's recorded outcome re-derives from the archived evidence. */
 export async function verifyStudyClaims(directory: string): Promise<{ ok: true; claims: number; insufficient: number; contradicted: number; claimsDigest: Digest }> {
   const file = object(await readJsonFile(join(directory, "claims.json")), ["ledger", "digest"], "claims file");
   const ledger = parseClaimsLedger(file.ledger);
   if (ledger.digest !== digestString(file.digest)) throw new Error("claims digest mismatch");
+  requireEnvelopeCitations(ledger.claims, await evidenceEnvelope(directory));
   const result = await verifyClaimsLedger(ledger, storeEvidenceResolver(new ArtifactStore(directory)));
   return { ...result, claimsDigest: ledger.digest };
 }
