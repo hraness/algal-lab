@@ -1,6 +1,131 @@
 [
  {
   "paper": "arxiv:1808.07410",
+  "claim": "Theorem 4 (likelihood ratio order)",
+  "page": 8,
+  "quote": "Theorem 4: Let Y ~ EIPLD(alpha_1, beta_1, theta_1) and Z ~ EIPLD(alpha_2, beta_2, theta_2). If beta_1 = beta_2 and theta_2 >= theta_1 (or if beta_2 >= beta_1 and theta_1 = theta_2) then (Y <=lr Z) for all z. ... Setting alpha_1 = alpha_2. Case 1: for beta_1 = beta_2 and theta_2 >= theta_1 we obtained d/dz [g_Z(z)/g_Y(z)] as an increasing function of z. Case 2: beta_2 >= beta_1 and theta_1 = theta_2 we obtained d/dz [g_Z(z)/g_Y(z)] as an increasing function of z. This implies that Y <=lr Z for all z. Hence Y <=hr Z, Y <=mrl Z and Y <=st Z.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "Exponentiated Inverse Power Lindley Distribution EIPLD(alpha, beta, theta)",
+  "compared": "parameters (beta_1, theta_1) vs (beta_2, theta_2); alpha set equal in proof",
+  "hypotheses": [
+   {
+    "text": "If beta_1 = beta_2 and theta_2 >= theta_1",
+    "formal": "case 1: equal beta, theta_2 >= theta_1",
+    "source": "statement"
+   },
+   {
+    "text": "or if beta_2 >= beta_1 and theta_1 = theta_2",
+    "formal": "case 2: equal theta, beta_2 >= beta_1",
+    "source": "statement"
+   },
+   {
+    "text": "Setting alpha_1 = alpha_2",
+    "formal": "alpha_1 = alpha_2 (added in proof, not in the printed hypotheses)",
+    "source": "section preamble"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "Y <=lr Z (g_Z/g_Y increasing in z; Y side smaller)"
+  },
+  "quantifiers": "all z > 0",
+  "numbers": "",
+  "ambiguity": "The printed hypotheses cover only beta and theta; the proof explicitly sets alpha_1 = alpha_2, so the conclusion is only demonstrated for equal alpha. Recorded as printed.",
+  "adjudication": "adjudicated: Theorem 4 proves Y <=lr Z (under alpha_1=alpha_2 plus either parameter case) and then states 'Hence "
+ },
+ {
+  "paper": "arxiv:1808.07410",
+  "claim": "Theorem 4 (hazard rate order)",
+  "page": 8,
+  "quote": "This implies that Y <=lr Z for all z. Hence Y <=hr Z, Y <=mrl Z and Y <=st Z.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "EIPLD(alpha, beta, theta)",
+  "compared": "parameters (beta_1, theta_1) vs (beta_2, theta_2); alpha set equal in proof",
+  "hypotheses": [
+   {
+    "text": "If beta_1 = beta_2 and theta_2 >= theta_1 (or if beta_2 >= beta_1 and theta_1 = theta_2)",
+    "formal": "two alternative parameter conditions",
+    "source": "statement"
+   },
+   {
+    "text": "Y <=lr Z for all z (just established)",
+    "formal": "lr order implies hr order",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "Y <=hr Z (Y side smaller)"
+  },
+  "quantifiers": "all z > 0",
+  "numbers": "",
+  "ambiguity": "Follows from the lr conclusion via the printed implication chain; same alpha caveat applies.",
+  "adjudication": "adjudicated: Theorem 4 proves Y <=lr Z (under alpha_1=alpha_2 plus either parameter case) and then states 'Hence "
+ },
+ {
+  "paper": "arxiv:1808.07410",
+  "claim": "Theorem 4 (mean residual life order)",
+  "page": 8,
+  "quote": "This implies that Y <=lr Z for all z. Hence Y <=hr Z, Y <=mrl Z and Y <=st Z.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "EIPLD(alpha, beta, theta)",
+  "compared": "parameters (beta_1, theta_1) vs (beta_2, theta_2); alpha set equal in proof",
+  "hypotheses": [
+   {
+    "text": "If beta_1 = beta_2 and theta_2 >= theta_1 (or if beta_2 >= beta_1 and theta_1 = theta_2)",
+    "formal": "two alternative parameter conditions",
+    "source": "statement"
+   },
+   {
+    "text": "Y <=lr Z for all z (just established)",
+    "formal": "lr implies hr implies mrl",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "mrl",
+   "direction": "Y <=mrl Z (Y side smaller; text also prints <=mlr once, a typo)"
+  },
+  "quantifiers": "all z > 0",
+  "numbers": "",
+  "ambiguity": "Section 8 definitions print 'mean residual order (Y <=mlr Z)' \u2014 mlr is a typo for mrl.",
+  "adjudication": "adjudicated: Theorem 4 proves Y <=lr Z (under alpha_1=alpha_2 plus either parameter case) and then states 'Hence "
+ },
+ {
+  "paper": "arxiv:1808.07410",
+  "claim": "Theorem 4 (usual stochastic order)",
+  "page": 8,
+  "quote": "This implies that Y <=lr Z for all z. Hence Y <=hr Z, Y <=mrl Z and Y <=st Z.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "EIPLD(alpha, beta, theta)",
+  "compared": "parameters (beta_1, theta_1) vs (beta_2, theta_2); alpha set equal in proof",
+  "hypotheses": [
+   {
+    "text": "If beta_1 = beta_2 and theta_2 >= theta_1 (or if beta_2 >= beta_1 and theta_1 = theta_2)",
+    "formal": "two alternative parameter conditions",
+    "source": "statement"
+   },
+   {
+    "text": "Y <=lr Z for all z (just established)",
+    "formal": "lr implies hr implies st",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y <=st Z (G_Z(z) <= G_Y(z) for all z; Y side smaller)"
+  },
+  "quantifiers": "all z > 0",
+  "numbers": "",
+  "ambiguity": "Follows from the lr conclusion via the printed implication chain; same alpha caveat applies.",
+  "adjudication": "adjudicated: Theorem 4 proves Y <=lr Z (under alpha_1=alpha_2 plus either parameter case) and then states 'Hence "
+ },
+ {
+  "paper": "arxiv:1808.07410",
   "claim": "Section 8 definitions and implications",
   "page": 8,
   "quote": "A random variable Z is said to be greater than Y in the: (a) Stochastic order (Y <=st Z) if G_Z(z) <= G_Y(z) for all z; (b) Hazard rate order (Y <=hr Z) if h_Z(z) <= h_Y(z) for all z; (c) Mean residual order (Y <=mlr Z) if m_Z(z) <= m_Y(z) for all z; (d) Likelihood ratio order (Y <=lr Z) if g_Z(z)/g_Y(z) is an increasing function of z. The following results (Shaked and Shanthikumar 1994) are well known: Z <=lr Y => Z <=hr Y => Z <=mrl Y => Z <=st Y.",

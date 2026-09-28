@@ -1,1 +1,112 @@
-[]
+[
+ {
+  "paper": "doi:10.21307/stattrans-2018-004",
+  "claim": "Theorem 4 (likelihood ratio order)",
+  "page": 66,
+  "quote": "Theorem 4. Let Xi ~ GZD(theta_i), i = 1, 2 be two random variables. If theta_1 >= theta_2, then X1 <lr X2, X1 <hr X2, X1 <s X2 and X1 <=cx X2.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "Generalized Zeghdoudi distribution GZD(theta): f(x;theta) = (sum_{k=0}^n a_k x^k exp(-theta x)) / (sum_{k=0}^n a_k k!/theta^{k+1}), theta, x > 0",
+  "compared": "rate parameter theta_1 vs theta_2",
+  "hypotheses": [
+   {
+    "text": "theta_1 >= theta_2",
+    "formal": "theta_1 >= theta_2 > 0",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "X1 <lr X2 (f_{X1}/f_{X2} decreasing in t, per Definition 1d)"
+  },
+  "quantifiers": "i = 1, 2; all t > 0",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Both passes agree: theta_1 >= theta_2 makes X1 smaller in all four printed orders (lr, hr, s, cx); t"
+ },
+ {
+  "paper": "doi:10.21307/stattrans-2018-004",
+  "claim": "Theorem 4 (hazard rate order)",
+  "page": 66,
+  "quote": "Theorem 4. Let Xi ~ GZD(theta_i), i = 1, 2 be two random variables. If theta_1 >= theta_2, then X1 <lr X2, X1 <hr X2, X1 <s X2 and X1 <=cx X2.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "Generalized Zeghdoudi distribution GZD(theta)",
+  "compared": "rate parameter theta_1 vs theta_2",
+  "hypotheses": [
+   {
+    "text": "theta_1 >= theta_2",
+    "formal": "theta_1 >= theta_2 > 0",
+    "source": "statement"
+   },
+   {
+    "text": "Likelihood ratio order => Hazard rate order => Stochastic order",
+    "formal": "lr implies hr implies st (used in proof)",
+    "source": "Remark 3"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "X1 <hr X2 (h_{X1}(t) >= h_{X2}(t) for all t, per Definition 1c)"
+  },
+  "quantifiers": "i = 1, 2; all t > 0",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Both passes agree: theta_1 >= theta_2 makes X1 smaller in all four printed orders (lr, hr, s, cx); t"
+ },
+ {
+  "paper": "doi:10.21307/stattrans-2018-004",
+  "claim": "Theorem 4 (stochastic order)",
+  "page": 66,
+  "quote": "Theorem 4. Let Xi ~ GZD(theta_i), i = 1, 2 be two random variables. If theta_1 >= theta_2, then X1 <lr X2, X1 <hr X2, X1 <s X2 and X1 <=cx X2.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "Generalized Zeghdoudi distribution GZD(theta)",
+  "compared": "rate parameter theta_1 vs theta_2",
+  "hypotheses": [
+   {
+    "text": "theta_1 >= theta_2",
+    "formal": "theta_1 >= theta_2 > 0",
+    "source": "statement"
+   },
+   {
+    "text": "Likelihood ratio order => Hazard rate order => Stochastic order",
+    "formal": "lr implies hr implies st (used in proof)",
+    "source": "Remark 3"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X1 <s X2 (F_{X1}(t) >= F_{X2}(t) for all t, per Definition 1a)"
+  },
+  "quantifiers": "i = 1, 2; all t > 0",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Both passes agree: theta_1 >= theta_2 makes X1 smaller in all four printed orders (lr, hr, s, cx); t"
+ },
+ {
+  "paper": "doi:10.21307/stattrans-2018-004",
+  "claim": "Theorem 4 (convex order)",
+  "page": 66,
+  "quote": "Theorem 4. Let Xi ~ GZD(theta_i), i = 1, 2 be two random variables. If theta_1 >= theta_2, then X1 <lr X2, X1 <hr X2, X1 <s X2 and X1 <=cx X2.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "Generalized Zeghdoudi distribution GZD(theta)",
+  "compared": "rate parameter theta_1 vs theta_2",
+  "hypotheses": [
+   {
+    "text": "theta_1 >= theta_2",
+    "formal": "theta_1 >= theta_2 > 0",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: convex (cx)",
+   "direction": "X1 <=cx X2 (E[phi(X1)] <= E[phi(X2)] for all convex phi, per Definition 1b)"
+  },
+  "quantifiers": "i = 1, 2; all convex phi with existing expectations",
+  "numbers": "",
+  "ambiguity": "Remark 3 states 'If E[X]=E[Y], then Convex order <=> Stochastic order'; the convex-order conclusion relies on that implication plus equal means, which the paper does not verify explicitly.",
+  "adjudication": "adjudicated: Both passes agree: theta_1 >= theta_2 makes X1 smaller in all four printed orders (lr, hr, s, cx); t"
+ }
+]

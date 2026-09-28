@@ -51,7 +51,14 @@ def parse_claim(label):
 
 def norm_order(o):
     o = canon(o or '')
-    m = {'usualstochastic':'st','stochastic':'st','st':'st','fsd':'st',
+    # paper-defined orders keep their own label verbatim (do not collapse
+    # 'other: plr-up' into 'lr' via substring matching)
+    if o.startswith('other ') or o.startswith('ageing '):
+        return o
+    # 'plr'/'phr'/'rhr'-style paper orders reached here without a prefix:
+    # only map the exact standard tokens, longest-first
+    m = {'usualstochasticorder':'st','usualstochastic':'st','stochasticorder':'st',
+         'stochastic':'st','st':'st','fsd':'st',
          'hazardrate':'hr','hr':'hr','fr':'hr','failurerate':'hr',
          'reversedhazard':'rh','reversedfailure':'rh','rh':'rh','rhr':'rh','rf':'rh',
          'likelihoodratio':'lr','lr':'lr',

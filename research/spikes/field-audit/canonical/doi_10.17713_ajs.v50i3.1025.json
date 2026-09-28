@@ -3,26 +3,26 @@
   "paper": "doi:10.17713/ajs.v50i3.1025",
   "claim": "Example 1",
   "page": 61,
-  "quote": "Example 1. Let X\u03b1i \u223c Burr(\u03b1i , \u03b2i , 2) (X\u03b1\u2217i \u223c Burr(\u03b1i\u2217 , \u03b2i , 2)), for i = 1, 2, 3. Further, suppose that Ip1 , Ip2 , Ip3 (Ip\u22171 , Ip\u22172 , Ip\u22173 ) is a set of independent Bernoulli random variables, independent of the X\u03b1i 's (X\u03b1\u2217i 's), with E[Ipi ] = pi (E[Ip\u2217i ] = p\u2217i ), for i = 1, 2, 3. We take (\u03b11 , \u03b12 , \u03b13 ) = (4, 0.7, 0.2), (\u03b11\u2217 , \u03b12\u2217 , \u03b13\u2217 ) = (4.2, 0.6, 0.3), (\u03b21 , \u03b22 , \u03b23 ) = (5, 3.5, 1.2), (p1 , p2 , p3 ) = (0.2, 0.3, 0.4), and (p\u22171 , p\u22172 , p\u22173 ) = (0.25, 0.35, 0.25). It is clear that the conditions of Theorem 5 are satisfied. So, we have Y1:n\u2217 \u2264hr Y1:n . Figure 1 represents the function rY1:n\u2217 (x) \u2212 rY1:n (x), which agrees with the intended result.",
+  "quote": "Example 1. Let X\u03b1i \u223c Burr(\u03b1i , \u03b2i , 2) (X\u03b1\u2217i \u223c Burr(\u03b1i\u2217 , \u03b2i , 2)), for i = 1, 2, 3. Further, suppose that Ip1 , Ip2 , Ip3 (Ip\u22171 , Ip\u22172 , Ip\u22173 ) is a set of independent Bernoulli random variables, independent of the X\u03b1i \u2019s (X\u03b1\u2217i \u2019s), with E[Ipi ] = pi (E[Ip\u2217i ] = p\u2217i ), for i = 1, 2, 3. We take (\u03b11 , \u03b12 , \u03b13 ) = (4, 0.7, 0.2), (\u03b11\u2217 , \u03b12\u2217 , \u03b13\u2217 ) = (4.2, 0.6, 0.3), (\u03b21 , \u03b22 , \u03b23 ) = (5, 3.5, 1.2), (p1 , p2 , p3 ) = (0.2, 0.3, 0.4), and (p\u22171 , p\u22172 , p\u22173 ) = (0.25, 0.35, 0.25). It is clear that the conditions of Theorem 5 are satisfied. So, we have Y1:n\u2217 \u2264hr Y1:n . Figure 1 represents the function rY1:n\u2217 (x) \u2212 rY1:n (x), which agrees with the intended result.",
   "kind": "example",
   "model": "order statistic",
-  "family": "Burr(\u03b1i, \u03b2i, 2) severities with Bernoulli claim indicators",
+  "family": "Burr(\u03b1, \u03b2, \u03bb = 2) severities in the portfolio model Yi = Ipi\u00b7Xi (Bernoulli occurrence indicators)",
   "compared": "\u03b1 = (4,0.7,0.2) vs \u03b1* = (4.2,0.6,0.3); p = (0.2,0.3,0.4) vs p* = (0.25,0.35,0.25); common \u03b2 = (5,3.5,1.2), \u03bb = 2",
   "hypotheses": [
    {
     "text": "It is clear that the conditions of Theorem 5 are satisfied",
-    "formal": "\u03a0p* = 0.021875 <= \u03a0p = 0.024; \u03b1 \u2aafw \u03b1* (upper sums 4.9,4.7,4 <= 5.1,4.8,4.2); both (\u03b1,\u03b2),(\u03b1*,\u03b2) in Sn+",
+    "formal": "\u03a0p* = 0.021875 <= \u03a0p = 0.024; \u03b1 \u2aafw \u03b1* (upper partial sums 4,4.7,4.9 <= 4.2,4.8,5.1); both (\u03b1,\u03b2),(\u03b1*,\u03b2) in Sn+",
     "source": "statement"
    }
   ],
   "conclusion": {
    "order": "hr",
-   "direction": "Y*1:3 <=hr Y1:3"
+   "direction": "Y1:n* <=hr Y1:n (starred portfolio's smallest claim is smaller in hr; plotted difference rY1:n*(x) - rY1:n(x) >= 0 in Figure 1)"
   },
-  "quantifiers": "n = 3",
-  "numbers": "\u03b1 = (4,0.7,0.2); \u03b1* = (4.2,0.6,0.3); \u03b2 = (5,3.5,1.2); p = (0.2,0.3,0.4); p* = (0.25,0.35,0.25); \u03bb = 2; Figure 1 plots rY*1:n(x) \u2212 rY1:n(x) >= 0",
+  "quantifiers": "n = 3; all x >= 0",
+  "numbers": "\u03b1 = (4,0.7,0.2); \u03b1* = (4.2,0.6,0.3); \u03b2 = (5,3.5,1.2); p = (0.2,0.3,0.4); p* = (0.25,0.35,0.25); \u03bb = 2; Figure 1 plots rY1:n*(x) \u2212 rY1:n(x) >= 0",
   "ambiguity": "",
-  "adjudication": "example record (pass a)+b"
+  "adjudication": "adjudicated: Both passes agree: Example 1 verifies Theorem 5 with Y1:n* <=hr Y1:n; queue diff was direction-label"
  },
  {
   "paper": "doi:10.17713/ajs.v50i3.1025",
@@ -31,47 +31,282 @@
   "quote": "Example 2. Under the same setup in Example 1, we take (\u03b11\u2217 , \u03b12\u2217 , \u03b13\u2217 ) = (4.2, 0.3, 0.6) with the other unchanged values. It is clear that (\u03b1\u2217 , \u03b2) \u2208/ Sn+ , but it can be easily verified that the other conditions of Theorem 5 are satisfied. Figure 2 represents the function rY1:n\u2217 (x) \u2212 rY1:n (x), which changes the sign.",
   "kind": "counterexample",
   "model": "order statistic",
-  "family": "Burr(\u03b1i, \u03b2i, 2) severities, same as Example 1",
-  "compared": "\u03b1* = (4.2,0.3,0.6) not comonotone with \u03b2 = (5,3.5,1.2), so (\u03b1*,\u03b2) not in Sn+",
+  "family": "Burr(\u03b1, \u03b2, \u03bb = 2) severities, same setup as Example 1",
+  "compared": "\u03b1* = (4.2,0.3,0.6) discordant with \u03b2 = (5,3.5,1.2), so (\u03b1*,\u03b2) \u2209 Sn+; all other parameters as in Example 1",
   "hypotheses": [
    {
-    "text": "the other conditions of Theorem 5 are satisfied",
-    "formal": "only the Sn+ condition on (\u03b1*,\u03b2) fails",
+    "text": "(\u03b1\u2217 , \u03b2) \u2208/ Sn+ , but it can be easily verified that the other conditions of Theorem 5 are satisfied",
+    "formal": "only the Sn+ concordance condition on (\u03b1*,\u03b2) fails; \u03a0p* <= \u03a0p and \u03b1 \u2aafw \u03b1* still hold",
     "source": "statement"
    }
   ],
   "conclusion": {
    "order": "hr",
-   "direction": "refuted: rY*1:3(x) \u2212 rY1:3(x) changes sign (Figure 2), so Y*1:3 <=hr Y1:3 fails"
+   "direction": "no hr ordering: rY1:n*(x) \u2212 rY1:n(x) changes sign (Figure 2) \u2014 the Sn+ concordance hypothesis of Theorem 5 cannot be dropped"
   },
   "quantifiers": "n = 3",
-  "numbers": "\u03b1* = (4.2,0.3,0.6); other values as in Example 1 (\u03b1 = (4,0.7,0.2), \u03b2 = (5,3.5,1.2), p = (0.2,0.3,0.4), p* = (0.25,0.35,0.25), \u03bb = 2)",
+  "numbers": "\u03b1* = (4.2,0.3,0.6); other values as in Example 1 (\u03b1 = (4,0.7,0.2), \u03b2 = (5,3.5,1.2), p = (0.2,0.3,0.4), p* = (0.25,0.35,0.25), \u03bb = 2); Figure 2 shows the hazard-rate difference taking both signs",
   "ambiguity": "Labeled 'Example 2' in the paper; functionally a counterexample showing the Sn+ condition cannot be dropped.",
-  "adjudication": "example record (pass a)+b"
+  "adjudication": "adjudicated: Both passes agree: hazard-rate difference changes sign when (\u03b1*,\u03b2) \u2209 Sn+ \u2014 a counterexample to dropp"
  },
  {
   "paper": "doi:10.17713/ajs.v50i3.1025",
   "claim": "Example 3",
   "page": 62,
-  "quote": "Example 3. Let X\u03b1i \u223c Harris(\u03b1i , \u03b2i ) (X\u03b1\u2217i \u223c Harris(\u03b1i\u2217 , \u03b2i )), for i = 1, 2, 3, with the baseline gamma distribution with the shape parameter 2 and the scale parameter 1 in each two sets. Further, suppose that Ip1 , Ip2 , Ip3 (Ip\u22171 , Ip\u22172 , Ip\u22173 ) is a set of independent Bernoulli random variables, independent of the X\u03b1i 's (X\u03b1\u2217i 's), with E[Ipi ] = pi (E[Ip\u2217i ] = p\u2217i ), for i = 1, 2, 3. We take (\u03b11 , \u03b12 , \u03b13 ) = (1.1, 1.6, 2.5), (\u03b11\u2217 , \u03b12\u2217 , \u03b13\u2217 ) = (1, 1.7, 2.3), (\u03b21 , \u03b22 , \u03b23 ) = (0.1, 0.3, 0.6), (p1 , p2 , p3 ) = (0.1, 0.05, 0.15), and (p\u22171 , p\u22172 , p\u22173 ) = (0.2, 0.05, 0.05). It is clear that the conditions of Theorem 6 are satisfied. So, we have Y1:n\u2217 \u2264hr Y1:n . Figure 3 represents the function rY1:n\u2217 (x) \u2212 rY1:n (x), which coincides with the intended result.",
+  "quote": "Example 3. Let X\u03b1i \u223c Harris(\u03b1i , \u03b2i ) (X\u03b1\u2217i \u223c Harris(\u03b1i\u2217 , \u03b2i )), for i = 1, 2, 3, with the baseline gamma distribution with the shape parameter 2 and the scale parameter 1 in each two sets. Further, suppose that Ip1 , Ip2 , Ip3 (Ip\u22171 , Ip\u22172 , Ip\u22173 ) is a set of independent Bernoulli random variables, independent of the X\u03b1i \u2019s (X\u03b1\u2217i \u2019s), with E[Ipi ] = pi (E[Ip\u2217i ] = p\u2217i ), for i = 1, 2, 3. We take (\u03b11 , \u03b12 , \u03b13 ) = (1.1, 1.6, 2.5), (\u03b11\u2217 , \u03b12\u2217 , \u03b13\u2217 ) = (1, 1.7, 2.3), (\u03b21 , \u03b22 , \u03b23 ) = (0.1, 0.3, 0.6), (p1 , p2 , p3 ) = (0.1, 0.05, 0.15), and (p\u22171 , p\u22172 , p\u22173 ) = (0.2, 0.05, 0.05). It is clear that the conditions of Theorem 6 are satisfied. So, we have Y1:n\u2217 \u2264hr Y1:n . Figure 3 represents the function rY1:n\u2217 (x) \u2212 rY1:n (x), which coincides with the intended result.",
   "kind": "example",
   "model": "order statistic",
-  "family": "Harris(\u03b1i, \u03b2i) severities over Gamma(shape 2, scale 1) baseline",
+  "family": "Harris(\u03b1, \u03b2) severities over Gamma(shape 2, scale 1) baseline in the portfolio model",
   "compared": "\u03b1 = (1.1,1.6,2.5) vs \u03b1* = (1,1.7,2.3); p = (0.1,0.05,0.15) vs p* = (0.2,0.05,0.05); common \u03b2 = (0.1,0.3,0.6)",
   "hypotheses": [
    {
     "text": "It is clear that the conditions of Theorem 6 are satisfied",
-    "formal": "\u03a0p* = 0.0005 <= \u03a0p = 0.00075; \u03b1 weakly supermajorized by \u03b1*; both pairs in Sn+; 0 < \u03b2i <= 1",
+    "formal": "\u03a0p* = 0.0005 <= \u03a0p = 0.00075; \u03b1 \u2aaf^w \u03b1* (lower partial sums 1.1,2.7,5.2 >= 1,2.7,5.0); both (\u03b1,\u03b2),(\u03b1*,\u03b2) in Sn+; 0 < \u03b2i <= 1",
     "source": "statement"
    }
   ],
   "conclusion": {
    "order": "hr",
-   "direction": "Y*1:3 <=hr Y1:3"
+   "direction": "Y1:n* <=hr Y1:n (starred portfolio's smallest claim is smaller in hr; Figure 3 plots rY1:n*(x) \u2212 rY1:n(x) >= 0)"
   },
-  "quantifiers": "n = 3",
-  "numbers": "\u03b1 = (1.1,1.6,2.5); \u03b1* = (1,1.7,2.3); \u03b2 = (0.1,0.3,0.6); p = (0.1,0.05,0.15); p* = (0.2,0.05,0.05); baseline Gamma(2,1); Figure 3 plots rY*1:n(x) \u2212 rY1:n(x) >= 0",
+  "quantifiers": "n = 3; all x >= 0",
+  "numbers": "\u03b1 = (1.1,1.6,2.5); \u03b1* = (1,1.7,2.3); \u03b2 = (0.1,0.3,0.6); p = (0.1,0.05,0.15); p* = (0.2,0.05,0.05); baseline Gamma(shape 2, scale 1); Figure 3",
   "ambiguity": "",
-  "adjudication": "example record (pass a)+b"
+  "adjudication": "adjudicated: Both passes agree: Example 3 verifies Theorem 6 with Y1:n* <=hr Y1:n."
+ },
+ {
+  "paper": "doi:10.17713/ajs.v50i3.1025",
+  "claim": "Theorem 1",
+  "page": 58,
+  "quote": "Theorem 1. Let X1 , . . . , Xn (X1\u2217 , . . . , Xn\u2217 ) be independent and non-negative random variables with Xi \u223c r(x; \u03b1i , \u03b2i ) (Xi\u2217 \u223c r(x; \u03b1i\u2217 , \u03b2i )), i = 1, . . . , n. Further, suppose that Ip1 , . . . , Ipn (Ip\u22171 , . . . , Ip\u2217n ) is a set of independent Bernoulli random variables, independent of the Xi \u2019s (Xi\u2217 \u2019s), with E[Ipi ] = pi (E[Ip\u2217i ] = p\u2217i ), i = 1, . . . , n. Assume that the following conditions hold: (i) r(x; \u03b1, \u03b2) is increasing [decreasing] and convex in \u03b1 for any \u03b2 and any x > 0; (ii) \u2202r(x;\u03b1,\u03b2)/\u2202\u03b1 is decreasing (increasing) in \u03b2 for any \u03b1 and any x > 0. Then, for (\u03b1, \u03b2) \u2208 Sn\u2212 (Sn+ ) and (\u03b1\u2217 , \u03b2) \u2208 Sn\u2212 (Sn+ ), we have \u03a0i=1..n p\u2217i \u2264 \u03a0i=1..n pi and (\u03b11 , . . . , \u03b1n ) \u2aafw [\u2aaf^w](\u03b11\u2217 , . . . , \u03b1n\u2217 ) =\u21d2 Y1:n\u2217 \u2264hr Y1:n .",
+  "kind": "theorem",
+  "model": "order statistic",
+  "family": "general two-parameter severity model: Xi has hazard rate r(x; \u03b1i, \u03b2i); claim amounts Yi = Ipi\u00b7Xi with Bernoulli(pi) indicators; Y1:n = smallest claim amount (portfolio minimum)",
+  "compared": "parameter vectors \u03b1 vs \u03b1* (\u03b2 common); occurrence probability vectors p vs p*",
+  "hypotheses": [
+   {
+    "text": "r(x; \u03b1, \u03b2) is increasing [decreasing] and convex in \u03b1 for any \u03b2 and any x > 0",
+    "formal": "r increasing [decreasing] and convex in \u03b1",
+    "source": "statement"
+   },
+   {
+    "text": "\u2202r(x;\u03b1,\u03b2)/\u2202\u03b1 is decreasing (increasing) in \u03b2 for any \u03b1 and any x > 0",
+    "formal": "\u2202r/\u2202\u03b1 monotone in \u03b2",
+    "source": "statement"
+   },
+   {
+    "text": "for (\u03b1, \u03b2) \u2208 Sn\u2212 (Sn+ ) and (\u03b1\u2217 , \u03b2) \u2208 Sn\u2212 (Sn+ )",
+    "formal": "\u03b1 and \u03b2 oppositely (similarly) ordered componentwise; same for \u03b1*, \u03b2 \u2014 Sn\u00b1 defined in Section 2",
+    "source": "statement"
+   },
+   {
+    "text": "\u03a0p\u2217i \u2264 \u03a0pi and (\u03b11 , . . . , \u03b1n ) \u2aafw [\u2aaf^w](\u03b11\u2217 , . . . , \u03b1n\u2217 )",
+    "formal": "product of p* <= product of p; \u03b1 weakly submajorized [weakly supermajorized] by \u03b1*",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "Y1:n* <=hr Y1:n (starred portfolio's smallest claim is smaller in hazard rate order, i.e., rY1:n* >= rY1:n)"
+  },
+  "quantifiers": "n >= 1; all x >= 0",
+  "numbers": "",
+  "ambiguity": "Two paired variants in one statement: increasing-and-convex in \u03b1 with Sn\u2212 and weak submajorization \u2aafw, versus [decreasing] in \u03b1 with (Sn+) and [weak supermajorization \u2aaf^w]. Direction identical in both variants.",
+  "adjudication": "adjudicated: Both passes record identical order and direction (Y1:n* <=hr Y1:n); merged record keeps both bracket"
+ },
+ {
+  "paper": "doi:10.17713/ajs.v50i3.1025",
+  "claim": "Theorem 2",
+  "page": 59,
+  "quote": "Theorem 2. Let F\u0304 (x; \u03b1i , \u03b2i ) = [F\u0304 (\u03b2i x)]\u03b1i and F\u0304 (x; \u03b1i\u2217 , \u03b2i ) = [F\u0304 (\u03b2i x)]\u03b1i\u2217 , for i = 1, . . . , n. Under the setup of Theorem 1, suppose that the function xr(x) is decreasing (increasing) in x. Then, for (\u03b1, \u03b2) \u2208 Sn\u2212 (Sn+ ) and (\u03b1\u2217 , \u03b2) \u2208 Sn\u2212 (Sn+ ), we have \u03a0i=1..n p\u2217i \u2264 \u03a0i=1..n pi and (\u03b11 , . . . , \u03b1n ) \u2aafw (\u03b11\u2217 , . . . , \u03b1n\u2217 ) =\u21d2 Y1:n\u2217 \u2264hr Y1:n .",
+  "kind": "theorem",
+  "model": "order statistic",
+  "family": "exponentiated scale severities: F\u0304(x; \u03b1, \u03b2) = [F\u0304(\u03b2x)]^\u03b1, \u03b1, \u03b2 > 0, baseline survival F\u0304 with hazard r (portfolio setup of Theorem 1)",
+  "compared": "exponent vectors \u03b1 vs \u03b1* (weak submajorization); common scale vector \u03b2; p vs p*",
+  "hypotheses": [
+   {
+    "text": "Under the setup of Theorem 1",
+    "formal": "independent non-negative Xi, Bernoulli claim indicators with E[Ip] = p",
+    "source": "earlier theorem 1"
+   },
+   {
+    "text": "the function xr(x) is decreasing (increasing) in x",
+    "formal": "x\u00b7r(x) monotone in x",
+    "source": "statement"
+   },
+   {
+    "text": "for (\u03b1, \u03b2) \u2208 Sn\u2212 (Sn+ ) and (\u03b1\u2217 , \u03b2) \u2208 Sn\u2212 (Sn+ )",
+    "formal": "concordance conditions on (\u03b1,\u03b2) and (\u03b1*,\u03b2)",
+    "source": "statement"
+   },
+   {
+    "text": "\u03a0p\u2217i \u2264 \u03a0pi and (\u03b11 , . . . , \u03b1n ) \u2aafw (\u03b11\u2217 , . . . , \u03b1n\u2217 )",
+    "formal": "\u03a0p* <= \u03a0p; \u03b1 weakly submajorized by \u03b1*",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "Y1:n* <=hr Y1:n"
+  },
+  "quantifiers": "n >= 1; all x >= 0",
+  "numbers": "",
+  "ambiguity": "Only the subscript-w symbol \u2aafw is printed (no bracketed superscript-w variant), although both (Sn\u2212) and (Sn+) cases are stated.",
+  "adjudication": "adjudicated: Both passes agree on Y1:n* <=hr Y1:n under \u2aafw; merged record notes the printed symbol lacks the brac"
+ },
+ {
+  "paper": "doi:10.17713/ajs.v50i3.1025",
+  "claim": "Theorem 3",
+  "page": 59,
+  "quote": "Theorem 3. Let F\u0304 (x; \u03b1i , \u03b2i ) = [F\u0304 (\u03b2i x)]\u03b1i and F\u0304 (x; \u03b1i , \u03b2i\u2217 ) = [F\u0304 (\u03b2i\u2217 x)]\u03b1i , for i = 1, . . . , n. Under the setup of Theorem 1, suppose that the function xr(x) is increasing and convex in x. Then, for (\u03b1, \u03b2) \u2208 Sn+ and (\u03b1, \u03b2 \u2217 ) \u2208 Sn+ , we have \u03a0i=1..n p\u2217i \u2264 \u03a0i=1..n pi and (\u03b21 , . . . , \u03b2n ) \u2aafw (\u03b21\u2217 , . . . , \u03b2n\u2217 ) =\u21d2 Y1:n\u2217 \u2264hr Y1:n .",
+  "kind": "theorem",
+  "model": "order statistic",
+  "family": "exponentiated scale severities: F\u0304(x; \u03b1, \u03b2) = [F\u0304(\u03b2x)]^\u03b1",
+  "compared": "scale vectors \u03b2 vs \u03b2* (weak submajorization); common exponent vector \u03b1; p vs p*",
+  "hypotheses": [
+   {
+    "text": "Under the setup of Theorem 1",
+    "formal": "portfolio setup",
+    "source": "earlier theorem 1"
+   },
+   {
+    "text": "the function xr(x) is increasing and convex in x",
+    "formal": "x\u00b7r(x) increasing convex",
+    "source": "statement"
+   },
+   {
+    "text": "for (\u03b1, \u03b2) \u2208 Sn+ and (\u03b1, \u03b2 \u2217 ) \u2208 Sn+",
+    "formal": "\u03b1 and \u03b2 similarly ordered; same for \u03b1 and \u03b2*",
+    "source": "statement"
+   },
+   {
+    "text": "\u03a0p\u2217i \u2264 \u03a0pi and (\u03b21 , . . . , \u03b2n ) \u2aafw (\u03b21\u2217 , . . . , \u03b2n\u2217 )",
+    "formal": "\u03a0p* <= \u03a0p; \u03b2 weakly submajorized by \u03b2*",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "Y1:n* <=hr Y1:n"
+  },
+  "quantifiers": "n >= 1; all x >= 0",
+  "numbers": "",
+  "ambiguity": "Remark 1: setting \u03b1i = 1 reduces to the scale model and recovers Theorem 4 of Barmalzan et al. (2017).",
+  "adjudication": "adjudicated: Both passes agree on Y1:n* <=hr Y1:n under \u03b2 \u2aafw \u03b2*; merged record."
+ },
+ {
+  "paper": "doi:10.17713/ajs.v50i3.1025",
+  "claim": "Theorem 4",
+  "page": 60,
+  "quote": "Theorem 4. Let F\u0304 (x; \u03b1i , \u03b2i ) = [F\u0304 (\u03b2i x)]\u03b1i and F\u0304 (x; \u03b1i\u2217 , \u03b2i\u2217 ) = [F\u0304 (\u03b2i\u2217 x)]\u03b1i\u2217 , for i = 1, . . . , n. Under the setup of Theorem 1, suppose that the function xr(x) is increasing and convex in x. Then, for (\u03b1, \u03b2) \u2208 Sn+ and (\u03b1\u2217 , \u03b2 \u2217 ) \u2208 Sn+ , we have \u03a0i=1..n p\u2217i \u2264 \u03a0i=1..n pi and [\u03b11 . . . \u03b1n; \u03b21 . . . \u03b2n] <row_w [\u03b11\u2217 . . . \u03b1n\u2217; \u03b21\u2217 . . . \u03b2n\u2217] =\u21d2 Y1:n\u2217 \u2264hr Y1:n .",
+  "kind": "theorem",
+  "model": "order statistic",
+  "family": "exponentiated scale severities",
+  "compared": "2\u00d7n parameter matrices [\u03b1;\u03b2] vs [\u03b1*;\u03b2*] via row weak submajorization; p vs p*",
+  "hypotheses": [
+   {
+    "text": "Under the setup of Theorem 1",
+    "formal": "portfolio setup",
+    "source": "earlier theorem 1"
+   },
+   {
+    "text": "the function xr(x) is increasing and convex in x",
+    "formal": "x\u00b7r(x) increasing convex",
+    "source": "statement"
+   },
+   {
+    "text": "for (\u03b1, \u03b2) \u2208 Sn+ and (\u03b1\u2217 , \u03b2 \u2217 ) \u2208 Sn+",
+    "formal": "\u03b1,\u03b2 similarly ordered; \u03b1*,\u03b2* similarly ordered",
+    "source": "statement"
+   },
+   {
+    "text": "\u03a0p\u2217i \u2264 \u03a0pi and [\u03b1;\u03b2] <row_w [\u03b1*;\u03b2*]",
+    "formal": "each row of [\u03b1;\u03b2] weakly submajorized by the corresponding row of [\u03b1*;\u03b2*] (Definition 4(iv))",
+    "source": "statement"
+   },
+   {
+    "text": "Since the weak submajorization is implied by the chain majorization, the majorization and the row majorization, thus the result of Theorem 4 is also obtained under these majorizations.",
+    "formal": "same conclusion under chain/ordinary/row majorization",
+    "source": "section preamble (text after the proof)"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "Y1:n* <=hr Y1:n"
+  },
+  "quantifiers": "n >= 1; all x >= 0",
+  "numbers": "",
+  "ambiguity": "Matrix relation printed with 'w' under the row-majorization symbol; denotes row weak submajorization per Definition 4(iv).",
+  "adjudication": "adjudicated: Both passes agree on Y1:n* <=hr Y1:n under row weak submajorization; merged record keeps the post-pr"
+ },
+ {
+  "paper": "doi:10.17713/ajs.v50i3.1025",
+  "claim": "Theorem 5",
+  "page": 60,
+  "quote": "Theorem 5. Let X\u03b1i \u223c Burr(\u03b1i , \u03b2i , \u03bb) and X\u03b1\u2217i \u223c Burr(\u03b1i\u2217 , \u03b2i , \u03bb), for i = 1, . . . , n. Under the setup of Theorem 3, for (\u03b1, \u03b2) \u2208 Sn+ and (\u03b1\u2217 , \u03b2) \u2208 Sn+ and any \u03bb > 0, we have \u03a0i=1..n p\u2217i \u2264 \u03a0i=1..n pi and (\u03b11 , . . . , \u03b1n ) \u2aafw (\u03b11\u2217 , . . . , \u03b1n\u2217 ) =\u21d2 Y1:n\u2217 \u2264hr Y1:n .",
+  "kind": "theorem",
+  "model": "order statistic",
+  "family": "Burr severities: F\u0304(x; \u03b1, \u03b2, \u03bb) = (1 + (\u03b2x)^\u03bb)^(\u2212\u03b1), x > 0, \u03b1, \u03b2, \u03bb > 0 (exponentiated scale with log-logistic baseline; \u03bb = 1 gives Lomax)",
+  "compared": "tail-shape vectors \u03b1 vs \u03b1* (weak submajorization); common rate vector \u03b2 and common \u03bb; p vs p*",
+  "hypotheses": [
+   {
+    "text": "Under the setup of Theorem 3",
+    "formal": "portfolio setup (the proof actually invokes Theorem 2 \u2014 likely a misprint; see ambiguity)",
+    "source": "statement"
+   },
+   {
+    "text": "for (\u03b1, \u03b2) \u2208 Sn+ and (\u03b1\u2217 , \u03b2) \u2208 Sn+ and any \u03bb > 0",
+    "formal": "\u03b1,\u03b2 similarly ordered; \u03b1*,\u03b2 similarly ordered; \u03bb > 0",
+    "source": "statement"
+   },
+   {
+    "text": "\u03a0p\u2217i \u2264 \u03a0pi and (\u03b11 , . . . , \u03b1n ) \u2aafw (\u03b11\u2217 , . . . , \u03b1n\u2217 )",
+    "formal": "\u03a0p* <= \u03a0p; \u03b1 weakly submajorized by \u03b1*",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "Y1:n* <=hr Y1:n"
+  },
+  "quantifiers": "n >= 1; \u03bb > 0 arbitrary; all x >= 0",
+  "numbers": "",
+  "ambiguity": "Statement says 'Under the setup of Theorem 3' but the proof invokes Theorem 2 ('xr(x) = \u03bbx/(1+x^\u03bb) is increasing in x. Hence, Theorem 2 immediately completes the proof.') \u2014 likely a misprint; for the log-logistic baseline the correct expression is xr(x) = \u03bbx^\u03bb/(1+x^\u03bb), which is increasing as claimed.",
+  "adjudication": "adjudicated: Both passes agree on Y1:n* <=hr Y1:n; merged record keeps both ambiguity notes (Theorem 3 vs 2 mispr"
+ },
+ {
+  "paper": "doi:10.17713/ajs.v50i3.1025",
+  "claim": "Theorem 6",
+  "page": 62,
+  "quote": "Theorem 6. Let X\u03b1i \u223c Harris(\u03b1i , \u03b2i ) and X\u03b1\u2217i \u223c Harris(\u03b1i\u2217 , \u03b2i ), for i = 1, . . . , n. Further assume that 0 < \u03b2i \u2264 1, for i = 1, . . . , n. Under the setup of Theorem 1, for (\u03b1, \u03b2) \u2208 Sn+ and (\u03b1\u2217 , \u03b2) \u2208 Sn+ , we have \u03a0i=1..n p\u2217i \u2264 \u03a0i=1..n pi and (\u03b11 , . . . , \u03b1n ) \u2aaf^w (\u03b11\u2217 , . . . , \u03b1n\u2217 ) =\u21d2 Y1:n\u2217 \u2264hr Y1:n .",
+  "kind": "theorem",
+  "model": "order statistic",
+  "family": "Harris severities: F\u0304(x; \u03b1, \u03b2) = [\u03b2F\u0304^\u03b1(x)/(1 \u2212 (1 \u2212 \u03b2)F\u0304^\u03b1(x))]^{1/\u03b1}, \u03b1, \u03b2 > 0, baseline survival F\u0304 (contains Marshall\u2013Olkin)",
+  "compared": "shape vectors \u03b1 vs \u03b1* (weak supermajorization); common \u03b2 vector with 0 < \u03b2i <= 1; p vs p*",
+  "hypotheses": [
+   {
+    "text": "Further assume that 0 < \u03b2i \u2264 1, for i = 1, . . . , n",
+    "formal": "\u03b2i in (0,1]",
+    "source": "statement"
+   },
+   {
+    "text": "Under the setup of Theorem 1, for (\u03b1, \u03b2) \u2208 Sn+ and (\u03b1\u2217 , \u03b2) \u2208 Sn+",
+    "formal": "portfolio setup; \u03b1,\u03b2 and \u03b1*,\u03b2 similarly ordered",
+    "source": "earlier theorem 1"
+   },
+   {
+    "text": "\u03a0p\u2217i \u2264 \u03a0pi and (\u03b11 , . . . , \u03b1n ) \u2aaf^w (\u03b11\u2217 , . . . , \u03b1n\u2217 )",
+    "formal": "\u03a0p* <= \u03a0p; \u03b1 weakly supermajorized by \u03b1* (superscript w printed)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "Y1:n* <=hr Y1:n"
+  },
+  "quantifiers": "n >= 1; 0 < \u03b2i <= 1; all x >= 0",
+  "numbers": "",
+  "ambiguity": "Uses the bracketed (decreasing in \u03b1, Sn+, weak supermajorization) variant of Theorem 1; the superscript w is partially lost in the text layer but consistent with r decreasing in \u03b1 and with Example 3's numbers (\u03b1 \u2aaf^w \u03b1*: lower sums 1.1,2.7,5.2 >= 1,2.7,5.0).",
+  "adjudication": "adjudicated: Both passes agree on Y1:n* <=hr Y1:n under weak supermajorization \u2aaf^w; merged record."
  }
 ]

@@ -1,0 +1,345 @@
+[
+ {
+  "queue_claim": "unn5:definitions and implication chain section 5",
+  "decision": "exclude",
+  "records": [],
+  "note": "Section 5 opens with textbook definitions of st/hr/lr and the generic lr⇒hr⇒st implication chain for arbitrary random variables — review material, not a result for a specific family; out of scope."
+ },
+ {
+  "queue_claim": "unn5:section 5 claim a hr",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.18869/acadpub.jsri.13.2.231",
+    "claim": "Section 5, unnumbered claim in α (hr part)",
+    "page": 239,
+    "quote": "Suppose random variables X and Y are distributed according to TEE(α1, λ1) and TEE(α2, λ2), respectively. If λ1 = λ2, then it is easy to show that g(x)/f(x) is a decreasing function of x if and only if α1 < α2. So, Y ⩽lr X implies Y ⩽hr X and hence we see that Y ⩽st X for α1 < α2.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "truncated exponential-exponential TEE(α, λ)",
+    "compared": "X ~ TEE(α1, λ) vs Y ~ TEE(α2, λ), common λ, α1 < α2",
+    "hypotheses": [
+     {
+      "text": "λ1 = λ2; α1 < α2",
+      "formal": "equal rate parameter, ordered shape parameter",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "Y ≤hr X (larger-α variable smaller in hazard rate order)"
+    },
+    "quantifiers": "all x in the support",
+    "numbers": "",
+    "ambiguity": "Unnumbered inline result in Section 5. Paper defines X ≤lr Y by g(x)/f(x) increasing (f density of X, g of Y); g/f decreasing iff α1 < α2 gives Y ≤lr X."
+   }
+  ],
+  "note": "Paper prints Y ≤hr X for α1 < α2 (common λ) as the middle step of the printed lr⇒hr⇒st chain for TEE."
+ },
+ {
+  "queue_claim": "unn5:section 5 claim a lr",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.18869/acadpub.jsri.13.2.231",
+    "claim": "Section 5, unnumbered claim in α (lr part)",
+    "page": 239,
+    "quote": "Suppose random variables X and Y are distributed according to TEE(α1, λ1) and TEE(α2, λ2), respectively. If λ1 = λ2, then it is easy to show that g(x)/f(x) is a decreasing function of x if and only if α1 < α2. So, Y ⩽lr X implies Y ⩽hr X and hence we see that Y ⩽st X for α1 < α2.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "truncated exponential-exponential TEE(α, λ)",
+    "compared": "X ~ TEE(α1, λ) vs Y ~ TEE(α2, λ), common λ, α1 < α2",
+    "hypotheses": [
+     {
+      "text": "λ1 = λ2; α1 < α2 (g(x)/f(x) decreasing iff α1 < α2)",
+      "formal": "equal rate, ordered shape; density ratio g/f decreasing",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "Y ≤lr X (larger-α variable smaller in likelihood ratio order)"
+    },
+    "quantifiers": "all x in the support",
+    "numbers": "",
+    "ambiguity": "Unnumbered inline result. Iff characterization printed: g/f decreasing ⟺ α1 < α2."
+   }
+  ],
+  "note": "Paper prints Y ≤lr X for α1 < α2 with common λ; pass A merged all three orders, B split — kept one record per order."
+ },
+ {
+  "queue_claim": "unn5:section 5 claim a st",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.18869/acadpub.jsri.13.2.231",
+    "claim": "Section 5, unnumbered claim in α (st part)",
+    "page": 239,
+    "quote": "So, Y ⩽lr X implies Y ⩽hr X and hence we see that Y ⩽st X for α1 < α2.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "truncated exponential-exponential TEE(α, λ)",
+    "compared": "X ~ TEE(α1, λ) vs Y ~ TEE(α2, λ), common λ, α1 < α2",
+    "hypotheses": [
+     {
+      "text": "λ1 = λ2; α1 < α2",
+      "formal": "equal rate, ordered shape",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "Y ≤st X (larger-α variable stochastically smaller)"
+    },
+    "quantifiers": "all x",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "st conclusion of the α-claim printed explicitly; direction Y ≤st X."
+ },
+ {
+  "queue_claim": "unn5:section 5 claim b hr",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.18869/acadpub.jsri.13.2.231",
+    "claim": "Section 5, unnumbered claim in λ (hr part)",
+    "page": 239,
+    "quote": "If α1 = α2 = α then g(x)/f(x) = (λ2/λ1)h(x), (8) where h(x) = e^{(λ1−λ2)x} e^{α(e^{−λ2 x}−e^{−λ1 x})}. Hence, we have ∂ log h(x)/∂x = q(λ1) − q(λ2), where q(λ) = λ(1 + αe^{−λx}). (9) It can be shown that if α > −1 then (9) is an increasing function of λ (see Appendix A for more details) and it follows that (8) is a decreasing function of x if λ1 < λ2. So, Y ⩽lr X implies Y ⩽hr X and hence we see that Y ⩽st X for any α > −1 and λ1 < λ2.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "truncated exponential-exponential TEE(α, λ)",
+    "compared": "X ~ TEE(α, λ1) vs Y ~ TEE(α, λ2), common α > −1, λ1 < λ2",
+    "hypotheses": [
+     {
+      "text": "α1 = α2 = α with α > −1; λ1 < λ2",
+      "formal": "equal shape α > −1 (needed for q increasing in λ, Appendix A), ordered rates",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "Y ≤hr X (larger-λ variable smaller in hazard rate order)"
+    },
+    "quantifiers": "all x; α > −1",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "λ-claim prints Y ≤hr X under common α > −1 and λ1 < λ2."
+ },
+ {
+  "queue_claim": "unn5:section 5 claim b lr",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.18869/acadpub.jsri.13.2.231",
+    "claim": "Section 5, unnumbered claim in λ (lr part)",
+    "page": 239,
+    "quote": "If α1 = α2 = α then g(x)/f(x) = (λ2/λ1)h(x), (8) where h(x) = e^{(λ1−λ2)x} e^{α(e^{−λ2 x}−e^{−λ1 x})}. Hence, we have ∂ log h(x)/∂x = q(λ1) − q(λ2), where q(λ) = λ(1 + αe^{−λx}). (9) It can be shown that if α > −1 then (9) is an increasing function of λ (see Appendix A for more details) and it follows that (8) is a decreasing function of x if λ1 < λ2. So, Y ⩽lr X implies Y ⩽hr X and hence we see that Y ⩽st X for any α > −1 and λ1 < λ2.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "truncated exponential-exponential TEE(α, λ)",
+    "compared": "X ~ TEE(α, λ1) vs Y ~ TEE(α, λ2), common α > −1, λ1 < λ2",
+    "hypotheses": [
+     {
+      "text": "α1 = α2 = α with α > −1; λ1 < λ2 (then (8) decreasing in x)",
+      "formal": "equal shape α > −1, ordered rates; density ratio g/f decreasing",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "Y ≤lr X (larger-λ variable smaller in likelihood ratio order)"
+    },
+    "quantifiers": "all x; α > −1",
+    "numbers": "q(λ) = λ(1 + αe^{−λx}) shown increasing in λ for α > −1 (Appendix A)",
+    "ambiguity": ""
+   }
+  ],
+  "note": "λ-claim prints Y ≤lr X under common α > −1 and λ1 < λ2; monotonicity of q deferred to Appendix A."
+ },
+ {
+  "queue_claim": "unn5:section 5 claim b st",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.18869/acadpub.jsri.13.2.231",
+    "claim": "Section 5, unnumbered claim in λ (st part)",
+    "page": 239,
+    "quote": "So, Y ⩽lr X implies Y ⩽hr X and hence we see that Y ⩽st X for any α > −1 and λ1 < λ2.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "truncated exponential-exponential TEE(α, λ)",
+    "compared": "X ~ TEE(α, λ1) vs Y ~ TEE(α, λ2), common α > −1, λ1 < λ2",
+    "hypotheses": [
+     {
+      "text": "α1 = α2 = α with α > −1; λ1 < λ2",
+      "formal": "equal shape, ordered rates",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "Y ≤st X (larger-λ variable stochastically smaller)"
+    },
+    "quantifiers": "all x; α > −1",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "st conclusion of the λ-claim printed explicitly; direction Y ≤st X."
+ },
+ {
+  "queue_claim": "unn5:stochastic ordering of tee distributions in",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.18869/acadpub.jsri.13.2.231",
+    "claim": "Section 5, unnumbered claim in α (lr part)",
+    "page": 239,
+    "quote": "Suppose random variables X and Y are distributed according to TEE(α1, λ1) and TEE(α2, λ2), respectively. If λ1 = λ2, then it is easy to show that g(x)/f(x) is a decreasing function of x if and only if α1 < α2. So, Y ⩽lr X implies Y ⩽hr X and hence we see that Y ⩽st X for α1 < α2.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "truncated exponential-exponential TEE(α, λ)",
+    "compared": "X ~ TEE(α1, λ) vs Y ~ TEE(α2, λ), common λ, α1 < α2",
+    "hypotheses": [
+     {
+      "text": "λ1 = λ2; α1 < α2 (g(x)/f(x) decreasing iff α1 < α2)",
+      "formal": "equal rate, ordered shape; density ratio g/f decreasing",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "Y ≤lr X"
+    },
+    "quantifiers": "all x in the support",
+    "numbers": "",
+    "ambiguity": "Same canonical record as 'unn5:section 5 claim a lr'; A's merged record covers all three printed orders, split here per order."
+   },
+   {
+    "paper": "doi:10.18869/acadpub.jsri.13.2.231",
+    "claim": "Section 5, unnumbered claim in α (hr part)",
+    "page": 239,
+    "quote": "So, Y ⩽lr X implies Y ⩽hr X and hence we see that Y ⩽st X for α1 < α2.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "truncated exponential-exponential TEE(α, λ)",
+    "compared": "X ~ TEE(α1, λ) vs Y ~ TEE(α2, λ), common λ, α1 < α2",
+    "hypotheses": [
+     {
+      "text": "λ1 = λ2; α1 < α2",
+      "formal": "equal rate, ordered shape",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "Y ≤hr X"
+    },
+    "quantifiers": "all x",
+    "numbers": "",
+    "ambiguity": ""
+   },
+   {
+    "paper": "doi:10.18869/acadpub.jsri.13.2.231",
+    "claim": "Section 5, unnumbered claim in α (st part)",
+    "page": 239,
+    "quote": "So, Y ⩽lr X implies Y ⩽hr X and hence we see that Y ⩽st X for α1 < α2.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "truncated exponential-exponential TEE(α, λ)",
+    "compared": "X ~ TEE(α1, λ) vs Y ~ TEE(α2, λ), common λ, α1 < α2",
+    "hypotheses": [
+     {
+      "text": "λ1 = λ2; α1 < α2",
+      "formal": "equal rate, ordered shape",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "Y ≤st X"
+    },
+    "quantifiers": "all x",
+    "numbers": "",
+    "ambiguity": ""
+   },
+   {
+    "paper": "doi:10.18869/acadpub.jsri.13.2.231",
+    "claim": "Section 5, unnumbered claim in λ (lr part)",
+    "page": 239,
+    "quote": "If α1 = α2 = α then g(x)/f(x) = (λ2/λ1)h(x), (8) where h(x) = e^{(λ1−λ2)x} e^{α(e^{−λ2 x}−e^{−λ1 x})}. Hence, we have ∂ log h(x)/∂x = q(λ1) − q(λ2), where q(λ) = λ(1 + αe^{−λx}). (9) It can be shown that if α > −1 then (9) is an increasing function of λ (see Appendix A for more details) and it follows that (8) is a decreasing function of x if λ1 < λ2. So, Y ⩽lr X implies Y ⩽hr X and hence we see that Y ⩽st X for any α > −1 and λ1 < λ2.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "truncated exponential-exponential TEE(α, λ)",
+    "compared": "X ~ TEE(α, λ1) vs Y ~ TEE(α, λ2), common α > −1, λ1 < λ2",
+    "hypotheses": [
+     {
+      "text": "α1 = α2 = α with α > −1; λ1 < λ2",
+      "formal": "equal shape, ordered rates; (8) decreasing in x",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "Y ≤lr X"
+    },
+    "quantifiers": "all x; α > −1",
+    "numbers": "q(λ) = λ(1 + αe^{−λx}) increasing in λ for α > −1 (Appendix A)",
+    "ambiguity": "Same canonical record as 'unn5:section 5 claim b lr'."
+   },
+   {
+    "paper": "doi:10.18869/acadpub.jsri.13.2.231",
+    "claim": "Section 5, unnumbered claim in λ (hr part)",
+    "page": 239,
+    "quote": "So, Y ⩽lr X implies Y ⩽hr X and hence we see that Y ⩽st X for any α > −1 and λ1 < λ2.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "truncated exponential-exponential TEE(α, λ)",
+    "compared": "X ~ TEE(α, λ1) vs Y ~ TEE(α, λ2), common α > −1, λ1 < λ2",
+    "hypotheses": [
+     {
+      "text": "α1 = α2 = α with α > −1; λ1 < λ2",
+      "formal": "equal shape, ordered rates",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "Y ≤hr X"
+    },
+    "quantifiers": "all x; α > −1",
+    "numbers": "",
+    "ambiguity": ""
+   },
+   {
+    "paper": "doi:10.18869/acadpub.jsri.13.2.231",
+    "claim": "Section 5, unnumbered claim in λ (st part)",
+    "page": 239,
+    "quote": "So, Y ⩽lr X implies Y ⩽hr X and hence we see that Y ⩽st X for any α > −1 and λ1 < λ2.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "truncated exponential-exponential TEE(α, λ)",
+    "compared": "X ~ TEE(α, λ1) vs Y ~ TEE(α, λ2), common α > −1, λ1 < λ2",
+    "hypotheses": [
+     {
+      "text": "α1 = α2 = α with α > −1; λ1 < λ2",
+      "formal": "equal shape, ordered rates",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "Y ≤st X"
+    },
+    "quantifiers": "all x; α > −1",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Pass A merged each TEE claim into one lr record; canonical form splits each into lr/hr/st records matching the B-side queue items."
+ }
+]

@@ -1,0 +1,62 @@
+[
+ {
+  "queue_claim": "theorem2.7",
+  "decision": "exclude",
+  "records": [],
+  "note": "Theorem 2.7 is a generic preservation result for arbitrary random variables (X >=rh Y with IRHR => X^T >=rh Y^T; X <=hr Y with DHR => X^T <=hr Y^T), proof deferred to reference [4]; fully general nonparametric class, out of scope."
+ },
+ {
+  "queue_claim": "theorem2.8",
+  "decision": "exclude",
+  "records": [],
+  "note": "Theorem 2.8 (X <=hr Y and X or Y DHR => X <=disp Y) holds for arbitrary random variables and its proof is cited to Shaked et al. [2]; a fully general nonparametric implication, not a family-specific claim."
+ },
+ {
+  "queue_claim": "theorem2.9",
+  "decision": "exclude",
+  "records": [],
+  "note": "Theorem 2.9 (X <=hr Y and X or Y DHR => X <=LU Y) is the same generic implication cited to Ebrahimi et al. [3]; out of scope as a fully general nonparametric result."
+ },
+ {
+  "queue_claim": "theorem3.6",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:1905.00425",
+    "claim": "Theorem 3.6 (dispersive order part)",
+    "page": 9,
+    "quote": "Theorem 3.6. Let X1, ...., Xn (Y1, ...., Yn) be the set of continuous independent random variables having Xi ~ Gum(mu_i, sigma) (Yi ~ Gum(mu*_i, sigma)), i = 1, 2, ...., n. Then, if (mu_1, ..., mu_n) >=^m (mu*_1, ..., mu*_n), we have 1. X_{1:n} <=disp Y_{1:n}; 2. X_{1:n} <=LU Y_{1:n}.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "Gumbel Gum(mu_i, sigma), common scale sigma, location parameters mu_i vs mu*_i",
+    "compared": "location vectors under majorization",
+    "hypotheses": [
+     {"text": "if (mu_1, ..., mu_n) >=^m (mu*_1, ..., mu*_n)", "formal": "mu majorizes mu*", "source": "statement"},
+     {"text": "X1:n is DHR (shown in proof via r_{X_{1:n}} decreasing in mu_i)", "formal": "decreasing hazard rate of the minimum", "source": "section preamble"}
+    ],
+    "conclusion": {"order": "disp", "direction": "X_{1:n} <=disp Y_{1:n} (X side smaller)"},
+    "quantifiers": "n >= 1 components",
+    "numbers": "",
+    "ambiguity": ""
+   },
+   {
+    "paper": "arxiv:1905.00425",
+    "claim": "Theorem 3.6 (less uncertainty order part)",
+    "page": 9,
+    "quote": "Theorem 3.6. Let X1, ...., Xn (Y1, ...., Yn) be the set of continuous independent random variables having Xi ~ Gum(mu_i, sigma) (Yi ~ Gum(mu*_i, sigma)), i = 1, 2, ...., n. Then, if (mu_1, ..., mu_n) >=^m (mu*_1, ..., mu*_n), we have 1. X_{1:n} <=disp Y_{1:n}; 2. X_{1:n} <=LU Y_{1:n}.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "Gumbel Gum(mu_i, sigma), common scale sigma",
+    "compared": "location vectors under majorization",
+    "hypotheses": [
+     {"text": "if (mu_1, ..., mu_n) >=^m (mu*_1, ..., mu*_n)", "formal": "mu majorizes mu*", "source": "statement"}
+    ],
+    "conclusion": {"order": "other: LU (less uncertainty order)", "direction": "X_{1:n} <=LU Y_{1:n} (X side smaller)"},
+    "quantifiers": "n >= 1 components",
+    "numbers": "",
+    "ambiguity": "LU is the paper's named 'less uncertainty' order from Ebrahimi et al.; not a plain stochastic order."
+   }
+  ],
+  "note": "Theorem 3.6 prints two named orders (disp and the paper-defined LU order) for Gumbel series minima under majorization; split into two records."
+ }
+]

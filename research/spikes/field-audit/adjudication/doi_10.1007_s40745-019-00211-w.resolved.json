@@ -1,0 +1,125 @@
+[
+ {
+  "queue_claim": "unn3.4:theorem section 3.4 likelihood ratio part",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1007/s40745-019-00211-w",
+    "claim": "Section 3.4 unnumbered Theorem (lr part)",
+    "page": 7,
+    "quote": "Theorem: Let X ∼ IXGD(θ1 ) and Y ∼ IXGD(θ2 ). If θ1 > θ2 , then X ≤lr Y and hence it implies oredering in others also.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "inverse xgamma IXGD(θ), one parameter",
+    "compared": "IXGD(θ1) vs IXGD(θ2) with θ1 > θ2",
+    "hypotheses": [
+     {"text": "If θ1 > θ2", "formal": "parameter ordering", "source": "statement"}
+    ],
+    "conclusion": {"order": "lr", "direction": "X <=lr Y (φ(x) = f_θ1(x)/f_θ2(x) decreasing in x)"},
+    "quantifiers": "x > 0; θ1, θ2 > 0",
+    "numbers": "",
+    "ambiguity": "Unnumbered 'Theorem:'; the proof's last line says 'this implies X ≤st Y' though the derived monotonicity of φ is the lr criterion — apparent typo for ≤lr."
+   }
+  ],
+  "note": "Unnumbered theorem asserts X <=lr Y under θ1 > θ2; lr is the directly proved conclusion."
+ },
+ {
+  "queue_claim": "unn3.4:theorem section 3.4 hazard rate part",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1007/s40745-019-00211-w",
+    "claim": "Section 3.4 unnumbered Theorem (hr part)",
+    "page": 7,
+    "quote": "Theorem: Let X ∼ IXGD(θ1 ) and Y ∼ IXGD(θ2 ). If θ1 > θ2 , then X ≤lr Y and hence it implies oredering in others also.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "inverse xgamma IXGD(θ)",
+    "compared": "IXGD(θ1) vs IXGD(θ2) with θ1 > θ2",
+    "hypotheses": [
+     {"text": "If θ1 > θ2", "formal": "parameter ordering", "source": "statement"},
+     {"text": "X ≤lr Y ⇒ X ≤hr Y ⇒ X ≤mrl Y and X ≤hr Y ⇒ X ≤st Y", "formal": "implication chain cited from Shaked & Shanthikumar (1994)", "source": "section preamble"}
+    ],
+    "conclusion": {"order": "hr", "direction": "X <=hr Y (via the printed lr => hr implication)"},
+    "quantifiers": "x > 0; θ1, θ2 > 0",
+    "numbers": "",
+    "ambiguity": "'ordering in others also' covers hr via the section's printed implication chain; not proved separately."
+   }
+  ],
+  "note": "hr is covered by 'ordering in others' via the preamble's lr => hr implication; include as one record per spec's per-order split."
+ },
+ {
+  "queue_claim": "unn3.4:theorem section 3.4 mean residual life",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1007/s40745-019-00211-w",
+    "claim": "Section 3.4 unnumbered Theorem (mrl part)",
+    "page": 7,
+    "quote": "Theorem: Let X ∼ IXGD(θ1 ) and Y ∼ IXGD(θ2 ). If θ1 > θ2 , then X ≤lr Y and hence it implies oredering in others also.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "inverse xgamma IXGD(θ)",
+    "compared": "IXGD(θ1) vs IXGD(θ2) with θ1 > θ2",
+    "hypotheses": [
+     {"text": "If θ1 > θ2", "formal": "parameter ordering", "source": "statement"},
+     {"text": "X ≤lr Y ⇒ X ≤hr Y ⇒ X ≤mrl Y", "formal": "implication chain cited from Shaked & Shanthikumar (1994)", "source": "section preamble"}
+    ],
+    "conclusion": {"order": "mrl", "direction": "X <=mrl Y (via lr => hr => mrl)"},
+    "quantifiers": "x > 0; θ1, θ2 > 0",
+    "numbers": "",
+    "ambiguity": "mrl covered by 'ordering in others' via the printed chain; no separate proof."
+   }
+  ],
+  "note": "mrl covered by 'ordering in others' via the preamble's lr => hr => mrl chain; include."
+ },
+ {
+  "queue_claim": "unn3.4:theorem section 3.4 usual stochastic order",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1007/s40745-019-00211-w",
+    "claim": "Section 3.4 unnumbered Theorem (st part)",
+    "page": 7,
+    "quote": "Theorem: Let X ∼ IXGD(θ1 ) and Y ∼ IXGD(θ2 ). If θ1 > θ2 , then X ≤lr Y and hence it implies oredering in others also.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "inverse xgamma IXGD(θ)",
+    "compared": "IXGD(θ1) vs IXGD(θ2) with θ1 > θ2",
+    "hypotheses": [
+     {"text": "If θ1 > θ2", "formal": "parameter ordering", "source": "statement"},
+     {"text": "X ≤hr Y ⇒ X ≤st Y", "formal": "implication cited from Shaked & Shanthikumar (1994)", "source": "section preamble"}
+    ],
+    "conclusion": {"order": "st", "direction": "X <=st Y"},
+    "quantifiers": "x > 0; θ1, θ2 > 0",
+    "numbers": "",
+    "ambiguity": "st also appears verbatim as the proof's closing claim ('this implies X ≤st Y'), consistent with the 'others' implication."
+   }
+  ],
+  "note": "st is both implied by 'ordering in others' and printed literally as the proof's last line; include."
+ },
+ {
+  "queue_claim": "unn3.4:theorem section 3.4 unnumbered",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1007/s40745-019-00211-w",
+    "claim": "Section 3.4 unnumbered Theorem (lr part)",
+    "page": 7,
+    "quote": "Theorem: Let X ∼ IXGD(θ1 ) and Y ∼ IXGD(θ2 ). If θ1 > θ2 , then X ≤lr Y and hence it implies oredering in others also.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "inverse xgamma IXGD(θ)",
+    "compared": "IXGD(θ1) vs IXGD(θ2) with θ1 > θ2",
+    "hypotheses": [
+     {"text": "If θ1 > θ2", "formal": "parameter ordering", "source": "statement"}
+    ],
+    "conclusion": {"order": "lr", "direction": "X <=lr Y"},
+    "quantifiers": "x > 0; θ1, θ2 > 0",
+    "numbers": "",
+    "ambiguity": "Same statement as the A-side items; B bundled all orders into one record — canonical split is one record per order."
+   }
+  ],
+  "note": "Same unnumbered theorem; B's bundled record corresponds to the four canonical records (lr, hr, mrl, st) emitted under the A-side items."
+ }
+]

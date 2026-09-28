@@ -241,7 +241,7 @@
  },
  {
   "paper": "arxiv:2505.01739",
-  "claim": "Simulation study, Section 4 (Figures 1\u20132)",
+  "claim": "Simulation illustration (Figures 1-2, Section 4)",
   "page": 18,
   "quote": "As the absolute Cauchy distribution satisfies (SD), a natural question is whether absolute stable distributions with parameter \u03b1 \u2264 1 also satisfy (SD). We conjecture that the answer is yes but do not have a proof. We use the stochastic representation of stable random variables in Weron (1996) to simulate 10000 random samples of two independent stable random variables X1 , X2 \u223c S\u03b1 (1, \u03b2, 0); ... Let Y1 = a1 |X1 | + a2 |X2 | and Y2 = b1 |X1 | + b2 |X2 |. We consider three cases of the weight vector (a1 , a2 , b1 , b2 ) = (1, 4, 2, 3), (2, 6, 3, 5) or (3, 8, 5, 6). ... the empirical distributions Fb1 and Fb2 of Y1 and Y2 seem to satisfy Fb1 (x) \u2265 Fb2 (x) for all x.",
   "kind": "example",
@@ -391,6 +391,31 @@
  },
  {
   "paper": "arxiv:2505.01739",
+  "claim": "Simulation study (absolute stable conjecture)",
+  "page": 18,
+  "quote": "As the absolute Cauchy distribution satisfies (SD), a natural question is whether absolute stable distributions with parameter \u03b1 \u2264 1 also satisfy (SD). We conjecture that the answer is yes but do not have a proof. ... Let Y1 = a1 |X1 | + a2 |X2 | and Y2 = b1 |X1 | + b2 |X2 |. We consider three cases of the weight vector (a1 , a2 , b1 , b2 ) = (1, 4, 2, 3), (2, 6, 3, 5) or (3, 8, 5, 6). ... the empirical distributions Fb1 and Fb2 of Y1 and Y2 seem to satisfy Fb1 (x) \u2265 Fb2 (x) for all x.",
+  "kind": "example",
+  "model": "other: linear combinations of absolute values of iid stable variables",
+  "family": "absolute stable |S\u03b1(1,\u03b2,0)|",
+  "compared": "Y1 = a\u00b7|X| vs Y2 = b\u00b7|X| with a more spread than b",
+  "hypotheses": [
+   {
+    "text": "10000 simulated samples; \u03b1 = 0.10 (\u03b2 = 0, \u22120.40) and \u03b1 = 0.90 (\u03b2 = 0, 0.30)",
+    "formal": "simulation settings",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "empirical cdfs satisfy F\u03021(x) \u2265 F\u03022(x) for all x, i.e., Y1 \u2264st Y2 \u2014 supporting the conjecture that |S\u03b1| with \u03b1 \u2264 1 satisfies (SD)"
+  },
+  "quantifiers": "n = 2",
+  "numbers": "(a1,a2,b1,b2) = (1,4,2,3), (2,6,3,5), (3,8,5,6); \u03b1 \u2208 {0.10,0.90}; \u03b2 \u2208 {0,\u22120.40,0.30}",
+  "ambiguity": "Simulation evidence only \u2014 an explicit conjecture, not a theorem. Printed symbols 'Fb1/Fb2' are the empirical cdfs F\u03021, F\u03022.",
+  "adjudication": "adjudicated: Duplicate queue key for the same Section-4 simulation claim; identical canonical record."
+ },
+ {
+  "paper": "arxiv:2505.01739",
   "claim": "Proposition 3",
   "page": 11,
   "quote": "Proposition 3. Let X1 , . . . , Xn \u223c F be iid where F \u2208 H. For vectors (\u03b81 , . . . , \u03b8n ) and (\u03b71 , . . . , \u03b7n ) in Rn+ such that (\u03b81 , . . . , \u03b8n ) \u2aafw (\u03b71 , . . . , \u03b7n ), \u03a3ni=1 \u03b7i Xi \u2264st \u03a3ni=1 \u03b8i Xi .",
@@ -488,55 +513,5 @@
   "numbers": "",
   "ambiguity": "First necessity result for (SD). Remark 5: if F \u2208 H, (SD) also holds for compound mixed Poisson CP(\u039b,F) with random \u039b.",
   "adjudication": "agreed"
- },
- {
-  "paper": "arxiv:2505.01739",
-  "claim": "Simulation study (absolute stable conjecture)",
-  "page": 18,
-  "quote": "As the absolute Cauchy distribution satisfies (SD), a natural question is whether absolute stable distributions with parameter \u03b1 \u2264 1 also satisfy (SD). We conjecture that the answer is yes but do not have a proof. ... Let Y1 = a1 |X1 | + a2 |X2 | and Y2 = b1 |X1 | + b2 |X2 |. We consider three cases of the weight vector (a1 , a2 , b1 , b2 ) = (1, 4, 2, 3), (2, 6, 3, 5) or (3, 8, 5, 6). Figure 1 plots the empirical distribution functions ... with \u03b1 = 0.10 and \u03b2 = 0 or \u22120.40 ... Figure 2 ... \u03b1 = 0.90 and \u03b2 = 0 or 0.30 ... the empirical distributions F\u0302b1 and F\u0302b2 of Y1 and Y2 seem to satisfy F\u0302b1 (x) \u2265 F\u0302b2 (x) for all x.",
-  "kind": "example",
-  "model": "other: linear combinations of iid random variables",
-  "family": "Absolute values of stable variables |S\u03b1(1,\u03b2,0)|",
-  "compared": "empirical CDFs of weighted sums of absolute stable rvs \u2014 supports conjecture that (SD) holds for absolute stable distributions with \u03b1 <= 1",
-  "hypotheses": [
-   {
-    "text": "\u03b1 = 0.1 with \u03b2 = 0, \u22120.4; \u03b1 = 0.9 with \u03b2 = 0, 0.3; weight pairs (1,4) vs (2,3), (2,6) vs (3,5), (3,8) vs (5,6)",
-    "formal": "majorization-related weight pairs",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "empirical F\u0302Y1 >= F\u0302Y2 pointwise \u2014 suggests Y1 <=st Y2 for the more balanced weight vector? recorded as printed: 'F\u0302b1 (x) \u2265 F\u0302b2 (x)'"
-  },
-  "quantifiers": "10000 simulated samples per scenario; n = 2",
-  "numbers": "\u03b1 \u2208 {0.10, 0.90}, \u03b2 \u2208 {0, \u22120.40, 0.30}; weights (1,4)/(2,3), (2,6)/(3,5), (3,8)/(5,6)",
-  "ambiguity": "Simulation evidence only (conjecture, no proof); note (a1,a2)=(1,4) is more spread than (b1,b2)=(2,3), and under (SD) the balanced sum should be stochastically larger (smaller cdf) \u2014 the printed direction 'F\u0302b1 \u2265 F\u0302b2' with b1=b_1? subscript labels ambiguous in text layer.",
-  "adjudication": "example record (pass a)"
- },
- {
-  "paper": "arxiv:2505.01739",
-  "claim": "Simulation illustration (Figures 1-2, Section 4)",
-  "page": 18,
-  "quote": "We use the stochastic representation of stable random variables in Weron (1996) to simulate 10000 random samples of two independent stable random variables X1, X2 \u223c S\u03b1(1, \u03b2, 0); ... Let Y1 = a1|X1| + a2|X2| and Y2 = b1|X1| + b2|X2|. We consider three cases of the weight vector (a1, a2, b1, b2) = (1, 4, 2, 3), (2, 6, 3, 5) or (3, 8, 5, 6). Figure 1 plots the empirical distribution functions of Y1 and Y2 with \u03b1 = 0.10 and \u03b2 = 0 or \u22120.40, respectively. Figure 2 ... \u03b1 = 0.90 and \u03b2 = 0 or 0.30. ... we find that the empirical distributions F\u03021 and F\u03022 of Y1 and Y2 seem to satisfy F\u03021(x) \u2265 F\u03022(x) for all x.",
-  "kind": "example",
-  "model": "linear combination of absolute values of iid stable variables",
-  "family": "absolute stable |S\u03b1(1, \u03b2, 0)|",
-  "compared": "Y1 (weights (1,4)/(2,6)/(3,8)) vs Y2 (weights (2,3)/(3,5)/(5,6)) \u2014 each b-vector is majorized by the matching a-vector (b \u227c a: b more equal), so (SD) predicts Y1 <=st Y2, i.e. F\u03021 >= F\u03022 as observed",
-  "hypotheses": [
-   {
-    "text": "10000 simulated samples; \u03b1 = 0.1 (\u03b2 = 0, \u22120.4) and \u03b1 = 0.9 (\u03b2 = 0, 0.3)",
-    "formal": "simulation settings",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "empirical cdfs satisfy F\u03021(x) >= F\u03022(x) for all x, i.e. Y1 <=st Y2 \u2014 supporting the conjecture that absolute stable variables with \u03b1 <= 1 satisfy (SD)"
-  },
-  "quantifiers": "n = 2",
-  "numbers": "weights (a1,a2,b1,b2) = (1,4,2,3), (2,6,3,5), (3,8,5,6); \u03b1 \u2208 {0.10, 0.90}; \u03b2 \u2208 {0, \u22120.40, 0.30}",
-  "ambiguity": "Simulation-based evidence only (a conjecture, not a theorem); weight pairs are nested majorization-wise: (2,3),(3,5),(5,6) are progressively more dispersed than (1,4),(2,6),(3,8).",
-  "adjudication": "example record (pass b)"
  }
 ]

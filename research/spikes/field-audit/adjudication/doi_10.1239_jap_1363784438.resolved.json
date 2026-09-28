@@ -1,0 +1,51 @@
+[
+ {
+  "queue_claim": "lemma2.1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1239/jap/1363784438",
+    "claim": "Lemma 2.1 (residual-lifetime coefficients)",
+    "page": 276,
+    "quote": "Lemma 2.1. Let p(t) and p~(t) denote the respective vectors of coefficients (2.2) and (2.4). Under the PHR assumption (1.3), p(t1) <=lr p(t2) and p~(t1) <=lr p~(t2) hold for all 0 <= t1 <= t2.",
+    "kind": "lemma",
+    "model": "other: signature-type coefficient vectors (discrete distributions on {1,...,n})",
+    "family": "sequential/generalized order statistics under PHR: F_i(x) = 1 - (1 - F(x))^{alpha_i}, alpha_i > 0; p_i(t) = s_i P(X*_{i:n} > t) / sum_k s_k P(X*_{k:n} > t)",
+    "compared": "coefficient vector p(t1) vs p(t2) at two time points",
+    "hypotheses": [
+     {"text": "Under the PHR assumption (1.3)", "formal": "F_i(x) = 1 - (1-F(x))^{alpha_i}, proportional hazard rates", "source": "statement"},
+     {"text": "0 <= t1 <= t2", "formal": "t1 <= t2", "source": "statement"}
+    ],
+    "conclusion": {"order": "lr", "direction": "p(t1) <=lr p(t2) (earlier-time coefficient vector lr-smaller)"},
+    "quantifiers": "all 0 <= t1 <= t2; discrete support {1,...,n}",
+    "numbers": "",
+    "ambiguity": "Second coefficient vector prints as p with a tilde accent (OCR shows p'/p~); not a derivative."
+   },
+   {
+    "paper": "doi:10.1239/jap/1363784438",
+    "claim": "Lemma 2.1 (inactivity-time coefficients)",
+    "page": 276,
+    "quote": "Lemma 2.1. Let p(t) and p~(t) denote the respective vectors of coefficients (2.2) and (2.4). Under the PHR assumption (1.3), p(t1) <=lr p(t2) and p~(t1) <=lr p~(t2) hold for all 0 <= t1 <= t2.",
+    "kind": "lemma",
+    "model": "other: signature-type coefficient vectors (discrete distributions on {1,...,n})",
+    "family": "sequential/generalized order statistics under PHR; p~_i(t) = s_i P(X*_{i:n} <= t) / sum_k s_k P(X*_{k:n} <= t)",
+    "compared": "coefficient vector p~(t1) vs p~(t2) at two time points",
+    "hypotheses": [
+     {"text": "Under the PHR assumption (1.3)", "formal": "F_i(x) = 1 - (1-F(x))^{alpha_i}", "source": "statement"},
+     {"text": "0 <= t1 <= t2", "formal": "t1 <= t2", "source": "statement"}
+    ],
+    "conclusion": {"order": "lr", "direction": "p~(t1) <=lr p~(t2) (earlier-time coefficient vector lr-smaller)"},
+    "quantifiers": "all 0 <= t1 <= t2; discrete support {1,...,n}",
+    "numbers": "",
+    "ambiguity": "Same statement, second of its two parallel conclusions."
+   }
+  ],
+  "note": "Lemma 2.1 prints lr monotonicity in t for both coefficient vectors p(t) (eq 2.2) and p~(t) (eq 2.4); the tilde is an accent, not a prime — pass A's p' is the same symbol. Split into one record per compared vector."
+ },
+ {
+  "queue_claim": "theorem2.2",
+  "decision": "exclude",
+  "records": [],
+  "note": "Queue item is not Theorem 2.2 itself but a proof-preamble sentence citing the known fact X*_{r:n} <=lr X*_{r+1:n} from Cramer et al. (2003)/Hu and Zhuang (2005) — an external result, not a numbered statement of this paper."
+ }
+]

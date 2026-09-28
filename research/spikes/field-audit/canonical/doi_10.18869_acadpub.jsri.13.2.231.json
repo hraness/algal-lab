@@ -1,1 +1,152 @@
-[]
+[
+ {
+  "paper": "doi:10.18869/acadpub.jsri.13.2.231",
+  "claim": "Section 5, unnumbered claim in \u03b1 (hr part)",
+  "page": 239,
+  "quote": "Suppose random variables X and Y are distributed according to TEE(\u03b11, \u03bb1) and TEE(\u03b12, \u03bb2), respectively. If \u03bb1 = \u03bb2, then it is easy to show that g(x)/f(x) is a decreasing function of x if and only if \u03b11 < \u03b12. So, Y \u2a7dlr X implies Y \u2a7dhr X and hence we see that Y \u2a7dst X for \u03b11 < \u03b12.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "truncated exponential-exponential TEE(\u03b1, \u03bb)",
+  "compared": "X ~ TEE(\u03b11, \u03bb) vs Y ~ TEE(\u03b12, \u03bb), common \u03bb, \u03b11 < \u03b12",
+  "hypotheses": [
+   {
+    "text": "\u03bb1 = \u03bb2; \u03b11 < \u03b12",
+    "formal": "equal rate parameter, ordered shape parameter",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "Y \u2264hr X (larger-\u03b1 variable smaller in hazard rate order)"
+  },
+  "quantifiers": "all x in the support",
+  "numbers": "",
+  "ambiguity": "Unnumbered inline result in Section 5. Paper defines X \u2264lr Y by g(x)/f(x) increasing (f density of X, g of Y); g/f decreasing iff \u03b11 < \u03b12 gives Y \u2264lr X.",
+  "adjudication": "adjudicated: Paper prints Y \u2264hr X for \u03b11 < \u03b12 (common \u03bb) as the middle step of the printed lr\u21d2hr\u21d2st chain for TEE"
+ },
+ {
+  "paper": "doi:10.18869/acadpub.jsri.13.2.231",
+  "claim": "Section 5, unnumbered claim in \u03b1 (lr part)",
+  "page": 239,
+  "quote": "Suppose random variables X and Y are distributed according to TEE(\u03b11, \u03bb1) and TEE(\u03b12, \u03bb2), respectively. If \u03bb1 = \u03bb2, then it is easy to show that g(x)/f(x) is a decreasing function of x if and only if \u03b11 < \u03b12. So, Y \u2a7dlr X implies Y \u2a7dhr X and hence we see that Y \u2a7dst X for \u03b11 < \u03b12.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "truncated exponential-exponential TEE(\u03b1, \u03bb)",
+  "compared": "X ~ TEE(\u03b11, \u03bb) vs Y ~ TEE(\u03b12, \u03bb), common \u03bb, \u03b11 < \u03b12",
+  "hypotheses": [
+   {
+    "text": "\u03bb1 = \u03bb2; \u03b11 < \u03b12 (g(x)/f(x) decreasing iff \u03b11 < \u03b12)",
+    "formal": "equal rate, ordered shape; density ratio g/f decreasing",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "Y \u2264lr X (larger-\u03b1 variable smaller in likelihood ratio order)"
+  },
+  "quantifiers": "all x in the support",
+  "numbers": "",
+  "ambiguity": "Unnumbered inline result. Iff characterization printed: g/f decreasing \u27fa \u03b11 < \u03b12.",
+  "adjudication": "adjudicated: Paper prints Y \u2264lr X for \u03b11 < \u03b12 with common \u03bb; pass A merged all three orders, B split \u2014 kept one r"
+ },
+ {
+  "paper": "doi:10.18869/acadpub.jsri.13.2.231",
+  "claim": "Section 5, unnumbered claim in \u03b1 (st part)",
+  "page": 239,
+  "quote": "So, Y \u2a7dlr X implies Y \u2a7dhr X and hence we see that Y \u2a7dst X for \u03b11 < \u03b12.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "truncated exponential-exponential TEE(\u03b1, \u03bb)",
+  "compared": "X ~ TEE(\u03b11, \u03bb) vs Y ~ TEE(\u03b12, \u03bb), common \u03bb, \u03b11 < \u03b12",
+  "hypotheses": [
+   {
+    "text": "\u03bb1 = \u03bb2; \u03b11 < \u03b12",
+    "formal": "equal rate, ordered shape",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y \u2264st X (larger-\u03b1 variable stochastically smaller)"
+  },
+  "quantifiers": "all x",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: st conclusion of the \u03b1-claim printed explicitly; direction Y \u2264st X."
+ },
+ {
+  "paper": "doi:10.18869/acadpub.jsri.13.2.231",
+  "claim": "Section 5, unnumbered claim in \u03bb (hr part)",
+  "page": 239,
+  "quote": "If \u03b11 = \u03b12 = \u03b1 then g(x)/f(x) = (\u03bb2/\u03bb1)h(x), (8) where h(x) = e^{(\u03bb1\u2212\u03bb2)x} e^{\u03b1(e^{\u2212\u03bb2 x}\u2212e^{\u2212\u03bb1 x})}. Hence, we have \u2202 log h(x)/\u2202x = q(\u03bb1) \u2212 q(\u03bb2), where q(\u03bb) = \u03bb(1 + \u03b1e^{\u2212\u03bbx}). (9) It can be shown that if \u03b1 > \u22121 then (9) is an increasing function of \u03bb (see Appendix A for more details) and it follows that (8) is a decreasing function of x if \u03bb1 < \u03bb2. So, Y \u2a7dlr X implies Y \u2a7dhr X and hence we see that Y \u2a7dst X for any \u03b1 > \u22121 and \u03bb1 < \u03bb2.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "truncated exponential-exponential TEE(\u03b1, \u03bb)",
+  "compared": "X ~ TEE(\u03b1, \u03bb1) vs Y ~ TEE(\u03b1, \u03bb2), common \u03b1 > \u22121, \u03bb1 < \u03bb2",
+  "hypotheses": [
+   {
+    "text": "\u03b11 = \u03b12 = \u03b1 with \u03b1 > \u22121; \u03bb1 < \u03bb2",
+    "formal": "equal shape \u03b1 > \u22121 (needed for q increasing in \u03bb, Appendix A), ordered rates",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "Y \u2264hr X (larger-\u03bb variable smaller in hazard rate order)"
+  },
+  "quantifiers": "all x; \u03b1 > \u22121",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: \u03bb-claim prints Y \u2264hr X under common \u03b1 > \u22121 and \u03bb1 < \u03bb2."
+ },
+ {
+  "paper": "doi:10.18869/acadpub.jsri.13.2.231",
+  "claim": "Section 5, unnumbered claim in \u03bb (lr part)",
+  "page": 239,
+  "quote": "If \u03b11 = \u03b12 = \u03b1 then g(x)/f(x) = (\u03bb2/\u03bb1)h(x), (8) where h(x) = e^{(\u03bb1\u2212\u03bb2)x} e^{\u03b1(e^{\u2212\u03bb2 x}\u2212e^{\u2212\u03bb1 x})}. Hence, we have \u2202 log h(x)/\u2202x = q(\u03bb1) \u2212 q(\u03bb2), where q(\u03bb) = \u03bb(1 + \u03b1e^{\u2212\u03bbx}). (9) It can be shown that if \u03b1 > \u22121 then (9) is an increasing function of \u03bb (see Appendix A for more details) and it follows that (8) is a decreasing function of x if \u03bb1 < \u03bb2. So, Y \u2a7dlr X implies Y \u2a7dhr X and hence we see that Y \u2a7dst X for any \u03b1 > \u22121 and \u03bb1 < \u03bb2.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "truncated exponential-exponential TEE(\u03b1, \u03bb)",
+  "compared": "X ~ TEE(\u03b1, \u03bb1) vs Y ~ TEE(\u03b1, \u03bb2), common \u03b1 > \u22121, \u03bb1 < \u03bb2",
+  "hypotheses": [
+   {
+    "text": "\u03b11 = \u03b12 = \u03b1 with \u03b1 > \u22121; \u03bb1 < \u03bb2 (then (8) decreasing in x)",
+    "formal": "equal shape \u03b1 > \u22121, ordered rates; density ratio g/f decreasing",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "Y \u2264lr X (larger-\u03bb variable smaller in likelihood ratio order)"
+  },
+  "quantifiers": "all x; \u03b1 > \u22121",
+  "numbers": "q(\u03bb) = \u03bb(1 + \u03b1e^{\u2212\u03bbx}) shown increasing in \u03bb for \u03b1 > \u22121 (Appendix A)",
+  "ambiguity": "",
+  "adjudication": "adjudicated: \u03bb-claim prints Y \u2264lr X under common \u03b1 > \u22121 and \u03bb1 < \u03bb2; monotonicity of q deferred to Appendix A."
+ },
+ {
+  "paper": "doi:10.18869/acadpub.jsri.13.2.231",
+  "claim": "Section 5, unnumbered claim in \u03bb (st part)",
+  "page": 239,
+  "quote": "So, Y \u2a7dlr X implies Y \u2a7dhr X and hence we see that Y \u2a7dst X for any \u03b1 > \u22121 and \u03bb1 < \u03bb2.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "truncated exponential-exponential TEE(\u03b1, \u03bb)",
+  "compared": "X ~ TEE(\u03b1, \u03bb1) vs Y ~ TEE(\u03b1, \u03bb2), common \u03b1 > \u22121, \u03bb1 < \u03bb2",
+  "hypotheses": [
+   {
+    "text": "\u03b11 = \u03b12 = \u03b1 with \u03b1 > \u22121; \u03bb1 < \u03bb2",
+    "formal": "equal shape, ordered rates",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y \u2264st X (larger-\u03bb variable stochastically smaller)"
+  },
+  "quantifiers": "all x; \u03b1 > \u22121",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: st conclusion of the \u03bb-claim printed explicitly; direction Y \u2264st X."
+ }
+]

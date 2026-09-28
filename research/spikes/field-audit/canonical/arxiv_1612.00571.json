@@ -1101,6 +1101,31 @@
  },
  {
   "paper": "arxiv:1612.00571",
+  "claim": "Counterexample 5.3",
+  "page": 25,
+  "quote": "Counterexample 5.3 Let X = (X1, X2, ..., X6) and Y = (Y1, Y2, ..., Y6), each follows the multiple-outlier PO model such that Xi \u223c PO(F\u0304, 2), Yi \u223c PO(F\u0304, 3), for i = 1, 2, Xj \u223c PO(F\u0304, 6), Yj \u223c PO(F\u0304, 5.5), for j = 3, 4, 5, 6, where the baseline survival function is given by F\u0304(x) = e^{\u22122x}, x > 0. Clearly, (2, 2, 6, 6, 6, 6) \u227d^m (3, 3, 5.5, 5.5, 5.5, 5.5). However, it is observed from Figure 5(a) that r\u0303Y6:6(x)/r\u0303X6:6(x) is non-monotone.",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "multiple-outlier PO model (n1 = 2, n2 = 4) over exponential baseline F\u0304(x) = e^{\u22122x}",
+  "compared": "block parameters (2,2,6,6,6,6) vs (3,3,5.5,5.5,5.5,5.5) under majorization",
+  "hypotheses": [
+   {
+    "text": "(2, 2, 6, 6, 6, 6) \u227d^m (3, 3, 5.5, 5.5, 5.5, 5.5)",
+    "formal": "equal totals 28; smallest partial sums non-increasing side: 2<=3, 4<=6, 10<=11.5, 16<=17, 22<=22.5, 28=28",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "ageing (rhr relative ageing)",
+   "direction": "r\u0303Y6:6/r\u0303X6:6 non-monotone \u2014 no rhr relative-ageing ordering for parallel systems under majorization (unlike the series result Theorem 3.3)"
+  },
+  "quantifiers": "n = 6",
+  "numbers": "X block params 2 (\u00d72), 6 (\u00d74); Y block params 3 (\u00d72), 5.5 (\u00d74); Figure 5(a) x-axis roughly 0.5\u20134",
+  "ambiguity": "",
+  "adjudication": "example record (pass b)"
+ },
+ {
+  "paper": "arxiv:1612.00571",
   "claim": "Remark 4.1 (likelihood-ratio failure observed in Counterexample 5.3)",
   "page": 18,
   "quote": "Remark 4.1 Taking the random variables as in Counterexample 5.3, we see from Figure 5(b) that fY6:6(x)/fX6:6(x) is also non-monotone. This gives that, in case of multiple-outlier model, under the majorization order, two parallel systems with heterogeneous components may not be ordered with respect to likelihood ratio order.",

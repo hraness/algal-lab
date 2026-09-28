@@ -1,6 +1,36 @@
 [
  {
   "paper": "arxiv:2104.08525",
+  "claim": "Counterexample 3.1",
+  "page": 22,
+  "quote": "Counterexample 3.1. Consider the baseline distribution function as Fb(x) = 1 - exp(1 - x^a), x >= 1, a > 0. For this, when 0 < a <= 1, the hazard rate function is decreasing. Let {X1, X2, X3} and {Y1, Y2, Y3} be the collections of dependent random variables with Xi ~ Fb^alpha((x - lambda_i)/theta) and Yi ~ Fb^alpha((x - mu_i)/theta), for i = 1, 2, 3 with generators psi_1(x) = e^{(1/a1)(1 - e^x)} and psi_2(x) = e^{(1/a2)(1 - e^x)}, respectively, where x > 0, 0 < a1, a2 <= 1. Here, psi_1 and psi_2 both are log-concave. Assume a1 = 0.001 and a2 = 0.5. Then, phi_2 o psi_1(x) is sub-additive, and hence is not super-additive. Set lambda = (3, 4, 5), mu = (6, 7, 8), theta = 6, alpha = 8 and a = 0.9. Thus, all the conditions of Theorem 3.17 are satisfied except super-additivity of phi_2 o psi_1(x) and the restriction on alpha. Now, we plote the graphs of Fbar_{X_{2:3}}(x) and Fbar_{Y_{2:3}}(x) in Figure 2a. The graphs cross each other, which implies that Theorem 3.17 does not hold.",
+  "kind": "counterexample",
+  "model": "order statistic",
+  "family": "dependent ELS marginals Xi ~ Fb^alpha((x - lambda_i)/theta) with Archimedean generators psi_1(x) = e^{(1/a1)(1 - e^x)}, psi_2(x) = e^{(1/a2)(1 - e^x)}; baseline Fb(x) = 1 - exp(1 - x^a), x >= 1 (lower-truncated Weibull)",
+  "compared": "location vectors lambda = (3,4,5) vs mu = (6,7,8); common scale theta = 6; generators a1 = 0.001 vs a2 = 0.5; alpha = 8 vs required <= 1",
+  "hypotheses": [
+   {
+    "text": "all the conditions of Theorem 3.17 are satisfied except super-additivity of phi_2 o psi_1(x) and the restriction on alpha",
+    "formal": "violates phi_2 o psi_1 super-additivity (it is sub-additive) and alpha <= 1 (alpha = 8)",
+    "source": "statement"
+   },
+   {
+    "text": "mu <<w lambda => X_{2:n} <=st Y_{2:n}, provided psi_1 or psi_2 is log-concave (Theorem 3.17)",
+    "formal": "the theorem's hypotheses: alpha = beta = alpha 1_n <= 1, theta = delta, phi_2 o psi_1 super-additive, lambda, mu in I+ (or D+), r_b decreasing, log-concave generator",
+    "source": "earlier theorem 3.17"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "negated: Fbar_{X_{2:3}}(x) and Fbar_{Y_{2:3}}(x) cross (Figure 2a), so neither X_{2:3} <=st Y_{2:3} nor the reverse holds"
+  },
+  "quantifiers": "n = 3; k = 2 order statistic",
+  "numbers": "a1 = 0.001; a2 = 0.5; lambda = (3,4,5); mu = (6,7,8); theta = 6; alpha = 8; a = 0.9; Fb(x) = 1 - exp(1 - x^a), x >= 1; Figure 2a shows crossing survival curves",
+  "ambiguity": "Refutes Theorem 3.17 when super-additivity and alpha <= 1 are dropped. Typo 'plote' is verbatim. With lambda = (3,4,5) and mu = (6,7,8), the weak-majorization hypothesis mu <<w lambda also appears to fail under the usual convention (mu has the larger partial sums), so the example may violate more than the two conditions the authors list.",
+  "adjudication": "adjudicated: Paper prints crossing survival curves of X_{2:3} and Y_{2:3} (Figure 2a): the st conclusion of Theor"
+ },
+ {
+  "paper": "arxiv:2104.08525",
   "claim": "Corollary 3.1",
   "page": 8,
   "quote": "Corollary 3.1. Let X \u223c ELS(\u00b5m , \u03b8, \u03b1; Fb ) and Y \u223c ELS(\u00b5, \u03b8, \u03b1; Fb), with \u00b5 \u2208 I+ and wrb(w) be decreasing in w > 0. Then, for \u00b5n \u2264 1, F\u0304Y2:n (x) \u2264 \u03a3{l=1..n} \u03a0{k\u2260l} [1 \u2212 Fb((x \u2212 \u00b5m)/\u03b8)\u03b1] \u2212 (n \u2212 1) \u03a0{k=1..n} [1 \u2212 Fb((x \u2212 \u00b5m)/\u03b8)\u03b1]. (3.10)",
@@ -1273,30 +1303,5 @@
   "numbers": "",
   "ambiguity": "Conclusion direction is X2:n >=hr Y2:n (X has the *larger* hazard rate? No \u2014 here >=hr reads as X2:n dominates Y2:n in hazard-rate order, i.e., rX2:n <= rY2:n following Def 2.1's convention W <=hr Z iff rZ <= rW). Note Remark 3.1: Fb(x) = (x\u22121)/(x+1), x >= 1 satisfies the baseline conditions.",
   "adjudication": "agreed"
- },
- {
-  "paper": "arxiv:2104.08525",
-  "claim": "Counterexample 3.1",
-  "page": 22,
-  "quote": "Counterexample 3.1. Consider the baseline distribution function as Fb (x) = 1 \u2212 exp(1 \u2212 xa ), x \u2265 1, a > 0. For this, when 0 < a \u2264 1, the hazard rate function is decreasing. Let {X1 , X2 , X3 } and {Y1 , Y2 , Y3 } be the collections of dependent random variables with Xi \u223c Fb\u03b1 ((x\u2212\u03bbi )/\u03b8) and Yi \u223c Fb\u03b1 ((x\u2212\u00b5i )/\u03b8), for i = 1, 2, 3 with generators \u03c81 (x) = e(1/a1 )(1\u2212ex ) and \u03c82 (x) = e(1/a2 )(1\u2212ex ), respectively, where x > 0, 0 < a1 , a2 \u2264 1. Here, \u03c81 and \u03c82 both are log-concave. Assume a1 = 0.001 and a2 = 0.5. Then, \u03c62 \u25e6 \u03c81 (x) is sub-additive, and hence is not super-additive. Set \u03bb = (3, 4, 5), \u00b5 = (6, 7, 8), \u03b8 = 6, \u03b1 = 8 and a = 0.9. Thus, all the conditions of Theorem 3.17 are satisfied except super-additivity of \u03c62 \u25e6 \u03c81 (x) and the restriction on \u03b1. Now, we plote the graphs of F\u0304X2:3 (x) and F\u0304Y2:3 (x) in Figure 2a. The graphs cross each other, which implies that Theorem 3.17 does not hold.",
-  "kind": "counterexample",
-  "model": "order statistic",
-  "family": "ELS marginals; generators \u03c8i(x) = e^{(1/ai)(1\u2212e^x)}, 0 < ai <= 1; lower-truncated Weibull baseline Fb(x) = 1 \u2212 exp(1 \u2212 x^a), x >= 1",
-  "compared": "location vectors \u03bb = (3,4,5) vs \u00b5 = (6,7,8); common \u03b8 = 6; generators differ (a1 = 0.001, a2 = 0.5)",
-  "hypotheses": [
-   {
-    "text": "all the conditions of Theorem 3.17 are satisfied except super-additivity of \u03c62 \u25e6 \u03c81 (x) and the restriction on \u03b1",
-    "formal": "violations: \u03c62\u25e6\u03c81 sub-additive not super-additive; \u03b1 = 8 > 1",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "negated: F\u0304X2:3(x) and F\u0304Y2:3(x) cross (Figure 2a), so neither X2:3 <=st nor >=st Y2:3 holds"
-  },
-  "quantifiers": "n = 3",
-  "numbers": "a1 = 0.001; a2 = 0.5; \u03bb = (3,4,5); \u00b5 = (6,7,8); \u03b8 = 6; \u03b1 = 8; a = 0.9; Fb(x) = 1 \u2212 exp(1 \u2212 x^a), x >= 1",
-  "ambiguity": "Refutes Theorem 3.17 when super-additivity and \u03b1 <= 1 are dropped. Typo 'plote' is verbatim.",
-  "adjudication": "example record (pass a)+b"
  }
 ]

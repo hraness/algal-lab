@@ -1,0 +1,80 @@
+[
+ {
+  "queue_claim": "counterexample3.1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1080/02331888.2025.2552185",
+    "claim": "Counterexample 3.1",
+    "page": 6,
+    "quote": "Counterexample 3.1. Let, Xi ∼ Kw-G(x, αi, γi; G) and Yi ∼ Kw-G(x, βi, γi; H), for i = 1, 2, 3, 4, 5. Set (γ1,...,γ5) = (1.2, 1.5, 1.9, 2, 2.1), (α1,...,α5) = (1.1, 0.001, 0.0001, 0.00001, 0.00001) and (β1,...,β5) = (2.1, 3.001, 5.0001, 0.001, 0.0001). Clearly, (α1,...,α5) ⪰w (β1,...,β5). Let G(x) = e^{−1/x} and H(x) = 1−e^{−x}, for x > 0. Also, let (X1,X2,X3) be selected with probability P(N1 = 3) = p(3) = 1/5, (X1,...,X4) with probability P(N1 = 4) = p(4) = 2/5 and (X1,...,X5) with probability P(N1 = 5) = p(5) = 2/5; further let (Y1,Y2,Y3) with P(N2 = 3) = p(3) = 1/5, (Y1,...,Y4) with P(N2 = 4) = p(4) = 3/5 and (Y1,...,Y5) with P(N2 = 5) = p(5) = 1/5. Here, N1 ≤st N2. Let us use the Gumbel copula with generators ψ1(x) = e^{−x^{1/a}} and ψ2(x) = e^{−x^{1/b}}, x > 0, with a = 2 and b = 2.1. Clearly, all the conditions are satisfied except ψ1 and ψ2 are log-concave. Figure 1(a) displays that the difference between F_{X_{N1:N1}}(x) and F_{Y_{N2:N2}}(x) crosses x axis, which violates the result in Theorem 3.1.",
+    "kind": "counterexample",
+    "model": "other: random maxima X_{N1:N1}, Y_{N2:N2} with random sample sizes N1, N2 under Archimedean copulas",
+    "family": "Kw-G(x, αi, γi; G) vs Kw-G(x, βi, γi; H); G(x)=e^{−1/x}, H(x)=1−e^{−x}; Gumbel generators ψ1(x)=e^{−x^{1/a}}, ψ2(x)=e^{−x^{1/b}}",
+    "compared": "α ⪰w β with common γ; baseline G vs H; random counts N1 <=st N2",
+    "hypotheses": [
+     {"text": "(α1,...,α5) ⪰w (β1,...,β5)", "formal": "weak majorization", "source": "statement"},
+     {"text": "N1 ≤st N2", "formal": "random sample-size ordering", "source": "statement"},
+     {"text": "all the conditions [of Theorem 3.1] are satisfied except ψ1 and ψ2 are log-concave", "formal": "log-concavity deliberately violated", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "refutes Theorem 3.1: the claimed X_{N1:N1} >=st Y_{N2:N2} fails — F difference crosses the x axis"},
+    "quantifiers": "n up to 5; x >= 0",
+    "numbers": "γ=(1.2,1.5,1.9,2,2.1); α=(1.1,0.001,0.0001,0.00001,0.00001); β=(2.1,3.001,5.0001,0.001,0.0001); P(N1=3,4,5)=(1/5,2/5,2/5); P(N2=3,4,5)=(1/5,3/5,1/5); a=2, b=2.1",
+    "ambiguity": "Body says 'difference between F_XN1:N1(x) and F_YN2:N2(x)'; Figure 1(a) caption says the plotted difference is in survival functions F̄ — either way a sign change violates the st conclusion."
+   }
+  ],
+  "note": "Counterexample refutes Theorem 3.1's X_{N1:N1} >=st Y_{N2:N2} by a sign-changing difference; record states the refuted direction (A's framing, B's 'neither' normalized differently)."
+ },
+ {
+  "queue_claim": "counterexample3.2",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1080/02331888.2025.2552185",
+    "claim": "Counterexample 3.2",
+    "page": 7,
+    "quote": "Counterexample 3.2. Let, Xi ∼ Kw-G(x, αi, γi; G) and Yi ∼ Kw-G(x, αi, δi; H), for i = 1, 2, 3, 4, 5. Further, let (γ1,...,γ5) = (3.9, 3.1, 2.9, 2.8, 2.1), (δ1,...,δ5) = (3.2, 2.6, 1.9, 1.2, 1) and (α1,...,α5) = (β1,...,β5) = (0.01, 7, 9, 9.1, 9.12). Clearly, (γ1,...,γ5) ⪰w (δ1,...,δ5). Let G(x) = e^{−1/x} and H(x) = 1 − e^{−x}, for x > 0. Also, let (X1,X2,X3) be selected with probability P(N1 = 3) = p(3) = 1/5, (X1,...,X4) with P(N1 = 4) = p(4) = 2/5 and (X1,...,X5) with P(N1 = 5) = p(5) = 2/5; further let (Y1,Y2,Y3) with P(N2 = 3) = p(3) = 1/5, (Y1,...,Y4) with P(N2 = 4) = p(4) = 3/5 and (Y1,...,Y5) with P(N2 = 5) = p(5) = 1/5. Here, N1 ≤st N2. Consider the Gumbel copula with generators ψ1(x) = e^{−x^{1/a}} and ψ2(x) = e^{−x^{1/b}}, x > 0, with a = 1.4 and b = 2.5. Here, all the conditions of Theorem 3.3 are satisfied except G ≥ H. Figure 1(b) displays the difference between F̄_{X_{1:N1}}(x) and F̄_{Y_{1:N2}}(x) crosses x axis for some x ≥ 0, which violates the statement of Theorem 3.3.",
+    "kind": "counterexample",
+    "model": "other: random minima X_{1:N1}, Y_{1:N2} with random sample sizes under Archimedean copulas",
+    "family": "Kw-G(x, αi, γi; G) vs Kw-G(x, αi, δi; H); G(x)=e^{−1/x}, H(x)=1−e^{−x}; Gumbel generators",
+    "compared": "γ ⪰w δ with common α = β; baseline G vs H (G ≥ H violated); random counts N1 <=st N2",
+    "hypotheses": [
+     {"text": "(γ1,...,γ5) ⪰w (δ1,...,δ5)", "formal": "weak majorization", "source": "statement"},
+     {"text": "N1 ≤st N2", "formal": "random sample-size ordering", "source": "statement"},
+     {"text": "all the conditions of Theorem 3.3 are satisfied except G ≥ H", "formal": "baseline ordering G >= H deliberately violated", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "refutes Theorem 3.3: the claimed X_{1:N1} <=st Y_{1:N2} fails — F̄ difference crosses the x axis"},
+    "quantifiers": "n up to 5; x >= 0",
+    "numbers": "γ=(3.9,3.1,2.9,2.8,2.1); δ=(3.2,2.6,1.9,1.2,1); α=β=(0.01,7,9,9.1,9.12); P(N1=3,4,5)=(1/5,2/5,2/5); P(N2=3,4,5)=(1/5,3/5,1/5); a=1.4, b=2.5",
+    "ambiguity": "Preamble says 'replace G ≤ H in Theorem 3.3 by G ≥ H' — but printed Theorem 3.3 already assumes G ≥ H; here G=e^{−1/x} vs H=1−e^{−x} gives G ≤ H, i.e., the G ≥ H hypothesis fails."
+   }
+  ],
+  "note": "Counterexample refutes Theorem 3.3's X_{1:N1} <=st Y_{1:N2} (A's direction 'A_smaller' matches the refuted <=st conclusion; B normalized to 'B_smaller')."
+ },
+ {
+  "queue_claim": "counterexample3.3",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1080/02331888.2025.2552185",
+    "claim": "Counterexample 3.3",
+    "page": 7,
+    "quote": "Counterexample 3.3. Suppose Xi ∼ Kw-G(x, αi, γi; G) and Yi ∼ Kw-G(x, αi, δi; H), for i = 1, 2, 3, 4, 5. Further, let (α1,...,α5) = (7.1, 2.9, 1.56, 0.03, 0.201), (β1,...,β5) = (8.1, 3.009, 2.6, 1.06, 0.01) and (γ1,...,γ5) = (δ1,...,δ5) = (5.02, 2.05, 1.09, 0.01, 0.001). It is easy to see that (α1,...,α5) ⪰w (β1,...,β5). Let H(x) = e^{−1/x} and G(x) = 1 − e^{−x}, for x > 0. Also, let (X1,X2,X3) be selected with probability P(N1 = 3) = p(3) = 1/5, (X1,...,X4) with P(N1 = 4) = p(4) = 2/5 and (X1,...,X5) with P(N1 = 5) = p(5) = 2/5; further, let (Y1,Y2,Y3) with P(N2 = 3) = p(3) = 1/5, (Y1,...,Y4) with P(N2 = 4) = p(4) = 3/5 and (Y1,...,Y5) with P(N2 = 5) = p(5) = 1/5, which satisfy the condition N1 ≤st N2. Choose the Gumbel-Hougaard copula with generators ψ1(x) = e^{1−(1+x)^{1/a}} and ψ2(x) = e^{1−(1+x)^{1/b}}, x > 0, with a = 4.0002 and b = 4.0001. So, all the conditions of Theorem 3.4 are satisfied except the log-convexity of ψ1 and ψ2. Figure 2 displays the difference between F̄_{X_{1:N1}}(x) and F̄_{Y_{1:N2}}(x) crosses x axis for some x ≥ 0. Therefore, Theorem 3.4 can not be possible without the log-convexity property of the generators.",
+    "kind": "counterexample",
+    "model": "other: random minima X_{1:N1}, Y_{1:N2} with random sample sizes under Archimedean copulas",
+    "family": "Kw-G(x, αi, γi; G) vs Kw-G(x, αi, δi; H); G(x)=1−e^{−x}, H(x)=e^{−1/x}; Gumbel-Hougaard generators ψ(x)=e^{1−(1+x)^{1/θ}}",
+    "compared": "α ⪰w β with common γ = δ; baseline G vs H; random counts N1 <=st N2",
+    "hypotheses": [
+     {"text": "(α1,...,α5) ⪰w (β1,...,β5)", "formal": "weak majorization", "source": "statement"},
+     {"text": "N1 ≤st N2", "formal": "random sample-size ordering", "source": "statement"},
+     {"text": "all the conditions of Theorem 3.4 are satisfied except the log-convexity of ψ1 and ψ2", "formal": "generator log-convexity deliberately violated", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "refutes Theorem 3.4: the claimed X_{1:N1} <=st Y_{1:N2} fails — F̄ difference crosses the x axis"},
+    "quantifiers": "n up to 5; x >= 0",
+    "numbers": "α=(7.1,2.9,1.56,0.03,0.201); β=(8.1,3.009,2.6,1.06,0.01); γ=δ=(5.02,2.05,1.09,0.01,0.001); P(N1=3,4,5)=(1/5,2/5,2/5); P(N2=3,4,5)=(1/5,3/5,1/5); a=4.0002, b=4.0001",
+    "ambiguity": "Here G = 1−e^{−x}, H = e^{−1/x} (roles swapped relative to Counterexample 3.2), so G ≥ H holds and only log-convexity fails."
+   }
+  ],
+  "note": "Counterexample refutes Theorem 3.4's X_{1:N1} <=st Y_{1:N2} by a sign-changing survival difference; record states the refuted direction (A's framing)."
+ }
+]

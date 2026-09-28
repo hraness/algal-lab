@@ -1,1 +1,87 @@
-[]
+[
+ {
+  "paper": "doi:10.2991/jsta.d.210607.001",
+  "claim": "Theorem 1 (lr part)",
+  "page": 323,
+  "quote": "Theorem 1. Let Xi \u223c XL \ud835\udf03i , i = 1, 2 be two random variables. If \ud835\udf031 \u2265 \ud835\udf032 , then X1 \u227alr X2 , X1 \u227ahr X2 , X1 \u227aS X2 .",
+  "kind": "theorem",
+  "model": "single",
+  "family": "XLindley XL(\u03b8): f(x;\u03b8) = \u03b8^2(2+\u03b8+x)e^{\u2212\u03b8x}/(1+\u03b8)^2, x>0, \u03b8>0",
+  "compared": "two XLindley variables with different parameters \u03b81 >= \u03b82",
+  "hypotheses": [
+   {
+    "text": "\ud835\udf031 \u2265 \ud835\udf032",
+    "formal": "parameter ordering",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "X1 <=lr X2"
+  },
+  "quantifiers": "i = 1,2; t > 0",
+  "numbers": "",
+  "ambiguity": "Proof derives only the lr statement directly (f_X1/f_X2 decreasing); hr and st follow via Remark 1: lr => hr => st.",
+  "adjudication": "adjudicated: Theorem 1 prints three conclusions lr, hr, and \u227aS (stochastic order per Definition 1a); split into t"
+ },
+ {
+  "paper": "doi:10.2991/jsta.d.210607.001",
+  "claim": "Theorem 1 (hr part)",
+  "page": 323,
+  "quote": "Theorem 1. Let Xi \u223c XL \ud835\udf03i , i = 1, 2 be two random variables. If \ud835\udf031 \u2265 \ud835\udf032 , then X1 \u227alr X2 , X1 \u227ahr X2 , X1 \u227aS X2 .",
+  "kind": "theorem",
+  "model": "single",
+  "family": "XLindley XL(\u03b8): f(x;\u03b8) = \u03b8^2(2+\u03b8+x)e^{\u2212\u03b8x}/(1+\u03b8)^2, x>0, \u03b8>0",
+  "compared": "two XLindley variables with different parameters \u03b81 >= \u03b82",
+  "hypotheses": [
+   {
+    "text": "\ud835\udf031 \u2265 \ud835\udf032",
+    "formal": "parameter ordering",
+    "source": "statement"
+   },
+   {
+    "text": "Likelihood ratio order \u21d2 Hazard rate order \u21d2 Stochastic order",
+    "formal": "lr => hr",
+    "source": "Remark 1"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "X1 <=hr X2"
+  },
+  "quantifiers": "i = 1,2; t > 0",
+  "numbers": "",
+  "ambiguity": "Concluded via Remark 1 implication from the lr part, not a direct proof.",
+  "adjudication": "adjudicated: Theorem 1 prints three conclusions lr, hr, and \u227aS (stochastic order per Definition 1a); split into t"
+ },
+ {
+  "paper": "doi:10.2991/jsta.d.210607.001",
+  "claim": "Theorem 1 (st part)",
+  "page": 323,
+  "quote": "Theorem 1. Let Xi \u223c XL \ud835\udf03i , i = 1, 2 be two random variables. If \ud835\udf031 \u2265 \ud835\udf032 , then X1 \u227alr X2 , X1 \u227ahr X2 , X1 \u227aS X2 .",
+  "kind": "theorem",
+  "model": "single",
+  "family": "XLindley XL(\u03b8): f(x;\u03b8) = \u03b8^2(2+\u03b8+x)e^{\u2212\u03b8x}/(1+\u03b8)^2, x>0, \u03b8>0",
+  "compared": "two XLindley variables with different parameters \u03b81 >= \u03b82",
+  "hypotheses": [
+   {
+    "text": "\ud835\udf031 \u2265 \ud835\udf032",
+    "formal": "parameter ordering",
+    "source": "statement"
+   },
+   {
+    "text": "Likelihood ratio order \u21d2 Hazard rate order \u21d2 Stochastic order",
+    "formal": "lr => hr => st; '\u227aS' is the stochastic-order symbol per Definition 1(a)",
+    "source": "Remark 1 / Definition 1"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X1 <=st X2"
+  },
+  "quantifiers": "i = 1,2; t > 0",
+  "numbers": "",
+  "ambiguity": "'\u227aS' denotes the usual stochastic order (Definition 1(a): F_X(t) >= F_Y(t) for all t); pass B folded it into the lr record.",
+  "adjudication": "adjudicated: Theorem 1 prints three conclusions lr, hr, and \u227aS (stochastic order per Definition 1a); split into t"
+ }
+]

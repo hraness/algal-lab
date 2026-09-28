@@ -1,6 +1,451 @@
 [
  {
   "paper": "doi:10.3390/sym13122248",
+  "claim": "Example 1",
+  "page": 10,
+  "quote": "Example 1. Consider two series systems. Let G1 (x) = 1 \u2212 1/(1+x) and G2 (x) = e\u2212x for x > 0. Suppose that (p1 , p1 , p3 ) = (e\u22120.05 , e\u22120.08 , e\u22120.22 ), (p1\u2217 , p2\u2217 , p3\u2217 ) = (e\u22120.01 , e\u22120.21 , e\u22120.03 ), (\u03b21 , \u03b22 , \u03b22 ) = (2, 5, 6) \u227dw (4.5, 5, 5.8) = (\u03b41 , \u03b42 , \u03b43 ) and (\u03b11 , \u03b12 , \u03b12 ) = (1.1, 4, 6.5) \u227dw (3.5, 4, 6.3) = (\u03b31 , \u03b32 , \u03b33 ). As mentioned in Remark 4, we choose the Clayton copula with generator \u03c8(x) = (\u03b8x + 1)\u22121/\u03b8 for \u03b8 \u2265 0, set \u03b81 = 2 and \u03b82 = 4. Clearly, the conditions of Theorem 3 are satisfied. To plot the whole of distributions functions curves the lifetime of Y1:3 and Y1:3\u2217 on [0, \u221e), we take the transformation (x + 1)\u22121 : [0, \u221e) \u2192 [0, 1]. Then Y1:3 \u2264st Y1:3 \u2217 is equivalent to (Y1:3 + 1)\u22121 \u2265st (Y1:3 \u2217 + 1)\u22121 . Figure 1 shows that the distribution of (Y1:3 + 1)\u22121 is always larger than the distribution of (Y1:3 \u2217 + 1)\u22121 , and this confirms that Y1:3 \u2264st Y1:3 \u2217 .",
+  "kind": "example",
+  "model": "series system",
+  "family": "series systems of MOTL-G components Xi ~ MOTL-G(\u03b1i,\u03b2i,G1), Xi* ~ MOTL-G(\u03b3i,\u03b4i,G2) with Archimedean copula(s) Clayton generators \u03c8(x)=(\u03b8x+1)^{\u22121/\u03b8}, \u03b81=2, \u03b82=4, shocked Yi = Xi\u00b7I_{pi} ; G1(x)=1\u22121/(1+x), G2(x)=e^{\u2212x}",
+  "compared": "Y1:3 (params \u03b1=(1.1,4,6.5), \u03b2=(2,5,6), p) vs Y1:3* (\u03b3=(3.5,4,6.3), \u03b4=(4.5,5,5.8), p*)",
+  "hypotheses": [
+   {
+    "text": "\u03b1 \u227dw \u03b3 and \u03b2 \u227dw \u03b4",
+    "formal": "weak supermajorization per Def. 2(ii): bottom partial sums of the first vector smaller",
+    "source": "statement"
+   },
+   {
+    "text": "Clayton copula generators \u03b81=2, \u03b82=4; super-additivity of \u03c62\u2218\u03c81",
+    "formal": "Theorem 3 condition",
+    "source": "statement; Remark 4"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y1:3 \u2264st Y1:3* (equivalently (Y1:3+1)^{-1} \u2265st (Y1:3*+1)^{-1})"
+  },
+  "quantifiers": "x > 0; n = 3",
+  "numbers": "p = (e^{\u22120.05},e^{\u22120.08},e^{\u22120.22}); p* = (e^{\u22120.01},e^{\u22120.21},e^{\u22120.03}); \u03b2 = (2,5,6); \u03b4 = (4.5,5,5.8); \u03b1 = (1.1,4,6.5); \u03b3 = (3.5,4,6.3); Clayton \u03b81 = 2, \u03b82 = 4",
+  "ambiguity": "Printed index typos: '(p1,p1,p3)', '(\u03b21,\u03b22,\u03b22)', '(\u03b11,\u03b12,\u03b12)' \u2014 intended (p1,p2,p3), (\u03b21,\u03b22,\u03b23), (\u03b11,\u03b12,\u03b13). Pass B's G1(x)=1\u22121/(1+x\u00b2) is a misread; PDF shows 1\u22121/(1+x). The sentence 'the distribution of (Y1:3+1)^{\u22121} is always larger' reads ambiguously: if 'distribution' means the plotted cdf, larger cdf implies (Y1:3+1)^{\u22121} \u2264st (Y1:3*+1)^{\u22121}, i.e., Y1:3 \u2265st Y1:3* \u2014 opposite to the printed conclusion; consistent only under a survival-function/stochastic-largeness reading. paper's '\u227dw' (printed as wedge with superscript w) denotes weak supermajorization per Def. 2(ii): \u03a3_{i=1}^j x_{i:n} \u2264 \u03a3_{i=1}^j y_{i:n}, j = 1,...,n \u2014 i.e., the first vector has the SMALLER bottom partial sums (the more heterogeneous one); this convention is opposite to Marshall\u2013Olkin weak supermajorization",
+  "adjudication": "adjudicated: CORRECTION: G1(x)=1\u22121/(1+x) (not 1/(1+x\u00b2)); conclusion st agreed. The transform-direction wording is"
+ },
+ {
+  "paper": "doi:10.3390/sym13122248",
+  "claim": "Example 2",
+  "page": 11,
+  "quote": "Example 2. Under the setup of Example 1, let generators \u03c81 (x) = (\u03b81 x + 1)\u22121/\u03b81 and \u03c82 (x) = (\u03b82 x + 1)\u22121/\u03b82 for \u03b8 \u2265 0. When \u03b81 = 4 and \u03b82 = 0.2, note that [\u03c62 o \u03c81 (t)]\u2032\u2032 \u2265 0. Thus, the super-additive of \u03c62 \u25e6 \u03c81 is not satisfied. As is seen in Figure 2, (Y1:3 + 1)\u22121 is not always beneath that of (Y1:3 \u2217 + 1)\u22121 , that is, neither Y1:3 \u2265st Y1:3 \u2217 nor Y1:3 \u2264st Y1:3 \u2217 .",
+  "kind": "counterexample",
+  "model": "series system",
+  "family": "series systems of MOTL-G components Xi ~ MOTL-G(\u03b1i,\u03b2i,G1), Xi* ~ MOTL-G(\u03b3i,\u03b4i,G2) with Archimedean copula(s) Clayton generators, shocked Yi = Xi\u00b7I_{pi} ; Example-1 baselines",
+  "compared": "same systems as Example 1 under different copula parameters",
+  "hypotheses": [
+   {
+    "text": "[\u03c62\u2218\u03c81(t)]\u2032\u2032 \u2265 0 as printed",
+    "formal": "asserts failure of super-additivity of \u03c62\u2218\u03c81",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "neither Y1:3 \u2265st Y1:3* nor Y1:3 \u2264st Y1:3* \u2014 no stochastic order either way"
+  },
+  "quantifiers": "x > 0; n = 3",
+  "numbers": "\u03b81 = 4, \u03b82 = 0.2; Clayton generators",
+  "ambiguity": "The printed sign in '[\u03c62\u2218\u03c81(t)]\u2032\u2032 \u2265 0' is verified from the PDF (vertex-right '\u2265'), though the composition \u03c62\u2218\u03c81 is actually concave (second derivative \u2264 0) for these Clayton parameters \u2014 so the printed inequality sign is likely a typographical error while the stated conclusion (super-additivity fails) is correct. Demonstrates the super-additivity condition of Theorem 3 cannot be dropped.",
+  "adjudication": "adjudicated: CORRECTION: the printed second-derivative sign is '\u2265 0' (pass A repaired it to \u2264); the conclusion \u2014 "
+ },
+ {
+  "paper": "doi:10.3390/sym13122248",
+  "claim": "Example 3",
+  "page": 13,
+  "quote": "Example 3. Consider the case of n = 2. Let G (x) = x, 0 \u2264 x \u2264 1, and generator \u03c8(x) = 2/(1 + ex ). Set \u03b2 = 1, \u03b11 = 2, \u03b12 = 3, \u03b31 = 4, \u03b32 = 6, and \u220fn i=1 pi\u2217 / \u220fn i=1 pi = 0.3. However, F\u0304Y1:2 \u2217 (x)/F\u0304Y1:2 (x) is not monotone (see Figure 3). Therefore, the condition of \u220fn i=1 pi \u2264 \u220fn i=1 pi\u2217 cannot be removed.",
+  "kind": "counterexample",
+  "model": "series system",
+  "family": "series systems of MOTL-G components Xi ~ MOTL-G(\u03b1i,\u03b2i,G1), Xi* ~ MOTL-G(\u03b3i,\u03b4i,G2) with common generator \u03c8(x)=2/(1+e^x), shocked Yi = Xi\u00b7I_{pi} ; G(x)=x on [0,1]",
+  "compared": "Y1:2 vs Y1:2* differing in shape \u03b1=(2,3) vs \u03b3=(4,6) and shock products \u220fpi vs \u220fpi*",
+  "hypotheses": [
+   {
+    "text": "\u220fpi* / \u220fpi = 0.3, so \u220fpi \u2264 \u220fpi* fails",
+    "formal": "the Theorem-5 product condition is deliberately violated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "F\u0304_{Y1:2}*(x)/F\u0304_{Y1:2}(x) is not monotone \u2014 no hazard-rate order in either direction"
+  },
+  "quantifiers": "x \u2208 [0,1]; n = 2",
+  "numbers": "\u03b2 = 1; \u03b11 = 2, \u03b12 = 3; \u03b31 = 4, \u03b32 = 6; \u220fpi*/\u220fpi = 0.3",
+  "ambiguity": "Explicit demonstration that Theorem 5's condition \u220fpi \u2264 \u220fpi* cannot be removed; also Remark 6 notes the survival-ratio value at x = 0 was neglected in a prior result (Panja et al. [29] Theorem 5.3).",
+  "adjudication": "adjudicated: Both passes agree; the ratio non-monotonicity kills both hr directions \u2014 recorded as printed."
+ },
+ {
+  "paper": "doi:10.3390/sym13122248",
+  "claim": "Example 4",
+  "page": 13,
+  "quote": "Example 4. Let G (x) = x and 0 \u2264 x \u2264 1; it is assumed that \u03b1 = 1.2, \u03b21 = 2, \u03b22 = 7, \u03b41 = 6, \u03b42 = 9 and \u220fn i=1 pi\u2217 / \u220fn i=1 pi = 3. As is displayed in Figure 4, F\u0304Y1:2 \u2217 (x)/F\u0304Y1:2 (x) is not monotone in x. Therefore, neither of Y1:2 \u2265hr Y1:2 \u2217 and Y1:2 \u2264hr Y1:2 \u2217 is true.",
+  "kind": "counterexample",
+  "model": "series system",
+  "family": "independent MOTL-G components (G(x)=x on [0,1]) under random shocks",
+  "compared": "Y1:2 vs Y1:2* differing in second shape parameter \u03b2=(2,7) vs \u03b4=(6,9) with \u220fpi* > \u220fpi",
+  "hypotheses": [
+   {
+    "text": "\u03b2 \u227dw \u03b4 with \u03b1 fixed (\u03b1=1.2)",
+    "formal": "weak supermajorization on the \u03b2/\u03b4 parameters",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "neither Y1:2 \u2265hr Y1:2* nor Y1:2 \u2264hr Y1:2* \u2014 no hazard-rate order either way"
+  },
+  "quantifiers": "x \u2208 [0,1]; n = 2",
+  "numbers": "\u03b1 = 1.2; \u03b21 = 2, \u03b22 = 7; \u03b41 = 6, \u03b42 = 9; \u220fpi*/\u220fpi = 3",
+  "ambiguity": "Gives a negative answer to whether \u03b2 \u227dw \u03b4 yields hazard-rate ordering even in the independent case \u2014 i.e., Theorem 5's hr conclusion does not extend to heterogeneity in the second shape parameter. Printed grammar 'neither of ... and ... is true' kept verbatim.",
+  "adjudication": "adjudicated: Both passes agree on no-hr-either-way."
+ },
+ {
+  "paper": "doi:10.3390/sym13122248",
+  "claim": "Example 5",
+  "page": 19,
+  "quote": "Example 5. Suppose Xi \u223c MOTL \u2212 G (1, \u03b2i , G1 (x)) (Xi\u2217 \u223c MOTL \u2212 G (1, \u03b4i , G2 (x))), i = 1, 2. Let Z1 and Z2 be two exponential random variables with continuous distributions G1 (x) = 1 \u2212 e\u2212\u03bb1 x and G2 (x) = 1 \u2212 e\u2212\u03bb2 x (\u03bb1 \u2265 \u03bb2 ), respectively. Taking h(p) = \u2212 log(p). Then, the distribution functions of Y2:2 and Y2:2 \u2217 are given by FY2:2 (x) = \u220f2i=1 [1 \u2212 e\u2212ui (1 \u2212 (1 \u2212 e\u22122\u03bb1 x ) \u03b2i )] and FY2:2 \u2217 (x) = \u220f2i=1 [1 \u2212 e\u2212ui (1 \u2212 (1 \u2212 e\u22122\u03bb2 x )\u03b4i )] for all x \u2265 0. ... According to the part (i) of Theorem 8, we set \u03b21 \u2264 \u03b22 and u1 \u2264 u2 . Then, we obtain ... From Lemma 6, we obtain that FY2:2 (x) is decreasing and Schur-convex. Thus, we have FY2:2 (x) \u2265 FY\u2217 2:2 (x), which implies Y2:2 \u2264st Y2:2 \u2217 .",
+  "kind": "example",
+  "model": "parallel system",
+  "family": "independent MOTL-G(1,\u03b2i,\u00b7) components, exponential baselines G1(x)=1\u2212e^{\u2212\u03bb1x}, G2(x)=1\u2212e^{\u2212\u03bb2x}, h(p)=\u2212log p",
+  "compared": "Y2:2 vs Y2:2* differing in second shape \u03b2 vs \u03b4 and baseline \u03bb1 \u2265 \u03bb2",
+  "hypotheses": [
+   {
+    "text": "\u03b1i = \u03b3i = 1 (\u03b1 = 1 \u2265 1); (\u03b2,h(p)),(\u03b4,h(p)) \u2208 Un via \u03b21\u2264\u03b22, u1\u2264u2; \u03b2 \u227dw \u03b4",
+    "formal": "Theorem 8(i) conditions",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "FY2:2(x) \u2265 FY2:2*(x), i.e., Y2:2 \u2264st Y2:2*"
+  },
+  "quantifiers": "x \u2265 0; n = 2",
+  "numbers": "\u03b1 = 1 fixed; h(p) = \u2212log p; \u03bb1 \u2265 \u03bb2 (symbolic, no numeric values); sets \u03b21 \u2264 \u03b22, u1 \u2264 u2",
+  "ambiguity": "Symbolic verification of Theorem 8(i) rather than a numeric example. The printed intermediate derivative d(1\u2212(1\u2212e^{\u22122\u03bbx})^\u03b4)/d\u03bb = \u22122xe^{\u2212\u03bbx}\u03b4(1\u2212e^{\u22122\u03bbx})^{\u03b4\u22121} should read e^{\u22122\u03bbx} in place of e^{\u2212\u03bbx} \u2014 a printed computational slip; the final sign \u2264 0 is unaffected.",
+  "adjudication": "adjudicated: Includes a printed typo in the derivative (e^{\u2212\u03bbx} for e^{\u22122\u03bbx}) \u2014 flagged, conclusion unaffected."
+ },
+ {
+  "paper": "doi:10.3390/sym13122248",
+  "claim": "Example 6(i)",
+  "page": 20,
+  "quote": "Example 6. Let G (x) = 1 \u2212 1/(1+x), x > 0 and h(p) = \u2212 log(p). (i) For \u03b1 = 1 and h(p) = (4.2, 0.01), let \u03b2 = (1, 2.7) and \u03b4 = (2.4, 2.69). Clearly, (\u03b2, h(p)), (\u03b4, h(p)) \u2208 Vn and \u03b2 \u227dw \u03b4. As is seen in Figure 5a, neither Y2:2 \u2264st Y2:2 \u2217 nor Y2:2 \u2265st Y2:2 \u2217 .",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "parallel systems of independent MOTL-G components under random shocks, Yi = Xi\u00b7I_{pi} ; G(x)=1\u22121/(1+x), h(p)=\u2212log p",
+  "compared": "Y2:2 vs Y2:2* differing in second shape \u03b2 vs \u03b4 under opposite-ordering (Vn) vectors",
+  "hypotheses": [
+   {
+    "text": "(\u03b2,h(p)),(\u03b4,h(p)) \u2208 Vn and \u03b2 \u227dw \u03b4",
+    "formal": "Vn = oppositely-ordered pairs (Def.: (xi\u2212xj)(yi\u2212yj) \u2264 0)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "neither Y2:2 \u2264st Y2:2* nor Y2:2 \u2265st Y2:2* \u2014 no usual stochastic order either way"
+  },
+  "quantifiers": "x > 0; n = 2",
+  "numbers": "\u03b1 = 1; h(p) = (4.2,0.01); \u03b2 = (1,2.7); \u03b4 = (2.4,2.69)",
+  "ambiguity": "Shows the Un condition of Theorem 8(i) cannot be relaxed to Vn. paper's '\u227dw' (printed as wedge with superscript w) denotes weak supermajorization per Def. 2(ii): \u03a3_{i=1}^j x_{i:n} \u2264 \u03a3_{i=1}^j y_{i:n}, j = 1,...,n \u2014 i.e., the first vector has the SMALLER bottom partial sums (the more heterogeneous one); this convention is opposite to Marshall\u2013Olkin weak supermajorization",
+  "adjudication": "adjudicated: Conflict between pass A's part-record and pass B's bundled record \u2014 resolved by emitting the per-par"
+ },
+ {
+  "paper": "doi:10.3390/sym13122248",
+  "claim": "Example 6",
+  "page": 20,
+  "quote": "Example 6. Let G (x) = 1 \u2212 1/(1+x), x > 0 and h(p) = \u2212 log(p). (i) For \u03b1 = 1 and h(p) = (4.2, 0.01), let \u03b2 = (1, 2.7) and \u03b4 = (2.4, 2.69). Clearly, (\u03b2, h(p)), (\u03b4, h(p)) \u2208 Vn and \u03b2 \u227dw \u03b4. As is seen in Figure 5a, neither Y2:2 \u2264st Y2:2 \u2217 nor Y2:2 \u2265st Y2:2 \u2217 . (ii) For \u03b2 = 1 and h(p) = (3.2, 2), let \u03b1 = (1.1, 5) and \u03b3 = (3.5, 4). It is easy to check that (\u03b1, h(p)), (\u03b3, h(p)) \u2208 Vn and \u03b1 \u227dw \u03b3. The survival function F\u0304(Y2:2 +1)\u22121 (x) \u2212 F\u0304(Y2:2 \u2217 +1)\u22121 (x) is plotted in Figure 5b, from which can confirm that no exists stochastic ordering between Y2:2 and Y2:2 \u2217 .",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "parallel systems of independent MOTL-G components under random shocks, Yi = Xi\u00b7I_{pi} ; G(x)=1\u22121/(1+x), h(p)=\u2212log p",
+  "compared": "Y2:2 vs Y2:2* under Vn (opposite-ordering) shape/weight pairs \u2014 both parts",
+  "hypotheses": [
+   {
+    "text": "(\u03b2,h(p)),(\u03b4,h(p)) \u2208 Vn, \u03b2 \u227dw \u03b4 (part i); (\u03b1,h(p)),(\u03b3,h(p)) \u2208 Vn, \u03b1 \u227dw \u03b3 (part ii)",
+    "formal": "Vn memberships and weak majorization",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "no stochastic ordering between Y2:2 and Y2:2* in either part \u2014 shows Vn cannot replace Un in Theorem 8"
+  },
+  "quantifiers": "x > 0; n = 2",
+  "numbers": "part (i): \u03b1=1, h(p)=(4.2,0.01), \u03b2=(1,2.7), \u03b4=(2.4,2.69); part (ii): \u03b2=1, h(p)=(3.2,2), \u03b1=(1.1,5), \u03b3=(3.5,4)",
+  "ambiguity": "Pass B's bundled record for the same printed example; canonical per-part records are 'Example 6(i)'/'Example 6(ii)'. paper's '\u227dw' denotes weak supermajorization per Def. 2(ii): the first vector has the smaller bottom partial sums (more heterogeneous)",
+  "adjudication": "adjudicated: Conflict between pass A's part-record and pass B's bundled record \u2014 resolved by emitting the per-par"
+ },
+ {
+  "paper": "doi:10.3390/sym13122248",
+  "claim": "Example 6(ii)",
+  "page": 20,
+  "quote": "(ii) For \u03b2 = 1 and h(p) = (3.2, 2), let \u03b1 = (1.1, 5) and \u03b3 = (3.5, 4). It is easy to check that (\u03b1, h(p)), (\u03b3, h(p)) \u2208 Vn and \u03b1 \u227dw \u03b3. The survival function F\u0304(Y2:2 +1)\u22121 (x) \u2212 F\u0304(Y2:2 \u2217 +1)\u22121 (x) is plotted in Figure 5b, from which can confirm that no exists stochastic ordering between Y2:2 and Y2:2 \u2217 .",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "parallel systems of independent MOTL-G components under random shocks, Yi = Xi\u00b7I_{pi} ; G(x)=1\u22121/(1+x), h(p)=\u2212log p",
+  "compared": "Y2:2 vs Y2:2* differing in first shape \u03b1 vs \u03b3 under Vn vectors",
+  "hypotheses": [
+   {
+    "text": "(\u03b1,h(p)),(\u03b3,h(p)) \u2208 Vn and \u03b1 \u227dw \u03b3",
+    "formal": "opposite-ordering pairs",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "no stochastic ordering between Y2:2 and Y2:2* in either direction"
+  },
+  "quantifiers": "x > 0; n = 2",
+  "numbers": "\u03b2 = 1; h(p) = (3.2,2); \u03b1 = (1.1,5); \u03b3 = (3.5,4)",
+  "ambiguity": "Shows the Un condition of Theorem 8(ii) cannot be relaxed to Vn. Printed 'no exists stochastic ordering' kept verbatim. paper's '\u227dw' (printed as wedge with superscript w) denotes weak supermajorization per Def. 2(ii): \u03a3_{i=1}^j x_{i:n} \u2264 \u03a3_{i=1}^j y_{i:n}, j = 1,...,n \u2014 i.e., the first vector has the SMALLER bottom partial sums (the more heterogeneous one); this convention is opposite to Marshall\u2013Olkin weak supermajorization",
+  "adjudication": "adjudicated: Part (ii) of Example 6 \u2014 Vn-vs-Un boundary counterexample."
+ },
+ {
+  "paper": "doi:10.3390/sym13122248",
+  "claim": "Example 7(i)",
+  "page": 21,
+  "quote": "Example 7. Let Xi \u223c MOTL \u2212 G (\u03b1i , \u03b2i , G(x)) and Xi\u2217 \u223c MOTL \u2212 G (\u03b3i , \u03b4i , G(x)), i = 1, 2, assume that Ip1 , Ip2 be two independent Bernoulli random variables with E(Ipi ) = pi , independent of Xi \u2019s(Xi\u2217 \u2019s), i = 1, 2. Let G(x) = x for 0 \u2264 x \u2264 1, h(p) = \u2212 log(p), and (h(p1 ), h(p2 )) = (1, 1.2). (i) Let \u03b21 = \u03b41 = 2, \u03b22 = \u03b42 = 5.5, (\u03b11 , \u03b12 ) = (1, 8) and (\u03b31 , \u03b32 ) = (4, 6). Then, (\u03b1, h(p)), (\u03b3, h(p)) \u2208 Un and \u03b1 \u227dw \u03b3. In this case, the distribution function FY2:2 (x) \u2212 FY2:2 \u2217 (x) is displayed in Figure 6a, which implies that the usual stochastic ordering does not hold between Y2:2 and Y2:2 \u2217 .",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "parallel systems of independent MOTL-G components under random shocks, Yi = Xi\u00b7I_{pi} ; G(x)=x on [0,1]",
+  "compared": "Y2:2 vs Y2:2* with common (but vector-valued) \u03b2 = \u03b4 = (2,5.5) and \u03b1 = (1,8) vs \u03b3 = (4,6)",
+  "hypotheses": [
+   {
+    "text": "(\u03b1,h(p)),(\u03b3,h(p)) \u2208 Un and \u03b1 \u227dw \u03b3",
+    "formal": "same-ordering pairs and weak supermajorization (paper's convention)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "usual stochastic ordering does not hold between Y2:2 and Y2:2* \u2014 FY2:2 \u2212 FY2:2* changes sign (Figure 6a)"
+  },
+  "quantifiers": "x \u2208 [0,1]; n = 2",
+  "numbers": "(h(p1),h(p2)) = (1,1.2); \u03b21 = \u03b41 = 2, \u03b22 = \u03b42 = 5.5; \u03b1 = (1,8); \u03b3 = (4,6)",
+  "ambiguity": "\u03b2 = \u03b4 is a non-constant vector (2,5.5), so Theorem 8(ii)'s premise '\u03b2i = \u03b4i = \u03b2 scalar' is not met \u2014 the example shows the ordering conclusion fails when the common second-shape parameter is heterogeneous. Note Theorem 8(ii) as printed reads '\u03b2i = \u03b3i = \u03b2', where \u03b3i is presumably a misprint for \u03b4i. paper's '\u227dw' (printed as wedge with superscript w) denotes weak supermajorization per Def. 2(ii): \u03a3_{i=1}^j x_{i:n} \u2264 \u03a3_{i=1}^j y_{i:n}, j = 1,...,n \u2014 i.e., the first vector has the SMALLER bottom partial sums (the more heterogeneous one); this convention is opposite to Marshall\u2013Olkin weak supermajorization",
+  "adjudication": "adjudicated: Conflict between pass A's part-record and pass B's bundled record \u2014 resolved by emitting per-part re"
+ },
+ {
+  "paper": "doi:10.3390/sym13122248",
+  "claim": "Example 7",
+  "page": 21,
+  "quote": "Example 7. Let Xi \u223c MOTL \u2212 G (\u03b1i , \u03b2i , G(x)) and Xi\u2217 \u223c MOTL \u2212 G (\u03b3i , \u03b4i , G(x)), i = 1, 2 ... G(x) = x for 0 \u2264 x \u2264 1, h(p) = \u2212 log(p), and (h(p1 ), h(p2 )) = (1, 1.2). (i) \u03b21 = \u03b41 = 2, \u03b22 = \u03b42 = 5.5, \u03b1 = (1,8), \u03b3 = (4,6): (\u03b1,h(p)),(\u03b3,h(p)) \u2208 Un, \u03b1 \u227dw \u03b3 \u2014 FY2:2 \u2212 FY2:2\u2217 changes sign (Figure 6a). (ii) \u03b11 = \u03b31 = 1, \u03b12 = \u03b32 = 8, \u03b2 = (2,5.5), \u03b4 = (3,5): (\u03b2,h(p)),(\u03b4,h(p)) \u2208 Un, \u03b2 \u227dw \u03b4 \u2014 no usual stochastic ordering (Figure 6b). (iii) \u03b1 = (1,8), \u03b3 = (4,6), \u03b2 = (2,5.5), \u03b4 = (3,5): all four Un/majorization conditions hold \u2014 no usual stochastic ordering (Figure 6c).",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "parallel systems of independent MOTL-G components under random shocks, Yi = Xi\u00b7I_{pi} ; G(x)=x on [0,1]",
+  "compared": "Y2:2 vs Y2:2* \u2014 Theorem-8 scalar-equality boundaries probed in three parts",
+  "hypotheses": [
+   {
+    "text": "Un memberships and weak majorization as printed per part",
+    "formal": "(\u03b1,h(p)),(\u03b3,h(p)) \u2208 Un, \u03b1 \u227dw \u03b3 (i); (\u03b2,h(p)),(\u03b4,h(p)) \u2208 Un, \u03b2 \u227dw \u03b4 (ii); all (iii)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "no usual stochastic ordering between Y2:2 and Y2:2* in any of parts (i)\u2013(iii) \u2014 FY2:2 \u2212 FY2:2* changes sign"
+  },
+  "quantifiers": "x \u2208 [0,1]; n = 2",
+  "numbers": "(h(p1),h(p2)) = (1,1.2); (i) \u03b2=\u03b4=(2,5.5), \u03b1=(1,8), \u03b3=(4,6); (ii) \u03b1=\u03b3=(1,8), \u03b2=(2,5.5), \u03b4=(3,5); (iii) \u03b1=(1,8), \u03b3=(4,6), \u03b2=(2,5.5), \u03b4=(3,5)",
+  "ambiguity": "Pass B's bundled record for all three parts; canonical per-part records are 'Example 7(i)'\u2013'(iii)'. Shows Theorem 8 needs the scalar-equality premises; the printed '\u03b2i = \u03b3i = \u03b2' in Theorem 8(ii) is presumably a misprint for \u03b4i. paper's '\u227dw' denotes weak supermajorization per Def. 2(ii): the first vector has the smaller bottom partial sums (more heterogeneous)",
+  "adjudication": "adjudicated: Conflict between pass A's part-record and pass B's bundled record \u2014 resolved by emitting per-part re"
+ },
+ {
+  "paper": "doi:10.3390/sym13122248",
+  "claim": "Example 7(ii)",
+  "page": 21,
+  "quote": "(ii) Let \u03b11 = \u03b31 = 1, \u03b12 = \u03b32 = 8, (\u03b21 , \u03b22 ) = (2, 5.5) and (\u03b41 , \u03b42 ) = (3, 5). Then, (\u03b2, h(p)), (\u03b4, h(p)) \u2208 Un and \u03b2 \u227dw \u03b4. However, Figure 6b shows that there exists no usual stochastic ordering between Y2:2 and Y2:2 \u2217 .",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "parallel systems of independent MOTL-G components under random shocks, Yi = Xi\u00b7I_{pi} ; G(x)=x on [0,1]",
+  "compared": "Y2:2 vs Y2:2* with common (but vector-valued) \u03b1 = \u03b3 = (1,8) and \u03b2 = (2,5.5) vs \u03b4 = (3,5)",
+  "hypotheses": [
+   {
+    "text": "(\u03b2,h(p)),(\u03b4,h(p)) \u2208 Un and \u03b2 \u227dw \u03b4",
+    "formal": "same-ordering pairs and weak supermajorization",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "no usual stochastic ordering between Y2:2 and Y2:2* \u2014 FY2:2 \u2212 FY2:2* changes sign (Figure 6b)"
+  },
+  "quantifiers": "x \u2208 [0,1]; n = 2",
+  "numbers": "\u03b11 = \u03b31 = 1, \u03b12 = \u03b32 = 8; \u03b2 = (2,5.5); \u03b4 = (3,5); h(p) = (1,1.2)",
+  "ambiguity": "\u03b1 = \u03b3 is the non-constant vector (1,8), so Theorem 8(i)'s scalar requirement \u03b1i = \u03b3i = \u03b1 is not met \u2014 the st conclusion fails when the common first-shape parameter is heterogeneous. paper's '\u227dw' (printed as wedge with superscript w) denotes weak supermajorization per Def. 2(ii): \u03a3_{i=1}^j x_{i:n} \u2264 \u03a3_{i=1}^j y_{i:n}, j = 1,...,n \u2014 i.e., the first vector has the SMALLER bottom partial sums (the more heterogeneous one); this convention is opposite to Marshall\u2013Olkin weak supermajorization",
+  "adjudication": "adjudicated: Boundary counterexample for Theorem 8(i): common vector \u03b1 \u2260 scalar \u21d2 st fails."
+ },
+ {
+  "paper": "doi:10.3390/sym13122248",
+  "claim": "Example 7(iii)",
+  "page": 21,
+  "quote": "(iii) Let (\u03b11 , \u03b12 ) = (1, 8) and (\u03b31 , \u03b32 ) = (4, 6), (\u03b21 , \u03b22 ) = (2, 5.5) and (\u03b41 , \u03b42 ) = (3, 5). Then, (\u03b1, h(p)), (\u03b3, h(p)) \u2208 Un and (\u03b2, h(p)), (\u03b4, h(p)) \u2208 Un , \u03b1 \u227dw \u03b3 and \u03b2 \u227dw \u03b4. However, Figure 6c shows that there exists no usual stochastic ordering between Y2:2 and Y2:2 \u2217 .",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "parallel systems of independent MOTL-G components under random shocks, Yi = Xi\u00b7I_{pi} ; G(x)=x on [0,1]",
+  "compared": "Y2:2 vs Y2:2* with both shape vectors differing, all Un/majorization conditions satisfied",
+  "hypotheses": [
+   {
+    "text": "(\u03b1,h(p)),(\u03b3,h(p)) \u2208 Un and (\u03b2,h(p)),(\u03b4,h(p)) \u2208 Un; \u03b1 \u227dw \u03b3 and \u03b2 \u227dw \u03b4",
+    "formal": "all pairwise orderings hold",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "no usual stochastic ordering between Y2:2 and Y2:2* \u2014 FY2:2 \u2212 FY2:2* changes sign on (0.9,1) (Figure 6c)"
+  },
+  "quantifiers": "x \u2208 [0,1]; n = 2",
+  "numbers": "\u03b1 = (1,8); \u03b3 = (4,6); \u03b2 = (2,5.5); \u03b4 = (3,5); h(p) = (1,1.2)",
+  "ambiguity": "Even with both pairwise majorization relations and Un memberships, the scalar-equality requirements of Theorem 8(i)/(ii) are needed; jointly relaxing them loses the st conclusion. paper's '\u227dw' (printed as wedge with superscript w) denotes weak supermajorization per Def. 2(ii): \u03a3_{i=1}^j x_{i:n} \u2264 \u03a3_{i=1}^j y_{i:n}, j = 1,...,n \u2014 i.e., the first vector has the SMALLER bottom partial sums (the more heterogeneous one); this convention is opposite to Marshall\u2013Olkin weak supermajorization",
+  "adjudication": "adjudicated: Boundary counterexample: both majorization conditions hold but st still fails without scalar equalit"
+ },
+ {
+  "paper": "doi:10.3390/sym13122248",
+  "claim": "Example 8",
+  "page": 21,
+  "quote": "Example 8. Under the same setup as part (i) of Example 7, we take \u03b21 = \u03b22 = \u03b41 = \u03b42 = 2 with the other conditions remaining unchanged. Similarly, in part (ii) of example 7, we take \u03b11 = \u03b12 = \u03b31 = \u03b32 = 1 with the other conditions remaining unchanged. Figure 7 shows that FY2:2 (x)/FY2:2 \u2217 (x) is not monotone in x. Therefore, neither Y2:2 \u2264rh Y2:2 \u2217 of Y2:2 \u2265rh Y2:2 \u2217 is true.",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "parallel systems of independent MOTL-G components under random shocks, Yi = Xi\u00b7I_{pi} ; G(x)=x on [0,1]",
+  "compared": "Y2:2 vs Y2:2* under the scalar-equality settings of Theorem 8 (\u03b2=\u03b4=2; resp. \u03b1=\u03b3=1)",
+  "hypotheses": [
+   {
+    "text": "\u03b21=\u03b22=\u03b41=\u03b42=2 (case a) or \u03b11=\u03b12=\u03b31=\u03b32=1 (case b), other Example-7 conditions unchanged",
+    "formal": "scalar-equality settings matching Theorem 8's premises",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "rh",
+   "direction": "FY2:2(x)/FY2:2*(x) not monotone \u2014 neither Y2:2 \u2264rh Y2:2* nor Y2:2 \u2265rh Y2:2*"
+  },
+  "quantifiers": "x \u2208 [0,1]; n = 2",
+  "numbers": "\u03b21=\u03b22=\u03b41=\u03b42=2 (case a); \u03b11=\u03b12=\u03b31=\u03b32=1 (case b); h(p)=(1,1.2); other params as in Example 7",
+  "ambiguity": "Demonstrates Theorem 8's conclusion cannot be strengthened from usual stochastic order to reversed hazard-rate order. Printed 'neither ... of ...' is a typo for 'or'.",
+  "adjudication": "adjudicated: Both passes agree on no-rh-either-way; rh strengthening of Theorem 8 fails."
+ },
+ {
+  "paper": "doi:10.3390/sym13122248",
+  "claim": "Theorem 6",
+  "page": 14,
+  "quote": "Theorem 6. Let X1 , . . . , Xn (X1\u2217 , . . . , Xn\u2217 ) be a set of independent MOTL-G random variables such that Xi \u223c MOTL \u2212 G (\u03b1i , \u03b2i , G1 (x)) (Xi\u2217 \u223c MOTL \u2212 G (\u03b1i , \u03b2i , G2 (x))), i = 1, 2. Further, assume Ip1 , . . . , Ipn (Ip1\u2217 , . . . , Ip\u2217n ) be a set of independent Bernoulli random variables with E(Ipi ) = pi (E(Ipi\u2217 ) = pi\u2217 ), independent of Xi \u2019s(Xi\u2217 \u2019s), i = 1, 2. If (i) Z1 \u2265st Z2 , (ii) (\u03b1, \u03b2) \u2208 U2 , (\u03b2, h(p)) \u2208 V2 and (\u03b2, h(p\u2217 )) \u2208 V2 and (iii) h : [0, 1] \u2192 (0, \u221e) is a differentiable and strictly decreasing convex function, then (h(p1 ), h(p2 )) \u227dw (h(p1\u2217 ), h(p2\u2217 )) =\u21d2 Y2:2 \u2265st Y2:2 \u2217 .",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "MOTL-G(\u03b1i,\u03b2i,\u00b7) components with common shapes, baselines G1 vs G2, shocks p vs p*",
+  "compared": "Y2:2 vs Y2:2* differing in baseline (Z1 \u2265st Z2) and shock probabilities h(p) vs h(p*)",
+  "hypotheses": [
+   {
+    "text": "(i) Z1 \u2265st Z2",
+    "formal": "baseline ordering",
+    "source": "statement"
+   },
+   {
+    "text": "(ii) (\u03b1,\u03b2) \u2208 U2, (\u03b2,h(p)) \u2208 V2 and (\u03b2,h(p*)) \u2208 V2",
+    "formal": "U2 = same-ordering, V2 = opposite-ordering pairs",
+    "source": "statement"
+   },
+   {
+    "text": "(iii) h : [0,1] \u2192 (0,\u221e) differentiable, strictly decreasing, convex",
+    "formal": "e.g., h(p) = \u2212log p",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "(h(p1),h(p2)) \u227dw (h(p1*),h(p2*)) \u27f9 Y2:2 \u2265st Y2:2*"
+  },
+  "quantifiers": "n = 2 as stated (indexing says 'i = 1, 2' though the preamble writes X1,...,Xn); x \u2265 0",
+  "numbers": "",
+  "ambiguity": "The statement says 'independent MOTL-G random variables' but it sits in the dependent-components subsection 3.1.2 and its proof uses the joint survival F\u0304X1:2(x) = \u03c8(\u03a3\u03c6(\u03b6(...))) built from an Archimedean copula \u2014 'independent' is almost surely a misprint for 'dependent'. Both Xi and Xi* use shape parameters (\u03b1i,\u03b2i) \u2014 common-shape setup intended. paper's '\u227dw' (printed as wedge with superscript w) denotes weak supermajorization per Def. 2(ii): \u03a3_{i=1}^j x_{i:n} \u2264 \u03a3_{i=1}^j y_{i:n}, j = 1,...,n \u2014 i.e., the first vector has the SMALLER bottom partial sums (the more heterogeneous one); this convention is opposite to Marshall\u2013Olkin weak supermajorization",
+  "adjudication": "adjudicated: Passes agree on st and direction; flagged: 'independent' is likely a misprint for 'dependent' (proof"
+ },
+ {
+  "paper": "doi:10.3390/sym13122248",
+  "claim": "Section 4 real-data application (Figure 8)",
+  "page": 22,
+  "quote": "In order to validate the effectiveness and practicability of the proposed methods in reliability engineering, we used the observed data of wind speeds from two wind farms, which are defined as site A and site B ... Xie et al. estimated the dependent parameter \u03b8\u0302 = 3.32 by a two-stage maximum likelihood estimation (MLE) ... Rayleigh distribution F(x) = 1 \u2212 e^{\u2212x2/2b2} ... parameter b\u03021 = 3.3662 and b\u03022 = 3.4271 at site A and site B ... we assume that this random shock have no impact on the lifetime of component, that is, the probability of component survival are p = p\u2217 = (1, 1, 1). Further, we choose the Rayleigh distribution as the baseline distribution, and set the vectors of shape parameters \u03b11 = (0.2, 2.6, 5.4), \u03b12 = (0.85, 2.6, 5.1) and \u03b13 = (2.96, 2.96, 2.96). Based on the real data and Theorem 2, the reliability of series system (Y1:3 ) can be expressed by F\u0304Y1:3 (x) = \u220f3i=1 pi \u03c8(\u22113i=1 \u03c6(\u03b6(\u03b1i, 2, 1 \u2212 e^{\u2212x2/(2b1\u00b2)}))) = exp{\u2212[(\u2212ln c1 )3.32 + (\u2212ln c2 )3.32 + (\u2212ln c3 )3.32 ]1/3.32 } ... Figure 8 indicates that the weaker heterogeneity among shape parameters according to the weak majorization order leads to larger reliability of the series systems.",
+  "kind": "example",
+  "model": "series system",
+  "family": "MOTL-Rayleigh components (Rayleigh baseline G(x)=1\u2212e^{\u2212x\u00b2/(2b\u00b2)}), Gumbel copula \u03b8\u0302=3.32, survival probabilities p=p*=(1,1,1)",
+  "compared": "the series system under three shape vectors \u03b11 = (0.2,2.6,5.4), \u03b12 = (0.85,2.6,5.1), \u03b13 = (2.96,2.96,2.96) ordered by increasing homogeneity",
+  "hypotheses": [
+   {
+    "text": "weaker heterogeneity of shape parameters under weak majorization",
+    "formal": "\u03b11 \u227dw \u03b12 \u227dw \u03b13 under the paper's convention",
+    "source": "Section 4 text, Theorem 2 invoked"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "plotted reliability functions ordered: weaker heterogeneity (more homogeneous \u03b1) gives larger series-system reliability, i.e., Y1:3(\u03b13) \u2265st Y1:3(\u03b12) \u2265st Y1:3(\u03b11)"
+  },
+  "quantifiers": "x \u2265 0; three \u03b1 vectors",
+  "numbers": "\u03b8\u0302 = 3.32 (Gumbel); Rayleigh b\u03021 = 3.3662, b\u03022 = 3.4271; wind means 4.25/4.14, s.d. 2.33/2.35; second shape fixed at 2; p = p* = (1,1,1)",
+  "ambiguity": "Real-data illustration rather than a numbered example; the ordering is asserted through plotted reliability curves ('leads to larger reliability'), i.e., st-order via survival-function domination. Site labels Eidhoven (A) and Volkel (B).",
+  "adjudication": "adjudicated: Section 4 real-data illustration of the Figure-8 reliability ordering (series systems)."
+ },
+ {
+  "paper": "doi:10.3390/sym13122248",
+  "claim": "Section 4/5 real-data illustration (Figures 8 and 9)",
+  "page": 22,
+  "quote": "we used the observed data of wind speeds from two wind farms ... dependent parameter \u03b8\u0302 = 3.32 by a two-stage MLE ... Rayleigh ... b\u03021 = 3.3662 and b\u03022 = 3.4271 ... \u03b11 = (0.2, 2.6, 5.4), \u03b12 = (0.85, 2.6, 5.1), \u03b13 = (2.96, 2.96, 2.96) ... Figure 8 indicates that the weaker heterogeneity among shape parameters according to the weak majorization order leads to larger reliability of the series systems. [Section 5, Clayton copula \u03b8\u0302 = 0.6474, Example-1 parameter vectors] ... two curves do not intersect each other ... the more positive dependence, the weaker heterogeneity among shape parameters according to the row weak majorization order leads to larger reliability of the series system.",
+  "kind": "example",
+  "model": "series system",
+  "family": "MOTL-Rayleigh components; Gumbel \u03b8\u0302=3.32 (Section 4) and Clayton \u03b8\u0302=0.6474 (Section 5)",
+  "compared": "series systems under weak-majorization-ordered shape vectors (Figures 8 and 9)",
+  "hypotheses": [
+   {
+    "text": "weak-majorization-ordered \u03b1 vectors; Theorems 2/3 invoked",
+    "formal": "\u03b11 \u227dw \u03b12 \u227dw \u03b13 (Sec 4); Example-1 row weak majorization (Sec 5)",
+    "source": "Section 4/5 text"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "weaker heterogeneity (more homogeneous shape vectors) yields larger series-system reliability \u2014 st-ordered survival curves, non-intersecting in Figure 9"
+  },
+  "quantifiers": "x \u2265 0",
+  "numbers": "Sec 4: Gumbel \u03b8\u0302=3.32, b\u03021=3.3662, b\u03022=3.4271, \u03b11=(0.2,2.6,5.4), \u03b12=(0.85,2.6,5.1), \u03b13=(2.96,2.96,2.96), p=p*=(1,1,1); Sec 5: Clayton \u03b8\u0302=0.6474",
+  "ambiguity": "Pass B's record spans both the Section-4 Figure-8 claim and the Section-5 Figure-9 consistency claim; canonical per-section records are 'Section 4 real-data application (Figure 8)' and 'Section 5 result analysis (Figure 9)'. Both are graphical illustration, not a theorem. paper's '\u227dw' denotes weak supermajorization per Def. 2(ii): the first vector has the smaller bottom partial sums (more heterogeneous)",
+  "adjudication": "adjudicated: Pass B's one-sided record covers both figures \u2014 adjudicated as a single record matching its label; p"
+ },
+ {
+  "paper": "doi:10.3390/sym13122248",
+  "claim": "Section 5 result analysis (Figure 9)",
+  "page": 23,
+  "quote": "To compare the results of the experiment with the obtained theoretical data, we use the Clayton copula C(u1 , u2 ) = [max (u1\u03b8 + u2\u03b8 \u2212 1, 0)]\u22121/\u03b8 , \u03b8 \u2265 0 and Rayleigh distribution conducting experiment analysis, where Wang and Li estimated the Clayton copula parameters \u03b8\u0302 = 0.6474 and Eryilmae and kan used the maximum likelihood estimator to obtain Rayleigh distribution parameter b\u03021 = 3.3662 and b\u03022 = 3.4271 by real data. Based on the obtained theoretical data of Example 1 and the estimator value of parameters, we plot the curves of reliability functions of under the different parameters as shown in Figure 9. First, we can see from the graph that two curves do not intersect each other, which means that the theoretical approach is feasible. Second, for different shape and copula parameters, the more positive dependence, the weaker heterogeneity among shape parameters according to the row weak majorization order leads to larger reliability of the series system.",
+  "kind": "example",
+  "model": "series system",
+  "family": "MOTL-Rayleigh components, Clayton copula \u03b8\u0302=0.6474, parameters as in Example 1",
+  "compared": "the two series systems Y1:3 and Y1:3* of Example 1 (\u03b81,\u03b1,\u03b2 vs \u03b82,\u03b3,\u03b4)",
+  "hypotheses": [
+   {
+    "text": "theoretical data of Example 1",
+    "formal": "Example-1 parameter setup",
+    "source": "statement"
+   },
+   {
+    "text": "row weak majorization among shape parameters",
+    "formal": "(\u03b1,h(p)) \u227dw-row (\u03b3,h(p))",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "the two survival/reliability curves do not intersect \u2014 taken as confirmation that the st-ordering of Section 4 (weaker heterogeneity \u21d2 larger reliability) holds here as well, i.e., Y1:3 \u2264st Y1:3* as in Example 1"
+  },
+  "quantifiers": "x \u2265 0",
+  "numbers": "Clayton \u03b8\u0302 = 0.6474; Rayleigh b\u03021 = 3.3662, b\u03022 = 3.4271",
+  "ambiguity": "Figure-9-based visual confirmation mixing Example-1 theoretical data with estimated parameters; exact assignment of parameter vectors to the two curves is not fully specified. The printed Clayton copula exponent 'u1\u03b8 + u2\u03b8' is presumably u^{\u2212\u03b8}. Consistency with Remark 3 asserted.",
+  "adjudication": "adjudicated: Section 5 Figure-9 comparison (Clayton copula): non-intersecting reliability curves support the st-o"
+ },
+ {
+  "paper": "doi:10.3390/sym13122248",
   "claim": "Theorem 1",
   "page": 7,
   "quote": "Theorem 1. Suppose X1, . . . , Xn (X1\u2217, . . . , Xn\u2217) be a set of dependent MOTL-G random variables having Archimedean copula with generator \u03c81 (\u03c82) such that Xi \u223c MOTL \u2212 G(\u03b1i, \u03b2i, G1(x)) (Xi\u2217 \u223c MOTL \u2212 G(\u03b1i, \u03b4i, G2(x))), i = 1, 2, . . . , n. Further assume Ip1, . . . , Ipn (Ip1\u2217, . . . , Ip\u2217n) be a set of independent Bernoulli random variables with E(Ipi) = pi (E(Ipi\u2217) = pi\u2217), independent of Xi's(Xi\u2217's), i = 1, 2, . . . , n. If (i) (\u03b1, \u03b2) \u2208 Un and (\u03b1, \u03b4) \u2208 Un, (ii) Z1 \u2264st Z2, (iii) \u220f_{i=1}^n pi \u2264 \u220f_{i=1}^n pi\u2217 and (iv) \u03c62 \u25e6 \u03c81 is super-additive and \u03c81 or \u03c82 is log-convex, then (\u03b21, \u03b22, . . . , \u03b2n) \u227dw (\u03b41, \u03b42, . . . , \u03b4n) =\u21d2 Y1:n \u2264st Y1:n\u2217.",
@@ -333,435 +778,5 @@
   "ambiguity": "Statement writes '\u03b2i = \u03b3i = \u03b2' where it presumably means \u03b2i = \u03b4i = \u03b2 (\u03b3 belongs to the first shape parameter); recorded as printed.",
   "numbers": "",
   "adjudication": "agreed"
- },
- {
-  "paper": "doi:10.3390/sym13122248",
-  "claim": "Example 1",
-  "page": 10,
-  "quote": "Example 1. Consider two series systems. Let G1(x) = 1 \u2212 1/(1+x) and G2(x) = e^{\u2212x} for x > 0. Suppose that (p1, p1, p3) = (e^{\u22120.05}, e^{\u22120.08}, e^{\u22120.22}), (p1\u2217, p2\u2217, p3\u2217) = (e^{\u22120.01}, e^{\u22120.21}, e^{\u22120.03}), (\u03b21, \u03b22, \u03b22) = (2, 5, 6) \u227dw (4.5, 5, 5.8) = (\u03b41, \u03b42, \u03b43) and (\u03b11, \u03b12, \u03b12) = (1.1, 4, 6.5) \u227dw (3.5, 4, 6.3) = (\u03b31, \u03b32, \u03b33). As mentioned in Remark 4, we choose the Clayton copula with generator \u03c8(x) = (\u03b8x + 1)^{\u22121/\u03b8} for \u03b8 \u2265 0, set \u03b81 = 2 and \u03b82 = 4. Clearly, the conditions of Theorem 3 are satisfied. To plot the whole of distributions functions curves the lifetime of Y1:3 and Y1:3\u2217 on [0, \u221e), we take the transformation (x + 1)^{\u22121} : [0, \u221e) \u2192 [0, 1]. Then Y1:3 \u2264st Y1:3\u2217 is equivalent to (Y1:3 + 1)^{\u22121} \u2265st (Y1:3\u2217 + 1)^{\u22121}. Figure 1 shows that the distribution of (Y1:3 + 1)^{\u22121} is always larger than the distribution of (Y1:3\u2217 + 1)^{\u22121}, and this confirms that Y1:3 \u2264st Y1:3\u2217.",
-  "kind": "example",
-  "model": "series system",
-  "family": "MOTL-G with baselines G1(x) = 1 \u2212 1/(1+x) and G2(x) = e^{\u2212x}; Clayton copulas \u03b81 = 2, \u03b82 = 4",
-  "compared": "\u03b2 vs \u03b4 and \u03b1 vs \u03b3 weakly majorized; shock probabilities e^{-a} values",
-  "hypotheses": [
-   {
-    "text": "(p1, p1, p3) = (e^{\u22120.05}, e^{\u22120.08}, e^{\u22120.22}), (p1\u2217, p2\u2217, p3\u2217) = (e^{\u22120.01}, e^{\u22120.21}, e^{\u22120.03})",
-    "formal": "shock probabilities",
-    "source": "statement"
-   },
-   {
-    "text": "(\u03b21, \u03b22, \u03b22) = (2, 5, 6) \u227dw (4.5, 5, 5.8) = (\u03b41, \u03b42, \u03b43)",
-    "formal": "weak majorization of shape vectors",
-    "source": "statement"
-   },
-   {
-    "text": "(\u03b11, \u03b12, \u03b12) = (1.1, 4, 6.5) \u227dw (3.5, 4, 6.3) = (\u03b31, \u03b32, \u03b33)",
-    "formal": "weak majorization",
-    "source": "statement"
-   },
-   {
-    "text": "Clayton copula generator \u03c8(x) = (\u03b8x + 1)^{\u22121/\u03b8}, \u03b81 = 2, \u03b82 = 4",
-    "formal": "copula choice",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "Y_{1:3} <=st Y*_{1:3} (verified via plotted distribution functions)"
-  },
-  "quantifiers": "n = 3",
-  "numbers": "p = (e^{-0.05}, e^{-0.08}, e^{-0.22}); p\u2217 = (e^{-0.01}, e^{-0.21}, e^{-0.03}); \u03b2 = (2,5,6); \u03b4 = (4.5,5,5.8); \u03b1 = (1.1,4,6.5); \u03b3 = (3.5,4,6.3); Clayton \u03b81 = 2, \u03b82 = 4",
-  "ambiguity": "Printed index typos: '(p1, p1, p3)', '(\u03b21, \u03b22, \u03b22)', '(\u03b11, \u03b12, \u03b12)'. Figure-based confirmation only.",
-  "adjudication": "example record (pass a)+b"
- },
- {
-  "paper": "doi:10.3390/sym13122248",
-  "claim": "Example 2",
-  "page": 11,
-  "quote": "Example 2. Under the setup of Example 1, let generators \u03c81(x) = (\u03b81x + 1)^{\u22121/\u03b81} and \u03c82(x) = (\u03b82x + 1)^{\u22121/\u03b82} for \u03b8 \u2265 0. When \u03b81 = 4 and \u03b82 = 0.2, note that [\u03c62 \u25e6 \u03c81(t)]'' \u2264 0. Thus, the super-additive of \u03c62 \u25e6 \u03c81 is not satisfied. As is seen in Figure 2, (Y1:3 + 1)^{\u22121} is not always beneath that of (Y1:3\u2217 + 1)^{\u22121}, that is, neither Y1:3 \u2265st Y1:3\u2217 nor Y1:3 \u2264st Y1:3\u2217.",
-  "kind": "counterexample",
-  "model": "series system",
-  "family": "MOTL-G, Clayton generators, baselines of Example 1",
-  "compared": "same data as Example 1 but \u03b81 = 4, \u03b82 = 0.2 so super-additivity fails",
-  "hypotheses": [
-   {
-    "text": "[\u03c62 \u25e6 \u03c81(t)]'' \u2264 0 so \u03c62 \u25e6 \u03c81 not super-additive",
-    "formal": "violated hypothesis of Theorem 3",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "no stochastic order either way: neither Y_{1:3} >=st Y*_{1:3} nor Y_{1:3} <=st Y*_{1:3}"
-  },
-  "quantifiers": "n = 3",
-  "numbers": "\u03b81 = 4, \u03b82 = 0.2",
-  "ambiguity": "Demonstrates the super-additivity condition in Theorem 3 cannot be dropped.",
-  "adjudication": "example record (pass a)+b"
- },
- {
-  "paper": "doi:10.3390/sym13122248",
-  "claim": "Example 3",
-  "page": 13,
-  "quote": "Example 3. Consider the case of n = 2. Let G(x) = x, 0 \u2264 x \u2264 1, and generator \u03c8(x) = 2/(1 + e^x). Set \u03b2 = 1, \u03b11 = 2, \u03b12 = 3, \u03b31 = 4, \u03b32 = 6, and \u220f_{i=1}^n pi\u2217 / \u220f_{i=1}^n pi = 0.3. However, F\u0304Y1:2\u2217(x)/F\u0304Y1:2(x) is not monotone (see Figure 3). Therefore, the condition of \u220f_{i=1}^n pi \u2264 \u220f_{i=1}^n pi\u2217 cannot be removed.",
-  "kind": "counterexample",
-  "model": "series system",
-  "family": "MOTL-G with baseline G(x) = x on [0,1] (uniform), generator \u03c8(x) = 2/(1+e^x)",
-  "compared": "\u03b1 = (2,3) vs \u03b3 = (4,6); shock product ratio \u220fpi\u2217/\u220fpi = 0.3 (violates \u220fpi \u2264 \u220fpi\u2217)",
-  "hypotheses": [
-   {
-    "text": "\u220fpi\u2217/\u220fpi = 0.3, i.e. \u220fpi > \u220fpi\u2217",
-    "formal": "hypothesis (i) of Theorem 5 violated",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "hr",
-   "direction": "survival ratio F\u0304*_{1:2}(x)/F\u0304_{1:2}(x) not monotone \u2014 no hazard rate order"
-  },
-  "quantifiers": "n = 2",
-  "numbers": "\u03b2 = 1, \u03b11 = 2, \u03b12 = 3, \u03b31 = 4, \u03b32 = 6, \u220fpi\u2217/\u220fpi = 0.3",
-  "ambiguity": "Shows condition \u220fpi \u2264 \u220fpi\u2217 in Theorem 5 cannot be removed.",
-  "adjudication": "example record (pass a)+b"
- },
- {
-  "paper": "doi:10.3390/sym13122248",
-  "claim": "Example 4",
-  "page": 13,
-  "quote": "Example 4. Let G(x) = x and 0 \u2264 x \u2264 1; it is assumed that \u03b1 = 1.2, \u03b21 = 2, \u03b22 = 7, \u03b41 = 6, \u03b42 = 9 and \u220f_{i=1}^n pi\u2217 / \u220f_{i=1}^n pi = 3. As is displayed in Figure 4, F\u0304Y1:2\u2217(x)/F\u0304Y1:2(x) is not monotone in x. Therefore, neither of Y1:2 \u2265hr Y1:2\u2217 and Y1:2 \u2264hr Y1:2\u2217 is true.",
-  "kind": "counterexample",
-  "model": "series system",
-  "family": "MOTL-G, G(x) = x on [0,1]; independent case mentioned in preamble",
-  "compared": "\u03b2 = (2,7) vs \u03b4 = (6,9) weakly majorized, common \u03b1 = 1.2, shock product ratio 3",
-  "hypotheses": [
-   {
-    "text": "\u03b2 \u227dw \u03b4 for fixed shape parameter \u03b1",
-    "formal": "the analogue hazard-rate question to Theorem 5 in \u03b2",
-    "source": "section preamble before example"
-   }
-  ],
-  "conclusion": {
-   "order": "hr",
-   "direction": "no hazard rate order either way between Y_{1:2} and Y*_{1:2}"
-  },
-  "quantifiers": "n = 2",
-  "numbers": "\u03b1 = 1.2, \u03b21 = 2, \u03b22 = 7, \u03b41 = 6, \u03b42 = 9, \u220fpi\u2217/\u220fpi = 3",
-  "ambiguity": "Answers negatively whether Y_{1:n} \u2264hr Y*_{1:n} holds under \u03b2 \u227dw \u03b4, even in the independent case.",
-  "adjudication": "example record (pass a)+b"
- },
- {
-  "paper": "doi:10.3390/sym13122248",
-  "claim": "Example 5",
-  "page": 19,
-  "quote": "Example 5. Suppose Xi \u223c MOTL \u2212 G(1, \u03b2i, G1(x)) (Xi\u2217 \u223c MOTL \u2212 G(1, \u03b4i, G2(x))), i = 1, 2. Let Z1 and Z2 be two exponential random variables with continuous distributions G1(x) = 1 \u2212 e^{\u2212\u03bb1x} and G2(x) = 1 \u2212 e^{\u2212\u03bb2x} (\u03bb1 \u2265 \u03bb2), respectively. Taking h(p) = \u2212log(p). Then, the distribution functions of Y2:2 and Y2:2\u2217 are given by FY2:2(x) = \u220f_{i=1}^2 [1 \u2212 e^{\u2212ui}(1 \u2212 (1 \u2212 e^{\u22122\u03bb1x})^{\u03b2i})] and FY2:2\u2217(x) = \u220f_{i=1}^2 [1 \u2212 e^{\u2212ui}(1 \u2212 (1 \u2212 e^{\u22122\u03bb2x})^{\u03b4i})] for all x \u2265 0. ... According to the part (i) of Theorem 8, we set \u03b21 \u2264 \u03b22 and u1 \u2264 u2. Then, we obtain \u2202FY2:2/\u2202\u03b21 \u2212 \u2202FY2:2/\u2202\u03b22 \u2264 0. From Lemma 6, we obtain that FY2:2(x) is decreasing and Schur-convex. Thus, we have FY2:2(x) \u2265 FY2:2\u2217(x), which implies Y2:2 \u2264st Y2:2\u2217.",
-  "kind": "example",
-  "model": "parallel system",
-  "family": "MOTL-G with \u03b1 = 1, exponential baselines G1(x) = 1\u2212e^{\u2212\u03bb1x}, G2(x) = 1\u2212e^{\u2212\u03bb2x}, \u03bb1 \u2265 \u03bb2; h(p) = \u2212log p",
-  "compared": "\u03b2 = (\u03b21,\u03b22) vs \u03b4 = (\u03b41,\u03b42); exponential rates \u03bb1 \u2265 \u03bb2",
-  "hypotheses": [
-   {
-    "text": "\u03bb1 \u2265 \u03bb2",
-    "formal": "G1 \u2264st ordering for exponentials: Z1 \u2264st Z2",
-    "source": "statement"
-   },
-   {
-    "text": "\u03b21 \u2264 \u03b22 and u1 \u2264 u2",
-    "formal": "(\u03b2, h(p)) \u2208 U2 arrangement",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "Y_{2:2} <=st Y*_{2:2}"
-  },
-  "quantifiers": "n = 2; x \u2265 0",
-  "numbers": "no numeric parameter values printed; symbolic \u03bb1 \u2265 \u03bb2, h(p) = \u2212log p",
-  "ambiguity": "Worked symbolic verification of Theorem 8(i) rather than a fully numeric example; no explicit \u03b2, \u03b4 numbers given.",
-  "adjudication": "example record (pass a)+b"
- },
- {
-  "paper": "doi:10.3390/sym13122248",
-  "claim": "Example 6(i)",
-  "page": 20,
-  "quote": "Example 6. Let G(x) = 1 \u2212 1/(1+x), x > 0 and h(p) = \u2212log(p). (i) For \u03b1 = 1 and h(p) = (4.2, 0.01), let \u03b2 = (1, 2.7) and \u03b4 = (2.4, 2.69). Clearly, (\u03b2, h(p)), (\u03b4, h(p)) \u2208 Vn and \u03b2 \u227dw \u03b4. As is seen in Figure 5a, neither Y2:2 \u2264st Y2:2\u2217 nor Y2:2 \u2265st Y2:2\u2217.",
-  "kind": "counterexample",
-  "model": "parallel system",
-  "family": "MOTL-G, baseline G(x) = 1 \u2212 1/(1+x) (Lomax-type), h(p) = \u2212log p",
-  "compared": "\u03b2 = (1, 2.7) vs \u03b4 = (2.4, 2.69) weakly majorized but under Vn arrangement instead of Un",
-  "hypotheses": [
-   {
-    "text": "(\u03b2, h(p)), (\u03b4, h(p)) \u2208 Vn and \u03b2 \u227dw \u03b4",
-    "formal": "anti-comonotone arrangement violating Theorem 8(i)'s Un hypothesis",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "no usual stochastic order either way between Y_{2:2} and Y*_{2:2}"
-  },
-  "quantifiers": "n = 2",
-  "numbers": "\u03b1 = 1; h(p) = (4.2, 0.01); \u03b2 = (1, 2.7); \u03b4 = (2.4, 2.69)",
-  "ambiguity": "Shows the Un condition in Theorem 8(i) cannot be replaced by Vn.",
-  "adjudication": "example record (pass a)"
- },
- {
-  "paper": "doi:10.3390/sym13122248",
-  "claim": "Example 6(ii)",
-  "page": 20,
-  "quote": "Example 6. ... (ii) For \u03b2 = 1 and h(p) = (3.2, 2), let \u03b1 = (1.1, 5) and \u03b3 = (3.5, 4). It is easy to check that (\u03b1, h(p)), (\u03b3, h(p)) \u2208 Vn and \u03b1 \u227dw \u03b3. The survival function F\u0304(Y2:2+1)^{\u22121}(x) \u2212 F\u0304(Y2:2\u2217+1)^{\u22121}(x) is plotted in Figure 5b, from which can confirm that no exists stochastic ordering between Y2:2 and Y2:2\u2217.",
-  "kind": "counterexample",
-  "model": "parallel system",
-  "family": "MOTL-G, baseline G(x) = 1 \u2212 1/(1+x), h(p) = \u2212log p",
-  "compared": "\u03b1 = (1.1, 5) vs \u03b3 = (3.5, 4) weakly majorized under Vn arrangement",
-  "hypotheses": [
-   {
-    "text": "(\u03b1, h(p)), (\u03b3, h(p)) \u2208 Vn and \u03b1 \u227dw \u03b3",
-    "formal": "violates Theorem 8(ii)'s Un hypothesis",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "no usual stochastic order between Y_{2:2} and Y*_{2:2}"
-  },
-  "quantifiers": "n = 2",
-  "numbers": "\u03b2 = 1; h(p) = (3.2, 2); \u03b1 = (1.1, 5); \u03b3 = (3.5, 4)",
-  "ambiguity": "Shows the Un condition in Theorem 8(ii) cannot be replaced by Vn.",
-  "adjudication": "example record (pass a)"
- },
- {
-  "paper": "doi:10.3390/sym13122248",
-  "claim": "Example 7(i)",
-  "page": 21,
-  "quote": "Example 7. Let Xi \u223c MOTL \u2212 G(\u03b1i, \u03b2i, G(x)) and Xi\u2217 \u223c MOTL \u2212 G(\u03b3i, \u03b4i, G(x)), i = 1, 2, assume that Ip1, Ip2 be two independent Bernoulli random variables with E(Ipi) = pi, independent of Xi's(Xi\u2217's), i = 1, 2. Let G(x) = x for 0 \u2264 x \u2264 1, h(p) = \u2212log(p), and (h(p1), h(p2)) = (1, 1.2). (i) Let \u03b21 = \u03b41 = 2, \u03b22 = \u03b42 = 5.5, (\u03b11, \u03b12) = (1, 8) and (\u03b31, \u03b32) = (4, 6). Then, (\u03b1, h(p)), (\u03b3, h(p)) \u2208 Un and \u03b1 \u227dw \u03b3. In this case, the distribution function FY2:2(x) \u2212 FY2:2\u2217(x) is displayed in Figure 6a, which implies that the usual stochastic ordering does not hold between Y2:2 and Y2:2\u2217.",
-  "kind": "counterexample",
-  "model": "parallel system",
-  "family": "MOTL-G, G(x) = x on [0,1] uniform, h(p) = \u2212log p",
-  "compared": "\u03b1 = (1,8) vs \u03b3 = (4,6) weakly majorized; common but heterogeneous \u03b2 = \u03b4 = (2, 5.5)",
-  "hypotheses": [
-   {
-    "text": "(\u03b1, h(p)), (\u03b3, h(p)) \u2208 Un and \u03b1 \u227dw \u03b3",
-    "formal": "satisfies the majorization premise of Theorem 8(ii) but with heterogeneous common \u03b2 rather than scalar \u03b2",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "usual stochastic order fails between Y_{2:2} and Y*_{2:2}"
-  },
-  "quantifiers": "n = 2",
-  "numbers": "h(p) = (1, 1.2); \u03b21 = \u03b41 = 2, \u03b22 = \u03b42 = 5.5; \u03b1 = (1, 8); \u03b3 = (4, 6)",
-  "ambiguity": "Shows Theorem 8(ii)'s requirement \u03b2i = \u03b4i = scalar \u03b2 cannot be relaxed to a heterogeneous common vector.",
-  "adjudication": "example record (pass a)"
- },
- {
-  "paper": "doi:10.3390/sym13122248",
-  "claim": "Example 7(ii)",
-  "page": 21,
-  "quote": "Example 7. ... (ii) Let \u03b11 = \u03b31 = 1, \u03b12 = \u03b32 = 8, (\u03b21, \u03b22) = (2, 5.5) and (\u03b41, \u03b42) = (3, 5). Then, (\u03b2, h(p)), (\u03b4, h(p)) \u2208 Un and \u03b2 \u227dw \u03b4. However, Figure 6b shows that there exists no usual stochastic ordering between Y2:2 and Y2:2\u2217.",
-  "kind": "counterexample",
-  "model": "parallel system",
-  "family": "MOTL-G, G(x) = x on [0,1], h(p) = \u2212log p, (h(p1),h(p2)) = (1,1.2)",
-  "compared": "\u03b2 = (2, 5.5) vs \u03b4 = (3, 5) weakly majorized; common but heterogeneous \u03b1 = \u03b3 = (1, 8)",
-  "hypotheses": [
-   {
-    "text": "(\u03b2, h(p)), (\u03b4, h(p)) \u2208 Un and \u03b2 \u227dw \u03b4",
-    "formal": "majorization premise of Theorem 8(i) but with heterogeneous common \u03b1 instead of scalar \u03b1 \u2265 1",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "no usual stochastic order between Y_{2:2} and Y*_{2:2}"
-  },
-  "quantifiers": "n = 2",
-  "numbers": "h(p) = (1, 1.2); \u03b11 = \u03b31 = 1, \u03b12 = \u03b32 = 8; \u03b2 = (2, 5.5); \u03b4 = (3, 5)",
-  "ambiguity": "Shows Theorem 8(i)'s scalar-\u03b1 condition cannot be relaxed to a heterogeneous common \u03b1 vector.",
-  "adjudication": "example record (pass a)"
- },
- {
-  "paper": "doi:10.3390/sym13122248",
-  "claim": "Example 7(iii)",
-  "page": 21,
-  "quote": "Example 7. ... (iii) Let (\u03b11, \u03b12) = (1, 8) and (\u03b31, \u03b32) = (4, 6), (\u03b21, \u03b22) = (2, 5.5) and (\u03b41, \u03b42) = (3, 5). Then, (\u03b1, h(p)), (\u03b3, h(p)) \u2208 Un and (\u03b2, h(p)), (\u03b4, h(p)) \u2208 Un, \u03b1 \u227dw \u03b3 and \u03b2 \u227dw \u03b4. However, Figure 6c shows that there exists no usual stochastic ordering between Y2:2 and Y2:2\u2217.",
-  "kind": "counterexample",
-  "model": "parallel system",
-  "family": "MOTL-G, G(x) = x on [0,1], h(p) = \u2212log p, (h(p1),h(p2)) = (1,1.2)",
-  "compared": "both shape vectors vary: \u03b1 = (1,8) vs \u03b3 = (4,6), \u03b2 = (2,5.5) vs \u03b4 = (3,5)",
-  "hypotheses": [
-   {
-    "text": "(\u03b1, h(p)), (\u03b3, h(p)) \u2208 Un and (\u03b2, h(p)), (\u03b4, h(p)) \u2208 Un, \u03b1 \u227dw \u03b3 and \u03b2 \u227dw \u03b4",
-    "formal": "both majorization premises hold simultaneously without either scalar-shape condition",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "no usual stochastic order between Y_{2:2} and Y*_{2:2}"
-  },
-  "quantifiers": "n = 2",
-  "numbers": "\u03b1 = (1,8); \u03b3 = (4,6); \u03b2 = (2,5.5); \u03b4 = (3,5); h(p) = (1,1.2)",
-  "ambiguity": "Shows jointly weakly majorized (\u03b1,\u03b2) vs (\u03b3,\u03b4) does not suffice for st order of parallel systems without the common-parameter conditions.",
-  "adjudication": "example record (pass a)"
- },
- {
-  "paper": "doi:10.3390/sym13122248",
-  "claim": "Example 8",
-  "page": 21,
-  "quote": "Example 8. Under the same setup as part (i) of Example 7, we take \u03b21 = \u03b22 = \u03b41 = \u03b42 = 2 with the other conditions remaining unchanged. Similarly, in part (ii) of example 7, we take \u03b11 = \u03b12 = \u03b31 = \u03b32 = 1 with the other conditions remaining unchanged. Figure 7 shows that FY2:2(x)/FY2:2\u2217(x) is not monotone in x. Therefore, neither Y2:2 \u2264rh Y2:2\u2217 of Y2:2 \u2265rh Y2:2\u2217 is true.",
-  "kind": "counterexample",
-  "model": "parallel system",
-  "family": "MOTL-G, G(x) = x on [0,1], h(p) = \u2212log p",
-  "compared": "setups of Example 7(i) and 7(ii) with equal scalar parameters so that Theorem 8's st conclusion applies",
-  "hypotheses": [
-   {
-    "text": "\u03b21 = \u03b22 = \u03b41 = \u03b42 = 2 (resp. \u03b11 = \u03b12 = \u03b31 = \u03b32 = 1), other conditions as in Example 7",
-    "formal": "conditions under which Theorem 8 yields st order",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "rh",
-   "direction": "distribution-function ratio not monotone: neither Y_{2:2} <=rh Y*_{2:2} nor Y_{2:2} >=rh Y*_{2:2}"
-  },
-  "quantifiers": "n = 2",
-  "numbers": "\u03b21 = \u03b22 = \u03b41 = \u03b42 = 2 for case (a); \u03b11 = \u03b12 = \u03b31 = \u03b32 = 1 for case (b); h(p) = (1,1.2)",
-  "ambiguity": "Demonstrates Theorem 8 cannot be strengthened from usual stochastic to reversed hazard rate order. Typo 'neither Y2:2 \u2264rh Y2:2\u2217 of Y2:2 \u2265rh Y2:2\u2217' printed as in source.",
-  "adjudication": "example record (pass a)+b"
- },
- {
-  "paper": "doi:10.3390/sym13122248",
-  "claim": "Section 4 real-data application (Figure 8)",
-  "page": 22,
-  "quote": "Further, we choose the Rayleigh distribution as the baseline distribution, and set the vectors of shape parameters \u03b11 = (0.2, 2.6, 5.4), \u03b12 = (0.85, 2.6, 5.1) and \u03b13 = (2.96, 2.96, 2.96). Based on the real data and Theorem 2, the reliability of series system (Y1:3) can be expressed by F\u0304Y1:3(x) = \u220f_{i=1}^3 pi \u03c8(\u2211_{i=1}^3 \u03c6(\u03b6(\u03b1i, 2, 1 \u2212 e^{\u2212x^2/(2b1)}))) = exp{\u2212[(\u2212ln c1)^{3.32} + (\u2212ln c2)^{3.32} + (\u2212ln c3)^{3.32}]^{1/3.32}} ... Figure 8 indicates that the weaker heterogeneity among shape parameters according to the weak majorization order leads to larger reliability of the series systems.",
-  "kind": "example",
-  "model": "series system",
-  "family": "MOTL-G with Rayleigh baseline G1(x) = 1 \u2212 e^{\u2212x^2/(2b1)}; Gumbel copula C(u1,u2) = exp{\u2212[(\u2212ln u1)^\u03b8 + (\u2212ln u2)^\u03b8]^{1/\u03b8}}, \u03b8\u0302 = 3.32; shock probabilities p = p\u2217 = (1,1,1)",
-  "compared": "three shape vectors \u03b11 = (0.2,2.6,5.4), \u03b12 = (0.85,2.6,5.1), \u03b13 = (2.96,2.96,2.96) with decreasing heterogeneity",
-  "hypotheses": [
-   {
-    "text": "p = p\u2217 = (1, 1, 1)",
-    "formal": "shock has no effect",
-    "source": "statement"
-   },
-   {
-    "text": "Gumbel copula \u03b8\u0302 = 3.32 estimated by two-stage MLE (Xie et al.)",
-    "formal": "dependence structure",
-    "source": "statement"
-   },
-   {
-    "text": "Rayleigh MLE b\u03021 = 3.3662 (site A), b\u03022 = 3.4271 (site B)",
-    "formal": "baseline fit from Eryilmaz and Kan",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "plotted survival functions ordered: weaker heterogeneity among \u03b1 (weak majorization) gives larger Y_{1:3} reliability, consistent with Theorem 2"
-  },
-  "quantifiers": "n = 3",
-  "numbers": "\u03b11 = (0.2,2.6,5.4); \u03b12 = (0.85,2.6,5.1); \u03b13 = (2.96,2.96,2.96); \u03b8\u0302 = 3.32; b\u03021 = 3.3662; b\u03022 = 3.4271; wind-speed means 4.25/4.14, s.d. 2.33/2.35; second shape fixed at 2",
-  "ambiguity": "Real-data illustration rather than a numbered example; conclusion drawn visually from Figure 8.",
-  "adjudication": "example record (pass a)"
- },
- {
-  "paper": "doi:10.3390/sym13122248",
-  "claim": "Section 5 result analysis (Figure 9)",
-  "page": 23,
-  "quote": "To compare the results of the experiment with the obtained theoretical data, we use the Clayton copula C(u1, u2) = [max(u1^{\u2212\u03b8} + u2^{\u2212\u03b8} \u2212 1, 0)]^{\u22121/\u03b8}, \u03b8 \u2265 0 and Rayleigh distribution conducting experiment analysis, where Wang and Li estimated the Clayton copula parameters \u03b8\u0302 = 0.6474 and Eryilmae and kan used the maximum likelihood estimator to obtain Rayleigh distribution parameter b\u03021 = 3.3662 and b\u03022 = 3.4271 by real data. Based on the obtained theoretical data of Example 1 and the estimator value of parameters, we plot the curves of reliability functions of under the different parameters as shown in Figure 9. First, we can see from the graph that two curves do not intersect each other, which means that the theoretical approach is feasible. Second, for different shape and copula parameters, the more positive dependence, the weaker heterogeneity among shape parameters according to the row weak majorization order leads to larger reliability of the series system.",
-  "kind": "example",
-  "model": "series system",
-  "family": "MOTL-G with Rayleigh baseline and Clayton copula, \u03b8\u0302 = 0.6474 vs Example-1 parameters",
-  "compared": "survival curves of Y1:3 vs Y1:3\u2217 under (\u03b81, \u03b1, \u03b2) vs (\u03b82, \u03b3, \u03b4)",
-  "hypotheses": [
-   {
-    "text": "theoretical data of Example 1 and estimated parameters \u03b8\u0302 = 0.6474, b\u03021 = 3.3662, b\u03022 = 3.4271",
-    "formal": "numerical setup",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "non-intersecting survival curves taken as confirmation that Y_{1:3} <=st Y*_{1:3}, consistent with Theorem 3 / Remark 3"
-  },
-  "quantifiers": "n = 3",
-  "numbers": "Clayton \u03b8\u0302 = 0.6474; Rayleigh b\u03021 = 3.3662, b\u03022 = 3.4271",
-  "ambiguity": "Figure-9-based numerical comparison mixing Example-1 data with estimated parameters; exact parameter assignment to curves is not fully specified.",
-  "adjudication": "example record (pass a)"
- },
- {
-  "paper": "doi:10.3390/sym13122248",
-  "claim": "Example 6",
-  "page": "20-21",
-  "quote": "Let G(x) = 1 - 1/(1+x), x > 0 and h(p) = -log(p). (i) For alpha = 1 and h(p) = (4.2, 0.01), let beta = (1, 2.7) and delta = (2.4, 2.69). Clearly, (beta, h(p)), (delta, h(p)) in Vn and beta >=w delta. As is seen in Figure 5a, neither Y2:2 <=st Y2:2* nor Y2:2 >=st Y2:2*. (ii) For beta = 1 and h(p) = (3.2, 2), let alpha = (1.1, 5) and gamma = (3.5, 4). It is easy to check that (alpha, h(p)), (gamma, h(p)) in Vn and alpha >=w gamma. The survival function F\u0304_{(Y2:2+1)^{-1}}(x) - F\u0304_{(Y*2:2+1)^{-1}}(x) is plotted in Figure 5b, from which can confirm that no exists stochastic ordering between Y2:2 and Y2:2*.",
-  "kind": "counterexample",
-  "model": "parallel system",
-  "family": "MOTL-G with G(x) = 1 - 1/(1+x); h(p) = -log p",
-  "compared": "Y2:2 vs Y2:2*",
-  "hypotheses": [
-   {
-    "text": "(beta, h(p)), (delta, h(p)) in Vn rather than Un; beta >=w delta (resp. alpha >=w gamma)",
-    "formal": "V-space membership instead of the U-space condition of Theorem 8",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "no stochastic ordering between Y2:2 and Y2:2* in either part"
-  },
-  "quantifiers": "n = 2",
-  "numbers": "(i) alpha=1, h(p)=(4.2,0.01), beta=(1,2.7), delta=(2.4,2.69); (ii) beta=1, h(p)=(3.2,2), alpha=(1.1,5), gamma=(3.5,4)",
-  "ambiguity": "Demonstrates the Un-space condition of Theorem 8 cannot be relaxed to Vn. OCR prints 'no exists stochastic ordering'.",
-  "adjudication": "example record (pass b)"
- },
- {
-  "paper": "doi:10.3390/sym13122248",
-  "claim": "Example 7",
-  "page": 21,
-  "quote": "Let Xi ~ MOTL-G(alphai, betai, G(x)) and Xi* ~ MOTL-G(gammai, deltai, G(x)), i = 1, 2, assume that Ip1, Ip2 be two independent Bernoulli random variables with E(Ipi) = pi, independent of Xi's (Xi*'s), i = 1, 2. Let G(x) = x for 0 <= x <= 1, h(p) = -log(p), and (h(p1), h(p2)) = (1, 1.2). (i) Let beta1 = delta1 = 2, beta2 = delta2 = 5.5, (alpha1, alpha2) = (1, 8) and (gamma1, gamma2) = (4, 6). Then, (alpha, h(p)), (gamma, h(p)) in Un and alpha >=w gamma. In this case, the distribution function FY2:2(x) - FY2:2*(x) is displayed in Figure 6a, which implies that the usual stochastic ordering does not hold between Y2:2 and Y2:2*. (ii) Let alpha1 = gamma1 = 1, alpha2 = gamma2 = 8, (beta1, beta2) = (2, 5.5) and (delta1, delta2) = (3, 5). Then, (beta, h(p)), (delta, h(p)) in Un and beta >=w delta. However, Figure 6b shows that there exists no usual stochastic ordering between Y2:2 and Y2:2*. (iii) Let (alpha1, alpha2) = (1, 8) and (gamma1, gamma2) = (4, 6), (beta1, beta2) = (2, 5.5) and (delta1, delta2) = (3, 5). Then, (alpha, h(p)), (gamma, h(p)) in Un and (beta, h(p)), (delta, h(p)) in Un, alpha >=w gamma and beta >=w delta. However, Figure 6c shows that there exists no usual stochastic ordering between Y2:2 and Y2:2*.",
-  "kind": "counterexample",
-  "model": "parallel system",
-  "family": "MOTL-G with G(x) = x on [0,1]; h(p) = -log p",
-  "compared": "Y2:2 vs Y2:2*",
-  "hypotheses": [
-   {
-    "text": "Un-membership and weak majorization hold but the equal-shared-parameter structure of Theorem 8 is violated",
-    "formal": "in (i) beta is not a constant vector (Theorem 8(ii) requires betai = gammai = beta); in (ii) alpha is not constant; in (iii) both vary",
-    "source": "surrounding discussion (lines ~1512-1519) and Theorem 8 conditions"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "no usual stochastic ordering between Y2:2 and Y2:2* in any of parts (i)-(iii)"
-  },
-  "quantifiers": "n = 2",
-  "numbers": "G(x)=x on [0,1]; h(p)=-log p; (h(p1),h(p2))=(1,1.2); (i) beta1=delta1=2, beta2=delta2=5.5, alpha=(1,8), gamma=(4,6); (ii) alpha1=gamma1=1, alpha2=gamma2=8, beta=(2,5.5), delta=(3,5); (iii) alpha=(1,8), gamma=(4,6), beta=(2,5.5), delta=(3,5)",
-  "ambiguity": "The example shows Theorem 8's requirement that the complementary parameter be constant across components cannot be weakened.",
-  "adjudication": "example record (pass b)"
- },
- {
-  "paper": "doi:10.3390/sym13122248",
-  "claim": "Section 4/5 real-data illustration (Figures 8 and 9)",
-  "page": "22-23",
-  "quote": "we used the observed data of wind speeds from two wind farms ... Xie et al. estimated the dependent parameter theta-hat = 3.32 by a two-stage maximum likelihood estimation (MLE) ... Rayleigh distribution F(x) = 1 - e^{-x^2/2b^2}, x >= 0 ... estimator to obtain parameter b-hat1 = 3.3662 and b-hat2 = 3.4271 at site A and site B ... set the vectors of shape parameters alpha1 = (0.2, 2.6, 5.4), alpha2 = (0.85, 2.6, 5.1) and alpha3 = (2.96, 2.96, 2.96). Based on the real data and Theorem 2, the reliability of series system (Y1:3) can be expressed by F\u0304_{Y1:3}(x) = prod pi psi sum phi(zeta(alphai, 2, 1 - e^{-x^2/2b^2})) ... Figure 8 indicates that the weaker heterogeneity among shape parameters according to the weak majorization order leads to larger reliability of the series systems. ... [Section 5] two curves ... heterogeneity among shape parameters according to the row weak majorization order leads to larger reliability of the series system ... consistent as Remark 3.",
-  "kind": "example",
-  "model": "series system",
-  "family": "MOTL-G with Rayleigh baseline G(x) = 1 - e^{-x^2/(2b^2)}; Gumbel copula with estimated theta-hat = 3.32",
-  "compared": "Y1:3 reliability curves under alpha vectors alpha1 vs alpha2 vs alpha3 ordered by (row) weak majorization",
-  "hypotheses": [
-   {
-    "text": "shape parameter vectors alpha1 = (0.2,2.6,5.4), alpha2 = (0.85,2.6,5.1), alpha3 = (2.96,2.96,2.96) ordered by weak majorization; Theorems 2/3 invoked",
-    "formal": "alpha1 >=w alpha2 >=w alpha3-type relation",
-    "source": "Section 4 text and Remark 3"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "the more weakly-majorized (more homogeneous) shape vector yields the larger series-system reliability, i.e. Y1:3(alpha3) >=st Y1:3(alpha2) >=st Y1:3(alpha1) interpreted via reliability curves"
-  },
-  "quantifiers": "n = 3; x >= 0",
-  "numbers": "theta-hat = 3.32 (Gumbel copula, two-stage MLE); Rayleigh b-hat1 = 3.3662, b-hat2 = 3.4271; alpha vectors (0.2,2.6,5.4), (0.85,2.6,5.1), (2.96,2.96,2.96); beta = 2",
-  "ambiguity": "The ordering is asserted through plotted reliability curves ('leads to larger reliability'), not as a formal <=st statement; recorded as st per the paper's Definition 1(i) (survival-function domination). Wind-speed sites labeled Eidhoven (Site A) and Volkel (Site B).",
-  "adjudication": "example record (pass b)"
  }
 ]

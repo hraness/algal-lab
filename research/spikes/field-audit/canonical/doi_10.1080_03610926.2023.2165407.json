@@ -1,28 +1,461 @@
 [
  {
   "paper": "doi:10.1080/03610926.2023.2165407",
-  "claim": "Corollary 4.13",
-  "page": 17,
-  "quote": "Corollary 4.13. Let Y1, Y2 follow (18), where \u03a31 and \u03a32 are correlation matrices. Then Y1 \u2264sm Y2 if and only if \u00b51 = \u00b52, \u03b41 = \u03b42 and \u03c31,ij \u2264 \u03c32,ij for all 1 \u2264 i < j \u2264 n.",
+  "claim": "Corollary 5.1",
+  "page": 19,
+  "quote": "Corollary 5.1. Let Y1, Y2 follow (18). If \u00b51 \u2264 \u00b52, \u03b41 \u2264 \u03b42, \u03c31,ii = \u03c32,ii for all 1 \u2264 i \u2264 n and \u03c31,ij \u2264 \u03c32,ij for all 1 \u2264 i \u2260 j \u2264 n, then P(Y1 > a) \u2264 P(Y2 > a) holds for all a \u2208 R^n. Furthermore, the foregoing inequality is strict if \u00b51 < \u00b52, \u03b41 < \u03b42, and \u03c31,ij < \u03c32,ij for all 1 \u2264 i \u2260 j \u2264 n.",
   "kind": "corollary",
-  "model": "generic",
-  "family": "GLSE vectors with correlation matrices",
-  "compared": "Y1 vs Y2",
+  "model": "other: multivariate GLSE vectors",
+  "family": "GLSEn(\u00b5, \u03a3, \u03b4, \u03c8, \u03b1, \u03b2, H), common \u03c8, \u03b1, \u03b2, H",
+  "compared": "upper orthant probabilities P(Y > a) of the two vectors",
   "hypotheses": [
    {
-    "text": "\u03a31, \u03a32 correlation matrices; \u00b51 = \u00b52; \u03b41 = \u03b42; \u03c31,ij \u2264 \u03c32,ij",
-    "formal": "stated",
+    "text": "\u00b51 \u2264 \u00b52, \u03b41 \u2264 \u03b42, \u03c31,ii = \u03c32,ii for all 1 \u2264 i \u2264 n and \u03c31,ij \u2264 \u03c32,ij for all 1 \u2264 i \u2260 j \u2264 n",
+    "formal": "componentwise ordering of location, skewness and off-diagonal scale; equal diagonal scale",
     "source": "statement"
    }
   ],
   "conclusion": {
-   "order": "sm",
-   "direction": "Y1 \u2264_sm Y2 iff"
+   "order": "other: uo",
+   "direction": "Y1 \u2264uo Y2, i.e., P(Y1 > a) \u2264 P(Y2 > a) for all a (strict under strict parameter inequalities)"
+  },
+  "quantifiers": "all a \u2208 R^n; 1 \u2264 i \u2260 j \u2264 n",
+  "numbers": "",
+  "ambiguity": "Upper orthant order (extended Slepian theorem); not in the spec's named list, recorded as 'other: uo'. The a_dirs/b_dirs disagreement is an artifact: both passes' records state P(Y1 > a) \u2264 P(Y2 > a), i.e., Y1 smaller.",
+  "adjudication": "adjudicated: Both passes agree on the printed inequality P(Y1 > a) \u2264 P(Y2 > a) \u2200a; direction code diff is an arti"
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Corollary 5.2(1)",
+  "page": 19,
+  "quote": "Corollary 5.2. Assume Y1, Y2 follow (18), then (1) If \u00b52 + \u03b2(z)\u03b42 \u2265 \u00b51 + \u03b2(z)\u03b41 for all z and \u03a31 = \u03a32, then S1 \u2264st S2. [S1 = \u03a3_{i=1}^n \u03b1i Y1,i, S2 = \u03a3_{i=1}^n \u03b1i Y2,i, aggregate risks of two insurance portfolios with common weights \u03b1i \u2014 individual risk model.]",
+  "kind": "corollary",
+  "model": "other: aggregate risk (individual risk model)",
+  "family": "GLSEn claim vectors with common weights {\u03b1i}",
+  "compared": "aggregate risks S1 vs S2",
+  "hypotheses": [
+   {
+    "text": "\u00b52 + \u03b2(z)\u03b42 \u2265 \u00b51 + \u03b2(z)\u03b41 for all z and \u03a31 = \u03a32",
+    "formal": "componentwise location-skew inequality + equal scale matrices (Theorem 4.5(1) premises)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "S1 \u2264st S2"
+  },
+  "quantifiers": "all z; fixed weights \u03b1i; n \u2265 1",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Two-part corollary; per spec rule 5 split into st and icx records (pass B's split correct; pass A me"
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Corollary 5.2(2)",
+  "page": 19,
+  "quote": "(2) If \u00b52 + \u03b2(z)\u03b42 \u2265 \u00b51 + \u03b2(z)\u03b41 for all z and \u03a32 \u2212 \u03a31 is positive semi-definite, then S1 \u2264icx S2.",
+  "kind": "corollary",
+  "model": "other: aggregate risk (individual risk model)",
+  "family": "GLSEn claim vectors with common weights {\u03b1i}",
+  "compared": "aggregate risks S1 vs S2",
+  "hypotheses": [
+   {
+    "text": "\u00b52 + \u03b2(z)\u03b42 \u2265 \u00b51 + \u03b2(z)\u03b41 for all z and \u03a32 \u2212 \u03a31 is positive semi-definite",
+    "formal": "location-skew inequality + psd scale-matrix difference (Theorem 4.9(1) premises)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "icx",
+   "direction": "S1 \u2264icx S2"
+  },
+  "quantifiers": "all z; fixed weights \u03b1i; n \u2265 1",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Two-part corollary; per spec rule 5 split into st and icx records (pass B's split correct; pass A me"
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Corollary 5.3(1)",
+  "page": 19,
+  "quote": "Corollary 5.3. Assume Y1, Y2 follow (18), random quantity N1 is independent of {Xi, i \u2208 {1,2,...,n}}, random quantity N2 is independent of {Yi, i \u2208 {1,2,...,n}}, and N1 \u2264st N2, then (1) If \u00b52 + \u03b2(z)\u03b42 \u2265 \u00b51 + \u03b2(z)\u03b41 for all z and \u03a31 = \u03a32, then \u015c1 \u2264st \u015c2. [\u015c1 = \u03a3_{i=1}^{N1} \u03b1i Y1,i, \u015c2 = \u03a3_{i=1}^{N2} \u03b1i Y2,i \u2014 collective risk model.]",
+  "kind": "corollary",
+  "model": "other: collective risk model (random sum)",
+  "family": "GLSEn claim vectors with random claim counts N1, N2",
+  "compared": "random sums \u015c1 vs \u015c2",
+  "hypotheses": [
+   {
+    "text": "N1 \u2264st N2; N1 independent of {Xi}, N2 independent of {Yi}",
+    "formal": "st-ordered claim counts independent of severities",
+    "source": "statement"
+   },
+   {
+    "text": "\u00b52 + \u03b2(z)\u03b42 \u2265 \u00b51 + \u03b2(z)\u03b41 for all z and \u03a31 = \u03a32",
+    "formal": "Corollary 5.2(1)/Theorem 4.5(1) premises",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "\u015c1 \u2264st \u015c2"
+  },
+  "quantifiers": "all z; N counting variables",
+  "numbers": "",
+  "ambiguity": "Paper text prints 'N1 independent of {Xi}' / 'N2 independent of {Yi}' \u2014 the {Xi}/{Yi} inconsistency is printed as such; intended independence of claim vectors.",
+  "adjudication": "adjudicated: Two-part corollary split into st and icx records (B correct; A merged into one record)."
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Corollary 5.3(2)",
+  "page": 19,
+  "quote": "(2) If \u00b52 + \u03b2(z)\u03b42 \u2265 \u00b51 + \u03b2(z)\u03b41 for all z and \u03a32 \u2212 \u03a31 is positive semi-definite, then \u015c1 \u2264icx \u015c2.",
+  "kind": "corollary",
+  "model": "other: collective risk model (random sum)",
+  "family": "GLSEn claim vectors with random claim counts N1, N2",
+  "compared": "random sums \u015c1 vs \u015c2",
+  "hypotheses": [
+   {
+    "text": "N1 \u2264st N2; counts independent of claim vectors",
+    "formal": "st-ordered claim counts",
+    "source": "statement"
+   },
+   {
+    "text": "\u00b52 + \u03b2(z)\u03b42 \u2265 \u00b51 + \u03b2(z)\u03b41 for all z and \u03a32 \u2212 \u03a31 is positive semi-definite",
+    "formal": "icx premises",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "icx",
+   "direction": "\u015c1 \u2264icx \u015c2"
+  },
+  "quantifiers": "all z",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Two-part corollary split into st and icx records (B correct; A merged into one record)."
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Corollary 5.5",
+  "page": 20,
+  "quote": "Corollary 5.5. Let Y1, Y2 follow (18), where \u03a31 and \u03a32 are correlation matrices and n \u2208 {2, 3}. Assume \u00b51 = \u00b52, \u03b41 = \u03b42 and \u03c31,ij \u2264 \u03c32,ij for all 1 \u2264 i < j \u2264 n, then Gn(Y2) \u2264icx Gn(Y1). [Gn(X) = (1/n\u00b2)\u03a3_{i,j}|Xi \u2212 Xj|.]",
+  "kind": "corollary",
+  "model": "other: Gini index of a random vector",
+  "family": "GLSEn with \u03a3 correlation matrices, n \u2208 {2,3}",
+  "compared": "Gini indices Gn(Y2) vs Gn(Y1) \u2014 reversed icx direction",
+  "hypotheses": [
+   {
+    "text": "\u00b51 = \u00b52, \u03b41 = \u03b42 and \u03c31,ij \u2264 \u03c32,ij for all 1 \u2264 i < j \u2264 n; \u03a31, \u03a32 correlation matrices; n \u2208 {2,3}",
+    "formal": "equal marginals + correlation ordering giving Y1 \u2264sm Y2 via Corollary 4.13",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "icx",
+   "direction": "Gn(Y2) \u2264icx Gn(Y1) \u2014 higher correlation lowers the Gini index in icx"
+  },
+  "quantifiers": "n \u2208 {2,3}; 1 \u2264 i < j \u2264 n",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Both passes agree: reversed direction Gn(Y2) \u2264icx Gn(Y1) is what the paper prints; higher correlatio"
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Example 4.4(a)",
+  "page": 11,
+  "quote": "Example 4.4. We consider the special case of univariate GLSE distribution to illustrate the results in Lemma 4.3. The survival functions of the GHSS distributions under three parameter setting are plotted in Figure 1(a). It is easy to check that the conditions in Lemma 4.3(1) are satisfied, and thus agrees with the usual stochastic ordering among these three distributions displayed in the plot.",
+  "kind": "example",
+  "model": "single",
+  "family": "univariate GHSS(\u00b5, \u03c3, \u03b4, \u03bb) distributions",
+  "compared": "GHSS(0,1,1,1), GHSS(0,1,2,1), GHSS(1,1,3,1)",
+  "hypotheses": [
+   {
+    "text": "conditions in Lemma 4.3(1) are satisfied",
+    "formal": "\u00b52 \u2212 \u00b51 + \u03b2(z)(\u03b42 \u2212 \u03b41) \u2265 0 \u2200z and \u03c31 = \u03c32 for each pair",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "the three GHSS distributions are st-ordered (survival functions nested in Figure 1(a)) \u2014 supports Lemma 4.3(1)"
+  },
+  "quantifiers": "all t",
+  "numbers": "parameter sets (\u00b5,\u03c3,\u03b4,\u03bb): (0,1,1,1), (0,1,2,1), (1,1,3,1); Figure 1(a)",
+  "ambiguity": "Verification is graphical.",
+  "adjudication": "adjudicated: Example 4.4 prints both a supporting example (a, st-ordered) and a counterexample (b, crossing when "
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Example 4.4(b)",
+  "page": 11,
+  "quote": "Moreover, Figure 1(b) provides a counterexample showing that the survival functions of these distributions cross with each other if the scale parameters of the three distributions are not identical.",
+  "kind": "counterexample",
+  "model": "single",
+  "family": "univariate GHSS(\u00b5, \u03c3, \u03b4, \u03bb) distributions",
+  "compared": "GHSS(0,1,1,1), GHSS(0,2,1,1), GHSS(0,3,2,1) \u2014 differing \u03c3",
+  "hypotheses": [
+   {
+    "text": "scale parameters of the three distributions are not identical",
+    "formal": "violates the \u03c31 = \u03c32 requirement of Lemma 4.3(1)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "no st order: survival functions cross when \u03c3's differ \u2014 the \u03c31 = \u03c32 hypothesis of Lemma 4.3(1) is essential"
+  },
+  "quantifiers": "all t",
+  "numbers": "parameter sets (\u00b5,\u03c3,\u03b4,\u03bb): (0,1,1,1), (0,2,1,1), (0,3,2,1); Figure 1(b)",
+  "ambiguity": "Parameter triples for panel (b) read from the figure legend.",
+  "adjudication": "adjudicated: Example 4.4 prints both a supporting example (a, st-ordered) and a counterexample (b, crossing when "
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Example 4.8(a)",
+  "page": 14,
+  "quote": "Example 4.8. As an illustration for Lemma 4.7, the stop-loss transformations for the univariate GHSS distributions are plotted in Figure 2. It is easy to check that the conditions in Lemma 4.7(1) are satisfied, and consistent with the increasing convex ordering among these three distributions displayed by the stop-loss transformations in Figure 2(a).",
+  "kind": "example",
+  "model": "single",
+  "family": "univariate GHSS(\u00b5, \u03c3, \u03b4, \u03bb) distributions",
+  "compared": "GHSS(0,1,1,3), GHSS(0,1,3,3), GHSS(2,5,3,3)",
+  "hypotheses": [
+   {
+    "text": "conditions in Lemma 4.7(1) are satisfied",
+    "formal": "\u00b52 \u2212 \u00b51 + \u03b2(z)(\u03b42 \u2212 \u03b41) \u2265 0 \u2200z and \u03c31 \u2264 \u03c32 for each pair",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "icx",
+   "direction": "the three GHSS distributions are icx-ordered (stop-loss transforms nested in Figure 2(a)) \u2014 supports Lemma 4.7(1)"
+  },
+  "quantifiers": "all t",
+  "numbers": "parameter sets (\u00b5,\u03c3,\u03b4,\u03bb): (0,1,1,3), (0,1,3,3), (2,5,3,3); Figure 2(a)",
+  "ambiguity": "Verification is graphical.",
+  "adjudication": "adjudicated: Example 4.8 prints a supporting icx example (a) and a crossing counterexample (b); emitted as two re"
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Example 4.8(b)",
+  "page": 14,
+  "quote": "Figure 2(b) provides a counterexample under the setting (\u00b51, \u03c31, \u03b41) = (0, 1, 0.5) and (\u00b52, \u03c32, \u03b42) = (1, 2, \u22120.5). It is clear that size relation between \u00b52 + \u03b2(z)\u03b42 and \u00b51 + \u03b2(z)\u03b41 varies with respect to z, meaning that the conditions in Lemma 4.7(1) are not fully satisfied. This agrees with the plots in Figure 2(b) that the stop-loss transformations of these distributions cross with each other.",
+  "kind": "counterexample",
+  "model": "single",
+  "family": "univariate GHSS(\u00b5, \u03c3, \u03b4, \u03bb) distributions",
+  "compared": "GHSS(0,1,0.5,3) vs GHSS(1,2,\u22120.5,3)",
+  "hypotheses": [
+   {
+    "text": "size relation between \u00b52 + \u03b2(z)\u03b42 and \u00b51 + \u03b2(z)\u03b41 varies with respect to z",
+    "formal": "violates the uniform-in-z location-mixture inequality of Lemma 4.7(1)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "icx",
+   "direction": "no icx order: stop-loss transforms cross \u2014 the uniform \u00b5 + \u03b2(z)\u03b4 ordering of Lemma 4.7(1) is essential"
+  },
+  "quantifiers": "all t; all z",
+  "numbers": "(\u00b51,\u03c31,\u03b41) = (0,1,0.5), (\u00b52,\u03c32,\u03b42) = (1,2,\u22120.5), \u03bb = 3; Figure 2(b)",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Example 4.8 prints a supporting icx example (a) and a crossing counterexample (b); emitted as two re"
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Lemma 4.3(1)",
+  "page": 11,
+  "quote": "Lemma 4.3. Assume Y1 \u223c GLSE1(\u00b51, \u03c31, \u03b41, \u03c8, \u03b1, \u03b2, H), Y2 \u223c GLSE1(\u00b52, \u03c32, \u03b42, \u03c8, \u03b1, \u03b2, H). (1) If \u00b52 \u2212 \u00b51 + \u03b2(z)(\u03b42 \u2212 \u03b41) \u2265 0 for all z and \u03c31 = \u03c32, then Y1 \u2264st Y2.",
+  "kind": "lemma",
+  "model": "single",
+  "family": "univariate GLSE1(\u00b5, \u03c3, \u03b4, \u03c8, \u03b1, \u03b2, H), common \u03c8, \u03b1, \u03b2, H",
+  "compared": "Y1 vs Y2 differing in \u00b5, \u03b4",
+  "hypotheses": [
+   {
+    "text": "\u00b52 \u2212 \u00b51 + \u03b2(z)(\u03b42 \u2212 \u03b41) \u2265 0 for all z and \u03c31 = \u03c32",
+    "formal": "uniform-in-z location-mixture inequality + equal scale",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y1 \u2264st Y2"
+  },
+  "quantifiers": "all z in the mixing support",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Two-part lemma; B's split correct. Part (2) states necessary conditions for the st order (conclusion"
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Lemma 4.3(2)",
+  "page": 11,
+  "quote": "(2) If Y1 \u2264st Y2 and density generator g1 satisfies Assumption 4.1, then \u00b51 + E(\u03b2(Z))\u03b41 \u2264 \u00b52 + E(\u03b2(Z))\u03b42 and \u03c31 = \u03c32.",
+  "kind": "lemma",
+  "model": "single",
+  "family": "univariate GLSE1 with density generator satisfying Assumption 4.1",
+  "compared": "necessary parameter conditions implied by st order",
+  "hypotheses": [
+   {
+    "text": "Y1 \u2264st Y2 and density generator g1 satisfies Assumption 4.1",
+    "formal": "st-order premise + tail-ratio control on the density generator",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "necessary conditions for Y1 \u2264st Y2: \u00b51 + E\u03b2(Z)\u03b41 \u2264 \u00b52 + E\u03b2(Z)\u03b42 and \u03c31 = \u03c32"
   },
   "quantifiers": "",
   "numbers": "",
+  "ambiguity": "Conclusion is a parameter condition, not an ordering; recorded as written per spec rule 3 because it is the converse/necessity half of the st-order characterization.",
+  "adjudication": "adjudicated: Two-part lemma; B's split correct. Part (2) states necessary conditions for the st order (conclusion"
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Lemma 4.7(1)",
+  "page": 14,
+  "quote": "Lemma 4.7. Let Y1, Y2 follow (17). We have the following conclusions: (1) If \u00b52 \u2212 \u00b51 + \u03b2(z)(\u03b42 \u2212 \u03b41) \u2265 0 for all z and \u03c31 \u2264 \u03c32, then Y1 \u2264icx Y2.",
+  "kind": "lemma",
+  "model": "single",
+  "family": "univariate GLSE1, common \u03c8, \u03b1, \u03b2, H",
+  "compared": "Y1 vs Y2 in increasing convex (stop-loss) order",
+  "hypotheses": [
+   {
+    "text": "\u00b52 \u2212 \u00b51 + \u03b2(z)(\u03b42 \u2212 \u03b41) \u2265 0 for all z and \u03c31 \u2264 \u03c32",
+    "formal": "uniform-in-z location-mixture inequality + ordered scales",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "icx",
+   "direction": "Y1 \u2264icx Y2"
+  },
+  "quantifiers": "all z",
+  "numbers": "",
   "ambiguity": "",
-  "adjudication": "agreed"
+  "adjudication": "adjudicated: Two-part lemma; B's split correct. Part (2) records necessary conditions for the icx order."
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Lemma 4.7(2)",
+  "page": 14,
+  "quote": "(2) If Y1 \u2264icx Y2 and the corresponding density generator g1 satisfies Assumption 4.2, then \u00b52 \u2212 \u00b51 + E\u03b2(Z)(\u03b42 \u2212 \u03b41) \u2265 0 and \u03c31 \u2264 \u03c32.",
+  "kind": "lemma",
+  "model": "single",
+  "family": "univariate GLSE1 with density generator satisfying Assumption 4.2",
+  "compared": "necessary parameter conditions implied by icx order",
+  "hypotheses": [
+   {
+    "text": "Y1 \u2264icx Y2 and the corresponding density generator g1 satisfies Assumption 4.2",
+    "formal": "icx premise + generator tail assumption",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "icx",
+   "direction": "necessary conditions for Y1 \u2264icx Y2: \u00b52 \u2212 \u00b51 + E\u03b2(Z)(\u03b42 \u2212 \u03b41) \u2265 0 and \u03c31 \u2264 \u03c32"
+  },
+  "quantifiers": "",
+  "numbers": "",
+  "ambiguity": "Conclusion is a parameter condition, not an ordering; kept as the necessity half of the icx characterization.",
+  "adjudication": "adjudicated: Two-part lemma; B's split correct. Part (2) records necessary conditions for the icx order."
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Theorem 4.5(1)",
+  "page": 12,
+  "quote": "Theorem 4.5. Assume that Y1 \u223c GLSEn(\u00b51, \u03a31, \u03b41, \u03c8, \u03b1, \u03b2, H), Y2 \u223c GLSEn(\u00b52, \u03a32, \u03b42, \u03c8, \u03b1, \u03b2, H). (1) If \u00b52 + \u03b2(z)\u03b42 \u2265 \u00b51 + \u03b2(z)\u03b41 for all z and \u03a31 = \u03a32, then Y1 \u2264st Y2.",
+  "kind": "theorem",
+  "model": "other: multivariate GLSE vectors",
+  "family": "GLSEn, common \u03c8, \u03b1, \u03b2, H",
+  "compared": "Y1 vs Y2 in multivariate usual stochastic order",
+  "hypotheses": [
+   {
+    "text": "\u00b52 + \u03b2(z)\u03b42 \u2265 \u00b51 + \u03b2(z)\u03b41 for all z and \u03a31 = \u03a32",
+    "formal": "componentwise location-skew inequality + equal scale matrices",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y1 \u2264st Y2 (multivariate)"
+  },
+  "quantifiers": "all z",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Two-part theorem; B's split correct. Part (2) records necessary conditions for multivariate st order"
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Theorem 4.5(2)",
+  "page": 12,
+  "quote": "(2) If Y1 \u2264st Y2 and the corresponding density generator g1 for a^T Y1 satisfies Assumption 4.1 for all a \u2208 R^n, then \u00b51 + E(\u03b2(Z))\u03b41 \u2264 \u00b52 + E(\u03b2(Z))\u03b42 and \u03a31 = \u03a32.",
+  "kind": "theorem",
+  "model": "other: multivariate GLSE vectors",
+  "family": "GLSEn with density generator of all linear combinations satisfying Assumption 4.1",
+  "compared": "necessary parameter conditions implied by multivariate st order",
+  "hypotheses": [
+   {
+    "text": "Y1 \u2264st Y2 and the corresponding density generator g1 for a^T Y1 satisfies Assumption 4.1 for all a \u2208 R^n",
+    "formal": "st premise + tail assumption on every marginal linear combination",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "necessary conditions for Y1 \u2264st Y2: \u00b51 + E\u03b2(Z)\u03b41 \u2264 \u00b52 + E\u03b2(Z)\u03b42 and \u03a31 = \u03a32"
+  },
+  "quantifiers": "all a \u2208 R^n",
+  "numbers": "",
+  "ambiguity": "Remark 3: the statement remains valid with \u2264st replaced by \u2264plst (positive linear stochastic order). Conclusion orders parameters; kept as necessity half of the st characterization.",
+  "adjudication": "adjudicated: Two-part theorem; B's split correct. Part (2) records necessary conditions for multivariate st order"
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Theorem 4.10",
+  "page": 15,
+  "quote": "Theorem 4.10. Let Y1, Y2 follow (18). The following statements are true: (1) If \u00b51 = \u00b52, \u03b41 = \u03b42 and \u03a32 \u2265 \u03a31, then Y1 \u2264dcx Y2. (2) If \u00b51 = \u00b52, then Y1 \u2264dcx Y2 if and only if \u03b41 = \u03b42 and \u03a32 \u2265 \u03a31. (3) If \u03b41 = \u03b42, then Y1 \u2264dcx Y2 if and only if \u00b51 = \u00b52 and \u03a32 \u2265 \u03a31.",
+  "kind": "theorem",
+  "model": "other: multivariate GLSE vectors",
+  "family": "GLSEn",
+  "compared": "directionally convex order",
+  "hypotheses": [
+   {
+    "text": "\u00b51 = \u00b52, \u03b41 = \u03b42, \u03a32 \u2265 \u03a31 (componentwise matrix inequality)",
+    "formal": "parameter equalities + scale ordering",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: dcx (directionally convex order)",
+   "direction": "Y1 <=_dcx Y2 (iff under the stated equalities)"
+  },
+  "quantifiers": "",
+  "ambiguity": "Generalizes Theorem 12 of M\u00fcller (2001), Theorem 3.6 of Yin (2019), Proposition 6 of Amiri et al. (2020).",
+  "adjudication": "adjudicated: mechanical: order is the paper-defined \"other dcx directionally convex order\"; other pass mislabeled"
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Theorem 4.11",
+  "page": 16,
+  "quote": "Theorem 4.11. Let Y1, Y2 follow (18). The following statements hold: (1) If \u00b51 = \u00b52, \u03b41 = \u03b42, \u03c31,ii \u2264 \u03c32,ii for 1 \u2264 i \u2264 n and \u03c31,ij = \u03c32,ij for 1 \u2264 i < j \u2264 n, then Y1 \u2264ccx Y2. (2) If \u00b51 = \u00b52, then Y1 \u2264ccx Y2 if and only if \u03b41 = \u03b42, \u03c31,ii \u2264 \u03c32,ii for 1 \u2264 i \u2264 n and \u03c31,ij = \u03c32,ij for 1 \u2264 i < j \u2264 n. (3) If \u03b41 = \u03b42, then Y1 \u2264ccx Y2 if and only if \u00b51 = \u00b52, \u03c31,ii \u2264 \u03c32,ii for 1 \u2264 i \u2264 n and \u03c31,ij = \u03c32,ij for 1 \u2264 i < j \u2264 n.",
+  "kind": "theorem",
+  "model": "other: multivariate GLSE vectors",
+  "family": "GLSEn",
+  "compared": "componentwise convex order",
+  "hypotheses": [
+   {
+    "text": "\u00b51 = \u00b52, \u03b41 = \u03b42; \u03c31,ii \u2264 \u03c32,ii diagonal; \u03c31,ij = \u03c32,ij off-diagonal",
+    "formal": "equal locations/skews + diagonal ordering",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: ccx (componentwise convex order)",
+   "direction": "Y1 <=_ccx Y2 (iff under the stated equalities)"
+  },
+  "quantifiers": "1 \u2264 i < j \u2264 n",
+  "ambiguity": "",
+  "adjudication": "adjudicated: mechanical: order is the paper-defined \"other ccx componentwise convex order\"; other pass mislabeled"
  },
  {
   "paper": "doi:10.1080/03610926.2023.2165407",
@@ -47,181 +480,6 @@
   "quantifiers": "",
   "numbers": "",
   "ambiguity": "",
-  "adjudication": "agreed"
- },
- {
-  "paper": "doi:10.1080/03610926.2023.2165407",
-  "claim": "Lemma 4.14 (M\u00fcller and Scarsini, 2000)",
-  "page": 17,
-  "quote": "Lemma 4.14. (M\u00fcller and Scarsini, 2000) Let X, Y be two bivariate random vectors and have the same marginals, then X \u2264sm Y is equivalent to X \u2264uo Y.",
-  "kind": "lemma",
-  "model": "generic",
-  "family": "Bivariate random vectors",
-  "compared": "X vs Y",
-  "hypotheses": [
-   {
-    "text": "X, Y bivariate with same marginals",
-    "formal": "stated",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "sm",
-   "direction": "X \u2264_sm Y \u27fa X \u2264_uo Y (supermodular = upper orthant in bivariate case)"
-  },
-  "quantifiers": "",
-  "numbers": "",
-  "ambiguity": "",
-  "adjudication": "agreed"
- },
- {
-  "paper": "doi:10.1080/03610926.2023.2165407",
-  "claim": "Theorem 4.10",
-  "page": 16,
-  "quote": "Theorem 4.10. Let Y1, Y2 follow (18). The following statements are true: (1) If \u00b51 = \u00b52, \u03b41 = \u03b42 and \u03a32 \u2265 \u03a31, then Y1 \u2264dcx Y2. (2) If \u00b51 = \u00b52, then Y1 \u2264dcx Y2 if and only if \u03b41 = \u03b42 and \u03a32 \u2265 \u03a31. (3) If \u03b41 = \u03b42, then Y1 \u2264dcx Y2 if and only if \u00b51 = \u00b52 and \u03a32 \u2265 \u03a31.",
-  "kind": "theorem",
-  "model": "generic",
-  "family": "GLSE vectors",
-  "compared": "Y1 vs Y2 in directionally convex order",
-  "hypotheses": [
-   {
-    "text": "\u00b51 = \u00b52, \u03b41 = \u03b42, \u03a32 \u2265 \u03a31 (p.s.d. in the stated direction)",
-    "formal": "stated",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "dcx",
-   "direction": "Y1 \u2264_dcx Y2 (iff under common means/skews)"
-  },
-  "quantifiers": "all directionally convex f",
-  "numbers": "",
-  "ambiguity": "",
-  "adjudication": "agreed"
- },
- {
-  "paper": "doi:10.1080/03610926.2023.2165407",
-  "claim": "Theorem 4.11",
-  "page": 16,
-  "quote": "Theorem 4.11. Let Y1, Y2 follow (18). The following statements hold: (1) If \u00b51 = \u00b52, \u03b41 = \u03b42, \u03c31,ii \u2264 \u03c32,ii for 1 \u2264 i \u2264 n and \u03c31,ij = \u03c32,ij for 1 \u2264 i < j \u2264 n, then Y1 \u2264ccx Y2. (2) If \u00b51 = \u00b52, then Y1 \u2264ccx Y2 if and only if \u03b41 = \u03b42, \u03c31,ii \u2264 \u03c32,ii for 1 \u2264 i \u2264 n and \u03c31,ij = \u03c32,ij for 1 \u2264 i < j \u2264 n. (3) If \u03b41 = \u03b42, then Y1 \u2264ccx Y2 if and only if \u00b51 = \u00b52, \u03c31,ii \u2264 \u03c32,ii for 1 \u2264 i \u2264 n and \u03c31,ij = \u03c32,ij for 1 \u2264 i < j \u2264 n.",
-  "kind": "theorem",
-  "model": "generic",
-  "family": "GLSE vectors",
-  "compared": "Y1 vs Y2 in componentwise convex order",
-  "hypotheses": [
-   {
-    "text": "equal means/skews; diagonal variances ordered; equal off-diagonals",
-    "formal": "stated",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "ccx",
-   "direction": "Y1 \u2264_ccx Y2 (iff under common means/skews)"
-  },
-  "quantifiers": "all componentwise convex f",
-  "numbers": "",
-  "ambiguity": "",
-  "adjudication": "agreed"
- },
- {
-  "paper": "doi:10.1080/03610926.2023.2165407",
-  "claim": "Theorem 4.12",
-  "page": 16,
-  "quote": "Theorem 4.12. Let Y1, Y2 follow (18). Y1 \u2264sm Y2 if and only if Y1 and Y2 have the same marginals and \u03c31,ij \u2264 \u03c32,ij for all 1 \u2264 i < j \u2264 n.",
-  "kind": "theorem",
-  "model": "generic",
-  "family": "GLSE vectors",
-  "compared": "Y1 vs Y2 in supermodular order",
-  "hypotheses": [
-   {
-    "text": "same marginals (\u00b51 = \u00b52, \u03b41 = \u03b42, \u03c31,ii = \u03c32,ii); \u03c31,ij \u2264 \u03c32,ij for i < j",
-    "formal": "iff characterization",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "sm",
-   "direction": "Y1 \u2264_sm Y2 iff same marginals and \u03c31,ij \u2264 \u03c32,ij"
-  },
-  "quantifiers": "all supermodular f",
-  "numbers": "",
-  "ambiguity": "",
-  "adjudication": "agreed"
- },
- {
-  "paper": "doi:10.1080/03610926.2023.2165407",
-  "claim": "Theorem 4.15",
-  "page": 17,
-  "quote": "Theorem 4.15. Let Y1, Y2 follow (18). The following statements are true: (1) If \u00b52 + \u03b2(z)\u03b42 \u2265 \u00b51 + \u03b2(z)\u03b41 for all z, \u03c31,ii = \u03c32,ii for all 1 \u2264 i \u2264 n and \u03c31,ij \u2264 \u03c32,ij for all 1 \u2264 i \u2260 j \u2264 n, then Y1 \u2264uo Y2. (2) If Y1 \u2264uo Y2 and g satisfies Assumption 4.1, then \u00b51 + E(\u03b2(Z))\u03b41 \u2264 \u00b52 + E(\u03b2(Z))\u03b42 and \u03c31,ii = \u03c32,ii for all 1 \u2264 i \u2264 n. (3) If Y1 and Y2 have the same marginals and Y1 \u2264uo Y2, then \u03c31,ij \u2264 \u03c32,ij for all 1 \u2264 i < j \u2264 n.",
-  "kind": "theorem",
-  "model": "generic",
-  "family": "GLSE vectors",
-  "compared": "Y1 vs Y2 in upper orthant order",
-  "hypotheses": [
-   {
-    "text": "as stated per part",
-    "formal": "stated",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "uo",
-   "direction": "Y1 \u2264_uo Y2 (sufficiency); necessity of mean-type inequality, equal diagonal variances and \u03c3-inequalities"
-  },
-  "quantifiers": "all t \u2208 R^n",
-  "numbers": "",
-  "ambiguity": "",
-  "adjudication": "agreed"
- },
- {
-  "paper": "doi:10.1080/03610926.2023.2165407",
-  "claim": "Theorem 4.16",
-  "page": 17,
-  "quote": "Theorem 4.16. Let Y1, Y2 follow (18). The following statements are true: (1) If \u00b51 = \u00b52, \u03b41 = \u03b42 and \u03a32 \u2212 \u03a31 is copositive, then Y1 \u2264cp Y2. (2) If \u00b51 = \u00b52, then Y1 \u2264cp Y2, if and only if \u03b41 = \u03b42 and \u03a32 \u2212 \u03a31 is copositive. (3) If \u03b41 = \u03b42, then Y1 \u2264cp Y2, if and only if \u00b51 = \u00b52 and \u03a32 \u2212 \u03a31 is copositive.",
-  "kind": "theorem",
-  "model": "generic",
-  "family": "GLSE vectors",
-  "compared": "Y1 vs Y2 in copositive order",
-  "hypotheses": [
-   {
-    "text": "as stated",
-    "formal": "stated",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "cp",
-   "direction": "Y1 \u2264_cp Y2 (iff under common means/skews)"
-  },
-  "quantifiers": "all f with completely-positive Hessian",
-  "numbers": "",
-  "ambiguity": "",
-  "adjudication": "agreed"
- },
- {
-  "paper": "doi:10.1080/03610926.2023.2165407",
-  "claim": "Theorem 4.17",
-  "page": 18,
-  "quote": "Theorem 4.17. Let Y1, Y2 follow (18). The following statements are true: (1) If \u00b51 = \u00b52, \u03b41 = \u03b42 and \u03a32 \u2212 \u03a31 is completely positive, then Y1 \u2264cop Y2. (2) If \u00b51 = \u00b52, then Y1 \u2264cop Y2, if and only if \u03b41 = \u03b42 and \u03a32 \u2212 \u03a31 is completely positive. (3) If \u03b41 = \u03b42, then Y1 \u2264cop Y2, if and only if \u00b51 = \u00b52 and \u03a32 \u2212 \u03a31 is completely positive.",
-  "kind": "theorem",
-  "model": "generic",
-  "family": "GLSE vectors",
-  "compared": "Y1 vs Y2 in completely positive order",
-  "hypotheses": [
-   {
-    "text": "as stated",
-    "formal": "stated",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "cop",
-   "direction": "Y1 \u2264_cop Y2 (iff under common means/skews)"
-  },
-  "quantifiers": "all f with copositive Hessian",
-  "numbers": "",
-  "ambiguity": "Proof line reads 'Y1 \u2264cp Y2' inside the proof of Theorem 4.17 \u2014 likely a typo for \u2264cop.",
   "adjudication": "agreed"
  },
  {

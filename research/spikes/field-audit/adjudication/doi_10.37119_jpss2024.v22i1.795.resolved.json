@@ -1,0 +1,50 @@
+[
+ {
+  "queue_claim": "unn10:section 10 likelihood ratio ordering result",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.37119/jpss2024.v22i1.795",
+    "claim": "Section 10 unnumbered result (likelihood ratio ordering)",
+    "page": 92,
+    "quote": "Prove that the mixture of Gompertz and gamma distribution complies with the ordering with the highest likelihood (the likelihood ratio ordering). Assume that X and Y are two independent Random variables with probability distribution function f(x; η, β) and f(x; ψ, δ). If η < ψ and β < δ, then Λ = f(x;η,β)/f(x;ψ,δ) = [η/(1+β) e^{βx} e^{(η/β)(e^{βx}−1)} + (η²β/2) x² e^{−ηx}] / [ψ/(1+δ) e^{δx} e^{(ψ/δ)(e^{δx}−1)} + (ψ²δ/2) x² e^{−ψx}]. ... Differentiating with respect to x, ∂log[Λ]/∂x = ... Hence, [∂log[Λ]/∂x] < 0, if η < ψ, β < δ.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "mixture of Gompertz and gamma (MGGD): f(x;η,β) = η/(1+β)·e^{βx}e^{(η/β)(e^{βx}−1)} + (η²β/2)x²e^{−ηx}, x>0, η,β>0",
+    "compared": "MGGD(η,β) vs MGGD(ψ,δ) with both parameters smaller on the left",
+    "hypotheses": [
+     {"text": "If η < ψ and β < δ", "formal": "componentwise parameter ordering", "source": "statement"}
+    ],
+    "conclusion": {"order": "lr", "direction": "X <=lr Y, i.e., MGGD(η,β) <=lr MGGD(ψ,δ) (density ratio decreasing in x)"},
+    "quantifiers": "x > 0; η,β,ψ,δ > 0",
+    "numbers": "",
+    "ambiguity": "Unnumbered 'prove that' statement rather than a labelled theorem; typeset formulas garbled in places (exponents/signs inconsistent across printings); the conclusion claimed is the decreasing density ratio, i.e., lr order."
+   }
+  ],
+  "note": "Section 10's sole ordering result is the unnumbered lr claim for the MGGD; included."
+ },
+ {
+  "queue_claim": "unn10:section 10 stochastic ordering result",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.37119/jpss2024.v22i1.795",
+    "claim": "Section 10 unnumbered result (likelihood ratio ordering)",
+    "page": 92,
+    "quote": "Prove that the mixture of Gompertz and gamma distribution complies with the ordering with the highest likelihood (the likelihood ratio ordering). Assume that X and Y are two independent Random variables with probability distribution function f(x; η, β) and f(x; ψ, δ). If η < ψ and β < δ, then Λ = f(x;η,β)/f(x;ψ,δ) = [η/(1+β) e^{βx} e^{(η/β)(e^{βx}−1)} + (η²β/2) x² e^{−ηx}] / [ψ/(1+δ) e^{δx} e^{(ψ/δ)(e^{δx}−1)} + (ψ²δ/2) x² e^{−ψx}]. ... Differentiating with respect to x, ∂log[Λ]/∂x = ... Hence, [∂log[Λ]/∂x] < 0, if η < ψ, β < δ.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "mixture of Gompertz and gamma (MGGD): f(x;η,β) = η/(1+β)·e^{βx}e^{(η/β)(e^{βx}−1)} + (η²β/2)x²e^{−ηx}, x>0, η,β>0",
+    "compared": "MGGD(η,β) vs MGGD(ψ,δ) with both parameters smaller on the left",
+    "hypotheses": [
+     {"text": "If η < ψ and β < δ", "formal": "componentwise parameter ordering", "source": "statement"}
+    ],
+    "conclusion": {"order": "lr", "direction": "X <=lr Y, i.e., MGGD(η,β) <=lr MGGD(ψ,δ) (density ratio decreasing in x)"},
+    "quantifiers": "x > 0; η,β,ψ,δ > 0",
+    "numbers": "",
+    "ambiguity": "Same statement as the other queue item — 'stochastic ordering' is the section title; the proved conclusion is lr only. Definitions 1-4 in the section preamble are definitional, not extracted claims."
+   }
+  ],
+  "note": "Same unnumbered result as the sibling queue item — the 'stochastic ordering' phrase is the section heading; the paper proves only lr. Included once as the canonical lr record."
+ }
+]

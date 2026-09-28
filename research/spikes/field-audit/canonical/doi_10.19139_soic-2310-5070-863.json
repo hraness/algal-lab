@@ -451,6 +451,56 @@
  },
  {
   "paper": "doi:10.19139/soic-2310-5070-863",
+  "claim": "Proposition 5(i)",
+  "page": 14,
+  "quote": "Proposition 5 (i) If \u00b5 = \u00b5\u2032 , then X \u227ccx Y if and only if \u03bb = \u03bb\u2032 and \u03a3\u2032 \u2212 \u03a3 is positive semi-definite;",
+  "kind": "proposition",
+  "model": "other: multivariate random vectors",
+  "family": "NMVM / SSMSN (both cases)",
+  "compared": "convex order \u2014 iff under common location",
+  "hypotheses": [
+   {
+    "text": "\u00b5 = \u00b5\u2032",
+    "formal": "common location",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: cx",
+   "direction": "X <=cx Y iff \u03bb = \u03bb\u2032 and \u03a3\u2032 \u2212 \u03a3 psd"
+  },
+  "quantifiers": "d >= 1",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: mechanical: order is the paper-defined \"other cx\"; other pass mislabeled it"
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-863",
+  "claim": "Proposition 6(i)",
+  "page": 14,
+  "quote": "Proposition 6 (i) If \u00b5 = \u00b5\u2032 , then X \u227cdcx Y if and only if \u03bb = \u03bb\u2032 and \u03c3ij \u2264 \u03c3\u2032ij for all 1 \u2264 i \u2260 j \u2264 d;",
+  "kind": "proposition",
+  "model": "other: multivariate random vectors",
+  "family": "NMVM / SSMSN (both cases)",
+  "compared": "directionally convex order \u2014 iff under common location",
+  "hypotheses": [
+   {
+    "text": "\u00b5 = \u00b5\u2032",
+    "formal": "common location",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: dcx",
+   "direction": "X <=dcx Y iff \u03bb = \u03bb\u2032 and \u03c3ij <= \u03c3\u2032ij (i \u2260 j)"
+  },
+  "quantifiers": "1 <= i != j <= d",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: mechanical: order is the paper-defined \"other dcx\"; other pass mislabeled it"
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-863",
   "claim": "Corollary 3(i)",
   "page": 13,
   "quote": "Corollary 3. Let the random vectors X and Y be as given in (5) and (14). (i) If \u00b5 \u2264 \u00b5\u2032 , \u03a3 = \u03a3\u2032 and \u03bb\u03c4 \u2264 \u03bb\u2032\u03c4 for all \u03c4 \u2208 SH (\u03bb \u2264 \u03bb\u2032 ), then X \u227cst Y;",
@@ -472,66 +522,6 @@
   "quantifiers": "all \u03c4 \u2208 SH; d >= 1",
   "numbers": "",
   "ambiguity": "Covers both SSMSN (\u03bb\u03c4) and NMVM (\u03bb) parameterizations.",
-  "adjudication": "agreed"
- },
- {
-  "paper": "doi:10.19139/soic-2310-5070-863",
-  "claim": "Lemma 2",
-  "page": 4,
-  "quote": "Lemma 2. Let X and Y be the random vectors as given in (5) and \u03d5p (.|w) = \u03d5d (.; \u00b5p + w\u03bbp , w\u03a3p ), 0 \u2264 p \u2264 1, where \u00b5p = p\u00b5 + (1 \u2212 p)\u00b5\u2032 , \u03bbp = p\u03bb + (1 \u2212 p)\u03bb\u2032 , \u03a3p = p\u03a3 + (1 \u2212 p)\u03a3\u2032 . Further, let f : Rd \u2192 R be twice continuously differentiable and, for any w \u2208 SH , satisfy [regularity conditions (i)-(iii)]. If \u03a3 (\u00b5\u2032i \u2212 \u00b5i ) \u2202f/\u2202xi \u2265 0, \u03a3 (\u03bb\u2032i \u2212 \u03bbi ) \u2202f/\u2202xi \u2265 0, \u03a3 \u03a3 (\u03c3\u2032ij \u2212 \u03c3ij ) \u2202\u00b2f/\u2202xi \u2202xj \u2265 0 hold, then E(f (X)) \u2264 E(f (Y)).",
-  "kind": "lemma",
-  "model": "other: random vectors",
-  "family": "NMVMd(\u00b5,\u03a3,\u03bb,h)",
-  "compared": "E f(X) vs E f(Y) \u2014 generic integral-order machinery for NMVM",
-  "hypotheses": [
-   {
-    "text": "regularity (i)-(iii): limits of f \u03d5p and derivative products vanish",
-    "formal": "weak regularity",
-    "source": "statement"
-   },
-   {
-    "text": "\u03a3(\u00b5\u2032i \u2212 \u00b5i)\u2202xi f \u2265 0, \u03a3(\u03bb\u2032i \u2212 \u03bbi)\u2202xi f \u2265 0, \u03a3\u03a3(\u03c3\u2032ij \u2212 \u03c3ij)\u2202xi\u2202xj f \u2265 0",
-    "formal": "pathwise conditions along linear parameter interpolation",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "other: integral",
-   "direction": "E f(X) <= E f(Y)"
-  },
-  "quantifiers": "all twice-differentiable f satisfying the conditions; w \u2208 SH",
-  "numbers": "",
-  "ambiguity": "",
-  "adjudication": "agreed"
- },
- {
-  "paper": "doi:10.19139/soic-2310-5070-863",
-  "claim": "Lemma 4",
-  "page": 7,
-  "quote": "Lemma 4. Let X and Y be the random vectors as given in (14), and \u00b5p = p\u00b5 + (1 \u2212 p)\u00b5\u2032 , \u03bbp = p\u03bb\u03c4 + (1 \u2212 p)\u03bb\u2032\u03c4 , \u03a3p = p\u03a3 + (1 \u2212 p)\u03a3\u2032 , for 0 \u2264 p \u2264 1. Further, let f : Rd \u2192 R be twice continuously differentiable and for all \u03c4 \u2208 SH , k = 1, 2 satisfy [regularity conditions] ... If \u03a3(\u00b5\u2032i \u2212 \u00b5i) \u2202xi f \u2265 0, \u03a3(\u03bb\u2032\u03c4,i \u2212 \u03bb\u03c4,i) \u2202xi f \u2265 0, \u03a3\u03a3(\u03c3\u2032ij \u2212 \u03c3ij) \u2202\u00b2xi\u2202xj f \u2265 0 hold, then E(f (X)) \u2264 E(f (Y)).",
-  "kind": "lemma",
-  "model": "other: random vectors",
-  "family": "SSMSN (conditional SNd)",
-  "compared": "E f(X) vs E f(Y) \u2014 integral-order machinery for SSMSN",
-  "hypotheses": [
-   {
-    "text": "regularity (i)-(iii) on f and \u03c61(x;p|\u03c4), \u03c62(.;p|\u03c4) = \u03d5d(.;\u00b5p, a1(\u03c41)[\u03a3p \u2212 \u03bbp \u03bbp^T])",
-    "formal": "weak regularity",
-    "source": "statement"
-   },
-   {
-    "text": "the three sum conditions (17)",
-    "formal": "pathwise conditions",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "other: integral",
-   "direction": "E f(X) <= E f(Y)"
-  },
-  "quantifiers": "all admissible f; \u03c4 \u2208 SH; p \u2208 [0,1]",
-  "numbers": "",
-  "ambiguity": "",
   "adjudication": "agreed"
  },
  {
@@ -657,56 +647,6 @@
   "quantifiers": "d >= 1",
   "numbers": "",
   "ambiguity": "Proof omitted (along lines of Proposition 2).",
-  "adjudication": "agreed"
- },
- {
-  "paper": "doi:10.19139/soic-2310-5070-863",
-  "claim": "Proposition 5(i)",
-  "page": 14,
-  "quote": "Proposition 5 (i) If \u00b5 = \u00b5\u2032 , then X \u227ccx Y if and only if \u03bb = \u03bb\u2032 and \u03a3\u2032 \u2212 \u03a3 is positive semi-definite;",
-  "kind": "proposition",
-  "model": "other: multivariate random vectors",
-  "family": "NMVM / SSMSN (both cases)",
-  "compared": "convex order \u2014 iff under common location",
-  "hypotheses": [
-   {
-    "text": "\u00b5 = \u00b5\u2032",
-    "formal": "common location",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "other: cx",
-   "direction": "X <=cx Y iff \u03bb = \u03bb\u2032 and \u03a3\u2032 \u2212 \u03a3 psd"
-  },
-  "quantifiers": "d >= 1",
-  "numbers": "",
-  "ambiguity": "",
-  "adjudication": "agreed"
- },
- {
-  "paper": "doi:10.19139/soic-2310-5070-863",
-  "claim": "Proposition 6(i)",
-  "page": 14,
-  "quote": "Proposition 6 (i) If \u00b5 = \u00b5\u2032 , then X \u227cdcx Y if and only if \u03bb = \u03bb\u2032 and \u03c3ij \u2264 \u03c3\u2032ij for all 1 \u2264 i \u2260 j \u2264 d;",
-  "kind": "proposition",
-  "model": "other: multivariate random vectors",
-  "family": "NMVM / SSMSN (both cases)",
-  "compared": "directionally convex order \u2014 iff under common location",
-  "hypotheses": [
-   {
-    "text": "\u00b5 = \u00b5\u2032",
-    "formal": "common location",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "other: dcx",
-   "direction": "X <=dcx Y iff \u03bb = \u03bb\u2032 and \u03c3ij <= \u03c3\u2032ij (i \u2260 j)"
-  },
-  "quantifiers": "1 <= i != j <= d",
-  "numbers": "",
-  "ambiguity": "",
   "adjudication": "agreed"
  },
  {

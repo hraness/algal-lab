@@ -1,6 +1,61 @@
 [
  {
   "paper": "arxiv:1905.00425",
+  "claim": "Theorem 3.6 (dispersive order part)",
+  "page": 9,
+  "quote": "Theorem 3.6. Let X1, ...., Xn (Y1, ...., Yn) be the set of continuous independent random variables having Xi ~ Gum(mu_i, sigma) (Yi ~ Gum(mu*_i, sigma)), i = 1, 2, ...., n. Then, if (mu_1, ..., mu_n) >=^m (mu*_1, ..., mu*_n), we have 1. X_{1:n} <=disp Y_{1:n}; 2. X_{1:n} <=LU Y_{1:n}.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Gumbel Gum(mu_i, sigma), common scale sigma, location parameters mu_i vs mu*_i",
+  "compared": "location vectors under majorization",
+  "hypotheses": [
+   {
+    "text": "if (mu_1, ..., mu_n) >=^m (mu*_1, ..., mu*_n)",
+    "formal": "mu majorizes mu*",
+    "source": "statement"
+   },
+   {
+    "text": "X1:n is DHR (shown in proof via r_{X_{1:n}} decreasing in mu_i)",
+    "formal": "decreasing hazard rate of the minimum",
+    "source": "section preamble"
+   }
+  ],
+  "conclusion": {
+   "order": "disp",
+   "direction": "X_{1:n} <=disp Y_{1:n} (X side smaller)"
+  },
+  "quantifiers": "n >= 1 components",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Theorem 3.6 prints two named orders (disp and the paper-defined LU order) for Gumbel series minima u"
+ },
+ {
+  "paper": "arxiv:1905.00425",
+  "claim": "Theorem 3.6 (less uncertainty order part)",
+  "page": 9,
+  "quote": "Theorem 3.6. Let X1, ...., Xn (Y1, ...., Yn) be the set of continuous independent random variables having Xi ~ Gum(mu_i, sigma) (Yi ~ Gum(mu*_i, sigma)), i = 1, 2, ...., n. Then, if (mu_1, ..., mu_n) >=^m (mu*_1, ..., mu*_n), we have 1. X_{1:n} <=disp Y_{1:n}; 2. X_{1:n} <=LU Y_{1:n}.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Gumbel Gum(mu_i, sigma), common scale sigma",
+  "compared": "location vectors under majorization",
+  "hypotheses": [
+   {
+    "text": "if (mu_1, ..., mu_n) >=^m (mu*_1, ..., mu*_n)",
+    "formal": "mu majorizes mu*",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: LU (less uncertainty order)",
+   "direction": "X_{1:n} <=LU Y_{1:n} (X side smaller)"
+  },
+  "quantifiers": "n >= 1 components",
+  "numbers": "",
+  "ambiguity": "LU is the paper's named 'less uncertainty' order from Ebrahimi et al.; not a plain stochastic order.",
+  "adjudication": "adjudicated: Theorem 3.6 prints two named orders (disp and the paper-defined LU order) for Gumbel series minima u"
+ },
+ {
+  "paper": "arxiv:1905.00425",
   "claim": "Corollary 3.3",
   "page": 7,
   "quote": "Corollary 3.3. Let X1,...,Xn (Y1,...,Yn) be the set of continuous independent random variables having Xi ~ Gum(\u00b5i, \u03c3) (Yi ~ Gum(\u00b5i, \u03c3)), i = 1, 2,..., n. Then, if (\u00b51,...,\u00b5n) \u227bm (\u00b51*,...,\u00b5n*), and let T be any random variable which is independent of X and Y. Then we have Xn:n^T \u2265rh Yn:n^T.",

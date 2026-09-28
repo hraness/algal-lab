@@ -1,0 +1,33 @@
+[
+ {
+  "queue_claim": "proposition2.1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.4314/cps.v12i5.16",
+    "claim": "Proposition 2.1 (printed 'Proposition 2.I')",
+    "page": 4,
+    "quote": "Proposition 2.I: Let F1 (x; α, β, θ) and G1 (x; α, β, θ) be the cdfs of the EPAD and EWD, each with parameters ∝, β and θ. Then F1 (x; α, β, θ) ≤ G1 (x; α, β, θ). That is the EPAD (α, β, θ) exhibits first-order stochastic dominance over the EWD (α, β, θ).",
+    "kind": "proposition",
+    "model": "single",
+    "family": "Exponentiated Power Affine... EPAD(α, β, θ) vs exponentiated Weibull EWD(α, β, θ), common parameters",
+    "compared": "EPAD vs EWD at identical parameter values",
+    "hypotheses": [
+     {
+      "text": "F1 and G1 each with parameters α, β, θ",
+      "formal": "common parameter values across the two cdfs",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "EPAD >=st EWD (F1(x) <= G1(x) for all x; EWD side smaller)"
+    },
+    "quantifiers": "all x (trivially for x < 0; proof uses 1 + θx^β >= 0 for x >= 0)",
+    "numbers": "",
+    "ambiguity": "Printed as 'Proposition 2.I'; proof shows F1 = [1−(1+θx^β)e^{−θx^β}]^α <= [1−e^{−θx^β}]^α = G1."
+   }
+  ],
+  "note": "Paper prints F1 <= G1 pointwise with EPAD first-order stochastically dominating EWD — Y/EWD side smaller; A's 'A_smaller' flag misread the CDF inequality."
+ }
+]

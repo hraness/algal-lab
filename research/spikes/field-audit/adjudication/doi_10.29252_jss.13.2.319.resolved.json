@@ -1,0 +1,53 @@
+[
+ {
+  "queue_claim": "example1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.29252/jss.13.2.319",
+    "claim": "Example 1 (مثال ١)",
+    "page": 336,
+    "quote": "مثال ١: فرض کنید X١, X٢, X٣ و Y١, Y٢, Y٣ دو مجموعه از متغیرهای تصادفی مستقل با Xi ∼ GLFR(αi, β, λi), Yi ∼ GLFR(νi, β, γi), i = ١, ٢, ٣ باشند. قرار دهید: λ = (١, ٢, ٣)، γ = (٢, ٢/۵, ١/۵)، α = (٢, ٣, ۴)، ν = (١, ٢, ۵). واضح است γ ≻^uo λ و اگر π = (٣, ٢, ١) یک جایگشت از اعداد {١, ٢, ٣} باشد، آنگاه روی فضای Dn^π رابطه α ≻^m_{(λ١,λ٢,λ٣)} ν برقرار است. بنابراین طبق قضیه ٧ نتیجه می‌شود X٣:٣ ≥st Y٣:٣.",
+    "kind": "example",
+    "model": "parallel system",
+    "family": "GLFR(αi, β, λi) — generalized linear failure rate, common β, n = 3",
+    "compared": "X parameters (α, λ) vs Y parameters (ν, γ): γ unordered-majorizes λ and α weighted-majorizes ν",
+    "hypotheses": [
+     {"text": "γ ≻^uo λ", "formal": "γ unordered-majorizes λ", "source": "statement"},
+     {"text": "α ≻^m_{(λ١,λ٢,λ٣)} ν on Dn^π with π = (3,2,1)", "formal": "α weighted-majorizes ν w.r.t. weights λ on the π-ordered cone", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "X_{3:3} >=st Y_{3:3} (Y-side maximum smaller)"},
+    "quantifiers": "n = 3",
+    "numbers": "λ = (1,2,3); γ = (2,2.5,1.5); α = (2,3,4); ν = (1,2,5); π = (3,2,1)",
+    "ambiguity": "Persian-language paper; numerical example applying Theorem 7 (قضیه ٧). Direction verified in text: X٣:٣ ≥st Y٣:٣."
+   }
+  ],
+  "note": "Both passes agree: Example 1 prints X_{3:3} >=st Y_{3:3} via Theorem 7; only translation/annotation differed."
+ },
+ {
+  "queue_claim": "theorem1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.29252/jss.13.2.319",
+    "claim": "Theorem 1 (قضیه ١)",
+    "page": 325,
+    "quote": "قضیه ١: فرض کنید X١, ···, Xn و Y١, ···, Yn دو مجموعه از متغیرهای تصادفی مستقل با Xi ∼ GLFR(αi, βi, λ), Yi ∼ GLFR(νi, µi, λ), i = ١, ···, n, باشند. اگر α ≻^m ν روی فضای Dn+ و β ≻^m µ روی فضای Dn+ باشد، آنگاه برای λ ≥ ١ داریم Y١:n ≥st X١:n.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "GLFR(αi, βi, λ) vs GLFR(νi, µi, λ), common tilt λ",
+    "compared": "α vs ν and β vs µ under majorization on D_{n+}",
+    "hypotheses": [
+     {"text": "α ≻^m ν on Dn+", "formal": "α majorizes ν on D_{n+}", "source": "statement"},
+     {"text": "β ≻^m µ on Dn+", "formal": "β majorizes µ on D_{n+}", "source": "statement"},
+     {"text": "λ ≥ ١", "formal": "common parameter λ >= 1", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y_{1:n} >=st X_{1:n} (X-side minimum smaller)"},
+    "quantifiers": "n >= 1; λ >= 1",
+    "numbers": "",
+    "ambiguity": "Persian-language paper. Printed conclusion is Y_{1:n} >=st X_{1:n}; proof uses intermediate Z_{1:n} ~ GLFR(νi, βi, λ)."
+   }
+  ],
+  "note": "Paper prints Y_{1:n} >=st X_{1:n} (X-side smaller); B's 'A_smaller' flag mislabeled which side is smaller — both records' text agree."
+ }
+]

@@ -1,0 +1,77 @@
+[
+ {
+  "queue_claim": "counterexample3.1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2103.00763",
+    "claim": "Counterexample 3.1",
+    "page": 7,
+    "quote": "Counterexample 3.1 Let, for n = 3 and for r = 1, 2, ..., h~_{n:n}(r) and h~*_{n:n}(r) denote the reversed hazard rate functions of X_{n:n} and Y_{n:n} respectively. Now, if mu = (8, 0.8, 0.1) and mu* = (7, 1, 0.9) are taken, then although mu >=^m mu*, it can be observed that for r = 5, h~_{n:n}(r) - h~*_{n:n}(r) = 0.0520158 and for r = 2, h~_{n:n}(r) - h~*_{n:n}(r) = -0.0232122, proving that there exist no reversed hazard rate ordering between X_{n:n} and Y_{n:n}.",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "Poisson: Xi ~ Poisson(mu_i), Yi ~ Poisson(mu*_i), mutually independent (discrete)",
+    "compared": "parameter vectors mu = (8,0.8,0.1) vs mu* = (7,1,0.9), mu majorizes mu*",
+    "hypotheses": [
+     {"text": "although mu >=^m mu*", "formal": "mu majorizes mu* (the hypothesis of Theorem 3.1 still holds)", "source": "statement"},
+     {"text": "the result of the above theorem [Theorem 3.1 st ordering] can be upgraded to reversed hazard rate ordering or not", "formal": "tests whether Theorem 3.1 extends from st to rh", "source": "section preamble"}
+    ],
+    "conclusion": {"order": "rh", "direction": "no reversed hazard rate ordering: h~_{n:n}(5) - h~*_{n:n}(5) = 0.0520158 > 0 but h~_{n:n}(2) - h~*_{n:n}(2) = -0.0232122 < 0 (sign changes; neither direction)"},
+    "quantifiers": "n = 3; r = 1, 2, ...",
+    "numbers": "mu = (8, 0.8, 0.1); mu* = (7, 1, 0.9); r = 5 gives +0.0520158; r = 2 gives -0.0232122",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Counterexample 3.1 numerically refutes rh ordering of Poisson maxima under majorization: the printed differences change sign, so neither direction holds."
+ },
+ {
+  "queue_claim": "counterexample3.2",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2103.00763",
+    "claim": "Counterexample 3.2",
+    "page": 8,
+    "quote": "Counterexample 3.2 For n = 3 and for r = 1, 2, ..., let h_{n:n}(r) and h*_{n:n}(r) be the hazard rate functions of X_{1:n} and Y_{1:n} respectively. Now, if mu = (28, 0.8, 0.1) and mu* = (27, 1, 0.9) are taken, then although mu >=^m mu*, it can be observed that for r = 16, h_{1:n}(r) - h*_{1:n}(r) = -0.00024431 and for r = 6, h_{1:n}(r) - h*_{n:n}(r) = 0.0124328, proving that there exist no hazard rate ordering between X_{1:n} and Y_{1:n}.",
+    "kind": "counterexample",
+    "model": "series system",
+    "family": "Poisson: Xi ~ Poisson(mu_i), Yi ~ Poisson(mu*_i), mutually independent (discrete)",
+    "compared": "parameter vectors mu = (28,0.8,0.1) vs mu* = (27,1,0.9), mu majorizes mu*",
+    "hypotheses": [
+     {"text": "although mu >=^m mu*", "formal": "mu majorizes mu* (the hypothesis of Theorem 3.2 still holds)", "source": "statement"},
+     {"text": "the above theorem cannot be improved further to hazard rate ordering", "formal": "tests whether Theorem 3.2 extends from st to hr", "source": "section preamble"}
+    ],
+    "conclusion": {"order": "hr", "direction": "no hazard rate ordering: difference is -0.00024431 at r = 16 and +0.0124328 at r = 6 (sign changes; neither direction)"},
+    "quantifiers": "n = 3; r = 1, 2, ...",
+    "numbers": "mu = (28, 0.8, 0.1); mu* = (27, 1, 0.9); r = 16 gives -0.00024431; r = 6 gives +0.0124328",
+    "ambiguity": "Printed subscripts are inconsistent: the functions are declared h_{n:n}/h*_{n:n} 'of X_{1:n} and Y_{1:n}', then written h_{1:n} - h*_{1:n} and h_{1:n} - h*_{n:n}. Recorded as printed; the intended comparison is the minima."
+   }
+  ],
+  "note": "Counterexample 3.2 numerically refutes hr ordering of Poisson minima under majorization: the printed hazard-rate differences change sign."
+ },
+ {
+  "queue_claim": "counterexample3.3",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2103.00763",
+    "claim": "Counterexample 3.3",
+    "page": 10,
+    "quote": "Counterexample 3.3 Let, for n = 3 and for r = 1, 2, ..., h~_{n:n}(r) and h~*_{n:n}(r) denote the reversed hazard rate functions of X_{n:n} and Y_{n:n} respectively. Now, if q = (0.99, 0.96, 0.57) and q* = (0.9, 0.78, 0.57) are taken, then although q >=^m q*, it can be observed that for u = 1, h~_{n:n}(u) - h~*_{n:n}(u) = -0.0010584 and for u = 4, h~_{n:n}(u) - h~*_{n:n}(u) = 0.00628996, proving that there exist no reversed hazard rate ordering between X_{n:n} and Y_{n:n}.",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "Geometric: Xi ~ Geometric(q_i), Yi ~ Geometric(q*_i), mutually independent (discrete)",
+    "compared": "parameter vectors q = (0.99,0.96,0.57) vs q* = (0.9,0.78,0.57), q majorizes q*",
+    "hypotheses": [
+     {"text": "although q >=^m q*", "formal": "q majorizes q* (the hypothesis of the st-ordering theorem still holds)", "source": "statement"},
+     {"text": "there exists stochastic ordering between X_{n:n} and Y_{n:n} when q >=^m q*", "formal": "the section's theorem gives st ordering; the counterexample tests upgrade to rh", "source": "section preamble"}
+    ],
+    "conclusion": {"order": "rh", "direction": "no reversed hazard rate ordering: difference is -0.0010584 at u = 1 and +0.00628996 at u = 4 (sign changes; neither direction)"},
+    "quantifiers": "n = 3; u = 0, 1, 2, ...",
+    "numbers": "q = (0.99, 0.96, 0.57); q* = (0.9, 0.78, 0.57); u = 1 gives -0.0010584; u = 4 gives +0.00628996",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Counterexample 3.3 numerically refutes rh ordering of geometric maxima under majorization: the printed differences change sign."
+ }
+]

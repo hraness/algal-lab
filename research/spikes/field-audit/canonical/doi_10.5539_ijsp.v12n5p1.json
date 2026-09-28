@@ -1,1 +1,92 @@
-[]
+[
+ {
+  "paper": "doi:10.5539/ijsp.v12n5p1",
+  "claim": "Section 3.6 stochastic ordering result (likelihood ratio order)",
+  "page": 6,
+  "quote": "Let X1 ~ MOEGE(alpha_1, eta, rho) and X2 ~ MOEGE(alpha_2, eta, rho). The random variable X1 is stochastically [smaller] than X2 in the: Stochastic order (X1 <=st X2) if the corresponding CDFs satisfies F_{X1}(x) <= F_{X2}(x) for all values x; Hazard rate order (X1 <=hr X2) if the corresponding CDFs satisfies h_{X1}(x) <= h_{X2}(x) for all values x; Likelihood ratio order (X1 <=lr X2) if f_{X1}/f_{X2} is a decreasing function. ... d/dx log[f_{X1}/f_{X2}] = ... < 0. If alpha_1 < alpha_2 for all values of x greater than zero. Then it follows from the implications of stochastic ordering that: X1 <=lr X2 => X1 <=hr X2 => X1 <=st X2.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "Marshall-Olkin Extended Generalized Exponential MOEGE(alpha, eta, rho), common eta and rho",
+  "compared": "tilt parameter alpha_1 vs alpha_2 (alpha_1 < alpha_2)",
+  "hypotheses": [
+   {
+    "text": "If alpha_1 < alpha_2 for all values of x greater than zero",
+    "formal": "alpha_1 < alpha_2, x > 0",
+    "source": "statement"
+   },
+   {
+    "text": "d/dx log[f_{X1}/f_{X2}] < 0",
+    "formal": "density ratio decreasing (derived just above the claim)",
+    "source": "section preamble"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "X1 <=lr X2 (alpha_1 side smaller)"
+  },
+  "quantifiers": "all x > 0",
+  "numbers": "",
+  "ambiguity": "Unnumbered result at the end of Section 3.6. The printed order definitions appear with CDF/hazard inequalities oriented opposite to the standard convention (text layer shows '<='; subscripts are unrecoverable from the PDF text layer), and 'stochastically significant' is likely a misprint for 'stochastically smaller'. Recorded as printed.",
+  "adjudication": "adjudicated: Unnumbered end-of-section claim: derivative of the density ratio is negative when alpha_1 < alpha_2,"
+ },
+ {
+  "paper": "doi:10.5539/ijsp.v12n5p1",
+  "claim": "Section 3.6 stochastic ordering result (hazard rate order)",
+  "page": 6,
+  "quote": "If alpha_1 < alpha_2 for all values of x greater than zero. Then it follows from the implications of stochastic ordering that: X1 <=lr X2 => X1 <=hr X2 => X1 <=st X2.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "MOEGE(alpha, eta, rho), common eta and rho",
+  "compared": "alpha_1 vs alpha_2 (alpha_1 < alpha_2)",
+  "hypotheses": [
+   {
+    "text": "If alpha_1 < alpha_2",
+    "formal": "alpha_1 < alpha_2",
+    "source": "statement"
+   },
+   {
+    "text": "X1 <=lr X2 (just established)",
+    "formal": "lr implies hr",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "X1 <=hr X2 (alpha_1 side smaller)"
+  },
+  "quantifiers": "all x > 0",
+  "numbers": "",
+  "ambiguity": "Obtained via the printed implication chain, not a separate proof.",
+  "adjudication": "adjudicated: Unnumbered end-of-section claim: derivative of the density ratio is negative when alpha_1 < alpha_2,"
+ },
+ {
+  "paper": "doi:10.5539/ijsp.v12n5p1",
+  "claim": "Section 3.6 stochastic ordering result (usual stochastic order)",
+  "page": 6,
+  "quote": "If alpha_1 < alpha_2 for all values of x greater than zero. Then it follows from the implications of stochastic ordering that: X1 <=lr X2 => X1 <=hr X2 => X1 <=st X2.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "MOEGE(alpha, eta, rho), common eta and rho",
+  "compared": "alpha_1 vs alpha_2 (alpha_1 < alpha_2)",
+  "hypotheses": [
+   {
+    "text": "If alpha_1 < alpha_2",
+    "formal": "alpha_1 < alpha_2",
+    "source": "statement"
+   },
+   {
+    "text": "X1 <=lr X2 (just established)",
+    "formal": "lr implies hr implies st",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X1 <=st X2 (alpha_1 side smaller)"
+  },
+  "quantifiers": "all x > 0",
+  "numbers": "",
+  "ambiguity": "Obtained via the printed implication chain, not a separate proof.",
+  "adjudication": "adjudicated: Unnumbered end-of-section claim: derivative of the density ratio is negative when alpha_1 < alpha_2,"
+ }
+]

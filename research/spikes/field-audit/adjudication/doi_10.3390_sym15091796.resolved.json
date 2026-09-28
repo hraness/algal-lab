@@ -1,0 +1,76 @@
+[
+ {
+  "queue_claim": "theorem1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3390/sym15091796",
+    "claim": "Theorem 1",
+    "page": 6,
+    "quote": "Theorem 1. For two parallel systems with component lifetimes being distributed as (X1, X2) ∼ MOE(λ1, λ2, λ3) and (Y1, Y2) ∼ MOE(µ1, µ2, λ3), the following implication holds: ((λ1 + λ3)−1, (λ2 + λ3)−1) ⪰^m ((µ1 + λ3)−1, (µ2 + λ3)−1) ⇒ X2:2 ≥mrl Y2:2.",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "Marshall–Olkin bivariate exponential MOE(λ1, λ2, λ3): F̄(x1,x2) = exp{−(λ1 x1 + λ2 x2 + λ3(x1 ∨ x2))}, common shock λ3",
+    "compared": "reciprocal rate pairs ((λ1+λ3)^{-1},(λ2+λ3)^{-1}) vs ((µ1+λ3)^{-1},(µ2+λ3)^{-1}) under majorization",
+    "hypotheses": [
+     {"text": "((λ1 + λ3)−1, (λ2 + λ3)−1) ⪰^m ((µ1 + λ3)−1, (µ2 + λ3)−1)", "formal": "majorization of reciprocal-rate vectors (a ⪰^m b per Definition 2(i))", "source": "statement"}
+    ],
+    "conclusion": {"order": "mrl", "direction": "X2:2 >=mrl Y2:2"},
+    "quantifiers": "n = 2; λ1,λ2,µ1,µ2 > 0, λ3 >= 0; t >= 0",
+    "numbers": "",
+    "ambiguity": "Majorization glyph is ⪰^m (verified on rendered PDF p.6); pdftotext drops the symbol. Pass B's '≺^m' reverses the hypothesis."
+   }
+  ],
+  "note": "Prints ((λ1+λ3)^-1,(λ2+λ3)^-1) ⪰^m ((µ1+λ3)^-1,(µ2+λ3)^-1) ⇒ X2:2 >=mrl Y2:2 — A's ⪰^m correct, B misread as ≺^m."
+ },
+ {
+  "queue_claim": "theorem2",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3390/sym15091796",
+    "claim": "Theorem 2",
+    "page": 7,
+    "quote": "Theorem 2. For η ∈ Θn(θ), we have R(X, n) ≥st R(Y, n).",
+    "kind": "theorem",
+    "model": "other: sample range R(X,n) = Xn:n − X1:n",
+    "family": "independent exponentials Exp(θi) (X) vs Exp(ηi) (Y), ordered hazard-rate vectors",
+    "compared": "hazard rate vectors θ vs η with η ∈ Θn(θ)",
+    "hypotheses": [
+     {"text": "η ∈ Θn(θ) = {η = (η1,...,ηn) ∈ En+ : θ ⪰^p η and θk ≥ ηk for k = 2,...,n}", "formal": "θ p-majorizes η plus θk >= ηk componentwise for k>=2", "source": "section preamble"},
+     {"text": "En+ = {(x1,...,xn) ∈ Rn : 0 < x1 ≤ ... ≤ xn}", "formal": "increasing positive vectors", "source": "section preamble"}
+    ],
+    "conclusion": {"order": "st", "direction": "R(X,n) >=st R(Y,n)"},
+    "quantifiers": "n >= 2; x >= 0",
+    "numbers": "",
+    "ambiguity": "Θn uses θ ⪰^p η (p-majorization, Definition 2(iii)); B's 'θ ≺ η' reverses it."
+   }
+  ],
+  "note": "Prints η ∈ Θn(θ) ⇒ R(X,n) >=st R(Y,n), with Θn defined by θ ⪰^p η; A's direction correct, B flipped the majorization."
+ },
+ {
+  "queue_claim": "theorem3",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3390/sym15091796",
+    "claim": "Theorem 3",
+    "page": 7,
+    "quote": "Theorem 3. For η ∈ Ωn(θ), we have R(X, n) ≥rh R(Y, n).",
+    "kind": "theorem",
+    "model": "other: sample range R(X,n) = Xn:n − X1:n",
+    "family": "independent exponentials Exp(θi) (X) vs Exp(ηi) (Y), ordered hazard-rate vectors",
+    "compared": "hazard rate vectors θ vs η with η ∈ Ωn(θ)",
+    "hypotheses": [
+     {"text": "η ∈ Ωn(θ) = {η = (η1,...,ηn) ∈ En+ : θ ⪰^w η and θk ≥ ηk for k = 2,...,n}", "formal": "θ weakly majorizes η plus θk >= ηk componentwise for k>=2", "source": "section preamble"},
+     {"text": "En+ = {(x1,...,xn) ∈ Rn : 0 < x1 ≤ ... ≤ xn}", "formal": "increasing positive vectors", "source": "section preamble"}
+    ],
+    "conclusion": {"order": "rh", "direction": "R(X,n) >=rh R(Y,n)"},
+    "quantifiers": "n >= 2; x >= 0",
+    "numbers": "",
+    "ambiguity": "Ωn uses θ ⪰^w η (weak majorization, Definition 2(ii)); B's 'θ ≺^w η' reverses it."
+   }
+  ],
+  "note": "Prints η ∈ Ωn(θ) ⇒ R(X,n) >=rh R(Y,n), with Ωn defined by θ ⪰^w η; A's direction correct, B flipped the majorization."
+ }
+]

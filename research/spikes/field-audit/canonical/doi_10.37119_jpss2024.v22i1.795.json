@@ -1,1 +1,27 @@
-[]
+[
+ {
+  "paper": "doi:10.37119/jpss2024.v22i1.795",
+  "claim": "Section 10 unnumbered result (likelihood ratio ordering)",
+  "page": 92,
+  "quote": "Prove that the mixture of Gompertz and gamma distribution complies with the ordering with the highest likelihood (the likelihood ratio ordering). Assume that X and Y are two independent Random variables with probability distribution function f(x; \u03b7, \u03b2) and f(x; \u03c8, \u03b4). If \u03b7 < \u03c8 and \u03b2 < \u03b4, then \u039b = f(x;\u03b7,\u03b2)/f(x;\u03c8,\u03b4) = [\u03b7/(1+\u03b2) e^{\u03b2x} e^{(\u03b7/\u03b2)(e^{\u03b2x}\u22121)} + (\u03b7\u00b2\u03b2/2) x\u00b2 e^{\u2212\u03b7x}] / [\u03c8/(1+\u03b4) e^{\u03b4x} e^{(\u03c8/\u03b4)(e^{\u03b4x}\u22121)} + (\u03c8\u00b2\u03b4/2) x\u00b2 e^{\u2212\u03c8x}]. ... Differentiating with respect to x, \u2202log[\u039b]/\u2202x = ... Hence, [\u2202log[\u039b]/\u2202x] < 0, if \u03b7 < \u03c8, \u03b2 < \u03b4.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "mixture of Gompertz and gamma (MGGD): f(x;\u03b7,\u03b2) = \u03b7/(1+\u03b2)\u00b7e^{\u03b2x}e^{(\u03b7/\u03b2)(e^{\u03b2x}\u22121)} + (\u03b7\u00b2\u03b2/2)x\u00b2e^{\u2212\u03b7x}, x>0, \u03b7,\u03b2>0",
+  "compared": "MGGD(\u03b7,\u03b2) vs MGGD(\u03c8,\u03b4) with both parameters smaller on the left",
+  "hypotheses": [
+   {
+    "text": "If \u03b7 < \u03c8 and \u03b2 < \u03b4",
+    "formal": "componentwise parameter ordering",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "X <=lr Y, i.e., MGGD(\u03b7,\u03b2) <=lr MGGD(\u03c8,\u03b4) (density ratio decreasing in x)"
+  },
+  "quantifiers": "x > 0; \u03b7,\u03b2,\u03c8,\u03b4 > 0",
+  "numbers": "",
+  "ambiguity": "Unnumbered 'prove that' statement rather than a labelled theorem; typeset formulas garbled in places (exponents/signs inconsistent across printings); the conclusion claimed is the decreasing density ratio, i.e., lr order.",
+  "adjudication": "adjudicated: Section 10's sole ordering result is the unnumbered lr claim for the MGGD; included."
+ }
+]

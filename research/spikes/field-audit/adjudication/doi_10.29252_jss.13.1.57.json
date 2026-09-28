@@ -5,7 +5,7 @@
    "st"
   ],
   "b_orders": [
-   "var"
+   "other var quantile order"
   ],
   "a_dirs": [
    "var y 1 n p >= var y* 1 n p for p in 0 1 \u2014 i e quantile wise"
@@ -86,7 +86,7 @@
    "st"
   ],
   "b_orders": [
-   "cx"
+   "other convex transform order >=c and superadditive order >=su"
   ],
   "a_dirs": [
    "B_smaller"
@@ -157,12 +157,104 @@
   ]
  },
  {
+  "claim": "theorem5",
+  "a_orders": [
+   "cx"
+  ],
+  "b_orders": [
+   "other cx convex"
+  ],
+  "a_dirs": [
+   "B_smaller"
+  ],
+  "b_dirs": [
+   "B_smaller"
+  ],
+  "a_records": [
+   {
+    "paper": "doi:10.29252/jss.13.1.57",
+    "claim": "Theorem 5 (\u0642\u0636\u06cc\u0647 \u06f5)",
+    "page": 66,
+    "quote": "[Persian] 'Under the assumptions of Theorem 3, if prod_{i=1}^n p_i >= prod_{i=1}^n p_i^* and sum_{i=1}^n lambda_i^alpha <= sum_{i=1}^n (lambda_i^*)^alpha, then for alpha > 0,  (prod_{i=1}^n p_i / prod_{i=1}^n p_i^*)^alpha = sum_{i=1}^n lambda_i^alpha / sum_{i=1}^n (lambda_i^*)^alpha  ==>  Y_{1:n} >=_cx Y*_{1:n}.'",
+    "kind": "theorem",
+    "model": "other: smallest claim amount",
+    "family": "independent Weibull claims with Bernoulli thinning",
+    "compared": "portfolios (lambda, p) vs (lambda*, p*) in the convex order",
+    "hypotheses": [
+     {
+      "text": "\u062a\u062d\u062a \u0645\u0641\u0631\u0648\u0636\u0627\u062a \u0642\u0636\u06cc\u0647 \u0663",
+      "formal": "same model assumptions as Theorem 3",
+      "source": "earlier theorem 3"
+     },
+     {
+      "text": "prod p_i >= prod p_i^*",
+      "formal": "prod p_i >= prod p_i^*",
+      "source": "statement"
+     },
+     {
+      "text": "sum lambda_i^alpha <= sum (lambda_i^*)^alpha",
+      "formal": "aggregate scale condition",
+      "source": "statement"
+     },
+     {
+      "text": "(prod p_i / prod p_i^*)^alpha = sum lambda_i^alpha / sum (lambda_i^*)^alpha",
+      "formal": "balancing equality that enforces E(Y_{1:n}) = E(Y*_{1:n})",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "icx",
+     "direction": "Y_{1:n} >=_cx Y*_{1:n} (convex order: E(Y_{1:n}-d)_+ >= E(Y*_{1:n}-d)_+ with equal means)"
+    },
+    "quantifiers": "n >= 1; alpha > 0; all d in R",
+    "numbers": "",
+    "ambiguity": "Order denoted >=_cx (convex order with equal means per Definition 4(c))."
+   }
+  ],
+  "b_records": [
+   {
+    "paper": "doi:10.29252/jss.13.1.57",
+    "claim": "Theorem 5 (\u0642\u0636\u06cc\u0647 \u06f5)",
+    "page": 66,
+    "quote": "\u0642\u0636\u06cc\u0647 \u06f5: \u062a\u062d\u062a \u0645\u0641\u0631\u0648\u0636\u0627\u062a \u0642\u0636\u06cc\u0647 \u0663\u060c \u0627\u06af\u0631 \u03a0i=\u0661..n pi >= \u03a0i=\u0661..n p*i \u0648 \u03a3i=\u0661..n \u03bbi^\u03b1 <= \u03a3i=\u0661..n (\u03bb*i)^\u03b1\u060c \u0622\u0646\u06af\u0627\u0647 \u0628\u0631\u0627\u06cc \u03b1 > \u0660\u060c (\u03a0i=\u0661..n pi / \u03a0i=\u0661..n p*i) = (\u03a3i=\u0661..n \u03bbi^\u03b1 / \u03a3i=\u0661..n (\u03bb*i)^\u03b1)^{1/\u03b1} \u27f9 Y\u0661:n >=cx Y*\u0661:n.",
+    "kind": "theorem",
+    "model": "other: smallest claim amount",
+    "family": "Weibull W(\u03b1, \u03bb_i) with Bernoulli indicators",
+    "compared": "portfolios (\u03bb, p) vs (\u03bb*, p*)",
+    "hypotheses": [
+     {
+      "text": "\u03a0i=\u0661..n pi >= \u03a0i=\u0661..n p*i",
+      "formal": "prod p_i >= prod p*_i",
+      "source": "statement"
+     },
+     {
+      "text": "\u03a3i=\u0661..n \u03bbi^\u03b1 <= \u03a3i=\u0661..n (\u03bb*i)^\u03b1",
+      "formal": "sum \u03bb_i^\u03b1 <= sum (\u03bb*_i)^\u03b1",
+      "source": "statement"
+     },
+     {
+      "text": "(\u03a0 pi / \u03a0 p*i) = (\u03a3 \u03bbi^\u03b1 / \u03a3 (\u03bb*i)^\u03b1)^{1/\u03b1}",
+      "formal": "equal-means calibration between the two portfolios",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "other: cx (convex)",
+     "direction": "Y_{1:n} >=_cx Y*_{1:n}"
+    },
+    "quantifiers": "n >= 1, \u03b1 > 0, d in R for the stop-loss integrals",
+    "ambiguity": "The printed defining equation is garbled in the RTL layer ('(\u220fn i=\u0661 pi \u03b1 / \u220fn i=\u0661 p\u2217i) = (\u2211n i=\u0661 \u03bb\u03b1i / \u2211n i=\u0661 (\u03bb\u2217i)\u03b1)^{1/\u03b1}'); reading inferred from the proof's use of E(Y_{1:n}) = E(Y*_{1:n})."
+   }
+  ]
+ },
+ {
   "claim": "theorem9",
   "a_orders": [
+   "other comparison of hypothesis conditions not a stochastic order conclusion",
    "st"
   ],
   "b_orders": [
-   "none",
+   "other none \u2014 shows independence of the two hypotheses",
    "st"
   ],
   "a_dirs": [

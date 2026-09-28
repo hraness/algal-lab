@@ -1,1 +1,117 @@
-[]
+[
+ {
+  "paper": "doi:10.1007/s40745-019-00211-w",
+  "claim": "Section 3.4 unnumbered Theorem (lr part)",
+  "page": 7,
+  "quote": "Theorem: Let X \u223c IXGD(\u03b81 ) and Y \u223c IXGD(\u03b82 ). If \u03b81 > \u03b82 , then X \u2264lr Y and hence it implies oredering in others also.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "inverse xgamma IXGD(\u03b8), one parameter",
+  "compared": "IXGD(\u03b81) vs IXGD(\u03b82) with \u03b81 > \u03b82",
+  "hypotheses": [
+   {
+    "text": "If \u03b81 > \u03b82",
+    "formal": "parameter ordering",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "X <=lr Y (\u03c6(x) = f_\u03b81(x)/f_\u03b82(x) decreasing in x)"
+  },
+  "quantifiers": "x > 0; \u03b81, \u03b82 > 0",
+  "numbers": "",
+  "ambiguity": "Unnumbered 'Theorem:'; the proof's last line says 'this implies X \u2264st Y' though the derived monotonicity of \u03c6 is the lr criterion \u2014 apparent typo for \u2264lr.",
+  "adjudication": "adjudicated: Unnumbered theorem asserts X <=lr Y under \u03b81 > \u03b82; lr is the directly proved conclusion."
+ },
+ {
+  "paper": "doi:10.1007/s40745-019-00211-w",
+  "claim": "Section 3.4 unnumbered Theorem (hr part)",
+  "page": 7,
+  "quote": "Theorem: Let X \u223c IXGD(\u03b81 ) and Y \u223c IXGD(\u03b82 ). If \u03b81 > \u03b82 , then X \u2264lr Y and hence it implies oredering in others also.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "inverse xgamma IXGD(\u03b8)",
+  "compared": "IXGD(\u03b81) vs IXGD(\u03b82) with \u03b81 > \u03b82",
+  "hypotheses": [
+   {
+    "text": "If \u03b81 > \u03b82",
+    "formal": "parameter ordering",
+    "source": "statement"
+   },
+   {
+    "text": "X \u2264lr Y \u21d2 X \u2264hr Y \u21d2 X \u2264mrl Y and X \u2264hr Y \u21d2 X \u2264st Y",
+    "formal": "implication chain cited from Shaked & Shanthikumar (1994)",
+    "source": "section preamble"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "X <=hr Y (via the printed lr => hr implication)"
+  },
+  "quantifiers": "x > 0; \u03b81, \u03b82 > 0",
+  "numbers": "",
+  "ambiguity": "'ordering in others also' covers hr via the section's printed implication chain; not proved separately.",
+  "adjudication": "adjudicated: hr is covered by 'ordering in others' via the preamble's lr => hr implication; include as one record"
+ },
+ {
+  "paper": "doi:10.1007/s40745-019-00211-w",
+  "claim": "Section 3.4 unnumbered Theorem (mrl part)",
+  "page": 7,
+  "quote": "Theorem: Let X \u223c IXGD(\u03b81 ) and Y \u223c IXGD(\u03b82 ). If \u03b81 > \u03b82 , then X \u2264lr Y and hence it implies oredering in others also.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "inverse xgamma IXGD(\u03b8)",
+  "compared": "IXGD(\u03b81) vs IXGD(\u03b82) with \u03b81 > \u03b82",
+  "hypotheses": [
+   {
+    "text": "If \u03b81 > \u03b82",
+    "formal": "parameter ordering",
+    "source": "statement"
+   },
+   {
+    "text": "X \u2264lr Y \u21d2 X \u2264hr Y \u21d2 X \u2264mrl Y",
+    "formal": "implication chain cited from Shaked & Shanthikumar (1994)",
+    "source": "section preamble"
+   }
+  ],
+  "conclusion": {
+   "order": "mrl",
+   "direction": "X <=mrl Y (via lr => hr => mrl)"
+  },
+  "quantifiers": "x > 0; \u03b81, \u03b82 > 0",
+  "numbers": "",
+  "ambiguity": "mrl covered by 'ordering in others' via the printed chain; no separate proof.",
+  "adjudication": "adjudicated: mrl covered by 'ordering in others' via the preamble's lr => hr => mrl chain; include."
+ },
+ {
+  "paper": "doi:10.1007/s40745-019-00211-w",
+  "claim": "Section 3.4 unnumbered Theorem (st part)",
+  "page": 7,
+  "quote": "Theorem: Let X \u223c IXGD(\u03b81 ) and Y \u223c IXGD(\u03b82 ). If \u03b81 > \u03b82 , then X \u2264lr Y and hence it implies oredering in others also.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "inverse xgamma IXGD(\u03b8)",
+  "compared": "IXGD(\u03b81) vs IXGD(\u03b82) with \u03b81 > \u03b82",
+  "hypotheses": [
+   {
+    "text": "If \u03b81 > \u03b82",
+    "formal": "parameter ordering",
+    "source": "statement"
+   },
+   {
+    "text": "X \u2264hr Y \u21d2 X \u2264st Y",
+    "formal": "implication cited from Shaked & Shanthikumar (1994)",
+    "source": "section preamble"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X <=st Y"
+  },
+  "quantifiers": "x > 0; \u03b81, \u03b82 > 0",
+  "numbers": "",
+  "ambiguity": "st also appears verbatim as the proof's closing claim ('this implies X \u2264st Y'), consistent with the 'others' implication.",
+  "adjudication": "adjudicated: st is both implied by 'ordering in others' and printed literally as the proof's last line; include."
+ }
+]

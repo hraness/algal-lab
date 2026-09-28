@@ -186,9 +186,33 @@
     "quantifiers": "x > 0; n = 2",
     "numbers": "α = 1; h(p) = (4.2,0.01); β = (1,2.7); δ = (2.4,2.69)",
     "ambiguity": "Shows the Un condition of Theorem 8(i) cannot be relaxed to Vn. paper's '≽w' (printed as wedge with superscript w) denotes weak supermajorization per Def. 2(ii): Σ_{i=1}^j x_{i:n} ≤ Σ_{i=1}^j y_{i:n}, j = 1,...,n — i.e., the first vector has the SMALLER bottom partial sums (the more heterogeneous one); this convention is opposite to Marshall–Olkin weak supermajorization"
+   },
+   {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Example 6",
+    "page": 20,
+    "quote": "Example 6. Let G (x) = 1 − 1/(1+x), x > 0 and h(p) = − log(p). (i) For α = 1 and h(p) = (4.2, 0.01), let β = (1, 2.7) and δ = (2.4, 2.69). Clearly, (β, h(p)), (δ, h(p)) ∈ Vn and β ≽w δ. As is seen in Figure 5a, neither Y2:2 ≤st Y2:2 ∗ nor Y2:2 ≥st Y2:2 ∗ . (ii) For β = 1 and h(p) = (3.2, 2), let α = (1.1, 5) and γ = (3.5, 4). It is easy to check that (α, h(p)), (γ, h(p)) ∈ Vn and α ≽w γ. The survival function F̄(Y2:2 +1)−1 (x) − F̄(Y2:2 ∗ +1)−1 (x) is plotted in Figure 5b, from which can confirm that no exists stochastic ordering between Y2:2 and Y2:2 ∗ .",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "parallel systems of independent MOTL-G components under random shocks, Yi = Xi·I_{pi} ; G(x)=1−1/(1+x), h(p)=−log p",
+    "compared": "Y2:2 vs Y2:2* under Vn (opposite-ordering) shape/weight pairs — both parts",
+    "hypotheses": [
+     {
+      "text": "(β,h(p)),(δ,h(p)) ∈ Vn, β ≽w δ (part i); (α,h(p)),(γ,h(p)) ∈ Vn, α ≽w γ (part ii)",
+      "formal": "Vn memberships and weak majorization",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "no stochastic ordering between Y2:2 and Y2:2* in either part — shows Vn cannot replace Un in Theorem 8"
+    },
+    "quantifiers": "x > 0; n = 2",
+    "numbers": "part (i): α=1, h(p)=(4.2,0.01), β=(1,2.7), δ=(2.4,2.69); part (ii): β=1, h(p)=(3.2,2), α=(1.1,5), γ=(3.5,4)",
+    "ambiguity": "Pass B's bundled record for the same printed example; canonical per-part records are 'Example 6(i)'/'Example 6(ii)'. paper's '≽w' denotes weak supermajorization per Def. 2(ii): the first vector has the smaller bottom partial sums (more heterogeneous)"
    }
   ],
-  "note": "Pass B bundled parts (i)+(ii); split into per-part records. Vn-vs-Un boundary counterexample."
+  "note": "Conflict between pass A's part-record and pass B's bundled record — resolved by emitting the per-part records plus the adjudicated bundled record; no st order either way stands."
  },
  {
   "queue_claim": "example6ii",
@@ -248,9 +272,33 @@
     "quantifiers": "x ∈ [0,1]; n = 2",
     "numbers": "(h(p1),h(p2)) = (1,1.2); β1 = δ1 = 2, β2 = δ2 = 5.5; α = (1,8); γ = (4,6)",
     "ambiguity": "β = δ is a non-constant vector (2,5.5), so Theorem 8(ii)'s premise 'βi = δi = β scalar' is not met — the example shows the ordering conclusion fails when the common second-shape parameter is heterogeneous. Note Theorem 8(ii) as printed reads 'βi = γi = β', where γi is presumably a misprint for δi. paper's '≽w' (printed as wedge with superscript w) denotes weak supermajorization per Def. 2(ii): Σ_{i=1}^j x_{i:n} ≤ Σ_{i=1}^j y_{i:n}, j = 1,...,n — i.e., the first vector has the SMALLER bottom partial sums (the more heterogeneous one); this convention is opposite to Marshall–Olkin weak supermajorization"
+   },
+   {
+    "paper": "doi:10.3390/sym13122248",
+    "claim": "Example 7",
+    "page": 21,
+    "quote": "Example 7. Let Xi ∼ MOTL − G (αi , βi , G(x)) and Xi∗ ∼ MOTL − G (γi , δi , G(x)), i = 1, 2 ... G(x) = x for 0 ≤ x ≤ 1, h(p) = − log(p), and (h(p1 ), h(p2 )) = (1, 1.2). (i) β1 = δ1 = 2, β2 = δ2 = 5.5, α = (1,8), γ = (4,6): (α,h(p)),(γ,h(p)) ∈ Un, α ≽w γ — FY2:2 − FY2:2∗ changes sign (Figure 6a). (ii) α1 = γ1 = 1, α2 = γ2 = 8, β = (2,5.5), δ = (3,5): (β,h(p)),(δ,h(p)) ∈ Un, β ≽w δ — no usual stochastic ordering (Figure 6b). (iii) α = (1,8), γ = (4,6), β = (2,5.5), δ = (3,5): all four Un/majorization conditions hold — no usual stochastic ordering (Figure 6c).",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "parallel systems of independent MOTL-G components under random shocks, Yi = Xi·I_{pi} ; G(x)=x on [0,1]",
+    "compared": "Y2:2 vs Y2:2* — Theorem-8 scalar-equality boundaries probed in three parts",
+    "hypotheses": [
+     {
+      "text": "Un memberships and weak majorization as printed per part",
+      "formal": "(α,h(p)),(γ,h(p)) ∈ Un, α ≽w γ (i); (β,h(p)),(δ,h(p)) ∈ Un, β ≽w δ (ii); all (iii)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "no usual stochastic ordering between Y2:2 and Y2:2* in any of parts (i)–(iii) — FY2:2 − FY2:2* changes sign"
+    },
+    "quantifiers": "x ∈ [0,1]; n = 2",
+    "numbers": "(h(p1),h(p2)) = (1,1.2); (i) β=δ=(2,5.5), α=(1,8), γ=(4,6); (ii) α=γ=(1,8), β=(2,5.5), δ=(3,5); (iii) α=(1,8), γ=(4,6), β=(2,5.5), δ=(3,5)",
+    "ambiguity": "Pass B's bundled record for all three parts; canonical per-part records are 'Example 7(i)'–'(iii)'. Shows Theorem 8 needs the scalar-equality premises; the printed 'βi = γi = β' in Theorem 8(ii) is presumably a misprint for δi. paper's '≽w' denotes weak supermajorization per Def. 2(ii): the first vector has the smaller bottom partial sums (more heterogeneous)"
    }
   ],
-  "note": "Boundary counterexample for Theorem 8(ii): common vector β ≠ scalar ⇒ st fails."
+  "note": "Conflict between pass A's part-record and pass B's bundled record — resolved by emitting per-part records plus the adjudicated bundled record; st fails in all parts."
  },
  {
   "queue_claim": "example7ii",
@@ -423,59 +471,30 @@
   "records": [
    {
     "paper": "doi:10.3390/sym13122248",
-    "claim": "Section 4 real-data application (Figure 8)",
+    "claim": "Section 4/5 real-data illustration (Figures 8 and 9)",
     "page": 22,
-    "quote": "In order to validate the effectiveness and practicability of the proposed methods in reliability engineering, we used the observed data of wind speeds from two wind farms, which are defined as site A and site B ... Xie et al. estimated the dependent parameter θ̂ = 3.32 by a two-stage maximum likelihood estimation (MLE) ... Rayleigh distribution F(x) = 1 − e^{−x2/2b2} ... parameter b̂1 = 3.3662 and b̂2 = 3.4271 at site A and site B ... we assume that this random shock have no impact on the lifetime of component, that is, the probability of component survival are p = p∗ = (1, 1, 1). Further, we choose the Rayleigh distribution as the baseline distribution, and set the vectors of shape parameters α1 = (0.2, 2.6, 5.4), α2 = (0.85, 2.6, 5.1) and α3 = (2.96, 2.96, 2.96). Based on the real data and Theorem 2, the reliability of series system (Y1:3 ) can be expressed by F̄Y1:3 (x) = ∏3i=1 pi ψ(∑3i=1 φ(ζ(αi, 2, 1 − e^{−x2/(2b1²)}))) = exp{−[(−ln c1 )3.32 + (−ln c2 )3.32 + (−ln c3 )3.32 ]1/3.32 } ... Figure 8 indicates that the weaker heterogeneity among shape parameters according to the weak majorization order leads to larger reliability of the series systems.",
+    "quote": "we used the observed data of wind speeds from two wind farms ... dependent parameter θ̂ = 3.32 by a two-stage MLE ... Rayleigh ... b̂1 = 3.3662 and b̂2 = 3.4271 ... α1 = (0.2, 2.6, 5.4), α2 = (0.85, 2.6, 5.1), α3 = (2.96, 2.96, 2.96) ... Figure 8 indicates that the weaker heterogeneity among shape parameters according to the weak majorization order leads to larger reliability of the series systems. [Section 5, Clayton copula θ̂ = 0.6474, Example-1 parameter vectors] ... two curves do not intersect each other ... the more positive dependence, the weaker heterogeneity among shape parameters according to the row weak majorization order leads to larger reliability of the series system.",
     "kind": "example",
     "model": "series system",
-    "family": "MOTL-Rayleigh components (Rayleigh baseline G(x)=1−e^{−x²/(2b²)}), Gumbel copula θ̂=3.32, survival probabilities p=p*=(1,1,1)",
-    "compared": "the series system under three shape vectors α1 = (0.2,2.6,5.4), α2 = (0.85,2.6,5.1), α3 = (2.96,2.96,2.96) ordered by increasing homogeneity",
+    "family": "MOTL-Rayleigh components; Gumbel θ̂=3.32 (Section 4) and Clayton θ̂=0.6474 (Section 5)",
+    "compared": "series systems under weak-majorization-ordered shape vectors (Figures 8 and 9)",
     "hypotheses": [
      {
-      "text": "weaker heterogeneity of shape parameters under weak majorization",
-      "formal": "α1 ≽w α2 ≽w α3 under the paper's convention",
-      "source": "Section 4 text, Theorem 2 invoked"
+      "text": "weak-majorization-ordered α vectors; Theorems 2/3 invoked",
+      "formal": "α1 ≽w α2 ≽w α3 (Sec 4); Example-1 row weak majorization (Sec 5)",
+      "source": "Section 4/5 text"
      }
     ],
     "conclusion": {
      "order": "st",
-     "direction": "plotted reliability functions ordered: weaker heterogeneity (more homogeneous α) gives larger series-system reliability, i.e., Y1:3(α3) ≥st Y1:3(α2) ≥st Y1:3(α1)"
-    },
-    "quantifiers": "x ≥ 0; three α vectors",
-    "numbers": "θ̂ = 3.32 (Gumbel); Rayleigh b̂1 = 3.3662, b̂2 = 3.4271; wind means 4.25/4.14, s.d. 2.33/2.35; second shape fixed at 2; p = p* = (1,1,1)",
-    "ambiguity": "Real-data illustration rather than a numbered example; the ordering is asserted through plotted reliability curves ('leads to larger reliability'), i.e., st-order via survival-function domination. Site labels Eidhoven (A) and Volkel (B)."
-   },
-   {
-    "paper": "doi:10.3390/sym13122248",
-    "claim": "Section 5 result analysis (Figure 9)",
-    "page": 23,
-    "quote": "To compare the results of the experiment with the obtained theoretical data, we use the Clayton copula C(u1 , u2 ) = [max (u1θ + u2θ − 1, 0)]−1/θ , θ ≥ 0 and Rayleigh distribution conducting experiment analysis, where Wang and Li estimated the Clayton copula parameters θ̂ = 0.6474 and Eryilmae and kan used the maximum likelihood estimator to obtain Rayleigh distribution parameter b̂1 = 3.3662 and b̂2 = 3.4271 by real data. Based on the obtained theoretical data of Example 1 and the estimator value of parameters, we plot the curves of reliability functions of under the different parameters as shown in Figure 9. First, we can see from the graph that two curves do not intersect each other, which means that the theoretical approach is feasible. Second, for different shape and copula parameters, the more positive dependence, the weaker heterogeneity among shape parameters according to the row weak majorization order leads to larger reliability of the series system.",
-    "kind": "example",
-    "model": "series system",
-    "family": "MOTL-Rayleigh components, Clayton copula θ̂=0.6474, parameters as in Example 1",
-    "compared": "the two series systems Y1:3 and Y1:3* of Example 1 (θ1,α,β vs θ2,γ,δ)",
-    "hypotheses": [
-     {
-      "text": "theoretical data of Example 1",
-      "formal": "Example-1 parameter setup",
-      "source": "statement"
-     },
-     {
-      "text": "row weak majorization among shape parameters",
-      "formal": "(α,h(p)) ≽w-row (γ,h(p))",
-      "source": "statement"
-     }
-    ],
-    "conclusion": {
-     "order": "st",
-     "direction": "the two survival/reliability curves do not intersect — taken as confirmation that the st-ordering of Section 4 (weaker heterogeneity ⇒ larger reliability) holds here as well, i.e., Y1:3 ≤st Y1:3* as in Example 1"
+     "direction": "weaker heterogeneity (more homogeneous shape vectors) yields larger series-system reliability — st-ordered survival curves, non-intersecting in Figure 9"
     },
     "quantifiers": "x ≥ 0",
-    "numbers": "Clayton θ̂ = 0.6474; Rayleigh b̂1 = 3.3662, b̂2 = 3.4271",
-    "ambiguity": "Figure-9-based visual confirmation mixing Example-1 theoretical data with estimated parameters; exact assignment of parameter vectors to the two curves is not fully specified. The printed Clayton copula exponent 'u1θ + u2θ' is presumably u^{−θ}. Consistency with Remark 3 asserted."
+    "numbers": "Sec 4: Gumbel θ̂=3.32, b̂1=3.3662, b̂2=3.4271, α1=(0.2,2.6,5.4), α2=(0.85,2.6,5.1), α3=(2.96,2.96,2.96), p=p*=(1,1,1); Sec 5: Clayton θ̂=0.6474",
+    "ambiguity": "Pass B's record spans both the Section-4 Figure-8 claim and the Section-5 Figure-9 consistency claim; canonical per-section records are 'Section 4 real-data application (Figure 8)' and 'Section 5 result analysis (Figure 9)'. Both are graphical illustration, not a theorem. paper's '≽w' denotes weak supermajorization per Def. 2(ii): the first vector has the smaller bottom partial sums (more heterogeneous)"
    }
   ],
-  "note": "Pass B's record spans Sections 4–5 (Figures 8 and 9): emitted as two records, one per printed graphical claim."
+  "note": "Pass B's one-sided record covers both figures — adjudicated as a single record matching its label; per-section records appear under the other two queue items."
  },
  {
   "queue_claim": "unn5:section 5 result analysis figure 9",
