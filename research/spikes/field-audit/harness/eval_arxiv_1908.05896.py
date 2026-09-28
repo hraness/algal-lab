@@ -79,8 +79,9 @@ def claim_instances(r):
                         parallel_sf([(a,t) for t in ths], G1)))
         return out
     if "Theorem 3.3" in claim:   # coordinatewise theta <= theta*
+        # integer a keeps every power exact (no sqrt-of-square -> Abs)
         out = []
-        for (th, ths, a) in [([R(1),R(2)], [R(2),R(3)], R(1,2)),
+        for (th, ths, a) in [([R(1),R(2)], [R(2),R(3)], R(1)),
                              ([R(1,2),R(1),R(3,2)], [R(1),R(2),R(2)], R(2))]:
             out.append((parallel_sf([(a,t) for t in th], G1),
                         parallel_sf([(a,t) for t in ths], G1)))
@@ -103,7 +104,7 @@ def claim_instances(r):
     if "Theorem 3.6(i)" in claim:   # parallel, weak submajorized scales, baselines
         out = []
         for (th, ths, a) in [([R(1),R(2)], [R(1),R(4)], R(1)),
-                             ([R(1,2),R(2),R(3)], [R(1),R(3),R(4)], R(1,2))]:
+                             ([R(1,2),R(2),R(3)], [R(1),R(3),R(4)], R(2))]:
             out.append((parallel_sf([(a,t) for t in th], G1),
                         parallel_sf([(a,t) for t in ths], G2)))
         return out

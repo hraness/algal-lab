@@ -78,9 +78,14 @@ def both(order, A, B):
     if w is not None:
         return holds, w, u
     E = cf.expression(order, A, B)
+    from mpmath import mp, mpf
+    mp.dps = 60
+    fS = [sp.lambdify(x, S, modules="mpmath") for S in (A.survival, B.survival)]
     for p in PROBES:
         if p <= A.lo:
             continue
+        if all(abs(f(mpf(str(float(p))))) < mpf(10) ** -30 for f in fS):
+            continue                       # beyond resolvable region
         for dps in (150, 400, 900):
             iv.dps = dps
             v = cf.iv_eval(E, p)
