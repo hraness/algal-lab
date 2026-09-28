@@ -1,5 +1,12 @@
 # Research method
 
+The separate [Textbutler captured-case study](../experiments/textbutler-consumer/README.md)
+imports private retained inference evidence and replays it without a provider.
+Observed decisions remain distinct from independent labels. Conversation groups
+must be frozen across train, validation and holdout before the fixed-versus-labeled
+comparison; insufficient groups or labels prevent an effectiveness claim.
+Its synthetic tests establish transport and evaluation mechanics only.
+
 The first study asks whether researchers benefit from observing one another's
 artifacts, and whether adding messages changes the resulting portfolio. It uses
 a small deterministic graph instrument so the experiment and its evidence can
