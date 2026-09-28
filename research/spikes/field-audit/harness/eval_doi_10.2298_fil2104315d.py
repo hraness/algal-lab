@@ -392,7 +392,9 @@ def theorem_3_6iii():
     lam = [R(1)] * 3
     return run("rh", [
         (p, [R(1)] * 3, lam, [1 / a_ for a_ in ith],
-         q, [R(1)] * 3, lam, [1 / a_ for a_ in idel], MQL),
+         q, [R(1)] * 3, lam, [1 / a_ for a_ in idel], DEC1),
+        (p, [R(1)] * 3, lam, [1 / a_ for a_ in ith],
+         q, [R(1)] * 3, lam, [1 / a_ for a_ in idel], DEC2),
     ])
 
 
@@ -700,7 +702,16 @@ def example_5_1():
 
 
 def example_5_2():
-    return corollary_5_3()
+    """printed concrete claim U2:2 >=st V2:2 -- tested as stated
+    (premise (C1) on MOQL actually fails; the concrete conclusion
+    is what is tested)."""
+    p = [sp.sqrt(R(2, 10)), sp.sqrt(R(1, 2))]
+    q = [sp.sqrt(R(32, 100)), sp.sqrt(R(38, 100))]
+    return run("st", [
+        (p, [R(52, 100)] * 2, [R(5), R(61, 10)], [R(1, 100)] * 2,
+         q, [R(52, 100)] * 2, [R(544, 100), R(566, 100)],
+         [R(1, 100)] * 2, MQL),
+    ])
 
 
 def remark_3_1():

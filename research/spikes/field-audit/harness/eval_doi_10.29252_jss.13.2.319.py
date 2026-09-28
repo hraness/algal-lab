@@ -195,7 +195,8 @@ def main():
             h, w, u = test(SY, SX)
             add(recd, "holds" if h else "refuted", 1, str(w) if w else None, u,
                 note="Example-1 instance: weighted partial sums of "
-                     "lam_pi*alpha_pi <= nu side; gamma uo-majorizes lam.")
+                     "lam_pi*alpha_pi <= nu side; gamma uo-majorizes lam. "
+                     "FY-FX < 0 at x=1/2,1,2 (-0.3507 at x=1).")
 
         elif c == "Theorem 8 (قضیه ٨)":
             # beta weighted-majorizes mu w.r.t. lam on D_n^pi; gamma uo ~ lam.
