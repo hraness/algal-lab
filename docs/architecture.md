@@ -6,7 +6,7 @@ simulator, study protocol, artifact archive, and interpretation of results.
 It does not fork ALGAL or require Valhalla.
 
 The runtime dependency is pinned to
-[`47fb53d5cf96747477e7079b1d789a8d96c82225`](https://github.com/hraness/algal/tree/47fb53d5cf96747477e7079b1d789a8d96c82225)
+[`9922202a2da45bb1f7e0db82c0be5a1c6770c21b`](https://github.com/hraness/algal/tree/9922202a2da45bb1f7e0db82c0be5a1c6770c21b)
 in [package.json](../package.json) and the lockfile. Upgrading it is a reviewed
 compatibility change, not part of a researcher's search space.
 The lab's [contracts](../src/contracts.ts) define protocol and proposal admission.
@@ -72,8 +72,10 @@ Each run has a new output directory:
 | --- | --- |
 | `protocol.json` | Admitted protocol intent, written before experiments begin. |
 | `study.json` | The final report object and its canonical-content digest. |
-| `artifacts/<sha256 hex>.json` | The researcher manifest, complete attempts, frozen portfolios, per-design evaluations, and evaluation batches. References use the `sha256:` prefix; filenames omit it. |
+| `artifacts/<sha256 hex>.json` | The researcher manifest, complete attempts, frozen portfolios, per-design evaluations, evaluation batches, and the projected evidence records. References use the `sha256:` prefix; filenames omit it. |
 | `report.md` | A generated human-readable summary. Its text is not verified by the CLI. |
+| `evidence.json` | Optional. An `algal.lab.study-evidence.v1` envelope listing the `algal.evaluation-evidence.v1` records projected from this archive, written once by `lab evidence`. |
+| `claims.json` | Optional. An `algal.lab.claims-ledger.v1` ledger whose claims cite the archived evidence records, written once by `lab claims`. |
 
 Each attempt retains its context, full ALGAL receipt, and either its measurement
 or `null` after a failed run. `boundedResearcher` admits at most 8,192 canonical
@@ -86,6 +88,20 @@ Each resolves to an `algal.lab.design-evaluation.v1` artifact containing that
 design's trajectories and mean AUC, keeping individual artifacts bounded.
 ALGAL uses an in-memory store during execution. There is no `.algal` directory
 to copy or provider connection to reopen for verification.
+
+`lab evidence` projects a completed archive into the shared
+`algal.evaluation-evidence.v1` contract: discovery-phase attempts map to
+`train`, held-out-budget transfer proposals to `validation`, and frozen
+portfolio evaluations to `holdout`, with each case bound to the digest of the
+attempt's actual run receipt. The record's `claimCategory` is `replay`: the
+envelope attests that these receipts and measurements exist and replay, and
+nothing more. `lab claims` reads drafts naming an asked category and evidence
+citations, derives each outcome from the cited records — `supported`,
+`contradicted`, or the retained `insufficient-evidence` — and records the
+granted category, which can never exceed what the cited evidence attests.
+`lab verify-evidence` and `lab verify-claims` re-derive both projections
+offline. They check projection fidelity, not a fresh reproduction; `verify`
+remains that gate.
 
 [`verifyStudy`](../src/study.ts) reconstructs the whole study with ALGAL's
 `runOrganism`, using `replayExecutor` for recorded agent effects and executing the
