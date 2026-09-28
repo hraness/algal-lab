@@ -160,3 +160,8 @@ seven input graphs. Its full unittest command sets `CADICAL_LIBRARY`,
 `CADICAL_BINARY`, `LRAT_TRIM`, and `SELECTOR_INDEPENDENT_CENSUS`. Missing
 variables produce explicit skips and do not replace the full native check.
 The independently replayable research proofs are separate release artifacts.
+
+The [nine demand certificates](research/spikes/moonshot-r310/demand_certificates/README.md)
+use only Python's standard library. CI runs their five control tests and then
+verifies every published certificate, including all 150,902 required
+endpoint unions. Their README gives the same two commands for local use.

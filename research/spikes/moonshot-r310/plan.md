@@ -8,6 +8,12 @@ Their final graphs still contain verified independent ten-sets.
 The separate [fixed-remainder search](fixed_remainder/README.md) excludes
 centre-covered degree-six extensions of all 595 two-vertex deletions of
 the published 35-vertex graph, represented by seven checked cases.
+The independently reviewed [demand certificates](demand_certificates/README.md)
+exclude a further nine exact 33-vertex remainders for maximal triangle-free
+extensions with a degree-six centre. Their integer proofs require 150,902
+endpoint-union checks and no SAT solver. This finite sample includes two of
+the five published 118-edge classes; it does not exclude nonmaximal
+extensions or settle the unrestricted problem.
 
 ## Target and present evidence
 

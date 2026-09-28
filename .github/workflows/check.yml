@@ -43,6 +43,10 @@ jobs:
       - run: python3 -m research.spikes.stochastic.verify
       - run: python3 -m research.spikes.softmax_partitions.experiment --out research/spikes/context/runs/ci-softmax-partitions
       - run: python3 -m unittest discover -s research/spikes/moonshot-r310/degree_four -p 'test_*.py'
+      - name: Verify the nine public demand certificates
+        run: |
+          python3 -m unittest discover -s research/spikes/moonshot-r310/demand_certificates -p 'test_verify.py' -v
+          python3 research/spikes/moonshot-r310/demand_certificates/verify.py
       - name: Check out the pinned native SAT solver
         uses: actions/checkout@v7
         with:
