@@ -1,0 +1,46 @@
+{
+ "paper": "arxiv:1904.08730",
+ "auditor": "c3 independent verification (fresh mpmath dps=120 model)",
+ "model": "EG2(theta,phi,alpha): F=1-(1-exp(-theta*x^-phi))^alpha; S=(1-exp(-theta*x^-phi))^alpha; S_min=prod S_i; F_max=prod(1-S_i)",
+ "records": [
+  {
+   "claim": "Example 3.3",
+   "eval_status": "refuted",
+   "classification": "confirmed-direction-reversed",
+   "printed": "A=((0.54,0.66),(1.7,1.4)); B=((0.5,0.7),(1.8,1.3)); printed A = B*T0.8 (verified exactly: B*[[0.8,0.2],[0.2,0.8]] = A); authors assert A >> B; conclusion X_{1:2} <=st X*_{1:2}",
+   "hypothesis_check": "S2 membership holds for both matrices. Printed equation A=B*T0.8 holds exactly, which under printed Def 2.5 gives B >> A (the stated A >> B is impossible: unique P=A^{-1}B=[[4/3,-1/3],[-1/3,4/3]] has negative entries, so no doubly-stochastic/T-chain representation exists). phi is unspecified in the example; eval used phi=1.",
+   "independent_witness": {
+    "method": "mpmath dps=120 grid scan of S_A(x)-S_B(x) for series minima",
+    "result": "S_A - S_B in [0, +0.012846] on grid for phi in {0.5,1,2,3} (max near x~1.1; also positive at x=0.01, the eval witness). Printed claim S_A<=S_B fails; reversed X_{1:2} >=st X*_{1:2} holds",
+    "max_gap": "+0.0128464 at x~1.13 (phi=1)"
+   },
+   "verdict_reason": "printed conclusion is exactly backwards: under the true relation B >> A, Theorem 3.1 gives X*_{1:2} <=st X_{1:2}, which is what the data show"
+  },
+  {
+   "claim": "Example 3.4",
+   "eval_status": "refuted",
+   "classification": "confirmed-direction-reversed",
+   "printed": "A=((2.34,2.26),(1.32,1.38)); B=((2.1,2.5),(1.5,1.2)); matrix displayed as 'T0.6 = 0.4I+0.6Pi' (= T_0.4 under Tw=wI+(1-w)Pi); printed product A = B*T0.4 verified exactly; conclusion X_{2:2} >=st X*_{2:2}",
+   "hypothesis_check": "T2 membership holds for both matrices (alpha>=1, anti-comonotone rows). Printed equation A=B*(0.4I+0.6Pi) holds exactly => B >> A under Def 2.5 (stated A >> B impossible: A^{-1}B=[[-2,3],[3,-2]] not doubly stochastic). phi unspecified; eval used phi=1.",
+   "independent_witness": {
+    "method": "mpmath dps=120 grid scan of S_A(x)-S_B(x) for parallel maxima",
+    "result": "S_A - S_B in [-0.010556, 0] on grid for phi in {0.5,1,2,3} (min near x~2.25 at phi=1; negative also at x=0.01, the eval witness). Printed claim X_{2:2} >=st X*_{2:2} fails; reversed X*_{2:2} >=st X_{2:2} holds",
+    "max_gap": "-0.0105550 at x~2.25 (phi=1)"
+   },
+   "verdict_reason": "printed conclusion is exactly backwards: B >> A via Theorem 3.2 gives X*_{2:2} >=st X_{2:2}"
+  },
+  {
+   "claim": "Theorem 3.10",
+   "eval_status": "refuted",
+   "classification": "confirmed-direction-reversed",
+   "printed": "Xi~EG2(theta,phi,alpha_i), Xi*~EG2(theta,phi,alpha_i*); sum alpha <= sum alpha* => X_{1:n} <=lr X*_{1:n}",
+   "hypothesis_check": "all 6 eval instances satisfy the sole printed hypothesis sum(alpha) <= sum(alpha*) with common theta,phi (2<=4, 3<=7, 2<=6; (theta,phi) in {(1,1),(3,2)})",
+   "independent_witness": {
+    "method": "mpmath dps=120: f*/f ratio values + closed-form derivative",
+    "result": "X_{1:n}~EG2(theta,phi,Sa). log(f*/f)=log(Sb/Sa)+(Sb-Sa)*log u, u=1-exp(-theta*x^-phi) strictly decreasing in x. For Sa<Sb the ratio f*/f is strictly decreasing (e.g. Sa=2,Sb=4,theta=phi=1: ratio falls 2.0 at x=0.001 to ~2e-4 at x=100), so X*_{1:n} <=lr X_{1:n} holds and the printed direction fails on every instance",
+    "detail": "the paper's own proof computes f_{X1:n}/f_{X*1:n} ~ u^{Sa-Sb} with exponent <=0 on decreasing u -- increasing -- which proves the OPPOSITE ordering; the printed conclusion is a direction slip"
+   },
+   "verdict_reason": "printed direction fails on every admissible instance; the exact reverse likelihood-ratio order holds, consistent with X*_{1:n} <=st X_{1:n} from the survival comparison"
+  }
+ ]
+}

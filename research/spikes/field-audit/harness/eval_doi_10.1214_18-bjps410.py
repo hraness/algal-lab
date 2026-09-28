@@ -148,6 +148,16 @@ def go():
         # assert non-ordering ("cross"/"not monotone"/"no ... order").
         crossing = ("no " in dirn and "order" in dirn) or "cross" in dirn \
             or "not monotone" in dirn
+        if crossing:
+            # printed counterexample uses specific EGG nu,tau (incomplete
+            # gamma) not encodable in the {+,x,Pow,exp,log} harness family
+            out.append(dict(claim=claim, order=order,
+                            status="out of harness scope", instances=0,
+                            witness=None, undecided_points=0,
+                            note=("counterexample asserted for EGG nu,tau"
+                                  " values needing the incomplete gamma;"
+                                  " not encodable")))
+            continue
         pairs = instances(claim, order)
         inst = 0; wit = None; und = 0; allhold = True
         for (tag, SA, SB) in pairs:

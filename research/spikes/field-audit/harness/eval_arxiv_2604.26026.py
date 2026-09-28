@@ -165,7 +165,7 @@ def pairs(claim):
         sysc = (lambda aa_, T_: mx_cop(aa_, T_, "clayton1")) \
             if "corollary 3.6" in key else (lambda aa_, T_: mn_cop(aa_, T_, "clayton1"))
         sysg = (lambda aa_, T_: mx_cop(aa_, T_, "gumbel2")) \
-            if "corollary 3.6" in key else (lambda aa_, T_: mn_cop(aa_, T_, "amh12"))
+            if "corollary 3.6" in key else (lambda aa_, T_: mn_cop(aa_, T_, "clayton1"))
         for sysf in (sysc, sysg):
             if "corollary 3.6" in key:
                 out.append(("st", sysf(amid, "te"), sysf(astar, "te")))
