@@ -34,6 +34,14 @@ random.seed(20260927)
 HERE = os.path.dirname(os.path.abspath(__file__))
 
 
+def nonneg_on_01(expr):
+    """expr rational in z on (0,1); its denominator is a positive combination of
+    (1 - z^i) and (1+z)^i terms hence strictly positive on the OPEN interval
+    (endpoint vanishing at z=1 irrelevant). Check numerator >= 0 on (0,1)."""
+    num = sp.fraction(sp.together(expr))[0]
+    return _nonnegative(num, R(0), R(1))
+
+
 def net_dist(sig, zexpr=None):
     """Dist of network lifetime under shared MVF: S = sum s_i (1 - z^i)."""
     zz = z if zexpr is None else zexpr
@@ -180,7 +188,6 @@ def cond_sig(sig, u0):
 def resid_dist(sig_t, u0):
     """Residual lifetime (T - t0 | T > t0): S_res(v) = sum_k s_k(t0) (1-v^k)/(1-u0^k),
     v = z(t0+x) in (u0, 1)."""
-    u = sp.Symbol("v", positive=True)
     terms = []
     for k, sk in enumerate(sig_t, start=1):
         if sk == 0:
@@ -229,7 +236,7 @@ def thm_5():
         for k in range(2, nn + 1):
             tail_k = sum(sig[i] * (1 - z ** (i + 1)) for i in range(k - 1, nn)) / D
             d_tail = sp.diff(tail_k, z)
-            ok, wit = _nonnegative(d_tail, R(0), R(1))
+            ok, wit = nonneg_on_01(d_tail)
             n += 1
             if not ok and bad_a is None:
                 bad_a = (k, wit)
@@ -240,7 +247,7 @@ def thm_5():
         for k in range(2, nn + 1):
             t1 = sum(sig[i] * (1 - z ** (i + 1)) for i in range(k - 1, nn)) / D1
             t2 = sum(sig[i] * (1 - us ** (i + 1)) for i in range(k - 1, nn)) / D2
-            ok, wit2 = _nonnegative(t2 - t1, R(0), R(1))
+            ok, wit2 = nonneg_on_01(t2 - t1)
             n += 1
             if not ok and bad_b is None:
                 bad_b = wit2
@@ -259,7 +266,7 @@ def thm_5_ii():
     for k in range(2, nn + 1):
         t1 = sum(s[i] * (1 - z ** (i + 1)) for i in range(k - 1, nn)) / D1
         t2 = sum(s[i] * (1 - us ** (i + 1)) for i in range(k - 1, nn)) / D2
-        ok, w = _nonnegative(t2 - t1, R(0), R(1))
+        ok, w = nonneg_on_01(t2 - t1)
         n += 1
         if not ok and wit is None:
             wit = w

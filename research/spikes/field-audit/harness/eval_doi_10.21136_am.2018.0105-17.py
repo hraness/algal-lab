@@ -101,7 +101,7 @@ def thm_3_1a():
     pairs = [([R(1, 10), R(1), R(9)], [R(1, 10), R(4), R(6)]),
              ([R(1), R(2), R(7)], [R(3), R(3), R(4)]),
              ([R(1), R(1), R(8)], [R(2), R(4), R(4)]),
-             ([R(1, 2), R(3, 2), R(6)], [R(2), R(5, 2), R(9, 2)])]
+             ([R(1, 2), R(3, 2), R(7)], [R(2), R(5, 2), R(9, 2)])]
     n, wit, und = 0, None, 0
     for alpha in [R(1), R(3, 2), R(2)]:
         for b, bs in pairs:
@@ -207,14 +207,13 @@ def thm_3_6(which):
     """alpha ~m alpha*; (a) Xn:n >=st Yn:n -> st(Y,X); (b) X1:n <=st Y1:n -> st(X,Y)."""
     pairs = [([R(1, 2), R(2), R(5, 2)], [R(3, 2), R(3, 2), R(2)]),
              ([R(1), R(1), R(4)], [R(2), R(2), R(2)]),
-             ([R(1, 4), R(3), R(3)], [R(1), R(2), R(13, 4)])]
+             ([R(1), R(2), R(5)], [R(2), R(3), R(3)])]
     n, wit, und = 0, None, 0
     for beta in [R(1), R(3, 2), R(5, 2)]:
         for a, astar in pairs:
             assert majorized(a, astar)
             lo = beta
             if which == "a":
-                SX, SY = parallel_np(None, None), None
                 h, w, u = check("st",
                                 1 - sp.prod([F_np(ai, beta) for ai in astar]),
                                 1 - sp.prod([F_np(ai, beta) for ai in a]), lo)

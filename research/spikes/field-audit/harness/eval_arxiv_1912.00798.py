@@ -63,8 +63,8 @@ def rec(record, status, instances=0, witness=None, undecided=0):
 
 
 def both(order, A, B):
-    """check(order,A,B): (holds, witness, undecided)"""
-    return cf.check(order, A, B)
+    """check(order,A,B): (holds, witness, undecided); extra precision tier."""
+    return cf.check(order, A, B, precisions=(60, 150, 400, 900))
 
 
 def geom(lams):
