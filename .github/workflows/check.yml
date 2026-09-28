@@ -59,6 +59,18 @@ jobs:
         run: |
           python3 research/spikes/moonshot-r310/degree_six/native.py runs/cadical-source/build/libcadical.a runs/moonshot-r310/native-cadical
           CADICAL_LIBRARY="$PWD/runs/moonshot-r310/native-cadical/libcadical.so" python3 -m unittest discover -s research/spikes/moonshot-r310/degree_six -p 'test_*.py' -v
+      - name: Check out the pinned LRAT checker
+        uses: actions/checkout@v7
+        with:
+          repository: arminbiere/lrat-trim
+          ref: b30f400f4ee5c32b77ee566a7c006081b521534f # 0.2.0
+          path: runs/lrat-trim-source
+          persist-credentials: false
+      - name: Check the fixed-remainder reduction and proof controls
+        run: |
+          cc -std=c11 -O2 -Wall -Wextra runs/lrat-trim-source/lrat-trim.c -o runs/lrat-trim
+          python3 research/spikes/moonshot-r310/fixed_remainder/independent_cover.py --output runs/moonshot-r310/fixed-independent-census.json
+          CADICAL_LIBRARY="$PWD/runs/moonshot-r310/native-cadical/libcadical.so" CADICAL_BINARY="$PWD/runs/cadical-source/build/cadical" LRAT_TRIM="$PWD/runs/lrat-trim" SELECTOR_INDEPENDENT_CENSUS="$PWD/runs/moonshot-r310/fixed-independent-census.json" python3 -m unittest discover -s research/spikes/moonshot-r310/fixed_remainder -p 'test_*.py' -v
 
   pipeline:
     name: Demo pipeline

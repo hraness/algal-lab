@@ -420,6 +420,13 @@ Two reviewed formulations each reached their 100,000-constraint limit;
 neither produced a witness or an exclusion. The [run report](research/spikes/moonshot-r310/degree_six/RESULTS.md)
 records their coverage, verified stopping points and reproducible controls.
 
+The [fixed-remainder exclusion](research/spikes/moonshot-r310/fixed_remainder/README.md)
+rules out centre-covered degree-six extensions of every graph obtained by
+deleting two vertices from the published 35-vertex Ramsey graph. Its 595
+deletions reduce to seven cases under checked symmetries. A search of 1,712
+branch nodes and a separately written implementation agree on the exclusion.
+The report states the family covered and gives verification commands.
+
 The broader literature-corpus audit is a separate study. Its author-response
 process remains a prerequisite to releasing its paper-by-paper findings.
 Investigations of sphere and plane counts, H1 quadruples and covering arrays

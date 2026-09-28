@@ -151,3 +151,12 @@ before running every `test_*.py` in that directory. Follow its README for the
 local commands. Without that variable, unittest explicitly skips the native
 controls; such a run does not replace the complete check. The CI tests use
 short controls, not the long research experiments.
+
+The [fixed-remainder exclusion](research/spikes/moonshot-r310/fixed_remainder/README.md)
+also checks small SAT models and saved proof handling. CI reuses the pinned
+CaDiCaL build, compiles lrat-trim 0.2.0 from commit
+`b30f400f4ee5c32b77ee566a7c006081b521534f`, and independently enumerates the
+seven input graphs. Its full unittest command sets `CADICAL_LIBRARY`,
+`CADICAL_BINARY`, `LRAT_TRIM`, and `SELECTOR_INDEPENDENT_CENSUS`. Missing
+variables produce explicit skips and do not replace the full native check.
+The independently replayable research proofs are separate release artifacts.

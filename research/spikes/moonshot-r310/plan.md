@@ -5,6 +5,9 @@ excluded by complete, checked computations. No witness was found and the
 Ramsey number remains unresolved. Both independently reviewed degree-six
 SAT formulations reached their cut limits without a witness or an exclusion.
 Their final graphs still contain verified independent ten-sets.
+The separate [fixed-remainder search](fixed_remainder/README.md) excludes
+centre-covered degree-six extensions of all 595 two-vertex deletions of
+the published 35-vertex graph, represented by seven checked cases.
 
 ## Target and present evidence
 
@@ -139,6 +142,13 @@ remain inconclusive; their [report](degree_six/RESULTS.md) records the exact
 coverage and formula checks.
 
 ## Budget and reporting
+
+The [fixed-remainder reduction](fixed_remainder/STRUCTURAL-NOTE.md) has a
+complete 1,712-node branch enumeration, independent reconstruction of all
+candidate sets and search outcomes, and saved branch trees. It applies to
+the specified remainders and centre coverage, rather than to every possible
+degree-six remainder. Its proof files and separate Boolean encoding provide
+another verification route, documented with their original and fresh checks.
 
 The recovered session authorized at most 72 CPU-hours. The present work uses
 small serial experiments with explicit time, node, and output limits, after
