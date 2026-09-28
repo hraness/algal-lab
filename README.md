@@ -425,7 +425,17 @@ rules out centre-covered degree-six extensions of every graph obtained by
 deleting two vertices from the published 35-vertex Ramsey graph. Its 595
 deletions reduce to seven cases under checked symmetries. A search of 1,712
 branch nodes and a separately written implementation agree on the exclusion.
-The report states the family covered and gives verification commands.
+The report states the family covered and gives verification commands. Its
+[public proof archive](https://github.com/hraness/algal-lab/releases/tag/r310-fixed-remainder-proof-20260928)
+contains all seven formulas, proofs and independent verification programs.
+
+The [nine demand certificates](research/spikes/moonshot-r310/demand_certificates/README.md)
+exclude another finite sample of exact remainders from maximal triangle-free
+graphs with a degree-six vertex. Each proof counts pairs that six independent
+attachment sets cannot cover. The complete graphs, short certificates and
+Python verifier are included; checking all nine takes 150,902 endpoint-union
+tests and needs no solver. These certificates do not cover nonmaximal
+extensions or establish a new Ramsey bound.
 
 The broader literature-corpus audit is a separate study. Its author-response
 process remains a prerequisite to releasing its paper-by-paper findings.
