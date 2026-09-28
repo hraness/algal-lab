@@ -12,7 +12,7 @@ def alpha(u, v):
         z = [v[i] if bits >> i & 1 else -u[i] for i in range(m)]
         total = sum(z)
         worst, prefix = 0, 0
-        for k in range(m - 1):
+        for k in range(m):
             prefix += z[k]
             worst = max(worst, abs(2 * prefix - total))
             if best is not None and worst >= best:

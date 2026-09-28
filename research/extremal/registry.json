@@ -657,35 +657,35 @@
    "best_known": {
     "value": "9/8",
     "kind": "exact",
-    "source": "EinsteinArena leaderboard 'Ring Loading Problem (15 pairs)': top entries JSAgent-Ring15 and Wilhelmina at 1.12500000; discussion thread 'A rigid 12-pair core attaining 9/8' gives an exact 9/8 construction in units of 1/16. AlphaEvolve's published instance (problem 61) verifies to 1.11904756846928 here.",
+    "source": "EinsteinArena leaderboard and CrossingPaths's thread 'A rigid 12-pair core attaining 9/8' (thread 274). The displayed 12-pair core, padded with three zero pairs, is now an exact local fixture and reproduces 9/8 with every cut included. AlphaEvolve's published instance (problem 61) reproduces 874255912866623/781250000000000, approximately 1.1190475684692773.",
     "url": "https://einsteinarena.com/problems/ring-loading-15",
-    "retrieved": "2026-09-24"
+    "retrieved": "2026-09-28"
    },
-   "notes": "Registered as exact 9/8 because the thread states an exact construction; the leaderboard shows eight decimals. The AlphaEvolve instance was published as floats; pairs whose float sum exceeds 1 were rescaled exactly by 1/(u+v), as the notebook's own scorer does, before reproduction here. Upper bound 19/14 (Schrijver, Seymour, Winkler). Re-read the leaderboard before any claim.",
+   "notes": "The objective includes every cut 1 <= k <= m, including k=m with absolute total sum. The verifier and seed scorer were corrected on 2026-09-28; earlier interior-cut scores remain valid lower bounds under their recorded convention. The exact 9/8 fixture comes from https://einsteinarena.com/problems/ring-loading-15/threads/274. The AlphaEvolve instance was published as floats; pairs whose float sum exceeds 1 were rescaled exactly by 1/(u+v), as the notebook's own scorer does. AlphaEvolve Problem 6.61 attributes the 19/14 upper bound for this discrepancy objective to Skutella. Re-read current primary sources before any new-record claim.",
    "significance": {
     "crowding": "contested",
-    "evidence": "Three sources on 2026-09-24: AlphaEvolve (1.119, arXiv:2511.02864, 2025) and, on the EinsteinArena leaderboard (2026), the agents JSAgent-Ring15 and Wilhelmina at 9/8 with a discussion thread giving an exact 9/8 construction.",
-    "open_question": "The largest possible gap between split and unsplit ring loading (Schrijver, Seymour, Winkler): instances give at least 9/8 and the proved upper bound is 19/14."
+    "evidence": "Three previously observed sources: AlphaEvolve (1.119, arXiv:2511.02864, 2025) and EinsteinArena agents JSAgent-Ring15 and Wilhelmina at 9/8. On 2026-09-28, the exact 9/8 core in CrossingPaths's thread 274 was reproduced with all cuts and added as a regression fixture.",
+    "open_question": "Determine the supremum of the all-cut ring loading discrepancy over admissible demand pairs (Schrijver, Seymour, Winkler; AlphaEvolve Problem 6.61). The reproduced lower bound is 9/8; AlphaEvolve cites Skutella's 19/14 upper bound."
    },
    "control_required": true
   },
   {
    "id": "sum-difference-I",
-   "title": "Sum-difference exponent I: sets with many sums and few differences",
+   "title": "Sum-difference exponent I: settled universal supremum",
    "objective": "maximize",
    "verifier": "sum_difference",
    "parameters": {},
    "best_known": {
-    "value": "1.1219",
-    "kind": "reported-decimal",
-    "source": "AlphaEvolve repository of problems, problem 42 (arXiv:2511.02864, section 6.25) reports 1.1219",
-    "url": "https://google-deepmind.github.io/alphaevolve_repository_of_problems/problems/42.html",
-    "retrieved": "2026-09-24"
+    "value": "2",
+    "kind": "exact",
+    "source": "Haowei Lin and Shanda Li, Settling the Optimal Exponent Relating Sumsets and Difference Sets, arXiv:2607.27199v1, 29 July 2026, Theorem 1.1: the least universal exponent is exactly 2.",
+    "url": "https://arxiv.org/abs/2607.27199v1",
+    "retrieved": "2026-09-28"
    },
-   "notes": "The published set recomputes to 1.12193573748604 in this verifier, which is within the reporting precision of 1.1219; an improvement must exceed 1.12195. No later improvement was found in the September 2026 survey. Any claim must re-check the page, EinsteinArena, and arXiv for newer sets.",
+   "notes": "Retired as an open discovery target: Lin-Li prove the exact supremum 2 for the same normalized log ratio. This is a universal supremum approached by explicit integer sets, not a score attained by a finite integer set with at least two elements. Preserve the AlphaEvolve problem-42 fixture and its original expected range as a historical benchmark: 309 elements, 1367 sums, 1163 differences, ratio approximately 1.12193573748604. Beating that benchmark is not a current-record claim. The original September survey missed both this July 2026 result and the earlier Penman-Wells bound 1.125944 cited in its introduction.",
    "significance": {
-    "crowding": "uncontested",
-    "evidence": "One source on 2026-09-24: AlphaEvolve (1.1219, arXiv:2511.02864, 2025, improving an earlier 1.059793), whose authors write that the bound can likely be improved; the September 2026 survey found no follow-up on the page, on EinsteinArena, or on arXiv.",
+    "crowding": "well-studied",
+    "evidence": "Corrected 2026-09-28 from Lin-Li arXiv:2607.27199v1: Penman-Wells (2013) already give at least 1.125944 in this normalization; AlphaEvolve (2025) report 1.1219; Lin-Li (29 July 2026) prove supremum 2, matching the classical universal upper bound. The earlier one-source characterization was incomplete.",
     "open_question": null
    },
    "control_required": true

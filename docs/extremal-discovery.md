@@ -7,6 +7,9 @@ The round-26 and round-27 constructions came from a hand-written C local
 search seeded with public certificates, not from the evolution loop.
 Registry significance fields and a mandatory unseeded control per claim
 followed on 25 September 2026, after the control runs described below.
+On 28 September 2026, the sum–difference target was retired after identifying
+Lin and Li's July 2026 proof of its exact universal supremum 2. The earlier
+1.1219 comparison remains a historical benchmark.
 
 ## Why a second loop
 
@@ -15,8 +18,11 @@ literature is small and unindexed. Priority for each result rests on a
 web-search audit, so the ledger can only say "not located", never "novel".
 This loop targets the opposite regime: problems where a public, dated table
 records the best construction anyone has certified, and where an exact
-verifier decides in seconds whether a candidate beats it. There, novelty is a
-strict inequality against a cited number, not a literature judgement.
+verifier decides whether a candidate beats the recorded benchmark. A strict
+inequality establishes that comparison; a current-record claim also needs a
+fresh literature check against primary sources using the same objective and
+normalization. The sum–difference correction below illustrates why a cached
+benchmark alone cannot establish novelty.
 
 The loop is deliberately cheap. Candidates are short Python programs, the
 mutation operator is either a scripted parameter perturbation (no model) or a
@@ -26,7 +32,7 @@ evaluation is an exact rational check. Nothing in the loop needs a frontier
 model. A frontier model can be plugged in through the same command interface
 when a target justifies the spend.
 
-## Targets (`research/extremal/registry.json`, retrieved 24–25 September 2026)
+## Targets (`research/extremal/registry.json`, retrieved 24–28 September 2026)
 
 Chosen from a survey of the AlphaEvolve repository of problems (67 rows),
 follow-up work through September 2026, and the classical covering tables
@@ -39,8 +45,8 @@ a public dated ledger so that "better" is a strict inequality.
 | Isosceles-free subset of the 64×64 and 100×100 grid | maximise size | 112, 164 | AlphaEvolve problem 59 (page says "still not optimal") | yes, both |
 | No five points on a sphere or plane in the n³ grid, n = 7…12 | maximise size | 21, 23, 26, 28, 31, 33 | AlphaEvolve problem 60 | yes, all six |
 | Same problem, n = 13…32 (n = 13–26 added in round 26, n = 27–32 in round 27) | maximise size | 36, 38, 40, 42, 44, 45, 49, 50, 50, 50, 51, 53, 55, 56, then 67 for n = 27–32 | Demonstrandum artifacts (n = 13–17), milesandmistakes certificates (n = 18–20), Numaro report (n = 22–26); n = 21 is the inclusion bound C(21) ≥ C(20); n = 27–32 is the inclusion bound C(n) ≥ C(26) ≥ 67 from this repository's round-26 set, published 25 September 2026, no other public value for n ≥ 27 having been found | yes for n = 13–20 and 27–32; Numaro publishes no coordinates |
-| Ring loading instance, 15 pairs | maximise the routing gap | 9/8 | EinsteinArena leaderboard (AlphaEvolve's instance verifies to 1.11904756…) | AlphaEvolve instance reproduced; the 9/8 construction is quoted in a thread and not yet re-verified here |
-| Sum-difference exponent I | maximise ln(\|A+A\|/\|A\|)/ln(\|A−A\|/\|A\|) | 1.12193573748604 (recomputed from the published set; paper says 1.1219) | AlphaEvolve problem 42 | yes |
+| Ring loading instance, 15 pairs | maximise the all-cut discrepancy | 9/8 | EinsteinArena leaderboard and [CrossingPaths's 12-pair core](https://einsteinarena.com/problems/ring-loading-15/threads/274), padded with three zero pairs | yes, exactly 9/8; AlphaEvolve's earlier instance also reproduces 1.1190475684692773… |
+| Sum-difference exponent I, retired as an open target | supremum of ln(\|A+A\|/\|A\|)/ln(\|A−A\|/\|A\|) | exactly 2, approached but not attained by finite integer sets with at least two elements | Lin–Li, [arXiv:2607.27199v1](https://arxiv.org/abs/2607.27199v1), Theorem 1.1, 29 July 2026 | the historical AlphaEvolve fixture still reproduces 1.12193573748604; it does not represent the supremum |
 | Heilbronn problem in the unit square, n = 21 and 25 | maximise the smallest triangle area | 0.011173412…, 0.007859563… (exact rationals of the published literals) | math.tejstead.com/heilbronn record ledger, PR submission lane with exact CI verification | yes for n = 21 |
 | Covering design C(33,6,4) | minimise blocks | 3310 (Pree, 2021; lower bound 2750) | La Jolla Covering Repository snapshot on GitHub; the repository was frozen 2026-03-01 and newer entries live at coveringrepository.com | not applicable (no public construction fetched); registered as a benchmark family only, the greedy seed exceeds the time budget at this size and no protocol is shipped |
 
@@ -50,6 +56,21 @@ gains to CPU local search. The Heilbronn rows have the cleanest ledger but a
 crowded, continuous search. The HuggingFace sphere dataset named in the survey
 (`dougdotcon/douvras-no-5-on-a-sphere-certificates`) only re-verifies the six
 AlphaEvolve sets; its isosceles counterpart stays unread behind a login wall.
+
+The original sum–difference survey was incomplete. Lin and Li prove the
+optimal exponent for the same normalized ratio, and their introduction also
+identifies the Penman–Wells lower bound 1.125944, already above AlphaEvolve's
+1.1219. The registry now stores the exact supremum 2; the original published
+set and its expected range remain unchanged for regression checks. Beating
+that old set is no longer a discovery objective.
+
+Ring-loading scores include every cut from k = 1 through k = m. The final
+cut contributes the absolute total sum and was missing from the original
+verifier and seed scorer. The 28 September correction agrees with direct
+physical edge-load checks on 258 small instances and reproduces the public
+9/8 construction exactly. AlphaEvolve Problem 6.61 attributes the 19/14
+upper bound for this discrepancy objective to Skutella. Bounds on other
+routing formulations require a verified correspondence before use here.
 
 ## Components (`research/extremal/`)
 
@@ -214,13 +235,17 @@ Bounded runs on 24 September 2026 (macOS, `sandbox-exec+rlimit` isolation,
 protocol seeds 0 and 1). Values are the verifier's exact recomputation; the
 seed column is the investigator-written seed program's own value.
 
-| Target | Seed program | Scripted best (64 evals) | Qwen3-8B-4bit best (24 evals) | Recorded best | Status |
+| Target | Seed program | Scripted best (64 evals) | Qwen3-8B-4bit best (24 evals) | Benchmark used in that run | Status |
 | --- | --- | --- | --- | --- | --- |
 | isosceles-free-64 | 73 | 74 | 79 (20 evaluable) | 112 | below |
 | no-five-on-sphere-7 | 15 | 16 | not run | 21 | below |
 | ring-loading-15 | 15/16 | 1 | not run | 9/8 | below |
-| sum-difference-I | 1.05033 | 1.05698 | not run | 1.1219 | below |
+| sum-difference-I | 1.05033 | 1.05698 | not run | 1.1219 (historical; superseded) | below the run's benchmark; discovery target retired |
 | heilbronn-square-21 | 0.0012101 | 0.0021306 | not run | 0.0111734 | below |
+
+The ring-loading scores in this 24 September table retain the original
+interior-cut convention, 1 ≤ k < m. They remain valid lower bounds after
+the all-cuts correction; the archived runs and their scores are preserved.
 
 Every scripted run evaluated all 64 candidates. The local model returned 20
 evaluable programs out of 24 proposals (the other four were malformed or

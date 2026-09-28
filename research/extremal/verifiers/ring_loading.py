@@ -1,9 +1,10 @@
 """Ring loading lower-bound instances (AlphaEvolve problem 61).
 
 An instance is m pairs (u_i, v_i) of nonnegative rationals with u_i + v_i <= 1.
-Its value is min over z in prod {v_i, -u_i} of max_{1<=k<m} |sum_{i<=k} z_i -
+Its value is min over z in prod {v_i, -u_i} of max_{1<=k<=m} |sum_{i<=k} z_i -
 sum_{i>k} z_i|; every instance value is a lower bound on the constant C.
 Larger is better. Exhaustive over 2^m assignments in integer arithmetic.
+The final cut k=m is |sum_i z_i|; k=0 gives the same absolute value.
 """
 
 from fractions import Fraction
@@ -11,7 +12,7 @@ from math import lcm
 
 DESCRIPTION = (
     "Ring loading instance: m pairs (u_i, v_i) of nonnegative rationals with u_i + v_i <= 1. "
-    "Value = min over all 2^m choices z_i in {v_i, -u_i} of max over k=1..m-1 of "
+    "Value = min over all 2^m choices z_i in {v_i, -u_i} of max over k=1..m of "
     "|sum_{i<=k} z_i - sum_{i>k} z_i|. Larger is better (it lower-bounds the ring loading "
     "constant). Output: {\"pairs\": [[u_1, v_1], ..., [u_m, v_m]]} with each entry a decimal or "
     "fraction string such as \"0.3125\" or \"5/16\" (exact rationals are used; floats are rejected)."
@@ -65,7 +66,7 @@ def verify(construction, parameters) -> Fraction:
             total += zi
         worst = 0
         prefix = 0
-        for k in range(m - 1):
+        for k in range(m):
             prefix += z[k]
             gap = abs(2 * prefix - total)
             if gap > worst:
