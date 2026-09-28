@@ -113,7 +113,7 @@ def pairs_for(r):
                  ([R(2),R(3),R(4)], [R(1),R(3),R(5)], R(1,3), R(1,2),
                   EXPS(2), EXPS(1)),
                  ([R(3),R(5),R(7),R(9)], [R(1),R(4),R(5),R(7)], R(1,2), R(1),
-                  EXPS(2), sp.exp(-sp.sqrt(x)))]  # Fb2 Weibull (decreasing hr)
+                  EXPS(2), (1+x)**(-2))]  # Fb2 Pareto (decreasing hr), Fb1<=Fb2
         for (th, et, a, la, Fb1, Fb2) in cases:
             n = len(th)
             SX, SY = mphrs_second([(a, t, la) for t in th],
@@ -128,15 +128,26 @@ def pairs_for(r):
                                   [(a, t0, la)] * n, EXPS(3), EXPS(2))
             pairs.append((SX, SY))
     # ---------- MPRHRS, X_{n-1:n} ----------
-    elif "Theorem 3" == claim or "Corollary 3" == claim:
-        # la ~<^w mu (Thm3) or scalar lambda >= mean (Cor3): Xn-1:n >=st Yn-1:n
+    elif "Theorem 3" == claim:
+        # la >=w mu (supermaj): Xn-1:n >=st Yn-1:n ; F1 <= F2
         swap = True
         for (lv, mv) in [([R(2),R(3),R(4)], [R(1),R(3),R(5)]),
                          ([R(2),R(3),R(4),R(5)], [R(1),R(3),R(4),R(6)]),
                          ([R(3,2),R(3,2),R(3,2)], [R(1,2),R(3,2),R(1)])]:
-            F1 = 1 - sp.exp(-x); F2 = 1 - sp.exp(-x/2)   # F1 <= F2
+            F1 = 1 - sp.exp(-x/2); F2 = 1 - sp.exp(-x)   # F1 <= F2
             th = [R(1)] * len(lv); a = [R(1,2)] * len(lv)
             SX, SY = mprhrs_nm1(list(zip(a, th, lv)), list(zip(a, th, mv)), F1, F2)
+            pairs.append((SX, SY))
+    elif "Corollary 3" == claim:
+        # X has lambda-vector, Y scalar lambda >= mean; claim Xn-1:n >=st Y
+        swap = True
+        for (lv, l0) in [([R(2),R(3),R(4)], R(4)),
+                         ([R(1,2),R(1),R(3,2)], R(2)),
+                         ([R(1),R(2),R(3),R(4)], R(5))]:
+            F1 = 1 - sp.exp(-x/2); F2 = 1 - sp.exp(-x)   # F1 <= F2
+            n = len(lv); th = [R(1)]*n; a = [R(1,2)]*n
+            SX, SY = mprhrs_nm1(list(zip(a, th, lv)),
+                                [(R(1,2), R(1), l0)]*n, F1, F2)
             pairs.append((SX, SY))
     elif "Theorem 4" == claim or "Corollary 4" == claim or "Example 2" == claim:
         # a ~<^w b, F1 >= F2 => Xn-1:n <=st Yn-1:n
