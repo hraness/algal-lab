@@ -1,6 +1,106 @@
 [
  {
   "paper": "doi:10.1038/s41598-026-45633-8",
+  "claim": "Counterexample 2",
+  "page": 13,
+  "quote": "Counterexample 2 Under the setup in Example 2, the stochastic ordering X1:3 \u2264 Y1:3 may not hold if the conditions ai \u2264 a\u2217i and bi \u2264 b\u2217i are violated for any i = 1, 2, 3. Figure 7 demonstrates this through different values of parameters where F\u0304Y1:3 (y)\u2212 F\u0304X1:3 (y) becomes negative for some y \u2208 (0, 1), demonstrating that the ordering fails under these conditions.",
+  "kind": "counterexample",
+  "model": "series system",
+  "family": "Log-LFR(\u03b1i, \u03b2i) vs Log-LFR(\u03b1i*, \u03b2i*), n = 3, common p = 0.3",
+  "compared": "three panels violating/matching the \u03b1, \u03b2 componentwise conditions",
+  "hypotheses": [
+   {
+    "text": "\u03b1i \u2264 \u03b1i* and \u03b2i \u2264 \u03b2i* violated for some i",
+    "formal": "Theorem 2 hypotheses not met (text writes 'ai, bi' for \u03b1i, \u03b2i)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X_{1:3} <=st Y_{1:3} fails: F\u0304Y1:3(y) \u2212 F\u0304X1:3(y) negative for some y \u2208 (0,1) (Figure 7)"
+  },
+  "quantifiers": "n = 3; y \u2208 (0,1)",
+  "numbers": "Fig 7 legends (as printed): (a) \u03b1=(0.5,1,1.5), \u03b1*=(2,2.5,3), \u03b2=(0.1,0.3,0.5), \u03b2*=(0.2,0.4,0.6), p=0.3; (b) \u03b1=(0.1,0.3,0.7), \u03b1*=(0.6,0.8,1), \u03b2=(2.5,3,3.5), \u03b2*=(1,1.5,2), p=0.3; (c) \u03b1=(0.04,0.06,0.08), \u03b1*=(0.01,0.02,0.04), \u03b2=(0.1,0.3,0.5), \u03b2*=(0.2,0.4,0.6), p=0.3",
+  "ambiguity": "Panel (a)'s printed legend satisfies \u03b1 \u2264 \u03b1* componentwise \u2014 i.e. Theorem 2's hypotheses hold there \u2014 yet the difference is said to dip negative; the violation panels likely differ, kept as printed. Text writes conditions with 'a, b' for '\u03b1, \u03b2'.",
+  "adjudication": "adjudicated: Passes agree: failure of X1:3 <=st Y1:3 when componentwise conditions are violated; merged with A's "
+ },
+ {
+  "paper": "doi:10.1038/s41598-026-45633-8",
+  "claim": "Example 2",
+  "page": 12,
+  "quote": "Example 2 Let (X1 , X2 , X3 ) and (Y1 ,Y2 ,Y3 ) be two sets of independent random variables such that each Xi follows the Log-LFR distribution with parameters \u03b1i and \u03b2i , and each Yi follows the Log-LFR distribution with parameters \u03b1i\u2217 and \u03b2i\u2217 , for i = 1, 2, 3. To validate the result established in Theorem 2, different sets of values for the parameter vectors (\u03b11 , \u03b12 , \u03b13 ), (\u03b11\u2217 , \u03b12\u2217 , \u03b13\u2217 ), (\u03b21 , \u03b22 , \u03b23 ) and (\u03b21\u2217 , \u03b22\u2217 , \u03b23\u2217 ) are considered for a fixed value of p > 0. The plot of the difference F\u0304Y1:3 (y) \u2212 F\u0304X1:3 (y) is presented in Figure 5 for various parameter configurations to visually demonstrate the stochastic ordering.",
+  "kind": "example",
+  "model": "series system",
+  "family": "Log-LFR, three components each side, common p",
+  "compared": "X1:3 vs Y1:3; four parameter configurations plotted (Figure 5 legend)",
+  "hypotheses": [
+   {
+    "text": "\u03b1i \u2264 \u03b1i* and \u03b2i \u2264 \u03b2i* componentwise for the plotted configurations (per Theorem 2)",
+    "formal": "componentwise conditions; n = 3; fixed p > 0",
+    "source": "statement (Theorem 2 conditions applied)"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X_{1:3} <=st Y_{1:3} (F\u0304Y1:3 \u2212 F\u0304X1:3 \u2265 0 on the plotted domain, Figure 5)"
+  },
+  "quantifiers": "n = 3; y \u2208 (0,1)",
+  "numbers": "Figure 5 legend (as printed): \u03b1=(1,1.5,2), \u03b1*=(0.5,1,1.5); \u03b1=(2.5,3,4), \u03b1*=(2,2.5,3.5); \u03b1=(5,7,9), \u03b1*=(4.5,6,8), \u03b2=(4.7,6.8,9.3), \u03b2*=(3.6,7.2,8.3); \u03b1=(11,13,14.5), \u03b1*=(10,12,13), \u03b2=(6.4,7.5,9.2), \u03b2*=(4.8,5.5,8.4); some \u03b2-vectors partially illegible in the text layer",
+  "ambiguity": "In the printed legend the starred vectors are componentwise SMALLER than the unstarred, opposite to Theorem 2's hypothesis \u03b1 \u2264 \u03b1* \u2014 likely star-assignment convention on the Y side; kept as printed.",
+  "adjudication": "adjudicated: Passes agree: graphical validation of X1:3 <=st Y1:3; merged, preserving A's legend transcription an"
+ },
+ {
+  "paper": "doi:10.1038/s41598-026-45633-8",
+  "claim": "Remark 1 (hazard-rate consequence)",
+  "page": 11,
+  "quote": "Remark 1 The following result is well known in the literature (Shaked and Shanthikumar16 ): X \u2264lr Y \u21d2 X \u2264hr Y \u21d2 X \u2264st Y. The relationship between these orderings follows a cascading pattern: likelihood ratio ordering establishes hazard rate ordering, which in turn generates the usual stochastic ordering. Consequently, under the conditions stated in Theorem 1, the hazard rate and usual stochastic naturally follow from the likelihood ratio ordering.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "Log-LFR(\u03b1, \u03b2, p) as in Theorem 1",
+  "compared": "X \u223c Log-LFR(\u03b1,\u03b2,p1) vs Y \u223c Log-LFR(\u03b1,\u03b2,p2) with p2 \u2265 p1",
+  "hypotheses": [
+   {
+    "text": "under the conditions stated in Theorem 1",
+    "formal": "p2 \u2265 p1 (X \u2264lr Y established by Theorem 1)",
+    "source": "statement; earlier theorem 1"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "X <=hr Y"
+  },
+  "quantifiers": "x \u2208 R+",
+  "numbers": "",
+  "ambiguity": "Labeled 'Remark', not a numbered theorem; included since it explicitly asserts the hr order for this family under Theorem 1's hypotheses.",
+  "adjudication": "adjudicated: A kept one combined record, B split hr and st; per spec (one record per order) two records emitted."
+ },
+ {
+  "paper": "doi:10.1038/s41598-026-45633-8",
+  "claim": "Remark 1 (usual stochastic order consequence)",
+  "page": 11,
+  "quote": "Remark 1 ... Consequently, under the conditions stated in Theorem 1, the hazard rate and usual stochastic naturally follow from the likelihood ratio ordering.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "Log-LFR(\u03b1, \u03b2, p) as in Theorem 1",
+  "compared": "same X, Y as Theorem 1",
+  "hypotheses": [
+   {
+    "text": "under the conditions stated in Theorem 1",
+    "formal": "p2 \u2265 p1",
+    "source": "statement; earlier theorem 1"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X <=st Y"
+  },
+  "quantifiers": "x \u2208 R+",
+  "numbers": "",
+  "ambiguity": "Same Remark-1 passage as the hr record; asserts the implied usual stochastic order.",
+  "adjudication": "adjudicated: A kept one combined record, B split hr and st; per spec (one record per order) two records emitted."
+ },
+ {
+  "paper": "doi:10.1038/s41598-026-45633-8",
   "claim": "Counterexample 1",
   "page": 13,
   "quote": "Counterexample 1 Assume p1 = (0.5, 0.7, 0.9) and p2 = (0.1, 0.3, 0.6). This violate the condition mentioned in Theorem 1 by having p1 \u2265 p2. Thus, the likelihood ratio ordering, that is, X \u2264lr Y fails to hold. In this case, the likelihood ratio function fY(y)/fX(y) is not monotonically increasing in y, violating the requirement for likelihood ratio ordering. Figure 6 demonstrates that the parameter condition p2 \u2265 p1 is essential for establishing the stochastic ordering relationship between Log-LFR distributions.",
@@ -108,55 +208,5 @@
   "ambiguity": "The statement omits p among the listed parameters; the proof uses a common p. Text says 'Xi follows a Log-LFR distribution with parameters \u03b1i and \u03b2i' without mentioning the third parameter.",
   "numbers": "",
   "adjudication": "agreed"
- },
- {
-  "paper": "doi:10.1038/s41598-026-45633-8",
-  "claim": "Example 2",
-  "page": 12,
-  "quote": "Example 2 Let (X1, X2, X3) and (Y1,Y2,Y3) be two sets of independent random variables such that each Xi follows the Log-LFR distribution with parameters \u03b1i and \u03b2i, and each Yi follows the Log-LFR distribution with parameters \u03b1i\u2217 and \u03b2i\u2217, for i = 1, 2, 3. To validate the result established in Theorem 2, different sets of values for the parameter vectors (\u03b11, \u03b12, \u03b13), (\u03b11\u2217, \u03b12\u2217, \u03b13\u2217), (\u03b21, \u03b22, \u03b23) and (\u03b21\u2217, \u03b22\u2217, \u03b23\u2217) are considered for a fixed value of p > 0. The plot of the difference F\u0304Y1:3(y) \u2212 F\u0304X1:3(y) is presented in Figure 5 for various parameter configurations to visually demonstrate the stochastic ordering.",
-  "kind": "example",
-  "model": "series system",
-  "family": "Log-LFR, three components each side, common p",
-  "compared": "four parameter configurations plotted (Figure 5 legend)",
-  "hypotheses": [
-   {
-    "text": "various parameter vectors for a fixed p > 0",
-    "formal": "n = 3",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "F\u0304Y1:3(y) \u2212 F\u0304X1:3(y) \u2265 0 plotted, supporting X_{1:3} <=st Y_{1:3}"
-  },
-  "quantifiers": "n = 3; y \u2208 (0,1)",
-  "numbers": "Figure 5 legend (as printed): \u03b1=(1,1.5,2), \u03b1*=(0.5,1,1.5), \u03b2=(2,1.2,5,1.5?), \u03b2*=(2,2.5,1); \u03b1=(2.5,3,4), \u03b1*=(2,2.5,3.5), \u03b2=(2.5,4,3.6,7?), \u03b2*=(1.3,2.2,5.8); \u03b1=(5,7,9), \u03b1*=(4.5,6,8), \u03b2=(4.7,6.8,9.3), \u03b2*=(3.6,7.2,8.3); \u03b1=(11,13,14.5), \u03b1*=(10,12,13), \u03b2=(6.4,7.5,9.2), \u03b2*=(4.8,5.5,8.4)",
-  "ambiguity": "In the printed legend the starred vectors appear smaller than the unstarred (\u03b1* < \u03b1 componentwise), opposite to Theorem 2's hypothesis \u03b1 \u2264 \u03b1*; possibly the stars are assigned to the X-side parameters here. Some legend \u03b2-vectors render ambiguously in the text layer.",
-  "adjudication": "example record (pass a)+b"
- },
- {
-  "paper": "doi:10.1038/s41598-026-45633-8",
-  "claim": "Counterexample 2",
-  "page": 13,
-  "quote": "Counterexample 2 Under the setup in Example 2, the stochastic ordering X1:3 \u2264 Y1:3 may not hold if the conditions ai \u2264 a\u2217i and bi \u2264 b\u2217i are violated for any i = 1, 2, 3. Figure 7 demonstrates this through different values of parameters where F\u0304Y1:3(y) \u2212 F\u0304X1:3(y) becomes negative for some y \u2208 (0, 1), demonstrating that the ordering fails under these conditions.",
-  "kind": "counterexample",
-  "model": "series system",
-  "family": "Log-LFR, n = 3, p = 0.3",
-  "compared": "three panels violating/matching the \u03b1, \u03b2 componentwise conditions",
-  "hypotheses": [
-   {
-    "text": "\u03b1i \u2264 \u03b1i\u2217 and \u03b2i \u2264 \u03b2i\u2217 violated for some i",
-    "formal": "Theorem 2 hypotheses not met",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "F\u0304Y1:3(y) \u2212 F\u0304X1:3(y) negative for some y, so X_{1:3} not <=st Y_{1:3}"
-  },
-  "quantifiers": "n = 3; y \u2208 (0,1)",
-  "numbers": "Fig 7 legends (as printed): (a) \u03b1=(0.5,1,1.5), \u03b1*=(2,2.5,3), \u03b2=(0.1,0.3,0.5), \u03b2*=(0.2,0.4,0.6), p=0.3; (b) \u03b1=(0.1,0.3,0.7), \u03b1*=(0.6,0.8,1), \u03b2=(2.5,3,3.5), \u03b2*=(1,1.5,2), p=0.3; (c) \u03b1=(0.04,0.06,0.08), \u03b1*=(0.01,0.02,0.04), \u03b2=(0.1,0.3,0.5), \u03b2*=(0.2,0.4,0.6), p=0.3",
-  "ambiguity": "Caption of panel (a) says conditions \u03b1i < \u03b1i\u2217, \u03b2i < \u03b2i\u2217 \u2014 i.e. Theorem 2's hypotheses hold \u2014 yet the plotted difference dips negative for small y, which would contradict the theorem itself; probably the panel intends a violation but is ambiguous as printed. Counterexample text writes conditions as 'ai \u2264 a\u2217i and bi \u2264 b\u2217i' (a,b instead of \u03b1,\u03b2).",
-  "adjudication": "example record (pass a)+b"
  }
 ]

@@ -1,0 +1,111 @@
+[
+ {
+  "queue_claim": "theorem2.3",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.17576/jsm-2025-5403-23",
+    "claim": "Theorem 2.3 (lr part)",
+    "page": 933,
+    "quote": "Theorem 2.3 Let X ~ GTHPL(α1, β, η, λ) and Y ~ GTHPL(α2, β, η, λ). For all η, λ > 0, β ≥ 0 and 0 < α1 ≤ α2, X ≤lr Y (and hence X ≤fr Y, X ≤mrl Y and X ≤st Y).",
+    "kind": "theorem",
+    "model": "single",
+    "family": "Gompertz three-parameter Lindley (GTHPL), a Gompertz–Lindley mixture",
+    "compared": "parameter α ordering with common β, η, λ",
+    "hypotheses": [
+     {
+      "text": "η, λ > 0; β ≥ 0; 0 < α1 ≤ α2",
+      "formal": "common β, η, λ; ordered α",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "X <=lr Y"
+    },
+    "quantifiers": "all x > 0; η, λ > 0; β ≥ 0",
+    "numbers": "",
+    "ambiguity": "Math symbols absent from the text layer; statement recovered from the rendered PDF page. The paper denotes the hazard-rate order by '≤fr' (failure rate order)."
+   },
+   {
+    "paper": "doi:10.17576/jsm-2025-5403-23",
+    "claim": "Theorem 2.3 (fr/hr part)",
+    "page": 933,
+    "quote": "For all η, λ > 0, β ≥ 0 and 0 < α1 ≤ α2, X ≤lr Y (and hence X ≤fr Y, X ≤mrl Y and X ≤st Y).",
+    "kind": "theorem",
+    "model": "single",
+    "family": "GTHPL",
+    "compared": "parameter α ordering",
+    "hypotheses": [
+     {
+      "text": "η, λ > 0; β ≥ 0; 0 < α1 ≤ α2",
+      "formal": "as in Theorem 2.3",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "X <=fr Y (paper's 'failure rate order' = hazard-rate order)"
+    },
+    "quantifiers": "all x > 0",
+    "numbers": "",
+    "ambiguity": "Paper's notation ≤fr for the hazard/failure rate order; recorded under canonical label hr."
+   },
+   {
+    "paper": "doi:10.17576/jsm-2025-5403-23",
+    "claim": "Theorem 2.3 (mrl part)",
+    "page": 933,
+    "quote": "For all η, λ > 0, β ≥ 0 and 0 < α1 ≤ α2, X ≤lr Y (and hence X ≤fr Y, X ≤mrl Y and X ≤st Y).",
+    "kind": "theorem",
+    "model": "single",
+    "family": "GTHPL",
+    "compared": "parameter α ordering",
+    "hypotheses": [
+     {
+      "text": "η, λ > 0; β ≥ 0; 0 < α1 ≤ α2",
+      "formal": "as in Theorem 2.3",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "mrl",
+     "direction": "X <=mrl Y"
+    },
+    "quantifiers": "all x > 0",
+    "numbers": "",
+    "ambiguity": ""
+   },
+   {
+    "paper": "doi:10.17576/jsm-2025-5403-23",
+    "claim": "Theorem 2.3 (st part)",
+    "page": 933,
+    "quote": "For all η, λ > 0, β ≥ 0 and 0 < α1 ≤ α2, X ≤lr Y (and hence X ≤fr Y, X ≤mrl Y and X ≤st Y).",
+    "kind": "theorem",
+    "model": "single",
+    "family": "GTHPL",
+    "compared": "parameter α ordering",
+    "hypotheses": [
+     {
+      "text": "η, λ > 0; β ≥ 0; 0 < α1 ≤ α2",
+      "formal": "as in Theorem 2.3",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X <=st Y"
+    },
+    "quantifiers": "all x > 0",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "B's four-way split adopted per spec (one record per order): lr is proved and fr(=hr), mrl, st follow by the standard implications. A's single combined record marked the same content."
+ },
+ {
+  "queue_claim": "unn:stochastic order definitions section stochastic orders",
+  "decision": "exclude",
+  "records": [],
+  "note": "Exclude: pass A's capture is the Section 'Stochastic Orders' definition list (st, fr, mrl, lr definitions only) — no ordering conclusion about any specific variables; definitions are not extractable claims."
+ }
+]

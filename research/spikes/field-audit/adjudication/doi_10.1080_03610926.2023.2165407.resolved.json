@@ -1,213 +1,390 @@
 [
  {
-  "queue_claim": "corollary4.13",
+  "queue_claim": "corollary5.1",
   "decision": "include",
   "records": [
    {
     "paper": "doi:10.1080/03610926.2023.2165407",
-    "claim": "Corollary 4.13",
-    "page": 16,
-    "quote": "Corollary 4.13. Let Y1, Y2 follow (18), where Σ1 and Σ2 are correlation matrices. Then Y1 ≤sm Y2 if and only if µ1 = µ2, δ1 = δ2 and σ1,ij ≤ σ2,ij for all 1 ≤ i < j ≤ n.",
+    "claim": "Corollary 5.1",
+    "page": 19,
+    "quote": "Corollary 5.1. Let Y1, Y2 follow (18). If µ1 ≤ µ2, δ1 ≤ δ2, σ1,ii = σ2,ii for all 1 ≤ i ≤ n and σ1,ij ≤ σ2,ij for all 1 ≤ i ≠ j ≤ n, then P(Y1 > a) ≤ P(Y2 > a) holds for all a ∈ Rn. Furthermore, the foregoing inequality is strict if µ1 < µ2, δ1 < δ2, and σ1,ij < σ2,ij for all 1 ≤ i ≠ j ≤ n.",
     "kind": "corollary",
-    "model": "other: multivariate GLSE random vectors (location-scale-skew model (18))",
+    "model": "other: multivariate GLSE random vectors (model (18))",
     "family": "GLSE_n",
-    "compared": "Y1 vs Y2 in the supermodular order, parameterized by correlation matrices",
+    "compared": "Y1 vs Y2 — tail probabilities P(Y > a) for all orthants (extension of Slepian's theorem)",
     "hypotheses": [
      {
-      "text": "Σ1, Σ2 correlation matrices; µ1 = µ2; δ1 = δ2; σ1,ij ≤ σ2,ij for all 1 ≤ i < j ≤ n",
-      "formal": "equal locations/skews + componentwise correlation ordering",
+      "text": "µ1 ≤ µ2, δ1 ≤ δ2, σ1,ii = σ2,ii for all 1 ≤ i ≤ n, σ1,ij ≤ σ2,ij for all 1 ≤ i ≠ j ≤ n",
+      "formal": "componentwise location/skew ordering + equal variances + covariance ordering",
       "source": "statement"
      }
     ],
     "conclusion": {
-     "order": "other: sm (supermodular order)",
-     "direction": "Y1 ≤sm Y2 iff the stated equalities and correlation inequalities hold"
+     "order": "other: uo (upper orthant order)",
+     "direction": "P(Y1 > a) ≤ P(Y2 > a) for all a ∈ Rn, i.e., Y1 ≤uo Y2; strict under strict inequalities"
     },
-    "quantifiers": "all 1 ≤ i < j ≤ n",
+    "quantifiers": "all a ∈ Rn; all 1 ≤ i, j ≤ n",
     "numbers": "",
-    "ambiguity": "sm (supermodular) is not in the plain-order vocabulary → 'other: sm' (B's label correct, A's bare 'sm' not in allowed list)."
+    "ambiguity": "uo is the paper's upper-orthant order — outside the plain vocabulary → 'other: uo' (B's label). Direct consequence of Theorems 4.12/4.15."
    }
   ],
-  "note": "Printed iff characterization of ≤sm for GLSE vectors with correlation matrices; labeled 'other: sm'."
+  "note": "Printed orthant-probability conclusion; labeled 'other: uo' per vocabulary."
  },
  {
-  "queue_claim": "lemma4.14",
+  "queue_claim": "corollary5.2",
   "decision": "include",
   "records": [
    {
     "paper": "doi:10.1080/03610926.2023.2165407",
-    "claim": "Lemma 4.14 (Müller and Scarsini, 2000)",
-    "page": 16,
-    "quote": "Lemma 4.14. (Müller and Scarsini, 2000) Let X, Y be two bivariate random vectors and have the same marginals, then X ≤sm Y is equivalent to X ≤uo Y.",
+    "claim": "Corollary 5.2(1)",
+    "page": 19,
+    "quote": "Corollary 5.2. Assume Y1, Y2 follow (18), then (1) If µ2 + β(z)δ2 ≥ µ1 + β(z)δ1 for all z and Σ1 = Σ2, then S1 ≤st S2.",
+    "kind": "corollary",
+    "model": "other: aggregate risk Si = Σ_{i=1}^n αi Yi,: in the individual risk model",
+    "family": "GLSE_n (claim vectors Y1, Y2; same weights αi)",
+    "compared": "S1 vs S2 — aggregate risks of two insurance portfolios",
+    "hypotheses": [
+     {
+      "text": "µ2 + β(z)δ2 ≥ µ1 + β(z)δ1 for all z and Σ1 = Σ2",
+      "formal": "Theorem 4.5(1) conditions",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "S1 ≤st S2"
+    },
+    "quantifiers": "all z; all increasing f",
+    "numbers": "",
+    "ambiguity": ""
+   },
+   {
+    "paper": "doi:10.1080/03610926.2023.2165407",
+    "claim": "Corollary 5.2(2)",
+    "page": 19,
+    "quote": "(2) If µ2 + β(z)δ2 ≥ µ1 + β(z)δ1 for all z and Σ2 − Σ1 is positive semi-definite, then S1 ≤icx S2.",
+    "kind": "corollary",
+    "model": "other: aggregate risk in the individual risk model",
+    "family": "GLSE_n",
+    "compared": "S1 vs S2 in increasing convex order",
+    "hypotheses": [
+     {
+      "text": "µ2 + β(z)δ2 ≥ µ1 + β(z)δ1 for all z and Σ2 − Σ1 positive semi-definite",
+      "formal": "location ordering + psd covariance difference",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "icx",
+     "direction": "S1 ≤icx S2"
+    },
+    "quantifiers": "all z; all increasing convex f",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Multi-part corollary split per order (st, icx); B's split is canonical."
+ },
+ {
+  "queue_claim": "corollary5.3",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1080/03610926.2023.2165407",
+    "claim": "Corollary 5.3(1)",
+    "page": 20,
+    "quote": "Corollary 5.3. Assume Y1, Y2 follow (18), random quantity N1 is independent of {Xi, i ∈ {1,2,...,n}}, random quantity N2 is independent of {Yi, i ∈ {1,2,...,n}}, and N1 ≤st N2, then (1) If µ2 + β(z)δ2 ≥ µ1 + β(z)δ1 for all z and Σ1 = Σ2, then Ŝ1 ≤st Ŝ2.",
+    "kind": "corollary",
+    "model": "other: collective risk model Ŝ = Σ_{i=1}^N αi Xi (random count N)",
+    "family": "GLSE_n",
+    "compared": "Ŝ1 vs Ŝ2 — aggregate risks with random portfolio sizes N1 ≤st N2",
+    "hypotheses": [
+     {
+      "text": "N1 independent of {Xi}, N2 independent of {Yi}, N1 ≤st N2",
+      "formal": "st-ordered claim counts, independence",
+      "source": "statement"
+     },
+     {
+      "text": "µ2 + β(z)δ2 ≥ µ1 + β(z)δ1 for all z and Σ1 = Σ2",
+      "formal": "Theorem 4.5(1) conditions",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "Ŝ1 ≤st Ŝ2"
+    },
+    "quantifiers": "all z",
+    "numbers": "",
+    "ambiguity": ""
+   },
+   {
+    "paper": "doi:10.1080/03610926.2023.2165407",
+    "claim": "Corollary 5.3(2)",
+    "page": 20,
+    "quote": "(2) If µ2 + β(z)δ2 ≥ µ1 + β(z)δ1 for all z and Σ2 − Σ1 is positive semi-definite, then Ŝ1 ≤icx Ŝ2.",
+    "kind": "corollary",
+    "model": "other: collective risk model Ŝ = Σ_{i=1}^N αi Xi",
+    "family": "GLSE_n",
+    "compared": "Ŝ1 vs Ŝ2 in increasing convex order",
+    "hypotheses": [
+     {
+      "text": "N1 ≤st N2, independence; µ2 + β(z)δ2 ≥ µ1 + β(z)δ1 for all z; Σ2 − Σ1 psd",
+      "formal": "st-ordered counts + Corollary 5.2(2) conditions",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "icx",
+     "direction": "Ŝ1 ≤icx Ŝ2"
+    },
+    "quantifiers": "all z",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Collective-risk corollary split per order (st, icx); N1 ≤st N2 is a premise on claim counts."
+ },
+ {
+  "queue_claim": "corollary5.5",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1080/03610926.2023.2165407",
+    "claim": "Corollary 5.5",
+    "page": 21,
+    "quote": "Corollary 5.5. Let Y1, Y2 follow (18), where Σ1 and Σ2 are correlation matrices and n ∈ {2, 3}. Assume µ1 = µ2, δ1 = δ2 and σ1,ij ≤ σ2,ij for all 1 ≤ i < j ≤ n, then Gn(Y2) ≤icx Gn(Y1).",
+    "kind": "corollary",
+    "model": "other: Gini index Gn(X) = (1/n²)Σ|Xi − Xj| of a portfolio",
+    "family": "GLSE_n",
+    "compared": "Gini indices Gn(Y1) vs Gn(Y2) under correlation ordering — direction reversed (higher correlation ⇒ lower Gini in icx)",
+    "hypotheses": [
+     {
+      "text": "Σ1, Σ2 correlation matrices; n ∈ {2,3}; µ1 = µ2, δ1 = δ2, σ1,ij ≤ σ2,ij for all i < j",
+      "formal": "equal locations/skews + correlation ordering, small n",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "icx",
+     "direction": "Gn(Y2) ≤icx Gn(Y1) — the MORE-correlated portfolio has the icx-SMALLER Gini index"
+    },
+    "quantifiers": "n ∈ {2, 3}; all 1 ≤ i < j ≤ n",
+    "numbers": "",
+    "ambiguity": "Reversed conclusion direction (Gn(Y2) ≤icx Gn(Y1)) is as printed — proof uses −u(Gn(x)) supermodular plus Corollary 4.13's Y1 ≤sm Y2. Page is 21 (both passes said 20)."
+   }
+  ],
+  "note": "Corrected page 20→21. Reversed icx direction on Gini index verified verbatim."
+ },
+ {
+  "queue_claim": "example4.4",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1080/03610926.2023.2165407",
+    "claim": "Example 4.4",
+    "page": 12,
+    "quote": "Example 4.4. We consider the special case of univariate GLSE distribution to illustrate the results in Lemma 4.3. The survival functions of the GHSS distributions under three parameter setting are plotted in Figure 1(a). It is easy to check that the conditions in Lemma 4.3(1) are satisfied, and thus agrees with the usual stochastic ordering among these three distributions displayed in the plot. Moreover, Figure 1(b) provides a counterexample showing that the survival functions of these distributions cross with each other if the scale parameters of the three distributions are not identical.",
+    "kind": "example",
+    "model": "single (univariate GHSS cases in Fig 1)",
+    "family": "GHSS distributions: (0,1,1,1),(0,1,2,1),(1,1,3,1) in (a); (0,1,1,1),(0,2,1,1),(0,3,2,1) in (b)",
+    "compared": "three univariate GHSS distributions; survival-function ordering in Fig 1(a)",
+    "hypotheses": [
+     {
+      "text": "conditions in Lemma 4.3(1) satisfied in panel (a); scale parameters differ in panel (b)",
+      "formal": "µ/δ ordering + σ1 = σ2 required",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "usual stochastic order verified graphically in Fig 1(a); survival curves cross in Fig 1(b) when σ's differ (counterexample)"
+    },
+    "quantifiers": "three GHSS distributions; x ≥ 0",
+    "numbers": "Fig 1(a): GHSS(0,1,1,1), GHSS(0,1,2,1), GHSS(1,1,3,1); Fig 1(b): GHSS(0,1,1,1), GHSS(0,2,1,1), GHSS(0,3,2,1)",
+    "ambiguity": "Graphical evidence only (curves plotted, crossing/non-crossing inspected visually)."
+   }
+  ],
+  "note": "Supporting graphical example plus a crossing counterexample panel; B's 'counterexample' kind is folded into the example record (single printed Example 4.4)."
+ },
+ {
+  "queue_claim": "example4.8",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1080/03610926.2023.2165407",
+    "claim": "Example 4.8",
+    "page": 14,
+    "quote": "Example 4.8. As an illustration for Lemma 4.7, the stop-loss transformations for the univariate GHSS distributions are plotted in Figure 2. It is easy to check that the conditions in Lemma 4.7(1) are satisfied, and consistent with the increasing convex ordering among these three distributions displayed by the stop-loss transformations in Figure 2(a). Figure 2(b) provides a counterexample under the setting (µ1, σ1, δ1) = (0, 1, 0.5) and (µ2, σ2, δ2) = (1, 2, −0.5). It is noticed that the stop-loss transformations intersect with each other when the conditions in Lemma 4.7 are not satisfied.",
+    "kind": "example",
+    "model": "single (univariate GHSS cases in Fig 2)",
+    "family": "GHSS: (0,1,1,3),(0,1,3,3),(2,5,3,3) in (a); GHSS(0,1,0.5,3), GHSS(1,2,−0.5,3) in (b)",
+    "compared": "stop-loss transforms E[(Y − t)+] of three GHSS distributions; icx ordering in Fig 2(a)",
+    "hypotheses": [
+     {
+      "text": "conditions in Lemma 4.7(1) satisfied in (a); violated in (b) under (µ1,σ1,δ1) = (0,1,0.5), (µ2,σ2,δ2) = (1,2,−0.5)",
+      "formal": "icx-lemma conditions vs violated conditions",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "icx",
+     "direction": "stop-loss transforms ordered consistently with icx in Fig 2(a); they intersect (ordering fails) in Fig 2(b) counterexample"
+    },
+    "quantifiers": "three GHSS distributions in (a); two in (b); t ≥ 0",
+    "numbers": "Fig 2(a): GHSS(0,1,1,3), GHSS(0,1,3,3), GHSS(2,5,3,3); Fig 2(b): GHSS(0,1,0.5,3), GHSS(1,2,−0.5,3)",
+    "ambiguity": "Graphical evidence only."
+   }
+  ],
+  "note": "Supporting example plus crossing counterexample panel; merged into one record."
+ },
+ {
+  "queue_claim": "lemma4.3",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1080/03610926.2023.2165407",
+    "claim": "Lemma 4.3(1)",
+    "page": 12,
+    "quote": "Lemma 4.3. Assume Y1 ~ GLSE1(µ1, σ1, δ1, ψ, α, β, H), Y2 ~ GLSE1(µ2, σ2, δ2, ψ, α, β, H). (1) If µ2 − µ1 + β(z)(δ2 − δ1) ≥ 0 for all z and σ1 = σ2, then Y1 ≤st Y2.",
     "kind": "lemma",
-    "model": "other: bivariate random vectors",
-    "family": "arbitrary bivariate vectors (cited result, not GLSE-specific)",
-    "compared": "X vs Y; supermodular and upper orthant orders",
+    "model": "single (univariate GLSE1, eq. (17))",
+    "family": "GLSE_1",
+    "compared": "Y1 vs Y2 in the usual stochastic order — sufficient conditions",
     "hypotheses": [
      {
-      "text": "X, Y bivariate random vectors with the same marginals",
-      "formal": "equal marginals",
+      "text": "µ2 − µ1 + β(z)(δ2 − δ1) ≥ 0 for all z and σ1 = σ2",
+      "formal": "location-mixture ordering + equal scale",
       "source": "statement"
      }
     ],
     "conclusion": {
-     "order": "other: sm/uo equivalence",
-     "direction": "X ≤sm Y ⟺ X ≤uo Y in the bivariate case"
+     "order": "st",
+     "direction": "Y1 ≤st Y2"
     },
-    "quantifiers": "bivariate (n = 2)",
-    "numbers": "",
-    "ambiguity": "Quoted result used to bridge sm and uo orders; neither order is in the plain vocabulary."
-   }
-  ],
-  "note": "Printed bivariate sm⟺uo equivalence (Müller–Scarsini); labeled 'other: sm/uo equivalence'."
- },
- {
-  "queue_claim": "theorem4.12",
-  "decision": "include",
-  "records": [
-   {
-    "paper": "doi:10.1080/03610926.2023.2165407",
-    "claim": "Theorem 4.12",
-    "page": 16,
-    "quote": "Theorem 4.12. Let Y1, Y2 follow (18). Y1 ≤sm Y2 if and only if Y1 and Y2 have the same marginals and σ1,ij ≤ σ2,ij for all 1 ≤ i < j ≤ n.",
-    "kind": "theorem",
-    "model": "other: multivariate GLSE random vectors (model (18))",
-    "family": "GLSE_n",
-    "compared": "Y1 vs Y2 in the supermodular order",
-    "hypotheses": [
-     {
-      "text": "Y1, Y2 have the same marginals (µ1 = µ2, δ1 = δ2, σ1,ii = σ2,ii) and σ1,ij ≤ σ2,ij for all 1 ≤ i < j ≤ n",
-      "formal": "equal marginals + covariance ordering — iff characterization",
-      "source": "statement"
-     }
-    ],
-    "conclusion": {
-     "order": "other: sm (supermodular order)",
-     "direction": "Y1 ≤sm Y2 iff same marginals and σ1,ij ≤ σ2,ij (i < j)"
-    },
-    "quantifiers": "all 1 ≤ i < j ≤ n; all supermodular f",
-    "numbers": "",
-    "ambiguity": "Generalizes Slepian-type results (Müller 2001, Theorem 11)."
-   }
-  ],
-  "note": "Printed iff supermodular characterization; 'other: sm' label per vocabulary."
- },
- {
-  "queue_claim": "theorem4.15",
-  "decision": "include",
-  "records": [
-   {
-    "paper": "doi:10.1080/03610926.2023.2165407",
-    "claim": "Theorem 4.15(1)",
-    "page": 16,
-    "quote": "Theorem 4.15. Let Y1, Y2 follow (18). The following statements are true: (1) If µ2 + β(z)δ2 ≥ µ1 + β(z)δ1 for all z, σ1,ii = σ2,ii for all 1 ≤ i ≤ n and σ1,ij ≤ σ2,ij for all 1 ≤ i ≠ j ≤ n, then Y1 ≤uo Y2.",
-    "kind": "theorem",
-    "model": "other: multivariate GLSE random vectors (model (18))",
-    "family": "GLSE_n",
-    "compared": "Y1 vs Y2 in the upper orthant order — sufficient conditions",
-    "hypotheses": [
-     {
-      "text": "µ2 + β(z)δ2 ≥ µ1 + β(z)δ1 for all z; σ1,ii = σ2,ii for all i; σ1,ij ≤ σ2,ij for all i ≠ j",
-      "formal": "pointwise location-mixture ordering + equal variances + covariance ordering",
-      "source": "statement"
-     }
-    ],
-    "conclusion": {
-     "order": "other: uo (upper orthant order)",
-     "direction": "Y1 ≤uo Y2"
-    },
-    "quantifiers": "all z; all 1 ≤ i ≤ n; all 1 ≤ i ≠ j ≤ n",
+    "quantifiers": "all z",
     "numbers": "",
     "ambiguity": ""
    },
    {
     "paper": "doi:10.1080/03610926.2023.2165407",
-    "claim": "Theorem 4.15(2)",
-    "page": 17,
-    "quote": "(2) If Y1 ≤uo Y2 and g satisfies Assumption 4.1, then µ1 + E(β(Z))δ1 ≤ µ2 + E(β(Z))δ2 and σ1,ii = σ2,ii for all 1 ≤ i ≤ n.",
-    "kind": "theorem",
-    "model": "other: multivariate GLSE random vectors",
-    "family": "GLSE_n",
-    "compared": "necessary consequences of the upper orthant order",
+    "claim": "Lemma 4.3(2)",
+    "page": 12,
+    "quote": "(2) If Y1 ≤st Y2 and density generator g1 satisfies Assumption 4.1, then µ1 + E(β(Z))δ1 ≤ µ2 + E(β(Z))δ2 and σ1 = σ2.",
+    "kind": "lemma",
+    "model": "single (univariate GLSE1)",
+    "family": "GLSE_1",
+    "compared": "necessary consequences of the st order between univariate GLSE variables",
     "hypotheses": [
      {
-      "text": "Y1 ≤uo Y2 and g satisfies Assumption 4.1",
-      "formal": "uo order assumed; mixing density g meets Assumption 4.1",
+      "text": "Y1 ≤st Y2 and density generator g1 satisfies Assumption 4.1",
+      "formal": "st order assumed; tail control on g1 (lim p2/p1 = C ≠ 1 forces σ equality)",
       "source": "statement"
      }
     ],
     "conclusion": {
-     "order": "other: uo (upper orthant order)",
-     "direction": "Y1 ≤uo Y2 (as hypothesis) ⇒ componentwise Y1,i ≤st Y2,i and the printed mean/variance consequences"
+     "order": "st",
+     "direction": "Y1 ≤st Y2 (premise) ⇒ µ1 + E(β(Z))δ1 ≤ µ2 + E(β(Z))δ2 and σ1 = σ2"
     },
-    "quantifiers": "all 1 ≤ i ≤ n",
+    "quantifiers": "—",
     "numbers": "",
-    "ambiguity": "Necessity direction: the uo order is the premise here."
-   },
-   {
-    "paper": "doi:10.1080/03610926.2023.2165407",
-    "claim": "Theorem 4.15(3)",
-    "page": 17,
-    "quote": "(3) If Y1 and Y2 have the same marginals and Y1 ≤uo Y2, then σ1,ij ≤ σ2,ij for all 1 ≤ i < j ≤ n.",
-    "kind": "theorem",
-    "model": "other: multivariate GLSE random vectors",
-    "family": "GLSE_n",
-    "compared": "necessary covariance ordering from the uo order",
-    "hypotheses": [
-     {
-      "text": "Y1, Y2 have the same marginals and Y1 ≤uo Y2",
-      "formal": "equal marginals + uo order",
-      "source": "statement"
-     }
-    ],
-    "conclusion": {
-     "order": "other: uo (upper orthant order)",
-     "direction": "Y1 ≤uo Y2 (premise) ⇒ σ1,ij ≤ σ2,ij"
-    },
-    "quantifiers": "all 1 ≤ i < j ≤ n",
-    "numbers": "",
-    "ambiguity": "Proof prints '(Y1,i, Y1,j)ᵀ ≤uo (Y1,i, Y1,j)ᵀ' and '≤sm (Y1,i, Y1,j)ᵀ' — both compare a vector to itself; evidently typos for (Y2,i, Y2,j)ᵀ."
+    "ambiguity": "Necessity direction: the order is the premise here. Assumption 4.1 is a tail control on the density generator (limit of density ratio p2/p1 = C ≠ 1)."
    }
   ],
-  "note": "Multi-part theorem split into three records; 'uo' is a paper-defined orthant order → 'other: uo'. Proof of part 3 has a self-comparison typo."
+  "note": "B's two-record split is canonical: part (1) sufficiency, part (2) necessity of the st comparison."
  },
  {
-  "queue_claim": "theorem4.16",
+  "queue_claim": "lemma4.7",
   "decision": "include",
   "records": [
    {
     "paper": "doi:10.1080/03610926.2023.2165407",
-    "claim": "Theorem 4.16(1)",
-    "page": 17,
-    "quote": "Theorem 4.16. Let Y1, Y2 follow (18). The following statements are true: (1) If µ1 = µ2, δ1 = δ2 and Σ2 − Σ1 is copositive, then Y1 ≤cp Y2.",
-    "kind": "theorem",
-    "model": "other: multivariate GLSE random vectors (model (18))",
-    "family": "GLSE_n",
-    "compared": "Y1 vs Y2 in the copositive order — sufficiency",
+    "claim": "Lemma 4.7(1)",
+    "page": 14,
+    "quote": "Lemma 4.7. Let Y1, Y2 follow (17). We have the following conclusions: (1) If µ2 − µ1 + β(z)(δ2 − δ1) ≥ 0 for all z and σ1 ≤ σ2, then Y1 ≤icx Y2.",
+    "kind": "lemma",
+    "model": "single (univariate GLSE1, eq. (17))",
+    "family": "GLSE_1",
+    "compared": "Y1 vs Y2 in the increasing convex order — sufficient conditions",
     "hypotheses": [
      {
-      "text": "µ1 = µ2, δ1 = δ2 and Σ2 − Σ1 is copositive",
-      "formal": "equal locations/skews + copositive matrix difference",
+      "text": "µ2 − µ1 + β(z)(δ2 − δ1) ≥ 0 for all z and σ1 ≤ σ2",
+      "formal": "location ordering + scale ordering",
       "source": "statement"
      }
     ],
     "conclusion": {
-     "order": "other: cp (copositive order)",
-     "direction": "Y1 ≤cp Y2"
+     "order": "icx",
+     "direction": "Y1 ≤icx Y2"
+    },
+    "quantifiers": "all z",
+    "numbers": "",
+    "ambiguity": ""
+   },
+   {
+    "paper": "doi:10.1080/03610926.2023.2165407",
+    "claim": "Lemma 4.7(2)",
+    "page": 14,
+    "quote": "(2) If Y1 ≤icx Y2 and the corresponding density generator g1 satisfies Assumption 4.2, then µ2 − µ1 + Eβ(Z)(δ2 − δ1) ≥ 0 and σ1 ≤ σ2.",
+    "kind": "lemma",
+    "model": "single (univariate GLSE1)",
+    "family": "GLSE_1",
+    "compared": "necessary consequences of the icx order",
+    "hypotheses": [
+     {
+      "text": "Y1 ≤icx Y2 and g1 satisfies Assumption 4.2",
+      "formal": "icx order assumed; generator tail control (Assumption 4.2)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "icx",
+     "direction": "Y1 ≤icx Y2 (premise) ⇒ µ2 − µ1 + Eβ(Z)(δ2 − δ1) ≥ 0 and σ1 ≤ σ2"
+    },
+    "quantifiers": "—",
+    "numbers": "",
+    "ambiguity": "Necessity direction: the icx order is the premise."
+   }
+  ],
+  "note": "B's two-record split is canonical: icx sufficiency + necessity."
+ },
+ {
+  "queue_claim": "theorem4.10",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1080/03610926.2023.2165407",
+    "claim": "Theorem 4.10(1)",
+    "page": 16,
+    "quote": "Theorem 4.10. Let Y1, Y2 follow (18). The following statements are true: (1) If µ1 = µ2, δ1 = δ2 and Σ2 ≥ Σ1, then Y1 ≤dcx Y2.",
+    "kind": "theorem",
+    "model": "other: multivariate GLSE random vectors (model (18))",
+    "family": "GLSE_n",
+    "compared": "Y1 vs Y2 in the directionally convex order — sufficiency",
+    "hypotheses": [
+     {
+      "text": "µ1 = µ2, δ1 = δ2 and Σ2 ≥ Σ1 (Loewner order)",
+      "formal": "equal locations/skews + covariance-difference psd",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "other: dcx (directionally convex order)",
+     "direction": "Y1 ≤dcx Y2"
     },
     "quantifiers": "",
     "numbers": "",
-    "ambiguity": ""
+    "ambiguity": "dcx not in the plain vocabulary → 'other: dcx' (B's label). Generalizes Müller (2001) Thm 12, Yin (2019) Thm 3.6, Amiri et al. (2020) Prop. 6."
    },
    {
     "paper": "doi:10.1080/03610926.2023.2165407",
-    "claim": "Theorem 4.16(2)",
-    "page": 17,
-    "quote": "(2) If µ1 = µ2, then Y1 ≤cp Y2, if and only if δ1 = δ2 and Σ2 − Σ1 is copositive.",
+    "claim": "Theorem 4.10(2)",
+    "page": 16,
+    "quote": "(2) If µ1 = µ2, then Y1 ≤dcx Y2 if and only if δ1 = δ2 and Σ2 ≥ Σ1.",
     "kind": "theorem",
     "model": "other: multivariate GLSE random vectors",
     "family": "GLSE_n",
-    "compared": "cp order under common means",
+    "compared": "dcx order under common means",
     "hypotheses": [
      {
       "text": "µ1 = µ2",
@@ -216,8 +393,8 @@
      }
     ],
     "conclusion": {
-     "order": "other: cp (copositive order)",
-     "direction": "Y1 ≤cp Y2 iff δ1 = δ2 and Σ2 − Σ1 copositive (given µ1 = µ2)"
+     "order": "other: dcx (directionally convex order)",
+     "direction": "Y1 ≤dcx Y2 iff δ1 = δ2 and Σ2 ≥ Σ1 (given µ1 = µ2)"
     },
     "quantifiers": "",
     "numbers": "",
@@ -225,13 +402,13 @@
    },
    {
     "paper": "doi:10.1080/03610926.2023.2165407",
-    "claim": "Theorem 4.16(3)",
-    "page": 17,
-    "quote": "(3) If δ1 = δ2, then Y1 ≤cp Y2, if and only if µ1 = µ2 and Σ2 − Σ1 is copositive.",
+    "claim": "Theorem 4.10(3)",
+    "page": 16,
+    "quote": "(3) If δ1 = δ2, then Y1 ≤dcx Y2 if and only if µ1 = µ2 and Σ2 ≥ Σ1.",
     "kind": "theorem",
     "model": "other: multivariate GLSE random vectors",
     "family": "GLSE_n",
-    "compared": "cp order under common skewness vectors",
+    "compared": "dcx order under common skewness",
     "hypotheses": [
      {
       "text": "δ1 = δ2",
@@ -240,53 +417,53 @@
      }
     ],
     "conclusion": {
-     "order": "other: cp (copositive order)",
-     "direction": "Y1 ≤cp Y2 iff µ1 = µ2 and Σ2 − Σ1 copositive (given δ1 = δ2)"
+     "order": "other: dcx (directionally convex order)",
+     "direction": "Y1 ≤dcx Y2 iff µ1 = µ2 and Σ2 ≥ Σ1 (given δ1 = δ2)"
     },
     "quantifiers": "",
     "numbers": "",
-    "ambiguity": "Proof line 'Ef(Y1) ≤ f(Y2)' drops an E — printed 'Ef(Y1) ≤ f(Y2), which means that Y1 ≤cp Y2'."
+    "ambiguity": ""
    }
   ],
-  "note": "Three-part copositive-order characterization split per part; 'cp' → 'other: cp'."
+  "note": "Three-part iff characterization split per part; 'dcx' → 'other: dcx' per vocabulary. Corrected B's page 15→16."
  },
  {
-  "queue_claim": "theorem4.17",
+  "queue_claim": "theorem4.11",
   "decision": "include",
   "records": [
    {
     "paper": "doi:10.1080/03610926.2023.2165407",
-    "claim": "Theorem 4.17(1)",
-    "page": 17,
-    "quote": "Theorem 4.17. Let Y1, Y2 follow (18). The following statements are true: (1) If µ1 = µ2, δ1 = δ2 and Σ2 − Σ1 is completely positive, then Y1 ≤cop Y2.",
+    "claim": "Theorem 4.11(1)",
+    "page": 16,
+    "quote": "Theorem 4.11. Let Y1, Y2 follow (18). The following statements hold: (1) If µ1 = µ2, δ1 = δ2, σ1,ii ≤ σ2,ii for 1 ≤ i ≤ n and σ1,ij = σ2,ij for 1 ≤ i < j ≤ n, then Y1 ≤ccx Y2.",
     "kind": "theorem",
     "model": "other: multivariate GLSE random vectors (model (18))",
     "family": "GLSE_n",
-    "compared": "Y1 vs Y2 in the completely positive order — sufficiency",
+    "compared": "Y1 vs Y2 in the componentwise convex order — sufficiency",
     "hypotheses": [
      {
-      "text": "µ1 = µ2, δ1 = δ2 and Σ2 − Σ1 is completely positive",
-      "formal": "equal locations/skews + completely positive matrix difference",
+      "text": "µ1 = µ2, δ1 = δ2, σ1,ii ≤ σ2,ii (diagonal), σ1,ij = σ2,ij (off-diagonal)",
+      "formal": "equal means/skews + variance ordering with equal covariances",
       "source": "statement"
      }
     ],
     "conclusion": {
-     "order": "other: cop (completely positive order)",
-     "direction": "Y1 ≤cop Y2"
+     "order": "other: ccx (componentwise convex order)",
+     "direction": "Y1 ≤ccx Y2"
     },
-    "quantifiers": "",
+    "quantifiers": "1 ≤ i < j ≤ n",
     "numbers": "",
-    "ambiguity": "Proof of part (1) prints 'which means that Y1 ≤cp Y2' — typo for ≤cop (A's flag confirmed)."
+    "ambiguity": "ccx not in the plain vocabulary → 'other: ccx' (B's label). Multinormal case in Arlotto & Scarsini (2009); elliptical in Yin (2019)."
    },
    {
     "paper": "doi:10.1080/03610926.2023.2165407",
-    "claim": "Theorem 4.17(2)",
-    "page": 17,
-    "quote": "(2) If µ1 = µ2, then Y1 ≤cop Y2, if and only if δ1 = δ2 and Σ2 − Σ1 is completely positive.",
+    "claim": "Theorem 4.11(2)",
+    "page": 16,
+    "quote": "(2) If µ1 = µ2, then Y1 ≤ccx Y2 if and only if δ1 = δ2, σ1,ii ≤ σ2,ii for 1 ≤ i ≤ n and σ1,ij = σ2,ij for 1 ≤ i < j ≤ n.",
     "kind": "theorem",
     "model": "other: multivariate GLSE random vectors",
     "family": "GLSE_n",
-    "compared": "cop order under common means",
+    "compared": "ccx order under common means",
     "hypotheses": [
      {
       "text": "µ1 = µ2",
@@ -295,22 +472,22 @@
      }
     ],
     "conclusion": {
-     "order": "other: cop (completely positive order)",
-     "direction": "Y1 ≤cop Y2 iff δ1 = δ2 and Σ2 − Σ1 completely positive (given µ1 = µ2)"
+     "order": "other: ccx (componentwise convex order)",
+     "direction": "Y1 ≤ccx Y2 iff δ1 = δ2, σ1,ii ≤ σ2,ii, σ1,ij = σ2,ij (given µ1 = µ2)"
     },
-    "quantifiers": "",
+    "quantifiers": "1 ≤ i < j ≤ n",
     "numbers": "",
     "ambiguity": ""
    },
    {
     "paper": "doi:10.1080/03610926.2023.2165407",
-    "claim": "Theorem 4.17(3)",
-    "page": 17,
-    "quote": "(3) If δ1 = δ2, then Y1 ≤cop Y2, if and only if µ1 = µ2 and Σ2 − Σ1 is completely positive.",
+    "claim": "Theorem 4.11(3)",
+    "page": 16,
+    "quote": "(3) If δ1 = δ2, then Y1 ≤ccx Y2 if and only if µ1 = µ2, σ1,ii ≤ σ2,ii for 1 ≤ i ≤ n and σ1,ij = σ2,ij for 1 ≤ i < j ≤ n.",
     "kind": "theorem",
     "model": "other: multivariate GLSE random vectors",
     "family": "GLSE_n",
-    "compared": "cop order under common skewness vectors",
+    "compared": "ccx order under common skewness",
     "hypotheses": [
      {
       "text": "δ1 = δ2",
@@ -319,14 +496,69 @@
      }
     ],
     "conclusion": {
-     "order": "other: cop (completely positive order)",
-     "direction": "Y1 ≤cop Y2 iff µ1 = µ2 and Σ2 − Σ1 completely positive (given δ1 = δ2)"
+     "order": "other: ccx (componentwise convex order)",
+     "direction": "Y1 ≤ccx Y2 iff µ1 = µ2, σ1,ii ≤ σ2,ii, σ1,ij = σ2,ij (given δ1 = δ2)"
     },
-    "quantifiers": "",
+    "quantifiers": "1 ≤ i < j ≤ n",
     "numbers": "",
     "ambiguity": ""
    }
   ],
-  "note": "Three-part completely-positive-order characterization split per part; 'cop' → 'other: cop'. Proof typo '≤cp' for '≤cop' confirmed."
+  "note": "Three-part iff characterization split per part; 'ccx' → 'other: ccx' per vocabulary."
+ },
+ {
+  "queue_claim": "theorem4.5",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1080/03610926.2023.2165407",
+    "claim": "Theorem 4.5(1)",
+    "page": 12,
+    "quote": "Theorem 4.5. Assume that Y1 ~ GLSEn(µ1, Σ1, δ1, ψ, α, β, H), Y2 ~ GLSEn(µ2, Σ2, δ2, ψ, α, β, H). (1) If µ2 + β(z)δ2 ≥ µ1 + β(z)δ1 for all z and Σ1 = Σ2, then Y1 ≤st Y2.",
+    "kind": "theorem",
+    "model": "other: multivariate GLSE random vectors (model (18))",
+    "family": "GLSE_n",
+    "compared": "Y1 vs Y2 in the usual stochastic order — sufficient conditions",
+    "hypotheses": [
+     {
+      "text": "µ2 + β(z)δ2 ≥ µ1 + β(z)δ1 for all z and Σ1 = Σ2",
+      "formal": "pointwise location-mixture ordering + equal covariance",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "Y1 ≤st Y2"
+    },
+    "quantifiers": "all z",
+    "numbers": "",
+    "ambiguity": ""
+   },
+   {
+    "paper": "doi:10.1080/03610926.2023.2165407",
+    "claim": "Theorem 4.5(2)",
+    "page": 12,
+    "quote": "(2) If Y1 ≤st Y2 and the corresponding density generator g1 for aᵀY1 satisfies Assumption 4.1 for all a ∈ Rn, then µ1 + E(β(Z))δ1 ≤ µ2 + E(β(Z))δ2 and Σ1 = Σ2.",
+    "kind": "theorem",
+    "model": "other: multivariate GLSE random vectors",
+    "family": "GLSE_n",
+    "compared": "necessary consequences of the multivariate st order",
+    "hypotheses": [
+     {
+      "text": "Y1 ≤st Y2 and the density generator g1 of aᵀY1 satisfies Assumption 4.1 for all a ∈ Rn",
+      "formal": "st order assumed; generator tail control for all linear projections",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "Y1 ≤st Y2 (premise) ⇒ µ1 + E(β(Z))δ1 ≤ µ2 + E(β(Z))δ2 and Σ1 = Σ2"
+    },
+    "quantifiers": "all a ∈ Rn",
+    "numbers": "",
+    "ambiguity": "Necessity direction: order is the premise. Remark 3 notes the statement stays valid with ≤st replaced by ≤plst (positive linear stochastic order)."
+   }
+  ],
+  "note": "B's two-record split is canonical; plst remark preserved in ambiguity."
  }
 ]

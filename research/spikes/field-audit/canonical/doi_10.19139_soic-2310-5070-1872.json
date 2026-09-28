@@ -1,1 +1,102 @@
-[]
+[
+ {
+  "paper": "doi:10.19139/soic-2310-5070-1872",
+  "claim": "Section 3.6 Theorem (lr)",
+  "page": 10,
+  "quote": "Theorem: Suppose X1 \u223c T L \u2212 T IIEHL \u2212 M O \u2212 G(b1 , \u03b1, \u03b4, \u03be) and X2 \u223c T L \u2212 T IIEHL \u2212 M O \u2212 G(b2 , \u03b1, \u03b4, \u03be). If b1 < b2 , then f(x;b1,\u03b1,\u03b4,\u03be)/f(x;b2,\u03b1,\u03b4,\u03be) is decreasing in x. ... If b1 < b2 , then \u2202/\u2202x [f(x;b1,\u03b1,\u03b4,\u03be)/f(x;b2,\u03b1,\u03b4,\u03be)] < 0, which implies that likelihood ratio order exist among X1 and X2 , that is, X2 <lr X1 .",
+  "kind": "theorem",
+  "model": "single",
+  "family": "Topp-Leone type II exponentiated half logistic\u2013Marshall-Olkin-G family TL-TIIEHL-MO-G(b, \u03b1, \u03b4, \u03be) over baseline G(\u00b7;\u03be)",
+  "compared": "Topp-Leone parameters b1 < b2; common \u03b1, \u03b4, \u03be",
+  "hypotheses": [
+   {
+    "text": "X1 \u223c TL-TIIEHL-MO-G(b1, \u03b1, \u03b4, \u03be), X2 \u223c TL-TIIEHL-MO-G(b2, \u03b1, \u03b4, \u03be); b1 < b2",
+    "formal": "b1 < b2",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "X2 <lr X1 as printed; the decreasing ratio f(b1)/f(b2) under the paper's own definition would give X1 <lr X2 \u2014 printed direction likely transposed"
+  },
+  "quantifiers": "all x",
+  "numbers": "",
+  "ambiguity": "Internal inconsistency kept verbatim: f1/f2 decreasing \u27f9 X1 <lr X2 by the paper's definition (Section 3.6), but the printed conclusion is X2 <lr X1; the following sentence prints X1 <st X2, consistent with X1 <lr X2.",
+  "adjudication": "adjudicated: B-only capture of the lr half of the unnumbered Section-3.6 theorem; printed direction preserved wit"
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-1872",
+  "claim": "Section 3.6 Theorem (st)",
+  "page": 10,
+  "quote": "As a result, we conclude that X1 and X2 are stochastically ordered, that is, X1 <st X2 .",
+  "kind": "theorem",
+  "model": "single",
+  "family": "TL-TIIEHL-MO-G(b, \u03b1, \u03b4, \u03be)",
+  "compared": "b1 < b2; common \u03b1, \u03b4, \u03be",
+  "hypotheses": [
+   {
+    "text": "same conditions (b1 < b2) as the preceding lr statement",
+    "formal": "inherited from the unnumbered theorem above",
+    "source": "earlier theorem"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X1 <=st X2 (as printed; this direction contradicts the printed 'X2 <lr X1' \u2014 consistent instead with X1 <lr X2)"
+  },
+  "quantifiers": "all x",
+  "numbers": "",
+  "ambiguity": "Printed 'X1 <st X2' contradicts the printed 'X2 <lr X1' in the same paragraph (lr \u27f9 st preserves direction); the lr direction is the misprint.",
+  "adjudication": "adjudicated: B-only capture of the st corollary line; kept verbatim \u2014 the printed st direction is consistent with"
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-1872",
+  "claim": "Theorem (unnumbered, Section 3.6 Stochastic Order) \u2014 lr part",
+  "page": 10,
+  "quote": "Theorem: Suppose X1 \u223c T L \u2212 T IIEHL \u2212 M O \u2212 G(b1 , \u03b1, \u03b4, \u03be) and X2 \u223c T L \u2212 T IIEHL \u2212 M O \u2212 G(b2 , \u03b1, \u03b4, \u03be). If b1 < b2 , then f(x;b1,\u03b1,\u03b4,\u03be)/f(x;b2,\u03b1,\u03b4,\u03be) is decreasing in x. ... which implies that likelihood ratio order exist among X1 and X2 , that is, X2 <lr X1 .",
+  "kind": "theorem",
+  "model": "single",
+  "family": "TL-TIIEHL-MO-G(b, \u03b1, \u03b4, \u03be)",
+  "compared": "X1 vs X2 differing only in b (b1 < b2)",
+  "hypotheses": [
+   {
+    "text": "b1 < b2",
+    "formal": "stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "X2 <lr X1 (as printed; see ambiguity)"
+  },
+  "quantifiers": "all x",
+  "numbers": "",
+  "ambiguity": "Decreasing f(b1)/f(b2) implies X1 <lr X2 under the paper's definition; printed direction transposed.",
+  "adjudication": "adjudicated: Same printed theorem as the two B-side items; split into one record per order (lr, st) per spec. Pri"
+ },
+ {
+  "paper": "doi:10.19139/soic-2310-5070-1872",
+  "claim": "Theorem (unnumbered, Section 3.6 Stochastic Order) \u2014 st part",
+  "page": 10,
+  "quote": "As a result, we conclude that X1 and X2 are stochastically ordered, that is, X1 <st X2 .",
+  "kind": "theorem",
+  "model": "single",
+  "family": "TL-TIIEHL-MO-G(b, \u03b1, \u03b4, \u03be)",
+  "compared": "X1 vs X2 differing only in b (b1 < b2)",
+  "hypotheses": [
+   {
+    "text": "b1 < b2",
+    "formal": "stated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X1 <=st X2 (as printed)"
+  },
+  "quantifiers": "all x",
+  "numbers": "",
+  "ambiguity": "Consistent with the corrected lr direction X1 <lr X2 (which entails X1 <st X2 via the paper's lr \u27f9 hr \u27f9 st chain).",
+  "adjudication": "adjudicated: Same printed theorem as the two B-side items; split into one record per order (lr, st) per spec. Pri"
+ }
+]

@@ -1,0 +1,156 @@
+[
+ {
+  "queue_claim": "theorem3.5i",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1080/02331888.2017.1353516",
+    "claim": "Theorem 3.5(i)",
+    "page": 9,
+    "quote": "Theorem 3.5 For i = 1, 2, ..., n, let Ui and Vi be two sets of mutually independent random variables each following the multiple-outlier Kw-G model such that Ui ∼Kw-G(α, β, F ) and Vi ∼Kw-G(α, δ, F ) for i = 1, 2, . . . , n1 , Ui ∼ Kw-G(α∗ , β ∗ , F ) and Vi ∼ Kw-G(α∗ , δ ∗ , F ) for i = n1 + 1, n1 + 2, . . . , n1 + n2 (= n). If (β, β, . . . , β, β ∗ , β ∗ , . . . , β ∗ ) ≽m (δ, δ, . . . , δ, δ ∗ , δ ∗ , . . . , δ ∗ ) [n1 and n2 copies] and i) α > α∗ , β > β ∗ , δ < δ ∗ , then U1:n ≥lr V1:n ;",
+    "kind": "theorem",
+    "model": "series system (smallest order statistic)",
+    "family": "multiple-outlier Kw-G model: n1 components Kw-G(α, β, F) [resp. Kw-G(α, δ, F)] and n2 outliers Kw-G(α*, β*, F) [resp. Kw-G(α*, δ*, F)], common parent F",
+    "compared": "second-shape block vectors (β,...,β*...) vs (δ,...,δ*...) under majorization, with scalar constraints",
+    "hypotheses": [
+     {
+      "text": "(β, β, . . . , β, β ∗ , . . . , β ∗ ) ≽m (δ, δ, . . . , δ, δ ∗ , . . . , δ ∗ )",
+      "formal": "block β-vector majorizes block δ-vector",
+      "source": "statement"
+     },
+     {
+      "text": "i) α > α∗ , β > β ∗ , δ < δ ∗",
+      "formal": "scalar constraints",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "U1:n >=lr V1:n"
+    },
+    "quantifiers": "n = n1 + n2, any positive integers n1, n2",
+    "numbers": "",
+    "ambiguity": "Part (i) of a two-case statement; part (ii) has the opposite conclusion direction."
+   }
+  ],
+  "note": "Split per spec: A merged both cases into one record; the part-(i) record is emitted here and part (ii) under theorem3.5ii. Direction U1:n >=lr V1:n confirmed in text layer."
+ },
+ {
+  "queue_claim": "theorem3.5ii",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1080/02331888.2017.1353516",
+    "claim": "Theorem 3.5(ii)",
+    "page": 9,
+    "quote": "ii) α > α∗ , β < β ∗ , δ < δ ∗ , then U1:n ≤lr V1:n .",
+    "kind": "theorem",
+    "model": "series system (smallest order statistic)",
+    "family": "multiple-outlier Kw-G model, common parent F (same preamble as part i)",
+    "compared": "second-shape block vectors under majorization",
+    "hypotheses": [
+     {
+      "text": "(β, β, . . . , β, β ∗ , . . . , β ∗ ) ≽m (δ, δ, . . . , δ, δ ∗ , . . . , δ ∗ )",
+      "formal": "block β-vector majorizes block δ-vector",
+      "source": "statement"
+     },
+     {
+      "text": "ii) α > α∗ , β < β ∗ , δ < δ ∗",
+      "formal": "scalar constraints (β < β* instead of β > β*)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "U1:n <=lr V1:n"
+    },
+    "quantifiers": "n = n1 + n2",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Pass B only; verified verbatim — part (ii) flips the β<β* condition and concludes U1:n <=lr V1:n."
+ },
+ {
+  "queue_claim": "theorem4.2ii",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1080/02331888.2017.1353516",
+    "claim": "Theorem 4.2(ii)",
+    "page": 11,
+    "quote": "Theorem 4.2 For i = 1, 2, . . . , n, let Ui and Vi be two sets of mutually independent random variables with Ui ∼Kw-G(αi , βi , F1 ) and Vi ∼ Kw-G(αi , δi , F2 ). If β ≽m δ, α ∈ D+ and ii) β, δ ∈ D+ , then X1 ≥st X2 implies U1:n ≥st V1:n .",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "Kw-G samples with different parents F1, F2; common α vector",
+    "compared": "β vs δ under majorization AND parent stochastic order X1 >=st X2 (reversed vs part i)",
+    "hypotheses": [
+     {
+      "text": "β ≽m δ, α ∈ D+",
+      "formal": "β majorizes δ; α decreasing-ordered",
+      "source": "statement"
+     },
+     {
+      "text": "ii) β, δ ∈ D+",
+      "formal": "descending-sorted shape vectors",
+      "source": "statement"
+     },
+     {
+      "text": "X1 ≥st X2",
+      "formal": "parent stochastic order (reversed relative to part i's X1 ≤st X2)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "U1:n >=st V1:n"
+    },
+    "quantifiers": "n >= 1; x >= 0",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Pass B only; verified verbatim — part (ii) of Theorem 4.2 with the D+ restriction and reversed parent order."
+ },
+ {
+  "queue_claim": "theorem4.4ii",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1080/02331888.2017.1353516",
+    "claim": "Theorem 4.4(ii)",
+    "page": 12,
+    "quote": "Theorem 4.4 Let X1 and X2 be two random variables having distribution functions F1 and F2 respectively. For i = 1, 2, . . . , n, let Ui and Vi be two sets of mutually independent random variables with Ui ∼Kw-G(αi ,βi ,F1 ) and Vi ∼ Kw-G(αi ,δi ,F2 ). Further, for any real number s > 0, suppose Xi^s be a random variable having distribution function Fi^s (x). If β ≽m δ, α ∈ D+ and ii) β,δ ∈ D+ , then X1 ≥hr X2 implies U1:n ≥hr V1:n .",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "Kw-G samples with different parents F1, F2; common α; powered parents Fi^s also introduced",
+    "compared": "β vs δ under majorization AND parent hazard-rate order X1 >=hr X2",
+    "hypotheses": [
+     {
+      "text": "β ≽m δ, α ∈ D+",
+      "formal": "β majorizes δ; α decreasing-ordered",
+      "source": "statement"
+     },
+     {
+      "text": "ii) β, δ ∈ D+",
+      "formal": "descending-sorted shape vectors",
+      "source": "statement"
+     },
+     {
+      "text": "X1 ≥hr X2",
+      "formal": "parent hazard-rate order (reversed relative to part i's X1 ≤hr X2)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "U1:n >=hr V1:n"
+    },
+    "quantifiers": "n >= 1; x >= 0; any s > 0 (powered parents)",
+    "numbers": "",
+    "ambiguity": "The X_i^s powered-parent clause is part of the printed preamble; part (ii) itself uses only the parent ordering X1 >=hr X2."
+   }
+  ],
+  "note": "Pass B only; verified verbatim — part (ii) of Theorem 4.4 with D+ restriction and reversed parent hr order."
+ }
+]
