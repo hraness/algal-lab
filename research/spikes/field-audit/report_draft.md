@@ -70,3 +70,14 @@
 - **doi_10.6339_jds.202001_18_1_.0001** — 4 confirmed claim(s): section 4.7, case i (hr part; section 4.7, case i (lr part; section 4.7, case i (rhr part; section 4.7, case i (st part
 - **doi_10.66224_jss.20.1.06** — 6 confirmed claim(s): theorem 1; theorem 2; theorem 3; theorem 6(a; theorem 8; theorem 9
 - **doi_10.7153_mia-2020-23-03** — 2 confirmed claim(s): theorem 3.3; theorem 3.4
+
+## Novelty assessment (vs the earlier cluster audit and the literature)
+
+The earlier `cluster-audit` memo covered a *targeted* citation cone (~9–17 papers around the T-transform/mixture-lift defect). This field audit differs in kind and scope:
+
+- **Random frozen sample, not a cone**: the 100-paper sample was drawn from an 858-candidate frame by a frozen position order — so the 29.6% rate is an estimate for the frame population, not for a hand-picked cluster. New deliverable: a defensible *error rate*.
+- **New failure classes beyond the lift**: convention-reversed symbols breaking whole papers (s11587 ×7), direction-reversed conclusions in elementary parameter-ordering theorems (MWU, jds, ijsp8, ejpam6653, s40745, soic-1872, s44199), vacuous hypotheses (x²r class — now seen in *both* audits, confirming it as a recurring published defect type), defective printed objects (a printed "CDF" reaching 2.12), self-contradictory theorem sets.
+- **Methodological findings that are themselves reportable**: double-pass extraction agreement was only ~61–70% (order+direction); agreed-but-wrong errors exist (BJPS-510 premise inverted in both passes); and **38% of raw automated refutations (65/172) did not survive independent premise-checked verification** — a measured artifact rate for claim-checking pipelines.
+- What this audit does NOT claim: worldwide novelty of any single refutation (each is a dated computational certificate against the printed record), exhaustive coverage (the frame is open-access-skewed), or theoremhood of "holds" (bounded grids only).
+
+Citable as: a controlled-sample audit of the applied stochastic-ordering literature with exact/interval verification and an independently verified error rate.
