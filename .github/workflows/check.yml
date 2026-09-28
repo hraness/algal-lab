@@ -43,6 +43,22 @@ jobs:
       - run: python3 -m research.spikes.stochastic.verify
       - run: python3 -m research.spikes.softmax_partitions.experiment --out research/spikes/context/runs/ci-softmax-partitions
       - run: python3 -m unittest discover -s research/spikes/moonshot-r310/degree_four -p 'test_*.py'
+      - name: Check out the pinned native SAT solver
+        uses: actions/checkout@v7
+        with:
+          repository: arminbiere/cadical
+          ref: c60730422e758ef1cebe7aeddf2dda31c996bf04 # rel-3.0.1
+          path: runs/cadical-source
+          persist-credentials: false
+      - name: Build the native solver for research controls
+        working-directory: runs/cadical-source
+        run: |
+          ./configure -fPIC
+          make -j2
+      - name: Link and check the Ramsey search controls
+        run: |
+          python3 research/spikes/moonshot-r310/degree_six/native.py runs/cadical-source/build/libcadical.a runs/moonshot-r310/native-cadical
+          CADICAL_LIBRARY="$PWD/runs/moonshot-r310/native-cadical/libcadical.so" python3 -m unittest discover -s research/spikes/moonshot-r310/degree_six -p 'test_*.py' -v
 
   pipeline:
     name: Demo pipeline
