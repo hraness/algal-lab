@@ -1,0 +1,25 @@
+{
+ "paper": "arxiv_2606.07022",
+ "records": [
+  {
+   "claim": "Remark 2 (item 1)",
+   "order": "st",
+   "eval_status": "refuted",
+   "eval_witness": "1/1000000000000",
+   "eval_instances": "(r,g1,q,b1,m): (2,1,3,2,1), (2,3/2,4,5/2,1/2), (3,1,3,2,1) -- all with r<=q, gamma1:r<=beta1:q, equal common difference m",
+   "classification": "invalid-instance",
+   "premise_check": {
+    "hypothesis": "role-swap of Corollary 2: premise 'gamma1:r >= beta1:q AND r <= q' becomes 'gamma1:r <= beta1:q AND r >= q' when roles are swapped; eval kept r<=q -> the two r<q instances violate the swapped premise",
+    "model": "uniform m-GOS survival S_{r,g,m}(v)=M/((r-1)! m^{r-1}) sum_k (-1)^k C(r-1,k) v^{g+mk}/(g+mk) matches printed eq (6)-(7)"
+   },
+   "independent_witness": {
+    "eval_instances_fail": "e.g. (r,g,q,b,m)=(2,1,3,2,1): S_{3,2}-S_{2,1} = +0.0063 at v=0.9 (claim needs <=0) -- but this instance has r<q, violating the role-swapped premise",
+    "conforming_instances_hold": "with r>=q and gamma1:r<=beta1:q: (r,g,q,b,m)=(3,1,2,2,1): S_{q,b}-S_{r,g} in [-0.544, -3e-12] <0 at all 10 grid pts; (4,1,2,2,1): <=-4e-12; (3,0.5,2,2,1): <0; (4,1,3,2,1): <0; r=q swapped-Cor1 cases (2,1 vs 2,2),(3,1 vs 2),(3,0.5 vs 2.5) all <0 on grid",
+    "precision": "mpmath dps=110"
+   },
+   "evidence": "the printed remark derives the claim 'by changing the roles' of the parameter vectors, which necessarily flips the index condition r<=q to r>=q; on the coherent reading the eval's r<q instances are premise-violating and the claim holds on conforming instances",
+   "notes": "under a literal reading retaining r<=q the printed inequality does fail (crossing at large v), but that reading is inconsistent with the role-swap derivation the paper states",
+   "note": "premise ambiguous; under the coherent role-swap reading the eval's instances are invalid and the claim holds"
+  }
+ ]
+}

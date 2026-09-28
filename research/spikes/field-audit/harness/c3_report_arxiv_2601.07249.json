@@ -179,7 +179,26 @@
     "evidence": "r\u0303_X - r\u0303_Y = -0.5 at t=1e-10 (numeric) matching the exact asymptotic -0.5: X >=rh Y fails on a premise-valid instance.",
     "notes": "st and hr parts held on the same instances in the eval; the claim is genuinely refuted for rh (and lr)"
    }
-  ]
+  ],
+  {
+   "claim": "Remark 3.3 (reversed hazard rate order)",
+   "order": "rh",
+   "eval_status": "refuted",
+   "eval_witness": "1/1000000000000",
+   "eval_instances": "five componentwise-ordered (a1<=a2,b1<=b2,l1<=l2) cases, same as Theorem 3.2",
+   "classification": "confirmed-genuine",
+   "premise_check": {
+    "hypothesis": "a1<=a2,b1<=b2,l1<=l2 -- all instances satisfy it",
+    "model": "S=exp(-a x - b x^2/2 - l + l e^{-a x - b x^2/2}) (CLFRD survival, printed eq (1))"
+   },
+   "independent_witness": {
+    "detail": "X=(1,1,1),Y=(1,2,1): F_X/F_Y successive differences on [1e-8,5] = (-4.95e-7,-4.95e-5,-0.0048,-0.035,-0.040,+0.032,...) -- non-monotone CDF ratio, so neither X<=rh Y nor X>=rh Y holds; printed 'X >=rh Y under componentwise <=' fails",
+    "precision": "mpmath dps=100"
+   },
+   "evidence": "rh order fails on premise-valid instance; consistent with the lr failure confirmed for Theorem 3.2 (lr fails at x=0+ where d/dx log(g_X/g_Y)=-1)",
+   "notes": "genuine refutation; the printed Remark 3.3 chain of orders inherits the broken lr direction",
+   "note": "confirmed-genuine"
+  }
  ],
  "summary": {
   "counts": {

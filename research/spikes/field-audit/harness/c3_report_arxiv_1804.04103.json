@@ -1,0 +1,25 @@
+{
+ "paper": "arxiv_1804.04103",
+ "records": [
+  {
+   "claim": "Theorem 3.1",
+   "order": "st",
+   "eval_status": "refuted",
+   "eval_witness": "i:fail 1/1000000000000; i:fail 1/1000000000000; ii:ok",
+   "eval_instances": "part (i): h(p) vs h(p*) pairs (0.8,0.2)-(0.75,0.5) and (0.9,0.5,0.2)-(0.8,0.6,0.5) with h(u)=u identity, lam D+; part (ii): h=-log u, u=(1,4) vs (2,3)",
+   "classification": "confirmed-genuine",
+   "premise_check": {
+    "hypothesis": "paper Def 2.2(ii) defines 'x weakly supermajorize y' via bottom sums <=; eval's premise direction is consistent with that printed convention. BUT eval's part-(i) used h(u)=u which is NOT strictly convex (printed requires differentiable strictly convex)",
+    "strict_convex_fix": "with h(u)=u^2 (strictly convex, increasing): p=(0.9,0.2)->u=(0.81,0.04) in D+, u*=(0.5,0.5) satisfies Def-2.2(ii) bottom-sums<=, lam=(2,1) in D+",
+    "result": "conforming instance fails: S_{Xn:n}-S_{Yn:n} = -0.055 at x=0.3 (and negative on ~[0.15,0.8]) -> printed 'Xn:n >=st Yn:n' is false even under all premises"
+   },
+   "independent_witness": {
+    "conforming_counterexample": "lam=(2,1) in D+, h(u)=u^2, h(p)=(0.81,0.04), h(p*)=(0.5,0.5): bottom sums 0.04<=0.5, 0.85<=1.0 OK; S_X-S_Y: +0.0058 (x=1e-3), -0.0553 (x=0.3), -0.0513 (x=0.5), -0.0123 (x=0.9) -> printed claim fails; survival curves cross",
+    "part_ii": "eval's part-(ii) instance satisfied both weak-majorization readings (equal totals) and held; printed (ii) direction consistent there",
+    "precision": "mpmath dps=110; LL(1,lam) survival S_T(x)=1-x^s(1+s(lam-ln x))/(1+lam s) verified against printed eq (1.2)"
+   },
+   "evidence": "the printed claim in part (i) is genuinely false: a strictly-convex conforming instance violates it; eval's verdict is independently confirmed though its own h=u instance lacked strict convexity",
+   "notes": "genuine refutation of the printed theorem statement (branch i)"
+  }
+ ]
+}

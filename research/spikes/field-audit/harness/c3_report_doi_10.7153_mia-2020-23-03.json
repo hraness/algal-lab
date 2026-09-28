@@ -1,0 +1,109 @@
+{
+ "paper": "doi_10.7153_mia-2020-23-03",
+ "records": [
+  {
+   "claim": "Example 3.1",
+   "order": "st",
+   "eval_status": "refuted",
+   "eval_witness": "131072/15",
+   "eval_instances": 1,
+   "classification": "confirmed-genuine",
+   "premise_check": null,
+   "independent_witness": "Paper's own data satisfies ALL printed premises: lam=(0.26,0.74),p=(0.03,0.02) and lam*=(0.4,0.6),p*=(0.026,0.024), h(p)=p; (lam,h(p)) and (lam*,h(p*)) both anti-comonotone (in S); h(p*) majorized by h(p) (totals 0.05=0.05, top 0.026<=0.03); lam* ~<^w lam (0.4>=0.26, 1.0>=1.0); FGM theta=0.5 PQD & Schur-concave; Gamma(0.8,lam) scale family w/ dec density. Yet G_{Y*2:2}(x)-G_{Y2:2}(x) = -3.4e-3 at x=4 (printed claim needs >=0) and curves cross near x~28 -> printed 'Y*_{2:2} <=st Y_{2:2}' fails on the paper's own instance. (110-digit mpmath, FGM copula, exact mixture formula G=prod(1-p_i Fbar_i)+p1 p2(C(F1,F2)-F1F2)).",
+   "evidence": "Printed conclusion is false on a fully premise-conforming instance (the paper's own). Eval's own instance was also premise-violating (comonotone rows, not in S), but the verdict is independently confirmed.",
+   "notes": "Printed conclusion is false on a fully premise-conforming instance (the paper's own). Eval's own instance was also premise-violating (comonotone rows, not in S), but the verdict is independently confirmed.",
+   "note": "Printed conclusion is false on a fully premise-conforming instance (the paper's own). Eval's own instance was also premise-violating (comonotone rows, not in S), but the verdict is independently confirmed."
+  },
+  {
+   "claim": "Example 3.3",
+   "order": "st",
+   "eval_status": "refuted",
+   "eval_witness": "32/15",
+   "eval_instances": 1,
+   "classification": "invalid-instance",
+   "premise_check": null,
+   "independent_witness": "eval used generic comonotone instance (lam=(1/2,1),p=(1/5,4/5)) violating (lam,h(p)) in S. Paper's data: lam=(4,2),p=(0.02,0.06),lam*=(4,6),p*=(0.0479,0.0319),h=log(2+p),AMH th=0.3: S-membership holds both sides, lam* ~<^w lam holds; h(p*)~<^m h(p) holds up to print rounding (sums differ by 1.7e-5); G_*-G>0 across grid x in [1,1000] -> printed Y*<=st Y holds on the paper's data.",
+   "evidence": "Eval ignored paper's stated data; instance violates S-membership premise.",
+   "notes": "Eval ignored paper's stated data; instance violates S-membership premise.",
+   "note": "Eval ignored paper's stated data; instance violates S-membership premise."
+  },
+  {
+   "claim": "Example 3.4",
+   "order": "st",
+   "eval_status": "refuted",
+   "eval_witness": "16/15",
+   "eval_instances": 1,
+   "classification": "invalid-instance",
+   "premise_check": null,
+   "independent_witness": "eval's generic instance violates S. Paper's data: lam=(0.6,-0.2),p=(0.04,0.09),lam*=(0.1,0.4),p*=(0.0676,0.0576),h=p,Gumbel th=10: S holds; lam*~<^w lam holds; h(p*)~<^m h(p) FAILS as printed (sums 0.1252 vs 0.13, not rounding); nevertheless G_*-G>0 at all grid points -> printed conclusion Y*<=st Y holds on the printed data.",
+   "evidence": "Eval's instance invalid; additionally the paper's printed p* itself violates the majorization premise yet the claim still holds numerically.",
+   "notes": "Eval's instance invalid; additionally the paper's printed p* itself violates the majorization premise yet the claim still holds numerically.",
+   "note": "Eval's instance invalid; additionally the paper's printed p* itself violates the majorization premise yet the claim still holds numerically."
+  },
+  {
+   "claim": "Theorem 3.1",
+   "order": "st",
+   "eval_status": "refuted",
+   "eval_witness": "32/15",
+   "eval_instances": 1,
+   "classification": "invalid-instance",
+   "premise_check": null,
+   "independent_witness": "eval instance lam=(1/2,1),p=(1/5,4/5): u=ln(2+p) increasing with lam increasing -> comonotone, so (lam,h(p)) not in S; same for starred side. Premise violated. On conforming instances (lam common (0.26,0.74), u decreasing, u*~<^m u, indep/FGM copulas) G_*-G>0 at all grid points -> printed claim holds where tested.",
+   "evidence": "Printed: (h(p*))~<^m(h(p)) => Y*2:2 <=st Y2:2 under S-membership both sides + PQD C + h^-1 log-concave. Eval ignored anti-comonotonicity.",
+   "notes": "Printed: (h(p*))~<^m(h(p)) => Y*2:2 <=st Y2:2 under S-membership both sides + PQD C + h^-1 log-concave. Eval ignored anti-comonotonicity.",
+   "note": "Printed: (h(p*))~<^m(h(p)) => Y*2:2 <=st Y2:2 under S-membership both sides + PQD C + h^-1 log-concave. Eval ignored anti-comonotonicity."
+  },
+  {
+   "claim": "Theorem 3.3",
+   "order": "st",
+   "eval_status": "refuted",
+   "eval_witness": "32/15",
+   "eval_instances": 1,
+   "classification": "confirmed-genuine",
+   "premise_check": null,
+   "independent_witness": "Paper's own Example 3.1 data satisfies every printed premise of Thm 3.3 (h=p inc concave w/ log-concave inverse; Fbar(x;lam)=Q(0.8,lam x) decreasing and convex in lam; FGM theta=0.5 PQD & Schur-concave giving dC1>=dC2; both matrices in S; u*~<^m u; lam*~<^w lam) and the conclusion fails: G_*-G=-3.4e-3 at x=4, crossing near x~28. Genuine counterexample.",
+   "evidence": "Eval's own witness instance was invalid (comonotone), but the claim is independently falsified by the paper's Example 3.1 numbers.",
+   "notes": "Eval's own witness instance was invalid (comonotone), but the claim is independently falsified by the paper's Example 3.1 numbers.",
+   "note": "Eval's own witness instance was invalid (comonotone), but the claim is independently falsified by the paper's Example 3.1 numbers."
+  },
+  {
+   "claim": "Theorem 3.4",
+   "order": "st",
+   "eval_status": "refuted",
+   "eval_witness": "131072/15",
+   "eval_instances": 1,
+   "classification": "confirmed-genuine",
+   "premise_check": null,
+   "independent_witness": "Same counterexample: Gamma(0.8,lam) is a scale model Fbar(lam x) with decreasing density; all Thm 3.4 premises verified on the paper's Ex 3.1 data; conclusion fails (G_*<G on [0.25,25]).",
+   "evidence": "Genuine refutation via the paper's own example, not via eval's (invalid) instance.",
+   "notes": "Genuine refutation via the paper's own example, not via eval's (invalid) instance.",
+   "note": "Genuine refutation via the paper's own example, not via eval's (invalid) instance."
+  },
+  {
+   "claim": "Theorem 3.5",
+   "order": "st",
+   "eval_status": "refuted",
+   "eval_witness": "32/15",
+   "eval_instances": 1,
+   "classification": "invalid-instance",
+   "premise_check": null,
+   "independent_witness": "eval instance comonotone -> violates S premises. Conforming analogue of Ex 3.1 data under PHR margins Fbar=e^{-lam x} with FGM/AMH/indep copulas gives G_*-G>0 everywhere -> printed claim holds on tested conforming instances.",
+   "evidence": "Eval's witness violates premises; no conforming counterexample found in bounded search -> instance invalid, claim unrefuted.",
+   "notes": "Eval's witness violates premises; no conforming counterexample found in bounded search -> instance invalid, claim unrefuted.",
+   "note": "Eval's witness violates premises; no conforming counterexample found in bounded search -> instance invalid, claim unrefuted."
+  },
+  {
+   "claim": "Theorem 3.6",
+   "order": "st",
+   "eval_status": "refuted",
+   "eval_witness": "16/15",
+   "eval_instances": 1,
+   "classification": "invalid-instance",
+   "premise_check": null,
+   "independent_witness": "eval instance comonotone -> violates S premises. TG analogue of Ex 3.1 data satisfies claim on grid.",
+   "evidence": "Eval's witness violates premises; no conforming counterexample found.",
+   "notes": "Eval's witness violates premises; no conforming counterexample found.",
+   "note": "Eval's witness violates premises; no conforming counterexample found."
+  }
+ ]
+}

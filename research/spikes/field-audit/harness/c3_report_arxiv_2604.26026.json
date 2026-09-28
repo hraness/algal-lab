@@ -1,0 +1,96 @@
+{
+ "paper": "arxiv_2604.26026",
+ "records": [
+  {
+   "claim": "Example 3.5",
+   "order": "st",
+   "eval_status": "refuted",
+   "eval_witness": "1/1000000000000",
+   "eval_instances": 3,
+   "classification": "invalid-instance",
+   "premise_check": null,
+   "independent_witness": "eval's instance (bb=(0.6,1,0.8), aa=(0.3,1,1.7)) has sums 2.4 vs 3.0 -> alpha ~>=^m beta (equal total required) fails. On conforming equal-sum data (a=(0.4,1,1.6) maj (0.7,1,1.3)) the printed Xn:n(a)>=st Yn:n(b) holds for clayton1/gumbel2/amh12 copulas at all grid points (110-digit).",
+   "evidence": "Premise violated: unequal coordinate sums make majorization impossible. V-increasing condition for te+Clayton also verified increasing.",
+   "notes": "Premise violated: unequal coordinate sums make majorization impossible. V-increasing condition for te+Clayton also verified increasing.",
+   "note": "Premise violated: unequal coordinate sums make majorization impossible. V-increasing condition for te+Clayton also verified increasing."
+  },
+  {
+   "claim": "Corollary 3.9",
+   "order": "st",
+   "eval_status": "refuted",
+   "eval_witness": "1/1000000000000",
+   "eval_instances": 3,
+   "classification": "invalid-instance",
+   "premise_check": null,
+   "independent_witness": "same eval pair; beta ~>^m alpha fails (unequal sums). Conforming test: To margins + Clayton gamma<=1 (V-decreasing regime per Prop 4.15's S_o=-x^{1-g1}): S_X-S_Y<=0 on grid -> printed X1:n(a)<=st Y1:n(b) holds.",
+   "evidence": "Series-system counterpart of Thm 3.8.",
+   "notes": "Series-system counterpart of Thm 3.8.",
+   "note": "Series-system counterpart of Thm 3.8."
+  },
+  {
+   "claim": "Proposition 4.14",
+   "order": "st",
+   "eval_status": "refuted",
+   "eval_witness": "131072/15",
+   "eval_instances": 2,
+   "classification": "confirmed-genuine",
+   "premise_check": null,
+   "independent_witness": "eval instance IS premise-valid: alpha=(0.5,0.8)<=beta=(0.7,1), X-copula indep (psi1=e^{-t}), Y-copula clayton1 (psi2=(1+t)^{-1}); phi2 o psi1(t)=e^t-1 super-additive on [0,inf) (f(0)=0, convex). Yet S_{X1:n}-S_{Y1:n} = -0.039 at x=3, -0.0056 at x=10 (negative for all x>=1 in both instances) -> printed 'X1:n(alpha) >=st Y1:n(beta)' fails. Archimedean survival formula psi(sum phi(Tbar_i)) verified against printed eq (6).",
+   "evidence": "The printed premise uses the CDF-copula domination direction phi2 o psi1; for survival (min) systems the sign of the required concordance reverses, so the theorem as printed is false. Genuine refutation confirmed at 110 digits.",
+   "notes": "The printed premise uses the CDF-copula domination direction phi2 o psi1; for survival (min) systems the sign of the required concordance reverses, so the theorem as printed is false. Genuine refutation confirmed at 110 digits.",
+   "note": "The printed premise uses the CDF-copula domination direction phi2 o psi1; for survival (min) systems the sign of the required concordance reverses, so the theorem as printed is false. Genuine refutation confirmed at 110 digits."
+  },
+  {
+   "claim": "Proposition 4.15",
+   "order": "st",
+   "eval_status": "refuted",
+   "eval_witness": "131072/15",
+   "eval_instances": 1,
+   "classification": "invalid-instance",
+   "premise_check": null,
+   "independent_witness": "eval pair alpha=(0.3,1,1.7), beta=(0.6,1,0.8): unequal sums (3.0 vs 2.4) -> beta ~>^m alpha fails; also psi1=clayton1,psi2=indep gives phi2 o psi1(t)=ln(1+t) SUBadditive -> second premise violation. Conforming instance psi1=clayton g=0.5 (<=1), psi2=clayton g=2 (phi2 o psi1=(1+t)^4-1 super-additive), equal-sum beta~>^m alpha: S_X-S_Y<0 on grid -> printed claim holds.",
+   "evidence": "Two independent premise violations.",
+   "notes": "Two independent premise violations.",
+   "note": "Two independent premise violations."
+  },
+  {
+   "claim": "Proposition 4.6",
+   "order": "st",
+   "eval_status": "refuted",
+   "eval_witness": "1/1000000000000",
+   "eval_instances": 2,
+   "classification": "invalid-instance",
+   "premise_check": null,
+   "independent_witness": "eval assigned X=indep, Y=gumbel2: premise requires phi1 o psi2 super-additive, but phi_indep o psi_gumbel(t)=sqrt(t) is SUBadditive (i.e., C_indep <= C_gumbel -- the copula domination points the wrong way). Premise-satisfying alternative (X=gumbel2, Y=indep -> phi1 o psi2=t^2 super-additive) satisfies the printed Xn:n(a) <=st Yn:n(b) at all grid points.",
+   "evidence": "Eval chose copulas in the wrong domination direction.",
+   "notes": "Eval chose copulas in the wrong domination direction.",
+   "note": "Eval chose copulas in the wrong domination direction."
+  },
+  {
+   "claim": "Theorem 3.3",
+   "order": "st",
+   "eval_status": "refuted",
+   "eval_witness": "1/1000000000000",
+   "eval_instances": 3,
+   "classification": "invalid-instance",
+   "premise_check": null,
+   "independent_witness": "eval pair unequal sums -> alpha ~>^m beta fails. Conforming equal-sum instance (a=(0.4,1,1.6) maj (0.7,1,1.3), te margins where V(beta) increasing holds) satisfies Xn:n >=st Yn:n on grid for clayton1/gumbel2/amh12.",
+   "evidence": "Premise violation: majorization requires equal totals.",
+   "notes": "Premise violation: majorization requires equal totals.",
+   "note": "Premise violation: majorization requires equal totals."
+  },
+  {
+   "claim": "Theorem 3.8",
+   "order": "st",
+   "eval_status": "refuted",
+   "eval_witness": "1/1000000000000",
+   "eval_instances": 3,
+   "classification": "invalid-instance",
+   "premise_check": null,
+   "independent_witness": "eval pair unequal sums -> beta ~>^m alpha fails. Conforming instance (beta=(0.4,1,1.6)~>^m alpha=(0.7,1,1.3), To margins, Clayton gamma=0.5 where V is decreasing) satisfies X1:n <=st Y1:n on grid; gamma=1 gives equality.",
+   "evidence": "Premise violation: unequal coordinate sums.",
+   "notes": "Premise violation: unequal coordinate sums.",
+   "note": "Premise violation: unequal coordinate sums."
+  }
+ ]
+}
