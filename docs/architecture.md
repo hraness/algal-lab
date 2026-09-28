@@ -6,7 +6,7 @@ simulator, study protocol, artifact archive, and interpretation of results.
 It does not fork ALGAL or require Valhalla.
 
 The runtime dependency is pinned to
-[`ac68f096d2e10e1824b9ee4d6fe031b4846094da`](https://github.com/hraness/algal/tree/ac68f096d2e10e1824b9ee4d6fe031b4846094da)
+[`47fb53d5cf96747477e7079b1d789a8d96c82225`](https://github.com/hraness/algal/tree/47fb53d5cf96747477e7079b1d789a8d96c82225)
 in [package.json](../package.json) and the lockfile. Upgrading it is a reviewed
 compatibility change, not part of a researcher's search space.
 The lab's [contracts](../src/contracts.ts) define protocol and proposal admission.
