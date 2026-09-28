@@ -10,12 +10,14 @@ import sys
 import tempfile
 import unittest
 from fractions import Fraction
+from itertools import product
 from pathlib import Path
 
 from research.extremal import claims, novelty, registry
 from research.extremal.evolve import parse_protocol, run
 from research.extremal.operators import extract_program, read_params, scripted_mutate, write_params
 from research.extremal.sandbox import isolation_mode, run_program
+from research.extremal.seeds.ring_random import alpha as ring_seed_score
 from research.extremal.verifiers import (circle_packing, covering_design, heilbronn_square, isosceles_free, load_verifier,
                                          no_five_on_sphere, ring_loading, sum_difference)
 
@@ -154,9 +156,10 @@ class GridVerifierTests(unittest.TestCase):
             no_five_on_sphere.verify({"points": too_many}, {"n": 5})
 
     def test_ring_loading_exact(self):
-        # m=1: no interior cut, value 0. m=2 with u=v=1/2: z choices give |z1 - z2|; best is 0.
-        self.assertEqual(ring_loading.verify({"pairs": [["1/2", "1/2"]]}, {"m": 1}), Fraction(0))
-        self.assertEqual(ring_loading.verify({"pairs": [["1/2", "1/2"], ["1/2", "1/2"]]}, {"m": 2}), Fraction(0))
+        # One demand adds 1/2 to one arc. Two balanced demands force a unit
+        # increase on some edge: equal route signs require the final cut k=m.
+        self.assertEqual(ring_loading.verify({"pairs": [["1/2", "1/2"]]}, {"m": 1}), Fraction(1, 2))
+        self.assertEqual(ring_loading.verify({"pairs": [["1/2", "1/2"], ["1/2", "1/2"]]}, {"m": 2}), Fraction(1))
         self.assertEqual(ring_loading.verify({"pairs": [["0", "1"], ["0", "1"], ["0", "1"]]}, {"m": 3}), Fraction(0))
         # u = v = 1/2, m = 3: z = (1/2, -1/2, 1/2) gives cuts 1/2 and 1/2; no assignment reaches 0.
         self.assertEqual(ring_loading.verify({"pairs": [["1/2", "1/2"]] * 3}, {"m": 3}), Fraction(1, 2))
@@ -164,6 +167,49 @@ class GridVerifierTests(unittest.TestCase):
             ring_loading.verify({"pairs": [["0.6", "0.5"]]}, {"m": 1})
         with self.assertRaises(ValueError):
             ring_loading.verify({"pairs": [[0.5, 0.5]]}, {"m": 1})
+
+    def test_ring_loading_matches_ring_edge_loads(self):
+        # Independent physical definition: commodity i joins opposite vertices
+        # i and i+m of a 2m-edge ring. Compare unsplit loads to the given split
+        # loads edge by edge, without the verifier's prefix-sum formula.
+        pair_choices = ((0, 0), (0, 6), (6, 0), (3, 3), (2, 4), (1, 2))
+        for m in range(1, 4):
+            clockwise = [[(edge - i) % (2 * m) < m for edge in range(2 * m)]
+                         for i in range(m)]
+            for pairs in product(pair_choices, repeat=m):
+                split = [sum(u if clockwise[i][edge] else v for i, (u, v) in enumerate(pairs))
+                         for edge in range(2 * m)]
+                best = None
+                for routing in product((False, True), repeat=m):
+                    loads = [sum(u + v for i, (u, v) in enumerate(pairs)
+                                 if clockwise[i][edge] == routing[i])
+                             for edge in range(2 * m)]
+                    increase = max(load - fractional for load, fractional in zip(loads, split))
+                    best = increase if best is None else min(best, increase)
+                construction = {"pairs": [[f"{u}/6", f"{v}/6"] for u, v in pairs]}
+                with self.subTest(m=m, pairs=pairs):
+                    self.assertEqual(ring_loading.verify(construction, {"m": m}), Fraction(best, 6))
+                    self.assertEqual(ring_seed_score([u for u, _ in pairs], [v for _, v in pairs]), best)
+
+    def test_ring_loading_published_core_and_zero_padding(self):
+        # CrossingPaths, "A rigid 12-pair core attaining 9/8", EinsteinArena
+        # thread 274, retrieved 2026-09-28. This is a public baseline, not ours.
+        core = [(5, 11), (4, 4), (5, 11), (12, 2), (8, 8), (2, 12),
+                (11, 5), (4, 4), (5, 11), (12, 2), (8, 8), (2, 12)]
+        pairs = [[f"{u}/16", f"{v}/16"] for u, v in core]
+        # Omitting k=m incorrectly gives 1 for the unpadded core. Adding zero
+        # demands only duplicates cuts and cannot change the all-cut value.
+        self.assertEqual(ring_loading.verify({"pairs": pairs}, {"m": 12}), Fraction(9, 8))
+        self.assertEqual(ring_loading.verify({"pairs": pairs + [["0", "0"]] * 3}, {"m": 15}), Fraction(9, 8))
+        known = [entry for entry in KNOWN["entries"] if entry["target"] == "ring-loading-15"]
+        self.assertEqual(len(known), 2)
+        for entry in known:
+            value = ring_loading.verify(entry["construction"], entry["parameters"])
+            if entry["expected"] is not None:
+                self.assertEqual(value, Fraction(entry["expected"]))
+            else:
+                self.assertGreaterEqual(value, Fraction(entry["expected_at_least"]))
+                self.assertLess(value, Fraction(entry["expected_below"]))
 
     def test_sum_difference_ratio(self):
         # A = {0, 1, 3}: A+A = {0,1,2,3,4,6} (6), A-A = {-3,-2,-1,0,1,2,3} (7): ln(2)/ln(7/3)
