@@ -38,3 +38,35 @@
 - ~214 records are copula/dependence-quantified → out of scope; ~368 use unsupported orders (disp/mrl/star/ageing/paper-defined).
 - "holds" = bounded-grid survival only, never a proof.
 - P1 is a *lower bound*: unverified-ish records can only have added papers; stratification by venue is coarse.
+
+## Verified papers (29)
+
+- **arxiv_1804.04103** — 1 confirmed claim(s): theorem 3.1
+- **arxiv_1904.08730** — 1 confirmed claim(s): theorem 3.10
+- **arxiv_1905.00425** — 1 confirmed claim(s): theorem 3.4
+- **arxiv_2002.12474** — 1 confirmed claim(s): theorem 9
+- **arxiv_2503.21275** — 1 confirmed claim(s): section 4.3.2 result — fr error sign (fgmw parallel system
+- **arxiv_2601.07249** — 1 confirmed claim(s): theorem 3.2
+- **doi_10.1007_s11587-026-01094-9** — 7 confirmed claim(s): theorem 3.1; theorem 3.2; theorem 3.4; theorem 3.5; theorem 3.6; theorem 3.7; theorem 3.8
+- **doi_10.1007_s40745-019-00211-w** — 3 confirmed claim(s): section 3.4 unnumbered theorem (hr part; section 3.4 unnumbered theorem (lr part; section 3.4 unnumbered theorem (st part
+- **doi_10.1007_s41060-022-00369-2** — 1 confirmed claim(s): theorem 3.10.1
+- **doi_10.1007_s44199-026-00167-w** — 1 confirmed claim(s): theorem (section 3.4, unnumbered
+- **doi_10.1017_s026996482400007x** — 1 confirmed claim(s): theorem 3.7
+- **doi_10.1038_s41598-026-45633-8** — 1 confirmed claim(s): theorem 2
+- **doi_10.1080_02331888.2025.2552185** — 6 confirmed claim(s): theorem 3.10; theorem 3.12; theorem 3.18; theorem 3.7; theorem 3.8; theorem 3.9
+- **doi_10.11648_j.ijsda.20261201.11** — 3 confirmed claim(s): theorem 9.1 (case ii, hr part; theorem 9.1 (case ii, lr part; theorem 9.1 (case ii, st part
+- **doi_10.1214_18-bjps410** — 1 confirmed claim(s): lemma 8(iii
+- **doi_10.19139_soic-2310-5070-1872** — 2 confirmed claim(s): section 3.6 theorem (lr; theorem (unnumbered, section 3.6 stochastic order
+- **doi_10.21136_am.2018.0105-17** — 1 confirmed claim(s): theorem 3.5(a
+- **doi_10.2298_fil2104315d** — 11 confirmed claim(s): corollary 3.1(i; corollary 3.2(ii; theorem 3.1(i; theorem 3.2(i; theorem 3.3(i; theorem 3.4(ii; theorem 3.5(ii; theorem 3.6(ii…
+- **doi_10.29020_nybg.ejpam.v18i4.6653** — 3 confirmed claim(s): theorem 1 (hr part; theorem 1 (lr part; theorem 1 (st part
+- **doi_10.29252_jss.12.2.395** — 3 confirmed claim(s): theorem 2 (قضیه ٢; theorem 4 (قضیه ۴; theorem 5 (قضیه ۵
+- **doi_10.3390_sym13122248** — 1 confirmed claim(s): theorem 5
+- **doi_10.35914_mathstat.v2i1.180** — 1 confirmed claim(s): section 10 unnumbered likelihood-ratio ordering claim
+- **doi_10.37119_jpss2023.v21i1.637** — 2 confirmed claim(s): theorem (1)(i; theorem (1)(ii
+- **doi_10.37119_jpss2024.v22i1.795** — 1 confirmed claim(s): section 10 unnumbered result (likelihood ratio ordering
+- **doi_10.3934_math.2024434** — 2 confirmed claim(s): corollary 2; corollary 3
+- **doi_10.5539_ijsp.v10n3p8** — 4 confirmed claim(s): section 3.7 unnumbered theorem (hr part; section 3.7 unnumbered theorem (lr part; section 3.7 unnumbered theorem (rh part; section 3.7 unnumbered theorem (st part
+- **doi_10.6339_jds.202001_18_1_.0001** — 4 confirmed claim(s): section 4.7, case i (hr part; section 4.7, case i (lr part; section 4.7, case i (rhr part; section 4.7, case i (st part
+- **doi_10.66224_jss.20.1.06** — 6 confirmed claim(s): theorem 1; theorem 2; theorem 3; theorem 6(a; theorem 8; theorem 9
+- **doi_10.7153_mia-2020-23-03** — 2 confirmed claim(s): theorem 3.3; theorem 3.4
