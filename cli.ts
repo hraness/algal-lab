@@ -4,12 +4,18 @@ import { readJsonFile } from "./src/artifacts";
 import { runStudy, verifyStudy } from "./src/study";
 import { runQualification, verifyQualification } from "./src/qualification";
 import { runComparison, verifyComparison } from "./src/comparison";
+import { verifyStudyEvidence, writeStudyEvidence } from "./src/evidence";
+import { verifyStudyClaims, writeStudyClaims } from "./src/claims";
 
 const HELP = `algal-lab — bounded research on ALGAL
 
 bun run lab study --protocol <file.json> --out <new-directory>
   [--policy adaptive|random | --executor-command <operator-owned-command>]
 bun run lab verify <run-directory>
+bun run lab evidence <run-directory>
+bun run lab verify-evidence <run-directory>
+bun run lab claims <run-directory> <drafts.json>
+bun run lab verify-claims <run-directory>
 bun run lab qualify --plan <plan.json> --out <new-directory>
 bun run lab verify-qualification <qualification-directory>
 bun run lab compare --plan <plan.json> --out <new-directory> [--executor-command <cmd>]
@@ -24,10 +30,20 @@ Verify is offline and never runs a provider command. Existing runs are not overw
 export async function main(args: string[]): Promise<void> {
   const [command, ...rest] = args;
   if (!command || command === "--help" || command === "help") { console.log(HELP); return; }
-  if (command === "verify" || command === "verify-qualification" || command === "verify-comparison") {
+  if (command === "verify" || command === "verify-qualification" || command === "verify-comparison" || command === "verify-evidence" || command === "verify-claims") {
     if (rest.length !== 1 || rest[0]!.startsWith("--")) throw new Error("verify requires exactly one run directory");
-    const verifier = command === "verify" ? verifyStudy : command === "verify-qualification" ? verifyQualification : verifyComparison;
+    const verifier = command === "verify" ? verifyStudy : command === "verify-qualification" ? verifyQualification : command === "verify-comparison" ? verifyComparison : command === "verify-claims" ? verifyStudyClaims : verifyStudyEvidence;
     console.log(JSON.stringify(await verifier(rest[0]!))); return;
+  }
+  if (command === "claims") {
+    if (rest.length !== 2 || rest.some((part) => part.startsWith("--"))) throw new Error("claims requires a run directory and a drafts file");
+    const ledger = await writeStudyClaims(rest[0]!, rest[1]!);
+    console.log(JSON.stringify({ claims: `${rest[0]}/claims.json`, count: ledger.claims.length, digest: ledger.digest })); return;
+  }
+  if (command === "evidence") {
+    if (rest.length !== 1 || rest[0]!.startsWith("--")) throw new Error("evidence requires exactly one run directory");
+    const envelope = await writeStudyEvidence(rest[0]!);
+    console.log(JSON.stringify({ evidence: `${rest[0]}/evidence.json`, records: envelope.records, digest: envelope.digest })); return;
   }
   if (command !== "study" && command !== "qualify" && command !== "compare") throw new Error(`unknown command: ${command}`);
   const allowed = command === "study" ? ["--protocol", "--out", "--executor-command", "--policy"] : command === "compare" ? ["--plan", "--out", "--executor-command"] : ["--plan", "--out"];
@@ -77,8 +93,12 @@ function describeFailure(args: string[], error: unknown): string {
     const out = rest[rest.indexOf("--out") + 1];
     if (rest.includes("--out") && out) return `${out} already exists; choose a new --out (existing runs are never overwritten)`;
   }
-  if (code === "ENOENT" && (command === "verify" || command === "verify-qualification" || command === "verify-comparison") && rest[0]) {
+  if (code === "ENOENT" && (command === "verify" || command === "verify-qualification" || command === "verify-comparison" || command === "evidence" || command === "verify-evidence" || command === "verify-claims") && rest[0]) {
     return `${rest[0]} is not a run directory`;
+  }
+  if (code === "ENOENT" && command === "claims" && rest.length === 2) {
+    const missing = (error as NodeJS.ErrnoException).path;
+    return `${missing ?? rest[0]} does not exist`;
   }
   return error.message;
 }
