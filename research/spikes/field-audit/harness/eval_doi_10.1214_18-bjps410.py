@@ -75,16 +75,16 @@ LR_CASES = [FIG82, FIG3]
 
 
 def pairs_st():
-    return [(max_sf(d['ms'], d['bb'], GE), max_sf(d['ls'], d['aa'], GE))
+    return [("st", max_sf(d['ms'], d['bb'], GE), max_sf(d['ls'], d['aa'], GE))
             for d in ST_CASES] + \
-           [(max_sf(d['ms'], d['bb'], LOMAX), max_sf(d['ls'], d['aa'], LOMAX))
+           [("st", max_sf(d['ms'], d['bb'], LOMAX), max_sf(d['ls'], d['aa'], LOMAX))
             for d in ST_CASES]
 
 
 def pairs_rh():
-    return [(max_sf(d['ms'], d['bb'], GE), max_sf(d['ls'], d['aa'], GE))
+    return [("st", max_sf(d['ms'], d['bb'], GE), max_sf(d['ls'], d['aa'], GE))
             for d in RH_CASES] + \
-           [(max_sf(d['ms'], d['bb'], LOMAX), max_sf(d['ls'], d['aa'], LOMAX))
+           [("st", max_sf(d['ms'], d['bb'], LOMAX), max_sf(d['ls'], d['aa'], LOMAX))
             for d in RH_CASES]
 
 
@@ -97,7 +97,8 @@ def instances(claim, order):
         # Y <=lr Z: Z uses (mu, alpha), Y uses (mu, beta)
         out = []
         for d in [FIG3, FIG82]:
-            out.append((max_sf(d['ms'], d['bb'], GE), max_sf(d['ms'], d['aa'], GE)))
+            out.append(("st", max_sf(d['ms'], d['bb'], GE),
+                        max_sf(d['ms'], d['aa'], GE)))
         return out
     if 'lemma 8(i)' in key or 'lemma 8(i)' in key:
         d = FIG3
@@ -119,15 +120,16 @@ def instances(claim, order):
         out = []
         for d in [dict(ls=[R(10), R(9)], ms=[R(8), R(5)], aa=[R(2), R(3)],
                        bb=[R(4), R(1)])]:
-            out.append((max_sf(d['ms'], d['bb'], GE), max_sf(d['ls'], d['aa'], GE)))
+            out.append(("st", max_sf(d['ms'], d['bb'], GE),
+                        max_sf(d['ls'], d['aa'], GE)))
         return out
     if 'theorem 10' in key:
         return [("st", max_sf(d['ms'], d['bb'], GE), max_sf(d['ls'], d['aa'], GE))
                 for d in LR_CASES]
     if 'rh' in key or 'reversed' in key or 'theorem 4' in key or 'theorem 7' in key \
             or 'remark 4' in key or 'figure 2' in key or 'theorem 9' in key:
-        return [("st", a, b) for (a, b) in pairs_rh()]
-    return [("st", a, b) for (a, b) in pairs_st()]
+        return pairs_rh()
+    return pairs_st()
 
 
 def go():

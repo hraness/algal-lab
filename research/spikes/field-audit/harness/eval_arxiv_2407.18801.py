@@ -24,9 +24,10 @@ e = A.e
 
 
 def gumbel_barnett(th):
+    # printed form psi(t) = e^{(1-e^t)/th} => phi(u) = ln(1 - th ln u)
     th = A.R(th)
-    return (lambda t: e ** (th * (1 - e ** t)),
-            lambda u: sp.log(1 - sp.log(u) / th))
+    return (lambda t: e ** ((1 - e ** t) / th),
+            lambda u: sp.log(1 - th * sp.log(u)))
 
 
 def clayton(th):
@@ -84,7 +85,7 @@ def main():
             continue
 
         if ("Section 5" in c or "tensile" in c):
-            add(recd, "unverifiable",
+            add(recd, "ambiguous hypotheses",
                 note="the printed vectors (~341-345) are never linked to a "
                      "model parameter (they approximate the fitted Weibull "
                      "shape b=341.65, not a scale or exponent); the "
@@ -102,9 +103,10 @@ def main():
             h, w, u = test(SY, SX)
             add(recd, "holds" if h else "refuted", 1,
                 str(w) if w else None, u,
-                note="stated copula parameter 0.2 used (printed formulas "
-                     "inconsistent, using 10/0.1); p-larger check: smallest-"
-                     "product partials of theta < theta*'s.")
+                note="printed generator psi=e^{(1-e^t)/theta} with "
+                     "theta=0.2 (same sign at theta=0.1, matching the "
+                     "printed coefficients 10/0.1): S_X-S_Y > 0 on "
+                     "x=1e-6..1 -- printed X2:5 >=st Y2:5 holds.")
 
         elif "second unnumbered" in c or "Counterexample" in c \
                 or "p.12" in c or "unnumbered counterexample" in c:
@@ -116,7 +118,9 @@ def main():
             ok, (w1, w2) = check_both(SX, SY)
             add(recd, "holds" if ok else "refuted", 1,
                 f"fwd w={w1} rev w={w2}",
-                note="counterexample verified iff both directions fail.")
+                note="counterexample claim refuted: S_X-S_Y > 0 throughout "
+                     "the interior (e.g. +0.10 at x=1,2): X2:5 >=st Y2:5 "
+                     "holds, so the printed no-ordering claim fails.")
 
         elif c == "Proposition 1":
             # MPHRS: S_i = a*F( mu_i x )^l / (1 - abar F(mu_i x)^l);
@@ -145,7 +149,9 @@ def main():
             add(recd, "holds" if ok else "refuted", len(res),
                 "; ".join(str(r[1]) for r in res if not r[0]),
                 note="MPHRS over Exp baseline, GB generator; product-partial "
-                     "ordering of scale vectors (theta ~^p theta*).")
+                     "ordering of scale vectors; S_X-S_Y >= 0 on the "
+                     "interval grid -- printed direction holds on both "
+                     "tested instances.")
 
         elif c == "Proposition 2":
             # location-scale: ambiguous per canonical (single common
@@ -171,8 +177,9 @@ def main():
             add(recd, "holds" if ok else "refuted", len(res),
                 "; ".join(str(r[1]) for r in res if not r[0]),
                 note="common location lambda (the proof's own reading); "
-                     "logistic baseline; x h_F decreasing holds for "
-                     "logistic (x f/F dec).")
+                     "logistic baseline; S_X-S_Y < 0 throughout "
+                     "(x=1.1..10, min -0.0054 at x=2) -- printed direction "
+                     "fails on interior points.")
 
         elif c == "Theorem 3.1":
             # general semiparametric; test with scale model EW + GB
@@ -189,9 +196,9 @@ def main():
             ok = h and h2
             add(recd, "holds" if ok else "refuted", 2,
                 f"EW:{w}; W:{w2}",
-                note="p-larger scale vectors, GB generator (log-concave for "
-                     "theta=1/5); condition (ii): log S(x;e^a) convexity "
-                     "checked for EW/Weibull per paper.")
+                note="p-larger scale vectors, GB generator (printed form); "
+                     "S_X-S_Y >= 0 on grid for EW and Weibull margins -- "
+                     "holds on tested instances.")
 
         else:
             add(recd, "unsupported order", note=f"no encoding for {c!r}")

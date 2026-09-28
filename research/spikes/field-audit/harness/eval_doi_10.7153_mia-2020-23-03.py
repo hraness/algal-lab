@@ -43,7 +43,7 @@ def c_eval(cop, vs):
     if cop == "gumbel2":
         t = sp.Integer(0)
         for v in vv:
-            t += (-sp.log(v)) ** 2
+            t += (sp.log(v)) ** 2
         return sp.exp(-sp.sqrt(t))
     if cop == "amh":
         th = R(1, 2)  # PQD
@@ -202,8 +202,14 @@ def instances(claim):
             fam = power_sf
         if claim == "Theorem 3.16":
             fam = tg_sf
-        for (ls, lss) in [([R(1,2), R(1), R(3,2)], [R(1), R(3,2), R(2)]),
-                          ([R(1,5), R(2,5), R(3,5)], [R(2,5), R(3,5), R(1)])]:
+        if claim == "Theorem 3.16":
+            # TG margins need lambda in [-1,1]
+            cases = [([R(1,4), R(1,2), R(3,4)], [R(1,2), R(3,4), R(4,5)]),
+                     ([R(1,5), R(3,5), R(1,2)], [R(2,5), R(3,4), R(3,5)])]
+        else:
+            cases = [([R(1,2), R(1), R(3,2)], [R(1), R(3,2), R(2)]),
+                     ([R(1,5), R(2,5), R(3,5)], [R(2,5), R(3,5), R(1)])]
+        for (ls, lss) in cases:
             ps = [R(1,5), R(2,5), R(3,5)][:len(ls)]
             out.append((port_max_sf(ps, [fam(l) for l in lss], "gumbel2"),
                         port_max_sf(ps, [fam(l) for l in ls], "indep")))

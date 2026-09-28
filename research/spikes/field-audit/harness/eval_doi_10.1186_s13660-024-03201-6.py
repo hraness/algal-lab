@@ -36,7 +36,7 @@ def phi_psi(name):
     if name == "indep":
         return (lambda u: -sp.log(u), lambda t: sp.exp(-t))
     if name == "gumbel2":
-        return (lambda u: (-sp.log(u)) ** 2, lambda t: sp.exp(-sp.sqrt(t)))
+        return (lambda u: (sp.log(u)) ** 2, lambda t: sp.exp(-sp.sqrt(t)))
     if name == "clayton1":
         return (lambda u: 1 / u - 1, lambda t: 1 / (1 + t))
     if name == "amh":
