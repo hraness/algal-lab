@@ -1,0 +1,13 @@
+{
+  "paper": "arxiv:2103.00763",
+  "auditor": "c3 independent verification",
+  "method": "Fresh mpmath (300-digit for Poisson tails). Conventions verified exactly against printed Counterexample 3.1 values (+0.0520158 at u=5, -0.0232122 at u=2 reproduce to all printed digits). Min hazard h(u)=[S(u)-S(u+1)]/S(u); max reversed hazard rh(u)=[F(u)-F(u-1)]/F(u).",
+  "claims": [
+    {"claim": "Counterexample 3.2", "eval_status": "refuted", "classification": "artifact",
+     "witness": "mu=(28,0.8,0.1) >=^m mu*=(27,1,0.9) verified (desc sums 28,28.8,28.9 vs 27,28,28.9). Printed numbers: h(6)-h*(6)=+0.0124327666 matches printed +0.0124328 exactly; h(16)-h*(16) computes as +0.00248544, NOT printed -0.00024431. HOWEVER the sign change the counterexample claims DOES occur: h-h* is negative for u=113..149 down to -0.003362 (max positive +0.0758). The eval's scan stopped at u<50 and missed it.",
+     "evidence": "The printed witness point u=16 is numerically wrong, but the substantive printed claim 'no hazard rate ordering between X1:n and Y1:n' is TRUE - the difference takes both signs (negative at u=113-149). The refutation is a bounded-range artifact."},
+    {"claim": "Counterexample 3.3", "eval_status": "refuted", "classification": "confirmed-genuine",
+     "witness": "q=(0.99,0.96,0.57), q*=(0.9,0.78,0.57). Defective premise: sums 2.52 != 2.25, so q >=^m q* fails outright (equal totals required) - the printed 'although q >=^m q*' is false. Numbers: rh(1)-rh*(1) computes +0.0250313 (printed -0.0010584), rh(4)-rh*(4) computes +0.0833558 (printed +0.00628996); rh difference is strictly positive for ALL u in 1..1999 (min +1.9e-11).",
+     "evidence": "The claimed sign change does not occur; X_{n:n} >=rh Y_{n:n} survives. The printed counterexample is wrong as printed (both its premise assertion and its numbers). Refutation genuine."}
+  ]
+}

@@ -1,0 +1,14 @@
+{
+ "paper": "doi:10.1080/02331888.2017.1353516",
+ "auditor": "c3 independent verification",
+ "method": "Fresh mpmath dps=100-150 recomputation. Kw-G: S_i=(1-F^{a_i})^{b_i}; series survival = prod; hazard via symmetric-difference of log S with step x*1e-10. Printed parents F1=1-e^{-3x^4.4}, F2=1-e^{-0.2x^0.4}; alpha=(1.99,0.01) in D+, gamma=(1.98,0.02) in D+, beta=(1,2) in E+ all verified, alpha >=m gamma (equal sums 2=2, top partial 1.99>=1.98).",
+ "claims": [
+  {
+   "claim": "Counterexample 4.1",
+   "eval_status": "refuted",
+   "classification": "confirmed-genuine",
+   "independent_witness": "r_U(1e-8) - r_V(1e-8) = -9.4759597e5 (150 digits): the hazard ordering r_U >= r_V fails for all x below ~4e-7 (also -4.38e4 at 1e-7, -3.52e3 at 3e-7). Asymptotic check agrees: r_U ~ 0.09 x^{-0.956} while r_V ~ 0.0155 x^{-0.992}, so r_V diverges faster as x -> 0. On [1e-6, 2] the difference is positive throughout (+1643 at 1e-5 ... +418 at x=2) and r_U ~ 39.6 x^{3.4} vs r_V ~ 0.24 x^{-0.6} at large x, so the only failure region is x <~ 4e-7.",
+   "evidence": "The printed counterexample asserts 'U_{1:n} <=hr V_{1:n} still holds' (X_{1s} <=hr X_{2s} fails for all s but ordering survives). The assertion is FALSE: r_U < r_V on (0, ~4e-7). The recorded witness x=3/2 is itself not a violation point (f_U S_V - f_V S_U = +1.5e-28 > 0 there at 100 digits — likely a stale result file), but the verdict 'refuted' is substantively correct: the printed claim fails decisively at ultra-small x."
+  }
+ ]
+}

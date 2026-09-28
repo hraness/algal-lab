@@ -1,0 +1,14 @@
+{
+ "paper": "doi:10.37119/jpss2024.v22i1.795",
+ "auditor": "c3 independent verification",
+ "method": "Fresh mpmath dps=120-150 recomputation. MGGD density reconstructed from printed eq (1)-(2) as the Gompertz(eta,beta)+Gamma(3,eta) mixture with weights 1/(1+b), b/(1+b): f = eta/(1+b) e^{bx} e^{(eta/b)(1-e^{bx})} + (b/(1+b))(eta^3/2) x^2 e^{-eta x} (printed exponents are garbled; this reconstruction normalizes to 1.0000 - verified by quadrature at 150 digits, mass 0.99999985 on [0,40]). Exact mpmath derivative of log(f_Y/f_X), no eval/prior-C3 code reused.",
+ "claims": [
+  {
+   "claim": "Section 10 unnumbered result (likelihood ratio ordering)",
+   "eval_status": "refuted",
+   "classification": "confirmed-genuine",
+   "independent_witness": "Instance eta=1/2<psi=1, beta=1/2<delta=1 (admissible under printed hypotheses). d/dx log(f_Y/f_X) at 150 digits: +1.2316e-4 at x=0.001, +1.0669e-3 at x=0.01, -4.6614e-3 at x=0.1 (eval's witness confirmed), -0.25696 at x=0.5, +0.36332 at x=2, +0.49839 at x=3, -0.5 at x=8 — the log-density-ratio CHANGES SIGN repeatedly.",
+   "evidence": "The printed claim is partial log Lambda/partial x < 0 (Lambda = f_X/f_Y decreasing = X <=lr Y). At x=0.1 the slope of log(f_Y/f_X) is -0.00466 <0, so log Lambda is increasing — direct failure. Moreover the ratio is globally non-monotone (positive slope near 0 and at x in [2,3], negative elsewhere), so neither lr direction holds on this instance. The mixture structure breaks the claimed monotonicity — genuine refutation, not a direction reversal (no clean reverse order)."
+  }
+ ]
+}

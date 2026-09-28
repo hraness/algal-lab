@@ -1,0 +1,49 @@
+{
+ "paper": "doi:10.37119/jpss2023.v21i1.637",
+ "auditor": "c3 independent verification",
+ "method": "Fresh mpmath dps=120 recomputation of MWU: f(x)=l(a+1)(1-lx)^a, S(x)=(1-lx)^{a+1} on [0,1/l]. All five eval instances per part re-checked. Cross-checked against harness/pilot_mwu.py's direct survivals (S_X=3/4 vs 9/16 at x=1/4 for (0,1;1); 9/16 vs 1/4 for (1,1;1,2)) — consistent.",
+ "claims": [
+  {
+   "claim": "Theorem (1)(i), likelihood ratio order",
+   "eval_status": "refuted",
+   "classification": "confirmed-direction-reversed",
+   "independent_witness": "a1<a2, common lambda: f_Y/f_X = [(a2+1)/(a1+1)](1-lx)^{a2-a1} is strictly DECREASING in x (a2>a1), so X >=lr Y holds and printed X <=lr Y fails. E.g. a=(0,1), l=1: ratio 2(1-x) falls 2->0; all 5 eval instances agree.",
+   "evidence": "Exact closed form: the density ratio is a power of (1-lx) with positive exponent, hence decreasing — the printed lr direction is exactly reversed, not merely failing at a point."
+  },
+  {
+   "claim": "Theorem (1)(i), hazard rate order",
+   "eval_status": "refuted",
+   "classification": "confirmed-direction-reversed",
+   "independent_witness": "r_X = (a1+1)l/(1-lx) < (a2+1)l/(1-lx) = r_Y for all x in (0,1/l) — X >=hr Y exactly; printed X <=hr Y fails everywhere (e.g. a=(0,1),l=1: r_X-r_Y = -1/(1-x) < 0).",
+   "evidence": "Closed-form hazards; strict reversal on the whole support."
+  },
+  {
+   "claim": "Theorem (1)(i), usual stochastic order",
+   "eval_status": "refuted",
+   "classification": "confirmed-direction-reversed",
+   "independent_witness": "S_X - S_Y = (1-lx)^{a1+1} - (1-lx)^{a2+1} > 0 on (0,1/l) since a2>a1 and 0<1-lx<1: X >=st Y. Pilot C3 direct check at x=1/4, a=(0,1), l=1: S_X=3/4 > S_Y=9/16.",
+   "evidence": "Strict reversal of the printed st order on the whole interior support."
+  },
+  {
+   "claim": "Theorem (1)(ii), likelihood ratio order",
+   "eval_status": "refuted",
+   "classification": "confirmed-direction-reversed",
+   "independent_witness": "a1=a2=a, l2>l1: f_Y/f_X = (l2/l1)[(1-l2 x)/(1-l1 x)]^a; derivative sign = sign of [l2/(1-l2x) - l1/(1-l1x)]*a < ... for a>0 the factor (1-l2x)/(1-l1x) <1 and decreasing -> f_Y/f_X decreasing -> X >=lr Y. At a=0 the ratio is the constant l2/l1 (both directions hold weakly); for every a>0 instance strict reversal. Eval's 5 instances (a in {1,2,0,1/2,3}) confirm.",
+   "evidence": "Closed-form ratio: (1-l2x)/(1-l1x) is decreasing (derivative -(l2-l1)/(1-l1x)^2 < 0). Printed lr direction reversed; the a=0 boundary case is degenerate (constant ratio) but the theorem quantifies over all a>=0 and strict instances refute it."
+  },
+  {
+   "claim": "Theorem (1)(ii), hazard rate order",
+   "eval_status": "refuted",
+   "classification": "confirmed-direction-reversed",
+   "independent_witness": "r_X = (a+1)l1/(1-l1 x), r_Y = (a+1)l2/(1-l2 x): r_X - r_Y = (a+1)[l1/(1-l1x) - l2/(1-l2x)] < 0 on (0,1/l2) since l/(1-lx) increases in l — X >=hr Y strictly. All 5 eval instances agree.",
+   "evidence": "Closed-form hazards; strict reversal on the shared support."
+  },
+  {
+   "claim": "Theorem (1)(ii), usual stochastic order",
+   "eval_status": "refuted",
+   "classification": "confirmed-direction-reversed",
+   "independent_witness": "S_X - S_Y = (1-l1 x)^{a+1} - (1-l2 x)^{a+1} > 0 on (0,1/l2) since l2>l1 — X >=st Y. Pilot C3 direct check at x=1/4, a=1, l=(1,2): S_X=9/16 > S_Y=1/4.",
+   "evidence": "Strict reversal of the printed st order."
+  }
+ ]
+}

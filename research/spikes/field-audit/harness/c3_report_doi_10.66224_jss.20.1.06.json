@@ -1,0 +1,31 @@
+{
+  "paper": "doi:10.66224/jss.20.1.06",
+  "auditor": "c3 independent verification",
+  "method": "Fresh mpmath (110-300 digit): SAH marginal S_i=Fbar(x/a_i)^{a_i} e^{-theta_i x}, shock v_i=p_i S_i, w_i=1-v_i; Archimedean S_min=phi(sum psi(v_i)), S_max=1-phi(sum psi(w_i)) with indep/AMH(0.8)/ex5gen generators. Convention a ~=^w l = ascending partial sums a >= l verified from printed Example 1 (37,24,5 vs 7,4,2). Premises re-checked incl. D+ (descending) membership and A_n/B_n comonotonicity (vacuous for constant vectors).",
+  "claims": [
+    {"claim": "Example 1", "eval_status": "refuted", "classification": "confirmed-genuine",
+     "witness": "Printed params a=(37,24,5)~=^w l=(7,4,2), p=(0.72,0.18,0.02), AMH(0.8), Fbar=1/x: S_max(X)-S_max(Y) = +0.01780 at t=37.000000000001 (eval witness) and +0.0087 at t=37.66; both copulas fail. Premise (D+, ~=^w, u psi'(1-u) decreasing for delta=0.8) satisfied.",
+     "evidence": "Printed numerical example's claim X^p_{3:3} <=st Y^p_{3:3} fails at its own parameters."},
+    {"claim": "Theorem 2", "eval_status": "refuted", "classification": "confirmed-genuine",
+     "witness": "Same admissible printed-Example-1 instance refutes: +0.0178 at t=37. (Eval's other instances (5,7,9)/(3,5,11) are ascending, NOT in D+, hence inadmissible - but the printed instance suffices.)",
+     "evidence": "alpha ~=^w lambda verified under printed convention; conclusion fails."},
+    {"claim": "Theorem 1", "eval_status": "refuted", "classification": "confirmed-genuine",
+     "witness": "p=(0.4,0.5,0.6) >= q=(0.3,0.4,0.5) componentwise makes h(p) ~=^w h(q) for any increasing h; PARX baseline. S_max diff +0.0856 (amh) / +0.0985 (indep) at t~3+1e-12, violated at all 400 scan points; second instance likewise (+0.048).",
+     "evidence": "Printed direction X^p_{n:n} <=st X^q_{n:n} fails; opposite order holds."},
+    {"claim": "Theorem 3", "eval_status": "refuted", "classification": "confirmed-genuine",
+     "witness": "a=(37,24,5) ~=^w l=(7,4,2), p=(0.7,0.2,0.1), common copula (identity psi_2 o phi_1 is super-additive): S_max diff +0.00845 at t=37.66 for both amh and indep.",
+     "evidence": "Premise admissible; conclusion fails."},
+    {"claim": "Theorem 9", "eval_status": "refuted", "classification": "confirmed-genuine",
+     "witness": "CAVEAT: printed claim is the series MIN (X^p_{1:n} <=st Y^p_{1:n}, Farsi subscript ۱), but the harness evaluated the parallel MAX - its witness is mis-targeted. Independent series-min test of a=(37,24,5)~=^w l=(7,4,2), p=(0.7,0.2,0.1), PARX, indep/ex5 gens: S_min(X)-S_min(Y) is positive on t in (37,44), max +2.9e-16 at t=37.01 (300-digit verified, real sign violation, decaying into negative at t>44).",
+     "evidence": "The printed min-claim genuinely fails (tiny margin, region just above support boundary where the increasing-in-alpha premise locally fails for alpha_i=5). Refutation verdict correct; the harness's evidence path was the wrong order statistic."},
+    {"claim": "Example 5", "eval_status": "refuted", "classification": "confirmed-genuine",
+     "witness": "Eval's instances used ascending a/l (NOT in D+) - inadmissible as stated. The printed example's own parameters a=(11,8,4), l=(9,6,2), p=(0.92,0.18,0.02) (all D+), Fbar=e^{-x^5}, generator phi=2/(1+e^u): S_min(X)-S_min(Y) = +5.88e-4 at t=2, +6.7e-5 at t=1; violated throughout (0,~7].",
+     "evidence": "Printed example fails at printed parameters; eval's inadmissible instances don't matter."},
+    {"claim": "Theorem 8", "eval_status": "refuted", "classification": "confirmed-genuine",
+     "witness": "Eval instances again violate D+ (ascending), but admissible D+ instances fail on both indep and ex5 generators: e.g. a=(11,8,4)~=^w l=(9,6,2): SX-SY = +1.4e-8 at t=0.083, growing to +5.9e-4 by t=2.",
+     "evidence": "Claim fails under admissible instances (and the printed Example 5)."},
+    {"claim": "Theorem 6(a)", "eval_status": "refuted", "classification": "confirmed-genuine",
+     "witness": "theta=(0.0008,0.001,0.0012) ~=^w eta=(0.0005,0.001,0.0015) (asc sums 0.0008,0.0018,0.003 >= 0.0005,0.0015,0.003); Pareto baseline, alpha=p=const (A_n,B_n vacuous). AMH(0.8): SX-SY up to +2.37e-9, violated at all 600 scan points (indep shows only ~1e-302 sub-normal differences).",
+     "evidence": "Admissible instance under amh copula fails decisively at 300-digit precision."}
+  ]
+}

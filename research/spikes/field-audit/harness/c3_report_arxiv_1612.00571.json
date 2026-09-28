@@ -1,0 +1,14 @@
+{
+ "paper": "arxiv:1612.00571",
+ "auditor": "c3 independent verification",
+ "method": "Fresh mpmath dps=120 recomputation of the PO model over baseline S=e^{-1.8x}: F_i=(1-z)/(1-(1-lam_i)z), S_max=1-prod F_i, z=e^{-1.8x}. Hypotheses re-checked under the PAPER's printed Def 2.1: a >=^p b iff prod of smallest j of a <= b's; a >=^w b iff sum of smallest j of a <= b's.",
+ "claims": [
+  {
+   "claim": "Counterexample 5.4",
+   "eval_status": "refuted",
+   "classification": "artifact",
+   "independent_witness": "Printed values reproduce to 6 decimals at 120 digits. Pair 1 (lam=(2,3,5), mu=(2.6,3.2,3.7)): lam >=^p mu TRUE (products 2,6,30 <= 2.6,8.32,30.784) and lam not >=^w mu TRUE (sums 2,5,10 vs 2.6,5.8,9.5 fail at j=3); S_X(1.5)=0.4716293372 > S_Y(1.5)=0.4596193490 -> printed 'X_{3:3} not<=st Y_{3:3}' VERIFIED (printed 0.471629/0.459619 exact). Pair 2 (lam=(2.5,3,5), mu=(3,3.8,4.4)): S_X(1.2)=0.6717660758 < S_Y(1.2)=0.6944981024 -> 'X_{3:3} not>=st Y_{3:3}' VERIFIED (printed 0.67176/0.69449).",
+   "evidence": "Every printed assertion of the counterexample is exactly correct, including both hypotheses and both displayed survival values; in fact pair 1 is stronger than printed — the survivals CROSS (S_X>S_Y at x=1.5 and S_X<S_Y elsewhere on the grid), and pair 2 is a clean one-sided failure (X <=st Y holds globally on the grid). The recorded 'refuted' verdict is a harness-semantics artifact: the stored witness format ('fwd fail/rev fail') does not match the current eval script's output format, and the current script's criterion (ok = not h1 and not h2r) would emit 'holds'. The stale record appears to have required pair1's reverse ordering to hold as well — a criterion stricter than the printed claim. The counterexample stands; verdict NOT genuine."
+  }
+ ]
+}

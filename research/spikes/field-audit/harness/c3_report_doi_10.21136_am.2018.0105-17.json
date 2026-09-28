@@ -1,0 +1,14 @@
+{
+  "paper": "doi:10.21136/am.2018.0105-17",
+  "auditor": "c3 independent verification",
+  "method": "Fresh mpmath(110-digit) recomputation. NP(a,b): S(x)=2b^a/(x^a+b^a), x>b; series hazard r_{1:n}=sum_i a x^{a-1}/(x^a+b_i^a). All eval instance pairs re-checked for the majorization premise and the hazard compared on x in (max beta, max+50].",
+  "claims": [
+    {
+      "claim": "Theorem 3.5(a)",
+      "eval_status": "refuted",
+      "classification": "confirmed-direction-reversed",
+      "independent_witness": "beta=(1,2,7) >=m beta*=(3,3,4) (sums 10=10; beta* ascending partials 3,6,10 >= beta's 1,3,10), alpha=1: r_X - r_Y = +0.0166305916306 at x = max+1e-12 (eval witness x=9.000000000001) and remains positive out to x=max+50 (+8.9e-5). Second pair beta=(0.1,1,9) vs beta*=(0.1,4,6): r_X - r_Y = +0.01197 at the boundary for alpha=1/2,4/5,1.",
+      "evidence": "The printed claim X_{1:n} >=fr Y_{1:n} (i.e. r_X <= r_Y) fails for every tested (alpha in {1/2,4/5,1}, both beta-pairs): r_X - r_Y > 0 at all of ~50 sample abscissae, margin ~1e-2 — decisive, not a boundary artifact. The OPPOSITE order X_{1:n} <=hr Y_{1:n} holds on all instances, consistent with the paper's own Theorem 3.1(b) (X_{1:n} <=st Y_{1:n} under the identical premise, verified S_X <= S_Y). The paper's proof applies Lemma 2.3(a) to the scale parameter but the NP scale law F((x/beta)) puts beta in the denominator of the rate argument, flipping the direction. Genuine refutation: hypotheses (independence, 0<alpha<=1, beta >=m beta*) all satisfied."
+    }
+  ]
+}

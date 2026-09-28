@@ -1,0 +1,14 @@
+{
+  "paper": "doi:10.1017/s026996482400007x",
+  "auditor": "c3 independent verification",
+  "method": "Fresh mpmath(100-digit) + sympy recomputation. EW(a,lam,k): S(x)=a e^{-(lam x)^k}/(1-(1-a)e^{-(lam x)^k}); independent series hazard h_{1:n}=sum_i k lam_i^k x^{k-1}/(1-(1-a)e^{-(lam_i x)^k}); claim reduces to Schur-convexity of the sum, i.e. convexity of the summand in lam.",
+  "claims": [
+    {
+      "claim": "Theorem 3.7",
+      "eval_status": "refuted",
+      "classification": "confirmed-genuine",
+      "independent_witness": "alpha=1/3, k=3/2, lambda=(5,2), mu=(7/2,7/2): premise lambda >=m mu holds (sums 7=7; mu ascending partials 3.5,7 >= lambda's 2,7). At x=1/10: h_X - h_Y = -0.1546607560114221036... < 0, so Y_{1:n} >=hr X_{1:n} FAILS.",
+      "evidence": "Refutation genuine: printed hypotheses (0<alpha<=1, k>=1, independence psi=e^{-x}, lambda >=m mu) all satisfied. The proof's key step 'r_{X1:n} convex in lambda' is false: g''(lambda) = -0.0799 at (lambda,x)=(5,1/10) and -0.0842 at (7/2,1/10), so the hazard sum is NOT Schur-convex there. Sign of the failure is robust (45 grid points in x in (0,10), min -0.237 at x=0.137; also negative at x=0.2) — not a boundary artifact. Two of the eval's other three instances hold, consistent with a real rather than systematic-model error."
+    }
+  ]
+}

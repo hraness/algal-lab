@@ -1,0 +1,21 @@
+{
+ "paper": "doi:10.1016/j.orl.2020.12.009",
+ "auditor": "c3 independent verification",
+ "method": "Fresh mpmath dps=120 recomputation of printed model: F_{a_i}=F/(a_i+(1-a_i)F), F_{X3:3}=phi(sum psi(F_{a_i})), baseline F=1-e^{-x^0.5}, alpha=(0.9,1.45,2.15) >=^w beta=(1.2,1.95,2.65) verified under the paper's smallest-first-partials definition (0.9<=1.2, 2.35<=3.15, 4.5<=5.8). Printed generators: (a) phi1=0.9/log(t+e^0.9), phi2=e^{1-(1+t)^{1/8}}; (b) phi1=e^{(1-e^t)/0.9}, phi2=(2/(e^t+1))^5.",
+ "claims": [
+  {
+   "claim": "Counterexample 4.1, case (a) — neither generator log-concave",
+   "eval_status": "refuted",
+   "classification": "artifact",
+   "independent_witness": "Under the PRINTED generators, F_{X3:3} - F_{Y3:3} takes both signs on the x-grid: +0.0445720 at x=0.19 and -0.0160844 at x=3.54 (864 points, 391 positive / 473 negative) — the cdfs cross, so the printed claim 'ordering not attained' is TRUE in both directions. Under the eval's substituted generator phi2=e^{(1-e^t)/8} (Gumbel-Barnett — NOT the printed e^{1-(1+t)^{1/8}}), F_X-F_Y >= +5.9e-5 everywhere: the ordering holds and the counterexample spuriously 'fails'.",
+   "evidence": "Wrong-generator artifact. The eval's gen_gb(8) does not match the printed phi2. With the printed phi2, the counterexample's assertion (st ordering fails — indeed the cdfs cross) is verified. The verdict 'refuted' is not genuine."
+  },
+  {
+   "claim": "Counterexample 4.1",
+   "eval_status": "refuted",
+   "classification": "artifact",
+   "independent_witness": "Combined record over both printed cases. PRINTED case (a): FX-FY spans [-0.0160844, +0.0445720] — crossing. PRINTED case (b): FX-FY spans [-0.0331794 at x=0.98, +0.0462519 at x=6.2] — crossing (matches eval's own case-(b) witnesses fwd fail x=1e-12, rev fail x=2048/15). Both printed cases therefore fail the st ordering as claimed.",
+   "evidence": "The combined record was marked refuted only because case (a) ran under the wrong phi2 generator (see sibling record). Under the printed generators both cases cross — the printed counterexample claim is correct; verdict not genuine."
+  }
+ ]
+}

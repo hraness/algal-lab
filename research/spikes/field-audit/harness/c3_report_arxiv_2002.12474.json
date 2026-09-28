@@ -1,0 +1,35 @@
+{
+ "paper": "arxiv:2002.12474",
+ "auditor": "c3 independent verification",
+ "method": "Fresh mpmath dps=120-150 recomputation; W-Exp: S=exp(-a*(e^{gx}-1)^b), r~=a*b*g*e^{gx}(e^{gx}-1)^{b-1}/(e^{a(e^{gx}-1)^b}-1); GM: S=exp(-l x-(a/b)(e^{bx}-1)), F_max=prod F_i. Both weak-majorization readings tested (printed Def (4) sub: largest-first partial sums <=; Def (5) super: smallest-first >=). The text layer prints both as '<w' — position unresolvable.",
+ "claims": [
+  {
+   "claim": "Theorem 4",
+   "eval_status": "refuted",
+   "classification": "inconclusive",
+   "independent_witness": "Under the submajorization reading the eval instances alpha=(1,2)<_w(2,3) and (1,2,3)<_w(2,3,4) are admissible and the claim fails decisively: r~_X - r~_Y -> +1.0 as x->0+ (eval witness x=1e-12 confirmed: +1.0 exactly) and +1.044 at x=0.25, staying >=0 on the whole grid -> the reversed order X_{n:n} >=rh Y_{n:n} holds. BUT under the equally-printable supermajorization reading (Def (5): smallest-first sums >=), fresh admissible instances alpha=(2,3)/(1,4) and (2,4)/(1,5) give r~_X - r~_Y <= 0 everywhere -> the printed claim holds.",
+   "evidence": "The refutation is real only under reading 'a <_w b' (submajorization, Def 4). The paper's own proof needs the Schur-convex DECREASING function g(alpha)=alpha/(e^{alpha z}-1), for which the correct weak order is supermajorization a <^w b (Def 5); under that reading the claim holds on every fresh admissible instance. Per protocol this is 'refuted under reading R' — glyph-unresolvable, does not count as a clean P1 refutation."
+  },
+  {
+   "claim": "Theorem 5",
+   "eval_status": "refuted",
+   "classification": "inconclusive",
+   "independent_witness": "Submajorization instances gamma=(1,2)<_w(2,3), (1,2,3)<_w(2,3,4): F_X - F_Y in [-0.638, 0] at every grid point -> printed X_{n:n} <=st Y_{n:n} fails, reversed holds. Supermajorization instances gamma=(2,3)<^w(1,4), (2,4)<^w(1,5): F_X - F_Y in [0, +0.605] -> printed claim holds.",
+   "evidence": "Same unresolvable '<w' ambiguity as Theorem 4. F_{Xn:n} is Schur-concave increasing in gamma; the transfer lemma needs supermajorization for F_X >= F_Y, and the eval used the opposite (submajorization) reading. Refuted under reading 'sub' only."
+  },
+  {
+   "claim": "Theorem 9",
+   "eval_status": "refuted",
+   "classification": "confirmed-genuine",
+   "independent_witness": "S_{X1:n}(x) = exp(-(sum lam_i)x - (n a/b)(e^{bx}-1)) depends on lambda only through sum lam_i. Eval instance lam=(1,4) vs lam*=(3,3): sums 5 != 6 -> survivals differ (S_X < S_Y for all x>0), so '=st' fails. The instance is admissible under the '>~^w' reading (lam* <^w lam: lam*'s smallest sums 3,6 >= lam's 1,5). Under EVERY other printable reading fresh admissible unequal-sum instances also refute: e.g. lam=(1,2) <_w (2,3) (sums 3 vs 5) and lam=(3,4) <^w (1,4) (sums 7 vs 5).",
+   "evidence": "The printed stochastic equality under a weak-majorization hypothesis is unprovable as stated — any weak order admits unequal-sum admissible pairs, and equal sums already give equality. A genuine refutation of the printed '=st' claim (printed numbers are consistent: the survivals provably differ). The eval's chosen instance is admissible only under the supermajorization-direction reading of the ambiguous glyph, but the falsity is reading-independent."
+  },
+  {
+   "claim": "Theorem 10",
+   "eval_status": "refuted",
+   "classification": "inconclusive",
+   "independent_witness": "Submajorization instances alpha=(1,2)<_w(2,3), (1,2,3)<_w(2,3,4) (GM, beta=lambda=1): F_X - F_Y in [-0.196, 0] -> printed X_{n:n} <=st Y_{n:n} fails, reversed holds. Supermajorization instances (2,3)<^w(1,4), (2,4)<^w(1,5): F_X-F_Y in [0,+0.130] -> printed claim holds.",
+   "evidence": "Same '<w' glyph ambiguity. The paper's proof shows F_{Xn:n} Schur-concave increasing in alpha and invokes its Lemma 2.3, which requires the supermajorization direction; the eval's submajorization instances then invert the conclusion. Refuted under reading 'sub' only — per protocol 'refuted under reading R'."
+  }
+ ]
+}

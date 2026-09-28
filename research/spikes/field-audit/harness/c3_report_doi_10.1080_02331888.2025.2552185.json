@@ -1,0 +1,50 @@
+{
+  "paper": "doi:10.1080/02331888.2025.2552185",
+  "auditor": "c3 independent verification",
+  "method": "Fresh mpmath (120-digit) and exact sympy rational recomputation of the Kw-G random-extreme model; no eval-script or ratdist code reused. Model: S_i(z)=(1-(1-z^c)^{a_i})^{g_i} with z=e^{-x}, G=Exp(c); S_{1:N}=sum_m p_m prod_{i<=m}S_i; S_{N:N}=1-sum_m p_m prod(1-S_i); r(x)=z S'(z)/S(z), rt(x)=zS'(z)/(1-S(z)).",
+  "paper_context": "The paper defines only the <=-side majorization glyphs; alpha ~=^w beta is ambiguous between 'beta weakly supermajorized by alpha' (adjudicated: beta's ascending partial sums >= alpha's; used by the counterexamples and the application text's 'weakly-supermajorization') and the converse 'alpha supermajorizes/submajorizes beta'. Theorems 3.9 and 3.10 carry the SAME premise (gamma=delta, alpha~=^w beta, E+/D+) but OPPOSITE conclusions (X>=hrY vs X<=hrY).",
+  "claims": [
+    {
+      "claim": "Theorem 3.7",
+      "eval_status": "refuted",
+      "classification": "confirmed-genuine",
+      "independent_witness": "litsuf-f: n=2, N~{1:9/10,2:1/10}, gamma=(4,5), delta=(1,8), alpha=beta=1_2, G=H=Exp(1). Premise sum(gamma)=9 <= sum(delta)=9 SATISFIED; at z=1/2 r_X - r_Y = +4015296/666145 > 0 exactly, so X_{1:N} >=hr Y_{1:N} FAILS -> sufficiency direction refuted.",
+      "evidence": "iff broken on BOTH directions. litsuf-f (above): premise holds, conclusion fails (r_X-r_Y>0 exact at z=1/2, 9/10, 1/10). necc-d: N=1, gamma=(2,5), delta=(3,3) -> sums 7<=6 FALSE, yet X>=hrY holds exactly (r_X-r_Y = -2 <0): necessity direction refuted. All hypotheses (alpha=beta=1_n, r_g<=r_h via G=H, N positive-integer rv) are satisfied as printed."
+    },
+    {
+      "claim": "Theorem 3.8",
+      "eval_status": "refuted",
+      "classification": "confirmed-genuine",
+      "independent_witness": "gamma=(4,1,1) (listed descending), delta=(2,2,2), alpha=beta=2*1_3 (a=2), G=H=Exp(1), N~U{1,2,3}: r_X - r_Y = +80/39 > 0 at z=1/2 exactly, so X_{1:N} >=hr Y_{1:N} fails.",
+      "evidence": "Premise gamma ~=^m delta is order-free (sorted order statistics): delta's ascending partial sums (2,4,6) >= gamma's sorted (1,2,6) with equal totals — satisfied for BOTH listings. The conclusion is order-sensitive: with gamma ascending (1,1,4) X>=hrY holds exactly; with gamma descending (4,1,1) it fails at z=1/2 (and z=1/4,3/4). The printed statement imposes NO order restriction on gamma,delta, so the descending instance satisfies all printed hypotheses and refutes the claim. Genuine as printed."
+    },
+    {
+      "claim": "Theorem 3.9",
+      "eval_status": "refuted",
+      "classification": "confirmed-genuine",
+      "independent_witness": "adj-a: alpha=(1,1,2),beta=(2,2,2),gamma=delta=(1,1,1) (all in E+), G=H=Exp(1), N~U{1,2,3}: at z=3/5 r_X - r_Y = +2854955/2929031 > 0 exactly, killing X_{1:N} >=hr Y_{1:N}.",
+      "evidence": "Premise holds under adjudicated reading (beta asc sums (2,4,6) >= alpha (1,2,4)) AND the claim fails: r_X-r_Y<0 at z=1/12 (-345307992/1071188545) and >0 at z=1/2 (+436/555): hazards CROSS. Under the converse reading, instance alpha=(2,3,3)>=^w beta=(2,2,2) also fails: r_X-r_Y=+0.76 at z=1/10 (root between 4/13 and 5/16). Fails under BOTH majorization readings — refutation is genuine and does not depend on the glyph choice."
+    },
+    {
+      "claim": "Theorem 3.10",
+      "eval_status": "refuted",
+      "classification": "confirmed-genuine",
+      "independent_witness": "Same adj-a instance: at z=1/12 r_X - r_Y = -345307992/1071188545 < 0 exactly, killing the printed X_{1:N} <=hr Y_{1:N} (r_g>=r_h holds with equality G=H).",
+      "evidence": "Confirmed at z=1/12 (eval's witness) exactly. Hazards cross on the shared premise: neither hr direction holds, so the pair 3.9/3.10 printed with opposite conclusions are BOTH false on the same instance. Additional failing instances: adj-D+ (alpha=(2,1,1) in D+) sign -1 at z=1/12; alt reading alpha=(2,3,3) sign -1 for z>0.31. The holding instance adj-G2H1 (G=Exp(2),H=Exp(1), rX-rY>0) does not rescue the universal claim."
+    },
+    {
+      "claim": "Theorem 3.12",
+      "eval_status": "refuted",
+      "classification": "confirmed-genuine",
+      "independent_witness": "gamma=delta=2*1_3, alpha=(1,1,2) in E+, beta=(2,2,2) (alpha,beta>=1_n), G=H=Exp(1) (the 'G<=H and g>=h' pair forces G=H for same-support cdfs): at z=1/2 rt_X - rt_Y = -143576/55461 < 0 exactly, killing X_{N:N} >=rh Y_{N:N}.",
+      "evidence": "Claimed direction r~_X >= r~_Y fails at every tested z under the adjudicated reading (opposite X<=rhY holds: rt_X<rt_Y at z=1/4,1/2,9/10 — direction actually reversed). Under the converse reading alpha=(2,3,3): rt_X-rt_Y changes sign (+1 at z=1/20, -1 at z=1/2) so the claimed >=rh still fails. 'G<=H and g>=h' is only satisfiable with G=H (g>=h a.e. on common support implies G>=H; combined with G<=H gives equality) — the eval's G=H instance is admissible."
+    },
+    {
+      "claim": "Theorem 3.18",
+      "eval_status": "refuted",
+      "classification": "confirmed-direction-reversed",
+      "independent_witness": "p=q=1, n=2, N~{1:1/2,2:1/2}, alpha_1=3 >= alpha=2 >= beta_1=1, gamma=delta=1, G=H=Exp(1): d/dz(f_Y/f_X) = +3728/1225 > 0 at z=1/2 exactly (f_Y/f_X decreasing in x required for X<=lrY; it is increasing in x), so X_{1:N} <=lr Y_{1:N} fails.",
+      "evidence": "X's first-group shape alpha_1=3 > beta_1=1 makes X components stochastically LARGER: Y<=stX and Y<=lrX hold (f_Y/f_X increasing in z = decreasing in x confirmed at z=1/4,1/2,9/10; derivative positive exactly). The printed <=lr direction is exactly backwards; true relation is Y_{1:N} <=lr X_{1:N}. All printed hypotheses satisfied (distribution-free claim, so G=H admissible)."
+    }
+  ]
+}

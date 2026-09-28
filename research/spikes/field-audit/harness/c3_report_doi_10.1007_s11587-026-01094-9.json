@@ -1,0 +1,28 @@
+{
+  "paper": "doi:10.1007/s11587-026-01094-9",
+  "auditor": "c3 independent verification",
+  "method": "Fresh mpmath(110-digit): S_{Ti}=p_i Fbar(x;a_i) with p_i=1/v_i (psi=1/p, decreasing convex log-convex, psi^{-1}=1/v); min-series S=prod, parallel-max F=prod(1-p_i Fbar_i), random-N mixtures. Premise re-verified under printed Def 2.2 (a >=^w b iff ascending partial sums of a >= b's) and M_n co-monotonicity; Fbar(x;a)=e^{-a x} (Kw-G at gamma=1, scale family, prop-hazard all reduce to it and satisfy 'decreasing and convex in alpha').",
+  "claims": [
+    {"claim": "Theorem 3.1", "eval_status": "refuted", "classification": "confirmed-genuine",
+     "witness": "alpha=(4,4) >=^w beta=(2,5) (asc sums 4,8 >= 2,7); psi(p)=(4,4) const (M2 trivially). S_T - S_T* = (e^{-8x}-e^{-7x})/16 = -6.25e-14 at x=1e-12, -3.06e-3 at x=0.125. Instances 1-2 have equal totals so survivals coincide; instance 3 is admissible and refutes.",
+     "evidence": "Claimed T_{1:n} >=st T*_{1:n} fails under the printed premise; the opposite order holds on the scan (consistent with eval note: likely premise-direction misprint, since larger asc sums of alpha make Fbar_i smaller)."},
+    {"claim": "Theorem 3.2", "eval_status": "refuted", "classification": "confirmed-genuine",
+     "witness": "psi(p)=(3,3) >=^w psi(p*)=(2,4): S diff = -1/72 at x=1e-12, -1.08e-2 at x=0.125; all three instances violate (margins -0.014 to -0.042 at x->0+).",
+     "evidence": "Premise holds under printed Def 2.2; st order fails."},
+    {"claim": "Theorem 3.4", "eval_status": "refuted", "classification": "confirmed-genuine",
+     "witness": "v=(3,3)>=^w u*=(2,4), alpha=(1,1)>=^w beta=(0.5,1.5): F_T-F_T* = +0.0694 at x=1e-12 (i.e. T_{n:n} not >=st), violations over whole scan; opposite direction holds.",
+     "evidence": "Row weak-majorization premise verified under printed convention; conclusion fails."},
+    {"claim": "Theorem 3.5", "eval_status": "refuted", "classification": "confirmed-genuine",
+     "witness": "Random maxima, N1=2 <=st N2=3. Same admissible instances: S_{T_{N1:N1}}-S_{T*_{N2:N2}} = -0.29 at x->0+ (inst1).",
+     "evidence": "Premise verified; conclusion fails."},
+    {"claim": "Theorem 3.6", "eval_status": "refuted", "classification": "confirmed-genuine",
+     "witness": "Kw-G Fbar=(1-G^gamma)^alpha with G=1-e^{-x}, gamma=1 (admissible: gamma,alpha>0) gives Fbar=e^{-alpha x}; random-max claim fails: diff -0.292 (inst1), -0.244 (inst2) at x->0+.",
+     "evidence": "Family satisfies printed condition (i) (dec+convex in alpha); premise holds; conclusion fails."},
+    {"claim": "Theorem 3.7", "eval_status": "refuted", "classification": "confirmed-genuine",
+     "witness": "Scale family Fbar(x alpha) with Fbar_0=e^{-x} (f decreasing, satisfying printed (ii)); same failure margins as 3.6.",
+     "evidence": "Admissible concrete family; conclusion fails."},
+    {"claim": "Theorem 3.8", "eval_status": "refuted", "classification": "confirmed-genuine",
+     "witness": "Proportional-hazard Fbar^alpha=e^{-alpha x}; same failure margins.",
+     "evidence": "Admissible concrete family; conclusion fails."}
+  ]
+}

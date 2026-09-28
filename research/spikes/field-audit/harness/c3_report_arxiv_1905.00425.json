@@ -1,0 +1,20 @@
+{
+ "paper": "arxiv:1905.00425",
+ "auditor": "c3 independent verification (fresh mpmath dps=120 model)",
+ "model": "Gum(mu,sigma): F=exp(-e^{-(x-mu)/sigma}), S=1-F; series hazard r_{X1:n}=(1/sigma)*sum_i phi(e^{(mu_i-x)/sigma}), phi(t)=t/(e^t-1)",
+ "records": [
+  {
+   "claim": "Theorem 3.4",
+   "eval_status": "refuted",
+   "classification": "confirmed-genuine",
+   "printed": "(mu_1,...,mu_n) >=^m (mu*_1,...,mu*_n) => X_{1:n} <=hr Y_{1:n}",
+   "hypothesis_check": "all 4 eval instances satisfy mu >>^m mu* exactly ([3,1]/[2,2], [4,2,1]/[3,2,2], [5,3,1]/[3,3,3], [9,5,1]/[7,5,3]); common sigma as printed",
+   "independent_witness": {
+    "method": "mpmath dps=120 direct evaluation of r_X(x)-r_Y(x) on x-grid",
+    "result": "printed claim fails on every instance and hazards CROSS: e.g. mu=(3,1) vs mu*=(2,2), sigma=1: r_X-r_Y = -0.0439 at x=8/5 (the eval witness), reaching min -0.171 at x~2.4, but max +0.291 at x~0.56; mu=(5,3,1) vs (3,3,3) sigma=1/2: r_X-r_Y spans [-1.75, +1.85]",
+    "note": "the paper's proof needs t*phi'(t) increasing in t for Schur-convexity; it is not, and the hazards cross"
+   },
+   "verdict_reason": "refutation stands; not a direction reversal since r_X-r_Y takes both signs -> neither hr direction holds"
+  }
+ ]
+}

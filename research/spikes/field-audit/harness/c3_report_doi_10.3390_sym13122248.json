@@ -1,0 +1,35 @@
+{
+ "paper": "doi:10.3390/sym13122248",
+ "auditor": "c3 independent verification",
+ "method": "Fresh mpmath dps=120 recomputation. MOTL-G survival zeta(a,b,G)=a(1-T^b)/(a+(1-a)T^b), T=1-(1-G)^2; shocked series S_Y=(prod p_i) psi(sum phi(zeta_i)). Paper's weak supermajorization Def 2(ii) = smallest-first partial sums <=.",
+ "claims": [
+  {
+   "claim": "Example 1",
+   "eval_status": "refuted",
+   "classification": "confirmed-genuine",
+   "independent_witness": "Printed instance: X-side alpha=(1.1,4,6.5), beta=(2,5,6), G1=1-1/(1+x), Clayton theta1=2, p=(e^-0.05,e^-0.08,e^-0.22); Y*-side gamma=(3.5,4,6.3), delta=(4.5,5,5.8), G2=1-e^{-x}, theta2=4, p*=(e^-0.01,e^-0.21,e^-0.03). Both paper-convention hypotheses verified: alpha >=^w gamma (1.1<=3.5, 5.1<=7.5, 11.6<=13.8), beta >=^w delta. At eval witness x=64/15: S_Y - S_Y* = +0.05139365 > 0. Over the grid the difference spans [-0.23893 at x=0.67, +0.06458 at x=3.16] -> survivals CROSS.",
+   "evidence": "The printed claim Y_{1:3} <=st Y_{1:3}* fails decisively (and the claimed transform-direction reading is false too): S_Y exceeds S_Y* on x~[2,6] and undershoots it below 0.67. The example's graphical conclusion is wrong as printed. Genuine refutation."
+  },
+  {
+   "claim": "Example 3",
+   "eval_status": "refuted",
+   "classification": "confirmed-genuine",
+   "independent_witness": "G=x on [0,1], AMH generator psi=2/(1+e^t), beta=1, alpha=(2,3) vs gamma=(4,6), prod p*/prod p = 0.3 (eval assignment p=(1/2,1/2), p*=(0.3,0.25)). S_Y*/S_Y starts at exactly 0.30025 (x=0.001) and increases monotonically to 1.1999970 (x=0.999) over 999 grid points with ZERO decreases at 120 digits -> Y_{1:2} <=hr Y*_{1:2} holds. At x=1e-12 the ratio is exactly prod ratio 0.3 as printed.",
+   "evidence": "The printed counterexample claims Fbar_Y*/Fbar_Y 'is not monotone'. In fact the ratio is strictly increasing — the hr order Y <=hr Y* holds, so the counterexample's assertion is FALSE and the 'refuted' verdict is genuine. (The intended moral — product condition matters at x=0 via Remark 6 — is orthogonal; the printed claim as stated is wrong.)"
+  },
+  {
+   "claim": "Example 4",
+   "eval_status": "refuted",
+   "classification": "confirmed-genuine",
+   "independent_witness": "G=x on [0,1], independence copula psi=e^{-t}, alpha=1.2 common, beta=(2,7) vs delta=(6,9), prod p*/prod p = 3 (p=(1/2,1/2), p*=(3/4,1)). S_Y*/S_Y increases monotonically from 3.00001 (x=0.001) to 11.571380 (x=0.999), zero decreases at 120 digits -> Y_{1:2} <=hr Y*_{1:2} holds.",
+   "evidence": "Printed claim 'neither Y_{1:2} >=hr Y* nor Y_{1:2} <=hr Y*' is false: the ratio is monotone increasing, so Y <=hr Y* holds. Genuine refutation."
+  },
+  {
+   "claim": "Theorem 5",
+   "eval_status": "refuted",
+   "classification": "confirmed-genuine",
+   "independent_witness": "Admissible instance under ALL printed conditions: alpha=(3,1) ~w gamma=(2,2), common beta=2, prod p=(1/2)^2 <= prod p*=(3/4)^2, G1=Lomax 1-1/(1+x), G2=Exp(1) (the printed theorem imposes NO baseline order). Copula AMH psi=2/(1+e^t) satisfies the printed conditions verbatim: log psi strictly concave ((log psi)''(1) = -0.1966) and psi(1-psi)/psi' = e^{-t}-1 is decreasing and convex. The ratio S_Y*/S_Y is non-monotone — 560 decreases / 39 increases on the grid (spans [9.3e-5, 2.28]); same failure under Clayton-2 (555 dec / 44 inc) and the eval's log-convex Gumbel-2 (544/55). Reverse baseline assignment G1=Exp, G2=Lomax makes the ratio increasing (claim holds).",
+   "evidence": "The theorem is false as stated even under its strongest printed reading (log-concave AMH, decreasing-and-convex third condition): one admissible instance with unordered baselines kills it (the ratio's failure is driven by the heavier-tailed Lomax on the X side). Per the protocol's P1 reading this is a genuine refutation — not merely reading-dependent, since the print imposes no G1/G2 constraint. The eval's Gumbel-2 instance is admissible only under the proof-implied log-convex reading, but the refutation survives independent of that choice."
+  }
+ ]
+}

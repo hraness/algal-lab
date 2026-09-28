@@ -1,0 +1,14 @@
+{
+  "paper": "arxiv:2503.21275",
+  "auditor": "c3 independent verification",
+  "method": "Fresh mpmath(110-digit) recomputation. FGMW parallel-system survival re-derived from the printed FGM joint survival via inclusion-exclusion: Fbar_D(t) = theta(t) + (-1)^{n-1} exp(A(t)) gamma (1-theta(t)), theta = 1-prod(1-S_i) = Fbar_I, S_i = exp(-t) (lambda_i=alpha_i=1). Hazards via -d/dt log Fbar. No eval-script code reused.",
+  "claims": [
+    {
+      "claim": "Section 4.3.2 result — FR error sign (FGMW parallel system)",
+      "eval_status": "refuted",
+      "classification": "confirmed-genuine",
+      "independent_witness": "n=3, gamma=1/2 (a printed 'E^r <= 0' case): r_D - r_I = +2.4015165e-5 at t=0.785236 and -1.2162171e-5 at t=0.707946 (110-digit arithmetic) — the error is oscillatory, not one-signed. Also n=2, gamma=1/2: +9.9551e-4 at t=0.001, -7.4093e-3 at t=16/15 (eval's witness).",
+      "evidence": "The printed rule 'E^r(t) <= 0 if gamma>0 & n odd or gamma<0 & n even' fails in BOTH listed direction cases (n=3,gamma=+0.5: r_D-r_I positive on a whole interval; n=2,gamma=-0.5: likewise) and in all complementary cases tested (n=2,3,4,5 x gamma=+-0.5,+-0.9): r_D-r_I always crosses zero. Sign changes are ~1e-5..1e-2 in magnitude, far above the 1e-60 noise floor at 110 digits — genuine oscillation, not an artifact. Instance is admissible: -1<gamma<1 per the printed definition."
+    }
+  ]
+}

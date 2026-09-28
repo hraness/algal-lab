@@ -1,0 +1,26 @@
+{
+  "paper": "doi:10.1080/03610926.2021.1919898",
+  "auditor": "c3 independent verification",
+  "method": "Fresh mpmath(110-digit): GM S(x)=exp(-l x-(a/b)(e^{bx}-1)); series min S=prod, f=S*sum(l+a e^{bx}); parallel max F=prod(1-S). lr order tested via sign of d/dx log(f_X/f_Y) on (0,5]; st via sign changes of F_X-F_Y. Premises re-verified under printed Def 1 (x>=^m y: descending partial sums x_[i] >= y_[i], equal totals).",
+  "note": "All six refuted records are paper-printed counterexamples whose canonical conclusion is a NON-ordering claim; 'refuted' in the result file means the checked would-be order fails, i.e. the counterexample is confirmed. For 'no lr ordering' I verified BOTH directions fail (density ratio derivative takes positive sign in each orientation).",
+  "claims": [
+    {"claim": "Counterexample 1, part (i)", "eval_status": "refuted", "classification": "confirmed-genuine",
+     "witness": "alpha=(0.1,20) >=^m alpha*=(2.1,18) verified (desc sums 20,20.1 vs 18,20.1). d/dx log(f_X/f_Y) = +0.00397 at t=1/15 (eval witness) and positive at ~595 of 600 points up to t=5 -> X1:2 <=lr Y1:2 fails; the reversed direction Y<=lr X also fails (derivative of log(f_Y/f_X) positive at t in ~[0.008,0.017], e.g. +0.0078 at 0.0084).",
+     "evidence": "Printed claim 'no lr ordering between X_{1:2} and Y_{1:2}' confirmed: neither direction holds."},
+    {"claim": "Counterexample 1 (part a)", "eval_status": "refuted", "classification": "confirmed-genuine",
+     "witness": "Duplicate record of Counterexample 1(i); same instance, same confirmation.",
+     "evidence": "Same as part (i)."},
+    {"claim": "Counterexample 1, part (ii)", "eval_status": "refuted", "classification": "confirmed-genuine",
+     "witness": "beta=(0.8,0.2) >=^m beta*=(0.7,0.3) verified. log-ratio derivative = +0.0939 at t=1e-12 (eval witness); X<=lr Y fails near 0 (+0.077), and Y<=lr X fails over most of (0.05,5] (+0.009 to +0.027).",
+     "evidence": "No lr ordering in either direction; printed claim confirmed."},
+    {"claim": "Counterexample 1 (part b)", "eval_status": "refuted", "classification": "confirmed-genuine",
+     "witness": "Duplicate record of Counterexample 1(ii); same instance, same confirmation.",
+     "evidence": "Same as part (ii)."},
+    {"claim": "Counterexample 2", "eval_status": "refuted", "classification": "confirmed-genuine",
+     "witness": "alpha=(0.2,0.1) >=^m alpha*=(0.18,0.12), beta=(2,1), lambda=0.6. Parallel-max cdf difference F_X-F_Y: +1.34e-4 at t=0.71 (eval witness 7/15: +1.78e-5) and -1.82e-2 at t=2.05 -> changes sign.",
+     "evidence": "Printed claim 'no stochastic ordering' confirmed: F-G takes both signs."},
+    {"claim": "Counterexample 3", "eval_status": "refuted", "classification": "confirmed-genuine",
+     "witness": "1/beta=(2,1) >=^m 1/beta*=(1.6,1.4) verified (desc sums 2>=1.6, totals 3=3). F_X-F_Y: +1.94e-2 at t=2.14 and -9.70e-2 at t=4.18 -> changes sign. (At eval witness t=1e-12 both cdfs are ~2.6e-26; the decisive sign change is interior.)",
+     "evidence": "Printed claim 'no stochastic ordering' confirmed."}
+  ]
+}
