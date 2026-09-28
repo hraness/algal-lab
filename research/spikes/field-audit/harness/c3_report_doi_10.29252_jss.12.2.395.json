@@ -1,0 +1,35 @@
+{
+ "paper": "doi:10.29252/jss.12.2.395",
+ "auditor": "c3 independent verification",
+ "method": "Fresh mpmath dps=100-120 recomputation. Aggregate n=2: S_agg(x)=p1(1-p2)S1(x)+(1-p1)p2 S2(x)+p1p2 S_{X1+X2}(x); Exp convolution closed form, PRHR convolution by quad (checked). Printed Thm-2 pairing read from the paper's own proof: E{phi(I_{p_{1:2}} X_{lam_{2:2}} + I_{p_{2:2}} X_{lam_{1:2}})} -> smallest p pairs the LARGEST lambda (countermonotone). Printed hypothesis: Fbar(x;lambda) increasing in lambda (i.e., lambda is a scale-type parameter). The eval's Exp-rate lambda (Fbar=e^{-lam x} decreasing in lambda) corresponds to scale-lambda paired the opposite way; tested all four (pairing x parameterization) combinations.",
+ "claims": [
+  {
+   "claim": "Theorem 2 (قضیه ٢)",
+   "eval_status": "refuted",
+   "classification": "confirmed-genuine",
+   "independent_witness": "Instance p=(1/3,1/2), q=(2/5,2/5), lam=(3,1), h=(1-p)/p: h(p_{i:n})=(2,1) >=^m h(q)=(1.5,1.5) verified (totals 3=3, top partials 2>=1.5). Under the printed convention — ascending lam_{k:n} pairing (p_(1) with lam_max=3) AND Fbar increasing in lam (scale param) — S_p - S_q crosses: +0.02667 at x->0+ (coverage sums 2/3 vs 16/25) down to -0.02045 at x=2.18. Equivalently the eval's own convention (descending lam_{i:n}, Exp-rate) gives -0.01813 at its witness x=16/15 with a sign change to +0.0267 near 0 — same qualitative crossing. The pairing convention that keeps the printed hypothesis (Fbar increasing in lam) refutes the claim.",
+   "evidence": "The claim fails under the printed convention (crossing, both directions fail). Only the family violating the printed 'Fbar increasing in lambda_i' hypothesis (Exp-rate + eval pairing = same system) shows the claim holding — i.e. the inadmissible reading is the one that holds. Refutation genuine; the theorem's hypothesis does not save it under the printed pairing."
+  },
+  {
+   "claim": "Theorem 3 (قضیه ٣; Li and Li 2016)",
+   "eval_status": "refuted",
+   "classification": "invalid-instance",
+   "independent_witness": "Eval used Exp-rate lambda: Fbar(x;lam)=e^{-lam x} is DECREASING and CONVEX in lam — violating the printed hypothesis (a) 'Fbar increasing and concave in lambda_i' on both counts. Under it, S_mu - S_lam < 0 throughout (e.g. -0.0670 at x=1, eval-consistent). But under the PRHR family Fbar=1-F^lam — which IS increasing and concave in lam (d2/dlam2 = -F^lam (log F)^2 < 0) and is the paper's own Theorem-5 specialization — S_{mu=(2,2)} - S_{lam=(3,1)} > 0 everywhere tested (min +0.011 on the effective range; the -1.8e-102 at x~3162 is quadrature noise where both survivals equal 1).",
+   "evidence": "The sole refuting instance is inadmissible under the printed hypotheses; on a hypothesis-satisfying family the claim holds. invalid-instance."
+  },
+  {
+   "claim": "Theorem 4 (قضیه ۴)",
+   "eval_status": "refuted",
+   "classification": "confirmed-genuine",
+   "independent_witness": "Admissible instance (eval's chain-majorization construction verified): A=(lam;-h(p))=[[3,1],[-1,-2]] with p=(1/2,1/3), B=A*D=[[2.5,1.5],[-1.25,-1.75]] with D=[[3/4,1/4],[1/4,3/4]] doubly stochastic, q=(4/9,4/11); both augmented matrices in Un (comonotone rows). S_{q,mu}(x)-S_{p,lam}(x) < 0 for the whole tested range — exactly -0.02020 = (1-(5/9)(7/11)) - (1-(1/2)(2/3)) = 64/99 - 2/3 at x->0+, staying negative to x~4 under Exp; identical pattern under PRHR (min -0.0108 at x=0.1, matching eval).",
+   "evidence": "The failure is pinned at x->0+ by the coverage-product gap (q-side surviving-probability sum smaller), independent of the severity family — so it persists under hypothesis-satisfying families too. Genuine refutation."
+  },
+  {
+   "claim": "Theorem 5 (قضیه ۵)",
+   "eval_status": "refuted",
+   "classification": "confirmed-genuine",
+   "independent_witness": "Same augmented-matrix instance specialized to PRHR S=1-(1-e^{-x})^lam: S_{q,mu}-S_{p,lam} = -0.02020 at x->0+ and remains negative to x~4 (e.g. -0.01988 at x=1, -0.01077 at x=0.1 matching the eval's grid-min report), turning slightly positive only beyond x~4 (+7.4e-5 at x=4).",
+   "evidence": "Same decisive mechanism as Theorem 4 — the q-side coverage product 1-prod(1-q)=64/99 < 2/3 forces the survival deficit at small x regardless of family. Genuine refutation."
+  }
+ ]
+}

@@ -1,0 +1,21 @@
+{
+ "paper": "arxiv:2407.18801",
+ "auditor": "c3 independent verification",
+ "method": "Fresh mpmath dps=120-200 recomputation. Paper's printed formula (Section 3, Theorems 3.1/3.2): Fbar_{X2:n}(x) = sum_i psi(sum_{j!=i} phi(Fbar(x;theta_j))) - (n-1) psi(sum_i phi(Fbar(x;theta_i))) — phi acts on the SURVIVALS. Clayton-10: psi=(1+10t)^{-1/10}, phi=(u^{-10}-1)/10; Gumbel-Barnett theta=1/5: psi=e^{(1-e^t)/theta}, phi=ln(1-theta ln u).",
+ "claims": [
+  {
+   "claim": "Unnumbered counterexample (labeled 'Example', Section 3, p.12) — 3 duplicate canonical records",
+   "eval_status": "refuted",
+   "classification": "confirmed-genuine",
+   "independent_witness": "Weibull margins e^{-(theta x)^0.9}, theta=(0.13,0.31,0.49,0.61,0.72) vs theta*=(0.22,0.41,0.71,0.88,0.92) (p-larger verified: products of smallest j are <= componentwise), Clayton theta=10. S_X-S_Y >= 0 on the whole grid at 200 digits: +5.1e-21 at x=1e-12, +0.0274 at x=0.1, +0.1041 at x=1, +0.1069 at x=2, max +0.11125 at x=1.5, +0.0053 at x=10 — NEVER crosses zero.",
+   "evidence": "The printed counterexample asserts the survival difference 'intersects y=0' (no ordering). In fact S_X > S_Y throughout (0,10] and beyond — X_{2:5} >=st Y_{2:5} holds, so the printed claim is false and the refutation is genuine (paper's Figure-2 reading is wrong)."
+  },
+  {
+   "claim": "Proposition 2",
+   "eval_status": "refuted",
+   "classification": "artifact",
+   "independent_witness": "The eval fed the cdfs F(theta_i(x-lam)) into the s_{2:n} formula. The paper's printed formula uses survivals Fbar = 1-F(theta_i(x-lam)). Under the correct survival margins (standard logistic baseline, common location lam — the proof's own reading, GB theta=1/5 generator, p-larger vectors verified): for theta=(1,2,3) vs theta*=(3/2,2,5/2), lam=1: S_X-S_Y >= 0 (min 0 boundary-only, max +0.00724 at x=1.8); for theta=(1,1,4) vs theta*=(4/3,2,3), lam=1/2: S_X-S_Y >= 0 (max +0.04124 at x=1.26). The printed claim HOLDS.",
+   "evidence": "The eval's own script feeds survivals for every other record in this paper (e.g. Weibull margins in the counterexample) but cdfs for Proposition 2 — an inconsistent implementation slip. With the printed survival semantics the claim holds on both tested instances. The eval's reported sign is an artifact of feeding cdfs (equivalently evaluating a different functional under the cdf-copula). Non-genuine -> artifact."
+  }
+ ]
+}

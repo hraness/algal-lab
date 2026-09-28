@@ -1,0 +1,35 @@
+{
+ "paper": "doi:10.29252/jss.13.2.319",
+ "auditor": "c3 independent verification",
+ "method": "Fresh mpmath dps=120 recomputation. GLFR: F_i(x)=(1-exp(-(a_i x + b x^2/2)))^{lam_i}; parallel max F=prod F_i. Paper's definitions read from the Persian text: Def 2 majorization (ascending prefix sums, EQUAL totals), Def 4 unordered majorization (listed-order prefix sums, equal totals), Def 5 weighted majorization on D_n^pi: u >=^m_p v iff sum p_pi u_pi = sum p_pi v_pi AND prefix sums of p_pi u_pi >= p_pi v_pi (STANDARD >= direction — read directly from the printed display).",
+ "claims": [
+  {
+   "claim": "Example 1 (مثال ١) / Example 1 (duplicate record)",
+   "eval_status": "refuted",
+   "classification": "confirmed-direction-reversed",
+   "independent_witness": "Printed numbers lam=(1,2,3), gamma=(2,2.5,1.5), alpha=(2,3,4), nu=(1,2,5), pi=(3,2,1), beta=1: F_Y(x)-F_X(x) in [-0.38211, 0] over a wide grid (min -0.38211 at x=0.82; -0.3507 at x=1 matches eval) — the printed X_{3:3} >=st Y_{3:3} fails and the strict reverse Y_{3:3} >=st X_{3:3} holds on the whole support.",
+   "evidence": "Two independent defects in the printed example: (i) its asserted hypothesis alpha >=^m_(lam) nu under Def 5 is numerically FALSE — lam_pi*alpha_pi partial sums (12,18,20) < (15,19,20), so actually nu >=^m_(lam) alpha; (ii) the conclusion fails too — the ordering runs opposite to printed. The eval refutation is genuine for the printed numbers (both the hypothesis claim and conclusion are wrong)."
+  },
+  {
+   "claim": "Theorem 5 (قضیه ۵)",
+   "eval_status": "refuted",
+   "classification": "invalid-instance",
+   "independent_witness": "Eval instance 2 has a LENGTH MISMATCH: alpha=(4,3,1),nu=(3,3,2) are 3-vectors but lam=(1,3),gamma=(1.5,2.5) are 2-vectors; Python zip silently dropped the third component, evaluating the n=2 system alpha=(4,3),lam=(1,3) vs nu=(3,3),gamma=(1.5,2.5). At n=2 the printed hypothesis alpha >=^m nu fails outright: sums 7 != 6 (Def 2 requires equal totals). Eval instance 1 (lam=(1,2,4),gamma=(2,3,2)) is also inadmissible (gamma=(2,3,2) is not in E+, and FY-FX >= 0 anyway).",
+   "evidence": "The sole refuting instance is malformed — not an instance of the printed theorem under any reading (length mismatch at n=3, unequal-sum majorization failure at n=2). All clean admissible instances satisfy the claim: (5,2)/(4,3),(1,4)/(2,3); (5,3,1)/(4,3,2),(1,2,4)/(1,3,3); (6,2,1)/(4,3,2),(1,2,5)/(2,2,4); (8,1,1)/(4,4,2),(1,5,9)/(3,4,8) all give F_Y-F_X >= 0 everywhere at 120 digits. Verdict is an artifact of zip truncation -> invalid-instance."
+  },
+  {
+   "claim": "Theorem 6 (قضیه ۶)",
+   "eval_status": "refuted",
+   "classification": "invalid-instance",
+   "independent_witness": "Identical defect: eval instance 2 beta=(5,3,1),mu=(4,3,2) (3-vectors) vs lam=(1,3),gamma=(1.5,2.5) (2-vectors) — zip truncates to n=2 where beta >=^m mu fails (sums 8 != 7). The truncated system does show a crossing (F_Y-F_X in [-0.0059,+0.001]) but it is inadmissible. Instance 1's gamma=(2,3,2) not in E+.",
+   "evidence": "All clean admissible instances hold: (5,2)/(4,3),(1,4)/(2,3); (5,3,1)/(4,3,2),(1,2,4)/(1,3,3); (6,2,1)/(4,3,2),(1,2,5)/(2,2,4); (8,1,1)/(4,4,2),(1,5,9)/(3,4,8) — F_Y-F_X >= 0 everywhere. Same zip-truncation artifact -> invalid-instance."
+  },
+  {
+   "claim": "Theorem 7 (قضیه ٧)",
+   "eval_status": "refuted",
+   "classification": "invalid-instance",
+   "independent_witness": "The eval's sole instance is the printed Example-1 data, which violates the printed hypothesis: under Def 5 (sum_{i<=k} lam_{pi_i} alpha_{pi_i} >= ... nu_{pi_i}, equality at k=n), the example's data give lambda_pi*alpha_pi = (12,6,2) partial sums (12,18,20) vs lambda_pi*nu_pi = (15,4,1) partial sums (15,19,20) — alpha does NOT weighted-majorize nu; the reverse nu >=^m_lam alpha holds. (gamma >=^uo lam does hold: 2>=1, 4.5>=3, 6=6.)",
+   "evidence": "Inadmissible under the printed hypothesis direction. Constructed admissible instances confirm Theorem 7: (1) pi=(2,1), lam=(1,3), gamma=(2,2) (gamma >=^uo lam: partials 2>=1,4=4); alpha=(1,4) vs nu=(2.5,3.5) on D_2^pi (alpha_2=4>=alpha_1=1; nu_2=3.5>=nu_1=2.5); lam_pi*alpha_pi=(3*4,1*1)=(12,1), lam_pi*nu_pi=(3*3.5,1*2.5)=(10.5,2.5): partials 12>=10.5, totals 13=13 equal — admissible; F_Y-F_X >= 0 (max +0.128 at x~0.84). (2) alpha=(1,6) vs nu=(4,5): weighted partials (18,19) vs (15,19) — admissible; F_Y-F_X >= 0 (max +0.28). The claim holds for every admissible instance tested -> invalid-instance."
+  }
+ ]
+}

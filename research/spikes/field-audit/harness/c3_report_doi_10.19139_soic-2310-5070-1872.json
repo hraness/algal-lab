@@ -1,0 +1,14 @@
+{
+ "paper": "doi:10.19139/soic-2310-5070-1872",
+ "auditor": "c3 independent verification",
+ "method": "Fresh mpmath dps=100 recomputation. Family: M=delta*Gbar/(1-(1-delta)Gbar), h=(M/(2-M))^{2 alpha}, F=(1-(1-h)^b) -> S=1-(1-h)^b, f=-d/dx S via mpmath diff. Baselines: Exp(1) and Weibull-2 survivals; all 8 eval (b1,b2,alpha,delta) instances with b1<b2.",
+ "claims": [
+  {
+   "claim": "Section 3.6 Theorem (lr) / Theorem (unnumbered, Section 3.6 Stochastic Order) — lr part (duplicate records)",
+   "eval_status": "refuted",
+   "classification": "confirmed-direction-reversed",
+   "independent_witness": "f(x;b1)/f(x;b2) is strictly DECREASING on all 8 instances (198/198 decreasing steps, zero increases; e.g. Exp base b=(1,2): ratio falls 25.313 -> 0.527 over x in [0.005,0.995]; Weibull2 b=(0.5,1): 20.416 -> 0.500). So under the standard/paper's-own lr definition the true order is X1 <=lr X2 — the printed conclusion 'X2 <lr X1' is the transposed direction.",
+   "evidence": "The density-ratio premise ('decreasing in x') holds exactly; the printed conclusion reverses the order it implies. Refutation is genuine and the correct relation is the strict reverse -> confirmed-direction-reversed. (Consistent with the paper's own next sentence printing X1 <st X2.)"
+  }
+ ]
+}

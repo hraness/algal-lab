@@ -1,0 +1,35 @@
+{
+ "paper": "doi:10.6339/jds.202001_18(1).0001",
+ "auditor": "c3 independent verification",
+ "method": "Fresh mpmath dps=120 recomputation. GIW cdf (paper eq. 18): G(y)=alpha^th (1-v^th)/((1-alpha^th) v^th), v=1-(1-alpha)e^{-(lam/y)^b}. Density via mpmath diff of the cdf; hazard f/S; reversed hazard f/G. The printed ratio reduces to const * v(y)^{th2-th1}: v(y) is decreasing for alpha<1 and increasing for alpha>1, so the theta ordering flips sign at alpha=1 — the paper prints no alpha restriction (alpha>0, alpha != 1) and even plots alpha=1.5, making the alpha=2 instance admissible.",
+ "claims": [
+  {
+   "claim": "Section 4.7, Case I (lr part)",
+   "eval_status": "refuted",
+   "classification": "confirmed-direction-reversed",
+   "independent_witness": "Instance (alpha=2,theta1=1,theta2=2,lam=b=1): g_X/g_Y strictly INCREASING over the full grid (198/198 increasing steps) -> X >=lr Y, the printed direction reversed. For alpha<1 instances (a=1/2: theta=(1,2); a=1/3: theta=(1,3)) the printed X <=lr Y holds as claimed.",
+   "evidence": "Decisive: alpha>1 makes v increasing, reversing the density-ratio monotonicity — printed 'd/dx[gX/gY]<0' is sign-wrong for alpha>1. Exact reverse order holds -> direction-reversed."
+  },
+  {
+   "claim": "Section 4.7, Case I (hr part)",
+   "eval_status": "refuted",
+   "classification": "confirmed-direction-reversed",
+   "independent_witness": "alpha=2, theta 1->2: hazard difference h_X-h_Y in [-0.31097, 0] -> r_X <= r_Y everywhere, i.e. X >=hr Y strictly — printed X <=hr Y reversed.",
+   "evidence": "Clean reversal of the hazard order on an admissible instance."
+  },
+  {
+   "claim": "Section 4.7, Case I (st part)",
+   "eval_status": "refuted",
+   "classification": "confirmed-direction-reversed",
+   "independent_witness": "alpha=2, theta 1->2: S_X-S_Y in [+2.5e-44(boundary), +0.08333] >= 0 on the whole grid -> X >=st Y; printed X <=st Y fails (S_X>S_Y at every interior point, e.g. +0.0833 near x=0.5).",
+   "evidence": "Strict stochastic reversal: X is stochastically LARGER for theta1<theta2 when alpha=2."
+  },
+  {
+   "claim": "Section 4.7, Case I (rhr part)",
+   "eval_status": "refuted",
+   "classification": "confirmed-direction-reversed",
+   "independent_witness": "alpha=2, theta 1->2: reversed-hazard difference f_X/F_X - f_Y/F_Y in [+1.9e-40, +0.2295] >= 0 -> X >=rhr Y; printed X <=rhr Y reversed.",
+   "evidence": "All four orders reverse coherently under alpha>1 — consistent with the single flipped density-ratio mechanism."
+  }
+ ]
+}

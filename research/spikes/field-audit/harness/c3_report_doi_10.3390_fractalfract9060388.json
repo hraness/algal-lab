@@ -1,0 +1,14 @@
+{
+ "paper": "doi:10.3390/fractalfract9060388",
+ "auditor": "c3 independent verification",
+ "method": "Fresh mpmath dps=120 recomputation. Weibull shape alpha, common scale: S(x)=exp(-(x/lam)^alpha), lam=1.",
+ "claims": [
+  {
+   "claim": "Remark 6 (Weibull example, st part)",
+   "eval_status": "refuted",
+   "classification": "confirmed-genuine",
+   "independent_witness": "alpha1<alpha2: S_{a1}(x)-S_{a2}(x) is negative for x<1 and positive for x>1 — the survivals cross at the scale point. E.g. (a1,a2)=(1,2): range [-0.18185, +0.12716]; (0.5,1): [-0.18182,+0.12716]; at the eval witness x=1e-12: S_a1-S_a2 = -1e-12..-1e-6 < 0 on all four eval instances.",
+   "evidence": "Printed claim Y_{a1} >=st Y_{a2} for a1<a2 fails at every x<1 (e.g. x=0.5: e^{-sqrt(0.5)}-e^{-0.5} = -0.113). Moreover neither direction holds — the survival functions cross at x=scale. Genuine refutation (and the asserted dispo order fails too, since st doesn't even hold)."
+  }
+ ]
+}
