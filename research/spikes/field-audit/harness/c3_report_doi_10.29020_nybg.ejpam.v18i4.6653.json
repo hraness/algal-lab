@@ -1,0 +1,170 @@
+{
+ "paper": "doi_10.29020_nybg.ejpam.v18i4.6653",
+ "records": [
+  {
+   "claim": "Theorem 1 (lr part)",
+   "order": "lr",
+   "eval_status": "refuted",
+   "eval_witness": "1/1000000000000",
+   "eval_instances": "th1<=th2 pairs (1,2),(1/2,3/2),(2,5),(1,10)",
+   "classification": "confirmed-direction-reversed",
+   "premise_check": {
+    "hypothesis": "theta1 <= theta2 -- satisfied",
+    "model": "f=th^3 x(1+x/2)e^{-th x}/(1+th); mixture of Gamma(2,th),Gamma(3,th) -- matches paper"
+   },
+   "independent_witness": [
+    {
+     "theta1": 1,
+     "theta2": 2,
+     "f1_over_f2_min_succ": "1.67177e-7",
+     "st_claim_min_S2_minus_S1": "-0.414187",
+     "st_rev_min_S1_minus_S2": "8.41501e-24",
+     "hr_claim_min_h1_minus_h2": "-0.999731",
+     "hr_rev_min_h2_minus_h1": "0.000216629"
+    },
+    {
+     "theta1": "0.5",
+     "theta2": "1.5",
+     "f1_over_f2_min_succ": "5.50377e-8",
+     "st_claim_min_S2_minus_S1": "-0.622076",
+     "st_rev_min_S1_minus_S2": "3.09737e-11",
+     "hr_claim_min_h1_minus_h2": "-0.999285",
+     "hr_rev_min_h2_minus_h1": "0.000126653"
+    },
+    {
+     "theta1": 2,
+     "theta2": 5,
+     "f1_over_f2_min_succ": "3.42447e-7",
+     "st_claim_min_S2_minus_S1": "-0.505873",
+     "st_rev_min_S1_minus_S2": "1.93301e-49",
+     "hr_claim_min_h1_minus_h2": "-2.99933",
+     "hr_rev_min_h2_minus_h1": "0.00181577"
+    },
+    {
+     "theta1": 1,
+     "theta2": 10,
+     "f1_over_f2_min_succ": "4.41702e-8",
+     "st_claim_min_S2_minus_S1": "-0.906513",
+     "st_rev_min_S1_minus_S2": "8.41501e-24",
+     "hr_claim_min_h1_minus_h2": "-8.99248",
+     "hr_rev_min_h2_minus_h1": "0.00903228"
+    }
+   ],
+   "evidence": "f1/f2 = [th1^3(1+th2)/(th2^3(1+th1))] e^{(th2-th1)t} -- analytically strictly increasing for th1<th2 (verified on grid: min succ >0); printed claim X1 <lr X2 for th1<=th2 is backwards; the proof itself prints '<0 for all th1>=th2' i.e. quantifies the opposite hypothesis",
+   "notes": "printed theorem statement theta1<=theta2 vs proof's own 'forall theta1>=theta2' -- the claim as stated is direction-reversed"
+  },
+  {
+   "claim": "Theorem 1 (hr part)",
+   "order": "hr",
+   "eval_status": "refuted",
+   "eval_witness": "1/1000000000000",
+   "eval_instances": "th1<=th2 pairs (1,2),(1/2,3/2),(2,5),(1,10)",
+   "classification": "confirmed-direction-reversed",
+   "premise_check": {
+    "hypothesis": "theta1 <= theta2 -- satisfied",
+    "model": "f=th^3 x(1+x/2)e^{-th x}/(1+th); mixture of Gamma(2,th),Gamma(3,th) -- matches paper"
+   },
+   "independent_witness": [
+    {
+     "theta1": 1,
+     "theta2": 2,
+     "f1_over_f2_min_succ": "1.67177e-7",
+     "st_claim_min_S2_minus_S1": "-0.414187",
+     "st_rev_min_S1_minus_S2": "8.41501e-24",
+     "hr_claim_min_h1_minus_h2": "-0.999731",
+     "hr_rev_min_h2_minus_h1": "0.000216629"
+    },
+    {
+     "theta1": "0.5",
+     "theta2": "1.5",
+     "f1_over_f2_min_succ": "5.50377e-8",
+     "st_claim_min_S2_minus_S1": "-0.622076",
+     "st_rev_min_S1_minus_S2": "3.09737e-11",
+     "hr_claim_min_h1_minus_h2": "-0.999285",
+     "hr_rev_min_h2_minus_h1": "0.000126653"
+    },
+    {
+     "theta1": 2,
+     "theta2": 5,
+     "f1_over_f2_min_succ": "3.42447e-7",
+     "st_claim_min_S2_minus_S1": "-0.505873",
+     "st_rev_min_S1_minus_S2": "1.93301e-49",
+     "hr_claim_min_h1_minus_h2": "-2.99933",
+     "hr_rev_min_h2_minus_h1": "0.00181577"
+    },
+    {
+     "theta1": 1,
+     "theta2": 10,
+     "f1_over_f2_min_succ": "4.41702e-8",
+     "st_claim_min_S2_minus_S1": "-0.906513",
+     "st_rev_min_S1_minus_S2": "8.41501e-24",
+     "hr_claim_min_h1_minus_h2": "-8.99248",
+     "hr_rev_min_h2_minus_h1": "0.00903228"
+    }
+   ],
+   "evidence": "h2-h1 >0 strictly on all pairs -> X1 >=hr X2 direction holds; printed X1 <hr X2 fails (min h1-h2 <0)",
+   "notes": "printed theorem statement theta1<=theta2 vs proof's own 'forall theta1>=theta2' -- the claim as stated is direction-reversed"
+  },
+  {
+   "claim": "Theorem 1 (st part)",
+   "order": "st",
+   "eval_status": "refuted",
+   "eval_witness": "1/1000000000000",
+   "eval_instances": "th1<=th2 pairs (1,2),(1/2,3/2),(2,5),(1,10)",
+   "classification": "confirmed-direction-reversed",
+   "premise_check": {
+    "hypothesis": "theta1 <= theta2 -- satisfied",
+    "model": "f=th^3 x(1+x/2)e^{-th x}/(1+th); mixture of Gamma(2,th),Gamma(3,th) -- matches paper"
+   },
+   "independent_witness": [
+    {
+     "theta1": 1,
+     "theta2": 2,
+     "f1_over_f2_min_succ": "1.67177e-7",
+     "st_claim_min_S2_minus_S1": "-0.414187",
+     "st_rev_min_S1_minus_S2": "8.41501e-24",
+     "hr_claim_min_h1_minus_h2": "-0.999731",
+     "hr_rev_min_h2_minus_h1": "0.000216629"
+    },
+    {
+     "theta1": "0.5",
+     "theta2": "1.5",
+     "f1_over_f2_min_succ": "5.50377e-8",
+     "st_claim_min_S2_minus_S1": "-0.622076",
+     "st_rev_min_S1_minus_S2": "3.09737e-11",
+     "hr_claim_min_h1_minus_h2": "-0.999285",
+     "hr_rev_min_h2_minus_h1": "0.000126653"
+    },
+    {
+     "theta1": 2,
+     "theta2": 5,
+     "f1_over_f2_min_succ": "3.42447e-7",
+     "st_claim_min_S2_minus_S1": "-0.505873",
+     "st_rev_min_S1_minus_S2": "1.93301e-49",
+     "hr_claim_min_h1_minus_h2": "-2.99933",
+     "hr_rev_min_h2_minus_h1": "0.00181577"
+    },
+    {
+     "theta1": 1,
+     "theta2": 10,
+     "f1_over_f2_min_succ": "4.41702e-8",
+     "st_claim_min_S2_minus_S1": "-0.906513",
+     "st_rev_min_S1_minus_S2": "8.41501e-24",
+     "hr_claim_min_h1_minus_h2": "-8.99248",
+     "hr_rev_min_h2_minus_h1": "0.00903228"
+    }
+   ],
+   "evidence": "S1-S2 >0 strictly on all pairs -> X1 >=st X2 holds, opposite of printed X1 <s X2",
+   "notes": "printed theorem statement theta1<=theta2 vs proof's own 'forall theta1>=theta2' -- the claim as stated is direction-reversed"
+  }
+ ],
+ "summary": {
+  "counts": {
+   "confirmed_genuine": 0,
+   "confirmed_direction_reversed": 3,
+   "invalid_instance": 0,
+   "artifact": 0,
+   "inconclusive": 0
+  }
+ }
+}

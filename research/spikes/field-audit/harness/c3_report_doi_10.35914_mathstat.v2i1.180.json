@@ -1,0 +1,61 @@
+{
+ "paper": "doi_10.35914_mathstat.v2i1.180",
+ "records": [
+  {
+   "claim": "Section 10 unnumbered likelihood-ratio ordering claim",
+   "order": "lr",
+   "eval_status": "refuted",
+   "eval_witness": "1/1000000000000",
+   "eval_instances": "3 pairs satisfying the stated premise lambda<alpha, theta<beta",
+   "classification": "confirmed-genuine",
+   "premise_check": {
+    "stated": "lambda<alpha AND theta<beta (crossed pairing)",
+    "printed_conclusion_condition": "lambda<beta, theta<alpha (the paper's conclusion line uses the OTHER pairing)",
+    "note": "premise is textually inconsistent in the paper; the eval tested the stated hypothesis. Instances 1-2 satisfy BOTH pairings and still fail, so the refutation stands under either reading"
+   },
+   "independent_witness": [
+    {
+     "lam": "1",
+     "theta": "2",
+     "beta": "3",
+     "alpha": "4",
+     "stated_premise": true,
+     "conclusion_pairing": true,
+     "min_succ_diff_fX_over_fY": "-0.00229919",
+     "at": "0.217429"
+    },
+    {
+     "lam": "1",
+     "theta": "2",
+     "beta": "4",
+     "alpha": "3",
+     "stated_premise": true,
+     "conclusion_pairing": true,
+     "min_succ_diff_fX_over_fY": "-0.00463885",
+     "at": "0.245267"
+    },
+    {
+     "lam": "0.5",
+     "theta": "3",
+     "beta": "4",
+     "alpha": "2",
+     "stated_premise": true,
+     "conclusion_pairing": false,
+     "min_succ_diff_fX_over_fY": "-0.0194082",
+     "at": "0.288832"
+    }
+   ],
+   "evidence": "fX/fY non-monotone on premise-valid instances: dips at small t then explodes like e^{(alpha-theta)x} (values reach 1e+54553165 for inst 1) -> X <=lr Y fails; the printed derivative-sign assertion is false",
+   "notes": "genuine refutation; paper's hypothesis/conclusion pairing is incoherent but falsity holds under both readings"
+  }
+ ],
+ "summary": {
+  "counts": {
+   "confirmed_genuine": 1,
+   "confirmed_direction_reversed": 0,
+   "invalid_instance": 0,
+   "artifact": 0,
+   "inconclusive": 0
+  }
+ }
+}

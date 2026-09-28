@@ -1,0 +1,335 @@
+{
+ "paper": "doi_10.1007_s41060-022-00369-2",
+ "records": [
+  {
+   "claim": "Theorem 3.10.1 (likelihood ratio part)",
+   "order": "lr",
+   "eval_status": "refuted",
+   "eval_witness": "16/15",
+   "eval_instances": "5 cases with v1<=v2,q1<=q2,a1<=a2 (incl. v<1 and v1<1<v2)",
+   "classification": "confirmed-genuine",
+   "premise_check": {
+    "hypothesis": "v1<=v2, q1<=q2, alpha1<=alpha2 -- all 5 eval instances satisfy",
+    "model": "S=(v - v^{G^alpha})/(v-1), G Lindley cdf -- matches printed eq (5)",
+    "scope": "v>0, v!=1 per print; instances with v<1 are admissible"
+   },
+   "independent_witness": [
+    {
+     "X": [
+      2,
+      1,
+      1
+     ],
+     "Y": [
+      3,
+      2,
+      2
+     ],
+     "st_min_SY_minus_SX": "-0.21174",
+     "st_at": "1.883",
+     "hr_min_hX_minus_hY": "-0.999906",
+     "hr_at": "71.275",
+     "lr_min_succ_fY_over_fX": "-0.0185164",
+     "lr_at": "1.9475"
+    },
+    {
+     "X": [
+      2,
+      "0.5",
+      "0.5"
+     ],
+     "Y": [
+      3,
+      1,
+      1
+     ],
+     "st_min_SY_minus_SX": "-0.140733",
+     "st_at": "3.5685",
+     "hr_min_hX_minus_hY": "-0.499953",
+     "hr_at": "142.86",
+     "lr_min_succ_fY_over_fX": "-0.0157671",
+     "lr_at": "3.9475"
+    },
+    {
+     "X": [
+      "0.5",
+      1,
+      1
+     ],
+     "Y": [
+      "0.6666666666666667",
+      2,
+      2
+     ],
+     "st_min_SY_minus_SX": "-0.151505",
+     "st_at": "1.5388",
+     "hr_min_hX_minus_hY": "-0.999904",
+     "hr_at": "70.48",
+     "lr_min_succ_fY_over_fX": "-0.0133593",
+     "lr_at": "1.7605"
+    },
+    {
+     "X": [
+      "0.5",
+      1,
+      1
+     ],
+     "Y": [
+      3,
+      "1.5",
+      2
+     ],
+     "st_min_SY_minus_SX": "-0.0116617",
+     "st_at": "4.1752",
+     "hr_min_hX_minus_hY": "-0.499965",
+     "hr_at": "95.405",
+     "lr_min_succ_fY_over_fX": "-0.0210768",
+     "lr_at": "3.992"
+    },
+    {
+     "X": [
+      3,
+      3,
+      3
+     ],
+     "Y": [
+      4,
+      4,
+      4
+     ],
+     "st_min_SY_minus_SX": "-0.135559",
+     "st_at": "0.92899",
+     "hr_min_hX_minus_hY": "-1.08194",
+     "hr_at": "1.2435",
+     "lr_min_succ_fY_over_fX": "-0.0121621",
+     "lr_at": "1.0748"
+    }
+   ],
+   "evidence": "f_Y/f_X fails to be increasing (negative successive diffs on all 5 instances, e.g. -0.36 at t~2.1); ratio is non-monotone and the reverse (f_X/f_Y increasing) also fails -> not direction-reversed",
+   "notes": "paper's 'proof' is literally a plot (Fig. 10); the orderings do not hold for the claimed direction"
+  },
+  {
+   "claim": "Theorem 3.10.1 (hazard rate part)",
+   "order": "hr",
+   "eval_status": "refuted",
+   "eval_witness": "16/15",
+   "eval_instances": "5 cases with v1<=v2,q1<=q2,a1<=a2 (incl. v<1 and v1<1<v2)",
+   "classification": "confirmed-genuine",
+   "premise_check": {
+    "hypothesis": "v1<=v2, q1<=q2, alpha1<=alpha2 -- all 5 eval instances satisfy",
+    "model": "S=(v - v^{G^alpha})/(v-1), G Lindley cdf -- matches printed eq (5)",
+    "scope": "v>0, v!=1 per print; instances with v<1 are admissible"
+   },
+   "independent_witness": [
+    {
+     "X": [
+      2,
+      1,
+      1
+     ],
+     "Y": [
+      3,
+      2,
+      2
+     ],
+     "st_min_SY_minus_SX": "-0.21174",
+     "st_at": "1.883",
+     "hr_min_hX_minus_hY": "-0.999906",
+     "hr_at": "71.275",
+     "lr_min_succ_fY_over_fX": "-0.0185164",
+     "lr_at": "1.9475"
+    },
+    {
+     "X": [
+      2,
+      "0.5",
+      "0.5"
+     ],
+     "Y": [
+      3,
+      1,
+      1
+     ],
+     "st_min_SY_minus_SX": "-0.140733",
+     "st_at": "3.5685",
+     "hr_min_hX_minus_hY": "-0.499953",
+     "hr_at": "142.86",
+     "lr_min_succ_fY_over_fX": "-0.0157671",
+     "lr_at": "3.9475"
+    },
+    {
+     "X": [
+      "0.5",
+      1,
+      1
+     ],
+     "Y": [
+      "0.6666666666666667",
+      2,
+      2
+     ],
+     "st_min_SY_minus_SX": "-0.151505",
+     "st_at": "1.5388",
+     "hr_min_hX_minus_hY": "-0.999904",
+     "hr_at": "70.48",
+     "lr_min_succ_fY_over_fX": "-0.0133593",
+     "lr_at": "1.7605"
+    },
+    {
+     "X": [
+      "0.5",
+      1,
+      1
+     ],
+     "Y": [
+      3,
+      "1.5",
+      2
+     ],
+     "st_min_SY_minus_SX": "-0.0116617",
+     "st_at": "4.1752",
+     "hr_min_hX_minus_hY": "-0.499965",
+     "hr_at": "95.405",
+     "lr_min_succ_fY_over_fX": "-0.0210768",
+     "lr_at": "3.992"
+    },
+    {
+     "X": [
+      3,
+      3,
+      3
+     ],
+     "Y": [
+      4,
+      4,
+      4
+     ],
+     "st_min_SY_minus_SX": "-0.135559",
+     "st_at": "0.92899",
+     "hr_min_hX_minus_hY": "-1.08194",
+     "hr_at": "1.2435",
+     "lr_min_succ_fY_over_fX": "-0.0121621",
+     "lr_at": "1.0748"
+    }
+   ],
+   "evidence": "h_X-h_Y <0 on all instances (e.g. -1.0); reverse hr also fails",
+   "notes": "paper's 'proof' is literally a plot (Fig. 10); the orderings do not hold for the claimed direction"
+  },
+  {
+   "claim": "Theorem 3.10.1 (usual stochastic order part)",
+   "order": "st",
+   "eval_status": "refuted",
+   "eval_witness": "16/15",
+   "eval_instances": "5 cases with v1<=v2,q1<=q2,a1<=a2 (incl. v<1 and v1<1<v2)",
+   "classification": "confirmed-genuine",
+   "premise_check": {
+    "hypothesis": "v1<=v2, q1<=q2, alpha1<=alpha2 -- all 5 eval instances satisfy",
+    "model": "S=(v - v^{G^alpha})/(v-1), G Lindley cdf -- matches printed eq (5)",
+    "scope": "v>0, v!=1 per print; instances with v<1 are admissible"
+   },
+   "independent_witness": [
+    {
+     "X": [
+      2,
+      1,
+      1
+     ],
+     "Y": [
+      3,
+      2,
+      2
+     ],
+     "st_min_SY_minus_SX": "-0.21174",
+     "st_at": "1.883",
+     "hr_min_hX_minus_hY": "-0.999906",
+     "hr_at": "71.275",
+     "lr_min_succ_fY_over_fX": "-0.0185164",
+     "lr_at": "1.9475"
+    },
+    {
+     "X": [
+      2,
+      "0.5",
+      "0.5"
+     ],
+     "Y": [
+      3,
+      1,
+      1
+     ],
+     "st_min_SY_minus_SX": "-0.140733",
+     "st_at": "3.5685",
+     "hr_min_hX_minus_hY": "-0.499953",
+     "hr_at": "142.86",
+     "lr_min_succ_fY_over_fX": "-0.0157671",
+     "lr_at": "3.9475"
+    },
+    {
+     "X": [
+      "0.5",
+      1,
+      1
+     ],
+     "Y": [
+      "0.6666666666666667",
+      2,
+      2
+     ],
+     "st_min_SY_minus_SX": "-0.151505",
+     "st_at": "1.5388",
+     "hr_min_hX_minus_hY": "-0.999904",
+     "hr_at": "70.48",
+     "lr_min_succ_fY_over_fX": "-0.0133593",
+     "lr_at": "1.7605"
+    },
+    {
+     "X": [
+      "0.5",
+      1,
+      1
+     ],
+     "Y": [
+      3,
+      "1.5",
+      2
+     ],
+     "st_min_SY_minus_SX": "-0.0116617",
+     "st_at": "4.1752",
+     "hr_min_hX_minus_hY": "-0.499965",
+     "hr_at": "95.405",
+     "lr_min_succ_fY_over_fX": "-0.0210768",
+     "lr_at": "3.992"
+    },
+    {
+     "X": [
+      3,
+      3,
+      3
+     ],
+     "Y": [
+      4,
+      4,
+      4
+     ],
+     "st_min_SY_minus_SX": "-0.135559",
+     "st_at": "0.92899",
+     "hr_min_hX_minus_hY": "-1.08194",
+     "hr_at": "1.2435",
+     "lr_min_succ_fY_over_fX": "-0.0121621",
+     "lr_at": "1.0748"
+    }
+   ],
+   "evidence": "S_Y-S_X <0 on all instances (e.g. -0.21); S curves cross",
+   "notes": "paper's 'proof' is literally a plot (Fig. 10); the orderings do not hold for the claimed direction"
+  }
+ ],
+ "summary": {
+  "counts": {
+   "confirmed_genuine": 3,
+   "confirmed_direction_reversed": 0,
+   "invalid_instance": 0,
+   "artifact": 0,
+   "inconclusive": 0
+  }
+ }
+}
