@@ -47,6 +47,10 @@ jobs:
         run: |
           python3 -m unittest discover -s research/spikes/moonshot-r310/demand_certificates -p 'test_verify.py' -v
           python3 research/spikes/moonshot-r310/demand_certificates/verify.py
+      - name: Verify the expanded sampled demand certificates
+        run: |
+          python3 -m unittest discover -s research/spikes/moonshot-r310/demand_certificates -p 'test_verify_sample.py' -v
+          python3 research/spikes/moonshot-r310/demand_certificates/verify_sample.py
       - name: Check out the pinned native SAT solver
         uses: actions/checkout@v7
         with:

@@ -437,6 +437,13 @@ Python verifier are included; checking all nine takes 150,902 endpoint-union
 tests and needs no solver. These certificates do not cover nonmaximal
 extensions or establish a new Ramsey bound.
 
+The [expanded sample](research/spikes/moonshot-r310/demand_certificates/SAMPLE.md)
+includes 128 specified graphs and excludes 113 of them by integer-weighted
+counting certificates, including the original nine. Its compact checker
+verifies 311,618 endpoint unions using only Python's standard library.
+Fifteen sample graphs remain unresolved by these certificates; the sample
+does not exhaust the relevant graph classes.
+
 The broader literature-corpus audit is a separate study. Its author-response
 process remains a prerequisite to releasing its paper-by-paper findings.
 Investigations of sphere and plane counts, H1 quadruples and covering arrays
