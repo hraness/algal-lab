@@ -406,6 +406,14 @@ conditional on the cited classification and enumeration; it does not settle
 R(3,10). The [frontier review](research/spikes/moonshot-r310/frontier-review-20260928.md)
 records the literature and next research direction.
 
+The [degree-four exclusion](research/spikes/moonshot-r310/degree_four/README.md)
+proves that every possible 40-vertex Ramsey witness has minimum degree at
+least five. It applies without a symmetry assumption. Three proof checkers
+accepted the saved refutation, and an independent audit checked the complete
+encoding. Its [proof bundle](https://github.com/hraness/algal-lab/releases/tag/r310-degree-four-proof-20260928)
+contains the formula, proof and verification programs. This result does not
+settle R(3,10), and publication priority remains unresolved.
+
 The broader literature-corpus audit is a separate study. Its author-response
 process remains a prerequisite to releasing its paper-by-paper findings.
 Investigations of sphere and plane counts, H1 quadruples and covering arrays

@@ -42,6 +42,7 @@ jobs:
       - run: python3 -m research.spikes.context.verify
       - run: python3 -m research.spikes.stochastic.verify
       - run: python3 -m research.spikes.softmax_partitions.experiment --out research/spikes/context/runs/ci-softmax-partitions
+      - run: python3 -m unittest discover -s research/spikes/moonshot-r310/degree_four -p 'test_*.py'
 
   pipeline:
     name: Demo pipeline

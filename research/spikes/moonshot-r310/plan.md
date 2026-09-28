@@ -1,8 +1,9 @@
 # Moonshot: a 40-vertex (3,10) Ramsey graph
 
-Status, 2026-09-28: the vertex-transitive class is exhausted. No witness was
-found. The Ramsey number remains unresolved; the next experiment examines
-the degree-4 case without imposing symmetry on the 40-vertex graph.
+Status, 2026-09-28: the vertex-transitive class and the degree-four case are
+excluded by complete, checked computations. No witness was found and the
+Ramsey number remains unresolved. The next pilot searches graphs with a
+degree-six vertex without imposing a graph symmetry.
 
 ## Target and present evidence
 
@@ -17,9 +18,9 @@ within a special class is useful evidence, but cannot settle the unrestricted
 problem. No numerical probability of success has been calibrated.
 
 The [dated frontier review](frontier-review-20260928.md) records authoritative
-sources, corrected census counts, the degree-4 reduction, and comparison with
-the original 2013 construction work. We have not established
-publication novelty for either the symmetry exclusion or the next experiment.
+sources, corrected census counts, the degree-four reduction, and the bounded
+comparison with the original 2013 construction work. No publication-priority
+claim is made for either exclusion or the next experiment.
 
 ## Completed work
 
@@ -31,6 +32,7 @@ publication novelty for either the symmetry exclusion or the next experiment.
 | Minimal transitive actions of degree 40 | All 1,963 actions; 2,138,937 tested unions; every rejection replayed | Complete relative to TransGrp's published classification |
 | Minimal transitive actions of degree 39 | All four actions; 1,317 tested unions; every rejection replayed | Complete relative to the same classification |
 | Positive control on 35 vertices | 8-regular circulant with independence number 8 recovered and independently checked | Suitable representative for the next reduction |
+| A degree-four vertex in any 40-vertex candidate | Exact 140-variable, 98,965-clause attachment formula is unsatisfiable | LRAT proof accepted by three separate implementations; every candidate has minimum degree at least five |
 
 Counts are labelled orbit unions, with repetitions across actions. The full
 order-40 search covers degrees 4 through 9. Smaller degrees cannot qualify
@@ -41,6 +43,9 @@ The [enumerator report](vertex_transitive/README.md) gives the completeness
 argument, input and binary digests, exact degree counts, controls, limitations,
 sources, and reproduction commands. Generated archives, manifests,
 certificates, and complete run summaries remain in ignored `runs/`.
+The [degree-four report](degree_four/README.md) gives the mathematical
+reduction, formula and proof hashes, published uniqueness premise, exact
+controls, portable audit and reproduction commands.
 
 ## Correction to the previous record
 
@@ -58,27 +63,52 @@ The frontier review distinguishes the stages and records the larger
 Prior claims that a search was unprecedented have been removed pending a
 proper novelty review.
 
-## Next experiment
+## A complete reduction for existence searches
 
-If a qualifying 40-vertex graph has a degree-4 vertex v, deleting v and its
-four neighbours leaves the unique 35-vertex (3,9)-graph H. H is 8-regular.
-Let S1 through S4 be the neighbours in H of the four deleted neighbours.
-Each Si is independent, and the Si are pairwise disjoint: a vertex of H
-already has degree 8 and cannot gain two neighbours when maximum degree is 9.
+If any witness exists, adding edges until it is maximal triangle-free
+preserves its order and cannot increase its independence number. Any two
+nonadjacent vertices must then have a common neighbor; otherwise their edge
+could be added. Thus it is enough to search diameter-two representatives.
+This argument is about existence, not a claim that every witness is maximal.
 
-The remaining forbidden-independent-set conditions can be encoded exactly
-on 140 Boolean attachment variables. For each choice of k deleted neighbours,
-every independent (10−k)-set in H must meet at least one of their attachment
-sets. Only k = 2, 3, 4 adds constraints, because H has independence number 8.
-The representative recovered here has 3,360 independent 8-sets, 13,760
-independent 7-sets, and 22,995 independent 6-sets. These can all be enumerated
-directly, without approximating the constraints or the independence bound.
+[Pandey and Ravi (2026)](https://arxiv.org/html/2601.03572), Theorem 3.6, gives
+minimum degree at least six for this class. Here is the degree-five step
+with its counting made explicit. If deg(v) = 5, all 34 vertices outside N[v]
+meet N(v), and at most 5 × 8 = 40 edges join these parts. At least
+2 × 34 − 40 = 28 outside vertices therefore meet N(v) exactly once. Yet
+each of the five neighbors can have at most five private outside neighbors,
+because six together with the other four neighbors would form an independent
+ten-set. This gives at most 25, a contradiction. Diameter two also rules out
+degree four since 1 + 4 + 4 × 8 = 37 < 40. Lower degrees are already excluded
+by R(3,9) = 36. This repairs arithmetic slips in the preprint's proof without
+changing its stated result.
 
-Before a solve, compare the encoding against exhaustive small controls and
-obtain an independent source review. A SAT result must yield a directly
-verified graph. An UNSAT result must have a separately checked proof before
-supporting an exclusion. A timeout changes neither Ramsey bound. Any claimed
-novelty still requires comparison with the 2013 graph-extension work.
+## Next pilot: incremental SAT with a degree-six vertex
+
+Search on all 40 labelled vertices with no assumed automorphisms. Fix one
+vertex and its six neighbors by relabelling, require degrees between six
+and nine, forbid triangles, and require every remaining vertex to meet that
+fixed neighborhood. A saturated candidate with a degree-six vertex satisfies
+all these conditions. Full diameter-two constraints can be omitted initially;
+doing so enlarges the searched family and cannot exclude a real candidate.
+The cases of minimum degree seven, eight and nine remain outside this pilot.
+
+Use an incremental SAT solver and add required independent-ten-set clauses
+when an exact graph check finds a counterexample in a proposed model.
+Every ten-set must contain an edge, so each added clause is valid for the
+entire target class. The graph checker decides when a model is a true witness;
+a SAT assignment to a partial clause set is not one. Preserve the exact
+accumulated formula, cuts, settings and a candidate or stop reason.
+
+Before a ten-minute, single-core pilot, obtain an independent review of the
+encoding and reduction, compare the cardinality encoding and small graph
+models against brute force, and recover known Ramsey graphs as positive
+controls. No symmetry pruning beyond the fixed neighborhood is admitted
+without its own proof and review. A reported UNSAT must be followed by a
+fresh proof-producing solve of the final formula and independent proof
+verification before supporting an exclusion. A timeout or unchecked UNSAT
+changes neither Ramsey bound. This approach is a research pilot, not a claim
+of algorithmic or publication novelty. The long run has not started.
 
 ## Budget and reporting
 
@@ -95,3 +125,9 @@ larger than these completed experiments require; it should be spent only on
 reviewed, decisive subproblems rather than repeated searches of exhausted
 classes. Stop a computational experiment at its declared bounds and report
 its exact coverage, even if the overall research objective remains open.
+
+The degree-four solve used 30.517 CPU seconds and 39.999 wall seconds.
+Its three proof checks took about eight seconds in total, plus small controls
+and packaging checks. The retained proof has 20,723,074 bytes. The next SAT
+pilot has a separate proposed ceiling of 600 CPU seconds on one core, with
+wall time, memory, iteration and output bounds fixed before it starts.
