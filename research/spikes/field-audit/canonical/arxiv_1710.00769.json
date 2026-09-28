@@ -1,6 +1,166 @@
 [
  {
   "paper": "arxiv:1710.00769",
+  "claim": "Lemma 6 (Li and Fang)",
+  "page": 6,
+  "quote": "Lemma 6 (Li and Fang [20]) For two n-dimensional Archimedean copulas C\u03c81 (u) and C\u03c82 (u), with \u03c62 = \u03c82^{\u22121} = sup {x \u2208 R : \u03c8(x) > u}, the right continuous inverse, if \u03c62 \u25e6 \u03c81 is super-additive, then C\u03c81 (u) \u2264 C\u03c82 (u) for all u \u2208 [0, 1]^n .",
+  "kind": "lemma",
+  "model": "other: Archimedean copulas",
+  "family": "Archimedean copulas with generators \u03c81, \u03c82 (\u03c6 = \u03c8^{\u22121})",
+  "compared": "concordance (pointwise) order between two Archimedean copulas",
+  "hypotheses": [
+   {
+    "text": "\u03c62 \u25e6 \u03c81 super-additive",
+    "formal": "\u03c62(\u03c81(x + y)) \u2265 \u03c62(\u03c81(x)) + \u03c62(\u03c81(y))",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: concordance (pointwise copula order)",
+   "direction": "C\u03c81 <=c C\u03c82 i.e. C\u03c81(u) <= C\u03c82(u) for all u"
+  },
+  "quantifiers": "all u \u2208 [0,1]^n",
+  "numbers": "",
+  "ambiguity": "Quoted from Li and Fang [20]; the engine for all dependent-case results in the paper.",
+  "adjudication": "adjudicated: Pass A only; in scope \u2014 a copula pointwise-ordering conclusion (consistent with the audit precedent "
+ },
+ {
+  "paper": "arxiv:1710.00769",
+  "claim": "Theorem 10",
+  "page": 18,
+  "quote": "Theorem 10 ... Now if urX (u) is increasing in u and rX (u) is decreasing, log-concave and 2-log-concave in u, then (1/\u03c31 ,...,1/\u03c31 ,1/\u03c32 ,...,1/\u03c32 ) \u227dm (1/\u03be1 ,...,1/\u03be1 ,1/\u03be2 ,...,1/\u03be2 ) \u27f9 X1:n \u2265R\u2212hr Y1:n .",
+  "kind": "theorem",
+  "model": "series system, multiple-outlier model",
+  "family": "LS multiple-outlier, common baseline F",
+  "compared": "R-hr order of minima; reciprocal-scale block vectors (n1 copies of 1/\u03c31, n2 of 1/\u03c32) vs (1/\u03be1, 1/\u03be2)",
+  "hypotheses": [
+   {
+    "text": "urX increasing; rX decreasing, log-concave, 2-log-concave in u",
+    "formal": "baseline conditions",
+    "source": "statement"
+   },
+   {
+    "text": "reciprocal-scale block vector \u227dm reciprocal-\u03be block vector",
+    "formal": "majorization of the reciprocal scale vectors",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: R-hr (relative hazard rate / ageing-faster in hazard rate)",
+   "direction": "X1:n >=R-hr Y1:n"
+  },
+  "quantifiers": "n1 + n2 = n",
+  "numbers": "",
+  "ambiguity": "Paper-defined R-hr order kept distinct from plain hr.",
+  "adjudication": "adjudicated: Passes agree on R-hr direction; merged \u2014 order labeled other: R-hr (paper-defined relative hazard-ra"
+ },
+ {
+  "paper": "arxiv:1710.00769",
+  "claim": "Theorem 14",
+  "page": 19,
+  "quote": "Theorem 14 ... Suppose \u03bb, \u00b5, \u03c3 \u2208 D+ (or E+ ). Then, if rX (u) is increasing and concave (decreasing and convex) in u; u2 rX\u2032 (u) is decreasing (increasing) in u and u3 rX\u2032\u2032 (u) is increasing (decreasing) in u then, \u03bb \u227aw (\u227dw )\u00b5 \u27f9 X1:n \u2265R\u2212hr Y1:n .",
+  "kind": "theorem",
+  "model": "series system, independent",
+  "family": "LS family, common baseline F; Xi ~ LS(\u03bbi, \u03c3i, F), Yi ~ LS(\u00b5i, \u03c3i, F)",
+  "compared": "R-hr order of minima under weak majorization of location vectors",
+  "hypotheses": [
+   {
+    "text": "\u03bb, \u00b5, \u03c3 \u2208 D+ (or E+)",
+    "formal": "sortedness restriction",
+    "source": "statement"
+   },
+   {
+    "text": "rX increasing and concave (decreasing and convex); u2 rX\u2032 decreasing (increasing); u3 rX\u2032\u2032 increasing (decreasing)",
+    "formal": "paired alternative conditions",
+    "source": "statement"
+   },
+   {
+    "text": "\u03bb \u227aw (\u227dw) \u00b5",
+    "formal": "weak submajorization (weak supermajorization) of locations, paired with the two condition alternatives",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: R-hr",
+   "direction": "X1:n >=R-hr Y1:n"
+  },
+  "quantifiers": "n >= 1",
+  "numbers": "",
+  "ambiguity": "Paper-defined R-hr order; the \u227aw/\u227dw pairing matches the increasing-concave vs decreasing-convex branches.",
+  "adjudication": "adjudicated: Passes agree on R-hr direction X1:n >=R-hr Y1:n; merged \u2014 order labeled other: R-hr."
+ },
+ {
+  "paper": "arxiv:1710.00769",
+  "claim": "Theorem 8",
+  "page": 14,
+  "quote": "Theorem 8 Let X1 , X2 , ..., Xn be a set of independent random variables such that Xi \u223cLS(\u03bbi , \u03c3i , F ), i = 1, 2, ..., n. Let Y1 , Y2 , ..., Yn be another set of independent random variables such that Yi \u223cLS(\u03bbi , \u03bei , F ), i = 1, 2, ..., n. Suppose that \u03bb, \u03c3, \u03be \u2208 D+ (or E+ ). If rX (u) is r-concave for r = 1, 2 and 3 then, (1/\u03c3) \u227am (1/\u03be) \u27f9 X1:n \u2264R\u2212hr Y1:n .",
+  "kind": "theorem",
+  "model": "series system, independent",
+  "family": "LS family, common baseline F (common locations \u03bbi; scales \u03c3i vs \u03bei)",
+  "compared": "R-hr order of minima under majorization of reciprocal scale vectors",
+  "hypotheses": [
+   {
+    "text": "\u03bb, \u03c3, \u03be \u2208 D+ (or E+)",
+    "formal": "sortedness restriction",
+    "source": "statement"
+   },
+   {
+    "text": "rX (u) is r-concave for r = 1, 2 and 3",
+    "formal": "r-th power concavity of the baseline hazard rate",
+    "source": "statement"
+   },
+   {
+    "text": "(1/\u03c3) \u227am (1/\u03be)",
+    "formal": "majorization of the reciprocal scale vectors (printed as stacked fractions 1/\u03c3, 1/\u03be)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: R-hr",
+   "direction": "X1:n <=R-hr Y1:n (hazard-rate ratio r1:n/s1:n decreasing in t)"
+  },
+  "quantifiers": "n >= 1; t in support",
+  "numbers": "",
+  "ambiguity": "R-hr = ageing-faster-in-hazard-rate order. The hypothesis acts on reciprocal scales 1/\u03c3 vs 1/\u03be (the flattened text shows '\u03c31 \u227am 1\u03be'); B dropped the reciprocals \u2014 restored.",
+  "adjudication": "adjudicated: Passes agree on R-hr and direction X1:n <=R-hr Y1:n; corrected the hypothesis to reciprocal scales ("
+ },
+ {
+  "paper": "arxiv:1710.00769",
+  "claim": "Theorem 9",
+  "page": 16,
+  "quote": "Theorem 9 Let {X1 , . . . , Xn } and {Y1 , . . . , Yn } be two sets of independent random variables each following the multiple outlier LS model such that Xi \u223cLS(\u03bb1 , \u03c31 , F ) and Yi \u223cLS(\u03bb1 , \u03be1 , F ) for i = 1, . . . , n1 and Xi \u223cLS(\u03bb2 , \u03c32 , F ) and Yi \u223cLS(\u03bb2 , \u03be2 , F ) for i = n1 + 1, . . . , n. Suppose that (\u03bb1 , \u03bb2 ), (\u03c31 , \u03c32 ), (\u03be1 , \u03be2 ) \u2208 D+ (or E+ ). Now if urX (u) is decreasing in u and rX (u) is log-concave and 2-log-convex in u, then (1/\u03c31 ,...,1/\u03c31 ,1/\u03c32 ,...,1/\u03c32 ) \u227am (1/\u03be1 ,...,1/\u03be1 ,1/\u03be2 ,...,1/\u03be2 ) \u27f9 X1:n \u2265R\u2212hr Y1:n .",
+  "kind": "theorem",
+  "model": "series system, multiple-outlier model",
+  "family": "LS multiple-outlier, common baseline F",
+  "compared": "R-hr order of minima; reciprocal-scale block vectors (n1 copies of 1/\u03c31, n2 of 1/\u03c32) vs (1/\u03be1, 1/\u03be2)",
+  "hypotheses": [
+   {
+    "text": "(\u03bb1, \u03bb2), (\u03c31, \u03c32), (\u03be1, \u03be2) \u2208 D+ (or E+)",
+    "formal": "sortedness restriction on the two outlier groups",
+    "source": "statement"
+   },
+   {
+    "text": "urX decreasing; rX log-concave and 2-log-convex in u",
+    "formal": "baseline conditions",
+    "source": "statement"
+   },
+   {
+    "text": "reciprocal-scale block vector \u227am reciprocal-\u03be block vector",
+    "formal": "majorization of reciprocal scale vectors",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: R-hr",
+   "direction": "X1:n >=R-hr Y1:n (r1:n/s1:n increasing)"
+  },
+  "quantifiers": "n1 + n2 = n",
+  "numbers": "",
+  "ambiguity": "Direction is \u2265R-hr here (reverse of Theorem 8) owing to the reciprocal-scale parametrization and flipped monotonicity conditions.",
+  "adjudication": "adjudicated: Passes agree on R-hr direction X1:n >=R-hr Y1:n; merged \u2014 order labeled other: R-hr."
+ },
+ {
+  "paper": "arxiv:1710.00769",
   "claim": "Theorem 1",
   "page": 7,
   "quote": "Theorem 1 Let X1 , X2 , ..., Xn be a set of dependent random variables sharing Archimedean copula having generator \u03c81 such that Xi \u223cLS(\u03bbi , \u03c3i , F ) ... Let Y1 , Y2 , ..., Yn ... Yi \u223cLS(\u03bbi , \u03bei , G) ... Assume that \u03c3, \u03be and \u03bb \u2208 D+ (or E+ ). Further suppose that \u03c62 \u25e6 \u03c81 is super-additive, \u03c81 or \u03c82 is log-concave and X \u2264st Y . If either rX (u) or rY (u) is decreasing in u, then \u03c31 \u227cw 1\u03be implies X1:n \u2264st Y1:n .",

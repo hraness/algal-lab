@@ -1,6 +1,81 @@
 [
  {
   "paper": "doi:10.1007/s11587-026-01094-9",
+  "claim": "Theorem 3.13",
+  "page": 14,
+  "quote": "Theorem 3.13. Let {U1 , . . . , Un } and {V1 , . . . , Vn } be two sets of independent random variables with Ui \u223c F\u0304 (x; \u03b1i ) and Vi \u223c F\u0304 (x; \u03b2i ), respectively with \u03b1n \u2265 \u03b2n and pn \u2264 p\u2217n . Also, let {J1 , . . . , Jn } and {J1\u2217 , . . . , Jn\u2217 } be another two sets of independent Bernoulli random variables, independently of Ui\u2032 s and Vi\u2032 s with E(Ji ) = pi and E(Ji\u2217 ) = p\u2217i , respectively. Further, let N1 and N2 be two positive integer-valued random variables independently of Ti\u2032 s and Ti\u2217 \u2032 s satisfying N1 =st N2 =st N , respectively. Assume that the following conditions hold: (i) \u03c8 : (0, 1) \u2192 (0, \u221e) is a differentiable, strictly decreasing and log-convex function. (ii) F\u0304 (x; \u03b1i ) is decreasing and log-convex in \u03b1i for all x; (iii) r(x; \u03b1i ) is decreasing and convex in \u03b1i for all x. Then, for (\u03c8(p), \u03b1; n), (\u03c8(p\u2217 ), \u03b2; n) \u2208 Mn , we have (\u03c8(p), \u03b1; n) >w (\u03c8(p\u2217 ), \u03b2; n) \u21d2 TN:N \u2265rh TN\u2217:N .",
+  "kind": "theorem",
+  "model": "parallel system (random size)",
+  "family": "semiparametric family F\u0304(\u00b7; \u03b1); Bernoulli distortion Ji ~ Ber(pi); common random sample size N",
+  "compared": "parameter matrices (\u03c8(p), \u03b1; n) vs (\u03c8(p*), \u03b2; n) under row weak majorization in Mn",
+  "hypotheses": [
+   {
+    "text": "Ui ~ F\u0304(x; \u03b1i), Vi ~ F\u0304(x; \u03b2i) with \u03b1n \u2265 \u03b2n and pn \u2264 p\u2217n; Ji ~ Ber(pi), Ji* ~ Ber(p*i)",
+    "formal": "boundary coordinate conditions",
+    "source": "statement"
+   },
+   {
+    "text": "N1 and N2 positive integer-valued, independent, satisfying N1 =st N2 =st N",
+    "formal": "both claim counts stochastically equal to N",
+    "source": "statement"
+   },
+   {
+    "text": "(i) \u03c8 differentiable strictly decreasing log-convex; (ii) F\u0304 decreasing and log-convex in \u03b1i; (iii) r decreasing and convex in \u03b1i",
+    "formal": "transform, survival-function and hazard conditions",
+    "source": "statement"
+   },
+   {
+    "text": "(\u03c8(p), \u03b1; n) >w (\u03c8(p\u2217 ), \u03b2; n), both in Mn",
+    "formal": "row weak majorization",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "rh",
+   "direction": "TN:N >=rh TN*:N"
+  },
+  "quantifiers": "all x \u2265 0; n \u2265 1",
+  "numbers": "",
+  "ambiguity": "'N1 =st N2 =st N' is stochastic equality (equality in law to a common N). The 'w' superscript is detached in the text layer; row weak majorization confirmed by context. Proof applies Theorem 3.4 of Kundu et al. (2024).",
+  "adjudication": "adjudicated: Passes agree on order rh and direction TN:N >=rh TN*:N (A's record and B's 'TN*:N <=rh TN:N' are the"
+ },
+ {
+  "paper": "doi:10.1007/s11587-026-01094-9",
+  "claim": "Theorem 3.15",
+  "page": 15,
+  "quote": "Theorem 3.15. Suppose X1:n \u223c F\u03041:n (x) and X1:n \u223c G\u03041:n (x). Also let the support of a positive integer-valued random variable N having pmf p(n) be N+ . Now, for all x \u2265 l, if r\u0303Y1:n (x), the reversed hazard rate function of Y1:n is increasing in n \u2208 N+ and F1:n (x)/G1:n (x) is increasing in n \u2208 N+ , then X1:n \u2265rh Y1:n implies X1:N \u2265rh Y1:N .",
+  "kind": "theorem",
+  "model": "series system (random size)",
+  "family": "generic minima X1:n ~ F\u03041:n, Y1:n ~ G\u03041:n; random index N (printed 'X1:n ~ G\u03041:n' \u2014 second variable should be Y1:n)",
+  "compared": "fixed-n minima vs random-N minima of the two systems",
+  "hypotheses": [
+   {
+    "text": "N positive integer-valued with pmf p(n), support N+",
+    "formal": "N supported on positive integers",
+    "source": "statement"
+   },
+   {
+    "text": "for all x \u2265 l, r\u0303Y1:n (x) is increasing in n \u2208 N+ and F1:n (x)/G1:n (x) is increasing in n \u2208 N+",
+    "formal": "reversed hazard and cdf-ratio monotonicity in n",
+    "source": "statement"
+   },
+   {
+    "text": "X1:n \u2265rh Y1:n",
+    "formal": "fixed-n minima rh-ordered",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "rh",
+   "direction": "X1:N >=rh Y1:N"
+  },
+  "quantifiers": "all x \u2265 l; n \u2208 N+",
+  "numbers": "",
+  "ambiguity": "Printed preamble names both variables X1:n (second should presumably be Y1:n); the bound l is undefined in the statement. Recorded verbatim.",
+  "adjudication": "adjudicated: Passes agree on rh and direction X1:N >=rh Y1:N; merged verbatim with the X1:n/G\u03041:n print typo flag"
+ },
+ {
+  "paper": "doi:10.1007/s11587-026-01094-9",
   "claim": "Counterexample 3.1",
   "page": 7,
   "quote": "Counterexample 3.1. Consider the density function of a Gamma distribution (denoted by Gamma(\u03b8, \u03b1)), f(x, \u03b8, \u03b1) = (1/\u0393(\u03b1)\u03b8^\u03b1) x^{\u03b1\u22121} e^{\u2212x/\u03b8}, x, \u03b8, \u03b1 > 0. Let \u03c8(p) = \u2212ln(p). Here both \u03c8(p) and the survival function of Gamma distribution (F\u0304(x; \u03b1)), are decreasing and log-convex in p and \u03b1 for fix \u03b8, respectively. Suppose, Ui ~ Gamma(10.09, \u03b1i) and Vi ~ Gamma(10.09, \u03b2i), for i = 1, 2, 3, 4, 5. Further, set (\u03b11,...,\u03b15) = (1.9, 2, 3, 5, 6) and (\u03b21,...,\u03b25) = (4.9, 6.5, 7.6, 8.2, 10.9), (p1,...,p5) = (e^{\u22120.7}, e^{\u22122.1}, e^{\u22123.2}, e^{\u22124.9}, e^{\u22126.9}) and (q1,...,q5) = (e^{\u22121.5}, e^{\u22121.6}, e^{\u22122.6}, e^{\u22123.9}, e^{\u22124.2}). Clearly, (\u03c8(p), \u03b1; n) >w (\u03c8(p*), \u03b2; n). Let N1 ~ Poisson(\u03bb1) and N2 ~ Poisson(\u03bb2), where \u03bb1 = 10.9 and \u03bb2 = 2. Also, consider (U1,U2,U3) are selected with probability P(N1=3), ... and (V1,...,V5) with P(N2=5). Here all the conditions are satisfied of Theorem 3.3 except N1 \u2264st N2. Figure 2(b) presents that the difference between F\u0304_{T1:N1}(x) and F\u0304_{T1:N2*}(x) crosses x axis for some x \u2265 0 which violated the statement of the Theorem 3.3.",

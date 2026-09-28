@@ -1,0 +1,89 @@
+[
+ {
+  "queue_claim": "theorem3.13",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1007/s11587-026-01094-9",
+    "claim": "Theorem 3.13",
+    "page": 14,
+    "quote": "Theorem 3.13. Let {U1 , . . . , Un } and {V1 , . . . , Vn } be two sets of independent random variables with Ui ∼ F̄ (x; αi ) and Vi ∼ F̄ (x; βi ), respectively with αn ≥ βn and pn ≤ p∗n . Also, let {J1 , . . . , Jn } and {J1∗ , . . . , Jn∗ } be another two sets of independent Bernoulli random variables, independently of Ui′ s and Vi′ s with E(Ji ) = pi and E(Ji∗ ) = p∗i , respectively. Further, let N1 and N2 be two positive integer-valued random variables independently of Ti′ s and Ti∗ ′ s satisfying N1 =st N2 =st N , respectively. Assume that the following conditions hold: (i) ψ : (0, 1) → (0, ∞) is a differentiable, strictly decreasing and log-convex function. (ii) F̄ (x; αi ) is decreasing and log-convex in αi for all x; (iii) r(x; αi ) is decreasing and convex in αi for all x. Then, for (ψ(p), α; n), (ψ(p∗ ), β; n) ∈ Mn , we have (ψ(p), α; n) >w (ψ(p∗ ), β; n) ⇒ TN:N ≥rh TN∗:N .",
+    "kind": "theorem",
+    "model": "parallel system (random size)",
+    "family": "semiparametric family F̄(·; α); Bernoulli distortion Ji ~ Ber(pi); common random sample size N",
+    "compared": "parameter matrices (ψ(p), α; n) vs (ψ(p*), β; n) under row weak majorization in Mn",
+    "hypotheses": [
+     {
+      "text": "Ui ~ F̄(x; αi), Vi ~ F̄(x; βi) with αn ≥ βn and pn ≤ p∗n; Ji ~ Ber(pi), Ji* ~ Ber(p*i)",
+      "formal": "boundary coordinate conditions",
+      "source": "statement"
+     },
+     {
+      "text": "N1 and N2 positive integer-valued, independent, satisfying N1 =st N2 =st N",
+      "formal": "both claim counts stochastically equal to N",
+      "source": "statement"
+     },
+     {
+      "text": "(i) ψ differentiable strictly decreasing log-convex; (ii) F̄ decreasing and log-convex in αi; (iii) r decreasing and convex in αi",
+      "formal": "transform, survival-function and hazard conditions",
+      "source": "statement"
+     },
+     {
+      "text": "(ψ(p), α; n) >w (ψ(p∗ ), β; n), both in Mn",
+      "formal": "row weak majorization",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "TN:N >=rh TN*:N"
+    },
+    "quantifiers": "all x ≥ 0; n ≥ 1",
+    "numbers": "",
+    "ambiguity": "'N1 =st N2 =st N' is stochastic equality (equality in law to a common N). The 'w' superscript is detached in the text layer; row weak majorization confirmed by context. Proof applies Theorem 3.4 of Kundu et al. (2024)."
+   }
+  ],
+  "note": "Passes agree on order rh and direction TN:N >=rh TN*:N (A's record and B's 'TN*:N <=rh TN:N' are the same orientation); merged verbatim."
+ },
+ {
+  "queue_claim": "theorem3.15",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1007/s11587-026-01094-9",
+    "claim": "Theorem 3.15",
+    "page": 15,
+    "quote": "Theorem 3.15. Suppose X1:n ∼ F̄1:n (x) and X1:n ∼ Ḡ1:n (x). Also let the support of a positive integer-valued random variable N having pmf p(n) be N+ . Now, for all x ≥ l, if r̃Y1:n (x), the reversed hazard rate function of Y1:n is increasing in n ∈ N+ and F1:n (x)/G1:n (x) is increasing in n ∈ N+ , then X1:n ≥rh Y1:n implies X1:N ≥rh Y1:N .",
+    "kind": "theorem",
+    "model": "series system (random size)",
+    "family": "generic minima X1:n ~ F̄1:n, Y1:n ~ Ḡ1:n; random index N (printed 'X1:n ~ Ḡ1:n' — second variable should be Y1:n)",
+    "compared": "fixed-n minima vs random-N minima of the two systems",
+    "hypotheses": [
+     {
+      "text": "N positive integer-valued with pmf p(n), support N+",
+      "formal": "N supported on positive integers",
+      "source": "statement"
+     },
+     {
+      "text": "for all x ≥ l, r̃Y1:n (x) is increasing in n ∈ N+ and F1:n (x)/G1:n (x) is increasing in n ∈ N+",
+      "formal": "reversed hazard and cdf-ratio monotonicity in n",
+      "source": "statement"
+     },
+     {
+      "text": "X1:n ≥rh Y1:n",
+      "formal": "fixed-n minima rh-ordered",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "X1:N >=rh Y1:N"
+    },
+    "quantifiers": "all x ≥ l; n ∈ N+",
+    "numbers": "",
+    "ambiguity": "Printed preamble names both variables X1:n (second should presumably be Y1:n); the bound l is undefined in the statement. Recorded verbatim."
+   }
+  ],
+  "note": "Passes agree on rh and direction X1:N >=rh Y1:N; merged verbatim with the X1:n/Ḡ1:n print typo flagged."
+ }
+]

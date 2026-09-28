@@ -1,1 +1,102 @@
-[]
+[
+ {
+  "paper": "doi:10.1007/s41060-022-00369-2",
+  "claim": "Theorem 3.10.1, likelihood ratio part",
+  "page": 302,
+  "quote": "Theorem 3.10.1 Let X \u223c P E L(v1 , q1 , \u03b11 ) and Y \u223c P E L(v2 , q2 , \u03b12 ) if v1 \u2264 v2 , q1 \u2264 q2 and \u03b11 \u2264 \u03b12 , we have Y \u2265lr X then Y \u2265hr X , Y \u2265mrl X and Y \u2265st X .",
+  "kind": "theorem",
+  "model": "single",
+  "family": "power exponentiated Lindley PEL(v, q, \u03b1): cdf F(x) = [v^{{1 \u2212 e^{\u2212qx}(1+q+qx)/(1+q)}^\u03b1} \u2212 1]/(v \u2212 1), x > 0, \u03b1, q, v > 0, v \u2260 1",
+  "compared": "X ~ PEL(v1, q1, \u03b11) vs Y ~ PEL(v2, q2, \u03b12) with componentwise-dominated parameters",
+  "hypotheses": [
+   {
+    "text": "v1 \u2264 v2 , q1 \u2264 q2 and \u03b11 \u2264 \u03b12",
+    "formal": "coordinatewise parameter ordering",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "Y >=lr X (fX/fY decreasing in x)"
+  },
+  "quantifiers": "x > 0; vi \u2260 1",
+  "numbers": "",
+  "ambiguity": "The claimed monotonicity of fX/fY is verified only graphically (Figure 10 derivative plot), not analytically. Grammar of the printed statement ('we have Y \u2265lr X then ...') is loose but the proof establishes the lr step.",
+  "adjudication": "adjudicated: A's four-way split adopted per spec (one record per order): lr, hr, mrl, st. B recorded the same con"
+ },
+ {
+  "paper": "doi:10.1007/s41060-022-00369-2",
+  "claim": "Theorem 3.10.1, hazard rate part",
+  "page": 302,
+  "quote": "... we have Y \u2265lr X then Y \u2265hr X , Y \u2265mrl X and Y \u2265st X .",
+  "kind": "theorem",
+  "model": "single",
+  "family": "PEL(v, q, \u03b1)",
+  "compared": "X ~ PEL(v1,q1,\u03b11) vs Y ~ PEL(v2,q2,\u03b12)",
+  "hypotheses": [
+   {
+    "text": "v1 \u2264 v2 , q1 \u2264 q2 and \u03b11 \u2264 \u03b12",
+    "formal": "coordinatewise parameter ordering",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "Y >=hr X"
+  },
+  "quantifiers": "x > 0; vi \u2260 1",
+  "numbers": "",
+  "ambiguity": "Consequence of the lr conclusion via the printed implication chain.",
+  "adjudication": "adjudicated: A's four-way split adopted per spec (one record per order): lr, hr, mrl, st. B recorded the same con"
+ },
+ {
+  "paper": "doi:10.1007/s41060-022-00369-2",
+  "claim": "Theorem 3.10.1, mean residual life part",
+  "page": 302,
+  "quote": "... we have Y \u2265lr X then Y \u2265hr X , Y \u2265mrl X and Y \u2265st X .",
+  "kind": "theorem",
+  "model": "single",
+  "family": "PEL(v, q, \u03b1)",
+  "compared": "X ~ PEL(v1,q1,\u03b11) vs Y ~ PEL(v2,q2,\u03b12)",
+  "hypotheses": [
+   {
+    "text": "v1 \u2264 v2 , q1 \u2264 q2 and \u03b11 \u2264 \u03b12",
+    "formal": "coordinatewise parameter ordering",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "mrl",
+   "direction": "Y >=mrl X"
+  },
+  "quantifiers": "x > 0; vi \u2260 1",
+  "numbers": "",
+  "ambiguity": "Consequence of the lr conclusion via the printed implication chain.",
+  "adjudication": "adjudicated: A's four-way split adopted per spec (one record per order): lr, hr, mrl, st. B recorded the same con"
+ },
+ {
+  "paper": "doi:10.1007/s41060-022-00369-2",
+  "claim": "Theorem 3.10.1, usual stochastic order part",
+  "page": 302,
+  "quote": "... we have Y \u2265lr X then Y \u2265hr X , Y \u2265mrl X and Y \u2265st X .",
+  "kind": "theorem",
+  "model": "single",
+  "family": "PEL(v, q, \u03b1)",
+  "compared": "X ~ PEL(v1,q1,\u03b11) vs Y ~ PEL(v2,q2,\u03b12)",
+  "hypotheses": [
+   {
+    "text": "v1 \u2264 v2 , q1 \u2264 q2 and \u03b11 \u2264 \u03b12",
+    "formal": "coordinatewise parameter ordering",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y >=st X"
+  },
+  "quantifiers": "x > 0; vi \u2260 1",
+  "numbers": "",
+  "ambiguity": "Consequence of the lr conclusion via the printed implication chain.",
+  "adjudication": "adjudicated: A's four-way split adopted per spec (one record per order): lr, hr, mrl, st. B recorded the same con"
+ }
+]

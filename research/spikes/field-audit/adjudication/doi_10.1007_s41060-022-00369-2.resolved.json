@@ -1,0 +1,105 @@
+[
+ {
+  "queue_claim": "theorem3.10.1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1007/s41060-022-00369-2",
+    "claim": "Theorem 3.10.1, likelihood ratio part",
+    "page": 302,
+    "quote": "Theorem 3.10.1 Let X ∼ P E L(v1 , q1 , α1 ) and Y ∼ P E L(v2 , q2 , α2 ) if v1 ≤ v2 , q1 ≤ q2 and α1 ≤ α2 , we have Y ≥lr X then Y ≥hr X , Y ≥mrl X and Y ≥st X .",
+    "kind": "theorem",
+    "model": "single",
+    "family": "power exponentiated Lindley PEL(v, q, α): cdf F(x) = [v^{{1 − e^{−qx}(1+q+qx)/(1+q)}^α} − 1]/(v − 1), x > 0, α, q, v > 0, v ≠ 1",
+    "compared": "X ~ PEL(v1, q1, α1) vs Y ~ PEL(v2, q2, α2) with componentwise-dominated parameters",
+    "hypotheses": [
+     {
+      "text": "v1 ≤ v2 , q1 ≤ q2 and α1 ≤ α2",
+      "formal": "coordinatewise parameter ordering",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "Y >=lr X (fX/fY decreasing in x)"
+    },
+    "quantifiers":"x > 0; vi ≠ 1",
+    "numbers": "",
+    "ambiguity": "The claimed monotonicity of fX/fY is verified only graphically (Figure 10 derivative plot), not analytically. Grammar of the printed statement ('we have Y ≥lr X then ...') is loose but the proof establishes the lr step."
+   },
+   {
+    "paper": "doi:10.1007/s41060-022-00369-2",
+    "claim": "Theorem 3.10.1, hazard rate part",
+    "page": 302,
+    "quote": "... we have Y ≥lr X then Y ≥hr X , Y ≥mrl X and Y ≥st X .",
+    "kind": "theorem",
+    "model": "single",
+    "family": "PEL(v, q, α)",
+    "compared": "X ~ PEL(v1,q1,α1) vs Y ~ PEL(v2,q2,α2)",
+    "hypotheses": [
+     {
+      "text": "v1 ≤ v2 , q1 ≤ q2 and α1 ≤ α2",
+      "formal": "coordinatewise parameter ordering",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "Y >=hr X"
+    },
+    "quantifiers": "x > 0; vi ≠ 1",
+    "numbers": "",
+    "ambiguity": "Consequence of the lr conclusion via the printed implication chain."
+   },
+   {
+    "paper": "doi:10.1007/s41060-022-00369-2",
+    "claim": "Theorem 3.10.1, mean residual life part",
+    "page": 302,
+    "quote": "... we have Y ≥lr X then Y ≥hr X , Y ≥mrl X and Y ≥st X .",
+    "kind": "theorem",
+    "model": "single",
+    "family": "PEL(v, q, α)",
+    "compared": "X ~ PEL(v1,q1,α1) vs Y ~ PEL(v2,q2,α2)",
+    "hypotheses": [
+     {
+      "text": "v1 ≤ v2 , q1 ≤ q2 and α1 ≤ α2",
+      "formal": "coordinatewise parameter ordering",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "mrl",
+     "direction": "Y >=mrl X"
+    },
+    "quantifiers": "x > 0; vi ≠ 1",
+    "numbers": "",
+    "ambiguity": "Consequence of the lr conclusion via the printed implication chain."
+   },
+   {
+    "paper": "doi:10.1007/s41060-022-00369-2",
+    "claim": "Theorem 3.10.1, usual stochastic order part",
+    "page": 302,
+    "quote": "... we have Y ≥lr X then Y ≥hr X , Y ≥mrl X and Y ≥st X .",
+    "kind": "theorem",
+    "model": "single",
+    "family": "PEL(v, q, α)",
+    "compared": "X ~ PEL(v1,q1,α1) vs Y ~ PEL(v2,q2,α2)",
+    "hypotheses": [
+     {
+      "text": "v1 ≤ v2 , q1 ≤ q2 and α1 ≤ α2",
+      "formal": "coordinatewise parameter ordering",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "Y >=st X"
+    },
+    "quantifiers": "x > 0; vi ≠ 1",
+    "numbers": "",
+    "ambiguity": "Consequence of the lr conclusion via the printed implication chain."
+   }
+  ],
+  "note": "A's four-way split adopted per spec (one record per order): lr, hr, mrl, st. B recorded the same content in a single combined record. Quote verified verbatim."
+ }
+]

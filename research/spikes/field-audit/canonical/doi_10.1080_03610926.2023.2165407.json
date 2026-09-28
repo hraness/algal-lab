@@ -506,6 +506,150 @@
  },
  {
   "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Corollary 4.13",
+  "page": 16,
+  "quote": "Corollary 4.13. Let Y1, Y2 follow (18), where \u03a31 and \u03a32 are correlation matrices. Then Y1 \u2264sm Y2 if and only if \u00b51 = \u00b52, \u03b41 = \u03b42 and \u03c31,ij \u2264 \u03c32,ij for all 1 \u2264 i < j \u2264 n.",
+  "kind": "corollary",
+  "model": "other: multivariate GLSE vectors",
+  "family": "GLSEn with correlation matrices",
+  "compared": "supermodular order via correlation entries",
+  "hypotheses": [
+   {
+    "text": "\u03a31, \u03a32 correlation matrices; \u00b51 = \u00b52, \u03b41 = \u03b42; \u03c31,ij \u2264 \u03c32,ij",
+    "formal": "correlation ordering",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: sm",
+   "direction": "Y1 <=_sm Y2 iff"
+  },
+  "quantifiers": "1 \u2264 i < j \u2264 n",
+  "ambiguity": "",
+  "adjudication": "adjudicated: mechanical: label-syntax artifact; passes agree on the order"
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Lemma 4.14 (M\u00fcller and Scarsini 2000)",
+  "page": 16,
+  "quote": "Lemma 4.14. (M\u00fcller and Scarsini, 2000) Let X, Y be two bivariate random vectors and have the same marginals, then X \u2264sm Y is equivalent to X \u2264uo Y.",
+  "kind": "lemma",
+  "model": "other: bivariate random vectors",
+  "family": "arbitrary bivariate vectors",
+  "compared": "sm \u27fa uo equivalence in dimension 2",
+  "hypotheses": [
+   {
+    "text": "X, Y bivariate with the same marginals",
+    "formal": "equal marginals",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: sm/uo equivalence",
+   "direction": "X <=_sm Y iff X <=_uo Y"
+  },
+  "quantifiers": "bivariate",
+  "ambiguity": "Cited result, used to link supermodular and upper orthant orders.",
+  "adjudication": "adjudicated: mechanical: label-syntax artifact; passes agree on the order"
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Theorem 4.12",
+  "page": 16,
+  "quote": "Theorem 4.12. Let Y1, Y2 follow (18). Y1 \u2264sm Y2 if and only if Y1 and Y2 have the same marginals and \u03c31,ij \u2264 \u03c32,ij for all 1 \u2264 i < j \u2264 n.",
+  "kind": "theorem",
+  "model": "other: multivariate GLSE vectors",
+  "family": "GLSEn",
+  "compared": "supermodular order iff conditions",
+  "hypotheses": [
+   {
+    "text": "same marginals (\u00b51 = \u00b52, \u03b41 = \u03b42, \u03c31,ii = \u03c32,ii); \u03c31,ij \u2264 \u03c32,ij for i < j",
+    "formal": "equal marginals + covariance ordering",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: sm (supermodular order)",
+   "direction": "Y1 <=_sm Y2 iff"
+  },
+  "quantifiers": "1 \u2264 i < j \u2264 n",
+  "ambiguity": "Generalizes Slepian-type results; generalizes Theorem 11 of M\u00fcller (2001).",
+  "adjudication": "adjudicated: mechanical: label-syntax artifact; passes agree on the order"
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Theorem 4.15",
+  "page": 16,
+  "quote": "Theorem 4.15. Let Y1, Y2 follow (18). The following statements are true: (1) If \u00b52 + \u03b2(z)\u03b42 \u2265 \u00b51 + \u03b2(z)\u03b41 for all z, \u03c31,ii = \u03c32,ii for all 1 \u2264 i \u2264 n and \u03c31,ij \u2264 \u03c32,ij for all 1 \u2264 i \u2260 j \u2264 n, then Y1 \u2264uo Y2. (2) If Y1 \u2264uo Y2 and g satisfies Assumption 4.1, then \u00b51 + E(\u03b2(Z))\u03b41 \u2264 \u00b52 + E(\u03b2(Z))\u03b42 and \u03c31,ii = \u03c32,ii for all 1 \u2264 i \u2264 n. (3) If Y1 and Y2 have the same marginals and Y1 \u2264uo Y2, then \u03c31,ij \u2264 \u03c32,ij for all 1 \u2264 i < j \u2264 n.",
+  "kind": "theorem",
+  "model": "other: multivariate GLSE vectors",
+  "family": "GLSEn",
+  "compared": "upper orthant order",
+  "hypotheses": [
+   {
+    "text": "\u00b52 + \u03b2(z)\u03b42 \u2265 \u00b51 + \u03b2(z)\u03b41 \u2200z; equal diagonal scale entries; \u03c31,ij \u2264 \u03c32,ij",
+    "formal": "location-mixture ordering + covariance ordering",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: uo (upper orthant order)",
+   "direction": "Y1 <=_uo Y2; partial converses in (2),(3)"
+  },
+  "quantifiers": "all t \u2208 R^n",
+  "ambiguity": "",
+  "adjudication": "adjudicated: mechanical: label-syntax artifact; passes agree on the order"
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Theorem 4.16",
+  "page": 17,
+  "quote": "Theorem 4.16. Let Y1, Y2 follow (18). The following statements are true: (1) If \u00b51 = \u00b52, \u03b41 = \u03b42 and \u03a32 \u2212 \u03a31 is copositive, then Y1 \u2264cp Y2. (2) If \u00b51 = \u00b52, then Y1 \u2264cp Y2, if and only if \u03b41 = \u03b42 and \u03a32 \u2212 \u03a31 is copositive. (3) If \u03b41 = \u03b42, then Y1 \u2264cp Y2, if and only if \u00b51 = \u00b52 and \u03a32 \u2212 \u03a31 is copositive.",
+  "kind": "theorem",
+  "model": "other: multivariate GLSE vectors",
+  "family": "GLSEn",
+  "compared": "copositive order",
+  "hypotheses": [
+   {
+    "text": "\u00b51 = \u00b52, \u03b41 = \u03b42, \u03a32 \u2212 \u03a31 copositive",
+    "formal": "equal locations/skews + copositive difference",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: cp (copositive order)",
+   "direction": "Y1 <=_cp Y2 (iff under the stated equalities)"
+  },
+  "quantifiers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: mechanical: label-syntax artifact; passes agree on the order"
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
+  "claim": "Theorem 4.17",
+  "page": 17,
+  "quote": "Theorem 4.17. Let Y1, Y2 follow (18). The following statements are true: (1) If \u00b51 = \u00b52, \u03b41 = \u03b42 and \u03a32 \u2212 \u03a31 is completely positive, then Y1 \u2264cop Y2. (2) If \u00b51 = \u00b52, then Y1 \u2264cop Y2, if and only if \u03b41 = \u03b42 and \u03a32 \u2212 \u03a31 is completely positive. (3) If \u03b41 = \u03b42, then Y1 \u2264cop Y2, if and only if \u00b51 = \u00b52 and \u03a32 \u2212 \u03a31 is completely positive.",
+  "kind": "theorem",
+  "model": "other: multivariate GLSE vectors",
+  "family": "GLSEn",
+  "compared": "completely positive order",
+  "hypotheses": [
+   {
+    "text": "\u00b51 = \u00b52, \u03b41 = \u03b42, \u03a32 \u2212 \u03a31 completely positive",
+    "formal": "equal locations/skews + completely positive difference",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: cop (completely positive order)",
+   "direction": "Y1 <=_cop Y2 (iff under the stated equalities)"
+  },
+  "quantifiers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: mechanical: label-syntax artifact; passes agree on the order"
+ },
+ {
+  "paper": "doi:10.1080/03610926.2023.2165407",
   "claim": "Corollary 5.4",
   "page": 20,
   "quote": "Corollary 5.4. If \u00b52 + \u03b2(z)\u03b42 \u2265 \u00b51 + \u03b2(z)\u03b41 for all z and \u03a31 = \u03a32, then M1 \u2264st M2.",

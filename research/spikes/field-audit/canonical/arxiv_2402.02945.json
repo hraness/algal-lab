@@ -276,6 +276,64 @@
  },
  {
   "paper": "arxiv:2402.02945",
+  "claim": "Corollary 4.1",
+  "page": 11,
+  "quote": "Since every Archimedean copula and Extreme value copula are particular case of Archimax copula, therefore stochastic ordering Theorem 4.1 is holds true in the case of Archimedean and extreme value copula. For proof regarding archimedean copula put A(u) == 1 in equation (7) or see (Li and Fang 2015) and for proof regarding extreme value copula put phi(t) = e^{-t} in equation (7) and proceed as the proof of theorem 4.1.",
+  "kind": "corollary",
+  "model": "order statistic",
+  "family": "homogeneous samples coupled by Archimedean or extreme-value copulas (special Archimax)",
+  "compared": "X_{n-1:n} vs X_{n:n} vs X_{n+1:n+1} in rh, hr, lr orders",
+  "hypotheses": [
+   {
+    "text": "put A(u) == 1 in equation (7)",
+    "formal": "Archimedean case",
+    "source": "statement"
+   },
+   {
+    "text": "put phi(t) = e^{-t} in equation (7)",
+    "formal": "extreme-value copula case",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: rh/hr/lr",
+   "direction": "same chain X_{n-1:n} <= X_{n:n} <= X_{n+1:n+1} in each of rh, hr, lr under the respective generator conditions"
+  },
+  "quantifiers": "n >= 2",
+  "ambiguity": "",
+  "adjudication": "adjudicated: mechanical: label-syntax artifact; passes agree on the order"
+ },
+ {
+  "paper": "arxiv:2402.02945",
+  "claim": "Corollary 5.1",
+  "page": 15,
+  "quote": "Since every Archimedean copula and extreme value copula are particular case of Archimax copula, therefore stochastic ordering Theorem 5.1 is true in the case of Archimedean and extreme value survival copula. For proof regarding Archimedean survival copula put A(u) == 1 in equation (7) (one may also refer (Li and Fang 2015)). And for proof regarding extreme value survival copula put phi(t) = e^{-t} in equation (7) and proceed as the proof of the theorem 5.1.",
+  "kind": "corollary",
+  "model": "series system",
+  "family": "homogeneous samples coupled by Archimedean or extreme-value survival copulas",
+  "compared": "X_{1:n+1} vs X_{1:n} vs X_{2:n} in hr, rh, lr orders",
+  "hypotheses": [
+   {
+    "text": "put A(u) == 1 in equation (7)",
+    "formal": "Archimedean survival copula case",
+    "source": "statement"
+   },
+   {
+    "text": "put phi(t) = e^{-t} in equation (7)",
+    "formal": "extreme-value survival copula case",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: hr/rh/lr",
+   "direction": "same chain X_{1:n+1} <= X_{1:n} <= X_{2:n} in each of hr, rh, lr under the respective generator conditions"
+  },
+  "quantifiers": "n >= 2",
+  "ambiguity": "",
+  "adjudication": "adjudicated: mechanical: label-syntax artifact; passes agree on the order"
+ },
+ {
+  "paper": "arxiv:2402.02945",
   "claim": "Theorem 4.1(i)",
   "page": 8,
   "quote": "Suppose homogeneous random variables X1, . . . , Xn+1 with Archimax copula C_{phi,A}, n-monotone generator phi and Pickands dependence function A. Then, (i) X_{n-1:n} <=rh X_{n:n} <=rh X_{n+1:n+1} <=> t phi'(t)/phi(t) is decreasing function of t >= 0.",

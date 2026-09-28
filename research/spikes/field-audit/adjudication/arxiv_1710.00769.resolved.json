@@ -1,0 +1,192 @@
+[
+ {
+  "queue_claim": "lemma6",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:1710.00769",
+    "claim": "Lemma 6 (Li and Fang)",
+    "page": 6,
+    "quote": "Lemma 6 (Li and Fang [20]) For two n-dimensional Archimedean copulas Cψ1 (u) and Cψ2 (u), with φ2 = ψ2^{−1} = sup {x ∈ R : ψ(x) > u}, the right continuous inverse, if φ2 ◦ ψ1 is super-additive, then Cψ1 (u) ≤ Cψ2 (u) for all u ∈ [0, 1]^n .",
+    "kind": "lemma",
+    "model": "other: Archimedean copulas",
+    "family": "Archimedean copulas with generators ψ1, ψ2 (φ = ψ^{−1})",
+    "compared": "concordance (pointwise) order between two Archimedean copulas",
+    "hypotheses": [
+     {
+      "text": "φ2 ◦ ψ1 super-additive",
+      "formal": "φ2(ψ1(x + y)) ≥ φ2(ψ1(x)) + φ2(ψ1(y))",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "other: concordance (pointwise copula order)",
+     "direction": "Cψ1 <=c Cψ2 i.e. Cψ1(u) <= Cψ2(u) for all u"
+    },
+    "quantifiers": "all u ∈ [0,1]^n",
+    "numbers": "",
+    "ambiguity": "Quoted from Li and Fang [20]; the engine for all dependent-case results in the paper."
+   }
+  ],
+  "note": "Pass A only; in scope — a copula pointwise-ordering conclusion (consistent with the audit precedent that copula ordering claims are included)."
+ },
+ {
+  "queue_claim": "theorem10",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:1710.00769",
+    "claim": "Theorem 10",
+    "page": 18,
+    "quote": "Theorem 10 ... Now if urX (u) is increasing in u and rX (u) is decreasing, log-concave and 2-log-concave in u, then (1/σ1 ,...,1/σ1 ,1/σ2 ,...,1/σ2 ) ≽m (1/ξ1 ,...,1/ξ1 ,1/ξ2 ,...,1/ξ2 ) ⟹ X1:n ≥R−hr Y1:n .",
+    "kind": "theorem",
+    "model": "series system, multiple-outlier model",
+    "family": "LS multiple-outlier, common baseline F",
+    "compared": "R-hr order of minima; reciprocal-scale block vectors (n1 copies of 1/σ1, n2 of 1/σ2) vs (1/ξ1, 1/ξ2)",
+    "hypotheses": [
+     {
+      "text": "urX increasing; rX decreasing, log-concave, 2-log-concave in u",
+      "formal": "baseline conditions",
+      "source": "statement"
+     },
+     {
+      "text": "reciprocal-scale block vector ≽m reciprocal-ξ block vector",
+      "formal": "majorization of the reciprocal scale vectors",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "other: R-hr (relative hazard rate / ageing-faster in hazard rate)",
+     "direction": "X1:n >=R-hr Y1:n"
+    },
+    "quantifiers": "n1 + n2 = n",
+    "numbers": "",
+    "ambiguity": "Paper-defined R-hr order kept distinct from plain hr."
+   }
+  ],
+  "note": "Passes agree on R-hr direction; merged — order labeled other: R-hr (paper-defined relative hazard-rate order, not plain hr as B's tag suggested)."
+ },
+ {
+  "queue_claim": "theorem14",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:1710.00769",
+    "claim": "Theorem 14",
+    "page": 19,
+    "quote": "Theorem 14 ... Suppose λ, µ, σ ∈ D+ (or E+ ). Then, if rX (u) is increasing and concave (decreasing and convex) in u; u2 rX′ (u) is decreasing (increasing) in u and u3 rX′′ (u) is increasing (decreasing) in u then, λ ≺w (≽w )µ ⟹ X1:n ≥R−hr Y1:n .",
+    "kind": "theorem",
+    "model": "series system, independent",
+    "family": "LS family, common baseline F; Xi ~ LS(λi, σi, F), Yi ~ LS(µi, σi, F)",
+    "compared": "R-hr order of minima under weak majorization of location vectors",
+    "hypotheses": [
+     {
+      "text": "λ, µ, σ ∈ D+ (or E+)",
+      "formal": "sortedness restriction",
+      "source": "statement"
+     },
+     {
+      "text": "rX increasing and concave (decreasing and convex); u2 rX′ decreasing (increasing); u3 rX′′ increasing (decreasing)",
+      "formal": "paired alternative conditions",
+      "source": "statement"
+     },
+     {
+      "text": "λ ≺w (≽w) µ",
+      "formal": "weak submajorization (weak supermajorization) of locations, paired with the two condition alternatives",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "other: R-hr",
+     "direction": "X1:n >=R-hr Y1:n"
+    },
+    "quantifiers": "n >= 1",
+    "numbers": "",
+    "ambiguity": "Paper-defined R-hr order; the ≺w/≽w pairing matches the increasing-concave vs decreasing-convex branches."
+   }
+  ],
+  "note": "Passes agree on R-hr direction X1:n >=R-hr Y1:n; merged — order labeled other: R-hr."
+ },
+ {
+  "queue_claim": "theorem8",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:1710.00769",
+    "claim": "Theorem 8",
+    "page": 14,
+    "quote": "Theorem 8 Let X1 , X2 , ..., Xn be a set of independent random variables such that Xi ∼LS(λi , σi , F ), i = 1, 2, ..., n. Let Y1 , Y2 , ..., Yn be another set of independent random variables such that Yi ∼LS(λi , ξi , F ), i = 1, 2, ..., n. Suppose that λ, σ, ξ ∈ D+ (or E+ ). If rX (u) is r-concave for r = 1, 2 and 3 then, (1/σ) ≺m (1/ξ) ⟹ X1:n ≤R−hr Y1:n .",
+    "kind": "theorem",
+    "model": "series system, independent",
+    "family": "LS family, common baseline F (common locations λi; scales σi vs ξi)",
+    "compared": "R-hr order of minima under majorization of reciprocal scale vectors",
+    "hypotheses": [
+     {
+      "text": "λ, σ, ξ ∈ D+ (or E+)",
+      "formal": "sortedness restriction",
+      "source": "statement"
+     },
+     {
+      "text": "rX (u) is r-concave for r = 1, 2 and 3",
+      "formal": "r-th power concavity of the baseline hazard rate",
+      "source": "statement"
+     },
+     {
+      "text": "(1/σ) ≺m (1/ξ)",
+      "formal": "majorization of the reciprocal scale vectors (printed as stacked fractions 1/σ, 1/ξ)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "other: R-hr",
+     "direction": "X1:n <=R-hr Y1:n (hazard-rate ratio r1:n/s1:n decreasing in t)"
+    },
+    "quantifiers": "n >= 1; t in support",
+    "numbers": "",
+    "ambiguity": "R-hr = ageing-faster-in-hazard-rate order. The hypothesis acts on reciprocal scales 1/σ vs 1/ξ (the flattened text shows 'σ1 ≺m 1ξ'); B dropped the reciprocals — restored."
+   }
+  ],
+  "note": "Passes agree on R-hr and direction X1:n <=R-hr Y1:n; corrected the hypothesis to reciprocal scales (1/σ ≺m 1/ξ) per the printed fractions."
+ },
+ {
+  "queue_claim": "theorem9",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:1710.00769",
+    "claim": "Theorem 9",
+    "page": 16,
+    "quote": "Theorem 9 Let {X1 , . . . , Xn } and {Y1 , . . . , Yn } be two sets of independent random variables each following the multiple outlier LS model such that Xi ∼LS(λ1 , σ1 , F ) and Yi ∼LS(λ1 , ξ1 , F ) for i = 1, . . . , n1 and Xi ∼LS(λ2 , σ2 , F ) and Yi ∼LS(λ2 , ξ2 , F ) for i = n1 + 1, . . . , n. Suppose that (λ1 , λ2 ), (σ1 , σ2 ), (ξ1 , ξ2 ) ∈ D+ (or E+ ). Now if urX (u) is decreasing in u and rX (u) is log-concave and 2-log-convex in u, then (1/σ1 ,...,1/σ1 ,1/σ2 ,...,1/σ2 ) ≺m (1/ξ1 ,...,1/ξ1 ,1/ξ2 ,...,1/ξ2 ) ⟹ X1:n ≥R−hr Y1:n .",
+    "kind": "theorem",
+    "model": "series system, multiple-outlier model",
+    "family": "LS multiple-outlier, common baseline F",
+    "compared": "R-hr order of minima; reciprocal-scale block vectors (n1 copies of 1/σ1, n2 of 1/σ2) vs (1/ξ1, 1/ξ2)",
+    "hypotheses": [
+     {
+      "text": "(λ1, λ2), (σ1, σ2), (ξ1, ξ2) ∈ D+ (or E+)",
+      "formal": "sortedness restriction on the two outlier groups",
+      "source": "statement"
+     },
+     {
+      "text": "urX decreasing; rX log-concave and 2-log-convex in u",
+      "formal": "baseline conditions",
+      "source": "statement"
+     },
+     {
+      "text": "reciprocal-scale block vector ≺m reciprocal-ξ block vector",
+      "formal": "majorization of reciprocal scale vectors",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "other: R-hr",
+     "direction": "X1:n >=R-hr Y1:n (r1:n/s1:n increasing)"
+    },
+    "quantifiers": "n1 + n2 = n",
+    "numbers": "",
+    "ambiguity": "Direction is ≥R-hr here (reverse of Theorem 8) owing to the reciprocal-scale parametrization and flipped monotonicity conditions."
+   }
+  ],
+  "note": "Passes agree on R-hr direction X1:n >=R-hr Y1:n; merged — order labeled other: R-hr."
+ }
+]
