@@ -60,6 +60,17 @@ graph, if one exists, would have to avoid everything those checks covered.
   alpha <= 9). 2,921 are triangle-free; none has alpha <= 9. No circulant
   (3,10,40)-graph exists — unconditional, no e-value bound needed. Likely
   folklore; we found no published exclusion.
+- 2026-09-28, Cayley (`cayley/`): all 14 groups of order 40 enumerated as
+  C5 ⋊ P (normal C5 by Sylow; split by Schur-Zassenhaus; P ranging over
+  the five groups of order 8, all homs into Aut(C5)=C4; deduped by
+  element-order profile — 14 distinct profiles = the full census).
+  Every inverse-closed connection set of size <= 9 enumerated with
+  incremental triangle-free pruning (`cayley40.c`); alpha computed exactly
+  by Tomita max-clique on the complement. ~2.1 M triangle-free connection
+  sets tested in seconds; ZERO hits. C40 count (2,921 tf sets)
+  cross-checked against circulants.py; group tables verified independently
+  (associativity, C5 normality, order profiles).
+  **No Cayley graph on any group of order 40 witnesses R(3,10) >= 41.**
 
 ## Approach
 
