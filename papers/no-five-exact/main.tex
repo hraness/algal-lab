@@ -26,7 +26,7 @@
 \maketitle
 
 \begin{abstract}
-Let $C(n)$ denote the largest subset of the grid $\{0,\dots,n-1\}^3$ containing no five points on a common sphere or plane --- the degenerate-set condition of AlphaEvolve problem 60, detected exactly by the lifted determinant on rows $(x,y,z,x^2+y^2+z^2,1)$. The published record for this problem consists entirely of lower-bound certificates at $n\ge 7$; no exact value appears in any public source we could locate. We give what we believe are the first published exact values: $C(3)=8$, $C(4)=11$, and $C(5)=14$, the last by an exhaustive canonical layer enumeration over all $1{,}905$ dihedral orbits of layer-zero configurations (approximately $591$ million search nodes) with a verified positive control. The method decomposes the problem by one coordinate axis, retains only the $11{,}824$ of $12{,}650$ four-subsets of $[5]^2$ that are layer-valid, enumerates orbit representatives under $D_4$, and prunes future layers by an admissibility bound; an incremental-mask optimization makes the $n=6$ table-driven search practical (a $4.2$\,GB sphere table, $8{,}133$ orbits). A same-day self-audit of the enumerator found and corrected an unsound prune in the first implementation; the corrected run is the result reported. At $n=6$ the exhaustive decision of the $k=19$ case is in progress at time of writing; a verified $18$-point certificate already gives $C(6)\ge 18$, matching the empirically fitted law $\lfloor(5n+7)/2\rfloor$ of Demonstrandum, which our exact values confirm at every $n\le 6$ where it makes a prediction. All programs, certificates, and audit notes are released with this paper.
+Let $C(n)$ denote the largest subset of the grid $\{0,\dots,n-1\}^3$ containing no five points on a common sphere or plane --- the degenerate-set condition of AlphaEvolve problem 60, detected exactly by the lifted determinant on rows $(x,y,z,x^2+y^2+z^2,1)$. The published record for this problem consists entirely of lower-bound certificates at $n\ge 7$; no exact value appears in any public source we could locate. We give what we believe are the first published exact values: $C(3)=8$, $C(4)=11$, and $C(5)=14$, the last by an exhaustive canonical layer enumeration over all $1{,}905$ dihedral orbits of layer-zero configurations (approximately $591$ million search nodes) with a verified positive control. The method decomposes the problem by one coordinate axis, retains only the layer-valid four-subsets of $[n]^2$ ($11{,}824$ of $12{,}650$ at $n=5$; $56{,}414$ of $58{,}905$ at $n=6$), enumerates orbit representatives under $D_4$, and prunes future layers by an admissibility bound; an incremental-mask optimization makes the $n=6$ table-driven search practical (a $4.2$\,GB sphere table, $8{,}133$ orbits, $\approx 8.4\times 10^{10}$ examined nodes). A self-audit of the enumerator found and corrected an unsound prune in the first implementation; the corrected runs are the results reported. The enumeration at $n=6$, $k=19$ has now completed: every one of the $8{,}133$ canonical orbit representatives was exhausted with no $19$-subset found, so $C(6)=18$ exactly. This matches the empirically fitted law $\lfloor(5n+7)/2\rfloor$ of Demonstrandum, which our exact values confirm at every $n\le 6$ where it makes a prediction. All programs, certificates, and audit notes are released with this paper.
 \end{abstract}
 
 \medskip\noindent\textbf{Keywords.} extremal combinatorics; grid point sets; cospherical points; coplanar points; exact enumeration; canonical augmentation.
@@ -46,11 +46,11 @@ The public record of this problem consists of lower bounds found by heuristic se
 This paper reports what we believe are the first published exact values.
 
 \begin{theorem}\label{thm:main}
-$C(3)=8$, $C(4)=11$, and $C(5)=14$. The first two follow by direct exhaustive check; the third is the output of a complete canonical layer enumeration described in Section~\ref{sec:method}, over all $1{,}905$ orbit representatives of layer-zero configurations, exhausting approximately $591$ million extension nodes without finding a $15$-subset, while a control run at $k=14$ produces a verified $14$-subset.
+$C(3)=8$, $C(4)=11$, and $C(5)=14$. The first two follow by direct exhaustive check; the third is the output of a complete canonical layer enumeration described in Section~\ref{sec:method}, over all $1{,}905$ orbit representatives of layer-zero configurations, exhausting approximately $591$ million extension nodes without finding a $15$-subset, while a control run at $k=14$ produces a verified $14$-subset. The fourth values the completed $n=6$ enumeration described in Section~\ref{sec:status}.
 \end{theorem}
 
 \begin{theorem}\label{thm:n6}
-$C(6)\ge 18$, by a certified $18$-point configuration (Section~\ref{sec:certs}). The exhaustive decision of $k=19$ on $G_6$ --- which would either raise this lower bound or establish $C(6)=18$ exactly --- is enumerated by the method of Section~\ref{sec:method} over $8{,}133$ canonical orbit representatives; its status at the time of writing is recorded in Section~\ref{sec:status}.
+$C(6)=18$. The certified $18$-point configuration of Section~\ref{sec:certs} gives $C(6)\ge18$, and the completed exhaustive enumeration over all $8{,}133$ canonical orbit representatives (Section~\ref{sec:status}) found no $19$-subset, giving $C(6)\le18$.
 \end{theorem}
 
 The exact values agree with the fitted law $\lfloor(5n+7)/2\rfloor$ at $n=3,4,5$ and with the certified lower bound at $n=6$, and the enumeration of $n=5$ supplies the first optimality statement of any kind for this family.
@@ -92,7 +92,7 @@ $n$ & $C(n)$ & evidence & fits $\lfloor(5n+7)/2\rfloor$? & record \\
 3 & $8$ & exhaustive & $8$ & \textbf{first exact} \\
 4 & $11$ & exhaustive & $11$ & \textbf{first exact} \\
 5 & $14$ & complete layer enumeration & $14$ & \textbf{first exact} \\
-6 & $\ge18$ & verified certificate; $k=19$ decision in progress & $18$ & pending \\
+6 & $18$ & complete layer enumeration ($8{,}133$ orbits) & $18$ & \textbf{first exact} \\
 7--12 & $\ge$ record & public certificates & exact match of the law & public record \\
 \bottomrule
 \end{tabular}
@@ -103,9 +103,9 @@ $n$ & $C(n)$ & evidence & fits $\lfloor(5n+7)/2\rfloor$? & record \\
 
 Three independent checks guard the claims. (i) \emph{Table self-test}: the sphere table is verified entrywise against direct evaluation ($0$ mismatches). (ii) \emph{Positive control}: the same binary run at $k=14$ finds a $14$-subset; the found set is independently verified by the lifted-determinant checker (all $\binom{14}{5}=2002$ determinants nonzero, minimum absolute value recorded). (iii) \emph{Candidate cross-check}: the layer-candidate count $11{,}824$ is reproduced by an independent brute-force enumeration of layer 4-subsets. The $n=5$ run completed all $1{,}905$ orbits with no deadline truncations. A cube-and-conquer LRAT witness for the $n=5$, $k=15$ instance is an optional second certificate, currently incomplete on its splitting frontier; the enumeration stands as the decision.
 
-\subsection{Status of the $n=6$ decision}\label{sec:status}
+\subsection{The $n=6$ decision}\label{sec:status}
 
-At time of writing the $k=19$ enumeration on $G_6$ is in progress (canonically ordered representatives, incremental-mask binary, 16 worker threads). A completed run reporting $found=0$ over all $8{,}133$ representatives would establish $C(6)=18$; a found configuration would raise the lower bound to $19$. The run is checkpointed per orbit, and its logs will accompany the released artifacts. (This section will be finalized when the run completes.)
+The $k=19$ enumeration on $G_6$ has completed: all $8{,}133$ canonical orbit representatives (the $8{,}139$ dihedral orbits minus the $6$ singleton orbits that cannot reach $19$ points) were exhausted with $found=0$ and no truncated orbit --- approximately $8.4\times 10^{10}$ admissible nodes over roughly ten hours of wall time. The completeness argument is given in Section~\ref{sec:method}: every $19$-subset has an axis whose extreme layer holds $\ge 2$ points, the canonical image of any such set lies in one of the enumerated orbits, and the corrected admissibility bound prunes only nodes that provably cannot complete. Together with the verified $18$-point certificate this establishes $C(6)=18$.
 
 \section{Conclusion}
 
