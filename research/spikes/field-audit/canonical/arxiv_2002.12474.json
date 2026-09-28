@@ -1,6 +1,171 @@
 [
  {
   "paper": "arxiv:2002.12474",
+  "claim": "Example 1",
+  "page": 7,
+  "quote": "Example 1. Let X1, X2 be independent random variables such that Xi \u223c W \u2212 Exp(\u03b1i, \u03b2, \u03b3i), i = 1, 2. Also let Y1, Y2 be another pair of independent random variable such that Yi \u223c W \u2212 Exp(\u03b1i*, \u03b2, \u03b3i*), i = 1, 2 (the baseline distribution is Exponential with cdf, F(x) = 1 \u2212 e^{\u2212\u03b3x}). The parameters are given in the form of matrices as [[\u03b11*, \u03b12*],[\u03b31*, \u03b32*]] = [[4.8, 3.4],[2.5, 1.6]] \u2208 P2 and [[\u03b11, \u03b12],[\u03b31, \u03b32]] = [[4.03, 4.17],[2.005, 2.095]]. It can be observed that [[\u03b11, \u03b12],[\u03b31, \u03b32]] = [[\u03b11*, \u03b12*],[\u03b31*, \u03b32*]] T^{0.45}, and it satisfies the condition [[\u03b11, \u03b12],[\u03b31, \u03b32]] \u227a\u227a [[\u03b11*, \u03b12*],[\u03b31*, \u03b32*]] \u27f9 X1:2 \u2265hr Y1:2. The plot of the difference rY1:2 \u2212 rX1:2 is given in Figure 1 for \u03b2 = 3.",
+  "kind": "example",
+  "model": "series system (n = 2)",
+  "family": "Weibull-exponential W\u2212Exp(\u03b1, \u03b2, \u03b3): baseline F(x) = 1 \u2212 e^{\u2212\u03b3x}; \u03b2 = 3",
+  "compared": "chain-majorized parameter matrices",
+  "hypotheses": [
+   {
+    "text": "[[\u03b11, \u03b12],[\u03b31, \u03b32]] = [[\u03b11*, \u03b12*],[\u03b31*, \u03b32*]] T^{0.45}",
+    "formal": "single T-transform link with parameter 0.45",
+    "source": "statement"
+   },
+   {
+    "text": "starred matrix \u2208 P2",
+    "formal": "rows similarly ordered",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "X1:2 >=hr Y1:2 (Figure 1 plots rY1:2 \u2212 rX1:2 >= 0 for \u03b2 = 3)"
+  },
+  "quantifiers": "n = 2; x > 0",
+  "numbers": "[\u03b1*;\u03b3*] = [[4.8,3.4],[2.5,1.6]]; [\u03b1;\u03b3] = [[4.03,4.17],[2.005,2.095]]; T-parameter 0.45; \u03b2 = 3",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Passes agree: X1:2 >=hr Y1:2 verified graphically; merged with B's fuller quote."
+ },
+ {
+  "paper": "arxiv:2002.12474",
+  "claim": "Theorem 1",
+  "page": 7,
+  "quote": "Theorem 1. Let X1 , X2 and Y1 , Y2 be 2 pairs of independent random variable such that Xi \u223c W \u2212G(\u03b1i , \u03b2, \u03b3i ) and Yi \u223c W \u2212G(\u03b1\u2217i , \u03b2, \u03b3i\u2217 ) for i = 1, 2. Whenever \u03b2 \u2265 2, w(x) is an increasing convex function, also w\u2032\u2032 (x) is increasing and (\u03b11 \u03b12 ; \u03b31 \u03b32 ) \u2208 P2 , then (\u03b11 \u03b12 ; \u03b31 \u03b32 ) \u227a\u227a (\u03b11\u2217 \u03b12\u2217 ; \u03b31\u2217 \u03b32\u2217 ) \u27f9 X1:2 \u2265hr Y1:2 .",
+  "kind": "theorem",
+  "model": "series system (n = 2)",
+  "family": "Weibull-G W\u2212G(\u03b1, \u03b2, \u03b3): H(x) = 1 \u2212 exp(\u2212\u03b1 (w(\u03b3x))^\u03b2), with w(F(x)) = F(x)/(1 \u2212 F(x)) for baseline cdf F",
+  "compared": "2\u00d72 parameter matrices (\u03b1; \u03b3) under multivariate chain majorization \u227a\u227a, with row-comonotonicity set P2",
+  "hypotheses": [
+   {
+    "text": "\u03b2 \u2265 2, w(x) is an increasing convex function, also w\u2032\u2032(x) is increasing",
+    "formal": "\u03b2 >= 2; w' >= 0, w'' >= 0 and increasing (w''' >= 0 used in proof)",
+    "source": "statement"
+   },
+   {
+    "text": "(\u03b11 \u03b12 ; \u03b31 \u03b32 ) \u2208 P2",
+    "formal": "rows similarly ordered: (\u03b11 \u2212 \u03b12)(\u03b31 \u2212 \u03b32) \u2265 0",
+    "source": "statement"
+   },
+   {
+    "text": "(\u03b11 \u03b12 ; \u03b31 \u03b32 ) \u227a\u227a (\u03b11\u2217 \u03b12\u2217 ; \u03b31\u2217 \u03b32\u2217 )",
+    "formal": "chain majorization: unstarred matrix = starred \u00d7 product of T-transforms",
+    "source": "statement"
+   },
+   {
+    "text": "common \u03b2 in both systems",
+    "formal": "Yi \u223c W\u2212G(\u03b1i*, \u03b2, \u03b3i*)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "X1:2 >=hr Y1:2 (rX1:2 <= rY1:2 pointwise)"
+  },
+  "quantifiers": "n = 2; x > 0",
+  "numbers": "\u03b2 >= 2",
+  "ambiguity": "P2 = set of 2\u00d72 positive matrices with similarly ordered rows; '\u227a\u227a' is multivariate chain majorization.",
+  "adjudication": "adjudicated: Passes agree on X1:2 >=hr Y1:2; merged \u2014 the '\u03b2 \u2265 2' clause (present in B's quote, dropped by A) is "
+ },
+ {
+  "paper": "arxiv:2002.12474",
+  "claim": "Theorem 4",
+  "page": 9,
+  "quote": "Theorem 4. Let X1 , X2 , . . . , Xn be a set of independent random variables from Weibull- G distributed family of distribution such that Xi \u223c W \u2212 G(\u03b1i , \u03b2, \u03b3) for i = 1, 2, . . . , n. Let Y1 , Y2 , . . . , Yn be another set of independent random variables such that Yi \u223c W \u2212 G(\u03b1\u2217i , \u03b2, \u03b3) for i = 1, 2, . . . , n. Then \u03b1 \u227aw \u03b1\u2217 \u27f9 Xn:n \u2264rh Yn:n .",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "Weibull-G W\u2212G(\u03b1i, \u03b2, \u03b3); common \u03b2 and \u03b3",
+  "compared": "scale vectors \u03b1 vs \u03b1* under weak majorization",
+  "hypotheses": [
+   {
+    "text": "\u03b1 \u227aw \u03b1*",
+    "formal": "the proof uses g(\u03b1) = \u03b1/(e^{\u03b1z} \u2212 1) decreasing and convex so that r\u0303Xn:n is Schur-convex \u2014 with a DECREASING Schur-convex function the required weak order is weak SUPERmajorization \u227a^w (Definition (5): smallest-first partial sums), not the submajorization of Definition (4); the sub/superscript is not resolvable in the text layer",
+    "source": "statement; Definitions (2)-(3) and the proof's Schur argument"
+   },
+   {
+    "text": "common \u03b2, \u03b3",
+    "formal": "Yi \u223c W\u2212G(\u03b1i*, \u03b2, \u03b3)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "rh",
+   "direction": "Xn:n <=rh Yn:n (r\u0303Xn:n <= r\u0303Yn:n; the printed subscript is 'rh' = reversed hazard rate)"
+  },
+  "quantifiers": "n >= 1; x > 0",
+  "numbers": "",
+  "ambiguity": "Order label dispute (A metadata 'hr' vs B 'rh'): the paper prints \u2264rh and the proof computes reversed hazard rates \u2014 resolved to rh. Majorization w-position unrecoverable from text; the proof's decreasing-Schur-convex argument implies weak supermajorization \u227a^w.",
+  "adjudication": "adjudicated: Corrected order label to rh (A's record body already said rh; only its order tag was 'hr'). Kept ver"
+ },
+ {
+  "paper": "arxiv:2002.12474",
+  "claim": "Theorem 6",
+  "page": 11,
+  "quote": "Theorem 6. Let X1 , X2 and Y1 , Y2 be 2 pairs of independent random variable such that Xi \u223c GM (\u03b1i , \u03b2i , \u03bb) and Yi \u223c GM (\u03b1\u2217i , \u03b2\u2217i , \u03bb) for i = 1, 2. Let (\u03b11 \u03b12 ; \u03b21 \u03b22 ) \u2208 P2 , then (\u03b11 \u03b12 ; \u03b21 \u03b22 ) \u227a\u227a (\u03b11\u2217 \u03b12\u2217 ; \u03b21\u2217 \u03b22\u2217 ) \u27f9 X1:2 \u2265hr Y1:2 .",
+  "kind": "theorem",
+  "model": "series system (n = 2)",
+  "family": "Gompertz\u2013Makeham GM(\u03b1, \u03b2, \u03bb): F(x) = 1 \u2212 exp(\u2212\u03bbx \u2212 (\u03b1/\u03b2)(e^{\u03b2x} \u2212 1)); common Makeham parameter \u03bb",
+  "compared": "2\u00d72 matrices (\u03b1; \u03b2) under chain majorization with P2 comonotonicity",
+  "hypotheses": [
+   {
+    "text": "(\u03b11 \u03b12 ; \u03b21 \u03b22 ) \u2208 P2",
+    "formal": "comonotone rows",
+    "source": "statement"
+   },
+   {
+    "text": "(\u03b11 \u03b12 ; \u03b21 \u03b22 ) \u227a\u227a (\u03b11\u2217 \u03b12\u2217 ; \u03b21\u2217 \u03b22\u2217 )",
+    "formal": "chain majorization",
+    "source": "statement"
+   },
+   {
+    "text": "common \u03bb",
+    "formal": "Yi \u223c GM(\u03b1i*, \u03b2i*, \u03bb)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "X1:2 >=hr Y1:2 (rX1:2 <= rY1:2; rX1:2(x) = 2\u03bb + \u03a3 \u03b1i e^{\u03b2i x})"
+  },
+  "quantifiers": "n = 2; x > 0",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Passes agree: X1:2 >=hr Y1:2 for GM under chain majorization; merged."
+ },
+ {
+  "paper": "arxiv:2002.12474",
+  "claim": "Theorem 9",
+  "page": 13,
+  "quote": "Theorem 9. Let X1 , X2 , . . . , Xn be a set of independent random variables such that Xi \u223c GM (\u03b1, \u03b2, \u03bbi ) for i = 1, 2, . . . , n. Let Y1 , Y2 , . . . , Yn be another set of independent random variables such that Yi \u223c GM (\u03b1, \u03b2, \u03bb\u2217i ) for i = 1, 2, . . . , n. Then \u03bb \u227aw \u03bb\u2217 \u27f9 X1:n =st Y1:n .",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Gompertz\u2013Makeham GM(\u03b1, \u03b2, \u03bbi); common \u03b1, \u03b2",
+  "compared": "Makeham-parameter vectors \u03bb vs \u03bb* under weak majorization",
+  "hypotheses": [
+   {
+    "text": "\u03bb \u227aw \u03bb*",
+    "formal": "printed as weak majorization; distributional equality F\u0304X1:n = exp(\u2212(\u03a3\u03bbi)x \u2212 (n\u03b1/\u03b2)(e^{\u03b2x}\u22121)) depends only on \u03a3\u03bbi, so equality needs equal sums (ordinary majorization) \u2014 the printed weak relation is presumably shorthand",
+    "source": "statement"
+   },
+   {
+    "text": "common \u03b1, \u03b2",
+    "formal": "same Gompertz parameters",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X1:n =st Y1:n (equality in distribution \u2014 the 'age independent' Makeham parameter has no effect on the minimum's survival beyond its sum)"
+  },
+  "quantifiers": "n >= 1; x > 0",
+  "numbers": "",
+  "ambiguity": "Printed '=st' equality under a weak-majorization hypothesis; weak majorization alone does not fix \u03a3\u03bbi \u2014 noted as a mismatch between the printed hypothesis and the equality conclusion.",
+  "adjudication": "adjudicated: Passes agree on the printed stochastic equality X1:n =st Y1:n; merged, flagging the weak-vs-ordinary"
+ },
+ {
+  "paper": "arxiv:2002.12474",
   "claim": "Example 2",
   "page": 12,
   "quote": "Example 2. Let X1 , X2 be independent random variables such that Xi \u223c GM (\u03b1i , \u03b2i , \u03bb), i = 1, 2. Also let Y1 , Y2 be another pair ... such that Yi \u223c GM (\u03b1\u2217i , \u03b2\u2217i , \u03bb), i = 1, 2. The parameters satisfy all the given conditions and are given in the form of matrices as (\u03b11\u2217 \u03b12\u2217 / \u03b21\u2217 \u03b22\u2217) = (4.8 3.4 / 2.5 1.6) \u2208 P2 and (\u03b11 \u03b12 / \u03b21 \u03b22 ) = (4.03 4.17 / 2.005 2.095). The plot of the difference rY1:2 \u2212 rX1:2 ... for any value of \u03bb.",
@@ -183,30 +348,5 @@
   "numbers": "",
   "ambiguity": "",
   "adjudication": "agreed"
- },
- {
-  "paper": "arxiv:2002.12474",
-  "claim": "Example 1",
-  "page": 7,
-  "quote": "Example 1. Let X1 , X2 be independent random variables such that Xi \u223c W \u2212 Exp(\u03b1i , \u03b2, \u03b3i ), i = 1, 2. Also let Y1 , Y2 be another pair ... (the baseline distribution is Exponential with cdf, F (x) = 1 \u2212 e\u2212\u03b3x ). The parameters are given in the form of matrices as (\u03b11\u2217 \u03b12\u2217 / \u03b31\u2217 \u03b32\u2217) = (4.8 3.4 / 2.5 1.6) \u2208 P2 and (\u03b11 \u03b12 / \u03b31 \u03b32 ) = (4.03 4.17 / 2.005 2.095). It can be observed that (\u03b11 \u03b12 / \u03b31 \u03b32 ) = (\u03b11\u2217 \u03b12\u2217 / \u03b31\u2217 \u03b32\u2217) T^{0.45}, and it satisfies ... (\u03b11 \u03b12 / \u03b31 \u03b32 ) \u227a\u227a (\u03b11\u2217 \u03b12\u2217 / \u03b31 \u03b32\u2217 ) \u21d2 X1:2 \u2265hr Y1:2 . The plot of the difference rY1:2 \u2212 rX1:2 ... for \u03b2 = 3.",
-  "kind": "example",
-  "model": "series system",
-  "family": "W-Exp (Weibull-G with exponential baseline), \u03b2 = 3",
-  "compared": "X1:2 vs Y1:2 in hazard rate under chain majorization (supports Theorem 1)",
-  "hypotheses": [
-   {
-    "text": "parameter matrices as given; A = A* T^{0.45}",
-    "formal": "chain majorization via one T-transform with \u03bb = 0.45",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "hr",
-   "direction": "X1:2 >=hr Y1:2 (Figure 1: rY1:2 \u2212 rX1:2 >= 0)"
-  },
-  "quantifiers": "n = 2; x > 0",
-  "numbers": "\u03b1* = (4.8, 3.4), \u03b3* = (2.5, 1.6), \u03b1 = (4.03, 4.17), \u03b3 = (2.005, 2.095), \u03bb = 0.45, \u03b2 = 3",
-  "ambiguity": "",
-  "adjudication": "example record (pass a)+b"
  }
 ]

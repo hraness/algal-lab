@@ -1,1 +1,117 @@
-[]
+[
+ {
+  "paper": "doi:10.29020/nybg.ejpam.v18i4.6653",
+  "claim": "Theorem 1 (lr part)",
+  "page": 9,
+  "quote": "Theorem 1. Let Xi \u223c M(\u03b8i), i = 1, 2 be two random variables. If \u03b81 \u2264 \u03b82, then X1 \u227alr X2, X1 \u227ahr X2, X1 \u227as X2 and X1 \u227acx X2. Proof. We have fX1(t)/fX2(t) = [\u03b81\u00b3(1+\u03b82)/(\u03b82\u00b3(1+\u03b81))] e^{\u2212(\u03b81\u2212\u03b82)t}. differentiating w.r.t t, we get (d/dt)[fX1(t)/fX2(t)] = \u2212(\u03b81 \u2212 \u03b82)e^{\u2212(\u03b81\u2212\u03b82)t} < 0, \u2200\u03b81 \u2265 \u03b82. Hence, we see that fX1(t)/fX2(t) decreases in t, which holds the above theorem. (proved)",
+  "kind": "theorem",
+  "model": "single",
+  "family": "Mgamma M(\u03b8): f(x) = \u03b8\u00b3x(1 + x/2)e^{\u2212\u03b8x}/(1+\u03b8), x > 0, \u03b8 > 0 (finite mixture of Gamma(2,\u03b8) and Gamma(3,\u03b8) with weight \u03b8/(1+\u03b8))",
+  "compared": "X1 ~ M(\u03b81) vs X2 ~ M(\u03b82)",
+  "hypotheses": [
+   {
+    "text": "If \u03b81 \u2264 \u03b82 (statement); proof's derivative inequality is quantified '\u2200\u03b81 \u2265 \u03b82'",
+    "formal": "printed parameter condition contradicts itself between statement and proof",
+    "source": "statement; proof"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "X1 \u2264lr X2 as printed (paper uses \u227alr glyph)"
+  },
+  "quantifiers": "\u03b81, \u03b82 > 0; all t > 0",
+  "numbers": "",
+  "ambiguity": "Internal contradiction: statement assumes \u03b81 \u2264 \u03b82 but the printed proof asserts the negative derivative '\u2200 \u03b81 \u2265 \u03b82'. With \u03b81 \u2264 \u03b82 the displayed \u2212(\u03b81\u2212\u03b82)e^{\u2212(\u03b81\u2212\u03b82)t} \u2265 0 \u2014 the proof actually supports \u03b81 \u2265 \u03b82 \u21d2 X1 \u2264lr X2. Recorded as printed.",
+  "adjudication": "adjudicated: Both passes agree on the 4-order split and on the statement-vs-proof contradiction (\u03b81 \u2264 \u03b82 stated; "
+ },
+ {
+  "paper": "doi:10.29020/nybg.ejpam.v18i4.6653",
+  "claim": "Theorem 1 (hr part)",
+  "page": 9,
+  "quote": "Theorem 1. Let Xi \u223c M(\u03b8i), i = 1, 2 be two random variables. If \u03b81 \u2264 \u03b82, then X1 \u227alr X2, X1 \u227ahr X2, X1 \u227as X2 and X1 \u227acx X2.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "Mgamma M(\u03b8)",
+  "compared": "X1 ~ M(\u03b81) vs X2 ~ M(\u03b82)",
+  "hypotheses": [
+   {
+    "text": "If \u03b81 \u2264 \u03b82",
+    "formal": "statement hypothesis (contradicted by the proof's \u2200\u03b81 \u2265 \u03b82)",
+    "source": "statement"
+   },
+   {
+    "text": "Remark 2: Likelihood ratio order \u21d2 Hazard rate order \u21d2 Stochastic order",
+    "formal": "lr \u21d2 hr implication used",
+    "source": "section preamble (Remark 2)"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "X1 \u2264hr X2 (printed \u227ahr)"
+  },
+  "quantifiers": "\u03b81, \u03b82 > 0; all t > 0",
+  "numbers": "",
+  "ambiguity": "Inherits the statement-vs-proof \u03b8-direction contradiction of the lr part.",
+  "adjudication": "adjudicated: Both passes agree on the 4-order split and on the statement-vs-proof contradiction (\u03b81 \u2264 \u03b82 stated; "
+ },
+ {
+  "paper": "doi:10.29020/nybg.ejpam.v18i4.6653",
+  "claim": "Theorem 1 (st part)",
+  "page": 9,
+  "quote": "Theorem 1. Let Xi \u223c M(\u03b8i), i = 1, 2 be two random variables. If \u03b81 \u2264 \u03b82, then X1 \u227alr X2, X1 \u227ahr X2, X1 \u227as X2 and X1 \u227acx X2.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "Mgamma M(\u03b8)",
+  "compared": "X1 ~ M(\u03b81) vs X2 ~ M(\u03b82)",
+  "hypotheses": [
+   {
+    "text": "If \u03b81 \u2264 \u03b82",
+    "formal": "statement hypothesis",
+    "source": "statement"
+   },
+   {
+    "text": "Remark 2: lr \u21d2 hr \u21d2 st chain",
+    "formal": "implication chain used",
+    "source": "section preamble (Remark 2)"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X1 \u2264st X2 (printed \u227as)"
+  },
+  "quantifiers": "\u03b81, \u03b82 > 0; all t > 0",
+  "numbers": "",
+  "ambiguity": "Paper's usual-stochastic symbol is \u227as. Inherits the \u03b8-direction contradiction.",
+  "adjudication": "adjudicated: Both passes agree on the 4-order split and on the statement-vs-proof contradiction (\u03b81 \u2264 \u03b82 stated; "
+ },
+ {
+  "paper": "doi:10.29020/nybg.ejpam.v18i4.6653",
+  "claim": "Theorem 1 (cx part)",
+  "page": 9,
+  "quote": "Theorem 1. Let Xi \u223c M(\u03b8i), i = 1, 2 be two random variables. If \u03b81 \u2264 \u03b82, then X1 \u227alr X2, X1 \u227ahr X2, X1 \u227as X2 and X1 \u227acx X2.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "Mgamma M(\u03b8)",
+  "compared": "X1 ~ M(\u03b81) vs X2 ~ M(\u03b82)",
+  "hypotheses": [
+   {
+    "text": "If \u03b81 \u2264 \u03b82",
+    "formal": "statement hypothesis",
+    "source": "statement"
+   },
+   {
+    "text": "Remark 2: 'if E[X] = E[Y], then Convex order \u21d0\u21d2 Stochastic order'",
+    "formal": "equal-mean cx \u27fa st equivalence invoked",
+    "source": "section preamble (Remark 2)"
+   }
+  ],
+  "conclusion": {
+   "order": "other: cx (convex order)",
+   "direction": "X1 \u2264cx X2 (printed \u227acx)"
+  },
+  "quantifiers": "\u03b81, \u03b82 > 0; all convex \u03c6 with existing expectations",
+  "numbers": "",
+  "ambiguity": "The cx conclusion is asserted although E[X(\u03b8)] = (2\u03b8+3)/(\u03b8(1+\u03b8)) is strictly decreasing in \u03b8 \u2014 so E[X1] \u2260 E[X2] for \u03b81 \u2260 \u03b82 and the Remark 2 cx\u27fast equivalence does not apply. Also inherits the \u03b8-direction contradiction.",
+  "adjudication": "adjudicated: Both passes agree on the 4-order split and on the statement-vs-proof contradiction (\u03b81 \u2264 \u03b82 stated; "
+ }
+]

@@ -1,0 +1,197 @@
+[
+ {
+  "queue_claim": "example1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2002.12474",
+    "claim": "Example 1",
+    "page": 7,
+    "quote": "Example 1. Let X1, X2 be independent random variables such that Xi ∼ W − Exp(αi, β, γi), i = 1, 2. Also let Y1, Y2 be another pair of independent random variable such that Yi ∼ W − Exp(αi*, β, γi*), i = 1, 2 (the baseline distribution is Exponential with cdf, F(x) = 1 − e^{−γx}). The parameters are given in the form of matrices as [[α1*, α2*],[γ1*, γ2*]] = [[4.8, 3.4],[2.5, 1.6]] ∈ P2 and [[α1, α2],[γ1, γ2]] = [[4.03, 4.17],[2.005, 2.095]]. It can be observed that [[α1, α2],[γ1, γ2]] = [[α1*, α2*],[γ1*, γ2*]] T^{0.45}, and it satisfies the condition [[α1, α2],[γ1, γ2]] ≺≺ [[α1*, α2*],[γ1*, γ2*]] ⟹ X1:2 ≥hr Y1:2. The plot of the difference rY1:2 − rX1:2 is given in Figure 1 for β = 3.",
+    "kind": "example",
+    "model": "series system (n = 2)",
+    "family": "Weibull-exponential W−Exp(α, β, γ): baseline F(x) = 1 − e^{−γx}; β = 3",
+    "compared": "chain-majorized parameter matrices",
+    "hypotheses": [
+     {
+      "text": "[[α1, α2],[γ1, γ2]] = [[α1*, α2*],[γ1*, γ2*]] T^{0.45}",
+      "formal": "single T-transform link with parameter 0.45",
+      "source": "statement"
+     },
+     {
+      "text": "starred matrix ∈ P2",
+      "formal": "rows similarly ordered",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "X1:2 >=hr Y1:2 (Figure 1 plots rY1:2 − rX1:2 >= 0 for β = 3)"
+    },
+    "quantifiers": "n = 2; x > 0",
+    "numbers": "[α*;γ*] = [[4.8,3.4],[2.5,1.6]]; [α;γ] = [[4.03,4.17],[2.005,2.095]]; T-parameter 0.45; β = 3",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Passes agree: X1:2 >=hr Y1:2 verified graphically; merged with B's fuller quote."
+ },
+ {
+  "queue_claim": "theorem1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2002.12474",
+    "claim": "Theorem 1",
+    "page": 7,
+    "quote": "Theorem 1. Let X1 , X2 and Y1 , Y2 be 2 pairs of independent random variable such that Xi ∼ W −G(αi , β, γi ) and Yi ∼ W −G(α∗i , β, γi∗ ) for i = 1, 2. Whenever β ≥ 2, w(x) is an increasing convex function, also w′′ (x) is increasing and (α1 α2 ; γ1 γ2 ) ∈ P2 , then (α1 α2 ; γ1 γ2 ) ≺≺ (α1∗ α2∗ ; γ1∗ γ2∗ ) ⟹ X1:2 ≥hr Y1:2 .",
+    "kind": "theorem",
+    "model": "series system (n = 2)",
+    "family": "Weibull-G W−G(α, β, γ): H(x) = 1 − exp(−α (w(γx))^β), with w(F(x)) = F(x)/(1 − F(x)) for baseline cdf F",
+    "compared": "2×2 parameter matrices (α; γ) under multivariate chain majorization ≺≺, with row-comonotonicity set P2",
+    "hypotheses": [
+     {
+      "text": "β ≥ 2, w(x) is an increasing convex function, also w′′(x) is increasing",
+      "formal": "β >= 2; w' >= 0, w'' >= 0 and increasing (w''' >= 0 used in proof)",
+      "source": "statement"
+     },
+     {
+      "text": "(α1 α2 ; γ1 γ2 ) ∈ P2",
+      "formal": "rows similarly ordered: (α1 − α2)(γ1 − γ2) ≥ 0",
+      "source": "statement"
+     },
+     {
+      "text": "(α1 α2 ; γ1 γ2 ) ≺≺ (α1∗ α2∗ ; γ1∗ γ2∗ )",
+      "formal": "chain majorization: unstarred matrix = starred × product of T-transforms",
+      "source": "statement"
+     },
+     {
+      "text": "common β in both systems",
+      "formal": "Yi ∼ W−G(αi*, β, γi*)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "X1:2 >=hr Y1:2 (rX1:2 <= rY1:2 pointwise)"
+    },
+    "quantifiers": "n = 2; x > 0",
+    "numbers": "β >= 2",
+    "ambiguity": "P2 = set of 2×2 positive matrices with similarly ordered rows; '≺≺' is multivariate chain majorization."
+   }
+  ],
+  "note": "Passes agree on X1:2 >=hr Y1:2; merged — the 'β ≥ 2' clause (present in B's quote, dropped by A) is restored."
+ },
+ {
+  "queue_claim": "theorem4",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2002.12474",
+    "claim": "Theorem 4",
+    "page": 9,
+    "quote": "Theorem 4. Let X1 , X2 , . . . , Xn be a set of independent random variables from Weibull- G distributed family of distribution such that Xi ∼ W − G(αi , β, γ) for i = 1, 2, . . . , n. Let Y1 , Y2 , . . . , Yn be another set of independent random variables such that Yi ∼ W − G(α∗i , β, γ) for i = 1, 2, . . . , n. Then α ≺w α∗ ⟹ Xn:n ≤rh Yn:n .",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "Weibull-G W−G(αi, β, γ); common β and γ",
+    "compared": "scale vectors α vs α* under weak majorization",
+    "hypotheses": [
+     {
+      "text": "α ≺w α*",
+      "formal": "the proof uses g(α) = α/(e^{αz} − 1) decreasing and convex so that r̃Xn:n is Schur-convex — with a DECREASING Schur-convex function the required weak order is weak SUPERmajorization ≺^w (Definition (5): smallest-first partial sums), not the submajorization of Definition (4); the sub/superscript is not resolvable in the text layer",
+      "source": "statement; Definitions (2)-(3) and the proof's Schur argument"
+     },
+     {
+      "text": "common β, γ",
+      "formal": "Yi ∼ W−G(αi*, β, γ)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "Xn:n <=rh Yn:n (r̃Xn:n <= r̃Yn:n; the printed subscript is 'rh' = reversed hazard rate)"
+    },
+    "quantifiers": "n >= 1; x > 0",
+    "numbers": "",
+    "ambiguity": "Order label dispute (A metadata 'hr' vs B 'rh'): the paper prints ≤rh and the proof computes reversed hazard rates — resolved to rh. Majorization w-position unrecoverable from text; the proof's decreasing-Schur-convex argument implies weak supermajorization ≺^w."
+   }
+  ],
+  "note": "Corrected order label to rh (A's record body already said rh; only its order tag was 'hr'). Kept verbatim quote; flagged ≺w sub/super ambiguity resolved by the proof's decreasing-Schur-convex logic to weak supermajorization."
+ },
+ {
+  "queue_claim": "theorem6",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2002.12474",
+    "claim": "Theorem 6",
+    "page": 11,
+    "quote": "Theorem 6. Let X1 , X2 and Y1 , Y2 be 2 pairs of independent random variable such that Xi ∼ GM (αi , βi , λ) and Yi ∼ GM (α∗i , β∗i , λ) for i = 1, 2. Let (α1 α2 ; β1 β2 ) ∈ P2 , then (α1 α2 ; β1 β2 ) ≺≺ (α1∗ α2∗ ; β1∗ β2∗ ) ⟹ X1:2 ≥hr Y1:2 .",
+    "kind": "theorem",
+    "model": "series system (n = 2)",
+    "family": "Gompertz–Makeham GM(α, β, λ): F(x) = 1 − exp(−λx − (α/β)(e^{βx} − 1)); common Makeham parameter λ",
+    "compared": "2×2 matrices (α; β) under chain majorization with P2 comonotonicity",
+    "hypotheses": [
+     {
+      "text": "(α1 α2 ; β1 β2 ) ∈ P2",
+      "formal": "comonotone rows",
+      "source": "statement"
+     },
+     {
+      "text": "(α1 α2 ; β1 β2 ) ≺≺ (α1∗ α2∗ ; β1∗ β2∗ )",
+      "formal": "chain majorization",
+      "source": "statement"
+     },
+     {
+      "text": "common λ",
+      "formal": "Yi ∼ GM(αi*, βi*, λ)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "X1:2 >=hr Y1:2 (rX1:2 <= rY1:2; rX1:2(x) = 2λ + Σ αi e^{βi x})"
+    },
+    "quantifiers": "n = 2; x > 0",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Passes agree: X1:2 >=hr Y1:2 for GM under chain majorization; merged."
+ },
+ {
+  "queue_claim": "theorem9",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2002.12474",
+    "claim": "Theorem 9",
+    "page": 13,
+    "quote": "Theorem 9. Let X1 , X2 , . . . , Xn be a set of independent random variables such that Xi ∼ GM (α, β, λi ) for i = 1, 2, . . . , n. Let Y1 , Y2 , . . . , Yn be another set of independent random variables such that Yi ∼ GM (α, β, λ∗i ) for i = 1, 2, . . . , n. Then λ ≺w λ∗ ⟹ X1:n =st Y1:n .",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "Gompertz–Makeham GM(α, β, λi); common α, β",
+    "compared": "Makeham-parameter vectors λ vs λ* under weak majorization",
+    "hypotheses": [
+     {
+      "text": "λ ≺w λ*",
+      "formal": "printed as weak majorization; distributional equality F̄X1:n = exp(−(Σλi)x − (nα/β)(e^{βx}−1)) depends only on Σλi, so equality needs equal sums (ordinary majorization) — the printed weak relation is presumably shorthand",
+      "source": "statement"
+     },
+     {
+      "text": "common α, β",
+      "formal": "same Gompertz parameters",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X1:n =st Y1:n (equality in distribution — the 'age independent' Makeham parameter has no effect on the minimum's survival beyond its sum)"
+    },
+    "quantifiers": "n >= 1; x > 0",
+    "numbers": "",
+    "ambiguity": "Printed '=st' equality under a weak-majorization hypothesis; weak majorization alone does not fix Σλi — noted as a mismatch between the printed hypothesis and the equality conclusion."
+   }
+  ],
+  "note": "Passes agree on the printed stochastic equality X1:n =st Y1:n; merged, flagging the weak-vs-ordinary majorization mismatch."
+ }
+]

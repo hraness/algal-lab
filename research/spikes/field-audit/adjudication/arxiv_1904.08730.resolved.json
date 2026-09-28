@@ -1,0 +1,203 @@
+[
+ {
+  "queue_claim": "example3.12",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:1904.08730",
+    "claim": "Example 3.12",
+    "page": 14,
+    "quote": "Example 3.12. Let X1 , X2 , X3 and X1∗ , X2∗ , X3∗ be two sets of non-negative independent random variables such that Xi ∼ EG2 (5, φi , 2), and Xi∗ ∼ EG2 (5, φi∗ , 2), i = 1, 2, 3. Let us choose φ1 = 0.1, φ2 = 1.14, φ3 = 0.3 and φ∗1 = 0.6, φ∗2 = 0.9, φ∗3 = 0.04. It is clear that (φ1 , · · · φn ) ≽m (φ∗1 , · · · φ∗n ). Now, from the Figure 1, in the next page, we observe that the reliability functions cross each other. This implies that Xn:n ≱st Xn:n∗ .",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "EG2(5, φi, 2) vs EG2(5, φi*, 2), common θ = 5, α = 2",
+    "compared": "φ = (0.1, 1.14, 0.3) vs φ* = (0.6, 0.9, 0.04), under majorization (sums both 1.54)",
+    "hypotheses": [
+     {
+      "text": "(φ1 , φ2 , φ3 ) ≽m (φ∗1 , φ∗2 , φ∗3 )",
+      "formal": "majorization of inner shapes",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X_{n:n} ≱st X*_{n:n} (printed non-ordering; since the reliability functions cross, neither direction holds)"
+    },
+    "quantifiers": "n = 3",
+    "numbers": "θ = 5; α = 2; φ = (0.1, 1.14, 0.3); φ* = (0.6, 0.9, 0.04)",
+    "ambiguity": "The printed conclusion glyph is ≱st (unprintable box in the text layer), a one-sided non-ordering statement; B broadened it to 'no ordering' — both consistent with the crossing figure. Shows Theorem 3.11's min-only result does not extend to maxima."
+   }
+  ],
+  "note": "Both passes agree on substance; printed claim is one-sided '≱st' — kept verbatim with the crossing-figure gloss."
+ },
+ {
+  "queue_claim": "example3.3",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:1904.08730",
+    "claim": "Example 3.3",
+    "page": 9,
+    "quote": "Example 3.3. Let X1 , X2 be a pair of independent random variables such that Xi ∼ EG2 (θi , φ, αi ), i = 1, 2. Furthermore, let X1∗ , X2∗ be an another pair of independent random variables with Xi∗ ∼ EG2 (θi∗ , φ, αi∗ ), i = 1, 2. Set (α1 α2 ; θ1 θ2 ) = (0.54 0.66; 1.7 1.4) and (α1∗ α2∗ ; θ1∗ θ2∗ ) = (0.5 0.7; 1.8 1.3). We can see that both the matrices belong in S2 . Consider a T-transform matrix: T0.8 = 0.8 (1 0; 0 1) + 0.2 (0 1; 1 0) = (0.8 0.2; 0.2 0.8), and we have (α1 α2 ; θ1 θ2 ) = (α1∗ α2∗ ; θ1∗ θ2∗ ) T0.8 , which satisfies the Definition 2.5, so we have (α1 α2 ; θ1 θ2 ) ≫ (α1∗ α2∗ ; θ1∗ θ2∗ ). Therefore, from Theorem 3.1, we get X1:2 ≤st X1:2∗ , for any x > 0.",
+    "kind": "example",
+    "model": "series system",
+    "family": "EG2(θi, φ, αi) vs EG2(θi*, φ, αi*)",
+    "compared": "matrix A = (0.54, 0.66; 1.7, 1.4) vs B = (0.5, 0.7; 1.8, 1.3)",
+    "hypotheses": [
+     {
+      "text": "both matrices in S2; (α;θ) = (α*;θ*) T0.8",
+      "formal": "A = B·T0.8 as printed",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X_{1:2} <=st X*_{1:2}"
+    },
+    "quantifiers": "n = 2; x > 0",
+    "numbers": "(α1,α2) = (0.54,0.66); (θ1,θ2) = (1.7,1.4); (α*1,α*2) = (0.5,0.7); (θ*1,θ*2) = (1.8,1.3); w = 0.8",
+    "ambiguity": "As printed, A = B·T0.8; under Definition 2.5 (A ≫ B iff B = A·(chain of T-transforms)) this equality reads B ≫ A, opposite to the stated A ≫ B. Direction inconsistency recorded as printed."
+   }
+  ],
+  "note": "Passes agree on X_{1:2} <=st X*_{1:2}; the ≫ direction inconsistency versus Definition 2.5 is preserved, not repaired."
+ },
+ {
+  "queue_claim": "example3.4",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:1904.08730",
+    "claim": "Example 3.4",
+    "page": 9,
+    "quote": "Example 3.4. Let X1 , X2 be a pair of independent random variables such that Xi ∼ EG2 (θi , φ, αi ), i = 1, 2. Furthermore, let X1∗ , X2∗ be an another pair of independent random variables with Xi∗ ∼ EG2 (θi∗ , φ, αi∗ ), i = 1, 2. Set (α1 α2 ; θ1 θ2 ) = (2.34 2.26; 1.32 1.38) and (α1∗ α2∗ ; θ1∗ θ2∗ ) = (2.1 2.5; 1.5 1.2). We can see that both the matrices belong in T2 . Consider a T-transform matrix: T0.6 = 0.4 (1 0; 0 1) + 0.6 (0 1; 1 0) = (0.4 0.6; 0.6 0.4), and we have (α1 α2 ; θ1 θ2 ) = (α1∗ α2∗ ; θ1∗ θ2∗ ) T0.4 . So, according to the Definition 2.5 we have (α1 α2 ; θ1 θ2 ) ≫ (α1∗ α2∗ ; θ1∗ θ2∗ ). Therefore, from Theorem 3.2, we get X2:2 ≥st X2:2∗ , for any x > 0.",
+    "kind": "example",
+    "model": "parallel system",
+    "family": "EG2(θi, φ, αi) vs EG2(θi*, φ, αi*)",
+    "compared": "A = (2.34, 2.26; 1.32, 1.38) vs B = (2.1, 2.5; 1.5, 1.2)",
+    "hypotheses": [
+     {
+      "text": "both matrices in T2 (αi ≥ 1); (α;θ) = (α*;θ*) T0.4",
+      "formal": "A = B·T0.4 as printed",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X_{2:2} >=st X*_{2:2}"
+    },
+    "quantifiers": "n = 2; x > 0",
+    "numbers": "(α1,α2) = (2.34,2.26); (θ1,θ2) = (1.32,1.38); (α*1,α*2) = (2.1,2.5); (θ*1,θ*2) = (1.5,1.2); T-transform w = 0.4",
+    "ambiguity": "Two print slips kept verbatim: the matrix is called T0.6 where defined but T0.4 in the product, and the ≫ direction is again reversed relative to Definition 2.5 (B's T0.4/T0.6 label note is correct)."
+   }
+  ],
+  "note": "Passes agree on X_{2:2} >=st X*_{2:2}; preserved the T0.6/T0.4 label slip and the ≫ direction inconsistency."
+ },
+ {
+  "queue_claim": "theorem3.1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:1904.08730",
+    "claim": "Theorem 3.1",
+    "page": 6,
+    "quote": "Theorem 3.1. Let X1 , X2 and X1∗ , X2∗ be two pairs of non-negative independent random variables such that Xi ∼ EG2 (θi , φ, αi ), and Xi∗ ∼ EG2 (θi∗ , φ, αi∗ ) for i = 1, 2. Then, if (α1 α2 ; θ1 θ2 ) ∈ S2 we have (α1 α2 ; θ1 θ2 ) ≫ (α1∗ α2∗ ; θ1∗ θ2∗ ) ⟹ X1:2∗ ≥st X1:2 .",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "Exponentiated Gumbel type-II EG2(θ, φ, α): reliability function (1 − e^{−θx^{−φ}})^α; common inner shape φ",
+    "compared": "2×2 parameter matrices (α;θ) vs (α*;θ*) under multivariate chain majorization",
+    "hypotheses": [
+     {
+      "text": "Xi ∼ EG2(θi, φ, αi), Xi* ∼ EG2(θi*, φ, αi*), i = 1,2, independent",
+      "formal": "common φ",
+      "source": "statement"
+     },
+     {
+      "text": "(α1 α2 ; θ1 θ2 ) ∈ S2",
+      "formal": "(α1 − α2)(θ1 − θ2) ≤ 0 (rows oppositely ordered), per the proof's 'assumption (θ, α) ∈ S2'",
+      "source": "statement; Section 2 definition of S2"
+     },
+     {
+      "text": "(α1 α2 ; θ1 θ2 ) ≫ (α1∗ α2∗ ; θ1∗ θ2∗ )",
+      "formal": "chain majorization: second matrix = first × product of T-transforms (Definition 2.5)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X*_{1:2} >=st X_{1:2} (equivalently X_{1:2} <=st X*_{1:2}; verified in the raw text layer)"
+    },
+    "quantifiers": "n = 2; x > 0",
+    "numbers": "",
+    "ambiguity": "Printed conclusion is X*_{1:2} ≥st X_{1:2} (B's equivalent form); consistent with Example 3.3's X_{1:2} ≤st X*_{1:2}."
+   }
+  ],
+  "note": "Passes agree modulo direction convention; printed conclusion is X*_{1:2} ≥st X_{1:2}, recorded verbatim."
+ },
+ {
+  "queue_claim": "theorem3.2",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:1904.08730",
+    "claim": "Theorem 3.2",
+    "page": 6,
+    "quote": "Theorem 3.2. Let X1 , X2 and X1∗ , X2∗ be two pairs of non-negative independent random variables such that Xi ∼ EG2 (θi , φ, αi ), and Xi∗ ∼ EG2 (θi∗ , φ, αi∗ ) for i = 1, 2. Then, if (α1 α2 ; θ1 θ2 ) ∈ T2 we have (α1 α2 ; θ1 θ2 ) ≫ (α1∗ α2∗ ; θ1∗ θ2∗ ) ⟹ X2:2 ≥st X2:2∗ .",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "EG2(θi, φ, αi) vs EG2(θi*, φ, αi*), common φ",
+    "compared": "2×2 parameter matrices under chain majorization",
+    "hypotheses": [
+     {
+      "text": "(α1 α2 ; θ1 θ2 ) ∈ T2",
+      "formal": "(α1 − α2)(θ1 − θ2) ≤ 0 and α1, α2 ≥ 1 (per the proof: 'assumption (θ, α) ∈ T2 ... and α1, α2 ≥ 1')",
+      "source": "statement and proof"
+     },
+     {
+      "text": "(α1 α2 ; θ1 θ2 ) ≫ (α1∗ α2∗ ; θ1∗ θ2∗ )",
+      "formal": "chain majorization",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X_{2:2} >=st X*_{2:2}"
+    },
+    "quantifiers": "n = 2; x > 0",
+    "numbers": "",
+    "ambiguity": "T2 membership includes αi ≥ 1 (used in the proof; implicit in the printed statement)."
+   }
+  ],
+  "note": "Passes agree: X2:2 >=st X2:2* under chain majorization on T2; merged."
+ },
+ {
+  "queue_claim": "theorem3.8",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:1904.08730",
+    "claim": "Theorem 3.8",
+    "page": 11,
+    "quote": "Theorem 3.8. Let X1 , ......, Xn , and X1∗ , ....., Xn∗ be two sets of non-negative independent random variables such that Xi ∼ EG2 (θ, φ, αi ), and Xi∗ ∼ EG2 (θ, φ, αi∗ ), i = 1, 2, ...., n. Then, if (α1 , · · · αn ) ≽m (α1∗ , · · · αn∗ ), we have X1:n =st X1:n∗ .",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "EG2(θ, φ, αi) vs EG2(θ, φ, αi*); common θ, φ",
+    "compared": "outer shape vectors α vs α* under majorization",
+    "hypotheses": [
+     {
+      "text": "(α1 , ..., αn ) ≽m (α1∗ , ..., αn∗ )",
+      "formal": "α majorizes α* (equal sums)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X_{1:n} =st X*_{1:n} (equality in distribution — the minimum's survival depends on α only through Σαi, preserved by majorization)"
+    },
+    "quantifiers": "x > 0; all n",
+    "numbers": "",
+    "ambiguity": "Conclusion is printed '=st' — equality in law; recorded verbatim."
+   }
+  ],
+  "note": "Passes agree on the printed stochastic equality X1:n =st X1:n*; merged."
+ }
+]

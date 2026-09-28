@@ -1,0 +1,120 @@
+[
+ {
+  "queue_claim": "theorem1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.29020/nybg.ejpam.v18i4.6653",
+    "claim": "Theorem 1 (lr part)",
+    "page": 9,
+    "quote": "Theorem 1. Let Xi ∼ M(θi), i = 1, 2 be two random variables. If θ1 ≤ θ2, then X1 ≺lr X2, X1 ≺hr X2, X1 ≺s X2 and X1 ≺cx X2. Proof. We have fX1(t)/fX2(t) = [θ1³(1+θ2)/(θ2³(1+θ1))] e^{−(θ1−θ2)t}. differentiating w.r.t t, we get (d/dt)[fX1(t)/fX2(t)] = −(θ1 − θ2)e^{−(θ1−θ2)t} < 0, ∀θ1 ≥ θ2. Hence, we see that fX1(t)/fX2(t) decreases in t, which holds the above theorem. (proved)",
+    "kind": "theorem",
+    "model": "single",
+    "family": "Mgamma M(θ): f(x) = θ³x(1 + x/2)e^{−θx}/(1+θ), x > 0, θ > 0 (finite mixture of Gamma(2,θ) and Gamma(3,θ) with weight θ/(1+θ))",
+    "compared": "X1 ~ M(θ1) vs X2 ~ M(θ2)",
+    "hypotheses": [
+     {
+      "text": "If θ1 ≤ θ2 (statement); proof's derivative inequality is quantified '∀θ1 ≥ θ2'",
+      "formal": "printed parameter condition contradicts itself between statement and proof",
+      "source": "statement; proof"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "X1 ≤lr X2 as printed (paper uses ≺lr glyph)"
+    },
+    "quantifiers": "θ1, θ2 > 0; all t > 0",
+    "numbers": "",
+    "ambiguity": "Internal contradiction: statement assumes θ1 ≤ θ2 but the printed proof asserts the negative derivative '∀ θ1 ≥ θ2'. With θ1 ≤ θ2 the displayed −(θ1−θ2)e^{−(θ1−θ2)t} ≥ 0 — the proof actually supports θ1 ≥ θ2 ⇒ X1 ≤lr X2. Recorded as printed."
+   },
+   {
+    "paper": "doi:10.29020/nybg.ejpam.v18i4.6653",
+    "claim": "Theorem 1 (hr part)",
+    "page": 9,
+    "quote": "Theorem 1. Let Xi ∼ M(θi), i = 1, 2 be two random variables. If θ1 ≤ θ2, then X1 ≺lr X2, X1 ≺hr X2, X1 ≺s X2 and X1 ≺cx X2.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "Mgamma M(θ)",
+    "compared": "X1 ~ M(θ1) vs X2 ~ M(θ2)",
+    "hypotheses": [
+     {
+      "text": "If θ1 ≤ θ2",
+      "formal": "statement hypothesis (contradicted by the proof's ∀θ1 ≥ θ2)",
+      "source": "statement"
+     },
+     {
+      "text": "Remark 2: Likelihood ratio order ⇒ Hazard rate order ⇒ Stochastic order",
+      "formal": "lr ⇒ hr implication used",
+      "source": "section preamble (Remark 2)"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "X1 ≤hr X2 (printed ≺hr)"
+    },
+    "quantifiers": "θ1, θ2 > 0; all t > 0",
+    "numbers": "",
+    "ambiguity": "Inherits the statement-vs-proof θ-direction contradiction of the lr part."
+   },
+   {
+    "paper": "doi:10.29020/nybg.ejpam.v18i4.6653",
+    "claim": "Theorem 1 (st part)",
+    "page": 9,
+    "quote": "Theorem 1. Let Xi ∼ M(θi), i = 1, 2 be two random variables. If θ1 ≤ θ2, then X1 ≺lr X2, X1 ≺hr X2, X1 ≺s X2 and X1 ≺cx X2.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "Mgamma M(θ)",
+    "compared": "X1 ~ M(θ1) vs X2 ~ M(θ2)",
+    "hypotheses": [
+     {
+      "text": "If θ1 ≤ θ2",
+      "formal": "statement hypothesis",
+      "source": "statement"
+     },
+     {
+      "text": "Remark 2: lr ⇒ hr ⇒ st chain",
+      "formal": "implication chain used",
+      "source": "section preamble (Remark 2)"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X1 ≤st X2 (printed ≺s)"
+    },
+    "quantifiers": "θ1, θ2 > 0; all t > 0",
+    "numbers": "",
+    "ambiguity": "Paper's usual-stochastic symbol is ≺s. Inherits the θ-direction contradiction."
+   },
+   {
+    "paper": "doi:10.29020/nybg.ejpam.v18i4.6653",
+    "claim": "Theorem 1 (cx part)",
+    "page": 9,
+    "quote": "Theorem 1. Let Xi ∼ M(θi), i = 1, 2 be two random variables. If θ1 ≤ θ2, then X1 ≺lr X2, X1 ≺hr X2, X1 ≺s X2 and X1 ≺cx X2.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "Mgamma M(θ)",
+    "compared": "X1 ~ M(θ1) vs X2 ~ M(θ2)",
+    "hypotheses": [
+     {
+      "text": "If θ1 ≤ θ2",
+      "formal": "statement hypothesis",
+      "source": "statement"
+     },
+     {
+      "text": "Remark 2: 'if E[X] = E[Y], then Convex order ⇐⇒ Stochastic order'",
+      "formal": "equal-mean cx ⟺ st equivalence invoked",
+      "source": "section preamble (Remark 2)"
+     }
+    ],
+    "conclusion": {
+     "order": "other: cx (convex order)",
+     "direction": "X1 ≤cx X2 (printed ≺cx)"
+    },
+    "quantifiers": "θ1, θ2 > 0; all convex φ with existing expectations",
+    "numbers": "",
+    "ambiguity": "The cx conclusion is asserted although E[X(θ)] = (2θ+3)/(θ(1+θ)) is strictly decreasing in θ — so E[X1] ≠ E[X2] for θ1 ≠ θ2 and the Remark 2 cx⟺st equivalence does not apply. Also inherits the θ-direction contradiction."
+   }
+  ],
+  "note": "Both passes agree on the 4-order split and on the statement-vs-proof contradiction (θ1 ≤ θ2 stated; ∀θ1 ≥ θ2 proved) plus the cx equal-mean gap — all preserved."
+ }
+]

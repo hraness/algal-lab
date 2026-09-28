@@ -1,6 +1,171 @@
 [
  {
   "paper": "arxiv:1904.08730",
+  "claim": "Example 3.12",
+  "page": 14,
+  "quote": "Example 3.12. Let X1 , X2 , X3 and X1\u2217 , X2\u2217 , X3\u2217 be two sets of non-negative independent random variables such that Xi \u223c EG2 (5, \u03c6i , 2), and Xi\u2217 \u223c EG2 (5, \u03c6i\u2217 , 2), i = 1, 2, 3. Let us choose \u03c61 = 0.1, \u03c62 = 1.14, \u03c63 = 0.3 and \u03c6\u22171 = 0.6, \u03c6\u22172 = 0.9, \u03c6\u22173 = 0.04. It is clear that (\u03c61 , \u00b7 \u00b7 \u00b7 \u03c6n ) \u227dm (\u03c6\u22171 , \u00b7 \u00b7 \u00b7 \u03c6\u2217n ). Now, from the Figure 1, in the next page, we observe that the reliability functions cross each other. This implies that Xn:n \u2271st Xn:n\u2217 .",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "EG2(5, \u03c6i, 2) vs EG2(5, \u03c6i*, 2), common \u03b8 = 5, \u03b1 = 2",
+  "compared": "\u03c6 = (0.1, 1.14, 0.3) vs \u03c6* = (0.6, 0.9, 0.04), under majorization (sums both 1.54)",
+  "hypotheses": [
+   {
+    "text": "(\u03c61 , \u03c62 , \u03c63 ) \u227dm (\u03c6\u22171 , \u03c6\u22172 , \u03c6\u22173 )",
+    "formal": "majorization of inner shapes",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X_{n:n} \u2271st X*_{n:n} (printed non-ordering; since the reliability functions cross, neither direction holds)"
+  },
+  "quantifiers": "n = 3",
+  "numbers": "\u03b8 = 5; \u03b1 = 2; \u03c6 = (0.1, 1.14, 0.3); \u03c6* = (0.6, 0.9, 0.04)",
+  "ambiguity": "The printed conclusion glyph is \u2271st (unprintable box in the text layer), a one-sided non-ordering statement; B broadened it to 'no ordering' \u2014 both consistent with the crossing figure. Shows Theorem 3.11's min-only result does not extend to maxima.",
+  "adjudication": "adjudicated: Both passes agree on substance; printed claim is one-sided '\u2271st' \u2014 kept verbatim with the crossing-f"
+ },
+ {
+  "paper": "arxiv:1904.08730",
+  "claim": "Example 3.3",
+  "page": 9,
+  "quote": "Example 3.3. Let X1 , X2 be a pair of independent random variables such that Xi \u223c EG2 (\u03b8i , \u03c6, \u03b1i ), i = 1, 2. Furthermore, let X1\u2217 , X2\u2217 be an another pair of independent random variables with Xi\u2217 \u223c EG2 (\u03b8i\u2217 , \u03c6, \u03b1i\u2217 ), i = 1, 2. Set (\u03b11 \u03b12 ; \u03b81 \u03b82 ) = (0.54 0.66; 1.7 1.4) and (\u03b11\u2217 \u03b12\u2217 ; \u03b81\u2217 \u03b82\u2217 ) = (0.5 0.7; 1.8 1.3). We can see that both the matrices belong in S2 . Consider a T-transform matrix: T0.8 = 0.8 (1 0; 0 1) + 0.2 (0 1; 1 0) = (0.8 0.2; 0.2 0.8), and we have (\u03b11 \u03b12 ; \u03b81 \u03b82 ) = (\u03b11\u2217 \u03b12\u2217 ; \u03b81\u2217 \u03b82\u2217 ) T0.8 , which satisfies the Definition 2.5, so we have (\u03b11 \u03b12 ; \u03b81 \u03b82 ) \u226b (\u03b11\u2217 \u03b12\u2217 ; \u03b81\u2217 \u03b82\u2217 ). Therefore, from Theorem 3.1, we get X1:2 \u2264st X1:2\u2217 , for any x > 0.",
+  "kind": "example",
+  "model": "series system",
+  "family": "EG2(\u03b8i, \u03c6, \u03b1i) vs EG2(\u03b8i*, \u03c6, \u03b1i*)",
+  "compared": "matrix A = (0.54, 0.66; 1.7, 1.4) vs B = (0.5, 0.7; 1.8, 1.3)",
+  "hypotheses": [
+   {
+    "text": "both matrices in S2; (\u03b1;\u03b8) = (\u03b1*;\u03b8*) T0.8",
+    "formal": "A = B\u00b7T0.8 as printed",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X_{1:2} <=st X*_{1:2}"
+  },
+  "quantifiers": "n = 2; x > 0",
+  "numbers": "(\u03b11,\u03b12) = (0.54,0.66); (\u03b81,\u03b82) = (1.7,1.4); (\u03b1*1,\u03b1*2) = (0.5,0.7); (\u03b8*1,\u03b8*2) = (1.8,1.3); w = 0.8",
+  "ambiguity": "As printed, A = B\u00b7T0.8; under Definition 2.5 (A \u226b B iff B = A\u00b7(chain of T-transforms)) this equality reads B \u226b A, opposite to the stated A \u226b B. Direction inconsistency recorded as printed.",
+  "adjudication": "adjudicated: Passes agree on X_{1:2} <=st X*_{1:2}; the \u226b direction inconsistency versus Definition 2.5 is preser"
+ },
+ {
+  "paper": "arxiv:1904.08730",
+  "claim": "Example 3.4",
+  "page": 9,
+  "quote": "Example 3.4. Let X1 , X2 be a pair of independent random variables such that Xi \u223c EG2 (\u03b8i , \u03c6, \u03b1i ), i = 1, 2. Furthermore, let X1\u2217 , X2\u2217 be an another pair of independent random variables with Xi\u2217 \u223c EG2 (\u03b8i\u2217 , \u03c6, \u03b1i\u2217 ), i = 1, 2. Set (\u03b11 \u03b12 ; \u03b81 \u03b82 ) = (2.34 2.26; 1.32 1.38) and (\u03b11\u2217 \u03b12\u2217 ; \u03b81\u2217 \u03b82\u2217 ) = (2.1 2.5; 1.5 1.2). We can see that both the matrices belong in T2 . Consider a T-transform matrix: T0.6 = 0.4 (1 0; 0 1) + 0.6 (0 1; 1 0) = (0.4 0.6; 0.6 0.4), and we have (\u03b11 \u03b12 ; \u03b81 \u03b82 ) = (\u03b11\u2217 \u03b12\u2217 ; \u03b81\u2217 \u03b82\u2217 ) T0.4 . So, according to the Definition 2.5 we have (\u03b11 \u03b12 ; \u03b81 \u03b82 ) \u226b (\u03b11\u2217 \u03b12\u2217 ; \u03b81\u2217 \u03b82\u2217 ). Therefore, from Theorem 3.2, we get X2:2 \u2265st X2:2\u2217 , for any x > 0.",
+  "kind": "example",
+  "model": "parallel system",
+  "family": "EG2(\u03b8i, \u03c6, \u03b1i) vs EG2(\u03b8i*, \u03c6, \u03b1i*)",
+  "compared": "A = (2.34, 2.26; 1.32, 1.38) vs B = (2.1, 2.5; 1.5, 1.2)",
+  "hypotheses": [
+   {
+    "text": "both matrices in T2 (\u03b1i \u2265 1); (\u03b1;\u03b8) = (\u03b1*;\u03b8*) T0.4",
+    "formal": "A = B\u00b7T0.4 as printed",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X_{2:2} >=st X*_{2:2}"
+  },
+  "quantifiers": "n = 2; x > 0",
+  "numbers": "(\u03b11,\u03b12) = (2.34,2.26); (\u03b81,\u03b82) = (1.32,1.38); (\u03b1*1,\u03b1*2) = (2.1,2.5); (\u03b8*1,\u03b8*2) = (1.5,1.2); T-transform w = 0.4",
+  "ambiguity": "Two print slips kept verbatim: the matrix is called T0.6 where defined but T0.4 in the product, and the \u226b direction is again reversed relative to Definition 2.5 (B's T0.4/T0.6 label note is correct).",
+  "adjudication": "adjudicated: Passes agree on X_{2:2} >=st X*_{2:2}; preserved the T0.6/T0.4 label slip and the \u226b direction incons"
+ },
+ {
+  "paper": "arxiv:1904.08730",
+  "claim": "Theorem 3.1",
+  "page": 6,
+  "quote": "Theorem 3.1. Let X1 , X2 and X1\u2217 , X2\u2217 be two pairs of non-negative independent random variables such that Xi \u223c EG2 (\u03b8i , \u03c6, \u03b1i ), and Xi\u2217 \u223c EG2 (\u03b8i\u2217 , \u03c6, \u03b1i\u2217 ) for i = 1, 2. Then, if (\u03b11 \u03b12 ; \u03b81 \u03b82 ) \u2208 S2 we have (\u03b11 \u03b12 ; \u03b81 \u03b82 ) \u226b (\u03b11\u2217 \u03b12\u2217 ; \u03b81\u2217 \u03b82\u2217 ) \u27f9 X1:2\u2217 \u2265st X1:2 .",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Exponentiated Gumbel type-II EG2(\u03b8, \u03c6, \u03b1): reliability function (1 \u2212 e^{\u2212\u03b8x^{\u2212\u03c6}})^\u03b1; common inner shape \u03c6",
+  "compared": "2\u00d72 parameter matrices (\u03b1;\u03b8) vs (\u03b1*;\u03b8*) under multivariate chain majorization",
+  "hypotheses": [
+   {
+    "text": "Xi \u223c EG2(\u03b8i, \u03c6, \u03b1i), Xi* \u223c EG2(\u03b8i*, \u03c6, \u03b1i*), i = 1,2, independent",
+    "formal": "common \u03c6",
+    "source": "statement"
+   },
+   {
+    "text": "(\u03b11 \u03b12 ; \u03b81 \u03b82 ) \u2208 S2",
+    "formal": "(\u03b11 \u2212 \u03b12)(\u03b81 \u2212 \u03b82) \u2264 0 (rows oppositely ordered), per the proof's 'assumption (\u03b8, \u03b1) \u2208 S2'",
+    "source": "statement; Section 2 definition of S2"
+   },
+   {
+    "text": "(\u03b11 \u03b12 ; \u03b81 \u03b82 ) \u226b (\u03b11\u2217 \u03b12\u2217 ; \u03b81\u2217 \u03b82\u2217 )",
+    "formal": "chain majorization: second matrix = first \u00d7 product of T-transforms (Definition 2.5)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X*_{1:2} >=st X_{1:2} (equivalently X_{1:2} <=st X*_{1:2}; verified in the raw text layer)"
+  },
+  "quantifiers": "n = 2; x > 0",
+  "numbers": "",
+  "ambiguity": "Printed conclusion is X*_{1:2} \u2265st X_{1:2} (B's equivalent form); consistent with Example 3.3's X_{1:2} \u2264st X*_{1:2}.",
+  "adjudication": "adjudicated: Passes agree modulo direction convention; printed conclusion is X*_{1:2} \u2265st X_{1:2}, recorded verba"
+ },
+ {
+  "paper": "arxiv:1904.08730",
+  "claim": "Theorem 3.2",
+  "page": 6,
+  "quote": "Theorem 3.2. Let X1 , X2 and X1\u2217 , X2\u2217 be two pairs of non-negative independent random variables such that Xi \u223c EG2 (\u03b8i , \u03c6, \u03b1i ), and Xi\u2217 \u223c EG2 (\u03b8i\u2217 , \u03c6, \u03b1i\u2217 ) for i = 1, 2. Then, if (\u03b11 \u03b12 ; \u03b81 \u03b82 ) \u2208 T2 we have (\u03b11 \u03b12 ; \u03b81 \u03b82 ) \u226b (\u03b11\u2217 \u03b12\u2217 ; \u03b81\u2217 \u03b82\u2217 ) \u27f9 X2:2 \u2265st X2:2\u2217 .",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "EG2(\u03b8i, \u03c6, \u03b1i) vs EG2(\u03b8i*, \u03c6, \u03b1i*), common \u03c6",
+  "compared": "2\u00d72 parameter matrices under chain majorization",
+  "hypotheses": [
+   {
+    "text": "(\u03b11 \u03b12 ; \u03b81 \u03b82 ) \u2208 T2",
+    "formal": "(\u03b11 \u2212 \u03b12)(\u03b81 \u2212 \u03b82) \u2264 0 and \u03b11, \u03b12 \u2265 1 (per the proof: 'assumption (\u03b8, \u03b1) \u2208 T2 ... and \u03b11, \u03b12 \u2265 1')",
+    "source": "statement and proof"
+   },
+   {
+    "text": "(\u03b11 \u03b12 ; \u03b81 \u03b82 ) \u226b (\u03b11\u2217 \u03b12\u2217 ; \u03b81\u2217 \u03b82\u2217 )",
+    "formal": "chain majorization",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X_{2:2} >=st X*_{2:2}"
+  },
+  "quantifiers": "n = 2; x > 0",
+  "numbers": "",
+  "ambiguity": "T2 membership includes \u03b1i \u2265 1 (used in the proof; implicit in the printed statement).",
+  "adjudication": "adjudicated: Passes agree: X2:2 >=st X2:2* under chain majorization on T2; merged."
+ },
+ {
+  "paper": "arxiv:1904.08730",
+  "claim": "Theorem 3.8",
+  "page": 11,
+  "quote": "Theorem 3.8. Let X1 , ......, Xn , and X1\u2217 , ....., Xn\u2217 be two sets of non-negative independent random variables such that Xi \u223c EG2 (\u03b8, \u03c6, \u03b1i ), and Xi\u2217 \u223c EG2 (\u03b8, \u03c6, \u03b1i\u2217 ), i = 1, 2, ...., n. Then, if (\u03b11 , \u00b7 \u00b7 \u00b7 \u03b1n ) \u227dm (\u03b11\u2217 , \u00b7 \u00b7 \u00b7 \u03b1n\u2217 ), we have X1:n =st X1:n\u2217 .",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "EG2(\u03b8, \u03c6, \u03b1i) vs EG2(\u03b8, \u03c6, \u03b1i*); common \u03b8, \u03c6",
+  "compared": "outer shape vectors \u03b1 vs \u03b1* under majorization",
+  "hypotheses": [
+   {
+    "text": "(\u03b11 , ..., \u03b1n ) \u227dm (\u03b11\u2217 , ..., \u03b1n\u2217 )",
+    "formal": "\u03b1 majorizes \u03b1* (equal sums)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X_{1:n} =st X*_{1:n} (equality in distribution \u2014 the minimum's survival depends on \u03b1 only through \u03a3\u03b1i, preserved by majorization)"
+  },
+  "quantifiers": "x > 0; all n",
+  "numbers": "",
+  "ambiguity": "Conclusion is printed '=st' \u2014 equality in law; recorded verbatim.",
+  "adjudication": "adjudicated: Passes agree on the printed stochastic equality X1:n =st X1:n*; merged."
+ },
+ {
+  "paper": "arxiv:1904.08730",
   "claim": "Corollary 3.6(1)",
   "page": 10,
   "quote": "Corollary 3.6. Let X1, ...., Xn and X\u22171, ...., X\u2217n be two sets of non-negative independent random variables such that Xi ~ EG2(\u03b8i, \u03c6, \u03b1i), and X\u2217i ~ EG2(\u03b8i\u2217, \u03c6, \u03b1i\u2217) for i = 1, ..., n. (1) Assume that (\u03b11 .... \u03b1n; \u03b81 .... \u03b8n) \u2208 Tn, and (\u03b1\u22171 .... \u03b1\u2217n; \u03b8\u22171 .... \u03b8\u2217n) = (\u03b11 .... \u03b1n; \u03b81 .... \u03b8n) Tw1^(i,j) ...Twk^(i,j). Where Twi^(i,j), i = 1, 2, ...., k have the same structure. Then, we have Xn:n \u2265st X\u2217n:n.",
@@ -258,80 +423,5 @@
   "ambiguity": "",
   "numbers": "",
   "adjudication": "agreed"
- },
- {
-  "paper": "arxiv:1904.08730",
-  "claim": "Example 3.3",
-  "page": 9,
-  "quote": "Example 3.3. Let X1, X2 be a pair of independent random variables such that Xi ~ EG2(\u03b8i, \u03c6, \u03b1i), i = 1, 2. Furthermore, let X\u22171, X\u22172 be an another pair of independent random variables with X\u2217i ~ EG2(\u03b8i\u2217, \u03c6, \u03b1i\u2217), i = 1, 2. Set (\u03b11 \u03b12; \u03b81 \u03b82) = (0.54 0.66; 1.7 1.4) and (\u03b1\u22171 \u03b1\u22172; \u03b8\u22171 \u03b8\u22172) = (0.5 0.7; 1.8 1.3). We can see that both the matrices belong in S2. Consider a T-transform matrix: T0.8 = 0.8(1 0; 0 1) + 0.2(0 1; 1 0) = (0.8 0.2; 0.2 0.8), and we have (\u03b11 \u03b12; \u03b81 \u03b82) = (\u03b1\u22171 \u03b1\u22172; \u03b8\u22171 \u03b8\u22172) T0.8, which satisfies the Definition 2.5, so we have (\u03b11 \u03b12; \u03b81 \u03b82) \u226b (\u03b1\u22171 \u03b1\u22172; \u03b8\u22171 \u03b8\u22172). Therefore, from Theorem 3.1, we get X1:2 \u2264st X\u22171:2, for any x > 0.",
-  "kind": "example",
-  "model": "series system",
-  "family": "EG2(\u03b8i, \u03c6, \u03b1i) vs EG2(\u03b8i\u2217, \u03c6, \u03b1i\u2217)",
-  "compared": "matrix A = (0.54, 0.66; 1.7, 1.4) vs B = (0.5, 0.7; 1.8, 1.3)",
-  "hypotheses": [
-   {
-    "text": "both matrices in S2; (\u03b1;\u03b8) = (\u03b1*;\u03b8*) T0.8",
-    "formal": "A = B T0.8",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "X_{1:2} <=st X*_{1:2}"
-  },
-  "quantifiers": "n = 2",
-  "numbers": "(\u03b11,\u03b12) = (0.54,0.66); (\u03b81,\u03b82) = (1.7,1.4); (\u03b1*1,\u03b1*2) = (0.5,0.7); (\u03b8*1,\u03b8*2) = (1.8,1.3); w = 0.8",
-  "ambiguity": "As printed, A = B\u00b7T0.8; under Definition 2.5 (A \u226b B iff B = A\u00b7chain of T-transforms) this equality rather shows B \u226b A, opposite to the stated A \u226b B. Direction inconsistency recorded as printed.",
-  "adjudication": "example record (pass a)+b"
- },
- {
-  "paper": "arxiv:1904.08730",
-  "claim": "Example 3.4",
-  "page": 9,
-  "quote": "Example 3.4. Let X1, X2 be a pair of independent random variables such that Xi ~ EG2(\u03b8i, \u03c6, \u03b1i), i = 1, 2. Furthermore, let X\u22171, X\u22172 be an another pair of independent random variables with X\u2217i ~ EG2(\u03b8i\u2217, \u03c6, \u03b1i\u2217), i = 1, 2. Set (\u03b11 \u03b12; \u03b81 \u03b82) = (2.34 2.26; 1.32 1.38) and (\u03b1\u22171 \u03b1\u22172; \u03b8\u22171 \u03b8\u22172) = (2.1 2.5; 1.5 1.2). We can see that both the matrices belong in T2. Consider a T-transform matrix: T0.6 = 0.4(1 0; 0 1) + 0.6(0 1; 1 0) = (0.4 0.6; 0.6 0.4), and we have (\u03b11 \u03b12; \u03b81 \u03b82) = (\u03b1\u22171 \u03b1\u22172; \u03b8\u22171 \u03b8\u22172) T0.4. So, according to the Definition 2.5 we have (\u03b11 \u03b12; \u03b81 \u03b82) \u226b (\u03b1\u22171 \u03b1\u22172; \u03b8\u22171 \u03b8\u22172). Therefore, from Theorem 3.2, we get X2:2 \u2265st X\u22172:2, for any x > 0.",
-  "kind": "example",
-  "model": "parallel system",
-  "family": "EG2(\u03b8i, \u03c6, \u03b1i) vs EG2(\u03b8i\u2217, \u03c6, \u03b1i\u2217)",
-  "compared": "A = (2.34, 2.26; 1.32, 1.38) vs B = (2.1, 2.5; 1.5, 1.2)",
-  "hypotheses": [
-   {
-    "text": "both matrices in T2 (\u03b1i \u2265 1); (\u03b1;\u03b8) = (\u03b1*;\u03b8*) T0.4",
-    "formal": "A = B T0.4",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "X_{2:2} >=st X*_{2:2}"
-  },
-  "quantifiers": "n = 2",
-  "numbers": "(\u03b11,\u03b12) = (2.34,2.26); (\u03b81,\u03b82) = (1.32,1.38); (\u03b1*1,\u03b1*2) = (2.1,2.5); (\u03b8*1,\u03b8*2) = (1.5,1.2); w = 0.4",
-  "ambiguity": "Same right-multiplication direction issue as Example 3.3: A = B\u00b7T0.4 corresponds to B \u226b A under Definition 2.5, yet the paper writes A \u226b B.",
-  "adjudication": "example record (pass a)+b"
- },
- {
-  "paper": "arxiv:1904.08730",
-  "claim": "Example 3.12",
-  "page": 14,
-  "quote": "Example 3.12. Let X1, X2, X3 and X\u22171, X\u22172, X\u22173 be two sets of non-negative independent random variables such that Xi ~ EG2(5, \u03c6i, 2), and X\u2217i ~ EG2(5, \u03c6\u2217i, 2), i = 1, 2, 3. Let us choose \u03c61 = 0.1, \u03c62 = 1.14, \u03c63 = 0.3 and \u03c6\u22171 = 0.6, \u03c6\u22172 = 0.9, \u03c6\u22173 = 0.04. It is clear that (\u03c61, \u00b7\u00b7\u00b7\u00b7\u00b7 \u03c6n) \u227dm (\u03c6\u22171, \u00b7\u00b7\u00b7\u00b7\u00b7 \u03c6\u2217n). Now, from the Figure 1, in the next page, we observe that the reliability functions cross each other. This implies that Xn:n \u2271st X\u2217n:n.",
-  "kind": "counterexample",
-  "model": "parallel system",
-  "family": "EG2(5, \u03c6i, 2) vs EG2(5, \u03c6i\u2217, 2), common \u03b8 = 5, \u03b1 = 2",
-  "compared": "\u03c6 = (0.1, 1.14, 0.3) vs \u03c6* = (0.6, 0.9, 0.04), majorization holds",
-  "hypotheses": [
-   {
-    "text": "(\u03c61, \u03c62, \u03c63) \u227dm (\u03c6*1, \u03c6*2, \u03c6*3)",
-    "formal": "majorization of inner shapes",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "X_{n:n} not >=st X*_{n:n} (survival curves cross, Figure 1)"
-  },
-  "quantifiers": "n = 3",
-  "numbers": "\u03b8 = 5; \u03b1 = 2; \u03c6 = (0.1, 1.14, 0.3); \u03c6* = (0.6, 0.9, 0.04)",
-  "ambiguity": "Shows Theorem 3.11's \u03c6-majorization result does not extend from series to parallel systems (no st order for the highest order statistic).",
-  "adjudication": "example record (pass a)+b"
  }
 ]

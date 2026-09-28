@@ -1,6 +1,36 @@
 [
  {
   "paper": "arxiv:1704.06329",
+  "claim": "Theorem 3.8",
+  "page": 8,
+  "quote": "Theorem 3.8. Suppose X1, ..., Xn and X1*, ..., Xn* are independent samples with Xi ~ ENH(\u03b11, \u03bb1, \u03b2i), and Xi* ~ ENH(\u03b12, \u03bb2, \u03b2i*), i = 1, ..., n. Then for \u03b11 \u2264 \u03b12 and \u03bb > 0, we have \u03a3i=1^n \u03b2i = \u03a3i=1^n \u03b2i* \u27f9 Xn:n \u2265c Xn:n*.",
+  "kind": "theorem",
+  "model": "parallel system (largest order statistic)",
+  "family": "ENH(\u03b1, \u03bb, \u03b2) \u2014 exponentiated new-generation class",
+  "compared": "Xn:n vs Xn:n* in the convex transform order; equal \u03b2 sums, outer shapes \u03b11 \u2264 \u03b12",
+  "hypotheses": [
+   {
+    "text": "\u03b11 \u2264 \u03b12 and \u03bb > 0",
+    "formal": "outer shape ordering (\u03bb1, \u03bb2 > 0 implicit)",
+    "source": "statement"
+   },
+   {
+    "text": "\u03a3i=1^n \u03b2i = \u03a3i=1^n \u03b2i*",
+    "formal": "equal inner-shape sums",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: convex transform order (\u2265c)",
+   "direction": "Xn:n \u2265c Xn:n* (G\u207b\u00b9\u2218F composition convex \u2014 Definition 2.1(i))"
+  },
+  "quantifiers": "all n; x \u2265 0",
+  "numbers": "",
+  "ambiguity": "A's 'star' label is wrong \u2014 \u2265c is the convex transform order (Def 2.1(i): G\u207b\u00b9F convex), not the star order. Printed condition '\u03b11 \u2264 \u03b12 and \u03bb > 0' presumably means \u03bb1, \u03bb2 > 0; the proof's h(x) = ((1+\u03bb2x)^{\u03b12/\u03b11} \u2212 1)/\u03bb1 needs only \u03b12 \u2265 \u03b11 for convexity. Statement on p.8, proof continues to p.9.",
+  "adjudication": "adjudicated: Adjudicated to B's label 'other: convex transform order (\u2265c)' \u2014 A's 'star' misclassifies the order. "
+ },
+ {
+  "paper": "arxiv:1704.06329",
   "claim": "Corollary 3.11",
   "page": 11,
   "quote": "Corollary 3.11. Suppose X ~ PRH(\u03b1, \u03c61) and X\u2217 ~ PRH(\u03b1\u2217, \u03c62) and \u03c62 \u25e6 \u03c81 is super-additive. Then \u03b1 \u227dw \u03b1\u2217 implies X1:n \u2264st X\u22171:n.",

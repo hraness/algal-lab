@@ -145,6 +145,46 @@
  },
  {
   "paper": "doi:10.29252/jss.13.1.57",
+  "claim": "Theorem 5 (\u0642\u0636\u06cc\u0647 \u06f5)",
+  "page": 66,
+  "quote": "\u0642\u0636\u06cc\u0647 \u06f5: \u062a\u062d\u062a \u0645\u0641\u0631\u0648\u0636\u0627\u062a \u0642\u0636\u06cc\u0647 \u0663\u060c \u0627\u06af\u0631 \u03a0_{i=1}^n p_i >= \u03a0_{i=1}^n p*_i \u0648 \u03a3_{i=1}^n \u03bb_i^\u03b1 <= \u03a3_{i=1}^n (\u03bb*_i)^\u03b1\u060c \u0622\u0646\u06af\u0627\u0647 \u0628\u0631\u0627\u06cc \u03b1 > \u0660\u060c (\u03a0_{i=1}^n p_i / \u03a0_{i=1}^n p*_i)^\u03b1 = \u03a3_{i=1}^n \u03bb_i^\u03b1 / \u03a3_{i=1}^n (\u03bb*_i)^\u03b1 \u27f9 Y_{1:n} >=cx Y*_{1:n}.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "Weibull W(alpha, lambda_i) marginals with Bernoulli thinning: Y_i = I_{p_i} X_{lambda_i} (assumptions of Theorem 3)",
+  "compared": "portfolios (lambda, p) vs (lambda*, p*) under product and power-sum conditions plus the equal-means calibration",
+  "hypotheses": [
+   {
+    "text": "\u062a\u062d\u062a \u0645\u0641\u0631\u0648\u0636\u0627\u062a \u0642\u0636\u06cc\u0647 \u0663 (under the assumptions of Theorem 3)",
+    "formal": "Y_i = I_{p_i} X_{lambda_i} independent, X_{lambda_i} ~ W(alpha, lambda_i), I_{p_i} independent Bernoulli",
+    "source": "earlier theorem 3"
+   },
+   {
+    "text": "\u03a0_{i=1}^n p_i >= \u03a0_{i=1}^n p*_i",
+    "formal": "prod p_i >= prod p*_i",
+    "source": "statement"
+   },
+   {
+    "text": "\u03a3_{i=1}^n \u03bb_i^\u03b1 <= \u03a3_{i=1}^n (\u03bb*_i)^\u03b1",
+    "formal": "power-sum comparison of scales",
+    "source": "statement"
+   },
+   {
+    "text": "(\u03a0 p_i / \u03a0 p*_i)^\u03b1 = \u03a3 \u03bb_i^\u03b1 / \u03a3 (\u03bb*_i)^\u03b1",
+    "formal": "calibration equality that makes E(Y_{1:n}) = E(Y*_{1:n})",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: cx (convex order)",
+   "direction": "Y_{1:n} >=cx Y*_{1:n} (Y side convex-larger; proof shows equal means plus stop-loss dominance E(Y_{1:n}-d)_+ >= E(Y*_{1:n}-d)_+ for all d)"
+  },
+  "quantifiers": "n >= 1; alpha > 0; all d in R",
+  "numbers": "",
+  "ambiguity": "The printed order is >=cx (convex order, Definition 4(c): equal means + stop-loss ordering). Pass A normalized it to 'icx'; the paper's equal-means condition makes it the convex order proper, so 'other: cx (convex order)' is the faithful label.",
+  "adjudication": "adjudicated: Theorem 5 prints Y_{1:n} >=cx Y*_{1:n} under the calibration equality (\u03a0p/\u03a0p*)^alpha = \u03a3\u03bb^alpha/\u03a3\u03bb*^"
+ },
+ {
+  "paper": "doi:10.29252/jss.13.1.57",
   "claim": "Corollary 2(a) (\u0646\u062a\u06cc\u062c\u0647 \u0662 \u0627\u0644\u0641)",
   "page": 66,
   "quote": "[Persian] 'Under the assumptions of Theorem 3 suppose alpha >= 1 and prod_{i=1}^n p_i >= prod_{i=1}^n p_i^*. In this case, (a) if lambda* >= ((1/n) sum_{i=1}^n lambda_i^alpha)^{1/alpha} and p* <= (prod_{i=1}^n p_i)^{1/n}, then Y_{1:n} >=_disp Y*_{1:n}.'",

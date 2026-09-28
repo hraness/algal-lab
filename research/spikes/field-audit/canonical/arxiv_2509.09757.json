@@ -1,1 +1,102 @@
-[]
+[
+ {
+  "paper": "arxiv:2509.09757",
+  "claim": "Theorem 1 (lr part)",
+  "page": 7,
+  "quote": "Theorem 1. Let X ~ RBTLL(\u03b3, \u03c5, p1) and Y ~ RBTLL(\u03b3, \u03c5, p2). If p1 < p2 then X is less than Y in the likelihood ratio order, that is, the ratio function of the corresponding PDFs decreases in x.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "record-based transmuted log-logistic RBTLL(\u03b3, \u03c5, p); density ratio g(x) = [1 + p1 log(1 + e^\u03b3 x^\u03c5) \u2212 p1]/[1 + p2 log(1 + e^\u03b3 x^\u03c5) \u2212 p2]",
+  "compared": "X ~ RBTLL(\u03b3, \u03c5, p1) vs Y ~ RBTLL(\u03b3, \u03c5, p2); common \u03b3, \u03c5, ordered transmutation parameters p1 < p2",
+  "hypotheses": [
+   {
+    "text": "p1 < p2",
+    "formal": "ordered transmutation parameters; d/dx log g(x) < 0",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "X \u2264lr Y"
+  },
+  "quantifiers": "x > 0; p1 < p2 (parameter range p \u2208 (0,1) per family)",
+  "numbers": "",
+  "ambiguity": "Proof's displayed derivative mixes (\u03b1, \u03b2) notation with (\u03b3, \u03c5) \u2014 notational inconsistency preserved; the lr conclusion is unambiguous.",
+  "adjudication": "adjudicated: B's 4-way split is canonical: lr proved, hr/mrl/st asserted 'under the conditions given in Theorem 1"
+ },
+ {
+  "paper": "arxiv:2509.09757",
+  "claim": "Theorem 1 (hr consequence)",
+  "page": 7,
+  "quote": "We notice that it follows that X is also less than Y in the hazard ratio, the mean residual life, and the stochastic orders under the conditions given in Theorem 1 from [20].",
+  "kind": "theorem",
+  "model": "single",
+  "family": "RBTLL(\u03b3, \u03c5, p)",
+  "compared": "X ~ RBTLL(\u03b3, \u03c5, p1) vs Y ~ RBTLL(\u03b3, \u03c5, p2); p1 < p2",
+  "hypotheses": [
+   {
+    "text": "conditions given in Theorem 1 (p1 < p2)",
+    "formal": "same premises",
+    "source": "statement; earlier theorem 1"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "X \u2264hr Y ('hazard ratio order' as printed)"
+  },
+  "quantifiers": "x > 0",
+  "numbers": "",
+  "ambiguity": "Asserted by implication via the standard order relationships (ref [20]).",
+  "adjudication": "adjudicated: B's 4-way split is canonical: lr proved, hr/mrl/st asserted 'under the conditions given in Theorem 1"
+ },
+ {
+  "paper": "arxiv:2509.09757",
+  "claim": "Theorem 1 (mrl consequence)",
+  "page": 7,
+  "quote": "We notice that it follows that X is also less than Y in the hazard ratio, the mean residual life, and the stochastic orders under the conditions given in Theorem 1 from [20].",
+  "kind": "theorem",
+  "model": "single",
+  "family": "RBTLL(\u03b3, \u03c5, p)",
+  "compared": "X ~ RBTLL(\u03b3, \u03c5, p1) vs Y ~ RBTLL(\u03b3, \u03c5, p2); p1 < p2",
+  "hypotheses": [
+   {
+    "text": "conditions given in Theorem 1 (p1 < p2)",
+    "formal": "same premises",
+    "source": "statement; earlier theorem 1"
+   }
+  ],
+  "conclusion": {
+   "order": "mrl",
+   "direction": "X \u2264mrl Y"
+  },
+  "quantifiers": "x > 0",
+  "numbers": "",
+  "ambiguity": "Asserted by implication via ref [20].",
+  "adjudication": "adjudicated: B's 4-way split is canonical: lr proved, hr/mrl/st asserted 'under the conditions given in Theorem 1"
+ },
+ {
+  "paper": "arxiv:2509.09757",
+  "claim": "Theorem 1 (st consequence)",
+  "page": 7,
+  "quote": "We notice that it follows that X is also less than Y in the hazard ratio, the mean residual life, and the stochastic orders under the conditions given in Theorem 1 from [20].",
+  "kind": "theorem",
+  "model": "single",
+  "family": "RBTLL(\u03b3, \u03c5, p)",
+  "compared": "X ~ RBTLL(\u03b3, \u03c5, p1) vs Y ~ RBTLL(\u03b3, \u03c5, p2); p1 < p2",
+  "hypotheses": [
+   {
+    "text": "conditions given in Theorem 1 (p1 < p2)",
+    "formal": "same premises",
+    "source": "statement; earlier theorem 1"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X \u2264st Y"
+  },
+  "quantifiers": "x > 0",
+  "numbers": "",
+  "ambiguity": "Asserted by implication via ref [20].",
+  "adjudication": "adjudicated: B's 4-way split is canonical: lr proved, hr/mrl/st asserted 'under the conditions given in Theorem 1"
+ }
+]
