@@ -1,84 +1,97 @@
 # Moonshot: a 40-vertex (3,10) Ramsey graph
 
-Status: chosen 2026-09-27, not started. Time-boxed with a stopping rule.
+Status, 2026-09-28: the vertex-transitive class is exhausted. No witness was
+found. The Ramsey number remains unresolved; the next experiment examines
+the degree-4 case without imposing symmetry on the 40-vertex graph.
 
-## Target
+## Target and present evidence
 
-A triangle-free graph on 40 vertices with independence number at most 9. One
-such graph proves R(3,10) = 41. The bounds are 40 ≤ R(3,10) ≤ 41: the lower
-bound is Exoo's 39-vertex graph (1989), the upper bound is Angeltveit,
-"R(3,10) <= 41", Electron. J. Combin. 32(4) P4.30 (2025), arXiv:2401.00392.
-R(3,10) and R(4,6) are the smallest unknown classical Ramsey numbers.
+A triangle-free graph on 40 vertices with independence number at most 9
+would prove R(3,10) = 41. The current bounds are 40 ≤ R(3,10) ≤ 41. Exoo's
+39-vertex construction proves the lower bound. Angeltveit's 2025 result,
+[R(3,10) ≤ 41](https://arxiv.org/abs/2401.00392), proves the upper bound.
 
-## Why this one
+The search has low prospects: prior work already found tens of millions of
+39-vertex Ramsey graphs, without a successful extension. A negative search
+within a special class is useful evidence, but cannot settle the unrestricted
+problem. No numerical probability of success has been calibrated.
 
-- A single object decides it, and anyone can check it.
-- It has not been swept by the recent CP-SAT and agent wave. The alternative
-  we considered, 2n-point no-three-in-line sets, was pushed to every n ≤ 60 in
-  2026 (arXiv:2602.07751), and the no-five-on-a-sphere records are crowded.
+The [dated frontier review](frontier-review-20260928.md) records authoritative
+sources, corrected census counts, the degree-4 reduction, and comparison with
+the original 2013 construction work. We have not established
+publication novelty for either the symmetry exclusion or the next experiment.
 
-## Honest odds
+## Completed work
 
-Low, likely a few percent at most. Angeltveit's partial census holds tens of
-millions of (3,10,39)-graphs, and his one-point extension checks found no
-40-vertex graph. He calls R(3,10) = 40 the obvious conjecture, while noting he
-is not confident in it because the 39-vertex class is so large. A 40-vertex
-graph, if one exists, would have to avoid everything those checks covered.
+| Work | Result | Status |
+| --- | --- | --- |
+| Circulants on C40 | 2,921 triangle-free connection sets, no witness | Reproduced independently by the new enumerator |
+| All Cayley presentations of order 40 | 28 semidirect presentations, 9,034,972 tested unions, no witness | Complete construction with duplicates retained |
+| Eight selected nonregular actions | 395 tested unions, all rejection witnesses replayed | Control family, not a census |
+| Minimal transitive actions of degree 40 | All 1,963 actions; 2,138,937 tested unions; every rejection replayed | Complete relative to TransGrp's published classification |
+| Minimal transitive actions of degree 39 | All four actions; 1,317 tested unions; every rejection replayed | Complete relative to the same classification |
+| Positive control on 35 vertices | 8-regular circulant with independence number 8 recovered and independently checked | Suitable representative for the next reduction |
 
-## Literature pass (done 2026-09-27)
+Counts are labelled orbit unions, with repetitions across actions. The full
+order-40 search covers degrees 4 through 9. Smaller degrees cannot qualify
+by the greedy independent-set bound; larger degrees cannot qualify because
+neighbourhoods in triangle-free graphs are independent.
 
-- Bounds: 40 <= R(3,10) <= 41. Upper bound is Angeltveit (arXiv:2401.00392,
-  EJC 32(4) 2025): ~150 billion (3,9)-graphs enumerated, ~3 CPU-years, no
-  (3,10,41)-graph found. Lower bound is Exoo's (3,10,39)-graph (1989).
-- Failed searches already in the record: 37M+ (3,10,39)-graphs with
-  161 <= e <= 175 (Goedgebeur/Radziszowski catalog ~50M colorings) do not
-  extend to a (3,10,40)-graph; a simulated-annealing run found 810 pairwise
-  non-isomorphic colorings of K_40 with exactly ONE monochromatic triangle
-  (Exoo et al., "On Some Small Classical Ramsey Numbers"). So a 40-vertex
-  graph, if it exists, is outside all generated 39-vertex classes.
-- Structural constraints on a hypothetical (3,10,40)-graph Omega
-  (arXiv:2601.03572 sec.3): Delta = 9; delta >= 4; e >= 161; no vertex has
-  two neighbours with degree sum <= 11; for any v and v1,v2 in N(v),
-  |N(v1) u N(v2)| >= 11; diam(Omega) in {2,3}; if 9-regular then diam = 2;
-  a degree-4 vertex has |Omega_2(v)| in [19,24], |Omega_3(v)| in [11,17].
-- No published exhaustive symmetry-class search of (3,10,40)-graphs was
-  found: circulants on Z_40, Cayley graphs on the groups of order 40, and
-  vertex-transitive graphs on 40 vertices are not known to be excluded.
-  Circulants are ~2^20 distance sets, enumerable in minutes; the
-  vertex-transitive census at order 40 is available (Holt/Royle) and can be
-  filtered directly.
-- Assessment unchanged: the obvious conjecture is R(3,10) = 40, and finding
-  a 40-vertex witness is a needle in a space already probed heuristically.
-  The search proceeds under the existing time box; circulants/Cayley/VT
-  classes first because they are cheap and independently checkable.
+The [enumerator report](vertex_transitive/README.md) gives the completeness
+argument, input and binary digests, exact degree counts, controls, limitations,
+sources, and reproduction commands. Generated archives, manifests,
+certificates, and complete run summaries remain in ignored `runs/`.
 
-## Log
+## Correction to the previous record
 
-- 2026-09-27, circulants (`circulants.py`): every circulant on Z_40 of
-  degree <= 9 checked exhaustively (10,072 candidates; degree > 9 is
-  impossible since a vertex's neighbourhood is an independent set and
-  alpha <= 9). 2,921 are triangle-free; none has alpha <= 9. No circulant
-  (3,10,40)-graph exists — unconditional, no e-value bound needed. Likely
-  folklore; we found no published exclusion.
+The earlier Cayley log treated 14 distinct element-order profiles as proof
+that all 14 isomorphism types had been covered. That implication is not
+justified: an element-order profile is not a complete group invariant. The
+fresh search instead retains every homomorphism from each order-8 group to
+Aut(C5), avoiding the unsupported deduplication step. The complete
+vertex-transitive search also subsumes the Cayley result.
 
-## Approach
+The earlier literature note misidentified the roughly 150 billion graphs
+as (3,9)-graphs; Angeltveit's paper attributes that scale to its (3,8) stage.
+The frontier review distinguishes the stages and records the larger
+43,146,537-member 39-vertex collection described by the current source.
+Prior claims that a search was unprecedented have been removed pending a
+proper novelty review.
 
-1. Literature pass: which symmetry classes of (3,10,40)-graphs are already
-   excluded (circulants, Cayley graphs on groups of order 40, graphs with an
-   automorphism of prime order p).
-2. Exhaustive search within classes not yet excluded, using orbit matrices,
-   with triangle-freeness checked on orbit representatives and independence
-   number by exact clique search in the complement.
-3. Any hit ships with its adjacency list and a checker written independently of
-   the search.
+## Next experiment
 
-## Time box and stopping rule
+If a qualifying 40-vertex graph has a degree-4 vertex v, deleting v and its
+four neighbours leaves the unique 35-vertex (3,9)-graph H. H is 8-regular.
+Let S1 through S4 be the neighbours in H of the four deleted neighbours.
+Each Si is independent, and the Si are pairwise disjoint: a vertex of H
+already has degree 8 and cannot gain two neighbours when maximum degree is 9.
 
-- At most 72 CPU-hours on this machine after the C(6) run finishes, and at most
-  two agent sessions.
-- Stop when the time box runs out or the declared classes are exhausted.
-- If step 1 shows those classes were already searched, switch to a shortlist of
-  open problems from erdosproblems.com that reduce to finite search, under the
-  same time box.
-- Report exhausted classes as a certified negative result only if no one has
-  published them.
+The remaining forbidden-independent-set conditions can be encoded exactly
+on 140 Boolean attachment variables. For each choice of k deleted neighbours,
+every independent (10−k)-set in H must meet at least one of their attachment
+sets. Only k = 2, 3, 4 adds constraints, because H has independence number 8.
+The representative recovered here has 3,360 independent 8-sets, 13,760
+independent 7-sets, and 22,995 independent 6-sets. These can all be enumerated
+directly, without approximating the constraints or the independence bound.
+
+Before a solve, compare the encoding against exhaustive small controls and
+obtain an independent source review. A SAT result must yield a directly
+verified graph. An UNSAT result must have a separately checked proof before
+supporting an exclusion. A timeout changes neither Ramsey bound. Any claimed
+novelty still requires comparison with the 2013 graph-extension work.
+
+## Budget and reporting
+
+The recovered session authorized at most 72 CPU-hours. The present work uses
+small serial experiments with explicit time, node, and output limits, after
+coordination with the integration owner about host scheduling. It does not
+authorize paid services, new infrastructure, or an unbounded search.
+
+The full vertex-transitive run took 338.644 seconds of wall time, including
+orbit construction, certificate replay, and summary writes. The C search
+itself used 2.028 CPU seconds; that number is not the total cost. The earlier
+Cayley control took 45.510 seconds of wall time. The remaining budget is far
+larger than these completed experiments require; it should be spent only on
+reviewed, decisive subproblems rather than repeated searches of exhausted
+classes. Stop a computational experiment at its declared bounds and report
+its exact coverage, even if the overall research objective remains open.

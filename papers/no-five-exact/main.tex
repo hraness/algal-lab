@@ -1,121 +1,124 @@
-\documentclass[10pt]{article}
-\usepackage[margin=0.9in]{geometry}
-\usepackage{amsmath,amssymb,amsthm}
-\usepackage{booktabs}
-\usepackage{array}
-\usepackage[numbers,sort&compress]{natbib}
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array}
+\usepackage[hyphens]{url}
 \usepackage[hidelinks]{hyperref}
-
-\theoremstyle{plain}
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{corollary}[theorem]{Corollary}
-\theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
-\theoremstyle{remark}
-\newtheorem{remark}[theorem]{Remark}
-
-\newcommand{\Z}{\mathbb{Z}}
-
-\title{Exact values of the no-five-on-a-sphere function $C(n)$\\ for $n\le 6$, by canonical layer enumeration}
-\author{Benjamin Guo\\ Hraness (\url{hraness.com})\thanks{This manuscript was prepared with AI research agents; every numerical claim was independently machine-checked, and the enumeration and verification programs described in Section~\ref{sec:method} form part of the submission. This disclosure should be checked against the target journal's policy on AI-assisted manuscripts.}}
-\date{26 September 2026}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}[proposition]{Lemma}
+\newcommand{\Z}{\mathbb Z}
+\title{Small-grid bounds for the no-five-on-a-sphere problem\\and an audit of canonical layer enumeration}
+\author{Benjamin Guo\\Hraness (\url{hraness.com})\thanks{Prepared and reviewed with AI research agents. The certificate checks, search records and remaining verification limits are distinguished in Section~\ref{sec:verification}. No proof assistant was used.}}
+\date{28 September 2026}
+\hypersetup{pdftitle={Small-grid bounds for the no-five-on-a-sphere problem and an audit of canonical layer enumeration},pdfauthor={Benjamin Guo}}
 
 \begin{document}
 \maketitle
-
 \begin{abstract}
-Let $C(n)$ denote the largest subset of the grid $\{0,\dots,n-1\}^3$ containing no five points on a common sphere or plane --- the degenerate-set condition of AlphaEvolve problem 60, detected exactly by the lifted determinant on rows $(x,y,z,x^2+y^2+z^2,1)$. The published record for this problem consists entirely of lower-bound certificates at $n\ge 7$; no exact value appears in any public source we could locate. We give what we believe are the first published exact values: $C(3)=8$, $C(4)=11$, and $C(5)=14$, the last by an exhaustive canonical layer enumeration over all $1{,}905$ dihedral orbits of layer-zero configurations (approximately $591$ million search nodes) with a verified positive control. The method decomposes the problem by one coordinate axis, retains only the $11{,}824$ of $12{,}650$ four-subsets of $[5]^2$ that are layer-valid, enumerates orbit representatives under $D_4$, and prunes future layers by an admissibility bound; an incremental-mask optimization makes the $n=6$ table-driven search practical (a $4.2$\,GB sphere table, $8{,}133$ orbits). A same-day self-audit of the enumerator found and corrected an unsound prune in the first implementation; the corrected run is the result reported. At $n=6$ the exhaustive decision of the $k=19$ case is in progress at time of writing; a verified $18$-point certificate already gives $C(6)\ge 18$, matching the empirically fitted law $\lfloor(5n+7)/2\rfloor$ of Demonstrandum, which our exact values confirm at every $n\le 6$ where it makes a prediction. All programs, certificates, and audit notes are released with this paper.
+Let $C(n)$ be the largest subset of $\{0,\ldots,n-1\}^3$ with no five points on a common sphere or plane. We describe a search by coordinate layers and audit its implementation and retained results. Exact determinant checks certify configurations of sizes $8,11,14,18$ for $n=3,4,5,6$, respectively. For $n=3,4$, recorded SAT refutations with independently checked LRAT proofs exclude sizes $9,12$. For $n=5,6$, a corrected layer enumerator reports exhaustion of all $1{,}905$ and $8{,}133$ initial-layer orbits at target sizes $15,19$, respectively. These latter exclusions currently have evidence from one implementation, rather than independently reproduced decisions; they support the candidate exact values $C(5)=14$ and $C(6)=18$. We give the completeness argument for the layer reductions, correct an unsafe capacity prune, and distinguish visited-node counts from pruning counters. The public verification scripts reproduce the lower-bound checks and orbit inventories. The remaining task for the larger exclusions is an independent complete search or a separately checkable refutation.
 \end{abstract}
+\medskip\noindent\textbf{Keywords.} extremal combinatorics; integer grids; cospherical points; exact enumeration; reproducibility.
+\smallskip\noindent\textbf{MSC 2020.} 05D99; 51M04; 68R05.
 
-\medskip\noindent\textbf{Keywords.} extremal combinatorics; grid point sets; cospherical points; coplanar points; exact enumeration; canonical augmentation.
-
-\noindent\textbf{MSC 2020.} 05D99; 51M04; 68R05.
-
-\section{Introduction}\label{sec:intro}
-
-For a subset $S$ of the integer grid $G_n=\{0,1,\dots,n-1\}^3$, say that five distinct points of $S$ are \emph{degenerate} if they lie on a common sphere or on a common plane (the plane is treated as a degenerate sphere, following the problem's convention). The no-five-on-a-sphere problem --- posed as problem 60 in the AlphaEvolve repository \cite{alphaevolve} --- asks for
+\section{Problem and evidence}
+Write $G_n=\{0,\ldots,n-1\}^3$. A five-element subset is \emph{degenerate} when its points lie on a common sphere or plane. We study
 \[
-C(n)\;=\;\max\{|S|: S\subseteq G_n,\ \text{no five points of } S \text{ are degenerate}\}.
+ C(n)=\max\{|S|:S\subseteq G_n,\ S\text{ contains no degenerate five-element subset}\}.
 \]
-Because four points $p_1,\dots,p_4$ lie on a generalized sphere exactly when the lifted vectors $\ell(p)=(x,y,z,x^2+y^2+z^2,1)$ are linearly dependent, degeneracy of a 5-subset is decidable in exact integer arithmetic by a single $5\times5$ determinant. The function $C(n)$ therefore admits a finite, checkable formulation --- but the search spaces are enormous: a candidate 15-subset of $G_5$ is one of $\binom{125}{15}\approx 10^{20}$, and the degeneracy hypergraph on $G_n$ has $\Theta(n^{11})$ edges already for coplanarity alone.
+The inclusion of planes is essential: it is the convention used by the determinant verifier in the accompanying research repository~\cite{repository}. A sphere-only problem would be a different extremal question. The no-five-on-a-sphere problem also appears among the construction tasks studied by PatternBoost~\cite{patternboost}.
 
-The public record of this problem consists of lower bounds found by heuristic search. The AlphaEvolve table lists values for $n=7,\dots,12$; later public sources \cite{demonstrandum,milesandmistakes,numaro} extended certificates through $n=26$; the empirical law $C(n)=\lfloor(5n+7)/2\rfloor$ was fitted to the record values \cite{demonstrandum}. No exact value $C(n)$ appears in any public source we could locate, and no upper bound beyond the trivial $4n$ (each coordinate layer supports at most four valid points) appears in the record.
+Table~\ref{tab:status} separates constructions, recorded proof checks and completed searches. A completed search log is useful evidence, but it does not by itself verify the search program's mathematical reductions or implementation. In particular, we do not describe the $n=5,6$ exclusions as independently certified exact values. We make no claim of first priority for the values or constructions.
 
-This paper reports what we believe are the first published exact values.
-
-\begin{theorem}\label{thm:main}
-$C(3)=8$, $C(4)=11$, and $C(5)=14$. The first two follow by direct exhaustive check; the third is the output of a complete canonical layer enumeration described in Section~\ref{sec:method}, over all $1{,}905$ orbit representatives of layer-zero configurations, exhausting approximately $591$ million extension nodes without finding a $15$-subset, while a control run at $k=14$ produces a verified $14$-subset.
-\end{theorem}
-
-\begin{theorem}\label{thm:n6}
-$C(6)\ge 18$, by a certified $18$-point configuration (Section~\ref{sec:certs}). The exhaustive decision of $k=19$ on $G_6$ --- which would either raise this lower bound or establish $C(6)=18$ exactly --- is enumerated by the method of Section~\ref{sec:method} over $8{,}133$ canonical orbit representatives; its status at the time of writing is recorded in Section~\ref{sec:status}.
-\end{theorem}
-
-The exact values agree with the fitted law $\lfloor(5n+7)/2\rfloor$ at $n=3,4,5$ and with the certified lower bound at $n=6$, and the enumeration of $n=5$ supplies the first optimality statement of any kind for this family.
-
-\section{Method}\label{sec:method}
-
-\subsection{The lifted criterion}
-
-Five points $p_1,\dots,p_5\in G_n$ are degenerate iff $\det[\ell(p_i)]_{i\le5}=0$. The determinant is an integer, so the test is exact; no floating point enters any decision in this work.
-
-\subsection{Layer decomposition}
-
-Fix one coordinate axis ($z$). A set $S\subseteq G_n$ restricts to layer sets $S_z\subseteq[n]^2$, and $|S|=\sum_z|S_z|$. A layer set of size $\ge5$ is impossible (any five coplanar points are degenerate --- concyclic or collinear triples included), so every layer has size $\le4$. A layer set of size $4$ must moreover be \emph{layer-valid}: not concyclic and not containing three collinear points. For $n=5$, of the $\binom{25}{4}=12{,}650$ four-subsets of the layer grid, $826$ are excluded, leaving $11{,}824$ layer candidates (verified by an independent brute-force count); for $n=6$, $56{,}414$ of $58{,}905$ are kept.
-
-\subsection{Canonical orbits}
-
-The dihedral group $D_4$ of the layer square acts on layer sets; two sets in one orbit are interchangeable up to a global symmetry fixing the layer axis. The enumeration fixes layer $0$ to one representative per orbit ($1{,}905$ orbits for $n=5$; $8{,}133$ representatives for $n=6$ under the size restriction needed for the target $k$) and searches extensions to layers $1,\dots,n-1$ subject to canonical-augmentation constraints (stabilizer-symmetric candidates are pruned unless they lie in the group generated by the layer-0 stabilizer).
-
-\subsection{Forbidden masks and the admissibility prune}
-
-For each unordered 4-subset of already-placed points, the fifth point completing a degenerate 5-set is forbidden in each remaining layer; the sphere table precomputes, per 4-subset of $G_n$, the bitmask of forbidden positions per layer ($\binom{125}{4}\cdot 5$ bytes $\approx 0.5$\,GB at $n=5$; $\binom{216}{4}\cdot 6$ bytes $\approx 4.2$\,GB at $n=6$). The depth-first search maintains, per future layer, the union mask of forbidden positions, and consults it in three ways: singleton blocking, pair and triple masking against candidate layer sets (precomputed compatibility masks), and an \emph{admissibility bound} --- for each future layer $k$, a lower bound on the size $k$ must contribute, obtained by subtracting from the target the currently placed count and the maximal contribution of the other unplaced layers.
-
-\subsection{The corrected prune}\label{sec:erratum}
-
-The first implementation of the admissibility bound used, at depth $j$ and for a future layer $k>j$, the quantity $k-m-4(4-k)$\footnote{Concretely, the code computed $low = K - m - 4(NZ-1-k)$ with $NZ=5$, an over-estimate obtained by counting only layers strictly after $k$ instead of all unplaced layers other than $k$.} as the lower bound on $|S_k|$. This counts only the layers \emph{after} $k$ as slack, ignoring the still-unplaced layers $j+1,\dots,k-1$, and therefore over-estimates the requirement on layer $k$ --- an unsound prune. The corrected bound, $low = K - m - 4(NZ-1-j)$, allocates slack over all unplaced layers other than $k$ and is the version used in the complete run. The correction changed the search tree size by roughly a factor of two ($591$M vs.\ $292$M nodes), and the earlier, incomplete run's conclusion is superseded by the corrected one. We record this explicitly because it is exactly the class of error --- a sound-looking prune that silently discards live branches --- that an incomplete enumeration can hide; the positive control (Section~\ref{sec:verify}) is the safeguard that caught it.
-
-\subsection{Incremental mask propagation}
-
-The dominant cost of the table-driven search is rebuilding the per-layer forbidden masks at each node: a naive implementation performs $\binom{m}{4}$ random lookups into the sphere table per node. The optimized enumerator propagates the masks incrementally: when a layer set $C$ is placed, only the 4-subsets meeting $C$ change the masks, and the $1$-of-$C$ terms are accumulated for free during the per-position compatibility computation already needed for candidate generation. The rewrite was validated by node-count equivalence: on 30 consecutive orbit representatives the incremental binary produced exactly the node counts of the original implementation (e.g.\ $3{,}620{,}318$ nodes on representative $0$ in both), at roughly $6\times$ throughput.
-
-\section{Results}\label{sec:results}
-
-\begin{table}[h]
+\begin{table}[ht]
 \centering\small
-\begin{tabular}{@{}c c c c l@{}}
+\begin{tabular}{@{}c c p{8.6cm}@{}}
 \toprule
-$n$ & $C(n)$ & evidence & fits $\lfloor(5n+7)/2\rfloor$? & record \\
+$n$ & verified construction & exclusion evidence \\
 \midrule
-3 & $8$ & exhaustive & $8$ & \textbf{first exact} \\
-4 & $11$ & exhaustive & $11$ & \textbf{first exact} \\
-5 & $14$ & complete layer enumeration & $14$ & \textbf{first exact} \\
-6 & $\ge18$ & verified certificate; $k=19$ decision in progress & $18$ & pending \\
-7--12 & $\ge$ record & public certificates & exact match of the law & public record \\
+3 & $8$ & Size $9$ excluded by recorded SAT/LRAT verification, with and without symmetry breaking. \\
+4 & $11$ & Size $12$ excluded by recorded SAT/LRAT verification, with and without symmetry breaking. \\
+5 & $14$ & Size $15$ absent from a completed corrected layer search; independent complete exclusion remains to be supplied. \\
+6 & $18$ & Size $19$ absent from a completed corrected layer search; independent complete exclusion remains to be supplied. \\
 \bottomrule
 \end{tabular}
-\caption{Exact values and bounds for $C(n)$.}\label{tab:values}
+\caption{Status of the small-grid results as of 28 September 2026. All construction checks use exact integer determinants.}\label{tab:status}
 \end{table}
 
-\section{Verification}\label{sec:verify}
+\section{Exact geometric predicates}
+For $p=(x,y,z)$ let
+\[
+ \ell(p)=(x,y,z,x^2+y^2+z^2,1).
+\]
+Five distinct points $p_1,\ldots,p_5$ are degenerate if and only if
+\begin{equation}\label{eq:det}
+ \det[\ell(p_i)]_{i=1}^{5}=0.
+\end{equation}
+Indeed, linear dependence gives an equation
+$a(x^2+y^2+z^2)+bx+cy+dz+e=0$. If $a=0$, this defines a plane containing the points; if $a\ne0$, completing squares gives a sphere. Its squared radius is nonnegative because it contains real points. The converse follows by substituting the equation of a plane or sphere. Thus every construction can be checked by evaluating all $\binom{|S|}{5}$ integer determinants.
 
-Three independent checks guard the claims. (i) \emph{Table self-test}: the sphere table is verified entrywise against direct evaluation ($0$ mismatches). (ii) \emph{Positive control}: the same binary run at $k=14$ finds a $14$-subset; the found set is independently verified by the lifted-determinant checker (all $\binom{14}{5}=2002$ determinants nonzero, minimum absolute value recorded). (iii) \emph{Candidate cross-check}: the layer-candidate count $11{,}824$ is reproduced by an independent brute-force enumeration of layer 4-subsets. The $n=5$ run completed all $1{,}905$ orbits with no deadline truncations. A cube-and-conquer LRAT witness for the $n=5$, $k=15$ instance is an optional second certificate, currently incomplete on its splitting frontier; the enumeration stands as the decision.
+\begin{proposition}\label{prop:lower}
+$C(3)\ge8$, $C(4)\ge11$, $C(5)\ge14$ and $C(6)\ge18$.
+\end{proposition}
+\begin{proof}
+The accompanying coordinate files are listed in Section~\ref{sec:data}. The independent checker evaluates \eqref{eq:det} on every five-element subset, as well as checking grid membership and distinctness. Every determinant is nonzero.
+\end{proof}
 
-\subsection{Status of the $n=6$ decision}\label{sec:status}
+Each coordinate layer is a plane, so it contains at most four points of a feasible set. In particular $C(n)\le4n$. A four-element layer subset in a feasible set of size at least five must have linearly independent lifted rows. Within a layer this is equivalent to a nonzero determinant on the columns $(x,y,x^2+y^2,1)$. The excluded four-subsets are those lying on a circle or a line. Three collinear points together with a fourth point off their line are not excluded by this test.
 
-At time of writing the $k=19$ enumeration on $G_6$ is in progress (canonically ordered representatives, incremental-mask binary, 16 worker threads). A completed run reporting $found=0$ over all $8{,}133$ representatives would establish $C(6)=18$; a found configuration would raise the lower bound to $19$. The run is checkpointed per orbit, and its logs will accompany the released artifacts. (This section will be finalized when the run completes.)
+The restriction follows because four dependent lifted rows remain dependent after a fifth row is added. Conversely, a nonzero layer determinant only validates the four-subset for extension; it does not certify any five-point set. For the $5\times5$ layer there are $11{,}824$ such four-subsets out of $\binom{25}{4}=12{,}650$; for the $6\times6$ layer there are $56{,}414$ out of $\binom{36}{4}=58{,}905$.
 
-\section{Conclusion}
+\section{Layer enumeration}\label{sec:method}
+Fix the $z$ coordinate and write a candidate as $S_0,\ldots,S_{n-1}$ with $S_j\subseteq\{0,\ldots,n-1\}^2$ and $|S_j|\le4$. The search places these subsets in increasing $j$, rejecting a placement as soon as it completes a degenerate five-subset.
 
-The first exact values of the no-five-on-a-sphere function confirm the empirically fitted law $\lfloor(5n+7)/2\rfloor$ at every $n$ where it has been decided, and the method --- canonical layer enumeration over a tabled degeneracy oracle --- is strong enough to decide $n=6$ at moderate cost and to provide, at $n=5$, the first optimality proof in this family. The same machinery extends in principle to $n=7$, though the table size ($\binom{343}{4}$ sphere rows) currently exceeds workstation memory and would require an out-of-core or compressed representation. Separately, the corrected-prune episode (Section~\ref{sec:erratum}) is a reminder that exhaustive-search claims earn their certainty from controls, not from the absence of counterexamples in a partial log.
+\subsection{Symmetry and the initial layer}
+The eight symmetries of a square act simultaneously on every layer. We choose one representative of each initial-layer orbit under this dihedral group $D_4$. After placing more layers, a candidate needs to be minimal only under the subgroup preserving every already placed layer. This stabilizer restriction identifies equivalent extensions without deleting all representatives of an extension orbit.
+
+Reflection of the $z$ axis allows $|S_0|\ge|S_{n-1}|$. At $n=5$, target $15$, an empty initial layer would force an empty final layer and leave capacity only $12$, so the enumerator may start with nonempty layers. The inventory of valid initial subsets of sizes $1$ through $4$ has $1{,}905$ dihedral orbits. At $n=6$, target $19$, initial and final layers of size at most one would leave capacity $1+4\cdot4+1=18$. Therefore one can reflect so that $|S_0|\ge2$; subsets of sizes $2$ through $4$ have $8{,}133$ dihedral orbits. The $8{,}139$ orbits obtained when singletons are included differ by exactly six singleton orbits. These are separate inventories; the $n=5$ count does not describe the $n=6$ search.
+
+\subsection{Forbidden positions}
+For each four-subset of $G_n$, the program precomputes the positions in each layer that would complete a zero determinant. One bit mask per layer represents those positions. The $n=5$ implementation stores five $32$-bit masks per four-subset, using
+\[
+ \binom{125}{4}\,5\,4=193{,}827{,}500\text{ bytes}.
+\]
+The $n=6$ implementation uses six $64$-bit masks, or
+\[
+ \binom{216}{4}\,6\,8=4{,}233{,}656{,}160\text{ bytes}.
+\]
+These are table sizes, not total process memory. During extension, the forbidden-position mask is the union of the masks associated with the four-subsets already placed. Pair and triple compatibility checks handle five-subsets containing more than one new point. Incremental propagation avoids rebuilding contributions from four-subsets unaffected by the new layer.
+
+\subsection{A corrected capacity bound}
+Suppose layers $0,\ldots,j-1$ have been placed, with $m$ points in total, and the target is $K$. For any future layer $r\ge j$, the other $n-j-1$ unplaced layers can contribute at most four points each. Every completion must therefore satisfy
+\begin{equation}\label{eq:capacity}
+ |S_r|\ge K-m-4(n-j-1).
+\end{equation}
+The initial implementation incorrectly used $K-m-4(n-r-1)$, counting only layers after $r$ as available capacity. For $r>j$ this is too large and can delete feasible branches. The corrected program uses \eqref{eq:capacity}. Its pair-compatibility pruning repeatedly removes positions with fewer than $\mathrm{low}-1$ compatible partners, where $\mathrm{low}$ is the right side of \eqref{eq:capacity}; every member of a feasible layer subset has at least this many partners, so this removal is sound.
+
+Only the corrected runs are considered below. Source inspection and a successful feasible-instance control increase confidence, but neither substitutes for independent verification of the complete exclusion.
+
+\section{Retained results and verification limits}\label{sec:verification}
+\subsection{The smallest exclusions}
+The records for $n=3$, target $9$, and $n=4$, target $12$, report UNSAT and successful LRAT checking by a separate checker. Both symmetry-free and symmetry-reduced encodings were checked. For example, the symmetry-free $n=4$ record reports a formula with $14{,}932$ variables and $224{,}365$ clauses, and checker output \texttt{VERIFIED}. Together with Proposition~\ref{prop:lower}, these recorded computations establish $C(3)=8$ and $C(4)=11$ subject to the correctness of the geometric encoding. The records, encoding source and construction checker are public. The large LRAT files are generated artifacts; this revision inspected the recorded checker results and did not rerun their checks.
+
+\subsection{Completed larger searches}
+The corrected $n=5$, target-$15$ log records completion of all $1{,}905$ distinct initial-layer representatives, with no partial-orbit marker and no solution. Its per-orbit node counts sum to $590{,}980{,}794$. A target-$14$ control using the same source reports a solution. The source hash in the audit record agrees with the public enumerator.
+
+The retained $n=6$, target-$19$ log contains $8{,}175$ completed-orbit lines covering all $8{,}133$ distinct indices. Forty-two lines repeat already completed indices; their node counts agree. After deduplication, the visited-node total is $448{,}735{,}206{,}762$. No orbit is marked partial and no solution is reported. The log's \texttt{admiss} field counts admissibility-prune events, not visited nodes, and is not used as a search-size estimate. The public source is byte-identical to the source of this retained run.
+
+An incremental and an earlier implementation agree on node counts for a recorded sample of thirty initial orbits. This checks a local optimization, not all reductions in the full search. Likewise, the built-in table self-test samples $200$ four-subsets; its zero-mismatch report must not be described as an entrywise check of the entire table. The independent inventory checker reproduces the layer counts and orbit counts, but does not traverse the full extension search.
+
+The larger exclusions consequently remain single-implementation computational results. The available $n=6$ target-$16$ control succeeds; a target-$18$ control was deadline-limited and does not provide the stronger feasible-instance test. An attempted independent rerun was invalidated during this review: its subset iterator could repeat a branch indefinitely, its full-cache lookup lacked a termination condition, and its fully degenerate four-point case returned the wrong forbidden-position mask. Those runs supply no independent exclusion evidence. These defects concern the attempted cross-check, not the production enumerator described above. An independent full traversal, or a separately checked SAT refutation, is still needed before promoting the candidate equalities $C(5)=14$ and $C(6)=18$ to independently certified results.
+
+\section{Reproduction and data}\label{sec:data}
+All paths below are relative to the repository~\cite{repository}. Lower-bound certificates are in \path{research/spikes/no-five-exact/certificates/}, in the files \path{n3_8.json}, \path{n4_11.json}, \path{n5_14_ls5x.json} and \path{n6_18_ls5x.json}. The checker \path{papers/no-five-exact/verify/check_small.py} independently verifies these coordinates and inventories the layer orbits using integer arithmetic. It does not claim to reproduce a full upper-bound search.
+
+The search sources are \path{research/spikes/no-five-exact/layer_enum5.c} and \path{research/spikes/no-five-n6/layer_enum6.c}. Their command-line options, including target, orbit range and time limit, are documented in their source headers. A run with a deadline or an incomplete orbit range is not an exclusion proof. The SAT encoding and recorded solver/checker results are in \path{research/spikes/no-five-exact/}; see \path{encode_sat.py}, \path{solve_sat.py} and \path{records/}. The paper's \path{REVIEW-NOTES.md} gives the source and log hashes used for this audit. Large tables, raw search logs and proof files are not embedded in the manuscript distribution; a reader reproducing an exclusion must regenerate and verify them.
+
+\section{Discussion}
+Coordinate layers reduce this extremal problem to a finite search with small local candidates. The useful result of the audit is a precise account of which reductions are sound, which quantities were counted and which decisions have independent verification. The explicit constructions are readily checkable; the recorded $n=3,4$ exclusions have separate proof-checker evidence; the larger searches provide candidate exact values with a remaining verification task.
+
+No fitted formula for $C(n)$ is inferred from these data. In particular, $\lfloor(5n+7)/2\rfloor$ evaluates to $11,13,16,18$ at $n=3,4,5,6$, so it does not fit the small-grid values $8,11,14,18$. Extending the search to larger grids will require reducing the $\binom{n^3}{4}$ table cost while preserving a checkable account of every pruning rule.
 
 \begin{thebibliography}{9}
-\bibitem{alphaevolve} Google DeepMind, \emph{AlphaEvolve: a repository of problems}, problem 60 (no five points on a sphere or plane), 2025.
-\bibitem{demonstrandum} Demonstrandum Research, artifact bundle of certificates for the no-five-on-a-sphere problem, June 2026; fitted law $C(n)=\lfloor(5n+7)/2\rfloor$.
-\bibitem{milesandmistakes} milesandmistakes, certificate repository for AlphaEvolve problem 60, August 2026.
-\bibitem{numaro} Numaro, search report for AlphaEvolve problem 60, $n=14$--$26$, July 2026 (no coordinates published).
+\bibitem{patternboost} F. Charton, J. S. Ellenberg, A. Z. Wagner and G. Williamson, \emph{PatternBoost: constructions in mathematics with a little help from AI}, arXiv:2411.00566, 2024. \url{https://arxiv.org/abs/2411.00566}.
+\bibitem{repository} Hraness, \emph{Algal Lab: extremal constructions and verification sources}, 2026. \url{https://github.com/hraness/algal-lab}. The exact source and evidence identifiers used here are recorded alongside this manuscript.
 \end{thebibliography}
-
 \end{document}
