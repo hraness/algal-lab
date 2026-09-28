@@ -1,1 +1,102 @@
-[]
+[
+ {
+  "paper": "doi:10.32604/csse.2021.017362",
+  "claim": "Theorem (Section 3.6), hazard rate part",
+  "page": 154,
+  "quote": "Theorem: Let X_ILBMD ~ fX(x; a) and Y_ILBMD ~ fY(x; h). If h < a, then X \u2264lr Y, and hence X \u2264hr Y, X \u2264mrl Y and X \u2264st Y.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "inverse length-biased Maxwell distribution ILBMD: f(x; a) = (1/(2a^4 x^5)) e^{\u22121/(2a\u00b2x\u00b2)}, x > 0, a > 0",
+  "compared": "X ~ ILBMD(a) vs Y ~ ILBMD(h), h < a",
+  "hypotheses": [
+   {
+    "text": "h < a",
+    "formal": "ordered scale parameters",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "X \u2264hr Y"
+  },
+  "quantifiers": "x > 0; a, h > 0",
+  "numbers": "",
+  "ambiguity": "hr conclusion carried by the printed implication chain (lr \u21d2 hr); the statement number is mangled in the text layer ('Theorem 2:' possibly).",
+  "adjudication": "adjudicated: Printed unnumbered theorem concludes X \u2264hr Y among the lr\u21d2hr/mrl/st chain; in scope."
+ },
+ {
+  "paper": "doi:10.32604/csse.2021.017362",
+  "claim": "Theorem (Section 3.6), likelihood ratio part",
+  "page": 154,
+  "quote": "Theorem: Let X_ILBMD ~ fX(x; a) and Y_ILBMD ~ fY(x; h). If h < a, then X \u2264lr Y, and hence X \u2264hr Y, X \u2264mrl Y and X \u2264st Y.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "inverse length-biased Maxwell distribution ILBMD: f(x; a) = (1/(2a^4 x^5)) e^{\u22121/(2a\u00b2x\u00b2)}, x > 0, a > 0",
+  "compared": "X ~ ILBMD(a) vs Y ~ ILBMD(h), h < a",
+  "hypotheses": [
+   {
+    "text": "h < a (then \u2202/\u2202x ln(fX/fY) = (1/x\u00b3)(h\u2212a)(h+a)/(a\u00b2h\u00b2) < 0)",
+    "formal": "ordered scale parameters making fX/fY decreasing",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "X \u2264lr Y (fX/fY decreasing \u2014 paper's lr convention)"
+  },
+  "quantifiers": "x > 0; a, h > 0",
+  "numbers": "",
+  "ambiguity": "Paper defines X \u2264lr Y by fX/fY decreasing. Proof prints the derivative (h\u2212a)(h+a)/(x\u00b3a\u00b2h\u00b2), negative iff h < a.",
+  "adjudication": "adjudicated: lr part is the proved conclusion (density ratio decreasing iff h < a); direction X \u2264lr Y verified in"
+ },
+ {
+  "paper": "doi:10.32604/csse.2021.017362",
+  "claim": "Theorem (Section 3.6), mean residual life part",
+  "page": 154,
+  "quote": "Theorem: Let X_ILBMD ~ fX(x; a) and Y_ILBMD ~ fY(x; h). If h < a, then X \u2264lr Y, and hence X \u2264hr Y, X \u2264mrl Y and X \u2264st Y.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "inverse length-biased Maxwell distribution ILBMD",
+  "compared": "X ~ ILBMD(a) vs Y ~ ILBMD(h), h < a",
+  "hypotheses": [
+   {
+    "text": "h < a",
+    "formal": "ordered scale parameters",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "mrl",
+   "direction": "X \u2264mrl Y"
+  },
+  "quantifiers": "x > 0; a, h > 0",
+  "numbers": "",
+  "ambiguity": "mrl conclusion carried by the printed implication chain (lr \u21d2 mrl).",
+  "adjudication": "adjudicated: Printed chain includes X \u2264mrl Y; in scope as one order-specific record."
+ },
+ {
+  "paper": "doi:10.32604/csse.2021.017362",
+  "claim": "Theorem (Section 3.6), usual stochastic order part",
+  "page": 154,
+  "quote": "If h < a, then X \u2264lr Y, and hence X \u2264hr Y, X \u2264mrl Y and X \u2264st Y.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "inverse length-biased Maxwell distribution ILBMD",
+  "compared": "X ~ ILBMD(a) vs Y ~ ILBMD(h), h < a",
+  "hypotheses": [
+   {
+    "text": "h < a",
+    "formal": "ordered scale parameters",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X \u2264st Y"
+  },
+  "quantifiers": "x > 0",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Same printed theorem; B's single record canonically splits into lr/hr/mrl/st records."
+ }
+]

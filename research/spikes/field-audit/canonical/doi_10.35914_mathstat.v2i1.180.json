@@ -1,1 +1,27 @@
-[]
+[
+ {
+  "paper": "doi:10.35914/mathstat.v2i1.180",
+  "claim": "Section 10 unnumbered likelihood-ratio ordering claim",
+  "page": 22,
+  "quote": "Prove that the MSG distribution complies with the ordering with the highest likelihood (the likelihood ratio ordering). Assume that X and Y are two independent Random variables with probability distribution function fX(x; \u03bb, \u03b8) and fY(x; \u03b2, \u03b1). If \u03bb < \u03b1 and \u03b8 < \u03b2, then \u039b = fX(x;\u03bb,\u03b8)/fY(x;\u03b2,\u03b1) = [\u03b8\u00b2/(\u03bb+1)(\u03bb\u03b8/2 x\u00b2 + (\u03b8+x)/(\u03b8\u00b2+1)) e^{\u2212\u03b8x}] / [\u03b1\u00b2/(\u03b2+1)(\u03b2\u03b1/2 x\u00b2 + (\u03b1+x)/(\u03b1\u00b2+1)) e^{\u2212\u03b1x}] ... Hence, \u2202log[\u039b]/\u2202x < 0 if \u03bb < \u03b2, \u03b8 < \u03b1.",
+  "kind": "theorem",
+  "model": "single",
+  "family": "MGS/MGSD (mixture of Gamma(3,\u03b8) and Shanker(\u03b8)): f(x;\u03bb,\u03b8) = \u03b8\u00b2/(\u03bb+1)(\u03bb\u03b8x\u00b2/2 + (\u03b8+x)/(\u03b8\u00b2+1))e^{\u2212\u03b8x}, x > 0",
+  "compared": "X ~ MGS(\u03bb, \u03b8) vs Y ~ MGS(\u03b2, \u03b1)",
+  "hypotheses": [
+   {
+    "text": "If \u03bb < \u03b1 and \u03b8 < \u03b2 (stated); the derivative sign is concluded 'if \u03bb < \u03b2, \u03b8 < \u03b1' (printed)",
+    "formal": "internally inconsistent componentwise parameter ordering between hypothesis and conclusion",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "X \u2264LR Y (\u039b = fX/fY decreasing in x \u2014 paper's definition 1)"
+  },
+  "quantifiers": "x > 0; all parameters positive",
+  "numbers": "",
+  "ambiguity": "Heavily garbled: hypothesis prints \u03bb<\u03b1, \u03b8<\u03b2 while the conclusion prints \u03bb<\u03b2, \u03b8<\u03b1 (crossed pairing); parameter roles swap between X (\u03bb weight, \u03b8 rate) and Y (\u03b2 weight, \u03b1 rate). The displayed derivative ends with '+(\u03b8 \u2212 \u03bb)' \u2014 likely a typo for \u2212(\u03b8 \u2212 \u03b1). Only the lr order is claimed.",
+  "adjudication": "adjudicated: Printed unnumbered lr claim for MGS; include with the hypothesis/conclusion parameter-pairing incons"
+ }
+]

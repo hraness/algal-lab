@@ -1,0 +1,275 @@
+[
+ {
+  "queue_claim": "example1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.66224/jss.20.1.06",
+    "claim": "Example 1",
+    "page": 139,
+    "quote": "مثال ۱. فرض کنید تابع بقای پایه به‌صورت F̄(x) = 1/x, x ≥ 1 باشد. به سادگی می‌توان نشان داد F̄^α(x/α) به‌ازای α ≥ x ≥ 1 تابعی صعودی و لگ-محدب نسبت به α است. همچنین تابع مولد مفصل علی-میخائیل-حق φ(u) = u^{1−δ}/(e^u − δ) را در نظر بگیرید که ψ(u) = log((1−δ+uδ)/u), u ∈ (0,1], δ ∈ [−1,1]. ... به‌ازای δ ∈ (0,1) (δ = 0.8) تابع uψ′(1−u) = u(δ−1)/((1−u)(1−δu)) تابعی نزولی برحسب u است. به‌ازای p = (0.72, 0.18, 0.02), α = (37, 24, 5) و λ = (7, 4, 2) داریم α ≼^w λ. توابع بقای X^p_{3:3} و Y^p_{3:3} در شکل ۱(الف) نمایش داده شده است که نابرابری تصادفی X^p_{3:3} ⩽st Y^p_{3:3} را نتیجه می‌دهد.",
+    "kind": "example",
+    "model": "parallel system",
+    "family": "SAH marginals F̄^{α_i}(x/α_i)e^{−θ_i x} with Pareto-type baseline F̄(x) = 1/x, x >= 1; Ali-Mikhail-Haq copula generator φ(u) = u^{1−δ}/(e^u − δ), δ = 0.8; Bernoulli shocks",
+    "compared": "scale vectors α = (37,24,5) vs λ = (7,4,2); common θ, common shock vector p = (0.72,0.18,0.02) ∈ D+",
+    "hypotheses": [
+     {
+      "text": "α = (37,24,5) ≼^w λ = (7,4,2)",
+      "formal": "weak supermajorization (lower partial sums of α >= those of λ: 5>=2, 29>=6, 66>=13) — the w is a superscript in the PDF",
+      "source": "statement"
+     },
+     {
+      "text": "uψ′(1−u) decreasing in u for δ = 0.8; F̄^α(x/α) increasing and log-convex in α",
+      "formal": "conditions (a) and (b) of Theorem 2",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X^p_{3:3} <=st Y^p_{3:3} (verified graphically, Figure 1(a)) — supports Theorem 2"
+    },
+    "quantifiers": "n = 3",
+    "numbers": "α = (37,24,5), λ = (7,4,2), p = (0.72,0.18,0.02), δ = 0.8",
+    "ambiguity": "Persian text; quote reconstructed. The in-text figure reference prints 'شکل ؟؟' (broken); Figure 1 caption assigns panel (a) to this example. α printed as (37,24,5) in Persian digits — consistent with weak supermajorization, so B's conjectured (3.7,2.4,0.5) reading is ruled out."
+   }
+  ],
+  "note": "Both passes agree on X^p_{3:3} <=st Y^p_{3:3} supporting Theorem 2; merged, with the majorization confirmed as superscript-w (weak supermajorization)."
+ },
+ {
+  "queue_claim": "example2",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.66224/jss.20.1.06",
+    "claim": "Example 2",
+    "page": 140,
+    "quote": "مثال ۲. طبق مفروضات مثال ۱، تابع مفصل مفروض به‌ازای δ ∈ (−1, 0) (δ = −0.66)، تابع uψ′(1−u) تابعی صعودی برحسب u است. شکل ۲(ب) نشان می‌دهد که توابع توزیع X^p_{3:3} و Y^p_{3:3} یکدیگر را قطع می‌کنند. بنابراین نتایج قضیه ۲ با فرض صعودی بودن uψ′(1−u) برقرار نیست.",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "same SAH/Pareto setup as Example 1; AMH copula with δ = −0.66 ∈ (−1,0)",
+    "compared": "same parameters as Example 1 but copula parameter δ = −0.66 making uψ′(1−u) increasing",
+    "hypotheses": [
+     {
+      "text": "uψ′(1−u) is increasing instead of decreasing",
+      "formal": "violates condition (a) of Theorem 2",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "no stochastic ordering: distribution functions of X^p_{3:3} and Y^p_{3:3} cross — Theorem 2's conclusion fails when uψ′(1−u) is increasing"
+    },
+    "quantifiers": "n = 3",
+    "numbers": "δ = −0.66; other values as in Example 1",
+    "ambiguity": "In-text reference prints 'شکل ۲(ب)' (Figure 2(b)), but Figure 1's caption assigns Example 2 to panel 1(b); the paper's figure numbering in text is shifted relative to captions."
+   }
+  ],
+  "note": "Both passes agree: CDFs cross when uψ′(1−u) is increasing — counterexample to dropping Theorem 2's condition (a)."
+ },
+ {
+  "queue_claim": "example3",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.66224/jss.20.1.06",
+    "claim": "Example 3",
+    "page": 140,
+    "quote": "مثال ۳. دو سیستم موازی از مولفه‌های وابسته و ناهمگن با تابع بقای پایه F̄(x) = 1/x, x ≥ 1 را در نظر بگیرید. به سادگی می‌توان نشان داد که برای تابع F̄^α(x/α) ویژگی‌های صعودی و لگ-محدب نبودن نسبت به α برقرار است. همچنین فرض کنید α = (11, 8, 4) ∈ D+, λ = (9, 6, 2) ∈ D+ و p = (0.92, 0.68, 0.32) ∈ D+ است که در آن α ≼^w λ است. توابع مولد مفصل علی-میکائیل-حق با φ₁(u) = u^{0.5}/(e^u − 0.5) و φ₂(u) = u^{1.6}/(e^u + 0.6) را در نظر بگیرید به‌طوری‌که ψ₂∘φ₁ تابعی زبرجمعی است (چون ψ₂∘φ₁ تابعی محدب است)، از طرفی uψ₂′(1−u) تابعی صعودی است. طبق استدلال مثال ۱ در شکل ۲(ج) توابع بقای X^p_{3:3} و Y^p_{3:3} رسم شده است و نشان می‌دهد که X^p_{3:3} ≰st Y^p_{3:3} و Y^p_{3:3} ≰st X^p_{3:3} است. بنابراین نتیجه قضیه ۳ برقرار نیست.",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "SAH marginals with baseline F̄(x) = 1/x; two different AMH-type generators φ₁(u) = u^{0.5}/(e^u−0.5) (δ₁ = 0.5) and φ₂(u) = u^{1.6}/(e^u+0.6) (δ₂ = −0.6)",
+    "compared": "α = (11,8,4) vs λ = (9,6,2); different copulas on the two systems; common p = (0.92,0.68,0.32)",
+    "hypotheses": [
+     {
+      "text": "the properties of being increasing and log-convex in α do NOT hold for F̄^α(x/α)",
+      "formal": "baseline hypothesis of Theorem 3 fails (at least log-convexity; the Persian phrasing 'صعودی و لگ-محدب نبودن' most naturally reads 'increasing and not log-convex')",
+      "source": "statement"
+     },
+     {
+      "text": "uψ₂′(1−u) is increasing (while ψ₂∘φ₁ is super-additive, being convex)",
+      "formal": "the decreasing-uψ′ condition of Theorem 3 fails (applied to ψ₂ as printed)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "no stochastic ordering in either direction: X^p_{3:3} ≰st Y^p_{3:3} and Y^p_{3:3} ≰st X^p_{3:3} (survival functions cross, Figure 2(c)) — Theorem 3's conclusion fails"
+    },
+    "quantifiers": "n = 3",
+    "numbers": "α = (11,8,4), λ = (9,6,2), p = (0.92,0.68,0.32); generator exponents 0.5 and 1.6 (δ₁ = 0.5, δ₂ = −0.6)",
+    "ambiguity": "Two hypotheses of Theorem 3 appear to fail simultaneously (log-convexity of F̄^α and the decreasing-uψ′ condition). B's 'φ₂(u) = u^{1.6}' numerator confirmed against the raw text layer; A dropped the u^1.6 factor. In-text figure reference 'شکل ۲(ج)' mismatches the caption (Figure 1(c))."
+   }
+  ],
+  "note": "Both passes agree the systems are st-incomparable; B's generator reading (u^{1.6} numerator) and 'not log-convex' reading are closer to the printed Persian."
+ },
+ {
+  "queue_claim": "example4",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.66224/jss.20.1.06",
+    "claim": "Example 4",
+    "page": 140,
+    "quote": "مثال ۴. فرض کنید تابع بقای پایه به صورت F̄(x) = e^{−x^k}, x > 0 باشد. تابع F̄^α(x/α) به‌ازای k = 3 > 1 تابعی صعودی و محدب نسبت به α است. همچنین تابع مولد φ(u) = 1/(1+δu)^{1/δ} را به‌ازای δ = 0.2 در نظر بگیرید که تابعی محدب است (معادل با لگ-مقعر بودن 1−φ است) ولی φ(1−φ)/φ′ نیز تابعی نزولی و محدب است. به‌ازای α = (3,4,5,6) و λ = (2,4,5,7) و p = (0.2,0.25,0.45,0.8) واضح است α ≼^m λ برقرار است. بنابراین فرض مقعر بودن φ(1−φ)/φ′ برقرار نیست. شکل ۳(الف) عدم برقراری قضیه ۴ را نشان می‌دهد.",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "SAH marginals with Weibull baseline F̄(x) = e^{−x^k}, k = 3 > 1; generator φ(u) = 1/(1+δu)^{1/δ} (Clayton-type), δ = 0.2",
+    "compared": "α = (3,4,5,6) vs λ = (2,4,5,7) under majorization α ≼^m λ; common p = (0.2,0.25,0.45,0.8)",
+    "hypotheses": [
+     {
+      "text": "α ≼^m λ; φ convex (equivalently 1−φ log-concave); but φ(1−φ)/φ′ is decreasing and CONVEX, so the concavity assumption on φ(1−φ)/φ′ fails",
+      "formal": "condition (d) of Theorem 4 (φ(1−φ)/φ′ decreasing and concave) violated",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "hazard-rate ordering fails: hazard-rate curves of X^p_{4:4} and Y^p_{4:4} cross (Figure 3(a)) — Theorem 4's concavity hypothesis cannot be dropped"
+    },
+    "quantifiers": "n = 4",
+    "numbers": "α = (3,4,5,6), λ = (2,4,5,7), p = (0.2,0.25,0.45,0.8), k = 3, δ = 0.2",
+    "ambiguity": "B's baseline e^{-x^k} with k = 3 and 'not concave' reading are correct (verified in the raw text layer: 'F̄(x) = e^{−x^k}, k = ۳ > ۱' and 'فرض مقعر بودن φ(1−φ)/φ′ برقرار نیست'); A misread baseline as e^{-x} and inverted the convexity. The generator prints as a reciprocal 1/(1+δu)^{1/δ}, i.e., (1+δu)^{-1/δ} — B's Clayton form is mathematically equivalent, A's '(1+δu)^{1/δ}' loses the reciprocal. In-text figure reference 'شکل ۳(الف)' mismatches the caption (Figure 2(a))."
+   }
+  ],
+  "note": "Corrected to B's reading: Weibull baseline e^{-x^k} (k=3), Clayton-type generator 1/(1+δu)^{1/δ}, and the violated condition is concavity (not convexity) of φ(1−φ)/φ′."
+ },
+ {
+  "queue_claim": "example5",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.66224/jss.20.1.06",
+    "claim": "Example 5",
+    "page": 141,
+    "quote": "مثال ۵. دو سیستم سری متشکل از مولفه‌های وابسته با تابع بقای پایه F̄(x) = e^{−x^5}, x ≥ 0 را در نظر بگیرید. واضح است log F̄^α(x/α) = −α^{−4} x^5 است. در نتیجه به راحتی می‌توان نشان داد که مشتق دوم این تابع نامثبت و مشتق اول آن، نامنفی است. بنابراین شرط صعودی و لگ-مقعر بودن تابع F̄^α(x/α) نسبت به α برقرار است. همچنین فرض کنید α = (11,8,4) ∈ D+, λ = (9,6,2) ∈ D+ و p = (0.92,0.18,0.02) ∈ D+ باشد به‌طوری‌که α ≼^w λ است. تابع مولد ارشمیدسی φ(u) = 2/(1+e^u) تابعی لگ-مقعر است زیرا log φ(u) = log 2 − log(1+e^u) و ∂²log φ(u)/∂u² = −e^{−u}(1+e^{−u})^{-2} نامثبت است. در شکل ۳(ب)، نمودارهای توابع توزیع متغیرهای تصادفی X^p_{1:3} و Y^p_{1:3} رسم شده است که نشان می‌دهد نمودار تابع توزیع X^p_{1:3} بالای نمودار تابع توزیع Y^p_{1:3} قرار دارد. بنابراین درستی قضیه ۸ مورد تایید قرار می‌گیرد.",
+    "kind": "example",
+    "model": "series system",
+    "family": "SAH marginals with baseline F̄(x) = e^{−x^5} (Weibull-type); generator φ(u) = 2/(1+e^u) (log-concave); Bernoulli shocks",
+    "compared": "α = (11,8,4) vs λ = (9,6,2); common p = (0.92,0.18,0.02) ∈ D+",
+    "hypotheses": [
+     {
+      "text": "log F̄^α(x/α) = −α^{−4} x^5, whose second derivative is negative and first derivative non-negative, so F̄^α(x/α) is increasing and log-concave in α",
+      "formal": "Theorem 8 baseline condition",
+      "source": "statement"
+     },
+     {
+      "text": "α ≼^w λ; φ(u) = 2/(1+e^u) is log-concave",
+      "formal": "weak supermajorization on α; log-concave generator",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X^p_{1:3} <=st Y^p_{1:3} (cdf of X^p_{1:3} lies above that of Y^p_{1:3}, Figure 3(b)) — confirms Theorem 8"
+    },
+    "quantifiers": "n = 3",
+    "numbers": "α = (11,8,4), λ = (9,6,2), p = (0.92,0.18,0.02); ∂²log φ(u)/∂u² = −e^{−u}(1+e^{−u})^{-2} < 0",
+    "ambiguity": "B's baseline e^{-x^5} and 'first derivative non-negative' are correct (raw text layer confirms e^{−x} with superscript ۵ on x and نامنفی = non-negative); A printed e^{-x} and 'non-positive'. In-text reference 'شکل ۳(ب)' mismatches the caption (Figure 2(b))."
+   }
+  ],
+  "note": "Both passes agree on X^p_{1:3} <=st Y^p_{1:3}; corrected baseline to e^{-x^5} per B (A lost the exponent) and fixed the derivative sign."
+ },
+ {
+  "queue_claim": "theorem5b",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.66224/jss.20.1.06",
+    "claim": "Theorem 5(b)",
+    "page": 134,
+    "quote": "قضیه ۵. فرض کنید X^p = (Ip₁ X₁, . . . , Ipn Xn) و Y^p = (Ip₁ Y₁, . . . , Ipn Yn) بردارهای تصادفی وابسته و غیرهم‌توزیع با Xi ∼ SAH(αi, θi) و Yi ∼ SAH(αi, ηi) و مفصل ارشمیدسی با تابع مولد مشترک φ باشند. همچنین فرض کنید Ip₁, . . . , Ipn متغیرهای تصادفی برنولی مستقل با پارامترهای p₁, . . . , pn باشند. اگر F̄^α(x/α) نسبت به α صعودی، (α, p) ∈ An، (α, θ) ∈ Bn، و (θ, p) ∈ Bn باشد آنگاه: (ب) اگر φ لگ-مقعر باشد. θ ≼_w η ⟹ Y^p_{1:n} ⩽st X^p_{1:n}.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "SAH marginals F̄^{α_i}(x/α_i)e^{−θ_i x}; common Archimedean copula with generator φ; common Bernoulli shock vector p",
+    "compared": "additive-hazard vectors θ vs η; common α and p",
+    "hypotheses": [
+     {
+      "text": "F̄^α(x/α) increasing in α; (α, p) ∈ An, (α, θ) ∈ Bn, (θ, p) ∈ Bn",
+      "formal": "concordance conditions from the Theorem 5 preamble",
+      "source": "statement"
+     },
+     {
+      "text": "φ log-concave; θ ≼_w η",
+      "formal": "weak submajorization on θ — the w is a SUBSCRIPT in the PDF (top coordinate below baseline, verified via pdftohtml), not superscript as pass A recorded",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "Y^p_{1:n} <=st X^p_{1:n} (reverse direction relative to part (a))"
+    },
+    "quantifiers": "n >= 1; all x >= 0",
+    "numbers": "",
+    "ambiguity": "Persian text; reconstructed. Part (a) uses θ ≼^w η (superscript, weak supermajorization); part (b) prints the complementary θ ≼_w η (subscript). A's record had the conclusion direction right but wrote the part-(b) majorization as superscript-w; corrected to subscript."
+   }
+  ],
+  "note": "Include: printed theorem part with ordering conclusion. Correction: part (b) hypothesis is θ ≼_w η (weak submajorization), not ≼^w."
+ },
+ {
+  "queue_claim": "theorem6b",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.66224/jss.20.1.06",
+    "claim": "Theorem 6(b)",
+    "page": 136,
+    "quote": "قضیه ۶. تحت مفروضات قضیه ۵، فرض کنید F̄^α(x/α) در α نزولی، (α, θ) ∈ An، (p, θ) ∈ Bn، و (p, α) ∈ Bn باشد. در این صورت: (ب) اگر φ لگ-مقعر باشد آنگاه. θ ≼_w η ⟹ Y^p_{1:n} ⩽st X^p_{1:n}.",
+    "kind": "theorem",
+    "model": "series system",
+    "family": "SAH marginals; common Archimedean copula generator φ; common Bernoulli shock vector",
+    "compared": "additive-hazard vectors θ vs η; common α and p",
+    "hypotheses": [
+     {
+      "text": "Under the assumptions of Theorem 5: F̄^α(x/α) decreasing in α, (α, θ) ∈ An, (p, θ) ∈ Bn, (p, α) ∈ Bn",
+      "formal": "decreasing-in-α variant with rearranged concordance sets",
+      "source": "statement"
+     },
+     {
+      "text": "φ log-concave; θ ≼_w η",
+      "formal": "weak submajorization on θ — subscript w verified via pdftohtml coordinates (w glyph below baseline), same typesetting as Theorem 5(b)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "Y^p_{1:n} <=st X^p_{1:n}"
+    },
+    "quantifiers": "n >= 1; all x >= 0",
+    "numbers": "",
+    "ambiguity": "Persian text; reconstructed. As in Theorem 5, part (a) prints θ ≼^w η and part (b) θ ≼_w η; A wrote superscript-w for (b) — corrected to subscript."
+   }
+  ],
+  "note": "Include: printed theorem part. Correction: part (b) uses θ ≼_w η (weak submajorization), not ≼^w."
+ },
+ {
+  "queue_claim": "unn6.2:section 6.2 case study table 1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.66224/jss.20.1.06",
+    "claim": "Section 6.2 case study (Table 1)",
+    "page": 143,
+    "quote": "۶.۲. مطالعه موردی: اعتبارسنجی قضیه ۶ در یک سیستم پایش محیطی سری. یک سیستم پایش آلاینده‌های هوا متشکل از سه حسگر سری (آشکار سازگار، ذره شماره، طیف سنج) در نظر گرفته می‌شود. ... فرض کنید طول عمر پایه هر حسگر از توزیع وایبول با تابع بقای F̄(x) = e^{−(λx)^β} تبعیت نماید. برای اطمینان از نزولی بودن F̄^α(x/α) نسبت به α، باید پارامتر شکل به صورت β < 1 باشد. در این شبیه‌سازی λ = 0.001 و β = 0.7 انتخاب شد. برای سادگی و تمرکز بر اثر θ، α = (1,1,1) در نظر گرفته شد ... دو طرح با پراکندگی کم (X) و دیگری با پراکندگی زیاد (Y) برای θ به‌ترتیب به‌صورت θ = (0.0008, 0.0010, 0.0012) و η = (0.0005, 0.0010, 0.0015) در نظر گرفته شد به‌طوری‌که شرط θ ≼^w η برقرار است. ... این وابستگی با یک مفصل علی-میخائیل-حق (AMH) با تابع مولد φ(u) = e^{(1−u)^{−δ}} و پارامتر δ = 0.8 مدل می‌شود (به‌طوری‌که φ یک تابع لگ-محدب است). و احتمال مقاومت در برابر شوک برابر با p = (0.92, 0.92, 0.92) است. ... جدول ۱. تابع توزیع تجربی دو طرح X و Y در سیستم پایش سری: t = 100, 300, 500, 700 hours; F̂_X(t) = 0.1251, 0.4823, 0.7405, 0.8912; F̂_Y(t) = 0.1183, 0.4679, 0.7258, 0.8801; نتیجه F̂_X(t) > F̂_Y(t) (X ≤st Y). ... این نتیجه پیش‌بینی قضیه ۶-الف را بطور کامل تایید می‌کند.",
+    "kind": "example",
+    "model": "series system",
+    "family": "SAH marginals with Weibull baseline F̄(x) = e^{−(λx)^β}, λ = 0.001, β = 0.7; AMH copula δ = 0.8 (φ log-convex); homogeneous shock probability",
+    "compared": "low-spread additive-hazard design X (θ = (0.0008,0.0010,0.0012)) vs high-spread design Y (η = (0.0005,0.0010,0.0015)); common α = (1,1,1), p = (0.92,0.92,0.92)",
+    "hypotheses": [
+     {
+      "text": "θ = (0.0008,0.0010,0.0012) ≼^w η = (0.0005,0.0010,0.0015); φ log-convex; F̄^α(x/α) decreasing in α (β = 0.7 < 1)",
+      "formal": "conditions of Theorem 6(a): superscript-w verified in the PDF (w above baseline); lower sums of θ 0.0008, 0.0018, 0.0030 >= η's 0.0005, 0.0015, 0.0030",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X <=st Y: empirical CDFs satisfy F̂_X(t) > F̂_Y(t) at all four time points — confirms Theorem 6(a)"
+    },
+    "quantifiers": "n = 3 sensors; t = 100, 300, 500, 700 hours",
+    "numbers": "F̂_X(t): 0.1251, 0.4823, 0.7405, 0.8912; F̂_Y(t): 0.1183, 0.4679, 0.7258, 0.8801 at t = 100, 300, 500, 700 hours; θ = (0.0008,0.0010,0.0012), η = (0.0005,0.0010,0.0015), α = (1,1,1), λ = 0.001, β = 0.7, δ = 0.8, p = (0.92,0.92,0.92)",
+    "ambiguity": "Simulation-based empirical CDF table rather than a theoretical example; included as a printed numerical stochastic-comparison supporting Theorem 6(a). Kind normalized to 'example' (spec has no 'application' kind). Generator prints as φ(u) = e^{(1−u)^{−δ}} per Remark 3's AMH form."
+   }
+  ],
+  "note": "Include: printed numerical validation of Theorem 6(a) (Table 1 empirical CDFs, X <=st Y). B's only flaw was kind='application'; normalized to 'example'."
+ }
+]

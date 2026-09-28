@@ -1,0 +1,64 @@
+[
+ {
+  "queue_claim": "unn10:section 10 likelihood ratio ordering claim",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.35914/mathstat.v2i1.180",
+    "claim": "Section 10 unnumbered likelihood-ratio ordering claim",
+    "page": 22,
+    "quote": "Prove that the MSG distribution complies with the ordering with the highest likelihood (the likelihood ratio ordering). Assume that X and Y are two independent Random variables with probability distribution function fX(x; λ, θ) and fY(x; β, α). If λ < α and θ < β, then Λ = fX(x;λ,θ)/fY(x;β,α) = [θ²/(λ+1)(λθ/2 x² + (θ+x)/(θ²+1)) e^{−θx}] / [α²/(β+1)(βα/2 x² + (α+x)/(α²+1)) e^{−αx}] ... Hence, ∂log[Λ]/∂x < 0 if λ < β, θ < α.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "MGS/MGSD (mixture of Gamma(3,θ) and Shanker(θ)): f(x;λ,θ) = θ²/(λ+1)(λθx²/2 + (θ+x)/(θ²+1))e^{−θx}, x > 0",
+    "compared": "X ~ MGS(λ, θ) vs Y ~ MGS(β, α)",
+    "hypotheses": [
+     {
+      "text": "If λ < α and θ < β (stated); the derivative sign is concluded 'if λ < β, θ < α' (printed)",
+      "formal": "internally inconsistent componentwise parameter ordering between hypothesis and conclusion",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "X ≤LR Y (Λ = fX/fY decreasing in x — paper's definition 1)"
+    },
+    "quantifiers": "x > 0; all parameters positive",
+    "numbers": "",
+    "ambiguity": "Heavily garbled: hypothesis prints λ<α, θ<β while the conclusion prints λ<β, θ<α (crossed pairing); parameter roles swap between X (λ weight, θ rate) and Y (β weight, α rate). The displayed derivative ends with '+(θ − λ)' — likely a typo for −(θ − α). Only the lr order is claimed."
+   }
+  ],
+  "note": "Printed unnumbered lr claim for MGS; include with the hypothesis/conclusion parameter-pairing inconsistency flagged."
+ },
+ {
+  "queue_claim": "unn10:section 10 unlabeled likelihood ratio ordering",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.35914/mathstat.v2i1.180",
+    "claim": "Section 10 unnumbered likelihood-ratio ordering claim",
+    "page": 22,
+    "quote": "Prove that the MSG distribution complies with the ordering with the highest likelihood (the likelihood ratio ordering). Assume that X and Y are two independent Random variables with probability distribution function fX(x; λ, θ) and fY(x; β, α). If λ < α and θ < β, then Λ = fX(x;λ,θ)/fY(x;β,α) = ... . Hence, ∂log[Λ]/∂x < 0 if λ < β, θ < α.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "MGS/MGSD (mixture of Gamma(3,θ) and Shanker(θ)): f(x;λ,θ) = θ²/(λ+1)(λθx²/2 + (θ+x)/(θ²+1))e^{−θx}, x > 0",
+    "compared": "X ~ MGS(λ, θ) vs Y ~ MGS(β, α)",
+    "hypotheses": [
+     {
+      "text": "If λ < α and θ < β (stated); the derivative sign is concluded 'if λ < β, θ < α' (printed)",
+      "formal": "internally inconsistent componentwise parameter ordering between hypothesis and conclusion",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "X ≤LR Y (Λ = fX/fY decreasing in x — paper's definition 1)"
+    },
+    "quantifiers": "x > 0; all parameters positive",
+    "numbers": "",
+    "ambiguity": "Same canonical record as the A-side item. Section 10 also defines st/hr/mrl but asserts none for MGS; the hr definition itself misprints 'hX ≥ FY'."
+   }
+  ],
+  "note": "Same claim extracted by B; canonical lr record identical to the A-side entry."
+ }
+]

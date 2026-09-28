@@ -1,6 +1,241 @@
 [
  {
   "paper": "doi:10.1016/j.orl.2020.12.009",
+  "claim": "Counterexample 3.1",
+  "page": 7,
+  "quote": "Counterexample 3.1 Consider two series systems, each comprising of three dependent and heterogeneous components with respective survival functions F\u0304X1:3 (x) = S1 (F\u0304 (x), \u03b1, \u03d51 ) and F\u0304Y1:3 (x) = S1 (F\u0304 (x), \u03b2, \u03d52 ) with F\u0304 (x) = e^{\u2212x^{1.5}}, x \u2265 0, \u03b1 = (2, 3, 5.5), \u03b2 = (2.5, 3.5, 3.8) so that \u03b1 \u227d^p \u03b2. First we take \u03d51 (x) = (2/(1 + e^x))^{1/\u03b8}, \u03b8 = 0.9 and \u03d52 (x) = e^{1\u2212(1+x)^{1/\u03b7}} with \u03b7 = 0.3 so that \u03c62 \u25e6 \u03d51 is not super additive, and \u03d51 and \u03d52 are not log-convex. We depict F\u0304X1:3 (x) and F\u0304Y1:3 (x) in Figure 1 for some finite range of x. From this figure we observe that the stochastic ordering result in Theorem 3.1 is not attained.",
+  "kind": "counterexample",
+  "model": "series system",
+  "family": "PO model with baseline F\u0304(x) = e^{\u2212x^{1.5}} (Weibull shape 1.5), two Archimedean survival-copula generators",
+  "compared": "\u03b1 = (2, 3, 5.5) vs \u03b2 = (2.5, 3.5, 3.8) satisfying the p-larger order; different generators on the two systems",
+  "hypotheses": [
+   {
+    "text": "\u03b1 \u227d^p \u03b2",
+    "formal": "p-larger hypothesis of Theorem 3.1 retained",
+    "source": "statement"
+   },
+   {
+    "text": "\u03c62 \u25e6 \u03d51 is not super additive, and \u03d51 and \u03d52 are not log-convex",
+    "formal": "the superadditivity and log-convexity hypotheses of Theorem 3.1 dropped",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "no stochastic ordering between X_{1:3} and Y_{1:3}: survival functions cross in Figure 1 \u2014 Theorem 3.1 fails without the generator conditions"
+  },
+  "quantifiers": "n = 3",
+  "numbers": "\u03b1 = (2,3,5.5), \u03b2 = (2.5,3.5,3.8), \u03b8 = 0.9, \u03b7 = 0.3, F\u0304(x) = e^{\u2212x^{1.5}}; Figure 1 over a finite x range",
+  "ambiguity": "Graphical evidence only. Baseline printed 'e^{\u2212(x)1.5}' in the text layer, interpreted as exp(\u2212x^{1.5}).",
+  "adjudication": "adjudicated: Both passes agree on substance: st ordering fails without superadditivity/log-convexity; merged reco"
+ },
+ {
+  "paper": "doi:10.1016/j.orl.2020.12.009",
+  "claim": "Counterexample 3.2, case (a) \u2014 non-log-concave generator",
+  "page": 11,
+  "quote": "Counterexample 3.2 Consider two series systems, each comprising of three dependent and heterogeneous components with respective hazard rate functions rX1:3 (x) and rY1:3 (x), with common baseline survival function F\u0304 (x) = e^{\u2212(0.5x)^2}, x \u2265 0, \u03b1 = (0.2, 0.4, 0.6), \u03b2 = (0.35, 0.55, 0.95) so that \u03b1 \u227d^w \u03b2. First we take the common generator \u03d5(x) = log(e + x)^{\u22121/a}, a = 0.1, which is not log-concave but \u03d5(1\u2212\u03d5)/\u03d5\u2032 is decreasing and convex. ... From both the figures we observe that the hazard rate ordering result in Theorem 3.3 is not attained.",
+  "kind": "counterexample",
+  "model": "series system",
+  "family": "PO model, baseline F\u0304(x) = e^{\u2212(0.5x)^2}, common generator \u03d5(x) = log(e+x)^{\u22121/a}, a = 0.1",
+  "compared": "\u03b1 = (0.2, 0.4, 0.6) vs \u03b2 = (0.35, 0.55, 0.95) under weak supermajorization",
+  "hypotheses": [
+   {
+    "text": "\u03b1 \u227d^w \u03b2",
+    "formal": "per Definition 2.1(ii) \u2014 which the paper calls 'weakly supermajorize': smallest-first partial sums of \u03b1 <= those of \u03b2 (0.2 <= 0.35, 0.6 <= 0.9, 1.2 <= 1.85) \u2014 verified",
+    "source": "statement"
+   },
+   {
+    "text": "\u03d5 not log-concave (though \u03d5(1\u2212\u03d5)/\u03d5\u2032 is decreasing and convex)",
+    "formal": "log-concavity hypothesis of Theorem 3.3 dropped",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "no hr ordering between X_{1:3} and Y_{1:3}: hazard rates cross in Figure 2(a)"
+  },
+  "quantifiers": "n = 3",
+  "numbers": "\u03b1 = (0.2,0.4,0.6), \u03b2 = (0.35,0.55,0.95), a = 0.1, F\u0304(x) = e^{\u2212(0.5x)^2}",
+  "ambiguity": "Graphical evidence only (Figure 2(a), finite x range).",
+  "adjudication": "adjudicated: Include, split into one record per printed case (A's split correct); both cases share \u03b1=(0.2,0.4,0.6"
+ },
+ {
+  "paper": "doi:10.1016/j.orl.2020.12.009",
+  "claim": "Counterexample 3.2, case (b) \u2014 \u03c6(1\u2212\u03c6)/\u03c6\u2032 neither decreasing nor convex",
+  "page": 11,
+  "quote": "Next we take \u03d5(x) = (2/(1 + e^x))^{1/a}, a = 0.2, which is log-concave but \u03d5(1\u2212\u03d5)/\u03d5\u2032 is neither decreasing nor convex. For both the cases rX1:3 (x) and rY1:3 (x) are depicted in Figure 2(a) and 2(b) respectively for some finite range of x. ... the hazard rate ordering result in Theorem 3.3 is not attained.",
+  "kind": "counterexample",
+  "model": "series system",
+  "family": "PO model, baseline F\u0304(x) = e^{\u2212(0.5x)^2}, common generator \u03d5(x) = (2/(1+e^x))^{1/a}, a = 0.2",
+  "compared": "\u03b1 = (0.2, 0.4, 0.6) vs \u03b2 = (0.35, 0.55, 0.95) under weak supermajorization",
+  "hypotheses": [
+   {
+    "text": "\u03b1 \u227d^w \u03b2",
+    "formal": "weak supermajorization",
+    "source": "statement"
+   },
+   {
+    "text": "\u03d5 log-concave but \u03d5(1\u2212\u03d5)/\u03d5\u2032 is neither decreasing nor convex",
+    "formal": "the curvature condition of Theorem 3.3 dropped",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "no hr ordering between X_{1:3} and Y_{1:3} (Figure 2(b))"
+  },
+  "quantifiers": "n = 3",
+  "numbers": "\u03b1 = (0.2,0.4,0.6), \u03b2 = (0.35,0.55,0.95), a = 0.2",
+  "ambiguity": "Graphical evidence only.",
+  "adjudication": "adjudicated: Include, split into one record per printed case (A's split correct); both cases share \u03b1=(0.2,0.4,0.6"
+ },
+ {
+  "paper": "doi:10.1016/j.orl.2020.12.009",
+  "claim": "Counterexample 4.1, case (a) \u2014 neither generator log-concave",
+  "page": 14,
+  "quote": "Counterexample 4.1 Consider two parallel systems, each comprising of three dependent and heterogeneous components with respective distribution functions FX3:3 (x) = S2 (F (x), \u03b1, \u03d51 ) and FY3:3 (x) = S2 (F (x), \u03b2, \u03d52 ), where F (x) = 1 \u2212 e^{\u2212x^{0.5}}, x \u2265 0, \u03b1 = (0.9, 1.45, 2.15), \u03b2 = (1.2, 1.95, 2.65) so that \u03b1 \u227d^w \u03b2. First we take \u03d51 (x) = \u03b81 / log(x + e^{\u03b81}) and \u03d52 (x) = e^{1\u2212(1+x)^{1/\u03b82}} with \u03b81 = 0.9 and \u03b82 = 8 so that neither \u03d51 nor \u03d52 is log-concave but \u03c61 \u25e6 \u03d52 is super additive. ... the stochastic ordering result in Theorem 4.1 is not attained.",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "PO model, baseline F(x) = 1 \u2212 e^{\u2212x^{0.5}}, different generators",
+  "compared": "\u03b1 = (0.9, 1.45, 2.15) vs \u03b2 = (1.2, 1.95, 2.65) under weak supermajorization",
+  "hypotheses": [
+   {
+    "text": "\u03b1 \u227d^w \u03b2",
+    "formal": "weak supermajorization (as printed)",
+    "source": "statement"
+   },
+   {
+    "text": "neither \u03d51 nor \u03d52 is log-concave but \u03c61 \u25e6 \u03d52 is super additive",
+    "formal": "log-concavity of Theorem 4.1 dropped; superadditivity retained",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "no stochastic ordering between X_{3:3} and Y_{3:3}: cdfs cross in Figure 3(a)"
+  },
+  "quantifiers": "n = 3",
+  "numbers": "\u03b1 = (0.9,1.45,2.15), \u03b2 = (1.2,1.95,2.65), \u03b81 = 0.9, \u03b82 = 8, F(x) = 1 \u2212 e^{\u2212x^{0.5}}",
+  "ambiguity": "Graphical evidence only. Baseline printed '1 \u2212 e\u2212x^0.5' in the text layer, interpreted as 1 \u2212 exp(\u2212x^{0.5}).",
+  "adjudication": "adjudicated: Include, one record per printed case (A's split correct); both agree st ordering fails in both cases"
+ },
+ {
+  "paper": "doi:10.1016/j.orl.2020.12.009",
+  "claim": "Counterexample 4.1, case (b) \u2014 \u03c61\u2218\u03d52 not superadditive",
+  "page": 14,
+  "quote": "Next we take \u03d51 (x) = e^{(1\u2212e^x)/\u03b81} and \u03d52 (x) = (2/(e^x + 1))^{1/\u03b82} with \u03b81 = 0.9 and \u03b82 = 0.2 so that \u03d51 is log-concave but \u03c61 \u25e6 \u03d52 is not super additive. For both the cases FX3:3 (x) and FY3:3 (x) are depicted in Figure 3(a) and 3(b) respectively for some finite range of x. From both the figures we observe that the stochastic ordering result in Theorem 4.1 is not attained.",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "PO model, baseline F(x) = 1 \u2212 e^{\u2212x^{0.5}}, different generators",
+  "compared": "\u03b1 = (0.9, 1.45, 2.15) vs \u03b2 = (1.2, 1.95, 2.65) under weak supermajorization",
+  "hypotheses": [
+   {
+    "text": "\u03b1 \u227d^w \u03b2",
+    "formal": "weak supermajorization",
+    "source": "statement"
+   },
+   {
+    "text": "\u03d51 is log-concave but \u03c61 \u25e6 \u03d52 is not super additive",
+    "formal": "superadditivity dropped, log-concavity retained",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "no stochastic ordering between X_{3:3} and Y_{3:3} (Figure 3(b))"
+  },
+  "quantifiers": "n = 3",
+  "numbers": "\u03b81 = 0.9, \u03b82 = 0.2; \u03d51(x) = e^{(1\u2212e^x)/\u03b81}, \u03d52(x) = (2/(e^x+1))^{1/\u03b82}",
+  "ambiguity": "Graphical evidence only.",
+  "adjudication": "adjudicated: Include, one record per printed case (A's split correct); both agree st ordering fails in both cases"
+ },
+ {
+  "paper": "doi:10.1016/j.orl.2020.12.009",
+  "claim": "Counterexample 4.2, case (a) \u2014 generator not log-concave",
+  "page": 16,
+  "quote": "Counterexample 4.2 Consider two parallel systems, each comprising of four dependent and heterogeneous components with respective reversed hazard rate functions r\u0303X4:4 (x) and r\u0303Y4:4 (x), with common baseline survival function F\u0304 (x) = e^{\u2212x^3}, x \u2265 0, \u03b1 = (0.2, 0.6, 1.5, 3.5), \u03b2 = (0.8, 0.9, 4.5, 5.5) so that \u03b1 \u227d^w \u03b2. First we take the common generator \u03d5(x) = (1/(ax + 1))^{1/a}, a = 0.2, which is not log-concave but \u03d5(1\u2212\u03d5)/\u03d5\u2032 is decreasing and convex. ... the reversed hazard rate ordering result in Theorem 4.2 is not attained.",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "PO model, baseline F\u0304(x) = e^{\u2212x^3}, common generator \u03d5(x) = (1/(ax+1))^{1/a}, a = 0.2",
+  "compared": "\u03b1 = (0.2, 0.6, 1.5, 3.5) vs \u03b2 = (0.8, 0.9, 4.5, 5.5) under weak supermajorization",
+  "hypotheses": [
+   {
+    "text": "\u03b1 \u227d^w \u03b2",
+    "formal": "weak supermajorization",
+    "source": "statement"
+   },
+   {
+    "text": "\u03d5 not log-concave (though \u03d5(1\u2212\u03d5)/\u03d5\u2032 is decreasing and convex)",
+    "formal": "log-concavity dropped",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "rh",
+   "direction": "no reversed hazard rate ordering between X_{4:4} and Y_{4:4}: reversed hazard rates cross in Figure 4(a)"
+  },
+  "quantifiers": "n = 4",
+  "numbers": "\u03b1 = (0.2,0.6,1.5,3.5), \u03b2 = (0.8,0.9,4.5,5.5), a = 0.2, F\u0304(x) = e^{\u2212x^3}",
+  "ambiguity": "Graphical evidence only.",
+  "adjudication": "adjudicated: Include, one record per printed case (A's split correct); both agree rh ordering fails in both cases"
+ },
+ {
+  "paper": "doi:10.1016/j.orl.2020.12.009",
+  "claim": "Counterexample 4.2, case (b) \u2014 \u03c6(1\u2212\u03c6)/\u03c6\u2032 neither decreasing nor convex",
+  "page": 16,
+  "quote": "Next we take \u03d5(x) = (2/(1 + e^x))^{1/a}, a = 0.2, which is log-concave but \u03d5(1\u2212\u03d5)/\u03d5\u2032 is neither decreasing nor convex. For both the cases r\u0303X4:4 (x) and r\u0303Y4:4 (x) are depicted in Figure 4(a) and 4(b) respectively for some finite range of x. From both the figures we observe that the reversed hazard rate ordering result in Theorem 4.2 is not attained.",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "PO model, baseline F\u0304(x) = e^{\u2212x^3}, common generator \u03d5(x) = (2/(1+e^x))^{1/a}, a = 0.2",
+  "compared": "\u03b1 = (0.2, 0.6, 1.5, 3.5) vs \u03b2 = (0.8, 0.9, 4.5, 5.5) under weak supermajorization",
+  "hypotheses": [
+   {
+    "text": "\u03b1 \u227d^w \u03b2",
+    "formal": "weak supermajorization",
+    "source": "statement"
+   },
+   {
+    "text": "\u03d5 log-concave but \u03d5(1\u2212\u03d5)/\u03d5\u2032 is neither decreasing nor convex",
+    "formal": "curvature/monotonicity condition dropped",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "rh",
+   "direction": "no reversed hazard rate ordering between X_{4:4} and Y_{4:4} (Figure 4(b))"
+  },
+  "quantifiers": "n = 4",
+  "numbers": "a = 0.2; \u03b1 = (0.2,0.6,1.5,3.5), \u03b2 = (0.8,0.9,4.5,5.5)",
+  "ambiguity": "Graphical evidence only.",
+  "adjudication": "adjudicated: Include, one record per printed case (A's split correct); both agree rh ordering fails in both cases"
+ },
+ {
+  "paper": "doi:10.1016/j.orl.2020.12.009",
+  "claim": "Lemma 2.4",
+  "page": 4,
+  "quote": "Lemma 2.4 [9] For two n-dimensional Archimedean copulas K\u03d51 and K\u03d52 , if \u03c62 \u25e6 \u03d51 is superadditive, then K\u03d51 (u) \u2264 K\u03d52 (u) for all u \u2208 [0, 1]n .",
+  "kind": "lemma",
+  "model": "other: Archimedean copulas",
+  "family": "n-dimensional Archimedean copulas with generators \u03d51, \u03d52",
+  "compared": "two copulas pointwise",
+  "hypotheses": [
+   {
+    "text": "\u03c62 \u25e6 \u03d51 is superadditive",
+    "formal": "\u03c62(\u03d51(x+y)) >= \u03c62(\u03d51(x)) + \u03c62(\u03d51(y)) (in the superadditive sense used here)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: pointwise copula (concordance) order",
+   "direction": "K_\u03d51(u) <= K_\u03d52(u) for all u \u2208 [0,1]^n"
+  },
+  "quantifiers": "all u \u2208 [0,1]^n",
+  "numbers": "",
+  "ambiguity": "Cited from [9] (Li and Fang). Orders two copulas pointwise \u2014 in scope per the audit's treatment of copula-ordering lemmas (cf. Lemma A.1 precedents in this batch).",
+  "adjudication": "adjudicated: Include per precedent: the lemma orders two copulas pointwise (concordance order), the engine for al"
+ },
+ {
+  "paper": "doi:10.1016/j.orl.2020.12.009",
   "claim": "Corollary 3.1",
   "page": 7,
   "quote": "Suppose the lifetime vectors X ~ PO(F-bar, alpha, phi) and Y ~ PO(F-bar, beta, phi). If phi is log-convex, then  alpha >=^p beta implies X_{1:n} <=st Y_{1:n}.",
@@ -481,66 +716,6 @@
  },
  {
   "paper": "doi:10.1016/j.orl.2020.12.009",
-  "claim": "Counterexample 3.1",
-  "page": 7,
-  "quote": "Consider two series systems, each comprising of three dependent and heterogeneous components with respective survival functions F\u0304_{X1:3}(x) = S1(F\u0304(x), alpha, phi_1) and F\u0304_{Y1:3}(x) = S1(F\u0304(x), beta, phi_2) with F\u0304(x) = e^{-x^{1.5}}, x >= 0, alpha = (2, 3, 5.5), beta = (2.5, 3.5, 3.8) so that alpha >=^p beta. First we take phi_1(x) = (2/(1+e^x))^{1/theta}, theta = 0.9 and phi_2(x) = e^{1-(1+x)^{1/eta}} with eta = 0.3 so that phi_2 o phi_1 is not super additive, and phi_1 and phi_2 are not log-convex. ... From this figure we observe that the stochastic ordering result in Theorem 3.1 is not attained.",
-  "kind": "counterexample",
-  "model": "series system",
-  "family": "PO model with baseline F\u0304(x) = e^{-x^{1.5}} (Weibull shape 1.5), two Archimedean generators",
-  "compared": "alpha = (2, 3, 5.5) vs beta = (2.5, 3.5, 3.8) satisfying p-larger order",
-  "hypotheses": [
-   {
-    "text": "alpha >=^p beta",
-    "formal": "product-order hypothesis of Theorem 3.1 retained",
-    "source": "statement"
-   },
-   {
-    "text": "phi_2 o phi_1 not superadditive; neither phi_1 nor phi_2 log-convex",
-    "formal": "sufficient conditions dropped",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "no st ordering between X_{1:3} and Y_{1:3}: survival functions cross in Figure 1"
-  },
-  "quantifiers": "n = 3",
-  "numbers": "alpha = (2,3,5.5), beta = (2.5,3.5,3.8), theta = 0.9, eta = 0.3, F\u0304(x) = e^{-x^{1.5}}",
-  "ambiguity": "Graphical evidence only (Figure 1, x in [0.8, 1.4]).",
-  "adjudication": "example record (pass a)+b"
- },
- {
-  "paper": "doi:10.1016/j.orl.2020.12.009",
-  "claim": "Counterexample 3.2, case (a) \u2014 non-log-concave generator",
-  "page": 11,
-  "quote": "Consider two series systems, each comprising of three dependent and heterogeneous components with respective hazard rate functions r_{X1:3}(x) and r_{Y1:3}(x), with common baseline survival function F\u0304(x) = e^{-(0.5x)^2}, x >= 0, alpha = (0.2, 0.4, 0.6), beta = (0.35, 0.55, 0.95) so that alpha >=^w beta. First we take the common generator phi(x) = log(e + x)^{-1/a}, a = 0.1, which is not log-concave but phi(1-phi)/phi' is decreasing and convex. ... From both the figures we observe that the hazard rate ordering result in Theorem 3.3 is not attained.",
-  "kind": "counterexample",
-  "model": "series system",
-  "family": "PO model, baseline F\u0304(x) = e^{-(0.5x)^2}, common generator phi(x) = log(e+x)^{-1/0.1}",
-  "compared": "alpha = (0.2, 0.4, 0.6) vs beta = (0.35, 0.55, 0.95) satisfying weak supermajorization",
-  "hypotheses": [
-   {
-    "text": "alpha >=^w beta",
-    "formal": "weak supermajorization holds (partial sums 0.2 <= 0.35, 0.6 <= 0.9, 1.2 <= 1.85)",
-    "source": "statement"
-   },
-   {
-    "text": "phi not log-concave (though phi(1-phi)/phi' is decreasing and convex)",
-    "formal": "one sufficient condition dropped",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "hr",
-   "direction": "no hr ordering between X_{1:3} and Y_{1:3}: hazard rates cross in Figure 2(a)"
-  },
-  "quantifiers": "n = 3",
-  "numbers": "alpha = (0.2,0.4,0.6), beta = (0.35,0.55,0.95), a = 0.1",
-  "ambiguity": "Graphical evidence only.",
-  "adjudication": "example record (pass a)"
- },
- {
-  "paper": "doi:10.1016/j.orl.2020.12.009",
   "claim": "Counterexample 3.2, case (b) \u2014 phi(1-phi)/phi' neither decreasing nor convex",
   "page": 11,
   "quote": "Next we take phi(x) = (2/(1 + e^x))^{1/a}, a = 0.2, which is log-concave but phi(1-phi)/phi' is neither decreasing nor convex. For both the cases r_{X1:3}(x) and r_{Y1:3}(x) are depicted in Figure 2(a) and 2(b) respectively ... the hazard rate ordering result in Theorem 3.3 is not attained.",
@@ -571,36 +746,6 @@
  },
  {
   "paper": "doi:10.1016/j.orl.2020.12.009",
-  "claim": "Counterexample 4.1, case (a) \u2014 neither generator log-concave",
-  "page": 14,
-  "quote": "Consider two parallel systems, each comprising of three dependent and heterogeneous components with respective distribution functions F_{X3:3}(x) = S2(F(x), alpha, phi_1) and F_{Y3:3}(x) = S2(F(x), beta, phi_2), where F(x) = 1 - e^{-x^{0.5}}, x >= 0, alpha = (0.9, 1.45, 2.15), beta = (1.2, 1.95, 2.65) so that alpha >=^w beta. First we take phi_1(x) = theta_1/log(x + e^{theta_1}) and phi_2(x) = e^{1-(1+x)^{1/theta_2}} with theta_1 = 0.9 and theta_2 = 8 so that neither phi_1 nor phi_2 is log-concave but phi_1 o phi_2 is super additive. ... the stochastic ordering result in Theorem 4.1 is not attained.",
-  "kind": "counterexample",
-  "model": "parallel system",
-  "family": "PO model, baseline F(x) = 1 - e^{-x^{0.5}}, different generators",
-  "compared": "alpha = (0.9, 1.45, 2.15) vs beta = (1.2, 1.95, 2.65) under weak supermajorization",
-  "hypotheses": [
-   {
-    "text": "alpha >=^w beta",
-    "formal": "weak supermajorization (partial sums 0.9 <= 1.2, 2.35 <= 3.15, 4.5 <= 5.8)",
-    "source": "statement"
-   },
-   {
-    "text": "neither phi_1 nor phi_2 log-concave; phi_1 o phi_2 superadditive",
-    "formal": "log-concavity dropped, superadditivity retained",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "no st ordering between X_{3:3} and Y_{3:3}: cdfs cross in Figure 3(a)"
-  },
-  "quantifiers": "n = 3",
-  "numbers": "alpha = (0.9,1.45,2.15), beta = (1.2,1.95,2.65), theta_1 = 0.9, theta_2 = 8, F(x) = 1 - e^{-x^{0.5}}",
-  "ambiguity": "Graphical evidence only.",
-  "adjudication": "example record (pass a)"
- },
- {
-  "paper": "doi:10.1016/j.orl.2020.12.009",
   "claim": "Counterexample 4.1, case (b) \u2014 phi_1 o phi_2 not superadditive",
   "page": 14,
   "quote": "Next we take phi_1(x) = e^{(1-e^x)/theta_1} and phi_2(x) = (2/(e^x + 1))^{1/theta_2} with theta_1 = 0.9 and theta_2 = 0.2 so that phi_1 is log-concave but phi_1 o phi_2 is not super additive. For both the cases F_{X3:3}(x) and F_{Y3:3}(x) are depicted in Figure 3(a) and 3(b) respectively ... the stochastic ordering result in Theorem 4.1 is not attained.",
@@ -626,36 +771,6 @@
   },
   "quantifiers": "n = 3",
   "numbers": "theta_1 = 0.9, theta_2 = 0.2",
-  "ambiguity": "Graphical evidence only.",
-  "adjudication": "example record (pass a)"
- },
- {
-  "paper": "doi:10.1016/j.orl.2020.12.009",
-  "claim": "Counterexample 4.2, case (a) \u2014 generator not log-concave",
-  "page": 16,
-  "quote": "Consider two parallel systems, each comprising of four dependent and heterogeneous components with respective reversed hazard rate functions r\u0303_{X4:4}(x) and r\u0303_{Y4:4}(x), with common baseline survival function F\u0304(x) = e^{-x^3}, x >= 0, alpha = (0.2, 0.6, 1.5, 3.5), beta = (0.8, 0.9, 4.5, 5.5) so that alpha >=^w beta. First we take the common generator phi(x) = (1/(ax + 1))^{1/a}, a = 0.2, which is not log-concave but phi(1-phi)/phi' is decreasing and convex. ... the reversed hazard rate ordering result in Theorem 4.2 is not attained.",
-  "kind": "counterexample",
-  "model": "parallel system",
-  "family": "PO model, baseline F\u0304(x) = e^{-x^3}, common generator phi(x) = (1/(0.2x+1))^5",
-  "compared": "alpha = (0.2, 0.6, 1.5, 3.5) vs beta = (0.8, 0.9, 4.5, 5.5) under weak supermajorization",
-  "hypotheses": [
-   {
-    "text": "alpha >=^w beta",
-    "formal": "weak supermajorization",
-    "source": "statement"
-   },
-   {
-    "text": "phi not log-concave (though phi(1-phi)/phi' decreasing convex)",
-    "formal": "log-concavity dropped",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "rh",
-   "direction": "no rhr ordering between X_{4:4} and Y_{4:4}: reversed hazard rates cross in Figure 4(a)"
-  },
-  "quantifiers": "n = 4",
-  "numbers": "alpha = (0.2,0.6,1.5,3.5), beta = (0.8,0.9,4.5,5.5), a = 0.2, F\u0304(x) = e^{-x^3}",
   "ambiguity": "Graphical evidence only.",
   "adjudication": "example record (pass a)"
  },

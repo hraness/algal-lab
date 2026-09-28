@@ -1,6 +1,426 @@
 [
  {
   "paper": "arxiv:1704.03656",
+  "claim": "Corollary 3.10 (0 < alpha <= 1 branch)",
+  "page": 13,
+  "quote": "Corollary 3.10. Let X1, ..., Xn (X1*, ..., Xn*) be independent random variables with Xi ~ GE(alpha, lambda_i) (Xi* ~ GE(alpha, lambda*_i)), i = 1, ..., n. If 0 < alpha <= 1 (alpha >= 1) and (lambda_1, ..., lambda_n) >=^w (>=_w) (lambda*_1, ..., lambda*_n), then X_{1:n} >=st (<=st) X*_{1:n}.",
+  "kind": "corollary",
+  "model": "series system",
+  "family": "Generalized exponential GE(alpha, lambda_i), common shape alpha",
+  "compared": "scale vectors lambda vs lambda* under weak supermajorization",
+  "hypotheses": [
+   {
+    "text": "0 < alpha <= 1",
+    "formal": "0 < alpha <= 1",
+    "source": "statement"
+   },
+   {
+    "text": "(lambda_1,...,lambda_n) >=^w (lambda*_1,...,lambda*_n)",
+    "formal": "weak supermajorization of scales",
+    "source": "statement"
+   },
+   {
+    "text": "q(alpha, x) is decreasing in x for 0 < alpha <= 1 (via Lemma 2.1 for GE)",
+    "formal": "q(alpha,x) = h(alpha, 1 - exp{-x}) decreasing",
+    "source": "earlier theorem 3.9 + lemma 2.1"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X_{1:n} >=st X*_{1:n} (X* side smaller)"
+  },
+  "quantifiers": "n >= 2; i = 1,...,n",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Corollary 3.10 prints a two-branch statement: >=st under 0<alpha<=1 + weak supermajorization, <=st u"
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Corollary 3.10 (alpha >= 1 branch)",
+  "page": 13,
+  "quote": "Corollary 3.10. Let X1, ..., Xn (X1*, ..., Xn*) be independent random variables with Xi ~ GE(alpha, lambda_i) (Xi* ~ GE(alpha, lambda*_i)), i = 1, ..., n. If 0 < alpha <= 1 (alpha >= 1) and (lambda_1, ..., lambda_n) >=^w (>=_w) (lambda*_1, ..., lambda*_n), then X_{1:n} >=st (<=st) X*_{1:n}.",
+  "kind": "corollary",
+  "model": "series system",
+  "family": "Generalized exponential GE(alpha, lambda_i), common shape alpha",
+  "compared": "scale vectors lambda vs lambda* under weak submajorization",
+  "hypotheses": [
+   {
+    "text": "alpha >= 1",
+    "formal": "alpha >= 1",
+    "source": "statement"
+   },
+   {
+    "text": "(lambda_1,...,lambda_n) >=_w (lambda*_1,...,lambda*_n)",
+    "formal": "weak submajorization of scales",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X_{1:n} <=st X*_{1:n} (X side smaller)"
+  },
+  "quantifiers": "n >= 2; i = 1,...,n",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Corollary 3.10 prints a two-branch statement: >=st under 0<alpha<=1 + weak supermajorization, <=st u"
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Example 3.11(i)",
+  "page": 13,
+  "quote": "Example 3.11. Let (X1, X2) ((X1*, X2*)) be a vector of independent heterogeneous GE random variables. (i) Set alpha = 2, (lambda_1, lambda_2) = (4, 0.5) and (lambda*_1, lambda*_2) = (2, 3). Obviously (lambda_1, lambda_2) >=^w_exp (lambda*_1, lambda*_2), however X_{1:2} and X*_{1:2} are not ordered in the usual stochastic order as can be seen in Fig. 1.",
+  "kind": "counterexample",
+  "model": "series system",
+  "family": "GE(alpha, lambda_i), alpha = 2",
+  "compared": "scale pairs (4, 0.5) vs (2, 3) under exponential weak majorization",
+  "hypotheses": [
+   {
+    "text": "(lambda_1, lambda_2) >=^w_exp (lambda*_1, lambda*_2)",
+    "formal": "exponential weak majorization holds",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X_{1:2} and X*_{1:2} are not ordered in the usual stochastic order (survival functions cross, Fig. 1); refutes the conjecture that weak majorization upgrades Corollary 3.10 for alpha >= 1"
+  },
+  "quantifiers": "n = 2",
+  "numbers": "alpha = 2; lambda = (4, 0.5); lambda* = (2, 3); Fig. 1",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Example 3.11(i) is a counterexample: survival functions cross in Fig. 1, so no st order either direc"
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Theorem 3.1(i) (strictly decreasing f)",
+  "page": 7,
+  "quote": "Theorem 3.1. Let X1, ..., Xn (X1*, ..., Xn*) be independent random variables where Xi ~ Fre(mu, lambda_i, alpha) (Xi* ~ Fre(mu, lambda*_i, alpha)), i = 1, ..., n. Let us consider an strictly decreasing (increasing) function f. (i) If (f^{-1}(.))' (f^{-1}(.))^{alpha-1} is increasing (decreasing) and (lambda_1, ..., lambda_n) >=^wf (lambda*_1, ..., lambda*_n) then X_{n:n} >=rh (<=rh) X*_{n:n}.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "Frechet Fre(mu, lambda_i, alpha), common location mu and shape alpha, scales lambda_i vs lambda*_i",
+  "compared": "scale vectors under weak f-majorization",
+  "hypotheses": [
+   {
+    "text": "an strictly decreasing function f",
+    "formal": "f strictly decreasing",
+    "source": "statement"
+   },
+   {
+    "text": "(f^{-1}(.))' (f^{-1}(.))^{alpha-1} is increasing",
+    "formal": "(f^{-1})'(x) (f^{-1}(x))^{alpha-1} increasing in x",
+    "source": "statement"
+   },
+   {
+    "text": "(lambda_1,...,lambda_n) >=^wf (lambda*_1,...,lambda*_n)",
+    "formal": "weak f-majorization of scales",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "rh",
+   "direction": "X_{n:n} >=rh X*_{n:n} (X* side rh-smaller)"
+  },
+  "quantifiers": "n >= 2; x > 0",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Theorem 3.1(i) is a two-branch print (decreasing f => >=rh; increasing f => <=rh); one record per br"
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Theorem 3.1(i) (strictly increasing f)",
+  "page": 7,
+  "quote": "Theorem 3.1. Let X1, ..., Xn (X1*, ..., Xn*) be independent random variables where Xi ~ Fre(mu, lambda_i, alpha) (Xi* ~ Fre(mu, lambda*_i, alpha)), i = 1, ..., n. Let us consider an strictly decreasing (increasing) function f. (i) If (f^{-1}(.))' (f^{-1}(.))^{alpha-1} is increasing (decreasing) and (lambda_1, ..., lambda_n) >=^wf (lambda*_1, ..., lambda*_n) then X_{n:n} >=rh (<=rh) X*_{n:n}.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "Frechet Fre(mu, lambda_i, alpha), common location mu and shape alpha",
+  "compared": "scale vectors under weak f-majorization",
+  "hypotheses": [
+   {
+    "text": "an increasing function f",
+    "formal": "f strictly increasing",
+    "source": "statement"
+   },
+   {
+    "text": "(f^{-1}(.))' (f^{-1}(.))^{alpha-1} is decreasing",
+    "formal": "(f^{-1})'(x) (f^{-1}(x))^{alpha-1} decreasing",
+    "source": "statement"
+   },
+   {
+    "text": "(lambda_1,...,lambda_n) >=^wf (lambda*_1,...,lambda*_n)",
+    "formal": "weak f-majorization of scales",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "rh",
+   "direction": "X_{n:n} <=rh X*_{n:n} (X side rh-smaller)"
+  },
+  "quantifiers": "n >= 2; x > 0",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Theorem 3.1(i) is a two-branch print (decreasing f => >=rh; increasing f => <=rh); one record per br"
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Theorem 3.1(ii) (strictly decreasing f)",
+  "page": 7,
+  "quote": "(ii) If (f^{-1}(.))' (f^{-1}(.))^{alpha-1} is decreasing (increasing) and (lambda*_1, ..., lambda*_n) >=^wf (lambda_1, ..., lambda_n) then X_{n:n} >=rh (<=rh) X*_{n:n}.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "Frechet Fre(mu, lambda_i, alpha), common location mu and shape alpha",
+  "compared": "scale vectors under weak f-majorization, lambda* majorizing lambda",
+  "hypotheses": [
+   {
+    "text": "an strictly decreasing function f",
+    "formal": "f strictly decreasing",
+    "source": "statement"
+   },
+   {
+    "text": "(f^{-1}(.))' (f^{-1}(.))^{alpha-1} is decreasing",
+    "formal": "decreasing product condition",
+    "source": "statement"
+   },
+   {
+    "text": "(lambda*_1,...,lambda*_n) >=^wf (lambda_1,...,lambda_n)",
+    "formal": "lambda* weakly f-majorizes lambda",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "rh",
+   "direction": "X_{n:n} >=rh X*_{n:n} (X* side rh-smaller)"
+  },
+  "quantifiers": "n >= 2; x > 0",
+  "numbers": "",
+  "ambiguity": "Part (ii) flips the majorization direction relative to part (i) (lambda* >=^wf lambda) while keeping the same printed order direction.",
+  "adjudication": "adjudicated: Theorem 3.1(ii) prints the same >=rh / <=rh split with lambda* majorizing lambda; one record per bra"
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Theorem 3.1(ii) (strictly increasing f)",
+  "page": 7,
+  "quote": "(ii) If (f^{-1}(.))' (f^{-1}(.))^{alpha-1} is decreasing (increasing) and (lambda*_1, ..., lambda*_n) >=^wf (lambda_1, ..., lambda_n) then X_{n:n} >=rh (<=rh) X*_{n:n}.",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "Frechet Fre(mu, lambda_i, alpha), common location mu and shape alpha",
+  "compared": "scale vectors under weak f-majorization, lambda* majorizing lambda",
+  "hypotheses": [
+   {
+    "text": "an increasing function f",
+    "formal": "f strictly increasing",
+    "source": "statement"
+   },
+   {
+    "text": "(f^{-1}(.))' (f^{-1}(.))^{alpha-1} is increasing",
+    "formal": "increasing product condition",
+    "source": "statement"
+   },
+   {
+    "text": "(lambda*_1,...,lambda*_n) >=^wf (lambda_1,...,lambda_n)",
+    "formal": "lambda* weakly f-majorizes lambda",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "rh",
+   "direction": "X_{n:n} <=rh X*_{n:n} (X side rh-smaller)"
+  },
+  "quantifiers": "n >= 2; x > 0",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Theorem 3.1(ii) prints the same >=rh / <=rh split with lambda* majorizing lambda; one record per bra"
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Theorem 3.5(i) (decreasing branch)",
+  "page": 9,
+  "quote": "Theorem 3.5. Suppose Xi and Xi* as in the setting of Theorem 3.5. If xr(x) is increasing in x, x^2 r'(x) is decreasing (increasing) in x and (lambda_1, ..., lambda_n) >=^w (>=_w) (lambda*_1, ..., lambda*_n), then (i) X_{1:n} >=hr (<=hr) X*_{1:n}.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "scale model Xi ~ G(lambda_i x), lambda_i > 0, r = hazard rate of baseline G",
+  "compared": "scale vectors under weak supermajorization",
+  "hypotheses": [
+   {
+    "text": "xr(x) is increasing in x",
+    "formal": "x r(x) increasing",
+    "source": "statement"
+   },
+   {
+    "text": "x^2 r'(x) is decreasing in x",
+    "formal": "x^2 r'(x) decreasing",
+    "source": "statement"
+   },
+   {
+    "text": "(lambda_1,...,lambda_n) >=^w (lambda*_1,...,lambda*_n)",
+    "formal": "weak supermajorization",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "X_{1:n} >=hr X*_{1:n} (X* side hr-smaller)"
+  },
+  "quantifiers": "n >= 2; x > 0",
+  "numbers": "",
+  "ambiguity": "'as in the setting of Theorem 3.5' is a self-reference typo; Section 3.2 defines the intended scale-model setting Xi ~ G(lambda_i x).",
+  "adjudication": "adjudicated: Theorem 3.5(i) prints >=hr for decreasing x^2r'(x) + >=^w and <=hr for increasing + >=_w; one record"
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Theorem 3.5(i) (increasing branch)",
+  "page": 9,
+  "quote": "Theorem 3.5. Suppose Xi and Xi* as in the setting of Theorem 3.5. If xr(x) is increasing in x, x^2 r'(x) is decreasing (increasing) in x and (lambda_1, ..., lambda_n) >=^w (>=_w) (lambda*_1, ..., lambda*_n), then (i) X_{1:n} >=hr (<=hr) X*_{1:n}.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "scale model Xi ~ G(lambda_i x), lambda_i > 0",
+  "compared": "scale vectors under weak submajorization",
+  "hypotheses": [
+   {
+    "text": "xr(x) is increasing in x",
+    "formal": "x r(x) increasing",
+    "source": "statement"
+   },
+   {
+    "text": "x^2 r'(x) is increasing in x",
+    "formal": "x^2 r'(x) increasing",
+    "source": "statement"
+   },
+   {
+    "text": "(lambda_1,...,lambda_n) >=_w (lambda*_1,...,lambda*_n)",
+    "formal": "weak submajorization",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "X_{1:n} <=hr X*_{1:n} (X side hr-smaller)"
+  },
+  "quantifiers": "n >= 2; x > 0",
+  "numbers": "",
+  "ambiguity": "Parenthetical branch of the same statement.",
+  "adjudication": "adjudicated: Theorem 3.5(i) prints >=hr for decreasing x^2r'(x) + >=^w and <=hr for increasing + >=_w; one record"
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Theorem 3.5(ii) (decreasing branch)",
+  "page": 9,
+  "quote": "(ii) if r(x) is decreasing then X_{1:n} >=disp (<=disp) X*_{1:n}.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "scale model Xi ~ G(lambda_i x), lambda_i > 0",
+  "compared": "scale vectors under weak supermajorization",
+  "hypotheses": [
+   {
+    "text": "if r(x) is decreasing",
+    "formal": "baseline hazard decreasing (DFR)",
+    "source": "statement"
+   },
+   {
+    "text": "xr(x) increasing, x^2 r'(x) decreasing, lambda >=^w lambda* (part (i) hypotheses carried over)",
+    "formal": "part (i) conditions",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "disp",
+   "direction": "X_{1:n} >=disp X*_{1:n} (X* side disp-smaller)"
+  },
+  "quantifiers": "n >= 2; x > 0",
+  "numbers": "",
+  "ambiguity": "Dispersive conclusion follows part (i) via cited implications (Theorem 2.1 of [1], Theorem 1 of [4]).",
+  "adjudication": "adjudicated: Theorem 3.5(ii) prints >=disp / <=disp branches matching part (i)'s case split; one record per branc"
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Theorem 3.5(ii) (increasing branch)",
+  "page": 9,
+  "quote": "(ii) if r(x) is decreasing then X_{1:n} >=disp (<=disp) X*_{1:n}.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "scale model Xi ~ G(lambda_i x), lambda_i > 0",
+  "compared": "scale vectors under weak submajorization",
+  "hypotheses": [
+   {
+    "text": "if r(x) is decreasing",
+    "formal": "baseline hazard decreasing",
+    "source": "statement"
+   },
+   {
+    "text": "xr(x) increasing, x^2 r'(x) increasing, lambda >=_w lambda* (part (i) hypotheses carried over)",
+    "formal": "part (i) parenthetical conditions",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "disp",
+   "direction": "X_{1:n} <=disp X*_{1:n} (X side disp-smaller)"
+  },
+  "quantifiers": "n >= 2; x > 0",
+  "numbers": "",
+  "ambiguity": "Parenthetical branch of the same statement.",
+  "adjudication": "adjudicated: Theorem 3.5(ii) prints >=disp / <=disp branches matching part (i)'s case split; one record per branc"
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Theorem 3.9 (decreasing branch)",
+  "page": 12,
+  "quote": "Theorem 3.9. Let X1, ..., Xn (X1*, ..., Xn*) be independent random variables with Xi ~ ES(alpha, lambda_i) (Xi* ~ ES(alpha, lambda*_i)), i = 1, ..., n. If q(alpha, x) = alpha r~(x) G^alpha(x)/(1 - G^alpha(x)) is decreasing (increasing) in x, lambda >=^w (>=_w) lambda*, then X_{1:n} >=st (<=st) X*_{1:n}.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "exponentiated scale ES(alpha, lambda_i): survival factor (1 - G(lambda_i x))^alpha, common shape alpha",
+  "compared": "scale vectors under weak supermajorization",
+  "hypotheses": [
+   {
+    "text": "q(alpha, x) is decreasing in x",
+    "formal": "q(alpha,x) = alpha r~(x) G^alpha(x)/(1-G^alpha(x)) decreasing",
+    "source": "statement"
+   },
+   {
+    "text": "lambda >=^w lambda*",
+    "formal": "weak supermajorization of scales",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X_{1:n} >=st X*_{1:n} (X* side smaller)"
+  },
+  "quantifiers": "n >= 2; x > 0",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Theorem 3.9 prints >=st / <=st branches for decreasing/increasing q with >=^w / >=_w; one record per"
+ },
+ {
+  "paper": "arxiv:1704.03656",
+  "claim": "Theorem 3.9 (increasing branch)",
+  "page": 12,
+  "quote": "Theorem 3.9. Let X1, ..., Xn (X1*, ..., Xn*) be independent random variables with Xi ~ ES(alpha, lambda_i) (Xi* ~ ES(alpha, lambda*_i)), i = 1, ..., n. If q(alpha, x) = alpha r~(x) G^alpha(x)/(1 - G^alpha(x)) is decreasing (increasing) in x, lambda >=^w (>=_w) lambda*, then X_{1:n} >=st (<=st) X*_{1:n}.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "exponentiated scale ES(alpha, lambda_i), common shape alpha",
+  "compared": "scale vectors under weak submajorization",
+  "hypotheses": [
+   {
+    "text": "q(alpha, x) is increasing in x",
+    "formal": "q(alpha,x) increasing",
+    "source": "statement"
+   },
+   {
+    "text": "lambda >=_w lambda*",
+    "formal": "weak submajorization of scales",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X_{1:n} <=st X*_{1:n} (X side smaller)"
+  },
+  "quantifiers": "n >= 2; x > 0",
+  "numbers": "",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Theorem 3.9 prints >=st / <=st branches for decreasing/increasing q with >=^w / >=_w; one record per"
+ },
+ {
+  "paper": "arxiv:1704.03656",
   "claim": "Corollary 3.13",
   "page": 16,
   "quote": "Corollary 3.13. For X ~ ES(\u03b1, \u03bb, \u03c61) and X* ~ ES(\u03b1*, \u03bb, \u03c62), if \u03c61 or \u03c62 is log-convex, and \u03c82 \u25e6 \u03c61 is super-additive, then \u03b1 \u227d^w_log \u03b1* implies Xn:n \u2264st Xn:n*.",
@@ -408,35 +828,5 @@
   "numbers": "",
   "ambiguity": "\u227d^w (weak supermajorization) verified from rendered PDF page 11. Section preamble notes result also true under weak f-supermajorization for nonnegative strictly increasing convex f (Lemma 2.2).",
   "adjudication": "agreed"
- },
- {
-  "paper": "arxiv:1704.03656",
-  "claim": "Example 3.11(i)",
-  "page": 13,
-  "quote": "Example 3.11. Let (X1, X2) ((X1*, X2*)) be a vector of independent heterogeneous GE random variables. (i) Set \u03b1 = 2, (\u03bb1, \u03bb2) = (4, 0.5) and (\u03bb1*, \u03bb2*) = (2, 3). Obviously (\u03bb1, \u03bb2) \u227d^w_exp (\u03bb1*, \u03bb2*), however X1:2 and X1:2* are not ordered in the usual stochastic order as can be seen in Fig. 1.",
-  "kind": "counterexample",
-  "model": "series system",
-  "family": "Generalized exponential GE(\u03b1, \u03bb), n = 2",
-  "compared": "\u03bb = (4, 0.5) vs \u03bb* = (2, 3), common \u03b1 = 2",
-  "hypotheses": [
-   {
-    "text": "Set \u03b1 = 2, (\u03bb1, \u03bb2) = (4, 0.5) and (\u03bb1*, \u03bb2*) = (2, 3)",
-    "formal": "GE(2, \u03bbi) vs GE(2, \u03bbi*)",
-    "source": "statement"
-   },
-   {
-    "text": "(\u03bb1, \u03bb2) \u227d^w_exp (\u03bb1*, \u03bb2*)",
-    "formal": "\u03bb weakly exp-majorized by \u03bb* (Definition 2.4)",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "X1:2 and X1:2* not ordered in usual stochastic order (survival functions cross, Fig. 1)"
-  },
-  "quantifiers": "n = 2",
-  "numbers": "\u03b1 = 2; (\u03bb1, \u03bb2) = (4, 0.5); (\u03bb1*, \u03bb2*) = (2, 3); Figure 1 plots survival functions crossing on x \u2208 (0, 2.5)",
-  "ambiguity": "Labeled 'Example' but functions as a counterexample to the conjecture that weak (exp-) majorization of scales gives st order for \u03b1 \u2265 1. exp-majorization symbol \u227d^w_exp verified from rendered PDF.",
-  "adjudication": "example record (pass a)+b"
  }
 ]

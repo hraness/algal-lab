@@ -1,0 +1,151 @@
+[
+ {
+  "queue_claim": "corollary1.1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3390/fractalfract9060388",
+    "claim": "Corollary 1, part 1",
+    "page": 13,
+    "quote": "Corollary 1. 1. Assume that Y(k) and Z(K) denote the Kth order statistic from samples Y1, Y2, . . . , Ys and Z1, Z2, . . . , Zs, respectively, both of size s. If Y ≤sto Z, then Y(k) ≤sto Z(k), which implies RFGxΦν(Y(k)) ≥ RFGxΦν(Z(k)) for all k = 1, 2, . . . , s, ν ≥ 1.",
+    "kind": "corollary",
+    "model": "order statistic",
+    "family": "general (same marginals Y vs Z), samples of size s",
+    "compared": "kth order statistics of two st-ordered samples",
+    "hypotheses": [
+     {"text": "If Y ≤sto Z", "formal": "usual stochastic order between the parent variables", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y(k) <=st Z(k) (extropy consequence RFGxΦν(Y(k)) >= RFGxΦν(Z(k)) is secondary)"},
+    "quantifiers": "all k = 1,...,s; ν >= 1",
+    "numbers": "",
+    "ambiguity": "Corollary of Theorem 6 (st order is preserved to order statistics); the extropy inequality is a consequence, not a distributional order."
+   }
+  ],
+  "note": "Corollary 1 part 1 prints Y(k) <=sto Z(k) under Y <=sto Z — in-scope st conclusion; both passes agree."
+ },
+ {
+  "queue_claim": "corollary1.2",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3390/fractalfract9060388",
+    "claim": "Corollary 1, part 2",
+    "page": 13,
+    "quote": "2. Assume that Us and Vs correspond to the sth record values from the sequences {Ys, s ≥ 1} and {Zs, s ≥ 1}, respectively. When Y ≤sto Z, it follows that Us ≤sto Vs, and consequently, RFGxΦν(Us) ≥ RFGxΦν(Vs) holds for k = 1, 2, . . . , s, ν ≥ 1.",
+    "kind": "corollary",
+    "model": "other: record values",
+    "family": "general (same marginals Y vs Z), record values of sequences",
+    "compared": "sth record values of two st-ordered sequences",
+    "hypotheses": [
+     {"text": "When Y ≤sto Z", "formal": "usual stochastic order between the parent variables", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Us <=st Vs (extropy consequence RFGxΦν(Us) >= RFGxΦν(Vs))"},
+    "quantifiers": "s >= 1; ν >= 1",
+    "numbers": "",
+    "ambiguity": "Extracted only by pass B; part 2 of the same corollary."
+   }
+  ],
+  "note": "Corollary 1 part 2 prints Us <=sto Vs for record values — in-scope st conclusion; include."
+ },
+ {
+  "queue_claim": "remark6",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.3390/fractalfract9060388",
+    "claim": "Remark 6 (gamma example, lr part)",
+    "page": 13,
+    "quote": "For instance, if Y has a gamma distribution with form parameter α*, it is simple to demonstrate that for α1* < α2*, Yα1* ≤lro Yα2*. Consequently, Yα1* ≤sto Yα2*. RFGxΦν(Yα1*) ≤ RFGxΦν(Yα2*) is what we have.",
+    "kind": "example",
+    "model": "single",
+    "family": "gamma distribution, shape parameter α*",
+    "compared": "two gamma variables with shapes α1* < α2*",
+    "hypotheses": [
+     {"text": "α1* < α2*", "formal": "ordered shape parameters", "source": "statement"}
+    ],
+    "conclusion": {"order": "lr", "direction": "Y(α1*) <=lr Y(α2*)"},
+    "quantifiers": "α1* < α2*; ν >= 1",
+    "numbers": "",
+    "ambiguity": "Printed inside Remark 6 as an application of Theorem 6; the extropy inequality follows via the st consequence."
+   },
+   {
+    "paper": "doi:10.3390/fractalfract9060388",
+    "claim": "Remark 6 (gamma example, st part)",
+    "page": 13,
+    "quote": "For instance, if Y has a gamma distribution with form parameter α*, it is simple to demonstrate that for α1* < α2*, Yα1* ≤lro Yα2*. Consequently, Yα1* ≤sto Yα2*. RFGxΦν(Yα1*) ≤ RFGxΦν(Yα2*) is what we have.",
+    "kind": "example",
+    "model": "single",
+    "family": "gamma distribution, shape parameter α*",
+    "compared": "two gamma variables with shapes α1* < α2*",
+    "hypotheses": [
+     {"text": "α1* < α2*", "formal": "ordered shape parameters", "source": "statement"},
+     {"text": "Yα1* ≤lro Yα2* ⟹ Yα1* ≤sto Yα2*", "formal": "lr implies st", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y(α1*) <=st Y(α2*)"},
+    "quantifiers": "α1* < α2*",
+    "numbers": "",
+    "ambiguity": "st stated as the printed consequence of the lr claim."
+   },
+   {
+    "paper": "doi:10.3390/fractalfract9060388",
+    "claim": "Remark 6 (Weibull example, disp part)",
+    "page": 13,
+    "quote": "For α1 < α2, Yα1 ≥dispo Yα2, and therefore Yα1 ≥sto Yα2, if Y has a Weibull distribution with a shape parameter α. RFGxΦν(Yα1) ≥ RFGxΦν(Yα2), as a result.",
+    "kind": "example",
+    "model": "single",
+    "family": "Weibull distribution, shape parameter α",
+    "compared": "two Weibull variables with shapes α1 < α2",
+    "hypotheses": [
+     {"text": "For α1 < α2", "formal": "ordered shape parameters", "source": "statement"}
+    ],
+    "conclusion": {"order": "disp", "direction": "Y(α1) >=disp Y(α2) (i.e., Y(α2) smaller in dispersive order)"},
+    "quantifiers": "α1 < α2; ν >= 1",
+    "numbers": "",
+    "ambiguity": "Printed inside Remark 6; dispersive order ≥dispo asserted for the Weibull shape ordering."
+   },
+   {
+    "paper": "doi:10.3390/fractalfract9060388",
+    "claim": "Remark 6 (Weibull example, st part)",
+    "page": 13,
+    "quote": "For α1 < α2, Yα1 ≥dispo Yα2, and therefore Yα1 ≥sto Yα2, if Y has a Weibull distribution with a shape parameter α. RFGxΦν(Yα1) ≥ RFGxΦν(Yα2), as a result.",
+    "kind": "example",
+    "model": "single",
+    "family": "Weibull distribution, shape parameter α",
+    "compared": "two Weibull variables with shapes α1 < α2",
+    "hypotheses": [
+     {"text": "For α1 < α2", "formal": "ordered shape parameters", "source": "statement"},
+     {"text": "Yα1 ≥dispo Yα2 ⟹ Yα1 ≥sto Yα2", "formal": "disp implies st (equal right support ends)", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y(α1) >=st Y(α2)"},
+    "quantifiers": "α1 < α2",
+    "numbers": "",
+    "ambiguity": "st stated as the printed consequence of the disp claim."
+   }
+  ],
+  "note": "Remark 6 prints two family-specific ordering examples — gamma (lr hence st) and Weibull (disp hence st); split per order, four records."
+ },
+ {
+  "queue_claim": "theorem5",
+  "decision": "exclude",
+  "records": [],
+  "note": "Theorem 5's conclusion is an inequality between scalar extropy functionals (RFGxΦν), not an ordering of two distributions — the icv order is only the hypothesis. Out of scope per spec."
+ },
+ {
+  "queue_claim": "theorem6",
+  "decision": "exclude",
+  "records": [],
+  "note": "Theorem 6's conclusion is an extropy inequality RFGxΦν(Y1) <= RFGxΦν(Y2); the st order is only the hypothesis — not a distributional-order conclusion. Out of scope."
+ },
+ {
+  "queue_claim": "theorem7i",
+  "decision": "exclude",
+  "records": [],
+  "note": "Theorem 7(i) bounds RFGxΦν(Y1+Y2) by min of extropies — a functional inequality, not a distributional ordering. Out of scope."
+ },
+ {
+  "queue_claim": "theorem7ii",
+  "decision": "exclude",
+  "records": [],
+  "note": "Theorem 7(ii) bounds RFGxΦν(Y1+Y2) by the sum of extropies — a functional inequality, not a distributional ordering. Out of scope."
+ }
+]

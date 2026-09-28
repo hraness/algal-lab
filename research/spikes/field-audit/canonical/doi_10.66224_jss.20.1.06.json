@@ -1,6 +1,231 @@
 [
  {
   "paper": "doi:10.66224/jss.20.1.06",
+  "claim": "Example 1",
+  "page": 139,
+  "quote": "\u0645\u062b\u0627\u0644 \u06f1. \u0641\u0631\u0636 \u06a9\u0646\u06cc\u062f \u062a\u0627\u0628\u0639 \u0628\u0642\u0627\u06cc \u067e\u0627\u06cc\u0647 \u0628\u0647\u200c\u0635\u0648\u0631\u062a F\u0304(x) = 1/x, x \u2265 1 \u0628\u0627\u0634\u062f. \u0628\u0647 \u0633\u0627\u062f\u06af\u06cc \u0645\u06cc\u200c\u062a\u0648\u0627\u0646 \u0646\u0634\u0627\u0646 \u062f\u0627\u062f F\u0304^\u03b1(x/\u03b1) \u0628\u0647\u200c\u0627\u0632\u0627\u06cc \u03b1 \u2265 x \u2265 1 \u062a\u0627\u0628\u0639\u06cc \u0635\u0639\u0648\u062f\u06cc \u0648 \u0644\u06af-\u0645\u062d\u062f\u0628 \u0646\u0633\u0628\u062a \u0628\u0647 \u03b1 \u0627\u0633\u062a. \u0647\u0645\u0686\u0646\u06cc\u0646 \u062a\u0627\u0628\u0639 \u0645\u0648\u0644\u062f \u0645\u0641\u0635\u0644 \u0639\u0644\u06cc-\u0645\u06cc\u062e\u0627\u0626\u06cc\u0644-\u062d\u0642 \u03c6(u) = u^{1\u2212\u03b4}/(e^u \u2212 \u03b4) \u0631\u0627 \u062f\u0631 \u0646\u0638\u0631 \u0628\u06af\u06cc\u0631\u06cc\u062f \u06a9\u0647 \u03c8(u) = log((1\u2212\u03b4+u\u03b4)/u), u \u2208 (0,1], \u03b4 \u2208 [\u22121,1]. ... \u0628\u0647\u200c\u0627\u0632\u0627\u06cc \u03b4 \u2208 (0,1) (\u03b4 = 0.8) \u062a\u0627\u0628\u0639 u\u03c8\u2032(1\u2212u) = u(\u03b4\u22121)/((1\u2212u)(1\u2212\u03b4u)) \u062a\u0627\u0628\u0639\u06cc \u0646\u0632\u0648\u0644\u06cc \u0628\u0631\u062d\u0633\u0628 u \u0627\u0633\u062a. \u0628\u0647\u200c\u0627\u0632\u0627\u06cc p = (0.72, 0.18, 0.02), \u03b1 = (37, 24, 5) \u0648 \u03bb = (7, 4, 2) \u062f\u0627\u0631\u06cc\u0645 \u03b1 \u227c^w \u03bb. \u062a\u0648\u0627\u0628\u0639 \u0628\u0642\u0627\u06cc X^p_{3:3} \u0648 Y^p_{3:3} \u062f\u0631 \u0634\u06a9\u0644 \u06f1(\u0627\u0644\u0641) \u0646\u0645\u0627\u06cc\u0634 \u062f\u0627\u062f\u0647 \u0634\u062f\u0647 \u0627\u0633\u062a \u06a9\u0647 \u0646\u0627\u0628\u0631\u0627\u0628\u0631\u06cc \u062a\u0635\u0627\u062f\u0641\u06cc X^p_{3:3} \u2a7dst Y^p_{3:3} \u0631\u0627 \u0646\u062a\u06cc\u062c\u0647 \u0645\u06cc\u200c\u062f\u0647\u062f.",
+  "kind": "example",
+  "model": "parallel system",
+  "family": "SAH marginals F\u0304^{\u03b1_i}(x/\u03b1_i)e^{\u2212\u03b8_i x} with Pareto-type baseline F\u0304(x) = 1/x, x >= 1; Ali-Mikhail-Haq copula generator \u03c6(u) = u^{1\u2212\u03b4}/(e^u \u2212 \u03b4), \u03b4 = 0.8; Bernoulli shocks",
+  "compared": "scale vectors \u03b1 = (37,24,5) vs \u03bb = (7,4,2); common \u03b8, common shock vector p = (0.72,0.18,0.02) \u2208 D+",
+  "hypotheses": [
+   {
+    "text": "\u03b1 = (37,24,5) \u227c^w \u03bb = (7,4,2)",
+    "formal": "weak supermajorization (lower partial sums of \u03b1 >= those of \u03bb: 5>=2, 29>=6, 66>=13) \u2014 the w is a superscript in the PDF",
+    "source": "statement"
+   },
+   {
+    "text": "u\u03c8\u2032(1\u2212u) decreasing in u for \u03b4 = 0.8; F\u0304^\u03b1(x/\u03b1) increasing and log-convex in \u03b1",
+    "formal": "conditions (a) and (b) of Theorem 2",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X^p_{3:3} <=st Y^p_{3:3} (verified graphically, Figure 1(a)) \u2014 supports Theorem 2"
+  },
+  "quantifiers": "n = 3",
+  "numbers": "\u03b1 = (37,24,5), \u03bb = (7,4,2), p = (0.72,0.18,0.02), \u03b4 = 0.8",
+  "ambiguity": "Persian text; quote reconstructed. The in-text figure reference prints '\u0634\u06a9\u0644 \u061f\u061f' (broken); Figure 1 caption assigns panel (a) to this example. \u03b1 printed as (37,24,5) in Persian digits \u2014 consistent with weak supermajorization, so B's conjectured (3.7,2.4,0.5) reading is ruled out.",
+  "adjudication": "adjudicated: Both passes agree on X^p_{3:3} <=st Y^p_{3:3} supporting Theorem 2; merged, with the majorization co"
+ },
+ {
+  "paper": "doi:10.66224/jss.20.1.06",
+  "claim": "Example 2",
+  "page": 140,
+  "quote": "\u0645\u062b\u0627\u0644 \u06f2. \u0637\u0628\u0642 \u0645\u0641\u0631\u0648\u0636\u0627\u062a \u0645\u062b\u0627\u0644 \u06f1\u060c \u062a\u0627\u0628\u0639 \u0645\u0641\u0635\u0644 \u0645\u0641\u0631\u0648\u0636 \u0628\u0647\u200c\u0627\u0632\u0627\u06cc \u03b4 \u2208 (\u22121, 0) (\u03b4 = \u22120.66)\u060c \u062a\u0627\u0628\u0639 u\u03c8\u2032(1\u2212u) \u062a\u0627\u0628\u0639\u06cc \u0635\u0639\u0648\u062f\u06cc \u0628\u0631\u062d\u0633\u0628 u \u0627\u0633\u062a. \u0634\u06a9\u0644 \u06f2(\u0628) \u0646\u0634\u0627\u0646 \u0645\u06cc\u200c\u062f\u0647\u062f \u06a9\u0647 \u062a\u0648\u0627\u0628\u0639 \u062a\u0648\u0632\u06cc\u0639 X^p_{3:3} \u0648 Y^p_{3:3} \u06cc\u06a9\u062f\u06cc\u06af\u0631 \u0631\u0627 \u0642\u0637\u0639 \u0645\u06cc\u200c\u06a9\u0646\u0646\u062f. \u0628\u0646\u0627\u0628\u0631\u0627\u06cc\u0646 \u0646\u062a\u0627\u06cc\u062c \u0642\u0636\u06cc\u0647 \u06f2 \u0628\u0627 \u0641\u0631\u0636 \u0635\u0639\u0648\u062f\u06cc \u0628\u0648\u062f\u0646 u\u03c8\u2032(1\u2212u) \u0628\u0631\u0642\u0631\u0627\u0631 \u0646\u06cc\u0633\u062a.",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "same SAH/Pareto setup as Example 1; AMH copula with \u03b4 = \u22120.66 \u2208 (\u22121,0)",
+  "compared": "same parameters as Example 1 but copula parameter \u03b4 = \u22120.66 making u\u03c8\u2032(1\u2212u) increasing",
+  "hypotheses": [
+   {
+    "text": "u\u03c8\u2032(1\u2212u) is increasing instead of decreasing",
+    "formal": "violates condition (a) of Theorem 2",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "no stochastic ordering: distribution functions of X^p_{3:3} and Y^p_{3:3} cross \u2014 Theorem 2's conclusion fails when u\u03c8\u2032(1\u2212u) is increasing"
+  },
+  "quantifiers": "n = 3",
+  "numbers": "\u03b4 = \u22120.66; other values as in Example 1",
+  "ambiguity": "In-text reference prints '\u0634\u06a9\u0644 \u06f2(\u0628)' (Figure 2(b)), but Figure 1's caption assigns Example 2 to panel 1(b); the paper's figure numbering in text is shifted relative to captions.",
+  "adjudication": "adjudicated: Both passes agree: CDFs cross when u\u03c8\u2032(1\u2212u) is increasing \u2014 counterexample to dropping Theorem 2's c"
+ },
+ {
+  "paper": "doi:10.66224/jss.20.1.06",
+  "claim": "Example 3",
+  "page": 140,
+  "quote": "\u0645\u062b\u0627\u0644 \u06f3. \u062f\u0648 \u0633\u06cc\u0633\u062a\u0645 \u0645\u0648\u0627\u0632\u06cc \u0627\u0632 \u0645\u0648\u0644\u0641\u0647\u200c\u0647\u0627\u06cc \u0648\u0627\u0628\u0633\u062a\u0647 \u0648 \u0646\u0627\u0647\u0645\u06af\u0646 \u0628\u0627 \u062a\u0627\u0628\u0639 \u0628\u0642\u0627\u06cc \u067e\u0627\u06cc\u0647 F\u0304(x) = 1/x, x \u2265 1 \u0631\u0627 \u062f\u0631 \u0646\u0638\u0631 \u0628\u06af\u06cc\u0631\u06cc\u062f. \u0628\u0647 \u0633\u0627\u062f\u06af\u06cc \u0645\u06cc\u200c\u062a\u0648\u0627\u0646 \u0646\u0634\u0627\u0646 \u062f\u0627\u062f \u06a9\u0647 \u0628\u0631\u0627\u06cc \u062a\u0627\u0628\u0639 F\u0304^\u03b1(x/\u03b1) \u0648\u06cc\u0698\u06af\u06cc\u200c\u0647\u0627\u06cc \u0635\u0639\u0648\u062f\u06cc \u0648 \u0644\u06af-\u0645\u062d\u062f\u0628 \u0646\u0628\u0648\u062f\u0646 \u0646\u0633\u0628\u062a \u0628\u0647 \u03b1 \u0628\u0631\u0642\u0631\u0627\u0631 \u0627\u0633\u062a. \u0647\u0645\u0686\u0646\u06cc\u0646 \u0641\u0631\u0636 \u06a9\u0646\u06cc\u062f \u03b1 = (11, 8, 4) \u2208 D+, \u03bb = (9, 6, 2) \u2208 D+ \u0648 p = (0.92, 0.68, 0.32) \u2208 D+ \u0627\u0633\u062a \u06a9\u0647 \u062f\u0631 \u0622\u0646 \u03b1 \u227c^w \u03bb \u0627\u0633\u062a. \u062a\u0648\u0627\u0628\u0639 \u0645\u0648\u0644\u062f \u0645\u0641\u0635\u0644 \u0639\u0644\u06cc-\u0645\u06cc\u06a9\u0627\u0626\u06cc\u0644-\u062d\u0642 \u0628\u0627 \u03c6\u2081(u) = u^{0.5}/(e^u \u2212 0.5) \u0648 \u03c6\u2082(u) = u^{1.6}/(e^u + 0.6) \u0631\u0627 \u062f\u0631 \u0646\u0638\u0631 \u0628\u06af\u06cc\u0631\u06cc\u062f \u0628\u0647\u200c\u0637\u0648\u0631\u06cc\u200c\u06a9\u0647 \u03c8\u2082\u2218\u03c6\u2081 \u062a\u0627\u0628\u0639\u06cc \u0632\u0628\u0631\u062c\u0645\u0639\u06cc \u0627\u0633\u062a (\u0686\u0648\u0646 \u03c8\u2082\u2218\u03c6\u2081 \u062a\u0627\u0628\u0639\u06cc \u0645\u062d\u062f\u0628 \u0627\u0633\u062a)\u060c \u0627\u0632 \u0637\u0631\u0641\u06cc u\u03c8\u2082\u2032(1\u2212u) \u062a\u0627\u0628\u0639\u06cc \u0635\u0639\u0648\u062f\u06cc \u0627\u0633\u062a. \u0637\u0628\u0642 \u0627\u0633\u062a\u062f\u0644\u0627\u0644 \u0645\u062b\u0627\u0644 \u06f1 \u062f\u0631 \u0634\u06a9\u0644 \u06f2(\u062c) \u062a\u0648\u0627\u0628\u0639 \u0628\u0642\u0627\u06cc X^p_{3:3} \u0648 Y^p_{3:3} \u0631\u0633\u0645 \u0634\u062f\u0647 \u0627\u0633\u062a \u0648 \u0646\u0634\u0627\u0646 \u0645\u06cc\u200c\u062f\u0647\u062f \u06a9\u0647 X^p_{3:3} \u2270st Y^p_{3:3} \u0648 Y^p_{3:3} \u2270st X^p_{3:3} \u0627\u0633\u062a. \u0628\u0646\u0627\u0628\u0631\u0627\u06cc\u0646 \u0646\u062a\u06cc\u062c\u0647 \u0642\u0636\u06cc\u0647 \u06f3 \u0628\u0631\u0642\u0631\u0627\u0631 \u0646\u06cc\u0633\u062a.",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "SAH marginals with baseline F\u0304(x) = 1/x; two different AMH-type generators \u03c6\u2081(u) = u^{0.5}/(e^u\u22120.5) (\u03b4\u2081 = 0.5) and \u03c6\u2082(u) = u^{1.6}/(e^u+0.6) (\u03b4\u2082 = \u22120.6)",
+  "compared": "\u03b1 = (11,8,4) vs \u03bb = (9,6,2); different copulas on the two systems; common p = (0.92,0.68,0.32)",
+  "hypotheses": [
+   {
+    "text": "the properties of being increasing and log-convex in \u03b1 do NOT hold for F\u0304^\u03b1(x/\u03b1)",
+    "formal": "baseline hypothesis of Theorem 3 fails (at least log-convexity; the Persian phrasing '\u0635\u0639\u0648\u062f\u06cc \u0648 \u0644\u06af-\u0645\u062d\u062f\u0628 \u0646\u0628\u0648\u062f\u0646' most naturally reads 'increasing and not log-convex')",
+    "source": "statement"
+   },
+   {
+    "text": "u\u03c8\u2082\u2032(1\u2212u) is increasing (while \u03c8\u2082\u2218\u03c6\u2081 is super-additive, being convex)",
+    "formal": "the decreasing-u\u03c8\u2032 condition of Theorem 3 fails (applied to \u03c8\u2082 as printed)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "no stochastic ordering in either direction: X^p_{3:3} \u2270st Y^p_{3:3} and Y^p_{3:3} \u2270st X^p_{3:3} (survival functions cross, Figure 2(c)) \u2014 Theorem 3's conclusion fails"
+  },
+  "quantifiers": "n = 3",
+  "numbers": "\u03b1 = (11,8,4), \u03bb = (9,6,2), p = (0.92,0.68,0.32); generator exponents 0.5 and 1.6 (\u03b4\u2081 = 0.5, \u03b4\u2082 = \u22120.6)",
+  "ambiguity": "Two hypotheses of Theorem 3 appear to fail simultaneously (log-convexity of F\u0304^\u03b1 and the decreasing-u\u03c8\u2032 condition). B's '\u03c6\u2082(u) = u^{1.6}' numerator confirmed against the raw text layer; A dropped the u^1.6 factor. In-text figure reference '\u0634\u06a9\u0644 \u06f2(\u062c)' mismatches the caption (Figure 1(c)).",
+  "adjudication": "adjudicated: Both passes agree the systems are st-incomparable; B's generator reading (u^{1.6} numerator) and 'no"
+ },
+ {
+  "paper": "doi:10.66224/jss.20.1.06",
+  "claim": "Example 4",
+  "page": 140,
+  "quote": "\u0645\u062b\u0627\u0644 \u06f4. \u0641\u0631\u0636 \u06a9\u0646\u06cc\u062f \u062a\u0627\u0628\u0639 \u0628\u0642\u0627\u06cc \u067e\u0627\u06cc\u0647 \u0628\u0647 \u0635\u0648\u0631\u062a F\u0304(x) = e^{\u2212x^k}, x > 0 \u0628\u0627\u0634\u062f. \u062a\u0627\u0628\u0639 F\u0304^\u03b1(x/\u03b1) \u0628\u0647\u200c\u0627\u0632\u0627\u06cc k = 3 > 1 \u062a\u0627\u0628\u0639\u06cc \u0635\u0639\u0648\u062f\u06cc \u0648 \u0645\u062d\u062f\u0628 \u0646\u0633\u0628\u062a \u0628\u0647 \u03b1 \u0627\u0633\u062a. \u0647\u0645\u0686\u0646\u06cc\u0646 \u062a\u0627\u0628\u0639 \u0645\u0648\u0644\u062f \u03c6(u) = 1/(1+\u03b4u)^{1/\u03b4} \u0631\u0627 \u0628\u0647\u200c\u0627\u0632\u0627\u06cc \u03b4 = 0.2 \u062f\u0631 \u0646\u0638\u0631 \u0628\u06af\u06cc\u0631\u06cc\u062f \u06a9\u0647 \u062a\u0627\u0628\u0639\u06cc \u0645\u062d\u062f\u0628 \u0627\u0633\u062a (\u0645\u0639\u0627\u062f\u0644 \u0628\u0627 \u0644\u06af-\u0645\u0642\u0639\u0631 \u0628\u0648\u062f\u0646 1\u2212\u03c6 \u0627\u0633\u062a) \u0648\u0644\u06cc \u03c6(1\u2212\u03c6)/\u03c6\u2032 \u0646\u06cc\u0632 \u062a\u0627\u0628\u0639\u06cc \u0646\u0632\u0648\u0644\u06cc \u0648 \u0645\u062d\u062f\u0628 \u0627\u0633\u062a. \u0628\u0647\u200c\u0627\u0632\u0627\u06cc \u03b1 = (3,4,5,6) \u0648 \u03bb = (2,4,5,7) \u0648 p = (0.2,0.25,0.45,0.8) \u0648\u0627\u0636\u062d \u0627\u0633\u062a \u03b1 \u227c^m \u03bb \u0628\u0631\u0642\u0631\u0627\u0631 \u0627\u0633\u062a. \u0628\u0646\u0627\u0628\u0631\u0627\u06cc\u0646 \u0641\u0631\u0636 \u0645\u0642\u0639\u0631 \u0628\u0648\u062f\u0646 \u03c6(1\u2212\u03c6)/\u03c6\u2032 \u0628\u0631\u0642\u0631\u0627\u0631 \u0646\u06cc\u0633\u062a. \u0634\u06a9\u0644 \u06f3(\u0627\u0644\u0641) \u0639\u062f\u0645 \u0628\u0631\u0642\u0631\u0627\u0631\u06cc \u0642\u0636\u06cc\u0647 \u06f4 \u0631\u0627 \u0646\u0634\u0627\u0646 \u0645\u06cc\u200c\u062f\u0647\u062f.",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "SAH marginals with Weibull baseline F\u0304(x) = e^{\u2212x^k}, k = 3 > 1; generator \u03c6(u) = 1/(1+\u03b4u)^{1/\u03b4} (Clayton-type), \u03b4 = 0.2",
+  "compared": "\u03b1 = (3,4,5,6) vs \u03bb = (2,4,5,7) under majorization \u03b1 \u227c^m \u03bb; common p = (0.2,0.25,0.45,0.8)",
+  "hypotheses": [
+   {
+    "text": "\u03b1 \u227c^m \u03bb; \u03c6 convex (equivalently 1\u2212\u03c6 log-concave); but \u03c6(1\u2212\u03c6)/\u03c6\u2032 is decreasing and CONVEX, so the concavity assumption on \u03c6(1\u2212\u03c6)/\u03c6\u2032 fails",
+    "formal": "condition (d) of Theorem 4 (\u03c6(1\u2212\u03c6)/\u03c6\u2032 decreasing and concave) violated",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "hr",
+   "direction": "hazard-rate ordering fails: hazard-rate curves of X^p_{4:4} and Y^p_{4:4} cross (Figure 3(a)) \u2014 Theorem 4's concavity hypothesis cannot be dropped"
+  },
+  "quantifiers": "n = 4",
+  "numbers": "\u03b1 = (3,4,5,6), \u03bb = (2,4,5,7), p = (0.2,0.25,0.45,0.8), k = 3, \u03b4 = 0.2",
+  "ambiguity": "B's baseline e^{-x^k} with k = 3 and 'not concave' reading are correct (verified in the raw text layer: 'F\u0304(x) = e^{\u2212x^k}, k = \u06f3 > \u06f1' and '\u0641\u0631\u0636 \u0645\u0642\u0639\u0631 \u0628\u0648\u062f\u0646 \u03c6(1\u2212\u03c6)/\u03c6\u2032 \u0628\u0631\u0642\u0631\u0627\u0631 \u0646\u06cc\u0633\u062a'); A misread baseline as e^{-x} and inverted the convexity. The generator prints as a reciprocal 1/(1+\u03b4u)^{1/\u03b4}, i.e., (1+\u03b4u)^{-1/\u03b4} \u2014 B's Clayton form is mathematically equivalent, A's '(1+\u03b4u)^{1/\u03b4}' loses the reciprocal. In-text figure reference '\u0634\u06a9\u0644 \u06f3(\u0627\u0644\u0641)' mismatches the caption (Figure 2(a)).",
+  "adjudication": "adjudicated: Corrected to B's reading: Weibull baseline e^{-x^k} (k=3), Clayton-type generator 1/(1+\u03b4u)^{1/\u03b4}, an"
+ },
+ {
+  "paper": "doi:10.66224/jss.20.1.06",
+  "claim": "Example 5",
+  "page": 141,
+  "quote": "\u0645\u062b\u0627\u0644 \u06f5. \u062f\u0648 \u0633\u06cc\u0633\u062a\u0645 \u0633\u0631\u06cc \u0645\u062a\u0634\u06a9\u0644 \u0627\u0632 \u0645\u0648\u0644\u0641\u0647\u200c\u0647\u0627\u06cc \u0648\u0627\u0628\u0633\u062a\u0647 \u0628\u0627 \u062a\u0627\u0628\u0639 \u0628\u0642\u0627\u06cc \u067e\u0627\u06cc\u0647 F\u0304(x) = e^{\u2212x^5}, x \u2265 0 \u0631\u0627 \u062f\u0631 \u0646\u0638\u0631 \u0628\u06af\u06cc\u0631\u06cc\u062f. \u0648\u0627\u0636\u062d \u0627\u0633\u062a log F\u0304^\u03b1(x/\u03b1) = \u2212\u03b1^{\u22124} x^5 \u0627\u0633\u062a. \u062f\u0631 \u0646\u062a\u06cc\u062c\u0647 \u0628\u0647 \u0631\u0627\u062d\u062a\u06cc \u0645\u06cc\u200c\u062a\u0648\u0627\u0646 \u0646\u0634\u0627\u0646 \u062f\u0627\u062f \u06a9\u0647 \u0645\u0634\u062a\u0642 \u062f\u0648\u0645 \u0627\u06cc\u0646 \u062a\u0627\u0628\u0639 \u0646\u0627\u0645\u062b\u0628\u062a \u0648 \u0645\u0634\u062a\u0642 \u0627\u0648\u0644 \u0622\u0646\u060c \u0646\u0627\u0645\u0646\u0641\u06cc \u0627\u0633\u062a. \u0628\u0646\u0627\u0628\u0631\u0627\u06cc\u0646 \u0634\u0631\u0637 \u0635\u0639\u0648\u062f\u06cc \u0648 \u0644\u06af-\u0645\u0642\u0639\u0631 \u0628\u0648\u062f\u0646 \u062a\u0627\u0628\u0639 F\u0304^\u03b1(x/\u03b1) \u0646\u0633\u0628\u062a \u0628\u0647 \u03b1 \u0628\u0631\u0642\u0631\u0627\u0631 \u0627\u0633\u062a. \u0647\u0645\u0686\u0646\u06cc\u0646 \u0641\u0631\u0636 \u06a9\u0646\u06cc\u062f \u03b1 = (11,8,4) \u2208 D+, \u03bb = (9,6,2) \u2208 D+ \u0648 p = (0.92,0.18,0.02) \u2208 D+ \u0628\u0627\u0634\u062f \u0628\u0647\u200c\u0637\u0648\u0631\u06cc\u200c\u06a9\u0647 \u03b1 \u227c^w \u03bb \u0627\u0633\u062a. \u062a\u0627\u0628\u0639 \u0645\u0648\u0644\u062f \u0627\u0631\u0634\u0645\u06cc\u062f\u0633\u06cc \u03c6(u) = 2/(1+e^u) \u062a\u0627\u0628\u0639\u06cc \u0644\u06af-\u0645\u0642\u0639\u0631 \u0627\u0633\u062a \u0632\u06cc\u0631\u0627 log \u03c6(u) = log 2 \u2212 log(1+e^u) \u0648 \u2202\u00b2log \u03c6(u)/\u2202u\u00b2 = \u2212e^{\u2212u}(1+e^{\u2212u})^{-2} \u0646\u0627\u0645\u062b\u0628\u062a \u0627\u0633\u062a. \u062f\u0631 \u0634\u06a9\u0644 \u06f3(\u0628)\u060c \u0646\u0645\u0648\u062f\u0627\u0631\u0647\u0627\u06cc \u062a\u0648\u0627\u0628\u0639 \u062a\u0648\u0632\u06cc\u0639 \u0645\u062a\u063a\u06cc\u0631\u0647\u0627\u06cc \u062a\u0635\u0627\u062f\u0641\u06cc X^p_{1:3} \u0648 Y^p_{1:3} \u0631\u0633\u0645 \u0634\u062f\u0647 \u0627\u0633\u062a \u06a9\u0647 \u0646\u0634\u0627\u0646 \u0645\u06cc\u200c\u062f\u0647\u062f \u0646\u0645\u0648\u062f\u0627\u0631 \u062a\u0627\u0628\u0639 \u062a\u0648\u0632\u06cc\u0639 X^p_{1:3} \u0628\u0627\u0644\u0627\u06cc \u0646\u0645\u0648\u062f\u0627\u0631 \u062a\u0627\u0628\u0639 \u062a\u0648\u0632\u06cc\u0639 Y^p_{1:3} \u0642\u0631\u0627\u0631 \u062f\u0627\u0631\u062f. \u0628\u0646\u0627\u0628\u0631\u0627\u06cc\u0646 \u062f\u0631\u0633\u062a\u06cc \u0642\u0636\u06cc\u0647 \u06f8 \u0645\u0648\u0631\u062f \u062a\u0627\u06cc\u06cc\u062f \u0642\u0631\u0627\u0631 \u0645\u06cc\u200c\u06af\u06cc\u0631\u062f.",
+  "kind": "example",
+  "model": "series system",
+  "family": "SAH marginals with baseline F\u0304(x) = e^{\u2212x^5} (Weibull-type); generator \u03c6(u) = 2/(1+e^u) (log-concave); Bernoulli shocks",
+  "compared": "\u03b1 = (11,8,4) vs \u03bb = (9,6,2); common p = (0.92,0.18,0.02) \u2208 D+",
+  "hypotheses": [
+   {
+    "text": "log F\u0304^\u03b1(x/\u03b1) = \u2212\u03b1^{\u22124} x^5, whose second derivative is negative and first derivative non-negative, so F\u0304^\u03b1(x/\u03b1) is increasing and log-concave in \u03b1",
+    "formal": "Theorem 8 baseline condition",
+    "source": "statement"
+   },
+   {
+    "text": "\u03b1 \u227c^w \u03bb; \u03c6(u) = 2/(1+e^u) is log-concave",
+    "formal": "weak supermajorization on \u03b1; log-concave generator",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X^p_{1:3} <=st Y^p_{1:3} (cdf of X^p_{1:3} lies above that of Y^p_{1:3}, Figure 3(b)) \u2014 confirms Theorem 8"
+  },
+  "quantifiers": "n = 3",
+  "numbers": "\u03b1 = (11,8,4), \u03bb = (9,6,2), p = (0.92,0.18,0.02); \u2202\u00b2log \u03c6(u)/\u2202u\u00b2 = \u2212e^{\u2212u}(1+e^{\u2212u})^{-2} < 0",
+  "ambiguity": "B's baseline e^{-x^5} and 'first derivative non-negative' are correct (raw text layer confirms e^{\u2212x} with superscript \u06f5 on x and \u0646\u0627\u0645\u0646\u0641\u06cc = non-negative); A printed e^{-x} and 'non-positive'. In-text reference '\u0634\u06a9\u0644 \u06f3(\u0628)' mismatches the caption (Figure 2(b)).",
+  "adjudication": "adjudicated: Both passes agree on X^p_{1:3} <=st Y^p_{1:3}; corrected baseline to e^{-x^5} per B (A lost the expo"
+ },
+ {
+  "paper": "doi:10.66224/jss.20.1.06",
+  "claim": "Theorem 5(b)",
+  "page": 134,
+  "quote": "\u0642\u0636\u06cc\u0647 \u06f5. \u0641\u0631\u0636 \u06a9\u0646\u06cc\u062f X^p = (Ip\u2081 X\u2081, . . . , Ipn Xn) \u0648 Y^p = (Ip\u2081 Y\u2081, . . . , Ipn Yn) \u0628\u0631\u062f\u0627\u0631\u0647\u0627\u06cc \u062a\u0635\u0627\u062f\u0641\u06cc \u0648\u0627\u0628\u0633\u062a\u0647 \u0648 \u063a\u06cc\u0631\u0647\u0645\u200c\u062a\u0648\u0632\u06cc\u0639 \u0628\u0627 Xi \u223c SAH(\u03b1i, \u03b8i) \u0648 Yi \u223c SAH(\u03b1i, \u03b7i) \u0648 \u0645\u0641\u0635\u0644 \u0627\u0631\u0634\u0645\u06cc\u062f\u0633\u06cc \u0628\u0627 \u062a\u0627\u0628\u0639 \u0645\u0648\u0644\u062f \u0645\u0634\u062a\u0631\u06a9 \u03c6 \u0628\u0627\u0634\u0646\u062f. \u0647\u0645\u0686\u0646\u06cc\u0646 \u0641\u0631\u0636 \u06a9\u0646\u06cc\u062f Ip\u2081, . . . , Ipn \u0645\u062a\u063a\u06cc\u0631\u0647\u0627\u06cc \u062a\u0635\u0627\u062f\u0641\u06cc \u0628\u0631\u0646\u0648\u0644\u06cc \u0645\u0633\u062a\u0642\u0644 \u0628\u0627 \u067e\u0627\u0631\u0627\u0645\u062a\u0631\u0647\u0627\u06cc p\u2081, . . . , pn \u0628\u0627\u0634\u0646\u062f. \u0627\u06af\u0631 F\u0304^\u03b1(x/\u03b1) \u0646\u0633\u0628\u062a \u0628\u0647 \u03b1 \u0635\u0639\u0648\u062f\u06cc\u060c (\u03b1, p) \u2208 An\u060c (\u03b1, \u03b8) \u2208 Bn\u060c \u0648 (\u03b8, p) \u2208 Bn \u0628\u0627\u0634\u062f \u0622\u0646\u06af\u0627\u0647: (\u0628) \u0627\u06af\u0631 \u03c6 \u0644\u06af-\u0645\u0642\u0639\u0631 \u0628\u0627\u0634\u062f. \u03b8 \u227c_w \u03b7 \u27f9 Y^p_{1:n} \u2a7dst X^p_{1:n}.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "SAH marginals F\u0304^{\u03b1_i}(x/\u03b1_i)e^{\u2212\u03b8_i x}; common Archimedean copula with generator \u03c6; common Bernoulli shock vector p",
+  "compared": "additive-hazard vectors \u03b8 vs \u03b7; common \u03b1 and p",
+  "hypotheses": [
+   {
+    "text": "F\u0304^\u03b1(x/\u03b1) increasing in \u03b1; (\u03b1, p) \u2208 An, (\u03b1, \u03b8) \u2208 Bn, (\u03b8, p) \u2208 Bn",
+    "formal": "concordance conditions from the Theorem 5 preamble",
+    "source": "statement"
+   },
+   {
+    "text": "\u03c6 log-concave; \u03b8 \u227c_w \u03b7",
+    "formal": "weak submajorization on \u03b8 \u2014 the w is a SUBSCRIPT in the PDF (top coordinate below baseline, verified via pdftohtml), not superscript as pass A recorded",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y^p_{1:n} <=st X^p_{1:n} (reverse direction relative to part (a))"
+  },
+  "quantifiers": "n >= 1; all x >= 0",
+  "numbers": "",
+  "ambiguity": "Persian text; reconstructed. Part (a) uses \u03b8 \u227c^w \u03b7 (superscript, weak supermajorization); part (b) prints the complementary \u03b8 \u227c_w \u03b7 (subscript). A's record had the conclusion direction right but wrote the part-(b) majorization as superscript-w; corrected to subscript.",
+  "adjudication": "adjudicated: Include: printed theorem part with ordering conclusion. Correction: part (b) hypothesis is \u03b8 \u227c_w \u03b7 ("
+ },
+ {
+  "paper": "doi:10.66224/jss.20.1.06",
+  "claim": "Theorem 6(b)",
+  "page": 136,
+  "quote": "\u0642\u0636\u06cc\u0647 \u06f6. \u062a\u062d\u062a \u0645\u0641\u0631\u0648\u0636\u0627\u062a \u0642\u0636\u06cc\u0647 \u06f5\u060c \u0641\u0631\u0636 \u06a9\u0646\u06cc\u062f F\u0304^\u03b1(x/\u03b1) \u062f\u0631 \u03b1 \u0646\u0632\u0648\u0644\u06cc\u060c (\u03b1, \u03b8) \u2208 An\u060c (p, \u03b8) \u2208 Bn\u060c \u0648 (p, \u03b1) \u2208 Bn \u0628\u0627\u0634\u062f. \u062f\u0631 \u0627\u06cc\u0646 \u0635\u0648\u0631\u062a: (\u0628) \u0627\u06af\u0631 \u03c6 \u0644\u06af-\u0645\u0642\u0639\u0631 \u0628\u0627\u0634\u062f \u0622\u0646\u06af\u0627\u0647. \u03b8 \u227c_w \u03b7 \u27f9 Y^p_{1:n} \u2a7dst X^p_{1:n}.",
+  "kind": "theorem",
+  "model": "series system",
+  "family": "SAH marginals; common Archimedean copula generator \u03c6; common Bernoulli shock vector",
+  "compared": "additive-hazard vectors \u03b8 vs \u03b7; common \u03b1 and p",
+  "hypotheses": [
+   {
+    "text": "Under the assumptions of Theorem 5: F\u0304^\u03b1(x/\u03b1) decreasing in \u03b1, (\u03b1, \u03b8) \u2208 An, (p, \u03b8) \u2208 Bn, (p, \u03b1) \u2208 Bn",
+    "formal": "decreasing-in-\u03b1 variant with rearranged concordance sets",
+    "source": "statement"
+   },
+   {
+    "text": "\u03c6 log-concave; \u03b8 \u227c_w \u03b7",
+    "formal": "weak submajorization on \u03b8 \u2014 subscript w verified via pdftohtml coordinates (w glyph below baseline), same typesetting as Theorem 5(b)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y^p_{1:n} <=st X^p_{1:n}"
+  },
+  "quantifiers": "n >= 1; all x >= 0",
+  "numbers": "",
+  "ambiguity": "Persian text; reconstructed. As in Theorem 5, part (a) prints \u03b8 \u227c^w \u03b7 and part (b) \u03b8 \u227c_w \u03b7; A wrote superscript-w for (b) \u2014 corrected to subscript.",
+  "adjudication": "adjudicated: Include: printed theorem part. Correction: part (b) uses \u03b8 \u227c_w \u03b7 (weak submajorization), not \u227c^w."
+ },
+ {
+  "paper": "doi:10.66224/jss.20.1.06",
+  "claim": "Section 6.2 case study (Table 1)",
+  "page": 143,
+  "quote": "\u06f6.\u06f2. \u0645\u0637\u0627\u0644\u0639\u0647 \u0645\u0648\u0631\u062f\u06cc: \u0627\u0639\u062a\u0628\u0627\u0631\u0633\u0646\u062c\u06cc \u0642\u0636\u06cc\u0647 \u06f6 \u062f\u0631 \u06cc\u06a9 \u0633\u06cc\u0633\u062a\u0645 \u067e\u0627\u06cc\u0634 \u0645\u062d\u06cc\u0637\u06cc \u0633\u0631\u06cc. \u06cc\u06a9 \u0633\u06cc\u0633\u062a\u0645 \u067e\u0627\u06cc\u0634 \u0622\u0644\u0627\u06cc\u0646\u062f\u0647\u200c\u0647\u0627\u06cc \u0647\u0648\u0627 \u0645\u062a\u0634\u06a9\u0644 \u0627\u0632 \u0633\u0647 \u062d\u0633\u06af\u0631 \u0633\u0631\u06cc (\u0622\u0634\u06a9\u0627\u0631 \u0633\u0627\u0632\u06af\u0627\u0631\u060c \u0630\u0631\u0647 \u0634\u0645\u0627\u0631\u0647\u060c \u0637\u06cc\u0641 \u0633\u0646\u062c) \u062f\u0631 \u0646\u0638\u0631 \u06af\u0631\u0641\u062a\u0647 \u0645\u06cc\u200c\u0634\u0648\u062f. ... \u0641\u0631\u0636 \u06a9\u0646\u06cc\u062f \u0637\u0648\u0644 \u0639\u0645\u0631 \u067e\u0627\u06cc\u0647 \u0647\u0631 \u062d\u0633\u06af\u0631 \u0627\u0632 \u062a\u0648\u0632\u06cc\u0639 \u0648\u0627\u06cc\u0628\u0648\u0644 \u0628\u0627 \u062a\u0627\u0628\u0639 \u0628\u0642\u0627\u06cc F\u0304(x) = e^{\u2212(\u03bbx)^\u03b2} \u062a\u0628\u0639\u06cc\u062a \u0646\u0645\u0627\u06cc\u062f. \u0628\u0631\u0627\u06cc \u0627\u0637\u0645\u06cc\u0646\u0627\u0646 \u0627\u0632 \u0646\u0632\u0648\u0644\u06cc \u0628\u0648\u062f\u0646 F\u0304^\u03b1(x/\u03b1) \u0646\u0633\u0628\u062a \u0628\u0647 \u03b1\u060c \u0628\u0627\u06cc\u062f \u067e\u0627\u0631\u0627\u0645\u062a\u0631 \u0634\u06a9\u0644 \u0628\u0647 \u0635\u0648\u0631\u062a \u03b2 < 1 \u0628\u0627\u0634\u062f. \u062f\u0631 \u0627\u06cc\u0646 \u0634\u0628\u06cc\u0647\u200c\u0633\u0627\u0632\u06cc \u03bb = 0.001 \u0648 \u03b2 = 0.7 \u0627\u0646\u062a\u062e\u0627\u0628 \u0634\u062f. \u0628\u0631\u0627\u06cc \u0633\u0627\u062f\u06af\u06cc \u0648 \u062a\u0645\u0631\u06a9\u0632 \u0628\u0631 \u0627\u062b\u0631 \u03b8\u060c \u03b1 = (1,1,1) \u062f\u0631 \u0646\u0638\u0631 \u06af\u0631\u0641\u062a\u0647 \u0634\u062f ... \u062f\u0648 \u0637\u0631\u062d \u0628\u0627 \u067e\u0631\u0627\u06a9\u0646\u062f\u06af\u06cc \u06a9\u0645 (X) \u0648 \u062f\u06cc\u06af\u0631\u06cc \u0628\u0627 \u067e\u0631\u0627\u06a9\u0646\u062f\u06af\u06cc \u0632\u06cc\u0627\u062f (Y) \u0628\u0631\u0627\u06cc \u03b8 \u0628\u0647\u200c\u062a\u0631\u062a\u06cc\u0628 \u0628\u0647\u200c\u0635\u0648\u0631\u062a \u03b8 = (0.0008, 0.0010, 0.0012) \u0648 \u03b7 = (0.0005, 0.0010, 0.0015) \u062f\u0631 \u0646\u0638\u0631 \u06af\u0631\u0641\u062a\u0647 \u0634\u062f \u0628\u0647\u200c\u0637\u0648\u0631\u06cc\u200c\u06a9\u0647 \u0634\u0631\u0637 \u03b8 \u227c^w \u03b7 \u0628\u0631\u0642\u0631\u0627\u0631 \u0627\u0633\u062a. ... \u0627\u06cc\u0646 \u0648\u0627\u0628\u0633\u062a\u06af\u06cc \u0628\u0627 \u06cc\u06a9 \u0645\u0641\u0635\u0644 \u0639\u0644\u06cc-\u0645\u06cc\u062e\u0627\u0626\u06cc\u0644-\u062d\u0642 (AMH) \u0628\u0627 \u062a\u0627\u0628\u0639 \u0645\u0648\u0644\u062f \u03c6(u) = e^{(1\u2212u)^{\u2212\u03b4}} \u0648 \u067e\u0627\u0631\u0627\u0645\u062a\u0631 \u03b4 = 0.8 \u0645\u062f\u0644 \u0645\u06cc\u200c\u0634\u0648\u062f (\u0628\u0647\u200c\u0637\u0648\u0631\u06cc\u200c\u06a9\u0647 \u03c6 \u06cc\u06a9 \u062a\u0627\u0628\u0639 \u0644\u06af-\u0645\u062d\u062f\u0628 \u0627\u0633\u062a). \u0648 \u0627\u062d\u062a\u0645\u0627\u0644 \u0645\u0642\u0627\u0648\u0645\u062a \u062f\u0631 \u0628\u0631\u0627\u0628\u0631 \u0634\u0648\u06a9 \u0628\u0631\u0627\u0628\u0631 \u0628\u0627 p = (0.92, 0.92, 0.92) \u0627\u0633\u062a. ... \u062c\u062f\u0648\u0644 \u06f1. \u062a\u0627\u0628\u0639 \u062a\u0648\u0632\u06cc\u0639 \u062a\u062c\u0631\u0628\u06cc \u062f\u0648 \u0637\u0631\u062d X \u0648 Y \u062f\u0631 \u0633\u06cc\u0633\u062a\u0645 \u067e\u0627\u06cc\u0634 \u0633\u0631\u06cc: t = 100, 300, 500, 700 hours; F\u0302_X(t) = 0.1251, 0.4823, 0.7405, 0.8912; F\u0302_Y(t) = 0.1183, 0.4679, 0.7258, 0.8801; \u0646\u062a\u06cc\u062c\u0647 F\u0302_X(t) > F\u0302_Y(t) (X \u2264st Y). ... \u0627\u06cc\u0646 \u0646\u062a\u06cc\u062c\u0647 \u067e\u06cc\u0634\u200c\u0628\u06cc\u0646\u06cc \u0642\u0636\u06cc\u0647 \u06f6-\u0627\u0644\u0641 \u0631\u0627 \u0628\u0637\u0648\u0631 \u06a9\u0627\u0645\u0644 \u062a\u0627\u06cc\u06cc\u062f \u0645\u06cc\u200c\u06a9\u0646\u062f.",
+  "kind": "example",
+  "model": "series system",
+  "family": "SAH marginals with Weibull baseline F\u0304(x) = e^{\u2212(\u03bbx)^\u03b2}, \u03bb = 0.001, \u03b2 = 0.7; AMH copula \u03b4 = 0.8 (\u03c6 log-convex); homogeneous shock probability",
+  "compared": "low-spread additive-hazard design X (\u03b8 = (0.0008,0.0010,0.0012)) vs high-spread design Y (\u03b7 = (0.0005,0.0010,0.0015)); common \u03b1 = (1,1,1), p = (0.92,0.92,0.92)",
+  "hypotheses": [
+   {
+    "text": "\u03b8 = (0.0008,0.0010,0.0012) \u227c^w \u03b7 = (0.0005,0.0010,0.0015); \u03c6 log-convex; F\u0304^\u03b1(x/\u03b1) decreasing in \u03b1 (\u03b2 = 0.7 < 1)",
+    "formal": "conditions of Theorem 6(a): superscript-w verified in the PDF (w above baseline); lower sums of \u03b8 0.0008, 0.0018, 0.0030 >= \u03b7's 0.0005, 0.0015, 0.0030",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X <=st Y: empirical CDFs satisfy F\u0302_X(t) > F\u0302_Y(t) at all four time points \u2014 confirms Theorem 6(a)"
+  },
+  "quantifiers": "n = 3 sensors; t = 100, 300, 500, 700 hours",
+  "numbers": "F\u0302_X(t): 0.1251, 0.4823, 0.7405, 0.8912; F\u0302_Y(t): 0.1183, 0.4679, 0.7258, 0.8801 at t = 100, 300, 500, 700 hours; \u03b8 = (0.0008,0.0010,0.0012), \u03b7 = (0.0005,0.0010,0.0015), \u03b1 = (1,1,1), \u03bb = 0.001, \u03b2 = 0.7, \u03b4 = 0.8, p = (0.92,0.92,0.92)",
+  "ambiguity": "Simulation-based empirical CDF table rather than a theoretical example; included as a printed numerical stochastic-comparison supporting Theorem 6(a). Kind normalized to 'example' (spec has no 'application' kind). Generator prints as \u03c6(u) = e^{(1\u2212u)^{\u2212\u03b4}} per Remark 3's AMH form.",
+  "adjudication": "adjudicated: Include: printed numerical validation of Theorem 6(a) (Table 1 empirical CDFs, X <=st Y). B's only f"
+ },
+ {
+  "paper": "doi:10.66224/jss.20.1.06",
   "claim": "Theorem 1",
   "page": 129,
   "quote": "Let X^p = (I_{p1}X1, ..., I_{pn}Xn) and X^q = (I_{q1}X1, ..., I_{qn}Xn) be dependent non-identically distributed random vectors with Xi ~ SAH(alpha_i, theta_i) and Archimedean copula with generator phi. Further suppose I_{p1},...,I_{pn} and I_{q1},...,I_{qn} are independent Bernoulli random variables with parameter vectors p = (p1,...,pn) and q = (q1,...,qn), independent of the Xi's. If F_bar_alpha(alpha x) is increasing and log-convex in alpha, phi is log-convex, and h is an increasing convex function, then for (alpha,theta) in B_n, (alpha,p) in A_n, (p,theta) in B_n: h(p) <=^w h(q) ==> X^p_{n:n} <=st X^q_{n:n}.",
@@ -393,146 +618,6 @@
   "numbers": "",
   "ambiguity": "Persian text; reconstructed; proof said to be similar to Theorem 3.",
   "adjudication": "agreed"
- },
- {
-  "paper": "doi:10.66224/jss.20.1.06",
-  "claim": "Example 1",
-  "page": 140,
-  "quote": "Suppose the baseline survival function is F_bar(x) = 1/x, x >= 1. It can be shown that F_bar_alpha(alpha x) is increasing and log-convex in alpha for alpha >= x >= 1. Take the Ali-Mikhail-Haq copula generator phi(u) = u^{1-delta}/(e^u - delta) ... for (delta = 0.8), delta in (0,1), the function u psi'(1-u) is decreasing in u. For p = (0.72, 0.18, 0.02), alpha = (37, 24, 5) and lambda = (7, 4, 2) we have alpha <=^w lambda. The survival functions of X^p_{3:3} and Y^p_{3:3} are shown in Figure 1(a), which yields the stochastic ordering X^p_{3:3} <=st Y^p_{3:3}.",
-  "kind": "example",
-  "model": "parallel system",
-  "family": "SAH marginals with Pareto-type baseline F_bar(x) = 1/x; AMH copula delta = 0.8; random shocks",
-  "compared": "alpha = (37,24,5) vs lambda = (7,4,2); p = (0.72,0.18,0.02)",
-  "hypotheses": [
-   {
-    "text": "alpha <=^w lambda (as printed)",
-    "formal": "weak (super)majorization",
-    "source": "statement"
-   },
-   {
-    "text": "u psi'(1-u) decreasing for delta = 0.8",
-    "formal": "verifies Theorem 2 condition (a)",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "X^p_{3:3} <=_st Y^p_{3:3} verified graphically (Figure 1(a))"
-  },
-  "quantifiers": "n = 3",
-  "numbers": "alpha = (37,24,5), lambda = (7,4,2), p = (0.72,0.18,0.02), delta = 0.8",
-  "ambiguity": "Supports Theorem 2.",
-  "adjudication": "example record (pass a)+b"
- },
- {
-  "paper": "doi:10.66224/jss.20.1.06",
-  "claim": "Example 2",
-  "page": 140,
-  "quote": "Under the assumptions of Example 1, for the copula function with delta in (-1, 0) (delta = -0.66), the function u psi'(1-u) is increasing in u. Figure 2(b) shows that the distribution functions of X^p_{3:3} and Y^p_{3:3} cross each other. Therefore the result of Theorem 2 does not hold when u psi'(1-u) is increasing.",
-  "kind": "counterexample",
-  "model": "parallel system",
-  "family": "SAH marginals; AMH copula delta = -0.66; random shocks",
-  "compared": "same parameters as Example 1 but copula delta = -0.66",
-  "hypotheses": [
-   {
-    "text": "u psi'(1-u) increasing instead of decreasing",
-    "formal": "violated hypothesis of Theorem 2",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "distribution functions cross: neither X^p_{3:3} <=_st Y^p_{3:3} nor reverse"
-  },
-  "quantifiers": "n = 3",
-  "numbers": "delta = -0.66",
-  "ambiguity": "Shows condition (a) of Theorem 2 cannot be reversed.",
-  "adjudication": "example record (pass a)+b"
- },
- {
-  "paper": "doi:10.66224/jss.20.1.06",
-  "claim": "Example 3",
-  "page": 140,
-  "quote": "Consider two parallel systems of dependent and heterogeneous components with baseline survival function F_bar(x) = 1/x, x >= 1. It can be shown that the properties of being increasing and log-convex in alpha do NOT hold for F_bar_alpha(alpha x). Also let alpha = (11, 8, 4) in D+, lambda = (9, 6, 2) in D+ and p = (0.92, 0.68, 0.32) in D+, where alpha <=^w lambda. Take the Ali-Mikhail-Haq generators phi_1(u) = u^{0.5}/(e^u - 0.5) and phi_2(u) = 1.6/(e^u + 0.6) such that psi_2 o phi_1 is super-additive (since it is convex), while u psi_2'(1-u) is increasing. By the argument of Example 1, the survival functions of X^p_{3:3} and Y^p_{3:3} are plotted in Figure 2(c), showing X^p_{3:3} not <=st Y^p_{3:3} and Y^p_{3:3} not <=st X^p_{3:3}. Therefore the result of Theorem 3 does not hold.",
-  "kind": "counterexample",
-  "model": "parallel system",
-  "family": "SAH marginals, baseline F_bar(x) = 1/x; two different AMH-type generators; random shocks",
-  "compared": "alpha = (11,8,4) vs lambda = (9,6,2); different copulas",
-  "hypotheses": [
-   {
-    "text": "F_bar_alpha(alpha x) fails to be increasing and log-convex in alpha",
-    "formal": "violated hypothesis",
-    "source": "statement"
-   },
-   {
-    "text": "u psi_2'(1-u) increasing (Theorem 3 requires decreasing)",
-    "formal": "violated hypothesis",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "no stochastic ordering in either direction (survival functions cross)"
-  },
-  "quantifiers": "n = 3",
-  "numbers": "alpha = (11,8,4), lambda = (9,6,2), p = (0.92,0.68,0.32); generator parameters 0.5 and 1.6/0.6",
-  "ambiguity": "Two hypotheses of Theorem 3 appear violated simultaneously.",
-  "adjudication": "example record (pass a)+b"
- },
- {
-  "paper": "doi:10.66224/jss.20.1.06",
-  "claim": "Example 4",
-  "page": 140,
-  "quote": "Suppose the baseline survival function is F_bar(x) = e^{-x}, x > 0. The function F_bar_alpha(alpha x) is increasing and convex in alpha. Also take the generator phi(u) = (1 + delta u)^{1/delta} for delta = 0.2, which is convex (equivalently 1 - phi is log-concave) but phi(1-phi)/phi' is decreasing but NOT convex. For alpha = (3,4,5,6) and lambda = (2,4,5,7) and p = (0.2,0.25,0.45,0.8), clearly alpha <=^m lambda holds. Figure 3(a) shows the failure of Theorem 4.",
-  "kind": "counterexample",
-  "model": "parallel system",
-  "family": "SAH marginals, exponential baseline; Clayton-type generator delta = 0.2; random shocks",
-  "compared": "alpha = (3,4,5,6) vs lambda = (2,4,5,7); p = (0.2,0.25,0.45,0.8)",
-  "hypotheses": [
-   {
-    "text": "alpha <=^m lambda",
-    "formal": "majorization holds",
-    "source": "statement"
-   },
-   {
-    "text": "phi(1-phi)/phi' not convex",
-    "formal": "condition (d) of Theorem 4 violated",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "hr",
-   "direction": "hazard-rate ordering fails; hazard curves of X^p_{4:4} and Y^p_{4:4} cross (Figure 3(a))"
-  },
-  "quantifiers": "n = 4",
-  "numbers": "alpha = (3,4,5,6), lambda = (2,4,5,7), p = (0.2,0.25,0.45,0.8), delta = 0.2",
-  "ambiguity": "Counterexample to Theorem 4 when its convexity condition on phi(1-phi)/phi' is dropped.",
-  "adjudication": "example record (pass a)+b"
- },
- {
-  "paper": "doi:10.66224/jss.20.1.06",
-  "claim": "Example 5",
-  "page": 141,
-  "quote": "Consider two series systems consisting of dependent components with baseline survival function F_bar(x) = e^{-x}, x >= 0. Clearly log F_bar_alpha(alpha x) = -alpha^{-4} x^5. It can be easily shown that the second derivative of this function is negative and its first derivative is non-positive. Therefore the condition that F_bar_alpha(alpha x) is increasing and log-concave in alpha holds. Also let alpha = (11,8,4) in D+, lambda = (9,6,2) in D+ and p = (0.92,0.18,0.02) in D+, such that alpha <=^w lambda. The Archimedean generator phi(u) = 2/(1+e^u) is log-concave ... In Figure 3(b) the distribution functions of X^p_{1:3} and Y^p_{1:3} are plotted, showing the graph of F_{X^p_{1:3}} lies above that of F_{Y^p_{1:3}}. Therefore the validity of Theorem 8 is confirmed.",
-  "kind": "example",
-  "model": "series system",
-  "family": "SAH marginals; generator phi(u) = 2/(1+e^u); random shocks",
-  "compared": "alpha = (11,8,4) vs lambda = (9,6,2); p = (0.92,0.18,0.02)",
-  "hypotheses": [
-   {
-    "text": "alpha <=^w lambda; phi log-concave; F_bar_alpha(alpha x) increasing log-concave in alpha",
-    "formal": "verifies Theorem 8 hypotheses",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "X^p_{1:3} <=_st Y^p_{1:3} (cdf of X above cdf of Y, Figure 3(b))"
-  },
-  "quantifiers": "n = 3",
-  "numbers": "alpha = (11,8,4), lambda = (9,6,2), p = (0.92,0.18,0.02)",
-  "ambiguity": "Printed log-expression '-alpha^{-4} x^5' is inconsistent with the stated exponential baseline; recorded verbatim.",
-  "adjudication": "example record (pass a)+b"
  },
  {
   "paper": "doi:10.66224/jss.20.1.06",

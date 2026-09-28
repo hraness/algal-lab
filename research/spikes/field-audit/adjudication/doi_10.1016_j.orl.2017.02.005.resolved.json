@@ -1,0 +1,105 @@
+[
+ {
+  "queue_claim": "counterexample3.1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1016/j.orl.2017.02.005",
+    "claim": "Counterexample 3.1",
+    "page": 6,
+    "quote": "Counterexample 3.1 Let Xi ∼ LL(σi, λi) and Yi ∼ LL(θi, λi), i = 1, 2, 3. Now, if (σ1, σ2, σ3) = (1, 1, 5) ∈ E+, (θ1, θ2, θ3) = (1, 2, 4) ∈ E+ and (λ1, λ2, λ3) = (4, 3, 0.2) ∈ D+ are taken, then from Figure 1, it is clear that F3:3(x)/G3:3(x) is not monotone, giving that X3:3 ≱rhr Y3:3, although σ ≽^m θ.",
+    "kind": "counterexample",
+    "model": "parallel system (largest order statistic)",
+    "family": "log-Lindley LL(σ, λ): f(x;σ,λ) = σ²/(1+λσ)(λ − log x)x^{σ−1}, 0 < x < 1",
+    "compared": "σ = (1,1,5) vs θ = (1,2,4), common λ = (4,3,0.2); σ, θ ∈ E+ while λ ∈ D+ (mixed orderings)",
+    "hypotheses": [
+     {
+      "text": "σ = (1,1,5) ∈ E+, θ = (1,2,4) ∈ E+, λ = (4,3,0.2) ∈ D+, with σ ≽^m θ",
+      "formal": "shape majorization holds but scale ordering is reversed (λ ∈ D+ vs σ,θ ∈ E+)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "refuted: X3:3 ≱rhr Y3:3 — F3:3/G3:3 non-monotone although σ ≽^m θ"
+    },
+    "quantifiers": "n = 3",
+    "numbers": "σ = (1,1,5); θ = (1,2,4); λ = (4,3,0.2); Figure 1 plots F3:3/G3:3 over (0,1), non-monotone",
+    "ambiguity": "Shows the E+/D+ compatibility requirement in Theorem 3.1-type results is not dispensable; assessment is graphical (Figure 1) only."
+   }
+  ],
+  "note": "Printed ≱rhr (crossed symbol in text layer) — non-monotone cdf ratio despite σ ≽^m θ; both passes' records substantively agree."
+ },
+ {
+  "queue_claim": "counterexample3.2",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1016/j.orl.2017.02.005",
+    "claim": "Counterexample 3.2",
+    "page": 7,
+    "quote": "Counterexample 3.2 Let Xi ∼ LL(σi, λi) and Yi ∼ (σi, δi), i = 1, 2, 3. Let (λ1, λ2, λ3) = (0.1, 0.3, 4.1) ∈ E+ and (δ1, δ2, δ3) = (0.2, 0.3, 4) ∈ E+, giving λ ≽^m δ. Now, if (σ1, σ2, σ3) = (0.1, 3, 5) ∈ E+ is taken, then Figure 2(a) shows that F3:3(x)/G3:3(x) is increasing in x. Again if (σ1, σ2, σ3) = (2, 3, 5) ∈ E+ is taken, then Figure 2(b) shows that F3:3(x)/G3:3(x) is decreasing in x. So, it can be concluded that, for all σ, λ, δ ∈ D+ (resp. E+), λ ≽^m δ does not always imply X3:3 ≤rhr Y3:3.",
+    "kind": "counterexample",
+    "model": "parallel system (largest order statistic)",
+    "family": "log-Lindley LL(σ, λ)",
+    "compared": "λ = (0.1,0.3,4.1) vs δ = (0.2,0.3,4) with λ ≽^m δ; two common-σ choices (0.1,3,5) and (2,3,5) give opposite ratio monotonicity",
+    "hypotheses": [
+     {
+      "text": "λ, δ ∈ E+ with λ ≽^m δ; σ ∈ E+ in both trials",
+      "formal": "scale majorization with shape vector common and similarly ordered",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "refuted as uniform claim: σ = (0.1,3,5) gives F/G increasing (X3:3 ≤rhr Y3:3 holds), σ = (2,3,5) gives F/G decreasing (X3:3 ≤rhr Y3:3 fails — opposite direction) — 'λ ≽^m δ does not always imply X3:3 ≤rhr Y3:3'"
+    },
+    "quantifiers": "n = 3",
+    "numbers": "λ = (0.1,0.3,4.1); δ = (0.2,0.3,4); σ ∈ {(0.1,3,5), (2,3,5)}; Figures 2(a), 2(b)",
+    "ambiguity": "Prints 'Yi ∼ (σi, δi)' with the LL symbol dropped; graph-only evidence."
+   }
+  ],
+  "note": "Two σ choices give opposite F/G monotonicity — direction ambiguity between passes is resolved by reading both sub-figures; printed conclusion verbatim."
+ },
+ {
+  "queue_claim": "theorem3.4",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1016/j.orl.2017.02.005",
+    "claim": "Theorem 3.4",
+    "page": 9,
+    "quote": "Theorem 3.4 For i = 1, 2, ..., n, let Xi and Yi be two sets of independent random variables each following the multiple-outlier EW model such that Xi ∼ LL(σ, λ) and Yi ∼ LL(θ, λ) for i = 1, 2, ..., n1, Xi ∼ LL(σ*, λ*) and Yi ∼ LL(θ*, λ*) for i = n1 + 1, n1 + 2, ..., n1 + n2 (= n). If (σ, σ, ..., σ, σ*, σ*, ..., σ*) ≽^m (θ, θ, ..., θ, θ*, θ*, ..., θ*) and either {σ ≥ σ*, θ ≥ θ*, λ ≥ λ*} or {σ ≤ σ*, θ ≤ θ*, λ ≤ λ*} then Xn:n ≥lr Yn:n.",
+    "kind": "theorem",
+    "model": "other: multiple-outlier parallel system (n1 regular + n2 outlier components)",
+    "family": "log-Lindley LL(·,·) — statement says 'multiple-outlier EW model' but distributions printed LL",
+    "compared": "majorized shape-vector n-tuples; common per-group scale vectors",
+    "hypotheses": [
+     {
+      "text": "Xi ∼ LL(σ, λ), Yi ∼ LL(θ, λ) for i ≤ n1; Xi ∼ LL(σ*, λ*), Yi ∼ LL(θ*, λ*) for i = n1+1,...,n",
+      "formal": "two-group outlier structure",
+      "source": "statement"
+     },
+     {
+      "text": "(σ,...,σ,σ*,...,σ*) ≽^m (θ,...,θ,θ*,...,θ*) (n1 σ's, n2 σ*'s vs n1 θ's, n2 θ*'s)",
+      "formal": "X-side shape vector majorizes Y-side",
+      "source": "statement"
+     },
+     {
+      "text": "either {σ ≥ σ*, θ ≥ θ*, λ ≥ λ*} or {σ ≤ σ*, θ ≤ θ*, λ ≤ λ*}",
+      "formal": "regular vs outlier parameter triples ordered consistently",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "Xn:n ≥lr Yn:n (equivalently Yn:n ≤lr Xn:n)"
+    },
+    "quantifiers": "n = n1 + n2; x ∈ (0,1)",
+    "numbers": "",
+    "ambiguity": "'EW model' is a printed misnomer — components are LL(·,·); kept verbatim. Unlike Theorem 3.3 no λσ > 1/2-type condition appears."
+   }
+  ],
+  "note": "Both passes print Xn:n ≥lr Yn:n — dir-code labels differ cosmetically; 'EW' misprint flagged by both."
+ }
+]

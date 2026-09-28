@@ -1,0 +1,414 @@
+[
+ {
+  "queue_claim": "unn4.7:case i section 4.7 θ1 <",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.6339/jds.202001_18(1).0001",
+    "claim": "Section 4.7, Case I (lr part)",
+    "page": 19,
+    "quote": "Case I : θ1 < θ2. Let X~GIW(α, θ1, λ, β) and Y~GIW(α, θ2, λ, β). Then gX(y)/gY(y) = [α^{θ1}θ1(1 − α^{θ2})[1 − (1 − α)e^{−(λ/y)^β}]^{θ2+1}] / [α^{θ2}θ2(1 − α^{θ1})[1 − (1 − α)e^{−(λ/y)^β}]^{θ1+1}]. Since θ1 < θ2, d/dx[gX(y)/gY(y)] < 0. Hence, gX(y)/gY(y) is decreasing in y. That is X ≤lr Y. The remaining statement follow from the implication (32).",
+    "kind": "theorem",
+    "model": "single",
+    "family": "GIW (generalized inverse Weibull / inverse truncated negative binomial Weibull), Eq. (19)",
+    "compared": "X ~ GIW(α, θ1, λ, β) vs Y ~ GIW(α, θ2, λ, β); common α, λ, β, ordered θ",
+    "hypotheses": [
+     {
+      "text": "θ1 < θ2",
+      "formal": "ordered θ parameters making gX/gY decreasing",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "X ≤lr Y (smaller θ gives lr-smaller variable)"
+    },
+    "quantifiers": "α, θi, λ, β > 0 (α ≠ 1); all y > 0",
+    "numbers": "",
+    "ambiguity": "Unnumbered 'Case I' result. Derivative printed as d/dx while the ratio is a function of y; sub/superscripts partly garbled in the text layer."
+   },
+   {
+    "paper": "doi:10.6339/jds.202001_18(1).0001",
+    "claim": "Section 4.7, Case I (hr part)",
+    "page": 19,
+    "quote": "That is X ≤lr Y. The remaining statement follow from the implication (32): X ≤rhr Y ⇐ X ≤lr Y ⇒ X ≤hr Y ⇒ X ≤st Y.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "GIW",
+    "compared": "X ~ GIW(α, θ1, λ, β) vs Y ~ GIW(α, θ2, λ, β), θ1 < θ2",
+    "hypotheses": [
+     {
+      "text": "θ1 < θ2",
+      "formal": "ordered θ parameters",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "X ≤hr Y (via implication (32))"
+    },
+    "quantifiers": "all y > 0",
+    "numbers": "",
+    "ambiguity": ""
+   },
+   {
+    "paper": "doi:10.6339/jds.202001_18(1).0001",
+    "claim": "Section 4.7, Case I (st part)",
+    "page": 19,
+    "quote": "The remaining statement follow from the implication (32): X ≤rhr Y ⇐ X ≤lr Y ⇒ X ≤hr Y ⇒ X ≤st Y.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "GIW",
+    "compared": "X ~ GIW(α, θ1, λ, β) vs Y ~ GIW(α, θ2, λ, β), θ1 < θ2",
+    "hypotheses": [
+     {
+      "text": "θ1 < θ2",
+      "formal": "ordered θ parameters",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X ≤st Y (via implication (32))"
+    },
+    "quantifiers": "all y > 0",
+    "numbers": "",
+    "ambiguity": ""
+   },
+   {
+    "paper": "doi:10.6339/jds.202001_18(1).0001",
+    "claim": "Section 4.7, Case I (rhr part)",
+    "page": 19,
+    "quote": "The remaining statement follow from the implication (32): X ≤rhr Y ⇐ X ≤lr Y ⇒ X ≤hr Y ⇒ X ≤st Y.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "GIW",
+    "compared": "X ~ GIW(α, θ1, λ, β) vs Y ~ GIW(α, θ2, λ, β), θ1 < θ2",
+    "hypotheses": [
+     {
+      "text": "θ1 < θ2",
+      "formal": "ordered θ parameters",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "X ≤rhr Y (via implication (32))"
+    },
+    "quantifiers": "all y > 0",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Case I prints X ≤lr Y for θ1 < θ2 plus hr/st/rhr via implication (32); split into one record per order."
+ },
+ {
+  "queue_claim": "unn4.7:case ii section 4.7 α2 <",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.6339/jds.202001_18(1).0001",
+    "claim": "Section 4.7, Case II (lr part)",
+    "page": 20,
+    "quote": "Case II : α2 < α1. Let X~GIW(α1, θ, λ, β) and Y~GIW(α2, θ, λ, β). Then gX(y)/gY(y) = [α1^θ(1 − α1)(1 − α2^θ)/(α2^θ(1 − α2)(1 − α1^θ))] · [[1 − (1 − α2)e^{−(λ/y)^β}]/[1 − (1 − α1)e^{−(λ/y)^β}]]^{θ+1}. Since α2 < α1, d/dx[gX(y)/gY(y)] = −(α1 − α2)(θ + 1)(λ/y)^β(β/y)e^{−(λ/y)^β}[1 − (1 − α2)e^{−(λ/y)^β}]^θ/[1 − (1 − α1)e^{−(λ/y)^β}]^{θ+2} < 0. Hence, gX(y)/gY(y) is decreasing in y. That is X ≤lr Y. The remaining statement follow from the implication (32).",
+    "kind": "theorem",
+    "model": "single",
+    "family": "GIW, Eq. (19)",
+    "compared": "X ~ GIW(α1, θ, λ, β) vs Y ~ GIW(α2, θ, λ, β); common θ, λ, β, α2 < α1",
+    "hypotheses": [
+     {
+      "text": "α2 < α1",
+      "formal": "ordered α parameters making gX/gY decreasing",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "X ≤lr Y (larger α gives lr-smaller variable)"
+    },
+    "quantifiers": "α1, α2 > 0, αi ≠ 1; θ, λ, β > 0; all y > 0",
+    "numbers": "",
+    "ambiguity": "Unnumbered 'Case II' result; explicit negative derivative printed. d/dx vs y mismatch as in Case I; double period 'X ≤lr Y..' is verbatim."
+   },
+   {
+    "paper": "doi:10.6339/jds.202001_18(1).0001",
+    "claim": "Section 4.7, Case II (hr part)",
+    "page": 20,
+    "quote": "The remaining statement follow from the implication (32): X ≤rhr Y ⇐ X ≤lr Y ⇒ X ≤hr Y ⇒ X ≤st Y.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "GIW",
+    "compared": "X ~ GIW(α1, θ, λ, β) vs Y ~ GIW(α2, θ, λ, β), α2 < α1",
+    "hypotheses": [
+     {
+      "text": "α2 < α1",
+      "formal": "ordered α parameters",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "X ≤hr Y (via implication (32))"
+    },
+    "quantifiers": "all y > 0",
+    "numbers": "",
+    "ambiguity": ""
+   },
+   {
+    "paper": "doi:10.6339/jds.202001_18(1).0001",
+    "claim": "Section 4.7, Case II (st part)",
+    "page": 20,
+    "quote": "The remaining statement follow from the implication (32): X ≤rhr Y ⇐ X ≤lr Y ⇒ X ≤hr Y ⇒ X ≤st Y.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "GIW",
+    "compared": "X ~ GIW(α1, θ, λ, β) vs Y ~ GIW(α2, θ, λ, β), α2 < α1",
+    "hypotheses": [
+     {
+      "text": "α2 < α1",
+      "formal": "ordered α parameters",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X ≤st Y (via implication (32))"
+    },
+    "quantifiers": "all y > 0",
+    "numbers": "",
+    "ambiguity": ""
+   },
+   {
+    "paper": "doi:10.6339/jds.202001_18(1).0001",
+    "claim": "Section 4.7, Case II (rhr part)",
+    "page": 20,
+    "quote": "The remaining statement follow from the implication (32): X ≤rhr Y ⇐ X ≤lr Y ⇒ X ≤hr Y ⇒ X ≤st Y.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "GIW",
+    "compared": "X ~ GIW(α1, θ, λ, β) vs Y ~ GIW(α2, θ, λ, β), α2 < α1",
+    "hypotheses": [
+     {
+      "text": "α2 < α1",
+      "formal": "ordered α parameters",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "X ≤rhr Y (via implication (32))"
+    },
+    "quantifiers": "all y > 0",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Case II prints X ≤lr Y for α2 < α1 plus hr/st/rhr via (32); split per order."
+ },
+ {
+  "queue_claim": "unn4.7:section 4.7 case i θ1 <",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.6339/jds.202001_18(1).0001",
+    "claim": "Section 4.7, Case I (lr part)",
+    "page": 19,
+    "quote": "Case I : θ1 < θ2. Let X~GIW(α, θ1, λ, β) and Y~GIW(α, θ2, λ, β). Then gX(y)/gY(y) = [α^{θ1}θ1(1 − α^{θ2})[1 − (1 − α)e^{−(λ/y)^β}]^{θ2+1}] / [α^{θ2}θ2(1 − α^{θ1})[1 − (1 − α)e^{−(λ/y)^β}]^{θ1+1}]. Since θ1 < θ2, d/dx[gX(y)/gY(y)] < 0. Hence, gX(y)/gY(y) is decreasing in y. That is X ≤lr Y. The remaining statement follow from the implication (32).",
+    "kind": "theorem",
+    "model": "single",
+    "family": "GIW (generalized inverse Weibull), Eq. (19)",
+    "compared": "X ~ GIW(α, θ1, λ, β) vs Y ~ GIW(α, θ2, λ, β); θ1 < θ2",
+    "hypotheses": [
+     {
+      "text": "θ1 < θ2",
+      "formal": "ordered θ parameters",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "X ≤lr Y"
+    },
+    "quantifiers": "α, θi, λ, β > 0 (α ≠ 1); all y > 0",
+    "numbers": "",
+    "ambiguity": "Same canonical record as the A-side 'case i' item."
+   },
+   {
+    "paper": "doi:10.6339/jds.202001_18(1).0001",
+    "claim": "Section 4.7, Case I (hr part)",
+    "page": 19,
+    "quote": "The remaining statement follow from the implication (32): X ≤rhr Y ⇐ X ≤lr Y ⇒ X ≤hr Y ⇒ X ≤st Y.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "GIW",
+    "compared": "X ~ GIW(α, θ1, λ, β) vs Y ~ GIW(α, θ2, λ, β), θ1 < θ2",
+    "hypotheses": [
+     {
+      "text": "θ1 < θ2",
+      "formal": "ordered θ parameters",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "X ≤hr Y"
+    },
+    "quantifiers": "all y > 0",
+    "numbers": "",
+    "ambiguity": ""
+   },
+   {
+    "paper": "doi:10.6339/jds.202001_18(1).0001",
+    "claim": "Section 4.7, Case I (st part)",
+    "page": 19,
+    "quote": "The remaining statement follow from the implication (32): X ≤rhr Y ⇐ X ≤lr Y ⇒ X ≤hr Y ⇒ X ≤st Y.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "GIW",
+    "compared": "X ~ GIW(α, θ1, λ, β) vs Y ~ GIW(α, θ2, λ, β), θ1 < θ2",
+    "hypotheses": [
+     {
+      "text": "θ1 < θ2",
+      "formal": "ordered θ parameters",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+    "direction": "X ≤st Y"
+    },
+    "quantifiers": "all y > 0",
+    "numbers": "",
+    "ambiguity": ""
+   },
+   {
+    "paper": "doi:10.6339/jds.202001_18(1).0001",
+    "claim": "Section 4.7, Case I (rhr part)",
+    "page": 19,
+    "quote": "The remaining statement follow from the implication (32): X ≤rhr Y ⇐ X ≤lr Y ⇒ X ≤hr Y ⇒ X ≤st Y.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "GIW",
+    "compared": "X ~ GIW(α, θ1, λ, β) vs Y ~ GIW(α, θ2, λ, β), θ1 < θ2",
+    "hypotheses": [
+     {
+      "text": "θ1 < θ2",
+      "formal": "ordered θ parameters",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "X ≤rhr Y"
+    },
+    "quantifiers": "all y > 0",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "B's Case I record canonically splits into lr/hr/st/rh records; content agrees with pass A."
+ },
+ {
+  "queue_claim": "unn4.7:section 4.7 case ii α2 <",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.6339/jds.202001_18(1).0001",
+    "claim": "Section 4.7, Case II (lr part)",
+    "page": 20,
+    "quote": "Case II : α2 < α1. Let X~GIW(α1, θ, λ, β) and Y~GIW(α2, θ, λ, β). ... Since α2 < α1, d/dx[gX(y)/gY(y)] < 0. Hence, gX(y)/gY(y) is decreasing in y. That is X ≤lr Y. The remaining statement follow from the implication (32).",
+    "kind": "theorem",
+    "model": "single",
+    "family": "GIW, Eq. (19)",
+    "compared": "X ~ GIW(α1, θ, λ, β) vs Y ~ GIW(α2, θ, λ, β); α2 < α1",
+    "hypotheses": [
+     {
+      "text": "α2 < α1",
+      "formal": "ordered α parameters",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "X ≤lr Y (larger α gives lr-smaller variable)"
+    },
+    "quantifiers": "αi > 0, αi ≠ 1; θ, λ, β > 0; all y > 0",
+    "numbers": "",
+    "ambiguity": "Same canonical record as the A-side 'case ii' item."
+   },
+   {
+    "paper": "doi:10.6339/jds.202001_18(1).0001",
+    "claim": "Section 4.7, Case II (hr part)",
+    "page": 20,
+    "quote": "The remaining statement follow from the implication (32): X ≤rhr Y ⇐ X ≤lr Y ⇒ X ≤hr Y ⇒ X ≤st Y.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "GIW",
+    "compared": "X ~ GIW(α1, θ, λ, β) vs Y ~ GIW(α2, θ, λ, β), α2 < α1",
+    "hypotheses": [
+     {
+      "text": "α2 < α1",
+      "formal": "ordered α parameters",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "X ≤hr Y"
+    },
+    "quantifiers": "all y > 0",
+    "numbers": "",
+    "ambiguity": ""
+   },
+   {
+    "paper": "doi:10.6339/jds.202001_18(1).0001",
+    "claim": "Section 4.7, Case II (st part)",
+    "page": 20,
+    "quote": "The remaining statement follow from the implication (32): X ≤rhr Y ⇐ X ≤lr Y ⇒ X ≤hr Y ⇒ X ≤st Y.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "GIW",
+    "compared": "X ~ GIW(α1, θ, λ, β) vs Y ~ GIW(α2, θ, λ, β), α2 < α1",
+    "hypotheses": [
+     {
+      "text": "α2 < α1",
+      "formal": "ordered α parameters",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X ≤st Y"
+    },
+    "quantifiers": "all y > 0",
+    "numbers": "",
+    "ambiguity": ""
+   },
+   {
+    "paper": "doi:10.6339/jds.202001_18(1).0001",
+    "claim": "Section 4.7, Case II (rhr part)",
+    "page": 20,
+    "quote": "The remaining statement follow from the implication (32): X ≤rhr Y ⇐ X ≤lr Y ⇒ X ≤hr Y ⇒ X ≤st Y.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "GIW",
+    "compared": "X ~ GIW(α1, θ, λ, β) vs Y ~ GIW(α2, θ, λ, β), α2 < α1",
+    "hypotheses": [
+     {
+      "text": "α2 < α1",
+      "formal": "ordered α parameters",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "X ≤rhr Y"
+    },
+    "quantifiers": "all y > 0",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "B's Case II record canonically splits into lr/hr/st/rh records; content agrees with pass A."
+ }
+]

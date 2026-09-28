@@ -1,0 +1,233 @@
+[
+ {
+  "queue_claim": "corollary3.6",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.2991/jsta.2018.17.3.8",
+    "claim": "Corollary 3.6",
+    "page": 15,
+    "quote": "Corollary 3.6. For X ∼ ES(α , λ , ϕ1 ) and X ∗ ∼ ES(α ∗ , λ , ϕ2 ), if ϕ1 or ϕ2 is log-convex, and ψ2 ◦ ϕ1 is super-additive, then (α1 , . . . , αn ) ≻^log_w (α1∗ , . . . , αn∗ ) implies Xn:n ≤st Xn:n∗ .",
+    "kind": "corollary",
+    "model": "parallel system",
+    "family": "exponentiated scale family ES(α, λ): marginal cdf [G(λx)]^α, arbitrary baseline G; dependent components with Archimedean copulas, generator ϕ1 for X and ϕ2 for X*",
+    "compared": "exponent vectors α vs α* and copula generators ϕ1 vs ϕ2; λ and G common",
+    "hypotheses": [
+     {
+      "text": "by X ∼ ES(α , λ , ϕ) we denote the sample having the Archimedean copula with generator ϕ and for i = 1, ..., n, Xi ∼ ES(αi , λ)",
+      "formal": "X has Archimedean copula generator ϕ1 and marginals [G(λx)]^{α_i}; X* has generator ϕ2 and marginals [G(λx)]^{α*_i}; common λ and G",
+      "source": "section preamble"
+     },
+     {
+      "text": "ϕ1 or ϕ2 is log-convex",
+      "formal": "log ϕ1 or log ϕ2 convex",
+      "source": "statement"
+     },
+     {
+      "text": "ψ2 ◦ ϕ1 is super-additive",
+      "formal": "ψ2(ϕ1(x + y)) ≥ ψ2(ϕ1(x)) + ψ2(ϕ1(y))",
+      "source": "statement"
+     },
+     {
+      "text": "(α1 , . . . , αn ) ≻^log_w (α1∗ , . . . , αn∗ )",
+      "formal": "weak log-majorization on exponent vectors; the corollary is derived via 'weak log-majorization implies weak submajorization'",
+      "source": "statement; definition 2.2(iv)"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X_{n:n} <=st X*_{n:n} (as printed)"
+    },
+    "quantifiers": "n >= 2; all x >= 0",
+    "numbers": "",
+    "ambiguity": "The symbol ≻_w^{log} is the converse of the defined ⪯_w^{log} of Definition 2.2(iv) (products of smallest components); the reversed direction is printed but not formally defined. The corollary follows from Theorem 3.7(i) whose conclusion is X_{n:n} ≥st X*_{n:n} — the printed ≤st reflects the reversed symbol usage; recorded as printed."
+   }
+  ],
+  "note": "Pass B only; in scope — printed st-ordering conclusion for ES samples. Verbatim quote confirmed against the text layer (≻^log_w and ≤st both print as shown)."
+ },
+ {
+  "queue_claim": "corollary3.7",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.2991/jsta.2018.17.3.8",
+    "claim": "Corollary 3.7",
+    "page": 15,
+    "quote": "Letting λ = 1 in Corollary 3.6 leads to the following corollary for PRH samples. Corollary 3.7. For X ∼ PRH(α , ϕ1 ) and X ∗ ∼ PRH(α ∗ , λ , ϕ2 ), if ϕ1 or ϕ2 is log-convex, and ψ2 ◦ ϕ1 is super-additive, then (α1 , . . . , αn ) ≻^log_w (α1∗ , . . . , αn∗ ) implies Xn:n ≤st Xn:n∗ .",
+    "kind": "corollary",
+    "model": "parallel system",
+    "family": "proportional reversed hazards PRH(α, ϕ) (ES with λ = 1): marginal cdf G^{α_i}(x), arbitrary baseline G; Archimedean copula generators ϕ1, ϕ2",
+    "compared": "exponent vectors α vs α* and copula generators ϕ1 vs ϕ2; G common",
+    "hypotheses": [
+     {
+      "text": "For X ∼ PRH(α , ϕ1 ) and X ∗ ∼ PRH(α ∗ , λ , ϕ2 )",
+      "formal": "PRH samples with Archimedean copulas ϕ1, ϕ2 (ES with λ = 1)",
+      "source": "statement; earlier corollary 3.6 with λ = 1"
+     },
+     {
+      "text": "ϕ1 or ϕ2 is log-convex",
+      "formal": "log ϕ1 or log ϕ2 convex",
+      "source": "statement"
+     },
+     {
+      "text": "ψ2 ◦ ϕ1 is super-additive",
+      "formal": "ψ2(ϕ1(x + y)) ≥ ψ2(ϕ1(x)) + ψ2(ϕ1(y))",
+      "source": "statement"
+     },
+     {
+      "text": "(α1 , . . . , αn ) ≻^log_w (α1∗ , . . . , αn∗ )",
+      "formal": "weak log-majorization (undefined converse of ⪯_w^{log})",
+      "source": "statement; definition 2.2(iv)"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X_{n:n} <=st X*_{n:n} (as printed)"
+    },
+    "quantifiers": "n >= 2; all x >= 0",
+    "numbers": "",
+    "ambiguity": "X* is written PRH(α*, λ, ϕ2) with a stray λ argument; PRH(α, ϕ) is not formally defined in the paper. Same symbol-direction caveat as Corollary 3.6."
+   }
+  ],
+  "note": "Pass B only; in scope — printed st-ordering conclusion for PRH samples; the stray λ in PRH(α*, λ, ϕ2) preserved and flagged."
+ },
+ {
+  "queue_claim": "example3.1i",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.2991/jsta.2018.17.3.8",
+    "claim": "Example 3.1(i)",
+    "page": 12,
+    "quote": "Naturally, one may wonder whether the following two statements are actually also true: (i) For α ≥ 1, (λ1 , . . . , λn ) ≽_w^{exp} (λ1∗ , . . . , λn∗ ) gives rise to the usual stochastic order between X1:n and X1:n∗ ; (ii) For 0 < α ≤ 1, (λ1 , . . . , λn ) ≽^p (λ1∗ , . . . , λn∗ ) gives rise to the usual stochastic order between X1:n and X1:n∗ . The following example gives negative answers to these two conjectures. Example 3.1. Let (X1 , X2 ) ((X1∗ , X2∗ )) be a vector of independent heterogeneous GE random variables. (i) Set α = 2, (λ1 , λ2 ) = (4, 0.5) and (λ1∗ , λ2∗ ) = (2, 3). Obviously (λ1 , λ2 ) ≽_w^{exp} (λ1∗ , λ2∗ ), however X1:2 and X1:2∗ are not ordered in the usual stochastic order as can be seen in Fig. 1.",
+    "kind": "counterexample",
+    "model": "series system",
+    "family": "generalized exponential GE(α, λ): G(x) = (1 − exp{−λx})^α, x > 0; common α = 2",
+    "compared": "scale vectors (4, 0.5) vs (2, 3)",
+    "hypotheses": [
+     {
+      "text": "Let (X1 , X2 ) ((X1∗ , X2∗ )) be a vector of independent heterogeneous GE random variables",
+      "formal": "Xi ∼ GE(α, λi), Xi* ∼ GE(α, λi*), independent, n = 2",
+      "source": "statement"
+     },
+     {
+      "text": "α = 2 (i.e., α ≥ 1 as in conjecture (i))",
+      "formal": "α = 2",
+      "source": "statement"
+     },
+     {
+      "text": "Obviously (λ1 , λ2 ) ≽_w^{exp} (λ1∗ , λ2∗ )",
+      "formal": "weak exp-majorization per Definition 2.4 (the converse ≽ form not formally defined; read via the defined ⪯_w^{exp})",
+      "source": "statement; definition 2.4"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X_{1:2} and X*_{1:2} are not ordered in the usual stochastic order (survival functions cross in Fig. 1) — refutes conjecture (i)"
+    },
+    "quantifiers": "n = 2; α = 2; Fig. 1 plots x over a finite range",
+    "numbers": "α = 2; (λ1, λ2) = (4, 0.5); (λ1*, λ2*) = (2, 3); Fig. 1: survival functions of X_{1:2} (dashed) and X*_{1:2} (continuous), visually near-coincident",
+    "ambiguity": "The refuted statement is a printed conjecture, not a theorem. Only ⪯_w^{exp} is defined (Definition 2.4); the converse ≽_w^{exp} is used but undefined. Curves in Fig. 1 are nearly indistinguishable at the printed scale."
+   }
+  ],
+  "note": "Both passes agree: printed non-ordering of the two minima refuting conjecture (i); merged with B's fuller quote (≽_w^{exp} symbol confirmed in text layer)."
+ },
+ {
+  "queue_claim": "theorem3.3",
+  "decision": "exclude",
+  "records": [],
+  "note": "Exclude: the unnumbered notes after Theorem 3.3 only assert that the GG and Weibull baselines satisfy Theorem 3.3's conditions (xr(x), x^2r'(x) monotonicity) — no ordering conclusion is printed; pass A itself labels the hr direction as merely 'implied'."
+ },
+ {
+  "queue_claim": "theorem3.7i",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.2991/jsta.2018.17.3.8",
+    "claim": "Theorem 3.7(i)",
+    "page": 13,
+    "quote": "3.4. Dependent samples with Archimedean structure. [...] Specifically, by X ∼ ES(α , λ , ϕ) we denote the sample having the Archimedean copula with generator ϕ and for i = 1, ..., n, Xi ∼ ES(αi , λ). The largest order statistic Xn:n of the sample X ∼ ES(α , λ , ϕ1 ) gets distribution function GXn:n (x) = ϕ(Σ_{i=1}^n ψ(G^{αi}(λx))) = J(α , λ , x, ϕ) (3.6). Theorem 3.7. For X ∼ ES(α , λ , ϕ1 ) and X ∗ ∼ ES(α ∗ , λ , ϕ2 ), (i) if ϕ1 or ϕ2 is log-convex, and ψ2 ◦ ϕ1 is super-additive, then (α1 , . . . , αn ) ≽_w (α1∗ , . . . , αn∗ ) implies Xn:n ≥st Xn:n∗ ;",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "exponentiated scale family ES(α, λ): marginal cdf [G(λx)]^α, arbitrary baseline G; dependent components with Archimedean copulas ϕ1 (X) and ϕ2 (X*)",
+    "compared": "exponent vectors α vs α* and copula generators ϕ1 vs ϕ2; λ and G common",
+    "hypotheses": [
+     {
+      "text": "X ∼ ES(α , λ , ϕ1 ) and X* ∼ ES(α ∗ , λ , ϕ2 ): Archimedean copula generators with ES marginals, common λ and G",
+      "formal": "X has generator ϕ1 and marginals [G(λx)]^{α_i}; X* has generator ϕ2 and marginals [G(λx)]^{α*_i}",
+      "source": "section preamble"
+     },
+     {
+      "text": "ϕ1 or ϕ2 is log-convex",
+      "formal": "log ϕ1 or log ϕ2 convex",
+      "source": "statement"
+     },
+     {
+      "text": "ψ2 ◦ ϕ1 is super-additive",
+      "formal": "ψ2(ϕ1(x + y)) ≥ ψ2(ϕ1(x)) + ψ2(ϕ1(y))",
+      "source": "statement"
+     },
+     {
+      "text": "(α1 , . . . , αn ) ≽_w (α1∗ , . . . , αn∗ )",
+      "formal": "converse of the defined ⪯_w (Definition 2.2(i)); i.e., α* weakly submajorized by α as printed",
+      "source": "statement; definition 2.2(i) (converse symbol not defined)"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X_{n:n} >=st X*_{n:n} (as printed)"
+    },
+    "quantifiers": "n >= 2 (n-monotone generator); all x >= 0",
+    "numbers": "",
+    "ambiguity": "'Super-additive' not defined in the paper (proof cites Lemma A.1 of [24]). The ≽_w converse is printed but only ⪯ forms are defined in Section 2. Baseline G arbitrary — the specific-family version is Corollary 3.6/3.7."
+   }
+  ],
+  "note": "Pass B only; in scope — printed st-ordering of the two maxima. Verified verbatim (≥st direction as printed)."
+ },
+ {
+  "queue_claim": "theorem3.7ii",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.2991/jsta.2018.17.3.8",
+    "claim": "Theorem 3.7(ii)",
+    "page": 13,
+    "quote": "(ii) if ϕ1 or ϕ2 is log-concave, and ψ1 ◦ ϕ2 is super-additive, then (α1 , . . . , αn ) ≽^w (α1∗ , . . . , αn∗ ) implies Xn:n ≤st Xn:n∗ .",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "exponentiated scale family ES(α, λ): marginal cdf [G(λx)]^α, arbitrary baseline G; dependent components with Archimedean copulas ϕ1 (X) and ϕ2 (X*)",
+    "compared": "exponent vectors α vs α* and copula generators ϕ1 vs ϕ2; λ and G common",
+    "hypotheses": [
+     {
+      "text": "X ∼ ES(α , λ , ϕ1 ) and X* ∼ ES(α ∗ , λ , ϕ2 ): Archimedean copula generators with ES marginals, common λ and G",
+      "formal": "X has generator ϕ1 and marginals [G(λx)]^{α_i}; X* has generator ϕ2 and marginals [G(λx)]^{α*_i}",
+      "source": "section preamble"
+     },
+     {
+      "text": "ϕ1 or ϕ2 is log-concave",
+      "formal": "log ϕ1 or log ϕ2 concave",
+      "source": "statement"
+     },
+     {
+      "text": "ψ1 ◦ ϕ2 is super-additive",
+      "formal": "ψ1(ϕ2(x + y)) ≥ ψ1(ϕ2(x)) + ψ1(ϕ2(y))",
+      "source": "statement"
+     },
+     {
+      "text": "(α1 , . . . , αn ) ≽^w (α1∗ , . . . , αn∗ )",
+      "formal": "converse of the defined ⪯^w (Definition 2.2(ii)); as printed",
+      "source": "statement; definition 2.2(ii) (converse symbol not defined)"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X_{n:n} <=st X*_{n:n} (as printed)"
+    },
+    "quantifiers": "n >= 2 (n-monotone generator); all x >= 0",
+    "numbers": "",
+    "ambiguity": "Proof of part (ii) omitted in the paper. Same caveats as part (i): undefined 'super-additive' and converse majorization symbol."
+   }
+  ],
+  "note": "Pass B only; in scope — printed st-ordering of the two maxima under the log-concave/ψ1∘ϕ2-superadditive branch. Verified verbatim."
+ }
+]

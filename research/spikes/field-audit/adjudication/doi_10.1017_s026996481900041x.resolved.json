@@ -1,0 +1,191 @@
+[
+ {
+  "queue_claim": "corollary1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/s026996481900041x",
+    "claim": "Corollary 1",
+    "page": 2,
+    "quote": "Corollary 1. For 1 <= m < k <= n we have Y_{k:n} - Y_{m:n} <=* X_{k:n} - X_{m:n}.",
+    "kind": "corollary",
+    "model": "other: general spacing (difference of order statistics)",
+    "family": "independent exponentials: Xi ~ Exp(lambda_i) heterogeneous rates; Yi ~ Exp(gamma) common rate gamma",
+    "compared": "spacings of homogeneous (gamma) vs heterogeneous (lambda) exponential samples",
+    "hypotheses": [
+     {"text": "1 <= m < k <= n", "formal": "spacing indices", "source": "statement"},
+     {"text": "gamma satisfies the setup of Theorem 1/condition (1) context", "formal": "common rate gamma vs rates lambda_i", "source": "section preamble"}
+    ],
+    "conclusion": {"order": "star", "direction": "Y_{k:n} - Y_{m:n} <=* X_{k:n} - X_{m:n} (homogeneous-sample spacing star-smaller)"},
+    "quantifiers": "1 <= m < k <= n",
+    "numbers": "",
+    "ambiguity": "<=* is the star (convex transform) order defined just above Theorem 2: G^{-1}F(x)/x increasing."
+   }
+  ],
+  "note": "Corollary 1's <=* is the paper's star order; 'a' vs 'b' label difference only."
+ },
+ {
+  "queue_claim": "lemma1",
+  "decision": "exclude",
+  "records": [],
+  "note": "Lemma 1 is Xu and Balakrishnan's (2012) mixture-closure property of the star order for arbitrary F and G_i — a quoted fully general tool, not a claim about this paper's families."
+ },
+ {
+  "queue_claim": "lemma3",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/s026996481900041x",
+    "claim": "Lemma 3",
+    "page": 3,
+    "quote": "Lemma 3. For alpha > 0, if log eta <^w log theta then F_eta <=st F_theta. [Context: for independent Z1,...,Zn ~ gamma(alpha), F_theta denotes the distribution function of the weighted sum sum_i theta_i Z_i; <^w denotes weak sub-majorization.]",
+    "kind": "lemma",
+    "model": "other: weighted sum of iid gamma variables",
+    "family": "weighted gamma sums: F_theta = cdf of sum_i theta_i Z_i, Z_i iid gamma(alpha)",
+    "compared": "weight vectors eta vs theta under weak sub-majorization of log weights",
+    "hypotheses": [
+     {"text": "log eta <^w log theta", "formal": "log eta weakly submajorized by log theta", "source": "statement"},
+     {"text": "alpha > 0", "formal": "common gamma shape alpha > 0", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "F_eta <=st F_theta (eta-weighted sum stochastically smaller)"},
+    "quantifiers": "n >= 1; alpha > 0",
+    "numbers": "",
+    "ambiguity": "Numbered lemma stated as a consequence of Theorem 1 of Yu (2011); kept because its conclusion is a named order for the paper's specific gamma-convolution family."
+   }
+  ],
+  "note": "Lemma 3 orders two weighted gamma-sum distributions in the st order — specific family, in scope despite the attribution."
+ },
+ {
+  "queue_claim": "lemma4",
+  "decision": "exclude",
+  "records": [],
+  "note": "Lemma 4 (Theorem 1 of Yu 2016) asserts a unique crossing of the two cdfs — a crossing/sign characterization, not a conclusion under a named stochastic order; analytic tool."
+ },
+ {
+  "queue_claim": "proposition1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/s026996481900041x",
+    "claim": "Proposition 1 (st part)",
+    "page": 3,
+    "quote": "Proposition 1. For 1 <= m < k <= n we have Y_{k:n} - Y_{m:n} <=order X_{k:n} - X_{m:n} if and only if binom(n-m, k-m)^{-1} ... [condition (2): gamma^{k-m} >= binom(n-m,k-m)^{-1} sum_r s^{[r]}_{k-m}(lambda) prod_{j=1}^m lambda_{rj} / (Lambda - sum_{i=1}^{j-1} lambda_{ri})], where r = (r1,...,rm), the outer sum is over all permutations of {1,...,n} using m at a time, lambda = (lambda_1,...,lambda_n), Lambda = sum lambda_i, s^{[r]}_{k-m}(lambda) = s_{k-m}(lambda minus {lambda_{r1},...,lambda_{rm}}), and <=order is any of <=st, <=hr or <=disp.",
+    "kind": "proposition",
+    "model": "other: general spacing",
+    "family": "independent exponentials: Xi ~ Exp(lambda_i); Yi ~ Exp(gamma)",
+    "compared": "spacings of homogeneous vs heterogeneous exponential samples",
+    "hypotheses": [
+     {"text": "if and only if [condition (2)]", "formal": "gamma^{k-m} >= binom(n-m,k-m)^{-1} sum_r s^{[r]}_{k-m}(lambda) prod_j lambda_{rj}/(Lambda - sum_{i<j} lambda_{ri})", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Y_{k:n} - Y_{m:n} <=st X_{k:n} - X_{m:n} iff condition (2) (homogeneous spacing smaller)"},
+    "quantifiers": "1 <= m < k <= n",
+    "numbers": "",
+    "ambiguity": "Condition (2)'s exact formula is OCR-fragile; quoted with the printed terms as best reconstructed."
+   },
+   {
+    "paper": "doi:10.1017/s026996481900041x",
+    "claim": "Proposition 1 (hr part)",
+    "page": 3,
+    "quote": "Proposition 1. For 1 <= m < k <= n we have Y_{k:n} - Y_{m:n} <=order X_{k:n} - X_{m:n} if and only if [condition (2)], where <=order is any of <=st, <=hr or <=disp.",
+    "kind": "proposition",
+    "model": "other: general spacing",
+    "family": "independent exponentials: Xi ~ Exp(lambda_i); Yi ~ Exp(gamma)",
+    "compared": "spacings of homogeneous vs heterogeneous exponential samples",
+    "hypotheses": [
+     {"text": "if and only if [condition (2)]", "formal": "same printed condition (2)", "source": "statement"}
+    ],
+    "conclusion": {"order": "hr", "direction": "Y_{k:n} - Y_{m:n} <=hr X_{k:n} - X_{m:n} iff condition (2)"},
+    "quantifiers": "1 <= m < k <= n",
+    "numbers": "",
+    "ambiguity": ""
+   },
+   {
+    "paper": "doi:10.1017/s026996481900041x",
+    "claim": "Proposition 1 (disp part)",
+    "page": 3,
+    "quote": "Proposition 1. For 1 <= m < k <= n we have Y_{k:n} - Y_{m:n} <=order X_{k:n} - X_{m:n} if and only if [condition (2)], where <=order is any of <=st, <=hr or <=disp.",
+    "kind": "proposition",
+    "model": "other: general spacing",
+    "family": "independent exponentials: Xi ~ Exp(lambda_i); Yi ~ Exp(gamma)",
+    "compared": "spacings of homogeneous vs heterogeneous exponential samples",
+    "hypotheses": [
+     {"text": "if and only if [condition (2)]", "formal": "same printed condition (2)", "source": "statement"}
+    ],
+    "conclusion": {"order": "disp", "direction": "Y_{k:n} - Y_{m:n} <=disp X_{k:n} - X_{m:n} iff condition (2)"},
+    "quantifiers": "1 <= m < k <= n",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Proposition 1 covers three named orders via '<=order is any of <=st, <=hr or <=disp'; split into three records (pass A collapsed to one st record)."
+ },
+ {
+  "queue_claim": "theorem1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/s026996481900041x",
+    "claim": "Theorem 1 (hr equivalence)",
+    "page": 2,
+    "quote": "Theorem 1. For each 1 <= k <= n, (1) is equivalent to Y_{k:n} <=hr X_{k:n}, and also equivalent to Y_{k:n} <=disp X_{k:n}.",
+    "kind": "theorem",
+    "model": "order statistic",
+    "family": "independent exponentials: Xi ~ Exp(lambda_i) rates lambda_i; Yi ~ Exp(gamma) common rate",
+    "compared": "kth order statistic of homogeneous vs heterogeneous exponential samples",
+    "hypotheses": [
+     {"text": "(1): gamma >= (binom(n,k)^{-1} s_k(lambda_1,...,lambda_n))^{1/k}", "formal": "gamma at least the normalized elementary-symmetric-mean rate", "source": "earlier theorem (1)"}
+    ],
+    "conclusion": {"order": "hr", "direction": "condition (1) iff Y_{k:n} <=hr X_{k:n} (homogeneous order statistic hr-smaller); resolves Paltanea (2008) conjecture"},
+    "quantifiers": "each 1 <= k <= n",
+    "numbers": "",
+    "ambiguity": ""
+   },
+   {
+    "paper": "doi:10.1017/s026996481900041x",
+    "claim": "Theorem 1 (disp equivalence)",
+    "page": 2,
+    "quote": "Theorem 1. For each 1 <= k <= n, (1) is equivalent to Y_{k:n} <=hr X_{k:n}, and also equivalent to Y_{k:n} <=disp X_{k:n}.",
+    "kind": "theorem",
+    "model": "order statistic",
+    "family": "independent exponentials: Xi ~ Exp(lambda_i); Yi ~ Exp(gamma)",
+    "compared": "kth order statistic of homogeneous vs heterogeneous exponential samples",
+    "hypotheses": [
+     {"text": "(1): gamma >= (binom(n,k)^{-1} s_k(lambda_1,...,lambda_n))^{1/k}", "formal": "gamma threshold", "source": "earlier theorem (1)"}
+    ],
+    "conclusion": {"order": "disp", "direction": "condition (1) iff Y_{k:n} <=disp X_{k:n}"},
+    "quantifiers": "each 1 <= k <= n",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Theorem 1 prints equivalences of condition (1) to hr and to disp order; two records. (The st equivalence is the quoted Bon-Paltanea result (1), not part of this theorem's print.)"
+ },
+ {
+  "queue_claim": "theorem2",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1017/s026996481900041x",
+    "claim": "Theorem 2",
+    "page": 2,
+    "quote": "Theorem 2. For each 1 <= k <= n, we have Y_{k:n} <=* X_{k:n}.",
+    "kind": "theorem",
+    "model": "order statistic",
+    "family": "independent exponentials: Xi ~ Exp(lambda_i); Yi ~ Exp(gamma) common rate",
+    "compared": "kth order statistic of homogeneous vs heterogeneous exponential samples",
+    "hypotheses": [],
+    "conclusion": {"order": "star", "direction": "Y_{k:n} <=* X_{k:n} for each 1 <= k <= n (homogeneous statistic star-smaller)"},
+    "quantifiers": "each 1 <= k <= n",
+    "numbers": "",
+    "ambiguity": "<=* is the paper's star order (G^{-1}F(x)/x increasing; equivalently F(cx) crosses G(x) at most once from below). Confirms the Xu-Balakrishnan (2012) conjecture. No condition on gamma is stated."
+   }
+  ],
+  "note": "Theorem 2 prints Y_{k:n} <=* X_{k:n} unconditionally for all k; 'star' is the canonical label for <=*."
+ },
+ {
+  "queue_claim": "unn:restated result of bon & pǎltǎnea",
+  "decision": "exclude",
+  "records": [],
+  "note": "Introduction equation (1) restates Bon and Paltanea's (2006) theorem (Y_{k:n} <=st X_{k:n} iff gamma >= (s_k(lambda)/C(n,k))^{1/k}) — an external result the paper extends, not its own numbered claim."
+ }
+]

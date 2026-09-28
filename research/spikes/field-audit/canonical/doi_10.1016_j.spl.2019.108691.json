@@ -1,6 +1,271 @@
 [
  {
   "paper": "doi:10.1016/j.spl.2019.108691",
+  "claim": "Theorem 1",
+  "page": 4,
+  "quote": "Theorem 1. Let FZi = FTi \u25e6 QY \u25e6 FXi , for i = 1, 2, where QY \u25e6 FX2 is convex. Let i) X1 \u22651 X2 or ii) X1 \u22652 X2 and X1, X2 belong to a location-scale family with support R. Then T1 \u22652 T2 implies Z1 \u22652 Z2.",
+  "kind": "theorem",
+  "model": "other: decomposable/generated distribution Z with CDF FZ = FT \u25e6 QY \u25e6 FX",
+  "family": "general decomposable family; baseline X with convex QY \u25e6 FX2; location-scale family for case ii",
+  "compared": "two generated variables Z1 vs Z2 via baselines X1 vs X2 and generators T1 vs T2",
+  "hypotheses": [
+   {
+    "text": "QY \u25e6 FX2 is convex",
+    "formal": "composition convexity",
+    "source": "statement"
+   },
+   {
+    "text": "i) X1 \u22651 X2 or ii) X1 \u22652 X2 and X1, X2 belong to a location-scale family with support R",
+    "formal": "FSD baseline, or SSD baseline within location-scale family",
+    "source": "statement"
+   },
+   {
+    "text": "T1 \u22652 T2",
+    "formal": "SSD between generators",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "icv",
+   "direction": "Z1 >=icv Z2 (printed 'Z1 \u22652 Z2': SSD dominance per Definition 2, integrated-CDF order)"
+  },
+  "quantifiers": "all u \u2208 R",
+  "numbers": "",
+  "ambiguity": "Definition 2 defines U1 \u22652 U2 as \u222b_{-\u221e}^u F_U1(t)dt <= \u222bF_U2(t)dt \u2014 the SSD/increasing-concave dominance relation. Pass A's 'icx' is wrong: icx is the increasing-convex (stop-loss) order, the opposite tail comparison.",
+  "adjudication": "adjudicated: Paper's \u22652 is SSD = increasing concave order dominance (Definition 2); correct label 'icv' \u2014 pass B "
+ },
+ {
+  "paper": "doi:10.1016/j.spl.2019.108691",
+  "claim": "Theorem 2",
+  "page": 8,
+  "quote": "Theorem 2. For i = 1, 2, let FZi = FBi \u25e6 FXi , where Bi \u223c beta(pi, qi) (qi > 1). Let FX2 /(1 \u2212 FX2 ) be convex. Let i) X1 \u22651 X2 or ii) X1, X2 belong to a location-scale family with support R and X1 \u22652 X2. Then p1 \u2265 p2 and p1/(q1 \u2212 1) \u2265 p2/(q2 \u2212 1) imply Z1 \u22652 Z2.",
+  "kind": "theorem",
+  "model": "other: beta-generated (BG) distribution FZ = FB \u25e6 FX",
+  "family": "BG family with Bi ~ beta(pi, qi), qi > 1; baseline X2 with convex odds function FX2/(1\u2212FX2)",
+  "compared": "beta-generator parameters p1 >= p2 and p1/(q1\u22121) >= p2/(q2\u22121)",
+  "hypotheses": [
+   {
+    "text": "FX2 /(1 \u2212 FX2 ) is convex",
+    "formal": "odds-function convexity",
+    "source": "statement"
+   },
+   {
+    "text": "i) X1 \u22651 X2 or ii) X1, X2 location-scale with X1 \u22652 X2",
+    "formal": "FSD or SSD baseline",
+    "source": "statement"
+   },
+   {
+    "text": "p1 \u2265 p2 and p1/(q1 \u2212 1) \u2265 p2/(q2 \u2212 1)",
+    "formal": "ordered first shape parameter and ordered means E(Ti)=pi/(qi\u22121)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "icv",
+   "direction": "Z1 >=icv Z2 (printed 'Z1 \u22652 Z2': SSD dominance)"
+  },
+  "quantifiers": "qi > 1; all u \u2208 R",
+  "numbers": "",
+  "ambiguity": "Same \u22652 = SSD/icv convention as Theorem 1; A's 'icx' mislabels it.",
+  "adjudication": "adjudicated: Main conclusion Z1 \u22652 Z2 is SSD => 'icv'; also includes the printed auxiliary claim that the paramet"
+ },
+ {
+  "paper": "doi:10.1016/j.spl.2019.108691",
+  "claim": "Theorem 2 proof auxiliary claim (beta-generator ordering)",
+  "page": 8,
+  "quote": "If p1 \u2265 p2 and q2 \u2265 q1, then T1 \u22651 T2 (implying T1 \u22652 T2), because r is increasing. If p1 > p2 and q1 > q2, then the mode is a maximum and we can apply Theorem 2.2 of Ramos et al. (2000), recalling that E(Xi) = pi/(qi \u2212 1), if qi > 1. Finally we obtain: p1 \u2265 p2 and p1/(q1 \u2212 1) \u2265 p2/(q2 \u2212 1) (with q1, q2 > 1) implies T1 \u22652 T2.",
+  "kind": "lemma",
+  "model": "single",
+  "family": "beta distributions beta(p, q), q > 1 (generator of the BG family)",
+  "compared": "T1 ~ beta(p1,q1) vs T2 ~ beta(p2,q2)",
+  "hypotheses": [
+   {
+    "text": "p1 \u2265 p2 and p1/(q1 \u2212 1) \u2265 p2/(q2 \u2212 1) (with q1, q2 > 1)",
+    "formal": "ordered p and ordered beta means",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "icv",
+   "direction": "T1 >=icv T2 (printed 'T1 \u22652 T2'; also T1 \u22651 T2 under the stronger p1 >= p2, q2 >= q1)"
+  },
+  "quantifiers": "q1, q2 > 1",
+  "numbers": "",
+  "ambiguity": "Auxiliary ordering claim inside the proof discussion of Theorem 2; uses Ramos et al. (2000) Theorem 2.2 for the single-crossing argument.",
+  "adjudication": "adjudicated: Main conclusion Z1 \u22652 Z2 is SSD => 'icv'; also includes the printed auxiliary claim that the paramet"
+ },
+ {
+  "paper": "doi:10.1016/j.spl.2019.108691",
+  "claim": "Corollary 1, part 1",
+  "page": 10,
+  "quote": "Corollary 1. Let X be an RV such that the odds function FX/(1 \u2212 FX) is convex. Then: 1. Xi+1:n \u22652 Xi:n, \u2200i, n (i = 1,...,n \u2212 1).",
+  "kind": "corollary",
+  "model": "order statistic",
+  "family": "general baseline X with convex odds function",
+  "compared": "consecutive order statistics from the same sample",
+  "hypotheses": [
+   {
+    "text": "FX/(1 \u2212 FX) is convex",
+    "formal": "odds convexity",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "icv",
+   "direction": "Xi+1:n >=icv Xi:n (printed \u22652)"
+  },
+  "quantifiers": "all i = 1,...,n\u22121; all n",
+  "numbers": "",
+  "ambiguity": "\u22652 = SSD per Definition 2 => 'icv', not 'icx'.",
+  "adjudication": "adjudicated: Corollary 1 has two parts; both are SSD (\u22652 = icv dominance). A labelled icx \u2014 wrong; B's icv correc"
+ },
+ {
+  "paper": "doi:10.1016/j.spl.2019.108691",
+  "claim": "Corollary 1, part 2",
+  "page": 10,
+  "quote": "Corollary 1. Let X be an RV such that the odds function FX/(1 \u2212 FX) is convex. Then: 2. Xi:n \u22652 Xi:n+1, \u2200i, n.",
+  "kind": "corollary",
+  "model": "order statistic",
+  "family": "general baseline X with convex odds function",
+  "compared": "same-rank order statistics across sample sizes n and n+1",
+  "hypotheses": [
+   {
+    "text": "FX/(1 \u2212 FX) is convex",
+    "formal": "odds convexity",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "icv",
+   "direction": "Xi:n >=icv Xi:n+1 (printed \u22652)"
+  },
+  "quantifiers": "all i, n",
+  "numbers": "",
+  "ambiguity": "\u22652 = SSD per Definition 2 => 'icv'.",
+  "adjudication": "adjudicated: Corollary 1 has two parts; both are SSD (\u22652 = icv dominance). A labelled icx \u2014 wrong; B's icv correc"
+ },
+ {
+  "paper": "doi:10.1016/j.spl.2019.108691",
+  "claim": "Theorem 3",
+  "page": 9,
+  "quote": "Theorem 3. Let X and Y be RVs such that FY /(1 \u2212 FY ) is convex. Let i) X \u22651 Y or ii) X, Y belong to a location-scale family with support R and X \u22652 Y. Then i \u2265 j and i/n \u2265 j/m imply Xi:n \u22652 Yj:m.",
+  "kind": "theorem",
+  "model": "order statistic",
+  "family": "baseline Y with convex odds function; BG-generated order statistics",
+  "compared": "order statistics Xi:n vs Yj:m from different populations",
+  "hypotheses": [
+   {
+    "text": "FY /(1 \u2212 FY ) is convex",
+    "formal": "odds convexity of the Y baseline",
+    "source": "statement"
+   },
+   {
+    "text": "i) X \u22651 Y or ii) X, Y location-scale with X \u22652 Y",
+    "formal": "FSD or SSD between populations",
+    "source": "statement"
+   },
+   {
+    "text": "i \u2265 j and i/n \u2265 j/m",
+    "formal": "rank/sample-size inequalities",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "icv",
+   "direction": "Xi:n >=icv Yj:m (printed \u22652, SSD)"
+  },
+  "quantifiers": "i >= j and i/n >= j/m; n, m sample sizes",
+  "numbers": "",
+  "ambiguity": "\u22652 = SSD/icv per Definition 2; A's 'icx' wrong. Page 9 per B (A said 10).",
+  "adjudication": "adjudicated: Conclusion Xi:n \u22652 Yj:m is SSD = icv dominance; pass B correct."
+ },
+ {
+  "paper": "doi:10.1016/j.spl.2019.108691",
+  "claim": "Section 3 unnumbered FSD statement",
+  "page": 4,
+  "quote": "FSD can be derived straightforwardly: Let FZi = FTi \u25e6 QY \u25e6 FXi for i = 1, 2. If X1 \u22651 X2 and T1 \u22651 T2, then Z1 \u22651 Z2.",
+  "kind": "proposition",
+  "model": "other: decomposable/generated distribution",
+  "family": "general decomposable family FZ = FT \u25e6 QY \u25e6 FX",
+  "compared": "Z1 vs Z2 via componentwise FSD",
+  "hypotheses": [
+   {
+    "text": "X1 \u22651 X2 and T1 \u22651 T2",
+    "formal": "FSD (usual stochastic dominance) of baselines and generators",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Z1 >=st Z2 (printed 'Z1 \u22651 Z2': FSD = usual stochastic order)"
+  },
+  "quantifiers": "all u \u2208 R",
+  "numbers": "",
+  "ambiguity": "Unnumbered inline statement before Theorem 1; \u22651 = FSD per Definition 1 (FU1 <= FU2 pointwise), i.e., usual stochastic order.",
+  "adjudication": "adjudicated: Printed FSD preservation statement for the decomposable family; in scope as an ordering claim betwee"
+ },
+ {
+  "paper": "doi:10.1016/j.spl.2019.108691",
+  "claim": "Section 4.2 unnumbered example (normal sampling)",
+  "page": 10,
+  "quote": "Sampling from normal distributions: an example. Let X ~ N(\u00b51, \u03c31) and Y ~ N(\u00b52, \u03c32). Then, Xi:n and Yj:m have BG-normal distributions. According to Table 1, if \u00b51 \u2265 \u00b52 and \u03c31 \u2264 \u03c32, we can apply Theorem 3. For instance, let n = 35, m = 30 and j = 20. The minimum rank i such that Xi:35 \u22652 Y20:30 is given by i = max{j, \u2308nj/m\u2309} = 24, where \u2308\u00b7\u2309 denotes the ceiling function (Xi:35 \u22652 Y20:30 for i \u2265 24).",
+  "kind": "example",
+  "model": "order statistic",
+  "family": "normal baselines N(\u00b51,\u03c31), N(\u00b52,\u03c32); BG-normal order statistics",
+  "compared": "order statistics across two normal populations",
+  "hypotheses": [
+   {
+    "text": "\u00b51 \u2265 \u00b52 and \u03c31 \u2264 \u03c32",
+    "formal": "normal location-scale SSD conditions (Theorem 3 case ii)",
+    "source": "statement"
+   },
+   {
+    "text": "n = 35, m = 30, j = 20; i = max{j, \u2308nj/m\u2309} = 24",
+    "formal": "rank and sample-size thresholds",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "icv",
+   "direction": "Xi:35 >=icv Y20:30 for i >= 24 (printed \u22652, SSD)"
+  },
+  "quantifiers": "i >= 24",
+  "numbers": "n = 35, m = 30, j = 20, minimum rank i = 24",
+  "ambiguity": "Numerical application of Theorem 3 via Table 1's BG-normal conditions.",
+  "adjudication": "adjudicated: Printed worked example giving SSD between order statistics of two normal samples; include as icv."
+ },
+ {
+  "paper": "doi:10.1016/j.spl.2019.108691",
+  "claim": "Table 1 (SSD sufficient conditions for BG families)",
+  "page": 8,
+  "quote": "Table 1: SSD sufficient conditions for various BG families satisfying p1 \u2265 p2 and p1/(q1 \u2212 1) \u2265 p2/(q2 \u2212 1). GB1 (power function): a1 \u2265 a2, b1 \u2265 b2; GB2 (log-logistic): a2 \u2265 a1 > 1, b1 \u2265 b2; BG-Pareto: a2 \u2265 a1 > 1, b1 \u2265 b2; BG-uniform: a1 \u2265 a2, b1 \u2265 b2; BG-normal: \u00b51 \u2265 \u00b52, \u03c31 \u2264 \u03c32; BG-logistic: \u00b51 \u2265 \u00b52, \u03c31 \u2264 \u03c32.",
+  "kind": "corollary",
+  "model": "other: beta-generated (BG) family members",
+  "family": "GB1/GB2/BG-Pareto/BG-uniform/BG-normal/BG-logistic with beta(p,q) generator, q > 1",
+  "compared": "Z1 vs Z2 within each named BG family under the listed parameter conditions",
+  "hypotheses": [
+   {
+    "text": "p1 \u2265 p2 and p1/(q1 \u2212 1) \u2265 p2/(q2 \u2212 1)",
+    "formal": "generator-side SSD conditions of Theorem 2",
+    "source": "statement"
+   },
+   {
+    "text": "per-family conditions: GB1: a1>=a2, b1>=b2; GB2: a2>=a1>1, b1>=b2; BG-Pareto: a2>=a1>1, b1>=b2; BG-uniform: a1>=a2, b1>=b2; BG-normal: \u00b51>=\u00b52, \u03c31<=\u03c32; BG-logistic: \u00b51>=\u00b52, \u03c31<=\u03c32",
+    "formal": "conditions ensuring FX/(1\u2212FX) convex and the baseline ordering",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "icv",
+   "direction": "Z1 >=icv Z2 within each listed BG family (SSD)"
+  },
+  "quantifiers": "qi > 1 where beta means are used",
+  "numbers": "",
+  "ambiguity": "A table of sufficient conditions applying Theorem 2 to named families rather than a numbered statement; included as a printed family-specific ordering result.",
+  "adjudication": "adjudicated: Table 1 lists printed SSD (>=2 = icv) conditions for named BG families \u2014 a family-specific ordering "
+ },
+ {
+  "paper": "doi:10.1016/j.spl.2019.108691",
   "claim": "Section 4.2 normal-sampling example",
   "page": 10,
   "quote": "Let X ~ N(\u00b51, \u03c31) and Y ~ N(\u00b52, \u03c32). Then, Xi:n and Yj:m have BG-normal distributions. According to Table 1, if \u00b51 \u2265 \u00b52 and \u03c31 \u2264 \u03c32, we can apply Theorem 3. For instance, let n = 35, m = 30 and j = 20. The minimum rank i such that Xi:35 \u22652 Y20:30 is given by i = max{j, \u2308nj/m\u2309} = 24, where \u2308\u00b7\u2309 denotes the ceiling function (Xi:35 \u22652 Y20:30 for i \u2265 24).",

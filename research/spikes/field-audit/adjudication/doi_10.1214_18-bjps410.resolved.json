@@ -1,0 +1,471 @@
+[
+ {
+  "queue_claim": "remark3",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1214/18-bjps410",
+    "claim": "Remark 3 (extension of Theorem 6)",
+    "page": 159,
+    "quote": "Remark 3. The result of Theorem 6 is restricted to the weak weighted majorization order only on the space Dn . However, we can extend its result to the more general case as follows. Assume that log μ ≺^w_α log λ on Dnπ , where π = (π1 , . . . , πn ) ∈ Pn , and α^π ≺^uo β^π . Then, for any ν ∈ R+ and τ ∈ R+ , we have Yn:n ≤st Xn:n .",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "EGG as in Theorem 6: Xi ~ EGG(αi, ν, τ, λi), Yi ~ EGG(βi, ν, τ, μi), i = 1,...,n, independent (Section 3 preamble)",
+    "compared": "Yn:n vs Xn:n under a permutation-relabelled cone Dnπ",
+    "hypotheses": [
+     {
+      "text": "log μ ≺^w_α log λ on Dnπ and α^π ≺^uo β^π",
+      "formal": "weak α-weighted majorization of log-scales on the permuted cone Dnπ; unordered majorization of the π-relabelled exponent vectors",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "Yn:n <=st Xn:n"
+    },
+    "quantifiers": "any ν, τ ∈ R+; π ∈ Pn",
+    "numbers": "",
+    "ambiguity": "Stated as a Remark, not a numbered theorem (kind normalized to 'theorem'). The w/uo superscripts are detached in the text layer but confirmed by layout."
+   }
+  ],
+  "note": "Pass B only; in scope — a stated stochastic-order conclusion on the permuted cone. Merged verbatim."
+ },
+ {
+  "queue_claim": "remark4",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1214/18-bjps410",
+    "claim": "Remark 4 (extension of Theorem 7)",
+    "page": 160,
+    "quote": "Remark 4. The result in Theorem 7 can be extended as follows. Assume that μ ≺^w_α λ on Gnπ , where π = (π1 , . . . , πn ) ∈ Pn , and α^π ≺^uo β^π . Then, for any 0 < ν ≤ 1 and τ ∈ R+ , we have Yn:n ≤rh Xn:n .",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "EGG as in Theorem 7",
+    "compared": "Yn:n vs Xn:n under permuted cone Gnπ",
+    "hypotheses": [
+     {
+      "text": "μ ≺^w_α λ on Gnπ and α^π ≺^uo β^π",
+      "formal": "weak weighted majorization on permuted cone; unordered majorization of permuted exponent vectors",
+      "source": "statement"
+     },
+     {
+      "text": "0 < ν ≤ 1 and τ ∈ R+",
+      "formal": "shape restriction inherited from Theorem 7",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "Yn:n <=rh Xn:n"
+    },
+    "quantifiers": "0 < ν <= 1; τ > 0; π ∈ Pn",
+    "numbers": "",
+    "ambiguity": "Stated as a Remark, not a numbered theorem."
+   },
+   {
+    "paper": "doi:10.1214/18-bjps410",
+    "claim": "Example illustrating Remark 4 (Figure 2)",
+    "page": 160,
+    "quote": "Next example illustrates the result of Remark 4. Set n = 4, ν = 0.5, τ = 2, α = (4, 0.8, 3.3, 5), β = (1, 3, 2.1, 7), λ = (2, 11, 12, 13) and μ = (5, 6, 10, 14). Setting π = (4, 3, 2, 1), we can observe that μ ≺^w_α λ on G4π and α^π ≺^uo β^π , which according to Remark 4, result in Y4:4 ≤rh X4:4 . We plot the reversed hazard rate functions of Systems A and B in Figure 2 to observe the established result graphically.",
+    "kind": "example",
+    "model": "parallel system",
+    "family": "EGG(αi, ν, τ, λi) vs EGG(βi, ν, τ, μi)",
+    "compared": "α = (4,0.8,3.3,5) vs β = (1,3,2.1,7); λ = (2,11,12,13) vs μ = (5,6,10,14); permutation π = (4,3,2,1)",
+    "hypotheses": [
+     {
+      "text": "μ ≺^w_α λ on G4π and α^π ≺^uo β^π with π = (4,3,2,1)",
+      "formal": "extended hypotheses of Remark 4 verified numerically",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "Y4:4 <=rh X4:4 (reversed hazard functions plotted, Figure 2)"
+    },
+    "quantifiers": "n = 4",
+    "numbers": "ν = 0.5; τ = 2; α = (4,0.8,3.3,5); β = (1,3,2.1,7); λ = (2,11,12,13); μ = (5,6,10,14); π = (4,3,2,1)",
+    "ambiguity": "Illustrates the permuted-space extension of Remark 4 rather than Theorem 7 directly. Printed parameters confirmed in the Figure 2 caption."
+   }
+  ],
+  "note": "Passes agree; emitted both the remark extension (as theorem kind) and the Figure-2 numerical example as separate records."
+ },
+ {
+  "queue_claim": "theorem6",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1214/18-bjps410",
+    "claim": "Theorem 6",
+    "page": 159,
+    "quote": "Theorem 6. If log μ ≺^w_α log λ on Dn and α ≺^uo β, then for all ν ∈ R+ and τ ∈ R+ , we have Yn:n ≤st Xn:n .",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "Exponentiated generalized gamma: Xi ~ EGG(αi, ν, τ, λi), Yi ~ EGG(βi, ν, τ, μi), i = 1,...,n, independent (Section 3 preamble)",
+    "compared": "scale vectors λ vs μ via log-scale weak α-majorization; exponential shape vectors α ≺^uo β; common ν, τ",
+    "hypotheses": [
+     {
+      "text": "log μ ≺^w_α log λ on Dn",
+      "formal": "weak α-weighted majorization of log-scale vectors on Dn",
+      "source": "statement"
+     },
+     {
+      "text": "α ≺^uo β",
+      "formal": "unordered majorization of exponential shape vectors",
+      "source": "statement"
+     },
+     {
+      "text": "Xi ~ EGG(αi, ν, τ, λi) and Yi ~ EGG(βi, ν, τ, μi) for i = 1,...,n",
+      "formal": "two parallel systems with EGG components",
+      "source": "section preamble"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "Yn:n <=st Xn:n"
+    },
+    "quantifiers": "for all ν ∈ R+ and τ ∈ R+; all n",
+    "numbers": "",
+    "ambiguity": "Extends Khaledi–Farsinezhad–Kochar (2011) generalized-gamma case (αi = βi = 1). The 'uo' superscript detaches in the text layer."
+   },
+   {
+    "paper": "doi:10.1214/18-bjps410",
+    "claim": "Example illustrating Theorem 6 (Figure 1)",
+    "page": 159,
+    "quote": "We now explain the result given in Theorem 6 by means of a numerical example. Assume that n = 4, ν = 0.4, τ = 0.8, α = (1, 3, 5, 0.6), β = (4.6, 4.4, 0.5, 0.1), λ = (9, 6, 1, 0.7) and μ = (8, 5, 0.8, 0.75). Then, we have log μ ≺^w_α log λ on D4 and α ≺^uo β, which according to Theorem 6, imply that Y4:4 ≤st X4:4 . To see this result graphically, we plot the survival functions of Systems A and B in Figure 1 under the above setting.",
+    "kind": "example",
+    "model": "parallel system",
+    "family": "EGG(αi, ν, τ, λi) vs EGG(βi, ν, τ, μi)",
+    "compared": "α = (1,3,5,0.6) vs β = (4.6,4.4,0.5,0.1); λ = (9,6,1,0.7) vs μ = (8,5,0.8,0.75)",
+    "hypotheses": [
+     {
+      "text": "log μ ≺^w_α log λ on D4 and α ≺^uo β",
+      "formal": "hypotheses of Theorem 6 verified numerically",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "Y4:4 <=st X4:4 (survival functions plotted, Figure 1)"
+    },
+    "quantifiers": "n = 4",
+    "numbers": "ν = 0.4; τ = 0.8; α = (1,3,5,0.6); β = (4.6,4.4,0.5,0.1); λ = (9,6,1,0.7); μ = (8,5,0.8,0.75)",
+    "ambiguity": "Unnumbered inline example; graphical confirmation via Figure 1 (caption confirms parameters)."
+   },
+   {
+    "paper": "doi:10.1214/18-bjps410",
+    "claim": "Counterexample to hazard-rate extension of Theorem 6 (p. 160)",
+    "page": 160,
+    "quote": "A natural question which arises here is whether the results in Theorems 6 and 7 can be extended, respectively, to the hazard rate and likelihood ratio orders. Unfortunately, the answer is no as shown in the following examples. Set n = 3, ν = 0.5, τ = 0.2, α = β = (4.5, 2, 3), λ = (9, 3.5, 0.1) and μ = (10, 2.9, 0.3). We then find F̄X3:3 (4)/F̄Y3:3 (4) = 1.13809, F̄X3:3 (5)/F̄Y3:3 (5) = 1.14207, F̄X3:3 (15)/F̄Y3:3 (15) = 1.12199. This observation means that the ratio of the survival functions of X3:3 and Y3:3 is not monotone, i.e., the lifetimes of Systems A and B can not be compared in the sense of the hazard rate order. However, log μ ≺^w_α log λ on D3 and α ≺^uo β.",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "EGG(αi, ν, τ, λi) vs EGG(βi, ν, τ, μi)",
+    "compared": "α = β = (4.5,2,3) (equal exponents); λ = (9,3.5,0.1) vs μ = (10,2.9,0.3)",
+    "hypotheses": [
+     {
+      "text": "log μ ≺^w_α log λ on D3 and α ≺^uo β",
+      "formal": "Theorem 6 hypotheses hold (trivially α = β)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "survival ratio F̄X3:3/F̄Y3:3 not monotone: no hr order between X3:3 and Y3:3 — Theorem 6 cannot be strengthened to hr"
+    },
+    "quantifiers": "n = 3; evaluated at t = 4, 5, 15",
+    "numbers": "ν = 0.5; τ = 0.2; α = β = (4.5,2,3); λ = (9,3.5,0.1); μ = (10,2.9,0.3); ratios 1.13809 (4), 1.14207 (5), 1.12199 (15)",
+    "ambiguity": "Shows Theorem 6's usual-stochastic-order result cannot be strengthened to the hazard rate order."
+   }
+  ],
+  "note": "Passes agree; emitted three records: theorem, Figure-1 example, and the hr-strengthening counterexample (the paper pairs it with Theorem 6)."
+ },
+ {
+  "queue_claim": "theorem7",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1214/18-bjps410",
+    "claim": "Theorem 7",
+    "page": 159,
+    "quote": "Theorem 7. If μ ≺^w_α λ on Gn and α ≺^uo β, then for any 0 < ν ≤ 1 and τ ∈ R+ , we have Yn:n ≤rh Xn:n .",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "EGG: Xi ~ EGG(αi, ν, τ, λi), Yi ~ EGG(βi, ν, τ, μi)",
+    "compared": "scale vectors λ vs μ via weak α-majorization on Gn; exponents α ≺^uo β",
+    "hypotheses": [
+     {
+      "text": "μ ≺^w_α λ on Gn",
+      "formal": "weak α-weighted majorization of scale vectors on Gn",
+      "source": "statement"
+     },
+     {
+      "text": "α ≺^uo β",
+      "formal": "unordered majorization of exponent vectors",
+      "source": "statement"
+     },
+     {
+      "text": "0 < ν ≤ 1",
+      "formal": "shape restriction (shown necessary by the Figure-4 counterexample)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "Yn:n <=rh Xn:n"
+    },
+    "quantifiers": "0 < ν <= 1, τ ∈ R+; all n",
+    "numbers": "",
+    "ambiguity": "Extends Misra–Misra (2013) generalized-gamma result."
+   },
+   {
+    "paper": "doi:10.1214/18-bjps410",
+    "claim": "Counterexample to likelihood-ratio extension of Theorem 7 (pp. 160-161)",
+    "page": 160,
+    "quote": "Let us now assume that n = 3, ν = 0.5, τ = 0.1, α = (0.1, 0.6, 0.4), β = (0.7, 0.2, 0.2), λ = (7, 6, 1) and μ = (100, 20, 1). Then, it can be checked that μ ≺^w_α λ on G3 and α ≺^uo β, while fX3:3 (0.3)/fY3:3 (0.3) ≈ 2.92344, fX3:3 (0.4)/fY3:3 (0.4) ≈ 2.95206, fX3:3 (0.6)/fY3:3 (0.6) ≈ 2.91266. Therefore, the ratio of the density functions of X3:3 and Y3:3 is not monotone. So, the likelihood ratio order does not hold between the lifetimes of Systems A and B.",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "EGG(αi, ν, τ, λi) vs EGG(βi, ν, τ, μi)",
+    "compared": "α = (0.1,0.6,0.4) vs β = (0.7,0.2,0.2); λ = (7,6,1) vs μ = (100,20,1)",
+    "hypotheses": [
+     {
+      "text": "μ ≺^w_α λ on G3 and α ≺^uo β",
+      "formal": "Theorem 7 hypotheses hold",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "density ratio fX3:3/fY3:3 not monotone: no lr order between X3:3 and Y3:3 — Theorem 7 cannot be strengthened to lr"
+    },
+    "quantifiers": "n = 3; evaluated at t = 0.3, 0.4, 0.6",
+    "numbers": "ν = 0.5; τ = 0.1; α = (0.1,0.6,0.4); β = (0.7,0.2,0.2); λ = (7,6,1); μ = (100,20,1); density ratios ≈ 2.92344 (0.3), 2.95206 (0.4), 2.91266 (0.6)",
+    "ambiguity": "Shows Theorem 7's reversed-hazard-order result cannot be strengthened to the likelihood ratio order."
+   },
+   {
+    "paper": "doi:10.1214/18-bjps410",
+    "claim": "Discussion counterexample to Theorem 7 with ν = 2 (Figure 4)",
+    "page": 163,
+    "quote": "In Theorem 7, we have observed that the restriction 0 < ν ≤ 1 is appeared in the comparison of the lifetimes of Systems A and B, with respect to the reversed hazard rate order. We shall now present a numerical example to show that the mentioned restriction is necessary for the revered hazard order to hold. Set n = 3, ν = 2, τ = 0.2, α = (5, 4, 9), β = (6, 3.5, 8.5), λ = (10, 1, 1) and μ = (7, 5, 2). The reversed hazard rate functions of Systems A and B are plotted in Figure 4 to see that the lifetimes of Systems A and B can not be compared in the reversed hazard rate order. Although, one can easily check that μ ≺^w_α λ on G3 and α ≺^uo β.",
+    "kind": "counterexample",
+    "model": "parallel system",
+    "family": "EGG(αi, ν, τ, λi) vs EGG(βi, ν, τ, μi)",
+    "compared": "α = (5,4,9) vs β = (6,3.5,8.5); λ = (10,1,1) vs μ = (7,5,2); ν = 2 > 1",
+    "hypotheses": [
+     {
+      "text": "μ ≺^w_α λ on G3 and α ≺^uo β",
+      "formal": "all Theorem 7 hypotheses except the 0 < ν <= 1 restriction (ν = 2)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "reversed hazard rate functions cross: no rh order between X3:3 and Y3:3 (Figure 4) — the ν <= 1 restriction is necessary"
+    },
+    "quantifiers": "n = 3",
+    "numbers": "ν = 2; τ = 0.2; α = (5,4,9); β = (6,3.5,8.5); λ = (10,1,1); μ = (7,5,2)",
+    "ambiguity": "Shows the restriction 0 < ν <= 1 in Theorem 7 is necessary. 'revered hazard' is the paper's typo."
+   }
+  ],
+  "note": "Passes agree; emitted theorem + two counterexamples (lr strengthening fails; ν<=1 restriction necessary)."
+ },
+ {
+  "queue_claim": "theorem8i",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1214/18-bjps410",
+    "claim": "Theorem 8(i)",
+    "page": 162,
+    "quote": "Theorem 8. (i) Assume that μ ≤ λ and δi ≥ 1 for i = 1, 2. If (log μ, log μ́) ≺^w_(δ1,δ2) (log λ, log λ́) on D2 and (δ1 , δ2 ) ≺^uo (ξ1 , ξ2 ), then for 0 < τ ≤ ν, we have Yn:n ≤hr Xn:n ;",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "EGG with two homogeneous scale groups: λ1 = ··· = λk = λ, λk+1 = ··· = λn = λ́, μ1 = ··· = μk = μ, μk+1 = ··· = μn = μ́; δ1 = Σ_{i≤k} αi, δ2 = Σ_{i>k} αi, ξ1 = Σ_{i≤k} βi, ξ2 = Σ_{i>k} βi",
+    "compared": "two-group scale pairs (λ,λ́) vs (μ,μ́) via weighted majorization with weights (δ1,δ2); exponent group sums (δ1,δ2) ≺^uo (ξ1,ξ2)",
+    "hypotheses": [
+     {
+      "text": "μ ≤ λ and δi ≥ 1 for i = 1, 2",
+      "formal": "group scale of B not exceeding that of A on the first group; group exponent sums ≥ 1",
+      "source": "statement"
+     },
+     {
+      "text": "(log μ, log μ́) ≺^w_(δ1,δ2) (log λ, log λ́) on D2",
+      "formal": "weak weighted majorization of log-scale pairs",
+      "source": "statement"
+     },
+     {
+      "text": "(δ1, δ2) ≺^uo (ξ1, ξ2)",
+      "formal": "unordered majorization of exponent group sums",
+      "source": "statement"
+     },
+     {
+      "text": "0 < τ ≤ ν",
+      "formal": "shape restriction",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "Yn:n <=hr Xn:n"
+    },
+    "quantifiers": "0 < τ <= ν; k ∈ {1,...,n−1}",
+    "numbers": "",
+    "ambiguity": "The proof uses the chain λ́ ≤ μ́ ≤ μ ≤ λ, so 'μ ≤ λ' governs the first-group scales."
+   },
+   {
+    "paper": "doi:10.1214/18-bjps410",
+    "claim": "Example illustrating Theorem 8(i) (Figure 3)",
+    "page": 162,
+    "quote": "In the following, we present some examples to illustrate the result of Theorem 8. At first, set n = 4, k = 1, α = (1.1, 2, 0.2, 4), β = (1.2, 1, 1.5, 3.6), (λ, λ́) = (8, 2) and (μ, μ́) = (6, 3). We then observe that (δ1 , δ2 ) = (1.1, 6.2) and (ξ1 , ξ2 ) = (1.2, 6.1). It can be easily checked that (log 6, log 3) ≺^w_(1.1,6.2) (log 8, log 2) on D2 , (1.1, 6.2) ≺^uo (1.2, 6.1) and μ ≤ λ. Hence, from Part (i) of Theorem 8, it follows that Y4:4 ≤hr X4:4 . The graphs of the hazard rate functions of Systems A and B are plotted in Figure 3.",
+    "kind": "example",
+    "model": "parallel system",
+    "family": "EGG two-group scales: (λ,λ́) = (8,2), (μ,μ́) = (6,3), k = 1",
+    "compared": "α = (1.1,2,0.2,4) vs β = (1.2,1,1.5,3.6); scale pairs (8,2) vs (6,3)",
+    "hypotheses": [
+     {
+      "text": "(log 6, log 3) ≺^w_(1.1,6.2) (log 8, log 2) on D2, (1.1, 6.2) ≺^uo (1.2, 6.1) and μ ≤ λ",
+      "formal": "Theorem 8(i) hypotheses verified; δ2 = 2+0.2+4 = 6.2, ξ sums of β",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "Y4:4 <=hr X4:4 (hazard rates plotted, Figure 3)"
+    },
+    "quantifiers": "n = 4, k = 1",
+    "numbers": "α = (1.1,2,0.2,4); β = (1.2,1,1.5,3.6); (λ,λ́) = (8,2); (μ,μ́) = (6,3); δ = (1.1,6.2); ξ = (1.2,6.1)",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Passes agree on Theorem 8(i) and the Figure-3 example; merged."
+ },
+ {
+  "queue_claim": "theorem8ii",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1214/18-bjps410",
+    "claim": "Theorem 8(ii)",
+    "page": 162,
+    "quote": "(ii) Assume that μ ≤ λ, (μ, μ́) ≺^w_(δ1,δ2) (λ, λ́) on G2 and (δ1 , δ2 ) ≺^uo (ξ1 , ξ2 ). Then for 0 < τ ≤ ν ≤ 1, we have Yn:n ≤lr Xn:n .",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "EGG with two homogeneous scale groups (as in Theorem 8(i))",
+    "compared": "two-group scales (λ,λ́) vs (μ,μ́) via weak weighted majorization on G2; exponent sums (δ1,δ2) ≺^uo (ξ1,ξ2)",
+    "hypotheses": [
+     {
+      "text": "μ ≤ λ",
+      "formal": "first-group scale ordering",
+      "source": "statement"
+     },
+     {
+      "text": "(μ, μ́) ≺^w_(δ1,δ2) (λ, λ́) on G2",
+      "formal": "weak weighted majorization of scale pairs (raw scales, not log-scales)",
+      "source": "statement"
+     },
+     {
+      "text": "(δ1, δ2) ≺^uo (ξ1, ξ2)",
+      "formal": "unordered majorization of exponent group sums",
+      "source": "statement"
+     },
+     {
+      "text": "0 < τ ≤ ν ≤ 1",
+      "formal": "shape restriction",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "Yn:n <=lr Xn:n"
+    },
+    "quantifiers": "0 < τ <= ν <= 1; k ∈ {1,...,n−1}",
+    "numbers": "",
+    "ambiguity": ""
+   },
+   {
+    "paper": "doi:10.1214/18-bjps410",
+    "claim": "Example illustrating Theorem 8(ii)",
+    "page": 162,
+    "quote": "Let us now set n = 5, k = 3, α = (0.4, 0.4, 1, 5, 5.7), β = (3, 0.8, 3.6, 1.2, 3.9), (λ, λ́) = (20, 0.1) and (μ, μ́) = (18, 2). It can be easily seen that δ1 = 1.8, δ2 = 10.7, ξ1 = 7.4 and ξ2 = 5.1. Since (20, 0.1) ≺^w_(1.8,10.7) (18, 2) on G2 , (1.8, 10.7) ≺^uo (7.4, 5.1) and μ ≤ λ, we can conclude from Part (ii) of Theorem 8 that Y5:5 ≤lr X5:5 .",
+    "kind": "example",
+    "model": "parallel system",
+    "family": "EGG two-group scales: (λ,λ́) = (20,0.1), (μ,μ́) = (18,2), k = 3",
+    "compared": "α = (0.4,0.4,1,5,5.7) vs β = (3,0.8,3.6,1.2,3.9); scale pairs (20,0.1) vs (18,2)",
+    "hypotheses": [
+     {
+      "text": "(20, 0.1) ≺^w_(1.8,10.7) (18, 2) on G2, (1.8, 10.7) ≺^uo (7.4, 5.1) and μ ≤ λ",
+      "formal": "printed verbatim: the scale pairs appear in (λ,λ́)-then-(μ,μ́) order consistent with part (ii); δ1 = 0.4+0.4+1 = 1.8, δ2 = 5+5.7 = 10.7, ξ1 = 3+0.8+3.6 = 7.4, ξ2 = 1.2+3.9 = 5.1",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "Y5:5 <=lr X5:5"
+    },
+    "quantifiers": "n = 5, k = 3",
+    "numbers": "α = (0.4,0.4,1,5,5.7); β = (3,0.8,3.6,1.2,3.9); (λ,λ́) = (20,0.1); (μ,μ́) = (18,2); δ = (1.8,10.7); ξ = (7.4,5.1)",
+    "ambiguity": "The printed weighted relation '(20,0.1) ≺_(1.8,10.7) (18,2)' lists the λ-pair first, consistent with the theorem's (μ,μ́) ≺ (λ,λ́) reading order being swapped in the example."
+   }
+  ],
+  "note": "Passes agree on Theorem 8(ii) and its example; merged, preserving the printed (λ,λ́)-first ordering in the example's weighted-majorization check."
+ },
+ {
+  "queue_claim": "theorem9",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.1214/18-bjps410",
+    "claim": "Theorem 9",
+    "page": 164,
+    "quote": "Theorem 9. If μν ≺^w_α λν on Gn and α ≺^uo β, then for ν ∈ R+ and τ ∈ R+ , we have Yn:n ≤rh Xn:n .",
+    "kind": "theorem",
+    "model": "parallel system",
+    "family": "EGG: derived via Xi* ~ EGG(αi, 1, τν, λi^ν), Yi* ~ EGG(βi, 1, τν, μi^ν); λν = (λ1^ν,...,λn^ν), μν = (μ1^ν,...,μn^ν)",
+    "compared": "ν-th powers of the scale vectors μν vs λν (weak α-majorization); exponents α ≺^uo β",
+    "hypotheses": [
+     {
+      "text": "μν ≺^w_α λν on Gn",
+      "formal": "weak α-majorization of the powered scale vectors",
+      "source": "statement"
+     },
+     {
+      "text": "α ≺^uo β",
+      "formal": "unordered majorization of exponent vectors",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "Yn:n <=rh Xn:n"
+    },
+    "quantifiers": "ν ∈ R+, τ ∈ R+ (no 0 < ν ≤ 1 restriction, unlike Theorem 7)",
+    "numbers": "",
+    "ambiguity": "Removes Theorem 7's ν ≤ 1 restriction at the cost of comparing powered scale vectors; the EGG auxiliary parameter prints as 'τν' in the text layer (τ to the power/scale ambiguity noted by pass A as τ/ν — kept verbatim 'τν')."
+   },
+   {
+    "paper": "doi:10.1214/18-bjps410",
+    "claim": "Example illustrating Theorem 9 (p. 164)",
+    "page": 164,
+    "quote": "We shall now illustrate this finding by a numerical example. Set n = 4, ν = 0.5, τ = 0.8, α = (4, 0.8, 3.3, 5), β = (1, 3, 2.1, 7), λ = (√2, √11, √12, √13) and μ = (√5, √6, √10, √14). It is therefore easy to check that λ ⊀^w_α μ, however, one can observe that μν ≺^w_α μν on G4 . Thus, since α ≺^uo β, we find from Theorem 9 that X4:4 ≤rh X4:4 , while this ordering result can not be concluded from Theorem 7.",
+    "kind": "example",
+    "model": "parallel system",
+    "family": "EGG(αi, ν, τ, λi) vs EGG(βi, ν, τ, μi)",
+    "compared": "α = (4,0.8,3.3,5) vs β = (1,3,2.1,7); λ = (√2,√11,√12,√13) vs μ = (√5,√6,√10,√14)",
+    "hypotheses": [
+     {
+      "text": "μν ≺^w_α λν on G4 and α ≺^uo β (printed with apparent typos: 'λ ⊀^w_α μ' and 'μν ≺^w_α μν')",
+      "formal": "Theorem 9 hypotheses: powered scale vectors weakly α-majorized",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "printed 'X4:4 ≤rh X4:4' — a print slip for Y4:4 <=rh X4:4 (the conclusion of Theorem 9); the example shows Theorem 9 applies where Theorem 7's ν ≤ 1 route fails"
+    },
+    "quantifiers": "n = 4",
+    "numbers": "ν = 0.5; τ = 0.8; α = (4,0.8,3.3,5); β = (1,3,2.1,7); λ = (√2,√11,√12,√13); μ = (√5,√6,√10,√14)",
+    "ambiguity": "Multiple print typos preserved verbatim: 'λ ⊀^w_α μ' (the Theorem-7 condition failing), 'μν ≺^w_α μν' (should be μν ≺^w_α λν), and 'X4:4 ≤rh X4:4' (should be Y4:4 ≤rh X4:4)."
+   }
+  ],
+  "note": "Passes agree on Theorem 9 and its example; the example's three print typos are preserved verbatim and flagged in ambiguity rather than repaired."
+ }
+]

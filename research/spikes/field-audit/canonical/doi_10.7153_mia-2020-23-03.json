@@ -1,6 +1,181 @@
 [
  {
   "paper": "doi:10.7153/mia-2020-23-03",
+  "claim": "Example 3.1",
+  "page": 9,
+  "quote": "Example 3.1. Let X_{lambda_i} ~ Gamma(0.8, lambda_i) (X_{lambda*_i} ~ Gamma(0.8, lambda*_i)), for i = 1, 2, with the associated FGM copula. It is clear that this copula is PQD if theta in [0, 1]. Further, suppose that I_{p1}, I_{p2} (I_{p*1}, I_{p*2}) is a set of independent Bernoulli random variables, independent of the X_{lambda_i}'s (X_{lambda*_i}'s), with E[I_{pi}] = p_i (E[I_{p*i}] = p*_i), for i = 1, 2. We take h(p) = p, (lambda_1, lambda_2) = (0.26, 0.74), (p_1, p_2) = (0.03, 0.02), (lambda*_1, lambda*_2) = (0.4, 0.6), (p*_1, p*_2) = (0.026, 0.024) and theta = 0.5. Using Lemma 2.3 and Lemma 2.5, we get the condition (iii) of Theorem 3.4, and obviously can be verified that the other conditions are also satisfied. So, we have Y*_{2:2} <=st Y_{2:2}. Figure 1 represents the survival function of Y_{2:2} and Y*_{2:2}, which agrees with the intended result.",
+  "kind": "example",
+  "model": "parallel system",
+  "family": "Gamma(0.8, lambda_i) severities under FGM copula; Bernoulli claim occurrences",
+  "compared": "lambda = (0.26,0.74), p = (0.03,0.02) vs lambda* = (0.4,0.6), p* = (0.026,0.024)",
+  "hypotheses": [
+   {
+    "text": "the conditions of Theorem 3.4 are satisfied",
+    "formal": "incl. (lambda, h(p)) in S and (lambda*, h(p*)) in S via Lemmas 2.3, 2.5",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y*_{2:2} <=st Y_{2:2} (starred portfolio maximum stochastically smaller), illustrated by Figure 1"
+  },
+  "quantifiers": "n = 2",
+  "numbers": "h(p) = p; lambda = (0.26, 0.74); p = (0.03, 0.02); lambda* = (0.4, 0.6); p* = (0.026, 0.024); theta = 0.5",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Example 3.1 confirms Theorem 3.4: Y*_{2:2} <=st Y_{2:2} supported by Figure 1; passes differed only "
+ },
+ {
+  "paper": "doi:10.7153/mia-2020-23-03",
+  "claim": "Example 3.2",
+  "page": 9,
+  "quote": "Example 3.2. Under the same setup in Example 3.1, we take (p_1, p_2) = (0.02, 0.03) and (p*_1, p*_2) = (0.028, 0.022) with the other unchanged values. It is clear that (lambda, h(p)) not in S, but it can be easily verified that the other conditions of Theorem 3.4 are satisfied. Figure 2 represents the survival function of Y_{2:2} and Y*_{2:2}, which cross each other.",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "Gamma(0.8, lambda_i) under FGM copula (same setup as Example 3.1)",
+  "compared": "p = (0.02,0.03) vs p* = (0.028,0.022), other values unchanged; (lambda,h(p)) not in S",
+  "hypotheses": [
+   {
+    "text": "(lambda, h(p)) not in S but the other conditions of Theorem 3.4 are satisfied",
+    "formal": "violates the S-membership hypothesis only",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "survival functions of Y_{2:2} and Y*_{2:2} cross each other (Figure 2): no st order in either direction; shows the S condition of Theorem 3.4 cannot be dropped"
+  },
+  "quantifiers": "n = 2",
+  "numbers": "p = (0.02, 0.03); p* = (0.028, 0.022)",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Example 3.2 is a counterexample: the survival curves cross once (lambda,h(p)) leaves S; no st order "
+ },
+ {
+  "paper": "doi:10.7153/mia-2020-23-03",
+  "claim": "Example 3.3",
+  "page": 11,
+  "quote": "Example 3.3. Let X_{lambda_i} ~ Pareto(1, lambda_i) (X_{lambda*_i} ~ Pareto(1, lambda*_i)), for i = 1, 2, with the associated Ali-Mikhail-Haq copula, of the form C_theta(v1,v2) = v1 v2 / (1 - theta(1-v1)(1-v2)), theta in [-1,1]; this copula is Archimedean and obviously is PQD if theta in [0,1]. Further, suppose that I_{p1}, I_{p2} (I_{p*1}, I_{p*2}) is a set of independent Bernoulli random variables, independent of the X's, with E[I_{pi}] = p_i (E[I_{p*i}] = p*_i), for i = 1, 2. We take h(p) = log(p+2), (lambda_1, lambda_2) = (4, 2), (p_1, p_2) = (0.02, 0.06), (lambda*_1, lambda*_2) = (4, 6), (p*_1, p*_2) = (0.0479, 0.0319) and theta = 0.3. Lemma 2.3 and Lemma 2.4 imply the condition (ii) of Theorem 3.5, and it can be easily verified that the other condition is also satisfied. So, we have Y*_{2:2} <=st Y_{2:2}. Figure 3 represents the survival function of Y_{2:2} and Y*_{2:2}, which agrees with the intended result.",
+  "kind": "example",
+  "model": "parallel system",
+  "family": "Pareto(1, lambda_i) (PHR model) under Ali-Mikhail-Haq copula; Bernoulli occurrences",
+  "compared": "lambda = (4,2), p = (0.02,0.06) vs lambda* = (4,6), p* = (0.0479,0.0319)",
+  "hypotheses": [
+   {
+    "text": "the conditions of Theorem 3.5 are satisfied",
+    "formal": "incl. condition (ii) via Lemmas 2.3, 2.4",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y*_{2:2} <=st Y_{2:2}, illustrated by Figure 3"
+  },
+  "quantifiers": "n = 2",
+  "numbers": "h(p) = log(p+2); lambda = (4, 2); p = (0.02, 0.06); lambda* = (4, 6); p* = (0.0479, 0.0319); theta = 0.3",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Example 3.3 confirms Theorem 3.5 for Pareto severities under Ali-Mikhail-Haq copula: Y*_{2:2} <=st Y"
+ },
+ {
+  "paper": "doi:10.7153/mia-2020-23-03",
+  "claim": "Example 3.4",
+  "page": 12,
+  "quote": "Example 3.4. Let X_{lambda_i} ~ TE(3, lambda_i) (X_{lambda*_i} ~ TE(3, lambda*_i)), for i = 1, 2, with the associated Gumbel-Hougaard copula C_theta(v1,v2) = exp(-[(-log v1)^theta + (-log v2)^theta]^{1/theta}), theta in [1, infty); this copula is Archimedean and is PQD. Further, suppose that I_{p1}, I_{p2} (I_{p*1}, I_{p*2}) is a set of independent Bernoulli random variables, independent of the X's, with E[I_{pi}] = p_i (E[I_{p*i}] = p*_i), for i = 1, 2. We take h(p) = p, (lambda_1, lambda_2) = (0.6, -0.2), (p_1, p_2) = (0.04, 0.09), (lambda*_1, lambda*_2) = (0.1, 0.4), (p*_1, p*_2) = (0.0676, 0.0576) and theta = 10. Lemma 2.3 and Lemma 2.4 imply the condition (ii) of Theorem 3.6, and it can be easily verified that the other condition is also satisfied. So, we have Y*_{2:2} <=st Y_{2:2}. Figure 4 represents the survival function of Y_{2:2} and Y*_{2:2}, which coincides with the intended result.",
+  "kind": "example",
+  "model": "parallel system",
+  "family": "Transmuted exponential TE(3, lambda_i) (TG model) under Gumbel-Hougaard copula; Bernoulli occurrences",
+  "compared": "lambda = (0.6,-0.2), p = (0.04,0.09) vs lambda* = (0.1,0.4), p* = (0.0676,0.0576)",
+  "hypotheses": [
+   {
+    "text": "the conditions of Theorem 3.6 are satisfied",
+    "formal": "incl. condition (ii) via Lemmas 2.3, 2.4",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y*_{2:2} <=st Y_{2:2}, illustrated by Figure 4"
+  },
+  "quantifiers": "n = 2",
+  "numbers": "h(p) = p; lambda = (0.6, -0.2); p = (0.04, 0.09); lambda* = (0.1, 0.4); p* = (0.0676, 0.0576); theta = 10",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Example 3.4 confirms Theorem 3.6 for transmuted-exponential severities under Gumbel-Hougaard copula:"
+ },
+ {
+  "paper": "doi:10.7153/mia-2020-23-03",
+  "claim": "Example 3.5",
+  "page": 15,
+  "quote": "Example 3.5. Let X_{lambda_i} ~ Pareto(1, lambda_i) (X_{lambda*_i} ~ Pareto(1, lambda*_i)), for i = 1, 2, with the associated FGM copula, with theta = 0.7. Let (lambda_1, lambda_2) = (7, 2), (lambda*_1, lambda*_2) = (5.5, 3.5), p(0, 0) = 0.89, p(0, 1) = 0.06, p(1, 0) = 0.04 and p(1, 1) = 0.01. Using Lemma 2.5, we get the condition (ii) of Theorem 3.9, and obviously can be verified that the other conditions are also satisfied. So, we have Y*_{2:2} <=st Y_{2:2}. Figure 5 represents the survival function of Y_{2:2} and Y*_{2:2}, which approves with the intended result.",
+  "kind": "example",
+  "model": "parallel system",
+  "family": "Pareto(1, lambda_i) under FGM copula; interdependent Bernoulli occurrences with joint probs p(mu)",
+  "compared": "lambda = (7,2) vs lambda* = (5.5,3.5); shared occurrence distribution",
+  "hypotheses": [
+   {
+    "text": "the conditions of Theorem 3.9 are satisfied",
+    "formal": "incl. condition (ii) via Lemma 2.5",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y*_{2:2} <=st Y_{2:2}, illustrated by Figure 5"
+  },
+  "quantifiers": "n = 2",
+  "numbers": "lambda = (7, 2); lambda* = (5.5, 3.5); p(0,0) = 0.89; p(0,1) = 0.06; p(1,0) = 0.04; p(1,1) = 0.01; theta = 0.7",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Example 3.5 confirms Theorem 3.9 for Pareto severities with interdependent occurrences: Y*_{2:2} <=s"
+ },
+ {
+  "paper": "doi:10.7153/mia-2020-23-03",
+  "claim": "Example 3.6",
+  "page": 15,
+  "quote": "Example 3.6. Under the same setup in Example 3.5, we take (lambda_1, lambda_2) = (2, 7) with the other unchanged values. It is clear that lambda_1 [relation glyph lost] lambda_2, but it can be easily verified that the other conditions of Theorem 3.7 are satisfied. Figure 6 represents the survival function of Y_{2:2} and Y*_{2:2}, which cross each other.",
+  "kind": "counterexample",
+  "model": "parallel system",
+  "family": "Pareto(1, lambda_i) under FGM copula (same setup as Example 3.5)",
+  "compared": "lambda = (2,7) vs lambda* = (5.5,3.5); violates condition (ii) of Theorem 3.7",
+  "hypotheses": [
+   {
+    "text": "the other conditions of Theorem 3.7 are satisfied but lambda_1 vs lambda_2 violates the required relation",
+    "formal": "violates condition (ii) of Theorem 3.7 only",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "survival functions of Y_{2:2} and Y*_{2:2} cross each other (Figure 6): no st order in either direction; shows condition (ii) of Theorem 3.7 cannot be dropped"
+  },
+  "quantifiers": "n = 2",
+  "numbers": "lambda = (2, 7); other values as in Example 3.5",
+  "ambiguity": "The relation symbol between lambda_1 and lambda_2 did not survive the text layer ('lambda_1 [?] lambda_2'); context says it is the violated ordering condition.",
+  "adjudication": "adjudicated: Example 3.6 is a counterexample: survival curves cross when condition (ii) of Theorem 3.7 fails; no "
+ },
+ {
+  "paper": "doi:10.7153/mia-2020-23-03",
+  "claim": "Example 3.7",
+  "page": 18,
+  "quote": "Example 3.7. Let X_{lambda_i} ~ Wei(3, lambda_i) (X_{lambda*_i} ~ Wei(3, lambda*_i)), for i = 1, 2, 3, with the associated Frank copula C_theta(v1,v2,v3) = -(1/theta) log(1 + (e^{-theta v1}-1)(e^{-theta v2}-1)(e^{-theta v3}-1)/(e^{-theta}-1)^2), theta in (0, infty). Further, suppose that I_{p1}, I_{p2}, I_{p3} is a set of independent Bernoulli random variables, independent of the X's, with E[I_{pi}] = p_i, for i = 1, 2, 3. We take (lambda_1, lambda_2, lambda_3) = (0.5, 0.7, 0.3), (lambda*_1, lambda*_2, lambda*_3) = (0.51, 0.7, 0.33), (p_1, p_2, p_3) = (0.01, 0.02, 0.07) and theta = 0.6. Obviously, the conditions of Theorem 3.14 are satisfied. So, we have Y*_{3:3} <=st Y_{3:3}. Figure 7 represents the survival function of Y_{3:3} and Y*_{3:3}, which coincides with the intended result.",
+  "kind": "example",
+  "model": "parallel system",
+  "family": "Weibull Wei(3, lambda_i) (scale model) under trivariate Frank copula; Bernoulli occurrences",
+  "compared": "lambda = (0.5,0.7,0.3), p = (0.01,0.02,0.07) vs lambda* = (0.51,0.7,0.33)",
+  "hypotheses": [
+   {
+    "text": "the conditions of Theorem 3.14 are satisfied",
+    "formal": "scale-model conditions of Theorem 3.14",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Y*_{3:3} <=st Y_{3:3}, illustrated by Figure 7"
+  },
+  "quantifiers": "n = 3",
+  "numbers": "lambda = (0.5, 0.7, 0.3); lambda* = (0.51, 0.7, 0.33); p = (0.01, 0.02, 0.07); theta = 0.6",
+  "ambiguity": "",
+  "adjudication": "adjudicated: Example 3.7 confirms Theorem 3.14 for Weibull severities under Frank copula: Y*_{3:3} <=st Y_{3:3}."
+ },
+ {
+  "paper": "doi:10.7153/mia-2020-23-03",
   "claim": "Theorem 3.1",
   "page": 5,
   "quote": "[Section 3 preamble:] In this section, we compare the largest claim amounts from two interdependent heterogeneous portfolios of risks in the sense of the usual stochastic ordering. [...] The following theorem provides a comparison between the largest claim amounts in two heterogeneous portfolio of risks, in terms of p. Theorem 3.1. Let X\u03bb1 and X\u03bb2 be non-negative random variables with X\u03bbi \u223c F\u0304(x; \u03bbi), i = 1, 2, and associated copula C. Further, suppose that Ip1, Ip2 (Ip\u22171, Ip\u22172) is a set of independent Bernoulli random variables, independent of the X\u03bbi's, with E[Ipi] = pi (E[Ip\u2217i] = p\u2217i), i = 1, 2. Assume that the following conditions hold: (i) h : (0, 1] \u2192 I \u2282 R++ is a differentiable and strictly increasing concave function, with the log-concave inverse; (ii) F\u0304(x; \u03bb) is decreasing in \u03bb for any x \u2208 R+; (iii) C is PQD. Then, for (\u03bb, h(p)) \u2208 S and (\u03bb, h(p\u2217)) \u2208 S, we have (h(p\u22171), h(p\u22172)) \u227c^m (h(p1), h(p2)) =\u21d2 Y\u22172:2 \u2264st Y2:2.",
@@ -768,270 +943,5 @@
   "numbers": "",
   "ambiguity": "Second survival function rendered '[F\u0304(x)]\u03bbi' with a displaced '\u2217'; read as [F\u0304(x)]^{\u03bb\u2217i}. Majorization glyph missing; read as \u227c^m. Star placement in conclusion displaced; read as Y\u22172:2 \u2264st Y2:2. LWSAI undefined except via Lemma 3.1.",
   "adjudication": "agreed"
- },
- {
-  "paper": "doi:10.7153/mia-2020-23-03",
-  "claim": "Example 3.1",
-  "page": 9,
-  "quote": "Gamma distribution is one of the most applicable distributions to depict the claim amounts whenever the shape parameter is less than 1. X has the gamma distribution with the shape parameter \u03b1 and the scale parameter \u03bb, denoted by X \u223c \u0393(\u03b1, \u03bb), if its density function is given by f(x; \u03b1, \u03bb) = \u03bb^\u03b1 x^{\u03b1\u22121} e^{\u2212\u03bbx} / \u0393(\u03b1), x \u2208 R++. The following example provides a numerical example to illustrate the validity of Theorem 3.4. Example 3.1. Let X\u03bbi \u223c \u0393(0.8, \u03bbi) (X\u03bb\u2217i \u223c \u0393(0.8, \u03bb\u2217i)), for i = 1, 2, with the associated FGM copula. It is clear that this copula is PQD if \u03b8 \u2208 [0, 1]. Further, suppose that Ip1, Ip2 (Ip\u22171, Ip\u22172) is a set of independent Bernoulli random variables, independent of the X\u03bbi's (X\u03bb\u2217i's), with E[Ipi] = pi (E[Ip\u2217i] = p\u2217i), for i = 1, 2. We take h(p) = p, (\u03bb1, \u03bb2) = (0.26, 0.74), (p1, p2) = (0.03, 0.02), (\u03bb\u22171, \u03bb\u22172) = (0.4, 0.6), (p\u22171, p\u22172) = (0.026, 0.024) and \u03b8 = 0.5. Using Lemma 2.3 and Lemma 2.5, we get the condition (iii) of Theorem 3.4, and obviously can be verified that the other conditions are also satisfied. So, we have Y\u22172:2 \u2264st Y2:2. Figure 1 represents the survival function of Y2:2 and Y\u22172:2, which agrees with the intended result.",
-  "kind": "example",
-  "model": "other: largest claim amount Y2:2 = max(Ip1 X\u03bb1, Ip2 X\u03bb2)",
-  "family": "Gamma \u0393(\u03b1, \u03bb) with density \u03bb^\u03b1 x^{\u03b1\u22121} e^{\u2212\u03bbx}/\u0393(\u03b1), shape \u03b1 = 0.8 common, \u03bb called 'scale' (enters as rate); FGM copula C\u03b8(v) = \u03a0 vi + \u03b8 \u03a0 vi(1 \u2212 vi)",
-  "compared": "\u03bb = (0.26, 0.74) vs \u03bb\u2217 = (0.4, 0.6) and p = (0.03, 0.02) vs p\u2217 = (0.026, 0.024), with h(p) = p",
-  "hypotheses": [
-   {
-    "text": "Let X\u03bbi \u223c \u0393(0.8, \u03bbi) (X\u03bb\u2217i \u223c \u0393(0.8, \u03bb\u2217i)), for i = 1, 2, with the associated FGM copula",
-    "formal": "Gamma(shape 0.8, rate \u03bbi) marginals, FGM copula \u03b8 = 0.5",
-    "source": "statement"
-   },
-   {
-    "text": "Ip1, Ip2 (Ip\u22171, Ip\u22172) is a set of independent Bernoulli random variables, independent of the X\u03bbi's (X\u03bb\u2217i's)",
-    "formal": "independent Bernoulli(pi), Bernoulli(p\u2217i)",
-    "source": "statement"
-   },
-   {
-    "text": "We take h(p) = p, (\u03bb1, \u03bb2) = (0.26, 0.74), (p1, p2) = (0.03, 0.02), (\u03bb\u22171, \u03bb\u22172) = (0.4, 0.6), (p\u22171, p\u22172) = (0.026, 0.024) and \u03b8 = 0.5",
-    "formal": "parameter values as printed",
-    "source": "statement"
-   },
-   {
-    "text": "obviously can be verified that the other conditions are also satisfied",
-    "formal": "authors assert all conditions of Theorem 3.4 hold",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "Y\u22172:2 \u2264st Y2:2 (supports Theorem 3.4)"
-  },
-  "quantifiers": "n = 2; survival functions plotted in Figure 1 over x from 0 to 10",
-  "numbers": "\u0393(0.8, \u03bbi); FGM copula \u03b8 = 0.5; h(p) = p; (\u03bb1, \u03bb2) = (0.26, 0.74); (p1, p2) = (0.03, 0.02); (\u03bb\u22171, \u03bb\u22172) = (0.4, 0.6); (p\u22171, p\u22172) = (0.026, 0.024); printed result: Y\u22172:2 \u2264st Y2:2 (Figure 1, survival function axis 0 to 0.05, x axis 0 to 10)",
-  "ambiguity": "Only a figure is given as evidence; no numerical survival values are printed. The density is written with \u03bb as a rate although \u03bb is called the scale parameter; consistent with the scale family F\u0304(\u03bbx).",
-  "adjudication": "example record (pass a)+b"
- },
- {
-  "paper": "doi:10.7153/mia-2020-23-03",
-  "claim": "Example 3.2",
-  "page": 9,
-  "quote": "The following example illustrates that the conditions (\u03bb, h(p)) \u2208 S and (\u03bb\u2217, h(p\u2217)) \u2208 S is an important condition and can not be dropped. Example 3.2. Under the same setup in Example 3.1, we take (p1, p2) = (0.02, 0.03) and (p\u22171, p\u22172) = (0.028, 0.022) with the other unchanged values. It is clear that (\u03bb, h(p)) \u2209 S, but it can be easily verified that the other conditions of Theorem 3.4 are satisfied. Figure 2 represents the survival function of Y2:2 and Y\u22172:2, which cross each other.",
-  "kind": "counterexample",
-  "model": "other: largest claim amount Y2:2 = max(Ip1 X\u03bb1, Ip2 X\u03bb2)",
-  "family": "Gamma \u0393(0.8, \u03bbi) marginals, FGM copula \u03b8 = 0.5 (setup of Example 3.1)",
-  "compared": "\u03bb = (0.26, 0.74) vs \u03bb\u2217 = (0.4, 0.6) and p = (0.02, 0.03) vs p\u2217 = (0.028, 0.022), h(p) = p",
-  "hypotheses": [
-   {
-    "text": "Under the same setup in Example 3.1",
-    "formal": "\u0393(0.8, \u03bbi) marginals, FGM \u03b8 = 0.5, h(p) = p, \u03bb = (0.26, 0.74), \u03bb\u2217 = (0.4, 0.6)",
-    "source": "statement; Example 3.1"
-   },
-   {
-    "text": "we take (p1, p2) = (0.02, 0.03) and (p\u22171, p\u22172) = (0.028, 0.022)",
-    "formal": "p and p\u2217 as printed",
-    "source": "statement"
-   },
-   {
-    "text": "It is clear that (\u03bb, h(p)) \u2209 S, but it can be easily verified that the other conditions of Theorem 3.4 are satisfied",
-    "formal": "S condition violated for (\u03bb, h(p)); all other Theorem 3.4 conditions asserted to hold",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "neither direction: survival functions of Y2:2 and Y\u22172:2 are said to cross (shows the S condition of Theorem 3.4 cannot be dropped)"
-  },
-  "quantifiers": "n = 2; Figure 2 plotted over x from 0 to 4",
-  "numbers": "\u0393(0.8, \u03bbi); FGM \u03b8 = 0.5; h(p) = p; (\u03bb1, \u03bb2) = (0.26, 0.74); (\u03bb\u22171, \u03bb\u22172) = (0.4, 0.6); (p1, p2) = (0.02, 0.03); (p\u22171, p\u22172) = (0.028, 0.022); printed result: survival functions of Y2:2 and Y\u22172:2 cross (Figure 2)",
-  "ambiguity": "Labelled 'Example' in the paper; recorded as counterexample because it is presented as showing a condition cannot be dropped. Evidence is only a plot; no crossing point or values printed.",
-  "adjudication": "example record (pass a)+b"
- },
- {
-  "paper": "doi:10.7153/mia-2020-23-03",
-  "claim": "Example 3.3",
-  "page": 11,
-  "quote": "The Pareto distribution is a special case of the PHR model, which is commonly used as the distribution of claim severity from policyholders in insurance. X has the Pareto distribution with parameters \u03b2 and \u03bb, denoted by X \u223c Pareto(\u03b2, \u03bb), if its survival function is given by F\u0304(x; \u03b2, \u03bb) = (\u03b2/x)^\u03bb, x \u2265 \u03b2. The following example provides a numerical example to illustrate the validity of Theorem 3.5. Example 3.3. Let X\u03bbi \u223c Pareto(1, \u03bbi) (X\u03bb\u2217i \u223c Pareto(1, \u03bb\u2217i)), for i = 1, 2, with the associated Ali-Mikhail-Haq copula, which introduced by Ali et al. (1978), of the form C\u03b8(v1, v2) = v1v2 / (1 \u2212 \u03b8(1 \u2212 v1)(1 \u2212 v2)), where \u03b8 \u2208 [\u22121, 1]. According to Nelsen (2007), this copula is Archimedean and obviously is PQD if \u03b8 \u2208 [0, 1]. Further, suppose that Ip1, Ip2 (Ip\u22171, Ip\u22172) is a set of independent Bernoulli random variables, independent of the X\u03bbi's (X\u03bb\u2217i's), with E[Ipi] = pi (E[Ip\u2217i] = p\u2217i), for i = 1, 2. We take h(p) = log(p + 2), (\u03bb1, \u03bb2) = (4, 2), (p1, p2) = (0.02, 0.06), (\u03bb\u22171, \u03bb\u22172) = (4, 6), (p\u22171, p\u22172) = (0.0479, 0.0319) and \u03b8 = 0.3. Lemma 2.3 and Lemma 2.4 imply the condition (ii) of Theorem 3.5, and it can be easily verified that the other condition is also satisfied. So, we have Y\u22172:2 \u2264st Y2:2. Figure 3 represents the survival function of Y2:2 and Y\u22172:2, which agrees with the intended result.",
-  "kind": "example",
-  "model": "other: largest claim amount Y2:2 = max(Ip1 X\u03bb1, Ip2 X\u03bb2)",
-  "family": "Pareto(\u03b2, \u03bb), survival (\u03b2/x)^\u03bb, x \u2265 \u03b2, with \u03b2 = 1 common; Ali-Mikhail-Haq copula C\u03b8(v1, v2) = v1v2/(1 \u2212 \u03b8(1 \u2212 v1)(1 \u2212 v2)), \u03b8 = 0.3",
-  "compared": "\u03bb = (4, 2) vs \u03bb\u2217 = (4, 6) and p = (0.02, 0.06) vs p\u2217 = (0.0479, 0.0319), with h(p) = log(p + 2)",
-  "hypotheses": [
-   {
-    "text": "Let X\u03bbi \u223c Pareto(1, \u03bbi) (X\u03bb\u2217i \u223c Pareto(1, \u03bb\u2217i)), for i = 1, 2, with the associated Ali-Mikhail-Haq copula",
-    "formal": "Pareto(1, \u03bbi) marginals, AMH copula \u03b8 = 0.3",
-    "source": "statement"
-   },
-   {
-    "text": "Ip1, Ip2 (Ip\u22171, Ip\u22172) is a set of independent Bernoulli random variables, independent of the X\u03bbi's (X\u03bb\u2217i's)",
-    "formal": "independent Bernoulli indicators",
-    "source": "statement"
-   },
-   {
-    "text": "We take h(p) = log(p + 2), (\u03bb1, \u03bb2) = (4, 2), (p1, p2) = (0.02, 0.06), (\u03bb\u22171, \u03bb\u22172) = (4, 6), (p\u22171, p\u22172) = (0.0479, 0.0319) and \u03b8 = 0.3",
-    "formal": "parameter values as printed",
-    "source": "statement"
-   },
-   {
-    "text": "it can be easily verified that the other condition is also satisfied",
-    "formal": "authors assert all conditions of Theorem 3.5 hold",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "Y\u22172:2 \u2264st Y2:2 (supports Theorem 3.5)"
-  },
-  "quantifiers": "n = 2; Figure 3 plotted over x from about 1 to 10",
-  "numbers": "Pareto(1, \u03bbi); AMH copula \u03b8 = 0.3; h(p) = log(p + 2); (\u03bb1, \u03bb2) = (4, 2); (p1, p2) = (0.02, 0.06); (\u03bb\u22171, \u03bb\u22172) = (4, 6); (p\u22171, p\u22172) = (0.0479, 0.0319); printed result: Y\u22172:2 \u2264st Y2:2 (Figure 3, survival axis 0 to 0.08)",
-  "ambiguity": "Only a figure is given; no numerical survival values printed. The base of 'log' in h(p) = log(p + 2) is not stated (natural log presumed).",
-  "adjudication": "example record (pass a)+b"
- },
- {
-  "paper": "doi:10.7153/mia-2020-23-03",
-  "claim": "Example 3.4",
-  "page": 12,
-  "quote": "The transmuted exponential distribution, which introduced by Mirhossaini and Dolati (2008) has non-negative support and can be used to simulate the claim severity from policyholders in insurance. X has the transmuted exponential distribution with parameters \u00b5 and \u03bb, denoted by X \u223c TE(\u00b5, \u03bb), if its survival function is given by F\u0304(x, \u00b5, \u03bb) = e^{\u2212x/\u00b5}[1 \u2212 \u03bb(1 \u2212 e^{\u2212x/\u00b5})], x \u2265 0, \u00b5 > 0, \u22121 \u2264 \u03bb \u2264 1. The following example provides a numerical example to illustrate the validity of Theorem 3.6. Example 3.4. Let X\u03bbi \u223c TE(3, \u03bbi) (X\u03bb\u2217i \u223c TE(3, \u03bb\u2217i)), for i = 1, 2, with the associated Gumbel-Hougaard copula, which first introduced by Gumbel (1960b), of the form C\u03b8(v1, v2) = exp{\u2212[(\u2212log v1)^\u03b8 + (\u2212log v2)^\u03b8]^{1/\u03b8}}, where \u03b8 \u2208 [1, \u221e). According to Nelsen (2007), this copula is Archimedean and is PQD. Further, suppose that Ip1, Ip2 (Ip\u22171, Ip\u22172) is a set of independent Bernoulli random variables, independent of the X\u03bbi's (X\u03bb\u2217i's), with E[Ipi] = pi (E[Ip\u2217i] = p\u2217i), for i = 1, 2. We take h(p) = \u221ap, (\u03bb1, \u03bb2) = (0.6, \u22120.2), (p1, p2) = (0.04, 0.09), (\u03bb\u22171, \u03bb\u22172) = (0.1, 0.4), (p\u22171, p\u22172) = (0.0676, 0.0576) and \u03b8 = 10. Lemma 2.3 and Lemma 2.4 imply the condition (ii) of Theorem 3.6, and it can be easily verified that the other condition is also satisfied. So, we have Y\u22172:2 \u2264st Y2:2. Figure 4 represents the survival function of Y2:2 and Y\u22172:2, which coincides with the intended result.",
-  "kind": "example",
-  "model": "other: largest claim amount Y2:2 = max(Ip1 X\u03bb1, Ip2 X\u03bb2)",
-  "family": "transmuted exponential TE(\u00b5, \u03bb), survival e^{\u2212x/\u00b5}[1 \u2212 \u03bb(1 \u2212 e^{\u2212x/\u00b5})], \u00b5 = 3 common; Gumbel-Hougaard copula \u03b8 = 10",
-  "compared": "\u03bb = (0.6, \u22120.2) vs \u03bb\u2217 = (0.1, 0.4) and p = (0.04, 0.09) vs p\u2217 = (0.0676, 0.0576), with h(p) = \u221ap",
-  "hypotheses": [
-   {
-    "text": "Let X\u03bbi \u223c TE(3, \u03bbi) (X\u03bb\u2217i \u223c TE(3, \u03bb\u2217i)), for i = 1, 2, with the associated Gumbel-Hougaard copula",
-    "formal": "TE(3, \u03bbi) marginals, Gumbel-Hougaard copula \u03b8 = 10",
-    "source": "statement"
-   },
-   {
-    "text": "Ip1, Ip2 (Ip\u22171, Ip\u22172) is a set of independent Bernoulli random variables, independent of the X\u03bbi's (X\u03bb\u2217i's)",
-    "formal": "independent Bernoulli indicators",
-    "source": "statement"
-   },
-   {
-    "text": "We take h(p) = \u221ap, (\u03bb1, \u03bb2) = (0.6, \u22120.2), (p1, p2) = (0.04, 0.09), (\u03bb\u22171, \u03bb\u22172) = (0.1, 0.4), (p\u22171, p\u22172) = (0.0676, 0.0576) and \u03b8 = 10",
-    "formal": "parameter values as printed",
-    "source": "statement"
-   },
-   {
-    "text": "it can be easily verified that the other condition is also satisfied",
-    "formal": "authors assert all conditions of Theorem 3.6 hold",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "Y\u22172:2 \u2264st Y2:2 (supports Theorem 3.6)"
-  },
-  "quantifiers": "n = 2; Figure 4 plotted over x from 0 to 10",
-  "numbers": "TE(3, \u03bbi); Gumbel-Hougaard \u03b8 = 10; h(p) = \u221ap; (\u03bb1, \u03bb2) = (0.6, \u22120.2); (p1, p2) = (0.04, 0.09); (\u03bb\u22171, \u03bb\u22172) = (0.1, 0.4); (p\u22171, p\u22172) = (0.0676, 0.0576); printed result: Y\u22172:2 \u2264st Y2:2 (Figure 4, survival axis 0 to 0.12)",
-  "ambiguity": "The square-root sign in h(p) = \u221ap is rendered on a separate line in the text extraction; read as h(p) = \u221ap. Only a figure is given; no numerical survival values printed.",
-  "adjudication": "example record (pass a)+b"
- },
- {
-  "paper": "doi:10.7153/mia-2020-23-03",
-  "claim": "Example 3.5",
-  "page": 15,
-  "quote": "The following example provides a numerical example to illustrate the validity of Theorem 3.9. Example 3.5. Let X\u03bbi \u223c Pareto(1, \u03bbi) (X\u03bb\u2217i \u223c Pareto(1, \u03bb\u2217i)), for i = 1, 2, with the associated FGM copula, with \u03b8 = 0.7. Let (\u03bb1, \u03bb2) = (7, 2), (\u03bb\u22171, \u03bb\u22172) = (5.5, 3.5), p(0, 0) = 0.89, p(0, 1) = 0.06, p(1, 0) = 0.04 and p(1, 1) = 0.01. Using Lemma 2.5, we get the condition (ii) of Theorem 3.9, and obviously can be verified that the other conditions are also satisfied. So, we have Y\u22172:2 \u2264st Y2:2. Figure 5 represents the survival function of Y2:2 and Y\u22172:2, which approves with the intended result.",
-  "kind": "example",
-  "model": "other: largest claim amount Y2:2 = max(I1 X\u03bb1, I2 X\u03bb2) with dependent occurrence vector I",
-  "family": "Pareto(1, \u03bb), survival (1/x)^\u03bb, x \u2265 1; FGM copula \u03b8 = 0.7",
-  "compared": "\u03bb = (7, 2) vs \u03bb\u2217 = (5.5, 3.5); joint occurrence pmf common",
-  "hypotheses": [
-   {
-    "text": "Let X\u03bbi \u223c Pareto(1, \u03bbi) (X\u03bb\u2217i \u223c Pareto(1, \u03bb\u2217i)), for i = 1, 2, with the associated FGM copula, with \u03b8 = 0.7",
-    "formal": "Pareto(1, \u03bbi) marginals, FGM copula \u03b8 = 0.7",
-    "source": "statement"
-   },
-   {
-    "text": "p(0, 0) = 0.89, p(0, 1) = 0.06, p(1, 0) = 0.04 and p(1, 1) = 0.01",
-    "formal": "joint pmf of I as printed",
-    "source": "statement"
-   },
-   {
-    "text": "obviously can be verified that the other conditions are also satisfied",
-    "formal": "authors assert all conditions of Theorem 3.9 hold",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "Y\u22172:2 \u2264st Y2:2 (supports Theorem 3.9)"
-  },
-  "quantifiers": "n = 2; Figure 5 plotted over x from 1 to 8",
-  "numbers": "Pareto(1, \u03bbi); FGM \u03b8 = 0.7; (\u03bb1, \u03bb2) = (7, 2); (\u03bb\u22171, \u03bb\u22172) = (5.5, 3.5); p(0, 0) = 0.89; p(0, 1) = 0.06; p(1, 0) = 0.04; p(1, 1) = 0.01; printed result: Y\u22172:2 \u2264st Y2:2 (Figure 5, survival axis 0 to 0.10)",
-  "ambiguity": "Only a figure is given; no numerical survival values printed.",
-  "adjudication": "example record (pass a)+b"
- },
- {
-  "paper": "doi:10.7153/mia-2020-23-03",
-  "claim": "Example 3.6",
-  "page": 15,
-  "quote": "The following example illustrates that the conditions (ii) of Theorem 3.7 can not be dropped. Example 3.6. Under the same setup in Example 3.5, we take (\u03bb1, \u03bb2) = (2, 7) with the other unchanged values. It is clear that \u03bb1 [symbol missing] \u03bb2, but it can be easily verified that the other conditions of Theorem 3.7 are satisfied. Figure 6 represents the survival function of Y2:2 and Y\u22172:2, which cross each other.",
-  "kind": "counterexample",
-  "model": "other: largest claim amount Y2:2 = max(I1 X\u03bb1, I2 X\u03bb2) with dependent occurrence vector I",
-  "family": "Pareto(1, \u03bb) marginals, FGM copula \u03b8 = 0.7 (setup of Example 3.5)",
-  "compared": "\u03bb = (2, 7) vs \u03bb\u2217 = (5.5, 3.5); joint occurrence pmf common",
-  "hypotheses": [
-   {
-    "text": "Under the same setup in Example 3.5",
-    "formal": "Pareto(1, \u00b7) marginals, FGM \u03b8 = 0.7, \u03bb\u2217 = (5.5, 3.5), p(0,0) = 0.89, p(0,1) = 0.06, p(1,0) = 0.04, p(1,1) = 0.01",
-    "source": "statement; Example 3.5"
-   },
-   {
-    "text": "we take (\u03bb1, \u03bb2) = (2, 7)",
-    "formal": "\u03bb = (2, 7)",
-    "source": "statement"
-   },
-   {
-    "text": "It is clear that \u03bb1 [symbol missing] \u03bb2, but it can be easily verified that the other conditions of Theorem 3.7 are satisfied",
-    "formal": "the ordering requirement \u03bb1 \u2265 \u03bb2 in condition (ii) of Theorem 3.7 is violated; other conditions asserted to hold",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "neither direction: survival functions of Y2:2 and Y\u22172:2 are said to cross (shows condition (ii) of Theorem 3.7 cannot be dropped)"
-  },
-  "quantifiers": "n = 2; Figure 6 plotted over x from 1.0 to 1.5",
-  "numbers": "Pareto(1, \u03bbi); FGM \u03b8 = 0.7; (\u03bb1, \u03bb2) = (2, 7); (\u03bb\u22171, \u03bb\u22172) = (5.5, 3.5); p(0, 0) = 0.89; p(0, 1) = 0.06; p(1, 0) = 0.04; p(1, 1) = 0.01; printed result: survival functions cross (Figure 6)",
-  "ambiguity": "The relation symbol in '\u03bb1 _ \u03bb2' is missing from the text extraction (presumably a negated \u2265). Labelled 'Example' in the paper; recorded as counterexample because it is presented as showing a condition cannot be dropped. Evidence is only a plot.",
-  "adjudication": "example record (pass a)+b"
- },
- {
-  "paper": "doi:10.7153/mia-2020-23-03",
-  "claim": "Example 3.7",
-  "page": 18,
-  "quote": "Another important distribution used as the distribution of claim severity from policyholders is Weibull distribution, which is a special case of the scale model. X has the Weibull distribution with parameters \u03b1 and \u03bb, denoted by X \u223c Wei(\u03b1, \u03bb), if its survival function is given by F\u0304(x; \u03b1, \u03bb) = e^{\u2212(\u03bbx)^\u03b1}, x > 0. The following example provides a numerical example to illustrate the validity of Theorem 3.14. Example 3.7. Let X\u03bbi \u223c Wei(3, \u03bbi) (X\u03bb\u2217i \u223c Wei(3, \u03bb\u2217i)), for i = 1, 2, 3, with the associated Frank copula, which introduced by Frank (1979), of the form C\u03b8(v1, v2, v3) = \u2212(1/\u03b8) log(1 + (e^{\u2212\u03b8v1} \u2212 1)(e^{\u2212\u03b8v2} \u2212 1)(e^{\u2212\u03b8v3} \u2212 1)/(e^{\u2212\u03b8} \u2212 1)\u00b2), where \u03b8 \u2208 (0, \u221e). Further, suppose that Ip1, Ip2, Ip3 is a set of independent Bernoulli random variables, independent of the X\u03bbi's (X\u03bb\u2217i's), with E[Ipi] = pi, for i = 1, 2, 3. We take (\u03bb1, \u03bb2, \u03bb3) = (0.5, 0.7, 0.3), (\u03bb\u22171, \u03bb\u22172, \u03bb\u22173) = (0.51, 0.7, 0.33), (p1, p2, p3) = (0.01, 0.02, 0.07) and \u03b8 = 0.6. Obviously, the conditions of Theorem 3.14 are satisfied. So, we have Y\u22173:3 \u2264st Y3:3. Figure 7 represents the survival function of Y3:3 and Y\u22173:3, which coincides with the intended result.",
-  "kind": "example",
-  "model": "other: largest claim amount Y3:3 = max(Ip1 X\u03bb1, Ip2 X\u03bb2, Ip3 X\u03bb3)",
-  "family": "Weibull Wei(\u03b1, \u03bb), survival e^{\u2212(\u03bbx)^\u03b1}, shape \u03b1 = 3 common; trivariate Frank copula \u03b8 = 0.6",
-  "compared": "\u03bb = (0.5, 0.7, 0.3) vs \u03bb\u2217 = (0.51, 0.7, 0.33); p = (0.01, 0.02, 0.07) common; copula common",
-  "hypotheses": [
-   {
-    "text": "Let X\u03bbi \u223c Wei(3, \u03bbi) (X\u03bb\u2217i \u223c Wei(3, \u03bb\u2217i)), for i = 1, 2, 3, with the associated Frank copula",
-    "formal": "Weibull(shape 3, scale parameter \u03bbi as rate) marginals, Frank copula \u03b8 = 0.6",
-    "source": "statement"
-   },
-   {
-    "text": "Ip1, Ip2, Ip3 is a set of independent Bernoulli random variables, independent of the X\u03bbi's (X\u03bb\u2217i's), with E[Ipi] = pi",
-    "formal": "independent Bernoulli(pi)",
-    "source": "statement"
-   },
-   {
-    "text": "We take (\u03bb1, \u03bb2, \u03bb3) = (0.5, 0.7, 0.3), (\u03bb\u22171, \u03bb\u22172, \u03bb\u22173) = (0.51, 0.7, 0.33), (p1, p2, p3) = (0.01, 0.02, 0.07) and \u03b8 = 0.6",
-    "formal": "parameter values as printed",
-    "source": "statement"
-   },
-   {
-    "text": "Obviously, the conditions of Theorem 3.14 are satisfied",
-    "formal": "authors assert Theorem 3.14's conditions hold",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "Y\u22173:3 \u2264st Y3:3 (supports Theorem 3.14)"
-  },
-  "quantifiers": "n = 3; Figure 7 plotted over x from 0 to 8",
-  "numbers": "Wei(3, \u03bbi); Frank copula \u03b8 = 0.6; (\u03bb1, \u03bb2, \u03bb3) = (0.5, 0.7, 0.3); (\u03bb\u22171, \u03bb\u22172, \u03bb\u22173) = (0.51, 0.7, 0.33); (p1, p2, p3) = (0.01, 0.02, 0.07); printed result: Y\u22173:3 \u2264st Y3:3 (Figure 7, survival axis 0 to 0.10)",
-  "ambiguity": "The copula of the starred portfolio is not stated separately; presumably the same Frank copula (so C \u227a C\u2217 holds with equality). Only a figure is given; no numerical survival values printed.",
-  "adjudication": "example record (pass a)+b"
  }
 ]

@@ -1,6 +1,91 @@
 [
  {
   "paper": "doi:10.1016/j.orl.2017.02.005",
+  "claim": "Counterexample 3.1",
+  "page": 6,
+  "quote": "Counterexample 3.1 Let Xi \u223c LL(\u03c3i, \u03bbi) and Yi \u223c LL(\u03b8i, \u03bbi), i = 1, 2, 3. Now, if (\u03c31, \u03c32, \u03c33) = (1, 1, 5) \u2208 E+, (\u03b81, \u03b82, \u03b83) = (1, 2, 4) \u2208 E+ and (\u03bb1, \u03bb2, \u03bb3) = (4, 3, 0.2) \u2208 D+ are taken, then from Figure 1, it is clear that F3:3(x)/G3:3(x) is not monotone, giving that X3:3 \u2271rhr Y3:3, although \u03c3 \u227d^m \u03b8.",
+  "kind": "counterexample",
+  "model": "parallel system (largest order statistic)",
+  "family": "log-Lindley LL(\u03c3, \u03bb): f(x;\u03c3,\u03bb) = \u03c3\u00b2/(1+\u03bb\u03c3)(\u03bb \u2212 log x)x^{\u03c3\u22121}, 0 < x < 1",
+  "compared": "\u03c3 = (1,1,5) vs \u03b8 = (1,2,4), common \u03bb = (4,3,0.2); \u03c3, \u03b8 \u2208 E+ while \u03bb \u2208 D+ (mixed orderings)",
+  "hypotheses": [
+   {
+    "text": "\u03c3 = (1,1,5) \u2208 E+, \u03b8 = (1,2,4) \u2208 E+, \u03bb = (4,3,0.2) \u2208 D+, with \u03c3 \u227d^m \u03b8",
+    "formal": "shape majorization holds but scale ordering is reversed (\u03bb \u2208 D+ vs \u03c3,\u03b8 \u2208 E+)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "rh",
+   "direction": "refuted: X3:3 \u2271rhr Y3:3 \u2014 F3:3/G3:3 non-monotone although \u03c3 \u227d^m \u03b8"
+  },
+  "quantifiers": "n = 3",
+  "numbers": "\u03c3 = (1,1,5); \u03b8 = (1,2,4); \u03bb = (4,3,0.2); Figure 1 plots F3:3/G3:3 over (0,1), non-monotone",
+  "ambiguity": "Shows the E+/D+ compatibility requirement in Theorem 3.1-type results is not dispensable; assessment is graphical (Figure 1) only.",
+  "adjudication": "adjudicated: Printed \u2271rhr (crossed symbol in text layer) \u2014 non-monotone cdf ratio despite \u03c3 \u227d^m \u03b8; both passes' r"
+ },
+ {
+  "paper": "doi:10.1016/j.orl.2017.02.005",
+  "claim": "Counterexample 3.2",
+  "page": 7,
+  "quote": "Counterexample 3.2 Let Xi \u223c LL(\u03c3i, \u03bbi) and Yi \u223c (\u03c3i, \u03b4i), i = 1, 2, 3. Let (\u03bb1, \u03bb2, \u03bb3) = (0.1, 0.3, 4.1) \u2208 E+ and (\u03b41, \u03b42, \u03b43) = (0.2, 0.3, 4) \u2208 E+, giving \u03bb \u227d^m \u03b4. Now, if (\u03c31, \u03c32, \u03c33) = (0.1, 3, 5) \u2208 E+ is taken, then Figure 2(a) shows that F3:3(x)/G3:3(x) is increasing in x. Again if (\u03c31, \u03c32, \u03c33) = (2, 3, 5) \u2208 E+ is taken, then Figure 2(b) shows that F3:3(x)/G3:3(x) is decreasing in x. So, it can be concluded that, for all \u03c3, \u03bb, \u03b4 \u2208 D+ (resp. E+), \u03bb \u227d^m \u03b4 does not always imply X3:3 \u2264rhr Y3:3.",
+  "kind": "counterexample",
+  "model": "parallel system (largest order statistic)",
+  "family": "log-Lindley LL(\u03c3, \u03bb)",
+  "compared": "\u03bb = (0.1,0.3,4.1) vs \u03b4 = (0.2,0.3,4) with \u03bb \u227d^m \u03b4; two common-\u03c3 choices (0.1,3,5) and (2,3,5) give opposite ratio monotonicity",
+  "hypotheses": [
+   {
+    "text": "\u03bb, \u03b4 \u2208 E+ with \u03bb \u227d^m \u03b4; \u03c3 \u2208 E+ in both trials",
+    "formal": "scale majorization with shape vector common and similarly ordered",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "rh",
+   "direction": "refuted as uniform claim: \u03c3 = (0.1,3,5) gives F/G increasing (X3:3 \u2264rhr Y3:3 holds), \u03c3 = (2,3,5) gives F/G decreasing (X3:3 \u2264rhr Y3:3 fails \u2014 opposite direction) \u2014 '\u03bb \u227d^m \u03b4 does not always imply X3:3 \u2264rhr Y3:3'"
+  },
+  "quantifiers": "n = 3",
+  "numbers": "\u03bb = (0.1,0.3,4.1); \u03b4 = (0.2,0.3,4); \u03c3 \u2208 {(0.1,3,5), (2,3,5)}; Figures 2(a), 2(b)",
+  "ambiguity": "Prints 'Yi \u223c (\u03c3i, \u03b4i)' with the LL symbol dropped; graph-only evidence.",
+  "adjudication": "adjudicated: Two \u03c3 choices give opposite F/G monotonicity \u2014 direction ambiguity between passes is resolved by rea"
+ },
+ {
+  "paper": "doi:10.1016/j.orl.2017.02.005",
+  "claim": "Theorem 3.4",
+  "page": 9,
+  "quote": "Theorem 3.4 For i = 1, 2, ..., n, let Xi and Yi be two sets of independent random variables each following the multiple-outlier EW model such that Xi \u223c LL(\u03c3, \u03bb) and Yi \u223c LL(\u03b8, \u03bb) for i = 1, 2, ..., n1, Xi \u223c LL(\u03c3*, \u03bb*) and Yi \u223c LL(\u03b8*, \u03bb*) for i = n1 + 1, n1 + 2, ..., n1 + n2 (= n). If (\u03c3, \u03c3, ..., \u03c3, \u03c3*, \u03c3*, ..., \u03c3*) \u227d^m (\u03b8, \u03b8, ..., \u03b8, \u03b8*, \u03b8*, ..., \u03b8*) and either {\u03c3 \u2265 \u03c3*, \u03b8 \u2265 \u03b8*, \u03bb \u2265 \u03bb*} or {\u03c3 \u2264 \u03c3*, \u03b8 \u2264 \u03b8*, \u03bb \u2264 \u03bb*} then Xn:n \u2265lr Yn:n.",
+  "kind": "theorem",
+  "model": "other: multiple-outlier parallel system (n1 regular + n2 outlier components)",
+  "family": "log-Lindley LL(\u00b7,\u00b7) \u2014 statement says 'multiple-outlier EW model' but distributions printed LL",
+  "compared": "majorized shape-vector n-tuples; common per-group scale vectors",
+  "hypotheses": [
+   {
+    "text": "Xi \u223c LL(\u03c3, \u03bb), Yi \u223c LL(\u03b8, \u03bb) for i \u2264 n1; Xi \u223c LL(\u03c3*, \u03bb*), Yi \u223c LL(\u03b8*, \u03bb*) for i = n1+1,...,n",
+    "formal": "two-group outlier structure",
+    "source": "statement"
+   },
+   {
+    "text": "(\u03c3,...,\u03c3,\u03c3*,...,\u03c3*) \u227d^m (\u03b8,...,\u03b8,\u03b8*,...,\u03b8*) (n1 \u03c3's, n2 \u03c3*'s vs n1 \u03b8's, n2 \u03b8*'s)",
+    "formal": "X-side shape vector majorizes Y-side",
+    "source": "statement"
+   },
+   {
+    "text": "either {\u03c3 \u2265 \u03c3*, \u03b8 \u2265 \u03b8*, \u03bb \u2265 \u03bb*} or {\u03c3 \u2264 \u03c3*, \u03b8 \u2264 \u03b8*, \u03bb \u2264 \u03bb*}",
+    "formal": "regular vs outlier parameter triples ordered consistently",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "lr",
+   "direction": "Xn:n \u2265lr Yn:n (equivalently Yn:n \u2264lr Xn:n)"
+  },
+  "quantifiers": "n = n1 + n2; x \u2208 (0,1)",
+  "numbers": "",
+  "ambiguity": "'EW model' is a printed misnomer \u2014 components are LL(\u00b7,\u00b7); kept verbatim. Unlike Theorem 3.3 no \u03bb\u03c3 > 1/2-type condition appears.",
+  "adjudication": "adjudicated: Both passes print Xn:n \u2265lr Yn:n \u2014 dir-code labels differ cosmetically; 'EW' misprint flagged by both"
+ },
+ {
+  "paper": "doi:10.1016/j.orl.2017.02.005",
   "claim": "Theorem 3.1",
   "page": 5,
   "quote": "Theorem 3.1 For i = 1, 2, . . . , n, let Xi and Yi be two sets of mutually independent random variables with Xi \u223c LL(\u03c3i, \u03bbi) and Yi \u223c LL(\u03b8i, \u03bbi). Further, suppose that \u03c3, \u03b8, \u03bb \u2208 D+ or \u03c3, \u03b8, \u03bb \u2208 E+. Then, \u03c3 \u227d^m \u03b8 implies Xn:n \u2265rhr Yn:n.",
@@ -143,60 +228,5 @@
   "numbers": "",
   "ambiguity": "None beyond the dropped majorization glyph.",
   "adjudication": "agreed"
- },
- {
-  "paper": "doi:10.1016/j.orl.2017.02.005",
-  "claim": "Counterexample 3.1",
-  "page": 6,
-  "quote": "Counterexample 3.1 Let Xi \u223c LL(\u03c3i, \u03bbi) and Yi \u223c LL(\u03b8i, \u03bbi), i = 1, 2, 3. Now, if (\u03c31, \u03c32, \u03c33) = (1, 1, 5) \u2208 E+, (\u03b81, \u03b82, \u03b83) = (1, 2, 4) \u2208 E+ and (\u03bb1, \u03bb2, \u03bb3) = (4, 3, 0.2) \u2208 D+ are taken, then from Figure 1, it is clear that F3:3(x)/G3:3(x) is not monotone, giving that X3:3 \u2271rhr Y3:3, although \u03c3 \u227d^m \u03b8.",
-  "kind": "counterexample",
-  "model": "parallel system",
-  "family": "Log-Lindley LL(\u03c3, \u03bb), n = 3 components",
-  "compared": "\u03c3 = (1,1,5) vs \u03b8 = (1,2,4), common \u03bb = (4,3,0.2); \u03c3 and \u03b8 in E+ while \u03bb in D+ (mixed ordering)",
-  "hypotheses": [
-   {
-    "text": "if (\u03c31, \u03c32, \u03c33) = (1, 1, 5) \u2208 E+, (\u03b81, \u03b82, \u03b83) = (1, 2, 4) \u2208 E+ and (\u03bb1, \u03bb2, \u03bb3) = (4, 3, 0.2) \u2208 D+",
-    "formal": "\u03c3, \u03b8 \u2208 E+, \u03bb \u2208 D+, \u03c3 \u227d^m \u03b8",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "rh",
-   "direction": "X3:3 \u2271_rhr Y3:3 (ordering fails although \u03c3 \u227d^m \u03b8)"
-  },
-  "quantifiers": "n = 3",
-  "numbers": "\u03c3 = (1,1,5), \u03b8 = (1,2,4), \u03bb = (4,3,0.2); Figure 1 plots F3:3(x)/G3:3(x) over x \u2208 (0,1), non-monotone, values around 0.635\u20130.67",
-  "ambiguity": "Refutes a strengthening of Theorem 3.1: shows the hypothesis that scale and shape vectors share the same ordering direction is necessary. 'Not monotone' assessed from Figure 1 only.",
-  "adjudication": "example record (pass a)+b"
- },
- {
-  "paper": "doi:10.1016/j.orl.2017.02.005",
-  "claim": "Counterexample 3.2",
-  "page": 7,
-  "quote": "Counterexample 3.2 Let Xi \u223c LL(\u03c3i, \u03bbi) and Yi \u223c (\u03c3i, \u03b4i), i = 1, 2, 3. Let (\u03bb1, \u03bb2, \u03bb3) = (0.1, 0.3, 4.1) \u2208 E+ and (\u03b41, \u03b42, \u03b43) = (0.2, 0.3, 4) \u2208 E+, giving \u03bb \u227d^m \u03b4. Now, if (\u03c31, \u03c32, \u03c33) = (0.1, 3, 5) \u2208 E+ is taken, then Figure 2 (a) shows that F3:3(x)/G3:3(x) is increasing in x. Again if (\u03c31, \u03c32, \u03c33) = (2, 3, 5) \u2208 E+ is taken, then Figure 2 (b) shows that F3:3(x)/G3:3(x) is decreasing in x. So, it can be concluded that, for all \u03c3, \u03bb, \u03b4 \u2208 D+ (resp. E+), \u03bb \u227d^m \u03b4 does not always imply X3:3 \u2264rhr Y3:3.",
-  "kind": "counterexample",
-  "model": "parallel system",
-  "family": "Log-Lindley LL(\u03c3, \u03bb), n = 3 components",
-  "compared": "\u03bb = (0.1,0.3,4.1) vs \u03b4 = (0.2,0.3,4), common \u03c3; two \u03c3 choices give opposite monotonicity of the cdf ratio",
-  "hypotheses": [
-   {
-    "text": "(\u03bb1, \u03bb2, \u03bb3) = (0.1, 0.3, 4.1) \u2208 E+ and (\u03b41, \u03b42, \u03b43) = (0.2, 0.3, 4) \u2208 E+, giving \u03bb \u227d^m \u03b4",
-    "formal": "\u03bb, \u03b4 \u2208 E+, \u03bb majorizes \u03b4",
-    "source": "statement"
-   },
-   {
-    "text": "(\u03c31, \u03c32, \u03c33) = (0.1, 3, 5) \u2208 E+ ... (\u03c31, \u03c32, \u03c33) = (2, 3, 5) \u2208 E+",
-    "formal": "two alternative \u03c3 vectors both in E+",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "rh",
-   "direction": "\u03bb \u227d^m \u03b4 does not always imply X3:3 \u2264_rhr Y3:3 when all vectors are similarly ordered"
-  },
-  "quantifiers": "n = 3",
-  "numbers": "\u03bb = (0.1,0.3,4.1), \u03b4 = (0.2,0.3,4); \u03c3 = (0.1,3,5) gives F/G increasing (Fig 2a, ratio ~0.88\u20130.98); \u03c3 = (2,3,5) gives F/G decreasing (Fig 2b, ratio ~1.002\u20131.014)",
-  "ambiguity": "Text layer drops 'LL' in 'Yi \u223c (\u03c3i, \u03b4i)'. Sign of conclusion is consistent: first \u03c3 choice gives F/G increasing i.e. X3:3 \u2264rhr Y3:3 holds, second gives decreasing i.e. fails.",
-  "adjudication": "example record (pass a)+b"
  }
 ]

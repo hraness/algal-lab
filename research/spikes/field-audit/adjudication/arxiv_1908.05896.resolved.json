@@ -1,0 +1,126 @@
+[
+ {
+  "queue_claim": "counterexample3.1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:1908.05896",
+    "claim": "Counterexample 3.1",
+    "page": 6,
+    "quote": "Counterexample 3.1. Continuing with the Example 3.1, if we plot fY1:2(x)/fX1:2(x) we get the Figure 1(b), which shows that as the value of x increases, the ratio first increases and then decreases. Hence the result in Theorem 3.1 cannot be extended to the likelihood ratio order.",
+    "kind": "counterexample",
+    "model": "series system (smallest order statistic)",
+    "family": "TL-G with exponential baseline; same parameters as Example 3.1",
+    "compared": "X1:2 vs Y1:2 under likelihood-ratio order — refutes lr extension of Theorem 3.1",
+    "hypotheses": [
+     {
+      "text": "same parameters as Example 3.1: α = (1,9), α* = (4,6), θ = 0.5, i.e. α* ≼m α",
+      "formal": "majorized shape vectors",
+      "source": "statement; Example 3.1"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "refuted: fY1:2/fX1:2 is non-monotone (first increases then decreases) — no lr ordering"
+    },
+    "quantifiers": "n = 2; x ≥ 0",
+    "numbers": "α = (1,9), α* = (4,6), θ = 0.5; Figure 1(b)",
+    "ambiguity": "OCR-heavy text layer; plot description verbatim."
+   }
+  ],
+  "note": "Printed counterexample refuting lr extension; both passes agree on direction and parameters."
+ },
+ {
+  "queue_claim": "counterexample3.2",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:1908.05896",
+    "claim": "Counterexample 3.2",
+    "page": 8,
+    "quote": "Counterexample 3.2. Continuing with the Example 3.2, if we plot fY2:2(x)/fX2:2(x), we get the Figure 2(b), which shows that as the value of x increases, the ratio first increases and then decreases. Thus, the result in Theorem 3.2 cannot be extended to the likelihood ratio order.",
+    "kind": "counterexample",
+    "model": "parallel system (largest order statistic)",
+    "family": "TL-G with exponential baseline; same parameters as Example 3.2",
+    "compared": "X2:2 vs Y2:2 under likelihood-ratio order — refutes lr extension of Theorem 3.2",
+    "hypotheses": [
+     {
+      "text": "same parameters as Example 3.2: θ = (0.1,0.4), θ* = (0.2,0.5), α = 0.5, i.e. θ ≼w θ*",
+      "formal": "weakly majorized scale vectors",
+      "source": "statement; Example 3.2"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "refuted: fY2:2/fX2:2 is non-monotone (first increases then decreases) — no lr ordering"
+    },
+    "quantifiers": "n = 2; x ≥ 0",
+    "numbers": "θ = (0.1,0.4), θ* = (0.2,0.5), α = 0.5; Figure 2(b)",
+    "ambiguity": "OCR-heavy text layer; plot description verbatim."
+   }
+  ],
+  "note": "Printed counterexample refuting lr extension for the maximum; both passes agree."
+ },
+ {
+  "queue_claim": "example3.1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:1908.05896",
+    "claim": "Example 3.1",
+    "page": 6,
+    "quote": "Example 3.1. Consider that G(x; ξ) = 1 − e^{−x}, x ≥ 0. Let X1, X2 and Y1, Y2 be the two sets of independent random variables with Xk ~ TL-G(αk, θ, ξ) and Yk ~ TL-G(αk*, θ, ξ) for k = 1, 2, respectively. Assume α1 = 1, α2 = 9, α1* = 4, α2* = 6, and θ = 0.5. Clearly, (α1*, α2*) ≼m (α1, α2), and therefore, using Theorem 3.1, we have X1:2 ≤hr Y1:2. This can also be concluded from the Figure 1(a) where we plot rX1:2(x) − rY1:2(x) which is non-negative for x ≥ 0.",
+    "kind": "example",
+    "model": "series system (smallest order statistic)",
+    "family": "TL-G with exponential baseline G(x) = 1 − e^{−x}",
+    "compared": "X1:2 vs Y1:2 in hazard-rate order (supports Theorem 3.1)",
+    "hypotheses": [
+     {
+      "text": "(α1*, α2*) = (4,6) ≼m (α1, α2) = (1,9)",
+      "formal": "α* majorized by α (equal sums 10, larger minimum)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "X1:2 ≤hr Y1:2 (Figure 1(a): rX1:2 − rY1:2 ≥ 0)"
+    },
+    "quantifiers": "n = 2; x ≥ 0",
+    "numbers": "α = (1,9); α* = (4,6); θ = 0.5",
+    "ambiguity": "Baseline '1 − e^{−9x}/1 − e^{−x}' garbled in OCR; standard exponential intended."
+   }
+  ],
+  "note": "Printed example supports Theorem 3.1: X1:2 ≤hr Y1:2 for α* ≼m α; both passes agree."
+ },
+ {
+  "queue_claim": "example3.2",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:1908.05896",
+    "claim": "Example 3.2",
+    "page": 8,
+    "quote": "Example 3.2. Consider that G(x; ξ) = 1 − e^{−x}, x ≥ 0. Let X1, X2 and Y1, Y2 be the two sets of independent random variables with Xk ~ TL-G(α, θk, ξ) and Yk ~ TL-G(α, θk*, ξ) for k = 1, 2, respectively. Assume θ1 = 0.1, θ2 = 0.4, θ1* = 0.2, θ2* = 0.5, and α = 0.5. Clearly, (θ1, θ2) ≼w (θ1*, θ2*), and therefore, using Theorem 3.2, we have X2:2 ≤st Y2:2. This can also be seen from the Figure 2(a) where we plot FX2:2(x) − FY2:2(x) which is non-negative for x ≥ 0.",
+    "kind": "example",
+    "model": "parallel system (largest order statistic)",
+    "family": "TL-G with exponential baseline G(x) = 1 − e^{−x}",
+    "compared": "X2:2 vs Y2:2 in usual stochastic order (supports Theorem 3.2)",
+    "hypotheses": [
+     {
+      "text": "(θ1, θ2) = (0.1, 0.4) ≼w (0.2, 0.5) = (θ1*, θ2*)",
+      "formal": "weak majorization of scale vectors",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X2:2 ≤st Y2:2 (Figure 2(a): FX2:2 − FY2:2 ≥ 0)"
+    },
+    "quantifiers": "n = 2; x ≥ 0",
+    "numbers": "θ = (0.1, 0.4); θ* = (0.2, 0.5); α = 0.5",
+    "ambiguity": "OCR-heavy; numbers legible."
+   }
+  ],
+  "note": "Printed example supports Theorem 3.2: X2:2 ≤st Y2:2 for θ ≼w θ*; both passes agree."
+ }
+]

@@ -1,0 +1,222 @@
+[
+ {
+  "queue_claim": "corollary3.10",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2604.26026",
+    "claim": "Corollary 3.10",
+    "page": 9,
+    "quote": "Corollary 3.10 Assume the functional T and the generator of the Archimedean copula describing the distribution of X are such that the function V ∗ defined in (8) (with ψ2 = ψ1) is decreasing. With the notations of Corollary 3.6, for every α ∈ Aa,b,c, we have that X1:n(α∗) ≤st X1:n(α) ≤st X1:n(ᾱ).",
+    "kind": "corollary",
+    "model": "series system",
+    "family": "Archimedean-copula dependent components with marginals T(αi, F); series lifetime X1:n(α)",
+    "compared": "extremal parameter configurations: boundary vector α* vs arbitrary α vs constant ᾱ = (c/n,...,c/n)",
+    "hypotheses": [
+     {"text": "the function V∗ defined in (8) (with ψ2 = ψ1) is decreasing", "formal": "V*(β) = [−K1◦φ1(T̄(β,F))/T̄(β,F)]·∂T̄/∂β(β,F) decreasing in β", "source": "statement"},
+     {"text": "α ∈ Aa,b,c = {α ∈ [a,b]^n : Σαi = c}", "formal": "rectangular simplex constraint", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "X1:n(α*) <=st X1:n(α) <=st X1:n(ᾱ) for every α ∈ Aa,b,c"},
+    "quantifiers": "every α ∈ Aa,b,c; n >= 2",
+    "numbers": "",
+    "ambiguity": "Right-hand term is ᾱ (the constant vector), verified on rendered PDF p.9 — pass B dropped the overline."
+   }
+  ],
+  "note": "Rendered PDF confirms X1:n(α*) <=st X1:n(α) <=st X1:n(ᾱ) — the last term is the constant vector ᾱ; pass A correct, B dropped the bar."
+ },
+ {
+  "queue_claim": "corollary3.6",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2604.26026",
+    "claim": "Corollary 3.6",
+    "page": 8,
+    "quote": "Corollary 3.6 Assume the functional T and the generator of the Archimedean copula describing the distribution of X are such that the function V defined in (4) (with ψ2 = ψ1) is increasing. Fix numbers a < b and c ∈ [na, nb), and define Aa,b,c = {α = (α1,...,αn) ∈ [a,b]^n : Σ_{i=1}^n αi = c}, ᾱ = (c/n,...,c/n), q = ⌊(c − na)/(b − a)⌋, and η = c − qb − (n − q − 1)a. Then η ∈ [a, b) and α∗ = (a,...,a [n−q−1 times], η, b,...,b [q times]) ∈ Aa,b,c. Moreover, for every α ∈ Aa,b,c, Xn:n(α∗) ≥st Xn:n(α) ≥st Xn:n(ᾱ).",
+    "kind": "corollary",
+    "model": "parallel system",
+    "family": "Archimedean-copula dependent components with marginals T(αi, F); parallel lifetime Xn:n(α)",
+    "compared": "extremal configurations: boundary α* vs arbitrary α vs constant ᾱ = (c/n,...,c/n)",
+    "hypotheses": [
+     {"text": "the function V defined in (4) (with ψ2 = ψ1) is increasing", "formal": "V(β) increasing in β", "source": "statement"},
+     {"text": "α ∈ Aa,b,c with a < b, c ∈ [na, nb)", "formal": "rectangular simplex constraint", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Xn:n(α*) >=st Xn:n(α) >=st Xn:n(ᾱ) for every α ∈ Aa,b,c"},
+    "quantifiers": "every α ∈ Aa,b,c; n >= 2",
+    "numbers": "",
+    "ambiguity": "Right-hand term is ᾱ (constant vector, majorized by all α in Aa,b,c), verified on rendered PDF p.8 — pass B dropped the overline. Proof reduces to α* ⪰^m α ⪰^m ᾱ."
+   }
+  ],
+  "note": "Rendered PDF confirms Xn:n(α*) >=st Xn:n(α) >=st Xn:n(ᾱ); pass A's overline correct, B dropped it."
+ },
+ {
+  "queue_claim": "example3.17",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2604.26026",
+    "claim": "Example 3.17",
+    "page": 14,
+    "quote": "Example 3.17 Take E(x) = 1 − e^{−x}, for x ≥ 0, the standard exponential, and the functional T(α, E)(x) = 1−(1−E(x))^α = 1−e^{−αx}, where α > 0. Consider a system with n = 3 components with lifetimes T(αi, E), for i = 1, 2, 3, whose joint distribution is described by an Archimedean copula with Clayton generator ψ(t) = (1 + t)^{−1}, for t ≥ 0. With α = (α1, α2, α3), the lifetime of a 2-out-of-3 system is X2:3(α), whose distribution function is obtained by using (12): F^{(α)}_{2:3}(x) = ψ(t1 + t2) + ψ(t1 + t3) + ψ(t2 + t3) − 2ψ(t1 + t2 + t3), where ti = (e^{αi x} − 1)^{−1}. A direct differentiation with respect to αℓ gives ∂F^{(α)}_{2:3}(x)/∂αℓ = t'ℓ (Σ_{j≠ℓ} ψ'(tℓ + tj) − 2ψ'(t1 + t2 + t3)), where t'ℓ = −xe^{αℓ x}(e^{αℓ x} −1)^{−2}. Choosing now α = (1, 2.5, 4), the plots for (αℓ − αm)(∂F_{2:3}/∂αℓ − ∂F_{2:3}/∂αm) are shown in Figure 1. Although when taking (ℓ, m) = (1, 3) or (2, 3) the curve has a constant sign, the case (ℓ, m) = (1, 2) changes sign as x ranges (0, +∞). Hence, the map α ↦ F^{(α)}_{2:3}(x) is neither Schur-convex nor Schur-concave.",
+    "kind": "counterexample",
+    "model": "k-out-of-n system",
+    "family": "exponential baseline E(x)=1−e^{−x} with T(α,E) = 1−e^{−αx}; Clayton copula ψ(t) = (1+t)^{−1}",
+    "compared": "2-out-of-3 system distribution across parameter vectors α",
+    "hypotheses": [
+     {"text": "α = (1, 2.5, 4), n = 3, Clayton generator", "formal": "specific instance", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "refuted: F_{2:3}^{(α)}(x) is neither Schur-convex nor Schur-concave, so no st ordering follows from majorization of α (Theorem 3.16's coordinatewise result does not extend)"},
+    "quantifiers": "n = 3; x ∈ (0, ∞)",
+    "numbers": "α = (1,2.5,4); Schur criterion sign change for (ℓ,m) = (1,2)",
+    "ambiguity": "Labelled 'Example' but functions as a counterexample to a majorization-based st ordering for the 2-out-of-3 system; verified graphically via Figure 1."
+   }
+  ],
+  "note": "Example 3.17 refutes the majorization route to st ordering for the 2-out-of-3 system (Schur condition fails); both passes agree — include as counterexample."
+ },
+ {
+  "queue_claim": "example3.5",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2604.26026",
+    "claim": "Example 3.5",
+    "page": 7,
+    "quote": "Example 3.5 As an application of the previous results, choose as baseline the standard exponential distribution E(x) = 1−e^{−x}, for x ≥ 0, and, for β > 0, T(β, E)(x) = 1−(1−E(x))^β = 1−e^{−βx}, the exponential distribution with hazard rate β. Then, with the notation of Theorems 3.1 and 3.3, X = (X1,...,Xn) and Y = (Y1,...,Yn) are random vectors with dependent components whose marginal distributions are heterogeneous exponentials. Assume the distributions of X and Y are described using a Clayton copula with parameters γ1 and γ2, respectively, such that γ2 ≥ γ1 > 0. Then, as referred in Example 2.6, ϕ2 ◦ ψ1 is super-additive. Hence, from Theorem 3.1, if αi ≤ βi, i = 1,...,n, it follows that Xn:n(α) ≥st Yn:n(β). In case we do not have increasing coordinates for the parameter vectors, but they still satisfy α ⪰^m β, we get a conclusion using Theorem 3.3. Moreover, for the Clayton generator ψ2' ◦ ϕ2(T(β, E))(x) = −(1 − e^{−x})^{1+γ2}, so V(β) = −x(1 − e^{−βx})^{−(1+γ2)} e^{−βx}, which is increasing with respect to β > 0, so again we conclude that Xn:n(α) ≥st Yn:n(β).",
+    "kind": "example",
+    "model": "parallel system",
+    "family": "heterogeneous exponentials (hazard rates αi vs βi); Clayton copulas γ2 >= γ1 > 0",
+    "compared": "component hazard-rate vectors α vs β plus copula parameters γ1 vs γ2",
+    "hypotheses": [
+     {"text": "γ2 ≥ γ1 > 0 (Clayton copulas), so ϕ2 ◦ ψ1 is super-additive", "formal": "copula domination hypothesis", "source": "statement"},
+     {"text": "either αi ≤ βi coordinatewise (Theorem 3.1) or α ⪰^m β (Theorem 3.3)", "formal": "two alternative orderings of the parameter vectors", "source": "statement"},
+     {"text": "V(β) = −x(1 − e^{−βx})^{−(1+γ2)} e^{−βx} increasing in β > 0", "formal": "Theorem 3.3's monotonicity condition", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Xn:n(α) >=st Yn:n(β) under either hypothesis route"},
+    "quantifiers": "n >= 2; β > 0",
+    "numbers": "",
+    "ambiguity": "Two alternative hypothesis routes (coordinatewise via Theorem 3.1; majorization via Theorem 3.3) leading to the same conclusion — one record."
+   }
+  ],
+  "note": "Example applies Theorems 3.1 and 3.3 to conclude Xn:n(α) >=st Yn:n(β); passes agree, only annotation differed."
+ },
+ {
+  "queue_claim": "lemma2.4",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2604.26026",
+    "claim": "Lemma 2.4 (Li and Fang (2015), Lemma A.1)",
+    "page": 4,
+    "quote": "Lemma 2.4 (Li and Fang (2015), Lemma A.1) For two n-dimensional Archimedean copulas Cψ1 and Cψ2, if ϕ2 ◦ ψ1 is super-additive, then Cψ1(u) ≤ Cψ2(u), for u ∈ [0, 1]^n.",
+    "kind": "lemma",
+    "model": "other: copula domination",
+    "family": "n-dimensional Archimedean copulas with generators ψ1, ψ2",
+    "compared": "two copulas Cψ1 vs Cψ2 ordered pointwise",
+    "hypotheses": [
+     {"text": "if ϕ2 ◦ ψ1 is super-additive", "formal": "ϕ2∘ψ1(x+y) >= ϕ2∘ψ1(x) + ϕ2∘ψ1(y)", "source": "statement"}
+    ],
+    "conclusion": {"order": "other: pointwise copula (concordance) order", "direction": "Cψ1(u) <= Cψ2(u) for all u ∈ [0,1]^n"},
+    "quantifiers": "all u ∈ [0,1]^n",
+    "numbers": "",
+    "ambiguity": "Imported lemma ordering two copulas pointwise rather than two lifetime variables; included because it is a named ordering between two distributions and every theorem relies on it."
+   }
+  ],
+  "note": "Printed ordering lemma between two Archimedean copulas; kept as 'other: copula order' — feeds every theorem in the paper."
+ },
+ {
+  "queue_claim": "example2.5",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2604.26026",
+    "claim": "Example 2.5",
+    "page": 4,
+    "quote": "Example 2.5 Assume that ψ1(t) = e^{−t}, the generator of the independence copula. For generators ψ2 within the above-mentioned families, the super-additivity assumption holds for a wide range of parameter values. 1. The Clayton case with γ2 ≥ 0: ϕ2 ◦ ψ1(t) = (e^{γ2 t} − 1)/γ2, convex, and ϕ2 ◦ ψ1(0) = 0, so super-additivity follows. 2. The Frank case with γ2 > 0: ϕ2 ◦ ψ1(t) = −log[(e^{−t}(e^{−γ2} − 1) + 1)/(e^{−γ2} − 1)], convex for t ≥ 0. 3. The Gumbel case with γ2 ≥ 1: ϕ2 ◦ ψ1(t) = t^{γ2}, super-additive on [0, ∞). 4. The AMH case with γ2 ∈ (0, 1): ϕ2 ◦ ψ1(t) = log[(1 − γ2(1 − e^{−t}))/e^{−t}] = log((1 − γ2)e^t + γ2), convex with ϕ2 ◦ ψ1(0) = 0.",
+    "kind": "example",
+    "model": "other: copula domination",
+    "family": "independence copula ψ1(t) = e^{−t} vs Clayton/Frank/Gumbel/AMH generators ψ2",
+    "compared": "independence copula vs each named copula family",
+    "hypotheses": [
+     {"text": "Clayton γ2 ≥ 0; Frank γ2 > 0; Gumbel γ2 ≥ 1; AMH γ2 ∈ (0,1)", "formal": "parameter ranges for super-additivity of ϕ2∘ψ1", "source": "statement"}
+    ],
+    "conclusion": {"order": "other: copula domination", "direction": "ϕ2∘ψ1 super-additive, hence C_independence(u) <= Cψ2(u) via Lemma 2.4"},
+    "quantifiers": "t >= 0; u ∈ [0,1]^n",
+    "numbers": "Gumbel: ϕ2∘ψ1(t) = t^{γ2}; AMH: ϕ2∘ψ1(t) = log((1−γ2)e^t + γ2)",
+    "ambiguity": "The printed conclusion is super-additivity of the composition; the implied copula ordering follows via Lemma 2.4. Copula-domain example supporting the ordering results."
+   }
+  ],
+  "note": "Printed example verifying super-additivity for four copula families — establishes copula orderings via Lemma 2.4; kept as 'other: copula domination'."
+ },
+ {
+  "queue_claim": "example2.6",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2604.26026",
+    "claim": "Example 2.6",
+    "page": 4,
+    "quote": "Example 2.6 Consider now two generators ψ1 and ψ2 from the same family of copulas, with parameters γ1 and γ2. With the appropriate range of variability for the parameters, the composition ϕ2 ◦ ψ1 is still super-additive. 1. The Clayton family with γ2 ≥ γ1 > 0: ϕ2 ◦ ψ1(t) = (1/γ1)((1 + γ1 t)^{γ2/γ1} − 1), convex, hence super-additive. 2. The Frank copulas with γ2 ≥ γ1: ϕ2 ◦ ψ1(t) = −log[((e^{−t}(e^{−γ1} − 1) + 1)^{γ2/γ1} − 1)/(e^{−γ2} − 1)], convex. 3. The Gumbel family with γ2 ≥ γ1 ≥ 1: ϕ2 ◦ ψ1(t) = t^{γ2/γ1}, convex and null at the origin, super-additive. 4. The AMH copulas with 1 ≥ γ2 ≥ γ1 ≥ 0: ϕ2 ◦ ψ1(t) = log[(1−γ2)/(1−γ1) e^t + (γ2−γ1)/(1−γ1)] =: log(a e^t + b).",
+    "kind": "example",
+    "model": "other: copula domination",
+    "family": "same-family copula pairs (Clayton, Frank, Gumbel, AMH) with ordered parameters",
+    "compared": "Cψ1 vs Cψ2 within each family, γ2 >= γ1",
+    "hypotheses": [
+     {"text": "Clayton γ2 ≥ γ1 > 0; Frank γ2 ≥ γ1; Gumbel γ2 ≥ γ1 ≥ 1; AMH 1 ≥ γ2 ≥ γ1 ≥ 0", "formal": "ordered copula parameters", "source": "statement"}
+    ],
+    "conclusion": {"order": "other: copula domination", "direction": "ϕ2∘ψ1 super-additive, hence Cψ1(u) <= Cψ2(u) via Lemma 2.4"},
+    "quantifiers": "t >= 0; u ∈ [0,1]^n",
+    "numbers": "Gumbel: ϕ2∘ψ1(t) = t^{γ2/γ1}",
+    "ambiguity": "Copula-domain example supporting the ordering machinery; implied ordering via Lemma 2.4."
+   }
+  ],
+  "note": "Printed example verifying super-additivity for same-family copula pairs; kept as 'other: copula domination' per Lemma 2.4."
+ },
+ {
+  "queue_claim": "example4.12",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2604.26026",
+    "claim": "Example 4.12",
+    "page": 20,
+    "quote": "Example 4.12 We showed in Example 2.6 that the super-additivity assumption is fulfilled composing two different copulas within the same family. We now show that the Gumbel family allows for some more flexibility on the choice of the copula ψ1. Choose ψ1(t) = exp(−t − ct^2), for some c > 0. Clearly, ψ1 is decreasing, ψ1(0) = 1 and ψ1(t) → 0 as t → ∞. Moreover, it is completely monotone and therefore defines a valid Archimedean copula. Then, ϕ2 ◦ ψ1(t) = (− log ψ1(t))^{γ2} = (t + ct^2)^{γ2}. Taking γ2 > 1, this is an increasing and convex transformation of a super-additive function, hence it is super-additive.",
+    "kind": "example",
+    "model": "other: copula domination",
+    "family": "ψ1(t) = exp(−t − ct^2) (completely monotone) vs Gumbel ψ2, γ2 > 1",
+    "compared": "non-family copula ψ1 vs Gumbel ψ2",
+    "hypotheses": [
+     {"text": "c > 0; γ2 > 1", "formal": "parameter ranges", "source": "statement"}
+    ],
+    "conclusion": {"order": "other: copula domination", "direction": "ϕ2∘ψ1(t) = (t + ct^2)^{γ2} super-additive, hence Cψ1(u) <= Cψ2(u) via Lemma 2.4"},
+    "quantifiers": "t >= 0",
+    "numbers": "",
+    "ambiguity": "Extends the copula-ordering hypotheses beyond same-family pairs; implied ordering via Lemma 2.4."
+   }
+  ],
+  "note": "Printed example extending super-additivity (hence copula ordering) to a non-Gumbel ψ1; kept as 'other: copula domination'."
+ },
+ {
+  "queue_claim": "example4.13",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2604.26026",
+    "claim": "Example 4.13",
+    "page": 20,
+    "quote": "Example 4.13 Concerning the super-additivity assumption in Proposition 4.11 when using a AMH generator, we have already verified that we may choose for ψ1 the independent copula or another copula within the AMH family. We show next that we may also take ψ1 within the Gumbel class. Let ψ1(t) = exp(−t^{1/α}), α ≥ 1, be the generator function of the Gumbel family of copulas, and assume γ2 > 0. Then ϕ2 ◦ ψ1(t) = log[(1 − γ2(1 − e^{−t^{1/α}}))/e^{−t^{1/α}}] = log[(1 − γ2)e^{t^{1/α}} + γ2] =: gα(t). ... which proves that gα is super-additive.",
+    "kind": "example",
+    "model": "other: copula domination",
+    "family": "Gumbel ψ1(t) = exp(−t^{1/α}), α ≥ 1, vs AMH ψ2, γ2 > 0",
+    "compared": "Gumbel copula vs AMH copula",
+    "hypotheses": [
+     {"text": "α ≥ 1 and γ2 > 0", "formal": "parameter ranges", "source": "statement"}
+    ],
+    "conclusion": {"order": "other: copula domination", "direction": "ϕ2∘ψ1 = gα super-additive, hence Cψ1(u) <= Cψ2(u) via Lemma 2.4"},
+    "quantifiers": "t >= 0; α >= 1",
+    "numbers": "gα(t) = log[(1 − γ2)e^{t^{1/α}} + γ2]",
+    "ambiguity": "Supports Proposition 4.11's super-additivity hypothesis; implied ordering via Lemma 2.4."
+   }
+  ],
+  "note": "Printed example verifying super-additivity for Gumbel-into-AMH composition; kept as 'other: copula domination'."
+ }
+]

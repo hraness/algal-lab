@@ -1,0 +1,130 @@
+[
+ {
+  "queue_claim": "theorem2",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.14419/ijasp.v9i1.31208",
+    "claim": "Theorem 2, likelihood ratio part",
+    "page": 13,
+    "quote": "Theorem 2: Let X1 ~ APTQLD(α1, β1, θ1) and X2 ~ APTQLD(α2, β2, θ2). If α1 < α2, β1 = β2 = β and θ1 = θ2 = θ, then X1 ≤lr X2. ... It is certain that for α1 < α2, β1 = β2 = β and θ1 = θ2 = θ, d log(f1(x)/f2(x))/dx < 0. Under these conditions, X1 is stochastically smaller than X2 in the likelihood ratio order.",
+    "kind": "theorem",
+    "model": "single",
+    "family": "alpha power transformed quasi Lindley APTQLD(α, β, θ)",
+    "compared": "X1 vs X2 differing only in the alpha-power parameter",
+    "hypotheses": [
+     {
+      "text": "α1 < α2, β1 = β2 = β, θ1 = θ2 = θ",
+      "formal": "only α varies; ordered α-power parameters",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "lr",
+     "direction": "X1 ≤lr X2 (f1/f2 decreasing)"
+    },
+    "quantifiers": "x > 0; parameters positive (log α terms require α > 0, proof uses log α1, log α2)",
+    "numbers": "",
+    "ambiguity": "Proof is the displayed derivative of the log density ratio, asserted negative; algebra heavily OCR-garbled."
+   },
+   {
+    "paper": "doi:10.14419/ijasp.v9i1.31208",
+    "claim": "Theorem 2, hazard rate part",
+    "page": 12,
+    "quote": "Notably, if (X1 ≤lr X2), then (X1 ≤hr X2), (X1 ≤mrl X2) and (X1 ≤st X2).",
+    "kind": "theorem",
+    "model": "single",
+    "family": "APTQLD",
+    "compared": "X1 vs X2",
+    "hypotheses": [
+     {
+      "text": "α1 < α2, β1 = β2 = β, θ1 = θ2 = θ (so X1 ≤lr X2 by Theorem 2)",
+      "formal": "Theorem 2 conditions",
+      "source": "section preamble; statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "X1 ≤hr X2 (via printed lr ⇒ hr/mrl/st implication)"
+    },
+    "quantifiers": "x > 0",
+    "numbers": "",
+    "ambiguity": "Section 3.5 defines ≤hr via h1/h2 decreasing — a hazard-ratio convention, noted verbatim."
+   },
+   {
+    "paper": "doi:10.14419/ijasp.v9i1.31208",
+    "claim": "Theorem 2, mean residual life part",
+    "page": 12,
+    "quote": "Notably, if (X1 ≤lr X2), then (X1 ≤hr X2), (X1 ≤mrl X2) and (X1 ≤st X2).",
+    "kind": "theorem",
+    "model": "single",
+    "family": "APTQLD",
+    "compared": "X1 vs X2",
+    "hypotheses": [
+     {
+      "text": "α1 < α2, β1 = β2 = β, θ1 = θ2 = θ",
+      "formal": "Theorem 2 conditions",
+      "source": "section preamble; statement"
+     }
+    ],
+    "conclusion": {
+     "order": "mrl",
+     "direction": "X1 ≤mrl X2"
+    },
+    "quantifiers": "x > 0",
+    "numbers": "",
+    "ambiguity": "Paper's mrl definition prints E(X − t | X < t) — reversed conditioning (mean inactivity), a likely typo."
+   },
+   {
+    "paper": "doi:10.14419/ijasp.v9i1.31208",
+    "claim": "Theorem 2, usual stochastic order part",
+    "page": 12,
+    "quote": "Notably, if (X1 ≤lr X2), then (X1 ≤hr X2), (X1 ≤mrl X2) and (X1 ≤st X2).",
+    "kind": "theorem",
+    "model": "single",
+    "family": "APTQLD",
+    "compared": "X1 vs X2",
+    "hypotheses": [
+     {
+      "text": "α1 < α2, β1 = β2 = β, θ1 = θ2 = θ",
+      "formal": "Theorem 2 conditions",
+      "source": "section preamble; statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X1 ≤st X2"
+    },
+    "quantifiers": "x > 0",
+    "numbers": "",
+    "ambiguity": ""
+   }
+  ],
+  "note": "Theorem 2 prints lr with the 'Notably' sentence adding hr/mrl/st via implication; split into one record per order."
+ },
+ {
+  "queue_claim": "unn3.5:section 3.5 definitions",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.14419/ijasp.v9i1.31208",
+    "claim": "Section 3.5 definitions and implication chain",
+    "page": 12,
+    "quote": "X1 is smaller than X2 in: a) stochastic order (X1 ≤st X2) if R1(x,α1,β1,θ1) ≤ R2(x,α2,β2,θ2); b) hazard rate order (X1 ≤hr X2) if h1(x,α1,β1,θ1)/h2(x,α2,β2,θ2) is decreasing in x; c) mean residual life order (X1 ≤mrl X2) if E(X1−t|X1<t) ≤ E(X2−t|X2<t); d) likelihood ratio order (X1 ≤lr X2) if f1(x,α1,β1,θ1)/f2(x,α2,β2,θ2) is a decreasing function of x. Notably, if (X1 ≤lr X2), then (X1 ≤hr X2), (X1 ≤mrl X2) and (X1 ≤st X2).",
+    "kind": "definition",
+    "model": "single",
+    "family": "APTQLD(α, β, θ)",
+    "compared": "X1 ~ APTQLD(α1,β1,θ1) vs X2 ~ APTQLD(α2,β2,θ2)",
+    "hypotheses": [],
+    "conclusion": {
+     "order": "other: implication",
+     "direction": "X1 ≤lr X2 ⇒ X1 ≤hr X2, X1 ≤mrl X2, X1 ≤st X2 (printed chain grounding Theorem 2's corollaries)"
+    },
+    "quantifiers": "all x > 0",
+    "numbers": "",
+    "ambiguity": "Definitions block plus the implication sentence. The mrl definition prints E(X−t|X<t) — reversed (mean-inactivity) conditioning, likely a typo; the hr definition uses decreasing hazard-ratio h1/h2 rather than the standard pointwise-hazard convention."
+   }
+  ],
+  "note": "Definitions + printed lr⇒hr/mrl/st chain; kept since it is the paper's stated basis for Theorem 2's remaining orders."
+ }
+]

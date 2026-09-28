@@ -1,6 +1,251 @@
 [
  {
   "paper": "arxiv:2604.26026",
+  "claim": "Corollary 3.10",
+  "page": 9,
+  "quote": "Corollary 3.10 Assume the functional T and the generator of the Archimedean copula describing the distribution of X are such that the function V \u2217 defined in (8) (with \u03c82 = \u03c81) is decreasing. With the notations of Corollary 3.6, for every \u03b1 \u2208 Aa,b,c, we have that X1:n(\u03b1\u2217) \u2264st X1:n(\u03b1) \u2264st X1:n(\u03b1\u0304).",
+  "kind": "corollary",
+  "model": "series system",
+  "family": "Archimedean-copula dependent components with marginals T(\u03b1i, F); series lifetime X1:n(\u03b1)",
+  "compared": "extremal parameter configurations: boundary vector \u03b1* vs arbitrary \u03b1 vs constant \u03b1\u0304 = (c/n,...,c/n)",
+  "hypotheses": [
+   {
+    "text": "the function V\u2217 defined in (8) (with \u03c82 = \u03c81) is decreasing",
+    "formal": "V*(\u03b2) = [\u2212K1\u25e6\u03c61(T\u0304(\u03b2,F))/T\u0304(\u03b2,F)]\u00b7\u2202T\u0304/\u2202\u03b2(\u03b2,F) decreasing in \u03b2",
+    "source": "statement"
+   },
+   {
+    "text": "\u03b1 \u2208 Aa,b,c = {\u03b1 \u2208 [a,b]^n : \u03a3\u03b1i = c}",
+    "formal": "rectangular simplex constraint",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X1:n(\u03b1*) <=st X1:n(\u03b1) <=st X1:n(\u03b1\u0304) for every \u03b1 \u2208 Aa,b,c"
+  },
+  "quantifiers": "every \u03b1 \u2208 Aa,b,c; n >= 2",
+  "numbers": "",
+  "ambiguity": "Right-hand term is \u03b1\u0304 (the constant vector), verified on rendered PDF p.9 \u2014 pass B dropped the overline.",
+  "adjudication": "adjudicated: Rendered PDF confirms X1:n(\u03b1*) <=st X1:n(\u03b1) <=st X1:n(\u03b1\u0304) \u2014 the last term is the constant vector \u03b1\u0304;"
+ },
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Corollary 3.6",
+  "page": 8,
+  "quote": "Corollary 3.6 Assume the functional T and the generator of the Archimedean copula describing the distribution of X are such that the function V defined in (4) (with \u03c82 = \u03c81) is increasing. Fix numbers a < b and c \u2208 [na, nb), and define Aa,b,c = {\u03b1 = (\u03b11,...,\u03b1n) \u2208 [a,b]^n : \u03a3_{i=1}^n \u03b1i = c}, \u03b1\u0304 = (c/n,...,c/n), q = \u230a(c \u2212 na)/(b \u2212 a)\u230b, and \u03b7 = c \u2212 qb \u2212 (n \u2212 q \u2212 1)a. Then \u03b7 \u2208 [a, b) and \u03b1\u2217 = (a,...,a [n\u2212q\u22121 times], \u03b7, b,...,b [q times]) \u2208 Aa,b,c. Moreover, for every \u03b1 \u2208 Aa,b,c, Xn:n(\u03b1\u2217) \u2265st Xn:n(\u03b1) \u2265st Xn:n(\u03b1\u0304).",
+  "kind": "corollary",
+  "model": "parallel system",
+  "family": "Archimedean-copula dependent components with marginals T(\u03b1i, F); parallel lifetime Xn:n(\u03b1)",
+  "compared": "extremal configurations: boundary \u03b1* vs arbitrary \u03b1 vs constant \u03b1\u0304 = (c/n,...,c/n)",
+  "hypotheses": [
+   {
+    "text": "the function V defined in (4) (with \u03c82 = \u03c81) is increasing",
+    "formal": "V(\u03b2) increasing in \u03b2",
+    "source": "statement"
+   },
+   {
+    "text": "\u03b1 \u2208 Aa,b,c with a < b, c \u2208 [na, nb)",
+    "formal": "rectangular simplex constraint",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Xn:n(\u03b1*) >=st Xn:n(\u03b1) >=st Xn:n(\u03b1\u0304) for every \u03b1 \u2208 Aa,b,c"
+  },
+  "quantifiers": "every \u03b1 \u2208 Aa,b,c; n >= 2",
+  "numbers": "",
+  "ambiguity": "Right-hand term is \u03b1\u0304 (constant vector, majorized by all \u03b1 in Aa,b,c), verified on rendered PDF p.8 \u2014 pass B dropped the overline. Proof reduces to \u03b1* \u2ab0^m \u03b1 \u2ab0^m \u03b1\u0304.",
+  "adjudication": "adjudicated: Rendered PDF confirms Xn:n(\u03b1*) >=st Xn:n(\u03b1) >=st Xn:n(\u03b1\u0304); pass A's overline correct, B dropped it."
+ },
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Example 3.17",
+  "page": 14,
+  "quote": "Example 3.17 Take E(x) = 1 \u2212 e^{\u2212x}, for x \u2265 0, the standard exponential, and the functional T(\u03b1, E)(x) = 1\u2212(1\u2212E(x))^\u03b1 = 1\u2212e^{\u2212\u03b1x}, where \u03b1 > 0. Consider a system with n = 3 components with lifetimes T(\u03b1i, E), for i = 1, 2, 3, whose joint distribution is described by an Archimedean copula with Clayton generator \u03c8(t) = (1 + t)^{\u22121}, for t \u2265 0. With \u03b1 = (\u03b11, \u03b12, \u03b13), the lifetime of a 2-out-of-3 system is X2:3(\u03b1), whose distribution function is obtained by using (12): F^{(\u03b1)}_{2:3}(x) = \u03c8(t1 + t2) + \u03c8(t1 + t3) + \u03c8(t2 + t3) \u2212 2\u03c8(t1 + t2 + t3), where ti = (e^{\u03b1i x} \u2212 1)^{\u22121}. A direct differentiation with respect to \u03b1\u2113 gives \u2202F^{(\u03b1)}_{2:3}(x)/\u2202\u03b1\u2113 = t'\u2113 (\u03a3_{j\u2260\u2113} \u03c8'(t\u2113 + tj) \u2212 2\u03c8'(t1 + t2 + t3)), where t'\u2113 = \u2212xe^{\u03b1\u2113 x}(e^{\u03b1\u2113 x} \u22121)^{\u22122}. Choosing now \u03b1 = (1, 2.5, 4), the plots for (\u03b1\u2113 \u2212 \u03b1m)(\u2202F_{2:3}/\u2202\u03b1\u2113 \u2212 \u2202F_{2:3}/\u2202\u03b1m) are shown in Figure 1. Although when taking (\u2113, m) = (1, 3) or (2, 3) the curve has a constant sign, the case (\u2113, m) = (1, 2) changes sign as x ranges (0, +\u221e). Hence, the map \u03b1 \u21a6 F^{(\u03b1)}_{2:3}(x) is neither Schur-convex nor Schur-concave.",
+  "kind": "counterexample",
+  "model": "k-out-of-n system",
+  "family": "exponential baseline E(x)=1\u2212e^{\u2212x} with T(\u03b1,E) = 1\u2212e^{\u2212\u03b1x}; Clayton copula \u03c8(t) = (1+t)^{\u22121}",
+  "compared": "2-out-of-3 system distribution across parameter vectors \u03b1",
+  "hypotheses": [
+   {
+    "text": "\u03b1 = (1, 2.5, 4), n = 3, Clayton generator",
+    "formal": "specific instance",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "refuted: F_{2:3}^{(\u03b1)}(x) is neither Schur-convex nor Schur-concave, so no st ordering follows from majorization of \u03b1 (Theorem 3.16's coordinatewise result does not extend)"
+  },
+  "quantifiers": "n = 3; x \u2208 (0, \u221e)",
+  "numbers": "\u03b1 = (1,2.5,4); Schur criterion sign change for (\u2113,m) = (1,2)",
+  "ambiguity": "Labelled 'Example' but functions as a counterexample to a majorization-based st ordering for the 2-out-of-3 system; verified graphically via Figure 1.",
+  "adjudication": "adjudicated: Example 3.17 refutes the majorization route to st ordering for the 2-out-of-3 system (Schur conditio"
+ },
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Example 3.5",
+  "page": 7,
+  "quote": "Example 3.5 As an application of the previous results, choose as baseline the standard exponential distribution E(x) = 1\u2212e^{\u2212x}, for x \u2265 0, and, for \u03b2 > 0, T(\u03b2, E)(x) = 1\u2212(1\u2212E(x))^\u03b2 = 1\u2212e^{\u2212\u03b2x}, the exponential distribution with hazard rate \u03b2. Then, with the notation of Theorems 3.1 and 3.3, X = (X1,...,Xn) and Y = (Y1,...,Yn) are random vectors with dependent components whose marginal distributions are heterogeneous exponentials. Assume the distributions of X and Y are described using a Clayton copula with parameters \u03b31 and \u03b32, respectively, such that \u03b32 \u2265 \u03b31 > 0. Then, as referred in Example 2.6, \u03d52 \u25e6 \u03c81 is super-additive. Hence, from Theorem 3.1, if \u03b1i \u2264 \u03b2i, i = 1,...,n, it follows that Xn:n(\u03b1) \u2265st Yn:n(\u03b2). In case we do not have increasing coordinates for the parameter vectors, but they still satisfy \u03b1 \u2ab0^m \u03b2, we get a conclusion using Theorem 3.3. Moreover, for the Clayton generator \u03c82' \u25e6 \u03d52(T(\u03b2, E))(x) = \u2212(1 \u2212 e^{\u2212x})^{1+\u03b32}, so V(\u03b2) = \u2212x(1 \u2212 e^{\u2212\u03b2x})^{\u2212(1+\u03b32)} e^{\u2212\u03b2x}, which is increasing with respect to \u03b2 > 0, so again we conclude that Xn:n(\u03b1) \u2265st Yn:n(\u03b2).",
+  "kind": "example",
+  "model": "parallel system",
+  "family": "heterogeneous exponentials (hazard rates \u03b1i vs \u03b2i); Clayton copulas \u03b32 >= \u03b31 > 0",
+  "compared": "component hazard-rate vectors \u03b1 vs \u03b2 plus copula parameters \u03b31 vs \u03b32",
+  "hypotheses": [
+   {
+    "text": "\u03b32 \u2265 \u03b31 > 0 (Clayton copulas), so \u03d52 \u25e6 \u03c81 is super-additive",
+    "formal": "copula domination hypothesis",
+    "source": "statement"
+   },
+   {
+    "text": "either \u03b1i \u2264 \u03b2i coordinatewise (Theorem 3.1) or \u03b1 \u2ab0^m \u03b2 (Theorem 3.3)",
+    "formal": "two alternative orderings of the parameter vectors",
+    "source": "statement"
+   },
+   {
+    "text": "V(\u03b2) = \u2212x(1 \u2212 e^{\u2212\u03b2x})^{\u2212(1+\u03b32)} e^{\u2212\u03b2x} increasing in \u03b2 > 0",
+    "formal": "Theorem 3.3's monotonicity condition",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "Xn:n(\u03b1) >=st Yn:n(\u03b2) under either hypothesis route"
+  },
+  "quantifiers": "n >= 2; \u03b2 > 0",
+  "numbers": "",
+  "ambiguity": "Two alternative hypothesis routes (coordinatewise via Theorem 3.1; majorization via Theorem 3.3) leading to the same conclusion \u2014 one record.",
+  "adjudication": "adjudicated: Example applies Theorems 3.1 and 3.3 to conclude Xn:n(\u03b1) >=st Yn:n(\u03b2); passes agree, only annotation"
+ },
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Lemma 2.4 (Li and Fang (2015), Lemma A.1)",
+  "page": 4,
+  "quote": "Lemma 2.4 (Li and Fang (2015), Lemma A.1) For two n-dimensional Archimedean copulas C\u03c81 and C\u03c82, if \u03d52 \u25e6 \u03c81 is super-additive, then C\u03c81(u) \u2264 C\u03c82(u), for u \u2208 [0, 1]^n.",
+  "kind": "lemma",
+  "model": "other: copula domination",
+  "family": "n-dimensional Archimedean copulas with generators \u03c81, \u03c82",
+  "compared": "two copulas C\u03c81 vs C\u03c82 ordered pointwise",
+  "hypotheses": [
+   {
+    "text": "if \u03d52 \u25e6 \u03c81 is super-additive",
+    "formal": "\u03d52\u2218\u03c81(x+y) >= \u03d52\u2218\u03c81(x) + \u03d52\u2218\u03c81(y)",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: pointwise copula (concordance) order",
+   "direction": "C\u03c81(u) <= C\u03c82(u) for all u \u2208 [0,1]^n"
+  },
+  "quantifiers": "all u \u2208 [0,1]^n",
+  "numbers": "",
+  "ambiguity": "Imported lemma ordering two copulas pointwise rather than two lifetime variables; included because it is a named ordering between two distributions and every theorem relies on it.",
+  "adjudication": "adjudicated: Printed ordering lemma between two Archimedean copulas; kept as 'other: copula order' \u2014 feeds every "
+ },
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Example 2.5",
+  "page": 4,
+  "quote": "Example 2.5 Assume that \u03c81(t) = e^{\u2212t}, the generator of the independence copula. For generators \u03c82 within the above-mentioned families, the super-additivity assumption holds for a wide range of parameter values. 1. The Clayton case with \u03b32 \u2265 0: \u03d52 \u25e6 \u03c81(t) = (e^{\u03b32 t} \u2212 1)/\u03b32, convex, and \u03d52 \u25e6 \u03c81(0) = 0, so super-additivity follows. 2. The Frank case with \u03b32 > 0: \u03d52 \u25e6 \u03c81(t) = \u2212log[(e^{\u2212t}(e^{\u2212\u03b32} \u2212 1) + 1)/(e^{\u2212\u03b32} \u2212 1)], convex for t \u2265 0. 3. The Gumbel case with \u03b32 \u2265 1: \u03d52 \u25e6 \u03c81(t) = t^{\u03b32}, super-additive on [0, \u221e). 4. The AMH case with \u03b32 \u2208 (0, 1): \u03d52 \u25e6 \u03c81(t) = log[(1 \u2212 \u03b32(1 \u2212 e^{\u2212t}))/e^{\u2212t}] = log((1 \u2212 \u03b32)e^t + \u03b32), convex with \u03d52 \u25e6 \u03c81(0) = 0.",
+  "kind": "example",
+  "model": "other: copula domination",
+  "family": "independence copula \u03c81(t) = e^{\u2212t} vs Clayton/Frank/Gumbel/AMH generators \u03c82",
+  "compared": "independence copula vs each named copula family",
+  "hypotheses": [
+   {
+    "text": "Clayton \u03b32 \u2265 0; Frank \u03b32 > 0; Gumbel \u03b32 \u2265 1; AMH \u03b32 \u2208 (0,1)",
+    "formal": "parameter ranges for super-additivity of \u03d52\u2218\u03c81",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: copula domination",
+   "direction": "\u03d52\u2218\u03c81 super-additive, hence C_independence(u) <= C\u03c82(u) via Lemma 2.4"
+  },
+  "quantifiers": "t >= 0; u \u2208 [0,1]^n",
+  "numbers": "Gumbel: \u03d52\u2218\u03c81(t) = t^{\u03b32}; AMH: \u03d52\u2218\u03c81(t) = log((1\u2212\u03b32)e^t + \u03b32)",
+  "ambiguity": "The printed conclusion is super-additivity of the composition; the implied copula ordering follows via Lemma 2.4. Copula-domain example supporting the ordering results.",
+  "adjudication": "adjudicated: Printed example verifying super-additivity for four copula families \u2014 establishes copula orderings v"
+ },
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Example 2.6",
+  "page": 4,
+  "quote": "Example 2.6 Consider now two generators \u03c81 and \u03c82 from the same family of copulas, with parameters \u03b31 and \u03b32. With the appropriate range of variability for the parameters, the composition \u03d52 \u25e6 \u03c81 is still super-additive. 1. The Clayton family with \u03b32 \u2265 \u03b31 > 0: \u03d52 \u25e6 \u03c81(t) = (1/\u03b31)((1 + \u03b31 t)^{\u03b32/\u03b31} \u2212 1), convex, hence super-additive. 2. The Frank copulas with \u03b32 \u2265 \u03b31: \u03d52 \u25e6 \u03c81(t) = \u2212log[((e^{\u2212t}(e^{\u2212\u03b31} \u2212 1) + 1)^{\u03b32/\u03b31} \u2212 1)/(e^{\u2212\u03b32} \u2212 1)], convex. 3. The Gumbel family with \u03b32 \u2265 \u03b31 \u2265 1: \u03d52 \u25e6 \u03c81(t) = t^{\u03b32/\u03b31}, convex and null at the origin, super-additive. 4. The AMH copulas with 1 \u2265 \u03b32 \u2265 \u03b31 \u2265 0: \u03d52 \u25e6 \u03c81(t) = log[(1\u2212\u03b32)/(1\u2212\u03b31) e^t + (\u03b32\u2212\u03b31)/(1\u2212\u03b31)] =: log(a e^t + b).",
+  "kind": "example",
+  "model": "other: copula domination",
+  "family": "same-family copula pairs (Clayton, Frank, Gumbel, AMH) with ordered parameters",
+  "compared": "C\u03c81 vs C\u03c82 within each family, \u03b32 >= \u03b31",
+  "hypotheses": [
+   {
+    "text": "Clayton \u03b32 \u2265 \u03b31 > 0; Frank \u03b32 \u2265 \u03b31; Gumbel \u03b32 \u2265 \u03b31 \u2265 1; AMH 1 \u2265 \u03b32 \u2265 \u03b31 \u2265 0",
+    "formal": "ordered copula parameters",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: copula domination",
+   "direction": "\u03d52\u2218\u03c81 super-additive, hence C\u03c81(u) <= C\u03c82(u) via Lemma 2.4"
+  },
+  "quantifiers": "t >= 0; u \u2208 [0,1]^n",
+  "numbers": "Gumbel: \u03d52\u2218\u03c81(t) = t^{\u03b32/\u03b31}",
+  "ambiguity": "Copula-domain example supporting the ordering machinery; implied ordering via Lemma 2.4.",
+  "adjudication": "adjudicated: Printed example verifying super-additivity for same-family copula pairs; kept as 'other: copula domi"
+ },
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Example 4.12",
+  "page": 20,
+  "quote": "Example 4.12 We showed in Example 2.6 that the super-additivity assumption is fulfilled composing two different copulas within the same family. We now show that the Gumbel family allows for some more flexibility on the choice of the copula \u03c81. Choose \u03c81(t) = exp(\u2212t \u2212 ct^2), for some c > 0. Clearly, \u03c81 is decreasing, \u03c81(0) = 1 and \u03c81(t) \u2192 0 as t \u2192 \u221e. Moreover, it is completely monotone and therefore defines a valid Archimedean copula. Then, \u03d52 \u25e6 \u03c81(t) = (\u2212 log \u03c81(t))^{\u03b32} = (t + ct^2)^{\u03b32}. Taking \u03b32 > 1, this is an increasing and convex transformation of a super-additive function, hence it is super-additive.",
+  "kind": "example",
+  "model": "other: copula domination",
+  "family": "\u03c81(t) = exp(\u2212t \u2212 ct^2) (completely monotone) vs Gumbel \u03c82, \u03b32 > 1",
+  "compared": "non-family copula \u03c81 vs Gumbel \u03c82",
+  "hypotheses": [
+   {
+    "text": "c > 0; \u03b32 > 1",
+    "formal": "parameter ranges",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: copula domination",
+   "direction": "\u03d52\u2218\u03c81(t) = (t + ct^2)^{\u03b32} super-additive, hence C\u03c81(u) <= C\u03c82(u) via Lemma 2.4"
+  },
+  "quantifiers": "t >= 0",
+  "numbers": "",
+  "ambiguity": "Extends the copula-ordering hypotheses beyond same-family pairs; implied ordering via Lemma 2.4.",
+  "adjudication": "adjudicated: Printed example extending super-additivity (hence copula ordering) to a non-Gumbel \u03c81; kept as 'othe"
+ },
+ {
+  "paper": "arxiv:2604.26026",
+  "claim": "Example 4.13",
+  "page": 20,
+  "quote": "Example 4.13 Concerning the super-additivity assumption in Proposition 4.11 when using a AMH generator, we have already verified that we may choose for \u03c81 the independent copula or another copula within the AMH family. We show next that we may also take \u03c81 within the Gumbel class. Let \u03c81(t) = exp(\u2212t^{1/\u03b1}), \u03b1 \u2265 1, be the generator function of the Gumbel family of copulas, and assume \u03b32 > 0. Then \u03d52 \u25e6 \u03c81(t) = log[(1 \u2212 \u03b32(1 \u2212 e^{\u2212t^{1/\u03b1}}))/e^{\u2212t^{1/\u03b1}}] = log[(1 \u2212 \u03b32)e^{t^{1/\u03b1}} + \u03b32] =: g\u03b1(t). ... which proves that g\u03b1 is super-additive.",
+  "kind": "example",
+  "model": "other: copula domination",
+  "family": "Gumbel \u03c81(t) = exp(\u2212t^{1/\u03b1}), \u03b1 \u2265 1, vs AMH \u03c82, \u03b32 > 0",
+  "compared": "Gumbel copula vs AMH copula",
+  "hypotheses": [
+   {
+    "text": "\u03b1 \u2265 1 and \u03b32 > 0",
+    "formal": "parameter ranges",
+    "source": "statement"
+   }
+  ],
+  "conclusion": {
+   "order": "other: copula domination",
+   "direction": "\u03d52\u2218\u03c81 = g\u03b1 super-additive, hence C\u03c81(u) <= C\u03c82(u) via Lemma 2.4"
+  },
+  "quantifiers": "t >= 0; \u03b1 >= 1",
+  "numbers": "g\u03b1(t) = log[(1 \u2212 \u03b32)e^{t^{1/\u03b1}} + \u03b32]",
+  "ambiguity": "Supports Proposition 4.11's super-additivity hypothesis; implied ordering via Lemma 2.4.",
+  "adjudication": "adjudicated: Printed example verifying super-additivity for Gumbel-into-AMH composition; kept as 'other: copula d"
+ },
+ {
+  "paper": "arxiv:2604.26026",
   "claim": "Corollary 3.4",
   "page": 7,
   "quote": "Corollary 3.4 Assume the same conditions as in Theorem 3.3. With K2 (x) = \u2212\u03c82 (x)/\u03c82\u2032 (x), the same conclusion holds if (4) is replaced by V \u2217 (\u03b2) = [\u2212K2 \u25e6 \u03d52 (T (\u03b2, F ))/T (\u03b2, F )] \u2202T /\u2202\u03b2 (\u03b2, F ), \u03b2 \u2208 A. (5)",
@@ -808,160 +1053,5 @@
   "numbers": "",
   "ambiguity": "In the text layer the formula at (7) prints 'T (\u03b2, F )' without the bar; the derivation and Eq. (6) context use T\u0304 = 1 \u2212 T \u2014 recorded as printed, noting the bar omission may be a text-extraction artifact or a typographical omission.",
   "adjudication": "agreed"
- },
- {
-  "paper": "arxiv:2604.26026",
-  "claim": "Example 2.5",
-  "page": 4,
-  "quote": "Example 2.5 Assume that \u03c81 (t) = e\u2212t , the generator of the independence copula. For generators \u03c82 within the above-mentioned families, the super-additivity assumption holds for a wide range of parameter values. 1. The Clayton case with \u03b32 \u2265 0. We have that \u03d52 \u25e6 \u03c81 (t) = (e\u03b32 t \u2212 1)/\u03b32 , which is easily seen to be convex. As \u03d52 \u25e6 \u03c81 (0) = 0, the super-additivity follows. 2. The Frank case with \u03b32 > 0. For this copula we find \u03d52 \u25e6 \u03c81 (t) = \u2212 log[(e\u2212t (e\u2212\u03b32 \u2212 1) + 1)/(e\u2212\u03b32 \u2212 1)] ... convex for t \u2265 0, hence, as \u03d52 \u25e6 \u03c81 (0) = 0, the super-additivity follows. 3. The Gumbel case with \u03b32 \u2265 1. Then \u03d52 \u25e6\u03c81 (t) = (\u2212 log e\u2212t )\u03b32 = t\u03b32 , which is super-additive on [0, \u221e). 4. The AMH case with \u03b32 \u2208 (0, 1). Then \u03d52 \u25e6 \u03c81 (t) = log[(1 \u2212 \u03b32 (1 \u2212 e\u2212t ))/e\u2212t ] = log((1 \u2212 \u03b32 )et + \u03b32 ). Again, we find a convex function such that \u03d52 \u25e6\u03c81 (0) = 0, thus the super-additivity follows.",
-  "kind": "example",
-  "model": "other: copula domination",
-  "family": "Independence copula \u03c81(t) = e^{\u2212t} composed with Clayton/Frank/Gumbel/AMH generators",
-  "compared": "C_independence vs C\u03c82 via super-additivity of \u03d52\u2218\u03c81",
-  "hypotheses": [
-   {
-    "text": "Clayton \u03b32 >= 0; Frank \u03b32 > 0; Gumbel \u03b32 >= 1; AMH \u03b32 \u2208 (0,1)",
-    "formal": "parameter ranges for which \u03d52\u2218\u03c81 is convex and vanishes at 0",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "other: copula domination",
-   "direction": "\u03d52\u2218\u03c81 super-additive hence C_independence <= C\u03c82 (supports Lemma 2.4 and later theorems)"
-  },
-  "quantifiers": "t >= 0",
-  "numbers": "Clayton: \u03d52\u2218\u03c81(t) = (e^{\u03b32 t} \u2212 1)/\u03b32, \u03b32 >= 0; Frank: \u03b32 > 0; Gumbel: \u03d52\u2218\u03c81(t) = t^{\u03b32}, \u03b32 >= 1; AMH: \u03d52\u2218\u03c81(t) = log((1 \u2212 \u03b32)e^t + \u03b32), \u03b32 \u2208 (0,1)",
-  "ambiguity": "Supports the super-additivity hypothesis rather than exhibiting an ordering between two system lifetimes; extracted as a printed example.",
-  "adjudication": "example record (pass a)"
- },
- {
-  "paper": "arxiv:2604.26026",
-  "claim": "Example 2.6",
-  "page": 4,
-  "quote": "Example 2.6 Consider now two generators \u03c81 and \u03c82 from the same family of copulas, with parameters \u03b31 and \u03b32 . With the appropriate range of variability for the parameters, the composition \u03d52 \u25e6 \u03c81 is still super-additive. 1. The Clayton family with \u03b32 \u2265 \u03b31 > 0... \u03d52 \u25e6\u03c81 is convex so, as \u03d52 \u25e6 \u03c81 (0) = 0, this function is super-additive. 2. The Frank copulas with \u03b32 \u2265 \u03b31 ... easily seen to be convex when \u03b32 \u2265 \u03b31 , hence ... super-additive. 3. The Gumbel family with \u03b32 \u2265 \u03b31 \u2265 1. We find that \u03d52 \u25e6 \u03c81 (t) = t\u03b32 /\u03b31 which, being convex and null at the origin, is super-additive. 4. The AMH copulas with 1 \u2265 \u03b32 \u2265 \u03b31 \u2265 0. ... proves super-additivity in this case as well.",
-  "kind": "example",
-  "model": "other: copula domination",
-  "family": "Same-family Archimedean copula pairs (Clayton, Frank, Gumbel, AMH)",
-  "compared": "C\u03c81(\u03b31) vs C\u03c82(\u03b32) within the same family",
-  "hypotheses": [
-   {
-    "text": "Clayton \u03b32 >= \u03b31 > 0; Frank \u03b32 >= \u03b31; Gumbel \u03b32 >= \u03b31 >= 1; AMH 1 >= \u03b32 >= \u03b31 >= 0",
-    "formal": "\u03b32 >= \u03b31 (with family-specific lower bounds)",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "other: copula domination",
-   "direction": "\u03d52\u2218\u03c81 super-additive hence C\u03c81 <= C\u03c82"
-  },
-  "quantifiers": "t >= 0",
-  "numbers": "Clayton: \u03d52\u2218\u03c81(t) = ((1 + \u03b31 t)^{\u03b32/\u03b31} \u2212 1)/\u03b32, \u03b32 >= \u03b31 > 0; Frank: \u03b32 >= \u03b31; Gumbel: \u03d52\u2218\u03c81(t) = t^{\u03b32/\u03b31}, \u03b32 >= \u03b31 >= 1; AMH: \u03d52\u2218\u03c81(t) = log(a e^t + b), a = 1 \u2212 \u03b32/(1\u2212\u03b31), b = (\u03b32\u2212\u03b31)/(1\u2212\u03b31), 1 >= \u03b32 >= \u03b31 >= 0",
-  "ambiguity": "",
-  "adjudication": "example record (pass a)"
- },
- {
-  "paper": "arxiv:2604.26026",
-  "claim": "Example 3.5",
-  "page": 7,
-  "quote": "Example 3.5 As an application of the previous results, choose as baseline the standard exponential distribution E(x) = 1\u2212e\u2212x , for x \u2265 0, and, for \u03b2 > 0, T (\u03b2, E)(x) = 1\u2212(1\u2212E(x))\u03b2 = 1\u2212e\u2212\u03b2x , the exponential distribution with hazard rate \u03b2. Then, with the notation of Theorems 3.1 and 3.3, X = (X1 , . . . , Xn ) and Y = (Y1 , . . . , Yn ) are random vectors with dependent components whose marginal distributions are heterogeneous exponentials. Assume the distributions of X and Y are described using a Clayton copula with parameters \u03b31 and \u03b32 , respectively, such that \u03b32 \u2265 \u03b31 > 0. Then, as referred in Example 2.6, \u03d52 \u25e6\u03c81 is super-additive. Hence, from Theorem 3.1, if \u03b1i \u2264 \u03b2i , i = 1, . . . , n, it follows that Xn:n (\u03b1) \u2265st Yn:n (\u03b2). In case we do not have increasing coordinates for the parameter vectors, but they still satisfy \u03b1 \u2ab0m \u03b2, we get a conclusion using Theorem 3.3. Moreover, for the Clayton generator \u03c82\u2032 \u25e6 \u03d52 (T (\u03b2, E))(x) = \u2212(1 \u2212 e\u2212x )1+\u03b32 , so V (\u03b2) = \u2212x(1 \u2212 e\u2212\u03b2x )\u2212(1+\u03b32 ) e\u2212\u03b2x , which is increasing with respect to \u03b2 > 0, so again we conclude that Xn:n (\u03b1) \u2265st Yn:n (\u03b2).",
-  "kind": "example",
-  "model": "parallel system",
-  "family": "PHR marginals T(\u03b2,E)(x) = 1 \u2212 e^{\u2212\u03b2x} (exponential hazard \u03b2); Clayton copulas \u03b31 (X), \u03b32 (Y), \u03b32 >= \u03b31 > 0",
-  "compared": "hazard-rate vectors \u03b1 vs \u03b2 (coordinatewise or majorized); Clayton generators \u03b32 >= \u03b31",
-  "hypotheses": [
-   {
-    "text": "\u03b32 \u2265 \u03b31 > 0",
-    "formal": "Clayton parameters ordered, giving \u03d52\u2218\u03c81 super-additive (Example 2.6.1)",
-    "source": "statement"
-   },
-   {
-    "text": "if \u03b1i \u2264 \u03b2i ... or \u03b1 \u2ab0m \u03b2 with V(\u03b2) increasing",
-    "formal": "two alternative parameter orderings",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "Xn:n(\u03b1) >=st Yn:n(\u03b2) (under either coordinatewise or majorization ordering)"
-  },
-  "quantifiers": "n >= 1; x >= 0",
-  "numbers": "E(x) = 1 \u2212 e^{\u2212x}, x >= 0; T(\u03b2,E)(x) = 1 \u2212 e^{\u2212\u03b2x}; Clayton \u03c82'\u2218\u03d52(T(\u03b2,E)) = \u2212(1\u2212e^{\u2212\u03b2x})^{1+\u03b32} (printed \u2212(1\u2212e^{\u2212x})^{1+\u03b32}); V(\u03b2) = \u2212x(1\u2212e^{\u2212\u03b2x})^{\u2212(1+\u03b32)} e^{\u2212\u03b2x} increasing in \u03b2",
-  "ambiguity": "Printed '\u03c82\u2032 \u25e6 \u03d52 (T (\u03b2, E))(x) = \u2212(1 \u2212 e\u2212x )1+\u03b32' omits \u03b2 (should involve 1 \u2212 e^{\u2212\u03b2x}); consistent with Table 2's \u03c8'\u2218\u03d5(t) = \u2212t^{\u03b3+1}.",
-  "adjudication": "example record (pass a)+b"
- },
- {
-  "paper": "arxiv:2604.26026",
-  "claim": "Example 3.17",
-  "page": 14,
-  "quote": "Example 3.17 Take E(x) = 1 \u2212 e\u2212x , for x \u2265 0, the standard exponential, and the functional T (\u03b1, E)(x) = 1\u2212(1\u2212E(x))\u03b1 = 1\u2212e\u2212\u03b1x , where \u03b1 > 0. Consider a system with n = 3 components with lifetimes T (\u03b1i , E), for i = 1, 2, 3, whose joint distribution is described by an Archimedean copula with Clayton generator \u03c8(t) = (1 + t)\u22121 , for t \u2265 0. With \u03b1 = (\u03b11 , \u03b12 , \u03b13 ), the lifetime of a 2-out-of-3 system is X2:3 (\u03b1), whose distribution function is obtained by using (12): F2:3(\u03b1) (x) = \u03c8(t1 + t2 ) + \u03c8(t1 + t3 ) + \u03c8(t2 + t3 ) \u2212 2\u03c8(t1 + t2 + t3 ), where ti = (e\u03b1i x \u2212 1)\u22121 . A direct differentiation with respect to \u03b1\u2113 gives ... Choosing now \u03b1 = (1, 2.5, 4), the plots for (\u03b1\u2113 \u2212 \u03b1m )(\u2202F2:3/\u2202\u03b1\u2113 \u2212 \u2202F2:3/\u2202\u03b1m ) are shown in Figure 1. Although when taking (\u2113, m) = (1, 3) or (2, 3) the curve has a constant sign, the case (\u2113, m) = (1, 2) changes sign as x ranges (0, +\u221e). Hence, the map \u03b1 7\u2192 F2:3(\u03b1) (x) is neither Schur-convex nor Schur-concave.",
-  "kind": "counterexample",
-  "model": "k-out-of-n system",
-  "family": "Exponential marginals T(\u03b1,E)(x) = 1 \u2212 e^{\u2212\u03b1x}; Clayton copula \u03c8(t) = (1+t)^{\u22121} (\u03b3 = 1)",
-  "compared": "2-out-of-3 system map \u03b1 \u2192 F_{2:3}^{(\u03b1)}(x); Schur monotonicity fails at \u03b1 = (1,2.5,4)",
-  "hypotheses": [
-   {
-    "text": "n = 3, k = 1 (2-out-of-3 system); Clayton generator (1+t)^{-1}; exponential transformation",
-    "formal": "setup of Theorem 3.16 with a specific numerical \u03b1",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "refuted for majorization: the map \u03b1 \u2192 F_{2:3}^{(\u03b1)}(x) is neither Schur-convex nor Schur-concave, so Theorem 3.16 cannot be extended from coordinatewise ordering to majorization"
-  },
-  "quantifiers": "n = 3; x \u2208 (0,\u221e)",
-  "numbers": "\u03b1 = (1, 2.5, 4); \u03c8(t) = (1+t)^{\u22121}; ti = (e^{\u03b1i x} \u2212 1)^{\u22121}; F_{2:3}(x) = \u03c8(t1+t2)+\u03c8(t1+t3)+\u03c8(t2+t3) \u2212 2\u03c8(t1+t2+t3); (\u2113,m) = (1,2) sign-changing, (1,3) and (2,3) constant sign (Figure 1)",
-  "ambiguity": "Labeled 'Example' but functions as a counterexample to extending Theorem 3.16 to majorization-ordered parameter vectors.",
-  "adjudication": "example record (pass a)+b"
- },
- {
-  "paper": "arxiv:2604.26026",
-  "claim": "Example 4.12",
-  "page": 20,
-  "quote": "Example 4.12 We showed in Example 2.6 that the super-additivity assumption is fulfilled composing two different copulas within the same family. We now show that the Gumbel family allows for some more flexibility on the choice of the copula \u03c81 . Choose \u03c81 (t) = exp(\u2212t \u2212 ct2 ), for some c > 0. Clearly, \u03c81 is decreasing, \u03c81 (0) = 1 and \u03c81 (t) \u2192 0 as t \u2192 \u221e. Moreover, it is completely monotone and therefore defines a valid Archimedean copula. Then, \u03d52 \u25e6 \u03c81 (t) = (\u2212 log \u03c81 (t))\u03b32 = (t + ct2 )\u03b32 . Taking \u03b32 > 1, this is an increasing and convex transformation of a super-additive function, hence it is super-additive.",
-  "kind": "example",
-  "model": "other: copula domination",
-  "family": "Custom \u03c81(t) = exp(\u2212t \u2212 ct^2), c > 0, composed with Gumbel \u03c82",
-  "compared": "custom copula C\u03c81 vs Gumbel C\u03c82 via super-additivity",
-  "hypotheses": [
-   {
-    "text": "\u03b32 > 1 (Gumbel parameter)",
-    "formal": "\u03b32 > 1 makes (\u00b7)^{\u03b32} increasing convex",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "other: copula domination",
-   "direction": "\u03d52\u2218\u03c81(t) = (t + ct^2)^{\u03b32} super-additive \u21d2 C\u03c81 <= C\u03c82 \u2014 extends the choice of \u03c81 beyond same-family pairs for Proposition 4.11-type results"
-  },
-  "quantifiers": "t >= 0; c > 0",
-  "numbers": "\u03c81(t) = exp(\u2212t \u2212 ct^2), c > 0; \u03d52\u2218\u03c81(t) = (t + ct^2)^{\u03b32}, \u03b32 > 1",
-  "ambiguity": "Verifies the super-additivity hypothesis; not itself a lifetime-ordering example.",
-  "adjudication": "example record (pass a)"
- },
- {
-  "paper": "arxiv:2604.26026",
-  "claim": "Example 4.13",
-  "page": 20,
-  "quote": "Example 4.13 Concerning the super-additivity assumption in Proposition 4.11 when using a AMH generator, we have already verified that we may choose for \u03c81 the independent copula or another copula within the AMH family. We show next that we may also take \u03c81 within the Gumbel class. Let \u03c81 (t) = exp(\u2212t1/\u03b1 ), \u03b1 \u2265 1, be the generator function of the Gumbel family of copulas, and assume \u03b32 > 0. Then \u03d52 \u25e6 \u03c81 (t) = log[(1 \u2212 \u03b32 (1 \u2212 e\u2212t1/\u03b1 ))/e\u2212t1/\u03b1 ] = log[(1 \u2212 \u03b32 )e^{t1/\u03b1} + \u03b32 ] =: g\u03b1 (t). ... which proves that g\u03b1 is super-additive.",
-  "kind": "example",
-  "model": "other: copula domination",
-  "family": "Gumbel \u03c81(t) = exp(\u2212t^{1/\u03b1}), \u03b1 >= 1, composed with AMH \u03c82 (\u03b32 > 0)",
-  "compared": "Gumbel C\u03c81 vs AMH C\u03c82 via super-additivity",
-  "hypotheses": [
-   {
-    "text": "\u03b1 \u2265 1 and \u03b32 > 0",
-    "formal": "Gumbel parameter \u03b1 >= 1; AMH parameter \u03b32 > 0",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "other: copula domination",
-   "direction": "\u03d52\u2218\u03c81 = g\u03b1 super-additive \u21d2 C\u03c81 <= C\u03c82 \u2014 extends Proposition 4.11 to Gumbel \u03c81 with AMH \u03c82"
-  },
-  "quantifiers": "t >= 0",
-  "numbers": "g\u03b1(t) = log((1 \u2212 \u03b32)e^{t^{1/\u03b1}} + \u03b32); key bound: (1\u2212\u03b32)e^{(x+y)^{1/\u03b1}} + \u03b32 >= [(1\u2212\u03b32)e^{x^{1/\u03b1}} + \u03b32][(1\u2212\u03b32)e^{y^{1/\u03b1}} + \u03b32] via subadditivity of t^{1/\u03b1}",
-  "ambiguity": "",
-  "adjudication": "example record (pass a)"
  }
 ]

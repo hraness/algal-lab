@@ -1,0 +1,123 @@
+[
+ {
+  "queue_claim": "theorem2",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.29252/jss.12.2.395",
+    "claim": "Theorem 2 (قضیه ٢)",
+    "page": 10,
+    "quote": "قضیه ٢: فرض کنید X_{λ1}, ..., X_{λn} مجموعه‌ای از متغیرهای تصادفی مستقل نامنفی باشند، که در آن X_{λi} دارای تابع بقای F̄(·; λi) با λi > ٠ برای i = ١, ..., n هستند. همچنین فرض کنید I_{p1}, ..., I_{pn} متغیرهای تصادفی مستقل برنولی با E(I_{pi}) = p_i باشند، که مستقل از X_{λi} ها هستند. بعلاوه فرض کنید برای i = ١, ..., n تابع بقای F̄(·; λi) نسبت به λi صعودی باشد. اگر (h(p_{1:n}), ..., h(p_{n:n})) ≽^m (h(q_{1:n}), ..., h(q_{n:n})) آنگاه Σ_{i=1}^n I_{p_{i:n}} X_{λ_{n-i+1:n}} >=st Σ_{i=1}^n I_{q_{i:n}} X_{λ_{n-i+1:n}}. (۴)",
+    "kind": "theorem",
+    "model": "other: aggregate claim sum (Bernoulli-thinned, order-matched)",
+    "family": "general survival family F̄(·; lambda_i) increasing in lambda_i; Bernoulli claim indicators",
+    "compared": "coverage-probability vectors p vs q under majorization of h(p_{i:n}) vs h(q_{i:n}); same severity vector lambda assigned in reverse order",
+    "hypotheses": [
+     {"text": "تابع بقای F̄(·; λi) نسبت به λi صعودی باشد", "formal": "F̄(x; lambda_i) increasing in lambda_i", "source": "statement"},
+     {"text": "(h(p_{1:n}), ..., h(p_{n:n})) ≽^m (h(q_{1:n}), ..., h(q_{n:n}))", "formal": "h(p) ordered statistics majorize h(q)", "source": "statement"},
+     {"text": "h(p) = -log p or h(p) = (1-p)/p (paper's stated choices)", "formal": "h monotone transform of claim probabilities", "source": "section preamble"}
+    ],
+    "conclusion": {"order": "st", "direction": "Sigma I_{p_{i:n}} X_{lambda_{n-i+1:n}} >=st Sigma I_{q_{i:n}} X_{lambda_{n-i+1:n}} (p-portfolio aggregate stochastically larger)"},
+    "quantifiers": "n >= 1",
+    "numbers": "",
+    "ambiguity": "A's and B's printed directions are the same relation written from opposite sides (>=st vs <=st)."
+   }
+  ],
+  "note": "Theorem 2 prints the p-vector aggregate >=st the q-vector aggregate under h-majorization; the a/b dir disagreement was a notation flip of one relation."
+ },
+ {
+  "queue_claim": "theorem3",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.29252/jss.12.2.395",
+    "claim": "Theorem 3 (قضیه ٣; Li and Li 2016)",
+    "page": 13,
+    "quote": "قضیه ٣ (لی و لی (٢٠١۶)): فرض کنید X_{λ1}, ..., X_{λn} مجموعه‌ای از متغیرهای تصادفی مستقل نامنفی باشند، که در آن X_{λi} دارای تابع بقای F̄(·; λi) با λi > ٠ برای i = ١, ..., n هستند. همچنین فرض کنید I_{p1}, ..., I_{pn} متغیرهای تصادفی مستقل برنولی با E(I_{pi}) = p_i باشند که مستقل از X_{λi} ها هستند. بعلاوه فرض کنید شرایط زیر برقرار باشند: (الف) برای i = ١, ..., n تابع بقای F̄(·; λi) صعودی و مقعر، نسبت به λi باشد. (ب) تابع بقای Σ_{i=1}^n X_{λi} تابعی شور-مقعر نسبت به λi ها باشد. در این صورت (λ_1, ..., λ_n) ≽^m (µ_1, ..., µ_n) ⟹ Σ_{i=1}^n I_{p_{i:n}} X_{µ_{n-i+1:n}} >=st Σ_{i=1}^n I_{p_{i:n}} X_{λ_{n-i+1:n}}.",
+    "kind": "theorem",
+    "model": "other: aggregate claim sum (Bernoulli-thinned, order-matched)",
+    "family": "general survival family F̄(·; lambda_i) increasing and concave in lambda_i with Schur-concave sum survival",
+    "compared": "severity vectors mu vs lambda under majorization, same coverage vector p",
+    "hypotheses": [
+     {"text": "(الف) F̄(·; λi) صعودی و مقعر نسبت به λi", "formal": "F̄(x; lambda_i) increasing and concave in lambda_i", "source": "statement"},
+     {"text": "(ب) تابع بقای Σ X_{λi} شور-مقعر نسبت به λi ها", "formal": "survival function of the sum Schur-concave in lambda", "source": "statement"},
+     {"text": "(λ_1, ..., λ_n) ≽^m (µ_1, ..., µ_n)", "formal": "lambda majorizes mu", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Sigma I_{p_{i:n}} X_{mu_{n-i+1:n}} >=st Sigma I_{p_{i:n}} X_{lambda_{n-i+1:n}} (less-dispersed severity vector gives stochastically larger aggregate)"},
+    "quantifiers": "n >= 1",
+    "numbers": "",
+    "ambiguity": "Numbered theorem explicitly attributed to Li and Li (2016); retained as a numbered statement of the paper."
+   }
+  ],
+  "note": "Theorem 3 prints the mu-side aggregate >=st the lambda-side when lambda majorizes mu; passes agreed modulo a notation flip."
+ },
+ {
+  "queue_claim": "theorem4",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.29252_jss.12.2.395",
+    "claim": "Theorem 4 (قضیه ۴)",
+    "page": 13,
+    "quote": "قضیه ۴: فرض کنید X_{λ1}, ..., X_{λn} مجموعه‌ای از متغیرهای تصادفی مستقل نامنفی باشند که در آن X_{λi} دارای تابع بقای F̄(·; λi) با λi > ٠ است، و I_{p1}, ..., I_{pn} مستقل برنولی با E(I_{pi}) = p_i مستقل از X_{λi} ها. بعلاوه فرض کنید شرایط زیر برقرار باشند: (الف) F̄(·; λi) صعودی و مقعر نسبت به λi؛ (ب) تابع بقای Σ X_{λi} شور-مقعر نسبت به λi ها. آنگاه برای (λ, -h(p)) ∈ Un و (µ, -h(q)) ∈ Un داریم: (λ_1 ... λ_n ; -h(p_1) ... -h(p_n)) ≫ (µ_1 ... µ_n ; -h(q_1) ... -h(q_n)) ⟹ Σ_{i=1}^n I_{q_i} X_{µ_i} >=st Σ_{i=1}^n I_{p_i} X_{λ_i}، که در آن h(p) = -log p یا h(p) = (1-p)/p.",
+    "kind": "theorem",
+    "model": "other: aggregate claim sum (Bernoulli-thinned)",
+    "family": "general survival family F̄(·; lambda_i) increasing+concave with Schur-concave sum survival",
+    "compared": "parameter matrices (lambda, -h(p)) vs (mu, -h(q)) under matrix majorization in Un",
+    "hypotheses": [
+     {"text": "(λ, -h(p)) ∈ Un and (µ, -h(q)) ∈ Un", "formal": "both augmented parameter matrices in Un = {(a,b): a_i>0, b_i<0, (a_i-a_j)(b_i-b_j)>=0}", "source": "statement"},
+     {"text": "(λ ; -h(p)) ≫ (µ ; -h(q))", "formal": "matrix (chain) majorization of the 2xn parameter arrays", "source": "statement"},
+     {"text": "F̄ increasing+concave in lambda_i; sum survival Schur-concave", "formal": "conditions (a),(b)", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Sigma I_{q_i} X_{mu_i} >=st Sigma I_{p_i} X_{lambda_i} ((lambda,p)-portfolio aggregate is stochastically smaller)"},
+    "quantifiers": "n >= 1",
+    "numbers": "",
+    "ambiguity": "The ≫ symbol denotes the paper's matrix (chain) majorization between 2xn arrays; h(p) = -log p or (1-p)/p."
+   }
+  ],
+  "note": "Theorem 4's printed conclusion makes the (q,mu) aggregate >=st the (p,lambda) one under matrix majorization; passes agreed modulo notation flip."
+ },
+ {
+  "queue_claim": "theorem5",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.29252/jss.12.2.395",
+    "claim": "Theorem 5 (قضیه ۵)",
+    "page": 15,
+    "quote": "قضیه ۵: فرض کنید متغیرهای تصادفی X_{λ1}, ..., X_{λn} از مدل با نرخ خطر وارون متناسب پیروی کنند (F̄(x; λi) = ١ - F^{λi}(x)). همچنین فرض کنید I_{p1}, ..., I_{pn} متغیرهای تصادفی مستقل برنولی با E(I_{pi}) = p_i باشند که مستقل از X_{λi} ها هستند. آنگاه برای (λ, -h(p)) ∈ Un و (µ, -h(q)) ∈ Un داریم: (λ_1 ... λ_n ; -h(p_1) ... -h(p_n)) ≫ (µ_1 ... µ_n ; -h(q_1) ... -h(q_n)) ⟹ Σ_{i=1}^n I_{q_i} X_{µ_i} >=st Σ_{i=1}^n I_{p_i} X_{λ_i}، که در آن h(p) = -log p یا h(p) = (1-p)/p.",
+    "kind": "theorem",
+    "model": "other: aggregate claim sum (Bernoulli-thinned)",
+    "family": "proportional reversed hazard rate (PRHR) model: F̄(x; lambda_i) = 1 - F(x)^{lambda_i}",
+    "compared": "parameter matrices (lambda, -h(p)) vs (mu, -h(q)) under matrix majorization in Un",
+    "hypotheses": [
+     {"text": "(λ, -h(p)) ∈ Un and (µ, -h(q)) ∈ Un", "formal": "augmented parameter matrices in Un", "source": "statement"},
+     {"text": "(λ ; -h(p)) ≫ (µ ; -h(q))", "formal": "matrix (chain) majorization", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "Sigma I_{q_i} X_{mu_i} >=st Sigma I_{p_i} X_{lambda_i} ((lambda,p)-portfolio aggregate is stochastically smaller)"},
+    "quantifiers": "n >= 1",
+    "numbers": "",
+    "ambiguity": "Same conclusion shape as Theorem 4 specialized to the PRHR family; passes agreed modulo notation flip."
+   }
+  ],
+  "note": "Theorem 5 prints (q,mu) aggregate >=st (p,lambda) aggregate for PRHR marginals under the same Un matrix majorization; direction disagreement was a notation flip."
+ },
+ {
+  "queue_claim": "unn:introduction eq 1",
+  "decision": "exclude",
+  "records": [],
+  "note": "Introduction eq. (1) is the quoted Karlin-Novikoff (1963) result (p majorizes p* => sum I_{p_i} <=cx sum I_{p*_i}); an external theorem restated in prose/numbering, not this paper's claim."
+ },
+ {
+  "queue_claim": "unn:introduction eq 2",
+  "decision": "exclude",
+  "records": [],
+  "note": "Introduction eq. (2) is explicitly attributed to Ma (2000) ('Ma (2000) generalized result (1) ... and showed Sn(lambda,p) <=cx Sn(lambda,p*)'); an external restated result, out of scope."
+ },
+ {
+  "queue_claim": "unn:introduction eq 3",
+  "decision": "exclude",
+  "records": [],
+  "note": "Introduction eq. (3) (Sn(lambda,p) >=st Sn(lambda,p*) under h-majorization) is likewise stated as Ma (2000)'s result in the literature review, not a theorem claimed by this paper; out of scope."
+ }
+]

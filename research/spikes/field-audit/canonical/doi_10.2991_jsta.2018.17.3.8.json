@@ -1,6 +1,201 @@
 [
  {
   "paper": "doi:10.2991/jsta.2018.17.3.8",
+  "claim": "Corollary 3.6",
+  "page": 15,
+  "quote": "Corollary 3.6. For X \u223c ES(\u03b1 , \u03bb , \u03d51 ) and X \u2217 \u223c ES(\u03b1 \u2217 , \u03bb , \u03d52 ), if \u03d51 or \u03d52 is log-convex, and \u03c82 \u25e6 \u03d51 is super-additive, then (\u03b11 , . . . , \u03b1n ) \u227b^log_w (\u03b11\u2217 , . . . , \u03b1n\u2217 ) implies Xn:n \u2264st Xn:n\u2217 .",
+  "kind": "corollary",
+  "model": "parallel system",
+  "family": "exponentiated scale family ES(\u03b1, \u03bb): marginal cdf [G(\u03bbx)]^\u03b1, arbitrary baseline G; dependent components with Archimedean copulas, generator \u03d51 for X and \u03d52 for X*",
+  "compared": "exponent vectors \u03b1 vs \u03b1* and copula generators \u03d51 vs \u03d52; \u03bb and G common",
+  "hypotheses": [
+   {
+    "text": "by X \u223c ES(\u03b1 , \u03bb , \u03d5) we denote the sample having the Archimedean copula with generator \u03d5 and for i = 1, ..., n, Xi \u223c ES(\u03b1i , \u03bb)",
+    "formal": "X has Archimedean copula generator \u03d51 and marginals [G(\u03bbx)]^{\u03b1_i}; X* has generator \u03d52 and marginals [G(\u03bbx)]^{\u03b1*_i}; common \u03bb and G",
+    "source": "section preamble"
+   },
+   {
+    "text": "\u03d51 or \u03d52 is log-convex",
+    "formal": "log \u03d51 or log \u03d52 convex",
+    "source": "statement"
+   },
+   {
+    "text": "\u03c82 \u25e6 \u03d51 is super-additive",
+    "formal": "\u03c82(\u03d51(x + y)) \u2265 \u03c82(\u03d51(x)) + \u03c82(\u03d51(y))",
+    "source": "statement"
+   },
+   {
+    "text": "(\u03b11 , . . . , \u03b1n ) \u227b^log_w (\u03b11\u2217 , . . . , \u03b1n\u2217 )",
+    "formal": "weak log-majorization on exponent vectors; the corollary is derived via 'weak log-majorization implies weak submajorization'",
+    "source": "statement; definition 2.2(iv)"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X_{n:n} <=st X*_{n:n} (as printed)"
+  },
+  "quantifiers": "n >= 2; all x >= 0",
+  "numbers": "",
+  "ambiguity": "The symbol \u227b_w^{log} is the converse of the defined \u2aaf_w^{log} of Definition 2.2(iv) (products of smallest components); the reversed direction is printed but not formally defined. The corollary follows from Theorem 3.7(i) whose conclusion is X_{n:n} \u2265st X*_{n:n} \u2014 the printed \u2264st reflects the reversed symbol usage; recorded as printed.",
+  "adjudication": "adjudicated: Pass B only; in scope \u2014 printed st-ordering conclusion for ES samples. Verbatim quote confirmed agai"
+ },
+ {
+  "paper": "doi:10.2991/jsta.2018.17.3.8",
+  "claim": "Corollary 3.7",
+  "page": 15,
+  "quote": "Letting \u03bb = 1 in Corollary 3.6 leads to the following corollary for PRH samples. Corollary 3.7. For X \u223c PRH(\u03b1 , \u03d51 ) and X \u2217 \u223c PRH(\u03b1 \u2217 , \u03bb , \u03d52 ), if \u03d51 or \u03d52 is log-convex, and \u03c82 \u25e6 \u03d51 is super-additive, then (\u03b11 , . . . , \u03b1n ) \u227b^log_w (\u03b11\u2217 , . . . , \u03b1n\u2217 ) implies Xn:n \u2264st Xn:n\u2217 .",
+  "kind": "corollary",
+  "model": "parallel system",
+  "family": "proportional reversed hazards PRH(\u03b1, \u03d5) (ES with \u03bb = 1): marginal cdf G^{\u03b1_i}(x), arbitrary baseline G; Archimedean copula generators \u03d51, \u03d52",
+  "compared": "exponent vectors \u03b1 vs \u03b1* and copula generators \u03d51 vs \u03d52; G common",
+  "hypotheses": [
+   {
+    "text": "For X \u223c PRH(\u03b1 , \u03d51 ) and X \u2217 \u223c PRH(\u03b1 \u2217 , \u03bb , \u03d52 )",
+    "formal": "PRH samples with Archimedean copulas \u03d51, \u03d52 (ES with \u03bb = 1)",
+    "source": "statement; earlier corollary 3.6 with \u03bb = 1"
+   },
+   {
+    "text": "\u03d51 or \u03d52 is log-convex",
+    "formal": "log \u03d51 or log \u03d52 convex",
+    "source": "statement"
+   },
+   {
+    "text": "\u03c82 \u25e6 \u03d51 is super-additive",
+    "formal": "\u03c82(\u03d51(x + y)) \u2265 \u03c82(\u03d51(x)) + \u03c82(\u03d51(y))",
+    "source": "statement"
+   },
+   {
+    "text": "(\u03b11 , . . . , \u03b1n ) \u227b^log_w (\u03b11\u2217 , . . . , \u03b1n\u2217 )",
+    "formal": "weak log-majorization (undefined converse of \u2aaf_w^{log})",
+    "source": "statement; definition 2.2(iv)"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X_{n:n} <=st X*_{n:n} (as printed)"
+  },
+  "quantifiers": "n >= 2; all x >= 0",
+  "numbers": "",
+  "ambiguity": "X* is written PRH(\u03b1*, \u03bb, \u03d52) with a stray \u03bb argument; PRH(\u03b1, \u03d5) is not formally defined in the paper. Same symbol-direction caveat as Corollary 3.6.",
+  "adjudication": "adjudicated: Pass B only; in scope \u2014 printed st-ordering conclusion for PRH samples; the stray \u03bb in PRH(\u03b1*, \u03bb, \u03d52"
+ },
+ {
+  "paper": "doi:10.2991/jsta.2018.17.3.8",
+  "claim": "Example 3.1(i)",
+  "page": 12,
+  "quote": "Naturally, one may wonder whether the following two statements are actually also true: (i) For \u03b1 \u2265 1, (\u03bb1 , . . . , \u03bbn ) \u227d_w^{exp} (\u03bb1\u2217 , . . . , \u03bbn\u2217 ) gives rise to the usual stochastic order between X1:n and X1:n\u2217 ; (ii) For 0 < \u03b1 \u2264 1, (\u03bb1 , . . . , \u03bbn ) \u227d^p (\u03bb1\u2217 , . . . , \u03bbn\u2217 ) gives rise to the usual stochastic order between X1:n and X1:n\u2217 . The following example gives negative answers to these two conjectures. Example 3.1. Let (X1 , X2 ) ((X1\u2217 , X2\u2217 )) be a vector of independent heterogeneous GE random variables. (i) Set \u03b1 = 2, (\u03bb1 , \u03bb2 ) = (4, 0.5) and (\u03bb1\u2217 , \u03bb2\u2217 ) = (2, 3). Obviously (\u03bb1 , \u03bb2 ) \u227d_w^{exp} (\u03bb1\u2217 , \u03bb2\u2217 ), however X1:2 and X1:2\u2217 are not ordered in the usual stochastic order as can be seen in Fig. 1.",
+  "kind": "counterexample",
+  "model": "series system",
+  "family": "generalized exponential GE(\u03b1, \u03bb): G(x) = (1 \u2212 exp{\u2212\u03bbx})^\u03b1, x > 0; common \u03b1 = 2",
+  "compared": "scale vectors (4, 0.5) vs (2, 3)",
+  "hypotheses": [
+   {
+    "text": "Let (X1 , X2 ) ((X1\u2217 , X2\u2217 )) be a vector of independent heterogeneous GE random variables",
+    "formal": "Xi \u223c GE(\u03b1, \u03bbi), Xi* \u223c GE(\u03b1, \u03bbi*), independent, n = 2",
+    "source": "statement"
+   },
+   {
+    "text": "\u03b1 = 2 (i.e., \u03b1 \u2265 1 as in conjecture (i))",
+    "formal": "\u03b1 = 2",
+    "source": "statement"
+   },
+   {
+    "text": "Obviously (\u03bb1 , \u03bb2 ) \u227d_w^{exp} (\u03bb1\u2217 , \u03bb2\u2217 )",
+    "formal": "weak exp-majorization per Definition 2.4 (the converse \u227d form not formally defined; read via the defined \u2aaf_w^{exp})",
+    "source": "statement; definition 2.4"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X_{1:2} and X*_{1:2} are not ordered in the usual stochastic order (survival functions cross in Fig. 1) \u2014 refutes conjecture (i)"
+  },
+  "quantifiers": "n = 2; \u03b1 = 2; Fig. 1 plots x over a finite range",
+  "numbers": "\u03b1 = 2; (\u03bb1, \u03bb2) = (4, 0.5); (\u03bb1*, \u03bb2*) = (2, 3); Fig. 1: survival functions of X_{1:2} (dashed) and X*_{1:2} (continuous), visually near-coincident",
+  "ambiguity": "The refuted statement is a printed conjecture, not a theorem. Only \u2aaf_w^{exp} is defined (Definition 2.4); the converse \u227d_w^{exp} is used but undefined. Curves in Fig. 1 are nearly indistinguishable at the printed scale.",
+  "adjudication": "adjudicated: Both passes agree: printed non-ordering of the two minima refuting conjecture (i); merged with B's f"
+ },
+ {
+  "paper": "doi:10.2991/jsta.2018.17.3.8",
+  "claim": "Theorem 3.7(i)",
+  "page": 13,
+  "quote": "3.4. Dependent samples with Archimedean structure. [...] Specifically, by X \u223c ES(\u03b1 , \u03bb , \u03d5) we denote the sample having the Archimedean copula with generator \u03d5 and for i = 1, ..., n, Xi \u223c ES(\u03b1i , \u03bb). The largest order statistic Xn:n of the sample X \u223c ES(\u03b1 , \u03bb , \u03d51 ) gets distribution function GXn:n (x) = \u03d5(\u03a3_{i=1}^n \u03c8(G^{\u03b1i}(\u03bbx))) = J(\u03b1 , \u03bb , x, \u03d5) (3.6). Theorem 3.7. For X \u223c ES(\u03b1 , \u03bb , \u03d51 ) and X \u2217 \u223c ES(\u03b1 \u2217 , \u03bb , \u03d52 ), (i) if \u03d51 or \u03d52 is log-convex, and \u03c82 \u25e6 \u03d51 is super-additive, then (\u03b11 , . . . , \u03b1n ) \u227d_w (\u03b11\u2217 , . . . , \u03b1n\u2217 ) implies Xn:n \u2265st Xn:n\u2217 ;",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "exponentiated scale family ES(\u03b1, \u03bb): marginal cdf [G(\u03bbx)]^\u03b1, arbitrary baseline G; dependent components with Archimedean copulas \u03d51 (X) and \u03d52 (X*)",
+  "compared": "exponent vectors \u03b1 vs \u03b1* and copula generators \u03d51 vs \u03d52; \u03bb and G common",
+  "hypotheses": [
+   {
+    "text": "X \u223c ES(\u03b1 , \u03bb , \u03d51 ) and X* \u223c ES(\u03b1 \u2217 , \u03bb , \u03d52 ): Archimedean copula generators with ES marginals, common \u03bb and G",
+    "formal": "X has generator \u03d51 and marginals [G(\u03bbx)]^{\u03b1_i}; X* has generator \u03d52 and marginals [G(\u03bbx)]^{\u03b1*_i}",
+    "source": "section preamble"
+   },
+   {
+    "text": "\u03d51 or \u03d52 is log-convex",
+    "formal": "log \u03d51 or log \u03d52 convex",
+    "source": "statement"
+   },
+   {
+    "text": "\u03c82 \u25e6 \u03d51 is super-additive",
+    "formal": "\u03c82(\u03d51(x + y)) \u2265 \u03c82(\u03d51(x)) + \u03c82(\u03d51(y))",
+    "source": "statement"
+   },
+   {
+    "text": "(\u03b11 , . . . , \u03b1n ) \u227d_w (\u03b11\u2217 , . . . , \u03b1n\u2217 )",
+    "formal": "converse of the defined \u2aaf_w (Definition 2.2(i)); i.e., \u03b1* weakly submajorized by \u03b1 as printed",
+    "source": "statement; definition 2.2(i) (converse symbol not defined)"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X_{n:n} >=st X*_{n:n} (as printed)"
+  },
+  "quantifiers": "n >= 2 (n-monotone generator); all x >= 0",
+  "numbers": "",
+  "ambiguity": "'Super-additive' not defined in the paper (proof cites Lemma A.1 of [24]). The \u227d_w converse is printed but only \u2aaf forms are defined in Section 2. Baseline G arbitrary \u2014 the specific-family version is Corollary 3.6/3.7.",
+  "adjudication": "adjudicated: Pass B only; in scope \u2014 printed st-ordering of the two maxima. Verified verbatim (\u2265st direction as p"
+ },
+ {
+  "paper": "doi:10.2991/jsta.2018.17.3.8",
+  "claim": "Theorem 3.7(ii)",
+  "page": 13,
+  "quote": "(ii) if \u03d51 or \u03d52 is log-concave, and \u03c81 \u25e6 \u03d52 is super-additive, then (\u03b11 , . . . , \u03b1n ) \u227d^w (\u03b11\u2217 , . . . , \u03b1n\u2217 ) implies Xn:n \u2264st Xn:n\u2217 .",
+  "kind": "theorem",
+  "model": "parallel system",
+  "family": "exponentiated scale family ES(\u03b1, \u03bb): marginal cdf [G(\u03bbx)]^\u03b1, arbitrary baseline G; dependent components with Archimedean copulas \u03d51 (X) and \u03d52 (X*)",
+  "compared": "exponent vectors \u03b1 vs \u03b1* and copula generators \u03d51 vs \u03d52; \u03bb and G common",
+  "hypotheses": [
+   {
+    "text": "X \u223c ES(\u03b1 , \u03bb , \u03d51 ) and X* \u223c ES(\u03b1 \u2217 , \u03bb , \u03d52 ): Archimedean copula generators with ES marginals, common \u03bb and G",
+    "formal": "X has generator \u03d51 and marginals [G(\u03bbx)]^{\u03b1_i}; X* has generator \u03d52 and marginals [G(\u03bbx)]^{\u03b1*_i}",
+    "source": "section preamble"
+   },
+   {
+    "text": "\u03d51 or \u03d52 is log-concave",
+    "formal": "log \u03d51 or log \u03d52 concave",
+    "source": "statement"
+   },
+   {
+    "text": "\u03c81 \u25e6 \u03d52 is super-additive",
+    "formal": "\u03c81(\u03d52(x + y)) \u2265 \u03c81(\u03d52(x)) + \u03c81(\u03d52(y))",
+    "source": "statement"
+   },
+   {
+    "text": "(\u03b11 , . . . , \u03b1n ) \u227d^w (\u03b11\u2217 , . . . , \u03b1n\u2217 )",
+    "formal": "converse of the defined \u2aaf^w (Definition 2.2(ii)); as printed",
+    "source": "statement; definition 2.2(ii) (converse symbol not defined)"
+   }
+  ],
+  "conclusion": {
+   "order": "st",
+   "direction": "X_{n:n} <=st X*_{n:n} (as printed)"
+  },
+  "quantifiers": "n >= 2 (n-monotone generator); all x >= 0",
+  "numbers": "",
+  "ambiguity": "Proof of part (ii) omitted in the paper. Same caveats as part (i): undefined 'super-additive' and converse majorization symbol.",
+  "adjudication": "adjudicated: Pass B only; in scope \u2014 printed st-ordering of the two maxima under the log-concave/\u03c81\u2218\u03d52-superaddit"
+ },
+ {
+  "paper": "doi:10.2991/jsta.2018.17.3.8",
   "claim": "Corollary 3.1",
   "page": 7,
   "quote": "In Theorem 3.1, if we let f(x) = 1/x, we can get the following corollary that generalizes the corresponding result in Theorem 2 of [17]. In particular the majorization assumption is relaxed to the weak majorization and the usual stochastic order is replaced by the stronger reversed hazard rate order. Corollary 3.1. Let X_1, ..., X_n (X*_1, ..., X*_n) be independent random variables where X_i \u223c Fr\u00e8(\u00b5, \u03bb_i, \u03b1) (X*_i \u223c Fr\u00e8(\u00b5, \u03bb*_i, \u03b1)), i = 1, ..., n. If (1/\u03bb_1, ..., 1/\u03bb_n) \u2ab0^w (1/\u03bb*_1, ..., 1/\u03bb*_n) then X_{n:n} \u2265_rh X*_{n:n}.",
@@ -668,41 +863,6 @@
   "numbers": "",
   "ambiguity": "This is a general semiparametric class; it is included because the paper states it for GE (Corollary 3.5). r\u0303 is not defined in this section. The converse symbols are undefined. The printed survival function (3.4) has an unbalanced parenthesis: \u03a0(1 \u2212 G(\u03bb_i x))^\u03b1).",
   "adjudication": "agreed"
- },
- {
-  "paper": "doi:10.2991/jsta.2018.17.3.8",
-  "claim": "Example 3.1(i)",
-  "page": 12,
-  "quote": "Naturally, one may wonder whether the following two statements are actually also true: (i) For \u03b1 \u2265 1, (\u03bb_1, ..., \u03bb_n) \u2ab0_{w,exp} (\u03bb*_1, ..., \u03bb*_n) gives rise to the usual stochastic order between X_{1:n} and X*_{1:n}; (ii) For 0 < \u03b1 \u2264 1, (\u03bb_1, ..., \u03bb_n) \u2ab0^p (\u03bb*_1, ..., \u03bb*_n) gives rise to the usual stochastic order between X_{1:n} and X*_{1:n}. The following example gives negative answers to these two conjectures. Example 3.1. Let (X_1, X_2) ((X*_1, X*_2)) be a vector of independent heterogeneous GE random variables. (i) Set \u03b1 = 2, (\u03bb_1, \u03bb_2) = (4, 0.5) and (\u03bb*_1, \u03bb*_2) = (2, 3). Obviously (\u03bb_1, \u03bb_2) \u2ab0_{w,exp} (\u03bb*_1, \u03bb*_2), however X_{1:2} and X*_{1:2} are not ordered in the usual stochastic order as can be seen in Fig. 1.",
-  "kind": "counterexample",
-  "model": "series system",
-  "family": "Generalized exponential GE(\u03b1, \u03bb_i), cdf (1 \u2212 exp{\u2212\u03bb_i x})^\u03b1, with \u03b1 = 2",
-  "compared": "scale vectors (4, 0.5) vs (2, 3)",
-  "hypotheses": [
-   {
-    "text": "vector of independent heterogeneous GE random variables",
-    "formal": "independent components",
-    "source": "statement"
-   },
-   {
-    "text": "Obviously (\u03bb_1, \u03bb_2) \u2ab0_{w,exp} (\u03bb*_1, \u03bb*_2)",
-    "formal": "read as \u03bb* \u2aaf_{w,exp} \u03bb: \u03a3_{i=j}^2 e^{\u03bb*_(i)} \u2264 \u03a3_{i=j}^2 e^{\u03bb_(i)}, j = 1, 2 (Definition 2.4)",
-    "source": "statement; definition 2.4 (converse symbol not defined)"
-   },
-   {
-    "text": "\u03b1 = 2",
-    "formal": "\u03b1 \u2265 1, as in conjecture (i)",
-    "source": "statement"
-   }
-  ],
-  "conclusion": {
-   "order": "st",
-   "direction": "neither X_{1:2} \u2264_st X*_{1:2} nor X*_{1:2} \u2264_st X_{1:2} ('not ordered in the usual stochastic order')"
-  },
-  "quantifiers": "n = 2; x plotted from 0 to 2.5 (Fig. 1)",
-  "numbers": "n = 2; \u03b1 = 2; (\u03bb_1, \u03bb_2) = (4, 0.5); (\u03bb*_1, \u03bb*_2) = (2, 3). Printed result: (\u03bb_1, \u03bb_2) \u2ab0_{w,exp} (\u03bb*_1, \u03bb*_2) ('Obviously'); X_{1:2} and X*_{1:2} not ordered in st (Fig. 1: survival functions of X_{1:2} dashed and X*_{1:2} continuous, both falling from 1 at x = 0 to about 0 by x \u2248 1.5 and visually almost coincident). No numerical crossing point is printed.",
-  "ambiguity": "The refuted statement is a conjecture, not a theorem of the paper. The converse symbol \u2ab0_{w,exp} is not defined (Definition 2.4 defines \u2aaf_{w,exp}). Non-ordering is asserted from a figure in which the two curves are visually nearly indistinguishable.",
-  "adjudication": "example record (pass a)+b"
  },
  {
   "paper": "doi:10.2991/jsta.2018.17.3.8",

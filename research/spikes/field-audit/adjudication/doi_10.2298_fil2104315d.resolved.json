@@ -1,0 +1,179 @@
+[
+ {
+  "queue_claim": "counterexample3.1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.2298/FIL2104315D",
+    "claim": "Counterexample 3.1",
+    "page": 7,
+    "quote": "Counterexample 3.1. Let F(t) = 1 − (1 + t^5)^{−4}, t > 0 and ψ(p) = 1 − p^3. It is easy to check that ψ(p) is decreasing and concave. So, the condition in (C10) is relaxed. Let us take (α1, α2) = (β1, β2) = (0.01, 0.01), (1/θ1, 1/θ2) = (0.7, 0.6), (1/δ1, 1/δ2) = (0.66, 0.64), (λ1, λ2) = (µ1, µ2) = (0.9, 0.9), (p1, p2) = ((0.2)^{1/3}, (0.5)^{1/3}) and (q1, q2) = ((0.32)^{1/3}, (0.38)^{1/3}). Consider a T-transform matrix T_{0.6} = ((0.6, 0.4),(0.4, 0.6)). It can be shown that (ψ(q1), ψ(q2); 1/δ1, 1/δ2) = (ψ(p1), ψ(p2); 1/θ1, 1/θ2) T_{0.6}, which produces (ψ(p), 1/θ; 2) ≫ (ψ(q), 1/δ; 2). Further, (ψ(p), 1/θ; 2) ∈ M2. Based on this present setup, we have F_{2:2}(1.5) − G_{2:2}(1.5) = 1.5928 × 10^{−5} (> 0) and F_{2:2}(1.6) − G_{2:2}(1.6) = −1.9324 × 10^{−4} (< 0). For graphical view, please see Figure 1(a). It establishes that Theorem 3.1(ii) does not hold, if (C10) is taken out.",
+    "kind": "counterexample",
+    "model": "parallel system (largest claim U_{2:2})",
+    "family": "baseline F(t) = 1 − (1 + t^5)^{−4}; ψ(p) = 1 − p^3 (violates (C10))",
+    "compared": "chain-majorized portfolios (ψ(p),1/θ) vs (ψ(q),1/δ)",
+    "hypotheses": [
+     {"text": "(ψ(q), 1/δ) = (ψ(p), 1/θ) T_{0.6} producing chain majorization", "formal": "(ψ(p),1/θ;2) ≫ (ψ(q),1/δ;2)", "source": "statement"},
+     {"text": "(ψ(p), 1/θ; 2) ∈ M2", "formal": "matrix class membership", "source": "statement"},
+     {"text": "ψ(p) = 1 − p^3 does not satisfy (C10)", "formal": "condition relaxed", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "refutes Theorem 3.1(ii): U_{2:2} >=st V_{2:2} fails — F_{2:2} − G_{2:2} changes sign"},
+    "quantifiers": "n = 2",
+    "numbers": "F_{2:2}(1.5) − G_{2:2}(1.5) = 1.5928e-5 > 0; F_{2:2}(1.6) − G_{2:2}(1.6) = −1.9324e-4 < 0; α = β = (0.01,0.01); 1/θ = (0.7,0.6); 1/δ = (0.66,0.64); λ = µ = (0.9,0.9); p = (0.2^{1/3}, 0.5^{1/3}); q = (0.32^{1/3}, 0.38^{1/3}); T_{0.6}",
+    "ambiguity": "Baseline is F(t) = 1 − (1 + t^5)^{−4} — pass B's 't/5' is a misread of the superscript. Refuted direction is U >=st V per Theorem 3.1(ii)."
+   }
+  ],
+  "note": "Prints F = 1−(1+t^5)^{-4} (not t/5); F_{2:2}−G_{2:2} changes sign, refuting Theorem 3.1(ii)'s U_{2:2} >=st V_{2:2}."
+ },
+ {
+  "queue_claim": "counterexample3.2",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.2298/FIL2104315D",
+    "claim": "Counterexample 3.2",
+    "page": 8,
+    "quote": "Counterexample 3.2. Consider the same baseline distribution function as in Counterexample 3.1. Suppose ψ(p) = − ln p. Here, one can check that (C1) and (C10) are satisfied. Set (α1, α2) = (β1, β2) = (0.01, 0.01), (1/θ1, 1/θ2) = (0.5, 0.3), (1/δ1, 1/δ2) = (0.32, 0.48), (λ1, λ2) = (µ1, µ2) = (0.9, 0.9), (ψ(p1), ψ(p2)) = (0.23, 0.69) and (ψ(q1), ψ(q2)) = (0.644, 0.276). For a T-transform matrix T_{0.1} = ((0.1, 0.9),(0.9, 0.1)), we have (ψ(q); 1/δ) = (ψ(p); 1/θ) T_{0.1}. Thus, from Definition 2.4, chain majorization holds. Again, (ψ(p); 1/θ) does not belong to M2. Now, considering the assumed numerical values, we get F_{2:2}(1.6) − G_{2:2}(1.6) = −9.2138 × 10^{−6} (< 0) and F_{2:2}(1.7) − G_{2:2}(1.7) = 5.0560 × 10^{−5} (> 0), which negates the usual stochastic order, stated in Theorem 3.1(ii). See Figure 1(b).",
+    "kind": "counterexample",
+    "model": "parallel system (largest claim U_{2:2})",
+    "family": "baseline F(t) = 1 − (1 + t^5)^{−4} (as in Counterexample 3.1); ψ(p) = −ln p",
+    "compared": "chain-majorized portfolios; (ψ(p),1/θ) ∉ M2 (membership fails)",
+    "hypotheses": [
+     {"text": "(C1) and (C10) are satisfied", "formal": "conditions hold", "source": "statement"},
+     {"text": "(ψ(p), 1/θ) does not belong to M2", "formal": "matrix-class membership fails", "source": "statement"},
+     {"text": "(ψ(q); 1/δ) = (ψ(p); 1/θ) T_{0.1}", "formal": "T-transform giving chain majorization", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "refutes Theorem 3.1(ii): U_{2:2} >=st V_{2:2} fails — F_{2:2} − G_{2:2} changes sign"},
+    "quantifiers": "n = 2",
+    "numbers": "F_{2:2}(1.6) − G_{2:2}(1.6) = −9.2138e-6 < 0; F_{2:2}(1.7) − G_{2:2}(1.7) = 5.0560e-5 > 0; 1/θ = (0.5,0.3); 1/δ = (0.32,0.48); ψ(p) = (0.23,0.69); ψ(q) = (0.644,0.276); T_{0.1}",
+    "ambiguity": "Here the M2 membership hypothesis fails rather than (C10); sign change shown numerically and in Figure 1(b)."
+   }
+  ],
+  "note": "Printed counterexample negating the st order of Theorem 3.1(ii) via sign change; both passes agree on substance."
+ },
+ {
+  "queue_claim": "counterexample3.3",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.2298/FIL2104315D",
+    "claim": "Counterexample 3.3",
+    "page": 11,
+    "quote": "Counterexample 3.3. Consider the baseline distribution function as F(t) = 1 − (1 + 5t)^{−1/5}, t > 0, for which the hazard rate function r(x) is decreasing and convex. Let ψ(p) = 1 − p^2. Clearly, ψ(p) does not satisfy (C9). Set (α1, α2) = (β1, β2) = (1, 1), (θ1, θ2) = (δ1, δ2) = (√0.5, √0.5), (λ1, λ2) = (0.9, 0.6), (µ1, µ2) = (0.81, 0.69), (p1, p2) = (√0.2, √0.3) and (q1, q2) = (√0.23, √0.27). Consider a T-transform matrix T_{0.7} = ((0.7, 0.3),(0.3, 0.7)). It can be shown that (µ; ψ(q)) = (λ; ψ(p)) T_{0.7}, which yields (λ, ψ(p); 2) ≫ (µ, ψ(q); 2). Further, (λ, ψ(p); 2) ∈ M2. Denote η(t) = r̃_{2:2}(t) − s̃_{2:2}(t). Then, η(1.7) = 1.3522 × 10^{−4} (> 0) and η(1.8) = −2.0998 × 10^{−4} (< 0), which shows that η(t) changes sign, when t travels from 0 to ∞. Graph is presented in Figure 2(a) for clear view. Thus, U_{2:2} ≱rh V_{2:2}.",
+    "kind": "counterexample",
+    "model": "parallel system (largest claim U_{2:2})",
+    "family": "baseline F(t) = 1 − (1 + 5t)^{−1/5}, decreasing convex hazard rate; ψ(p) = 1 − p^2 (violates (C9))",
+    "compared": "chain-majorized (λ, ψ(p)) vs (µ, ψ(q))",
+    "hypotheses": [
+     {"text": "ψ(p) = 1 − p^2 does not satisfy (C9)", "formal": "condition violated", "source": "statement"},
+     {"text": "(µ; ψ(q)) = (λ; ψ(p)) T_{0.7}", "formal": "T-transform giving chain majorization (λ,ψ(p)) ≫ (µ,ψ(q))", "source": "statement"},
+     {"text": "(λ, ψ(p); 2) ∈ M2", "formal": "matrix class membership", "source": "statement"}
+    ],
+    "conclusion": {"order": "rh", "direction": "U_{2:2} not >=rh V_{2:2} — η(t) = r̃_{2:2}(t) − s̃_{2:2}(t) changes sign"},
+    "quantifiers": "n = 2; t from 0 to ∞",
+    "numbers": "η(1.7) = 1.3522e-4 > 0; η(1.8) = −2.0998e-4 < 0; α = β = (1,1); θ = δ = (√0.5, √0.5); λ = (0.9,0.6); µ = (0.81,0.69); p = (√0.2,√0.3); q = (√0.23,√0.27); T_{0.7}",
+    "ambiguity": "θ = δ = (√0.5, √0.5) — square-root glyphs straddle the parameter list in pdftotext; pass A's '(0.5, 0.5)' dropped the radicals. Printed verdict symbol is the negated reversed-hazard order."
+   }
+  ],
+  "note": "Refutes the rh order (reversed-hazard difference changes sign); B's 'sqrt(0.5)' reading of θ = δ is correct, A dropped the radicals."
+ },
+ {
+  "queue_claim": "example5.1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.2298/FIL2104315D",
+    "claim": "Example 5.1",
+    "page": 19,
+    "quote": "Example 5.1. Consider {X1, X2, X3} and {Y1, Y2, Y3} to be the collections of independent random variables such that Xi ∼ F^α((x − λi)/θi) and Yi ∼ F^α((x − µi)/θi), for i = 1, 2, 3. Also, suppose that {J1, J2, J3} is a set of independent Bernoulli random variables, independent of Xi's with E(Ji) = pi and {J1*, J2*, J3*} is another set of independent Bernoulli random variables, independent of Yi's with E(Ji*) = qi, for i = 1, 2, 3. Set λ = (1, 2.5, 5), µ = (0.5, 2, 3), θ = (2, 5, 9), p = q = (0.2, 0.8, 0.9), α = 1. Clearly, λ, µ ∈ E+ and λ ⪰w µ. Also (C2) − (C4) hold, for d = 0.5, a = 1, b = 0. Thus, as an application of Corollary 5.2, we have U3:3 ≥rh V3:3. The graphs of r̃3:3(t) and s̃3:3(t) are given in Figure 2(b), that varifies [sic] Corollary 5.3.",
+    "kind": "example",
+    "model": "parallel system (largest claim U_{3:3})",
+    "family": "generalized linear failure rate baseline F(x) = 1 − e^{−(ax + (b/2)x^2)^d}, d = 0.5, a = 1, b = 0",
+    "compared": "location vectors λ vs µ under weak majorization",
+    "hypotheses": [
+     {"text": "λ, µ ∈ E+ and λ ⪰w µ", "formal": "weak majorization on E+", "source": "statement"},
+     {"text": "(C2) − (C4) hold, for d = 0.5, a = 1, b = 0", "formal": "baseline hazard conditions", "source": "statement"}
+    ],
+    "conclusion": {"order": "rh", "direction": "U_{3:3} >=rh V_{3:3}"},
+    "quantifiers": "n = 3",
+    "numbers": "λ = (1,2.5,5); µ = (0.5,2,3); θ = (2,5,9); p = q = (0.2,0.8,0.9); α = 1; d = 0.5, a = 1, b = 0",
+    "ambiguity": "Closing sentence says 'verifies Corollary 5.3' but the invoked result is Corollary 5.2 (rh ordering) — printed reference mismatch; verified graphically in Figure 2(b)."
+   }
+  ],
+  "note": "Prints U_{3:3} >=rh V_{3:3} via Corollary 5.2; both passes agree (the 'Corollary 5.3' in the last line is the paper's misprint)."
+ },
+ {
+  "queue_claim": "example5.2",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.2298/FIL2104315D",
+    "claim": "Example 5.2",
+    "page": 20,
+    "quote": "Example 5.2. Let {X1, X2} and {Y1, Y2} be two collections of independent random variables such that Xi ∼ F^α((x − λi)/θ) and Yi ∼ F^α((x − µi)/θ), for i = 1, 2. Set the baseline distribution function as Marshall-Olkin extended quasi Lindley distribution. Also, let {J1, J2} be independent Bernoulli with E(Ji) = pi and {J1*, J2*} independent Bernoulli with E(Ji*) = qi, i = 1, 2. Consider λ = (5, 6.1), µ = (5.44, 5.66), θ = 0.01, α = 0.52, ψ(p) = (0.2, 0.5), ψ(q) = (0.32, 0.38). Here, ψ(p) = p^2, which is increasing and convex with respect to p. Let T_{0.6} = ((0.6, 0.4),(0.4, 0.6)). Then, (ψ(p1), ψ(p2); λ1, λ2) ≫ (ψ(q1), ψ(q2); µ1, µ2). Thus, as an application of Corollary 5.3, we have U_{2:2} ≥st V_{2:2}. The graph of F_{2:2}(t) − G_{2:2}(t) is given in Figure 3(a), that verifies Corollary 5.3.",
+    "kind": "example",
+    "model": "parallel system (largest claim U_{2:2})",
+    "family": "Marshall–Olkin extended quasi Lindley baseline (a = 0.1, b = −0.9, d = 0.8); ψ(p) = p^2",
+    "compared": "chain-majorized (ψ(p), λ) vs (ψ(q), µ)",
+    "hypotheses": [
+     {"text": "(ψ(p1), ψ(p2); λ1, λ2) ≫ (ψ(q1), ψ(q2); µ1, µ2) via T_{0.6}", "formal": "chain majorization", "source": "statement"},
+     {"text": "ψ(p) = p^2 increasing and convex", "formal": "ψ satisfies the convexity condition of Corollary 5.3", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "U_{2:2} >=st V_{2:2} (F_{2:2} − G_{2:2} <= 0 over Figure 3(a) range)"},
+    "quantifiers": "n = 2",
+    "numbers": "λ = (5,6.1); µ = (5.44,5.66); θ = 0.01; α = 0.52; ψ(p) = (0.2,0.5); ψ(q) = (0.32,0.38); T_{0.6}; MO quasi Lindley a = 0.1, b = −0.9, d = 0.8",
+    "ambiguity": "Verified graphically by Figure 3(a)."
+   }
+  ],
+  "note": "Prints U_{2:2} >=st V_{2:2} via Corollary 5.3; both passes agree — only the matrix-ordering phrasing differed."
+ },
+ {
+  "queue_claim": "remark3.1",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.2298/FIL2104315D",
+    "claim": "Remark 3.1",
+    "page": 7,
+    "quote": "Remark 3.1. On using Theorem 3.1(ii), one can easily find out a lower bound for the reliability function of the largest claims having heterogeneous portfolios of risks in the form of reliability of the largest claims having homogeneous portfolio of risks. Consider a T-transform matrix T_{0.5} of order 2 × 2, where the first and second rows are same and equal to (1/2, 1/2). Let (ψ(p1), ψ(p2)) = (e^{−p1}, e^{−p2}) and 1/θ = (1/θ1, 1/θ2). Further, assume (ψ(q1), ψ(q2)) = ((e^{−p1} + e^{−p2})/2, (e^{−p1} + e^{−p2})/2) and (1/δ1, 1/δ2) = ((θ1 + θ2)/(2θ1 θ2), (θ1 + θ2)/(2θ1 θ2)). It is easy to check that (ψ(q), 1/δ) = (ψ(p), 1/θ) T_{0.5}. As a result, (ψ(p), 1/θ) ≫ (ψ(q), 1/δ). Therefore, by Theorem 3.1(ii), we can propose a lower bound of the reliability function of U_{2:2} as F̄_{2:2}(t) ≥ [1 − {1 + ln((e^{−p1} + e^{−p2})/2) [1 − F^α((t − λ)(θ1 + θ2)/(2θ1 θ2))]}]^2.",
+    "kind": "remark",
+    "model": "parallel system (largest claim U_{2:2})",
+    "family": "general baseline F with transform ψ(p) = e^{−p} (i.e., ψ(p_i) = e^{−p_i})",
+    "compared": "heterogeneous portfolio (ψ(p), 1/θ) vs averaged homogeneous portfolio (ψ(q), 1/δ)",
+    "hypotheses": [
+     {"text": "(ψ(q), 1/δ) = (ψ(p), 1/θ) T_{0.5} with T_{0.5} rows (1/2, 1/2)", "formal": "averaging T-transform gives chain majorization (ψ(p),1/θ) ≫ (ψ(q),1/δ)", "source": "statement"}
+    ],
+    "conclusion": {"order": "st", "direction": "U_{2:2} >=st V_{2:2} with V the homogenized portfolio, giving F̄_{U2:2}(t) >= the printed bound"},
+    "quantifiers": "n = 2; t > 0",
+    "numbers": "T_{0.5} = ((1/2,1/2),(1/2,1/2)); ψ(q_i) = (e^{−p1}+e^{−p2})/2; 1/δ_i = (θ1+θ2)/(2θ1θ2)",
+    "ambiguity": "Remark presents a lower bound application of Theorem 3.1(ii) rather than a new theorem; the st comparison is implicit via that theorem."
+   }
+  ],
+  "note": "Remark instantiates Theorem 3.1(ii) for an explicit lower bound on F̄_{2:2}; both passes agree on U_{2:2} >=st V_{2:2}."
+ },
+ {
+  "queue_claim": "remark4.2",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "doi:10.2298/FIL2104315D",
+    "claim": "Remark 4.2",
+    "page": 19,
+    "quote": "Remark 4.2. On using Theorem 2.3 of Zardasht (2015), the usual stochastic ordering implies the incomplete cumulative residual entropy ordering. Further, the reversed hazard rate ordering implies the usual stochastic ordering. Therefore, the results obtained in this paper also compare two largest claim amounts arising from two heterogeneous portfolios of risks in the sense of the incomplete cumulative residual entropy ordering.",
+    "kind": "remark",
+    "model": "parallel system (largest claims U_{n:n}, V_{n:n})",
+    "family": "general (applies to all the paper's st/rh results)",
+    "compared": "U_{n:n} vs V_{n:n} from heterogeneous portfolios",
+    "hypotheses": [
+     {"text": "the usual stochastic ordering implies the incomplete cumulative residual entropy ordering (Theorem 2.3 of Zardasht 2015)", "formal": "st => ICRE", "source": "statement"},
+     {"text": "the reversed hazard rate ordering implies the usual stochastic ordering", "formal": "rh => st", "source": "statement"}
+    ],
+    "conclusion": {"order": "other: incomplete cumulative residual entropy (ICRE) ordering", "direction": "U_{n:n} >=ICRE V_{n:n} wherever the paper's st/rh conclusions hold"},
+    "quantifiers": "n >= 2",
+    "numbers": "",
+    "ambiguity": "Borderline scope: an entropy-ordering remark rather than a named stochastic order, but it asserts a named ordering between the two systems under the paper's hypotheses; recorded as 'other:'."
+   }
+  ],
+  "note": "Remark asserts the paper's st/rh results also give ICRE ordering of the largest claims; kept as 'other: ICRE' — a named ordering between the two systems."
+ }
+]

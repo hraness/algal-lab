@@ -1,0 +1,208 @@
+[
+ {
+  "queue_claim": "remark3.3",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2601.07249",
+    "claim": "Remark 3.3 (usual stochastic order)",
+    "page": 18,
+    "quote": "Remark 3.3. From the relationship among the various stochastic orders and the LR order, we have the following. X ≥*(≤*)Y provided (i) α1 ≤ (≥)α2; (ii) β1 ≤ (≥)β2; (iii) λ1 ≤ (≥)λ2. where * stands for ‘usual stochastic order’, ‘hazard rate order’, ‘reversed hazard rate order’, ‘convex order’, ‘concave order’, ‘mean residual life order’, ‘harmonic average mean residual life order’ and so on [34].",
+    "kind": "remark",
+    "model": "single",
+    "family": "CLFRD(α,β,λ): survival exp(−αx − (β/2)x² − λ + λ exp(−αx − (β/2)x²)), x ≥ 0, α,β,λ > 0",
+    "compared": "X ~ CLFRD(α1,β1,λ1) vs Y ~ CLFRD(α2,β2,λ2)",
+    "hypotheses": [
+     {
+      "text": "(i) α1 ≤ (≥)α2; (ii) β1 ≤ (≥)β2; (iii) λ1 ≤ (≥)λ2",
+      "formal": "componentwise parameter ordering (joint, per Theorem 3.2's setting)",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "st",
+     "direction": "X ≥st Y (i.e., Y ≤st X) when α1 ≤ α2, β1 ≤ β2, λ1 ≤ λ2; X ≤st Y under the reversed inequalities"
+    },
+    "quantifiers": "all positive parameters satisfying (i)–(iii)",
+    "numbers": "",
+    "ambiguity": "Remark (not a numbered theorem) asserting the same three parameter inequalities give the whole listed family of orders; 'and so on' leaves the list open. Whether (i)–(iii) are joint is unstated — read as joint."
+   },
+   {
+    "paper": "arxiv:2601.07249",
+    "claim": "Remark 3.3 (hazard rate order)",
+    "page": 18,
+    "quote": "X ≥*(≤*)Y provided (i) α1 ≤ (≥)α2; (ii) β1 ≤ (≥)β2; (iii) λ1 ≤ (≥)λ2. where * stands for ... ‘hazard rate order’ ...",
+    "kind": "remark",
+    "model": "single",
+    "family": "CLFRD(α,β,λ)",
+    "compared": "X ~ CLFRD(α1,β1,λ1) vs Y ~ CLFRD(α2,β2,λ2)",
+    "hypotheses": [
+     {
+      "text": "(i) α1 ≤ (≥)α2; (ii) β1 ≤ (≥)β2; (iii) λ1 ≤ (≥)λ2",
+      "formal": "componentwise parameter ordering",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "hr",
+     "direction": "X ≥hr Y when α1 ≤ α2, β1 ≤ β2, λ1 ≤ λ2; reversed under reversed inequalities"
+    },
+    "quantifiers": "all positive parameters satisfying (i)–(iii)",
+    "numbers": "",
+    "ambiguity": "Order not defined in the paper (delegated to ref [34])."
+   },
+   {
+    "paper": "arxiv:2601.07249",
+    "claim": "Remark 3.3 (reversed hazard rate order)",
+    "page": 18,
+    "quote": "X ≥*(≤*)Y provided (i) α1 ≤ (≥)α2; (ii) β1 ≤ (≥)β2; (iii) λ1 ≤ (≥)λ2. where * stands for ... ‘reversed hazard rate order’ ...",
+    "kind": "remark",
+    "model": "single",
+    "family": "CLFRD(α,β,λ)",
+    "compared": "X ~ CLFRD(α1,β1,λ1) vs Y ~ CLFRD(α2,β2,λ2)",
+    "hypotheses": [
+     {
+      "text": "(i) α1 ≤ (≥)α2; (ii) β1 ≤ (≥)β2; (iii) λ1 ≤ (≥)λ2",
+      "formal": "componentwise parameter ordering",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "rh",
+     "direction": "X ≥rh Y when α1 ≤ α2, β1 ≤ β2, λ1 ≤ λ2; reversed under reversed inequalities"
+    },
+    "quantifiers": "all positive parameters satisfying (i)–(iii)",
+    "numbers": "",
+    "ambiguity": "Order not defined in the paper (ref [34])."
+   },
+   {
+    "paper": "arxiv:2601.07249",
+    "claim": "Remark 3.3 (convex order)",
+    "page": 18,
+    "quote": "X ≥*(≤*)Y provided (i) α1 ≤ (≥)α2; (ii) β1 ≤ (≥)β2; (iii) λ1 ≤ (≥)λ2. where * stands for ... ‘convex order’ ...",
+    "kind": "remark",
+    "model": "single",
+    "family": "CLFRD(α,β,λ)",
+    "compared": "X ~ CLFRD(α1,β1,λ1) vs Y ~ CLFRD(α2,β2,λ2)",
+    "hypotheses": [
+     {
+      "text": "(i) α1 ≤ (≥)α2; (ii) β1 ≤ (≥)β2; (iii) λ1 ≤ (≥)λ2",
+      "formal": "componentwise parameter ordering",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "other: convex order",
+     "direction": "X ≥∗ Y in 'convex order' when α1 ≤ α2, β1 ≤ β2, λ1 ≤ λ2; reversed under reversed inequalities"
+    },
+    "quantifiers": "all positive parameters satisfying (i)–(iii)",
+    "numbers": "",
+    "ambiguity": "Paper does not define 'convex order' (plain cx vs icx unstated; ref [34])."
+   },
+   {
+    "paper": "arxiv:2601.07249",
+    "claim": "Remark 3.3 (concave order)",
+    "page": 18,
+    "quote": "X ≥*(≤*)Y provided (i) α1 ≤ (≥)α2; (ii) β1 ≤ (≥)β2; (iii) λ1 ≤ (≥)λ2. where * stands for ... ‘concave order’ ...",
+    "kind": "remark",
+    "model": "single",
+    "family": "CLFRD(α,β,λ)",
+    "compared": "X ~ CLFRD(α1,β1,λ1) vs Y ~ CLFRD(α2,β2,λ2)",
+    "hypotheses": [
+     {
+      "text": "(i) α1 ≤ (≥)α2; (ii) β1 ≤ (≥)β2; (iii) λ1 ≤ (≥)λ2",
+      "formal": "componentwise parameter ordering",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "other: concave order",
+     "direction": "X ≥∗ Y in 'concave order' when α1 ≤ α2, β1 ≤ β2, λ1 ≤ λ2; reversed under reversed inequalities"
+    },
+    "quantifiers": "all positive parameters satisfying (i)–(iii)",
+    "numbers": "",
+    "ambiguity": "Paper does not define 'concave order' (plain cv vs icv unstated; ref [34])."
+   },
+   {
+    "paper": "arxiv:2601.07249",
+    "claim": "Remark 3.3 (mean residual life order)",
+    "page": 18,
+    "quote": "X ≥*(≤*)Y provided (i) α1 ≤ (≥)α2; (ii) β1 ≤ (≥)β2; (iii) λ1 ≤ (≥)λ2. where * stands for ... ‘mean residual life order’ ...",
+    "kind": "remark",
+    "model": "single",
+    "family": "CLFRD(α,β,λ)",
+    "compared": "X ~ CLFRD(α1,β1,λ1) vs Y ~ CLFRD(α2,β2,λ2)",
+    "hypotheses": [
+     {
+      "text": "(i) α1 ≤ (≥)α2; (ii) β1 ≤ (≥)β2; (iii) λ1 ≤ (≥)λ2",
+      "formal": "componentwise parameter ordering",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "mrl",
+     "direction": "X ≥mrl Y when α1 ≤ α2, β1 ≤ β2, λ1 ≤ λ2; reversed under reversed inequalities"
+    },
+    "quantifiers": "all positive parameters satisfying (i)–(iii)",
+    "numbers": "",
+    "ambiguity": "Order not defined in the paper (ref [34])."
+   },
+   {
+    "paper": "arxiv:2601.07249",
+    "claim": "Remark 3.3 (harmonic average mean residual life order)",
+    "page": 18,
+    "quote": "X ≥*(≤*)Y provided (i) α1 ≤ (≥)α2; (ii) β1 ≤ (≥)β2; (iii) λ1 ≤ (≥)λ2. where * stands for ... ‘harmonic average mean residual life order’ and so on [34].",
+    "kind": "remark",
+    "model": "single",
+    "family": "CLFRD(α,β,λ)",
+    "compared": "X ~ CLFRD(α1,β1,λ1) vs Y ~ CLFRD(α2,β2,λ2)",
+    "hypotheses": [
+     {
+      "text": "(i) α1 ≤ (≥)α2; (ii) β1 ≤ (≥)β2; (iii) λ1 ≤ (≥)λ2",
+      "formal": "componentwise parameter ordering",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "other: harmonic average mean residual life order",
+     "direction": "X ≥∗ Y in hmrl order when α1 ≤ α2, β1 ≤ β2, λ1 ≤ λ2; reversed under reversed inequalities"
+    },
+    "quantifiers": "all positive parameters satisfying (i)–(iii)",
+    "numbers": "",
+    "ambiguity": "Order not defined in the paper (ref [34]); the remark's 'and so on' implies further unnamed orders that cannot be recorded."
+   }
+  ],
+  "note": "Both passes produced the same 7-order split; verified verbatim (p.17–18). Recorded st/hr/rh/mrl plus 'other:' labels for convex/concave/hmrl."
+ },
+ {
+  "queue_claim": "unn3.1:table 1 section 3.1 mean residual",
+  "decision": "include",
+  "records": [
+   {
+    "paper": "arxiv:2601.07249",
+    "claim": "Table 1 (Section 3.1, mean residual life at x = 0.5)",
+    "page": 12,
+    "quote": "Table 1 shows the MRL value at x = 0.5 for 8 different parameter combinations. Larger α values yield a higher MRL, which means that the systems last longer on average after x = 0.5. MRL increases significantly for smaller α and β values, which means less failure pressure. Table 1: Mean Residual Life at x = 0.5 [(α,β,λ) → MRL0.5: (2.0,2.0,2.0) 0.2211234; (2.0,2.0,0.5) 0.2668270; (2.0,0.5,2.0) 0.2994618; (2.0,0.5,0.5) 0.3773817; (0.5,2.0,2.0) 0.2831307; (0.5,2.0,0.5) 0.3962282; (0.5,0.5,2.0) 0.5214610; (0.5,0.5,0.5) 0.7728661]",
+    "kind": "example",
+    "model": "single",
+    "family": "CLFRD(α,β,λ); MRL per eq. (6)",
+    "compared": "mean residual life at x = 0.5 over the 2×2×2 grid (α,β,λ) ∈ {0.5,2.0}³",
+    "hypotheses": [
+     {
+      "text": "8 different parameter combinations; MRL evaluated at x = 0.5",
+      "formal": "pointwise numeric comparison of MRL",
+      "source": "statement"
+     }
+    ],
+    "conclusion": {
+     "order": "mrl",
+     "direction": "pointwise comparison only: the tabulated values show smaller α,β,λ give larger MRL0.5 ((0.5,0.5,0.5): 0.7729 > (2,2,2): 0.2211), consistent with Remark 3.3's direction (X ≥mrl Y for smaller parameters) — but the printed prose contradicts itself ('Larger α values yield a higher MRL' vs 'MRL increases significantly for smaller α and β values')"
+    },
+    "quantifiers": "single time point x = 0.5; eight parameter combinations",
+    "numbers": "(2.0,2.0,2.0): 0.2211234; (2.0,2.0,0.5): 0.2668270; (2.0,0.5,2.0): 0.2994618; (2.0,0.5,0.5): 0.3773817; (0.5,2.0,2.0): 0.2831307; (0.5,2.0,0.5): 0.3962282; (0.5,0.5,2.0): 0.5214610; (0.5,0.5,0.5): 0.7728661",
+    "ambiguity": "Prose is internally contradictory: 'Larger α values yield a higher MRL' vs 'MRL increases significantly for smaller α and β' — the numbers support the latter. Row-to-parameter assignment inferred from blank cells in the table layout. A single x = 0.5 cannot establish the mrl order; included as numerical evidence bearing on Remark 3.3."
+   }
+  ],
+  "note": "B-only extraction; in scope as a printed numeric comparison bearing on the mrl order, with the self-contradictory prose flagged."
+ }
+]
