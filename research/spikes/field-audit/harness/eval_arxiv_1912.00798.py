@@ -28,9 +28,18 @@ import sympy as sp
 
 import closedform as cf
 from closedform import x, Closed
+from mpmath import iv
 
 R = sp.Rational
 HERE = os.path.dirname(os.path.abspath(__file__))
+
+# Probe the coverage hole in closedform's grid (span grid for hi=oo starts
+# near top/120 while near-lo points stop at lo+0.1).
+PROBES = [R(1, 8), R(1, 4), R(1, 2), R(3, 4), R(1), R(3, 2), R(2), R(3), R(5),
+          R(8), R(13), R(21), R(34), R(55), R(89), R(144), R(233), R(377),
+          R(610), R(987), R(1597), R(2584), R(4184), R(6765), R(10946),
+          R(17711), R(28657), R(46368), R(75025), R(121393), R(196418),
+          R(317811), R(514229), R(832040)]
 
 
 def rat(v):
@@ -63,8 +72,25 @@ def rec(record, status, instances=0, witness=None, undecided=0):
 
 
 def both(order, A, B):
-    """check(order,A,B): (holds, witness, undecided); extra precision tier."""
-    return cf.check(order, A, B, precisions=(60, 150, 400, 900))
+    """check(order,A,B): (holds, witness, undecided); extra precision tier,
+    plus probe points in the grid's coverage hole."""
+    holds, w, u = cf.check(order, A, B, precisions=(60, 150, 400, 900))
+    if w is not None:
+        return holds, w, u
+    E = cf.expression(order, A, B)
+    for p in PROBES:
+        if p <= A.lo:
+            continue
+        for dps in (150, 400, 900):
+            iv.dps = dps
+            v = cf.iv_eval(E, p)
+            if v.b < 0:
+                return False, p, u
+            if v.a >= 0:
+                break
+        else:
+            u += 1
+    return True, None, u
 
 
 def geom(lams):

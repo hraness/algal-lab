@@ -550,6 +550,15 @@ TESTS = {
 }
 
 NOTES = {
+    "Section 4.3.2 result — FR error sign (FGMW parallel system)":
+        ("REFUTED: E^r(t) is not one-signed in t for any tested (n, gamma) — "
+         "r_D - r_I crosses zero (e.g. n=2, gamma=1/2: + at t=0.001, - at "
+         "t=16/15). The printed parity rule fails in both directions. "
+         "Second evaluation: c3_arxiv_2503.21275_s432_fr.py (exact polynomial "
+         "checks via ratdist, z = e^{-t}: witnesses z=3/16 and z=7/10). "
+         "The printed F̄_D^P formula used verbatim; it is a valid monotone "
+         "survival on all tested instances. Note: the n>2 printed formula "
+         "differs from the fully-FGM parallel law — recorded as printed."),
     "Proposition 2.1": ("Series half verified with the mathematically correct "
                         "pairing: PUOD <=> ESF>=0 (UA), matching the canonical "
                         "direction field. The printed 'OA(UA) <-> PUOD(NUOD)' "

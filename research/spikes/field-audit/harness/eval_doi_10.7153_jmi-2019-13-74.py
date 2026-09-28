@@ -24,10 +24,18 @@ import sympy as sp
 
 import closedform as cf
 from closedform import x, Closed
+from mpmath import iv
 
 R = sp.Rational
 random.seed(424242)
 HERE = os.path.dirname(os.path.abspath(__file__))
+
+# Probe the coverage hole in closedform's grid (see NP evaluator note).
+PROBES = [R(1, 8), R(1, 4), R(1, 2), R(3, 4), R(1), R(3, 2), R(2), R(3), R(5),
+          R(8), R(13), R(21), R(34), R(55), R(89), R(144), R(233), R(377),
+          R(610), R(987), R(1597), R(2584), R(4184), R(6765), R(10946),
+          R(17711), R(28657), R(46368), R(75025), R(121393), R(196418),
+          R(317811), R(514229), R(832040)]
 
 
 def rat(v):
@@ -55,7 +63,24 @@ def lo_pi(paramsX, paramsY):
 
 
 def check(order, SX, SY, lo):
-    return cf.check(order, Closed(SX, lo=lo), Closed(SY, lo=lo))
+    X, Y = Closed(SX, lo=lo), Closed(SY, lo=lo)
+    holds, w, u = cf.check(order, X, Y)
+    if w is not None:
+        return holds, w, u
+    E = cf.expression(order, X, Y)
+    for p in PROBES:
+        if p <= X.lo:
+            continue
+        for dps in (150, 400, 900):
+            iv.dps = dps
+            v = cf.iv_eval(E, p)
+            if v.b < 0:
+                return False, p, u
+            if v.a >= 0:
+                break
+        else:
+            u += 1
+    return True, None, u
 
 
 def in_Sn(a, b):
@@ -211,11 +236,17 @@ def ex_2_7():
     a, b = [R(4, 5), R(3, 10), R(1, 10)], [R(3, 5), R(1), R(2)]
     assert in_Sn(a, b)
     m1 = t_apply(a, b, (0, 2), R(3, 10))
-    assert m1 == ([R(31, 100), R(3, 10), R(59, 100)], [R(79, 50), R(1), R(51, 50)]) and in_Sn(*m1)
+    assert m1 == ([R(31, 100), R(3, 10), R(59, 100)], [R(79, 50), R(1), R(51, 50)])
+    # NB: printed claim "m1 in S3" is FALSE — (0.31-0.30)(1.58-1) > 0 and
+    # (0.30-0.59)(1-1.02) > 0: the first intermediate leaves S3.  Premise
+    # verification fails as printed; the conclusion is still checked below.
+    print("   [ex_2_7] printed m1 in S3:", in_Sn(*m1))
     m2 = t_apply(*m1, (1, 2), R(2, 5))
-    assert m2 == ([R(31, 100), R(237, 500), R(52, 125)], [R(79, 50), R(253, 250), R(126, 125)]) and in_Sn(*m2)
+    assert m2 == ([R(31, 100), R(237, 500), R(52, 125)], [R(79, 50), R(253, 250), R(126, 125)])
+    print("   [ex_2_7] printed m2 in S3:", in_Sn(*m2))
     ce, de = t_apply(*m2, (0, 1), R(9, 10))                # exact product
     cp, dp = [R(163, 500), R(229, 500), R(52, 125)], [R(1523, 1000), R(1069, 1000), R(126, 125)]
+    print("   [ex_2_7] printed c,d in S3:", in_Sn(cp, dp), "| exact chain in S3:", in_Sn(ce, de))
     h1, w1, u1 = check("hr", sys_surv(S_pii, zip(a, b), "min"),
                        sys_surv(S_pii, zip(ce, de), "min"), R(0))
     h2, w2, u2 = check("hr", sys_surv(S_pii, zip(a, b), "min"),
@@ -374,10 +405,12 @@ def thm_2_5():
     return n, wit, und
 
 
-def thm_2_6(fam, note=""):
-    """Statement prints Xi ~ PI but proof uses PII (canonical ambiguity).
-    (a;b) in Sn, single Tw => Y1:n >=hr X1:n i.e. X <=hr Y.
-    fam=S_pii for the proved version; fam=S_pi for the printed-literal version."""
+def thm_2_6():
+    """Theorem 2.6 prints Xi ~ PI(ai,bi) against Yi ~ PII(ci,di) — a genuine
+    CROSS-FAMILY claim (canonical flags 'proof looks PII' — the statement is
+    literal).  (a;b) in Sn, (c;d) = (a;b)Tw => Y1:n >=hr X1:n i.e. X <=hr Y.
+    We test BOTH readings: literal (X~PI vs Y~PII) and intended (PII vs PII).
+    Returns (n, wit_literal, wit_intended, undecided)."""
     insts = []
     for _ in range(400):
         if len(insts) >= 8:
@@ -389,15 +422,20 @@ def thm_2_6(fam, note=""):
         i, j = sorted(random.sample(range(len(a)), 2))
         c, d = t_apply(a, b, (i, j), R(random.randint(1, 4), 5))
         insts.append((a, b, c, d))
-    n, wit, und = 0, None, 0
+    n, witL, witI, und = 0, None, None, 0
     for a, b, c, d in insts:
-        lo = R(0) if fam is S_pii else lo_pi(list(zip(a, b)), list(zip(c, d)))
-        h, w, u = check("hr", sys_surv(fam, zip(a, b), "min"),
-                        sys_surv(fam, zip(c, d), "min"), lo)
+        loL = lo_pi(list(zip(a, b)), list(zip(c, d)))   # PI needs x >= scales
+        h, w, u = check("hr", sys_surv(S_pi, zip(a, b), "min"),
+                        sys_surv(S_pii, zip(c, d), "min"), loL)
         n += 1; und += u
-        if not h and wit is None:
-            wit = w
-    return n, wit, und
+        if not h and witL is None:
+            witL = w
+        h, w, u = check("hr", sys_surv(S_pii, zip(a, b), "min"),
+                        sys_surv(S_pii, zip(c, d), "min"), R(0))
+        n += 1; und += u
+        if not h and witI is None:
+            witI = w
+    return n, witL, witI, und
 
 
 def thm_2_7_8_9(fam, set_, order, kind, n_inst=8):
@@ -460,7 +498,7 @@ def cor_2_x(fam, set_, order, kind, n_inst=8):
 def thm_2_10():
     """PII common scale b, a majorizes c => Xn:n >=st Yn:n i.e. Y <=st X."""
     pairs = [([R(3), R(1), R(1, 2)], [R(2), R(3, 2), R(1)]),
-             ([R(5, 2), R(2), R(1, 2)], [R(3, 2), R(3, 2), R(1)]),
+             ([R(5, 2), R(2), R(1, 2)], [R(2), R(2), R(1)]),
              ([R(4), R(1, 2), R(1, 4)], [R(2), R(3, 2), R(5, 4)])]
     n, wit, und = 0, None, 0
     for b in [R(1), R(2), R(3, 2)]:
@@ -491,12 +529,12 @@ def main():
             h, w, u = ex_2_1_ii(); n_ = 1
         elif label == "Example 2.2":
             h, w, u = ex_2_2(); n_ = 1
-        elif cex and "2.3" in label:
+        elif label.startswith("Example 2.3"):
             ok, w, u = ex_2_3(); n_ = 1
             results.append(rec(recd, "holds" if ok else "ambiguous hypotheses",
                                instances=n_, witness=w, undecided=u))
             continue
-        elif cex and "2.4" in label:
+        elif label.startswith("Example 2.4"):
             ok, w, u = ex_2_4(); n_ = 1
             results.append(rec(recd, "holds" if ok else "ambiguous hypotheses",
                                instances=n_, witness=w, undecided=u))
@@ -524,7 +562,18 @@ def main():
         elif label == "Theorem 2.5":
             n_, w, u = thm_2_5()
         elif label == "Theorem 2.6":
-            n_, w, u = thm_2_6(S_pii)           # proved version (PII)
+            n_, wlit, wint, u = thm_2_6()
+            if wlit is not None and wint is not None:
+                st_, w = "refuted", wlit      # fails under either reading
+            elif wlit is not None or wint is not None:
+                # canonical flags a PI/PII statement-vs-proof mismatch: a
+                # one-reading-only failure is an ambiguity, not a clean verdict
+                st_ = "ambiguous hypotheses"
+                w = wlit if wlit is not None else wint
+            else:
+                st_, w = "holds", None
+            results.append(rec(recd, st_, instances=n_, witness=w, undecided=u))
+            continue
         elif label == "Theorem 2.7":
             n_, w, u = thm_2_7_8_9(S_pi, "S", "st", "min")
         elif label == "Theorem 2.8":
@@ -544,6 +593,8 @@ def main():
             continue
         results.append(rec(recd, "holds" if w is None else "refuted",
                            instances=n_, witness=w, undecided=u))
+        print(results[-1]["claim"], "->", results[-1]["status"],
+              results[-1]["witness"], flush=True)
     out = os.path.join(HERE, "eval_doi_10.7153_jmi-2019-13-74.result.json")
     json.dump(results, open(out, "w"), indent=1)
     for r in results:

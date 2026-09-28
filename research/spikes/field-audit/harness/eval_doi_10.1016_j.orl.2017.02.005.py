@@ -189,7 +189,9 @@ def counterexample_3_2():
     dl = [R(1, 5), R(3, 10), R(4)]
     assert maj(lam, dl)
     res = []
-    for sig in ([R(2), R(3), R(5)], [R(1, 10), R(3), R(5)]):
+    # sig=(1/10,3,5): printed F/G increasing => X >=rh Y, so X <=rh Y must fail;
+    # sig=(2,3,5): printed F/G decreasing => X <=rh Y consistent.
+    for sig in ([R(1, 10), R(3), R(5)], [R(2), R(3), R(5)]):
         X = dist_max(list(zip(sig, lam)))
         Y = dist_max(list(zip(sig, dl)))
         h, w, u = cf.check("rh", X, Y)

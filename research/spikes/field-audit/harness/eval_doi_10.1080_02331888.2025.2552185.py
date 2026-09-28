@@ -168,19 +168,26 @@ def verdict_thm37(detail):
     probes must give holds=False (premise false -> conclusion must fail)."""
     notes = []
     suff_ok = all(r["holds"] for tag, r in detail if tag.startswith("suff"))
+    # primary witness: the necessity-direction counterexample, robust under
+    # every reading of the premise (it fails under both literal and
+    # prefix-level readings while the conclusion is verified true).
     refute_witness = None
     for tag, r in detail:
         if tag.startswith("necc") and r["holds"]:
-            refute_witness = (f"{tag}: hr order held although sum gamma > "
-                              f"sum delta (iff necessity fails)")
-            notes.append(f"{tag}: conclusion holds without premise -> "
-                         f"iff refuted")
-        if tag.startswith("litsuf") and not r["holds"]:
-            notes.append(f"{tag}: under the literal total-sums premise, "
-                         f"sufficiency also fails (witness {wjson(r['witness'])})")
+            notes.append(f"{tag}: premise fails under both readings but "
+                         "conclusion verified — iff necessity direction "
+                         "refuted (instance counterexample)")
             if refute_witness is None:
-                refute_witness = (f"{tag}: printed iff fails under literal "
-                                  f"reading, witness {wjson(r['witness'])}")
+                refute_witness = (f"{tag}: conclusion holds without premise "
+                                  "(instance-level counterexample; necc-d is "
+                                  "N==1, gamma=(2,5), delta=(3,3), "
+                                  "G=H=Exp(1))")
+    for tag, r in detail:
+        if tag.startswith("litsuf") and not r["holds"]:
+            notes.append(
+                f"{tag}: premise literally satisfied (sum gamma = sum delta "
+                f"= 9) yet hr conclusion fails at {wjson(r['witness'])} — "
+                "printed iff also fails under the literal reading")
     return {"suff_ok": suff_ok, "refute": refute_witness, "notes": notes}
 
 
@@ -261,22 +268,27 @@ def test_thm39():
 # ----------------------------------------------------------------------------
 
 def test_thm310():
+    """list of (tag, result); claim: X_{1:N} <=hr Y_{1:N} -> hr(X, Y)."""
     res = []
     pmf = {1: R(1, 3), 2: R(1, 3), 3: R(1, 3)}
     # G=H (r_g = r_h satisfies >=)
     SX = min_sample((1, 1, 2), G1, (1, 1, 1), 3, pmf)
     SY = min_sample((2, 2, 2), G1, (1, 1, 1), 3, pmf)
-    res.append(rcheck("hr", SX, SY))
+    res.append(("adj-G=H", rcheck("hr", SX, SY)))
     # strict r_g > r_h: G=Exp(2), H=Exp(1); alpha=(1,2),beta=(2,3) in E+,
     # gamma=delta=(1,2) in E+, N on {1,2}.
     pmf2 = {1: R(1, 2), 2: R(1, 2)}
     SX = min_sample((1, 2), G2, (1, 2), 2, pmf2)
     SY = min_sample((2, 3), G1, (1, 2), 2, pmf2)
-    res.append(rcheck("hr", SX, SY))
+    res.append(("adj-G2H1", rcheck("hr", SX, SY)))
     # D+ (decreasing) listing variant: alpha=(2,1,1), beta=(2,2,2), G=H
     SX = min_sample((2, 1, 1), G1, (1, 1, 1), 3, pmf)
     SY = min_sample((2, 2, 2), G1, (1, 1, 1), 3, pmf)
-    res.append(rcheck("hr", SX, SY))
+    res.append(("adj-D+", rcheck("hr", SX, SY)))
+    # alternative majorization reading: alpha supermajorizes beta -> X bigger
+    SX = min_sample((2, 3, 3), G1, (1, 1, 1), 3, pmf)
+    SY = min_sample((2, 2, 2), G1, (1, 1, 1), 3, pmf)
+    res.append(("alt", rcheck("hr", SX, SY)))
     return res
 
 
@@ -403,11 +415,11 @@ OUT_OF_SCOPE = {
     "Counterexample 3.3": "Archimedean (Gumbel) copulas, random minima — dependence",
     "Remark 3.2": "hedged 'can also be true' statement over copulas — non-checkable quantification",
     "Theorem 3.1": "quantifies over Archimedean copula generators psi1, psi2 — dependence",
-    "Section 4.1 application (first activation scheme, via Theorem 3.1 as premise)": "application via copula theorem — dependence",
+    "Section 4.1 application (first activation scheme, via Theorem 3.1 as printed)": "application via copula theorem — dependence",
     "Theorem 3.2": "quantifies over copula generators — dependence",
     "Theorem 3.3": "quantifies over copula generators — dependence",
     "Theorem 3.4": "quantifies over copula generators — dependence",
-    "Section 4.1 application (last activation scheme, via Theorem 3.4 as premise)": "application via copula theorem — dependence",
+    "Section 4.1 application (last activation scheme, via Theorem 3.4 as printed)": "application via copula theorem — dependence",
     "Section 4.2 application (transportation, via Theorem 3.4)": "application via copula theorem + Poisson N — dependence",
     "Theorem 3.16": "quantifies over a general Archimedean generator psi satisfying regularity conditions — copula quantification",
 }
@@ -547,9 +559,30 @@ def main():
             else:
                 entry.update({"status": "holds", "instances": len(res),
                               "witness": None, "undecided_points": 0})
+        elif label == "Theorem 3.10":
+            res = test_thm310()
+            adj = [r for t_, r in res if t_.startswith("adj")]
+            alt = [r for t_, r in res if t_.startswith("alt")]
+            fails = [(t_, r) for t_, r in res if not r["holds"]]
+            note = None
+            if fails:
+                w = wjson(fails[0][1]["witness"])
+                parts = [f"{t_} fails" for t_, _ in fails]
+                note = ("printed X <=hr Y fails under the adjudicated "
+                        "beta <=w alpha reading on instances "
+                        + ", ".join(parts)
+                        + (" and also under the converse reading"
+                           if any(not r["holds"] for r in alt) else "")
+                        + " — the hazards cross; neither direction holds")
+                entry.update({"status": "refuted", "witness": w})
+            else:
+                entry.update({"status": "holds", "witness": None})
+            entry.update({"instances": len(res), "undecided_points": 0})
+            if note:
+                entry["note"] = note
         else:
-            res = {"Theorem 3.10": test_thm310, "Theorem 3.17": test_thm317}[label]()
-            c = combine(res)
+            res = test_thm317()
+            c = combine([r for r in res])
             entry.update({"status": "holds" if c["holds"] else "refuted",
                           "instances": c["instances"],
                           "witness": c["witness"],

@@ -28,10 +28,37 @@ import sympy as sp
 import closedform as cf
 from closedform import x, Closed
 from ratdist import Dist, ORDERS, z, _nonnegative
+from mpmath import iv
 
 R = sp.Rational
 random.seed(20260927)
 HERE = os.path.dirname(os.path.abspath(__file__))
+
+# Probe the coverage hole in closedform's grid.
+PROBES = [R(1, 8), R(1, 4), R(1, 2), R(3, 4), R(1), R(3, 2), R(2), R(3), R(5),
+          R(8), R(13), R(21), R(34), R(55), R(89), R(144), R(233), R(377),
+          R(610), R(987)]
+
+
+def ccheck(order, A, B):
+    """cf.check + probe points."""
+    holds, w, u = cf.check(order, A, B)
+    if w is not None:
+        return holds, w, u
+    E = cf.expression(order, A, B)
+    for p in PROBES:
+        if p <= A.lo:
+            continue
+        for dps in (150, 400):
+            iv.dps = dps
+            v = cf.iv_eval(E, p)
+            if v.b < 0:
+                return False, p, u
+            if v.a >= 0:
+                break
+        else:
+            u += 1
+    return True, None, u
 
 
 def nonneg_on_01(expr):
@@ -142,8 +169,8 @@ def ex_2():
     S_nhpp = sp.exp(-x) * sum(si * sum(x ** j / sp.factorial(j) for j in range(i))
                               for i, si in enumerate(s, start=1) if si)
     G, N = Closed(S_gcp), Closed(S_nhpp)
-    h1, w1, u1 = cf.check("st", G, N)       # T_GCP <=st T_NHPP ? expect fail
-    h2, w2, u2 = cf.check("st", N, G)       # T_NHPP <=st T_GCP ? expect fail
+    h1, w1, u1 = ccheck("st", G, N)       # T_GCP <=st T_NHPP ? expect fail
+    h2, w2, u2 = ccheck("st", N, G)       # T_NHPP <=st T_GCP ? expect fail
     confirmed = (w1 is not None) and (w2 is not None)
     return confirmed, (w1, w2), u1 + u2
 
@@ -305,7 +332,7 @@ def series_gcp_nhpp():
     for Lam in [x, x ** 2, R(3, 2) * x]:
         NP = Closed(sp.exp(-Lam))
         GP = Closed(1 / (1 + Lam))
-        h, w, u = cf.check("st", NP, GP)
+        h, w, u = ccheck("st", NP, GP)
         n += 1
         und += u
         if not h and wit is None:
