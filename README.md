@@ -380,51 +380,36 @@ Tests cover analytical graph cases, malformed proposals, information-sharing
 boundaries, the command executor, archive tampering, offline reproduction, and
 the maximum admitted study. Contribute through a checked pull request.
 
-## Publishing follow-ups
+## Research manuscripts
 
-Nothing here is submitted or posted yet. Manuscripts live under `papers/`
-(author Benjamin Guo, Hraness). Log of what each still needs:
+Five finished manuscripts are available as PDFs, with LaTeX sources and
+verification programs. The [publication review](papers/PUBLICATION-REVIEW.md)
+records the mathematical checks, visual review and remaining source limits.
+The independent reviewers were AI agents.
 
-- `hazard-mixture` — counterexamples to a published α-mixture ordering
-  program (SKF2026 Thms 3.4, 3.8, 3.9, 3.10-literal, 3.11, 3.12, Cors; SAF
-  4.1(b); two invalid printed counterexamples). Needs: venue choice;
-  decide whether to notify the audited authors before submission;
-  independent human read. The audit chain now covers six certified
-  defect carriers (`research/spikes/cluster-audit/` — umbrella memo +
-  citation map): the broken T-transform lift propagates from its
-  (legitimate) systems context into the mixture literature — HF2018 is
-  the probable origin, still propagating via SKB2026 — plus two
-  independent defects (SPBB2026's vacuous hypotheses; VKF2025's αγ>1
-  boundary). Decide whether that material joins the paper or stands as
-  a second audit note.
-- `softmax-thresholds` — sharp thresholds replacing a published ICLR-2026
-  monotonicity claim. Needs: venue choice; decide on courtesy note to the
-  source authors.
-- `boltzmann-purity` — purity theorem for nested Boltzmann allocation,
-  refuting the v1 exactness conjecture. Needs: venue choice; courtesy-note
-  decision.
-- `mixture-cluster-audit` (new, 12 pp draft) — the whole-cluster audit as
-  its own paper: 7 certified lift-carriers, the n>2 open question
-  answered negatively, vacuous-hypothesis and noise-counterexample
-  findings, provenance pinned to 2018. Needs: venue choice; independent
-  human read of every certified instance; courtesy-note strategy for the
-  audited authors is now a bigger decision (multiple labs involved);
-  decide the hazard-mixture / cluster-audit split (overlap: the SKF
-  theorems appear in both).
-- `no-five-exact` (new draft) — first exact values of the AlphaEvolve-60
-  function: `C(3)=8`, `C(4)=11`, `C(5)=14` by complete canonical layer
-  enumeration (no exact values in the public record, which starts at
-  n=7). Includes the corrected-prune erratum as a soundness section.
-  Needs: §4.1 finalization when the `k=19` run decides `C(6)` (found=0
-  over all 8,133 orbits ⇒ `C(6)=18` exactly); venue choice; decide
-  whether to fold the H1 `o(n^8)` reduction chain (`research/spikes/
-  h1-quadruples/`, six memos) into a companion note.
-- Research records, not yet papers: `Z_plane = (K_* + o(1)) n^11`
-  proof draft, the `Z_sphere ~ n^10 (ln n)^2` census, the H1 partial
-  theorem (`N_sym = O(n^7 log n)` + Lemma M isolation), and the
-  maintained table attacks (covering arrays — honest negative so far).
-  Needs: decide which belong in papers vs. public record posts (DeepMind
-  issue #6, covering-array tables).
+| Manuscript | Result and scope | Files |
+| --- | --- | --- |
+| Softmax thresholds | Sharp thresholds for an allocation monotonicity claim, with the scope of the literature search stated. | [PDF](papers/softmax-thresholds/main.pdf) · [Source and checks](papers/softmax-thresholds) |
+| Boltzmann purity | A purity theorem for nested Boltzmann allocation and a counterexample to the cited v1 exactness conjecture. | [PDF](papers/boltzmann-purity/main.pdf) · [Source and checks](papers/boltzmann-purity) |
+| Hazard mixtures | An exact survival identity, rational counterexamples and a construction for any number of components above two. | [PDF](papers/hazard-mixture/main.pdf) · [Source and checks](papers/hazard-mixture) |
+| Mixture claim audit | Source-verified counterexamples and explicitly conditional reconstructions, with limits on attribution where originals were unavailable. | [PDF](papers/mixture-cluster-audit/main.pdf) · [Source and checks](papers/mixture-cluster-audit) |
+| Small-grid sphere and plane avoidance | Verified constructions and independently checked small cases; the candidate exact values C(5) = 14 and C(6) = 18 retain their single-enumerator limitation. | [PDF](papers/no-five-exact/main.pdf) · [Source and checks](papers/no-five-exact) |
+
+The separate [independent grid checker](research/spikes/no-five-exact/independent-enumeration.md)
+reproduces C(3) = 8 and C(4) = 11. Its bounded n = 5 run ended without a
+decision and supplies no further upper bound.
+
+The [Ramsey symmetry census](research/spikes/moonshot-r310/vertex_transitive/README.md)
+exhausts the published minimal transitive actions of degree 40, with
+independently replayed rejection witnesses. It excludes this symmetry class
+conditional on the cited classification and enumeration; it does not settle
+R(3,10). The [frontier review](research/spikes/moonshot-r310/frontier-review-20260928.md)
+records the literature and next research direction.
+
+The broader literature-corpus audit is a separate study. Its author-response
+process remains a prerequisite to releasing its paper-by-paper findings.
+Investigations of sphere and plane counts, H1 quadruples and covering arrays
+remain research records; they are not included among these finished manuscripts.
 
 ## Links
 
