@@ -1,0 +1,266 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=28mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\numberwithin{equation}{section}
+\setlength{\emergencystretch}{2em}
+\title{Small-support inequalities for reflected max-convolution}
+\author{Benjamin Guo\\Hraness (\href{https://hraness.com}{\texttt{hraness.com}})\thanks{Developed with AI research agents. The proof is self-contained apart from the cited classical small-sumset theorem.}}
+\date{29 September 2026}
+\hypersetup{pdftitle={Small-support inequalities for reflected max-convolution},pdfauthor={Benjamin Guo}}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+For a nonnegative kernel on at most four integers, we bound its weighted
+squared mass under a coefficientwise ordinary-autoconvolution constraint by
+the fourth root of its fourfold max-convolution mass. Finite linear
+programming duality identifies the constrained maximum with a universal
+translated-kernel covering constant. The bound therefore gives a reflected
+fourfold max-convolution inequality, strict for positive kernels on four
+points. We classify the five pair-sum collision patterns on four points and
+prove the corresponding sharp unweighted covering constants. The
+five-point Sidon set $\{0,2,7,8,11\}$ violates the stronger covering bound by
+$1/16$, establishing the support-size limit of that bound. Nevertheless,
+the reflected inequality holds for every five-point integer support when
+the kernel is constant, with arbitrary nonnegative input and denominator
+weights. The proof combines an energy estimate, a bound using the range
+of the denominator weights, and a small-sumset argument.
+\end{abstract}
+
+\tableofcontents
+
+\section{The inequality and its covering constant}
+All functions below are nonnegative and finitely supported on $\mathbb Z$.
+We distinguish ordinary convolution from max-convolution:
+\[
+ (u*v)(s)=\sum_{p+q=s}u(p)v(q),\qquad
+ (u\star v)(s)=\max_{p+q=s}u(p)v(q).
+\]
+The maximum is zero when no pair contributes. We write
+$\widetilde u(p)=u(-p)$ and $\|u\|_1=\sum_pu(p)$.
+For a finite nonempty set $F$ and a kernel $k\ge0$ supported on $F$, define
+\begin{equation}\label{eq:definitions}
+ N_F(k)=\max_{\substack{x\ge0,\ \operatorname{supp}x\subseteq F\\x*x\le1}}
+             \sum_{p\in F}k(p)x(p)^2,
+ \qquad T_F(k)=\|k\star k\star k\star k\|_1.
+\end{equation}
+The constraint is coefficientwise. Each coordinate of $x$ is at most one,
+so the maximum exists by compactness.
+
+\begin{theorem}\label{thm:main}
+If $1\le |F|\le4$, then every nonnegative kernel supported on $F$ satisfies
+\begin{equation}\label{eq:main}
+ N_F(k)^4\le T_F(k).
+\end{equation}
+If $|F|=4$ and $k$ is positive at every point of $F$, the inequality is strict.
+For $F=\{0,2,7,8,11\}$ and $k=1_F$, instead
+\[
+ N_F(k)^4\ge(5/2)^4=39+1/16>39=T_F(k).
+\]
+Thus four is the largest support size for which \eqref{eq:main} holds
+universally.
+\end{theorem}
+
+The theorem concerns a covering bound for the reflected max-convolution
+ratio. The connection follows from a general finite-dimensional lemma.
+
+\begin{lemma}[Universal translated covering]\label{lem:cover}
+For $g\ge0$, nonzero and supported on $F$, define
+\begin{equation}\label{eq:cover}
+ L_F(g,k)=\min_{\lambda_t\ge0}
+ \left\{\sum_{t\in F+F}\lambda_t:
+ \sum_{q\in F}g(q)\lambda_{p+q}\ge g(p)k(p)\quad(p\in F)\right\}.
+\end{equation}
+Then
+\begin{equation}\label{eq:universal}
+ \sup_{g\ne0,\ g\ge0}L_F(g,k)=N_F(k).
+\end{equation}
+The same supremum results if $g$ is required to be positive throughout $F$.
+For every nonzero finitely supported $f\ge0$,
+\begin{equation}\label{eq:ratio}
+ \|f\star\widetilde{gk}\|_1
+ \le L_F(g,k)\|f\star g\|_1
+ \le N_F(k)\|f\star g\|_1.
+\end{equation}
+Here $gk$ denotes pointwise multiplication.
+\end{lemma}
+\begin{proof}
+Fix $q_0\in F$ with $g(q_0)>0$. Set
+$\lambda_{p+q_0}=g(p)k(p)/g(q_0)$ for $p\in F$, and set all remaining
+variables to zero. The shifts $p+q_0$ are distinct, so this is feasible.
+A bounded minimizing level set is compact. The finite linear-programming
+dual maximizes $\sum_pk(p)g(p)z(p)$ subject to
+$z\ge0$ and $z*g\le1$. It contains zero and is bounded, since
+$z(p)\le1/g(q_0)$. Both extrema are attained and are equal by finite
+linear-programming duality.
+
+For a feasible dual vector set $x(p)=\sqrt{g(p)z(p)}$. Coefficientwise,
+\[
+ (x*x)(s)\le\frac12\sum_{p+q=s}
+       \bigl(g(p)z(q)+g(q)z(p)\bigr)=(z*g)(s)\le1.
+\]
+Thus $L_F(g,k)\le N_F(k)$. Conversely, for a nonzero maximizer $x$ in
+\eqref{eq:definitions}, taking $g=z=x$ attains its objective in the dual.
+If $k\ne0$, homogeneity ensures $\|x*x\|_\infty=1$ at a maximizer.
+With $g_\epsilon=x+\epsilon1_F$ and
+$z_\epsilon=g_\epsilon/\|g_\epsilon*g_\epsilon\|_\infty$, the dual value
+tends to $N_F(k)$. This proves the positive-$g$ assertion; $k=0$ is immediate.
+
+An attained cover gives, with $h=\widetilde{gk}$,
+\[
+ h(v)\le\sum_t\lambda_tg(v+t),\qquad
+ (f\star h)(u)\le\sum_t\lambda_t(f\star g)(u+t).
+\]
+The first inequality is the constraint at $p=-v$ when $v\in-F$ and is
+automatic elsewhere. Summing the second over $u$ proves \eqref{eq:ratio}.
+\end{proof}
+
+\begin{corollary}\label{cor:h4}
+If $|F|\le4$, $g\ge0$ is nonzero and supported on $F$, and $k\ge0$ is
+supported on $F$, then every nonzero finitely supported $f\ge0$ satisfies
+\[
+ \|f\star\widetilde{gk}\|_1^4
+ \le \|f\star g\|_1^4\,\|k\star k\star k\star k\|_1.
+\]
+The inequality is strict when $|F|=4$ and $k>0$ on $F$, including when
+some values of $g$ are zero.
+\end{corollary}
+\begin{proof}
+Apply Theorem~\ref{thm:main} to Lemma~\ref{lem:cover};
+$\|f\star g\|_1>0$.
+\end{proof}
+
+Translation and nonzero dilation of $F$ relabel pair sums and fourfold sums
+injectively and preserve $N_F$ and $T_F$. The translated covering argument
+uses shifts in the actual integer support, so it imposes no residue-class
+condition on $f$. Reflection is included. Multiplying $k$ by a constant
+scales $N_F$ linearly and $T_F$ to the fourth power.
+
+\subsection{Relation to sumset inequalities}
+Gyarmati, Hennecart and Ruzsa~\cite[p.~177, equation~(9)]{ghr} asked when
+\[
+ |A-B|\le |A+B|\,|hB|^{1/h}
+\]
+holds for all finite nonempty sets in an abelian group, where $hB$ is the
+repeated sumset.
+Their paper gives a sixfold counterexample and leaves four and five
+unresolved~\cite[p.~182]{ghr}. With indicator functions and $k=1_F$,
+Corollary~\ref{cor:h4} and Theorem~\ref{thm:five-point} give the fourfold
+inequality for $B=F$ of size at most five. Both allow arbitrary $f$ and
+$g$; the four-point result also permits arbitrary kernel weights $k$.
+The five-point example in Theorem~\ref{thm:main} concerns $N_F$ and
+satisfies the reflected inequality by Theorem~\ref{thm:five-point}.
+
+Max-convolution and weighted sumset parameters are established tools.
+Matolcsi, Ruzsa, Shakan and Zhelezov~\cite[Definition~8.1]{mrsz} use the
+operation above and relate a weighted induced-tripling parameter to a set
+parameter in their Theorem~8.6. The cube norm inequality of Becker,
+Ivanisvili, Krachun and Madrid~\cite[Theorem~1.3]{bikm} and the
+mixed-alphabet bounds of Hosle and Ivanisvili~\cite[Theorem~1.5]{hi}
+concern lower bounds for max-convolution and sumset expansion.
+Green, Matolcsi, Ruzsa, Shakan and Zhelezov~\cite[Proposition~2.1]{gmrsz}
+prove the weighted discrete Pr\'ekopa--Leindler inequality
+\[
+ \sum_n\max\{p(a\star b)(n),(1-p)(a\star b)(n-1)\}
+ \ge \|a\|_2\|b\|_2\qquad(0\le p\le1),
+\]
+and deduce a triple-sum lower bound for subsets of quasicubes in their
+Theorem~1.1. Their proposition is equivalent to the $p=q=2$ case of
+Theorem~11.1 of Matolcsi et al.~\cite{mrsz}.
+For ordinary autoconvolution, Cloninger and
+Steinerberger~\cite[Section~1.2]{cs} and Ivanisvili and
+Xie~\cite[Theorem~5]{ix} study continuous $L^1$ mass on a fixed interval.
+That normalization differs from the weighted squared input mass in $N_F(k)$
+and its comparison with $T_F(k)$.
+
+These differences in theorem statements establish neither novelty nor
+non-implication. The covering proofs are self-contained; the five-point
+result also uses Freiman's classical $3k-4$ theorem, in the form recalled
+by Bollob\'as, Leader and Tiba~\cite[p.~1]{blt}. Priority in the
+wider literature remains unestablished. In particular, the mathematical
+comparison with the weighted Pr\'ekopa--Leindler results still requires
+control of the linked ratio involving $f\star g$ and
+$f\star\widetilde{gk}$, rather than a lower bound for an independent
+max-convolution. The companion
+\href{https://github.com/hraness/algal-lab/blob/main/papers/sumset-literature.md}
+{literature comparison} records the exact source versions, reading limits
+and unreproduced numerical dependencies of the continuous results.
+
+\subsection{A coefficient comparison used below}
+\label{sec:coefficient}
+Let $v\ge0$ be a profile on $F$. Group the expansion of $(k\cdot v)^4$
+by the sum of its four support positions. If the total coefficient weight
+in each group is at most one, then
+\begin{equation}\label{eq:coefficient}
+ (k\cdot v)^4\le T_F(k).
+\end{equation}
+Indeed, each kernel monomial in that group is at most its max-convolution
+value. The same argument applies after any stated nonnegative
+AM--GM replacement of monomials. Such a replacement may move weight to
+another sum; the proof must account for the coefficient total at every
+destination. A strict deficit at a group with positive maximum proves
+strictness. A profile used in \eqref{eq:coefficient} need not itself be
+feasible for the ordinary-autoconvolution constraint.
+
+\input{classification}
+\input{ap4}
+\input{isolated}
+\input{double-ap3}
+\input{boundary}
+\input{five-point}
+
+\paragraph{Review and assistance.}
+This manuscript was developed with AI assistance. Separate AI agents checked
+the mathematical arguments and their transcription. These checks do not
+constitute human peer review or journal acceptance.
+
+\begin{thebibliography}{9}
+\small\raggedright
+\setlength{\itemsep}{3pt}
+\bibitem{ghr}
+K.~Gyarmati, F.~Hennecart and I.~Z.~Ruzsa,
+\emph{Sums and differences of finite sets},
+Functiones et Approximatio Commentarii Mathematici \textbf{37}(1) (2007),
+175--186,
+\href{https://doi.org/10.7169/facm/1229618749}{doi:10.7169/facm/1229618749}.
+\bibitem{mrsz}
+D.~Matolcsi, I.~Z.~Ruzsa, G.~Shakan and D.~Zhelezov,
+\emph{An analytic approach to cardinalities of sumsets},
+\href{https://arxiv.org/abs/2003.04075v1}{arXiv:2003.04075v1} (2020).
+\bibitem{bikm}
+L.~Becker, P.~Ivanisvili, D.~Krachun and J.~Madrid,
+\emph{Discrete Brunn--Minkowski inequality for subsets of the cube},
+\href{https://arxiv.org/abs/2404.04486v2}{arXiv:2404.04486v2} (2024).
+\bibitem{hi}
+J.~Hosle and P.~Ivanisvili,
+\emph{Geometric Block Exponents and a Uniform Mixed-Alphabet Sumset Inequality},
+\href{https://arxiv.org/abs/2606.25350v1}{arXiv:2606.25350v1} (2026).
+\bibitem{cs}
+A.~Cloninger and S.~Steinerberger,
+\emph{On suprema of autoconvolutions with an application to Sidon sets},
+\href{https://arxiv.org/abs/1403.7988v3}{arXiv:1403.7988v3} (2016).
+Published in Proceedings of the American Mathematical Society
+\textbf{145}(8) (2017), 3191--3200.
+\bibitem{ix}
+P.~Ivanisvili and X.~Xie,
+\emph{Grokability in five inequalities},
+\href{https://arxiv.org/abs/2605.05193v1}{arXiv:2605.05193v1} (2026).
+\bibitem{blt}
+B.~Bollob\'as, I.~Leader and M.~Tiba,
+\emph{A strengthening of Freiman's $3k-4$ theorem},
+\href{https://arxiv.org/abs/2204.09816v1}{arXiv:2204.09816v1} (2022).
+\bibitem{gmrsz}
+B.~Green, D.~Matolcsi, I.~Z.~Ruzsa, G.~Shakan and D.~Zhelezov,
+\emph{A Weighted Pr\'ekopa--Leindler inequality and sumsets with quasicubes},
+\href{https://arxiv.org/abs/2003.04077v1}{arXiv:2003.04077v1} (2020).
+Published in A.~Avila, M.~T.~Rassias and Y.~Sinai (eds.),
+\emph{Analysis at Large}, Springer, 2022, pp.~125--129.
+\end{thebibliography}
+\end{document}

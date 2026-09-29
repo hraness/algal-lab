@@ -1,0 +1,135 @@
+\section{The support-size boundary}
+\label{sec:boundary}
+
+\begin{proposition}\label{b-small-support}
+For every nonempty integer set $F$ with $|F|\le3$ and every nonnegative
+kernel $k$ supported on $F$, one has $N_F(k)^4\le T_F(k)$.
+\end{proposition}
+
+\begin{proof}
+Sets with at most two points are Sidon, as is any three-point set that is
+not an arithmetic progression.  Proposition~\ref{c-sidon} applies to all
+of them.  For a three-term progression, complete it to a four-term
+progression and extend both $x$ and $k$ by zero.  This preserves ordinary
+convolution, the weighted objective, and $T_F(k)$.  The four-term-progression
+inequality proved above therefore gives the desired bound for every feasible
+$x$, and then for $N_F(k)$.
+\end{proof}
+
+For a singleton $F=\{p\}$ the bound is equality:
+$N_F(k)=k(p)$ and $T_F(k)=k(p)^4$.  The corresponding max-convolution
+inequality is also equality for every nonzero $f,g$ allowed in
+Corollary~\ref{cor:h4}, since
+\[
+ \|f\star g\|_1=g(p)\|f\|_1,\qquad
+ \|f\star\widetilde{gk}\|_1=g(p)k(p)\|f\|_1.
+\]
+Thus the strict four-point statement does not extend to singleton supports.
+
+The preceding proposition, the classification in
+Proposition~\ref{c-classification}, and the five four-point cases prove
+the positive part of Theorem~\ref{thm:main}.  The following example proves
+its support-size assertion.
+
+\begin{proposition}\label{b-five-point}
+Let $F=\{0,2,7,8,11\}$ and $k=1_F$.  Then
+\[
+ N_F(k)=\frac52,\qquad T_F(k)=39,\qquad
+ N_F(k)^4-T_F(k)=\frac1{16}.
+\]
+\end{proposition}
+
+\begin{proof}
+The fifteen unordered pair sums, including diagonal pairs, are
+\[
+ 0,2,4,7,8,9,10,11,13,14,15,16,18,19,22.
+\]
+They are distinct, so $F$ is Sidon.  For $x=1_F/\sqrt2$, ordinary
+convolution equals $1/2$ at diagonal sums and $1$ at off-diagonal sums.
+Consequently $x*x\le1$ and $\sum_{p\in F}x(p)^2=5/2$.
+Equation~\eqref{c-sidon-norm}, which holds for Sidon sets of any size,
+also supplies the upper bound:
+$N_F(1_F)=\max\{5/2,(5+3)/4\}=5/2$.
+
+To count $4F$, put $E=\{0,2,7,8\}$ and write
+$[r,s]_{\mathbb Z}=\{r,r+1,\ldots,s\}$ for integer endpoints $r\le s$.
+For $h\ge0$, partition the summands in $hE$ by the number $m$ drawn
+from $\{7,8\}$.  Their sum ranges from $7m$ to $8m$ in unit steps,
+while the remaining summands from $\{0,2\}$ contribute $2j$ for
+$0\le j\le h-m$.  Hence
+\begin{equation}\label{b-small-sumsets}
+ hE=\bigcup_{m=0}^{h}\ \bigcup_{j=0}^{h-m}
+           [7m+2j,8m+2j]_{\mathbb Z}.
+\end{equation}
+In particular,
+\[
+ 4E=\{0,2,4\}\cup[6,26]_{\mathbb Z}\cup[28,32]_{\mathbb Z}.
+\]
+Now partition $4F$ by the number $\ell$ of summands equal to $11$.
+Formula~\eqref{b-small-sumsets} gives the new elements at each step:
+\begin{center}
+\begin{tabular}{clc}
+\toprule
+Layer & Elements not in preceding layers & Number \\
+\midrule
+$4E$ & $\{0,2,4\}\cup[6,26]_{\mathbb Z}\cup[28,32]_{\mathbb Z}$ & $29$ \\
+$11+3E$ & $\{27,33,34,35\}$ & $4$ \\
+$22+2E$ & $\{36,37,38\}$ & $3$ \\
+$33+E$ & $\{40,41\}$ & $2$ \\
+$\{44\}$ & $\{44\}$ & $1$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+Thus
+\[
+ 4F=\{0,2,4\}\cup[6,38]_{\mathbb Z}\cup\{40,41,44\},
+ \qquad |4F|=39.
+\]
+The fourfold max-convolution of an indicator is the indicator of its
+fourfold sumset, so $T_F(1_F)=39$.  Finally,
+$(5/2)^4=625/16=39+1/16$.
+\end{proof}
+
+The example shows failure of the sufficient covering bound
+$N_F(k)^4\le T_F(k)$ with both $x$ and $k$ positive throughout a
+five-point set.  A counterexample to the reflected max-convolution
+inequality would additionally require functions $f,g$ for which the ratio
+in \eqref{eq:ratio} exceeds $T_F(k)^{1/4}$; this construction supplies
+no such functions.
+
+\section{Sharp unweighted covering constants}
+\label{sec:constants}
+
+The five pair-sum patterns have different unweighted norms.  Their values,
+with one maximizing squared profile in the natural coordinate order, are
+listed below.
+\begin{center}
+\begin{tabular}{lcl}
+\toprule
+Four-point pattern & $N_F(1_F)$ & Maximizing squared profile \\
+\midrule
+Sidon & $2$ & $(1/2,1/2,1/2,1/2)$ \\
+Isolated progression, $(0,a,2a,b)$ & $7/4$ & $(1/4,1/4,1/4,1)$ \\
+Two progressions, $(0,1,2,4)$ & $105/64$ & $(9/64,1/4,1/4,1)$ \\
+Parallelogram, $(0,a,b,a+b)$ & $25/16$ & $(1,1/4,1/4,1/16)$ \\
+Four-term progression & $3/2$ & $(1,1/4,0,1/4)$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+For Sidon supports, \eqref{c-sidon-norm} gives
+$\max\{2,7/4\}=2$.  The isolated-progression profile sums are
+$105/64$ twice, $3/2$ four times, and $7/4$ twice.  The sixteen
+parallelogram profile sums are $3/2$ for the twelve profiles supported
+on three corners and $25/16$ for the four tensor profiles.  For a
+four-term progression, the five profile sums before reversal are
+$3/2,3/2,381/256,3/2,89/64$.  The double-progression reduction bounds
+every profile by ones with total at most $105/64$, and its displayed
+profile is feasible.  Thus the reductions prove all five upper bounds,
+while the listed feasible profiles attain them.
+
+By Lemma~\ref{lem:cover}, each value is also the maximum of
+$L_F(g,1_F)$ over nonzero nonnegative $g$, and the supremum when $g$
+is required to be positive at every point.  This sharpness concerns the
+universal translated covering problem.  The max-convolution ratio in
+\eqref{eq:ratio} can be smaller than its covering bound.

@@ -1,0 +1,579 @@
+\section{Four-term arithmetic progressions}
+\label{sec:ap4}
+Let \(F=\{0,1,2,3\}\). For \(k=(k_0,k_1,k_2,k_3)\ge0\), write
+
+\[
+T(k)=T_F(k)=\sum_{s=0}^{12}
+\max_{i_1+i_2+i_3+i_4=s}\prod_{r=1}^{4}k_{i_r},
+\qquad i_r\in F.
+\]
+
+For a tuple \(v\), let \(v^R_i=v_{3-i}\). Define the five squared profiles
+
+\[
+\begin{aligned}
+A&=(1,1/4,0,1/4),\\
+B&=(1,0,1/4,1/4),\\
+C&=(1,1/4,9/64,25/256),\\
+D&=(1/4,1,0,1/4),\\
+E&=(0,1,1/4,9/64),
+\end{aligned}
+\]
+
+and the ten-element set
+
+\[
+\mathcal V=\{A,B,C,D,E,A^R,B^R,C^R,D^R,E^R\}.
+\]
+
+\begin{proposition}\label{prop:ap4}
+The weighted norm has the finite-profile formula
+
+\begin{equation}\label{eq:a1}
+\boxed{\quad
+\sup_{x\ge0,\;x*x\le1}\sum_{i=0}^{3}k_ix_i^2
+=\max_{v\in\mathcal V}k\cdot v,
+\quad}
+\end{equation}
+
+where the convolution inequality is coefficientwise at all seven indices, and
+
+\begin{equation}\label{eq:a2}
+\boxed{\quad
+(k\cdot v)^4\le T(k)\qquad(v\in\mathcal V).
+\quad}
+\end{equation}
+
+Consequently,
+
+\begin{equation}\label{eq:a3}
+x*x\le1\quad\Longrightarrow\quad
+\left(\sum_i k_ix_i^2\right)^4\le T(k)
+\qquad(k\ge0).
+\end{equation}
+
+For positive \(k_i\), comparison \eqref{eq:a2}, and hence \eqref{eq:a3} at the maximizing value,
+is strict. These statements hold on every four-term integer arithmetic
+progression after relabeling the coordinates.
+\end{proposition}
+
+\subsection{Feasibility and a six-profile convex hull}
+
+Each member of \(\mathcal V\) is the square of a feasible tuple. For the five
+unreversed members, the seven coefficients of \(\sqrt v*\sqrt v\) are
+
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+Profile & Ordinary convolution coefficients\\
+\midrule
+\(A\) & \((1,1,1/4,1,1/2,0,1/4)\)\\
+\(B\) & \((1,0,1,1,1/4,1/2,1/4)\)\\
+\(C\) & \((1,1,1,1,29/64,15/64,25/256)\)\\
+\(D\) & \((1/4,1,1,1/2,1,0,1/4)\)\\
+\(E\) & \((0,0,1,1,1,3/8,9/64)\)\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Reversal reverses this coefficient list. Thus the right-hand side of \eqref{eq:a1} is
+always attained by a feasible squared profile.
+
+Let
+
+\[
+\mathcal S=\{A,B,D,A^R,B^R,D^R\}.
+\]
+
+Its convex hull has the exact elementary description
+
+\begin{equation}\label{eq:a4}
+\operatorname{conv}(\mathcal S)=
+\left\{y\ge0:
+\sum_i y_i=\frac32,\quad y_0,y_3\ge\frac14,\quad
+y_0+y_3\le\frac54\right\}.
+\end{equation}
+
+To check the reverse inclusion, put
+
+\[
+r_0=\frac{4y_0-1}{3},\qquad
+r_3=\frac{4y_3-1}{3},\qquad r_m=1-r_0-r_3.
+\]
+
+These are nonnegative and sum to one. Allocate the same fraction
+\(p=y_1/(y_1+y_2)\) to the first member of each pair
+\((A,B)\), \((B^R,A^R)\), and \((D,D^R)\), with pair masses
+\(r_0,r_3,r_m\), respectively. The resulting convex combination is \(y\).
+The denominator is positive because \(y_1+y_2\ge1/4\).
+
+A useful consequence is the following sufficient domination test. If a tuple
+\(b\ge0\) satisfies
+
+\[
+b_0,b_3\le\frac12,\qquad m=b_1+b_2\le1,
+\]
+
+\begin{equation}\label{eq:a5}
+m+\max(b_0,1/4)+\max(b_3,1/4)\le\frac32,
+\end{equation}
+
+then some \(y\in\operatorname{conv}(\mathcal S)\) dominates \(b\)
+coordinatewise. Indeed choose the final middle sum to be
+\(m'=\max(m,1/4)\), and the endpoint sum to be \(3/2-m'\). The latter lies
+in \([1/2,5/4]\) and is at least
+\(\max(b_0,1/4)+\max(b_3,1/4)\): this is \eqref{eq:a5} when \(m\ge1/4\), and
+follows from \(b_0,b_3\le1/2\) otherwise. Increase coordinates to these sums
+and apply \eqref{eq:a4}.
+
+\subsubsection{Self-contained proof of the sharp norm lemma}
+
+Let \(N=\sum_i x_i^2\) and \(M=\max_i x_i^2\). The constraints imply
+\(x_i^2\le1\), \(2x_ix_j\le1\) for \(i\ne j\), and
+\(x_0x_3+x_1x_2\le1/2\). We repeatedly use
+
+\begin{equation}\label{eq:a6a}
+0\le r,s\le J\quad\Longrightarrow\quad r+s\le J+rs/J,
+\end{equation}
+
+which follows from \((J-r)(J-s)\ge0\).
+
+If \(M\le1/2\), put \(r=x_0x_3\), \(s=x_1x_2\). Applying \eqref{eq:a6a} to the
+squared coordinates in each pair yields
+
+\[
+N\le1+2r^2+2s^2\le1+2(r+s)^2\le3/2.
+\]
+
+Suppose \(1/2\le M\le3/4\), attained at index \(i\). Put
+\(y=x_ix_{3-i}\), \(J=1/(4M)\), and let \(r\) be the product of the two
+coordinates outside this pair. The other three squared coordinates are at most
+\(J\), while \(r+y\le1/2\) and \(r\le J\). Hence
+
+\[
+N\le M+y^2/M+J+4M\min(J,1/2-y)^2.
+\]
+
+For \(0\le y\le1/2-J\), this expression increases with \(y\). For
+\(1/2-J\le y\le1/2\), it is a convex quadratic. Its maximum is therefore
+the larger of the two endpoint values
+
+\[
+B(M)=M+\frac1{2M}+\frac{(2M-1)^2}{16M^3},\qquad M+\frac1{2M},
+\]
+
+namely \(B(M)\). With \(w=2M-1\in[0,1/2]\),
+
+\[
+16M^3(3/2-B(M))=w(1-w^2-w^3)\ge0.
+\]
+
+Suppose \(M\ge3/4\) is at index one; index two follows by reversal. Put
+\(J=1/(4M)\). The constraint \(M+2x_0x_2\le1\) and \eqref{eq:a6a} imply
+
+\[
+x_0^2+x_2^2\le J+M(1-M)^2,
+\qquad N\le M+\frac1{2M}+M(1-M)^2.
+\]
+
+The difference from \(3/2\) is
+
+\[
+\frac{(1-M)(2M^3-2M^2+2M-1)}{2M}\ge0.
+\]
+
+The cubic increases, since its derivative is
+\(6(M-1/3)^2+4/3>0\), and is \(7/32\) at \(M=3/4\).
+
+Finally suppose an endpoint has squared value \(u\in[1/2,1]\). By reversal
+take \(x_0^2=u\), and put
+\(a=2x_0x_1\), \(b=2x_0x_2\), \(c=2x_0x_3\). The first four constraints
+give
+
+\[
+0\le a\le1,\qquad 0\le b\le1-a^2/4,\qquad 0\le c\le1-ab/2.
+\]
+
+For fixed \(a\), the upper bound \(a^2+b^2+(1-ab/2)^2\) on
+\(a^2+b^2+c^2\) is convex in \(b\). At \(b=0\), it is at most two. At
+\(b=1-a^2/4\), it is
+
+\[
+\Psi(a)=2-a+3a^2/4+a^3/4-a^4/16+a^6/64.
+\]
+
+This is convex on \([0,1]\), since
+\(\Psi''(a)=3/2+3a/2-3a^2/4+15a^4/32\ge3/4\), and its endpoint values
+are \(2\) and \(125/64<2\). Therefore
+
+\[
+N=u+\frac{a^2+b^2+c^2}{4u}\le u+\frac1{2u}\le\frac32.
+\]
+
+These cases cover every feasible tuple. The norm bound is sharp at
+\(x=(1/2,1,0,1/2)=\sqrt D\), as its feasibility table shows.
+
+\subsection{Reduction to the ten profiles}
+
+For a feasible \(x\), write \(b_i=x_i^2\). The convolution constraints give
+
+\begin{equation}\label{eq:a6}
+b_i\le1,\qquad b_ib_j\le\frac14\quad(i\ne j).
+\end{equation}
+
+We also use the previously proved sharp norm lemma
+
+\begin{equation}\label{eq:a7}
+\sum_i b_i\le\frac32.
+\end{equation}
+
+\subsubsection{All squared coordinates at most one half}
+
+Suppose \(b_i\le1/2\) for all \(i\). Each consecutive triple has sum at most
+\(9/8\). For example, the constraint
+\(b_1+2\sqrt{b_0b_2}\le1\), together with \(b_0,b_2\le1/2\), gives
+
+\[
+b_0+b_2\le\frac12+2b_0b_2
+\le\frac12+\frac{(1-b_1)^2}{2},
+\]
+
+\begin{equation}\label{eq:a8}
+b_0+b_1+b_2\le1+\frac{b_1^2}{2}\le\frac98.
+\end{equation}
+
+The other triple is the reversed argument.
+
+Condition \eqref{eq:a5} now holds. If both endpoints exceed \(1/4\), use \eqref{eq:a7}; if both
+are below \(1/4\), use \(b_1+b_2\le1\). If just one is below \(1/4\),
+the expression in \eqref{eq:a5} is a consecutive triple sum plus \(1/4\), at most
+\(11/8<3/2\). Thus \(b\) is dominated by the convex hull of \(\mathcal S\).
+
+\subsubsection{A middle squared coordinate at least one half}
+
+By reversal, it suffices to write
+
+\[
+b=(a,u,v,d),\qquad 1/2\le u\le1.
+\]
+
+Put \(J=1/(4u)\). By \eqref{eq:a6}, \(a,v,d\le J\le1/2\). The constraint at
+index two gives \(\sqrt{av}\le(1-u)/2\). Consequently
+
+\[
+a+v\le J+\frac{av}{J}\le\frac1{4u}+u(1-u)^2.
+\]
+
+The following bound is useful throughout this case:
+
+\begin{equation}\label{eq:a9}
+a+u+v\le\frac54.
+\end{equation}
+
+Indeed
+
+\[
+\frac54-\left(u+\frac1{4u}+u(1-u)^2\right)
+=\frac{(1-u)(4u^3-4u^2+4u-1)}{4u}\ge0.
+\]
+
+The cubic is increasing, because \(12u^2-8u+4>0\), and its value at
+\(u=1/2\) is \(1/2\).
+
+First suppose \(m=u+v\le1\). The domination test \eqref{eq:a5} holds. The cases when
+both endpoints are on the same side of \(1/4\) follow from \eqref{eq:a7} or \(m\le1\).
+If \(a\ge1/4\) and \(d\le1/4\), use \eqref{eq:a9}. If \(a\le1/4\) and
+\(d\ge1/4\), the index-four constraint gives
+
+\[
+u+v+d\le1+(\sqrt u-\sqrt d)^2\le\frac54,
+\]
+
+because \(d\le1/2\le u\le1\) and \(d\ge1/4\), so
+\(0\le\sqrt u-\sqrt d\le1/2\). Thus \eqref{eq:a5} again proves domination by
+\(\operatorname{conv}(\mathcal S)\).
+
+Now suppose \(m=u+v>1\). Define
+
+\[
+\theta=4(m-1),\qquad \beta=4-3u-4v,\qquad \gamma=1-u.
+\]
+
+All three numbers are nonnegative and their sum is one. For \(\beta\), use
+\(v\le1/(4u)\) to obtain
+
+\[
+\beta\ge4-3u-1/u=\frac{(1-u)(3u-1)}{u}\ge0.
+\]
+
+The convex combination
+
+\begin{equation}\label{eq:a10}
+y=\theta E+\beta D+\gamma D^R
+=\left(\frac54-m,\ u,\ v,\ \frac{11-7m}{16}\right)
+\end{equation}
+
+dominates \(b\). The first coordinate does so by \eqref{eq:a9}. For the last, the
+index-four constraint gives \(d\le(1-v)^2/(4u)\). We claim
+
+\begin{equation}\label{eq:a11}
+\frac{(1-v)^2}{4u}\le\frac{11-7u-7v}{16}
+\qquad\left(1-u\le v\le\frac1{4u}\right).
+\end{equation}
+
+After multiplying by \(16u\), the required nonnegative expression is
+
+\[
+G_u(v)=11u-7u^2-7uv-4+8v-4v^2.
+\]
+
+It is concave in \(v\), so its minimum on this interval is at an endpoint.
+The two endpoint values are
+
+\[
+G_u(1-u)=4u(1-u),
+\]
+
+\[
+G_u(1/(4u))
+=\frac{(1-u)(28u^3-16u^2+7u-1)}{4u^2}.
+\]
+
+The latter cubic is increasing on \([1/2,1]\), since its derivative
+\(84u^2-32u+7\) is positive there, and its value at \(1/2\) is two.
+This proves \eqref{eq:a11}, then \eqref{eq:a10}, and completes the middle-coordinate case.
+
+\subsubsection{An endpoint squared coordinate at least one half}
+
+By reversal, assume \(u=x_0^2\in[1/2,1]\). Put
+
+\[
+\alpha=2x_0x_1,\qquad \beta=2x_0x_2,\qquad \gamma=2x_0x_3.
+\]
+
+The first four convolution constraints give
+
+\[
+0\le\alpha\le1,\qquad
+0\le\beta\le1-\alpha^2/4,\qquad
+0\le\gamma\le1-\alpha\beta/2.
+\]
+
+For arbitrary nonnegative \(k\),
+
+\[
+k\cdot b
+=k_0u+\frac{k_1\alpha^2+k_2\beta^2+k_3\gamma^2}{4u}.
+\]
+
+For fixed \(\alpha\), the numerator is at most
+
+\[
+k_1\alpha^2+k_2\beta^2+k_3(1-\alpha\beta/2)^2,
+\]
+
+which is convex in \(\beta\). At \(\beta=0\), it is at most \(k_1+k_3\).
+At \(\beta=1-\alpha^2/4\), it is the polynomial
+
+\[
+\begin{aligned}
+\Phi(\alpha)={}&k_2+k_3-k_3\alpha
++(k_1-k_2/2+k_3/4)\alpha^2
++k_3\alpha^3/4\\
+&+(k_2/16-k_3/8)\alpha^4+k_3\alpha^6/64.
+\end{aligned}
+\]
+
+This polynomial has its maximum on \([0,1]\) at an endpoint, even when it is
+not convex. To see this, observe
+
+\[
+\Phi'(0)=-k_3\le0,
+\]
+
+\[
+\Phi'''(\alpha)=\frac32 k_2\alpha
++\frac38 k_3(4-8\alpha+5\alpha^3)\ge0.
+\]
+
+For the last inequality, the minimum of the cubic on \([0,1]\) is at
+\(\alpha=\sqrt{8/15}\), where its value is
+\(4-(16/3)\sqrt{8/15}\ge0\), since \(\sqrt{8/15}\le3/4\).
+Thus \(\Phi'\) is convex and starts nonpositive; its nonpositive sublevel
+set is an interval containing zero. Accordingly \(\Phi\) first decreases
+and then increases, with either portion possibly absent. Its maximum is at an
+endpoint.
+
+The two endpoint values of \(\Phi\) are \(k_2+k_3\) and
+\(k_1+9k_2/16+25k_3/64\). Therefore the numerator is at most
+
+\[
+H=\max\{k_1+k_3,\ k_2+k_3,\ k_1+9k_2/16+25k_3/64\}.
+\]
+
+For each of these three linear forms, convexity in \(u\in[1/2,1]\) reduces
+\(k_0u+H/(4u)\) to its two endpoint values. At \(u=1\), the resulting
+squared profiles are \(A,B,C\). At \(u=1/2\), they are
+
+\[
+W_A=(1/2,1/2,0,1/2),\qquad
+W_B=(1/2,0,1/2,1/2),
+\]
+
+\[
+W_C=(1/2,1/2,9/32,25/128).
+\]
+
+The first two belong to the sparse convex hull, since
+
+\[
+W_A=(A+D+B^R)/3,\qquad
+W_B=(B+D^R+A^R)/3.
+\]
+
+The last is dominated coordinatewise by
+
+\[
+\frac13 C+\frac5{12}D+\frac14D^R
+=\left(\frac12,\frac12,\frac{19}{64},\frac{51}{256}\right)
+\ge W_C.
+\]
+
+Consequently \(k\cdot b\le\max_{v\in\mathcal V}k\cdot v\) in this case
+as well. Every feasible tuple falls into one of the three cases. Together with
+the explicit feasibility table, this proves \eqref{eq:a1}.
+
+\subsection{Comparing the ten linear forms with the four-fold maximum}
+
+Reversal preserves \(T\), so it suffices to handle \(A,B,C,D,E\).
+
+\subsubsection{A coefficient lemma; profiles C and E}
+
+If \(v\ge0\) has the property that every coefficient of
+\((\sum_i v_i z^i)^4\) is at most one, then
+
+\begin{equation}\label{eq:a12}
+(k\cdot v)^4
+=\sum_s\sum_{i_1+\cdots+i_4=s}\prod_r(v_{i_r}k_{i_r})
+\le\sum_s\max_{i_1+\cdots+i_4=s}\prod_r k_{i_r}=T(k).
+\end{equation}
+
+The nonnegative formal series
+
+\[
+(1-z)^{-1/4}=1+z/4+5z^2/32+15z^3/128+\cdots
+\]
+
+coefficientwise dominates
+\(1+z/4+9z^2/64+25z^3/256\). Raising to the fourth power preserves this
+order, and \(((1-z)^{-1/4})^4=(1-z)^{-1}\) has all coefficients equal to
+one. This proves the required coefficient property for \(C\).
+
+For \(E\), use
+\(\sum_i E_i z^i=z(1+z/4+9z^2/64)\). The same comparison applies before
+the harmless fourth-power shift by four. Thus \eqref{eq:a12} proves both profiles.
+
+\subsubsection{Profile B}
+
+Set \(a=k_0\), \(b=k_2\), \(c=k_3\), and ignore \(k_1\); doing so can
+only decrease \(T\). The target linear form is \(a+b/4+c/4\), on indices
+\(0,2,3\). Grouping its fourth-power expansion by index sum, the only fibers
+with more than one monomial are
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Index sum & Monomials and their expansion weights & Total weight\\
+\midrule
+6 & \(ab^3/16+3a^2c^2/8\) & \(7/16\)\\
+8 & \(b^4/256+3abc^2/16\) & \(49/256\)\\
+9 & \(b^3c/64+ac^3/16\) & \(5/64\)\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Every other fiber has one monomial with weight at most one. Each fiber is thus
+bounded by its largest kernel monomial. Summing proves the comparison for \(B\).
+
+\subsubsection{The common three-point maximum for A and D}
+
+Now put \(a=k_0\), \(b=k_1\), \(c=k_3\), and ignore \(k_2\). On the
+indices \(\{0,1,3\}\), the four-fold maximum sum is exactly
+
+\begin{equation}\label{eq:a13}
+\begin{aligned}
+\mathcal T(a,b,c)={}&a^4+a^3b+a^2b^2
++\max(a^3c,ab^3)+\max(a^2bc,b^4)+ab^2c\\
+&+\max(a^2c^2,b^3c)+abc^2+b^2c^2+ac^3+bc^3+c^4.
+\end{aligned}
+\end{equation}
+
+These terms correspond to sums \(0,1,2,3,4,5,6,7,8,9,10,12\), respectively;
+sum eleven is absent. In particular \(T(k)\ge\mathcal T(a,b,c)\).
+
+For \(A\), let
+
+\[
+\begin{aligned}
+P_A={}&a^4+a^3b+a^3c+a^2b^2
++\tfrac34a^2bc+\tfrac14b^4+ab^2c\\
+&+\tfrac12a^2c^2+\tfrac12b^3c
++abc^2+b^2c^2+ac^3+bc^3+c^4.
+\end{aligned}
+\]
+
+Selecting one term or a convex average in each maximum in \eqref{eq:a13} gives
+\(\mathcal T\ge P_A\). An exact nonnegative remainder is
+
+\begin{equation}\label{eq:a14}
+\begin{aligned}
+P_A-(a+b/4+c/4)^4={}&\frac{b^2(a-b)^2}{32}
++\frac{19a^2b^2}{32}+\frac{a^2c^2}{8}\\
+&+\frac{13ab^2c}{16}+\frac{13abc^2}{16}
++\frac{15ac^3}{16}+\frac{55b^4}{256}\\
+&+\frac{31b^3c}{64}+\frac{125b^2c^2}{128}
++\frac{63bc^3}{64}+\frac{255c^4}{256}.
+\end{aligned}
+\end{equation}
+
+Thus \eqref{eq:a2} holds for \(A\).
+
+For \(D\), choose the terms \(ab^3,b^4,b^3c\) in the three maxima of
+\eqref{eq:a13}, obtaining the lower bound
+
+\[
+P_D=a^4+a^3b+a^2b^2+ab^3+b^4+ab^2c+b^3c
++abc^2+b^2c^2+ac^3+bc^3+c^4.
+\]
+
+In comparison with \((a/4+b+c/4)^4\), the only missing monomials are
+
+\[
+\frac{a^3c}{64},\qquad\frac{3a^2bc}{16},\qquad\frac{3a^2c^2}{128}.
+\]
+
+The arithmetic--geometric mean inequalities
+
+\[
+a^3c\le\frac{3a^4+c^4}{4},\qquad
+a^2bc\le\frac{a^4+b^2c^2}{2},\qquad
+a^2c^2\le\frac{a^4+c^4}{2}
+\]
+
+absorb their total using at most
+
+\[
+\frac{30}{256}a^4+\frac4{256}c^4+\frac3{32}b^2c^2.
+\]
+
+The available coefficient surpluses of these three monomials in
+\(P_D-(a/4+b+c/4)^4\) are respectively
+\(255/256,255/256,5/8\), all larger than the required amounts. All other
+coefficient surpluses are nonnegative. This proves the comparison for \(D\),
+and completes \eqref{eq:a2}.
+
+For positive \(k_i\), these comparisons are strict. The profile \(C\) has a
+strict coefficient deficit at index sum two. Profiles \(A,D\) omit the positive
+sum-eleven contribution involving \(k_2\); \(B\) omits the positive sum-one
+contribution involving \(k_1\); and \(E\) omits the positive sum-zero
+contribution. Reversal handles the other five profiles.

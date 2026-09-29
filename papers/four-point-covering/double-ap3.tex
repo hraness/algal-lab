@@ -1,0 +1,552 @@
+\section{Two intersecting three-term progressions}\label{sec:double}
+
+The support $F=\{0,1,2,4\}$ contains the progressions $\{0,1,2\}$ and
+$\{0,2,4\}$. Both relations enter the weighted estimate. For a nonnegative
+$x$ supported on $F$, put $w_i=x(i)^2$. The condition $x*x\leq 1$ is
+equivalent to
+\begin{equation}\label{d-feasibility}
+\begin{gathered}
+0\leq w_i\leq1,\qquad w_iw_j\leq\tfrac14\quad(i\ne j),\\
+w_1+2\sqrt{w_0w_2}\leq1,\qquad
+w_2+2\sqrt{w_0w_4}\leq1.
+\end{gathered}
+\end{equation}
+All tuples in this section use the coordinate order $(0,1,2,4)$. We shall
+bound nonnegative linear functionals of $w$ by their values on the profiles
+\begin{equation}\label{d-profiles}
+\begin{aligned}
+H_0&=(\tfrac12,0,\tfrac12,\tfrac12),&
+H_L&=(\tfrac12,\tfrac12,\tfrac18,\tfrac12),\\
+H_R&=(\tfrac18,\tfrac12,\tfrac12,\tfrac12),&
+V_L&=(1,\tfrac14,\tfrac9{64},\tfrac14),\\
+V_R&=(\tfrac9{64},\tfrac14,1,\tfrac14),&
+R&=(\tfrac9{64},\tfrac14,\tfrac14,1),
+\end{aligned}
+\end{equation}
+and on feasible profiles with a zero coordinate. The tuples
+$H_0,H_L,V_L,V_R$ are used only as upper bounds; they need not satisfy
+\eqref{d-feasibility}.
+
+\subsection{Profiles with a zero coordinate}
+
+\begin{lemma}\label{d-boundary}
+Suppose that $w$ satisfies \eqref{d-feasibility} and has a zero coordinate.
+For every nonnegative kernel $k$ on $F$, put
+$k_w=k\,1_{\operatorname{supp}(w)}$. Then
+\begin{equation}\label{d-boundary-comparison}
+(k\cdot w)^4\leq T_F(k_w)\leq T_F(k).
+\end{equation}
+The last comparison is strict when $k$ is positive on $F$. Moreover,
+$\sum_iw_i\leq3/2$.
+\end{lemma}
+
+\begin{proof}
+A three-term progression embeds in a four-term progression. Extending $k$
+and $x$ by zero at the additional point preserves ordinary convolution
+feasibility and the two quantities in the weighted comparison of
+Section~\ref{sec:ap4}. This proves the first inequality when the remaining
+support is a progression.
+
+For a triangle with no three-term progression, its pair sums are distinct
+apart from interchange. Write $a$ for its largest kernel value and $r$ for
+the sum of the other two. Its weighted squared norm is
+\begin{equation}\label{d-triangle-norm}
+a+\frac r4.
+\end{equation}
+Indeed, if all squared coordinates are at most $1/2$, the half-triple
+dominates them and is the average of the three tuples having one coordinate
+equal to $1$ and the other two equal to $1/4$. Otherwise, a largest squared
+coordinate $u\in[1/2,1]$ bounds the other two by $1/(4u)$. The resulting
+linear functional is convex in $u$, so its maximum occurs at an endpoint.
+Choosing the largest kernel coordinate for the unit coordinate proves
+\eqref{d-triangle-norm}.
+
+Fixing two copies of the point carrying $a$ in the fourfold maximum gives
+six distinct sums and therefore
+\begin{equation}\label{d-triangle-quartic}
+T_F(k_w)
+\geq a^4+a^3r+\frac23a^2r^2
+\geq(a+r/4)^4.
+\end{equation}
+For the final inequality, expand the fourth power. Since $r\leq2a\leq3a$,
+the quadratic and higher terms are at most
+$(153/256)a^2r^2<(2/3)a^2r^2$ when $r>0$. The zero cases follow directly.
+Supports of size at most two are covered by zero extension.
+
+For a positive full kernel, a missing point $0,4,1$, or $2$ excludes the
+sum $0,16,1$, or $14$, respectively, from the smaller fourfold sumset.
+That sum has a positive contribution for the full kernel. This proves
+strictness. Finally, the same pair-bound argument with all weights equal
+to one gives total at most $3/2$ for any feasible three-point profile;
+an additional progression constraint can only decrease this maximum.
+\end{proof}
+
+\subsection{Reduction of the feasible profiles}
+
+An endpoint estimate will be used for maxima at the first and third
+coordinates.
+
+\begin{lemma}\label{d-endpoint-curves}
+For $u\in[1/2,1]$, set
+\begin{equation}\label{d-Jh}
+J=\frac1{4u},\qquad h=J(1-J)^2.
+\end{equation}
+The curve $(u,J,h,J)$ is dominated coordinatewise by the convex hull of
+$H_L,V_L,V_R$. The curve $(h,J,u,J)$ is dominated coordinatewise by the
+convex hull of $H_R,V_R,V_L$.
+\end{lemma}
+
+\begin{proof}
+Set
+\begin{equation}\label{d-curve-weights}
+\begin{gathered}
+t=2u-1,\qquad s=\frac{(2u-1)(1-u)}{4u},\qquad \beta=\frac s2,\\
+\alpha=t+\frac{23}{32}\beta,\qquad \gamma=1-\alpha-\beta.
+\end{gathered}
+\end{equation}
+These weights are nonnegative and sum to one, since
+\[
+\gamma=(1-u)\left(2-\frac{55(2u-1)}{256u}\right)\geq0.
+\]
+In $\gamma H_L+\alpha V_L+\beta V_R$, the first coordinate equals $u$,
+the second and fourth equal $J+201s/256$, and the third equals
+\[
+\frac{7+2u}{64}+\frac{1815s}{4096}.
+\]
+On the other hand,
+\begin{equation}\label{d-curve-remainder}
+h-\frac{7+2u}{64}
+=s\frac{u^2+5u-1}{16u^2}\leq\frac{7s}{16},
+\end{equation}
+because $6u^2-5u+1=(3u-1)(2u-1)\geq0$. The inequality $1815>1792$
+proves domination of the third coordinate. Interchanging the first and
+third coordinates proves the second assertion.
+\end{proof}
+
+\begin{lemma}\label{d-reduction}
+For every nonnegative $k$, its linear functional on the profiles satisfying
+\eqref{d-feasibility} is bounded above by its largest value on the six
+profiles in \eqref{d-profiles} and on the feasible profiles having a zero
+coordinate.
+\end{lemma}
+
+\begin{proof}
+First suppose all coordinates are at most $1/2$. Drop the second
+progression constraint for an upper bound and increase $w_4$ to $1/2$.
+For fixed $m=w_1\in[0,1/2]$, the first constraint gives
+$w_0w_2\leq(1-m)^2/4$. Maximizing a nonnegative linear functional under
+this product bound and the upper bounds $w_0,w_2\leq1/2$ reduces to
+\[
+(w_0,w_2)=\left(\frac12,\frac{(1-m)^2}{2}\right)
+\quad\hbox{or its interchange}.
+\]
+To see this, on the product boundary the objective has the convex form
+$a\ell+cK/\ell$; it is largest at an endpoint of the allowed interval.
+The remaining objective is convex in $m$, so its endpoints give
+$H_0,H_L,H_R$.
+
+Otherwise choose a largest coordinate $u\geq1/2$. Each other coordinate
+is at most $J=1/(4u)$. We consider its four possible locations.
+
+\paragraph{Largest coordinate at index 1.}
+Drop the second progression constraint and set $w_4=J$. The same
+product-bound argument gives
+\begin{equation}\label{d-middle-one}
+(w_0,w_2)=(J,f)\quad\hbox{or its interchange},
+\qquad f=u(1-u)^2.
+\end{equation}
+Assign the larger of $k(0),k(2)$ to $J$. The objective becomes
+\[
+k(1)u+k_{\rm small}(J+f)
++(k_{\rm large}-k_{\rm small}+k(4))J.
+\]
+It is convex in $u$, since $J''>0$ and
+\[
+(J+f)''=\frac1{2u^3}+6u-4>0.
+\]
+On $[1/2,2/3]$, the first summand is at least $27/16$ and the second
+at least $-1$; above $2/3$ both are positive. The endpoint profiles are
+$H_L,H_R$ and the feasible tuples
+\[
+(1/4,1,0,1/4),\qquad(0,1,1/4,1/4).
+\]
+
+\paragraph{Largest coordinate at index 0.}
+Retain both progression constraints. For fixed $c=w_2\in[0,J]$, increase
+the other two coordinates to
+\begin{equation}\label{d-largest-zero-bounds}
+w_1=\min\{J,1-\sqrt{c/J}\},\qquad w_4=J(1-c)^2.
+\end{equation}
+The first formula changes at $c=h$. The objective is convex on each of
+$[0,h]$ and $[h,J]$: its nonaffine terms are a nonnegative quadratic
+and, on the second interval, a nonnegative multiple of $-\sqrt c$.
+The resulting endpoints are
+\begin{equation}\label{d-largest-zero-profiles}
+(u,J,0,J),\qquad
+(u,J,h,J(1-h)^2),\qquad
+(u,0,J,h).
+\end{equation}
+All three satisfy \eqref{d-feasibility}. The first and third have a zero
+coordinate. The middle is dominated by $(u,J,h,J)$, to which
+Lemma~\ref{d-endpoint-curves} applies.
+
+\paragraph{Largest coordinate at index 2.}
+Use $f=u(1-u)^2$ again. We have $f\leq h$: after multiplication by
+$4u$, the equivalent inequality $1-J-2u(1-u)\geq0$ becomes
+\[
+(2u-1)(4u^2-2u+1)\geq0.
+\]
+For fixed $a=w_0>0$, the other admissible maxima are
+\begin{equation}\label{d-largest-two-bounds}
+w_1=\min\{J,1-2\sqrt{au}\},\qquad
+w_4=\min\left\{J,\frac{(1-u)^2}{4a}\right\}.
+\end{equation}
+The objective is affine or convex on the intervals with endpoints
+$0,f,h,J$, since the nonaffine terms are nonnegative multiples of
+$1/a$ and $-\sqrt a$. On $[0,f]$ it increases with $a$. It is enough
+to use the feasible profiles
+\begin{equation}\label{d-largest-two-profiles}
+(f,J,u,J),\qquad
+\left(h,J,u,\frac{(1-u)^2}{4h}\right),\qquad
+(J,0,u,f).
+\end{equation}
+When $u=1$, the condition $w_0w_4=0$ gives these same limiting endpoints
+directly on its two branches. The last profile has a zero coordinate.
+Since $h\geq f$, the middle one is dominated by $(h,J,u,J)$ and hence
+by Lemma~\ref{d-endpoint-curves}. The first is dominated by the chord
+from $H_R$ to the feasible tuple $(0,1/4,1,1/4)$, with weight $2u-1$
+on the latter. Its first coordinate is $(1-u)/4\geq u(1-u)^2$;
+its second and fourth dominate $J$ by convexity of $1/u$.
+
+\paragraph{Largest coordinate at index 4.}
+The second progression constraint gives
+$w_0\leq J(1-w_2)^2$. Drop the first constraint for an upper bound.
+The convex quadratic lies below its endpoint chord, so the profile is
+dominated by a convex combination of
+\begin{equation}\label{d-largest-four-curves}
+B(u)=(J,J,0,u),\qquad W(u)=(J(1-J)^2,J,J,u).
+\end{equation}
+The weight on $W(u)$ is $w_2/J$. Both endpoints also satisfy the first
+progression constraint; for $W(u)$ its left side is $3J-2J^2\leq1$
+for $J\in[1/4,1/2]$.
+
+Convexity of $1/u$ bounds $B(u)$ by the chord joining the feasible
+tuples
+\[
+Q=(\tfrac12,\tfrac12,0,\tfrac12),\qquad
+S=(\tfrac14,\tfrac14,0,1).
+\]
+For $W(u)$, put $Z=(1,0,1/4,9/64)$ and define
+\begin{equation}\label{d-outer-weights}
+\lambda=\frac{(1-u)(64u+55)}{87u},\qquad
+\mu=\frac{(2u-1)(64u+23)}{87u},\qquad
+\nu=\frac{32(2u-1)(1-u)}{87u}.
+\end{equation}
+The weights are nonnegative and sum to one. The tuple
+$\lambda H_R+\mu R+\nu Z$ has coordinates $w_1=J$, $w_4=u$,
+and $w_2=J+\nu/4$. Its first coordinate exceeds $J(1-J)^2$ by
+\begin{equation}\label{d-outer-remainder}
+\frac{(1-u)(2u-1)(576u^2-145u+29)}{1856u^3}\geq0.
+\end{equation}
+The quadratic is positive because its leading coefficient is positive
+and its discriminant is $21025-66816<0$. The profiles $Z,Q,S$ are
+feasible and have a zero coordinate. This finishes all four cases,
+including ties.
+\end{proof}
+
+\subsection{Quartic comparisons}
+
+Write $k=(A,B,C,D)$ on $(0,1,2,4)$. In the expansion of $(k\cdot v)^4$,
+group monomials according to the sum of their four support indices.
+Each group is at most its coefficient sum times the maximum defining
+$T_F(k)$ at that index. Thus coefficient sums at most one prove the
+desired comparison. The following computations use weighted AM--GM
+to move a term to other fourfold products when a coefficient sum
+exceeds one.
+
+\begin{lemma}\label{d-half-comparisons}
+For $v=H_0,H_L,H_R,R$ and $k\geq0$,
+\begin{equation}\label{d-half-inequality}
+(k\cdot v)^4\leq T_F(k).
+\end{equation}
+Each inequality is strict when $k$ is positive on $F$.
+\end{lemma}
+
+\begin{proof}
+For $H_0$, the target is $(A+C+D)^4/16$ on the progression
+$\{0,2,4\}$. After dividing indices by two, its coefficient sums are
+\[
+\frac1{16}(1,4,10,16,19,16,10,4,1).
+\]
+Use $A^2D^2\leq(A^3D+AD^3)/2$ on the entire term
+$(6/16)A^2D^2$. The coefficient sums at indices $2,4,6$ become
+$13/16$ each; all others were at most one. This compares with the
+three-point maximum. The positive full kernel also has a contribution
+at the missing odd sum $1$, giving strictness.
+
+For $H_L$, its index polynomial is
+$(1+z+z^2/4+z^4)/2$. If $c_n$ is the coefficient of its fourth power,
+the complete coefficient sums are
+\begin{equation}\label{d-HL-coefficients}
+\begin{gathered}
+\begin{array}{c rrrrrrrrr}
+\toprule
+n&0&1&2&3&4&5&6&7&8\\
+\midrule
+4096c_n&256&1024&1792&1792&2144&3520&3952&2576&2497\\
+\bottomrule
+\end{array}\\[6pt]
+\begin{array}{c rrrrrrrr}
+\toprule
+n&9&10&11&12&13&14&15&16\\
+\midrule
+4096c_n&3264&2320&768&1120&1024&256&0&256\\
+\bottomrule
+\end{array}
+\end{gathered}
+\end{equation}
+These follow by squaring the row
+$(1,2,3/2,1/2,33/16,2,1/2,0,1)$ and dividing by $16$.
+Every coefficient is at most $247/256<1$.
+
+For $H_R$, the linear form is $A/8+(B+C+D)/2$. Its coefficient
+sums $c_n$ are
+\begin{equation}\label{d-HR-coefficients}
+\begin{gathered}
+\begin{array}{c rrrrrrrrr}
+\toprule
+n&0&1&2&3&4&5&6&7&8\\
+\midrule
+256c_n&1/16&1&7&28&71&124&172&224&262\\
+\bottomrule
+\end{array}\\[6pt]
+\begin{array}{c rrrrrrrr}
+\toprule
+n&9&10&11&12&13&14&15&16\\
+\midrule
+256c_n&240&208&192&112&64&64&0&16\\
+\bottomrule
+\end{array}
+\end{gathered}
+\end{equation}
+Only sum $8$ exceeds one. Replace its term $(3/128)A^2D^2$ by
+$(3/256)A^3D+(3/256)AD^3$. The coefficient sums at indices $4,8,12$
+become $74/256,1,115/256$, respectively. All others pass unchanged.
+The coefficient $1/4096$ at index $0$ gives strictness when $A>0$.
+
+For $R$, relabel the support by $p\mapsto4-p$. Its index polynomial becomes
+\[
+C(z)=1+\tfrac14z^2+\tfrac14z^3+\tfrac9{64}z^4.
+\]
+The coefficients of $C(z)^4$ at indices $0$ through $7$ are
+\[
+1,\quad0,\quad1,\quad1,\quad\tfrac{15}{16},\quad
+\tfrac34,\quad\tfrac{55}{64},\quad\tfrac{39}{64}.
+\]
+For indices at least $8$, write $C=1+H$. In
+$C^4=1+4H+6H^2+4H^3+H^4$, the first two terms do not contribute.
+The contribution of $6H^2$ is at most $3/8$ and occurs only at index $8$.
+Since $H$ is coefficientwise bounded by $z^2(1+z+z^2)/4$, the other
+two contributions are at most $7/16$ and $19/256$. Here $7$ and $19$
+are the largest coefficients of $(1+z+z^2)^3$ and $(1+z+z^2)^4$.
+The total is at most $227/256<1$. Thus all coefficients pass, and the
+coefficient $15/16$ at reflected index $4$ gives strictness for positive
+kernels. Reflection reverses the output indices and preserves their sum.
+\end{proof}
+
+\begin{lemma}\label{d-VL-comparison}
+For $k\geq0$, $(k\cdot V_L)^4\leq T_F(k)$, strictly when $k$ is positive
+on $F$.
+\end{lemma}
+
+\begin{proof}
+The linear form is $E=A+B/4+9C/64+D/4$. The coefficient sums in $E^4$
+are listed below. An omitted entry is zero.
+\begin{equation}\label{d-VL-ledger}
+\begin{array}{r l r l}
+\toprule
+n&c_n&n&c_n\\
+\midrule
+0&1&9&3/16+243/16384\\
+1&1&10&33/256+729/262144\\
+2&15/16&11&27/1024\\
+3&31/64&12&1/16+243/32768\\
+4&1+467/2048&13&1/64\\
+5&3/4+279/4096&14&9/1024\\
+6&39/64+1215/65536&15&0\\
+7&29/128+729/262144&16&1/256\\
+8&3/8+351/4096+6561/16777216&&\\
+\bottomrule
+\end{array}
+\end{equation}
+Only sum $4$ exceeds one. Its polynomial is
+\[
+A^3D+\frac{243}{2048}A^2C^2+\frac{27}{256}AB^2C+\frac1{256}B^4
+\leq U+aV+bW,
+\]
+where
+\begin{equation}\label{d-VL-collision}
+\begin{gathered}
+U=A^3D,\quad V=A^2C^2,\quad W=B^4,\\
+a=\frac{351}{2048},\qquad b=\frac{29}{512},\qquad
+a+b=\frac{467}{2048}.
+\end{gathered}
+\end{equation}
+This uses $AB^2C\leq(A^2C^2+B^4)/2$. For $M=\max(U,V,W)$,
+\begin{equation}\label{d-minimum-split}
+U+aV+bW\leq M+a\min(U,V)+b\min(U,W).
+\end{equation}
+Indeed,
+$a(V-U)_++b(W-U)_+\leq(a+b)(M-U)\leq M-U$.
+Weighted AM--GM also gives
+\begin{equation}\label{d-scaled-minima}
+\begin{aligned}
+\min(A^3D,A^2C^2)&\leq\tfrac4{15}A^3C+\tfrac{25}{12}A^2D^2,\\
+\min(A^3D,B^4)&\leq\tfrac4{15}A^2B^2+\tfrac{25}{12}A^2D^2.
+\end{aligned}
+\end{equation}
+For the first line, the minimum is at most $U^{2/3}V^{1/3}$, which equals
+$(A^3C)^{2/3}(A^2D^2)^{1/3}$. The stated bound follows since
+$(4/15)^2(25/12)=4/27$. The second line has the same exponents.
+
+The term $M$ is at most the maximum at sum $4$. All added terms from
+\eqref{d-scaled-minima} go to sums $2$ and $8$. The final coefficient
+sum at $2$ is
+\begin{equation}\label{d-VL-two}
+\frac{15}{16}+\frac{467}{2048}\frac4{15}
+=\frac{7667}{7680}<1.
+\end{equation}
+The original coefficient sum at $8$ is less than $15/32$, and the added
+weight is
+\[
+\frac{467}{2048}\frac{25}{12}=\frac{11675}{24576}<\frac12.
+\]
+Its final total is below $31/32$. The remaining sums pass by
+\eqref{d-VL-ledger}. For positive kernels, the positive maximum and
+remaining slack at sum $2$ give strictness.
+\end{proof}
+
+\begin{lemma}\label{d-VR-comparison}
+For $k\geq0$, $(k\cdot V_R)^4\leq T_F(k)$, strictly when $k$ is positive
+on $F$.
+\end{lemma}
+
+\begin{proof}
+Relabel the support by $p\mapsto2-p$, and label the kernel values on positions
+$(0,1,2,-2)$ by $(A,B,C,D)$. The profile is then
+$(1,1/4,9/64,1/4)$, so the target is again $E=A+B/4+9C/64+D/4$.
+Only sums $0,1,2,-2$ have coefficient sum greater than one.
+Retain respectively
+\begin{equation}\label{d-VR-retained}
+A^4,\qquad A^3B,\qquad
+\tfrac9{16}A^3C+\tfrac38A^2B^2,\qquad A^3D.
+\end{equation}
+The terms removed from these groups are
+\begin{equation}\label{d-VR-removed}
+\begin{array}{r l}
+\toprule
+\text{sum}&\text{removed terms}\\
+\midrule
+0&(3/16)AB^2D+(27/64)A^2CD+(243/32768)C^2D^2\\
+1&(1/64)B^3D+(27/128)ABCD\\
+2&(27/1024)B^2CD+(243/4096)AC^2D\\
+-2&(3/128)B^2D^2+(27/256)ACD^2\\
+\bottomrule
+\end{array}
+\end{equation}
+Apply the following weighted AM--GM inequalities:
+\begin{equation}\label{d-VR-redistribution}
+\begin{aligned}
+AB^2D&\leq(A^2D^2+B^4)/2,&
+A^2CD&\leq(A^2C^2+A^2D^2)/2,\\
+C^2D^2&\leq(C^4+D^4)/2,&
+B^3D&\leq(3B^4+D^4)/4,\\
+ABCD&\leq(A^2D^2+B^2C^2)/2,&
+B^2CD&\leq B^4/2+C^4/4+D^4/4,\\
+AC^2D&\leq(A^2D^2+C^4)/2,&
+B^2D^2&\leq(B^4+D^4)/2,\\
+ACD^2&\leq(A^2C^2+D^4)/2.&&
+\end{aligned}
+\end{equation}
+Every destination is a fourfold product on the reflected support. Only
+sums $4,-4,6,8,-8$ receive additions. Their coefficient sums are
+\begin{equation}\label{d-VR-ledger}
+\begin{array}{r l l l}
+\toprule
+\text{sum}&\text{original}&\text{addition}&\text{final}\\
+\midrule
+4&467/2048+729/262144&807/2048&163801/262144<5/8\\
+-4&3/8+9/1024&3603/8192&6747/8192<7/8\\
+6&1215/65536&27/256&8127/65536<1/8\\
+8&6561/16777216&2619/65536&677025/16777216<1/16\\
+-8&1/256&5155/65536&5411/65536<3/32\\
+\bottomrule
+\end{array}
+\end{equation}
+Besides these and the four groups in \eqref{d-VR-retained}, the
+unchanged nonzero coefficient sums are
+\begin{equation}\label{d-VR-unchanged}
+\begin{array}{r l r l}
+\toprule
+\text{sum}&\text{coefficient sum}&\text{sum}&\text{coefficient sum}\\
+\midrule
+-6&1/16&3&31/64+243/16384\\
+-5&1/64&5&279/4096\\
+-3&3/16&7&729/262144\\
+-1&3/4+27/1024&&\\
+\bottomrule
+\end{array}
+\end{equation}
+All are less than one. The retained groups at $0,1,-2$ have coefficient
+sum one, and the group at $2$ has coefficient sum $15/16$. This proves
+the inequality and gives strictness for positive kernels at sum $2$.
+Reflection preserves the sum of the fourfold maxima.
+\end{proof}
+
+\begin{proposition}\label{d-certificate}
+For $F=\{0,1,2,4\}$ and every nonnegative kernel $k$,
+\begin{equation}\label{d-main-inequality}
+N_F(k)^4\leq T_F(k).
+\end{equation}
+The inequality is strict if $k$ is positive on $F$.
+\end{proposition}
+
+\begin{proof}
+Lemma~\ref{d-reduction} bounds the weighted objective by its values
+on \eqref{d-profiles} and on feasible profiles with a zero coordinate.
+Lemmas~\ref{d-boundary}, \ref{d-half-comparisons},
+\ref{d-VL-comparison}, and~\ref{d-VR-comparison} bound the fourth power
+of each of these values by $T_F(k)$.
+
+For positive kernels every listed comparison is strict. The feasible
+set is compact by \eqref{d-feasibility}, so its weighted maximum is
+attained. Applying the strict comparison to a maximizing profile
+proves the strict form of \eqref{d-main-inequality}.
+\end{proof}
+
+\subsection{The sharp unweighted norm}
+
+The same reduction determines the unweighted norm exactly.
+
+\begin{proposition}\label{d-sharp-norm}
+For $F=\{0,1,2,4\}$,
+\begin{equation}\label{d-norm-value}
+\sup_{\substack{0\ne x\geq0\\ \operatorname{supp}(x)\subseteq F}}
+\frac{\|x\|_2^2}{\|x*x\|_\infty}=\frac{105}{64}.
+\end{equation}
+Equality holds for $x=(3/8,1/2,1/2,1)$ in the coordinate order
+$(0,1,2,4)$.
+\end{proposition}
+
+\begin{proof}
+By homogeneity, normalize $\|x*x\|_\infty=1$. In
+Lemma~\ref{d-reduction}, the totals of $V_L,V_R,R$ are $105/64$,
+those of $H_L,H_R$ are $13/8=104/64$, and that of $H_0$ is $3/2$.
+Every feasible profile with a zero coordinate has total at most $3/2$
+by Lemma~\ref{d-boundary}. This gives the upper bound.
+
+The squared profile of the stated $x$ is $R$. It satisfies
+\eqref{d-feasibility}: the two progression left sides are $5/8$ and
+$1$, all pair bounds hold, and the coordinate at $4$ is $1$.
+Thus $\|x*x\|_\infty=1$ and $\|x\|_2^2=105/64$.
+\end{proof}
