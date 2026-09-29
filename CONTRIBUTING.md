@@ -172,3 +172,17 @@ original nine. CI runs `test_verify_sample.py` and `verify_sample.py` in the
 same directory: six controls and 311,618 endpoint-union checks. The proof
 uses only the standard library and exact integer arithmetic. The other
 15 sample graphs remain unresolved by these certificates.
+
+The [sparse-digit sum-difference construction](papers/sparse-sum-difference/README.md)
+proves an exponent greater than 1.1855 for the small-sumset problem. CI checks
+its rational certificate and control examples using only Python's standard
+library:
+
+```sh
+python3 -m unittest discover -s papers/sparse-sum-difference -p 'test_verify.py' -v
+python3 papers/sparse-sum-difference/verify.py
+```
+
+These computations verify the finite inequality used in the manuscript's
+asymptotic proof. The proof and its comparison with prior results require
+separate mathematical and source review.
