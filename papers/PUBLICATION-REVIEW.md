@@ -238,3 +238,49 @@ coefficient table and the references. The proofs require no search
 program or numerical optimizer. The PDF is ready for publication with
 the stated mathematical and literature scope. Repository checks and
 verification of the released files accompany the release.
+
+## Weighted-digit entropy attribution: 29 September 2026
+
+The general weighted-digit formula in Theorem 1 follows from Lau and Nair's
+typical-set theorem, a symmetric Gibbs coupling with equal marginals, and
+the finite-set transfer of Gyarmati, Hennecart and Ruzsa. The revised source
+states this attribution beside the theorem and gives the derivation in
+Appendix A. The direct proof specifies the cost sublevel sets used in the
+construction, and the four-digit certificate proves the same strict bound
+`theta > 1.18565`.
+
+The comparison uses Lau and Nair's *Information inequalities via ideas from
+additive combinatorics*, arXiv:2312.11017v3, dated 5 February 2025,
+Theorem 10 in Appendix C, and the GHR lemma on printed page 179 of the
+published 2007 paper. Codex agent `/root` read the complete 21-page v3
+preprint. Codex agent `/root/papers` independently reviewed the needed
+type argument in Appendices B and C and inspected original PDF pages
+15–21. That review established the typical-set limit despite two printed
+issues: the reversed inequality sign in Lemma 9 and the unrestricted
+interior-inclusion aside in Theorem 9. The case in which `Γ_n` consists of
+`n`-types, used by Theorem 10, is valid; the manuscript also supplies its
+direct type-class proof.
+
+The positive implication was formulated by `/root` and independently
+reviewed by `/root/papers`. The review checked the common marginal, both
+entropy bounds, use of the same typical sets, zero marginal masses,
+irrational probabilities, integer encoding, diameter control, the strict
+GHR hypothesis, and the quantifier for every fixed `K>1`. It establishes
+the general formula as a consequence of those prior results. Priority of
+the particular numerical construction and the fivefold example remains
+unestablished. The entropy application concerns finite integer supports;
+it proves no unrestricted fourfold inequality and gives no general
+non-implication result about the earlier weighted frameworks. The identified
+journal edition of Lau–Nair remains unread.
+
+The public text was drafted by Codex agent `/root/papers`, using the
+canonical Hraness writing guides and `hraness-generation-style/v1`.
+This is mathematical and editorial agent work; no human peer review or
+journal acceptance is asserted. The earlier dated entries and immutable
+releases preserve their original reading and validation scopes.
+
+The public transcription passed independent mathematical review. The revised
+nine-page PDF was rebuilt and every page visually inspected, with no
+unresolved references or layout defects. The numerical verification programs
+and certificates are unchanged. Repository checks and verification of the
+released files accompany this update.

@@ -20,17 +20,17 @@
 The small-sumset, large-difference-set problem asks how large $|E-F|$ can be
 when $|E+F|\le K|E|$, for fixed $K>1$ and arbitrarily large finite integer
 sets $E,F$. We give a weighted digit construction for its exponent $\theta$.
-Equal counts of opposite differences give a lower bound for the difference
-set, while a product-weight estimate bounds the sumset from above. The
-resulting formula applies to any finite digit alphabet. Four-digit blocks
-in radix $32$, weighted by the sum of their source digits, give
+Four-digit blocks in radix $32$, weighted by the sum of their source digits, give
 $\theta>1.18565$. The smaller alphabet $\{0,3,4,6,7,\ldots,16\}$ with
 geometric weights $(16/19)^a$ gives a simpler proof of $\theta>1.1855$.
 Both bounds have exact integer certificates. They exceed Zheng's
-published lower bound of $1.173077$.
-The proof uses the finite-set transfer
-inequality of Gyarmati, Hennecart and Ruzsa and does not require optimality
-of the chosen parameters.
+lower bound of $1.173077$ in his 2025 preprint.
+The general weighted-digit formula follows from Lau and Nair's typical-set
+theorem, a symmetric choice of marginal, and the finite-set transfer of
+Gyarmati, Hennecart and Ruzsa. We give that derivation and a direct counting
+proof that specifies the cost sublevel sets used in the constructions.
+Equal counts of opposite differences bound the difference set from below,
+while a product-weight estimate bounds the sumset from above.
 \end{abstract}
 \medskip\noindent\textbf{Keywords.} sumset; difference set; weighted digits; entropy; exact certificate.
 \smallskip\noindent\textbf{MSC 2020.} 11B75; 05A16.
@@ -106,9 +106,7 @@ Zhelezov~\cite[Definition~8.1]{mrsz}. Extending $w$ by zero outside $\A$
 and putting $\widetilde w(x)=w(-x)$ gives
 $P=\|w\star w\|_1$ and $Q=\|w\star\widetilde w\|_1$.
 Their Theorem~8.6 relates a weighted max-convolution parameter to an
-induced tripling parameter. The argument below estimates the reflected
-quotient $Q/P$ and retains the encoding diameter needed
-in~\eqref{eq:transfer}.
+induced tripling parameter.
 
 \begin{theorem}\label{thm:weighted}
 If $Q>P$, then
@@ -116,6 +114,13 @@ If $Q>P$, then
  \theta\ge 1+\frac{\log(Q/P)}{\log(2B+1)}.
 \end{equation}
 \end{theorem}
+
+This bound follows from Lau and Nair's typical-set
+theorem~\cite[Theorem~10, v3]{launair} and~\eqref{eq:transfer}.
+Appendix~\ref{app:entropy} gives the common marginal and entropy comparison
+that establish the implication, including the encoding diameter.
+The direct proof below specifies the cost sublevel sets used in the
+explicit constructions.
 
 \begin{proof}
 Write $c_a=-\log w_a\ge0$ and $\tau_d=-\log D_d$. Choose a pair
@@ -462,8 +467,94 @@ The theorem holds for every fixed alphabet and every set of positive
 weights satisfying $Q>P$. The selected parameters need not maximize its
 right-hand side. Nor does a finite search over alphabets determine the
 optimal exponent in~\eqref{eq:problem}. This note records the construction,
-its proof and an exact certificate. It does not assert that the bound or
-method is new, or that the parameters attain a current record.
+its proof and an exact certificate. Priority of the particular construction
+and its current-record status remain unestablished.
+
+\appendix
+\section{Derivation from the typical-set theorem}\label{app:entropy}
+
+We derive Theorem~\ref{thm:weighted} from
+Lau and Nair~\cite[Theorem~10, v3]{launair} and the GHR
+transfer~\eqref{eq:transfer}. All alphabets in this application are finite
+subsets of the integers. For probability vectors $p,q$, let $\Pi(p,q)$
+be their joint distributions and define
+\[
+ E_\pm(p,q)=\max_{\pi\in\Pi(p,q)}H_\pi(X\pm Y),
+ \qquad H(r)=-\sum_z r_z\log r_z,
+\]
+with $0\log0=0$. The maximum exists by compactness and continuity;
+the coordinates need not be independent.
+
+Put $r_d=D_d/Q$. For each positive difference choose a pair attaining
+$D_d$, use its reversal for $-d$, and choose a maximizing diagonal pair
+for zero. Assign mass $r_d$ to each chosen pair. Since $D_{-d}=D_d$,
+the resulting law is symmetric under interchange of its coordinates.
+Its two marginals therefore equal one probability vector $p$. Writing
+$c=\sum_a p_a\log w_a$, we have
+\[
+ 2c=\sum_d r_d\log D_d,
+ \qquad
+ E_-(p,p)\ge H(r)=\log Q-2c.
+\]
+For any coupling of $p$ with itself, let $\rho$ be its sum law.
+The pointwise bound $w_aw_b\le S_{a+b}$ gives
+$2c\le\sum_s\rho_s\log S_s$. The finite Gibbs inequality then gives
+\[
+ H(\rho)+2c
+ \le H(\rho)+\sum_s\rho_s\log S_s
+ \le\log P.
+\]
+Maximizing over these couplings yields
+\begin{equation}\label{eq:entropy-gap}
+ E_-(p,p)-E_+(p,p)\ge\log(Q/P).
+\end{equation}
+
+Let $V_n\subseteq\A^n$ consist of words whose count $N_a$ of each
+letter satisfies
+\[
+ |N_a/n-p_a|\le\omega_np_a,
+ \qquad \omega_n=n^{-1/3}.
+\]
+Letters of zero probability are excluded. Lau and Nair's theorem,
+applied to $(p,p)$ and to $(p,p^-)$ with $p^-(a)=p(-a)$, states
+\begin{equation}\label{eq:typical-limits}
+ \frac1n\log|V_n\pm V_n|\longrightarrow E_\pm(p,p).
+\end{equation}
+Their logarithms use base two; multiplying by $\log2$ gives this
+natural-logarithm form. Both limits use the same sets $V_n$.
+
+The type argument for~\eqref{eq:typical-limits} is also direct. There are
+polynomially many joint empirical distributions. Each admissible one
+contributes its entire output type class, since simultaneous coordinate
+permutations preserve $V_n$. A class of type $\nu$ has logarithmic size
+$nH(\nu)+O(\log n)$. For the upper bound, compactness and convergence of
+the marginal types to $p$ bound every limiting output entropy by $E_\pm$.
+For the lower bound, round a maximizing joint law to an $n$-type with
+coordinate errors at most $1/n$, preserving zero coordinates. Its marginal
+errors are $O(1/n)$, within the displayed windows for all sufficiently
+large $n$ on the fixed positive support of $p$. Its output entropy tends
+to the maximum. This proves both limits, including irrational $p$.
+
+It follows from~\eqref{eq:entropy-gap}--\eqref{eq:typical-limits} that
+\[
+ \log\frac{|V_n-V_n|}{|V_n+V_n|}
+ \ge n\log(Q/P)-o(n).
+\]
+Set $L=2B+1$ and encode the words by
+$\phi_n(x)=\sum_i x_iL^{i-1}$. The highest differing coordinate dominates
+all lower ones on both the sum and difference alphabets, as in the
+direct proof. Thus the encoding preserves both cardinalities. After
+translation, $U_n=\phi_n(V_n)-\min\phi_n(V_n)$ satisfies
+$2\max U_n+1\le L^n$. For large $n$, its positive ratio logarithm ensures
+$M_n=\max U_n>0$. The dilation $W_n=2U_n$ satisfies
+\begin{align*}
+ |W_n-W_n|&\le2M_n+1<4M_n+1=2\max W_n+1,\\
+ 2\max W_n+1&\le2L^n-1.
+\end{align*}
+Applying~\eqref{eq:transfer} and taking $n\to\infty$ gives~\eqref{eq:bound}.
+For each exponent strictly below that bound, a sufficiently large finite
+$n$ may be chosen before $K$. The GHR lemma then supplies arbitrarily
+large sets for every fixed $K>1$, as required by~\eqref{eq:problem}.
 
 \begin{thebibliography}{9}
 \bibitem{ghr}
@@ -476,8 +567,8 @@ Functiones et Approximatio Commentarii Mathematici
 \bibitem{zheng}
 F. Zheng,
 \emph{Sums and differences of sets: a further improvement over AlphaEvolve},
-arXiv:2506.01896 (2025).
-\url{https://arxiv.org/abs/2506.01896}.
+arXiv:2506.01896v1 (2025).
+\url{https://arxiv.org/abs/2506.01896v1}.
 
 \bibitem{linli}
 H. Lin and S. Li,
@@ -497,5 +588,11 @@ D. Matolcsi, I. Z. Ruzsa, G. Shakan and D. Zhelezov,
 \emph{An analytic approach to cardinalities of sumsets},
 arXiv:2003.04075v1 (2020).
 \url{https://arxiv.org/abs/2003.04075v1}.
+
+\bibitem{launair}
+C. W. (Ken) Lau and C. Nair,
+\emph{Information inequalities via ideas from additive combinatorics},
+arXiv:2312.11017v3 (5 February 2025).
+\url{https://arxiv.org/abs/2312.11017v3}.
 \end{thebibliography}
 \end{document}
