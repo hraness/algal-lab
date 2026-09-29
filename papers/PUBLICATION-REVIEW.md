@@ -138,3 +138,20 @@ block and references are complete and legible. The original certificate and
 verification programs are unchanged. The note is ready for publication with
 its stated literature scope; repository and downloaded-file checks accompany
 the release.
+
+## Sumset source-version review: 29 September 2026
+
+The literature comparison now identifies the exact Zheng preprint and theorem,
+uses Lau and Nair's current v3, and explains the later two-point
+max-convolution theorem of Becker, Ivanisvili, Krachun and Madrid. Lau and
+Nair's main equivalence theorem is unchanged; the comparison records the
+incomplete extraction of the new appendix and the unread journal editions of
+two other sources.
+
+A separate Codex agent checked the literature changes against retained
+primary texts, source-version audit records and later-paper bibliographies.
+The review found no required corrections to this literature update. The PDFs
+and verifiers are unchanged. The immutable
+[v3 release](https://github.com/hraness/algal-lab/releases/tag/sum-difference-results-20260929-v3)
+remains the current manuscript package. Priority and current-record status
+remain unestablished.
