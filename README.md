@@ -400,7 +400,7 @@ and distinguishes their conclusions from other exponent problems.
 | Mixture claim audit | Source-verified counterexamples and explicitly conditional reconstructions, with limits on attribution where originals were unavailable. | [PDF](papers/mixture-cluster-audit/main.pdf) · [Source and checks](papers/mixture-cluster-audit) |
 | Small-grid sphere and plane avoidance | Verified constructions and independently checked small cases; the candidate exact values C(5) = 14 and C(6) = 18 retain their single-enumerator limitation. | [PDF](papers/no-five-exact/main.pdf) · [Source and checks](papers/no-five-exact) |
 | Weighted-digit sum-difference construction | An exact construction proving θ > 1.18565 when the sumset stays within a fixed factor of one input set, improving on Zheng's published 1.173077 bound. | [PDF](papers/sparse-sum-difference/main.pdf) · [Source and checks](papers/sparse-sum-difference) |
-| Fivefold sumset counterexample | Integer sets violating the fivefold inequality stated by Gyarmati, Hennecart and Ruzsa (2007). | [PDF](papers/fivefold-sumset/main.pdf) · [Source and checks](papers/fivefold-sumset) |
+| Fivefold sumset counterexample | Integer sets violating the fivefold inequality stated by Gyarmati, Hennecart and Ruzsa (2007), with a dimension-128 simplex example and a companion proof by finite type counting. | [PDF](papers/fivefold-sumset/main.pdf) · [Source and checks](papers/fivefold-sumset) |
 
 The separate [independent grid checker](research/spikes/no-five-exact/independent-enumeration.md)
 reproduces C(3) = 8 and C(4) = 11. Its bounded n = 5 run ended without a

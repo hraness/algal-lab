@@ -8,7 +8,7 @@
 \newcommand{\Z}{\mathbb Z}
 \newcommand{\V}{V}
 \title{A counterexample to the fivefold sumset inequality}
-\author{Benjamin Guo\\Hraness (\url{hraness.com})\thanks{Developed with AI research agents. The proof is accompanied by two exact integer count formulas and a separate verifier.}}
+\author{Benjamin Guo\\Hraness (\url{hraness.com})\thanks{Developed with AI research agents. The simplex construction is accompanied by two exact integer count formulas and a separate verifier; the second construction has a self-contained finite proof.}}
 \date{29 September 2026}
 \hypersetup{pdftitle={A counterexample to the fivefold sumset inequality},pdfauthor={Benjamin Guo}}
 
@@ -23,8 +23,12 @@ respectively. Stars and bars counts the sumsets, and a sum of $33$
 binomial terms counts the difference set. The strict comparison uses
 integer arithmetic and is independently reproduced by counting both
 positive and negative supports.
+A second construction, using a fixed-weight binary digit set, gives a
+finite proof by type counting and positive generating polynomials; its
+strict comparison follows from small rational inequalities and the
+binomial theorem.
 \end{abstract}
-\medskip\noindent\textbf{Keywords.} sumset; difference set; integer simplex; exact certificate.
+\medskip\noindent\textbf{Keywords.} sumset; difference set; integer simplex; type counting; exact certificate.
 \smallskip\noindent\textbf{MSC 2020.} 11B75; 05A16.
 
 \section{The inequality and the construction}
@@ -163,6 +167,96 @@ The integer comparison following~\eqref{eq:SF} proves
 \eqref{eq:failure}.
 \end{proof}
 
+\section{A second construction by finite type counting}
+\label{sec:binary-type}
+The same fivefold reversal also has a construction whose strict comparison
+uses only small rational inequalities and the binomial theorem. Its
+dimension is larger than that of Theorem~\ref{thm:main}. The argument
+specializes standard type counting, as used in the cardinality--entropy
+passage of Lau and Nair~\cite[Theorem~1]{launair}, within the weighted
+max-convolution framework of Matolcsi, Ruzsa, Shakan and
+Zhelezov~\cite[Section~8]{mrsz}. We give the complete finite argument.
+
+\begin{theorem}\label{thm:binary-type}
+Set $k=2048$, $n=271k=555008$, and define
+\[
+ X=\left\{x\in\{0,\ldots,7\}^n:\sum_{i=0}^{n-1}x_i=247k\right\},
+ \qquad
+ Y=\left\{y\in\{0,1\}^n:\sum_{i=0}^{n-1}y_i=16k\right\}.
+\]
+For $\psi(v)=\sum_{i=0}^{n-1}9^iv_i$, the finite nonempty integer sets
+$A=\psi(X)$ and $B=\psi(Y)$ satisfy $|A-B|^5>|A+B|^5|5B|$.
+\end{theorem}
+
+\begin{proof}
+Consider all words with digit multiplicities
+\[
+ (m_{-1},m_0,m_1,\ldots,m_7)
+       =k(16,128,64,32,16,8,4,2,1).
+\]
+Each belongs to $X-Y$: at a digit $-1$ take $(x_i,y_i)=(0,1)$;
+at every other digit $d$ take $(x_i,y_i)=(d,0)$. The coordinate sums
+are $16k$ for $y$ and
+$(64+2\cdot32+3\cdot16+4\cdot8+5\cdot4+6\cdot2+7)k=247k$ for $x$.
+These words are distinct difference vectors, so
+\begin{equation}\label{eq:binary-type-lower}
+ |X-Y|\ge \frac{n!}{\prod_{d=-1}^{7}m_d!}
+       \ge \frac{Q^n2^{295k}}{(n+1)^9},
+ \qquad Q=\frac{271}{128}.
+\end{equation}
+To see the second inequality directly, put $p_d=m_d/n$. In the
+multinomial distribution with probabilities $p_d$, the displayed type
+is modal: for each positive integer $m$, the sequence $m^j/j!$ is
+maximal at $j=m$, and a type probability is a common factor times
+$\prod_d m_d^{j_d}/j_d!$. There are at most $(n+1)^9$ types. Thus the
+displayed type has probability at least $(n+1)^{-9}$. Substituting
+$\prod_d p_d^{m_d}=Q^{-n}2^{-295k}$ proves the bound.
+
+Every $X+Y$ output has digits in $\{0,\ldots,8\}$ and total $263k$.
+Every $5Y$ output has digits in $\{0,\ldots,5\}$ and total $80k$.
+For a polynomial with nonnegative coefficients, its coefficient of
+$z^r$ is at most its value at any $z>0$, divided by $z^r$.
+Apply this to $(1+z+\cdots+z^8)^n$ at $z=1/2$ and to
+$(1+z+\cdots+z^5)^n$ at $z=1/4$. This gives
+\begin{equation}\label{eq:binary-type-upper}
+ |X+Y|\le P^n2^{263k},\qquad |5Y|\le T^n2^{160k},
+ \qquad P=\frac{511}{256},\quad T=\frac{1365}{1024}.
+\end{equation}
+The coefficient bounds count all words with the prescribed digit totals;
+they require no assertion that every such word is attainable.
+Since $5\cdot295=5\cdot263+160$, the bounds imply
+\[
+ \frac{|X-Y|^5}{|X+Y|^5|5Y|}
+ \ge\frac{R^n}{(n+1)^{45}},
+ \qquad R=\frac{(542/511)^5}{1365/1024}.
+\]
+Small rational comparisons suffice:
+\[
+ \frac{542}{511}>\frac{53}{50},\qquad
+ \left(\frac{53}{50}\right)^5>
+ 1+5\frac3{50}+10\left(\frac3{50}\right)^2=\frac{167}{125},
+ \qquad
+ \frac{171008}{170625}>\frac{513}{512}.
+\]
+The last fraction before $513/512$ is $(167/125)/(1365/1024)$;
+its cross-product difference is $25471$. Hence $R>1+1/512$.
+As $n=512\cdot1084$ and $n+1<2^{20}$, the binomial theorem yields
+\[
+ R^n>\bigl((1+1/512)^{512}\bigr)^{1084}
+      >2^{1084}>2^{900}>(n+1)^{45}.
+\]
+This proves the strict vector-set inequality.
+
+Finally, the digits of $X-Y$, $X+Y$ and $5Y$ lie in $[-1,7]$,
+$[0,8]$ and $[0,5]$, respectively. Base $9$ is injective on each
+of these vector sets: at a largest differing position $j$, the leading
+contribution has magnitude at least $9^j$, while all lower contributions
+have total magnitude at most $8\sum_{i<j}9^i=9^j-1$. Additivity of
+$\psi$ therefore preserves all three cardinalities and proves the
+integer-set assertion. In particular, $B$ consists of the
+$\binom{n}{16k}$ base-$9$ words with exactly $16k$ digits equal to one.
+\end{proof}
+
 \begin{thebibliography}{9}
 \bibitem{ghr}
 K. Gyarmati, F. Hennecart and I. Z. Ruzsa,
@@ -182,5 +276,17 @@ F. Hennecart, G. Robert and A. Yudin,
 \emph{On the number of sums and differences},
 Ast\'erisque \textbf{258} (1999), 173--178.
 \url{https://www.numdam.org/item/AST_1999__258__173_0/}.
+
+\bibitem{mrsz}
+D. Matolcsi, I. Z. Ruzsa, G. Shakan and D. Zhelezov,
+\emph{An analytic approach to cardinalities of sumsets},
+arXiv:2003.04075v1 (2020).
+\url{https://arxiv.org/abs/2003.04075v1}.
+
+\bibitem{launair}
+C. W. Lau and C. Nair,
+\emph{Information inequalities via ideas from additive combinatorics},
+arXiv:2312.11017v2.
+\url{https://arxiv.org/abs/2312.11017v2}.
 \end{thebibliography}
 \end{document}

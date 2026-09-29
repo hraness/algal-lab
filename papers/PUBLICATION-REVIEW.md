@@ -113,3 +113,28 @@ Every revised page was visually inspected. The fivefold theorem and the program
 with its introduction each stay on one page. The mathematical certificates and
 verification programs are unchanged. The corrected PDFs and their exact sources
 are released together, with fresh checks of the downloaded verification files.
+
+## Fivefold finite companion proof: 29 September 2026
+
+The note now includes a second construction with a complete finite proof. It
+uses fixed-weight binary words in base 9 and proves the strict fivefold
+comparison by type counting, generating polynomials, small rational
+inequalities and the binomial theorem. Its dimension is 555,008; the original
+dimension-128 simplex example remains the main result. The companion does not
+claim a smaller construction or a fourfold result.
+
+A separate Codex agent checked every counting bound, the rational comparisons,
+the base-9 embedding and the methodological attributions. The proof credits
+Lau and Nair's type-counting method and the max-convolution framework of
+Matolcsi, Ruzsa, Shakan and Zhelezov. The earlier simplex attributions and the
+limits on priority and current-status claims remain. This is mathematical
+agent review, not human peer review or journal acceptance.
+
+The four-page PDF built with cached Tectonic 0.17.0 using
+`--only-cached --untrusted --keep-logs`, without warnings, unresolved references
+or box errors. Poppler 26.08.0 metadata and text checks passed. All four pages
+were rendered and visually inspected: the theorem statements, proof, code
+block and references are complete and legible. The original certificate and
+verification programs are unchanged. The note is ready for publication with
+its stated literature scope; repository and downloaded-file checks accompany
+the release.
