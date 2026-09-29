@@ -17,6 +17,13 @@ SAT solver. Fifteen sample graphs remain unresolved by these certificates.
 The sample includes two of the five published 118-edge classes; it does not exclude nonmaximal
 extensions or settle the unrestricted problem.
 
+The [incidence pilot](incidence_extension/README.md) separately excludes
+sample 19 for maximal triangle-free 40-vertex extensions with independence
+number at most nine, a degree-six centre and minimum degree at least six.
+Its seven cuts and full UNSAT proof have a portable reconstruction and RUP
+replay. The extra minimum-degree condition does not reduce the count of
+15 remainders unresolved by the demand certificates or change a Ramsey bound.
+
 ## Target and present evidence
 
 A triangle-free graph on 40 vertices with independence number at most 9

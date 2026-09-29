@@ -446,6 +446,12 @@ verifies 311,618 endpoint unions using only Python's standard library.
 Fifteen sample graphs remain unresolved by these certificates; the sample
 does not exhaust the relevant graph classes.
 
+A separate [incidence proof](research/spikes/moonshot-r310/incidence_extension/README.md)
+excludes sample 19 when the maximal triangle-free extension also has minimum
+degree at least six. Its portable packet reconstructs the formula and checks
+the complete UNSAT proof using Python's standard library. This additional
+condition keeps the 113-case count unchanged; no Ramsey bound changes.
+
 The broader literature-corpus audit is a separate study. Its author-response
 process remains a prerequisite to releasing its paper-by-paper findings.
 Investigations of sphere and plane counts, H1 quadruples and covering arrays
