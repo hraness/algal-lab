@@ -69,7 +69,7 @@ also has exact Python certificates, run by CI in addition to `bun run check`:
 ```sh
 python3 research/spikes/structural/verify.py
 python3 research/spikes/weighted-tree/verify.py
-python3 -m unittest research.test_tree_certificate research.test_certify_policy_results research.test_terminal_tree research.test_terminal_sampling research.test_terminal_hybrid research.test_survivor_order research.test_ordered_pairing research.test_frugal_experiment research.test_rank_selection research.test_two_failure_groups research.test_intact_groups research.test_context_certificate research.test_stochastic_groups research.test_robust_stochastic_groups research.test_mixture_stochastic_groups research.test_softmax_partition_dp research.test_softmax_partition research.test_extremal
+python3 -m unittest $(ls research/test_*.py | sed 's#/#.#; s#\.py$##')
 python3 -m research.spikes.ordered.verify
 python3 -m research.spikes.rank.verify
 python3 -m research.spikes.groups.verify
@@ -78,6 +78,10 @@ python3 -m research.spikes.context.verify
 python3 -m research.spikes.stochastic.verify
 python3 -m research.spikes.softmax_partitions.experiment --out research/spikes/context/runs/softmax-partition-study
 ```
+
+The unit-test line runs every `research/test_*.py` module (research/ has no `__init__.py`, so plain `discover`
+does not apply). CI runs `research.test_extremal` in its own job; its claim re-verification uses a process pool
+capped by `ALGAL_LAB_CLAIM_WORKERS` (default: the lower of the CPU count and 4; set 1 to run serially).
 
 The [certified softmax occupancy solver](docs/certified-softmax-partitions.md)
 uses rational interval arithmetic, bounded occupancy scans for two agents

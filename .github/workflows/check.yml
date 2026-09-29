@@ -7,13 +7,63 @@ on:
 permissions:
   contents: read
 concurrency:
-  group: check-${{ github.ref }}
-  cancel-in-progress: true
+  # Pull requests cancel superseded runs; every main push keeps its own run.
+  group: check-${{ github.event_name == 'pull_request' && github.ref || github.sha }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 jobs:
-  check:
-    name: Check
+  changes:
+    name: Changes
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      pull-requests: read
+    outputs:
+      ci: ${{ steps.filter.outputs.ci }}
+      ts: ${{ steps.filter.outputs.ts }}
+      pyunit: ${{ steps.filter.outputs.pyunit }}
+      extremal: ${{ steps.filter.outputs.extremal }}
+      spikes: ${{ steps.filter.outputs.spikes }}
+    steps:
+      # Main pushes run every job, so only pull requests are filtered.
+      - if: github.event_name == 'pull_request'
+        id: filter
+        uses: dorny/paths-filter@v4
+        with:
+          predicate-quantifier: some-with-excludes
+          filters: |
+            ci:
+              - .github/workflows/**
+            ts:
+              - "**/*.ts"
+              - cli.ts
+              - src/**
+              - examples/**
+              - scripts/**
+              - experiments/**
+              - research/spikes/evolution/**
+              - package.json
+              - bun.lock
+              - tsconfig.json
+            pyunit:
+              - research/**
+              - "!research/extremal/**"
+              - "!research/test_extremal.py"
+            extremal:
+              - research/extremal/**
+              - research/test_extremal.py
+            spikes:
+              - research/**
+              - papers/**
+              - "!research/extremal/**"
+              - "!research/test_extremal.py"
+
+  ts:
+    name: TypeScript
+    needs: changes
+    if: github.event_name != 'pull_request' || needs.changes.outputs.ts == 'true' || needs.changes.outputs.ci == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v7
       - uses: oven-sh/setup-bun@v2
@@ -21,18 +71,46 @@ jobs:
           bun-version: "1.3.14"
       - run: bun install --frozen-lockfile
       - run: bun run check
-      - run: python3 -m unittest research.test_tree_certificate research.test_certify_policy_results research.test_terminal_tree research.test_terminal_sampling research.test_terminal_hybrid research.test_survivor_order research.test_ordered_pairing research.test_frugal_experiment research.test_rank_selection research.test_two_failure_groups research.test_intact_groups research.test_context_certificate research.test_stochastic_groups research.test_robust_stochastic_groups research.test_mixture_stochastic_groups research.test_softmax_partition_dp research.test_softmax_partition research.test_softmax_additive_boundary research.test_softmax_additive_flow research.test_softmax_negative_outer research.test_extremal
 
-  research:
-    name: Research spikes
+  pyunit:
+    name: Python unit tests
+    needs: changes
+    if: github.event_name != 'pull_request' || needs.changes.outputs.pyunit == 'true' || needs.changes.outputs.ci == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - name: Run every research/test_*.py module except the extremal suite
+        run: |
+          set -euo pipefail
+          # research/ has no __init__.py, so list the modules instead of using discover.
+          modules=()
+          for file in research/test_*.py; do
+            module="${file%.py}"
+            module="${module//\//.}"
+            [[ "$module" == research.test_extremal ]] || modules+=("$module")
+          done
+          printf 'Running %d modules\n' "${#modules[@]}"
+          python3 -m unittest "${modules[@]}"
+
+  extremal:
+    name: Extremal claims
+    needs: changes
+    if: github.event_name != 'pull_request' || needs.changes.outputs.extremal == 'true' || needs.changes.outputs.ci == 'true'
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v7
-      - uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: "1.3.14"
-      - run: bun install --frozen-lockfile
+      - run: python3 -m unittest research.test_extremal
+
+  research:
+    name: Research spikes
+    needs: changes
+    if: github.event_name != 'pull_request' || needs.changes.outputs.spikes == 'true' || needs.changes.outputs.ci == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
       - run: python3 research/spikes/structural/verify.py
       - run: python3 research/spikes/weighted-tree/verify.py
       - run: python3 -m research.spikes.ordered.verify
@@ -66,7 +144,16 @@ jobs:
         run: python3 -B -m unittest -v test_focused
       - name: Check the portable incidence proof wrapper
         run: python3 -I -B research/spikes/moonshot-r310/incidence_extension/portable/test_verify.py -v
+      # The pinned solver build is deterministic, so cache its two outputs out of tree. Pull requests only
+      # restore; main saves on a miss.
+      - name: Restore the pinned native SAT solver build
+        id: cadical
+        uses: actions/cache/restore@v4
+        with:
+          path: runs/cadical-build
+          key: cadical-${{ runner.os }}-${{ runner.arch }}-c60730422e758ef1cebe7aeddf2dda31c996bf04-fpic-v1
       - name: Check out the pinned native SAT solver
+        if: steps.cadical.outputs.cache-hit != 'true'
         uses: actions/checkout@v7
         with:
           repository: arminbiere/cadical
@@ -74,13 +161,21 @@ jobs:
           path: runs/cadical-source
           persist-credentials: false
       - name: Build the native solver for research controls
-        working-directory: runs/cadical-source
+        if: steps.cadical.outputs.cache-hit != 'true'
         run: |
-          ./configure -fPIC
-          make -j2
+          set -euo pipefail
+          (cd runs/cadical-source && ./configure -fPIC && make -j"$(nproc)")
+          mkdir -p runs/cadical-build
+          cp runs/cadical-source/build/libcadical.a runs/cadical-source/build/cadical runs/cadical-build/
+      - name: Save the native SAT solver build
+        if: steps.cadical.outputs.cache-hit != 'true' && github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: actions/cache/save@v4
+        with:
+          path: runs/cadical-build
+          key: ${{ steps.cadical.outputs.cache-primary-key }}
       - name: Link and check the Ramsey search controls
         run: |
-          python3 research/spikes/moonshot-r310/degree_six/native.py runs/cadical-source/build/libcadical.a runs/moonshot-r310/native-cadical
+          python3 research/spikes/moonshot-r310/degree_six/native.py runs/cadical-build/libcadical.a runs/moonshot-r310/native-cadical
           CADICAL_LIBRARY="$PWD/runs/moonshot-r310/native-cadical/libcadical.so" python3 -m unittest discover -s research/spikes/moonshot-r310/degree_six -p 'test_*.py' -v
       - name: Check out the pinned LRAT checker
         uses: actions/checkout@v7
@@ -93,10 +188,12 @@ jobs:
         run: |
           cc -std=c11 -O2 -Wall -Wextra runs/lrat-trim-source/lrat-trim.c -o runs/lrat-trim
           python3 research/spikes/moonshot-r310/fixed_remainder/independent_cover.py --output runs/moonshot-r310/fixed-independent-census.json
-          CADICAL_LIBRARY="$PWD/runs/moonshot-r310/native-cadical/libcadical.so" CADICAL_BINARY="$PWD/runs/cadical-source/build/cadical" LRAT_TRIM="$PWD/runs/lrat-trim" SELECTOR_INDEPENDENT_CENSUS="$PWD/runs/moonshot-r310/fixed-independent-census.json" python3 -m unittest discover -s research/spikes/moonshot-r310/fixed_remainder -p 'test_*.py' -v
+          CADICAL_LIBRARY="$PWD/runs/moonshot-r310/native-cadical/libcadical.so" CADICAL_BINARY="$PWD/runs/cadical-build/cadical" LRAT_TRIM="$PWD/runs/lrat-trim" SELECTOR_INDEPENDENT_CENSUS="$PWD/runs/moonshot-r310/fixed-independent-census.json" python3 -m unittest discover -s research/spikes/moonshot-r310/fixed_remainder -p 'test_*.py' -v
 
   pipeline:
     name: Demo pipeline
+    needs: changes
+    if: github.event_name != 'pull_request' || needs.changes.outputs.ts == 'true' || needs.changes.outputs.ci == 'true'
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
@@ -118,20 +215,42 @@ jobs:
   required:
     name: Required
     if: always()
-    needs: [check, research, pipeline]
+    needs: [changes, ts, pyunit, extremal, research, pipeline]
     runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
       - name: Require every selected job
         env:
-          CHECK: ${{ needs.check.result }}
-          RESEARCH: ${{ needs.research.result }}
-          PIPELINE: ${{ needs.pipeline.result }}
+          EVENT: ${{ github.event_name }}
+          CHANGES: ${{ needs.changes.result }}
+          CI: ${{ needs.changes.outputs.ci }}
+          RESULTS: >-
+            ts=${{ needs.ts.result }}:${{ needs.changes.outputs.ts }}
+            pyunit=${{ needs.pyunit.result }}:${{ needs.changes.outputs.pyunit }}
+            extremal=${{ needs.extremal.result }}:${{ needs.changes.outputs.extremal }}
+            research=${{ needs.research.result }}:${{ needs.changes.outputs.spikes }}
+            pipeline=${{ needs.pipeline.result }}:${{ needs.changes.outputs.ts }}
         run: |
           set -euo pipefail
-          for result in "$CHECK" "$RESEARCH" "$PIPELINE"; do
-            if [[ "$result" != success ]]; then
-              printf 'Unexpected required job result: %s\n' "$result"
-              exit 1
+          if [[ "$CHANGES" != success ]]; then
+            printf 'Change detection did not succeed: %s\n' "$CHANGES"
+            exit 1
+          fi
+          status=0
+          for entry in $RESULTS; do
+            job="${entry%%=*}"
+            rest="${entry#*=}"
+            result="${rest%%:*}"
+            changed="${rest#*:}"
+            if [[ "$result" == success ]]; then
+              continue
             fi
+            # A job may skip only on a pull request whose change filter reported its inputs unchanged.
+            if [[ "$result" == skipped && "$EVENT" == pull_request && "$changed" == false && "$CI" == false ]]; then
+              printf '%s skipped: inputs unchanged\n' "$job"
+              continue
+            fi
+            printf 'Unexpected required job result for %s: %s (changed=%s)\n' "$job" "$result" "$changed"
+            status=1
           done
+          exit "$status"
