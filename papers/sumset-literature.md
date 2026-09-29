@@ -60,18 +60,39 @@ construction proves `θ > 23713/20000 = 1.18565`.
 | Primary source | Statement and relation to the manuscript |
 | --- | --- |
 | Gyarmati, Hennecart and Ruzsa (2007), Section 2 | Their finite-set transfer gives `θ ≥ 1 + log(\|U−U\|/\|U+U\|)/log(2 max U+1)` under its strict difference-count hypothesis. The manuscript uses this existing lemma and enforces the hypothesis by dilation. |
+| Chin Wa (Ken) Lau and Chandra Nair, *Information inequalities via ideas from additive combinatorics*, [arXiv:2312.11017v3](https://arxiv.org/abs/2312.11017v3) (5 February 2025), Theorem 10 | The typical-set sum-image limit, applied also after reflection, combines with a symmetric Gibbs coupling and the GHR transfer to imply the manuscript's general weighted-digit formula. Appendix A of the manuscript gives the derivation, including the encoding diameter and fixed-`K` quantifiers. |
 | F. Zheng, *Sums and differences of sets: a further improvement over AlphaEvolve*, [arXiv:2506.01896v1](https://arxiv.org/abs/2506.01896v1) (2025) | Theorem 1, PDF p. 5, gives `1.173077` for the same two-set problem using bounded-coordinate integer vectors and large-deviation estimates. The current identifiable preprint is v1; its objective, theorem and numerical table were checked on the PDF pages. The manuscript's exact certificate improves this specifically checked bound. |
 | Georgiev, Gómez-Serrano, Tao and Wagner, *Mathematical exploration and discovery at scale*, [arXiv:2511.02864v3](https://arxiv.org/abs/2511.02864v3) (22 December 2025) | Problem 6.44 formulates the two-set problem using `\|A+B\|≲\|A\|` and reports the later bounds `1.173050` and `1.173077` of Gerbicz and Zheng. The current version record matches the retained v3 HTML; the relevant passage was read, not the whole survey. |
-| Matolcsi, Ruzsa, Shakan and Zhelezov, *An analytic approach to cardinalities of sumsets*, [arXiv:2003.04075v1](https://arxiv.org/abs/2003.04075v1) (2020) | Definition 8.1 defines `(f⋆g)(z)=max_{x+y=z} f(x)g(y)`. The manuscript's `P` and `Q` are exactly `‖w⋆w‖₁` and `‖w⋆w̃‖₁`. Theorem 8.6 equates weighted and set versions of an induced tripling parameter. This establishes prior max-convolution machinery; that theorem does not supply the reflected quotient and encoding-diameter bound used here. |
+| Matolcsi, Ruzsa, Shakan and Zhelezov, *An analytic approach to cardinalities of sumsets*, [arXiv:2003.04075v1](https://arxiv.org/abs/2003.04075v1) (2020) | Definition 8.1 defines `(f⋆g)(z)=max_{x+y=z} f(x)g(y)`. The manuscript's `P` and `Q` are exactly `‖w⋆w‖₁` and `‖w⋆w̃‖₁`. Theorem 8.6 equates weighted and set versions of an induced tripling parameter, providing prior weighted-to-set machinery. |
 | Becker, Ivanisvili, Krachun and Madrid, *Discrete Brunn–Minkowski inequality for subsets of the cube*, [arXiv:2404.04486v2](https://arxiv.org/abs/2404.04486v2) (2024) | Theorem 1.3 settles the two-point norm conjecture stated after Theorem 11.1 of the preceding preprint. It gives a lower bound for a triple max-convolution using independent norm factors. That conclusion does not itself give an upper bound for a quotient of linked ordinary and reflected convolutions. |
 | Hosle and Ivanisvili, *Geometric Block Exponents and a Uniform Mixed-Alphabet Sumset Inequality*, [arXiv:2606.25350v1](https://arxiv.org/abs/2606.25350v1) (2026) | Theorem 1.5 treats a two-term first sequence and a nonincreasing second sequence. Proposition 7.3 and Corollary 1.7 give a sumset lower bound with exponent `log 4/log 6` for a binary first alphabet. The support used here has more than two points and is outside that hypothesis; the conclusion concerns sumset expansion, rather than a reflected quotient. |
 | Lin and Li, *Settling the optimal exponent relating sumsets and difference sets*, [arXiv:2607.27199v1](https://arxiv.org/abs/2607.27199v1) (2026) | Proves a supremum of two for `C(A)=log(\|A+A\|/\|A\|)/log(\|A−A\|/\|A\|)`. This one-set normalization differs from `θ`. Its Section 3 identifies the reported search value `1.21` with `C(A)`. |
 
-The max-convolution operation, weighted sumsets and tensorization therefore
-require prior attribution. The weighted-digit paper records a particular
-reflected comparison, explicit integer encoding and certified parameters.
-A larger exponent for another normalization cannot replace a comparison
-under the displayed quantifiers.
+For positive weights `w` on a finite alphabet `A ⊆ {0,…,B}`, the general
+weighted-digit formula is
+
+```text
+D_d = max_{a−b=d} w_a w_b,       Q = Σ_d D_d,
+P = Σ_s max_{a+b=s} w_a w_b,
+θ ≥ 1 + log(Q/P)/log(2B+1),       when Q>P.
+```
+
+This statement follows from the Lau–Nair and GHR results above.
+Choose pairs maximizing the weighted differences, with opposite
+differences represented by reversed pairs, and give them probabilities
+`D_d/Q`. Their joint distribution has equal marginals `p`. Gibbs'
+inequality bounds the maximum sum entropy at those marginals, while the
+chosen difference distribution gives a lower bound. The entropy gap is
+at least `log(Q/P)`. Lau–Nair's theorem realizes both entropies on the
+same typical sets; base-`2B+1` encoding and a dilation supply the diameter
+and strict hypothesis for the GHR lemma.
+
+The manuscript gives this implication as well as its direct counting
+proof with explicit cost sublevel sets. The particular four-digit
+alphabet, weights, and certificate for `θ>1.18565` are separate from the
+general formula. Their occurrence in earlier literature remains
+unestablished. A larger exponent for another normalization cannot replace
+a comparison under the displayed quantifiers.
 
 Tao's *Sum-difference exponents for boundedly many slopes, and rational
 complexity*, [arXiv:2511.15135v1](https://arxiv.org/abs/2511.15135v1)
@@ -309,25 +330,48 @@ over couplings. The proof uses type classes and integer encoding. These
 are established methods relevant to further weighted formulations of the
 fourfold and fivefold question.
 
-Theorem 1 is unchanged from v2. Version 3 adds Appendix B and Theorem 10,
-which states a typical-set sum-image limit in terms of the maximum entropy
-over couplings. The main equivalence theorem and the added displayed limit
-were read in the current HTML. Parts of the appendix extraction are malformed,
-so this comparison does not claim a complete verification of its proof.
+Theorem 1 is unchanged from v2. Theorem 10 in Appendix C of v3 states the
+typical-set limit used in the weighted-digit derivation. For probability
+vectors `p,q` on finite integer supports, define
+
+```text
+E_±(p,q) = max { H(X±Y) : the joint law of (X,Y) has marginals p,q }.
+```
+
+If `A_n,B_n` are their relative strongly typical sets, then
+`n⁻¹ log|A_n±B_n| → E_±(p,q)`; the difference statement follows by
+reflection. The relative tolerances tend to zero with
+`√n ω_n → ∞`. When `p=q`, both limits use `A_n=B_n`.
+The coupling may depend on the sign; independence is not required.
+
+The complete 21-page v3 preprint was read. Independent mathematical review
+covered Theorem 10 and the supporting type argument in Appendices B and C,
+including checks of original PDF pages 15–21. The manuscript's Appendix A
+also gives a direct proof of the required limits by counting complete type
+classes and rounding joint distributions into the prescribed marginal
+windows.
+The logarithms in the source use base two; multiplication by `log 2` gives
+the natural-logarithm formulas here.
+
+The integer encoding in these applications concerns finite integer supports.
+Applications to a global fourfold statement must preserve all marginal and
+repeated-set constraints across all finite supports. A set inequality known
+only with one fixed `B=F` does not cover the correlated typical sets
+`B_n ⊆ F^n`. These translations do not resolve the unrestricted fourfold
+question or identify the covering constant `N_F(k)` with the sharp
+reflected quotient.
 
 An author survey also identifies the journal edition in
 [*IEEE Transactions on Information Theory* 71(6), 4055–4068 (2025)](https://doi.org/10.1109/TIT.2025.3557796).
-The journal text remains unread. The available author-hosted PDF is an older
-2023 copy; its transfer theorem and relevant later inequalities were read,
-but that copy does not close the gap in v3's new appendix.
+The journal text remains unread; the theorem and proof comparison here is
+with the identified arXiv v3.
 
 The logarithm of a sumset's size is its support entropy. It generally
 differs from the Shannon entropy of a sum of independent uniform elements.
-The coupling requirements and repeated-set constraints must be preserved
-when applying a translation theorem. The two construction papers use direct
-finite counting, and both fourfold manuscripts prove their weighted
-inequalities directly. None depends on replacing support entropy by Shannon
-entropy.
+The two construction papers also give direct finite counting proofs, and
+both fourfold manuscripts prove their weighted inequalities directly.
+The entropy derivation maximizes over couplings with prescribed marginals;
+it does not substitute the entropy of independent uniform inputs.
 
 ## Scope of this review
 

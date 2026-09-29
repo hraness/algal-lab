@@ -2,16 +2,23 @@
 
 This manuscript proves `theta > 1.18565` for the two-set exponent defined by
 `|E+F| <= K|E|` and `|E-F| >= c(K)|E+F|^theta`, for every fixed `K>1`.
-It improves on Zheng's published `1.173077` lower bound. The paper gives the
-general weighted-digit theorem, a simpler `theta > 1.1855` construction and
-the stronger four-digit construction. It makes no global-priority or
-current-record claim.
+It improves on the `1.173077` lower bound in Zheng's 2025 preprint. The paper
+gives a simpler `theta > 1.1855` construction and the stronger four-digit
+construction. Priority of these particular constructions and their
+current-record status remain unestablished.
+
+The general weighted-digit formula follows from Lau and Nair's
+[typical-set theorem, arXiv:2312.11017v3, Theorem 10](https://arxiv.org/abs/2312.11017v3),
+a symmetric choice of marginal, and Gyarmati, Hennecart and Ruzsa's
+finite-set transfer. Appendix A gives the derivation, including the
+encoding diameter and the requirement of every fixed `K>1`.
+The paper's direct counting proof specifies the cost sublevel sets used
+in its constructions.
 
 The weighted totals use the established max-convolution framework of
 Matolcsi, Ruzsa, Shakan and Zhelezov (2020). The
-[literature comparison](../sumset-literature.md) distinguishes that machinery,
-the specific reflected quotient and integer encoding used here, and other
-sumset exponents.
+[literature comparison](../sumset-literature.md) records these antecedents
+and distinguishes the two-set exponent from other sumset exponents.
 
 The four-digit alphabet consists of the integers
 `c = a0 + 32*a1 + 32^2*a2 + 32^3*a3`, with each `ai` in

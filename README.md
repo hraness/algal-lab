@@ -391,6 +391,11 @@ The independent reviewers were AI agents.
 The [sumset literature comparison](papers/sumset-literature.md) credits the
 known counting and weighted methods behind the sumset manuscripts
 and distinguishes their conclusions from other exponent problems.
+The general weighted-digit formula follows from Lau and Nair's typical-set
+theorem and Gyarmati, Hennecart and Ruzsa's finite-set transfer. The manuscript
+gives that derivation alongside its explicit cost sublevel construction;
+priority of the particular parameters and the fivefold example remains
+unestablished.
 
 | Manuscript | Result and scope | Files |
 | --- | --- | --- |
@@ -399,7 +404,7 @@ and distinguishes their conclusions from other exponent problems.
 | Hazard mixtures | An exact survival identity, rational counterexamples and a construction for any number of components above two. | [PDF](papers/hazard-mixture/main.pdf) · [Source and checks](papers/hazard-mixture) |
 | Mixture claim audit | Source-verified counterexamples and explicitly conditional reconstructions, with limits on attribution where originals were unavailable. | [PDF](papers/mixture-cluster-audit/main.pdf) · [Source and checks](papers/mixture-cluster-audit) |
 | Small-grid sphere and plane avoidance | Verified constructions and independently checked small cases; the candidate exact values C(5) = 14 and C(6) = 18 retain their single-enumerator limitation. | [PDF](papers/no-five-exact/main.pdf) · [Source and checks](papers/no-five-exact) |
-| Weighted-digit sum-difference construction | An exact construction proving θ > 1.18565 when the sumset stays within a fixed factor of one input set, improving on Zheng's published 1.173077 bound. | [PDF](papers/sparse-sum-difference/main.pdf) · [Source and checks](papers/sparse-sum-difference) |
+| Weighted-digit sum-difference construction | An exact construction proving θ > 1.18565 when the sumset stays within a fixed factor of one input set, improving on the 1.173077 bound in Zheng's 2025 preprint. | [PDF](papers/sparse-sum-difference/main.pdf) · [Source and checks](papers/sparse-sum-difference) |
 | Fivefold sumset counterexample | Integer sets violating the fivefold inequality stated by Gyarmati, Hennecart and Ruzsa (2007), with a dimension-128 simplex example and a companion proof by finite type counting. | [PDF](papers/fivefold-sumset/main.pdf) · [Source and checks](papers/fivefold-sumset) |
 | Fourfold inequality on three points | A strict reflected max-convolution inequality for every three-point integer kernel, all positive weights and every nonzero finitely supported nonnegative sequence. The general fourfold conjecture remains open in this work. | [PDF](papers/three-point-fourfold/main.pdf) · [Source](papers/three-point-fourfold) |
 | Small-support reflected inequalities | A reflected fourfold inequality with arbitrary nonnegative kernel weights on at most four integers and constant kernels on five, allowing arbitrary nonnegative inputs and denominator weights. Sharp four-point covering constants; the stronger covering bound fails on five points. | [PDF](papers/four-point-covering/main.pdf) · [Source](papers/four-point-covering) |
