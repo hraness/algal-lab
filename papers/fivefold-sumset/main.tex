@@ -46,11 +46,17 @@ For integers $m\ge1$ and $r\ge0$, define the integer simplex
  \V(m,r)=\left\{x\in\Z_{\ge0}^{m}:
                   \sum_{i=0}^{m-1}x_i\le r\right\}.
 \]
-Its size is $\binom{m+r}{m}$.
-We use unequal radii in the classical lattice-simplex construction,
-used by Gyarmati, Hennecart and Ruzsa in their $h=6$
-example~\cite[p.~182]{ghr}.
+Its size is $\binom{m+r}{m}$. The lattice-simplex construction and its
+equal-radius difference count appear in Hennecart, Robert and
+Yudin~\cite[Section~3]{hry}; Gyarmati, Hennecart and Ruzsa use this family
+for their $h=6$ example~\cite[p.~182]{ghr}.
+Glasscock~\cite[Lemma~B.1, pp.~37--38]{glasscock} gives the exact count
+for unequal radii, including the negative-support proof reproduced below.
+His Question~8 on p.~28 also leaves $h=4,5$ unresolved.
+Our example specializes that known formula to $(m,a,b)=(128,160,32)$
+and verifies the strict fivefold comparison.
 
+\begin{samepage}
 \begin{theorem}\label{thm:main}
 Let $\phi:\Z^{128}\to\Z$ be the additive map
 \[
@@ -66,9 +72,11 @@ satisfy
  |A-B|^5>|A+B|^5|5B|.
 \end{equation}
 \end{theorem}
+\end{samepage}
 
 \section{Counting the vector sets}
-The count formulas hold for any pair of integer simplices.
+We recall the unequal-radius count from~\cite[Lemma~B.1]{glasscock}
+and give a second expression for its arithmetic verification.
 
 \begin{lemma}\label{lem:counts}
 For integers $m\ge1$ and $a,b\ge0$, let $X=\V(m,a)$ and $Y=\V(m,b)$. Then
@@ -119,6 +127,7 @@ For the parameters of Theorem~\ref{thm:main}, set
  S&=\binom{320}{128},\qquad
  F=\binom{288}{128}.\label{eq:SF}
 \end{align}
+\begin{samepage}
 These integers satisfy $D^5>S^5F$. The arithmetic can be checked with
 the following standalone Python code, using integer operations only:
 \begin{verbatim}
@@ -130,6 +139,7 @@ if D**5 <= S**5*F:
     raise ArithmeticError("fivefold comparison failed")
 print("D^5 > S^5 F")
 \end{verbatim}
+\end{samepage}
 The accompanying verifier also evaluates~\eqref{eq:double} with
 factorials instead of the binomial-coefficient routine and checks
 the resulting integers against the stored values. Its small-set
@@ -160,5 +170,17 @@ K. Gyarmati, F. Hennecart and I. Z. Ruzsa,
 Functiones et Approximatio Commentarii Mathematici
 \textbf{37}(1) (2007), 175--186.
 \url{https://doi.org/10.7169/facm/1229618749}.
+
+\bibitem{glasscock}
+D. Glasscock,
+\emph{Sumset Estimates in Abelian Groups},
+master's thesis, Central European University, 24 February 2012.
+\url{https://sites.uml.edu/daniel-glasscock/files/2021/06/MSThesis.pdf}.
+
+\bibitem{hry}
+F. Hennecart, G. Robert and A. Yudin,
+\emph{On the number of sums and differences},
+Ast\'erisque \textbf{258} (1999), 173--178.
+\url{https://www.numdam.org/item/AST_1999__258__173_0/}.
 \end{thebibliography}
 \end{document}
