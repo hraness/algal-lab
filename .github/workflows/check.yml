@@ -55,6 +55,11 @@ jobs:
         run: |
           python3 -m unittest discover -s research/spikes/moonshot-r310/demand_certificates -p 'test_verify_sample.py' -v
           python3 research/spikes/moonshot-r310/demand_certificates/verify_sample.py
+      - name: Check the fixed incidence model
+        working-directory: research/spikes/moonshot-r310/incidence_extension
+        run: python3 -B -m unittest -v test_focused
+      - name: Check the portable incidence proof wrapper
+        run: python3 -I -B research/spikes/moonshot-r310/incidence_extension/portable/test_verify.py -v
       - name: Check out the pinned native SAT solver
         uses: actions/checkout@v7
         with:

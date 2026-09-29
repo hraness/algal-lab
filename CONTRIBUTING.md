@@ -173,6 +173,21 @@ same directory: six controls and 311,618 endpoint-union checks. The proof
 uses only the standard library and exact integer arithmetic. The other
 15 sample graphs remain unresolved by these certificates.
 
+The [fixed incidence proof](research/spikes/moonshot-r310/incidence_extension/README.md)
+excludes sample 19 under an additional minimum-degree-six condition. CI runs
+its seven historical model controls from the `incidence_extension` directory
+with `python3 -B -m unittest -v test_focused`, then five portable-wrapper
+control groups from the repository root:
+
+```sh
+python3 -I -B research/spikes/moonshot-r310/incidence_extension/portable/test_verify.py -v
+```
+
+Four further control groups explicitly skip without a release packet. Release
+validation runs all nine groups with `--packet PATH`, reconstructs the exact
+formula and replays its full proof. The result README gives those commands.
+Ordinary CI needs no solver run or release download for these new controls.
+
 The [sparse-digit sum-difference construction](papers/sparse-sum-difference/README.md)
 proves an exponent greater than 1.1855 for the small-sumset problem. CI checks
 its rational certificate and control examples using only Python's standard
