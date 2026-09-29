@@ -188,3 +188,53 @@ The shared literature comparison also records the checked AlphaEvolve survey
 version, the distinct projection-entropy problem in Tao's later paper, and
 the remaining source-version and access gaps. The two construction papers
 and their verification programs are unchanged.
+
+## Small-support reflected inequalities: 29 September 2026
+
+The new 37-page manuscript proves the reflected fourfold max-convolution
+inequality for arbitrary nonnegative kernels on at most four integers and
+constant kernels on every five-point integer support. Both results allow
+arbitrary nonzero finitely supported nonnegative inputs and arbitrary
+nonzero nonnegative denominator weights. The inequality is strict for
+positive four-point kernels and positive constant five-point kernels.
+
+The four-point proof identifies a universal translated-covering constant
+with an ordinary-autoconvolution optimization, classifies all five
+pair-sum collision patterns, and proves their sharp unweighted constants.
+The proper-parallelogram constant is `25/16`; the arithmetic-progression
+constant is `3/2`. The stronger covering inequality fails on
+`{0,2,7,8,11}` by `1/16` at the displayed feasible profile. This proves
+the universal support-size cutoff for that covering inequality. The
+five-point theorem establishes the reflected inequality on the same
+support for constant kernels. General kernels on five points and the
+unrestricted fourfold problem remain unresolved here.
+
+Separate Codex agents reviewed the mathematical arguments and their LaTeX
+transcription, including the covering identity, collision classifications,
+coefficient comparisons, sharp constants, zero-weight cases and strictness.
+The five-point Sidon argument uses Freiman's classical `3k−4` theorem;
+its exact hypotheses were checked in the restatement on page 1 of
+Bollobás, Leader and Tiba's arXiv:2204.09816v1. Freiman's original proofs
+were not read. The manuscript discloses AI assistance and mathematical
+agent review; no human peer review or journal acceptance is asserted.
+
+The accompanying literature comparison incorporates the complete
+Green–Matolcsi–Ruzsa–Shakan–Zhelezov preprint arXiv:2003.04077v1 and
+the analytic companion arXiv:2003.04075v1. All five pages of the former
+and the latter's definitions and decisive proof pages were checked on
+the original PDFs. The comparison identifies the precise `p=q=2`
+equivalence between their two-point statements. It also shows that the
+indicator-tripling invariants alone do not determine the reflected
+quotient for a fixed denominator profile. Whether the full prior
+framework implies these small-support theorems remains unestablished.
+Unread editions and chapters are listed in the literature comparison;
+the paper makes no priority claim.
+
+The source built with cached Tectonic 0.17.0 using
+`--only-cached --untrusted --keep-logs`, without warnings, undefined
+references or box errors. Poppler 26.08.0 metadata and text checks passed.
+All 37 pages were rendered and individually inspected, including every
+coefficient table and the references. The proofs require no search
+program or numerical optimizer. The PDF is ready for publication with
+the stated mathematical and literature scope. Repository checks and
+verification of the released files accompany the release.

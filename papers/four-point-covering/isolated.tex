@@ -1,0 +1,501 @@
+\section{One three-term progression}
+\label{sec:isolated}
+Let
+
+\[
+F=\{0,a,2a,b\},\qquad a>0,
+\]
+
+where the four integers are distinct and the only nontrivial equality of pair
+sums is \(0+2a=a+a\). Equivalently, \(q=b/a\) is not any of
+
+\begin{equation}\label{eq:i1}
+-2,-1,0,1/2,1,3/2,2,3,4.
+\end{equation}
+
+Coordinates are \((L,M,R,O)=(0,a,2a,b)\).
+
+Let \(\mathcal V\) consist of the following eight squared profiles:
+
+\begin{equation}\label{eq:i2}
+\begin{array}{ll}
+V_L=(1,1/4,9/64,1/4),&V_R=(9/64,1/4,1,1/4),\\
+D_L=(1/4,1,0,1/4),&D_R=(0,1,1/4,1/4),\\
+E_L=(1,0,1/4,1/4),&E_R=(1/4,0,1,1/4),\\
+O_1=(1/4,1/4,1/4,1),&O_3=(1/3,1/3,1/3,3/4).
+\end{array}
+\end{equation}
+
+\begin{proposition}\label{prop:isolated}
+For arbitrary \(k\ge0\), the weighted norm is
+
+\begin{equation}\label{eq:i3}
+\sup_{x*x\le1}\sum_{p\in F}k(p)x(p)^2
+=\max_{v\in\mathcal V}k\cdot v.
+\end{equation}
+
+In particular the sharp unweighted norm is \(7/4\), attained by \(O_1,O_3\).
+Each listed profile satisfies
+
+\begin{equation}\label{eq:i4}
+(k\cdot v)^4\le T_F(k)\quad\text{for all eight profiles},
+\end{equation}
+
+strictly when all four kernel values are positive.
+\end{proposition}
+
+\subsection{Exact weighted norm reduction}
+
+Write \(w_p=x(p)^2\). Ordinary feasibility on this support is exactly the
+individual bounds \(w_p\le1\), pair bounds \(w_pw_q\le1/4\), and
+
+\begin{equation}\label{eq:i5}
+w_M+2\sqrt{w_Lw_R}\le1.
+\end{equation}
+
+The pair bounds within the collided fiber are redundant but valid. Every
+profile in \eqref{eq:i2} is feasible, by direct substitution in \eqref{eq:i5} and the pair bounds.
+
+We use the following elementary maximization repeatedly. For
+\(0\le l,r\le J\), \(lr\le c\le J^2\), the maximum of any nonnegative
+linear objective occurs at \((J,c/J)\) or \((c/J,J)\). On the part of the
+boundary with \(r=c/l\), the objective is convex in \(l\); elsewhere one
+coordinate can be increased. When \(c\ge J^2\), use \((J,J)\).
+
+First suppose every \(w_p\le1/2\). Set \(w_O=1/2\). At fixed
+\(m=w_M\), the endpoint rule gives an endpoint \(1/2\), the other
+\((1-m)^2/2\). The objective is convex in \(m\in[0,1/2]\), so this region
+reduces to
+
+\begin{equation}\label{eq:i6}
+H_0=(1/2,0,1/2,1/2),\quad H_L=(1/2,1/2,1/8,1/2),\quad H_R,
+\end{equation}
+
+where \(H_R\) exchanges the endpoints of \(H_L\).
+
+Otherwise let \(u\in[1/2,1]\) be a largest coordinate and put \(J=1/(4u)\).
+All other coordinates are at most \(J\), so all their mutual pair bounds
+are automatic.
+
+If the largest coordinate is \(L\), set \(O=J\). For fixed \(M=m\),
+the best right endpoint is \(J(1-m)^2\). Convexity in \(m\in[0,J]\)
+reduces to
+
+\begin{equation}\label{eq:i7}
+(u,0,J,J),\qquad (u,J,J(1-J)^2,J).
+\end{equation}
+
+The first objective is convex in \(u\), giving \(H_0,E_L\). For the second,
+set
+
+\[
+C=(1/u-1)/3,\quad B=\frac{64}{55}(3/2-u-1/(2u)),\quad A=1-2C-B.
+\]
+
+These coefficients are nonnegative:
+\(B=32(2u-1)(1-u)/(55u)\), and
+\(A=(192u^2-13u-14)/(165u)>0\) on this interval. The convex combination
+
+\[
+A V_L+B V_R+C D_L+C O_1
+\]
+
+matches the \(L,M,O\) coordinates of the second profile in \eqref{eq:i7}. Its right
+coordinate is \(317/192-u-49/(96u)\). The excess over \(J(1-J)^2\),
+multiplied by \(192u^3\), is
+
+\[
+(1-u)(192u^3-125u^2+21u-3)\ge0.
+\]
+
+The cubic is \(1/4\) at \(u=1/2\) and increases: its derivative is
+\(576u^2-250u+21\), positive there and increasing thereafter. The case of
+largest coordinate \(R\) is reflected. This also dominates \(H_L,H_R\)
+by setting \(u=1/2\).
+
+If \(M=u\) is largest, set \(O=J\). The endpoint rule gives
+\((L,R)=(J,u(1-u)^2)\), or its reflection. Put the larger endpoint kernel
+weight on \(J\), say \(k_L\ge k_R\). The objective is
+
+\[
+k_Mu+k_R[J+u(1-u)^2]+(k_L-k_R+k_O)J.
+\]
+
+It is convex in \(u\). Besides \(J''>0\), the needed derivative is
+\([J+u(1-u)^2]''=1/(2u^3)+6u-4>0\): split at \(u=2/3\), and use
+\(1/(2u^3)\ge27/16\), \(6u-4\ge-1\) on the lower interval.
+The endpoints give \(H_L,D_L\), or their reflections.
+
+If \(O=u\) is largest and \(u\ge3/4\), the best remaining coordinates are
+all \(J\); the objective is convex in \(u\), giving \(O_3,O_1\). For
+\(1/2\le u\le3/4\), optimize at fixed midpoint and use convexity in that
+midpoint. The only profiles needed are
+
+\begin{equation}\label{eq:i8}
+(J,1-2J,J,u),\qquad (J,J,u-1/2+J/4,u),
+\end{equation}
+
+and the reflected second profile. The first is dominated by a convex
+combination of \(H_0,O_3\): use weight \(3(1-2J)\) on \(O_3\).
+This matches the first three coordinates and gives outsider coordinate
+\(5/4-3J/2\ge u\), since \((u-1/2)(u-3/4)\le0\). The second objective
+in \eqref{eq:i8} is a nonnegative multiple of \(1/u\) plus a linear function, hence
+convex, giving \(H_L,O_3\).
+
+Finally \(H_0\le(E_L+E_R+O_1)/3\) coordinatewise. This completes the
+upper bound in \eqref{eq:i3}; feasibility proves equality. The profile sums,
+in the order listed, are
+\[
+105/64,105/64,3/2,3/2,3/2,3/2,7/4,7/4.
+\]
+
+\subsection{The four triangle profiles}\label{sec:i-triangles}
+
+Each support triangle of \(D_L,D_R,E_L,E_R\) is 2-sum-Sidon: an additional
+midpoint relation would violate the isolated-AP3 assumption. For a nonnegative
+kernel on any 2-sum-Sidon triangle, let \(a\) be its largest value and \(R\)
+the sum of the other two. Fixing two copies of the largest point in the
+four-fold maximum gives
+
+\[
+T(k)\ge a^4+a^3R+a^2h_2(\text{other two values})
+\ge a^4+a^3R+\frac23a^2R^2.
+\]
+
+Here \(h_2\) is the sum of the squares and pair product. Since \(R\le3a\),
+
+\[
+(a+R/4)^4\le a^4+a^3R+\frac{153}{256}a^2R^2.
+\]
+
+The difference is at least \(53a^2R^2/768\), positive when two values are
+positive. The largest pivot maximizes the unit-and-two-quarter linear form.
+Restricting \(k\) to the triangle and using monotonicity proves strict \eqref{eq:i4}
+for these four profiles when the full kernel is positive.
+
+\subsection{Common quartic framework and collision inventory}
+
+Write kernel values as \((A,B,C,D)=(k_L,k_M,k_R,k_O)\). In the fourth
+power of a weighted linear form, use triangular grid coordinates
+
+\[
+i=n_B+2n_C,\qquad j=n_D,\qquad
+0\le j\le4,\quad0\le i\le2(4-j).
+\]
+
+All monomials in this grid point have actual sum \(ia+jb\). If the total
+nonnegative coefficient weights of a projected fiber are at most one, its
+weighted polynomial is bounded by that fiber's kernel-product maximum.
+Summing gives the required quartic comparison. The argument also allows
+stated AM--GM redistributions to other fibers before applying this test.
+
+For \(O_1,O_3\), reflection about the AP midpoint permits \(q=b/a>1\).
+Write \(q=r/s\) in lowest terms. Additional grid collisions differ by
+\((r,-s)\), so require \(r\le8,s\le4\). Removing the forbidden ratios
+in \eqref{eq:i1} leaves precisely
+
+\begin{equation}\label{eq:i9}
+\begin{array}{c|l}
+s& r\\\hline
+1&5,6,7,8\\
+2&5,7\\
+3&4,5,7,8\\
+4&5,7.
+\end{array}
+\end{equation}
+
+Each projected fiber contains at most two grid points. Ratios outside this
+list have no additional fourth-sum collision.
+
+For the endpoint profile \(V_L\), also consider its reflection \(V_R\) by
+allowing \(q<1\) in the same template. The additional positive ratios are
+\(1/3,2/3,1/4,3/4\). For \(q=-r/s<0\), a collision increases both grid
+coordinates by \((r,s)\), so \(r+2s\le8\). The allowed negative ratios are
+
+\begin{equation}\label{eq:i10}
+-3,-4,-5,-6,-1/2,-3/2,-1/3,-2/3.
+\end{equation}
+
+Again no fiber has more than two grid points. These lists exhaust the
+reflected cases as well: reflection replaces \(q\) by \(2-q\).
+
+We repeatedly use
+
+\begin{equation}\label{eq:i11}
+U+\epsilon V\le\max(U,V)+\epsilon\min(U,V)\quad(0\le\epsilon\le1)
+\end{equation}
+
+and
+
+\begin{equation}\label{eq:i12}
+\min(X^3Y,Z^4)\le X^2Z^2+X^2Y^2.
+\end{equation}
+
+For \eqref{eq:i12}, divide by \(X^4\) when \(X>0\). The assertion
+\(\min(y,z^4)\le z^2+y^2\) follows by splitting into \(z\le1\),
+\(z\ge1,y\le1\), and \(y\ge1\). The zero case is immediate.
+
+\subsection{The profile O3}\label{sec:i-o3}
+
+Here \(E=(A+B+C)/3+3D/4\). Let
+
+\[
+P_2=(1,2,3,2,1),\quad P_3=(1,3,6,7,6,3,1),
+\]
+
+\[
+P_4=(1,4,10,16,19,16,10,4,1)
+\]
+
+be the coefficients of \((1+z+z^2)^2,(1+z+z^2)^3,(1+z+z^2)^4\).
+The grid coefficient rows of \(E^4\) are
+
+\[
+\begin{gathered}
+j=0:P_4/81;\quad j=1:P_3/9;\quad j=2:3P_2/8;\\
+j=3:(9/16,9/16,9/16);\quad j=4:(81/256).
+\end{gathered}
+\]
+
+At grid \((2,2)\), move weight \(1/4\) of \(ACD^2\) using
+\(ACD^2\le(A^2D^2+C^2D^2)/2\). The new \(j=2\) row is
+
+\[
+(1/2,3/4,7/8,3/4,1/2).
+\]
+
+All other rows are unchanged. Uncollided fibers have weight at most \(7/8\).
+For the four denominator rows of \eqref{eq:i9}, upper bounds on collided-fiber weights
+are respectively
+
+\[
+31/36,\quad 599/648,\quad755/768,\quad81/256+16/81,
+\]
+
+all below one. These follow by adding the displayed rows with displacement
+\((r,-s)\). For example the closest case is \(r/s=4/3\), where grid
+\((0,4)\) meets \((4,1)\), giving \(81/256+2/3=755/768\).
+The coefficient test proves \eqref{eq:i4}, with strictness for every nonzero kernel.
+
+\subsection{The profile O1}\label{sec:i-o1}
+
+Now \(E=D+(A+B+C)/4\). Its coefficient rows are
+
+\[
+j=0:P_4/256;\quad j=1:P_3/16;\quad j=2:3P_2/8;
+\quad j=3:(1,1,1);\quad j=4:(1).
+\]
+
+Move weight \(1/2\) of \(ACD^2\) by the same AM--GM inequality. The \(j=2\)
+row becomes
+
+\begin{equation}\label{eq:i13}
+(5/8,3/4,5/8,3/4,5/8).
+\end{equation}
+
+For ratios \(5,6,7,8,7/2\), every projected fiber now has weight at most
+one. At the other ratios, retain the full \(j=3\) or \(j=4\) polynomial
+in each overloaded fiber and remove its other grid-point polynomial. The
+following ledgers absorb precisely those removed terms. All unmentioned
+fibers pass the coefficient test with \eqref{eq:i13}.
+
+At \(q=5/2\), the removed terms are
+
+\[
+3DBC^2/16+DC^3/16.
+\]
+
+They are bounded by \(D^2C^2/8+3B^2C^2/32+C^4/32\). The original
+weights of these three projected fibers were \(5/8,101/128,193/256\).
+After allocation they are \(3/4,113/128,201/256\), below one.
+
+At \(q=5/3\), the removed AP-only rows are at \(i=5,6,7\), with total
+coefficient weight \(30/256\); the removed \(j=1,i=5\) term is
+\(3DBC^2/16\). Every removed unweighted monomial is at most
+
+\[
+S=A^4+B^4+C^4+D^2C^2,
+\]
+
+by weighted AM--GM (for \(DBC^2\), use
+\(DBC^2\le D^2C^2/2+B^4/4+C^4/4\)). The total removed weight is
+\(39/128\). The four \(S\) monomials occupy distinct fibers, of original
+weights \(1/256,19/256,1/256,5/8\). Adding \(39/128\) to each remains
+below one; the largest becomes \(119/128\).
+
+At \(q=4/3\), the removed AP-only rows are \(i=4,5,6\), with total
+weight \(45/256\). Bound them by
+\(45(A^4+B^4+C^4)/256\). The removed \(j=1,i=4\) polynomial is
+\(3DAC^2/16+3DB^2C/16\), bounded by
+
+\[
+3D^2C^2/16+3A^4/64+3C^4/64+3B^4/32.
+\]
+
+Thus the allocations are \(57/256\) each to \(A^4,C^4\), \(3/16\) to
+\(D^2C^2\), and \(69/256\) to \(B^4\). The last shares the fiber of
+\(D^3A\). Apply \eqref{eq:i11}-\eqref{eq:i12} to
+\(D^3A+(69/256)B^4\); the remainder is at most
+\(69(D^2B^2+D^2A^2)/256\). The final affected weights are
+\(58/256\) at each of \(A^4,C^4\), \(13/16\) at \(D^2C^2\), and
+\(229/256\) at each of \(D^2B^2,D^2A^2\). All are below one.
+
+At \(q=7/3\), the removed terms are \(BC^3/64+C^4/256\), at the fibers
+of \(D^3A,D^3B\), respectively. They are bounded by
+\(B^4/256+C^4/64\). Use \eqref{eq:i11}-\eqref{eq:i12} for \(D^3B+C^4/64\), allocating its
+remainder to \((D^2C^2+D^2B^2)/64\). The \(B^4\) fiber had weight
+\(19/256\); the two quadratic fibers had weight \(5/8\). These additions
+fit. At \(q=8/3\), only \(C^4/256\) is removed, at the \(D^3A\) fiber;
+\eqref{eq:i11}-\eqref{eq:i12} allocate its remainder to \((D^2C^2+D^2A^2)/256\).
+
+At \(q=5/4\), the removed AP-only row is \(i=5\), of total weight
+\(1/16\), at the \(D^4\) fiber. Each monomial is at most
+\(A^4+B^4+C^4\). These three distinct unoverloaded fibers have weights
+\(1/256,19/256,1/256\); adding \(1/16\) fits. At \(q=7/4\), the sole
+removed term is \(BC^3/64\), absorbed into \((B^4+C^4)/64\) in the same
+way. This exhausts \eqref{eq:i9}. Every ledger leaves positive slack in a quadratic
+fiber, so \eqref{eq:i4} is strict for positive kernels.
+
+\subsection{Endpoint profiles: coefficients and positive ratios}
+
+It suffices to study \(V_L\) at all ratios in \eqref{eq:i9}-\eqref{eq:i10} and the four positive
+ratios below one. Reflection then gives \(V_R\). Write
+
+\[
+E=A+B/4+9C/64+D/4.
+\]
+
+Its triangular coefficient rows, in increasing \(i\), are
+
+\begin{equation}\label{eq:i14}
+\begin{array}{c|l}
+j&\text{row}\\\hline
+0&(1,1,15/16,31/64,467/2048,279/4096,1215/65536,
+729/262144,6561/16777216)\\
+1&(1,3/4,39/64,29/128,351/4096,243/16384,729/262144)\\
+2&(3/8,3/16,33/256,27/1024,243/32768)\\
+3&(1/16,1/64,9/1024)\\
+4&(1/256).
+\end{array}
+\end{equation}
+
+These are the coefficients of \((1+z/4+9z^2/64+w/4)^4\). Without extra
+collisions they all pass the coefficient test. For \(q>1\) in \eqref{eq:i9}, the test
+also passes directly unless \(q\) is an integer \(5,6,7,8\). At those
+integers the only overloaded fiber is \(A^3D\), paired with AP grid point
+\((q,0)\). Its additional polynomial is as follows:
+
+\begin{equation}\label{eq:i15}
+\begin{array}{c|l}
+q&\text{additional polynomial}\\\hline
+5&243ABC^2/4096+9B^3C/1024\\
+6&729AC^3/65536+243B^2C^2/32768\\
+7&729BC^3/262144\\
+8&6561C^4/16777216.
+\end{array}
+\end{equation}
+
+For \(q=5\), use
+\(ABC^2\le(A^2B^2+C^4)/2\) and
+\(B^3C\le(3B^4+C^4)/4\). The extra weight at \(A^2B^2\) is
+\(243/8192<1/16\), fitting its original weight \(15/16\). The extra
+weights at \(B^4,C^4\) are each below \(1/16\); their original fiber
+weights are \(467/2048\) and \(29/128+6561/16777216\), respectively.
+
+For \(q=6\), use \(AC^3\le(A^2C^2+C^4)/2\) and
+\(B^2C^2\le(B^4+C^4)/2\). The first and third terms named in these
+bounds, \(A^2C^2,B^4\), share AP fiber four. Its extra total weight, and
+the extra weight at \(C^4\), are both \(1215/131072<1/64\). Their
+original weights are \(467/2048\) and \(39/64+6561/16777216\).
+
+For \(q=7\), use \(BC^3\le(B^4+3C^4)/4\); both extra allocations are
+below \(1/256\), fitting original weights \(467/2048\) and
+\(3/4+6561/16777216\). For \(q=8\), apply \eqref{eq:i11}-\eqref{eq:i12} directly to the
+overloaded fiber \(A^3D+\epsilon C^4\), where
+\(\epsilon=6561/16777216<1/256\), allocating the remainder to
+\(\epsilon(A^2C^2+A^2D^2)\). Those fibers have original weights
+\(467/2048\) and \(3/8\).
+
+For the positive ratios below one, \(q=2/3,3/4\) pass directly using \eqref{eq:i14}.
+At \(q=1/3\), the only overload is \(A^3B+AD^3/16\). Allocate the second
+term to \((A^2D^2+D^4)/32\), in fibers originally of weights
+\(3/8\) and \(3/4+1/256\). At \(q=1/4\), the sole overload is
+\(A^3B+D^4/256\). Equations \eqref{eq:i11}-\eqref{eq:i12} allocate its remainder to
+\((A^2D^2+A^2B^2)/256\), fitting original weights \(3/8,15/16\).
+
+\subsection{Endpoint profiles: negative ratios}
+
+The following table lists exactly the additional, high-grid-point polynomials
+removed from overloaded fibers. Retain their low-grid-point polynomials in
+full. All other fibers already pass the coefficient test with \eqref{eq:i14}.
+
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+q & Removed polynomial\\
+\midrule
+-3 & \(B^3D/64+27ABCD/128+27B^2CD/1024+243AC^2D/4096+27BCD^2/1024\)\\
+-4 & \(27B^2CD/1024+243AC^2D/4096+243BC^2D/16384+243C^2D^2/32768\)\\
+-5 & \(243BC^2D/16384+729C^3D/262144\)\\
+-6 & \(729C^3D/262144\)\\
+-1/2 & \(3ABD^2/16+3B^2D^2/128+27ACD^2/256+BD^3/64\)\\
+-3/2 & \(27BCD^2/1024+243C^2D^2/32768\)\\
+-1/3 & \(BD^3/64+9CD^3/1024\)\\
+-2/3 & \(9CD^3/1024\)\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+For \(q=-3,-4\), every removed monomial is at most
+
+\[
+S=A^2C^2+B^4+C^4+D^4+B^2D^2+A^2D^2.
+\]
+
+Use weighted AM--GM for monomials without \(A\), and
+\(ABCD\le(A^2C^2+B^2D^2)/2\),
+\(AC^2D\le(A^2D^2+C^4)/2\). The removed total weights are respectively
+\(1387/4096<11/32\) and \(3537/32768<1/8\). Allocate \(11/32\), or
+\(1/8\), to each monomial of \(S\). The first two share a fiber, originally
+of weight \(467/2048\); even the larger addition gives
+\(467/2048+2(11/32)=1875/2048<1\). The other four occupy distinct
+fibers, originally of weights
+\(6561/16777216,1/256,33/256,3/8\), so all allocations fit.
+
+For \(q=-1/2\), use
+
+\[
+S=A^2D^2+B^4+C^4+D^4.
+\]
+
+Every removed monomial is at most \(S\): for example
+\(ABD^2\le A^2D^2/2+B^4/4+D^4/4\), and the same bound with \(C\)
+replaces \(B\) for \(ACD^2\). The removed total weight is
+\(85/256<3/8\). The four \(S\) monomials occupy distinct fibers whose
+original weights are
+\[
+3/8,467/2048,6561/16777216,1/256.
+\]
+Adding \(3/8\) to each fits.
+
+For each remaining row of the table, every monomial is at most
+\(B^4+C^4+D^4\) by weighted AM--GM. The removed total weights have the
+following convenient upper bounds:
+
+\[
+\begin{array}{c|ccccc}
+q&-5&-6&-3/2&-1/3&-2/3\\\hline
+\text{bound}&1/32&1/256&1/16&1/32&1/64.
+\end{array}
+\]
+
+These three pure fourth powers occupy distinct unoverloaded fibers, of
+original weights \(467/2048,6561/16777216,1/256\), so the stated additions
+fit. This finishes \eqref{eq:i10} and hence both endpoint profiles.
+
+The endpoint inequalities are strict for positive kernels. Except at
+\(q=2/3\), the AP-sum-two fiber still has total coefficient weight below
+one after the allocations. At \(q=2/3\), use the AP-sum-four fiber, whose
+weight is \(467/2048+9/1024<1\). In each case its maximum is positive.
+Together with Sections~\ref{sec:i-triangles}, \ref{sec:i-o3}, and
+\ref{sec:i-o1}, this proves strict \eqref{eq:i4}.

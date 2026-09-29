@@ -1,0 +1,101 @@
+\subsection{Five-point Sidon supports}
+
+\begin{proposition}\label{five-sidon-size}
+Every five-element Sidon subset $F$ of $\mathbb Z$ satisfies $|4F|\ge39$.
+Equality is attained by $F=\{0,2,7,8,11\}$.
+\end{proposition}
+\begin{proof}
+We use Freiman's classical $3k-4$ theorem in the following form:
+if $A\subset\mathbb Z$, $|A|=k\ge3$ and $|A+A|\le3k-4$, then $A$
+is contained in an arithmetic progression with at most
+$|A+A|-k+1$ elements. This is the equal-set specialization of the
+statement recalled by Bollob\'as, Leader and Tiba~\cite[p.~1]{blt}.
+
+Translate $F$ and divide by the greatest common divisor of its
+differences, writing
+\[
+ F=\{0,a,b,c,d\},\qquad 0<a<b<c<d,\qquad \gcd(F)=1.
+\]
+These operations preserve the Sidon property and sumset cardinalities.
+Set $B=F+F$. Then $|B|=15$, $\min B=0$, $\max B=2d$, and
+$\gcd(B)=1$ because $F\subset B$.
+If $|4F|=|B+B|\le38$, the theorem applies, since $38\le3\cdot15-4$.
+It puts $B$ in an arithmetic progression with at most $38-15+1=24$
+elements. Its step divides every difference of $B$, so its absolute
+value is one. Consequently $2d\le23$, and $d\le11$.
+
+The ten positive differences of a five-point Sidon set are distinct,
+so $d\ge10$. If $d=10$, those differences would be $1,\ldots,10$,
+whose sum is odd. Their sum is instead $4d+2c-2a$, which is even.
+Thus the supposition $|4F|\le38$ forces $d=11$.
+
+We classify this last case by hand. The ten differences omit one number
+$m$ from $1,\ldots,11$, and the parity argument shows that $m$ is even.
+Put $P_i=\{i,11-i\}$ for $1\le i\le5$. The six endpoint differences
+\[
+ a,b,c,11-a,11-b,11-c
+\]
+occupy exactly three distinct pairs $P_i$. The three remaining
+differences $b-a,c-b,c-a$ form a Schur triple: the sum of the smaller
+two is the largest. They must be three of the four members of the two
+unused pairs, say $P_r,P_s$ with $r<s$.
+
+Deleting one element of the ordered list $r,s,11-s,11-r$ must therefore
+leave a Schur triple. Deleting the smallest cannot work, since
+$s+(11-s)=11>11-r$. The other deletions give $s=2r$, $2r+s=11$, or
+$r+2s=11$. Their complete solution list is
+\begin{center}
+\begin{tabular}{cccc}
+\toprule
+Omitted $m$ & Unused $(r,s)$ & Interior differences & $c-a$\\
+\midrule
+$2$  & $(1,2)$ & $\{1,9,10\}$ & $10$\\
+$4$  & $(2,4)$ & $\{2,7,9\}$  & $9$\\
+$6$  & $(3,5)$ & $\{3,5,8\}$  & $8$\\
+$8$  & $(3,4)$ & $\{3,4,7\}$  & $7$\\
+$10$ & $(1,5)$ & $\{1,5,6\}$  & $6$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The interior points must occupy the other three complementary pairs,
+once each. For $m=2$, the span $c-a=10$ is impossible inside $[1,10]$.
+For $m=4$, it forces $(a,c)=(1,10)$, using the same complementary pair.
+For $m=6$, the possibilities $(a,c)=(1,9),(2,10)$ give only
+$b=4,7$, respectively. For $m=8$, the possible endpoint pairs are
+$(1,8),(2,9),(3,10)$; the outer two use the forbidden $P_3$, and the
+middle one repeats $P_2$. For $m=10$, the choices $a=1,4$ use the
+forbidden $P_1$. The remaining choices $(a,c)=(2,8),(3,9)$ give only
+$b=7,4$, respectively. Up to reflection, the only sets are therefore
+\[
+ F_1=\{0,1,4,9,11\},\qquad F_2=\{0,2,7,8,11\}.
+\]
+
+For the first representative,
+\[
+ 2F_1=\{0,1,2,4,5,8,9,10,11,12,13,15,18,20,22\}.
+\]
+Successive elements are at most three apart, so
+$2F_1+\{0,1,2\}$ contains $[0,24]$. The rest of $[0,38]$ is supplied by
+\[
+\begin{aligned}
+\relax[25,28]&=15+[10,13],& [29,33]&=20+[9,13],\\
+ [34,35]&=22+[12,13],& 36&=18+18,\\
+ 37&=15+22,&38&=18+20.
+\end{aligned}
+\]
+All summands belong to $2F_1$. Also $40=18+22$, $42=20+22$ and
+$44=22+22$. The only other candidates are $39,41,43$; each requires a
+summand $20$ or $22$, but its complementary summand is absent. Hence
+\[
+ 4F_1=[0,38]\cup\{40,42,44\},\qquad |4F_1|=42.
+\]
+For the second representative, Proposition~\ref{b-five-point} gives
+\[
+ 4F_2=\{0,2,4\}\cup[6,38]\cup\{40,41,44\},\qquad |4F_2|=39.
+\]
+Here all intervals are integer intervals. Both possibilities contradict
+$|4F|\le38$, and the second proves sharpness.
+\end{proof}
+
+The proof classifies normalized span $11$ only. It does not classify all
+equality cases for $|4F|=39$.

@@ -1,0 +1,421 @@
+\section{The five pair-sum patterns}
+\label{sec:classification}
+
+The ordinary-convolution constraints depend only on equalities between
+unordered pair sums, with repeated summands allowed.  For four integer
+points these equalities give five patterns.
+
+\begin{proposition}\label{c-classification}
+Every four-point integer set belongs to exactly one of the following
+classes: a Sidon set, an isolated three-term arithmetic progression, a
+proper parallelogram, two three-term arithmetic progressions, or a
+four-term arithmetic progression.  Here a Sidon set has distinct unordered
+pair sums.  An isolated progression has exactly one nontrivial pair-sum
+equality, of the form $p+r=2q$.  A proper parallelogram has exactly one
+nontrivial pair-sum equality, with four distinct summands.
+
+Up to translation, reflection, and integer dilation, the class with two
+progressions is represented by $\{0,1,2,4\}$.
+\end{proposition}
+
+\begin{proof}
+Translate the set to $\{0,a,b,c\}$, where $0<a<b<c$.  A shared summand
+can be cancelled from any pair-sum equality.  The remaining nontrivial
+possibilities are precisely
+\begin{equation}\label{c-relations}
+ b=2a,\qquad c=2a,\qquad c=2b,\qquad
+ c=2b-a,\qquad c=a+b.
+\end{equation}
+The first four assert that one point is the midpoint of two others.
+The last is the only possible equality between pairs using all four points.
+
+The compatible intersections are as follows.  The equations $b=2a$ and
+$c=2b$ give $\{0,a,2a,4a\}$.  The equations $c=2a$ and $c=2b-a$ give
+$b=3a/2$, hence a reflected copy of $\{0,d,2d,4d\}$ with $d=a/2$.
+Any two of $b=2a$, $c=2b-a$, and $c=a+b$ imply the third and give
+$\{0,a,2a,3a\}$.  Every other pair of equations in
+\eqref{c-relations} contradicts $0<a<b<c$.  The possibilities are
+therefore no equality, one midpoint equality, one cross-pair equality,
+the two-progressions case, and the four-term progression.
+\end{proof}
+
+This classification concerns pair sums.  A class can contain further
+equalities between fourfold sums, which must also be accounted for when
+bounding $T_F(k)$.
+
+\section{Sidon supports}
+\label{sec:sidon}
+
+\begin{lemma}\label{c-level-set}
+For every finitely supported nonnegative function $h$ on $\mathbb Z$,
+\begin{equation}\label{c-level-bound}
+ \|h\star h\|_1\ge 2\sum_s h(s)^2-\|h\|_\infty^2.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The zero function is immediate.  For $0\le t<\|h\|_\infty^2$, put
+$A_t=\{s:h(s)^2>t\}$.  Then $A_t$ is nonempty and
+$A_t+A_t\subseteq\{s:(h\star h)(s)>t\}$.  If a finite integer set has
+ordered elements $a_1<\cdots<a_m$, the chain
+\[
+ 2a_1<a_1+a_2<\cdots<a_1+a_m<a_2+a_m<\cdots<2a_m
+\]
+shows that $|A+A|\ge2|A|-1$.  Integrating the resulting inequality for
+superlevel-set cardinalities over $0\le t<\|h\|_\infty^2$ proves
+\eqref{c-level-bound}.
+\end{proof}
+
+\begin{proposition}\label{c-sidon}
+Let $F$ be a finite nonempty Sidon set and let $k\ge0$ on $F$.  Put
+$K=\sum_{p\in F}k(p)$ and $a=\max_{p\in F}k(p)$.  Then
+\begin{equation}\label{c-sidon-norm}
+ N_F(k)=\max\left\{\frac K2,\frac{K+3a}{4}\right\}.
+\end{equation}
+If $|F|\le4$, then $N_F(k)^4\le T_F(k)$, with strict inequality
+whenever at least two values of $k$ are positive.
+\end{proposition}
+
+\begin{proof}
+The Sidon property makes the ordinary-convolution constraints equivalent to
+\[
+ w_p\le1,\qquad w_pw_q\le\frac14\quad(p\ne q),
+ \qquad w_p=x(p)^2\ge0.
+\]
+If all $w_p\le1/2$, the objective is at most $K/2$.  Otherwise let
+$w_j=u\in[1/2,1]$ be largest.  Every other coordinate is at most
+$1/(4u)$, so
+\[
+ \sum_p k(p)w_p\le k(j)u+\frac{K-k(j)}{4u}.
+\]
+This is convex in $u$, and its endpoint values are $K/2$ and
+$k(j)+(K-k(j))/4$.  Maximizing over $j$ proves the upper bound in
+\eqref{c-sidon-norm}.  The profiles with all coordinates $1/2$, and
+with one coordinate $1$ and all others $1/4$, are feasible.  They attain
+the stated values.
+
+Suppose now that $|F|\le4$.  The case $k=0$ is immediate.  Apply
+Lemma~\ref{c-level-set} to $h=k\star k$.  Distinct unordered pair sums
+give
+\[
+ \sum_s h(s)^2
+ =\frac12\left[\left(\sum_p k(p)^2\right)^2+\sum_p k(p)^4\right],
+ \qquad \|h\|_\infty=a^2.
+\]
+Associativity of max-convolution and Cauchy--Schwarz therefore imply
+\begin{equation}\label{c-sidon-half}
+ T_F(k)\ge
+ \left(\sum_p k(p)^2\right)^2+\sum_p k(p)^4-a^4
+ \ge\left(\frac K2\right)^4.
+\end{equation}
+The last comparison is strict if at least two kernel values are positive,
+because then $\sum_p k(p)^4-a^4>0$.
+
+For the other term in \eqref{c-sidon-norm}, choose a point $p_0$ with
+$k(p_0)=a$ and write $R=K-a$.  Fixing two copies of $p_0$ in the
+fourfold maximum gives distinct sums indexed by unordered pairs from $F$.
+Thus
+\begin{equation}\label{c-pivot-bound}
+ T_F(k)\ge a^4+a^3R+a^2h_2
+ \ge a^4+a^3R+\frac23a^2R^2,
+\end{equation}
+where $h_2$ is the sum of the squares and pair products of the other
+kernel values.  There are at most three such values, so
+$h_2=(R^2+\sum_{p\ne p_0}k(p)^2)/2\ge2R^2/3$.
+Since $R\le3a$, expansion gives
+\begin{equation}\label{c-quarter-bound}
+ \left(a+\frac R4\right)^4
+ \le a^4+a^3R+\frac{153}{256}a^2R^2.
+\end{equation}
+Indeed the coefficient after bounding the cubic and quartic terms is
+$3/8+3/16+9/256=153/256$.  The difference between the right sides of
+\eqref{c-pivot-bound} and \eqref{c-quarter-bound} is at least
+$53a^2R^2/768$, positive when $R>0$.  This proves both comparisons in
+\eqref{c-sidon-norm}, including the asserted strictness.
+\end{proof}
+
+\section{Proper parallelograms}
+\label{sec:parallelogram}
+
+Write
+\begin{equation}\label{c-parallelogram-set}
+ F=\{0,a,b,a+b\},\qquad 0<a<b,\qquad b\ne2a,
+\end{equation}
+and index its coordinates in this order.  The opposite pairs are
+$\{0,3\}$ and $\{1,2\}$.  Define a collection $\mathcal P$ of sixteen
+squared profiles:
+\begin{itemize}
+ \item Four profiles have three coordinates $1/2$ and one coordinate zero.
+ \item Eight profiles have one coordinate $1$, its opposite coordinate
+       and one adjacent coordinate $1/4$, and the remaining coordinate zero.
+ \item Four profiles have one coordinate $1$, its two adjacent coordinates
+       $1/4$, and its opposite coordinate $1/16$.
+\end{itemize}
+We call the last four profiles tensor profiles, since their entries are
+products of the two-coordinate vector $(1,1/4)$.
+
+\begin{proposition}\label{c-parallelogram}
+For every $k\ge0$ on \eqref{c-parallelogram-set},
+\begin{equation}\label{c-parallelogram-norm}
+ N_F(k)=\max_{v\in\mathcal P}k\cdot v,
+ \qquad (k\cdot v)^4\le T_F(k)\quad(v\in\mathcal P).
+\end{equation}
+If $k$ is positive at all four points, every displayed quartic comparison
+is strict, and hence $N_F(k)^4<T_F(k)$.
+\end{proposition}
+
+\subsection{Reduction to sixteen profiles}
+
+Ordinary-convolution feasibility is equivalent to
+\begin{equation}\label{c-parallelogram-feasible}
+ x_i^2\le1,\qquad 2x_ix_j\le1\ (i\ne j),\qquad
+ x_0x_3+x_1x_2\le\frac12.
+\end{equation}
+The last constraint is the coefficient at $a+b$; its separate opposite-pair
+bounds are redundant.  Each profile in $\mathcal P$ is feasible.
+For the first two types the sum of the two opposite products of square
+roots is $1/2$; for a tensor profile both products are $1/4$.
+
+Put $w_i=x_i^2$.  First suppose every $w_i\le1/2$.  With
+$r=x_0x_3$ and $s=x_1x_2$, the inequality
+$u+v\le1/2+2uv$ for $u,v\in[0,1/2]$ gives
+\[
+ \sum_iw_i\le1+2r^2+2s^2\le1+2(r+s)^2\le\frac32.
+\]
+Increase coordinates within $[0,1/2]$ until their sum is $3/2$.
+The resulting vector lies in the convex hull of the four profiles of the
+first type: for such a vector $y$, the coefficient of the profile with its
+$i$th coordinate zero is $1-2y_i$.  These coefficients are nonnegative
+and sum to one.
+
+Otherwise relabel corners, preserving opposite pairs, so that $w_0=u\ge1/2$,
+and put $L=1/(4u)$.  Then $w_1,w_2,w_3\le L$, and
+\[
+ w_3\le L\left(1-2\sqrt{w_1w_2}\right)^2.
+\]
+For fixed $u$, the upper bound
+\[
+ k_0u+k_1w_1+k_2w_2
+       +k_3L\left(1-2\sqrt{w_1w_2}\right)^2
+\]
+is separately convex in $w_1,w_2\in[0,L]$.  Its only nonlinear term in
+either variable is a nonpositive multiple of that variable's square root.
+It is therefore enough to consider the four corners of this square.
+
+The corner $(0,0)$ is dominated by either $(L,0)$ or $(0,L)$.  These
+give $(u,L,0,L)$ and $(u,0,L,L)$, whose objectives are convex in $u$.
+Their endpoint values correspond to profiles of the first two types.
+The last corner gives
+\[
+ b(u)=\left(u,L,L,\frac{(2u-1)^2}{16u^3}\right).
+\]
+For this curve, set
+\[
+ t=2u-1,\qquad \nu=1-t,\qquad
+ s=\frac{(2u-1)(1-u)}{4u},
+\]
+and define
+\[
+ U=(1,1/4,1/4,1/16),\quad W_0=(1/2,1/2,1/2,0),
+\]
+\[
+ W_1=(1/2,1/2,0,1/2),\qquad W_2=(1/2,0,1/2,1/2).
+\]
+The coefficients of
+\[
+ y=tU+(\nu-4s)W_0+2sW_1+2sW_2
+\]
+are nonnegative and sum to one, since $4s=t(1-u)/u\le2(1-u)=\nu$.
+The first three coordinates of $y$ are $(u,L,L)$ and its last coordinate
+is $t/16+2s$.  Moreover,
+\[
+ \frac{(2u-1)^2}{16u^3}-\frac t{16}
+ =\frac{t(1-u)(u^2+u-1)}{16u^3}
+ \le\frac s4\le2s.
+\]
+Thus $y$ dominates $b(u)$.  These reductions prove the upper bound in
+\eqref{c-parallelogram-norm}; feasibility of the listed profiles proves
+equality.
+
+\subsection{Profiles supported on three corners}
+
+Every three-corner subset of a proper parallelogram is Sidon.  An additional
+midpoint equality would force $b=2a$ or $a=b$.  For a kernel restricted to
+such a triangle, Proposition~\ref{c-sidon} bounds both its half-sum and every
+unit-and-two-quarter form.  These are exactly the objectives of the twelve
+profiles with a zero coordinate.  Monotonicity under enlarging the support
+then proves their quartic comparisons with $T_F(k)$.  For positive $k$,
+their three-point restrictions have at least two positive values, so the
+comparisons are strict.
+
+\subsection{Tensor profiles and their collision grid}
+
+Reflection around $(a+b)/2$ reduces the four tensor profiles to a pivot at
+$0$ and a pivot at $a$.  Relative to the pivot, write the kernel values
+as $A,B,C,D$, with the tensor objective
+\[
+ E=A+B/4+C/4+D/16.
+\]
+For the outer pivot the offsets are $0,a,b,a+b$.  For the inner pivot
+they are $0,-a,b,b-a$, so that $A=k(a)$, $B=k(0)$, $C=k(a+b)$, and
+$D=k(b)$ in that case.
+
+A monomial with multiplicities $n_A,n_B,n_C,n_D$ has grid coordinates
+$i=n_B+n_D$ and $j=n_C+n_D$.  Both belong to $\{0,1,2,3,4\}$.
+The total coefficient of its grid point in $E^4$ is
+\begin{equation}\label{c-grid-weights}
+ c_ic_j,\qquad (c_0,c_1,c_2,c_3,c_4)=(1,1,3/8,1/16,1/256),
+\end{equation}
+because the coefficient-generating polynomial is
+\[
+ (1+z/4+w/4+zw/16)^4=(1+z/4)^4(1+w/4)^4.
+\]
+The actual sum is $ia+jb$ for the outer pivot and $-ia+jb$ for the inner
+pivot.  Grouping by that sum proves $E^4\le T_F(k)$ whenever every
+group's nonnegative coefficient weights add to at most one.  AM--GM
+inequalities can first move terms between groups, provided each replacement
+is a legal fourfold monomial at its new sum.
+
+Write $b/a=r/s$ in lowest terms, with $r>s>0$.  Two grid points in
+$\{0,\ldots,4\}^2$ collide only if $r\le4$.  Excluding $r/s=2$ leaves
+\begin{equation}\label{c-exceptional-ratios}
+ r/s\in\{3,4,3/2,4/3\}.
+\end{equation}
+The collision step is $(r,-s)$ for the outer pivot and $(r,s)$ for the
+inner pivot.  Since $r\ge3$, no group contains three grid points.
+Outside \eqref{c-exceptional-ratios}, \eqref{c-grid-weights} proves the
+quartic comparison directly.
+
+We use two elementary inequalities:
+\begin{align}
+ U+\epsilon V&\le\max(U,V)+\epsilon\min(U,V)
+     &&(U,V\ge0,\ 0\le\epsilon\le1),\label{c-max-min}\\
+ \min(A^3C,X^4)&\le A^2X^2+A^2C^2
+     &&(A,C,X\ge0).\label{c-absorption}
+\end{align}
+The first follows by ordering $U,V$.  For the second, the case $A=0$
+is immediate.  Otherwise divide by $A^4$ and put $x=X/A$, $y=C/A$.
+If $x\le1$, use $\min(y,x^4)\le x^4\le x^2$; if $x\ge1$ and
+$y\le1$, use $y\le x^2$; if $y\ge1$, use $y\le y^2$.
+
+\subsection{Outer-pivot collisions}
+
+At ratios $3/2$ and $4/3$, every colliding pair has total weight at most
+$3/8+1/16=7/16$.  Indeed the point with smaller first coordinate has
+second coordinate at least two, and the other point has first coordinate
+at least three.  Thus the coefficient comparison applies directly.
+
+At ratio three, the only groups of weight greater than one are
+$(0,1)\sim(3,0)$ and $(1,1)\sim(4,0)$.  Their polynomials are
+\[
+ A^3C+AB^3/16,\qquad
+ 3A^2BC/4+A^3D/4+B^4/256.
+\]
+Use $AB^3/16\le(A^2B^2+B^4)/32$ in the first group.  The resulting
+total coefficient of $B^4$ in the second group is $\delta=9/256$.
+Keep
+\[
+ (3/4-\delta)A^2BC+A^3D/4+\delta B^4
+\]
+there; its coefficient sum is one.  The displaced term satisfies
+$\delta A^2BC\le\delta(A^2B^2+A^2C^2)/2$.
+The extra coefficients assigned to $A^2B^2$ and $A^2C^2$ are
+$25/512$ and $9/512$.  Their entire original group weights are
+$3/8$ and $7/16$, respectively, so the final weights are
+$217/512$ and $233/512$.  Both are below one.
+
+At ratio four, the sole overloaded group is $A^3C+B^4/256$.
+Equations~\eqref{c-max-min}--\eqref{c-absorption}, with
+$\epsilon=1/256$ and $X=B$, bound it by its maximum plus
+$(A^2B^2+A^2C^2)/256$.  The two recipient groups originally have weights
+$3/8$ and $97/256$; their final weights are $97/256$ and $98/256$.
+Every other group already has weight at most one.
+
+\subsection{Inner-pivot collisions}
+
+An inner-pivot group can be overloaded only if the smaller grid point has
+both coordinates at most one.  Otherwise its weight is at most $3/8$,
+and that of its partner is at most $1/16$.
+For ratios three, four, and $3/2$, remove the high-point polynomials in
+the following table and keep their low-point partners in full.
+\begin{center}
+\begin{tabular}{cl}
+\toprule
+High grid point & Polynomial \\
+\midrule
+$(3,1)$ & $B^3C/64+3AB^2D/64$ \\
+$(4,1)$ & $B^3D/256$ \\
+$(3,2)$ & $3B^2CD/256+3ABD^2/256$ \\
+$(4,2)$ & $3B^2D^2/2048$ \\
+$(3,3)$ & $3BCD^2/1024+AD^3/1024$ \\
+$(4,3)$ & $BD^3/4096$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+The entries follow from the multinomial expansion of $E^4$.  The sets
+of removed points and their total coefficient weights are
+\begin{center}
+\begin{tabular}{clc}
+\toprule
+Ratio & Removed points & Total weight \\
+\midrule
+$3$ & $(3,1),(4,1),(3,2),(4,2)$ & $187/2048$ \\
+$4$ & $(4,1),(4,2)$ & $11/2048$ \\
+$3/2$ & $(3,2),(4,2),(3,3),(4,3)$ & $119/4096$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+Each total is below $1/8$.  Every unweighted monomial in the first table
+is at most
+\[
+ S=B^4+C^4+D^4+A^2B^2+A^2D^2.
+\]
+For monomials without $A$, this follows from weighted AM--GM.  The three
+remaining forms satisfy
+\[
+ AB^2D\le\frac{A^2D^2+B^4}{2},\qquad
+ ABD^2\le\frac{A^2B^2+D^4}{2},\qquad
+ AD^3\le\frac{A^2D^2+D^4}{2}.
+\]
+The removed polynomial is consequently bounded by $S/8$.
+
+The five recipient monomials occupy distinct groups, outside the removed
+groups.  In the order $B^4,C^4,D^4,A^2B^2,A^2D^2$, their original
+weights are
+\[
+ \frac1{256},\quad\frac1{256},\quad
+ \begin{cases}
+  1/16+1/65536,&r/s=3\text{ or }4,\\
+  3/8+1/65536,&r/s=3/2,
+ \end{cases}
+ \quad\frac38,\quad\frac9{64}.
+\]
+These are full group weights, including any collision partner.  For example,
+the partner of the $D^4$ point $(4,4)$ is $(1,3)$, $(0,3)$, or $(1,2)$
+at the respective ratios.  The other recipient grid points are
+$(4,0),(0,4),(2,0),(2,2)$ and are unpaired.  Adding $1/8$ to each
+weight leaves every total below one, proving all three cases.
+
+At ratio $4/3$, the two overloaded groups are
+\[
+ A^4+BD^3/4096,\qquad A^3C+D^4/65536.
+\]
+Weighted AM--GM gives
+\[
+ BD^3/4096+D^4/65536
+ \le B^4/16384+13D^4/65536.
+\]
+Keep $A^4$ in its group and combine the $D^4$ term with $A^3C$ using
+\eqref{c-max-min}--\eqref{c-absorption}, with
+$\epsilon=13/65536$ and $X=D$.  This adds $1/16384$ at $B^4$ and
+$13/65536$ at each of $A^2D^2,A^2C^2$.  Their distinct recipient
+groups have original weights $1/256,9/64,3/8$, so all additions fit.
+
+This proves every tensor comparison.  For positive $A,B,C,D$, it is
+strict: the group containing $A^2B^2$ has a positive maximum and final
+weight below one.  Its original weight is $3/8$; the outer-pivot transfers
+leave it at $217/512$ or $97/256$, the first three inner-pivot transfers
+leave it at $1/2$, and the inner ratio $4/3$ leaves it unchanged.
+Together with the twelve three-corner profiles, this proves
+Proposition~\ref{c-parallelogram}.  The finite maximum in
+\eqref{c-parallelogram-norm} preserves strictness.
