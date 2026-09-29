@@ -1,0 +1,164 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[hyphens]{url}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\V}{V}
+\title{A counterexample to the fivefold sumset inequality}
+\author{Benjamin Guo\\Hraness (\url{hraness.com})\thanks{Developed with AI research agents. The proof is accompanied by two exact integer count formulas and a separate verifier.}}
+\date{29 September 2026}
+\hypersetup{pdftitle={A counterexample to the fivefold sumset inequality},pdfauthor={Benjamin Guo}}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+We give finite sets of integers $A,B$ satisfying
+$|A-B|^5>|A+B|^5|5B|$, where $5B$ is the fivefold sumset of $B$.
+The sets are base-$193$ encodings of nonnegative integer vectors in
+dimension $128$, with coordinate sums bounded by $160$ and $32$,
+respectively. Stars and bars counts the sumsets, and a sum of $33$
+binomial terms counts the difference set. The strict comparison uses
+integer arithmetic and is independently reproduced by counting both
+positive and negative supports.
+\end{abstract}
+\medskip\noindent\textbf{Keywords.} sumset; difference set; integer simplex; exact certificate.
+\smallskip\noindent\textbf{MSC 2020.} 11B75; 05A16.
+
+\section{The inequality and the construction}
+For finite nonempty subsets $A,B$ of an abelian group, write
+$A\pm B=\{a\pm b:a\in A,\ b\in B\}$ and
+$hB=\{b_1+\cdots+b_h:b_1,\ldots,b_h\in B\}$.
+Gyarmati, Hennecart and Ruzsa~\cite[equation~(9), p.~177]{ghr} asked for which
+integers $h$ the inequality
+\begin{equation}\label{eq:historical}
+ |A-B|\le |A+B|\,|hB|^{1/h}
+\end{equation}
+holds for all such sets. Their discussion on p.~182 gives a counterexample
+for $h=6$ and leaves $h=4,5$ unresolved. The result below gives an
+explicit counterexample to the $h=5$ statement in that text; no priority
+or current-status claim is made.
+
+For integers $m\ge1$ and $r\ge0$, define the integer simplex
+\[
+ \V(m,r)=\left\{x\in\Z_{\ge0}^{m}:
+                  \sum_{i=0}^{m-1}x_i\le r\right\}.
+\]
+Its size is $\binom{m+r}{m}$.
+We use unequal radii in the classical lattice-simplex construction,
+used by Gyarmati, Hennecart and Ruzsa in their $h=6$
+example~\cite[p.~182]{ghr}.
+
+\begin{theorem}\label{thm:main}
+Let $\phi:\Z^{128}\to\Z$ be the additive map
+\[
+ \phi(x)=\sum_{i=0}^{127}193^i x_i.
+\]
+The finite integer sets
+\[
+ A=\phi\bigl(\V(128,160)\bigr),\qquad
+ B=\phi\bigl(\V(128,32)\bigr)
+\]
+satisfy
+\begin{equation}\label{eq:failure}
+ |A-B|^5>|A+B|^5|5B|.
+\end{equation}
+\end{theorem}
+
+\section{Counting the vector sets}
+The count formulas hold for any pair of integer simplices.
+
+\begin{lemma}\label{lem:counts}
+For integers $m\ge1$ and $a,b\ge0$, let $X=\V(m,a)$ and $Y=\V(m,b)$. Then
+\begin{align}
+ |X+Y|&=\binom{m+a+b}{m}, &
+ |5Y|&=\binom{m+5b}{m},\label{eq:sumcounts}\\
+ |X-Y|&=\sum_{j=0}^{\min(m,b)}
+       \binom mj\binom bj\binom{m-j+a}{m-j}.\label{eq:diffcount}
+\end{align}
+The difference count also equals
+\begin{equation}\label{eq:double}
+ \sum_{j=0}^{\min(m,b)}\ \sum_{k=0}^{\min(m-j,a)}
+ \binom mj\binom{m-j}{k}\binom bj\binom ak.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+One has $\V(m,a)+\V(m,b)=\V(m,a+b)$. To obtain the reverse
+inclusion, allocate up to $a$ units of any vector's coordinate mass
+to the first summand; the remaining mass is at most $b$. Iterating
+this identity gives $5Y=\V(m,5b)$. Stars and bars proves
+\eqref{eq:sumcounts}.
+
+For $z\in\Z^m$, put $(z_+)_i=\max(z_i,0)$ and
+$(z_-)_i=\max(-z_i,0)$. Then
+\[
+ z\in X-Y\quad\Longleftrightarrow\quad
+ \sum_i(z_+)_i\le a\ \text{ and }\ \sum_i(z_-)_i\le b.
+\]
+Necessity follows from any representation $z=x-y$; sufficiency follows
+by taking $x=z_+$ and $y=z_-$. If $z$ has exactly $j$ negative
+coordinates, their positions can be chosen in $\binom mj$ ways.
+Their positive magnitudes have total at most $b$, giving $\binom bj$
+choices. The other $m-j$ coordinates are nonnegative with total at
+most $a$, giving $\binom{m-j+a}{m-j}$ choices. This proves
+\eqref{eq:diffcount}, including the case $j=0$.
+
+Alternatively, choose the $j$ negative positions and then the $k$
+positive positions. Their nonzero magnitudes can be filled in
+$\binom bj$ and $\binom ak$ ways. Summing over the disjoint supports
+proves~\eqref{eq:double}.
+\end{proof}
+
+For the parameters of Theorem~\ref{thm:main}, set
+\begin{align}
+ D&=\sum_{j=0}^{32}
+      \binom{128}{j}\binom{32}{j}\binom{288-j}{128-j},\label{eq:D}\\
+ S&=\binom{320}{128},\qquad
+ F=\binom{288}{128}.\label{eq:SF}
+\end{align}
+These integers satisfy $D^5>S^5F$. The arithmetic can be checked with
+the following standalone Python code, using integer operations only:
+\begin{verbatim}
+from math import comb
+D = sum(comb(128,j)*comb(32,j)*comb(288-j,128-j)
+        for j in range(33))
+S, F = comb(320,128), comb(288,128)
+if D**5 <= S**5*F:
+    raise ArithmeticError("fivefold comparison failed")
+print("D^5 > S^5 F")
+\end{verbatim}
+The accompanying verifier also evaluates~\eqref{eq:double} with
+factorials instead of the binomial-coefficient routine and checks
+the resulting integers against the stored values. Its small-set
+controls enumerate the sets themselves.
+
+\section{Encoding as integer sets}
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Write $X=\V(128,160)$ and $Y=\V(128,32)$.
+Every coordinate of $X+Y$ lies in $[0,192]$, and every coordinate
+of $5Y$ lies in $[0,160]$. Base-$193$ uniqueness therefore makes
+$\phi$ injective on both sets.
+
+Every coordinate of $X-Y$ lies in $[-32,160]$. Adding $32$ to
+each coordinate gives digits in $[0,192]$ and adds the same integer
+$32\sum_{i=0}^{127}193^i$ to every image. Thus $\phi$ is injective
+on $X-Y$ as well. Additivity now gives
+\[
+ |A-B|=D,\qquad |A+B|=S,\qquad |5B|=F.
+\]
+The integer comparison following~\eqref{eq:SF} proves
+\eqref{eq:failure}.
+\end{proof}
+
+\begin{thebibliography}{9}
+\bibitem{ghr}
+K. Gyarmati, F. Hennecart and I. Z. Ruzsa,
+\emph{Sums and differences of finite sets},
+Functiones et Approximatio Commentarii Mathematici
+\textbf{37}(1) (2007), 175--186.
+\url{https://doi.org/10.7169/facm/1229618749}.
+\end{thebibliography}
+\end{document}

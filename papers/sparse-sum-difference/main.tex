@@ -11,7 +11,7 @@
 \newcommand{\Sset}{\mathcal S}
 \title{An explicit weighted digit construction\\for small sumsets and large difference sets}
 \author{Benjamin Guo\\Hraness (\url{hraness.com})\thanks{Developed with AI research agents. The proof is accompanied by a separate verifier using exact integer arithmetic.}}
-\date{28 September 2026}
+\date{29 September 2026}
 \hypersetup{pdftitle={An explicit weighted digit construction for small sumsets and large difference sets},pdfauthor={Benjamin Guo}}
 
 \begin{document}
@@ -22,10 +22,12 @@ when $|E+F|\le K|E|$, for fixed $K>1$ and arbitrarily large finite integer
 sets $E,F$. We give a weighted digit construction for its exponent $\theta$.
 Equal counts of opposite differences give a lower bound for the difference
 set, while a product-weight estimate bounds the sumset from above. The
-resulting formula applies to any finite digit alphabet. For the alphabet
-$\{0,3,4,6,7,\ldots,16\}$ and geometric weights $(16/19)^a$, it proves
-$\theta>1.1855$. The numerical conclusion reduces to one explicit integer
-inequality. This exceeds Zheng's published lower bound of $1.173077$.
+resulting formula applies to any finite digit alphabet. Four-digit blocks
+in radix $32$, weighted by the sum of their source digits, give
+$\theta>1.18565$. The smaller alphabet $\{0,3,4,6,7,\ldots,16\}$ with
+geometric weights $(16/19)^a$ gives a simpler proof of $\theta>1.1855$.
+Both bounds have exact integer certificates. They exceed Zheng's
+published lower bound of $1.173077$.
 The proof uses the finite-set transfer
 inequality of Gyarmati, Hennecart and Ruzsa and does not require optimality
 of the chosen parameters.
@@ -277,7 +279,7 @@ Every other nonzero difference uses a digit and zero. Thus
  \label{eq:three-hole-differences}
 \end{align}
 
-\begin{corollary}\label{cor:headline}
+\begin{corollary}\label{cor:sparse}
 The exponent in~\eqref{eq:problem} satisfies $\theta>1.1855$.
 \end{corollary}
 \begin{proof}
@@ -300,9 +302,117 @@ Consequently Theorem~\ref{thm:weighted} gives
 \]
 \end{proof}
 
+\section{Four-digit blocks with carries}
+Keep $\A=\{0,3,4,6,7,\ldots,16\}$ and $q=16/19$. For $0\le k\le4$,
+define the block alphabet and its cost by
+\begin{equation}\label{eq:block-alphabet}
+ \mathcal C_k=\left\{\sum_{j=0}^{k-1}a_j32^j:a_j\in\A\right\},
+ \qquad
+ \lambda\left(\sum_{j=0}^{k-1}a_j32^j\right)=\sum_{j=0}^{k-1}a_j.
+\end{equation}
+For $k=0$, set $\mathcal C_0=\{0\}$ and $\lambda(0)=0$.
+Since every source digit is smaller than $32$, each block has a unique
+representation of length $k$ and its cost is well-defined. Give a block
+$c\in\mathcal C_4$ the weight $w_c=q^{\lambda(c)}$. For example,
+$96=3\cdot32$ has cost $3$ and weight $q^3$.
+The maximum block value and the outer radix in Theorem~\ref{thm:weighted}
+are
+\begin{equation}\label{eq:block-radius}
+ M=16(1+32+32^2+32^3)=541200,
+ \qquad L=2M+1=1082401.
+\end{equation}
+The weights are positive, at most one, and equal to one at zero.
+
+Sums and differences within a block can have several digit representations.
+For example, a scalar sum of $32$ carries into the next radix-$32$ position.
+Each represented integer contributes its largest endpoint-product weight
+once. We compute that weight by its minimum endpoint cost.
+
+Let $T_k(z)$ and $U_k(z)$ be the minimum of $\lambda(x)+\lambda(y)$ over
+$x,y\in\mathcal C_k$ with $x+y=z$ and $x-y=z$, respectively. Use $+\infty$
+when the integer has no representation. Thus $T_0(0)=U_0(0)=0$, with
+all other initial values infinite. Put
+\[
+ \mathcal S=\A+\A=\{0,3,4,6,\ldots,32\},
+ \qquad
+ \mathcal D=\A-\A=\{-16,\ldots,16\},
+\]
+and define the scalar difference cost
+\[
+ \kappa(d)=\min_{a-b=d}(a+b)
+ =\begin{cases}
+   7,& |d|=1,\\
+   10,& |d|=2,\\
+   11,& |d|=5,\\
+   |d|,&\text{otherwise}.
+ \end{cases}
+\]
+For $0\le k<4$, the exact recurrences are
+\begin{align}
+ T_{k+1}(z)&=\min_{s\in\mathcal S}\bigl(T_k(z-32^ks)+s\bigr),
+ \label{eq:block-sum-recurrence}\\
+ U_{k+1}(z)&=\min_{d\in\mathcal D}\bigl(U_k(z-32^kd)+\kappa(d)\bigr).
+ \label{eq:block-difference-recurrence}
+\end{align}
+Indeed, every endpoint pair splits into a pair of shorter blocks and a
+pair of last digits, so its cost is at least the corresponding expression.
+Conversely, a minimizing shorter pair and a minimizing scalar pair can be
+chosen independently and joined to attain that expression. Taking the
+minimum over all last digits includes every carry and every repeated output.
+
+Write
+\[
+ h_S(e)=|\{z:T_4(z)=e\}|,
+ \qquad h_D(e)=|\{z:U_4(z)=e\}| \quad (0\le e\le128).
+\]
+Since $0<q<1$, minimizing cost maximizes weight. The quantities in
+\eqref{eq:sums}--\eqref{eq:differences} for the alphabet $\mathcal C_4$
+are therefore
+\begin{equation}\label{eq:block-polynomials}
+ P_4(q)=\sum_{e=0}^{128}h_S(e)q^e,
+ \qquad Q_4(q)=\sum_{e=0}^{128}h_D(e)q^e.
+\end{equation}
+Define positive integers
+\begin{equation}\label{eq:block-integers}
+ R_S=\sum_{e=0}^{128}h_S(e)16^e19^{128-e},
+ \qquad R_D=\sum_{e=0}^{128}h_D(e)16^e19^{128-e}.
+\end{equation}
+Both polynomials use the common denominator $19^{128}$ at $q=16/19$,
+so $Q_4(q)/P_4(q)=R_D/R_S$.
+
+\begin{corollary}\label{cor:headline}
+The exponent in~\eqref{eq:problem} satisfies $\theta>1.18565$.
+\end{corollary}
+\begin{proof}
+The accompanying certificate records the two cost histograms and the
+integers in~\eqref{eq:block-integers}. Its verifier reconstructs both
+recurrences, checks every histogram entry and integer total, and verifies
+\begin{equation}\label{eq:block-certificate}
+ R_D^{20000}>1082401^{3713}R_S^{20000}.
+\end{equation}
+This inequality implies $Q_4(q)>P_4(q)$. Applying
+Theorem~\ref{thm:weighted} with alphabet $\mathcal C_4$, weights
+$q^{\lambda(c)}$ and diameter parameter $M$ gives
+\[
+ \theta\ge1+\frac{\log(R_D/R_S)}{\log1082401}
+ >1+\frac{3713}{20000}=1.18565.
+\]
+\end{proof}
+
+The integer family is explicit here as well. Set
+$\rho_4(q)=qQ_4'(q)/(2Q_4(q))$ and take
+\[
+ V_n^{(4)}=\left\{x\in\mathcal C_4^n:
+             \sum_{i=1}^n\lambda(x_i)\le\lfloor n\rho_4(q)\rfloor\right\}.
+\]
+Encode these vectors in outer radix $1082401$ and dilate by two, as in
+the theorem. The inner radix $32$ defines each weighted block; the outer
+radix preserves all vector sums and differences in the transfer argument.
+
 \section{Exact reproduction and scope}
-The certificate can be checked with the following complete Python program.
-It uses integer arithmetic and the standard library only.
+The simpler $\theta>1.1855$ certificate can be checked with the following
+complete Python program. It uses integer arithmetic and the standard
+library only.
 \begin{verbatim}
 from math import gcd
 
@@ -316,11 +426,26 @@ if (D//g)**2000 <= 33**371 * (S//g)**2000:
     raise ArithmeticError("The certificate failed")
 print("Verified: theta > 1.1855")
 \end{verbatim}
-The accompanying verifier also constructs the maxima in
+The accompanying \texttt{verify.py} also constructs the maxima in
 \eqref{eq:sums}--\eqref{eq:differences} directly from all ordered digit
 pairs and compares them with the displayed polynomial formulas. The integer inequality,
 rather than a rounded logarithm or a numerical optimizer, certifies the
 stated decimal threshold.
+
+For the four-digit bound, \texttt{carry-certificate.json} contains the
+two 129-entry histograms, their integer totals and the fixed parameters.
+From the accompanying source directory, run
+\begin{verbatim}
+python3 -B carry_verify.py
+python3 -B -m unittest -v test_carry_verify
+\end{verbatim}
+The verifier implements~\eqref{eq:block-sum-recurrence} and
+\eqref{eq:block-difference-recurrence} in integer cost arrays and checks
+\eqref{eq:block-certificate}. The controls construct small block alphabets
+by their endpoint tuples and compare every sum and difference cost with
+an exhaustive endpoint-pair calculation. They also reject a corrupted
+histogram and exercise strict inequality, equality and invalid inputs.
+All reproduction programs use Python 3.10 or later and the standard library.
 
 The theorem holds for every fixed alphabet and every set of positive
 weights satisfying $Q>P$. The selected parameters need not maximize its
