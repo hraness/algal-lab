@@ -9,6 +9,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from concurrent.futures import ProcessPoolExecutor
 from fractions import Fraction
 from itertools import product
 from pathlib import Path
@@ -425,6 +426,28 @@ class EvolveTests(unittest.TestCase):
             self.assertEqual(result["evaluable"], 2)
 
 
+def _claim_workers() -> int:
+    raw = os.environ.get("ALGAL_LAB_CLAIM_WORKERS")
+    if raw is None:
+        return max(1, min(os.cpu_count() or 1, 4))
+    workers = int(raw)
+    if workers < 1:
+        raise ValueError("ALGAL_LAB_CLAIM_WORKERS must be at least 1")
+    return workers
+
+
+def _check_claim_at(path: str, index: int) -> dict:
+    """Re-verify claim `index` of the claims file at `path` against the registry (runs in a worker process)."""
+    return claims.check(claims.load_claims(Path(path))[index], registry.load_registry())
+
+
+def _run_claim_check(call):
+    try:
+        return call(), None
+    except Exception as error:  # reported under the claim's subTest
+        return None, error
+
+
 class ClaimTests(unittest.TestCase):
     PATHS = sorted((ROOT / "claims").glob("*.json"))
     # Round 26 ran unseeded controls at n = 18, 20 and 21 only, and round 27 at every one of its cells n = 27..32
@@ -453,10 +476,23 @@ class ClaimTests(unittest.TestCase):
             claims.parse_claim(dict(raw, control=dict(raw["control"], kind="seeded")))
 
     def test_every_claim_reverifies_and_beats_its_registry_snapshot(self):
-        targets = registry.load_registry()
-        for claim in self._all():
+        # Claims are independent and the verifier is pure Python, so re-verify them in worker processes,
+        # largest first so the slowest claim starts at once. ALGAL_LAB_CLAIM_WORKERS caps the pool (default
+        # min(cpu, 4)); 1 runs serially in this process.
+        work = [(claim, str(path), index) for path in self.PATHS for index, claim in enumerate(claims.load_claims(path))]
+        work.sort(key=lambda item: len(item[0].construction["points"]), reverse=True)
+        workers = _claim_workers()
+        if workers == 1:
+            targets = registry.load_registry()
+            outcomes = [_run_claim_check(lambda claim=claim: claims.check(claim, targets)) for claim, _, _ in work]
+        else:
+            with ProcessPoolExecutor(max_workers=min(workers, len(work))) as pool:
+                futures = [pool.submit(_check_claim_at, path, index) for _, path, index in work]
+                outcomes = [_run_claim_check(future.result) for future in futures]
+        for (claim, _, _), (result, error) in zip(work, outcomes):
             with self.subTest(target=claim.target):
-                result = claims.check(claim, targets)
+                if error is not None:
+                    raise error
                 self.assertEqual(result["status"], "improves-recorded-best")
                 self.assertEqual(result["search_status"], self.SEARCH_STATUS.get(claim.target, "control-missing"))
                 self.assertEqual(result["control"]["outcome"], claim.control.outcome)
