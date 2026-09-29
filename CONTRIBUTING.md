@@ -52,7 +52,7 @@ mathematical examples, contract rejection, evidence tampering, or study
 invariants rather than merely copy implementation logic.
 
 Use a feature branch and a pull request. The repository follows checked-PR
-delivery: an independent agent review and the required `Check` CI job must pass
+delivery: an independent agent review and the required `Required` CI job must pass
 before merge. The integration owner runs the aggregate check after workers
 converge and owns the CI wait; focused checks belong to their implementers.
 Record exact commands, outcomes, and limitations in the PR. Do not force-push or
@@ -188,16 +188,28 @@ validation runs all nine groups with `--packet PATH`, reconstructs the exact
 formula and replays its full proof. The result README gives those commands.
 Ordinary CI needs no solver run or release download for these new controls.
 
-The [sparse-digit sum-difference construction](papers/sparse-sum-difference/README.md)
-proves an exponent greater than 1.1855 for the small-sumset problem. CI checks
-its rational certificate and control examples using only Python's standard
-library:
+The [weighted-digit sum-difference construction](papers/sparse-sum-difference/README.md)
+proves an exponent greater than 1.18565 for the small-sumset problem. CI checks
+the original rational certificate, reconstructs the stronger four-digit
+certificate, and runs their controls using only Python's standard library:
 
 ```sh
 python3 -m unittest discover -s papers/sparse-sum-difference -p 'test_verify.py' -v
 python3 papers/sparse-sum-difference/verify.py
+python3 -m unittest discover -s papers/sparse-sum-difference -p 'test_carry_verify.py' -v
+python3 papers/sparse-sum-difference/carry_verify.py
 ```
 
 These computations verify the finite inequality used in the manuscript's
 asymptotic proof. The proof and its comparison with prior results require
 separate mathematical and source review.
+
+The [fivefold sumset counterexample](papers/fivefold-sumset/README.md) gives
+integer sets violating the fivefold inequality stated by Gyarmati, Hennecart
+and Ruzsa (2007). CI checks two exact counting formulas and their literal
+small-set controls using Python's standard library:
+
+```sh
+python3 -m unittest discover -s papers/fivefold-sumset -p 'test_verify.py' -v
+python3 papers/fivefold-sumset/verify.py
+```

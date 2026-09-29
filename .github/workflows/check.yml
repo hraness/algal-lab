@@ -42,10 +42,16 @@ jobs:
       - run: python3 -m research.spikes.context.verify
       - run: python3 -m research.spikes.stochastic.verify
       - run: python3 -m research.spikes.softmax_partitions.experiment --out research/spikes/context/runs/ci-softmax-partitions
-      - name: Verify the sparse-digit sum-difference bound
+      - name: Verify the weighted-digit sum-difference bounds
         run: |
           python3 -m unittest discover -s papers/sparse-sum-difference -p 'test_verify.py' -v
           python3 papers/sparse-sum-difference/verify.py
+          python3 -m unittest discover -s papers/sparse-sum-difference -p 'test_carry_verify.py' -v
+          python3 papers/sparse-sum-difference/carry_verify.py
+      - name: Verify the fivefold sumset counterexample
+        run: |
+          python3 -m unittest discover -s papers/fivefold-sumset -p 'test_verify.py' -v
+          python3 papers/fivefold-sumset/verify.py
       - run: python3 -m unittest discover -s research/spikes/moonshot-r310/degree_four -p 'test_*.py'
       - name: Verify the nine public demand certificates
         run: |
