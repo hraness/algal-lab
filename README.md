@@ -383,7 +383,8 @@ the maximum admitted study. Contribute through a checked pull request.
 ## Research manuscripts
 
 Finished manuscripts are available as PDFs, with LaTeX sources and
-verification programs. Their READMEs give reproduction commands. The
+verification programs. The manuscripts and publication review give
+reproduction commands. The
 [publication review](papers/PUBLICATION-REVIEW.md) records the mathematical
 checks, visual review and remaining source limits for the first five papers.
 The independent reviewers were AI agents.
