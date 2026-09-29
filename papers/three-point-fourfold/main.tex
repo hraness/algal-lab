@@ -1,0 +1,916 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage[hyphens]{url}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\pos}[1]{\left(#1\right)_+}
+\newcommand{\mc}{\star}
+\title{A fourfold max-convolution inequality on three-point integer supports}
+\author{Benjamin Guo\\Hraness (\href{https://hraness.com}{\texttt{hraness.com}})\thanks{Developed with AI research agents. The manuscript gives algebraic proofs covering every parameter range in the stated theorem.}}
+\date{29 September 2026}
+\hypersetup{pdftitle={A fourfold max-convolution inequality on three-point integer supports},pdfauthor={Benjamin Guo}}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+Let $F$ consist of three distinct integers, let $g,k$ be supported on $F$ and positive there,
+and let $f$ be a nonzero finitely supported nonnegative function on $\Z$.
+For max-convolution $(f\mc g)(s)=\max_{x+y=s}f(x)g(y)$ and reflection
+$\widetilde h(x)=h(-x)$, we prove
+\[
+ \|f\mc\widetilde{gk}\|_1^4
+ <\|f\mc g\|_1^4\,\|k\mc k\mc k\mc k\|_1.
+\]
+There is no restriction on the support size or positive values of $f$.
+For non-arithmetic triples, the proof combines a uniform reflected-quotient
+bound with a classification of fourfold collisions. For arithmetic
+progressions, scalar polynomial estimates and piecewise-linear potentials
+cover all positive weight profiles. The potentials telescope over finite
+sequences, and strictness follows from a scalar margin or an endpoint term.
+\end{abstract}
+\medskip\noindent\textbf{Keywords.} max-convolution; sumset; difference set; three-point support.
+\par\noindent\textbf{MSC 2020.} 11B75; 26D15.
+
+\section{Statement and notation}
+
+For nonnegative finitely supported functions on $\Z$, define
+max-convolution and reflection by
+\[
+ (h_1\mc h_2)(s)=\max_{x+y=s}h_1(x)h_2(y),
+ \qquad \widetilde h(x)=h(-x).
+\]
+An empty maximum is zero, and $\|h\|_1=\sum_x h(x)$.
+Functions specified on a finite set are extended by zero outside it.
+Products such as $gk$ are pointwise products. In particular, if $F$ is
+the common support of $g$ and $k$, write
+\begin{align}
+ Q&=\|f\mc\widetilde{gk}\|_1
+   =\sum_x\max_{p\in F}f(x+p)g(p)k(p),\label{eq:Q}\\
+ P&=\|f\mc g\|_1
+   =\sum_s\max_{p\in F}f(s-p)g(p),\label{eq:P}\\
+ T&=\|k\mc k\mc k\mc k\|_1
+   =\sum_s\max_{\substack{p_1,\ldots,p_4\in F\\p_1+\cdots+p_4=s}}
+       \prod_{j=1}^4 k(p_j).\label{eq:T}
+\end{align}
+Each output in \eqref{eq:T} contributes its largest product once;
+ordered representations are not added.
+
+\begin{theorem}\label{thm:main}
+Let $F\subset\Z$ have exactly three elements. For every $g,k:F\to(0,\infty)$
+and every nonzero finitely supported $f:\Z\to[0,\infty)$,
+\begin{equation}\label{eq:main}
+ Q^4<P^4T.
+\end{equation}
+\end{theorem}
+
+The max-convolution operation and its use in cardinality inequalities are
+part of the framework of Matolcsi, Ruzsa, Shakan and
+Zhelezov~\cite[Definition~8.1 and Section~8]{mrsz}.
+Gyarmati, Hennecart and Ruzsa~\cite[equation~(9), p.~177]{ghr} asked for
+which integers $h$ the inequality
+\[
+ |A-B|\le |A+B|\,|hB|^{1/h}
+\]
+holds for all finite nonempty sets in an abelian group; their discussion
+on p.~182 left the cases $h=4,5$ unresolved. Here $hB$ is the set of sums
+of $h$ elements of $B$. Taking $g=k=1_F$ and $f=1_A$ in
+Theorem~\ref{thm:main} gives the strict fourfold inequality when
+$A\subset\Z$ is finite and nonempty and $|F|=3$.
+The theorem concerns the displayed weighted inequality on three support
+points; the assertion for arbitrary finite supports is a separate question.
+
+Related weighted work includes the Pr\'ekopa--Leindler chapter of Green,
+Matolcsi, Ruzsa, Shakan and Zhelezov~\cite{gmrsz}.
+A comparison with that chapter and with the journal version of
+\cite{mrsz} remains incomplete. We make no priority or optimality claim
+for the theorem or its methods. All mathematical ingredients used in the
+proof are supplied below.
+
+The proof first bounds $Q/P$ uniformly in the geometry of a triple.
+Section~\ref{sec:nonap} completes the non-arithmetic case.
+Sections~\ref{sec:ap}--\ref{sec:valley} treat progressions by the position
+and order of the $g$ weights. Positivity gives $P>0$ throughout, so it
+suffices to prove $Q<T^{1/4}P$.
+
+\section{A uniform reflected-quotient bound}
+
+\begin{proposition}\label{prop:quotient}
+For every three-point integer support, positive $g$, nonnegative $k$,
+and nonzero finite nonnegative $f$, let
+$M=\max_{p\in F}k(p)$ and $S=\sum_{p\in F}k(p)$. Then
+\begin{equation}\label{eq:quotient}
+ Q\le\left(M+\frac{S-M}{4}\right)P.
+\end{equation}
+For two support points the corresponding bound is
+$Q\le(\max k+\min k/4)P$.
+\end{proposition}
+
+\begin{proof}
+First take $k=1_F$. Translate a point where $g$ is largest to zero and
+divide $g$ by that maximum. Write the other points as $p,q$, with weights
+$c,d\in(0,1]$. Either offset may be negative. Put
+$W=\sum_x f(x)$, $C=c+d$, and $D_0=c^2+d^2$.
+For nonnegative $x,y,z$,
+\begin{equation}\label{eq:positive-part}
+ \max(x,cy,dz)\le x+c\pos{y-cx}+d\pos{z-dx}.
+\end{equation}
+The right side is at least $x$. If $y\le cx$, then $cy\le x$;
+if $y\ge cx$, its first two terms are $(1-c^2)x+cy\ge cy$.
+The $dz$ branch follows in the same way.
+
+Let
+\[
+ P_p=\sum_s\max(f(s),cf(s-p)),\qquad
+ P_q=\sum_s\max(f(s),df(s-q)).
+\]
+The change of variable $s=x+p$ gives the orientation-sensitive identity
+\[
+ \sum_x\pos{f(x+p)-cf(x)}=P_p-cW.
+\]
+Since $P_p,P_q\le P$, summing \eqref{eq:positive-part} yields
+\begin{equation}\label{eq:quotient-unit}
+ Q(1_F)\le CP+(1-D_0)W.
+\end{equation}
+Also $Q(1_F)\le(1+C)W$ and $W\le P$.
+If $D_0\le1$, these inequalities imply
+\[
+ \frac{Q(1_F)}P\le1+C-D_0
+ =1+c(1-c)+d(1-d)\le\frac32.
+\]
+If $D_0>1$, substitute $W\ge Q(1_F)/(1+C)$ into the negative $W$ term
+in \eqref{eq:quotient-unit}. Because $D_0\ge C^2/2$ and $C\le2$,
+\[
+ \frac{Q(1_F)}P\le\frac{C(1+C)}{C+D_0}
+ \le\frac{2(1+C)}{2+C}\le\frac32.
+\]
+The case $D_0=1$ was included in the first argument.
+
+For a pair $I\subset F$, use the same argument after normalizing its
+larger $g$ weight to one and omitting the $d$ term. With $P_I$ denoting
+its denominator, it gives
+\[
+ Q(1_I)\le(1+c-c^2)P_I\le\frac54P_I\le\frac54P.
+\]
+For a single point $j$, $Q(1_{\{j\}})=g(j)W\le P$.
+These normalizations multiply the relevant numerator and denominator
+equally, so the comparisons hold for the original weights.
+
+For fixed $f,g$, the function $Q(k)$ is positively homogeneous and
+subadditive, as a sum of maxima of linear functions of $k$.
+Order the three weights as $M\ge m\ge n\ge0$, at points $a,b,c$.
+The identity
+\[
+ k=(M-m)1_{\{a\}}+(m-n)1_{\{a,b\}}+n1_F
+\]
+has nonnegative coefficients. Consequently
+\[
+ \frac{Q(k)}P\le(M-m)+\frac54(m-n)+\frac32n
+ =M+\frac{m+n}{4}.
+\]
+The two-point version follows from the same decomposition without the
+last term. Ties and zero $k$ weights are included directly.
+\end{proof}
+
+\section{Scalar estimates for the fourfold total}\label{sec:scalar}
+
+Order the support as $p_0<p_1<p_2$ and normalize its $k$ weights to
+$(1,u,v)$, where $u,v>0$. Throughout this section $r=T^{1/4}$ and
+\begin{align*}
+ S_4(t)&=1+t+t^2+t^3+t^4,\\
+ L(u,v)&=1+u+u^2+u^3+u^4+u^3v+u^2v^2+uv^3+v^4,\\
+ E(u,v)&=1+v+v^2+v^3+v^4+u(1+v+v^2+v^3).
+\end{align*}
+
+\begin{lemma}\label{lem:outputs}
+For every ordered three-point support,
+\[
+ T\ge L(u,v),\qquad T\ge E(u,v),\qquad
+ T\ge S_4(u),\quad T\ge S_4(v),\quad r>\max(1,u,v).
+\]
+On an arithmetic progression,
+\begin{equation}\label{eq:ap-total}
+ T=\begin{cases}L(u,v),&u^2\ge v,\\E(u,v),&u^2\le v.\end{cases}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The five fourfold outputs using $p_0,p_1$ end at $4p_1$; those using
+$p_1,p_2$ start there. Their only common position is $4p_1$, and their
+nine products sum to $L$. Put $\delta=p_2-p_0$ and
+$\epsilon=p_1-p_0$, so $0<\epsilon<\delta$.
+The five positions $4p_0+j\delta$, $0\le j\le4$, and the four positions
+$4p_0+\epsilon+j\delta$, $0\le j\le3$, strictly interlace. Their
+products are $v^j$ and $uv^j$, proving the bound by $E$.
+Restricting to either pair containing $p_0$ gives the two $S_4$ bounds.
+The three distinct diagonal outputs give $T\ge1+u^4+v^4$.
+
+For a progression, translate and scale the points to $0,1,2$.
+A count pair $(n_1,n_2)$ with output $s=n_1+2n_2$ has product
+$u^s(v/u^2)^{n_2}$. Choosing the smallest or largest allowable $n_2$
+according to $v\le u^2$ or $v\ge u^2$ gives \eqref{eq:ap-total}.
+\end{proof}
+
+\begin{lemma}\label{lem:affine}
+For every ordered three-point support and all $u,v>0$,
+\begin{align}
+ r&>\max(1,t)+\tfrac14\min(1,t)\quad(t=u,v),\label{eq:binary-scalar}\\
+ r&>u+\tfrac14(1+v),\label{eq:middle-scalar}\\
+ r&>1+\tfrac14u+\tfrac5{32}v.\label{eq:endpoint-scalar}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+The first assertion follows from $T\ge S_4(t)$ and the identities
+\begin{align*}
+ S_4(t)-(1+t/4)^4&=\tfrac58t^2+\tfrac{15}{16}t^3+\tfrac{255}{256}t^4,\\
+ S_4(t)-(t+1/4)^4&=\tfrac58t^2+\tfrac{15}{16}t+\tfrac{255}{256}.
+\end{align*}
+For \eqref{eq:middle-scalar}, put $J(v)=5(v-1)^2+4v>0$.
+Direct subtraction gives
+\[
+ L-\left(u+\frac{1+v}{4}\right)^4
+ =\frac{J(v)u^2}{8}+\frac{3(1+v)J(v)u}{16}
+    +1+v^4-\frac{(1+v)^4}{256}.
+\]
+The last term is at least $31(1+v^4)/32>0$, since
+$(1+v)^4\le8(1+v^4)$.
+
+For \eqref{eq:endpoint-scalar}, set $c=5/32$. If $v\le u^2$, expand
+$L-(1+u/4+cv)^4$. In the negative terms use
+\[
+ v\le u^2,\quad uv\le u^3,\quad v^2,u^2v\le u^4,
+ \quad uv^2\le u^3v,\quad v^3\le u^2v^2.
+\]
+Before substituting $c$, the resulting lower bound is
+\begin{align*}
+ &(5/8-4c)u^2+(15/16-3c)u^3
+ +(255/256-6c^2-3c/4)u^4\\
+ &\quad +(1-c/16-3c^2)u^3v
+ +(1-3c^2/8-4c^3)u^2v^2+(1-c^3)uv^3+(1-c^4)v^4.
+\end{align*}
+At $c=5/32$ this is
+\begin{equation}\label{eq:positive-polynomial}
+ \frac{15}{32}u^3+\frac{375}{512}u^4
+ +\frac{939}{1024}u^3v+\frac{999}{1024}u^2v^2
+ +\frac{32643}{32768}uv^3+\frac{1047951}{1048576}v^4>0.
+\end{equation}
+
+If $u^2\le v$, hold $v$ fixed and define
+$H(u)=E(u,v)-(1+u/4+cv)^4$ on $[0,\sqrt v]$.
+Then $H''(u)=-\tfrac34(1+u/4+cv)^2<0$ and
+\[
+ H(0)>S_4(v)-(1+v/4)^4>0.
+\]
+At $t=\sqrt v$, the exact value $H(t)$ is
+\eqref{eq:positive-polynomial} with $(u,v)=(t,t^2)$:
+both equal $\sum_{j=0}^8t^j-(1+t/4+ct^2)^4$.
+It is positive. Concavity places $H$ above the chord joining these
+positive endpoint values, completing the proof.
+\end{proof}
+
+\begin{lemma}\label{lem:middle-extras}
+For every ordered support,
+\begin{equation}\label{eq:binary-extra}
+ r>\frac8{11}(1+u)>\frac23(1+u),
+ \qquad r>u+\frac13\quad(0<u\le2).
+\end{equation}
+On an arithmetic progression one also has
+\begin{equation}\label{eq:root-quadratic}
+ r^2\ge u^2+2v,\qquad \frac vr<r-u,\qquad \frac vr<\frac r2.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+For the first bound,
+\[
+ 16S_4(u)-5(1+u)^4=(u-1)^2(11u^2+18u+11)\ge0,
+\]
+and $5\cdot11^4=73205>65536=16\cdot8^4$.
+For $u\le2$,
+\begin{align*}
+ S_4(u)-(u+1/3)^4
+ &=-\tfrac13u^3+\tfrac13u^2+\tfrac{23}{27}u+\tfrac{80}{81}\\
+ &\ge-\tfrac13u^2+\tfrac{23}{27}u+\tfrac{80}{81}
+ \ge\tfrac5{27}u+\tfrac{80}{81}>0.
+\end{align*}
+Here $u^3\le2u^2$ and $u^2\le2u$ justify the comparisons.
+
+For \eqref{eq:root-quadratic}, pair progression output $j$ with $8-j$.
+When $u\ge\sqrt v$, the four pairs, in order $j=0,1,2,3$, are at least
+\[
+ 2v^2,\quad2uv^{3/2}\ge2v^2,\quad
+ 2u^2v,\quad2u^3\sqrt v\ge2u^2v;
+\]
+the middle output is $u^4$. When $u\le\sqrt v$, pairs $j=0,2$ are
+each at least $2v^2$, pairs $j=1,3$ are each at least
+$2uv^{3/2}\ge2u^2v$, and the middle output is $v^2\ge u^4$.
+Thus $T\ge(u^2+2v)^2$ in both cases. It follows that $r^2>2v$ and
+\[
+ (r^2-v)^2-u^2r^2=r^2(r^2-u^2-2v)+v^2>0.
+\]
+Since $r^2-v>0$, this gives $r^2>ur+v$, proving the remaining bounds.
+\end{proof}
+
+\section{Non-arithmetic triples}\label{sec:nonap}
+
+\begin{proposition}\label{prop:nonap}
+If $F$ is not an arithmetic progression, then
+\[
+ T^{1/4}>M+\frac{S-M}{4},\qquad
+ M=\max_F k,\quad S=\sum_F k.
+\]
+Hence Theorem~\ref{thm:main} holds for every non-arithmetic triple.
+\end{proposition}
+
+\begin{proof}
+If a largest $k$ weight is at the middle point, normalize the ordered
+weights to $(1,u,v)$. The result is \eqref{eq:middle-scalar}.
+Otherwise reflect and scale so the weights are $(1,u,v)$ with
+$0<u,v\le1$. Translate the support and divide its positive coordinates
+by their greatest common divisor to obtain
+\[
+ F'=\{0,p,q\},\qquad 0<p<q,\qquad\gcd(p,q)=1.
+\]
+These transformations preserve all equalities of fourfold sums.
+A count pair $(i,j)$ has product $u^iv^j$, where $i,j\ge0$ and
+$i+j\le4$, and position $pi+qj$. Write
+\[
+ \mathcal H(u,v)=\sum_{\substack{i,j\ge0\\i+j\le4}}u^iv^j.
+\]
+It has 15 terms. If two count pairs collide, coprimality gives
+$\Delta i=qt$, $\Delta j=-pt$ for a nonzero integer $t$.
+Since $|\Delta i|\le4$, there are no collisions when $q\ge5$.
+For $q=3,4$, only $|t|=1$ is possible, and every collision class
+has two members. The full list is
+\begin{center}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Support $F'$ & Fourfold total $T$\\
+\midrule
+$\{0,1,3\}$ & $\mathcal H-(1+u+v)\min(u^3,v)$\\
+$\{0,2,3\}$ & $\mathcal H-(1+u+v)\min(u^3,v^2)$\\
+$\{0,1,4\}$ & $\mathcal H-\min(u^4,v)$\\
+$\{0,3,4\}$ & $\mathcal H-\min(u^4,v^3)$\\
+$\{0,p,q\}$, $q\ge5$ & $\mathcal H$\\
+\bottomrule
+\end{tabular}
+\end{center}
+For $(p,q)=(1,3)$, the three paired products are
+$(u^3,v)$, $(u^4,uv)$, and $(u^3v,v^2)$.
+For $(p,q)=(2,3)$, they are
+$(u^3,v^2)$, $(u^4,uv^2)$, and $(u^3v,v^3)$.
+For $q=4$ the only pair is $(u^4,v^p)$.
+The case $q=2,p=1$ is the excluded progression; $q=4,p=2$ is not
+coprime. This proves completeness of the table.
+
+Every loss in the table is at most $(1+u+v)u^3$. In particular the
+$q=4$ loss is at most $u^4\le(1+u+v)u^3$.
+The difference between this common lower bound and the target is
+\begin{align*}
+ &\mathcal H-(1+u+v)u^3-\left(1+\frac{u+v}{4}\right)^4\\
+ &\quad=\frac58(u^2+v^2)+\frac14uv-\frac1{16}u^3
+       +\frac{13}{16}(u^2v+uv^2)+\frac{15}{16}v^3\\
+ &\qquad\quad-\frac1{256}u^4-\frac1{64}u^3v
+       +\frac{125}{128}u^2v^2+\frac{63}{64}uv^3+\frac{255}{256}v^4.
+\end{align*}
+Since $u,v\le1$, the total magnitude of the three negative terms
+is at most $21u^2/256$, whereas the positive $u^2$ term is
+$160u^2/256$. The difference is therefore positive.
+This proves $r>1+(u+v)/4$, including ties in the largest $k$ weight.
+Combine this strict bound with Proposition~\ref{prop:quotient}.
+\end{proof}
+
+\section{Progressions and local potentials}\label{sec:ap}
+
+For the rest of the proof let $F$ be an arithmetic progression.
+Translation, reflection, and positive scaling of $g$ and $k$ allow the
+ordered weights to be written
+\begin{equation}\label{eq:normalization}
+ g=(1,a,b),\quad a>0,\quad0<b\le1,
+ \qquad k=(1,u,v),\quad u,v>0.
+\end{equation}
+Thus the larger endpoint of $g$ is first. A common factor in $g$
+multiplies $Q,P$ equally; a common factor in $k$ multiplies $Q,r$
+equally. Reflection is applied simultaneously to $f$, $g$, and $k$,
+and reindexes all three totals.
+
+After translating the progression to $\{0,d,2d\}$ with $d>0$, split
+the sequence $f$ into its residue classes modulo $d$. On each class,
+index consecutive entries by $i\in\Z$ and put
+\begin{equation}\label{eq:ND}
+ N(x,y,z)=\max(x,auy,bvz),\qquad D(x,y,z)=\max(bx,ay,z).
+\end{equation}
+The corresponding contributions to $Q,P$ are exactly
+\begin{equation}\label{eq:triples}
+ Q=\sum_i N(f_i,f_{i+1},f_{i+2}),\qquad
+ P=\sum_i D(f_i,f_{i+1},f_{i+2}).
+\end{equation}
+For $P$, this is the ordinary convolution evaluated at the index $i+2$.
+Both sums include the zero entries before and after the support.
+The fourfold total depends only on $u,v$, as in \eqref{eq:ap-total}.
+We prove the desired inequality on each nonzero residue class; adding
+over classes then preserves strictness.
+
+\begin{lemma}\label{lem:telescoping}
+Suppose $\Phi:[0,\infty)^2\to\mathbb R$ satisfies $\Phi(0,0)=0$ and
+\begin{equation}\label{eq:certificate}
+ N(x,y,z)\le rD(x,y,z)+\Phi(x,y)-\Phi(y,z)
+ \quad(x,y,z\ge0).
+\end{equation}
+Then $Q\le rP$ for every finite sequence. If \eqref{eq:certificate}
+is strict at $(0,0,z)$ for every $z>0$, then $Q<rP$ for every
+nonzero finite sequence.
+\end{lemma}
+
+\begin{proof}
+All but finitely many potential values vanish, so the sum of their
+differences is zero by an index shift. At the first positive entry
+of a nonzero sequence there is a triple $(0,0,z)$ with $z>0$.
+\end{proof}
+
+One parameter range needs no potential. If $br\ge1$, then
+\begin{equation}\label{eq:pointwise}
+ N\le\max(1/b,u,bv)D\le rD.
+\end{equation}
+Since $r>v$ and $b\le1$, the padded triple $(0,0,z)$ is strict.
+In particular this settles $b=1$. Below we may assume $br<1$.
+
+The endpoint cases will use the following elementary verification rule.
+
+\begin{lemma}\label{lem:vertices}
+Let $0<a,b<1$, $X=1/b$, $Y=1/a$, and $m=\min(X,Y)$.
+Suppose $\Phi$ is homogeneous of degree one, continuous, and linear on
+each of $x\ge y$ and $y\ge x$. To prove \eqref{eq:certificate}, it
+suffices to check the origin, the seven other corners of
+$[0,X]\times[0,Y]\times[0,1]$, and
+\[
+ (m,m,0),\quad(m,m,1),\quad(0,1,1),\quad(X,1,1),\quad(1,1,1).
+\]
+Duplicate points are counted once. All the nonzero points have $D=1$.
+\end{lemma}
+
+\begin{proof}
+Cut the box $D\le1$ by the planes $x=y$ and $y=z$.
+A vertex on neither plane is a box corner. A vertex on just one
+plane is a corner of the rectangle in which that plane meets the box.
+Vertices using both planes are the endpoints of the segment from
+$(0,0,0)$ to $(1,1,1)$. These possibilities give the listed points.
+On each cell, $N-\Phi(x,y)+\Phi(y,z)$ is the maximum of three affine
+functions, so its upper bound $r$ follows from its values at the cell
+vertices. Apply this box inequality to a nonzero triple divided by
+$D>0$, then use homogeneity. The all-zero triple is immediate.
+\end{proof}
+
+\section{A largest middle weight}\label{sec:middle}
+
+This section proves $Q<rP$ when $a\ge1$ in
+\eqref{eq:normalization}. We first give a binary estimate and then
+two local potentials.
+
+\begin{lemma}\label{lem:weighted-binary}
+For two integer support points with weights $g=(1,a)$, $k=(1,u)$,
+where $a\ge1$, their complete convolution totals satisfy
+\[
+ \frac{Q_2}{P_2}\le\rho_a(u)
+ :=\max\left(\frac1a,u+\frac{a-1}{a^2}\right).
+\]
+Consequently $Q<rP$ on every ordered three-point support with
+$g=(1,a,b)$ and $b\le a/4$.
+\end{lemma}
+
+\begin{proof}
+Split $f$ into residue classes of the binary gap. The required local
+inequality is
+\[
+ \max(x,auy)\le\rho_a(u)\max(ax,y)+\lambda(x-y).
+\]
+For $u\le1/a^2$, take $\rho_a(u)=1/a$ and $\lambda=0$.
+For $u\ge1/a^2$, take $\rho_a(u)=u+(a-1)/a^2$ and
+$\lambda=1/a-au\le0$. When $x>0$, put $t=y/x$.
+The right side minus the left, divided by $x$, equals
+\[
+ \begin{cases}
+ -\lambda t,&0\le t\le1/(au),\\
+ 1-t/a,&1/(au)\le t\le a,\\
+ (u-1/a^2)(t-a),&t\ge a.
+ \end{cases}
+\]
+These expressions are nonnegative; the breakpoint order follows from
+$a^2u\ge1$. For $x=0$ the difference is $(u-1/a^2)y\ge0$.
+Summing cancels the $\lambda$ terms at both zero boundaries.
+
+For three points let $W=\sum f$. Remove the last point from the numerator:
+$Q\le Q_2+bvW$, while $P\ge P_2$ and $P\ge aW$.
+Thus, when $b\le a/4$,
+\[
+ \frac QP\le\max\left(\frac1a,u+\frac{a-1}{a^2}\right)
+                  +\frac ba v.
+\]
+The first branch is at most $1+v/4<r$.
+The second is at most $u+(1+v)/4<r$, because
+$(a-1)/a^2\le1/4$, equivalently $(a-2)^2\ge0$.
+Use Lemma~\ref{lem:affine} for both strict bounds.
+\end{proof}
+
+\begin{lemma}\label{lem:moderate}
+On a progression, $Q<rP$ for every $0<b\le1$ if either
+\[
+ 1\le a\le4/3,
+ \qquad\text{or}\qquad 1\le a\le3/2\text{ and }0<u\le2.
+\]
+\end{lemma}
+
+\begin{proof}
+The range $br\ge1$ is \eqref{eq:pointwise}. Otherwise define
+\[
+ c=bv,\qquad d_0=\frac{1-a(r-u)}{2-a},\qquad
+ d=\max(1/2,d_0),\qquad\Phi(x,y)=x+d\pos{y-x}.
+\]
+We verify
+\begin{equation}\label{eq:dconditions}
+ \tfrac12\le d<1,\qquad d\le\max(1/2,u),\qquad
+ a(r-u)+d(2-a)\ge1,
+ \qquad c<r-d.
+\end{equation}
+For $a\le4/3$, the bound $r>u+1/4$ gives
+$a(r-u)>a/4\ge a-1$, so $d_0<1$.
+The assertion $d_0<u$ is equivalent to $ar>1+2(a-1)u$.
+For $u\le1$, the difference exceeds
+$(a-1)+(2-7a/4)u$, which is nonnegative on $[0,1]$ by its
+endpoint values $a-1$ and $1-3a/4$.
+For $u\ge1$, it exceeds $(2-a)u+a/4-1\ge1-3a/4\ge0$.
+
+For $a\le3/2$ and $u\le2$, \eqref{eq:binary-extra} instead gives
+$a(r-u)>a/3\ge a-1$, again proving $d_0<1$.
+When $u\ge1/2$, the difference $ar-1-2(a-1)u$ exceeds
+\[
+ (2a/3-1)+(2-4a/3)u=(1-2a/3)(2u-1)\ge0.
+\]
+When $u\le1/2$, it exceeds $(a-1)+(2-7a/4)u$;
+its endpoint values on $[0,1/2]$ are $a-1$ and $a/8$.
+Thus $d_0<u$ in this range as well.
+The third condition in \eqref{eq:dconditions} follows from $d\ge d_0$.
+Finally, \eqref{eq:root-quadratic}, $br<1$, and $r>1$ give
+\[
+ c<v/r<r-u,\qquad c<v/r<r/2<r-1/2.
+\]
+Together with $d\le\max(1/2,u)$, these give the last condition.
+
+We now check all three branches of \eqref{eq:certificate}.
+Since $0\le d\le1$, we have $\Phi(x,y)\ge x$ and
+$\Phi(y,z)\le\max(y,z)\le D$. As $r>1$, the right side is at least
+$x$. For the other branches, $\Phi(x,y)\ge dy$ gives the lower bound
+\begin{equation}\label{eq:moderate-local}
+ r\max(ay,z)+(d-1)y-d\pos{z-y}.
+\end{equation}
+If $z\le y$, this is $(ra+d-1)y\ge[ra+d(2-a)-1]y\ge auy$.
+If $z\ge y$, the expression $r\max(ay,z)-dz$ is minimized at
+$z=ay$, so \eqref{eq:moderate-local} is again at least
+$[ra+d(2-a)-1]y\ge auy$.
+For the last branch, when $z\ge y$ the bound is at least
+$(r-d)z+(2d-1)y\ge(r-d)z\ge cz$.
+When $z\le y$, use $ra+d-1\ge r-d>0$ to reach the same bound.
+Since $c<r-d$, the padded triple $(0,0,z)$ is strict for $z>0$.
+Lemma~\ref{lem:telescoping} completes the proof.
+\end{proof}
+
+\begin{lemma}\label{lem:linear-middle}
+For $a\ge1$ and $0<b\le1$, the condition
+\begin{equation}\label{eq:linear-middle-condition}
+ ar-(a-b)u\ge1
+\end{equation}
+implies $Q<rP$ on a progression.
+\end{lemma}
+
+\begin{proof}
+Again assume $br<1$. Put $p=a(1-br)/(a-b)$ and $\Phi(x,y)=px$.
+Then $0<p<1$ and
+\[
+ \frac{1-p}{b}+\frac pa=r.
+\]
+The $x$ branch follows from
+$(1-p)x+py\le[(1-p)/b+p/a]D=rD$.
+For the middle branch,
+$rD+p(x-y)\ge(ra-p)y\ge auy$; the last step is precisely
+\eqref{eq:linear-middle-condition} after substitution of $p$.
+For the last branch, observe that
+\begin{align*}
+ ar-b(a-b)v
+ &=[r-b(1-b)v]+(a-1)(r-bv)>1.
+\end{align*}
+Indeed $b(1-b)\le1/4$, $r>1+v/4$, and $r>bv$.
+For fixed $z$, the expression $r\max(ay,z)-py$ is minimized at $y=z/a$,
+as $p>0$ and $ra-p>0$. Hence
+\[
+ rD+p(x-y)\ge\left(r-\frac pa\right)z
+ =\frac{ar-1}{a-b}z\ge bvz,
+\]
+strictly if $z>0$. This proves the local certificate.
+Its padded triple is strict, so Lemma~\ref{lem:telescoping} applies.
+\end{proof}
+
+\begin{proposition}\label{prop:middle}
+Theorem~\ref{thm:main} holds on every progression whose middle $g$
+weight is at least both endpoint weights.
+\end{proposition}
+
+\begin{proof}
+Normalize as in \eqref{eq:normalization}, with $a\ge1$.
+Lemma~\ref{lem:moderate} covers $a\le4/3$;
+Lemma~\ref{lem:weighted-binary} covers $b\le a/4$.
+Assume $a\ge4/3$ and $b>a/4$.
+If $a\le3/2$ and $u\le2$, use Lemma~\ref{lem:moderate}.
+If $u\ge2$, then
+\[
+ ar-(a-b)u=a(r-u)+bu>a/4+(a/4)u\ge3a/4\ge1.
+\]
+If $a\ge3/2$ and $u\le2$, then
+\[
+ ar-(a-b)u\ge a(r-3u/4)
+ >a(8/11-u/44)\ge15a/22\ge45/44>1.
+\]
+Lemma~\ref{lem:linear-middle} applies in the latter two cases.
+These cases cover all $a\ge1$, including their shared boundaries.
+\end{proof}
+
+\section{Decreasing endpoint profiles}\label{sec:monotone}
+
+\begin{proposition}\label{prop:monotone}
+On a progression, $Q<rP$ for every profile
+$g=(1,a,b)$ with $0<b\le a<1$.
+\end{proposition}
+
+\begin{proof}
+Assume $br<1$, as the other range is \eqref{eq:pointwise}.
+Put $\ell=a(1-a)\in(0,1/4]$.
+Taking the convex combination of \eqref{eq:endpoint-scalar} and
+$r>1+v/4$ with weights $4\ell$ and $1-4\ell$ gives
+\[
+ r>1+\ell u+(1/4-3\ell/8)v.
+\]
+Moreover,
+\[
+ b(1-b-\ell)\le\frac{(1-\ell)^2}{4}
+ \le\frac14-\frac{3\ell}{8}.
+\]
+The difference in the second comparison is $\ell(1-2\ell)/8\ge0$.
+Consequently
+\begin{equation}\label{eq:monotone-scalar}
+ r>1+\ell u+b(1-b-\ell)v.
+\end{equation}
+Define
+\begin{align*}
+ p&=\frac{1-br}{1-b},& s&=r-p=\frac{r-1}{1-b},&
+ \eta&=1-b-\ell,\\
+ \kappa&=\frac{a-b}{b(1-a)},&
+ h&=\max\left(0,\frac{ab(1-a)(u-s)}{\eta}\right),\\
+ A&=p+h,& B&=p+h/b,& e&=\max(0,p-\kappa h).
+\end{align*}
+All denominators are positive: $\eta\ge(1-a)^2>0$.
+We have $0<p<1<r$, $\kappa,h\ge0$, and
+\begin{equation}\label{eq:monotone-margin}
+ s>bv,\qquad h<b(s-bv)<bs,\qquad
+ B<r-bv,\quad B\ge A\ge p,\quad0\le e\le p<r.
+\end{equation}
+The first assertion follows from $r>1+v/4$ and $b(1-b)\le1/4$.
+For $h=0$ the second is immediate. For $h>0$, its first comparison
+is equivalent to
+$\ell(u-s)<\eta(s-bv)$, which is \eqref{eq:monotone-scalar} because
+$\eta+\ell=1-b$ and $(1-b)s=r-1$.
+The remaining assertions follow from the definitions.
+
+Four more coefficient comparisons will verify the local inequality:
+\begin{align}
+ (a-b)A+b(1-a)e&\ge a(1-br),\label{eq:mono-one}\\
+ e&\ge\frac{1-ar}{1-a},\label{eq:mono-two}\\
+ r-e+\frac{B-A}{a}&\ge\max(u,bv),\label{eq:mono-three}\\
+ r-e+B-A&\ge\max(au,bv).\label{eq:mono-four}
+\end{align}
+For \eqref{eq:mono-one}, substitute $p-\kappa h$ for $e$.
+The $h$ terms cancel, giving equality; replacing this value by its
+nonnegative part can only increase the left side.
+For \eqref{eq:mono-two}, direct subtraction gives
+\[
+ p-\kappa h-\frac{1-ar}{1-a}=\kappa(bs-h)\ge0.
+\]
+For \eqref{eq:mono-three}, if $e=0$ its left side is at least
+$r>\max(u,bv)$. If $e>0$ and $h=0$, it equals $s\ge u$ and $s>bv$.
+If $e>0$ and $h>0$, the identity
+\[
+ \kappa+\frac{1-b}{ab}=\frac{\eta}{ab(1-a)}
+\]
+shows that the left side equals
+$s+h\eta/[ab(1-a)]=u>s>bv$.
+For the $au$ branch in \eqref{eq:mono-four}, its left side is
+\[
+ a\left(r-e+\frac{B-A}{a}\right)+(1-a)(r-e)\ge au.
+\]
+For the $bv$ branch it is at least $r-p=s>bv$.
+
+Set
+\begin{equation}\label{eq:monotone-potential}
+ \Phi(x,y)=
+ \begin{cases}
+ Ax+ey,&x\ge y,\\
+ By+(A+e-B)x,&y\ge x.
+ \end{cases}
+\end{equation}
+The two formulas agree when $x=y$.
+Some coefficients may be negative; no sign condition on each individual
+coefficient is needed. Lemma~\ref{lem:vertices} reduces the certificate
+to the origin and the following vertices. Write
+$\Delta\Phi=\Phi(x,y)-\Phi(y,z)$.
+\begin{center}
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{@{}rlll@{}}
+\toprule
+ & $(x,y,z)$ & $N(x,y,z)$ & $\Delta\Phi$\\
+\midrule
+1 & $(1/b,0,0)$ & $1/b$ & $A/b$\\
+2 & $(0,1/a,0)$ & $u$ & $(B-A)/a$\\
+3 & $(0,0,1)$ & $bv$ & $-B$\\
+4 & $(1/b,1/a,0)$ & $1/b$ & $A/b+(e-A)/a$\\
+5 & $(1/b,0,1)$ & $1/b$ & $A/b-B$\\
+6 & $(0,1/a,1)$ & $\max(u,bv)$ & $(B-A)/a-e$\\
+7 & $(1/b,1/a,1)$ & $1/b$ & $A/b+(e-A)/a-e$\\
+8 & $(1/a,1/a,0)$ & $\max(1/a,u)$ & $e/a$\\
+9 & $(1/a,1/a,1)$ & $\max(1/a,u)$ & $e(1-a)/a$\\
+10 & $(0,1,1)$ & $\max(au,bv)$ & $B-A-e$\\
+11 & $(1/b,1,1)$ & $1/b$ & $A(1/b-1)$\\
+12 & $(1,1,1)$ & $\max(1,au,bv)$ & $0$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The numerator entries use $u,v<r<1/b$, $a<1$, and $bv<1$.
+At $a=b$, repeated vertices in the table coincide, and all the
+comparisons below continue to hold.
+
+Here are the checks of $N\le r+\Delta\Phi$ for every row.
+Row 1 follows from $A\ge p\ge1-br$; row 2 from $B\ge A$ and $r>u$;
+row 3 is strict by $B<r-bv$.
+After multiplication by $ab$, row 4 requires
+$(a-b)A+be\ge a(1-br)$, a consequence of \eqref{eq:mono-one} and $e\ge0$.
+Row 5 is an equality, since $A-bB=(1-b)p=1-br$.
+Rows 6 and 7 are \eqref{eq:mono-three} and \eqref{eq:mono-one}, respectively.
+In rows 8 and 9 the $u$ branch follows from $e\ge0$ and $r>u$.
+For their $1/a$ branch, row 9 is exactly \eqref{eq:mono-two}.
+For row 8 there is nothing to prove if $1-ar\le0$; otherwise
+$e\ge(1-ar)/(1-a)\ge1-ar$ suffices.
+Row 10 is \eqref{eq:mono-four}, and row 11 is $A\ge p$.
+Row 12 is strict because $r>\max(1,u,v)$, $a<1$, and $b<1$.
+The origin has numerator and potential difference zero.
+
+The local certificate therefore holds everywhere.
+At $(0,0,z)$ with $z>0$ its right side is $(r-B)z>bvz$.
+Apply Lemma~\ref{lem:telescoping}.
+\end{proof}
+
+\section{A smallest middle weight}\label{sec:valley}
+
+\begin{proposition}\label{prop:valley}
+On a progression, $Q<rP$ for every profile
+$g=(1,a,b)$ with $0<a<b<1$.
+\end{proposition}
+
+\begin{proof}
+Assume $br<1$. Define
+\begin{align*}
+ m&=1/b,&n&=1/a,&p&=\frac{m-r}{m-1},\\
+ s&=r-u,&h&=\max\left(0,\frac{p-s}{m(m-1)}\right),&c&=bv,\\
+ A&=p+h,&B&=p+mh,&G&=B-A.
+\end{align*}
+Thus $1<m<n$, $0<p<1$, $s>0$, $h,G\ge0$, and
+\begin{equation}\label{eq:valley-identities}
+ (m-1)p=m-r,\qquad mA-B=(m-1)p.
+\end{equation}
+The binary scalar bounds and $b(1-b)\le1/4$ give
+\begin{equation}\label{eq:valley-binary}
+ r-p=\frac{r-1}{1-b}>b\max(u,v)\ge c.
+\end{equation}
+The definition of $h$ gives
+\begin{equation}\label{eq:valley-middle}
+ p-m(m-1)h=\min(p,s),\qquad
+ r+mG-p=r-\min(p,s)\ge u,\quad r+mG-p>c.
+\end{equation}
+We also need the strict margin
+\begin{equation}\label{eq:valley-margin}
+ B<r-c.
+\end{equation}
+To prove it, note that $b(1-b)^2\le4/27<5/32$; the first comparison
+follows from
+$4-27b(1-b)^2=(3b-1)^2(4-3b)\ge0$.
+Equation~\eqref{eq:endpoint-scalar} therefore implies
+\[
+ r>1+b(1-b)u+b(1-b)^2v.
+\]
+When $h=0$, \eqref{eq:valley-margin} is \eqref{eq:valley-binary}.
+When $h>0$, $B=(mp-s)/(m-1)$ and the desired inequality is equivalent to
+\[
+ m(r-p)>u+(m-1)c.
+\]
+On substituting $m=1/b$ and \eqref{eq:valley-binary}'s expression for
+$r-p$, this is exactly the preceding strict scalar bound.
+
+Define the homogeneous potential
+\begin{equation}\label{eq:valley-potential}
+ \Phi(x,y)=[p-(m-1)h]x+py+mh\max(x,y).
+\end{equation}
+Its values at $(1,0)$, $(0,1)$, and $(1,1)$ are respectively
+$A$, $B$, and $2p+h=A+p$.
+By Lemma~\ref{lem:vertices}, the complete nonzero vertex checks are
+as follows:
+\begin{center}
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{@{}lll@{}}
+\toprule
+$(x,y,z)$ & $N(x,y,z)$ & $\Phi(x,y)-\Phi(y,z)$\\
+\midrule
+$(m,0,0)$ & $m$ & $mA$\\
+$(0,n,0)$ & $u$ & $nG$\\
+$(0,0,1)$ & $c$ & $-B$\\
+$(m,n,0)$ & $m$ & $mp+(n-m)G$\\
+$(m,0,1)$ & $m$ & $(m-1)p$\\
+$(0,n,1)$ & $\max(u,c)$ & $nG-p$\\
+$(m,n,1)$ & $m$ & $(m-1)p+(n-m)G$\\
+$(m,m,0)$ & $m$ & $mp$\\
+$(m,m,1)$ & $m$ & $(m-1)p$\\
+$(0,1,1)$ & $\max(au,c)$ & $G-p$\\
+$(m,1,1)$ & $m$ & $(m-1)A$\\
+$(1,1,1)$ & $\max(1,au,c)$ & $0$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The numerator values use $u,v<r<m$, $a<b$, and $c<1$.
+For instance $aum=(a/b)u<u<m$ at the two interior $x=y$ vertices,
+while the middle numerator is $u<m$ at $y=n$.
+
+Every row with numerator $m$ has potential difference at least
+$(m-1)p=m-r$, using $A\ge p$, $G\ge0$, and $n>m$.
+At $(0,n,0)$ use $r+nG\ge r>u$.
+At $(0,0,1)$ use \eqref{eq:valley-margin}.
+At $(0,n,1)$ use
+\[
+ r+nG-p\ge r+mG-p\ge u,\qquad r+nG-p>c
+\]
+from \eqref{eq:valley-middle}.
+At $(0,1,1)$, \eqref{eq:valley-binary} gives
+$r+G-p\ge r-p>b\max(u,v)\ge\max(au,c)$.
+At $(1,1,1)$ every numerator branch is less than $r$.
+The origin is immediate, completing all checks.
+The resulting local inequality is strict at $(0,0,z)$ for $z>0$,
+since its right side is $(r-B)z>cz$.
+Lemma~\ref{lem:telescoping} proves the proposition.
+\end{proof}
+
+\section{Completion of the proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+For a non-arithmetic triple use Proposition~\ref{prop:nonap}.
+For a progression normalize as in \eqref{eq:normalization}.
+If $a\ge1$, Proposition~\ref{prop:middle} applies.
+If $a<1$ and $b=1$, use the pointwise bound \eqref{eq:pointwise}.
+The remaining profiles have $0<a,b<1$.
+If $b\le a$, use Proposition~\ref{prop:monotone};
+if $a<b$, use Proposition~\ref{prop:valley}.
+This includes equal lower weights $a=b$ and every tie for the maximum.
+The residue decomposition and telescoping argument apply to arbitrary
+finite supports and amplitudes of $f$, with a strict inequality on each
+nonzero residue class. Thus $Q<rP$ in all cases.
+Since $Q,P,r$ are positive and $r^4=T$, raising to the fourth power
+proves \eqref{eq:main}.
+\end{proof}
+
+\begingroup
+\small
+\begin{thebibliography}{9}
+\bibitem{ghr}
+K. Gyarmati, F. Hennecart and I. Z. Ruzsa,
+\emph{Sums and differences of finite sets},
+Functiones et Approximatio Commentarii Mathematici
+\textbf{37}(1) (2007), 175--186.
+\href{https://doi.org/10.7169/facm/1229618749}{doi:10.7169/facm/1229618749}.
+
+\bibitem{mrsz}
+D. Matolcsi, I. Z. Ruzsa, G. Shakan and D. Zhelezov,
+\emph{An analytic approach to cardinalities of sumsets},
+\href{https://arxiv.org/abs/2003.04075v1}{arXiv:2003.04075v1} (2020).
+
+\bibitem{gmrsz}
+B. Green, D. Matolcsi, I. Z. Ruzsa, G. Shakan and D. Zhelezov,
+\emph{A Weighted Pr\'ekopa-Leindler inequality and sumsets with quasicubes},
+in A. Avila, M. T. Rassias and Y. Sinai (eds.),
+\emph{Analysis at Large}, Springer, 2022, pp.~125--129.
+Bibliographic record: B. Green,
+\href{https://people.maths.ox.ac.uk/greenbj/papers/publist.pdf}{\emph{Publications}}, January 2025,
+item~[82], p.~5.
+\end{thebibliography}
+\endgroup
+\end{document}

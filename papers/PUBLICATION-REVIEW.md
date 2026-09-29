@@ -153,5 +153,38 @@ primary texts, source-version audit records and later-paper bibliographies.
 The review found no required corrections to this literature update. The PDFs
 and verifiers are unchanged. The immutable
 [v3 release](https://github.com/hraness/algal-lab/releases/tag/sum-difference-results-20260929-v3)
-remains the current manuscript package. Priority and current-record status
+preserves that manuscript package. Priority and current-record status
 remain unestablished.
+
+## Fourfold inequality on three points: 29 September 2026
+
+The new twelve-page manuscript proves a strict reflected max-convolution
+inequality for every three-point integer support, arbitrary positive kernel
+weights and every nonzero finitely supported nonnegative input. The proof
+covers unequal gaps by classifying fourfold collisions, and progressions by
+explicit scalar inequalities and potentials whose differences telescope.
+Every weight case and the endpoint terms establishing strictness are included.
+The general fourfold question remains unresolved here.
+
+A separate Codex agent reviewed the complete proof, including the collision
+list, scalar identities, all potential vertices, limiting weight cases and
+the final exhaustive case split. The review found no mathematical defect;
+two wording changes clarified the common support and simultaneous reflection.
+The relevant primary-source citations were checked. This is mathematical
+agent review, not human peer review or journal acceptance. Comparisons with
+the identified weighted Prékopa–Leindler chapter and the later journal text
+remain incomplete; no priority or optimality claim is made.
+
+The source built with cached Tectonic 0.17.0 using
+`--only-cached --untrusted --keep-logs`, without warnings, undefined references
+or overfull or underfull boxes. Poppler 26.08.0 metadata and text checks passed.
+Every page was rendered and visually inspected. The bibliography was tightened
+to eliminate an isolated final-reference page; all twelve final pages contain
+complete, legible text, equations and tables. The manuscript is ready for
+publication with the stated scope. Repository and downloaded-file checks
+accompany the release.
+
+The shared literature comparison also records the checked AlphaEvolve survey
+version, the distinct projection-entropy problem in Tao's later paper, and
+the remaining source-version and access gaps. The two construction papers
+and their verification programs are unchanged.
