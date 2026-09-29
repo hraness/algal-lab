@@ -388,6 +388,9 @@ reproduction commands. The
 [publication review](papers/PUBLICATION-REVIEW.md) records the mathematical
 checks, visual review and source limits for the manuscripts.
 The independent reviewers were AI agents.
+The [sumset literature comparison](papers/sumset-literature.md) credits the
+known counting and weighted methods behind the two sumset constructions
+and distinguishes their conclusions from other exponent problems.
 
 | Manuscript | Result and scope | Files |
 | --- | --- | --- |

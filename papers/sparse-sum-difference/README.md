@@ -7,6 +7,12 @@ general weighted-digit theorem, a simpler `theta > 1.1855` construction and
 the stronger four-digit construction. It makes no global-priority or
 current-record claim.
 
+The weighted totals use the established max-convolution framework of
+Matolcsi, Ruzsa, Shakan and Zhelezov (2020). The
+[literature comparison](../sumset-literature.md) distinguishes that machinery,
+the specific reflected quotient and integer encoding used here, and other
+sumset exponents.
+
 The four-digit alphabet consists of the integers
 `c = a0 + 32*a1 + 32^2*a2 + 32^3*a3`, with each `ai` in
 `{0,3,4,6,7,...,16}`. Its block cost is `a0+a1+a2+a3`, and its weight is

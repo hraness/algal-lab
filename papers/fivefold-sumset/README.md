@@ -17,7 +17,12 @@ equation (9), page 177. Their discussion on page 182 left the cases four
 and five unresolved. This note supplies a
 counterexample to the fivefold statement in that text; it makes no priority
 or current-status claim. The construction uses unequal radii in the classical
-lattice-simplex family used for their sixfold counterexample on page 182.
+lattice-simplex family used by Hennecart, Robert and Yudin (1999).
+Glasscock's 2012 master's thesis, Lemma B.1, already gives the exact
+unequal-radius count and its proof. This note specializes that formula to
+the parameters above and verifies the strict fivefold comparison. The
+[literature comparison](../sumset-literature.md) records these attributions
+and the scope of the later-source review.
 
 From this directory, using Python 3.10 or later:
 

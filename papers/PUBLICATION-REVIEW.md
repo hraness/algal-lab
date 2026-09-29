@@ -89,3 +89,27 @@ python3 -B papers/fivefold-sumset/verify.py
 ```
 
 The source built with cached Tectonic 0.17.0 using `--only-cached --untrusted --keep-logs`, without warnings or layout errors. Poppler 26.08.0 metadata and text checks passed. Every page was rendered and visually inspected; equations, code, citations and references are complete and legible. The PDF is ready for publication as a research note with its stated literature scope.
+
+## Sumset literature follow-up: 29 September 2026
+
+Glasscock's 2012 master's thesis, Lemma B.1, already contains the unequal-radius
+count and negative-support proof used in the fivefold note. The revised note
+credits that lemma and Hennecart, Robert and Yudin's 1999 simplex construction.
+It presents the explicit parameters and strict integer comparison as its result.
+The weighted-digit manuscript now identifies its sums of maximum products with
+the max-convolution in Matolcsi, Ruzsa, Shakan and Zhelezov's analytic work.
+
+The [literature comparison](sumset-literature.md) records the relevant theorems,
+their hypotheses and their relation to both constructions. It includes the
+entropy translation and distinguishes the 2026 mixed-alphabet and one-set
+exponents. Several identified source texts remain unread, so priority and
+current-record status remain unestablished.
+
+A separate Codex agent checked the attribution changes against primary-source
+statements and the original thesis pages. The revised PDFs contain three and
+seven pages. Both built with cached, untrusted Tectonic without warnings,
+undefined references or box errors; Poppler metadata and text checks passed.
+Every revised page was visually inspected. The fivefold theorem and the program
+with its introduction each stay on one page. The mathematical certificates and
+verification programs are unchanged. The corrected PDFs and their exact sources
+are released together, with fresh checks of the downloaded verification files.
