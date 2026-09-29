@@ -1,0 +1,359 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs}
+\usepackage[hyphens]{url}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\A}{\mathcal A}
+\newcommand{\D}{\mathcal D}
+\newcommand{\Sset}{\mathcal S}
+\title{An explicit weighted digit construction\\for small sumsets and large difference sets}
+\author{Benjamin Guo\\Hraness (\url{hraness.com})\thanks{Developed with AI research agents. The proof is accompanied by a separate verifier using exact integer arithmetic.}}
+\date{28 September 2026}
+\hypersetup{pdftitle={An explicit weighted digit construction for small sumsets and large difference sets},pdfauthor={Benjamin Guo}}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+The small-sumset, large-difference-set problem asks how large $|E-F|$ can be
+when $|E+F|\le K|E|$, for fixed $K>1$ and arbitrarily large finite integer
+sets $E,F$. We give a weighted digit construction for its exponent $\theta$.
+Equal counts of opposite differences give a lower bound for the difference
+set, while a product-weight estimate bounds the sumset from above. The
+resulting formula applies to any finite digit alphabet. For the alphabet
+$\{0,3,4,6,7,\ldots,16\}$ and geometric weights $(16/19)^a$, it proves
+$\theta>1.1855$. The numerical conclusion reduces to one explicit integer
+inequality. This exceeds Zheng's published lower bound of $1.173077$.
+The proof uses the finite-set transfer
+inequality of Gyarmati, Hennecart and Ruzsa and does not require optimality
+of the chosen parameters.
+\end{abstract}
+\medskip\noindent\textbf{Keywords.} sumset; difference set; weighted digits; entropy; exact certificate.
+\smallskip\noindent\textbf{MSC 2020.} 11B75; 05A16.
+
+\section{The exponent and the finite-set reduction}
+Let $\theta$ be the supremum of the real numbers $t$ with the following
+property: for every fixed $K>1$, there is a constant $c(K)>0$ and arbitrarily
+large finite sets $E,F\subset\Z$ satisfying
+\begin{equation}\label{eq:problem}
+ |E+F|\le K|E|,
+ \qquad
+ |E-F|\ge c(K)|E+F|^t.
+\end{equation}
+Here $E\pm F=\{e\pm f:e\in E,\ f\in F\}$, and all logarithms are natural.
+The constant may depend on the fixed exponent $t$ as well as on $K$.
+
+The lemma in Section~2 of Gyarmati, Hennecart and Ruzsa~\cite{ghr} gives
+a finite-set transfer inequality: for every finite $U\subset\Z_{\ge0}$
+with $0\in U$, $\max U>0$ and $|U-U|<2\max U+1$,
+\begin{equation}\label{eq:transfer}
+ \theta\ge
+ 1+\frac{\log\bigl(|U-U|/|U+U|\bigr)}{\log(2\max U+1)}.
+\end{equation}
+For each such $U$, its exponent is attained for every fixed $K>1$ and
+arbitrarily large sets. The strict difference-count hypothesis matters;
+we will ensure it by dilating each encoded set. A family whose
+difference-to-sum ratio grows exponentially relative to its diameter
+then gives a lower bound for the supremum $\theta$.
+
+Zheng uses integer vectors whose coordinates lie in a full interval and
+whose coordinate sum is bounded. His large-deviation estimates give the
+lower bound $1.173077$~\cite{zheng}. We allow a smaller coordinate alphabet
+and general nonnegative digit costs. Matching the counts of a difference
+and its negative makes the costs of its two representatives exactly equal.
+This symmetry gives a direct counting argument without optimizing a
+large-deviation rate function. The constructions below improve the bound
+in Zheng's stated theorem.
+
+A separate problem concerns the one-set quantity
+\[
+ C(A)=\frac{\log(|A+A|/|A|)}{\log(|A-A|/|A|)},
+ \qquad A\subset\Z,\quad |A|>1,
+\]
+whose supremum is $2$ by Lin and Li~\cite{linli}. Numerical comparisons
+must distinguish $C(A)$ from $\theta$. The ``Sets'' comparison in
+Table~1 of Beck, Ogren and Kobren~\cite{hill} reports a value of $1.21$
+from Hyra, while its Appendix~A, equation~(7), and Appendix~D use the
+objective considered here. Lin and Li~\cite[Section~3]{linli} identify
+that $1.21$ search value with $C(A)$. The comparison therefore does not
+establish a $1.21$ lower bound for $\theta$.
+
+\section{A weighted digit construction}
+Fix an integer $B\ge1$ and a digit alphabet
+$\A\subseteq\{0,\ldots,B\}$ containing at least two elements. Attach a
+positive weight $w_a$ to each $a\in\A$. Multiplying every weight by a
+common factor changes neither of the ratios below, so assume
+$\max_{a\in\A}w_a=1$. Put
+\begin{align}
+ \Sset&=\A+\A, &
+ S_s&=\max_{a+b=s} w_aw_b, &
+ P&=\sum_{s\in\Sset}S_s,\label{eq:sums}\\
+ \D&=\A-\A, &
+ D_d&=\max_{a-b=d} w_aw_b, &
+ Q&=\sum_{d\in\D}D_d.\label{eq:differences}
+\end{align}
+All pairs in these maxima belong to $\A^2$; only represented sums and
+differences are included.
+
+\begin{theorem}\label{thm:weighted}
+If $Q>P$, then
+\begin{equation}\label{eq:bound}
+ \theta\ge 1+\frac{\log(Q/P)}{\log(2B+1)}.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Write $c_a=-\log w_a\ge0$ and $\tau_d=-\log D_d$. Choose a pair
+$(a_d,b_d)$ attaining $D_d$ for each positive $d\in\D$, and set
+$(a_{-d},b_{-d})=(b_d,a_d)$. For $d=0$, use $(a_*,a_*)$, where
+$w_{a_*}=1$. Then $\tau_0=0$ and $\tau_{-d}=\tau_d$. Define
+\[
+ p_d=\frac{D_d}{Q},
+ \qquad
+ r=\frac12\sum_{d\in\D}p_d\tau_d,
+ \qquad
+ V_m=\left\{x\in\A^m:\sum_{i=1}^m c_{x_i}\le rm\right\}.
+\]
+The probabilities $p_d$ are positive and satisfy $p_{-d}=p_d$.
+
+\smallskip\noindent\emph{Difference count.}
+For $d\ne0$, take $n_d=\lfloor mp_d\rfloor$ and put
+$n_0=m-\sum_{d\ne0}n_d$. Hence $n_d=n_{-d}$ and $n_d/m\to p_d$ for
+every $d$. Consider any ordering $z\in\D^m$ of this multiset of
+differences. Replace each coordinate $d$ by the selected pair
+$(a_d,b_d)$, obtaining vectors $x,y$ with $x-y=z$.
+Their two costs are equal, since opposite differences occur equally often.
+Each cost is
+\[
+ \sum_{\substack{d\in\D\\d>0}}n_d(c_{a_d}+c_{b_d})
+ \le m\sum_{\substack{d\in\D\\d>0}}p_d\tau_d
+ =mr.
+\]
+The zero coordinates contribute no cost. Thus every such $z$ belongs to
+$V_m-V_m$. The number of distinct orderings is
+$m!/\prod_{d\in\D}n_d!$. Stirling's formula gives
+\begin{align}
+ \log|V_m-V_m|
+ &\ge mH(p)-o(m),\label{eq:type}\\
+ H(p)=-\sum_{d\in\D}p_d\log p_d
+ &=\log Q+\sum_{d\in\D}p_d\tau_d
+ =\log Q+2r.\label{eq:entropy}
+\end{align}
+
+\smallskip\noindent\emph{Sum count.}
+If $z=x+y$ for $x,y\in V_m$, the defining maximum in~\eqref{eq:sums}
+implies
+\[
+ \prod_{i=1}^m S_{z_i}
+ \ge\prod_{i=1}^m w_{x_i}w_{y_i}
+ \ge e^{-2rm}.
+\]
+Summing these nonnegative products over all of $\Sset^m$ yields $P^m$.
+Consequently
+\begin{equation}\label{eq:sum-count}
+ |V_m+V_m|\le e^{2rm}P^m.
+\end{equation}
+Combining~\eqref{eq:type}--\eqref{eq:sum-count},
+\begin{equation}\label{eq:ratio}
+ \log\frac{|V_m-V_m|}{|V_m+V_m|}
+ \ge m\log(Q/P)-o(m).
+\end{equation}
+
+\smallskip\noindent\emph{Encoding as integers.}
+Set $L=2B+1$ and
+$\phi_m(x)=\sum_{i=1}^m x_iL^{i-1}$. This map is injective on both
+$\{0,\ldots,2B\}^m$ and $\{-B,\ldots,B\}^m$.
+Indeed, if two different strings first differ at their highest index $j$,
+that term has absolute value at least $L^{j-1}$, whereas all lower terms
+together have absolute value at most
+$2B\sum_{i<j}L^{i-1}=L^{j-1}-1$.
+
+Let $U_m=\phi_m(V_m)-\min\phi_m(V_m)$. It contains zero, its sum and
+difference cardinalities equal those of $V_m$, and
+\begin{equation}\label{eq:diameter}
+ 2\max U_m+1
+ \le 2B\sum_{i=1}^m L^{i-1}+1
+ =L^m.
+\end{equation}
+For all sufficiently large $m$, the logarithm in~\eqref{eq:ratio} is
+positive, so $M_m=\max U_m>0$. Set $W_m=\{2u:u\in U_m\}$.
+This dilation preserves both sum and difference cardinalities and ensures
+the strict hypothesis of~\eqref{eq:transfer}, because
+\[
+ |W_m-W_m|=|U_m-U_m|
+ \le2M_m+1<4M_m+1=2\max W_m+1.
+\]
+Moreover,~\eqref{eq:diameter} gives
+$2\max W_m+1\le2L^m-1$. Applying~\eqref{eq:transfer} to $W_m$ yields
+\[
+ \theta\ge
+ 1+\frac{m\log(Q/P)-o(m)}{m\log L+\log2}.
+\]
+Taking $m\to\infty$ proves~\eqref{eq:bound} for the supremum $\theta$.
+In particular, every exponent strictly below its right-hand side is
+attainable in~\eqref{eq:problem}; we do not assert attainment of the limit.
+\end{proof}
+
+\section{Sparse geometric weights}
+For an alphabet containing zero and geometric weights $w_a=q^a$, with
+$0<q<1$, the two totals have a
+particularly simple form:
+\begin{equation}\label{eq:sparse}
+ P(q)=\sum_{s\in\A+\A}q^s,
+ \qquad
+ Q(q)=\sum_{d\in\A-\A}q^{e(d)},
+ \qquad
+ e(d)=\min_{a-b=d}(a+b).
+\end{equation}
+Thus both totals are polynomials with nonnegative integer coefficients.
+The formula follows directly from $w_aw_b=q^{a+b}$ and the strict decrease
+of $q^j$ with $j$.
+
+The finite integer family is also explicit. Define
+\begin{equation}\label{eq:radius}
+ \rho(q)=\frac{qQ'(q)}{2Q(q)},
+ \qquad
+ V_m=\left\{x\in\A^m:\sum_{i=1}^m x_i\le\lfloor m\rho(q)\rfloor\right\}.
+\end{equation}
+The radius $r$ in Theorem~\ref{thm:weighted} is
+$(-\log q)\rho(q)$, so~\eqref{eq:radius} gives precisely its sets $V_m$.
+Multiply their base-$(2B+1)$ encodings by two, as in that proof, to obtain
+the sets used in the transfer inequality. Zero already belongs to this
+integer family, and $\rho(q)$ is rational whenever $q$ is rational.
+
+\subsection{A one-digit omission}
+
+Take $B\ge3$ and $\A_B=\{0,2,3,\ldots,B\}$. Its sumset is
+$\{0,2,3,\ldots,2B\}$ and its difference set is $\{-B,\ldots,B\}$.
+For $|d|\ge2$, the pair $(|d|,0)$ or its reversal minimizes $a+b$, so
+$e(d)=|d|$. The difference $1$ first occurs as $3-2$, giving
+$e(1)=e(-1)=5$, and $e(0)=0$. Therefore
+\begin{equation}\label{eq:one-hole}
+ P_B(q)=\sum_{j=0}^{2B}q^j-q,
+ \qquad
+ Q_B(q)=1+2q^5+2\sum_{j=2}^{B}q^j.
+\end{equation}
+The omitted digit removes one sum, while every difference remains
+represented. This changes the weighted ratio used by
+Theorem~\ref{thm:weighted}.
+
+\begin{corollary}\label{cor:explicit}
+The exponent in~\eqref{eq:problem} satisfies $\theta>1.1813$.
+\end{corollary}
+\begin{proof}
+Set $B=11$ and $q=377/500$ in~\eqref{eq:one-hole}. Define the positive
+integers
+\begin{align}
+ N_S&=\sum_{\substack{0\le j\le22\\j\ne1}}
+              377^j500^{22-j},\label{eq:NS}\\
+ N_D&=500^{22}+2\cdot377^5 500^{17}
+                   +2\sum_{j=2}^{11}377^j500^{22-j}.\label{eq:ND}
+\end{align}
+Then $Q_{11}(q)/P_{11}(q)=N_D/N_S$. Exact integer exponentiation verifies
+\begin{equation}\label{eq:certificate}
+ N_D^{10000}>23^{1813}N_S^{10000}.
+\end{equation}
+The accompanying verifier checks this inequality with integer arithmetic.
+Taking logarithms
+in~\eqref{eq:certificate} and applying Theorem~\ref{thm:weighted} gives
+\[
+ \theta\ge1+\frac{\log(N_D/N_S)}{\log23}
+ >1+\frac{1813}{10000}=1.1813.
+\]
+\end{proof}
+
+\subsection{Omitting the digits 1, 2 and 5}
+Let $B\ge8$ and $\mathcal C_B=\{0,3,4,6,7,\ldots,B\}$.
+Its sumset is $\{0,\ldots,2B\}\setminus\{1,2,5\}$ and its difference
+set is $\{-B,\ldots,B\}$. The three missing positive digits still occur
+as differences: $1=4-3$, $2=6-4$ and $5=8-3$. These pairs minimize the sum
+of their endpoints, giving $e(\pm1)=7$, $e(\pm2)=10$ and $e(\pm5)=11$.
+Every other nonzero difference uses a digit and zero. Thus
+\begin{align}
+ P(q)&=1+q^3+q^4+\sum_{j=6}^{2B}q^j,\label{eq:three-hole-sums}\\
+ Q(q)&=1+2\left(q^3+q^4+\sum_{j=6}^{B}q^j+q^7+q^{10}+q^{11}\right).
+ \label{eq:three-hole-differences}
+\end{align}
+
+\begin{corollary}\label{cor:headline}
+The exponent in~\eqref{eq:problem} satisfies $\theta>1.1855$.
+\end{corollary}
+\begin{proof}
+Take $B=16$, $q=16/19$ and $T_j=16^j19^{32-j}$. By
+\eqref{eq:three-hole-sums}--\eqref{eq:three-hole-differences},
+$Q(q)/P(q)=M_D/M_S$, where
+\begin{align}
+ M_S&=T_0+T_3+T_4+\sum_{j=6}^{32}T_j,\label{eq:MS}\\
+ M_D&=T_0+2\left(T_3+T_4+\sum_{j=6}^{16}T_j+T_7+T_{10}+T_{11}\right).
+ \label{eq:MD}
+\end{align}
+The exact integer check below verifies
+\begin{equation}\label{eq:main-certificate}
+ M_D^{2000}>33^{371}M_S^{2000}.
+\end{equation}
+Consequently Theorem~\ref{thm:weighted} gives
+\[
+ \theta\ge1+\frac{\log(M_D/M_S)}{\log33}
+ >1+\frac{371}{2000}=1.1855.
+\]
+\end{proof}
+
+\section{Exact reproduction and scope}
+The certificate can be checked with the following complete Python program.
+It uses integer arithmetic and the standard library only.
+\begin{verbatim}
+from math import gcd
+
+p, q, B = 16, 19, 16
+term = lambda j: p**j * q**(2*B-j)
+S = term(0) + term(3) + term(4) + sum(term(j) for j in range(6, 33))
+D = term(0) + 2*(term(3) + term(4) + sum(term(j) for j in range(6, 17))
+                + term(7) + term(10) + term(11))
+g = gcd(S, D)
+if (D//g)**2000 <= 33**371 * (S//g)**2000:
+    raise ArithmeticError("The certificate failed")
+print("Verified: theta > 1.1855")
+\end{verbatim}
+The accompanying verifier also constructs the maxima in
+\eqref{eq:sums}--\eqref{eq:differences} directly from all ordered digit
+pairs and compares them with the displayed polynomial formulas. The integer inequality,
+rather than a rounded logarithm or a numerical optimizer, certifies the
+stated decimal threshold.
+
+The theorem holds for every fixed alphabet and every set of positive
+weights satisfying $Q>P$. The selected parameters need not maximize its
+right-hand side. Nor does a finite search over alphabets determine the
+optimal exponent in~\eqref{eq:problem}. This note records the construction,
+its proof and an exact certificate. It does not assert that the bound or
+method is new, or that the parameters attain a current record.
+
+\begin{thebibliography}{9}
+\bibitem{ghr}
+K. Gyarmati, F. Hennecart and I. Z. Ruzsa,
+\emph{Sums and differences of finite sets},
+Functiones et Approximatio Commentarii Mathematici
+\textbf{37}(1) (2007), 175--186.
+\url{https://gyarmatikati.web.elte.hu/publ/sumdiffv.pdf}.
+
+\bibitem{zheng}
+F. Zheng,
+\emph{Sums and differences of sets: a further improvement over AlphaEvolve},
+arXiv:2506.01896 (2025).
+\url{https://arxiv.org/abs/2506.01896}.
+
+\bibitem{linli}
+H. Lin and S. Li,
+\emph{Settling the optimal exponent relating sumsets and difference sets},
+arXiv:2607.27199v1 (2026).
+\url{https://arxiv.org/abs/2607.27199v1}.
+
+\bibitem{hill}
+J. Beck, P. V. Ogren and A. Kobren,
+\emph{Hill Sampling for Test-Time Scaling: A Simple and Better Alternative
+to Repeated Sampling, Evolution, and Training},
+arXiv:2609.25510v2 (2026).
+\url{https://arxiv.org/abs/2609.25510v2}.
+\end{thebibliography}
+\end{document}
