@@ -165,19 +165,22 @@ the specified remainders and centre coverage, rather than to every possible
 degree-six remainder. Its proof files and separate Boolean encoding provide
 another verification route, documented with their original and fresh checks.
 
-The recovered session authorized at most 72 CPU-hours. The present work uses
-small serial experiments with explicit time, node, and output limits, after
-coordination with the integration owner about host scheduling. It does not
-authorize paid services, new infrastructure, or an unbounded search.
+The original R(3,10) plan set a ceiling of 72 CPU-hours on this machine,
+starting after the earlier C(6) run. That earlier grid search is outside this
+timebox. The present work uses small serial experiments with explicit time,
+node, and output limits, after coordination with the integration owner about
+host scheduling. Paid services, new infrastructure and an unbounded search
+remain outside this plan.
 
 The full vertex-transitive run took 338.644 seconds of wall time, including
 orbit construction, certificate replay, and summary writes. The C search
 itself used 2.028 CPU seconds; that number is not the total cost. The earlier
-Cayley control took 45.510 seconds of wall time. The remaining budget is far
-larger than these completed experiments require; it should be spent only on
-reviewed, decisive subproblems rather than repeated searches of exhausted
-classes. Stop a computational experiment at its declared bounds and report
-its exact coverage, even if the overall research objective remains open.
+Cayley control took 45.510 seconds of wall time. These individual timings do
+not establish the cumulative CPU cost or remaining budget. Reconcile retained
+run accounting before allocating further computation, and use it for reviewed,
+decisive subproblems. Stop a computational experiment at its declared bounds
+and report its exact coverage, even if the overall research objective remains
+open.
 
 The degree-four solve used 30.517 CPU seconds and 39.999 wall seconds.
 Its three proof checks took about eight seconds in total, plus small controls
