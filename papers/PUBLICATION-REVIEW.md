@@ -385,7 +385,7 @@ mathematical and editorial AI-agent review; no human peer review or
 journal acceptance is asserted. Earlier immutable releases preserve
 their original results and reading scopes.
 
-## Sharper support bounds and geometric lower examples: 30 September 2026
+## Sharper support bounds and geometric lower examples (version 9): 30 September 2026
 
 The revised source proves strict reflected ratio bounds `29/15`,
 `7/3` and `19/7` on four, five and six sites, with arbitrary
@@ -434,3 +434,56 @@ inspected, including the new proofs, coefficient tables and references.
 Repository checks and verification of the released files accompany this
 update. No human peer review, journal acceptance or historical-priority
 finding is asserted.
+
+## Sharp four-site bound and weighted extension (version 10): 30 September 2026
+
+The finite-support manuscript now proves the exact scalar supremum
+`K_4=7/4`. Its upper bound follows from a four-event maximum-star
+inequality and a finite linear-programming dual argument. The proof
+includes the event reductions, Gram-matrix comparison, variance estimate
+and explicit positive polynomial expansion. Mixtures of star graphs
+supply the paired-minimum comparison between the reflected numerator
+and the full original denominator. Zero profile values are handled by
+the smaller-support bounds.
+
+Integration over kernel level sets gives the coefficient `(K+3M)/4`
+for every nonnegative kernel on at most four sites. For each prescribed
+positive value list in that range, the geometric product construction
+gives the matching lower bound with integer locations allowed to vary.
+No attainment on every fixed support is asserted. The earlier exact
+range `K≤3M` remains valid without a support-size restriction.
+
+Averaging over four-subsets gives `K_n≤7n/16` for `n≥4`, in
+particular `K_5≤35/16` and `K_6≤21/8`. These are non-strict
+ratio bounds. Their strict fourth-power comparisons prove the
+constant-kernel fourfold inequality at five-site sumset sizes of at
+least 23 and six-site sizes of at least 48. The retained covering
+argument and elementary Sidon estimate still prove the constant-kernel
+result on every five-point support. The six-point conclusion has the
+stated size condition and does not include arbitrary kernel weights.
+The superseded paired-minimum and AM–GM derivation remains available
+in the previous immutable release.
+
+The lower-example attribution now includes Colesanti's orthant
+exponential, Theorems 1.1–1.2 of arXiv:math/0512098v1. All 22 preprint
+pages were read and visually inspected; the journal body was not read.
+For equal log-concave profiles on `R^d`, the theorem gives a reflected
+ratio bound of `2^d`. The literature comparison derives that
+normalization and records the obstacles to carrying it to arbitrary
+finite profiles with a separate kernel. This establishes neither
+historical priority for the discrete coefficient nor non-implication
+from the prior framework. The classical indicator-simplex construction
+and its Glasscock/Hennecart–Robert–Yudin attribution remain intact.
+
+Independent mathematical agents and the integration owner checked the
+hand arguments, the full denominator, all zero cases, the weighted
+level sets and subset averaging. The original weighted five-point
+proof, its 240 rational certificates, its checker and its required
+range-energy estimate are unchanged. The exact values of `K_n` for `n≥5`
+and the unrestricted fourfold problem remain unresolved in this work.
+
+Independent AI source reviews of the mathematics and literature
+attribution passed. The 55-page PDF built with cached Tectonic 0.17.0
+without TeX warnings, and every rendered page was visually inspected
+without findings. No human peer review, journal acceptance or
+historical-priority finding is asserted.

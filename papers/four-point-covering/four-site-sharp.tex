@@ -1,0 +1,455 @@
+\subsection{The sharp four-site bound}
+
+\begin{theorem}[Sharp four-site ratio]\label{thm:four-site-sharp}
+For every four-element $H\subset\mathbb Z$ and all nonzero finitely
+supported $f,g\ge0$,
+\begin{equation}\label{eq:four-site-sharp}
+ R_H(f,g)=\frac{\|f\star\widetilde{g1_H}\|_1}{\|f\star g\|_1}
+ \le\frac74.
+\end{equation}
+The denominator retains all values of $g$, including those outside $H$.
+The supremum over the inputs and the four integer sites is $K_4=7/4$.
+\end{theorem}
+
+The upper bound follows from an inequality for four events and finite
+linear-programming duality. We first prove the probability inequality.
+
+\begin{lemma}\label{lem:four-ratio-matrix}
+Let $m=(a,b,c,d)$ with $a\ge b\ge c\ge d>0$ and $d/a\ge1/3$.
+Define $r_{ij}=\min(m_i,m_j)/\max(m_i,m_j)$ for $0\le i,j\le3$,
+and let $\mathcal R=(r_{ij})$. Then, as quadratic forms,
+\[
+ \mathcal R\succeq\frac58\,\mathbf1\mathbf1^{\mathrm T}.
+\]
+\end{lemma}
+\begin{proof}
+Set $q_1=b/a$, $q_2=c/b$, $q_3=d/c$, so $0<q_i\le1$ and
+$q_1q_2q_3\ge1/3$.  For an orthonormal basis $e_0,e_1,e_2,e_3$,
+define
+\[
+ v_0=e_0,\qquad
+ v_i=q_i v_{i-1}+\sqrt{1-q_i^2}\,e_i.
+\]
+Their Gram matrix is $\mathcal R$.
+Set
+\[
+ u=e_0+\sum_{i=1}^3\sqrt{\frac{1-q_i}{1+q_i}}\,e_i.
+\]
+Induction gives $u\cdot v_i=1$ for every $i$, including when
+$q_i=1$.  If $t_i=(1-q_i)/(1+q_i)$ and $S=t_1+t_2+t_3$, then
+$\|u\|^2=1+S$.
+
+To bound $S$, put $P=t_1t_2+t_1t_3+t_2t_3$ and $T=t_1t_2t_3$.
+The product condition gives
+\[
+ \begin{aligned}
+ 3(1-S+P-T)&\ge1+S+P+T,\\
+ 2S&\le1+P-2T\le1+\frac{S^2}{3}.
+ \end{aligned}
+\]
+Thus $S^2-6S+3\ge0$.  As $0\le S<3$, this forces $S<3/5$:
+on $[3/5,3]$ that polynomial is decreasing and its value at
+$3/5$ is $-6/25$.  Hence $\|u\|^2<8/5$.
+For any real vector $\xi$,
+\[
+ \left(\sum_i\xi_i\right)^2
+ =\left(u\cdot\sum_i\xi_i v_i\right)^2
+ \le\frac85\left\|\sum_i\xi_i v_i\right\|^2
+ =\frac85\,\xi^{\mathrm T}\mathcal R\xi.
+\]
+This proves the claimed non-strict bound.
+\end{proof}
+
+\begin{lemma}[Four-event star inequality]\label{lem:four-event-star}
+Let $J$ be a random subset of $\{0,1,2,3\}$, with
+\[
+ m_i=\mathbb P(i\in J)>0,\qquad
+ c_{ij}=\mathbb P(i,j\in J),\qquad
+ r_{ij}=\frac{\min(m_i,m_j)}{\max(m_i,m_j)}.
+\]
+Put
+\[
+ T=\sum_i m_i,\qquad
+ D_i=\sum_{j\ne i}r_{ij}c_{ij},\qquad W=\max_iD_i.
+\]
+Then
+\[
+ T-W\le\frac74.
+\]
+Consequently the same bound holds when $W$ is replaced by the maximum
+weight of a spanning tree, with edge weights $r_{ij}c_{ij}$.
+The constant $7/4$ is attained for both versions.
+\end{lemma}
+\begin{proof}
+\medskip\noindent\textbf{Reductions.}
+
+We may relabel so that
+\[
+ 1\ge a=m_0\ge b=m_1\ge c=m_2\ge d=m_3>0.
+\]
+The union bound gives $c_{0j}\ge a+m_j-1$, even when the right side
+is negative.  Therefore
+\begin{equation}\label{eq:four-star-frechet}
+ T-D_0
+ \le a+\frac{b(1-b)+c(1-c)+d(1-d)}a
+ \le a+\frac{3}{4a}.
+\end{equation}
+For $3/4\le a\le1$ the last quantity is at most $7/4$, since
+\[
+ a+\frac{3}{4a}-\frac74
+ =\frac{(4a-3)(a-1)}{4a}\le0.
+\]
+
+For any three positive-marginal events, their analogous maximum-star
+deficit is at most $3/2$.  Indeed, if their largest marginal $u$ is
+less than $1/2$, their total marginal is less than $3/2$.  Otherwise
+the same union-bound argument gives a deficit at most
+\[
+ u+\frac1{2u}\le\frac32,\qquad \frac12\le u\le1,
+\]
+because the difference is $(2u-1)(u-1)/(2u)$.
+Deleting the event with marginal $d$ and retaining a maximizing
+three-event star thus proves the claimed bound when $d\le1/4$.
+
+Let
+\[
+ A=\sum_{i<j}r_{ij}c_{ij},\qquad N=|J|.
+\]
+Always $W\ge A/2$, by averaging the four star degrees.
+If $d>1/4$ and $a\le1/2$, all ratios are at least $1/2$, so
+\[
+ A\ge\frac12\mathbb E\binom N2\ge\frac{T-1}{2}.
+\]
+The second inequality follows from
+$\binom k2\ge k-1$ for integers $0\le k\le4$.
+As $T\le2$, we obtain
+\[
+ T-W\le T-\frac{T-1}{4}
+       =\frac{3T+1}{4}\le\frac74.
+\]
+The case $T\le7/4$ is also immediate from nonnegative edge weights.
+
+It remains to consider
+\begin{equation}\label{eq:four-star-remaining}
+ \frac12<a<\frac34,\qquad d>\frac14,\qquad T>\frac74.
+\end{equation}
+If the first bound in \eqref{eq:four-star-frechet} is at most $7/4$, there is
+nothing more to prove.  Otherwise, write
+\[
+ a=\frac12+x,\quad b=\frac12+y,\quad c=\frac12+z,\quad
+ d=\frac12+w,\quad s=y+z+w,\quad E=y^2+z^2+w^2.
+\]
+The failure of that bound implies
+\begin{equation}\label{eq:four-star-ellipse}
+ 0<x<\frac14,\qquad
+ E<R_0:=\left(\frac12-x\right)\left(\frac14-x\right)
+       =x^2-\frac34x+\frac18.
+\end{equation}
+Indeed the numerator $b(1-b)+c(1-c)+d(1-d)$ is $3/4-E$.
+
+\medskip\noindent\textbf{A variance estimate.}
+
+Let $Y_i=1_{\{i\in J\}}$ and $m=(a,b,c,d)^{\mathrm T}$.
+Under \eqref{eq:four-star-remaining}, $d/a>1/3$, so Lemma~\ref{lem:four-ratio-matrix} applies to
+$Y-m$ pointwise.  Taking expectations yields
+\[
+ \mathbb E[Y^{\mathrm T}\mathcal RY]
+ \ge m^{\mathrm T}\mathcal Rm+\frac58\operatorname{Var}N.
+\]
+The left side is $T+2A$, and the ordering of the marginals gives
+\[
+ m^{\mathrm T}\mathcal Rm=a^2+3b^2+5c^2+7d^2.
+\]
+Consequently
+\begin{equation}\label{eq:four-star-variance-bound}
+ T-W\le
+ \frac{5T-(a^2+3b^2+5c^2+7d^2)-(5/8)\operatorname{Var}N}{4}.
+\end{equation}
+It is enough to prove
+\begin{equation}\label{eq:four-star-target}
+ D+\frac58\operatorname{Var}N\ge0,
+ \qquad
+ D=a^2+3b^2+5c^2+7d^2-5T+7.
+\end{equation}
+In the variables of \eqref{eq:four-star-ellipse}, $T=2+x+s$ and
+direct expansion gives
+\begin{equation}\label{eq:four-star-D}
+ D=1-4x+x^2-2y+2w+3y^2+5z^2+7w^2.
+\end{equation}
+
+\medskip\noindent\textbf{The case $T\le2$.}
+
+Here $s\le-x$.  We prove the stronger assertion $D>0$.
+Completing squares and applying weighted Cauchy--Schwarz gives
+\[
+ \begin{split}
+ D&=1-4x+x^2-\frac{10}{21}
+       +3(y-1/3)^2+5z^2+7(w+1/7)^2\\
+ &\ge1-4x+x^2-\frac{10}{21}
+       +\frac{105}{71}(s-4/21)^2\\
+ &\ge\frac{176x^2-244x+41}{71}.
+ \end{split}
+\]
+For $0<x\le3/16$, the numerator is decreasing and is at least
+$23/16$, so this is positive.
+
+Suppose instead $x\ge3/16$.  The inequalities
+$E\ge s^2/3\ge x^2/3$ and $E<R_0$ imply
+\[
+ R_0-\frac{x^2}{3}
+ =\frac23x^2-\frac34x+\frac18>0.
+\]
+This quadratic is decreasing on $[0,1/4]$ and has value
+$-1/1936$ at $9/44$, so $x<9/44$.
+
+Orthogonal projection onto the plane perpendicular to $(1,1,1)$
+gives
+\[
+ (y-w)^2\le2(E-s^2/3)\le2(E-x^2/3).
+\]
+Using $3y^2+5z^2+7w^2\ge3E$ in \eqref{eq:four-star-D}, we obtain
+\[
+ D\ge1-4x+x^2+3E-2\sqrt{2(E-x^2/3)}.
+\]
+As a function of $E$ on the allowed interval, the last two terms
+are decreasing: their derivative is
+$3-2/\sqrt{2(E-x^2/3)}<0$, since $E\le R_0\le1/8$.
+(The lower endpoint follows by continuity.)
+Thus
+\[
+ D\ge\frac{11}{8}-\frac{25x}{4}+4x^2
+       -2\sqrt{2(R_0-x^2/3)}.
+\]
+For $3/16\le x<9/44$, the decreasing function
+$R_0-x^2/3$ is at most $1/128$, its value at $3/16$.
+Also $11/8-25x/4+4x^2$ is decreasing here and is at least
+$511/1936$, its value at $9/44$.  Hence
+\[
+ D\ge\frac{511}{1936}-\frac14=\frac{27}{1936}>0.
+\]
+This proves \eqref{eq:four-star-target} throughout the case $T\le2$.
+
+\medskip\noindent\textbf{The case $T\ge2$.}
+
+Since $a<3/4$, we have $2\le T<3$.
+For every integer $N$ the product $(N-2)(N-3)$ is nonnegative,
+so
+\[
+ \operatorname{Var}N\ge(T-2)(3-T).
+\]
+Put $t=x+s=T-2$, $\rho=5/8$, and $h=\rho(1-2x)$.
+By expansion,
+\[
+ \begin{split}
+ D+\rho t(1-t)
+ &=B+(-2+h)y+hz+(2+h)w\\
+ &\quad+3y^2+5z^2+7w^2-\rho s^2,\\
+ B&=1-\frac{27x}{8}+\frac{3x^2}{8}.
+ \end{split}
+\]
+Weighted Cauchy--Schwarz gives
+\[
+ s^2\le\frac{23}{15}(y^2+3z^2+5w^2),
+ \qquad \rho\,\frac{23}{15}=\frac{23}{24}<1.
+\]
+It follows that
+\[
+ 3y^2+5z^2+7w^2-\rho s^2\ge2E.
+\]
+The squared length of the linear coefficient vector is
+\[
+ L^2=(-2+h)^2+h^2+(2+h)^2
+     =8+\frac{75}{64}(1-2x)^2.
+\]
+Therefore
+\[
+ \begin{aligned}
+ D+\rho t(1-t)&\ge B-L\sqrt E+2E\\
+              &\ge B-L\sqrt{R_0}+2R_0\\
+              &=Z-L\sqrt{R_0},
+ \end{aligned}
+\]
+where $Z=(10-39x+19x^2)/8$.
+The function $2E-L\sqrt E$ is decreasing for $0\le E\le R_0\le1/8$,
+as follows either by differentiation or by setting $E=v^2$
+and noting $4v-L<0$.  Also $Z\ge23/128>0$ for
+$0\le x\le1/4$.
+
+For completeness, the remaining rational polynomial check is
+displayed explicitly:
+\begin{equation}\label{eq:four-star-quartic}
+ \begin{aligned}
+ Z^2-L^2R_0&=\frac{F(4x)}{16384},\\
+ F(u)&=61u^4-3828u^3+16824u^2-19344u+6816.
+ \end{aligned}
+\end{equation}
+Let $B_{4,k}(v)=\binom4k v^k(1-v)^{4-k}$.
+Direct expansion gives the following Bernstein coefficients:
+\[
+ \begin{array}{c|rrrrr}
+  &k=0&k=1&k=2&k=3&k=4\\ \hline
+ F(v/2)&6816&4398&2681&12363/8&14005/16\\
+ F((1+v)/2)&14005/16&821/4&3/4&146&529
+ \end{array}
+\]
+The table means that each polynomial in the left column equals
+the sum of the listed coefficient times $B_{4,k}(v)$.
+All coefficients are positive.  As $B_{4,k}(v)\ge0$ and
+$\sum_kB_{4,k}(v)=1$ on $[0,1]$, we have $F(u)>0$ on $[0,1]$.
+Equation \eqref{eq:four-star-quartic}, together with $Z>0$, gives
+$Z>L\sqrt{R_0}$.  This proves \eqref{eq:four-star-target} for $T\ge2$.
+
+Together the reductions and the two cases prove the star inequality.
+Every star is a spanning tree, so the tree inequality follows.
+
+\medskip\noindent\textbf{Equality.}
+
+Give probability $1/6$ to each of
+\[
+ \{0,1\},\quad\{0,2\},\quad\{0,3\},\quad
+ \{0,1,2\},\quad\{0,1,3\},\quad\{0,2,3\}.
+\]
+Then $m_0=1$ and $m_1=m_2=m_3=1/2$, while
+$c_{0j}=1/2$ and $c_{ij}=1/6$ for distinct leaves.
+Thus every center--leaf edge has weight $1/4$, and every
+leaf--leaf edge has weight $1/6$.
+The center star has weight $3/4$; each leaf star has weight
+$7/12$.  Every spanning tree has three edges, each of weight
+at most $1/4$, and the center star attains that bound.
+As $T=5/2$, both deficits are exactly $7/4$.
+\end{proof}
+
+
+\begin{proof}[Proof of Theorem~\ref{thm:four-site-sharp}]
+If $g$ vanishes at some point of $H$, remove its zero coordinates.
+Corollary~\ref{cor:small-exact} bounds the resulting ratio by $3/2$;
+if all coordinates vanish, the ratio is zero. Thus suppose
+$H=\{p_0,p_1,p_2,p_3\}$ and $g_i=g(p_i)>0$ for every $i$.
+Put $G=\sum_i g_i$ and $C=7/4$, and define
+\[
+ \rho_{ij}=\frac{\min(g_i,g_j)}{\max(g_i,g_j)},\qquad
+ \kappa_{ij}=\frac{\min(g_i,g_j)}{g_i+g_j},
+\]
+\[
+ \Phi_{ij}(v_i,v_j)=\min(v_i,v_j)
+ +\min\left(\frac{g_j}{g_i}v_i,\frac{g_i}{g_j}v_j\right).
+\]
+Bounding both minima by their $j$ arguments gives
+\[
+ \kappa_{ij}\Phi_{ij}(v_i,v_j)
+ \le\frac{\min(g_i,g_j)}{g_j}v_j\le v_j,
+\]
+and the analogous bound holds with $i$. For any star on the four
+indices, root its edges at an index maximizing $v_i$ and charge each
+edge to its child. Every other coordinate is charged once. Consequently,
+if $w_i\ge0$ and $\sum_i w_i=1$ are probabilities for the four star
+centers, then
+\[
+ \begin{aligned}
+ W_w(v)&=\sum_{i<j}(w_i+w_j)\kappa_{ij}\Phi_{ij}(v_i,v_j),\\
+ q_-(v)&=\sum_i v_i-W_w(v)\ge\max_i v_i.
+ \end{aligned}
+\]
+
+We seek real diagonal coefficients $d_i$ with
+\begin{equation}\label{eq:four-star-trace}
+ \sum_i g_i d_i=G
+\end{equation}
+such that $q_+(v)=\sum_i d_i v_i-W_w(v)\le C\max_i v_i$.
+The function $q_+$ is convex and positively homogeneous. Its upper
+bound therefore follows from its values on the unit-cube vertices:
+\begin{equation}\label{eq:four-star-vertices}
+ \sum_{i\in J}d_i-
+ \sum_{\{i,j\}\subset J}(w_i+w_j)\rho_{ij}\le C
+ \qquad(\varnothing\ne J\subseteq\{0,1,2,3\}).
+\end{equation}
+Here $\kappa_{ij}\Phi_{ij}(1,1)=\rho_{ij}$; the empty vertex is zero.
+
+Maximize $\sum_i g_i d_i$ subject to
+\eqref{eq:four-star-vertices}, $w_i\ge0$ and $\sum_iw_i=1$.
+This finite linear program is feasible with $d_i=0$.
+The singleton constraints give $d_i\le C$. Since every $g_i>0$,
+a maximizing level set can also be bounded below in every $d_i$,
+so the maximum is finite and attained.
+Its dual value is
+\begin{equation}\label{eq:four-star-dual}
+ \min_\lambda\left[
+ C\sum_{J\ne\varnothing}\lambda_J+
+ \max_i\sum_{j\ne i}\rho_{ij}
+              \sum_{J\supset\{i,j\}}\lambda_J
+ \right],
+\end{equation}
+where $\lambda_J\ge0$ is indexed by the nonempty subsets and
+$\sum_{J\ni i}\lambda_J=g_i$ for every $i$.
+Indeed, the multipliers of \eqref{eq:four-star-vertices} must have
+the displayed marginals because the $d_i$ are unrestricted.
+Their remaining objective is linear in $w$, so its maximum on the
+probability simplex is the largest of the four star sums.
+
+For each feasible $\lambda$, set $L=\sum_J\lambda_J>0$ and give the
+nonempty subset $J$ probability $\lambda_J/L$. Its marginals are
+$m_i=g_i/L$ and its pair marginals are
+$c_{ij}=L^{-1}\sum_{J\supset\{i,j\}}\lambda_J$.
+The ratios of the $m_i$ equal those of the $g_i$.
+Lemma~\ref{lem:four-event-star} shows that the expression in
+\eqref{eq:four-star-dual} is at least
+$L\sum_i m_i=G$. Finite linear-programming duality therefore supplies
+$w,d$ with objective at least $G$. Decreasing all $d_i$ by a common
+nonnegative constant preserves \eqref{eq:four-star-vertices} and
+gives the exact trace \eqref{eq:four-star-trace}.
+
+Finally set $v_i^\pm(z)=g_i f(z\mp p_i)$.
+Translation by $p_i+p_j$ interchanges the two terms of
+$\Phi_{ij}(v_i^+,v_j^+)$ with those of
+$\Phi_{ij}(v_i^-,v_j^-)$, so their sums over $z$ agree.
+Also $\sum_zv_i^\pm(z)=g_i\|f\|_1$.
+The trace condition and the two pointwise comparisons now give
+\[
+ \begin{aligned}
+ \|f\star\widetilde{g1_H}\|_1
+ &\le\sum_zq_-(v^-(z))
+  =\sum_zq_+(v^+(z))\\
+ &\le C\|f\star(g1_H)\|_1
+ \le C\|f\star g\|_1.
+ \end{aligned}
+\]
+This proves the upper bound with the full denominator.
+Proposition~\ref{prop:geometric-product}, with four kernel values
+equal to one, gives the matching lower bound on the supremum.
+\end{proof}
+
+\begin{corollary}[Sharp weighted bound on four sites]
+\label{cor:four-site-weighted}
+Let $k\ge0$ have at most four positive sites, and put
+$K=\|k\|_1$ and $M=\|k\|_\infty$. For all nonzero finitely supported
+$f,g\ge0$,
+\begin{equation}\label{eq:four-site-weighted}
+ \frac{\|f\star\widetilde{gk}\|_1}{\|f\star g\|_1}
+ \le\frac{K+3M}{4}.
+\end{equation}
+For every prescribed nonempty list of at most four positive kernel
+values, the supremum over the inputs and distinct integer locations
+is exactly $(K+3M)/4$.
+\end{corollary}
+\begin{proof}
+The zero kernel is immediate. Otherwise let
+$F_t=\{p:k(p)>t\}$ for $0\le t<M$, and keep
+$P=\|f\star g\|_1$ fixed. Every $F_t$ is nonempty and has at most
+four elements. At each output, the maximum of the kernel integrals
+is at most the integral of the maxima. Thus
+Corollary~\ref{cor:small-exact} and
+Theorem~\ref{thm:four-site-sharp} give
+\[
+ \begin{aligned}
+ \|f\star\widetilde{gk}\|_1
+ &\le\int_0^M\|f\star\widetilde{g1_{F_t}}\|_1\,dt\\
+ &\le\frac P4\int_0^M(|F_t|+3)\,dt
+  =\frac{K+3M}{4}\,P.
+ \end{aligned}
+\]
+The sum over outputs is finite, and each application uses the same
+profile and full denominator. Proposition~\ref{prop:geometric-product}
+gives sharpness for each list of at least two values; a singleton
+attains the value $M$. The lower construction permits the integer
+locations to vary. It does not assert attainment on every fixed support.
+\end{proof}
