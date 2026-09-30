@@ -1,0 +1,17 @@
+{
+  "contract": "algal.discovery.v1",
+  "name": "local-network-control",
+  "seed": 1701,
+  "instrument": "network.v1",
+  "strategy": { "id": "edge-mutation-control-v1", "instructions": "Test one connected edge replacement from the development incumbent. Record each prediction and failure before choosing the next parent." },
+  "baseline": { "nodes": 6, "edges": [[0,1],[0,2],[0,3],[0,4],[0,5]] },
+  "steps": 3,
+  "discoverySeeds": [11,29,41,61],
+  "regressionSeeds": [101,203,307,409],
+  "holdoutSeeds": [1009,2003,3001,4001],
+  "minimumImprovement": 0,
+  "maxRegressionLoss": 0,
+  "evaluationTimeoutMs": 1000,
+  "budget": { "attempts": 12, "activeMs": 15000, "modelCalls": 0, "tokens": 0, "usd": 0 },
+  "provider": { "kind": "control" }
+}

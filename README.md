@@ -2,6 +2,12 @@
 
 Reproducible research environments built on [ALGAL](https://github.com/hraness/algal).
 
+Read the results and their methods in [Discoveries](https://hraness.com/discoveries).
+The [portable discovery loop](docs/discovery-loop.md) runs without API keys by
+default and supports optional xAI or Gemini proposals. Its
+[`algal-discovery` skill](.agents/skills/algal-discovery/SKILL.md) guides research,
+primary-source comparison, independent review, and updates to the public articles.
+
 Researchers propose experiments, record predictions before measurement (the
 ordering is enforced inside the local receipt; it is not an external
 commitment), and build on prior artifacts within a study. The laboratory records
