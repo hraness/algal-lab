@@ -284,3 +284,38 @@ nine-page PDF was rebuilt and every page visually inspected, with no
 unresolved references or layout defects. The numerical verification programs
 and certificates are unchanged. Repository checks and verification of the
 released files accompany this update.
+
+## Binary construction and maximal-coupling comparison: 29 September 2026
+
+The binary companion construction is an explicit application of Lau and
+Nair's typical-set theorem, arXiv:2312.11017v3, Theorem 10 in Appendix C,
+with the stated marginal pair and elementary generating-polynomial bounds.
+The attribution distinguishes this asymptotic implication from the paper's
+finite exact-type proof in dimension 555,008. The same binary set appears
+in the sum, difference and all five positions of the repeated sumset.
+The finite theorem, proof, numerical parameters, programs and certificates
+are unchanged.
+
+Codex agent `/root/field_audit` formulated the concrete application and
+`/root/papers` independently reviewed the marginal constraints, entropy
+bounds, strict rational comparison, repeated-set construction and integer
+encoding. The review found no required mathematical correction. Priority
+of the particular marginals and fivefold example remains unestablished.
+
+The literature comparison also covers Ken Lau, Chandra Nair and Zhaobang
+Zhu's author-hosted manuscript, *A maximal-coupling information inequality
+of sums on finite subsets of Abelian groups*. Agent `/root/field_audit`
+read all seven pages and inspected every original page image; `/root`
+independently reviewed the comparison and checked the decisive theorem
+and proof passages. Theorem 5's fractional-partition bounds are valid.
+Its direct fourfold substitutions upper-bound maximal sum entropy and
+do not establish the reflected fourfold comparison. Review of the actual
+conditional-Shearer argument and a direct finite-polytope argument
+resolved two presentation issues without invalidating the main theorem.
+The comparison is limited to the linked author-hosted text; a final
+publisher edition was not reviewed.
+
+This is mathematical and editorial AI-agent work. The attribution does
+not establish priority or a general non-implication theorem about the
+earlier frameworks. The earlier dated entries and immutable releases
+preserve their original reading and validation scopes.
