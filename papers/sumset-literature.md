@@ -1,12 +1,13 @@
 # Literature comparison for the sumset manuscripts
 
-Review date: 29 September 2026. These manuscripts give explicit constructions,
+Review date: 30 September 2026. These manuscripts give explicit constructions,
 exact certificates and reflected fourfold inequalities with arbitrary
-nonnegative kernel weights on at most four integers and constant kernels
-on five. The small-support manuscript also determines sharp four-point
-covering constants and proves that its stronger covering bound fails on a
-five-point support, even though the reflected inequality holds there for
-constant kernels.
+nonnegative kernel weights on at most four integers and on
+`{0,2,7,8,11}`, and with constant kernels on every five-point integer
+support. The small-support manuscript also determines sharp four-point
+covering constants. Its stronger covering bound fails on the displayed
+five-point support, where the reflected inequality holds for arbitrary
+nonnegative kernels.
 The comparison below credits their known ingredients and distinguishes
 their conclusions from related sumset problems. It supports the stated
 mathematical claims and the comparison with Zheng's theorem;
@@ -262,9 +263,9 @@ N_F(1_F)⁴ ≥ (5/2)⁴ = 39 + 1/16 > 39 = T_F(1_F).
 
 Thus four is the largest support size for the universal covering bound.
 The manuscript proves that the reflected inequality nevertheless holds on
-this support when the kernel is constant, as part of its theorem for every
-five-point support below. The unrestricted fourfold question remains
-outside these results.
+this same support for arbitrary nonnegative kernel weights. Its separate
+constant-kernel theorem applies to every five-point integer support.
+The unrestricted fourfold question remains outside these results.
 
 The prior max-convolution framework of Matolcsi et al., Green et al.'s
 weighted Prékopa–Leindler preprint, and the cube and mixed-alphabet theorems
@@ -273,6 +274,32 @@ state this weighted ordinary-autoconvolution norm comparison. This
 observation is not a proof that the comparison cannot be derived from them.
 The printed five-author chapter and the identified journal versions remain
 unread; possible revisions to the inspected preprints have not been assessed.
+
+### Arbitrary kernels on `{0,2,7,8,11}`
+
+For `F={0,2,7,8,11}`, every nonnegative kernel `k` supported within `F`,
+and arbitrary nonnegative finitely supported functions `f,g` on the
+integers, the manuscript proves
+
+```text
+‖f⋆(gk)̃‖₁⁴ ≤ T_F(k) ‖f⋆g‖₁⁴.
+```
+
+The inequality is strict when `k` is positive at all five points and
+`f,g` are nonzero. Both input functions may have support outside `F`.
+The non-strict statement includes zero kernel values; a complete equality
+classification is not asserted.
+
+The proof combines bounds for the reflected ratio with two rational
+coefficient comparisons for each of the 120 orders of the five kernel
+weights. The resulting 240 exact certificates prove polynomial
+inequalities throughout each region of ordered weights, including ties.
+The [certificate data](four-point-covering/five-point-certificates/certificates.ndjson)
+and [exact arithmetic checker](four-point-covering/verify_five_point.py)
+accompany the proof. The certificate comparisons and a separate analytic
+estimate cover all branches of the bound for the reflected ratio.
+This arbitrary-kernel result concerns the specified support; the theorem
+below has a broader support class and requires constant kernels.
 
 ### Constant kernels on five points
 
@@ -419,6 +446,57 @@ publisher edition was not reviewed. It contains no displayed occurrence
 of the constructions or numerical two-set bound considered here. This
 bounded observation supplies no priority conclusion.
 
+Lau's [*Information Inequalities: Subadditivity & Relationships with
+Additive Combinatorics*](https://chandra.ie.cuhk.edu.hk/group/thesis/ken_thesis.pdf),
+a PhD thesis at the Chinese University of Hong Kong (July 2025), gives the
+relevant typical-set theorem for arbitrary Abelian groups in Appendix B.2.
+[Theorem B.2.4, printed pp. 130–131](https://chandra.ie.cuhk.edu.hk/group/thesis/ken_thesis.pdf#page=143)
+(PDF pages 143–144) states the same maximal-coupling sum-image limit for
+finite-support marginals on any Abelian group `G`, with the shrinking
+tolerances specified above.
+Apply the cardinal sum-triangle inequality
+`|A||B+C| ≤ |A+B||A+C|` in each Cartesian power `G^n` to the three
+marginal typical sets. Ruzsa's [*Sumsets and structure*, Theorem 8.7](https://tensen.net/research/static/gc-data/sumset/Additive-Combinatorics.pdf)
+states this cardinal inequality in every commutative group. Taking
+logarithms, dividing by `n` and using Theorem B.2.4 gives
+
+```text
+H(p) + E_+(q,r) ≤ E_+(p,q) + E_+(p,r).
+```
+
+For the singleton factor `|A_n|`, apply Theorem B.2.4 with a point mass at
+zero as the second marginal. Thus the maximal sum-triangle inequality on
+arbitrary Abelian groups follows from prior cardinality and typical-set
+results, with each coupling optimized separately.
+Lau's Corollary 4.2.7 states it for finitely generated
+torsion-free groups; [Remark 4.2.8, printed p. 84](https://chandra.ie.cuhk.edu.hk/group/thesis/ken_thesis.pdf#page=97)
+says a stand-alone information-theoretic proof was not known to the authors.
+The later Lau–Nair–Zhu manuscript labels the arbitrary-group formulation a
+conjecture on page 7. The derivation above uses a cardinality inequality
+and does not supply such a stand-alone information-theoretic proof.
+
+The thesis also proves a signed four-copy inequality in
+[Theorem 4.2.33, printed pp. 95–98](https://chandra.ie.cuhk.edu.hk/group/thesis/ken_thesis.pdf#page=108)
+(PDF pages 108–111). Write `S_4(q)` for the maximum of
+`H(Y₁−Y₂−Y₃+Y₄)` when each `Yᵢ` has marginal `q`. For marginals `p,q`,
+the theorem gives
+
+```text
+S_4(q) ≤ 4 E_+(p,q) + E_−(p,p) − 4 H(p).
+```
+
+This upper bound concerns a signed sum and contains an auxiliary optimized
+difference entropy. Replacing `S_4(q)` with the all-plus maximum `E_4(q)`,
+or deleting `E_−(p,p)`, requires an additional argument. The theorem and the
+direct substitutions inspected do not supply the reflected comparison
+`4(E_−(p,q)−E_+(p,q)) ≤ E_4(q)`.
+
+Text was extracted from all 157 thesis pages. Detailed reading covered
+Theorem 4.1.1 and its proof, Corollary 4.2.7 and Remark 4.2.8,
+Theorem 4.2.33 and its proof, and Appendix B.2. The statements and complete
+proofs of Theorems 4.2.33 and B.2.4 were also checked on original PDF
+pages 108–111 and 143–144. This is not a claim to have read the entire thesis.
+
 The logarithm of a sumset's size is its support entropy. It generally
 differs from the Shannon entropy of a sum of independent uniform elements.
 The two construction papers also give direct finite counting proofs, and
@@ -441,6 +519,8 @@ Becker et al.,
 [*Combinatorica* 45 (2025), Paper 48](https://doi.org/10.1007/s00493-025-00180-0),
 from the bibliographies of later primary papers. Their journal texts remain
 unread; the comparisons above concern the exact preprints linked in the table.
+The publisher page for Matolcsi et al. returned an access challenge on
+30 September 2026, without the journal article or a source link.
 
 This is a dated comparison of identified sources. Search coverage, later
 versions and unread texts limit any absence claim. In particular,

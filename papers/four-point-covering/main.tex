@@ -11,8 +11,8 @@
 \numberwithin{equation}{section}
 \setlength{\emergencystretch}{2em}
 \title{Small-support inequalities for reflected max-convolution}
-\author{Benjamin Guo\\Hraness (\href{https://hraness.com}{\texttt{hraness.com}})\thanks{Developed with AI research agents. The proof is self-contained apart from the cited classical small-sumset theorem.}}
-\date{29 September 2026}
+\author{Benjamin Guo\\Hraness (\href{https://hraness.com}{\texttt{hraness.com}})\thanks{Developed with AI research agents. The hand proofs use the cited classical small-sumset theorem; the arbitrary-weight five-point result also uses rational certificates checked by the supplied program.}}
+\date{30 September 2026}
 \hypersetup{pdftitle={Small-support inequalities for reflected max-convolution},pdfauthor={Benjamin Guo}}
 
 \begin{document}
@@ -24,14 +24,18 @@ the fourth root of its fourfold max-convolution mass. Finite linear
 programming duality identifies the constrained maximum with a universal
 translated-kernel covering constant. The bound therefore gives a reflected
 fourfold max-convolution inequality, strict for positive kernels on four
-points. We classify the five pair-sum collision patterns on four points and
+points and nonzero inputs. We classify the five pair-sum collision patterns on four points and
 prove the corresponding sharp unweighted covering constants. The
 five-point Sidon set $\{0,2,7,8,11\}$ violates the stronger covering bound by
 $1/16$, establishing the support-size limit of that bound. Nevertheless,
 the reflected inequality holds for every five-point integer support when
 the kernel is constant, with arbitrary nonnegative input and denominator
 weights. The proof combines an energy estimate, a bound using the range
-of the denominator weights, and a small-sumset argument.
+of the denominator weights, and a small-sumset argument. For the specific
+support $\{0,2,7,8,11\}$, we also prove the reflected inequality for
+arbitrary nonnegative kernel weights. A sharper allocation estimate and
+240 rational coefficient certificates cover all weight orders, with
+strictness when all five kernel weights are positive and $f,g$ are nonzero.
 \end{abstract}
 
 \tableofcontents
@@ -137,6 +141,11 @@ Apply Theorem~\ref{thm:main} to Lemma~\ref{lem:cover};
 $\|f\star g\|_1>0$.
 \end{proof}
 
+Theorem~\ref{thm:five-point-weighted} proves the same reflected inequality
+for arbitrary kernels on $F=\{0,2,7,8,11\}$, where the stronger bound
+\eqref{eq:main} fails. Its proof uses the actual common input $f,g$
+to improve the covering estimate before comparing with $T_F(k)$.
+
 Translation and nonzero dilation of $F$ relabel pair sums and fourfold sums
 injectively and preserve $N_F$ and $T_F$. The translated covering argument
 uses shifts in the actual integer support, so it imposes no residue-class
@@ -156,7 +165,8 @@ Corollary~\ref{cor:h4} and Theorem~\ref{thm:five-point} give the fourfold
 inequality for $B=F$ of size at most five. Both allow arbitrary $f$ and
 $g$; the four-point result also permits arbitrary kernel weights $k$.
 The five-point example in Theorem~\ref{thm:main} concerns $N_F$ and
-satisfies the reflected inequality by Theorem~\ref{thm:five-point}.
+satisfies the reflected inequality for every kernel by
+Theorem~\ref{thm:five-point-weighted}.
 
 Max-convolution and weighted sumset parameters are established tools.
 Matolcsi, Ruzsa, Shakan and Zhelezov~\cite[Definition~8.1]{mrsz} use the
@@ -215,6 +225,7 @@ feasible for the ordinary-autoconvolution constraint.
 \input{double-ap3}
 \input{boundary}
 \input{five-point}
+\input{five-point-weighted}
 
 \paragraph{Review and assistance.}
 This manuscript was developed with AI assistance. Separate AI agents checked

@@ -1,0 +1,284 @@
+\section{Arbitrary kernels on a five-point Sidon support}
+\label{sec:five-point-weighted}
+
+The support that defeats the universal covering bound also satisfies the
+reflected inequality for every choice of kernel weights. The proof uses
+rational coefficient certificates in addition to the estimates below.
+
+\begin{theorem}\label{thm:five-point-weighted}
+Let $F=\{0,2,7,8,11\}$. Every nonnegative kernel $k$ supported on $F$
+and every pair of nonnegative finitely supported functions $f,g$ on
+$\mathbb Z$ satisfy
+\[
+ \|f\star\widetilde{gk}\|_1^4
+ \le T_F(k)\,\|f\star g\|_1^4.
+\]
+The inequality is strict when $k$ is positive at all five points and
+$f,g$ are nonzero.
+\end{theorem}
+
+This result concerns the displayed support. Theorem~\ref{thm:five-point}
+allows every five-point integer support when $k$ is constant. Neither
+theorem assumes a bound on the size or diameter of the support of $f$.
+
+\subsection{Allocations from a common input}
+
+Initially suppose that $f\ne0$ and that $g$ is positive on a five-point
+set $F=\{p_1,\ldots,p_5\}$ and zero elsewhere. Write
+$P=\|f\star g\|_1>0$. For each positive term of
+\[
+ N=\|f\star\widetilde{gk}\|_1
+   =\sum_y\max_i k_i g_i f(y+p_i),
+\]
+select a maximizing index, resolving ties by index order. Let $E_i$
+be the disjoint sets of outputs assigned to index $i$, and put
+\[
+ a_i=\frac{g_i}{P}\sum_{y\in E_i}f(y+p_i).
+\]
+Then $N/P=\sum_i k_i a_i$. Denominator outputs at $y+2p_i$ give
+$0\le a_i\le1$. For distinct $i,j$, translate both $E_i$ and $E_j$
+by $p_i+p_j$. They remain disjoint, and the corresponding denominator
+witnesses give
+\begin{equation}\label{weighted-pairs}
+ \frac{g_j}{g_i}a_i+\frac{g_i}{g_j}a_j\le1,
+ \qquad a_i a_j\le\frac14.
+\end{equation}
+Thus these constraints hold simultaneously for allocations obtained
+from the same $f,g$, even though their selection depends on $k$.
+
+\begin{lemma}\label{weighted-total}
+Every allocation above satisfies
+\[
+ \sum_i a_i\le c:=\frac{1109}{450}.
+\]
+\end{lemma}
+\begin{proof}
+Put $R=\max_i g_i/\min_i g_i$ and $t=1/R$. We first show that
+\begin{equation}\label{weighted-range}
+ A:=\sum_i a_i\le F(t):=2+t-\frac{t^2}{2}.
+\end{equation}
+The pair at the largest and smallest values of $g$ satisfies
+$ta+b/t\le1$. If $a,b\le v\le1$, filling the coordinate with
+the smaller coefficient first gives
+\[
+ a+b\le\min\{2v,v+t-vt^2\}.
+\]
+When $M:=\max_i a_i\le1/2$, take $v=1/2$ and bound the other
+three coordinates by $1/2$ to obtain \eqref{weighted-range}.
+
+For $1/2\le M\le1$, all other coordinates are at most $1/(4M)$
+by \eqref{weighted-pairs}. If the maximum is outside the extremal
+pair, the preceding two-variable bound gives
+\[
+ A\le\min\{U(M),V(M)\},\qquad
+ U(M)=M+\frac1M,\quad V(M)=M+\frac{3-t^2}{4M}+t.
+\]
+If the maximum belongs to the pair, assigning it to the smaller
+coefficient can only increase the allowed partner. This gives the
+same first bound and the second bound
+$M+3/(4M)+t-Mt^2\le V(M)$.
+
+The functions switch order at $M_0=(1+t^2)/(4t)\ge1/2$.
+The function $U$ decreases on $[1/2,1]$, while $V$ is convex there.
+Consequently it suffices to check $V(1/2)=F(t)$,
+$V(1)\le F(t)$, and, if $M_0\le1$, $U(M_0)\le F(t)$.
+The endpoint difference is $F(t)-V(1)=(1-t^2)/4$. At the switch,
+\[
+ 4t(1+t^2)\bigl(F(t)-U(M_0)\bigr)
+ =(1-t)^2(-2t^3-t^2+6t-1).
+\]
+Here $M_0\le1$ implies $t\ge2-\sqrt3>1/4$. On $[1/4,1]$,
+the last factor is at least
+$-3t^2+6t-1=2-3(1-t)^2\ge5/16$. This proves
+\eqref{weighted-range}.
+
+At each output, the selected unweighted product is at most
+$\max_i g_i f(y+p_i)$. Therefore the energy estimate
+\eqref{five-range-energy} also gives $A\le9R/5$. Combining the
+two bounds yields
+\[
+ A\le\min\left\{\frac{9R}{5},\,
+                  2+\frac1R-\frac1{2R^2}\right\}.
+\]
+For $R\le15/11$, the first expression is at most $27/11<c$.
+For $R\ge15/11$, the second is decreasing and is at most $c$.
+\end{proof}
+
+For the kernel, write $S=\sum_i k_i$, $K=\max_i k_i$, and
+$m=\min_i k_i$. Define
+\[
+ \delta=\frac52-c=\frac8{225},\qquad
+ \alpha=\frac{c-\sqrt{c^2-4}}2,\qquad
+ \beta=\frac1{4\alpha}.
+\]
+Then $1/2<\alpha<1$ and $\alpha+4\beta=c$.
+
+\begin{lemma}\label{weighted-envelope}
+The allocations satisfy
+\[
+ \sum_i k_i a_i\le\max\{U_c,V_c,C\},\qquad
+ U_c=\frac S2-\delta m,\quad
+ V_c=\alpha K+\beta(S-K),\quad C=\frac{S+3K}{4}.
+\]
+\end{lemma}
+\begin{proof}
+Use only $0\le a_i\le1$, $a_i a_j\le1/4$, and $\sum_i a_i\le c$.
+These constraints are invariant under coordinate permutations, so
+rearrangement permits a largest allocation $M$ at a largest kernel weight.
+If $M\le1/2$, the deficit from five halves is at least $\delta$;
+its weighted cost is at least $\delta m$, giving $U_c$.
+
+If $1/2\le M\le\alpha$, the other four coordinates are at most
+$1/(4M)$. Since $M+1/M\ge c$, subtracting the least possible cost
+of the missing mass bounds the objective by
+\[
+ mc+(K-m)M+\frac{S-K-4m}{4M}.
+\]
+The coefficient $S-K-4m$ is nonnegative, so this expression is convex
+in $M$. Its endpoint values are $U_c$ and $V_c$.
+For $\alpha\le M\le1$, the convex bound
+$KM+(S-K)/(4M)$ has endpoint values $V_c$ and $C$.
+\end{proof}
+
+\subsection{The corner comparison}
+
+\begin{lemma}\label{weighted-corner}
+If $F$ is a five-point Sidon set with $|4F|\ge32$, then
+\[
+ T_F(k)\ge\left(\frac{S+3K}{4}\right)^4.
+\]
+The inequality is strict when at least two kernel coordinates are positive.
+\end{lemma}
+\begin{proof}
+The zero kernel is immediate. Normalize $K=1$, choose a position $p_i$
+with weight one, and let $u_1,\ldots,u_4$ be the other weights.
+Set $t=\sum_j u_j\in[0,4]$. Sidonicity makes the 15 outputs
+$2p_i+(p_j+p_\ell)$, $j\le\ell$, distinct. Their total contribution
+is at least
+\[
+ 1+t+\frac{t^2+\sum_j u_j^2}{2}\ge1+t+\frac{5t^2}{8}.
+\]
+At least 17 other fourfold outputs each contribute at least $m^4$,
+where $m\ge(t-3)_+$. Hence
+\[
+ T_F(k)-(1+t/4)^4
+ \ge t^2 A(t)+17(t-3)_+^4,\qquad
+ A(t)=\frac14-\frac t{16}-\frac{t^2}{256}.
+\]
+The function $A$ decreases on $[0,4]$. For $0<t\le13/4$ it is
+at least $23/4096>0$. On the remaining intervals, the displayed
+lower bound is bounded below respectively by
+\[
+\begin{array}{c|c}
+ [13/4,10/3]&-25/1296+17/256=977/20736\\[2pt]
+ [10/3,7/2]&-833/4096+17/81=2159/331776\\[2pt]
+ [7/2,4]&-1+17/16=1/16.
+\end{array}
+\]
+All are positive. When $t=0$, both sides equal one.
+\end{proof}
+
+For $F=\{0,2,7,8,11\}$, all 15 unordered pair sums are distinct,
+and direct addition gives
+\begin{equation}\label{weighted-fourfold-support}
+ 4F=\{0,2,4\}\cup\{6,7,\ldots,38\}\cup\{40,41,44\}.
+\end{equation}
+Thus $|4F|=39$ and Lemma~\ref{weighted-corner} applies.
+
+\subsection{Rational certificates on the weight orders}
+
+It remains to compare both $U_c$ and $V_c$ with $T_F(k)^{1/4}$.
+Use the rational majorant
+\[
+ \overline V=aK+b(S-K),\qquad
+ a=\frac{41}{80},\quad b=\frac{7027}{14400}=\frac{c-a}{4}.
+\]
+Indeed $a+1/a=8081/3280<c$, so $\alpha<a$. The function
+$uK+(c-u)(S-K)/4$ has derivative $(5K-S)/4\ge0$;
+therefore $V_c\le\overline V$.
+
+Index the five positions of $F$ in increasing order. On a cone where
+their weights have order $\pi$, write
+\[
+ k_{\pi(j)}=m+d_1+\cdots+d_{j-1}\quad(1\le j\le5),
+ \qquad x=(m,d_1,d_2,d_3,d_4)\ge0.
+\]
+There are $5!=120$ orders, with ties allowed. The two linear targets
+$U_c=q^U\cdot x$ and $\overline V=q^V\cdot x$ have vectors
+\begin{align*}
+ q^U&=(1109,900,675,450,225)/450,\\
+ q^V&=(35488,28461,21434,14407,7380)/14400.
+\end{align*}
+
+Let $\mathcal M=\{\mu\in\mathbb N_0^5:|\mu|=4\}$ be the 70
+unordered fourfold multisets. For $\mu\in\mathcal M$, put
+\[
+ z(\mu)=\sum_i p_i\mu_i,\qquad W_\mu(k)=\prod_i k_i^{\mu_i},
+ \qquad \mathcal M_z=\{\mu:z(\mu)=z\}.
+\]
+There are 39 nonempty fibers $\mathcal M_z$ by
+\eqref{weighted-fourfold-support}. These witness monomials have no
+ordered-representation multiplicity: the operation is max-convolution.
+
+For each order $\pi$ and each target $q$, the certificate supplies 70
+nonnegative integers $n_\mu$, with common denominator $D=10^9$,
+satisfying
+\begin{equation}\label{weighted-certificate}
+ \sum_{\mu\in\mathcal M_z}n_\mu=D\quad(z\in4F),\qquad
+ \sum_\mu\frac{n_\mu}{D}W_\mu(k(x))-(q\cdot x)^4
+ \text{ has nonnegative coefficients.}
+\end{equation}
+The supplied verifier checks these conditions for all 240 pairs
+$(\pi,q)$. Its arithmetic uses integers throughout each coefficient
+comparison. If $q=v/Q$, the comparison for a degree-four exponent
+$\gamma$ is
+\[
+ Q^4\sum_\mu n_\mu[x^\gamma]W_\mu(k(x))
+       -D[x^\gamma](v\cdot x)^4\ge0.
+\]
+The program reconstructs every witness coefficient by enumerating the
+variable choices in its four slots, and expands the target by repeated
+polynomial multiplication. It checks the fiber masses, all 70 coefficients,
+and both targets for every order. The coefficient inequalities are checked
+independently of the solver's floating-point values.
+
+For every $x\ge0$, \eqref{weighted-certificate} implies
+\[
+ T_F(k)=\sum_z\max_{\mu\in\mathcal M_z}W_\mu(k)
+ \ge\sum_\mu\frac{n_\mu}{D}W_\mu(k)
+ \ge(q\cdot x)^4.
+\]
+Every witness has $m^4$ coefficient one. Fiber normalization therefore
+makes that coefficient 39 in the middle polynomial, whereas both target
+fourth powers have coefficient $c^4<3721/100<39$. Thus both comparisons
+are strict when $m>0$.
+
+\begin{proof}[Proof of Theorem~\ref{thm:five-point-weighted}]
+For positive $k,g$ on $F$ and nonzero $f$, combine the allocation
+envelope with the two certificate comparisons and the corner lemma.
+Each of $U_c,V_c,C$ is strictly below $T_F(k)^{1/4}$, so the
+reflected inequality is strict.
+
+For fixed $f$, all relevant norms are finite sums of maxima of finitely
+many coordinate products, and hence continuous in $k,g$. Positive
+approximation gives the non-strict inequality when some coordinates
+vanish. When $k>0$, the upper envelope depends only on $k$ and stays
+strictly below $T_F(k)^{1/4}$; taking the same limit in the envelope
+therefore preserves strictness for nonzero $g$ supported on $F$.
+
+For general $g$, restrict it to $g_F=g1_F$. The numerator is unchanged,
+while $\|f\star g_F\|_1\le\|f\star g\|_1$. If $g_F\ne0$, apply
+the preceding result. If $g_F=0$, the numerator is zero; when $k>0$
+and $f,g\ne0$, the right side is positive. The zero-function cases
+of the non-strict statement are immediate.
+\end{proof}
+
+The certificate files and standard-library checker accompany the paper.
+From this paper's source directory, run
+\begin{verbatim}
+python3 -B verify_five_point.py
+\end{verbatim}
+The command checks all 240 certificates and corruption controls. It
+requires no numerical optimizer or external Python package. The finite
+certificates establish the coefficient comparisons; the preceding hand
+argument supplies their connection to the reflected inequality.
