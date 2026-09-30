@@ -24,34 +24,37 @@ If `K_n` is the supremum over all `n`-point integer supports and
 nonzero finite inputs, then
 
 ```text
-K_1 = 1,  K_2 = 5/4,  K_3 = 3/2,
+K_1 = 1,  K_2 = 5/4,  K_3 = 3/2,  K_4 = 7/4,
 (n+3)/4 ≤ K_n ≤ (√n+1)²/4  (n≥2),
 K_n/n → 1/4.
 ```
 
 The exact two- and three-site bounds follow from allocation estimates.
-The lower bound uses a geometric product and finite integer embeddings.
-For prescribed kernel values with sum `K` and maximum `M`, it gives
-ratios tending to `(K+3M)/4`. The integer locations may vary with the
-truncation; this is a lower bound on a supremum over supports.
-Whenever `K≤3M`, `(K+3M)/4` is also a universal upper bound and is
-sharp for every prescribed list of kernel values in that supremum sense.
-This includes every kernel on at most three sites, and also applies to
-larger supports under the same condition.
+The four-site upper bound uses an inequality for four events and finite
+linear-programming duality. The lower bounds use a geometric product
+and finite integer embeddings.
+For each nonempty prescribed list of positive kernel values with sum `K`
+and maximum `M`, the geometric construction gives ratios tending to
+`(K+3M)/4`. The integer locations may vary with the truncation; this is
+a supremum over supports. The coefficient is sharp whenever `K≤3M`,
+regardless of support size. It is also sharp for every such list of at
+most four values: the weighted upper bound follows by integrating
+kernel level sets. Zero kernel values do not contribute to the support,
+and the zero kernel has ratio zero.
 
-A paired-minimum energy argument and AM–GM improve the pointwise
-bounds on small supports:
+Averaging the sharp four-site bound over four-subsets gives
+`K_n≤7n/16` for every `n≥4`. In particular:
 
-| Support size | Strict reflected ratio bound |
+| Support size | Reflected ratio upper bound |
 | --- | --- |
-| 4 | `29/15` |
-| 5 | `7/3` |
-| 6 | `19/7` |
+| 4 | `7/4` |
+| 5 | `35/16` |
+| 6 | `21/8` |
 
-These hold with the full denominator and arbitrary nonnegative input
-weights. The corresponding supremum bounds are non-strict.
-For constant kernels they imply the strict fourfold inequality when
-the fourfold sumset has at least 14, 30 or 55 elements, respectively.
+These non-strict bounds hold with the full denominator and arbitrary
+nonnegative input weights. For constant kernels their fourth powers
+give the strict fourfold inequality when the fourfold sumset has at
+least 23 elements on five sites or 48 elements on six sites.
 The six-point result does not cover every six-point support.
 
 The paper proves the reflected fourfold inequality for arbitrary
@@ -78,15 +81,19 @@ theorem in the restatement on page 1 of Bollobás, Leader and Tiba,
 That statement was checked on the original PDF page; Freiman's original
 proofs were not read.
 
-The geometric construction adapts the sequence family in Matolcsi,
-Ruzsa, Shakan and Zhelezov's Example 11.2 and is related to the reflected
-product exponentials in Madiman, Manui, Zawalski and Zvavitch's Lemma A.3.
+The geometric construction samples and truncates Colesanti's orthant
+exponential from Theorems 1.1–1.2 of
+[*Functional inequalities related to the Rogers–Shephard inequality*](https://arxiv.org/abs/math/0512098v1).
+Related geometric sequences appear in Matolcsi, Ruzsa, Shakan and
+Zhelezov's Example 11.2, and reflected product exponentials appear in
+Madiman, Manui, Zawalski and Zvavitch's Lemma A.3.
 The paper also retains the classical indicator-simplex lower example
 with ratio `(n²−2)/(4n−6)`, credited to Glasscock's Lemma B.1,
 pp. 37–38, and the simplex family of Hennecart, Robert and Yudin.
-The leading coefficient `1/4` is asymptotically optimal. Historical
-priority remains unestablished; finite-size optimality remains unresolved
-for `n≥4`.
+These indicator examples supply the limiting lower coefficient `1/4`.
+Combined with the general upper bound, they give `K_n/n→1/4` for arbitrary
+nonnegative finite inputs. Historical priority remains unestablished,
+and the exact value of `K_n` remains unresolved here for `n≥5`.
 
 The [three-point paper](../three-point-fourfold/main.pdf) gives a separate
 direct proof using scalar inequalities and telescoping potentials.

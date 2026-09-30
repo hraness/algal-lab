@@ -7,8 +7,14 @@ nonnegative kernel weights on at most four integers and on
 support and on every finite nonempty `B₄` set, whose unordered four-term
 sums, allowing repetition, are distinct. On `B₄` supports, it also permits
 nonconstant kernels with `‖k‖₁/‖k‖∞≥9`. A general energy bound controls
-the reflected ratio for every nonnegative finite kernel. The manuscript
-also determines sharp four-point covering constants. Its stronger covering bound
+the reflected ratio for every nonnegative finite kernel. The sharp
+scalar support constants are `K_1=1`, `K_2=5/4`, `K_3=3/2` and `K_4=7/4`;
+for nonnegative kernels with at most four positive sites, the weighted
+bound is `(K+3M)/4`, where `K=‖k‖₁` and `M=‖k‖∞`. For each nonempty
+prescribed list of at most four positive values, this is the exact
+supremum over nonzero finite inputs and integer locations. The zero
+kernel gives ratio zero. The manuscript also determines sharp
+four-point covering constants. Its stronger covering bound
 fails on the displayed five-point support, where the reflected inequality holds for arbitrary
 nonnegative kernels.
 The comparison below credits their known ingredients and distinguishes
@@ -320,7 +326,7 @@ This is the reflected fourfold inequality with `k=1_F`; scaling gives the
 same conclusion for every positive constant kernel on `F`. The weights
 `g` need not be constant or positive everywhere, and all exterior values
 remain in the denominator. For Sidon supports, the proof combines
-`R_F(f,g)<7/3`
+`R_F(f,g)≤35/16`, whose fourth power is less than 23,
 with the elementary estimate `|4F|≥30`. Indeed, `|2F|=15`, and equality
 in `|2F+2F|≥29` would make `2F` an arithmetic progression. After
 translation, `2F={0,d,…,14d}` would place `F` inside `{0,d,…,7d}`,
@@ -405,7 +411,7 @@ output `min supp(f) − max {p∈F:g(p)>0}`, exactly one active reflected
 coordinate is positive, which makes the quadratic comparison strict
 when there is more than one active point. Empty and singleton active
 supports follow separately. The four-, five- and six-point estimates
-are strengthened by the paired-minimum argument below. The general
+are strengthened by the four-event argument and subset averaging below. The general
 support bound alone does not prove the fourfold inequality for every
 six-point support.
 
@@ -441,49 +447,68 @@ statement. In particular, `K_1=1`, `K_2=5/4` and `K_3=3/2`.
 The proof uses the actual weighted winners and the same full denominator;
 it does not identify them with unweighted winners.
 
-A second energy uses paired minima. With normalized positive denominator
-weights `g_i∈[m,1]`, put `A=n−1+1/m` and
+For four sites the sharp scalar bound is `K_4=7/4`. Its upper
+bound follows from the following inequality for four events. For any
+random subset `J` with positive marginals, put
 
 ```text
-q(v) = A Σv_i − Σ_{i<j}[min(v_i,v_j)
-                     + min((g_j/g_i)v_i,(g_i/g_j)v_j)].
+m_i = Pr(i∈J),  c_ij = Pr(i,j∈J),
+r_ij = min(m_i,m_j)/max(m_i,m_j).
+Σ_i m_i − max_i Σ_{j≠i} r_ij c_ij ≤ 7/4.
 ```
 
-The two minimum terms exchange under reflection and translation, so
-their total energy is invariant. An anchor at a largest coordinate gives
-`q(v)≥A max(v_i)`; convexity gives its upper bound at the vertices of
-the unit cube. A four-weight AM–GM estimate,
-`a/b+a/c+a/d+b/c+b/d+c/d≥4√(2a/d)` for `a≤b≤c≤d`,
-improves the pair penalty at these vertices. The complete proof yields
+The proof combines elementary event bounds with a Gram-matrix comparison,
+a variance bound for the integer-valued variable `|J|`, and an explicit
+positive polynomial expansion. In the max-convolution argument, mixtures
+of four star graphs give lower bounds from paired minima. The upper
+bound is a convex function's finite vertex test; its linear-programming
+dual is the displayed event inequality. Equal weighted diagonal traces
+and reflection invariance then compare the two max-convolution norms.
+The proof retains the full denominator and treats zero profile values
+by their smaller positive support.
+
+For a kernel on at most four sites, integration over the kernel level
+sets gives
 
 ```text
-R_H(f,g) < 29/15  (|H|=4),
-R_H(f,g) < 7/3    (|H|=5),
-R_H(f,g) < 19/7   (|H|=6).
+‖f⋆(gk)̃‖₁ / ‖f⋆g‖₁ ≤ (K+3M)/4.
 ```
 
-The proofs keep the same full denominator when passing to subsets and
-handle vanishing restricted weights by their smaller positive support.
-These are pointwise strict bounds; the resulting bounds on suprema are
-non-strict. The fourth powers are below 14, 30 and 55, respectively.
-Thus the six-point result proves constant-kernel H4 when `|4H|≥55`;
-it does not settle every six-point support or arbitrary six-point kernel
-weights. No computational cover is a premise of these three estimates.
+The profile and its full denominator stay fixed at every level.
+The geometric construction gives the matching lower bound for each
+prescribed list of at most four positive kernel values, when the
+integer locations may vary. This does not assert attainment on every
+fixed support.
+
+For `n≥4`, summing the four-site estimate over the four-subsets
+of an `n`-element support gives `R_H(f,g)≤7n/16`. At each output,
+a maximizing site belongs to exactly `binomial(n−1,3)` of those subsets.
+Thus `K_5≤35/16` and `K_6≤21/8`. These ratio bounds are non-strict;
+their fourth powers are strictly below 23 and 48, respectively.
+Consequently the constant-kernel fourfold inequality holds on five-site
+supports with at least 23 fourfold sums and six-site supports with at
+least 48. The six-site result does not cover every support or arbitrary
+kernel weights. No computational cover is used, and sharpness of the
+five- and six-site constants is not asserted.
 
 For `K_n = sup R_F(f,g)` over all `n`-point integer sets and all nonzero
 finitely supported nonnegative `f,g`, the resulting bounds are
 
 ```text
-K_1 = 1,  K_2 = 5/4,  K_3 = 3/2,
+K_1 = 1,  K_2 = 5/4,  K_3 = 3/2,  K_4 = 7/4,
 (n+3)/4 ≤ K_n ≤ (√n+1)²/4  (n≥2),
-K_4 ≤ 29/15,  K_5 ≤ 7/3,  K_6 ≤ 19/7,
+K_n ≤ 7n/16  (n≥4),  K_5 ≤ 35/16,  K_6 ≤ 21/8,
 K_n/n → 1/4.
 ```
 
 The geometric lower example uses `f_N(x)=2^(−Σx_i)` on
 `{0,…,N}^d`, with the second profile equal to one at zero and one-half
-at the coordinate vertices. Geometric sequences occur
-explicitly in Matolcsi, Ruzsa, Shakan and Zhelezov, Example 11.2,
+at the coordinate vertices. An earlier continuous template is Colesanti's
+orthant exponential, Theorems 1.1–1.2 of
+[arXiv:math/0512098v1](https://arxiv.org/abs/math/0512098v1)
+(5 December 2005); its reflected ratio is derived below.
+Geometric sequences also occur explicitly in Matolcsi, Ruzsa, Shakan
+and Zhelezov, Example 11.2,
 p. 19, of arXiv:2003.04075v1; their Theorems 10.1–10.2 develop product
 and fibre methods. Related reflected product exponentials occur in
 Madiman, Manui, Zawalski and Zvavitch, Lemma A.3, p. 34, of
@@ -504,7 +529,7 @@ indicator kernel on `n=d+1` sites. A positional embedding with base
 may vary with `N`; this is a supremum over support locations, not a
 limit on an arbitrary fixed support. The sequence family and product
 method are prior ingredients. The exact coefficient's publication history
-remains unresolved. Finite-size optimality for `n≥4` is also unresolved;
+remains unresolved. The exact value of `K_n` remains unresolved here for `n≥5`;
 this is a construction-level adaptation, without a historical-priority claim.
 
 For indicator inputs, the retained classical simplex example is an exact
@@ -522,9 +547,11 @@ Their ratio is `(n²−2)/(4n−6)`. The thesis develops the classical
 simplex family of Hennecart, Robert and Yudin, whose paper also uses
 integer encoding. The finite-support manuscript supplies a sufficient
 base for the integer example; the family, counts, negative-coordinate
-argument and positional encoding are prior techniques. Sharpness concerns
-the limiting leading coefficient; finite-size optimality is established
-through three sites and remains unresolved for `n≥4`.
+argument and positional encoding are prior techniques. These indicator
+examples give the limiting lower coefficient `1/4`. The general upper
+bound gives the matching coefficient for arbitrary nonnegative finite
+inputs, so `K_n/n→1/4`. The exact support supremum `K_n` is determined
+for `1≤n≤4`; its exact value remains unresolved here for `n≥5`.
 
 A lossless reduction of arbitrary profile weights to indicator profiles
 at the same support size would give an incorrect bound. For `F={0,1}`
@@ -590,6 +617,61 @@ A `B₄` support admits a Freiman-4-isomorphic lift to the free simplex
 inequality on that simplex from the inspected prior results remains
 unestablished.
 
+### Colesanti's continuous reflected ratio
+
+Andrea Colesanti's
+[*Functional inequalities related to the Rogers-Shephard inequality*,
+arXiv:math/0512098v1](https://arxiv.org/abs/math/0512098v1)
+(5 December 2005), Theorems 1.1–1.2, pp. 4 and 6–7, supplies an earlier
+reflected ratio bound and its orthant-exponential example. The 22-page
+preprint was read in full, including a visual check of every PDF page.
+The journal body has not been checked.
+
+For a nonnegative log-concave `u` on `R^d`, Definition 1.1, p. 3, and
+Theorem 1.1 give
+
+```text
+Δu(z) = sup_{x−y=2z} √(u(x)u(y)),
+∫Δu ≤ 2^d ∫u.
+```
+
+Use supremum-product convolution and Lebesgue `L¹` norms on `R^d`.
+For a nonnegative log-concave `h` with `0<∫h²<∞`, put `h̃(x)=h(−x)`.
+Then
+
+```text
+Δ(h²)(z) = sup_{x−y=2z} h(x)h(y) = (h⋆h̃)(2z),
+(h⋆h)(s) = h(s/2)²,
+∫Δ(h²) = 2^(−d) ‖h⋆h̃‖₁,
+‖h⋆h‖₁ = 2^d ∫h²,
+‖h⋆h̃‖₁ / ‖h⋆h‖₁ ≤ 2^d.
+```
+
+Log-concavity gives the upper bound in the second identity, and
+`x=y=s/2` attains it. The next two identities are changes of variables;
+the last line follows by applying Theorem 1.1 to `u=h²`.
+Theorem 1.2 gives equality for
+`h(x)=exp(−aΣx_i)` on the nonnegative orthant and zero elsewhere,
+with `a>0`, after rescaling. Sampling at `a=log 2` and truncating gives
+the geometric product used in the finite lower construction.
+
+This implication concerns equal log-concave profiles on `R^d`.
+The manuscript allows independent `f,g` and a separate multiplier `k`.
+Small-cell thickening preserves a discrete quotient but can violate
+log-concavity; a log-concave envelope changes both masses without an
+established comparison of their quotient. Finite integer encoding
+preserves the relevant sums and differences but does not supply
+log-concavity or turn the factor `2^d` into the manuscript's support or
+weight coefficient. The inspected routes do not settle that derivation
+or the discrete coefficient's priority.
+
+A separate endpoint caveat concerns the proof of Theorem 5.1, pp. 21–22,
+of this v1:
+at `α=−1`, the displayed equality profile is `1/x` on `(0,1)`, which
+is not integrable. That example does not establish admissible equality
+attainment at the endpoint. This caveat does not affect the log-concave
+Theorems 1.1–1.2 above.
+
 ### Comparison with alpha-concave functions
 
 Madiman, Manui, Zawalski and Zvavitch,
@@ -650,9 +732,9 @@ Lebesgue-volume scaling; Lemma 5.1, pp. 24–26, does not transfer by replacing
 volume with lattice cardinality. Thickening each integer by an interval
 of radius `0<ε<1/4` preserves the discrete quotient exactly but can fail
 even quasiconcavity.
-The source's distinct difference operator, defined on p. 19, satisfies
-`Δ₀(u²)(x/2)=(u⋆ũ)(x)`; equation (29), p. 20, still requires
-log-concavity, and continuous dilation changes the integral.
+The source's difference operator, defined on p. 19, satisfies
+`Δ₀(u²)(x/2)=(u⋆ũ)(x)`, with the integral scaling derived in the
+Colesanti comparison above. Equation (29), p. 20, requires log-concavity.
 Positive powers preserve that concavity requirement and the support.
 Nor does normalization alone supply Lemma 6.1's moment estimate:
 a ten-point profile with values `1,1/4,…,1/4` has

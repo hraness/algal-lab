@@ -2,8 +2,8 @@
 \label{sec:five-point}
 
 We first bound arbitrary kernels and give lower examples with the same
-leading coefficient. Exact constants through three sites and sharper
-bounds through six sites then yield fourfold consequences.
+leading coefficient. Exact constants through four sites and averaging
+bounds for larger supports then yield fourfold consequences.
 
 For finite nonempty $H\subset\mathbb Z$ and nonzero finitely supported
 $f,g\ge0$, write
@@ -130,9 +130,10 @@ $R_F(f,g)<C_m\le C_n$, still with the full denominator $P$.
 \end{proof}
 
 For a singleton, equality in \eqref{eq:uniform-support} is possible.
-Lemma~\ref{five-ratio} gives sharper bounds for four, five and six points.
-Its six-point bound proves the constant-kernel fourfold inequality when
-$|4F|\ge55$; it does not settle every six-point support.
+Theorem~\ref{thm:four-site-sharp} gives the sharp four-site bound.
+Corollary~\ref{five-ratio} gives sharper bounds for five and six points;
+the latter proves the constant-kernel fourfold inequality when
+$|4F|\ge48$. It does not settle every six-point support.
 
 \begin{remark}[Kernel level sets]\label{rem:kernel-levels}
 A bound retaining the distribution of the kernel values follows from
@@ -157,13 +158,20 @@ the profile and its full denominator remain fixed.
 
 \subsection{Lower examples and the leading coefficient}
 
-Geometric sequences occur in the max-convolution examples
+Colesanti's orthant exponential supplies an earlier template for this
+product construction~\cite[Theorems~1.1--1.2]{colesanti}.
+For a nonnegative log-concave $h$ on $\mathbb R^d$ with
+$0<\int h^2<\infty$, his difference-function inequality gives
+$\|h\star\widetilde h\|_1/\|h\star h\|_1\le2^d$;
+here $\star$ uses a supremum and the norms use Lebesgue measure.
+Geometric sequences also occur in the max-convolution examples
 of Matolcsi, Ruzsa, Shakan and Zhelezov~\cite[Example~11.2]{mrsz};
 related reflected product-exponential examples appear in Madiman,
 Manui, Zawalski and Zvavitch~\cite[Lemma~A.3]{mmmz}.
-The following adaptation restricts the second profile to the simplex
-vertices and counts the boundary faces. It gives a lower bound for
-prescribed kernel values when their integer locations may vary.
+The following adaptation samples and truncates the exponential product,
+restricts the second profile to the simplex vertices, and counts the
+boundary faces. It gives a lower bound for prescribed kernel values
+when their integer locations may vary.
 
 \begin{proposition}\label{prop:geometric-product}
 Let $d\ge1$, $w_0=M>0$ and $0\le w_i\le M$ for $1\le i\le d$,
@@ -291,7 +299,7 @@ The geometric lower bound exceeds the displayed simplex ratio:
 The first construction permits weighted inputs; the second uses indicators.
 Pointwise strictness of the upper bounds gives non-strict bounds on
 $K_n$. The leading coefficient $1/4$ is asymptotically optimal; no
-optimality is asserted for the finite remainder when $n\ge4$.
+optimality is asserted for the finite remainder when $n\ge5$.
 
 \subsection{Allocation bounds and exact constants}
 
@@ -364,237 +372,53 @@ identities. Integer locations may vary in the lower construction.
 No attainment on every fixed support is asserted.
 \end{proof}
 
-For the small-support arguments below, take $k=1_H$ in the allocation.
-Then $\sum_i a_i=R_H(f,g)$. At most three coordinates sum to at most
-$3/2$: if their largest value $x$ exceeds $1/2$, their sum is at most
-$x+1/(2x)\le3/2$ for $1/2\le x\le1$; otherwise the assertion is
-immediate. For every nonempty subset $J$ of the active support,
-\begin{equation}\label{eq:assigned-subset}
- \sum_{p_i\in J}a_i\le R_J(f,g)
- =\frac{\|f\star\widetilde{g1_J}\|_1}{P}.
+\input{four-site-sharp}
+
+\begin{corollary}[Averaging four-subsets]\label{five-ratio}
+For every $n$-element integer set $H$, $n\ge4$, and all nonzero finitely
+supported $f,g\ge0$,
+\begin{equation}\label{eq:four-subset-average}
+ R_H(f,g)\le\frac{7n}{16}.
 \end{equation}
-Thus every universal smaller-support bound applies to this assigned
-mass with exactly the same denominator.
-
-\subsection{Uniform bounds from paired minima}
-
-\begin{lemma}[Paired-minimum energy]\label{lem:paired-minimum}
-Suppose $H=\{p_1,\ldots,p_n\}$ and $g$ is positive on $H$. Normalize
-the whole profile so that $\max_Hg=1$, and put
-$g_i=g(p_i)$, $m=\min_Hg>0$ and $A=n-1+1/m$. Then
-\begin{equation}\label{eq:paired-minimum-vertices}
+In particular,
+\[
+ K_5\le\frac{35}{16},\qquad K_6\le\frac{21}{8}.
+\]
+For a positive constant kernel, the reflected fourfold inequality is
+strict on five-point supports with $|4H|\ge23$ and six-point supports
+with $|4H|\ge48$.
+\end{corollary}
+\begin{proof}
+For each output $z$, choose a maximizing site $p\in H$ in
+$\max_{q\in H}g(q)f(z+q)$. Every four-subset containing $p$ has the
+same maximum, and there are $\binom{n-1}{3}$ such subsets. Hence
+\[
+ \max_{q\in H}g(q)f(z+q)
+ \le\frac1{\binom{n-1}{3}}
+       \sum_{\substack{J\subset H\\|J|=4}}
+               \max_{q\in J}g(q)f(z+q).
+\]
+This also holds for zero maxima and ties. Summing over $z$ and applying
+Theorem~\ref{thm:four-site-sharp} to each $J$, with the same full
+denominator $P=\|f\star g\|_1$, gives
+\[
  R_H(f,g)\le
- \max_{\varnothing\ne J\subseteq\{1,\ldots,n\}}
- \left[|J|-\frac1A\sum_{\{i,j\}\subset J}
- \left(1+\min\left(\frac{g_i}{g_j},\frac{g_j}{g_i}\right)\right)\right].
-\end{equation}
-\end{lemma}
-\begin{proof}
-For $v\in[0,\infty)^n$ define the convex, positively homogeneous function
-\[
- q(v)=A\sum_i v_i-\sum_{i<j}
- \left[\min(v_i,v_j)+
- \min\left(\frac{g_j}{g_i}v_i,\frac{g_i}{g_j}v_j\right)\right].
+ \frac{\binom n4}{\binom{n-1}{3}}\frac74=\frac{7n}{16}.
 \]
-Set $v_i^+(z)=g_i f(z-p_i)$ and $v_i^-(z)=g_i f(z+p_i)$.
-The sums over $z$ of the diagonal terms agree. For each pair define
+For $k=c1_H$, $c>0$, the reflected numerator is
+$c\|f\star\widetilde{g1_H}\|_1$ and
+$\|k\star k\star k\star k\|_1=c^4|4H|$.
+The fourfold conclusions follow from the strict comparisons
 \[
- \begin{aligned}
- E_{ij}^\pm(z)&=\min(g_i f(z\mp p_i),g_j f(z\mp p_j)),\\
- T_{ij}^\pm(z)&=\min(g_j f(z\mp p_i),g_i f(z\mp p_j)).
- \end{aligned}
-\]
-Substitution gives
-$T_{ij}^+(z+p_i+p_j)=E_{ij}^-(z)$ and
-$E_{ij}^+(z+p_i+p_j)=T_{ij}^-(z)$. Therefore
-\begin{equation}\label{eq:paired-minimum-invariance}
- \sum_zq(v^+(z))=\sum_zq(v^-(z)).
-\end{equation}
-
-We claim that $q(v)\ge A\|v\|_\infty$. The zero vector is immediate;
-otherwise scale so that $v_i=1$ at an anchor $i$ and every coordinate
-lies in $[0,1]$. Relabel the weights and sites together so that
-$g_1\ge\cdots\ge g_n$, and write $T_j=\sum_{k>j}g_k$.
-A pair containing the anchor is at most
-$(1+g_i/g_j)v_j$. For a pair $j<k$ containing no anchor, use
-\[
- \min(v_j,v_k)+
- \min\left(\frac{g_k}{g_j}v_j,\frac{g_j}{g_k}v_k\right)
- \le v_k+\frac{g_k}{g_j}v_j.
-\]
-The coefficient charged to $v_j$, $j\ne i$, in the complete pair sum is
-\[
- D_{ij}=
- \begin{cases}
- j+T_j/g_j,&i>j,\\
- j-1+(g_i+T_j)/g_j,&i<j.
- \end{cases}
-\]
-Since $T_j/g_j\le n-j$, the first expression is at most $n\le A$.
-The second is at most $n-1+1/m=A$. Thus the pair sum is at most
-$A\sum_{j\ne i}v_j$, proving the claim.
-
-Convexity bounds $q$ on $[0,1]^n$ by its largest vertex value.
-At the vertex $1_J$,
-\[
- q(1_J)=A|J|-\sum_{\{i,j\}\subset J}
- \left(1+\min\left(\frac{g_i}{g_j},\frac{g_j}{g_i}\right)\right).
-\]
-A singleton has value $A>0$, so the empty vertex may be omitted.
-If $V$ denotes the maximum in \eqref{eq:paired-minimum-vertices},
-homogeneity gives $q(v)\le AV\|v\|_\infty$. With $h=g1_H$, the
-two pointwise bounds and \eqref{eq:paired-minimum-invariance} imply
-\[
- A\|f\star\widetilde h\|_1
- \le\sum_zq(v^-(z))
- =\sum_zq(v^+(z))
- \le AV\|f\star h\|_1
- \le AVP.
-\]
-Restriction to $H$ preserves the numerator and decreases the denominator.
-Division by $AP>0$ proves the result.
-\end{proof}
-
-\begin{lemma}[Four-weight AM--GM estimate]\label{lem:four-weight-ratios}
-For $0<a\le b\le c\le d$,
-\[
- \frac ab+\frac ac+\frac ad+\frac bc+\frac bd+\frac cd
- \ge4\sqrt{2a/d}.
-\]
-Consequently, for weights in $[m,1]$ and a subset $J$ of size $r\ge4$,
-\begin{equation}\label{eq:averaged-pair-ratios}
- \sum_{\{i,j\}\subset J}
- \min(g_i/g_j,g_j/g_i)
- \ge\frac23\sqrt{2m}\binom r2.
-\end{equation}
-For three selected weights, the corresponding sum is at least
-$2\sqrt m+m$.
-\end{lemma}
-\begin{proof}
-Apply AM--GM to
-\[
- \frac ab,\quad\frac ab,\quad\frac cd,\quad\frac cd,\quad
- \frac{2a}c,\quad\frac{2a}d,\quad\frac{2b}c,\quad\frac{2b}d.
-\]
-Their sum is twice the displayed six-ratio sum, and their product is
-$16a^4/d^4$, proving the first assertion. Every four selected weights
-have pair-ratio sum at least $4\sqrt{2m}$. Summing over the four-subsets
-of $J$ counts each pair $\binom{r-2}{2}$ times; division gives
-\eqref{eq:averaged-pair-ratios}. For three sorted weights,
-$a/b+b/c+a/c\ge2\sqrt{a/c}+a/c\ge2\sqrt m+m$.
-\end{proof}
-
-\begin{lemma}\label{five-ratio}
-For arbitrary nonzero finitely supported $f,g\ge0$,
-\[
- R_H(f,g)<
- \begin{cases}
- 29/15,&|H|=4,\\
- 7/3,&|H|=5,\\
- 19/7,&|H|=6.
- \end{cases}
-\]
-Hence the reflected fourfold inequality is strict for every positive
-constant kernel on $H$ whenever
-\[
- (|H|,|4H|)\in\{(4,\ge14),(5,\ge30),(6,\ge55)\}.
-\]
-\end{lemma}
-\begin{proof}
-If $g1_H=0$, the ratio vanishes. Otherwise discard its zero coordinates
-and normalize the entire $g$ so that the maximum on the active support
-is one. Write $S=\sum_i a_i=R_H(f,g)$ and $m=\min_i g_i>0$.
-A support of at most three active points has ratio at most $3/2$ by
-\eqref{five-dual-pairs}. We proceed by induction on the active size.
-Whenever every allocation is at least $\ell$, the pair at minimum and
-maximum weight gives
-\begin{equation}\label{eq:extreme-weight-pair}
- \ell(m+1/m)\le1.
-\end{equation}
-If both endpoint allocations exceed $\ell$, the inequality is strict.
-
-For four active points, suppose $S\ge29/15$. By
-\eqref{eq:assigned-subset}, each $a_i\ge29/15-3/2=13/30$.
-If $m\le4/7$, then \eqref{eq:extreme-weight-pair} gives
-\[
- 1\ge\frac{13}{30}(m+1/m)
- \ge\frac{13}{30}\left(\frac47+\frac74\right)
- =\frac{845}{840}>1.
-\]
-Thus $m>4/7$ and $A=3+1/m<19/4$. A three-element vertex has
-pair-ratio sum greater than $4/7+3/2=29/14$, since
-$\sqrt{4/7}>3/4$. A four-element vertex has pair-ratio sum greater
-than four by Lemma~\ref{lem:four-weight-ratios}. The bounds in
-\eqref{eq:paired-minimum-vertices} for cardinalities one through four are
-\[
- 1,\qquad
- <2-\frac4{19}=\frac{34}{19},\qquad
- <3-\frac{71/14}{19/4}=\frac{257}{133},\qquad
- <4-\frac{10}{19/4}=\frac{36}{19}.
-\]
-Each is below $29/15$; the closest comparison is
-$29/15-257/133=2/1995>0$. This is a contradiction.
-
-For five active points, suppose $S\ge7/3$. The strict four-point
-bound and \eqref{eq:assigned-subset} give
-$a_i>7/3-29/15=2/5$. The endpoint pair forces $m>1/2$, since
-$(2/5)(1/2+2)=1$, and therefore $A=4+1/m<6$.
-For two or three selected weights, each smaller pair ratio exceeds
-$1/2$. For four or five selected weights,
-Lemma~\ref{lem:four-weight-ratios} gives ratio sums at least four
-and $20/3$, respectively. The vertex bounds are
-\[
- 1,\qquad <\frac74,\qquad <\frac94,\qquad
- <4-\frac{10}{6}=\frac73,\qquad
- <5-\frac{50/3}{6}=\frac{20}{9}.
-\]
-Every vertex is strictly below $7/3$, again a contradiction.
-
-For six active points, suppose $S\ge19/7$. The strict five-point
-bound gives $a_i>19/7-7/3=8/21$. If $m\le6/13$, the endpoint pair
-contradicts
-\[
- \frac8{21}\left(\frac6{13}+\frac{13}{6}\right)
- =\frac{1640}{1638}>1.
-\]
-Hence $m>6/13$ and $A=5+1/m<43/6$. Also
-$\sqrt{2m}>\sqrt{12/13}>24/25$, since
-$12\cdot625>13\cdot576$. For vertex sizes $r=4,5,6$,
-\eqref{eq:averaged-pair-ratios} makes the combined pair penalty
-greater than $(41/25)\binom r2$, so the vertex bound is less than
-\[
- b_r=r-\frac{246}{1075}\binom r2.
-\]
-The differences $b_{r+1}-b_r=1-246r/1075$ show that $b_5$ is largest
-among these three values, because $984<1075<1230$. Moreover,
-\[
- b_5=\frac{583}{215}<\frac{19}{7},\qquad
- \frac{19}{7}-\frac{583}{215}=\frac4{1505}.
-\]
-Vertices of sizes one and two are at most one and two. For size three,
-the unit part of the pair penalty alone gives a bound less than
-$3-18/43=111/43<19/7$. This is the final contradiction.
-Smaller active supports satisfy the stated bounds by the preceding cases.
-
-For a constant kernel $k=c1_H$, $c>0$, the numerator is
-$c\|f\star\widetilde{g1_H}\|_1$ and its fourfold max-convolution
-norm is $c^4|4H|$. The cardinality consequences follow from
-\[
- 29^4=707281<708750=14\cdot15^4,\qquad
- 7^4=2401<2430=30\cdot3^4,
-\]
-\[
- 19^4=130321<132055=55\cdot7^4.
+ 35^4=1500625<1507328=23\cdot16^4,\qquad
+ 21^4=194481<196608=48\cdot8^4.
 \]
 \end{proof}
 
-These are strict bounds for each pair of inputs. The corresponding
-suprema satisfy
-\[
- K_4\le\frac{29}{15},\qquad K_5\le\frac73,\qquad K_6\le\frac{19}{7}.
-\]
-The six-point fourfold conclusion requires $|4H|\ge55$ and concerns
-constant kernels.
+The ratio bounds in \eqref{eq:four-subset-average} are non-strict.
+Their fourth-power comparisons give the stated strict fourfold
+conclusions. The six-point conclusion concerns constant kernels and
+requires $|4H|\ge48$.
 
 \subsection{Five-point supports}
 
@@ -792,8 +616,8 @@ $\{d,\ldots,7d\}$. Thus $|4F|\ne29$, proving the assertion.
 \begin{proof}[Proof of Theorem~\ref{thm:five-point}]
 The non-Sidon case follows from Proposition~\ref{five-nonsidon} and
 Lemma~\ref{lem:cover}. For Sidon supports, combine
-Lemma~\ref{lem:elementary-sidon30} with Lemma~\ref{five-ratio}, using
-$(7/3)^4<30$.
+Lemma~\ref{lem:elementary-sidon30} with Corollary~\ref{five-ratio}, using
+$(35/16)^4<23\le30$.
 \end{proof}
 
 For $f=1_A$ and $g=1_F$, Theorem~\ref{thm:five-point} gives
