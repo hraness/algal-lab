@@ -130,6 +130,8 @@ jobs:
         run: |
           python3 -m unittest discover -s papers/fivefold-sumset -p 'test_verify.py' -v
           python3 papers/fivefold-sumset/verify.py
+      - name: Verify the five-point weighted inequality
+        run: python3 -B papers/four-point-covering/verify_five_point.py
       - run: python3 -m unittest discover -s research/spikes/moonshot-r310/degree_four -p 'test_*.py'
       - name: Verify the nine public demand certificates
         run: |

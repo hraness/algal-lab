@@ -319,3 +319,33 @@ This is mathematical and editorial AI-agent work. The attribution does
 not establish priority or a general non-implication theorem about the
 earlier frameworks. The earlier dated entries and immutable releases
 preserve their original reading and validation scopes.
+
+## Arbitrary kernel weights on a five-point support: 30 September 2026
+
+The small-support manuscript now proves the reflected fourfold inequality
+for arbitrary nonnegative kernel weights on `F={0,2,7,8,11}`, including
+strictness when every kernel weight is positive and both inputs are nonzero.
+This strengthens its earlier constant-kernel conclusion on that support.
+The support is also the paper's counterexample to the stronger covering
+bound, so the extension belongs in the same manuscript.
+
+The proof combines a sharper allocation estimate with two coefficient
+comparisons on each of the 120 orders of the kernel weights. All 240
+rational certificates passed independent exact verification. The checker
+reconstructs the sum fibers and polynomial coefficients, checks the
+nonnegative mixtures, and requires both comparisons on every order.
+The paper supplies the hand argument linking these comparisons to the
+reflected inequality, including the remaining corner bound and strictness.
+Independent mathematical agent review checked that argument and the
+public transcription. The supplement runs with Python's standard library;
+a numerical optimizer is not needed to verify the result.
+
+The literature comparison includes the relevant proofs in Lau's July 2025
+thesis. Its signed fourfold entropy inequality has a different direction
+from the comparison needed here. Its arbitrary-Abelian-group typical-set
+theorem also implies a broader maximal sum-triangle statement considered
+during this research, so that argument is credited to prior machinery.
+These comparisons establish neither priority for the five-point theorem
+nor a general non-implication result. The unrestricted fourfold problem
+remains unresolved in this work. The exact source versions and reading
+scopes are recorded in the shared literature comparison.
