@@ -10,32 +10,50 @@
 \newtheorem{remark}[theorem]{Remark}
 \numberwithin{equation}{section}
 \setlength{\emergencystretch}{2em}
-\title{Small-support inequalities for reflected max-convolution}
-\author{Benjamin Guo\\Hraness (\href{https://hraness.com}{\texttt{hraness.com}})\thanks{Developed with AI research agents. The hand proofs use the cited classical small-sumset theorem; the arbitrary-weight five-point result also uses rational certificates checked by the supplied program.}}
+\title{Reflected max-convolution inequalities for finite supports}
+\author{Benjamin Guo\\Hraness (\href{https://hraness.com}{\texttt{hraness.com}})\thanks{Developed with AI research agents. The sharp five-point Sidon cardinality bound uses a cited classical small-sumset theorem; the arbitrary-weight five-point result uses rational certificates checked by the supplied program.}}
 \date{30 September 2026}
-\hypersetup{pdftitle={Small-support inequalities for reflected max-convolution},pdfauthor={Benjamin Guo}}
+\hypersetup{pdftitle={Reflected max-convolution inequalities for finite supports},pdfauthor={Benjamin Guo}}
 
 \begin{document}
 \maketitle
 \begin{abstract}
-For a nonnegative kernel on at most four integers, we bound its weighted
-squared mass under a coefficientwise ordinary-autoconvolution constraint by
-the fourth root of its fourfold max-convolution mass. Finite linear
-programming duality identifies the constrained maximum with a universal
-translated-kernel covering constant. The bound therefore gives a reflected
-fourfold max-convolution inequality, strict for positive kernels on four
-points and nonzero inputs. We classify the five pair-sum collision patterns on four points and
-prove the corresponding sharp unweighted covering constants. The
-five-point Sidon set $\{0,2,7,8,11\}$ violates the stronger covering bound by
-$1/16$, establishing the support-size limit of that bound. Nevertheless,
-the reflected inequality holds for every five-point integer support when
-the kernel is constant, with arbitrary nonnegative input and denominator
-weights. The proof combines an energy estimate, a bound using the range
-of the denominator weights, and a small-sumset argument. For the specific
-support $\{0,2,7,8,11\}$, we also prove the reflected inequality for
-arbitrary nonnegative kernel weights. A sharper allocation estimate and
-240 rational coefficient certificates cover all weight orders, with
-strictness when all five kernel weights are positive and $f,g$ are nonzero.
+For every nonnegative finitely supported kernel $k$ on the integers,
+write $K=\|k\|_1$ and $M=\|k\|_\infty$. For all nonzero finitely
+supported $f,g\ge0$, we prove
+\[
+ \frac{\|f\star\widetilde{gk}\|_1}{\|f\star g\|_1}
+ \le\frac{(\sqrt K+\sqrt M)^2}{4}.
+\]
+The proof uses the mixed weighted form of the classical equality of
+sum and difference representation energies. A weighted allocation argument
+also gives the bound $\max\{K/2,(K+3M)/4\}$. For $k=1_F$, $|F|=n$,
+the bound is $(\sqrt n+1)^2/4$, strict for each input pair when $n>1$.
+A geometric product construction gives ratios tending to $(K+3M)/4$
+for prescribed kernel values with varying integer locations. In particular,
+the supremum on $n$ sites is at least $(n+3)/4$ for $n\ge2$, and the
+leading coefficient $1/4$ is asymptotically optimal. For every prescribed
+value list with $K\le3M$, the supremum is exactly $(K+3M)/4$.
+The support suprema on one, two and three sites are therefore
+$1$, $5/4$ and $3/2$, respectively.
+
+Paired-minimum energy and AM--GM give the strict bounds $29/15$, $7/3$
+and $19/7$ on four, five and six sites. We deduce the reflected fourfold
+inequality for constant kernels on every five-point support and on
+six-point supports with at least 55 fourfold sums. For constant kernels
+it also holds on every $B_4$ set; for nonconstant kernels on $B_4$
+supports it holds when $K/M\ge9$. Here $B_4$ means that unordered
+four-term sums are distinct, allowing repetition.
+
+For kernels on at most four points, we prove a stronger covering bound
+by finite linear-programming duality and classify the five pair-sum
+collision patterns, obtaining their sharp unweighted covering constants.
+The Sidon set $\{0,2,7,8,11\}$ violates that covering bound by $1/16$,
+establishing its support-size limit. On this support the reflected
+fourfold inequality nevertheless holds for arbitrary nonnegative kernel
+weights. Its proof uses an allocation estimate and 240 rational coefficient
+certificates covering every weight order, with strictness for positive
+kernel weights and nonzero inputs.
 \end{abstract}
 
 \tableofcontents
@@ -167,6 +185,13 @@ $g$; the four-point result also permits arbitrary kernel weights $k$.
 The five-point example in Theorem~\ref{thm:main} concerns $N_F$ and
 satisfies the reflected inequality for every kernel by
 Theorem~\ref{thm:five-point-weighted}.
+Lemma~\ref{five-ratio} also proves the constant-kernel fourfold inequality
+on six-point supports with $|4F|\ge55$.
+Corollary~\ref{cor:b4-kernels} also gives the constant-kernel inequality
+on $B_4$ sets of every finite size. These are sets with distinct unordered
+four-term sums, including repetitions. Corollary~\ref{cor:b4-weighted-energy}
+also permits nonconstant kernels on these supports when
+$\|k\|_1/\|k\|_\infty\ge9$.
 
 Max-convolution and weighted sumset parameters are established tools.
 Matolcsi, Ruzsa, Shakan and Zhelezov~\cite[Definition~8.1]{mrsz} use the
@@ -191,10 +216,11 @@ That normalization differs from the weighted squared input mass in $N_F(k)$
 and its comparison with $T_F(k)$.
 
 These differences in theorem statements establish neither novelty nor
-non-implication. The covering proofs are self-contained; the five-point
-result also uses Freiman's classical $3k-4$ theorem, in the form recalled
-by Bollob\'as, Leader and Tiba~\cite[p.~1]{blt}. Priority in the
-wider literature remains unestablished. In particular, the mathematical
+non-implication. The covering proofs and the constant-kernel five-point
+fourfold theorem are self-contained. The stronger Sidon cardinality
+bound $|4F|\ge39$ uses Freiman's classical $3k-4$ theorem, in the form
+recalled by Bollob\'as, Leader and Tiba~\cite[p.~1]{blt}.
+Priority in the wider literature remains unestablished. In particular, the mathematical
 comparison with the weighted Pr\'ekopa--Leindler results still requires
 control of the linked ratio involving $f\star g$ and
 $f\star\widetilde{gk}$, rather than a lower bound for an independent
@@ -232,7 +258,7 @@ This manuscript was developed with AI assistance. Separate AI agents checked
 the mathematical arguments and their transcription. These checks do not
 constitute human peer review or journal acceptance.
 
-\begin{thebibliography}{9}
+\begin{thebibliography}{99}
 \small\raggedright
 \setlength{\itemsep}{3pt}
 \bibitem{ghr}
@@ -241,6 +267,22 @@ K.~Gyarmati, F.~Hennecart and I.~Z.~Ruzsa,
 Functiones et Approximatio Commentarii Mathematici \textbf{37}(1) (2007),
 175--186,
 \href{https://doi.org/10.7169/facm/1229618749}{doi:10.7169/facm/1229618749}.
+\bibitem{hry}
+F.~Hennecart, G.~Robert and A.~Yudin,
+\emph{On the number of sums and differences},
+Ast\'erisque \textbf{258} (1999), 173--178,
+\href{https://www.numdam.org/item/AST_1999__258__173_0/}{original article}.
+\bibitem{glasscock}
+D.~Glasscock,
+\emph{Sumset Estimates in Abelian Groups},
+master's thesis, Central European University, 24 February 2012,
+\href{https://sites.uml.edu/daniel-glasscock/files/2021/06/MSThesis.pdf}
+{author-hosted thesis}, Lemma~B.1, pp.~37--38.
+\bibitem{ruzsa-structure}
+I.~Z.~Ruzsa,
+\emph{Sumsets and structure},
+\href{https://tensen.net/research/static/gc-data/sumset/Additive-Combinatorics.pdf}
+{online manuscript}, Chapter~1, Section~5, pp.~11--12.
 \bibitem{mrsz}
 D.~Matolcsi, I.~Z.~Ruzsa, G.~Shakan and D.~Zhelezov,
 \emph{An analytic approach to cardinalities of sumsets},
@@ -273,5 +315,9 @@ B.~Green, D.~Matolcsi, I.~Z.~Ruzsa, G.~Shakan and D.~Zhelezov,
 \href{https://arxiv.org/abs/2003.04077v1}{arXiv:2003.04077v1} (2020).
 Published in A.~Avila, M.~T.~Rassias and Y.~Sinai (eds.),
 \emph{Analysis at Large}, Springer, 2022, pp.~125--129.
+\bibitem{mmmz}
+M.~Madiman, A.~Manui, B.~Zawalski and A.~Zvavitch,
+\emph{Integral inequalities for $\alpha$-convolutions of $\alpha$-concave functions},
+\href{https://arxiv.org/abs/2608.10456v1}{arXiv:2608.10456v1} (2026).
 \end{thebibliography}
 \end{document}

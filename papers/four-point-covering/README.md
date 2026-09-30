@@ -1,44 +1,98 @@
-# Small-support inequalities for reflected max-convolution
+# Reflected max-convolution inequalities for finite supports
 
 [Read the paper](main.pdf).
 
-The paper proves a reflected fourfold max-convolution inequality for every
-nonzero finitely supported nonnegative input `f` and nonzero nonnegative
-weights `g` supported on a finite integer set `F`. It allows arbitrary
-nonnegative kernel weights `k` on supports of at most four points, and
-constant `k` on every five-point support. On the specific support
-`{0, 2, 7, 8, 11}`, it also allows arbitrary nonnegative `k`. The inequality
-is strict for positive `k` on four points, positive constant `k` on five,
-and positive `k` on this specific five-point support.
+For every finitely supported nonnegative kernel `k` on the integers, put
+`K=‖k‖₁` and `M=‖k‖∞`. For arbitrary nonzero finitely supported
+nonnegative inputs `f,g`, the paper proves
 
-The four-point proof identifies a universal translated-kernel covering
-constant with an ordinary-autoconvolution optimization, classifies the five
-four-point collision patterns, and determines their sharp unweighted
-covering constants.
+```text
+‖f⋆(gk)̃‖₁ / ‖f⋆g‖₁ ≤ (√K+√M)²/4.
+```
 
-The stronger covering bound holds universally on supports of size at most
-four. It fails on the five-point set `{0, 2, 7, 8, 11}` by exactly `1/16` at
-the displayed feasible profile. This establishes a support-size boundary for
-the covering bound. A sharper estimate using a common input `f,g`, together
-with rational coefficient certificates, proves the reflected inequality
-on this support for every `k`. The unrestricted fourfold problem remains
-unresolved here, and the paper makes no priority claim.
+Here `⋆` is max-product convolution. The denominator retains all values
+of `g`, including those outside the kernel support; values on the
+support may vanish. The proof uses the mixed weighted form of the
+classical equality of sum and difference representation energies.
+A kernel-level version also retains the distribution of the kernel values.
+Weighted winner allocations give another bound,
+`max{K/2,(K+3M)/4}`, for every finite support.
 
-For five-point `F` and `k=1_F`, an elementary energy estimate already bounds
-the reflected ratio by `9/5` when `g` is constant; this also proves the
-indicator-set corollary. The theorem extends the conclusion to arbitrary
-nonnegative `g`. Its Sidon case uses Freiman's classical `3k−4` theorem,
-as restated on page 1 of Bollobás, Leader and Tiba,
-[*A strengthening of Freiman's 3k−4 theorem*, arXiv:2204.09816v1](https://arxiv.org/abs/2204.09816v1)
-(21 April 2022). That exact restatement was checked on the original PDF
-page; Freiman's original proofs were not read.
+For `k=1_F`, `|F|=n`, the resulting bound is
+`C_n=(√n+1)²/4`, strict for each input pair when `n>1`.
+If `K_n` is the supremum over all `n`-point integer supports and
+nonzero finite inputs, then
+
+```text
+K_1 = 1,  K_2 = 5/4,  K_3 = 3/2,
+(n+3)/4 ≤ K_n ≤ (√n+1)²/4  (n≥2),
+K_n/n → 1/4.
+```
+
+The exact two- and three-site bounds follow from allocation estimates.
+The lower bound uses a geometric product and finite integer embeddings.
+For prescribed kernel values with sum `K` and maximum `M`, it gives
+ratios tending to `(K+3M)/4`. The integer locations may vary with the
+truncation; this is a lower bound on a supremum over supports.
+Whenever `K≤3M`, `(K+3M)/4` is also a universal upper bound and is
+sharp for every prescribed list of kernel values in that supremum sense.
+This includes every kernel on at most three sites, and also applies to
+larger supports under the same condition.
+
+A paired-minimum energy argument and AM–GM improve the pointwise
+bounds on small supports:
+
+| Support size | Strict reflected ratio bound |
+| --- | --- |
+| 4 | `29/15` |
+| 5 | `7/3` |
+| 6 | `19/7` |
+
+These hold with the full denominator and arbitrary nonnegative input
+weights. The corresponding supremum bounds are non-strict.
+For constant kernels they imply the strict fourfold inequality when
+the fourfold sumset has at least 14, 30 or 55 elements, respectively.
+The six-point result does not cover every six-point support.
+
+The paper proves the reflected fourfold inequality for arbitrary
+nonnegative kernel weights on at most four points and on
+`{0,2,7,8,11}`, and for constant kernels on every five-point support.
+It also proves the constant-kernel result on every finite `B₄` set,
+whose unordered four-term sums are distinct with repetitions allowed.
+On `B₄` supports the weighted result holds when `K/M≥9`.
+The unrestricted fourfold problem remains unresolved here.
+
+The covering proof uses finite linear-programming duality, classifies
+the five four-point collision patterns and determines their sharp
+unweighted covering constants. That stronger covering bound fails on
+`{0,2,7,8,11}` by `1/16`. The reflected inequality on this support
+for arbitrary kernels follows from allocation estimates and 240 rational
+coefficient certificates. All original certificates are retained.
+
+For the constant-kernel five-point theorem, an elementary argument gives
+`|4F|≥30` for Sidon supports; supports with pair-sum collisions use
+separate covering estimates. The paper also retains the stronger sharp
+Sidon bound `|4F|≥39`, whose proof uses Freiman's classical `3k−4`
+theorem in the restatement on page 1 of Bollobás, Leader and Tiba,
+[*A strengthening of Freiman's 3k−4 theorem*, arXiv:2204.09816v1](https://arxiv.org/abs/2204.09816v1).
+That statement was checked on the original PDF page; Freiman's original
+proofs were not read.
+
+The geometric construction adapts the sequence family in Matolcsi,
+Ruzsa, Shakan and Zhelezov's Example 11.2 and is related to the reflected
+product exponentials in Madiman, Manui, Zawalski and Zvavitch's Lemma A.3.
+The paper also retains the classical indicator-simplex lower example
+with ratio `(n²−2)/(4n−6)`, credited to Glasscock's Lemma B.1,
+pp. 37–38, and the simplex family of Hennecart, Robert and Yudin.
+The leading coefficient `1/4` is asymptotically optimal. Historical
+priority remains unestablished; finite-size optimality remains unresolved
+for `n≥4`.
 
 The [three-point paper](../three-point-fourfold/main.pdf) gives a separate
 direct proof using scalar inequalities and telescoping potentials.
-The shared [literature comparison](../sumset-literature.md) credits the prior
-max-convolution results, including Green et al.'s weighted Prékopa–Leindler
-preprint, and records which editions were read and the limits of the
-priority assessment.
+The shared [literature comparison](../sumset-literature.md) records the
+exact primary sources, the relation to prior max-convolution and entropy
+results, and the limits of the priority assessment.
 
 The arbitrary-weight five-point proof includes 240 rational certificates:
 two comparisons for each of the 120 orders of the five kernel weights.
@@ -55,8 +109,9 @@ checks exact integer inequalities and corruption controls without a
 numerical optimizer. The paper gives the hand argument connecting these
 coefficient comparisons to the reflected inequality.
 
-The LaTeX sources include the remaining case proofs and the precise
-classical theorem used. To build from this directory with Tectonic:
+The LaTeX sources include the complete hand proofs and the precise
+classical theorem used for the stronger Sidon cardinality bound.
+To build from this directory with Tectonic:
 
 ```sh
 tectonic --only-cached --untrusted --keep-logs main.tex

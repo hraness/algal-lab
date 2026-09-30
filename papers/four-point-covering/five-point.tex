@@ -1,98 +1,616 @@
-\section{Constant kernels on five points}
+\section{Reflected ratios and general kernels}
 \label{sec:five-point}
 
-The reflected inequality extends beyond the support-size boundary of the
-covering bound when the kernel is constant.
+We first bound arbitrary kernels and give lower examples with the same
+leading coefficient. Exact constants through three sites and sharper
+bounds through six sites then yield fourfold consequences.
+
+For finite nonempty $H\subset\mathbb Z$ and nonzero finitely supported
+$f,g\ge0$, write
+\[
+ P=\|f\star g\|_1,\qquad
+ R_H(f,g)=\frac{\|f\star\widetilde{g1_H}\|_1}{P}.
+\]
+The denominator includes all values of $g$, including those outside $H$.
+
+\subsection{An energy bound for arbitrary kernels}
+
+The equality of sum and difference representation energies is classical;
+Hennecart, Robert and Yudin~\cite[p.~174, equation~(4)]{hry} record it for
+equal inputs. We use its mixed weighted form and a pointwise quadratic
+estimate to bound the reflected ratio for every kernel.
+
+\begin{theorem}[Weighted energy bound]\label{thm:weighted-kernel-energy}
+Let $k\ge0$ be finitely supported on $\mathbb Z$, and put
+$K=\|k\|_1$, $M=\|k\|_\infty$.
+For every nonzero finitely supported $f,g\ge0$,
+\begin{equation}\label{eq:weighted-kernel-energy}
+ \frac{\|f\star\widetilde{gk}\|_1}{\|f\star g\|_1}
+ \le \frac{(\sqrt K+\sqrt M)^2}{4}.
+\end{equation}
+The profile $g$ may vanish on the kernel support and may have values
+outside it; the denominator includes all of $g$.
+\end{theorem}
+\begin{proof}
+The zero kernel is immediate. Otherwise enumerate its support as
+$F=\{p_1,\ldots,p_n\}$, with $k_i=k(p_i)>0$. Put
+\[
+ d=\sqrt{KM},\qquad t=K+d,\qquad
+ q(x)=t\sum_i k_i x_i^2-\left(\sum_i k_i x_i\right)^2.
+\]
+We first prove, for every nonnegative vector $x$,
+\begin{equation}\label{eq:weighted-energy-pointwise}
+ K\max_i k_i x_i^2\le q(x)
+       \le\frac{t^2}{4}\max_i x_i^2.
+\end{equation}
+For the upper bound, normalize $\max_i x_i=1$ and set
+$S=\sum_i k_i x_i$. Then $\sum_i k_i x_i^2\le S$, so
+$q(x)\le tS-S^2\le t^2/4$. Homogeneity gives the general case,
+and the zero vector is immediate.
+
+For the lower bound fix $i$, set $a=x_i$, $W=K-k_i$, and
+$S_i=\sum_{j\ne i}k_jx_j$. When $W>0$, weighted Cauchy--Schwarz gives
+\begin{align*}
+ q(x)&\ge t\left(k_i a^2+\frac{S_i^2}{W}\right)-(k_i a+S_i)^2\\
+ &=\frac{t-K+k_i}{W}
+       \left(S_i-\frac{k_iWa}{t-K+k_i}\right)^2
+       +k_i a^2\frac{t(t-K)}{t-K+k_i}.
+\end{align*}
+All denominators are positive. Since $k_i\le M$ and $d^2=KM$,
+\[
+ \frac{t(t-K)}{t-K+k_i}
+ \ge\frac{(K+d)d}{d+M}=K.
+\]
+When $W=0$, the kernel has one point, $K=M=k_i$, $t=2K$, and
+$q(x)=K^2x_i^2$ directly. Thus $q(x)\ge Kk_ix_i^2$ for every $i$,
+which proves the lower bound in \eqref{eq:weighted-energy-pointwise}.
+
+Now write $g_i=g(p_i)$ and define
+\[
+ x_i^+(s)=\sqrt{g_i f(s-p_i)},\qquad
+ x_i^-(s)=\sqrt{g_i f(s+p_i)}.
+\]
+Their weighted square sums have the same total:
+\[
+ \sum_s\sum_i k_i(x_i^+(s))^2
+ =\sum_s\sum_i k_i(x_i^-(s))^2
+ =\|f\|_1\sum_i k_i g_i.
+\]
+Set $h=\sqrt f$ and $w(p_i)=k_i\sqrt{g_i}$, with $w=0$ outside $F$.
+Then $\sum_i k_ix_i^+=(h*w)$ and
+$\sum_i k_ix_i^-=(h*\widetilde w)$. The mixed energy identity is
+\begin{equation}\label{eq:mixed-energy}
+ \|h*w\|_2^2=\|h*\widetilde w\|_2^2.
+\end{equation}
+Indeed, exchanging the two $w$ coordinates turns the relation
+$a+p=b+q$ into $a-q=b-p$ without changing the product of the four
+weights. Consequently
+$\sum_s q(x^+(s))=\sum_s q(x^-(s))$.
+
+Put $Q=\|f\star\widetilde{gk}\|_1$ and
+$P=\|f\star g\|_1>0$. The reflected weighted squared maxima sum to $Q$;
+the forward unweighted squared maxima sum to
+$P_F=\|f\star(g1_F)\|_1\le P$. Summing
+\eqref{eq:weighted-energy-pointwise} gives
+\[
+ KQ\le\sum_s q(x^-(s))=\sum_s q(x^+(s))
+       \le\frac{t^2}{4}P_F\le\frac{t^2}{4}P.
+\]
+Division by $KP$ proves \eqref{eq:weighted-kernel-energy}, since
+$t^2/K=(\sqrt K+\sqrt M)^2$.
+\end{proof}
+
+\begin{corollary}\label{thm:uniform-support}
+Let $F\subset\mathbb Z$ have $n\ge1$ elements. For every nonzero finitely
+supported $f,g\ge0$,
+\begin{equation}\label{eq:uniform-support}
+ R_F(f,g)=\frac{\|f\star\widetilde{g1_F}\|_1}{\|f\star g\|_1}
+ \le C_n,\qquad C_n=\frac{(\sqrt n+1)^2}{4}.
+\end{equation}
+The inequality is strict when $n>1$. No support restriction is imposed
+on $g$ outside $F$.
+\end{corollary}
+\begin{proof}
+Apply Theorem~\ref{thm:weighted-kernel-energy} with $k=1_F$.
+For strictness, let $F_+=\{p\in F:g(p)>0\}$ and $m=|F_+|$.
+If $m=0$ the numerator vanishes; if $m=1$ the singleton bound gives
+$R_F(f,g)\le1<C_n$ for $n>1$.
+
+When $m>1$, apply the preceding proof with $k=1_{F_+}$ and
+$t=m+\sqrt m$. Put $a=\min\operatorname{supp}(f)$,
+$b=\max F_+$, and $s_0=a-b$. Exactly one coordinate of $x^-(s_0)$
+is nonzero: its square is $g(b)f(a)>0$. Hence the lower pointwise
+comparison has the strict gap
+\[
+ q(x^-(s_0))-m\max_i(x_i^-(s_0))^2
+       =(\sqrt m-1)g(b)f(a)>0.
+\]
+All other gaps are nonnegative. Summing therefore gives
+$R_F(f,g)<C_m\le C_n$, still with the full denominator $P$.
+\end{proof}
+
+For a singleton, equality in \eqref{eq:uniform-support} is possible.
+Lemma~\ref{five-ratio} gives sharper bounds for four, five and six points.
+Its six-point bound proves the constant-kernel fourfold inequality when
+$|4F|\ge55$; it does not settle every six-point support.
+
+\begin{remark}[Kernel level sets]\label{rem:kernel-levels}
+A bound retaining the distribution of the kernel values follows from
+Corollary~\ref{thm:uniform-support}. For nonzero $k$, let
+$E_u=\{p:k(p)>u\}$ and $N(u)=|E_u|$. Keep $f,g$ and
+$P=\|f\star g\|_1$ fixed. Subadditivity in the kernel gives
+\[
+ \frac{\|f\star\widetilde{gk}\|_1}{P}
+ \le\int_0^M C_{N(u)}\,du
+ =\frac{K+M}{4}+\frac12\int_0^M\sqrt{N(u)}\,du.
+\]
+Indeed, at each output the maximum of the kernel integrals is at most
+the integral of the maxima, and $\int_0^M N(u)\,du=K$.
+For descending positive kernel values $k_1\ge\cdots\ge k_r>0$,
+with $k_{r+1}=0$, the integral is the finite sum
+$\sum_{j=1}^r(k_j-k_{j+1})C_j$; tied values contribute zero.
+Cauchy--Schwarz gives
+$\int_0^M\sqrt{N(u)}\,du\le\sqrt{MK}$, recovering
+\eqref{eq:weighted-kernel-energy}. Only the kernel varies across levels;
+the profile and its full denominator remain fixed.
+\end{remark}
+
+\subsection{Lower examples and the leading coefficient}
+
+Geometric sequences occur in the max-convolution examples
+of Matolcsi, Ruzsa, Shakan and Zhelezov~\cite[Example~11.2]{mrsz};
+related reflected product-exponential examples appear in Madiman,
+Manui, Zawalski and Zvavitch~\cite[Lemma~A.3]{mmmz}.
+The following adaptation restricts the second profile to the simplex
+vertices and counts the boundary faces. It gives a lower bound for
+prescribed kernel values when their integer locations may vary.
+
+\begin{proposition}\label{prop:geometric-product}
+Let $d\ge1$, $w_0=M>0$ and $0\le w_i\le M$ for $1\le i\le d$,
+and put $K=\sum_{i=0}^d w_i$. There are finite integer examples with
+these kernel values whose reflected ratios tend to $(K+3M)/4$.
+In particular, for $n\ge2$,
+\[
+ \sup_{\substack{|F|=n\\f,g\ne0}}R_F(f,g)\ge\frac{n+3}{4},
+\]
+where the supremum ranges over integer supports and nonnegative finitely
+supported inputs.
+\end{proposition}
+\begin{proof}
+Work first in $\mathbb Z^d$. For an integer $N\ge1$, let
+\[
+ A_N=\{0,\ldots,N\}^d,\qquad H=\{0,e_1,\ldots,e_d\},\qquad
+ f_N(x)=2^{-\sum_i x_i}1_{A_N}(x).
+\]
+Set $g(0)=1$, $g(e_i)=1/2$, $k(0)=M$, $k(e_i)=w_i$, and let
+$g,k$ vanish elsewhere. Write
+$S_N=\sum_{j=0}^N2^{-j}=2-2^{-N}$.
+
+For $y\in A_N$, the zero-support contribution to $(f_N\star g)(y)$
+is $f_N(y)$, and every available other contribution is also
+$\tfrac12f_N(y-e_i)=f_N(y)$. Outside $A_N$, positive values occur
+exactly on the disjoint faces
+$y_i=N+1$, $0\le y_j\le N$ for $j\ne i$. Their values are
+$2^{-N-1}2^{-\sum_{j\ne i}y_j}$. Thus the full denominator is
+\[
+ P_N=S_N^d+d\,2^{-N-1}S_N^{d-1}.
+\]
+For the reflected numerator, the contribution at zero is $Mf_N(y)$
+on $A_N$, and the others are
+$\tfrac12w_i f_N(y+e_i)=\tfrac14w_i f_N(y)\le Mf_N(y)$
+when available. Exterior contributions lie on the disjoint negative
+faces $y_i=-1$, $0\le y_j\le N$ for $j\ne i$, with value
+$\tfrac12w_i2^{-\sum_{j\ne i}y_j}$. Therefore
+\[
+ Q_N=MS_N^d+\frac{K-M}{2}S_N^{d-1},\qquad
+ \frac{Q_N}{P_N}
+ =\frac{MS_N+(K-M)/2}{S_N+d\,2^{-N-1}}
+ \longrightarrow\frac{K+3M}{4}.
+\]
+
+For integer examples put $B_N=2N+3$ and
+$\phi_N(x)=\sum_{i=1}^d x_iB_N^{i-1}$.
+This additive map is injective on $\{-1,\ldots,N+1\}^d$.
+Indeed, at the highest nonzero coordinate of a difference, the term
+has magnitude at least $B_N^j$, while all lower terms have total
+magnitude at most
+\[
+ (N+2)\frac{B_N^j-1}{B_N-1}<B_N^j.
+\]
+It preserves the input values and all collisions in $A_N+H$ and
+$A_N-H$. Pushing $f_N,g,k$ forward by $\phi_N$ and extending them by
+zero therefore preserves both norms. The kernel locations are
+$\{0,1,B_N,\ldots,B_N^{d-1}\}$; for $d>1$ these vary with $N$.
+Finally take $w_i=1$ for every $i$, so that $K=d+1=n$ and $M=1$.
+\end{proof}
+
+For indicator inputs, a standard lattice-simplex construction also gives
+the same asymptotic leading coefficient. The counts below are the
+specialization $(d,l_1,l_2)=(n-1,n-2,1)$ of Glasscock's
+Lemma~B.1~\cite[pp.~37--38]{glasscock}. That source develops the simplex
+family of Hennecart, Robert and Yudin~\cite[Section~3]{hry}.
+
+\begin{proposition}\label{prop:quarter-simplex}
+For every integer $n\ge3$, there are a set $F\subset\mathbb Z$ with $n$
+elements and a finite nonempty set $A'\subset\mathbb Z$ such that
+\begin{equation}\label{eq:quarter-simplex}
+ R_F(1_{A'},1_F)=\frac{|A'-F|}{|A'+F|}
+               =\frac{n^2-2}{4n-6}.
+\end{equation}
+\end{proposition}
+\begin{proof}
+Put $d=n-1$, $m=n-2$, and in $\mathbb Z^d$ let
+$U=\{0,e_1,\ldots,e_d\}$ and $A=mU$, with repetitions allowed.
+Thus $A$ consists of the nonnegative integer vectors whose coordinate
+sum is at most $m$. The simplex counts give
+\[
+ |A+U|=\binom{m+n}{n-1},\qquad
+ |A-U|=\binom{m+n-1}{n-1}
+             +(n-1)\binom{m+n-2}{n-2}.
+\]
+For the difference count, the nonnegative points are precisely $A$.
+Each remaining point has exactly one coordinate equal to $-1$; after
+choosing that coordinate, its other nonnegative coordinates sum to at
+most $m$. The classes for distinct negative coordinates are disjoint.
+With $m=n-2$, the quotient simplifies to
+\[
+ \frac{|A-U|}{|A+U|}
+ =\frac12+\frac{(n-1)^2}{2(2n-3)}
+ =\frac{n^2-2}{4n-6}.
+\]
+
+To obtain integer sets, choose $B=m+3$ and use the additive encoding
+$\phi(x)=\sum_{j=1}^d x_jB^{j-1}$. Every coordinate of every point in
+$(A+U)\cup(A-U)$ lies between $-1$ and $m+1$. Adding the same all-ones
+vector puts the coordinates in $\{0,\ldots,m+2\}$, strictly below $B$.
+Uniqueness of base-$B$ expansions proves injectivity on that union.
+Consequently $F=\phi(U)$ has $n$ points, and $A'=\phi(A)$ satisfies
+\eqref{eq:quarter-simplex}.
+\end{proof}
+
+\begin{corollary}\label{cor:quarter-asymptotic}
+For $n\ge1$, let $K_n$ be the supremum of $R_F(f,g)$ over all
+$n$-point sets $F\subset\mathbb Z$ and all nonzero finitely supported
+$f,g\ge0$. Then $K_1=1$, and
+\[
+ \frac{n+3}{4}\le K_n\le\frac{(\sqrt n+1)^2}{4}\quad(n\ge2),
+ \qquad \lim_{n\to\infty}\frac{K_n}{n}=\frac14.
+\]
+\end{corollary}
+\begin{proof}
+The singleton case is immediate. Proposition~\ref{prop:geometric-product}
+gives the lower bound, and Corollary~\ref{thm:uniform-support} gives
+the general upper bound. Dividing by $n$ proves the limit.
+\end{proof}
+
+The geometric lower bound exceeds the displayed simplex ratio:
+\[
+ \frac{n+3}{4}-\frac{n^2-2}{4n-6}
+ =\frac{3n-5}{8n-12}>0\qquad(n\ge3).
+\]
+The first construction permits weighted inputs; the second uses indicators.
+Pointwise strictness of the upper bounds gives non-strict bounds on
+$K_n$. The leading coefficient $1/4$ is asymptotically optimal; no
+optimality is asserted for the finite remainder when $n\ge4$.
+
+\subsection{Allocation bounds and exact constants}
+
+Let $F=\{p_1,\ldots,p_n\}$ support a nonzero kernel $k$, and write
+$k_i=k(p_i)>0$, $g_i=g(p_i)$ and $I=\{i:g_i>0\}$.
+For each positive output of $f\star\widetilde{gk}$, select a maximizing
+site. Let $E_i$ be the disjoint sets of outputs selected for $p_i$, and put
+\[
+ a_i=\frac{g_i}{P}\sum_{y\in E_i}f(y+p_i)\quad(i\in I),
+ \qquad a_i=0\quad(i\notin I).
+\]
+The winners are chosen for the weighted numerator, so
+$\|f\star\widetilde{gk}\|_1/P=\sum_i k_i a_i$.
+Since $P\ge g_i\|f\|_1$ and each selected sum is at most $\|f\|_1$,
+we have $0\le a_i\le1$. For distinct $i,j\in I$, translating the
+disjoint sets $E_i,E_j$ by the same $p_i+p_j$ gives
+\[
+ P\ge g_j\sum_{y\in E_i}f(y+p_i)
+       +g_i\sum_{y\in E_j}f(y+p_j).
+\]
+Division by $P$ and AM--GM yield
+\begin{equation}\label{five-dual-pairs}
+ \frac{g_j}{g_i}a_i+\frac{g_i}{g_j}a_j\le1,\qquad
+ a_i a_j\le\frac14.
+\end{equation}
+The product bound holds for every distinct pair, including zero
+allocations, without dividing by a zero weight.
+
+\begin{theorem}[Weighted allocation bound]\label{thm:weighted-winner}
+For every nonnegative finitely supported kernel $k$ and nonzero finitely
+supported $f,g\ge0$, put $K=\|k\|_1$ and $M=\|k\|_\infty$. Then
+\begin{equation}\label{eq:weighted-winner-bound}
+ \frac{\|f\star\widetilde{gk}\|_1}{\|f\star g\|_1}
+ \le\max\left\{\frac K2,\frac{K+3M}{4}\right\}.
+\end{equation}
+There is no restriction on the number or locations of the kernel sites.
+\end{theorem}
+\begin{proof}
+The zero kernel or zero restricted profile gives zero. Otherwise use the
+weighted winner allocations above. If every $a_i\le1/2$, then
+$\sum_i k_i a_i\le K/2$. If $x=a_j>1/2$, the pair product bound
+gives $a_i\le1/(4x)$ for every $i\ne j$, and therefore
+\[
+ \sum_i k_i a_i\le k_jx+\frac{K-k_j}{4x}.
+\]
+This expression is convex on $[1/2,1]$. Its endpoint values are
+$K/2$ and $(K+3k_j)/4\le(K+3M)/4$, proving the result.
+\end{proof}
+
+\begin{corollary}[Sharpness for $K\le3M$]\label{cor:small-exact}
+For any prescribed nonempty list of positive kernel values with sum $K$
+and maximum $M$ satisfying $K\le3M$, the supremum of the reflected ratio
+over all distinct integer locations and all nonzero finite nonnegative
+inputs is exactly
+\begin{equation}\label{eq:small-weighted-exact}
+ \frac{K+3M}{4}.
+\end{equation}
+In particular, this applies to every kernel on at most three sites, and
+\[
+ K_1=1,\qquad K_2=\frac54,\qquad K_3=\frac32.
+\]
+\end{corollary}
+\begin{proof}
+When $K\le3M$, the second term in
+\eqref{eq:weighted-winner-bound} is the larger one.
+Proposition~\ref{prop:geometric-product} gives the matching lower bound
+for each list with at least two values; a singleton attains the value $M$
+by translation. Taking all values equal to one proves the three scalar
+identities. Integer locations may vary in the lower construction.
+No attainment on every fixed support is asserted.
+\end{proof}
+
+For the small-support arguments below, take $k=1_H$ in the allocation.
+Then $\sum_i a_i=R_H(f,g)$. At most three coordinates sum to at most
+$3/2$: if their largest value $x$ exceeds $1/2$, their sum is at most
+$x+1/(2x)\le3/2$ for $1/2\le x\le1$; otherwise the assertion is
+immediate. For every nonempty subset $J$ of the active support,
+\begin{equation}\label{eq:assigned-subset}
+ \sum_{p_i\in J}a_i\le R_J(f,g)
+ =\frac{\|f\star\widetilde{g1_J}\|_1}{P}.
+\end{equation}
+Thus every universal smaller-support bound applies to this assigned
+mass with exactly the same denominator.
+
+\subsection{Uniform bounds from paired minima}
+
+\begin{lemma}[Paired-minimum energy]\label{lem:paired-minimum}
+Suppose $H=\{p_1,\ldots,p_n\}$ and $g$ is positive on $H$. Normalize
+the whole profile so that $\max_Hg=1$, and put
+$g_i=g(p_i)$, $m=\min_Hg>0$ and $A=n-1+1/m$. Then
+\begin{equation}\label{eq:paired-minimum-vertices}
+ R_H(f,g)\le
+ \max_{\varnothing\ne J\subseteq\{1,\ldots,n\}}
+ \left[|J|-\frac1A\sum_{\{i,j\}\subset J}
+ \left(1+\min\left(\frac{g_i}{g_j},\frac{g_j}{g_i}\right)\right)\right].
+\end{equation}
+\end{lemma}
+\begin{proof}
+For $v\in[0,\infty)^n$ define the convex, positively homogeneous function
+\[
+ q(v)=A\sum_i v_i-\sum_{i<j}
+ \left[\min(v_i,v_j)+
+ \min\left(\frac{g_j}{g_i}v_i,\frac{g_i}{g_j}v_j\right)\right].
+\]
+Set $v_i^+(z)=g_i f(z-p_i)$ and $v_i^-(z)=g_i f(z+p_i)$.
+The sums over $z$ of the diagonal terms agree. For each pair define
+\[
+ \begin{aligned}
+ E_{ij}^\pm(z)&=\min(g_i f(z\mp p_i),g_j f(z\mp p_j)),\\
+ T_{ij}^\pm(z)&=\min(g_j f(z\mp p_i),g_i f(z\mp p_j)).
+ \end{aligned}
+\]
+Substitution gives
+$T_{ij}^+(z+p_i+p_j)=E_{ij}^-(z)$ and
+$E_{ij}^+(z+p_i+p_j)=T_{ij}^-(z)$. Therefore
+\begin{equation}\label{eq:paired-minimum-invariance}
+ \sum_zq(v^+(z))=\sum_zq(v^-(z)).
+\end{equation}
+
+We claim that $q(v)\ge A\|v\|_\infty$. The zero vector is immediate;
+otherwise scale so that $v_i=1$ at an anchor $i$ and every coordinate
+lies in $[0,1]$. Relabel the weights and sites together so that
+$g_1\ge\cdots\ge g_n$, and write $T_j=\sum_{k>j}g_k$.
+A pair containing the anchor is at most
+$(1+g_i/g_j)v_j$. For a pair $j<k$ containing no anchor, use
+\[
+ \min(v_j,v_k)+
+ \min\left(\frac{g_k}{g_j}v_j,\frac{g_j}{g_k}v_k\right)
+ \le v_k+\frac{g_k}{g_j}v_j.
+\]
+The coefficient charged to $v_j$, $j\ne i$, in the complete pair sum is
+\[
+ D_{ij}=
+ \begin{cases}
+ j+T_j/g_j,&i>j,\\
+ j-1+(g_i+T_j)/g_j,&i<j.
+ \end{cases}
+\]
+Since $T_j/g_j\le n-j$, the first expression is at most $n\le A$.
+The second is at most $n-1+1/m=A$. Thus the pair sum is at most
+$A\sum_{j\ne i}v_j$, proving the claim.
+
+Convexity bounds $q$ on $[0,1]^n$ by its largest vertex value.
+At the vertex $1_J$,
+\[
+ q(1_J)=A|J|-\sum_{\{i,j\}\subset J}
+ \left(1+\min\left(\frac{g_i}{g_j},\frac{g_j}{g_i}\right)\right).
+\]
+A singleton has value $A>0$, so the empty vertex may be omitted.
+If $V$ denotes the maximum in \eqref{eq:paired-minimum-vertices},
+homogeneity gives $q(v)\le AV\|v\|_\infty$. With $h=g1_H$, the
+two pointwise bounds and \eqref{eq:paired-minimum-invariance} imply
+\[
+ A\|f\star\widetilde h\|_1
+ \le\sum_zq(v^-(z))
+ =\sum_zq(v^+(z))
+ \le AV\|f\star h\|_1
+ \le AVP.
+\]
+Restriction to $H$ preserves the numerator and decreases the denominator.
+Division by $AP>0$ proves the result.
+\end{proof}
+
+\begin{lemma}[Four-weight AM--GM estimate]\label{lem:four-weight-ratios}
+For $0<a\le b\le c\le d$,
+\[
+ \frac ab+\frac ac+\frac ad+\frac bc+\frac bd+\frac cd
+ \ge4\sqrt{2a/d}.
+\]
+Consequently, for weights in $[m,1]$ and a subset $J$ of size $r\ge4$,
+\begin{equation}\label{eq:averaged-pair-ratios}
+ \sum_{\{i,j\}\subset J}
+ \min(g_i/g_j,g_j/g_i)
+ \ge\frac23\sqrt{2m}\binom r2.
+\end{equation}
+For three selected weights, the corresponding sum is at least
+$2\sqrt m+m$.
+\end{lemma}
+\begin{proof}
+Apply AM--GM to
+\[
+ \frac ab,\quad\frac ab,\quad\frac cd,\quad\frac cd,\quad
+ \frac{2a}c,\quad\frac{2a}d,\quad\frac{2b}c,\quad\frac{2b}d.
+\]
+Their sum is twice the displayed six-ratio sum, and their product is
+$16a^4/d^4$, proving the first assertion. Every four selected weights
+have pair-ratio sum at least $4\sqrt{2m}$. Summing over the four-subsets
+of $J$ counts each pair $\binom{r-2}{2}$ times; division gives
+\eqref{eq:averaged-pair-ratios}. For three sorted weights,
+$a/b+b/c+a/c\ge2\sqrt{a/c}+a/c\ge2\sqrt m+m$.
+\end{proof}
+
+\begin{lemma}\label{five-ratio}
+For arbitrary nonzero finitely supported $f,g\ge0$,
+\[
+ R_H(f,g)<
+ \begin{cases}
+ 29/15,&|H|=4,\\
+ 7/3,&|H|=5,\\
+ 19/7,&|H|=6.
+ \end{cases}
+\]
+Hence the reflected fourfold inequality is strict for every positive
+constant kernel on $H$ whenever
+\[
+ (|H|,|4H|)\in\{(4,\ge14),(5,\ge30),(6,\ge55)\}.
+\]
+\end{lemma}
+\begin{proof}
+If $g1_H=0$, the ratio vanishes. Otherwise discard its zero coordinates
+and normalize the entire $g$ so that the maximum on the active support
+is one. Write $S=\sum_i a_i=R_H(f,g)$ and $m=\min_i g_i>0$.
+A support of at most three active points has ratio at most $3/2$ by
+\eqref{five-dual-pairs}. We proceed by induction on the active size.
+Whenever every allocation is at least $\ell$, the pair at minimum and
+maximum weight gives
+\begin{equation}\label{eq:extreme-weight-pair}
+ \ell(m+1/m)\le1.
+\end{equation}
+If both endpoint allocations exceed $\ell$, the inequality is strict.
+
+For four active points, suppose $S\ge29/15$. By
+\eqref{eq:assigned-subset}, each $a_i\ge29/15-3/2=13/30$.
+If $m\le4/7$, then \eqref{eq:extreme-weight-pair} gives
+\[
+ 1\ge\frac{13}{30}(m+1/m)
+ \ge\frac{13}{30}\left(\frac47+\frac74\right)
+ =\frac{845}{840}>1.
+\]
+Thus $m>4/7$ and $A=3+1/m<19/4$. A three-element vertex has
+pair-ratio sum greater than $4/7+3/2=29/14$, since
+$\sqrt{4/7}>3/4$. A four-element vertex has pair-ratio sum greater
+than four by Lemma~\ref{lem:four-weight-ratios}. The bounds in
+\eqref{eq:paired-minimum-vertices} for cardinalities one through four are
+\[
+ 1,\qquad
+ <2-\frac4{19}=\frac{34}{19},\qquad
+ <3-\frac{71/14}{19/4}=\frac{257}{133},\qquad
+ <4-\frac{10}{19/4}=\frac{36}{19}.
+\]
+Each is below $29/15$; the closest comparison is
+$29/15-257/133=2/1995>0$. This is a contradiction.
+
+For five active points, suppose $S\ge7/3$. The strict four-point
+bound and \eqref{eq:assigned-subset} give
+$a_i>7/3-29/15=2/5$. The endpoint pair forces $m>1/2$, since
+$(2/5)(1/2+2)=1$, and therefore $A=4+1/m<6$.
+For two or three selected weights, each smaller pair ratio exceeds
+$1/2$. For four or five selected weights,
+Lemma~\ref{lem:four-weight-ratios} gives ratio sums at least four
+and $20/3$, respectively. The vertex bounds are
+\[
+ 1,\qquad <\frac74,\qquad <\frac94,\qquad
+ <4-\frac{10}{6}=\frac73,\qquad
+ <5-\frac{50/3}{6}=\frac{20}{9}.
+\]
+Every vertex is strictly below $7/3$, again a contradiction.
+
+For six active points, suppose $S\ge19/7$. The strict five-point
+bound gives $a_i>19/7-7/3=8/21$. If $m\le6/13$, the endpoint pair
+contradicts
+\[
+ \frac8{21}\left(\frac6{13}+\frac{13}{6}\right)
+ =\frac{1640}{1638}>1.
+\]
+Hence $m>6/13$ and $A=5+1/m<43/6$. Also
+$\sqrt{2m}>\sqrt{12/13}>24/25$, since
+$12\cdot625>13\cdot576$. For vertex sizes $r=4,5,6$,
+\eqref{eq:averaged-pair-ratios} makes the combined pair penalty
+greater than $(41/25)\binom r2$, so the vertex bound is less than
+\[
+ b_r=r-\frac{246}{1075}\binom r2.
+\]
+The differences $b_{r+1}-b_r=1-246r/1075$ show that $b_5$ is largest
+among these three values, because $984<1075<1230$. Moreover,
+\[
+ b_5=\frac{583}{215}<\frac{19}{7},\qquad
+ \frac{19}{7}-\frac{583}{215}=\frac4{1505}.
+\]
+Vertices of sizes one and two are at most one and two. For size three,
+the unit part of the pair penalty alone gives a bound less than
+$3-18/43=111/43<19/7$. This is the final contradiction.
+Smaller active supports satisfy the stated bounds by the preceding cases.
+
+For a constant kernel $k=c1_H$, $c>0$, the numerator is
+$c\|f\star\widetilde{g1_H}\|_1$ and its fourfold max-convolution
+norm is $c^4|4H|$. The cardinality consequences follow from
+\[
+ 29^4=707281<708750=14\cdot15^4,\qquad
+ 7^4=2401<2430=30\cdot3^4,
+\]
+\[
+ 19^4=130321<132055=55\cdot7^4.
+\]
+\end{proof}
+
+These are strict bounds for each pair of inputs. The corresponding
+suprema satisfy
+\[
+ K_4\le\frac{29}{15},\qquad K_5\le\frac73,\qquad K_6\le\frac{19}{7}.
+\]
+The six-point fourfold conclusion requires $|4H|\ge55$ and concerns
+constant kernels.
+
+\subsection{Five-point supports}
+
+The reflected fourfold inequality extends beyond the support-size
+boundary of the covering bound when the kernel is constant.
 
 \begin{theorem}\label{thm:five-point}
 Let $F\subset\mathbb Z$ have five elements. For every nonzero finitely
-supported $f\ge0$ and every nonzero $g\ge0$ supported on $F$,
+supported $f,g\ge0$,
 \[
- \|f\star\widetilde g\|_1^4
+ \|f\star\widetilde{g1_F}\|_1^4
  < |4F|\,\|f\star g\|_1^4.
 \]
 In particular, the five-point set in Proposition~\ref{b-five-point}
 satisfies this inequality despite failing the sufficient covering bound.
 \end{theorem}
-
-We first prove a bound that applies to every five-point support, then
-separate Sidon supports from those with pair-sum collisions.
-
-\subsection{A bound from energy and the range of the weights}
-
-\begin{lemma}\label{five-ratio}
-For every five-element $F\subset\mathbb Z$ and every $f,g$ as in
-Theorem~\ref{thm:five-point},
-\[
- \frac{\|f\star\widetilde g\|_1}{\|f\star g\|_1}\le\frac{62}{25}.
-\]
-Consequently, Theorem~\ref{thm:five-point} holds whenever $|4F|\ge38$.
-\end{lemma}
-\begin{proof}
-For a nonempty finite set $A$, let $r_+$ and $r_-$ count the representations
-of a point as $a+p$ and $a-p$, respectively, with $(a,p)\in A\times F$.
-Put $P=|A+F|$, $Q=|A-F|$ and $W=5|A|$. The two quadratic energies are
-equal: exchanging the two $F$ coordinates bijects the solutions of
-$a+p=a'+p'$ with those of $a-p=a'-p'$. Write their common value as $E$.
-Since $1\le r_-(s)\le5$ on its support, $r_-(s)^2\le6r_-(s)-5$.
-Cauchy--Schwarz applied to $r_+$ gives
-\[
- \frac{W^2}{P}\le E\le6W-5Q,
- \qquad
- \frac QP\le\frac{6t-t^2}{5}\le\frac95,
- \quad t=\frac WP.
-\]
-Integrate this inequality over the level sets of $f$ to obtain
-\begin{equation}\label{five-energy}
- \|f\star1_{-F}\|_1\le\frac95\|f\star1_F\|_1.
-\end{equation}
-For $g>0$ on $F$, put $r=\max_Fg/\min_Fg\ge1$. Pointwise comparison
-with the indicator kernels gives
-\begin{equation}\label{five-range-energy}
- \frac{\|f\star\widetilde g\|_1}{\|f\star g\|_1}\le\frac95r.
-\end{equation}
-
-The dual in Lemma~\ref{lem:cover}, with $k=1_F$, has objective
-$S=\sum_iw_i$, where $w_i=g_i z_i$ and $g_i=g(p_i)>0$ for
-$F=\{p_1,\ldots,p_5\}$. Its constraints imply
-\begin{equation}\label{five-dual-pairs}
- 0\le w_i\le1,\qquad
- \frac{g_j}{g_i}w_i+\frac{g_i}{g_j}w_j\le1,\qquad
- w_iw_j\le\frac14\quad(i\ne j).
-\end{equation}
-The middle inequality retains two nonnegative terms of the constraint
-at $p_i+p_j$; AM--GM gives the last one.
-
-Every four coordinates have sum at most two. If their largest value
-$u$ is at most $1/2$, this is immediate. Otherwise their sum is at most
-$u+3/(4u)\le2$ for $1/2\le u\le1$. It follows that $w_i\ge S-2$
-for every $i$. Choose distinct indices at which $g$ takes its maximum
-and minimum; when $r=1$, any two distinct indices suffice. Their
-constraint in \eqref{five-dual-pairs} gives
-\[
- 1\ge(r+r^{-1})(S-2),\qquad
- S\le2+\frac1{r+r^{-1}}.
-\]
-Together with the covering lemma, this proves
-\begin{equation}\label{five-range-cover}
- \frac{\|f\star\widetilde g\|_1}{\|f\star g\|_1}
- \le\min\left\{\frac95r,\ 2+\frac1{r+r^{-1}}\right\}.
-\end{equation}
-For $1\le r\le4/3$, the first bound is at most $12/5$.
-For $r\ge4/3$, the second is at most $2+12/25=62/25$.
-
-For nonnegative nonzero $g$, apply the bound to $g+\epsilon1_F$ and
-let $\epsilon\downarrow0$. For fixed $f$, both max-convolutions are
-supported in fixed finite sets and their values are continuous in $\epsilon$.
-The limiting denominator is positive. Finally,
-\[
- \left(\frac{62}{25}\right)^4
- =\frac{14776336}{390625}<38,
-\]
-which proves the last assertion.
-\end{proof}
-
-\subsection{Supports with a pair-sum collision}
 
 For an ordinary-autoconvolution-feasible $x\ge0$, write $w_p=x(p)^2$.
 The universal constraints are $0\le w_p\le1$ and
@@ -238,15 +756,168 @@ Lemma~\ref{five-progression} now gives
 $N_F(1_F)^4\le83521/4096<23$.
 \end{proof}
 
-\input{five-point-sidon}
+\begin{lemma}[An elementary Sidon bound]\label{lem:elementary-sidon30}
+Every five-element Sidon subset $F\subset\mathbb Z$ satisfies
+$|4F|\ge30$.
+\end{lemma}
+\begin{proof}
+We first recall the equality case of $|A+A|\ge2|A|-1$.
+Translate a finite nonempty $A$ so that $\min A=0$, and put $L=\max A$.
+The singleton case is immediate. For $L>0$,
+$A\cup(L+A)\subseteq A+A$ has $2|A|-1$ elements, since the two
+sets meet only at $L$. Equality therefore forces
+$A+A=A\cup(L+A)$.
+
+The image $B$ of $A$ in $\mathbb Z/L\mathbb Z$ is then closed under
+addition and contains zero. It is a subgroup: for every $b\in B$,
+some $r\ge1$ has $rb=0$, so $-b=(r-1)b\in B$.
+If $B=\{0\}$, put $d=L$. Otherwise its least positive representative
+$d$ divides $L$, since the remainder on dividing $L$ by $d$ belongs
+to $B$ and is smaller than $d$. The same argument shows that every
+element of $B$ is a multiple of $d$, and closure supplies all multiples.
+Because $A\subset[0,L]$ and both endpoints belong to $A$, it follows that
+$A=\{0,d,\ldots,L\}$. Conversely, every arithmetic progression has
+$|A+A|=2|A|-1$.
+
+Now translate $F$ so that $\min F=0$. The Sidon property gives
+$|2F|=15$, hence $|4F|\ge29$. If equality held, the characterization
+just proved would give $2F=\{0,d,\ldots,14d\}$. Since $F\subset2F$
+and $2\max F=\max(2F)=14d$, we would have
+$F\subset\{0,d,\ldots,7d\}$. Its ten positive differences are distinct:
+$x-y=u-v>0$ gives $x+v=u+y$, so the Sidon property forces the same
+ordered pair. They cannot all lie in the seven-element set
+$\{d,\ldots,7d\}$. Thus $|4F|\ne29$, proving the assertion.
+\end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:five-point}]
-For non-Sidon supports, combine Proposition~\ref{five-nonsidon} with
-Lemma~\ref{lem:cover}. For Sidon supports, use
-Proposition~\ref{five-sidon-size} and Lemma~\ref{five-ratio}.
+The non-Sidon case follows from Proposition~\ref{five-nonsidon} and
+Lemma~\ref{lem:cover}. For Sidon supports, combine
+Lemma~\ref{lem:elementary-sidon30} with Lemma~\ref{five-ratio}, using
+$(7/3)^4<30$.
 \end{proof}
 
 For $f=1_A$ and $g=1_F$, Theorem~\ref{thm:five-point} gives
 $|A-F|^4<|A+F|^4|4F|$ for every finite nonempty integer set $A$ and every
 five-element integer set $F$. The theorem also permits arbitrary
 nonnegative weights in $f$ and $g$; the kernel $k$ is fixed to $1_F$.
+For later use, we record an estimate for constant denominator weights.
+For a set $J$ of $s\ge1$ integers, put
+\[
+ e_s=\frac1s\left\lfloor\frac{(s+1)^2}{4}\right\rfloor.
+\]
+Then
+\[
+ \|f\star1_{-J}\|_1\le e_s\|f\star1_J\|_1.
+\]
+Indeed, for a finite nonempty set $B$, the ordinary sum and difference
+representation functions have the same squared energy $\mathcal E$,
+by exchanging the two $J$ coordinates in the corresponding quadruples.
+Their common total mass is $W=s|B|$, and their positive values are
+integers $r$ from one to $s$. The inequalities
+\[
+ (s+1)r-\left\lfloor\frac{(s+1)^2}{4}\right\rfloor
+ \le r^2\le(s+1)r-s
+\]
+give
+\[
+ (s+1)W-\left\lfloor\frac{(s+1)^2}{4}\right\rfloor|B+J|
+ \le\mathcal E\le(s+1)W-s|B-J|.
+\]
+Hence $|B-J|\le e_s|B+J|$. Integration over the level sets of $f$
+proves the stated max-convolution estimate. In particular, for
+five-element $F$,
+\begin{equation}\label{five-energy}
+ \|f\star1_{-F}\|_1\le\frac95\|f\star1_F\|_1.
+\end{equation}
+If $g>0$ on $F$ and $r=\max_Fg/\min_Fg$, comparison with the
+indicator kernels gives, still with the full denominator,
+\begin{equation}\label{five-range-energy}
+ R_F(f,g)\le\frac95r.
+\end{equation}
+
+The next subsection records the stronger sharp Sidon cardinality bound.
+
+\input{five-point-sidon}
+
+\subsection{Kernels on sets with distinct four-term sums}
+
+Call a finite set $F$ a $B_4$ set if every equality
+$p_1+p_2+p_3+p_4=q_1+q_2+q_3+q_4$, with all entries in $F$, has the
+same multiset of entries on both sides. Thus its unordered four-term sums
+are distinct, with repetition allowed. This is the $h=4$ support condition
+in Ruzsa's independent addition graph~\cite[Chapter~1, Section~5,
+pp.~11--12]{ruzsa-structure}.
+
+\begin{corollary}\label{cor:b4-kernels}
+Let $F\subset\mathbb Z$ have $n\ge1$ elements. Suppose that $F$ is a
+$B_4$ set or that $|4F|\ge((\sqrt n+1)^2/4)^4$.
+For a constant kernel $k=c1_F$, $c\ge0$, and
+every nonzero finitely supported $f,g\ge0$,
+\[
+ \|f\star\widetilde{gk}\|_1^4
+ \le\|f\star g\|_1^4\,\|k\star k\star k\star k\|_1.
+\]
+The inequality is strict when $n>1$ and $c>0$.
+\end{corollary}
+\begin{proof}
+For $k=c1_F$, the two kernel-dependent quantities are
+\[
+ \|f\star\widetilde{gk}\|_1
+   =c\|f\star\widetilde{g1_F}\|_1,
+ \qquad
+ \|k\star k\star k\star k\|_1=c^4|4F|.
+\]
+Corollary~\ref{thm:uniform-support} proves the assertion under the
+fourfold-cardinality hypothesis. When $c=0$ both sides vanish.
+
+For a $B_4$ set, $|4F|=\binom{n+3}{4}$. Write $x=\sqrt n\ge1$.
+Direct expansion gives
+\begin{equation}\label{eq:b4-cardinality}
+ \begin{aligned}
+ 768\left[\binom{n+3}{4}-C_n^4\right]
+  &=(x-1)\bigl(29x^7+5x^6+x^4(113x-55)\\
+  &\hspace{35mm}{}+x^2(87x-81)+27x+3\bigr).
+ \end{aligned}
+\end{equation}
+The bracket is positive for $x\ge1$. Thus $|4F|\ge C_n^4$, with
+strict inequality for $n>1$, and the first part applies.
+\end{proof}
+
+\begin{corollary}\label{cor:b4-weighted-energy}
+Let $k\ge0$ be a nonzero kernel supported on a finite $B_4$ set, with
+$K=\|k\|_1$, $M=\|k\|_\infty$, and $K/M\ge9$.
+For every nonzero finitely supported $f,g\ge0$,
+\[
+ \|f\star\widetilde{gk}\|_1^4
+ <\|f\star g\|_1^4\,\|k\star k\star k\star k\|_1.
+\]
+No support restriction is imposed on $f$ or $g$.
+\end{corollary}
+\begin{proof}
+Enumerate the positive values of $k$ as $k_1,\ldots,k_r$.
+The $B_4$ condition gives
+\[
+ \|k\star k\star k\star k\|_1
+ =h_4(k):=\sum_{\substack{\alpha_1,\ldots,\alpha_r\ge0\\
+                         \alpha_1+\cdots+\alpha_r=4}}
+                   \prod_i k_i^{\alpha_i}.
+\]
+Each represented sum has one multiset of summands, whose product is
+its max-convolution value. The multinomial expansion therefore gives
+\[
+ K^4=\sum_{|\alpha|=4}\frac{4!}{\prod_i\alpha_i!}
+                    \prod_i k_i^{\alpha_i}\le24h_4(k).
+\]
+Since $K/M\ge9$ and $24\cdot4^4=6144<6561=9^4$,
+Theorem~\ref{thm:weighted-kernel-energy} gives
+\[
+ \frac{\|f\star\widetilde{gk}\|_1}{\|f\star g\|_1}
+ \le\frac K4(1+\sqrt{M/K})^2
+ \le\frac{4K}{9}<\frac{K}{24^{1/4}}\le h_4(k)^{1/4}.
+\]
+Taking fourth powers proves the result.
+\end{proof}
+
+The weighted corollary requires both the $B_4$ condition and $K/M\ge9$;
+it includes nonconstant kernels. It does not establish the fourfold
+inequality for all kernel weights on $B_4$ sets or on arbitrary supports.
