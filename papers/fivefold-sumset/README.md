@@ -30,11 +30,14 @@ to `(m,a,b)=(128,160,32)` and verifies the strict fivefold comparison. The
 [literature comparison](../sumset-literature.md) records these attributions
 and the scope of the later-source review.
 
-The companion proof credits the standard type-counting method used by
-[Lau and Nair](https://arxiv.org/abs/2312.11017v2), Theorem 1, and the weighted
-max-convolution framework of
+An asymptotic version of the binary construction follows from
+[Lau and Nair's typical-set theorem](https://arxiv.org/abs/2312.11017v3),
+Theorem 10 in Appendix C, applied to the displayed marginals in the paper
+with elementary generating-polynomial bounds. One binary typical set
+supplies all five summands. The finite proof gives the stated dimension
+555,008 directly. For the related weighted max-convolution framework, see
 [Matolcsi, Ruzsa, Shakan and Zhelezov](https://arxiv.org/abs/2003.04075v1),
-Section 8. It gives the full finite argument for its stated parameters.
+Section 8.
 
 From this directory, using Python 3.10 or later:
 
