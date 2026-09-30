@@ -44,6 +44,25 @@ other sum–difference ratios. They do not state the unequal-radius fivefold
 specialization. This observation about those texts does not establish that
 no later source made it.
 
+The note also gives a finite construction using binary words in base nine,
+in dimension 555,008. An asymptotic version follows from Lau and Nair's
+[typical-set theorem, arXiv:2312.11017v3, Theorem 10](https://arxiv.org/abs/2312.11017v3),
+with probability laws
+
+```text
+p = (144,64,32,16,8,4,2,1)/271 on {0,…,7},
+q = (255,16)/271 on {0,1}.
+```
+
+A selected coupling gives a lower bound for the difference entropy.
+Positive generating polynomials bound the sumset and the fivefold sum
+of the same binary typical set. The strict entropy gap gives finite
+integer counterexamples for all sufficiently large dimensions. The note's
+exact-type argument supplies its stated finite dimension. This identifies
+the application of the earlier theorem; an earlier printed occurrence of
+these particular marginals or the resulting fivefold example remains
+unestablished.
+
 ## The two-set exponent
 
 The [weighted-digit manuscript](sparse-sum-difference/main.pdf) defines `θ`
@@ -365,6 +384,40 @@ An author survey also identifies the journal edition in
 [*IEEE Transactions on Information Theory* 71(6), 4055–4068 (2025)](https://doi.org/10.1109/TIT.2025.3557796).
 The journal text remains unread; the theorem and proof comparison here is
 with the identified arXiv v3.
+
+Ken Lau, Chandra Nair and Zhaobang Zhu's
+[*A maximal-coupling information inequality of sums on finite subsets of
+Abelian groups*](https://chandra.ie.cuhk.edu.hk/pub/papers/comb/MCIneq.pdf)
+(author-hosted manuscript, 2026), Theorem 5, proves a fractional-partition
+upper bound for maximal sum entropy. Write `E_S` for the maximum entropy
+of `Σ_{i∈S} X_i` over joint laws with specified finite-support marginals.
+For nonnegative weights on nonempty subsets of `{1,…,r}`, it states
+
+```text
+E_{1,…,r} ≤ Σ_S γ(S) E_S,
+provided Σ_{S∋i} γ(S) = 1 for each i.
+```
+
+The theorem holds in arbitrary abelian groups. With a common marginal
+`q`, write `E_j(q)` for the corresponding maximum with `j` summands.
+The pair, triple and singleton substitutions give
+
+```text
+E_4(q) ≤ 2 E_2(q),
+E_4(q) ≤ (4/3) E_3(q),
+E_4(q) ≤ 4 H(q).
+```
+
+These direct substitutions upper-bound `E_4`. They do not establish
+`4(E_−(p,q)−E_+(p,q)) ≤ E_4(q)`, which is sufficient for the weighted
+reflected fourfold comparison. Whether a further argument from the full
+framework proves that comparison remains unestablished.
+
+The complete seven-page author-hosted manuscript and its original page
+images were reviewed. The comparison concerns that text; a final
+publisher edition was not reviewed. It contains no displayed occurrence
+of the constructions or numerical two-set bound considered here. This
+bounded observation supplies no priority conclusion.
 
 The logarithm of a sumset's size is its support entropy. It generally
 differs from the Shannon entropy of a sum of independent uniform elements.
