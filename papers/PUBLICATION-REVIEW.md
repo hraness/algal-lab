@@ -349,3 +349,88 @@ These comparisons establish neither priority for the five-point theorem
 nor a general non-implication result. The unrestricted fourfold problem
 remains unresolved in this work. The exact source versions and reading
 scopes are recorded in the shared literature comparison.
+
+## General kernel bound and B4 supports: 30 September 2026
+
+The reflected max-convolution manuscript now proves a bound for every
+nonnegative finitely supported kernel: the reflected quotient is at most
+`(sqrt(K)+sqrt(M))^2/4`, where `K` is the kernel's total mass and `M` its
+largest value. The denominator retains the full input function, including
+values outside the kernel support. For the indicator kernel on `n` points,
+the bound is `(sqrt(n)+1)^2/4`, strictly for each nonzero pair of inputs
+when `n>1`. The corresponding supremum bound remains non-strict.
+
+This proves the constant-kernel fourfold inequality on every B4 support,
+where unordered four-term sums are distinct with repetitions allowed.
+The weighted conclusion also holds on B4 supports when `K/M>=9`.
+Neither statement settles the unrestricted fourfold problem. The sharper
+four- and five-point estimates and all 240 weighted five-point certificates
+are retained.
+
+The argument uses the classical mixed additive-energy identity. The known
+simplex construction supplies the asymptotically matching leading
+coefficient `1/4`; the text credits these ingredients and makes no claim
+that the finite remainder is optimal. Independent mathematical agent
+review checked the weighted proof, the full denominator, zero cases,
+pointwise strictness, the level-set comparison and both B4 consequences.
+Review of the closest retained primary sources has not established
+historical priority or non-implication from earlier frameworks. The
+literature comparison records the exact editions read and the remaining
+journal-edition gaps.
+
+The revised 47-page PDF built without unresolved references, missing
+glyphs or box warnings. Every rendered page was individually inspected,
+including the new theorems and all coefficient tables. This is
+mathematical and editorial AI-agent review; no human peer review or
+journal acceptance is asserted. Earlier immutable releases preserve
+their original results and reading scopes.
+
+## Sharper support bounds and geometric lower examples: 30 September 2026
+
+The revised source proves strict reflected ratio bounds `29/15`,
+`7/3` and `19/7` on four, five and six sites, with arbitrary
+nonnegative denominator weights and the full original denominator.
+The complete hand proof gives the paired-minimum energy, its reflection
+invariance, the anchor lower estimate, the convex vertex upper estimate,
+and the four-weight AM–GM comparison. Passing to suprema gives
+non-strict upper bounds. No computational cover is used.
+
+The bounds prove the constant-kernel fourfold inequality at fourfold
+sumset sizes 14, 30 and 55, respectively. An elementary Sidon argument
+supplies the five-point threshold 30; together with the retained
+non-Sidon covering proof, it proves the constant-kernel result for every
+five-point support. The stronger sharp Sidon bound 39 and its
+Freiman/Bollobás–Leader–Tiba attribution remain in the paper.
+The six-point conclusion requires at least 55 fourfold sums.
+
+A geometric product construction gives ratios tending to `(K+3M)/4`
+for prescribed kernel values, with integer locations allowed to vary.
+For the supremum `K_n` over all `n`-point supports this gives
+`K_n≥(n+3)/4`, improving the finite lower bound while retaining the
+asymptotic coefficient `1/4`. The paper credits the geometric sequences
+in Matolcsi–Ruzsa–Shakan–Zhelezov and the related reflected exponential
+family in Madiman–Manui–Zawalski–Zvavitch. It also retains the classical
+indicator-simplex example and its Glasscock/Hennecart–Robert–Yudin
+attribution. The exact lower coefficient's historical priority remains
+unresolved. The exact support suprema are `K_1=1`, `K_2=5/4` and
+`K_3=3/2`. Weighted winner allocations give the universal upper bound
+`max{K/2,(K+3M)/4}`. Hence `(K+3M)/4` is sharp for every prescribed
+value list satisfying `K≤3M` when locations may vary, regardless of
+support size. Finite-size optimality remains
+unresolved for `n≥4`.
+
+Independent mathematical agents checked the strict induction, the
+full-denominator subset argument, zero weights, all boundary faces of
+the lower construction, the signed integer embedding, the weighted-winner
+allocation bound and its sharpness range, and the elementary Sidon argument. The original weighted five-point proof, its 240 rational
+certificates and its checker are unchanged; the range-energy estimate
+they use is retained. Superseded four- and five-point range optimizations
+are removed from the current exposition, while prior releases preserve
+their original proofs.
+
+The revised 51-page PDF built with cached Tectonic 0.17.0 without warnings,
+unresolved references or missing glyphs. Every rendered page was visually
+inspected, including the new proofs, coefficient tables and references.
+Repository checks and verification of the released files accompany this
+update. No human peer review, journal acceptance or historical-priority
+finding is asserted.

@@ -4,9 +4,12 @@ Review date: 30 September 2026. These manuscripts give explicit constructions,
 exact certificates and reflected fourfold inequalities with arbitrary
 nonnegative kernel weights on at most four integers and on
 `{0,2,7,8,11}`, and with constant kernels on every five-point integer
-support. The small-support manuscript also determines sharp four-point
-covering constants. Its stronger covering bound fails on the displayed
-five-point support, where the reflected inequality holds for arbitrary
+support and on every finite nonempty `B₄` set, whose unordered four-term
+sums, allowing repetition, are distinct. On `B₄` supports, it also permits
+nonconstant kernels with `‖k‖₁/‖k‖∞≥9`. A general energy bound controls
+the reflected ratio for every nonnegative finite kernel. The manuscript
+also determines sharp four-point covering constants. Its stronger covering bound
+fails on the displayed five-point support, where the reflected inequality holds for arbitrary
 nonnegative kernels.
 The comparison below credits their known ingredients and distinguishes
 their conclusions from related sumset problems. It supports the stated
@@ -210,9 +213,9 @@ tensorization, two-point statement and proof. Whether the full framework
 implies the present small-support theorems remains unestablished in this
 comparison; no priority claim follows from the invariant example.
 
-## Covering bounds and the five-point reflected inequality
+## Covering bounds and reflected inequalities
 
-The [small-support manuscript](four-point-covering/main.pdf) studies the norm
+The [finite-support manuscript](four-point-covering/main.pdf) studies the norm
 
 ```text
 N_F(k) = max { Σₚ k(p)x(p)² : x ≥ 0, supp(x) ⊆ F, x*x ≤ 1 },
@@ -264,7 +267,9 @@ N_F(1_F)⁴ ≥ (5/2)⁴ = 39 + 1/16 > 39 = T_F(1_F).
 Thus four is the largest support size for the universal covering bound.
 The manuscript proves that the reflected inequality nevertheless holds on
 this same support for arbitrary nonnegative kernel weights. Its separate
-constant-kernel theorem applies to every five-point integer support.
+constant-kernel theorems apply to every five-point integer support and
+every finite nonempty `B₄` set. Its weighted energy theorem also proves
+the reflected inequality on `B₄` supports when `‖k‖₁/‖k‖∞≥9`.
 The unrestricted fourfold question remains outside these results.
 
 The prior max-convolution framework of Matolcsi et al., Green et al.'s
@@ -298,34 +303,41 @@ The [certificate data](four-point-covering/five-point-certificates/certificates.
 and [exact arithmetic checker](four-point-covering/verify_five_point.py)
 accompany the proof. The certificate comparisons and a separate analytic
 estimate cover all branches of the bound for the reflected ratio.
-This arbitrary-kernel result concerns the specified support; the theorem
-below has a broader support class and requires constant kernels.
+This arbitrary-kernel result concerns the specified support. The results
+below address constant kernels on all five-point supports and additional
+classes of supports and kernel weights.
 
 ### Constant kernels on five points
 
-For every five-element integer set `F`, every nonzero finitely supported
-nonnegative `f`, and every nonzero nonnegative `g` supported on `F`, the
-manuscript proves
+For every five-element integer set `F` and every nonzero finitely
+supported nonnegative `f,g`, the manuscript proves
 
 ```text
-‖f⋆g̃‖₁⁴ < |4F| ‖f⋆g‖₁⁴.
+‖f⋆(g1_F)̃‖₁⁴ < |4F| ‖f⋆g‖₁⁴.
 ```
 
 This is the reflected fourfold inequality with `k=1_F`; scaling gives the
 same conclusion for every positive constant kernel on `F`. The weights
-`g` need not be constant or positive everywhere. For Sidon supports, the
-proof combines the universal ratio bound `‖f⋆g̃‖₁/‖f⋆g‖₁ ≤ 62/25`
-with `|4F| ≥ 39`. For supports with a pair-sum collision, it proves the
-strict sufficient covering bound directly.
+`g` need not be constant or positive everywhere, and all exterior values
+remain in the denominator. For Sidon supports, the proof combines
+`R_F(f,g)<7/3`
+with the elementary estimate `|4F|≥30`. Indeed, `|2F|=15`, and equality
+in `|2F+2F|≥29` would make `2F` an arithmetic progression. After
+translation, `2F={0,d,…,14d}` would place `F` inside `{0,d,…,7d}`,
+which has only seven possible positive differences instead of the ten
+required by the Sidon property. The manuscript includes the elementary
+equality characterization. For supports with a pair-sum collision, it
+proves the strict sufficient covering bound directly.
 
 When `g=1_F`, the elementary energy argument already gives the stronger
 ratio bound `9/5`. Since `|4F| ≥ 17`, this proves the five-point indicator
 corollary `|A−F|⁴ < |A+F|⁴ |4F|` for every finite nonempty integer set
 `A`. The five-point theorem extends the conclusion to arbitrary nonnegative
-weights `g`. Neither the support restriction nor this indicator corollary
+weights `g`. Neither the five-point condition nor this indicator corollary
 settles the unrestricted fourfold sumset question.
 
-The external ingredient is Freiman's classical integer `3k−4` theorem,
+The manuscript also retains the stronger sharp Sidon bound `|4F|≥39`.
+This refinement uses Freiman's classical integer `3k−4` theorem,
 in the form recalled by Béla Bollobás, Imre Leader and Marius Tiba,
 *A strengthening of Freiman's 3k−4 theorem*,
 [arXiv:2204.09816v1](https://arxiv.org/abs/2204.09816v1)
@@ -333,8 +345,8 @@ in the form recalled by Béla Bollobás, Imre Leader and Marius Tiba,
 Theorem 1 says that integer sets `A,B` with `|A|=|B|=m` and
 `|A+B|=2m−1+r`, `r≤m−3`, lie in progressions of a common difference,
 each with `m+r` elements. Taking the two sets equal gives the form used
-here. For `B=2F`, `|B|=15` and a hypothetical `|B+B|≤38`, the containing
-progression has at most 24 elements. After normalization its step is one,
+for that refinement. For `B=2F`, `|B|=15` and a hypothetical `|B+B|≤38`,
+the containing progression has at most 24 elements. After normalization its step is one,
 so `diam(F)≤11`. A hand classification of span-11 Sidon sets and exact
 fourfold-sum counts then yield the sharp lower bound 39.
 
@@ -347,6 +359,309 @@ proof of the authors' bounded-summand strengthening were not read. This is
 a verified restatement of the classical dependency, not a claim to have
 reviewed those other proofs or established priority for the five-point result.
 
+### Weighted energy bounds and `B₄` supports
+
+For every nonnegative finitely supported kernel `k` on the integers, let
+`K=‖k‖₁` and `M=‖k‖∞`. For arbitrary nonzero finitely supported nonnegative `f,g`,
+the manuscript proves
+
+```text
+‖f⋆(gk)̃‖₁ / ‖f⋆g‖₁ ≤ (√K+√M)²/4.
+```
+
+The denominator includes the values of `g` outside the kernel support,
+and values on the support may be zero. The zero kernel gives zero.
+The proof uses the mixed weighted form of the classical equal-energy
+mechanism. With positive kernel values `k_i`, put `t=K+√(KM)` and
+
+```text
+q(x) = t Σ k_i x_i² − (Σ k_i x_i)².
+K max_i(k_i x_i²) ≤ q(x) ≤ (t²/4) max_i x_i².
+```
+
+Weighted Cauchy–Schwarz and a completed square give the lower bound;
+`x_i² ≤ (max x_j)x_i` and a scalar quadratic maximum give the upper bound.
+For `x_i±(s)=√(g(p_i)f(s∓p_i))`, the diagonal sums agree, and the mixed
+ordinary-convolution identity with auxiliary kernel `w_i=k_i√g(p_i)`
+gives equal total `q` on the two sides. Summing compares the reflected
+numerator directly with the full original denominator.
+
+Hennecart, Robert and Yudin, p. 174, equation (4), record the equality
+of sum and difference representation energies for equal indicator inputs.
+The manuscript writes out the mixed weighted identity and uses it in a
+quadratic comparison. This is a direct application of that classical
+method; no prior source for the exact weighted coefficient has been
+identified in the sources read, and no priority claim is made.
+
+Taking `k=1_F` gives, for every `n`-point integer set,
+
+```text
+R_F(f,g) = ‖f⋆(g1_F)̃‖₁ / ‖f⋆g‖₁ ≤ C_n,
+C_n = (√n+1)²/4.
+```
+
+The inequality is strict for each nonzero input pair when `n>1`. At the
+output `min supp(f) − max {p∈F:g(p)>0}`, exactly one active reflected
+coordinate is positive, which makes the quadratic comparison strict
+when there is more than one active point. Empty and singleton active
+supports follow separately. The four-, five- and six-point estimates
+are strengthened by the paired-minimum argument below. The general
+support bound alone does not prove the fourfold inequality for every
+six-point support.
+
+The weighted theorem also follows from this scalar theorem by applying
+kernel level sets with `f,g` and the full denominator fixed. For nonzero
+`k`, put `N(u)=#{p:k(p)>u}`. Subadditivity gives the more detailed bound
+
+```text
+‖f⋆(gk)̃‖₁ / ‖f⋆g‖₁
+  ≤ ∫₀ᴹ C_{N(u)} du
+  = (K+M)/4 + (1/2)∫₀ᴹ √N(u) du
+  ≤ (√K+√M)²/4.
+```
+
+The last step is Cauchy–Schwarz. This integrates the kernel values;
+no interchange of maximum and integration as an equality is used.
+
+Weighted winner allocations give a further universal bound. For the
+actual maximizing sites of the weighted numerator, the assigned masses
+satisfy `0≤a_i≤1` and `a_i a_j≤1/4`, while the ratio is
+`Σk_i a_i`. If every allocation is at most one-half, this is at most
+`K/2`. Otherwise, with `x=a_j>1/2`, it is at most
+`k_j x+(K−k_j)/(4x)`. Convexity on `[1/2,1]` gives
+
+```text
+‖f⋆(gk)̃‖₁ / ‖f⋆g‖₁ ≤ max{K/2,(K+3M)/4}.
+```
+
+The geometric lower example below matches this upper bound whenever
+`K≤3M`, for each fixed list of positive kernel values with locations
+allowed to vary. There is no support-size restriction on that sharpness
+statement. In particular, `K_1=1`, `K_2=5/4` and `K_3=3/2`.
+The proof uses the actual weighted winners and the same full denominator;
+it does not identify them with unweighted winners.
+
+A second energy uses paired minima. With normalized positive denominator
+weights `g_i∈[m,1]`, put `A=n−1+1/m` and
+
+```text
+q(v) = A Σv_i − Σ_{i<j}[min(v_i,v_j)
+                     + min((g_j/g_i)v_i,(g_i/g_j)v_j)].
+```
+
+The two minimum terms exchange under reflection and translation, so
+their total energy is invariant. An anchor at a largest coordinate gives
+`q(v)≥A max(v_i)`; convexity gives its upper bound at the vertices of
+the unit cube. A four-weight AM–GM estimate,
+`a/b+a/c+a/d+b/c+b/d+c/d≥4√(2a/d)` for `a≤b≤c≤d`,
+improves the pair penalty at these vertices. The complete proof yields
+
+```text
+R_H(f,g) < 29/15  (|H|=4),
+R_H(f,g) < 7/3    (|H|=5),
+R_H(f,g) < 19/7   (|H|=6).
+```
+
+The proofs keep the same full denominator when passing to subsets and
+handle vanishing restricted weights by their smaller positive support.
+These are pointwise strict bounds; the resulting bounds on suprema are
+non-strict. The fourth powers are below 14, 30 and 55, respectively.
+Thus the six-point result proves constant-kernel H4 when `|4H|≥55`;
+it does not settle every six-point support or arbitrary six-point kernel
+weights. No computational cover is a premise of these three estimates.
+
+For `K_n = sup R_F(f,g)` over all `n`-point integer sets and all nonzero
+finitely supported nonnegative `f,g`, the resulting bounds are
+
+```text
+K_1 = 1,  K_2 = 5/4,  K_3 = 3/2,
+(n+3)/4 ≤ K_n ≤ (√n+1)²/4  (n≥2),
+K_4 ≤ 29/15,  K_5 ≤ 7/3,  K_6 ≤ 19/7,
+K_n/n → 1/4.
+```
+
+The geometric lower example uses `f_N(x)=2^(−Σx_i)` on
+`{0,…,N}^d`, with the second profile equal to one at zero and one-half
+at the coordinate vertices. Geometric sequences occur
+explicitly in Matolcsi, Ruzsa, Shakan and Zhelezov, Example 11.2,
+p. 19, of arXiv:2003.04075v1; their Theorems 10.1–10.2 develop product
+and fibre methods. Related reflected product exponentials occur in
+Madiman, Manui, Zawalski and Zvavitch, Lemma A.3, p. 34, of
+arXiv:2608.10456v1. Those two original PDF pages were checked.
+
+The adaptation here restricts the second profile to the simplex vertices
+and counts the disjoint exterior faces. If its kernel values have
+maximum `M` at zero and total `K`, and `S_N=2−2^(−N)`, the masses are
+
+```text
+P_N = S_N^d + d·2^(−N−1) S_N^(d−1),
+Q_N = M S_N^d + (K−M) S_N^(d−1)/2.
+```
+
+Their quotient tends to `(K+3M)/4`, giving `(n+3)/4` for the
+indicator kernel on `n=d+1` sites. A positional embedding with base
+`2N+3` preserves all finite sums and differences. The integer support
+may vary with `N`; this is a supremum over support locations, not a
+limit on an arbitrary fixed support. The sequence family and product
+method are prior ingredients. The exact coefficient's publication history
+remains unresolved. Finite-size optimality for `n≥4` is also unresolved;
+this is a construction-level adaptation, without a historical-priority claim.
+
+For indicator inputs, the retained classical simplex example is an exact
+specialization of known counting. Daniel Glasscock's
+[*Sumset Estimates in Abelian Groups*](https://sites.uml.edu/daniel-glasscock/files/2021/06/MSThesis.pdf),
+CEU master's thesis dated 24 February 2012, Lemma B.1, pp. 37–38,
+gives both counts for `A=V(n−1,n−2)` and `U=V(n−1,1)`:
+
+```text
+|A+U| = binomial(2n−2,n−1),
+|A−U| = binomial(2n−3,n−1) + (n−1)binomial(2n−4,n−2).
+```
+
+Their ratio is `(n²−2)/(4n−6)`. The thesis develops the classical
+simplex family of Hennecart, Robert and Yudin, whose paper also uses
+integer encoding. The finite-support manuscript supplies a sufficient
+base for the integer example; the family, counts, negative-coordinate
+argument and positional encoding are prior techniques. Sharpness concerns
+the limiting leading coefficient; finite-size optimality is established
+through three sites and remains unresolved for `n≥4`.
+
+A lossless reduction of arbitrary profile weights to indicator profiles
+at the same support size would give an incorrect bound. For `F={0,1}`
+and `f=g` with values `(2,1)`, the denominator is `4+2+1=7`, while the
+reflected numerator is `2+4+2=8`. The ratio `8/7` exceeds the indicator
+coefficient `e_2=1`. Integrating the profile `g` also gives indicator
+denominators totaling `5+3=8`, above the actual denominator `7`.
+The mixed-energy proof avoids this step, and the kernel-level argument
+keeps the profile unchanged.
+
+For a constant kernel `k=c1_F`, the support estimate proves the fourfold
+inequality whenever `|4F| ≥ C_n⁴`. A `B₄` set has distinct unordered
+four-term sums, with repetitions allowed, and therefore
+`|4F| = binomial(n+3,4)`. This support condition appears at `h=4` in the
+independent addition graph of Ruzsa's
+[*Sumsets and structure*, Chapter 1, Section 5, pp. 11–12](https://tensen.net/research/static/gc-data/sumset/Additive-Combinatorics.pdf),
+using the linked manuscript's pagination. For every `n>1`,
+
+```text
+C_n⁴ < binomial(n+3,4).
+```
+
+An exact polynomial factorization with `x=√n` proves this comparison;
+the two sides agree when `n=1`.
+
+Thus the constant-kernel inequality holds for every finite nonempty `B₄`
+set. It is strict for `n>1`, `c>0` and nonzero `f,g`. The singleton case
+uses `R_F≤1`; `c=0` gives equality at zero.
+
+For a nonzero kernel on a `B₄` support, the fourfold max-convolution mass
+is the complete homogeneous polynomial `h₄(k)`. The multinomial expansion
+gives `K⁴≤24h₄(k)`. If `K/M≥9`, then
+
+```text
+(√K+√M)²/4 ≤ 4K/9 < K/24^(1/4) ≤ h₄(k)^(1/4),
+```
+
+which proves the strict reflected fourfold inequality in this nonconstant
+weight regime. Both the `B₄` support condition and `K/M≥9` are required
+for this corollary; arbitrary kernel weights on all `B₄` sets remain
+outside the result.
+
+Gyarmati, Hennecart and Ruzsa's Theorem 2 supplies a direct comparison
+through its threefold factor. A `B₄` set also has distinct
+unordered three-term sums: append the same fourth point to any proposed
+equality. Thus `|3F| = binomial(n+2,3)`, and, for `n>1`,
+
+```text
+|3F|⁴ / |4F|³ = 32n(n+1)(n+2) / (3(n+3)³) > 1,
+32n(n+1)(n+2) − 3(n+3)³ = (n−1)(29n²+98n+81) > 0.
+```
+
+Consequently that theorem's factor `|3F|^(1/3)` is larger than
+`|4F|^(1/4)` throughout this class. The direct factor substitution does
+not give the fourfold conclusion. Max-convolution, the functional
+tripling parameters and their tensorization belong to the prior framework
+credited above. The mixed-energy argument gives a direct classical route
+to the displayed weighted bound. Whether the prior max-convolution
+theorems also imply these bounds or the `B₄` conclusions remains
+unestablished, as does priority in the wider literature.
+A `B₄` support admits a Freiman-4-isomorphic lift to the free simplex
+`{0,e₁,…,eₙ₋₁}` in a binary cube, but deriving the required reflected
+inequality on that simplex from the inspected prior results remains
+unestablished.
+
+### Comparison with alpha-concave functions
+
+Madiman, Manui, Zawalski and Zvavitch,
+[*Integral inequalities for alpha-convolutions of alpha-concave functions*,
+arXiv:2608.10456v1](https://arxiv.org/abs/2608.10456v1)
+(11 August 2026), use the same sup-product convolution at `α=0`.
+Their Theorem 5.2, equation (37), pp. 26–28, bounds the continuous reflected
+ratio by `2^d` for normalized log-concave functions on `R^d`.
+The parameter `d` is ambient dimension, not the number of support points.
+The complete 37-page preprint was read, including both proofs of that
+theorem and Section 6. Original PDF pages 2, 19–20, 25–29, 31–32 and 34 were
+also visually checked; this is not an all-page image review.
+
+The proof of Theorem 6.2, pp. 31–32, contains a step that transfers to
+arbitrary nonnegative finitely supported functions on the integers:
+
+```text
+‖a⋆b̃‖₁ ‖a⋆c̃‖₁ ≥ ‖a‖₂² ‖b⋆c̃‖₁.
+```
+
+It follows by summing the pointwise product inequality before the proof
+uses Lemma 6.1 and Theorem 3.8. Put `h=g1_F≠0`,
+`P_F=‖f⋆h‖₁`, `Q_F=‖f⋆h̃‖₁`, and `m=|supp(h)|`.
+Taking `a=h̃, b=f, c=h` gives
+
+```text
+P_F ‖h⋆h‖₁ ≥ ‖h‖₂² Q_F,
+‖h⋆h‖₁ ≤ ((Σh)²+Σh²)/2,
+Q_F/‖f⋆g‖₁ ≤ Q_F/P_F ≤ (m+1)/2.
+```
+
+The middle estimate counts unordered pairs, including diagonals; Cauchy
+gives the last step, and the full denominator is at least `P_F`.
+This coefficient exceeds `C_m=(√m+1)²/4` by
+`(√m−1)²/4` for every `m>1`. This derivation does not recover the
+target coefficient or its strictness. The zero restricted profile gives
+zero separately.
+
+Allowing every supported truncation and rescaling of the common profile
+does not improve this particular route. Take `h=1_F` on a Sidon set `F`
+of size `n`, with all unordered pair sums, including diagonals, distinct.
+For any nonzero `a` supported on `−F`, normalize `max a=1` and sort
+its values as `0≤a₁≤⋯≤aₙ=1`. The pointwise first-factor bound
+`‖a⋆f̃‖₁≤P_F` gives the coefficient
+
+```text
+‖a⋆h̃‖₁/‖a‖₂² = (Σⱼ j aⱼ)/(Σⱼ aⱼ²) ≥ (n+1)/2.
+```
+
+The inequality follows from ordered Chebyshev and `aⱼ≥aⱼ²`;
+all values one attain equality. This excludes only the triangle step
+combined with that pointwise first-factor estimate. Sharper estimates
+depending on `f`, other common profiles with a proved control, and other
+uses of the source are not excluded by this test.
+
+Theorem 5.2's proofs retain log-concavity or convex level sets and
+Lebesgue-volume scaling; Lemma 5.1, pp. 24–26, does not transfer by replacing
+volume with lattice cardinality. Thickening each integer by an interval
+of radius `0<ε<1/4` preserves the discrete quotient exactly but can fail
+even quasiconcavity.
+The source's distinct difference operator, defined on p. 19, satisfies
+`Δ₀(u²)(x/2)=(u⋆ũ)(x)`; equation (29), p. 20, still requires
+log-concavity, and continuous dilation changes the integral.
+Positive powers preserve that concavity requirement and the support.
+Nor does normalization alone supply Lemma 6.1's moment estimate:
+a ten-point profile with values `1,1/4,…,1/4` has
+`‖u‖₁=13/4>2‖u‖₂²=25/8`.
+
+These tests identify the limits of the stated derivations. They neither
+rule out every further argument from this source nor establish novelty,
+historical priority or finite-`n` optimality.
+
 ### Comparison with continuous autoconvolution bounds
 
 Two inspected primary sources concern ordinary autoconvolution with a
@@ -358,7 +673,7 @@ different input normalization:
 | Paata Ivanisvili and Xinyuan Xie, *Grokability in five inequalities*, [arXiv:2605.05193v1](https://arxiv.org/abs/2605.05193v1) (6 May 2026) | Theorem 5 states `‖f*f‖∞ ≥ 1.2802(∫f)²` for nonnegative integrable `f` supported on `[-1/4,1/4]`. The theorem and its complete Section 2.4 proof were read, including visual checks of original PDF pages 5, 16 and 17. The proof refines an error estimate and relies on an earlier computation from Cloninger–Steinerberger. This is a report of the source's theorem; that numerical dependency was not reproduced or independently certified here. The unrelated proofs were not all reviewed. |
 
 These continuous statements constrain `L¹` mass. The covering part of the
-small-support manuscript instead optimizes the weighted squared input mass
+finite-support manuscript instead optimizes the weighted squared input mass
 `Σk(p)x(p)²` on a fixed finite support and compares it with a fourfold
 max-convolution total.
 Different normalizations alone establish neither novelty nor
@@ -503,6 +818,63 @@ The two construction papers also give direct finite counting proofs, and
 both fourfold manuscripts prove their weighted inequalities directly.
 The entropy derivation maximizes over couplings with prescribed marginals;
 it does not substitute the entropy of independent uniform inputs.
+
+## A finite entropy test for the support bound
+
+The support bound has an exact reformulation that retains its displayed
+coefficient. Fix nonempty finite supports `A,F`, and use natural logarithms.
+For a positive constant `C`, the comparison
+
+```text
+E_−(p,q) − E_+(p,q) ≤ log C  for every pair of marginals p on A, q on F
+```
+
+is equivalent to `‖f⋆g̃‖₁ ≤ C‖f⋆g‖₁` for every nonzero nonnegative
+`f,g` supported on `A,F`. To see this, define
+
+```text
+L_±(u,v) = log Σ_{z∈A±F} exp(max_{x±y=z} (u_x+v_y))
+         = max_{p,q} [E_±(p,q) + p·u + q·v].
+```
+
+The second equality is the finite Gibbs variational formula, with one
+maximizing pair selected in each output fiber. The functions `E_±` are
+concave and upper semicontinuous on the compact marginal simplices, so
+convex conjugacy also gives the reverse implication. Positive profiles
+are `f=exp(u), g=exp(v)`; zero values follow by continuity. Restricting
+an arbitrary `g` to `g1_F` leaves `‖f⋆(g1_F)̃‖₁` unchanged and can only
+decrease the denominator. This extends the bound to the full denominator
+used in the manuscript. If `g1_F=0`, the numerator is zero.
+
+For a nonzero kernel with positive support `F={y:k_y>0}`, replacing `v`
+by `v+log k` in the numerator gives the corresponding numerical test,
+again for every pair of marginals `p,q` on `A,F`:
+
+```text
+E_−(p,q) − E_+(p,q) + Σ_y q_y log k_y
+  ≤ log((√K+√M)²/4),   K=Σ_y k_y, M=max_y k_y.
+```
+
+This is a finite derivation using established variational and convex-duality
+tools. Liu, Courtade, Cuff and Verdú,
+[*Information-Theoretic Perspectives on Brascamp-Lieb Inequality and Its
+Reverse*, arXiv:1702.06260v3](https://arxiv.org/abs/1702.06260v3)
+(3 December 2017), Theorem 4, provide the relevant general
+forward-reverse entropy duality. The theorem was read and its finite
+projection-map specialization was checked. The finite comparison above
+is derived here from Gibbs variational duality and convex conjugacy;
+the general duality statement alone does not evaluate the reflected
+coefficient.
+
+For example, the singleton-partition substitution in Lau–Nair–Zhu's
+Theorem 5 gives `E_−(p,q) ≤ H(p)+H(q)`. An independent coupling gives
+`E_+(p,q) ≥ max(H(p),H(q))`. Together these yield a gap at most
+`min(H(p),H(q)) ≤ log n`, where `n=|F|`. This direct comparison falls
+short of `log C_n`, because `C_n=(√n+1)²/4<n` for `n>1`.
+The remaining literature question is whether a prior theorem or a further
+argument supplies the displayed smaller coefficient for arbitrary
+profiles. The reformulation and these direct substitutions do not settle
+that historical question or establish finite-`n` optimality.
 
 ## Scope of this review
 
