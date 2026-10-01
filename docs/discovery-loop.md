@@ -4,7 +4,12 @@ Algal Lab includes a resumable experiment loop and an [outer-agent skill](../.ag
 
 The network example is a software demonstration of a small connectivity model. It establishes neither a scientific discovery nor an improvement in a model's reasoning. The xAI and Gemini transports have been tested with local fixtures only. Live service behavior, model compatibility, pricing, and billing have not been qualified.
 
-For the five-site max-convolution problem, start with the [rejected geometric family](five-site-geometric-family.md). Its proof excludes every finite box size and uniform interior multiplier between zero and one from one proposed improvement route, so a new run can avoid repeating that parameter search.
+For the five-site max-convolution problem, read these two exclusions before proposing a geometric construction:
+
+- [Boxes with reduced interior weights](five-site-geometric-family.md) cannot enter one unresolved region in the current proof, for any finite box size or uniform interior multiplier between zero and one.
+- [Geometric weights on downward-closed sets](five-site-geometric-downsets.md) have reflected-to-forward ratio at most $27936/13981<2$. This covers boxes, simplex cutoffs, and irregular staircases with the specified weights.
+
+These results let a new run avoid repeating searches within the excluded families. Their conclusions differ: a ratio bound alone does not exclude the unresolved proof region.
 
 ## Run without keys
 
