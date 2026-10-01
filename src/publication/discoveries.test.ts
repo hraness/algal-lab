@@ -29,7 +29,8 @@ describe("public discovery export", () => {
   });
   test("review must cover the update and have its own qualifying admission", async () => {
     const stale = await manifest();
-    stale.articles[0].updated = "2026-10-01";
+    const reviewTime = Date.parse(stale.articles[0].provenance.reviewedAt);
+    stale.articles[0].updated = new Date(reviewTime + 86_400_000).toISOString().slice(0, 10);
     await expect(assembleDiscoveries(stale, revision, read)).rejects.toThrow("current update");
     const low = await manifest();
     low.articles[0].admission.scores.originalEvidence = 0;
