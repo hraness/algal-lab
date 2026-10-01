@@ -1,0 +1,526 @@
+\subsection{A bound for one five-site profile}
+\label{sec:five-site-profile}
+
+The general five-site constant is not determined here.  A smaller bound
+is available when the five values of the input $g$ have the prescribed
+proportions $9:5:5:5:5$.  These are values of $g$, rather than values of
+the separate kernel $k$.
+
+\begin{theorem}\label{thm:five-profile-resolvent}
+Let $H=\{h_0,h_1,h_2,h_3,h_4\}\subset\mathbb Z$ have five distinct
+elements.  Suppose $f,g$ are nonzero, nonnegative and finitely supported,
+and for some $t>0$,
+\[
+ g(h_0)=t,\qquad g(h_i)=\frac59t\quad(1\le i\le4).
+\]
+Then
+\begin{equation}\label{eq:five-profile-bound}
+ \frac{\|f\star\widetilde{g1_H}\|_1}{\|f\star g\|_1}
+ \le \gamma,\qquad
+ \gamma=\frac{3143504}{1566459}.
+\end{equation}
+The positions $h_i$ and the values of $f$ are unrestricted.
+\end{theorem}
+
+\begin{proof}
+Restricting $g$ to $H$ leaves the numerator unchanged and can only
+decrease the denominator.  Scaling $g$ and translating its support
+also leave the ratio unchanged.  We may therefore take $h_0=0$,
+$g_0=1$, $g_i=r=5/9$ for $1\le i\le4$, and $g=0$ outside $H$.
+Put
+\[
+ G=\sum_{i=0}^4g_i=\frac{29}{9},\qquad
+ P=\sum_x\max_{0\le i\le4}g_i f(x-h_i),\qquad
+ Q=\sum_x\max_{0\le i\le4}g_i f(x+h_i).
+\]
+Every sum over $x$ is over $\mathbb Z$.
+
+\medskip\noindent\textbf{Translation defects.}
+Let $\mathcal S$ consist of the four three-element subsets of
+$\{1,2,3,4\}$.  Define
+\[
+ \begin{aligned}
+ M(x)&=\max\bigl(f(x),r f(x-h_1),\ldots,r f(x-h_4)\bigr),\\
+ E_S(x)&=\max\bigl(f(x),\max_{i\in S}r f(x-h_i)\bigr),&
+ P_S&=\|E_S\|_1,\\
+ d_S(x)&=\bigl(f(x)-\max_{i\in S}r f(x-h_i)\bigr)_+,&
+ D_S&=\|d_S\|_1.
+ \end{aligned}
+\]
+With $\delta=(1-r)^3=64/729$, set
+\[
+ R_S=D_S-\delta P_S,\qquad
+ R=\sum_{S\in\mathcal S}R_S,\qquad
+ Z=\sum_{S\in\mathcal S}(P-P_S).
+\]
+We next prove $R_S\ge0$ and an estimate whose error depends on $R$
+and $Z$.
+
+For $S=\{i,j,\ell\}$ consider the nonnegative series
+\[
+ F_S(x)=
+ \sum_{a,b,c\ge0}r^{a+b+c}
+ d_S(x-a h_i-b h_j-c h_\ell).
+\]
+This auxiliary function need not be finitely supported.  Tonelli's
+theorem gives $\|F_S\|_1=(1-r)^{-3}D_S<\infty$.
+The inequality
+\[
+ f(x)\le d_S(x)+\max_{i\in S}r f(x-h_i)
+\]
+can be iterated along paths of shifts in $S$.  At depth $n$, the
+remaining term is at most $r^n\|f\|_\infty$.  Along any one path,
+the nonnegative defect terms use distinct multi-indices and are
+bounded by the series defining $F_S$.  Letting $n$ tend to infinity
+therefore gives $f\le F_S$.  Shifting a summation index also gives
+\[
+ rF_S(x-h_j)\le F_S(x)\qquad(j\in S).
+\]
+It follows that $E_S\le F_S$, and hence
+\begin{equation}\label{eq:five-profile-resolvent-excess}
+ R_S\ge0,\qquad
+ \|F_S-E_S\|_1=\delta^{-1}R_S.
+\end{equation}
+
+Write $u_S=M-E_S\ge0$.  For $j\in S$, the preceding inequalities imply
+\[
+ \bigl(rM(x-h_j)-M(x)\bigr)_+
+ \le r u_S(x-h_j)+F_S(x)-E_S(x).
+\]
+Choose distinct triples $S_j$ containing $j$: for example, omit
+$j+1$ cyclically from $\{1,2,3,4\}$.  Each triple then occurs once.
+Thus, with
+\[
+ e_j(M)=\sum_x\bigl(rM(x-h_j)-M(x)\bigr)_+,
+\]
+we have
+\begin{equation}\label{eq:five-profile-translation-error}
+ \sum_{j=1}^4e_j(M)\le rZ+\delta^{-1}R.
+\end{equation}
+
+For any nonnegative summable $u$, put
+$b_j(x)=(r u(x-h_j)-u(x))_+$ and $e_j(u)=\sum_x b_j(x)$.
+The definition gives
+\[
+ \min\{u(x),r u(x+h_j)\}
+ \ge r^2u(x)-r b_j(x+h_j).
+\]
+Subtract this minimum from $r u(x+h_j)$ and sum over $x$.
+Bounding a maximum by its initial coordinate plus the four positive
+increments then gives
+\[
+ \sum_x\max\bigl(u(x),r u(x+h_1),\ldots,r u(x+h_4)\bigr)
+ \le \alpha\|u\|_1+r\sum_{j=1}^4e_j(u),
+ \qquad
+ \alpha=1+4r(1-r)=\frac{161}{81}.
+\]
+Apply this to $u=M$, using $f\le M$, $\|M\|_1=P$ and
+\eqref{eq:five-profile-translation-error}.  We obtain
+\begin{equation}\label{eq:five-profile-stability}
+ Q\le\alpha P+\tau R+r^2Z,\qquad
+ \tau=r\delta^{-1}=\frac{405}{64}.
+\end{equation}
+
+\medskip\noindent\textbf{A tree estimate retaining the same defects.}
+For $v=(v_0,\ldots,v_4)\ge0$, define
+\[
+ \Phi_{ij}(v)=\min(v_i,v_j)
+ +\min\left(\frac{g_j}{g_i}v_i,\frac{g_i}{g_j}v_j\right),
+ \qquad
+ \kappa_{ij}=\frac{\min(g_i,g_j)}{g_i+g_j}.
+\]
+We have
+\[
+ \kappa_{ij}\Phi_{ij}(v)\le\min(v_i,v_j).
+\]
+For any spanning tree on the five indices, root the tree at a
+coordinate attaining $\max_i v_i$ and charge each edge to its child.
+Every other coordinate is charged once.  Therefore
+\[
+ \max_i v_i+\sum_{\{i,j\}\in T}\kappa_{ij}\Phi_{ij}(v)
+ \le\sum_i v_i.
+\]
+Take a mixture of stars whose center probabilities are
+\[
+ p_0=\frac{103}{141}=1-2\beta,\qquad
+ p_i=\frac{19}{282}=\frac{\beta}{2}\quad(1\le i\le4),
+ \qquad\beta=\frac{19}{141}.
+\]
+Let
+\[
+ w_{ij}=(p_i+p_j)\kappa_{ij},\qquad
+ W(v)=\sum_{i<j}w_{ij}\Phi_{ij}(v),\qquad
+ q_-(v)=\sum_i v_i-W(v).
+\]
+The tree inequality gives $\max_i v_i\le q_-(v)$.
+For the upper estimate use
+\[
+ a=1-\frac32\beta=\frac{75}{94},\qquad
+ B=ar+2\beta=\frac{67}{94},\qquad
+ A=4ar-\beta=\frac{77}{47},
+\]
+\[
+ q_+(v)=Av_0+B\sum_{i=1}^4v_i-W(v).
+\]
+The root--leaf edge marginals are $a$ and the leaf--leaf marginals
+are $\beta$.  The function $q_+$ is convex and positively
+homogeneous, so
+$q_+(v)\le\int_0^\infty q_+(1_{\{v_i\ge s\}})\,ds$.
+
+For each triple $S$, write
+\[
+ \Delta_S(v)=\bigl(v_0-\max_{i\in S}v_i\bigr)_+,\qquad
+ M_S(v)=\max\bigl(v_0,\max_{i\in S}v_i\bigr),
+\]
+and set
+\[
+ z(v)=4\max_i v_i-\sum_{S\in\mathcal S}M_S(v).
+\]
+The quantities $\max_i v_i$, $M_S(v)$, $\Delta_S(v)$ and $z(v)$
+equal the integrals of their values on these indicator layers.
+The pointwise estimate needed below is
+\begin{equation}\label{eq:five-profile-pointwise-certificate}
+ q_+(v)\le C\max_i v_i
+ -\lambda\sum_{S\in\mathcal S}
+       \bigl(\Delta_S(v)-\delta M_S(v)\bigr)-\sigma z(v),
+\end{equation}
+where
+\[
+ \lambda=\frac{19}{188}=\frac{3\beta}{4},\quad
+ C_0=\frac{96}{47},\quad
+ C=C_0-4\lambda\delta=\frac{68768}{34263},\quad
+ \sigma=\frac{125}{94}-\frac{304}{34263}>1.
+\]
+Here is a complete indicator check.
+If the root $0$ is present and $\ell$ leaves are present, direct
+substitution gives
+\[
+ q_+(1_J)=A+2\beta\ell-\beta\binom{\ell}{2},\qquad
+ \sum_S\Delta_S(1_J)=
+ \begin{cases}4,&\ell=0,\\1,&\ell=1,\\0,&\ell\ge2.\end{cases}
+\]
+If the root is absent and $\ell\ge1$ leaves are present, it gives
+$q_+(1_J)=B\ell-\beta\binom{\ell}{2}$ and
+$\sum_S\Delta_S(1_J)=0$.  Consequently all nonempty indicator types
+are as follows:
+\[
+\begin{array}{c|c|c|c|c}
+0\in J&\ell&
+q_+(1_J)+\lambda\sum_S\Delta_S(1_J)&
+\sum_SM_S(1_J)&z(1_J)\\ \hline
+\text{yes}&0&C_0&4&0\\
+\text{yes}&1&C_0-\beta/4&4&0\\
+\text{yes}&2&C_0&4&0\\
+\text{yes}&3&C_0&4&0\\
+\text{yes}&4&C_0-\beta&4&0\\
+\text{no}&1&B&3&1\\
+\text{no}&2&2B-\beta&4&0\\
+\text{no}&3&3B-3\beta&4&0\\
+\text{no}&4&C_0&4&0
+\end{array}
+\]
+The leaf-only values increase with $\ell$, since
+$B-3\beta=29/94>0$, and the last value is
+$4B-6\beta=C_0$.  The singleton-leaf row is an equality in
+\eqref{eq:five-profile-pointwise-certificate}, because
+$\sigma=C_0-B-\lambda\delta$.  Every other row follows from
+$C=C_0-4\lambda\delta$.  The empty indicator has all entries zero.
+Integration over layers proves the certificate for every $v\ge0$.
+
+Apply the certificate to
+$v_i^+(x)=g_i f(x-h_i)$.  Its four sums of $\Delta_S$ are $D_S$,
+its sums of $M_S$ are $P_S$, and its sum of $z$ is $Z$.
+For $v_i^-(x)=g_i f(x+h_i)$, translation of $x$ gives
+\[
+ \sum_x\Phi_{ij}(v^+(x))=\sum_x\Phi_{ij}(v^-(x)).
+\]
+For example, translating $x$ by $h_i+h_j$ interchanges the two
+minima in the definition of $\Phi_{ij}$.  The upper diagonal has
+the exact trace
+\[
+ A+4rB=\frac{77}{47}+\frac{20}{9}\frac{67}{94}
+       =\frac{29}{9}=G.
+\]
+Consequently
+$\sum_xq_-(v^-(x))=\sum_xq_+(v^+(x))$.
+The tree inequality on $v^-$ and the certificate on $v^+$ yield
+\begin{equation}\label{eq:five-profile-defect}
+ Q\le C P-\lambda R-\sigma Z.
+\end{equation}
+
+Multiply \eqref{eq:five-profile-defect} by $\tau$, multiply
+\eqref{eq:five-profile-stability} by $\lambda$, and add.
+The $R$ terms cancel:
+\[
+ Q\le
+ \frac{\tau C+\lambda\alpha}{\tau+\lambda}P
+ +\frac{\lambda r^2-\tau\sigma}{\tau+\lambda}Z.
+\]
+The last coefficient is negative, since $\tau>6$, $\sigma>1$,
+$\lambda<1$ and $r<1$.  As $Z\ge0$, dropping it and simplifying
+gives \eqref{eq:five-profile-bound}.
+\end{proof}
+
+The estimate does not give the exact supremum for this profile.
+Nor does its retained surplus have a positive lower bound as a
+fraction of $P$, uniformly over integer positions.  To see this,
+use the geometric-product construction of
+Proposition~\ref{prop:geometric-product} with ratio $r=5/9$.
+On $\{0,\ldots,L\}^4$ put
+$f_L(x)=r^{x_1+\cdots+x_4}$, with $H=\{0,e_1,e_2,e_3,e_4\}$.
+Write $s_L=1+r+\cdots+r^L$.  Counting the interior and the disjoint
+boundary faces gives
+\[
+ P_L=s_L^4+4r^{L+1}s_L^3,\quad
+ Q_L=s_L^4+4rs_L^3,\quad
+ P_{S,L}=s_L^4+3r^{L+1}s_L^3,\quad D_{S,L}=s_L.
+\]
+In particular,
+\[
+ \frac{Q_L}{P_L}\longrightarrow\alpha,\qquad
+ 0\le\frac{R_L}{P_L}
+ \le4(s_L^{-3}-\delta)\longrightarrow0.
+\]
+For each $L$, encoding the four coordinates in an integer base
+larger than $2L+3$ preserves these one-coordinate translations and
+all displayed counts.  This establishes the same limitation with
+integer supports allowed to vary.
+
+\medskip\noindent\textbf{A limit of this combination of estimates.}
+It is natural to ask whether different tree probabilities or
+coefficients improve the preceding argument.  The answer is no
+for the following precise family.  This is a statement about the
+family of certificates, rather than the attainable convolution ratio.
+
+Let $p$ be any probability distribution on the spanning trees on
+$\{0,1,2,3,4\}$, without a symmetry assumption.  Give each edge the
+weight
+\[
+ w_{ij}=\kappa_{ij}\Pr_{T\sim p}(\{i,j\}\in T),\qquad
+ W_p(v)=\sum_{i<j}w_{ij}\Phi_{ij}(v).
+\]
+Allow real diagonal coefficients $b_i$ satisfying
+$\sum_i b_i g_i=G$, and let
+$q_{p,b}(v)=\sum_i b_i v_i-W_p(v)$.
+Suppose $\lambda,\sigma\ge0$ and $C\in\mathbb R$ give a valid
+pointwise certificate
+\begin{equation}\label{eq:five-profile-certificate-family}
+ q_{p,b}(v)\le C\max_i v_i
+ -\lambda\sum_{S\in\mathcal S}
+       \bigl(\Delta_S(v)-\delta M_S(v)\bigr)-\sigma z(v)
+ \qquad(v\ge0).
+\end{equation}
+The diagonal normalization and the same reflected pair identities
+then give \eqref{eq:five-profile-defect} with these coefficients.
+
+\begin{proposition}\label{prop:five-profile-certificate-barrier}
+For every certificate in
+\eqref{eq:five-profile-certificate-family},
+\[
+ \frac{\tau C+\lambda\alpha}{\tau+\lambda}\ge\gamma.
+\]
+The coefficients in the proof of
+Theorem~\ref{thm:five-profile-resolvent} attain equality and make the
+remaining $Z$ coefficient negative.  Consequently $\gamma$ is the
+best uniform bound obtained by this family when its two estimates
+are combined and the remaining $R,Z$ terms are discarded using
+only their nonnegativity.
+\end{proposition}
+
+\begin{proof}
+Put $N=1566459$.  Use the following probability law on nonempty
+indicator subsets $J$.  Each named subset has the displayed
+probability:
+\[
+\begin{array}{c|c|c}
+J&\text{number of subsets}&\Pr(J)\\ \hline
+\{0\}&1&138704/N\\
+\{0,i,j\},\ 1\le i<j\le4&6&202220/N\\
+\{0,i,j,\ell\},\ 1\le i<j<\ell\le4&4&21715/N\\
+\{1,2,3,4\}&1&127575/N
+\end{array}
+\]
+These probabilities are positive and sum to one.  Their root
+marginal is $u=1438884/N$ and each leaf marginal is $ru$.
+Moreover, every edge has the same expected weighted pair value:
+\[
+ \mathbb E\bigl[\kappa_{ij}\Phi_{ij}(1_J)\bigr]
+ =e=\frac{373225}{N}\qquad(i<j).
+\]
+For a root--leaf edge, the expected value is
+$r\Pr(0,i\in J)$; for a leaf--leaf edge it is
+$\Pr(i,j\in J)$.  These give the displayed common value directly.
+Every spanning tree has four edges, so
+$\mathbb E W_p(1_J)=4e$, for every distribution $p$.
+The diagonal normalization gives
+$\mathbb E\sum_i b_i1_J(i)=uG$.
+
+Let $a=138704/N$.  Every atom of this law has
+\[
+ \max_i1_J(i)=1,\qquad
+ \sum_SM_S(1_J)=4,\qquad z(1_J)=0.
+\]
+Only $J=\{0\}$ contributes to $\sum_S\Delta_S(1_J)$, and its
+contribution is four.  Averaging
+\eqref{eq:five-profile-certificate-family} therefore yields
+\[
+ C\ge uG-4e+4\lambda(a-\delta).
+\]
+The chosen rational probabilities satisfy
+\[
+ uG-4e=\gamma,\qquad
+ 4\tau(a-\delta)=\gamma-\alpha.
+\]
+Substitution proves
+$C\ge\gamma+\lambda(\gamma-\alpha)/\tau$ and the claimed bound.
+The certificate already established attains it.
+
+For completeness, using less of
+\eqref{eq:five-profile-stability} cannot improve the conclusion.
+If that estimate has weight $t$ in a convex combination, eliminating
+$R$ by its nonnegativity requires
+$t\tau\le(1-t)\lambda$.  Since the preceding lower bound gives
+$C\ge\gamma>\alpha$, the coefficient $(1-t)C+t\alpha$ is smallest
+at $t=\lambda/(\tau+\lambda)$.  Requiring the $Z$ coefficient to
+be nonpositive can only further restrict the allowed combinations.
+\end{proof}
+
+The indicator law is an averaging witness for the stated pointwise
+certificate family.  It does not assert that these events occur as
+translated levels of one convolution input.  Further relations
+between the translates, or estimates outside this family, may
+therefore improve the profile bound.  The exact value for this
+profile, the general value of $K_5$, and historical priority remain
+unresolved here.
+
+\paragraph{A strict bound for finite inputs.}
+The order of the integer sites imposes an additional constraint on
+actual translated inputs.  It gives the following refinement of
+Theorem~\ref{thm:five-profile-resolvent}.
+
+\begin{proposition}\label{prop:five-profile-finite-gap}
+Under the assumptions of Theorem~\ref{thm:five-profile-resolvent},
+\begin{equation}\label{eq:five-profile-finite-gap}
+ \|f\star\widetilde{g1_H}\|_1
+ \le \gamma\|f\star g\|_1
+       -\frac{1425}{38678}\,t\|f\|_\infty.
+\end{equation}
+In particular, the ratio in \eqref{eq:five-profile-bound} is strictly
+less than $\gamma$ for every nonzero finite input.
+\end{proposition}
+
+\begin{proof}
+First use the normalized, restricted notation from the proof of
+Theorem~\ref{thm:five-profile-resolvent}, so $g_0=1$ and $g_i=r=5/9$
+on the four leaves.  For $v\ge0$, let $\ell_1\ge\ell_2$ be its two
+largest leaf coordinates, including zeros and ties, and put
+\[
+ y(v)=\bigl(\min(v_0,\ell_1)-\ell_2\bigr)_+.
+\]
+Its layer interpretation is the mass of indicators with the root
+present and exactly one active leaf.  The existing $z(v)$ is the
+mass with the root absent and exactly one active leaf; explicitly,
+\[
+ z(v)=\bigl(\ell_1-\max(v_0,\ell_2)\bigr)_+,\qquad
+ y(v)+z(v)=\ell_1-\ell_2.
+\]
+With $v_i^+(x)=g_i f(x-h_i)$, set
+\[
+ Y=\sum_x y(v^+(x)),\qquad T_1(f)=Y+Z.
+\]
+Thus $T_1(f)$ counts all singleton-leaf layers, regardless of
+root membership.
+
+At each threshold $0<s<r\|f\|_\infty$, the finite set
+$A_s=\{x:r f(x)>s\}$ is nonempty.  Its four leaf translates are
+$A_s+h_i$, $1\le i\le4$.  The least point in these translates,
+$\min A_s+\min_i h_i$, belongs only to the translate with the
+least shift.  The greatest point, $\max A_s+\max_i h_i$, likewise
+belongs only to the translate with the greatest shift.  The two
+points are distinct because the leaf shifts are distinct.
+Both therefore contribute to a singleton-leaf layer.  Integrating
+over $s$ gives
+\begin{equation}\label{eq:five-profile-extreme-threshold}
+ T_1(f)\ge2r\|f\|_\infty.
+\end{equation}
+This also holds for $f=0$.  Strict superlevel sets handle ties,
+and endpoint thresholds do not affect the integral.
+
+The root-plus-one-leaf row of the indicator table has unused slack
+\[
+ \eta=\beta-\lambda=\frac{\beta}{4}=\frac{19}{564}.
+\]
+All the other rows retain nonnegative slack after the existing
+$\sigma z(v)$ term.  Since $y(v)$ also has an exact layer integral,
+the proof of \eqref{eq:five-profile-pointwise-certificate} gives
+the stronger inequality
+\[
+ q_+(v)\le C\max_i v_i
+  -\lambda\sum_{S\in\mathcal S}
+       \bigl(\Delta_S(v)-\delta M_S(v)\bigr)
+  -\eta y(v)-\sigma z(v).
+\]
+The same exact-trace reflection argument therefore yields
+\[
+ Q\le CP-\lambda R-\eta Y-\sigma Z.
+\]
+Combine this inequality with \eqref{eq:five-profile-stability},
+putting weight
+\[
+ w=\frac{\tau}{\tau+\lambda}=\frac{19035}{19339}
+\]
+on the former.  The $R$ terms cancel, leaving
+\[
+ Q\le\gamma P-w\eta Y-
+          \bigl(w\sigma-(1-w)r^2\bigr)Z.
+\]
+The coefficient of $Z$ is greater than $w\eta$, since
+$\tau(\sigma-\eta)>\lambda r^2$.  For example, $\sigma>1$,
+$\eta<1/9$ and $\tau>6$ make the left side greater than $16/3$,
+whereas $\lambda<1/9$ and $r<1$ make the right side less than $1/9$.
+Consequently
+\begin{equation}\label{eq:five-profile-singleton-gap}
+ Q\le\gamma P-w\eta T_1(f)
+ \le\gamma P-\frac{1425}{38678}\|f\|_\infty,
+\end{equation}
+where the last step uses \eqref{eq:five-profile-extreme-threshold}
+and
+\[
+ 2rw\eta
+ =\frac{10}{9}\frac{19035}{19339}\frac{19}{564}
+ =\frac{1425}{38678}.
+\]
+Restoring the common scale $t>0$ multiplies the restricted numerator
+and denominator by $t$.  The original denominator satisfies
+$\|f\star g\|_1\ge tP$, so $\gamma>0$ gives
+\eqref{eq:five-profile-finite-gap}.
+\end{proof}
+
+For the normalized, restricted forward mass $P$, this also gives
+\[
+ \frac{P}{\|f\|_\infty}\le\frac{115425}{21172}
+ \quad\Longrightarrow\quad Q\le2P
+ \qquad(f\ne0),
+\]
+because $\gamma-2=10586/(81\cdot19339)$.  The sufficient condition
+is not asserted for every input.
+
+Every atom of the probability law used in the certificate-family
+barrier has zero, two, three or four active leaves.  Its
+singleton-leaf mass is zero.  By
+\eqref{eq:five-profile-extreme-threshold}, that law cannot be the
+exact normalized forward layer law of a nonzero finite input.
+This constraint does not change the formal averaging argument
+that proves the stated certificate-family optimum.
+
+The strict finite-input estimate does not give a smaller uniform
+coefficient.  Place widely separated identical copies of any fixed
+nonzero finite input so that their forward and reflected output
+supports are disjoint.  Both $P$ and $Q$ multiply by the number
+of copies, while $\|f\|_\infty$ is unchanged.  Thus
+$\|f\|_\infty/P$ has no positive universal lower bound.
+The quantity $T_1(f)$ also multiplies under this operation; the
+argument therefore concerns the peak-norm consequence, not every
+possible use of \eqref{eq:five-profile-singleton-gap}.
+It neither shows that the formal witness can be approached nor
+determines the true profile supremum.
