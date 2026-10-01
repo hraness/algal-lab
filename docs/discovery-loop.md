@@ -130,7 +130,9 @@ Verified scientific results feed the repository's [`discoveries/`](../discoverie
 
 The skill requires an accessible introduction, the supported result and how it was obtained, a useful diagram when the evidence benefits from one, cited technical detail, and a final recap linking the resulting papers, proofs, or code. Citations include the relevant theorem or section and appear in the site's expandable references. Scope and priority statements must match the source comparisons. Articles carry a separate editorial review record and identify AI drafting and AI review accurately.
 
-The outer agent runs the discovery exporter, both repositories' required checks, their normal pull-request and deployment workflows, and verifies the published URL and revision. The user's standing publication authorization covers those routine updates after the checks pass; a new human approval is not part of each cycle. The command-line experiment runner itself makes no commits, deployments, schedules, or publication requests.
+The outer agent follows [Algal Lab's delivery rules](../AGENTS.md): a feature branch, independent review, required checks, pull request, and merge. Export the committed, reviewed article revision, then deliver the website changes through [Jungle's durable merge queue](https://github.com/hraness/jungle/blob/main/docs/main-delivery.md#normal-delivery). Complete Jungle's post-push source checks and [provider and public verification](https://github.com/hraness/jungle/blob/main/docs/vercel.md#production-delivery-closure), including the exact deployed revision and direct browser readback of the published articles.
+
+The user's standing publication authorization covers those routine updates after the checks pass; a new human approval is not part of each cycle. The command-line experiment runner itself makes no commits, deployments, schedules, or publication requests.
 
 Focused software validation:
 
