@@ -90,6 +90,8 @@ Config, source, lockfile, and Bun identities are checked on resume. Keep the cor
 
 For a machine handoff, finish the current command, verify there is no writer or unresolved remote request, and copy the selected run directory separately from the repository. Do not copy API keys or another process's live lock. Keep original research and publication allowances separate: creating a new software run does not renew an exhausted scientific budget.
 
+Before large installs or publication checks, use the skill's [disk recovery workflow](../.agents/skills/algal-discovery/SKILL.md#keep-enough-disk-space-to-continue). It sizes headroom for the next operation, reclaims only unused reproducible files within the authorized task, preserves campaign evidence and active work, and resumes blocked checks after verifying the previous command has stopped. Repository or installed cleanup tools are preferred when available; the workflow also defines an exact-target fallback for another machine. Freeing disk space does not renew research allowances.
+
 ## Optional xAI or Gemini proposals
 
 Copy the local JSON into a private file under `runs/`, replace `provider` with the configuration below, select a model available to your account, and set explicit `budget.modelCalls`, `budget.tokens`, `budget.activeMs`, and `budget.usd` limits. Leave spending at zero until that allowance has been authorized.
