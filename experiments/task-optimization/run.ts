@@ -3,15 +3,15 @@ import { dirname, join } from "node:path";
 import { FileStore, canonicalize, digestCanonical, type Executor, type JsonValue } from "@hraness/algal";
 import { CORPUS } from "./corpus";
 import { createLiveExecutor, type LiveObservation } from "./live";
-import { ARMS, LIMITS, runArm, scriptedExecutor, type ArmResult } from "./study";
+import { ARMS, CONTEXT_ARM, CONTEXT_BUDGETS, LIMITS, runArm, scriptedExecutor, type ArmResult } from "./study";
 
 const args = process.argv.slice(2);
-const allowed = new Set(["--out", "--seeds", "--live", "--max-calls", "--max-usd"]);
+const allowed = new Set(["--out", "--seeds", "--live", "--max-calls", "--max-usd", "--context-feedback"]);
 const options = new Map<string, string>();
 for (let i = 0; i < args.length; i++) {
   const key = args[i]!;
-  if (!allowed.has(key) || options.has(key)) throw new Error("usage: bun experiments/task-optimization/run.ts --out NEW_DIRECTORY [--seeds 11,23,37] [--live --max-calls N --max-usd N]");
-  if (key === "--live") options.set(key, "true");
+  if (!allowed.has(key) || options.has(key)) throw new Error("usage: bun experiments/task-optimization/run.ts --out NEW_DIRECTORY [--seeds 11,23,37] [--context-feedback] [--live --max-calls N --max-usd N]");
+  if (key === "--live" || key === "--context-feedback") options.set(key, "true");
   else { const value = args[++i]; if (!value || value.startsWith("--")) throw new Error(`missing ${key}`); options.set(key, value); }
 }
 const directory = options.get("--out");
@@ -21,6 +21,7 @@ if (!/^[1-9][0-9]{0,5}(,[1-9][0-9]{0,5}){0,2}$/.test(seedText)) throw new Error(
 const seeds = seedText.split(",").map(Number);
 if (new Set(seeds).size !== seeds.length) throw new Error("duplicate seed");
 const live = options.has("--live");
+const arms = options.has("--context-feedback") ? [...ARMS, CONTEXT_ARM] : ARMS;
 if (live && seeds.length !== 1) throw new Error("live mode requires exactly one explicit --seeds value; run each seed in a fresh archive");
 if (live && (!options.has("--max-calls") || !options.has("--max-usd"))) throw new Error("live mode requires explicit request and estimated-dollar caps");
 if (!live && (options.has("--max-calls") || options.has("--max-usd"))) throw new Error("live budgets require --live");
@@ -41,13 +42,14 @@ const executor: Executor = { ...base,
 };
 const results: ArmResult[] = [];
 let completed = false;
-await save("intent.json", { contract: "algal.lab.task-study.v1", mode: live ? "live" : "scripted", seeds, arms: ARMS,
+await save("intent.json", { contract: "algal.lab.task-study.v1", mode: live ? "live" : "scripted", seeds, arms,
   corpus: CORPUS, corpusDigest: digestCanonical(CORPUS as unknown as JsonValue), limits: LIMITS,
+  ...(options.has("--context-feedback") ? { contextReviserBudgets: CONTEXT_BUDGETS } : {}),
   source: "https://github.com/hraness/textbutler/blob/bd7765af541a24da4cdfaed3386735eee531c1a7/packages/textbutler/src/habitat-program.ts",
   qualification: "Public synthetic policy cases; no production conversations or messaging effects. Scripted runs are orchestration checks.",
   executor: provider?.configuration ?? { id: base.id, live: false } });
 try {
-  for (const seed of seeds) for (const arm of ARMS) {
+  for (const seed of seeds) for (const arm of arms) {
     lifetime.signal.throwIfAborted();
     const name = `${seed}-${arm}`;
     const result = await runArm(arm, seed, new FileStore(join(directory, name, "store")), executor);
