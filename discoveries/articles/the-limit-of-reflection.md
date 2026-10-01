@@ -50,10 +50,18 @@ The paper also studies a particular five-position input profile: the selected he
 
 The proof measures how well a signal is covered by scaled, shifted copies, then combines two estimates that respond differently to the uncovered part. At each nonempty height level, the leftmost and rightmost occupied positions supply a further gap. An accompanying argument shows that reweighting the paper's specified family of comparisons cannot lower the uniform coefficient. The exact answer for this profile and the general five-site problem remain open.[^1]
 
+## A boundary count narrows the search
+
+A follow-up rules out one natural family of candidates for a ratio above two. Start with a grid in four dimensions. Place the five profile heights at the origin and one step along each of the four axes, with the largest at the origin. For the other input, make each step away from the origin multiply the height by $5/9$, and retain a finite, nonempty region of nonnegative grid points that contains every point below each of its points, coordinate by coordinate. Boxes and irregular staircases both qualify.
+
+Encode both inputs as integers with a positional map that preserves sums and differences without merging distinct outputs. Every such configuration has ratio at most $27936/13981$, about $1.9981$, for the five-site profile above.[^5]
+
+The proof focuses on outside points reached from all four directions: only these points can push the ratio above two. No such point lies below another coordinate by coordinate. A random ordering of the four coordinate steps provides a count that bounds their combined weight. This finite argument excludes every shape in the family, so a search for a ratio above two must change at least one of these conditions.
+
 ## What follows, and what remains open
 
 These estimates imply several cases of a reflected fourfold inequality motivated by Gyarmati, Hennecart and Ruzsa’s sumset question.[^4] They include constant kernels on every five-point support, and a particular five-point support with arbitrary nonnegative kernel weights. The latter has 240 rational certificates covering all 120 weight orders.
 
 The unrestricted fourfold question remains open in this work. For five sites the general support constant still lies between $2$ and $35/16$. Reading the closest retained primary sources also did not establish historical priority for the exact four-site result.
 
-The outcome is an exact four-site constant, obtained by joining an upper proof to matching limiting examples. For this prescribed five-site input profile, the follow-up gives a narrower bound, a strict gap for each finite input, and a limit of the specified proof method. The [companion construction article](/discoveries/more-differences-from-fewer-sums) moves in the other direction: it builds explicit sets where differences are unusually numerous. The paper, earlier three-point note, source comparison and downloadable checks are linked below.
+The outcome is an exact four-site constant, obtained by joining an upper proof to matching limiting examples. For the prescribed five-site input profile, the work gives a narrower bound, a strict gap for each finite input, and a limit of the specified proof method. The boundary count also rules out a whole family of geometric examples. The [companion construction article](/discoveries/more-differences-from-fewer-sums) moves in the other direction: it builds explicit sets where differences are unusually numerous. The paper, geometric-family proof, earlier three-point note, source comparison and downloadable checks are linked below.
