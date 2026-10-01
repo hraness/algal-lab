@@ -487,3 +487,40 @@ attribution passed. The 55-page PDF built with cached Tectonic 0.17.0
 without TeX warnings, and every rendered page was visually inspected
 without findings. No human peer review, journal acceptance or
 historical-priority finding is asserted.
+
+## Five-site profile and source comparison: 30 September 2026
+
+The four-point paper now includes a self-contained bound for five selected
+values of the input signal `g` in the proportions `9:5:5:5:5`. Their integer
+positions are arbitrary; the separate kernel is one at the selected positions
+and zero elsewhere. The reflected-to-original ratio is at most
+`3143504/1566459` (about `2.0068`), using the full original denominator.
+The proof combines estimates from shifted copies of the signal with two
+complementary certificates. A further argument gives an explicit positive
+correction for each nonzero finite input. That correction depends on the
+input; it does not improve the uniform supremum by a fixed amount.
+
+The subsection also proves a barrier for the specified two-parameter
+certificate family. This is a limit of that proof family, not a matching
+construction or the exact answer for the profile. The general five-site
+constant remains between `2` and `35/16`; the unrestricted fourfold problem
+and historical novelty remain open in this work. No new numerical search
+or external model inference was used for this update.
+
+A fresh hand reading of Zheng's bounded-coordinate simplex construction
+also gives an exact comparison: optimizing its radius over a full alphabet
+produces the same asymptotic difference-to-sum rate as optimizing the
+geometric weighted quotient. The literature comparison gives the derivation
+and distinguishes sparse alphabets with holes. This does not verify the
+source's numerical optimization or establish priority for the specific
+sparse construction.
+
+Independent mathematical reviews checked the new bound, its indicator cases,
+the certificate-family barrier, the finite-input correction and the
+full-alphabet comparison. The matching reflection article received editorial
+and mathematical source review. The 62-page PDF built with cached Tectonic
+0.17.0 without warnings or unresolved references. Every page was rendered
+and visually reviewed. Two paragraph breaks were repaired; the four changed
+page images were checked again, and the other 58 images matched their
+reviewed predecessors byte for byte. No human peer review or journal
+acceptance is asserted.

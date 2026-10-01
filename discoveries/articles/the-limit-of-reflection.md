@@ -46,10 +46,14 @@ For a kernel equal to one on each of $n$ sites, the exact suprema through four s
 
 The paper also proves a general bound $(\sqrt K+\sqrt M)^2/4$, with the leading coefficient $1/4$ asymptotically optimal. Averaging the sharp four-site estimate over subsets gives upper bounds $35/16$ and $21/8$ for five and six sites.
 
+The paper also studies a particular five-position input profile: the selected heights of $g$ are in the proportions $9:5:5:5:5$, and the kernel is one at those positions and zero elsewhere. The five positions can be any distinct integers, and the other nonnegative finite signal, $f$, can vary freely. The reflected total from those five positions is at most $3143504/1566459$, about $2.0068$, times the full original total. For every nonzero finite input, the ratio is strictly lower, by an explicit amount that depends on the input.[^1]
+
+The proof measures how well a signal is covered by scaled, shifted copies, then combines two estimates that respond differently to the uncovered part. At each nonempty height level, the leftmost and rightmost occupied positions supply a further gap. An accompanying argument shows that reweighting the paper's specified family of comparisons cannot lower the uniform coefficient. The exact answer for this profile and the general five-site problem remain open.[^1]
+
 ## What follows, and what remains open
 
 These estimates imply several cases of a reflected fourfold inequality motivated by Gyarmati, Hennecart and Ruzsa’s sumset question.[^4] They include constant kernels on every five-point support, and a particular five-point support with arbitrary nonnegative kernel weights. The latter has 240 rational certificates covering all 120 weight orders.
 
 The unrestricted fourfold question remains open in this work. For five sites the general support constant still lies between $2$ and $35/16$. Reading the closest retained primary sources also did not establish historical priority for the exact four-site result.
 
-The outcome is an exact four-site constant, obtained by joining an upper proof to matching limiting examples. The [companion construction article](/discoveries/more-differences-from-fewer-sums) moves in the other direction: it builds explicit sets where differences are unusually numerous. The paper, earlier three-point note, source comparison and downloadable checks are linked below.
+The outcome is an exact four-site constant, obtained by joining an upper proof to matching limiting examples. For this prescribed five-site input profile, the follow-up gives a narrower bound, a strict gap for each finite input, and a limit of the specified proof method. The [companion construction article](/discoveries/more-differences-from-fewer-sums) moves in the other direction: it builds explicit sets where differences are unusually numerous. The paper, earlier three-point note, source comparison and downloadable checks are linked below.

@@ -57,6 +57,16 @@ give the strict fourfold inequality when the fourfold sumset has at
 least 23 elements on five sites or 48 elements on six sites.
 The six-point result does not cover every six-point support.
 
+A separate refinement fixes the five selected values of the input `g`
+in the proportions `9:5:5:5:5`, with kernel weight one. For arbitrary
+integer locations and nonzero finite inputs, the reflected ratio is
+strictly below `3143504/1566459`, about `2.0068`. The proof gives an
+explicit gap depending on the input and determines the best uniform
+coefficient obtainable from its specified family of comparisons.
+The true optimum for this profile and the general five-site problem
+remain unresolved; these are restrictions on the input `g`, not
+arbitrary kernel weights.
+
 The paper proves the reflected fourfold inequality for arbitrary
 nonnegative kernel weights on at most four points and on
 `{0,2,7,8,11}`, and for constant kernels on every five-point support.

@@ -116,8 +116,38 @@ at least `log(Q/P)`. Lau–Nair's theorem realizes both entropies on the
 same typical sets; base-`2B+1` encoding and a dilation supply the diameter
 and strict hypothesis for the GHR lemma.
 
-The manuscript gives this implication as well as its direct counting
-proof with explicit cost sublevel sets. The particular four-digit
+For a fixed integer `B≥2` and the full alphabet `A={0,…,B}`, optimizing
+geometric weights gives
+exactly the same asymptotic difference-to-sum rate as optimizing the radius
+in Zheng's bounded-coordinate simplex family. To make the comparison
+precise, put `W(m,L,B)={x∈{0,…,B}^m: Σxᵢ≤L}` and
+
+```text
+P_B(q)=Σ_{s=0}^{2B} q^s,       Q_B(q)=1+2Σ_{j=1}^B q^j.
+```
+
+For `L=⌊rm⌋`, the finite method of types gives the limiting logarithmic
+sum and difference counts per coordinate as
+
+```text
+s_B(r)=inf_{0<q≤1} [log P_B(q)−2r log q],
+d_B(r)=inf_{0<q≤1} [log Q_B(q)−2r log q].
+```
+
+The difference formula uses reflection to make the positive and negative
+coordinate budgets equal. At `r=0` both rates are zero. For `r>0`,
+choosing a minimizing parameter for `s_B` bounds `d_B−s_B` above by `max_q log(Q_B/P_B)`. Conversely, at
+`r=qQ_B′(q)/(2Q_B(q))`, the difference Gibbs distribution attains `d_B`,
+and the same parameter bounds `s_B` above. Hence
+`sup_{r≥0}(d_B(r)−s_B(r))=max_{0≤q≤1} log(Q_B(q)/P_B(q))`, with quotient
+one at both endpoints. This is our derivation of the relation between
+the two constructions; it does not recheck Zheng's numerical optimization.
+Sparse alphabets with holes, including the manuscript's carry-block
+alphabet, change the family itself. That distinction does not establish
+historical novelty.
+
+The manuscript gives the weighted-digit implication above, as well as
+its direct counting proof with explicit cost sublevel sets. The particular four-digit
 alphabet, weights, and certificate for `θ>1.18565` are separate from the
 general formula. Their occurrence in earlier literature remains
 unestablished. A larger exponent for another normalization cannot replace
@@ -490,6 +520,23 @@ supports with at least 23 fourfold sums and six-site supports with at
 least 48. The six-site result does not cover every support or arbitrary
 kernel weights. No computational cover is used, and sharpness of the
 five- and six-site constants is not asserted.
+
+The version 11 follow-up fixes the five selected input values of `g`
+in the proportions `9:5:5:5:5`, with kernel weight one on five distinct
+integer sites.
+A comparison of translation defects gives the upper coefficient
+`3143504/1566459`. Extreme points of finite translated level sets give
+a strict, input-dependent correction. An explicit finite probability
+law proves that the specified family of certificate combinations cannot
+lower that uniform coefficient. This is optimality of the stated proof
+family, not a determination of the true profile supremum or of `K_5`.
+The formal probability law is not realized by any nonzero finite input;
+whether it can be approached remains unresolved.
+
+No fresh primary-literature search was completed for this particular
+profile refinement. The retained source reading below supports the
+attribution of earlier ingredients, not a historical-priority finding
+for the new bound or its certificate-family barrier.
 
 For `K_n = sup R_F(f,g)` over all `n`-point integer sets and all nonzero
 finitely supported nonnegative `f,g`, the resulting bounds are
