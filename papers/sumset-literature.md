@@ -1,6 +1,9 @@
 # Literature comparison for the sumset manuscripts
 
-Review date: 30 September 2026. These manuscripts give explicit constructions,
+Review date: 30 September 2026, with an addition on 1 October 2026 comparing
+Tao's construction examples.
+
+These manuscripts give explicit constructions,
 exact certificates and reflected fourfold inequalities with arbitrary
 nonnegative kernel weights on at most four integers and on
 `{0,2,7,8,11}`, and with constant kernels on every five-point integer
@@ -196,9 +199,55 @@ quantitative comparison or our numerical certificate. Theorem 1.3's
 changing-slope asymptotics do not give a near-two limit for the fixed inputs
 `{0,1,infinity}` and output `-1`.
 
-We read the retained Section 3 and its Section 2 prerequisites, with Section 1's
-definitions and Theorem 1.3 as context. The HTML extraction is partial; this is
-not a whole-paper review or a priority claim.
+The lower-bound constructions in Sections 4–5 also let the output slope vary.
+For their interval and symmetric polynomial sets, reflection makes the sum
+and difference counts equal at slopes `1` and `-1`. Rational slopes approaching
+`-1` can have many distinct output values that coincide at the limiting slope.
+
+<details>
+<summary>The construction examples at the fixed difference slope</summary>
+
+For `I_N={1,…,N}`, the sum and difference sets both have `2N−1` elements.
+By contrast, if `N≥2`, `b≥10N` is an integer, and `s=−(b−1)/b`, the map
+`(x,y)↦x+sy` is injective on `I_N×I_N`. Sending this output to an ordinary
+difference by setting `E=bI_N` and `F=(b−1)I_N` gives
+
+```text
+|E−F| = |E+F| = N²,       |E| = N.
+```
+
+Indeed, a nontrivial collision in either signed sum forces the two coordinate
+differences to be nonzero multiples of `b−1` and `b`, exceeding their possible
+magnitudes.
+The resulting sumset factor is `N`, so it does not stay bounded by a fixed `K`.
+The small projection is `E+[b/(b−1)]F=b(I_N+I_N)`; its coefficient differs
+from one. More generally, the rational projective maps preserving the input
+set `{0,1,infinity}` can send only `s∈{−1,1/2,2}` to `−1`.
+
+Section 4's polynomial set has symmetric coefficient bounds and hence is
+equal to its negative. Its sum and difference sets coincide. Used directly
+as a single digit set, either symmetric family therefore has a difference-to-sum
+ratio of one in the GHR transfer. Nor does changing only the coupling help
+the maximal-entropy comparison: if a marginal is invariant under `Y↦c−Y`,
+this reflection pairs its couplings with the other marginal fixed and makes
+the maximum sum and difference entropies equal.
+
+Theorem 1.4 takes coprime `a,b` with `b→infinity` and `a/b→α`. Even when
+`α=−1`, the output slope cannot remain exactly `−1`: a reduced fraction
+equal to `−1` has denominator one. For each fixed compactly supported density,
+Section 5's discretized integer variables lie in an interval of length `O(b)`.
+Their ordinary difference consequently has entropy at most `log b+O(1)`.
+Using the stated marginal growth `log b+O(1)`, its output-to-input entropy
+ratio is at most `1+O(1/log b)`. This fixed-slope comparison does not verify
+the numerical coefficient in the theorem's continuous-limit expansion.
+
+</details>
+
+This comparison covers the retained Section 3, its Section 2 prerequisites,
+and the construction passages in Sections 4–5, using Section 1's definitions
+and theorem statements. The HTML extraction is partial; this is not a
+whole-paper review or a priority claim. These examples do not exclude other
+constructions based on Tao's methods.
 
 ## The fourfold inequality on three points
 
