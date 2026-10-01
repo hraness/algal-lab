@@ -4,6 +4,8 @@ Algal Lab includes a resumable experiment loop and an [outer-agent skill](../.ag
 
 The network example is a software demonstration of a small connectivity model. It establishes neither a scientific discovery nor an improvement in a model's reasoning. The xAI and Gemini transports have been tested with local fixtures only. Live service behavior, model compatibility, pricing, and billing have not been qualified.
 
+For the five-site max-convolution problem, start with the [rejected geometric family](five-site-geometric-family.md). Its proof excludes every finite box size and uniform interior multiplier between zero and one from one proposed improvement route, so a new run can avoid repeating that parameter search.
+
 ## Run without keys
 
 Use the Bun version specified by `package.json` and the frozen lockfile. No global lab installation is needed.
