@@ -26,8 +26,9 @@ The example makes at most 12 attempts, permits no model calls or spending, and r
 To supply a proposal through an outer agent, create a separate run and use:
 
 ```sh
-bun run discovery context runs/first-discovery
-bun run discovery propose runs/first-discovery --proposal examples/discovery-proposal.json --parent baseline
+bun run discovery init --config examples/discovery-local.json --out runs/agent-discovery
+bun run discovery context runs/agent-discovery
+bun run discovery propose runs/agent-discovery --proposal examples/discovery-proposal.json --parent baseline
 ```
 
 `propose` requires a run that has not been sealed. The parent must identify the baseline or a retained candidate. The JSON contains only a graph, prediction, hypothesis, and rationale. Unknown fields, disconnected graphs, duplicate edges, and changed node or edge counts are rejected. No candidate can name a command, executable, evaluator, URL, or API tool.
