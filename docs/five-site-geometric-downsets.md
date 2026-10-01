@@ -10,6 +10,8 @@ A coordinate downset contains every nonnegative lattice point below each of its 
 
 The same bound holds for the proof's intermediate upper estimate of $Q$. This stronger statement also excludes the family from the [unresolved proof condition](five-site-geometric-family.md#the-remaining-proof-condition), which concerns the unused margin in that estimate.
 
+The [coordinate decay extension](#weights-that-decrease-at-every-coordinate-step) allows more general heights: each positive coordinate step may multiply the input height by any factor at most $5/9$. Decomposing these inputs into nested geometric layers gives the same bound and proof-condition exclusion.
+
 This note concerns the [five-site profile](../papers/four-point-covering/five-site-profile.tex) with weights proportional to $9:5:5:5:5$. It does not determine the general five-site constant, the optimal bound within this family, or historical priority. The proof uses the standard Boolean antichain inequality; its random-chain argument is included.
 
 ## The family and its boundary
@@ -199,16 +201,82 @@ Every term is nonnegative: the first two use the interior and antichain bounds, 
 
 In particular, $\Delta>(C-2)P$. The family cannot satisfy the second inequality defining the unresolved proof condition, regardless of the first. This conclusion uses the bound on $T$ directly; the earlier bound on $Q$ alone would not establish it.
 
+## Weights that decrease at every coordinate step
+
+Keep the five sites and their weights $1,r,r,r,r$ fixed, with $r=5/9$. Let $f$ be a nonzero, nonnegative, finitely supported function on $\mathbb Z_{\ge0}^4$ satisfying
+
+$$
+f(x+e_i)\le r f(x)\qquad
+(x\in\mathbb Z_{\ge0}^4,\ 1\le i\le4).
+$$
+
+Extend $f$ by zero outside this orthant. The decay condition is imposed only inside the orthant. Then, with $c=2-26/13981$,
+
+$$
+Q(f)\le T(f)<cP(f),\qquad
+\Delta(f)>\left(C-2+\frac{26}{13981}\right)P(f).
+$$
+
+Thus these inputs also lie outside the unresolved proof condition.
+
+To prove this, put $h(x)=r^{-|x|}f(x)$ on the nonnegative orthant. The decay condition makes $h$ nonincreasing in each coordinate. List its distinct positive values as $0<t_1<\cdots<t_s$, put $t_0=0$ and $a_j=t_j-t_{j-1}>0$, and define
+
+$$
+D_j=\{x:h(x)\ge t_j\},\qquad
+f_j(x)=r^{|x|}1_{D_j}(x).
+$$
+
+Each $D_j$ is a finite nonempty coordinate downset, and the sets are nested. The finite layer decomposition is
+
+$$
+f=\sum_{j=1}^s a_jf_j.
+$$
+
+For these layers the forward sum is exactly additive. To see why, write
+
+$$
+v^+(u,x)=\bigl(u(x),ru(x-e_1),\ldots,ru(x-e_4)\bigr).
+$$
+
+For $x$ in the nonnegative orthant, this vector for $f$ equals $r^{|x|}$ times $(h(x),h(x-e_1),\ldots,h(x-e_4))$, taking $h=0$ at arguments outside the orthant. A coordinate maximizing these five values also maximizes their five membership indicators at every level $t_j$. Consequently
+
+$$
+\max_i v_i^+(f,x)
+=\sum_{j=1}^s a_j\max_i v_i^+(f_j,x).
+$$
+
+If $x$ has a negative coordinate, all forward entries vanish and the equality still holds. Summing proves $P(f)=\sum_j a_jP(f_j)$.
+
+The intermediate estimate is subadditive. In the [profile proof](../papers/four-point-covering/five-site-profile.tex), $W$ is a nonnegative weighted sum of minima of linear forms, so it is concave and positively homogeneous. The linear form minus $W$ defining $q_+$ is therefore convex and positively homogeneous. It follows that
+
+$$
+q_+\left(\sum_j a_jv_j\right)\le\sum_j a_jq_+(v_j),
+\qquad
+T(f)\le\sum_j a_jT(f_j).
+$$
+
+Apply the strict downset estimate to every layer:
+
+$$
+T(f)\le\sum_j a_jT(f_j)
+<c\sum_j a_jP(f_j)=cP(f).
+$$
+
+The inequality is strict because there are finitely many nonempty layers, each with positive coefficient. The established inequality $Q\le T$ and the identity $\Delta=CP-T$ give the two conclusions.
+
+The condition includes two useful subfamilies:
+
+- The [box with reduced interior weights](five-site-geometric-family.md) has $h=1$ on its coordinate boundary, $h=\theta$ inside, and $h=0$ outside, where $0\le\theta\le1$. Its separate argument gives the stronger estimate $\Delta\ge(19/1269)P$, or $T\le(2-271/34263)P$.
+- On any finite nonempty coordinate downset $D$, the weights $f(x)=a_0\prod_{i=1}^4s_i^{x_i}1_D(x)$ qualify whenever $a_0>0$ and $0<s_i\le5/9$. The signal may decay at different rates in the four directions; the five profile weights remain $1,5/9,5/9,5/9,5/9$.
+
 ## Integer inputs and use in the discovery loop
 
-Let $L$ be the largest coordinate occurring in $D$, choose $B=2L+5$, and encode $x$ as $\sum_{i=1}^4x_iB^{i-1}$. This map is injective on $\{-1,\ldots,L+1\}^4$. At the highest differing digit $j$, the leading contribution has absolute value at least $B^j$, while the lower contributions have total absolute value at most
+Let $L$ be the largest coordinate occurring in the support of $f$, choose $B=2L+5$, and encode $x$ as $\sum_{i=1}^4x_iB^{i-1}$. This map is injective on $\{-1,\ldots,L+1\}^4$. At the highest differing digit $j$, the leading contribution has absolute value at least $B^j$, while the lower contributions have total absolute value at most
 
 $$
 (L+2)\sum_{i=0}^{j-1}B^i=\frac{B^j-1}{2}<B^j.
 $$
 
-This box contains the support and all one-step outputs. The encoding therefore preserves every forward vector, $P$, $Q$, $T$, and $\Delta$ on the integer sites $0,1,B,B^2,B^3$. The sites may vary with $D$.
+This box contains the support and all one-step outputs. The encoding therefore preserves every forward and reflected vector, $P$, $Q$, $T$, and $\Delta$ on the integer sites $0,1,B,B^2,B^3$. For the coordinate decay extension, choose this single base from the largest layer $D_1$ and use it for every layer. The sites may vary with the support.
 
-The bounds apply to these injectively encoded supports with the specified geometric weights, and remain valid under a common positive scaling of $f$. They let the [discovery loop](discovery-loop.md) exclude their shapes both from searches for $Q>2P$ and from the unresolved proof condition. Arbitrary relative weights, supports that are not downsets, and encodings that merge outputs are outside the argument.
-
-The [interior-attenuation note](five-site-geometric-family.md) separately allows a uniform reduction of a box's interior weights. Together these exclusions retain two failed approaches for future work. Neither settles the condition for all realizable inputs or establishes the optimal constant or historical novelty.
+The bounds apply to these injectively encoded inputs under the coordinate decay condition, including common positive scalings. They let the [discovery loop](discovery-loop.md) exclude the class both from searches for $Q>2P$ and from the unresolved proof condition. Within this representation, a new candidate must have at least one step with $f(x+e_i)>(5/9)f(x)$. Inputs with other geometries or encodings that merge outputs require separate arguments.
