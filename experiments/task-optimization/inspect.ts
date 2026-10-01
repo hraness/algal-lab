@@ -4,7 +4,7 @@ import {
   FileStore, MemoryStore, canonicalize, digestCanonical, parseHabitatBudget, parseRunReceipt, replayExecutor,
   type JsonValue,
 } from "@hraness/algal";
-import { ARMS, runArm, type Arm } from "./study";
+import { ALL_ARMS, ARMS, CONTEXT_ARM, runArm, type Arm } from "./study";
 
 async function readJson(path: string): Promise<unknown> {
   if ((await stat(path)).size > 4_194_304) throw new Error("study file exceeds 4 MiB");
@@ -20,7 +20,7 @@ function object(value: unknown): Record<string, unknown> {
 /** Rerun the complete search and its audits with captured effects. Recomputing
  * only the displayed percentages would not check candidate selection or cost. */
 export async function inspectStudyArm(directory: string, seed: number, arm: Arm) {
-  if (!Number.isSafeInteger(seed) || seed < 1 || seed > 999999 || !(ARMS as readonly string[]).includes(arm)) throw new Error("invalid study identity");
+  if (!Number.isSafeInteger(seed) || seed < 1 || seed > 999999 || !(ALL_ARMS as readonly string[]).includes(arm)) throw new Error("invalid study identity");
   const name = `${seed}-${arm}`, original = object(await readJson(join(directory, `${name}.json`)));
   const fields = ["arm", "seed", "datasetDigest", "selectedManifest", "metrics", "calls", "work", "elapsedMs", "report", "frozenTask"];
   if (Object.keys(original).length !== fields.length || fields.some(key => !Object.hasOwn(original, key))) throw new Error("unknown or missing study fields");
@@ -46,10 +46,10 @@ export async function inspectStudyArm(directory: string, seed: number, arm: Arm)
 }
 
 if (import.meta.main) {
-  const [directory, seedText] = process.argv.slice(2);
-  if (!directory || !seedText || !/^[1-9][0-9]{0,5}$/.test(seedText) || process.argv.length !== 4) throw new Error("usage: bun experiments/task-optimization/inspect.ts ARCHIVE SEED");
+  const [directory, seedText, contextFlag] = process.argv.slice(2);
+  if (!directory || !seedText || !/^[1-9][0-9]{0,5}$/.test(seedText) || process.argv.length > 5 || (contextFlag !== undefined && contextFlag !== "--context-feedback")) throw new Error("usage: bun experiments/task-optimization/inspect.ts ARCHIVE SEED [--context-feedback]");
   const results = [];
-  for (const arm of ARMS) results.push(await inspectStudyArm(directory, Number(seedText), arm));
+  for (const arm of contextFlag ? [...ARMS, CONTEXT_ARM] : ARMS) results.push(await inspectStudyArm(directory, Number(seedText), arm));
   const result = { contract: "algal.lab.task-study-inspection.v1", ok: true, results,
     limitation: "Offline reproduction checks recorded execution, selection, and scores. It does not authenticate a provider, verify an invoice, or establish production quality." };
   await writeFile(join(directory, "inspection.json"), canonicalize(result as unknown as JsonValue) + "\n", { flag: "wx", mode: 0o600 });

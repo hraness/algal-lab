@@ -14,6 +14,24 @@ bun experiments/task-optimization/inspect.ts runs/task-scripted 11
 ```
 
 The scripted executor checks the workflow. It does not measure a model's quality.
+
+Add `--context-feedback` to opt into a fifth research arm. A separate counted
+model call selects exact training records, then the existing guarded reviser
+receives those records. The original four arms remain the default. To run and
+inspect the expanded offline comparison:
+
+```sh
+bun experiments/task-optimization/run.ts --out runs/context-scripted --seeds 11 --context-feedback
+bun experiments/task-optimization/inspect.ts runs/context-scripted 11 --context-feedback
+```
+
+The extra call shares the campaign allowance and any explicit live call/dollar
+caps. Source records and read results remain in the run store. The selector has
+no validation or audit data, provider credentials, or authority to change the
+evaluator. Inspection repeats the selection and verifies the exact read results.
+This arm tests the workflow; improved model quality requires a separate measured
+comparison on fresh cases.
+
 Each run needs a new output directory. Keep that directory: it contains the
 declared protocol, every arm's report and selected task, ALGAL execution records,
 provider observations, and a completion summary. Failed runs keep partial results.
