@@ -7,9 +7,9 @@ The network example is a software demonstration of a small connectivity model. I
 For the five-site max-convolution problem, read these two exclusions before proposing a geometric construction:
 
 - [Boxes with reduced interior weights](five-site-geometric-family.md) cannot enter one unresolved region in the current proof, for any finite box size or uniform interior multiplier between zero and one.
-- [Geometric weights on downward-closed sets](five-site-geometric-downsets.md) have reflected-to-forward ratio at most $27936/13981<2$. This covers boxes, simplex cutoffs, and irregular staircases with the specified weights.
+- [Geometric weights on downward-closed sets](five-site-geometric-downsets.md) have reflected-to-forward ratio at most $27936/13981<2$. The same bound holds for the proof's intermediate upper estimate, excluding this family from the unresolved region too. This covers boxes, simplex cutoffs, and irregular staircases with the specified weights.
 
-These results let a new run avoid repeating searches within the excluded families. Their conclusions differ: a ratio bound alone does not exclude the unresolved proof region.
+These results let a new run avoid repeating searches within the excluded families. A proposal for the unresolved region must explain how it leaves both families; changing a box to another downset while retaining its geometric weights does not suffice.
 
 ## Run without keys
 
