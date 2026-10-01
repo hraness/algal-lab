@@ -155,14 +155,50 @@ a comparison under the displayed quantifiers.
 
 Tao's *Sum-difference exponents for boundedly many slopes, and rational
 complexity*, [arXiv:2511.15135v1](https://arxiv.org/abs/2511.15135v1)
-(19 November 2025), studies universal entropy bounds over specified linear
-projections of jointly distributed variables. Section 1.1 and Theorem 1.3
-were compared with the fixed-`K` existence problem above. Universal projection
-bounds specialize to Cartesian sets and can give upper bounds for `θ`;
-a lower bound from a general restricted planar set need not provide a
-Cartesian pair with the required small sumset. The inspected statements
-do not give a competing numerical lower bound for `θ`. The retained HTML
-was partial; this comparison does not claim a complete reading of that paper.
+(19 November 2025), studies universal entropy bounds for linear projections.
+Section 3 relates its projection exponent to an independent-variable constant
+through controlled self-doubling. For its final configuration, our elementary
+comparison gives an `O(δM)` gap between the conditionally independent output
+entropy and the largest entropy over couplings of the same conditional
+marginals, averaged over the conditioning variable. Here `M` is the entropy
+scale and `δ` measures the deficit from exponent two. This connects the
+reduction to the maximal-coupling entropies used in typical-set transfer.
+
+<details>
+<summary>The coupling comparison</summary>
+
+Let `(U,V)` be any finite rational-valued coupling, let `a` be a nonzero
+rational, and let `V′` be independent of the whole pair with the same law as
+`V`. Then
+
+```text
+H(U+aV) <= H(U+aV′) + H(V−V′) − H(V).
+```
+
+To see this, put `A=U+aV′` and `C=U+aV`. Subadditivity gives
+`H(A)+H(C−A) >= H(C)+H(A|C)`, and conditioning further on `(U,V)` shows
+`H(A|C) >= H(V′)`. Also `H(C−A)=H(V−V′)`. The right side depends only on
+the marginals, so maximize the left side over their couplings. Independent
+coupling is one allowed choice, giving a gap between zero and the
+self-distance `H(V−V′)−H(V)`. Apply this separately at each conditioning
+value and average. Tao's Corollary 3.10 bounds that average self-distance
+by `O(δM)` in the configuration used by Section 3.6.
+
+</details>
+
+After `n` tensor copies, the resulting small-sumset estimate permits a factor
+`exp(O(nδM)+o(n))`, which need not stay bounded. It therefore does not by itself
+give the fixed-`K` conclusion required for `θ`. The GHR transfer can provide
+that conclusion from a suitable finite single set, but also requires a
+favorable difference-to-sum ratio relative to its diameter. Section 3 can
+preserve coordinate supports; its entropy estimates do not supply this
+quantitative comparison or our numerical certificate. Theorem 1.3's
+changing-slope asymptotics do not give a near-two limit for the fixed inputs
+`{0,1,infinity}` and output `-1`.
+
+We read the retained Section 3 and its Section 2 prerequisites, with Section 1's
+definitions and Theorem 1.3 as context. The HTML extraction is partial; this is
+not a whole-paper review or a priority claim.
 
 ## The fourfold inequality on three points
 
