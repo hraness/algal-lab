@@ -15,7 +15,7 @@ describe("public discovery export", () => {
   test("all canonical articles, citations, figures and review evidence resolve", async () => {
     const output = await assembleDiscoveries(await manifest(), revision, read);
     expect(output.bundle.articles.length).toBe(7);
-    expect(output.figures.length).toBe(4);
+    expect(output.figures.length).toBe(5);
     expect(output.bundle.articles.every((article) => !("bodyFile" in article))).toBe(true);
     expect(output.figures.every((figure) => /^[a-f0-9]{64}$/u.test(figure.sha256))).toBe(true);
   });

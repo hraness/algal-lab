@@ -623,6 +623,26 @@ profile refinement. The retained source reading below supports the
 attribution of earlier ingredients, not a historical-priority finding
 for the new bound or its certificate-family barrier.
 
+A subsequent hand argument improves the actual reflected-ratio bound
+for the same prescribed input proportions to `27936/13981<2`. It allows
+arbitrary nonnegative finite heights of the other input and arbitrary
+distinct integer positions, including overlaps between translated outputs.
+On a free four-coordinate lattice, exact forward addition across nested
+weighted layers reduces the problem to finite sets. A random-chain
+antichain count bounds complete lower cubes; missing corners force
+reflected overlaps that bound the incomplete cubes. Finite boxes in the
+kernel of the site map transfer the result to integer positions.
+The [fixed-profile guide](../docs/five-site-fixed-profile.md) states the
+hypotheses and the consequences for further searches.
+
+This boundary argument uses constraints outside the earlier certificate
+family, whose stated limitation remains valid. It does not determine the
+true profile supremum, general `K_5`, or the behavior of every intermediate
+proof estimate. Codex agents independently checked the mathematics; no new
+external literature search or scientific execution accompanied it.
+Historical priority remains unresolved, including the outstanding primary
+source and version comparisons recorded in this review.
+
 For `K_n = sup R_F(f,g)` over all `n`-point integer sets and all nonzero
 finitely supported nonnegative `f,g`, the resulting bounds are
 

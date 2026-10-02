@@ -4,12 +4,14 @@ Algal Lab includes a resumable experiment loop and an [outer-agent skill](../.ag
 
 The network example is a software demonstration of a small connectivity model. It establishes neither a scientific discovery nor an improvement in a model's reasoning. The xAI and Gemini transports have been tested with local fixtures only. Live service behavior, model compatibility, pricing, and billing have not been qualified.
 
-For the five-site max-convolution problem, read these exclusions before proposing a construction with geometric decay:
+For the five-site max-convolution problem, read these exclusions before proposing another construction:
+
+- [The fixed profile 9:5:5:5:5](five-site-fixed-profile.md) has reflected-to-forward ratio at most $27936/13981<2$ for arbitrary distinct integer positions and every nonzero finite nonnegative input. A search for an actual ratio above two must change these prescribed heights or the number of sites. Input shapes, heights, and overlaps are unrestricted in this result.
 
 - [Boxes with reduced interior weights](five-site-geometric-family.md) cannot enter one unresolved region in the current proof, for any finite box size or uniform interior multiplier between zero and one.
 - [Geometric layers and coordinate decay](five-site-geometric-downsets.md) give a broader exclusion: every nonzero finite input on the nonnegative coordinate orthant with $f(x+e_i)\le(5/9)f(x)$ has reflected-to-forward ratio below $27936/13981<2$. The same bound holds for the proof's intermediate upper estimate. This uses the fixed profile $1,5/9,5/9,5/9,5/9$ and an injective integer encoding. It includes unequal decay rates at most $5/9$ on downward-closed supports. The separate box argument retains a stronger numerical estimate for its subfamily.
 
-These results let a new run avoid repeating searches within the excluded class. Within the specified coordinate representation and its injective encodings, a proposal for the unresolved region must have a step with $f(x+e_i)>(5/9)f(x)$. Changing a box's shape or reducing its interior weights while preserving the decay condition cannot reach that region.
+These results let a new run avoid repeating excluded searches. Distinguish the actual reflected ratio from the intermediate upper estimate used in one unfinished proof. The fixed-profile theorem controls the actual ratio for all finite inputs. The other exclusions also control that intermediate estimate in their specified families. Within the coordinate representation and injective encodings of the decay note, a proposal for the unresolved proof condition must have a step with $f(x+e_i)>(5/9)f(x)$. Changing a box's shape or reducing its interior weights while preserving the decay condition cannot reach that condition; violating it does not overcome the broader bound on the actual ratio.
 
 ## Run without keys
 

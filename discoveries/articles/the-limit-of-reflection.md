@@ -2,7 +2,7 @@ Take two short lists of numbers. Add every number in one list to every number in
 
 The laboratory proved an exact limit for a weighted version of this question when one input is restricted to four positions. Reflecting that input can increase the measured total by a factor approaching **seven quarters, or 1.75, but never more**. The matching lower examples and the upper proof establish the same number.[^1]
 
-This is a small-support result inside a larger unsolved problem. Its value is a precise answer with a complete proof: it replaces a range of possible constants with one exact value.
+This is a small-support result inside a larger unsolved problem. Its value is a precise answer with a complete proof: it replaces a range of possible constants with one exact value. A later boundary argument also keeps the increase below a factor of two for one prescribed choice of five heights, regardless of their positions or the other input.
 
 ## From lists to overlapping signals
 
@@ -46,21 +46,41 @@ For a kernel equal to one on each of $n$ sites, the exact suprema through four s
 
 The paper also proves a general bound $(\sqrt K+\sqrt M)^2/4$, with the leading coefficient $1/4$ asymptotically optimal. Averaging the sharp four-site estimate over subsets gives upper bounds $35/16$ and $21/8$ for five and six sites.
 
-The paper also studies a particular five-position input profile: the selected heights of $g$ are in the proportions $9:5:5:5:5$, and the kernel is one at those positions and zero elsewhere. The five positions can be any distinct integers, and the other nonnegative finite signal, $f$, can vary freely. The reflected total from those five positions is at most $3143504/1566459$, about $2.0068$, times the full original total. For every nonzero finite input, the ratio is strictly lower, by an explicit amount that depends on the input.[^1]
+## Below two for one five-position profile
 
-The proof measures how well a signal is covered by scaled, shifted copies, then combines two estimates that respond differently to the uncovered part. At each nonempty height level, the leftmost and rightmost occupied positions supply a further gap. An accompanying argument shows that reweighting the paper's specified family of comparisons cannot lower the uniform coefficient. The exact answer for this profile and the general five-site problem remain open.[^1]
+Select five heights of $g$ in the proportions $9:5:5:5:5$, and give the kernel weight one at those positions and zero elsewhere. The five positions can be any distinct integers. The other finite, nonnegative signal, $f$, can vary freely, and values of $g$ outside the selected positions stay in the original total.
 
-## A boundary count narrows the search
+For this profile, the reflected total from the five selected positions is at most
 
-A follow-up rules out one natural family of candidates for a ratio above two. Start with a grid in four dimensions. Place the five profile heights at the origin and one step along each of the four axes, with the largest at the origin. For the other input, make each step away from the origin multiply the height by $5/9$, and retain a finite, nonempty region of nonnegative grid points that contains every point below each of its points, coordinate by coordinate. Boxes and irregular staircases both qualify.
+$$
+\frac{27936}{13981}=2-\frac{26}{13981}\approx1.9981
+$$
 
-Encode both inputs as integers with a positional map that preserves sums and differences without merging distinct outputs. Every such configuration has ratio at most $27936/13981$, about $1.9981$, for the five-site profile above.[^5]
+times the full original total. Thus reflection cannot double it. The bound covers arbitrary heights of $f$ and overlaps between translated outputs. It improves the earlier coefficient of about $2.0068$ for this profile.[^1]
 
-The proof focuses on outside points reached from all four directions: only these points can push the ratio above two. No such point lies below another coordinate by coordinate. A random ordering of the four coordinate steps provides a count that bounds their combined weight. This finite argument excludes every shape in the family, so a search for a ratio above two must change at least one of these conditions.
+The fixed proportions matter. The interval in the earlier chart allows every five-position profile, so its lower bound of two and upper bound of $35/16$ remain unchanged. The best possible constant even for $9:5:5:5:5$ is not yet determined.
 
-The argument also rules out this family as an obstacle to one proposed proof of the bound two. That approach replaces the reflected total with an intermediate upper estimate. An example could have a ratio below two while this estimate still exceeds twice the original total, leaving the proof inconclusive. Here the estimate itself stays below $27936/13981$ times the original total. To show this, the argument groups interior points by how many coordinates are positive, projects them onto coordinate faces, and combines the resulting weight bounds with the boundary count.[^5]
+## How counting overlaps gives the stronger bound
 
-The exclusion also allows more flexible heights on this grid of nonnegative points. Keep the same five profile heights and integer encoding, but let each coordinate step away from the origin multiply the other input's height by any factor at most $5/9$. Every nonzero finite input satisfying this rule splits into nested geometric layers. At each position in the original combination, the same overlapping pair produces the largest product in every layer, so the original total adds exactly across the layers. The intermediate estimate cannot exceed the sum of the layers' estimates. The same bound therefore covers these inputs too, including different decay rates in different directions.[^5]
+Start on a four-dimensional grid, with the largest of the five heights at the origin and each smaller height one step along a different axis. Divide the other input by a geometric weight, then split the resulting heights into finitely many nested levels. At each position in the original combination, one overlapping pair wins in every layer. The original total therefore adds exactly across the layers; the reflected total is at most the sum of their reflected totals.
+
+It is enough to count what happens to one weighted set of grid points. Outside points reached from all four directions are the only ones that could push the ratio above two. The proof separates them according to whether all the corners immediately below them are occupied. Complete lower cubes require enough weight inside the set, bounded by a random ordering of the four directions. A missing corner instead forces several reflected translates to overlap. Since max-convolution keeps only the largest contribution, those overlaps reduce the reflected total. Together, the two counts give the bound for every finite set, including sets with holes.[^1]
+
+![Two squares: forward shifts reach y. In the second, reflected shifts meet at the missing corner z, where the maximum keeps one contribution.](/discoveries/figures/boundary-overlap.svg)
+
+*A two-dimensional analogy: the first square has all three lower corners occupied. In the second, dashed reflected shifts meet at missing z, where the maximum keeps one contribution. Solid arrows show forward shifts to y. The proof uses four directions.[^1]*
+
+Finally, the proof lifts an arbitrary integer input to repeated copies across a large box in the extra grid directions. Away from the box's boundary, the grid totals reproduce the integer totals exactly. The boundary's relative contribution tends to zero as the box grows. This transfers the bound to arbitrary integer positions, including positions whose translated outputs overlap. The argument is a proof for all finite inputs; it does not require a new numerical search.
+
+The earlier coefficient of about $2.0068$ came from combining estimates about how well shifted copies cover the input. Reweighting that specified family of comparisons cannot improve its uniform coefficient. The boundary proof uses additional relations between the translates, so the earlier limitation on that proof family remains valid.[^1]
+
+## A separate constraint on the next proof attempt
+
+An actual ratio below two does not ensure that every proposed proof can establish it. One approach replaces the reflected total with an intermediate upper estimate. That estimate can be too large even when the true total is small enough, leaving the proof inconclusive.
+
+A companion argument controls the estimate itself for a restricted family. On the nonnegative coordinate grid, keep the same five profile heights and require each positive coordinate step to multiply the other input's height by a factor at most $5/9$. Encode the finite configuration as integers without merging distinct outputs. For every such nonzero input, the intermediate estimate is also below $27936/13981$ times the original total.[^5]
+
+This result combines boundary counting with projections onto coordinate faces and a nested-layer decomposition. It excludes these inputs from the stated unresolved proof condition, including different decay rates in different directions. The broader ratio theorem above does not extend this separate conclusion about the intermediate estimate to arbitrary inputs.[^5]
 
 ## What follows, and what remains open
 
@@ -68,4 +88,4 @@ These estimates imply several cases of a reflected fourfold inequality motivated
 
 The unrestricted fourfold question remains open in this work. For five sites the general support constant still lies between $2$ and $35/16$. Reading the closest retained primary sources also did not establish historical priority for the exact four-site result.
 
-The outcome is an exact four-site constant, obtained by joining an upper proof to matching limiting examples. For the prescribed five-site input profile, the work gives a narrower bound, a strict gap for each finite input, and a limit of the specified proof method. Boundary counting, coordinate projection and nested layers also exclude a class of inputs with geometric decay from both exceeding ratio two and obstructing the proposed proof condition. The [companion construction article](/discoveries/more-differences-from-fewer-sums) moves in the other direction: it builds explicit sets where differences are unusually numerous. The paper, geometric-family proof, earlier three-point note, source comparison and downloadable checks are linked below.
+The outcome is an exact four-site constant, obtained by joining an upper proof to matching limiting examples. For the five-site profile $9:5:5:5:5$, layers, boundary counts and a finite-box transfer now keep the ratio below two for arbitrary input heights and integer positions. Coordinate projections also exclude a restricted family from obstructing the separate proof condition. The [companion construction article](/discoveries/more-differences-from-fewer-sums) moves in the other direction: it builds explicit sets where differences are unusually numerous. The paper, fixed-profile guide, geometric-family proof, earlier three-point note, source comparison and downloadable checks are linked below.
