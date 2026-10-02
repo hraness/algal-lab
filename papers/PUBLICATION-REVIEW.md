@@ -524,3 +524,32 @@ and visually reviewed. Two paragraph breaks were repaired; the four changed
 page images were checked again, and the other 58 images matched their
 reviewed predecessors byte for byte. No human peer review or journal
 acceptance is asserted.
+
+## A five-site bound below two: 1 October 2026
+
+For the prescribed five selected input values `9:5:5:5:5`, the reflected
+ratio is now at most `27936/13981 = 2-26/13981`, with arbitrary distinct
+integer positions and arbitrary nonzero finite nonnegative other input.
+The full original denominator is retained. The proof decomposes arbitrary
+heights into weighted nested sets, counts complete and incomplete boundary
+cubes, and transfers the estimate through finite boxes in the kernel of
+the integer site map. The integer bound is non-strict against the stated
+constant. It controls the actual reflected numerator, rather than only
+an intermediate certificate estimate.
+
+The earlier certificate and its barrier remain as separate results about
+that specified proof family. The true optimum for this profile, the general
+five-site constant, the unrestricted fourfold problem and historical
+priority remain unresolved. The source comparison also corrects the reading
+record: Colesanti's full preprint was read; comparison with the journal
+version remains open. Missing primary texts and other novelty-review gaps
+remain explicitly recorded. No new numerical search, source acquisition
+or external model inference was used for this update.
+
+Independent mathematical and editorial source reviews passed. The frozen
+65-page PDF built with cached Tectonic 0.17.0; metadata and text extraction
+passed without undefined references, missing glyphs or box warnings.
+Every page was rendered with Poppler 26.08.0 and individually visually
+inspected across three reviewers, with no findings. Source, output and
+page-image hashes were checked against the build records. These are AI
+reviews, not human peer review, journal acceptance or a priority finding.

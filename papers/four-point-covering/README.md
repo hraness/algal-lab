@@ -59,10 +59,13 @@ The six-point result does not cover every six-point support.
 
 A separate refinement fixes the five selected values of the input `g`
 in the proportions `9:5:5:5:5`, with kernel weight one. For arbitrary
-integer locations and nonzero finite inputs, the reflected ratio is
-strictly below `3143504/1566459`, about `2.0068`. The proof gives an
-explicit gap depending on the input and determines the best uniform
-coefficient obtainable from its specified family of comparisons.
+distinct integer locations and nonzero finite inputs, the reflected
+ratio is at most `27936/13981`, about `1.9981`. A finite layer
+decomposition, boundary counts and a transfer through large boxes in the
+kernel of the site map prove the bound without assumptions on the other
+input's heights or the overlap of translated outputs. An earlier certificate retains
+input-dependent corrections and determines the best uniform coefficient,
+`3143504/1566459`, obtainable from its specified family of comparisons.
 The true optimum for this profile and the general five-site problem
 remain unresolved; these are restrictions on the input `g`, not
 arbitrary kernel weights.

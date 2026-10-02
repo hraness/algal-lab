@@ -12,6 +12,8 @@ The same bound holds for the proof's intermediate upper estimate of $Q$. This st
 
 The [coordinate decay extension](#weights-that-decrease-at-every-coordinate-step) allows more general heights: each positive coordinate step may multiply the input height by any factor at most $5/9$. Decomposing these inputs into nested geometric layers gives the same bound and proof-condition exclusion.
 
+A later [fixed-profile theorem](five-site-fixed-profile.md) bounds the actual reflected ratio for arbitrary finite input heights and arbitrary distinct integer sites, including overlapping outputs. This note retains the additional bound on the intermediate estimate $T$, under its stated geometric conditions.
+
 This note concerns the [five-site profile](../papers/four-point-covering/five-site-profile.tex) with weights proportional to $9:5:5:5:5$. It does not determine the general five-site constant, the optimal bound within this family, or historical priority. The proof uses the standard Boolean antichain inequality; its random-chain argument is included.
 
 ## The family and its boundary
@@ -279,4 +281,4 @@ $$
 
 This box contains the support and all one-step outputs. The encoding therefore preserves every forward and reflected vector, $P$, $Q$, $T$, and $\Delta$ on the integer sites $0,1,B,B^2,B^3$. For the coordinate decay extension, choose this single base from the largest layer $D_1$ and use it for every layer. The sites may vary with the support.
 
-The bounds apply to these injectively encoded inputs under the coordinate decay condition, including common positive scalings. They let the [discovery loop](discovery-loop.md) exclude the class both from searches for $Q>2P$ and from the unresolved proof condition. Within this representation, a new candidate must have at least one step with $f(x+e_i)>(5/9)f(x)$. Inputs with other geometries or encodings that merge outputs require separate arguments.
+The bounds apply to these injectively encoded inputs under the coordinate decay condition, including common positive scalings. They let the [discovery loop](discovery-loop.md) exclude the class from the unresolved proof condition as well as from $Q>2P$. Within this representation, a new candidate for that proof condition must have at least one step with $f(x+e_i)>(5/9)f(x)$. The later [fixed-profile theorem](five-site-fixed-profile.md) rules out $Q>2P$ even for arbitrary finite heights and overlapping integer encodings. A corresponding bound on $T$ outside the family treated here remains unproved.
