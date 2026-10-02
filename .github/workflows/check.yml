@@ -151,7 +151,7 @@ jobs:
       # restore; main saves on a miss.
       - name: Restore the pinned native SAT solver build
         id: cadical
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v6
         with:
           path: runs/cadical-build
           key: cadical-${{ runner.os }}-${{ runner.arch }}-c60730422e758ef1cebe7aeddf2dda31c996bf04-fpic-v1
@@ -172,7 +172,7 @@ jobs:
           cp runs/cadical-source/build/libcadical.a runs/cadical-source/build/cadical runs/cadical-build/
       - name: Save the native SAT solver build
         if: steps.cadical.outputs.cache-hit != 'true' && github.event_name == 'push' && github.ref == 'refs/heads/main'
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v6
         with:
           path: runs/cadical-build
           key: ${{ steps.cadical.outputs.cache-primary-key }}
