@@ -22,6 +22,11 @@ bun run discovery doctor
 bun run discovery agenda
 ```
 
+`doctor` returns JSON with `ready: true`, your Bun version, the runtime revision,
+and the proposed track IDs. It checks the agenda and its referenced files, not
+live providers or track-specific Python, Elixir, or native proof tools. `agenda`
+prints proposed experiments; it does not execute them.
+
 For datasets and optional research toolchains, use
 [the foundation setup](CONTRIBUTING.md#prepare-tools-and-datasets): a hash-pinned,
 licensed CLINC150 corpus with no-model development baselines, generated exact
