@@ -1,5 +1,46 @@
 # Contributing
 
+## Choose and continue a research question
+
+Start with [the practical-CS strategy](docs/roadmap.md#research-objective).
+After installing the frozen lockfile, `bun run discovery doctor` checks the
+no-key entry point and `bun run discovery agenda [track-id]` lists proposed
+questions, baselines, references, stopping rules, and focused checks. The agenda
+is data; listing it never runs its commands or starts inference.
+
+Contribute a small falsifiable experiment, replication, stronger baseline,
+counterexample, primary-source comparison, verifier test, or application
+measurement. Preserve null results. A useful contribution need not claim a new
+theorem. Before claiming novelty, compare exact assumptions and conclusions with
+primary sources; before claiming usefulness, test a named workload and account
+for integration and verification costs.
+
+Use a branch from current `main` and a unique private run directory. For work
+shared between machines, claim one campaign owner in its handoff record before
+running anything, avoid simultaneous writers, and preserve consumed budgets.
+Run `bun run discovery verify <run-directory>` on both sides of a copied graph
+run; follow the [handoff procedure](docs/discovery-loop.md#verify-before-a-machine-handoff).
+`runs/` is not synchronized by a Git pull. Historical archives need their
+recorded source and Bun version; a newly cloned `main` can start new work but
+must not silently reinterpret old evidence.
+
+The outer-agent skill is a plain Markdown procedure at
+`.agents/skills/algal-discovery/SKILL.md`. Read it directly if your agent host does
+not discover repository skills. No global agent configuration or sibling
+repository is required for local experiments. Publication to a separate website
+and optional live providers have their own setup and authorization requirements.
+
+For completed `lab study` archives, reuse the existing evidence and claims
+commands rather than inventing another ledger. `bun run lab evidence <study>`
+writes the run-local evidence record; `bun run lab verify-evidence <study>`
+checks it. `bun run lab claims <study> <drafts.json>` derives claims from cited
+records, and `bun run lab verify-claims <study>` checks their support. Drafts
+follow `src/claims.ts`. Run `bun run lab verify <study>` for fresh numerical
+reproduction as well. These commands do not accept `discovery` directories, and
+replay-level evidence cannot justify a stronger scientific or practical claim.
+
+## Validate the software
+
 Read [AGENTS.md](AGENTS.md), [architecture](docs/architecture.md), and
 [research method](docs/research-method.md) before changing experiment semantics.
 Use Bun 1.3.14, the version pinned in CI, and install the committed lockfile:

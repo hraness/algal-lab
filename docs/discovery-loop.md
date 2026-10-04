@@ -15,12 +15,14 @@ These results let a new run avoid repeating excluded searches. Distinguish the a
 
 ## Run without keys
 
-Use the Bun version specified by `package.json` and the frozen lockfile. No global lab installation is needed.
+Use the Bun version specified by `package.json` and the frozen lockfile. No global lab installation, host scheduler, API key, or sibling checkout is needed for the graph example. `doctor` checks the Bun requirement, the declared runtime pin, and agenda references; it does not verify optional toolchains or live providers. Python research, Elixir host comparisons, and native SAT proofs have separate requirements in [CONTRIBUTING.md](../CONTRIBUTING.md).
 
 ```sh
 git clone https://github.com/hraness/algal-lab.git
 cd algal-lab
 bun install --frozen-lockfile
+bun run discovery doctor
+bun run discovery agenda
 mkdir -p runs
 bun run discovery init --config examples/discovery-local.json --out runs/first-discovery
 bun run discovery run runs/first-discovery --steps 4
@@ -28,6 +30,7 @@ bun run discovery status runs/first-discovery
 bun run discovery run runs/first-discovery --steps 8
 bun run discovery seal runs/first-discovery
 bun run discovery confirm runs/first-discovery
+bun run discovery verify runs/first-discovery
 ```
 
 The example makes at most 12 attempts, permits no model calls or spending, and reserves 15 seconds across its baseline, candidate evaluations, and final confirmation. Resuming uses the existing `state.json`; it does not repeat completed attempts. The run directory also holds the frozen config and small transition records. `runs/` is excluded from Git.
@@ -90,7 +93,25 @@ One writer holds `.lock`. After a crash, `unlock` only releases a lock whose pro
 
 Config, source, lockfile, and Bun identities are checked on resume. Keep the corresponding Git revision and Bun version with a run. A changed evaluator or strategy starts a new run; it cannot quietly change an old experiment. State hashes detect accidental modification, not forgery by someone who can rewrite local files.
 
-For a machine handoff, finish the current command, verify there is no writer or unresolved remote request, and copy the selected run directory separately from the repository. Do not copy API keys or another process's live lock. Keep original research and publication allowances separate: creating a new software run does not renew an exhausted scientific budget.
+### Verify before a machine handoff
+
+```sh
+bun run discovery verify runs/first-discovery
+```
+
+`verify` takes the same single-writer lock as the runner, validates source/config/state identities, recalculates recorded baseline and candidate scores with the simulator and independent connectivity checker, and reconstructs promotion and regression decisions. It checks captured response-to-proposal links, reservations, and the frozen selection digest. It recalculates final holdout scores only if the run already recorded a completed confirmation. It never calls a provider, fills missing observations, retries failed work, or alters `state.json`. Failed or interrupted measurements remain unknown, not reproduced successes. Numerical verification allows up to 10 seconds per recorded evaluation on the receiving machine; it does not re-establish historical runtime performance or change the campaign's charged reservations. Transition-history files are preserved for inspection but are not reconstructed by this command.
+
+The result includes the state digest, source/config hashes, verifier hash, Bun version, charged reservations, outstanding work, and `handoffReady`. A run with unfinished local evaluations, an unresolved request, completed-request proposals awaiting evaluation, failed initialization, or interrupted confirmation is not ready. Explicitly abandoned responses remain unevaluated and fully charged; they do not block handoff. A verified snapshot does not authenticate the provider or establish scientific validity, novelty, or practical utility. Verification leaves no lock on success; a crash can leave the same lock as any other command, recovered with `unlock` only after its owner is absent. A malformed lock cannot establish ownership and must not be deleted automatically.
+
+To continue on another machine:
+
+1. Finish the current command and stop issuing commands on the source machine. Run `verify`; resolve any outstanding work using the recovery rules above, without redispatching uncertain requests. Require `handoffReady: true`.
+2. Record `git rev-parse HEAD`, `git status --short`, the verification result, and the campaign's remaining allowance and next test. Transfer only from committed source; uncommitted evaluator changes cannot be recovered by the commit ID alone.
+3. Copy the selected run directory and private campaign record separately from Git, with restrictive access. Include config, state, and history; never copy API keys, a live `.lock`, or unrelated runs. Keep the original evidence. Copying is not a distributed ownership transfer: explicitly designate one destination writer and leave the source idle.
+4. Check out that recorded commit in a separate clean clone on the destination, install its frozen lockfile, and use the recorded Bun version. Do not upgrade the source or runtime while resuming an experiment. Source identity mismatches stop resumption.
+5. Run `verify` on the copied directory and compare its state digest, source/config hashes, and charged reservations with the source report. Then use `status` and `context` before `run`, or `confirm` if already sealed. A confirmed run is complete and cannot resume search. A budget-exhausted exploring run may only have enough allowance left to seal and confirm.
+
+The copy-and-resume test uses a separate directory; Linux CI and local macOS checks cover the no-key path. Neither is a distributed-filesystem or power-loss guarantee. Keep research and publication allowances separate: a new computer or software run does not renew either allowance.
 
 Before large installs or publication checks, use the skill's [disk recovery workflow](../.agents/skills/algal-discovery/SKILL.md#keep-enough-disk-space-to-continue). It sizes headroom for the next operation, reclaims unused reproducible files within the authorized task, preserves campaign evidence and active work, and resumes blocked checks after verifying the previous command has stopped. Large completed evidence files may use the separate [lossless storage procedure](../.agents/skills/algal-discovery/references/evidence-storage.md), with complete byte verification and explicit restoration for tools that need the raw paths. Repository or installed cleanup tools are preferred when available; the workflow also defines an exact-target fallback for another machine. Freeing disk space does not renew research allowances.
 
@@ -125,7 +146,7 @@ Input tokens are conservatively reserved from prompt bytes plus wrapper overhead
 
 ## Improve the research method without losing the controls
 
-Use `$algal-discovery` to drive finite campaigns. Keep a campaign record under `runs/` with the question, baseline strategy, candidate strategies and parent IDs, known failures, remaining allowance, and the next falsifiable test. Changing proposal instructions, retrieval, or decomposition creates a new strategy version. Compare it with the incumbent using matched tasks and budgets, then freeze it before fresh final evaluation. A favorable example alone does not establish strategy improvement.
+Use `$algal-discovery` to drive finite campaigns. Start from [the research strategy](roadmap.md#research-objective) and `bun run discovery agenda <track-id>`. Keep a campaign record under `runs/` with the question, baseline strategy, candidate strategies and parent IDs, known failures, remaining allowance, and the next falsifiable test. Link claims to supporting and contradicting artifacts, primary-source comparisons, independent reviews, and the intended application test. This campaign-wide record is maintained by the outer agent; the runner does not implement a shared claim database or cross-run budget service. Changing proposal instructions, retrieval, or decomposition creates a new strategy version. Compare it with the incumbent using matched tasks and budgets, then freeze it before fresh final evaluation. A favorable example alone does not establish strategy improvement.
 
 The executable reference supports connected-graph proposals. Mathematical proof checking or another instrument requires a reviewed, fixed evaluator and its own controlled examples. The loop intentionally has no generated-code or arbitrary-shell evaluator hook. A proof assistant, SAT checker, exact arithmetic verifier, or manuscript build can be added as trusted repository code with explicit inputs and limits. Do not describe a heuristic graph score as evidence about the sumset, softmax, survival, or Ramsey results.
 
@@ -149,7 +170,7 @@ The user's standing publication authorization covers those routine updates after
 Focused software validation:
 
 ```sh
-bun test src/discovery/loop.test.ts
+bun test src/discovery
 bun run typecheck
 ```
 

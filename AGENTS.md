@@ -32,8 +32,16 @@ fork of ALGAL.
 - `examples/`: bounded public study protocols and executor examples.
 - `docs/`: research method, architecture, provenance, and scoped follow-up work.
 
-The initial delivery is a headless network-resilience laboratory. Valhalla
-integration, arbitrary generated-code admission, and physics claims are deferred.
+The repository includes network studies, resumable graph discovery, an observation
+interface, task/host experiments, and exact mathematical research. The active
+practical-CS agenda is `examples/research-agenda.json`; `docs/roadmap.md` defines
+its campaign and evidence requirements. `bun run discovery doctor` checks the
+no-key entry point; `agenda [track-id]` shows proposed work and `verify <run>`
+reproduces recorded discovery observations without provider calls. These commands
+are tested under `bun run check`. The outer agent, not the graph runner, owns
+campaign-wide accounting, source comparison, independent reviews, and handoff.
+Valhalla integration, arbitrary generated-code admission, and physics claims are
+deferred. Preserve the scientific-audit correction and author-response hold.
 
 <!-- hraness-public-copy:start -->
 - Public copy (websites, READMEs, docs, package and GitHub descriptions, CLI help, `llms.txt`, generated pages) follows `STYLE.md`, synced from hraness/.github. Text a model writes for publication also follows `GENERATION_STYLE.md`.

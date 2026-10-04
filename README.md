@@ -8,6 +8,25 @@ default and supports optional xAI or Gemini proposals. Its
 [`algal-discovery` skill](.agents/skills/algal-discovery/SKILL.md) guides research,
 primary-source comparison, independent review, and updates to the public articles.
 
+For practical computer-science research, start with the
+[research strategy](docs/roadmap.md#research-objective) and its executable agenda.
+It prioritizes cost-aware research memory, certified resource allocation,
+failure-aware execution, and certificate-guided search. Each proposed track
+names baselines, a next experiment, primary-source comparisons, a practical test,
+and stopping conditions. None is presented as an established discovery.
+
+After installing the frozen dependencies:
+
+```sh
+bun run discovery doctor
+bun run discovery agenda
+```
+
+Use [the continuation guide](docs/discovery-loop.md) to run the no-key example,
+verify recorded results offline, or move a stopped run to another machine.
+The outer research agent selects and reviews scientific work; the executable
+runner automates finite graph experiments, not the whole research lifecycle.
+
 Researchers propose experiments, record predictions before measurement (the
 ordering is enforced inside the local receipt; it is not an external
 commitment), and build on prior artifacts within a study. The laboratory records
