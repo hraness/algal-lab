@@ -43,6 +43,7 @@ application claim through the separate consumer test below.
 | Network studies | Matched conditions, frozen selection, independent numerical checks, offline reproduction. | Toy connectivity objectives; the one recorded live comparison is not a general sharing result. |
 | Resumable discovery | Finite local graph search, saved predictions/failures, optional explicitly enabled providers, one final evaluation, offline score and selection verification. | One writer on one host; the runner does not select research questions, prove theorems, or coordinate distributed owners. |
 | Observation interface | Registered predictions, measurement joins, source identities, and frozen evaluation for reviewed adapters. | An interface does not validate a new domain or authorize arbitrary code. |
+| Study claims and evidence | Typed run-local claims cite supporting or contradicting records; outcomes and support levels are derived and checked offline. | The study projection grants replay evidence, not novelty or utility. This is not shared cross-campaign retrieval. |
 | Exact research | Mathematical arguments, finite certificates, independent verifiers, and scoped result articles. | Proof, computational coverage, priority, and usefulness require different evidence. |
 | Task and host experiments | Replayable task comparisons and local crash/recovery controls. | Historical outcomes do not qualify a new strategy, model, or deployment. |
 | Outer research agent | The [discovery skill](../.agents/skills/algal-discovery/SKILL.md) directs source comparison, finite experiments, reviews, and handoff. | No unattended scheduler, cross-campaign budget service, or shared claim database is implemented. |
@@ -146,9 +147,17 @@ Before more inference, address these evidence gaps:
   before treating it as a promising new campaign. Finite improvements and a
   general search-method advantage are separate outcomes.
 
+Reuse [the existing study evidence and claims](architecture.md#artifact-boundary)
+where their contracts fit: `src/evidence.ts` projects completed `lab study`
+archives, and `src/claims.ts` checks run-local supporting and contradicting
+citations. A claim asking for stronger support remains insufficient when its
+records only establish replay. These commands do not accept resumable
+`discovery` directories or establish literature priority. Extending them to
+other instruments needs a reviewed evidence mapping, not a second claim format.
+
 The graph runner enforces run-local reservations and selection order. The outer
-agent maintains the campaign-wide ledger, source comparison, claim/evidence
-links, and cross-machine ownership record. Automating that ledger or adding
+agent connects those records to the campaign-wide ledger, source comparisons,
+and cross-machine ownership record. Automating that ledger or adding
 federated workers is follow-up work: it must prevent duplicate assignment and
 budget renewal, keep holdouts out of retrieval, and pass crash/transfer controls
 before use. Population size is not a substitute for these checks.
@@ -259,10 +268,12 @@ for a research substrate, not completion of the scientific claims below.
    competent but not dominant live arm, a small within-margin sharing
    trend at primary, and a measured negative transfer effect — one run,
    no strong claim.
-3. **Develop reusable scientific memory.** Add typed claims with supporting and
-   contradicting experiments, exact lineage, failed hypotheses, and targeted
-   replication requests. Separate a researcher's explanation from measured
-   evidence and later confirmation. Evaluate retrieval quality before expanding
+3. **Develop reusable scientific memory.** Partly delivered by the run-local
+   `src/claims.ts` and `src/evidence.ts` contracts for supporting/contradicting
+   evidence and insufficient outcomes. Cross-campaign retrieval, literature
+   comparisons, and targeted replication scheduling remain outer-agent work.
+   Separate a researcher's explanation from measured evidence and later
+   confirmation. Evaluate retrieval quality and split isolation before expanding
    memory indefinitely.
 4. **Broaden the instrument family.** Add another validated domain through an
    explicit instrument interface. Require analytical examples, independent

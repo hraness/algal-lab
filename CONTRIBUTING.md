@@ -30,6 +30,15 @@ not discover repository skills. No global agent configuration or sibling
 repository is required for local experiments. Publication to a separate website
 and optional live providers have their own setup and authorization requirements.
 
+For completed `lab study` archives, reuse the existing evidence and claims
+commands rather than inventing another ledger. `bun run lab evidence <study>`
+writes the run-local evidence record; `bun run lab verify-evidence <study>`
+checks it. `bun run lab claims <study> <drafts.json>` derives claims from cited
+records, and `bun run lab verify-claims <study>` checks their support. Drafts
+follow `src/claims.ts`. Run `bun run lab verify <study>` for fresh numerical
+reproduction as well. These commands do not accept `discovery` directories, and
+replay-level evidence cannot justify a stronger scientific or practical claim.
+
 ## Validate the software
 
 Read [AGENTS.md](AGENTS.md), [architecture](docs/architecture.md), and
