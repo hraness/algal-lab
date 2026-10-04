@@ -53,6 +53,24 @@ Reuse an existing fixed evaluator where its assumptions fit. Add another as
 reviewed repository code with small analytical controls, an independent check,
 explicit resource bounds, and a versioned input contract.
 
+## Starting datasets and tools
+
+The [foundation setup](../CONTRIBUTING.md#prepare-tools-and-datasets) supplies a
+licensed, hash-pinned CLINC150 development corpus with cheap retrieval controls,
+a reproducible exact allocation suite, and optional local builds of CI-pinned
+SAT/proof tools. Run `bun run foundation doctor` to distinguish available tools
+from missing optional profiles. Keep the existing small assistant fixtures as
+regression tests.
+
+These preparations do not close the research gaps: public intent data lacks
+conversation-group provenance and may appear in model training; allocation
+instances are synthetic; local crash fixtures do not model distributed failures.
+The corpus cannot be substituted into the binary Textbutler policy task. Each
+track still needs its task definition, source/instance-family split, frozen
+protocol, appropriate baseline, and practical workload validation before a
+scientific comparison. Native setup runs short controls, not another moonshot
+search or a release of held findings.
+
 ## Run a finite research campaign
 
 1. **Choose a decision, not a topic.** Recover the current evidence and exclusions.

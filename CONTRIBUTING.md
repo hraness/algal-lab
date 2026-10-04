@@ -39,6 +39,116 @@ follow `src/claims.ts`. Run `bun run lab verify <study>` for fresh numerical
 reproduction as well. These commands do not accept `discovery` directories, and
 replay-level evidence cannot justify a stronger scientific or practical claim.
 
+## Prepare tools and datasets
+
+The graph demo needs Bun. Allocation controls also need Python 3.10 or newer
+and use only its standard library. Check the available tools before choosing a
+track:
+
+```sh
+bun install --frozen-lockfile
+bun run foundation doctor
+mkdir -p runs
+```
+
+The readiness report separates core tools, optional native proof builds, and
+Elixir/OTP comparisons. It checks versions and availability, not scientific
+validity. It installs nothing and does not activate a model provider. On hosts
+with a scheduler, use it for builds and broad checks; a scheduler is not a
+portable dependency of the repository.
+
+### Public intent data and retrieval controls
+
+CLINC150 is a crowdsourced English single-intent benchmark from Larson et al.,
+[EMNLP-IJCNLP 2019](https://www.aclweb.org/anthology/D19-1131/). The preparation
+command downloads only its full JSON, license, and README from the pinned
+upstream revision. It verifies every file's SHA-256 and length before creating
+the output directory. Its upstream license is **CC BY 3.0**, separate from this
+repository's MIT code license. Keep the copied license, attribution, source
+identity, and transformation record when sharing prepared data.
+
+```sh
+bun run foundation fetch clinc150 --out runs/clinc150
+bun run foundation verify-dataset runs/clinc150
+bun run foundation baseline runs/clinc150 --out runs/clinc150-baseline
+bun run foundation verify-baseline runs/clinc150 runs/clinc150-baseline
+```
+
+For an offline machine, transfer the prepared directory and verify it there.
+Alternatively, `foundation import clinc150 --source PATH --out NEW_PATH`
+imports the exact pinned upstream checkout without network access. Existing
+outputs are never overwritten; a failed operation keeps any partial directory.
+
+The transform preserves upstream training, validation, and test assignments.
+It quarantines **every occurrence** of a duplicate after NFKC normalization,
+lowercasing, and replacement of non-letter/non-number runs with spaces. The
+manifest records removed IDs and text hashes, source hashes, and partition
+hashes. These are text groups, not source/conversation identities: paraphrase
+leakage and model-training contamination remain possible. Use this public corpus
+for development. A new generalization claim still needs a separately frozen,
+source-disjoint evaluation corpus with a defensible access history.
+
+The no-model diagnostic selects at most eight training and two validation
+examples per label using a fixed hash order, including the `oos` label. It fits
+TF-IDF on training text only, compares cosine nearest-neighbor classification
+with majority and seeded random-label controls, and saves predictions and
+identities. It requires the pinned prepared-manifest digest and matching training
+and validation hashes without reading or scoring `test.json`. `verify-dataset`
+also checks the raw sources and reserved test partition.
+`verify-baseline` repeats only that development computation, requiring the
+recorded source and Bun version. It is not an out-of-scope detection benchmark or
+a model-quality claim. CLINC labels are not Textbutler's respond/silent policy;
+do not substitute this dataset into that study without a separately reviewed
+intent-classification task and protocol. Model-driven selection, context-byte
+matched retrieval comparisons, and fresh consumer data remain follow-up work.
+
+### Exact allocation controls
+
+```sh
+python3 -m research.foundation_allocation --out runs/allocation-controls
+python3 -m research.foundation_allocation --verify runs/allocation-controls
+```
+
+This generates 24 small allocation instances from a fixed SHA-256 recipe,
+including empty eligibility and zero-capacity cases. It compares the existing
+rational flow solver against exhaustive assignment search and a greedy control,
+checks each optimality certificate, and rejects an altered certificate. Inputs,
+source identities, Python version, and exact rational results are saved. The
+sixteen development and eight regression cases are public synthetic model
+controls, not a fresh holdout or production scheduling trace. Establish a
+workload-supported objective and constraints before claiming practical value.
+
+### Optional native proof tools
+
+A local proof build needs Git, the GitHub CLI, C and C++ compilers, Make, Python,
+and network access to the two public source repositories. It downloads the same
+CaDiCaL and lrat-trim commits pinned in CI, verifies the checked-out identities
+before building, and runs the repository's native and fixed-remainder controls.
+It refuses skipped controls and never installs globally.
+
+```sh
+bun run foundation setup-proofs --out runs/proof-tools --jobs 2
+bun run foundation check-proofs runs/proof-tools
+```
+
+On a scheduled host, wrap the setup command with
+`host-run --mode=shared --lane=compute --label=algal-proof-tools --`.
+Jobs are limited to one through four. Each owned process group has a ten-minute
+limit and four-megabyte output limit; interruption stops that group and retains
+partial outputs and logs. A complete build writes `toolchain.json` and
+`environment.json`. `check-proofs` checks recorded binaries, census, intent,
+environment, control-log hashes, and platform. It prints the environment paths
+to use with the documented research controls. It does not rerun the tests or authenticate a build made by someone
+else. Rebuild native tools on a different OS or architecture. Preserve failed
+outputs and choose a new directory for another setup attempt.
+
+Elixir/OTP is optional and is not installed by this command. Follow the
+[host comparison requirements](experiments/host-comparison/README.md) if that
+experiment is the selected question. No Lean installation, GPU stack, private
+conversation import, cloud service, or paid inference is needed for the starting
+profiles above. Those are task-specific choices, not prerequisites to fill in
+speculatively.
+
 ## Validate the software
 
 Read [AGENTS.md](AGENTS.md), [architecture](docs/architecture.md), and

@@ -22,6 +22,13 @@ bun run discovery doctor
 bun run discovery agenda
 ```
 
+For datasets and optional research toolchains, use
+[the foundation setup](CONTRIBUTING.md#prepare-tools-and-datasets): a hash-pinned,
+licensed CLINC150 corpus with no-model development baselines, generated exact
+allocation controls, and repository-local SAT/proof tools. Start with
+`bun run foundation doctor`; dataset downloads and native builds are explicit
+commands, not install-time side effects.
+
 Use [the continuation guide](docs/discovery-loop.md) to run the no-key example,
 verify recorded results offline, or move a stopped run to another machine.
 The outer research agent selects and reviews scientific work; the executable

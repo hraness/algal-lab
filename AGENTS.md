@@ -43,6 +43,16 @@ campaign-wide accounting, source comparison, independent reviews, and handoff.
 Valhalla integration, arbitrary generated-code admission, and physics claims are
 deferred. Preserve the scientific-audit correction and author-response hold.
 
+`bun run foundation doctor` reports task-specific tool availability. Foundation
+commands prepare the pinned CLINC150 data and development-only retrieval controls;
+`python3 -m research.foundation_allocation` supplies exact synthetic controls.
+Keep dataset downloads and native proof builds explicit, preserve source licenses,
+and use new ignored output directories. Public test data is not a fresh holdout.
+CLINC intent labels must not be mapped into Textbutler respond/silent labels.
+`setup-proofs` uses CI source pins and local control tests, never global installs.
+Foundation TypeScript tests run in `bun run check`; Python controls run with
+`python3 -m unittest research.test_foundation_allocation` and in the Python CI job.
+
 <!-- hraness-public-copy:start -->
 - Public copy (websites, READMEs, docs, package and GitHub descriptions, CLI help, `llms.txt`, generated pages) follows `STYLE.md`, synced from hraness/.github. Text a model writes for publication also follows `GENERATION_STYLE.md`.
 - The delivery vocabulary in this file (admission, qualification, custody, receipt, bounded, lane, gate, surface, projection) is internal. Translate it into what the reader gets.
