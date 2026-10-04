@@ -1,5 +1,164 @@
 # Research direction and roadmap
 
+## Research objective
+
+Prioritize computer-science results that change how a useful computation is
+performed: a proved algorithm or limitation, a certified optimization method,
+a reproducible systems result, or a measured improvement to research itself.
+A result needs separate answers to **is it correct**, **what differs from prior
+work**, and **who can use it under which assumptions**. A high score or a new
+finite construction answers none of those questions by itself.
+
+The executable [research agenda](../examples/research-agenda.json) identifies
+four proposed tracks, in starting order. Inspect it without running experiments:
+
+```sh
+bun run discovery doctor
+bun run discovery agenda
+bun run discovery agenda cost-aware-research-memory
+```
+
+The agenda checker requires a question, proposed contribution, existing evidence,
+baselines, metrics, next experiment, independent confirmation, primary-source
+comparison, stopping rule, and existing repository references for every track.
+Its commands are displayed as instructions, never executed from JSON. A valid
+agenda is a research proposal, not an approved experiment or a novelty verdict.
+
+| Track | Practical question | First decision to resolve |
+| --- | --- | --- |
+| Cost-aware research memory | Can selective feedback improve assistants enough to pay for retrieval and revision? | Establish headroom on source-disjoint tasks against labeled examples and cheap retrieval. |
+| Certified resource allocation | Can workers or replicas be assigned efficiently under useful constraints? | Find a workload-supported constraint that the existing exact reductions do not already solve. |
+| Failure-aware execution | Can long jobs recover without repeating uncertain effects? | Specify and test the persistence and ownership failure model before optimizing recovery cost. |
+| Certificate-guided search | Can reusable obstructions reduce exact search cost? | Prove reuse is sound and include learning and proof checking in the total cost. |
+
+These are application hypotheses. The softmax objective is not a validated model
+of a production scheduler, the host fixture is not a distributed service, and
+synthetic assistant cases are not user traffic. Each track must earn its
+application claim through the separate consumer test below.
+
+## What can run today
+
+| Component | Delivered behavior | Limit |
+| --- | --- | --- |
+| Network studies | Matched conditions, frozen selection, independent numerical checks, offline reproduction. | Toy connectivity objectives; the one recorded live comparison is not a general sharing result. |
+| Resumable discovery | Finite local graph search, saved predictions/failures, optional explicitly enabled providers, one final evaluation, offline score and selection verification. | One writer on one host; the runner does not select research questions, prove theorems, or coordinate distributed owners. |
+| Observation interface | Registered predictions, measurement joins, source identities, and frozen evaluation for reviewed adapters. | An interface does not validate a new domain or authorize arbitrary code. |
+| Exact research | Mathematical arguments, finite certificates, independent verifiers, and scoped result articles. | Proof, computational coverage, priority, and usefulness require different evidence. |
+| Task and host experiments | Replayable task comparisons and local crash/recovery controls. | Historical outcomes do not qualify a new strategy, model, or deployment. |
+| Outer research agent | The [discovery skill](../.agents/skills/algal-discovery/SKILL.md) directs source comparison, finite experiments, reviews, and handoff. | No unattended scheduler, cross-campaign budget service, or shared claim database is implemented. |
+
+Do not build a second simulator or activate generated code to fill those limits.
+Reuse an existing fixed evaluator where its assumptions fit. Add another as
+reviewed repository code with small analytical controls, an independent check,
+explicit resource bounds, and a versioned input contract.
+
+## Run a finite research campaign
+
+1. **Choose a decision, not a topic.** Recover the current evidence and exclusions.
+   State the falsifiable question, proposed contribution, intended consumer,
+   and the observation that would change the next action. Prefer an unresolved
+   question with a strong cheap baseline over an easy unoccupied record cell.
+2. **Test the likely rediscovery first.** Build a claim-to-source table with
+   exact versions, theorem/proof or experiment locations, hypotheses,
+   substitutions, conclusions, and differences. Search alternate terminology
+   and citations in both directions. Record inaccessible sources and uncertainty.
+   A source saying something differs from independently reproducing it.
+3. **Freeze the protocol before search.** Record source/data identities,
+   development and regression cases, final cases and access rules, primary
+   endpoint, practical margin with units, experimental unit, uncertainty method,
+   multiplicity policy, baselines, ablations, full allowance, and stopping rule.
+   Count pilot selection, failed runs, losing candidates, retrieval, evaluation,
+   and certification costs. A new folder or machine does not reset that allowance.
+4. **Qualify the measurement cheaply.** Reproduce analytical or exhaustive
+   small cases, adversarial cases, infeasible inputs, and deliberately corrupted
+   certificates. Check that the baseline has headroom. Stop a saturated study
+   rather than searching for a flattering metric after seeing results.
+5. **Search only development evidence.** Record predictions, parents, realized
+   inputs, all failures, and strategy versions. Keep the evaluator fixed and
+   model-generated commands inert. Development scores are selection evidence,
+   not confirmatory evidence. Retrieved memory must record its split and source;
+   do not bring prior holdout results back into a continuing experiment.
+6. **Try to refute the candidate.** Test the smallest counterexample, boundary
+   cases, relabelings, perturbations, and stronger known baselines. Isolate each
+   proposed mechanism with an ablation. An obstruction to one proof or search
+   family is not a counterexample to the broader claim.
+7. **Review correctness and novelty separately.** Give independent reviewers
+   the frozen inputs, source revision, exact claim and assumptions, proof or
+   protocol, negative results, and source comparisons. Resolve findings in
+   recorded evidence. AI review is not human peer review; a passing test is not
+   a proof or a literature search.
+8. **Confirm a frozen selection once.** Use fresh source/instance families and
+   paired comparisons at the independent task or replicate level. Seeds that
+   only reorder the same examples do not create independent examples. Report
+   intervals, effects in task units, all prespecified comparisons, timeouts,
+   and invalid outputs. Account for multiple hypotheses and any sequential
+   stopping; do not repeatedly inspect a holdout until a threshold passes.
+9. **Test the application.** Freeze an adapter to one named public or
+   owner-authorized workload. Compare against the best appropriate simple and
+   established implementations. Include preprocessing, learned-state storage,
+   checking, latency, memory, and integration cost. State where model assumptions
+   fail. Synthetic, trace-based, and live evidence remain distinct; no production
+   activation follows from a synthetic win.
+10. **Replicate and preserve the result.** A second machine or independent
+    implementation repeats the computation at the recorded source/tool versions.
+    Transfer the private run separately, verify its contents, preserve consumed
+    allowances, and distinguish numerical reproduction from a new stochastic
+    model run. Do not silently rerun uncertain paid operations.
+11. **Publish only the supported scope.** Separate theorem, finite certificate,
+    empirical result, conjecture, rediscovery, and unresolved priority. Refresh
+    dated record tables before reporting a new bound. Release a minimal verifier,
+    inputs or a lawful data-access recipe, exact commands, limitations, and review
+    identity. Respect the field-audit correction and author-response hold; do not
+    export its withdrawn counts or contact authors as part of routine delivery.
+12. **Continue from the negative results too.** Leave the strongest supported
+    claim, disproved approaches, remaining allowance, unresolved operations,
+    assigned next test, and who holds the run. Stop when the declared allowance
+    ends, a required assumption fails, a baseline subsumes the candidate, or the
+    practical margin is missed. A null result can close a question.
+
+For theory, statistical holdouts do not establish universal quantifiers. Require
+a proof with independent review, and use numerical tests to find mistakes and
+check finite witnesses. For empirical work, a proof of the evaluator does not
+establish generalization or practical value.
+
+## Portfolio and next work
+
+Prefer one active primary question and one cheap replication or refutation at a
+time. This is a scheduling recommendation, not permission for new compute or
+spending. Promote a strategy only after matched-budget comparisons including the
+cost of generating that strategy. Retain diverse alternatives when objectives
+conflict rather than selecting a post-hoc winning score.
+
+Before more inference, address these evidence gaps:
+
+- Replicate the [network.v2 transfer finding](live-comparison-v2-findings.md)
+  under its frozen plan if a live allowance is authorized. The original run
+  found degradation; it does not establish the proposed diversity-collapse
+  mechanism. Distinguish a same-plan stochastic replication from a fresh-seed
+  generalization study. A mechanism experiment needs its own preregistration.
+- The [task study](../experiments/task-optimization/FINDINGS.md) found labeled
+  examples as accurate as costlier feedback on the same small audit set. Freeze
+  a harder source-disjoint corpus before attributing value to selective memory.
+- Finish primary-source comparisons for a small number of useful allocation or
+  grouping results before adding more related theorem claims. Keep
+  [novelty-ledger.md](novelty-ledger.md) as the source record, not model memory.
+- Refresh an extremal target's source and inspect its unseeded-control status
+  before treating it as a promising new campaign. Finite improvements and a
+  general search-method advantage are separate outcomes.
+
+The graph runner enforces run-local reservations and selection order. The outer
+agent maintains the campaign-wide ledger, source comparison, claim/evidence
+links, and cross-machine ownership record. Automating that ledger or adding
+federated workers is follow-up work: it must prevent duplicate assignment and
+budget renewal, keep holdouts out of retrieval, and pass crash/transfer controls
+before use. Population size is not a substitute for these checks.
+
+## Historical foundation and sources
+
+The sections below describe the original staged network-lab design and its
+checkpoints, rather than the current work queue. Later result notes supersede
+open questions where linked.
+
 Algal Lab explores a concrete research loop: build a reliable instrument,
 generate testable proposals, record predictions, measure consequences, preserve
 competing artifacts, and use accumulated evidence to choose the next experiment.
@@ -76,7 +235,7 @@ for a research substrate, not completion of the scientific claims below.
    - Not done: a relabeling or tie-policy sensitivity study. The instrument
      probe documents label sensitivity of targeted failure; no study varies it.
    - Done: artifact-only and message-enabled conditions stay separate.
-2. **Replicated comparison (current stage).** Implemented in
+2. **Replicated comparison (initial network stage).** Implemented in
    [`src/comparison.ts`](../src/comparison.ts),
    [`src/statistics.ts`](../src/statistics.ts), and
    [`src/topology.ts`](../src/topology.ts): protocol v2 host priming so every
@@ -168,6 +327,9 @@ spread bound certifies small additive regret near uniform rates. Exact
 counterexamples delimit stochastic-order and order-only generalizations.
 Full-source novelty checks and specialist comparison remain higher priority
 than further inference in the old conjecture grammar; the
-[source ledger](novelty-ledger.md) makes those gaps explicit. An all-horizon
-intact-group theorem and useful search outside the near-uniform regime remain
-open research questions, not delivered claims.
+[source ledger](novelty-ledger.md) makes those gaps explicit. The subsequent
+[all-horizon theorem](intact-groups-all-horizons.md),
+[stochastic-order theorem](stochastic-intact-groups.md), and
+[mixture-family theorem](mixture-rank-grouping.md) supersede the original open
+intact-group question within their stated assumptions. Check those results and
+their priority limits before proposing another version of that question.

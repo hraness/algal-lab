@@ -194,6 +194,30 @@ receipt replay, explicit fresh computation, nested adapter source bindings, and
 selection frozen before evaluation. Its bounded resume path does not change
 the deliberately non-resumable graph `runStudy` workflow.
 
+## Resumable discovery and the outer research agent
+
+`src/discovery/` is separate from the original non-resumable study runner. Its
+single-writer run stores config, state, reservations, captured responses, and
+transitions. `scripts/discovery.ts` exposes the finite graph workflow and the
+read-only research agenda. `examples/research-agenda.json` connects proposed
+practical-CS questions to existing evaluators, baselines, verification commands,
+and application tests; the runner never executes commands from that data.
+
+`discovery verify` locks a run while checking its stored identities, reproducing
+recorded development observations, validating captured proposal links and
+reservations, and reconstructing selection and its seal. It reproduces holdout
+observations only after a completed confirmation exists. It reports unknown
+failed/interrupted operations and handoff readiness without changing the state
+or contacting a provider. The report identifies the verifier separately; the
+existing run source identity is unchanged by agenda or verifier-only edits.
+
+The outer agent maintains the cross-run campaign ledger, literature comparison,
+claim/evidence relationships, reviews, practical application tests, and ownership
+handoff described in [the research strategy](roadmap.md#research-objective).
+Those procedures are not an autonomous distributed scheduler or shared memory
+service. Copied runs require the same source identity and Bun version; local
+locks do not coordinate two machines.
+
 This version has no persistent service, browser UI, distributed workers,
 automatic instrument installation, or autonomous generator evolution.
 Those require separate contracts and evidence described in the

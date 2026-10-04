@@ -1,15 +1,20 @@
 #!/usr/bin/env bun
 import { abandon, confirm, context, init, propose, seal, status, step } from "../src/discovery/loop";
 import { load, readJson, unlock } from "../src/discovery/store";
+import { doctor, loadAgenda } from "../src/discovery/agenda";
+import { verify } from "../src/discovery/verify";
 
 const HELP = `Resumable discovery experiments
 
+bun run discovery doctor
+bun run discovery agenda [track-id]
 bun run discovery init --config <file.json> --out <new-directory>
 bun run discovery step <run-directory> [--live]
 bun run discovery run <run-directory> --steps <1..256> [--live]
 bun run discovery propose <run-directory> --proposal <file.json> --parent <attempt-id>
 bun run discovery context <run-directory>
 bun run discovery status <run-directory>
+bun run discovery verify <run-directory>
 bun run discovery seal <run-directory>
 bun run discovery confirm <run-directory>
 bun run discovery abandon <run-directory> --request <request-id>
@@ -37,6 +42,18 @@ function required(opts: Map<string, string>, key: string): string {
 export async function main(args: string[]): Promise<unknown> {
   const [command, directory, ...rest] = args;
   if (!command || ["help", "--help"].includes(command)) return HELP;
+  if (command === "doctor") {
+    if (directory || rest.length) throw new Error("unexpected arguments");
+    return doctor();
+  }
+  if (command === "agenda") {
+    if (rest.length) throw new Error("unexpected arguments");
+    const agenda = await loadAgenda();
+    if (!directory) return agenda;
+    const track = agenda.tracks.find(track => track.id === directory);
+    if (!track) throw new Error(`unknown research track: ${directory}`);
+    return track;
+  }
   if (command === "init") {
     const opts = options(args.slice(1), ["--config", "--out"]);
     const out = required(opts, "--out");
@@ -44,8 +61,9 @@ export async function main(args: string[]): Promise<unknown> {
     return status(out);
   }
   if (!directory || directory.startsWith("--")) throw new Error("a run directory is required");
-  if (["context", "status", "seal", "confirm", "unlock"].includes(command)) {
+  if (["context", "status", "verify", "seal", "confirm", "unlock"].includes(command)) {
     if (rest.length) throw new Error("unexpected arguments");
+    if (command === "verify") return verify(directory);
     if (command === "context") { const { config, state } = await load(directory); return context(config, state); }
     if (command === "seal") await seal(directory);
     if (command === "confirm") await confirm(directory);
