@@ -219,7 +219,7 @@ jobs:
     name: Required
     if: always()
     needs: [changes, ts, pyunit, extremal, research, pipeline]
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-slim
     timeout-minutes: 5
     steps:
       - name: Require every selected job
