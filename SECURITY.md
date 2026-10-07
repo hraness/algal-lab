@@ -61,10 +61,9 @@ transport sidecar is supplementary evidence outside offline study verification.
 See [live executor qualification](docs/live-executor.md).
 
 Report suspected boundary crossings, unbounded work, command injection, or
-verification bypass privately. Use the repository's Security tab if GitHub
-private vulnerability reporting is enabled. Otherwise contact a repository
-maintainer privately before sending reproduction details; the
-[Hraness organization](https://github.com/hraness) identifies the project owner.
+verification bypass privately. Use the repository's Security tab (GitHub
+private vulnerability reporting). If GitHub reporting is unavailable, email
+[hraness@pm.me](mailto:hraness@pm.me) before sending reproduction details.
 Do not disclose an unpatched exploit in a public issue.
 
 Include the smallest reproducing protocol or artifact, the Algal Lab revision,
