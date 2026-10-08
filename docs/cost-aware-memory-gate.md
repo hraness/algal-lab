@@ -55,7 +55,7 @@ unfrozen. No candidate search, holdout access, or paid model call is authorized.
    review, a second-machine reproduction, and the rule to stop on contamination
    or a missed margin.
 
-The next falsifiable action is corpus authorization and protocol freeze. Until
+The next falsifiable action is the corpus intake record and protocol freeze. Until
 that is complete, the published synthetic fixture remains a regression control,
 not research evidence.
 
@@ -79,12 +79,21 @@ it is recorded here as the owner decision:
   ([allenai/natural-instructions](https://github.com/allenai/natural-instructions);
   Wang et al. 2022, arXiv:2204.07705). Pin the repository commit and record the
   digest of every task file at intake.
-- **Source group:** each task file's `Source` (the original dataset). Tasks that
-  share a source are one group and one independent unit.
-- **Development pool:** the official English training split (757 tasks).
-- **Holdout:** the official English test split (119 tasks). Its tasks were built
-  with no data-source overlap with the training tasks, so it is source-disjoint
-  by construction. This repository has never read its instances; record that
+- **Source group:** the union of each task's `Source` entries (split on `;`),
+  merged across name variants and derived datasets by a rule recorded at intake.
+  Tasks in one merged group are one independent unit.
+- **Development pool:** the official English training split
+  (`splits/default/train_tasks.txt`: 756 tasks at the pinned commit; the paper
+  reports 757).
+- **Evaluation split (not a fresh holdout):** the official English test split
+  (119 tasks). The authors excluded training tasks sourced from the same dataset
+  as any test task, but the split is not source-disjoint by the `Source` field
+  (test task249 and training tasks 275-276 share enhanced_wsc) or by derivation
+  (for example SQuAD 1.1/2.0, eQASC/QASC, WSC variants). At intake, split
+  multi-valued `Source` entries, merge names that denote the same or derived
+  datasets into one group across both splits, and run the cross-split duplicate
+  check; drop any test task whose group touches the development pool from the
+  evaluation split before freeze. This repository has never read its instances; record that
   access history now. Until the protocol below is frozen and independently
   reviewed, read only test-task metadata (`Source`, categories, instance
   license), never instances or outputs; then release it once.
@@ -92,11 +101,26 @@ it is recorded here as the owner decision:
   license in the task's `Instance License` field. Admit only tasks whose
   instance license permits research reuse and record the license per task;
   drop tasks with an unknown license instead of guessing.
-- **Known limit:** test labels are public, so models may have seen them in
-  pretraining. Every arm faces the same exposure; record it as a limit and do
-  not claim absolute quality.
+- **Known limit:** the test split is public and its labels may be in model
+  training data, so under AGENTS.md it is not a fresh holdout. This repository
+  has not read it, so after the intake merge it serves as a source-disjoint, repository-untouched
+  evaluation split, and results are a paired relative comparison between arms
+  under that exposure, not confirmatory fresh-holdout evidence or absolute
+  quality. The stop-on-contamination rule applies to repository-side exposure
+  (holdout content in prompts, retrieval indexes, tuning, stopping or
+  selection); the protocol freeze records each model's published training-data
+  disclosures.
+- **Access history:** on 2026-10-08 an independent reviewer read the first
+  1,500 bytes of each test-task file to extract `Source` strings only; those
+  bytes may include `Definition` text and never reached `Instances`.
+- **Questions the freeze settles:** whether a test task's `Definition` and
+  `Positive Examples` count as schema available to all arms (they contain
+  outputs); how many instances per task are evaluated (the paper used 100);
+  and a metadata-only reader for `Instance License`, which follows `Instances`
+  in each file.
 - **Spending:** paid calls only through the host runner's existing discovery
-  budget, and only after the protocol freeze.
+  budget, with the reserved, consumed and remaining allowance recorded in the
+  freeze, and only after it.
 
 Next: build the intake record above for this corpus, then freeze the numerical
 protocol values listed below. CLINC150 stays a regression control.
@@ -127,7 +151,7 @@ or numerical protocol values:
   null result for this question.
 
 The following values remain explicit blanks rather than post-hoc choices:
-corpus authorization and version, source-group construction, split/access
+corpus version pin and intake digests, the source-group merge rule, split/access
 ledger, independent-unit count, quality and cost margins, uncertainty and
 multiplicity method, stopping rule, reviewer identities, reproduction target,
 and reserved/consumed/remaining allowance. No search starts until that table is
@@ -144,5 +168,5 @@ completed and independently reviewed.
   existing `runner-smoke-*` records are transport smokes, not research
   evidence. This step made no paid request and consumed no new allowance.
 
-This receipt records a blocked, reproducible decision rather than a quality,
+This receipt records a corpus decision and a still-unfrozen protocol rather than a quality,
 novelty, practical-value, or LLM-intelligence claim.
