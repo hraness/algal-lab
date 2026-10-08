@@ -1,6 +1,6 @@
 # Cost-aware research memory: corpus and protocol gate
 
-**Status: blocked before selection (2026-10-08).** This is an evidence receipt,
+**Status: corpus decided by the owner (2026-10-08); protocol freeze next.** This is an evidence receipt,
 not a preregistration, holdout result, or claim about model quality.
 
 ## Decision
@@ -70,21 +70,36 @@ and one-time release rule. If those facts cannot be established, neither CLINC15
 nor a newly named dataset supplies a confirmatory holdout. Do not reconstruct
 missing provenance by grouping on the labels the experiment predicts.
 
-## Open owner decision (2026-10-08)
+## Owner corpus decision (2026-10-08)
 
-> Which licensed or owner-authorized corpus can you provide, with source-group identities and an untouched holdout’s access history?
+The owner delegated the corpus choice to the operator agent on 2026-10-08 and
+it is recorded here as the owner decision:
 
-This is the exact unanswered corpus question. The prepared CLINC150 manifest
-(`runs/clinc150/manifest.json`) says its normalized-text duplicate groups are
-not source/conversation groups and its public test partition is not a fresh
-scientific holdout. The prior 12-case task audit reuses cases, while the
-28-case synthetic fixture is regression-only. No new corpus or holdout access
-history was supplied. The owner is unavailable until 2026-11-05; do not
-re-request an answer or substitute public test labels. Keep this decision open
-and this campaign stopped. The next independent agenda step may instead use
-local crash/recovery fixtures under the failure-aware-execution track, with
-no external effects or paid inference; it must freeze its own failure model
-before comparing protocols.
+- **Corpus:** Super-NaturalInstructions, English track
+  ([allenai/natural-instructions](https://github.com/allenai/natural-instructions);
+  Wang et al. 2022, arXiv:2204.07705). Pin the repository commit and record the
+  digest of every task file at intake.
+- **Source group:** each task file's `Source` (the original dataset). Tasks that
+  share a source are one group and one independent unit.
+- **Development pool:** the official English training split (757 tasks).
+- **Holdout:** the official English test split (119 tasks). Its tasks were built
+  with no data-source overlap with the training tasks, so it is source-disjoint
+  by construction. This repository has never read its instances; record that
+  access history now. Until the protocol below is frozen and independently
+  reviewed, read only test-task metadata (`Source`, categories, instance
+  license), never instances or outputs; then release it once.
+- **Rights:** task definitions are Apache-2.0; instances carry each source's
+  license in the task's `Instance License` field. Admit only tasks whose
+  instance license permits research reuse and record the license per task;
+  drop tasks with an unknown license instead of guessing.
+- **Known limit:** test labels are public, so models may have seen them in
+  pretraining. Every arm faces the same exposure; record it as a limit and do
+  not claim absolute quality.
+- **Spending:** paid calls only through the host runner's existing discovery
+  budget, and only after the protocol freeze.
+
+Next: build the intake record above for this corpus, then freeze the numerical
+protocol values listed below. CLINC150 stays a regression control.
 
 ## Structural commitments recorded before corpus authorization
 
