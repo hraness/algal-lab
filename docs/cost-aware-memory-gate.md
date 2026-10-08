@@ -103,7 +103,7 @@ it is recorded here as the owner decision:
   drop tasks with an unknown license instead of guessing.
 - **Known limit:** the test split is public and its labels may be in model
   training data, so under AGENTS.md it is not a fresh holdout. This repository
-  has not read it, so it serves as a source-disjoint, repository-untouched
+  has not read it, so after the intake merge it serves as a source-disjoint, repository-untouched
   evaluation split, and results are a paired relative comparison between arms
   under that exposure, not confirmatory fresh-holdout evidence or absolute
   quality. The stop-on-contamination rule applies to repository-side exposure
