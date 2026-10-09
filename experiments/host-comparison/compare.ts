@@ -2,7 +2,9 @@ import { strict as assert } from "node:assert";
 import { existsSync, mkdirSync, readFileSync, rmdirSync, unlinkSync, writeFileSync } from "node:fs";
 import { cpus, platform, release, totalmem } from "node:os";
 import { dirname, join, resolve } from "node:path";
+import { readEffectLog, type EffectLog } from "./effect-log";
 import type { Command, Job } from "./protocol";
+import { hostRssBytes } from "./rss";
 
 type Host = "bun" | "otp";
 type Event = { event: string; at: number; id?: string; job?: Job; pid?: number; status?: string; reason?: string; digest?: string; queue_ms?: number; active?: number; queued?: number };
@@ -24,8 +26,10 @@ class Session {
   readonly errors: Promise<string>;
   readonly output: Promise<void>;
   readonly folder: string;
-  constructor(readonly host: Host, readonly scenario: string, active = 4, backlog = 32, restart = false) {
+  readonly submitted: Set<string>;
+  constructor(readonly host: Host, readonly scenario: string, active = 4, backlog = 32, restart = false, submitted: Iterable<string> = []) {
     this.folder = join(directory, `${host}-${scenario}`);
+    this.submitted = new Set(submitted);
     if (!restart) mkdirSync(this.folder);
     const command = host === "bun"
       ? [process.execPath, join(import.meta.dir, "bun-host.ts"), this.folder, String(active), String(backlog)]
@@ -56,10 +60,11 @@ class Session {
     }, `${this.host} ready`);
   }
   send(cmd: Command | object): void { this.child.stdin.write(JSON.stringify(cmd) + "\n"); this.child.stdin.flush(); }
+  submit(job: Job): void { this.submitted.add(job.id); this.send({ op: "submit", job }); }
   state(id: string): Event | undefined { return [...this.events].reverse().find((e) => e.event === "state" && e.job?.id === id); }
   async settled(id: string): Promise<Event> { await until(() => terminal.has(this.state(id)?.status ?? ""), `${this.host} ${id} settled`); return this.state(id)!; }
   async spawned(id: string): Promise<number> { await until(() => this.events.some((e) => e.event === "spawn" && e.id === id), `${id} spawned`); return this.events.find((e) => e.event === "spawn" && e.id === id)!.pid!; }
-  effects(): string[] { return existsSync(join(this.folder, "effects.jsonl")) ? readFileSync(join(this.folder, "effects.jsonl"), "utf8").trim().split("\n").filter(Boolean).map((s) => String(JSON.parse(s).id)) : []; }
+  effectLog(): EffectLog { return readEffectLog(join(this.folder, "effects.jsonl"), this.submitted); }
   async close(kill = false): Promise<void> {
     if (this.child.exitCode === null && this.child.signalCode === null) { if (kill) this.child.kill("SIGKILL"); else this.send({ op: "stop" }); }
     await Promise.race([this.child.exited, Bun.sleep(10000).then(() => { throw new Error("host exit timeout"); })]);
@@ -78,7 +83,18 @@ class Session {
   }
 }
 function job(id: string, options: Partial<Job> = {}): Job { return { id, owner: "owner", delay_ms: 20, ttl_ms: 30000, fault: "none", ...options }; }
-function submit(session: Session, value: Job): void { session.send({ op: "submit", job: value }); }
+function submit(session: Session, value: Job): void { session.submit(value); }
+function assertEffectInvariant(session: Session, expected?: readonly string[]): EffectLog {
+  const log = session.effectLog();
+  if (expected) assert.deepEqual(log.ids, [...expected].sort());
+  const ids = new Set(log.ids);
+  for (const id of session.submitted) {
+    const status = session.state(id)?.status;
+    if (status === "complete") assert.ok(ids.has(id), `complete job lacks an effect: ${id}`);
+    if (status === "cancelled" || status === "expired") assert.ok(!ids.has(id), `non-dispatched job has an effect: ${id}`);
+  }
+  return log;
+}
 function assertLimits(events: Event[], active: number, backlog: number): void {
   const states = new Map<string, string>();
   for (const event of events) if (event.event === "state") {
@@ -88,11 +104,6 @@ function assertLimits(events: Event[], active: number, backlog: number): void {
   }
 }
 function quantile(values: number[], q: number): number { const sorted = [...values].sort((a, b) => a - b); return sorted[Math.min(sorted.length - 1, Math.floor(sorted.length * q))]!; }
-async function rss(pid: number): Promise<number> {
-  const process = Bun.spawn(["/bin/ps", "-o", "rss=", "-p", String(pid)], { stdout: "pipe", stderr: "pipe" });
-  const text = await new Response(process.stdout).text(); await process.exited;
-  return Number(text.trim()) * 1024;
-}
 const benchmarks: object[] = [];
 const checks: object[] = [];
 const digests = new Map<string, string>();
@@ -100,16 +111,17 @@ async function benchmark(host: Host, repeat: number): Promise<void> {
   const starting = performance.now();
   const s = new Session(host, `throughput-${repeat}`); await s.ready();
   const startupMs = performance.now() - starting;
-  const baseline = await rss(s.child.pid), samples = [baseline];
+  const baseline = await hostRssBytes(s.child.pid), samples = [baseline];
   const start = performance.now();
   for (let i = 0; i < 24; i++) submit(s, job(`work-${i}`));
-  while (s.events.filter((e) => e.event === "state" && terminal.has(e.status ?? "")).length < 24) { samples.push(await rss(s.child.pid)); await Bun.sleep(20); assert.ok(performance.now() - start < 15000); }
+  while (s.events.filter((e) => e.event === "state" && terminal.has(e.status ?? "")).length < 24) { samples.push(await hostRssBytes(s.child.pid)); await Bun.sleep(20); assert.ok(performance.now() - start < 15000); }
   const elapsed = performance.now() - start;
   for (let i = 0; i < 24; i++) {
     const row = s.state(`work-${i}`)!; assert.equal(row.status, "complete");
     const key = `work-${i}`; if (digests.has(key)) assert.equal(row.digest, digests.get(key), "identical canonical receipts across hosts/repeats"); else digests.set(key, row.digest!);
   }
-  assert.equal(new Set(s.effects()).size, 24); assert.equal(s.effects().length, 24);
+  const effects = assertEffectInvariant(s, Array.from({ length: 24 }, (_, i) => `work-${i}`));
+  assert.equal(effects.count, 24);
   assertLimits(s.events, 4, 32);
   const queues = s.events.filter((e) => e.status === "running").map((e) => e.queue_ms!);
   benchmarks.push({ host, repeat, jobs: 24, concurrency: 4, startup_ms: startupMs, elapsed_ms: elapsed, throughput_per_second: 24000 / elapsed, queue_p50_ms: quantile(queues, 0.5), queue_p95_ms: quantile(queues, 0.95), host_rss_baseline_bytes: baseline, host_rss_peak_sampled_bytes: Math.max(...samples) });
@@ -135,11 +147,12 @@ async function failures(host: Host): Promise<void> {
   s.send({ op: "submit", job: { ...job("invalid"), command: "forbidden" } });
   await until(() => s.events.some((e) => e.event === "rejected" && e.reason === "invalid_command"), "unknown authority rejected");
   s.send({ op: "observe" }); await until(() => s.events.some((e) => e.event === "observation"), "observation");
-  assert.deepEqual(s.effects().sort(), ["healthy", "worker-after"]);
+  const effects = assertEffectInvariant(s, ["healthy", "worker-after"]);
+  assert.equal(effects.count, 2);
   assert.equal(s.events.filter((e) => e.event === "duplicate").length, 2);
   assertLimits(s.events, 1, 2);
   await s.close();
-  checks.push({ host, scenario: "admission_cancel_worker_owner", passed: true, cancellation_to_process_exit_ms: cancellationMs, effect_count: 2 });
+  checks.push({ host, scenario: "admission_cancel_worker_owner", passed: true, cancellation_to_process_exit_ms: cancellationMs, effect_count: effects.count, effect_oracle: "passed" });
 
   for (const phase of ["before-effect", "after-effect"] as const) {
     const name = `host-crash-${phase}`;
@@ -147,7 +160,7 @@ async function failures(host: Host): Promise<void> {
     const j = job("inflight", phase === "before-effect" ? { delay_ms: 5000 } : { fault: "hold_after_effect" });
     submit(first, j); await first.spawned(j.id); submit(first, job("waiting"));
     await until(() => first.state("waiting")?.status === "queued", "waiting durable");
-    if (phase === "after-effect") await until(() => first.effects().includes(j.id), "effect committed before host crash");
+    if (phase === "after-effect") await until(() => first.effectLog().ids.includes(j.id), "effect committed before host crash");
     if (phase === "before-effect") {
       // Kill the owning GenServer in OTP (event-loop owner in Bun), separately
       // from the OS-host SIGKILL tested after the effect.
@@ -155,23 +168,26 @@ async function failures(host: Host): Promise<void> {
       await until(() => first.child.exitCode !== null || first.child.signalCode !== null, "owner crash terminates service");
     }
     await first.close(true);
-    const second = new Session(host, name, 1, 2, true); await second.ready();
+    const second = new Session(host, name, 1, 2, true, first.submitted); await second.ready();
     assert.equal(second.state("inflight")?.status, "uncertain"); assert.equal(second.state("waiting")?.status, "cancelled");
     submit(second, j); submit(second, job("waiting"));
     await until(() => second.events.filter((e) => e.event === "duplicate").length === 2, "restart duplicate guard");
     submit(second, job("after-recovery")); assert.equal((await second.settled("after-recovery")).status, "complete");
-    assert.deepEqual(second.effects().sort(), phase === "after-effect" ? ["after-recovery", "inflight"] : ["after-recovery"]);
-    await second.close(); checks.push({ host, scenario: name, passed: true, recovered_inflight: "uncertain", recovered_waiting: "cancelled", duplicate_dispatches: 0 });
+    const effects = assertEffectInvariant(second, phase === "after-effect" ? ["after-recovery", "inflight"] : ["after-recovery"]);
+    assert.equal(effects.count, phase === "after-effect" ? 2 : 1);
+    await second.close(); checks.push({ host, scenario: name, passed: true, recovered_inflight: "uncertain", recovered_waiting: "cancelled", duplicate_dispatches: 0, effect_oracle: "passed" });
   }
 }
 try {
   // Alternate order to reduce simple order bias; still a single-machine smoke benchmark.
-  for (let repeat = 0; repeat < 3; repeat++) for (const host of (repeat % 2 ? ["otp", "bun"] : ["bun", "otp"]) as Host[]) await benchmark(host, repeat);
+  // Correctness is a gate: no benchmark timing is produced until both hosts
+  // pass the bounded failure suite.
   for (const host of ["bun", "otp"] as const) await failures(host);
+  for (let repeat = 0; repeat < 3; repeat++) for (const host of (repeat % 2 ? ["otp", "bun"] : ["bun", "otp"]) as Host[]) await benchmark(host, repeat);
   const version = Bun.spawn([elixir, "--version"], { stdout: "pipe", stderr: "pipe" });
   const elixirVersion = await new Response(version.stdout).text(); await version.exited;
   const dependency = JSON.parse(readFileSync(join(import.meta.dir, "../../package.json"), "utf8")).dependencies["@hraness/algal"];
-  const result = { contract: "algal.lab.host-comparison.v1", environment: { bun: Bun.version, elixir: elixirVersion.trim(), beam_schedulers: 4, platform: platform(), release: release(), cpu: cpus()[0]?.model, logical_cpus: cpus().length, total_memory_bytes: totalmem(), algal: dependency }, workload: { jobs: 24, repeats: 3, concurrency: 4, backlog: 32, effect_delay_ms: 20, max_jobs_per_host: 512, provider_calls: 0 }, benchmarks, checks, canonical_receipts_equal: true, limits: ["One shared development machine; no statistical performance conclusion.", "Includes ALGAL import/subprocess launch, fsync and host protocol overhead; not a BEAM VM microbenchmark.", "RSS is sampled OS host-process RSS; excludes common ALGAL subprocesses and allocator figures are not compared.", "Deadline applies to admission; worker execution has a separate 31-second bound.", "Explicit single-writer recovery after observed owner exit; no distributed lease or remote provider reconciliation.", "Local append fixture demonstrates uncertainty; it does not validate a production provider."] };
+  const result = { contract: "algal.lab.host-comparison.v1", environment: { bun: Bun.version, elixir: elixirVersion.trim(), beam_schedulers: 4, platform: platform(), release: release(), cpu: cpus()[0]?.model, logical_cpus: cpus().length, total_memory_bytes: totalmem(), algal: dependency }, workload: { jobs: 24, repeats: 3, concurrency: 4, backlog: 32, effect_delay_ms: 20, max_jobs_per_host: 512, provider_calls: 0 }, effect_log_oracle: "algal.lab.effect-log-oracle.v1", benchmarks, checks, canonical_receipts_equal: true, limits: ["One shared development machine; no statistical performance conclusion.", "Includes ALGAL import/subprocess launch, fsync and host protocol overhead; not a BEAM VM microbenchmark.", "RSS is sampled OS host-process RSS; excludes common ALGAL subprocesses and allocator figures are not compared.", "Deadline applies to admission; worker execution has a separate 31-second bound.", "Explicit single-writer recovery after observed owner exit; no distributed lease or remote provider reconciliation.", "Local append fixture demonstrates uncertainty; it does not validate a production provider."] };
   writeFileSync(join(directory, "report.json"), JSON.stringify(result, null, 2) + "\n");
   writeFileSync(join(directory, "events.jsonl"), transcript.map((row) => JSON.stringify(row)).join("\n") + "\n");
   console.log(JSON.stringify(result, null, 2));

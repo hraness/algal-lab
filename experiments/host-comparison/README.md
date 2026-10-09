@@ -10,9 +10,21 @@ Hex dependencies. Run from the repository root:
 
 ```sh
 bun install --frozen-lockfile
+bun test experiments/host-comparison/rss.test.ts experiments/host-comparison/protocol.test.ts
 bun x tsc --noEmit -p experiments/host-comparison/tsconfig.json
-bun experiments/host-comparison/compare.ts runs/host-comparison
+bun experiments/host-comparison/compare.ts runs/host-comparison-NEW-ID
 ```
+
+On Darwin, qualify the sampler on the intended machine first: the live RSS test
+uses Python 3 to measure an idle Bun child and an idle OTP child through a separate
+OS API. It must **pass**, not skip. The comparison harness itself uses Bun FFI
+`proc_pidinfo` for current host-process RSS and checks each sample against
+`proc_pid_rusage`; the two APIs must agree within 65,536 bytes of sampling drift.
+On other systems the harness retains `/bin/ps` and rejects failed/empty output.
+No substitute for a missing or blocked OS measurement is allowed. The failed
+2026-10-08 attempt remains retained and charged, with six passed correctness
+checks but zero recorded repetitions; do not reuse its output directory or start
+a new full run without recording a new allowance decision in the protocol.
 
 On a Hraness development machine, run the comparison through the installed
 `host-run --mode=shared --lane=compute --label=host-comparison --` wrapper. The
@@ -32,6 +44,13 @@ The program has one input and one host-registered tool. The tool waits 20 ms,
 appends a job ID to a local file, syncs it, and returns the ID. That append is the
 non-idempotent effect fixture. It is separate from the host journal so a worker
 can fail after the effect but before its result is recorded.
+
+The harness validates each log with a pure effect-log oracle before joining it to
+host states. The oracle reads only `effects.jsonl`, requires complete newline-
+delimited records with exactly one valid submitted ID, rejects duplicates and
+foreign IDs, and returns sorted IDs plus a count. Complete jobs must have one
+oracle-approved effect; cancelled or expired jobs must have none. An oracle
+failure stops the run closed.
 
 Three alternating-order repetitions run 24 jobs with four active workers and
 32 waiting slots. Timing starts after host readiness, so host startup is excluded
@@ -78,9 +97,9 @@ notification and cancels all of that owner's jobs. It does not authenticate a
 remote owner or establish a distributed lease.
 
 The test-only `crash_owner` operation kills the Bun event-loop owner or the OTP
-GenServer. OTP workers monitor that owner, close their ports when it dies, and
-the service exits rather than silently restarting the scheduler. The harness
-also kills the entire OS host after a fixture effect has been written.
+GenServer. OTP workers monitor that owner, close their ports when it dies, and the
+service exits rather than silently restarting the scheduler. The harness also
+kills the entire OS host after a fixture effect has been written.
 
 A single-writer lock prevents simultaneous hosts from using the same directory.
 The harness removes a crashed host's exact lock only after observing that host
