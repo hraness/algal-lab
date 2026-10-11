@@ -48,15 +48,34 @@ test("Required preserves PR-only filtered skips with Bash only on slim", () => {
 `);
   const script = block.split("        run: |\n")[1]!.replace(/^          /gm, "");
   const jobs = ["ts", "pyunit", "extremal", "research", "pipeline"];
-  for (const EVENT of ["pull_request", "push", "workflow_dispatch"])
-    for (const CHANGES of ["success", "failure", "cancelled", "skipped", ""])
-      for (const CI of ["true", "false", ""])
+  const cases: Array<{ event: string; changes: string; ci: string; changed: string; status: string; results: string }> = [];
+  for (const event of ["pull_request", "push", "workflow_dispatch"])
+    for (const changes of ["success", "failure", "cancelled", "skipped", ""])
+      for (const ci of ["true", "false", ""])
         for (const changed of ["true", "false", ""])
           for (const status of ["success", "failure", "cancelled", "skipped", ""])
-            for (const selected of jobs) {
-              const RESULTS = jobs.map(job => `${job}=${job === selected ? status : "success"}:${changed}`).join(" ");
-              const result = spawnSync("/bin/bash", ["--noprofile", "--norc", "-eo", "pipefail", "-c", script], { env: { PATH: "/nonexistent", EVENT, CHANGES, CI, RESULTS }, timeout: 1000 });
-              expect(result.error).toBeUndefined();
-              expect(result.status === 0).toBe(CHANGES === "success" && (status === "success" || (status === "skipped" && EVENT === "pull_request" && changed === "false" && CI === "false")));
-            }
+            for (const selected of jobs)
+              cases.push({
+                event, changes, ci, changed, status,
+                results: jobs.map(job => `${job}=${job === selected ? status : "success"}:${changed}`).join(" "),
+              });
+
+  // Keep every case isolated (the workflow calls exit), but start Bash only once.
+  // The delimiter cannot occur in these enumerated inputs or their RESULTS fields.
+  const input = cases.map(({ event, changes, ci, results }) => [event, changes, ci, results].join("|")).join("\n") + "\n";
+  const batch = `while IFS='|' read -r EVENT CHANGES CI RESULTS; do
+  (eval "$1") >/dev/null 2>&1
+  printf '%s\\n' "$?"
+done`;
+  const result = spawnSync("/bin/bash", ["--noprofile", "--norc", "-c", batch, "batch", script], {
+    env: { PATH: "/nonexistent" }, input, encoding: "utf8", timeout: 28000,
+  });
+  expect(result.error).toBeUndefined();
+  expect(result.status).toBe(0);
+  const actual = result.stdout.trimEnd().split("\n");
+  expect(actual).toHaveLength(cases.length);
+  for (const [index, { event, changes, ci, changed, status }] of cases.entries()) {
+    expect(actual[index]).toMatch(/^[01]$/);
+    expect(actual[index] === "0").toBe(changes === "success" && (status === "success" || (status === "skipped" && event === "pull_request" && changed === "false" && ci === "false")));
+  }
 }, 30000);
