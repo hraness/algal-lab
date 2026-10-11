@@ -1,0 +1,28 @@
+# Label-preserving certificate transfer: a stopped development test
+
+**Result (2026-10-11): negative for the frozen rule and finite inputs below.** No new remainder was excluded. This says nothing about other rules, relabelings, extension existence, a Ramsey bound, novelty, or improved search speed. Agent-decided, owner may revisit. This is not an independent scientific review or a publication claim.
+
+## Frozen question and inputs
+
+The [sample](SAMPLE.md) already has checked weighted-demand obstructions for 113 of 128 exact labelled 33-vertex remainders; the [nine original proofs](README.md) remain unchanged. The development-only question was whether those 113 certificates, without changing their weights or bounds, can exclude at least one of the 15 still uncertified inputs. The protocol was saved *before running target search* at `runs/certificate-transfer-20261011/protocol.md` (private, ignored by Git). The input SHA-256 is `3676626e8c70832cfa6b4e9f522e627e668f77b03ee0f23a517a5189e506e199`; the original nine fixture SHA-256 is `b04e152fe80f1f4e6cda1c76dd432506cc70d221794b0dc99c9f6d7ca85eaa45`. Source HEAD was `7ce4b68a3ebeab9e9756a1ae0d3bcd1848682d8e`. Targets are exactly sample indices `19,22,25,31,43,52,57,72,92,98,100,103,106,108,119`; they are previously known **development** inputs, not an unseen statistical holdout.
+
+For each target, `transfer.py` orders all 113 source cases by labelled edge-edit distance then source index, and tries the first eight. It keeps an original weighted pair only if it remains a nonedge with no common H-neighbour on the target, and keeps its original capacity M. No relabeling, learned parameter, additional pair, weight change, or repaired capacity is permitted. If the retained weight is at most `6M`, this proposed transfer cannot prove an exclusion and is logged as insufficient; otherwise the original [weighted checker](verify_sample.py) must validate the target proof. Even when the source proof is valid, **edge deletion can destroy its capacity bound**; copying the bound alone is unsound. Any claimed target would also need a separately implemented maximal-independent-set oracle and independent agent review. Edgeless, changed-edge, strict/equality, malformed-input and exhausted-budget controls fail closed. A proof would exclude only that exact H as the remainder of a maximal triangle-free extension around a degree-six centre.
+
+## Outcome and accounting
+
+The private write-once-by-tool JSONL ledger is `runs/certificate-transfer-20261011/attempts.jsonl` (one header, 120 attempt records, one summary); it is not cryptographically immutable. All **120/120** preselected source-target pairs failed the necessary strict inequality after dropping invalid demands; no capacity checks were invoked on actual targets, no direct-oracle nodes were needed, and there were zero proposed or accepted target certificates. For example, source 18 at target 22 retained weight 6 at M=1: equality is not a proof. The base verifier rechecked **113** original exclusions with 366,225 combinations and 311,618 endpoint-union tests. Its reported CPU was 0.6561 seconds; the measured transfer *loop* CPU was 0.0107 seconds, with zero transferred combinations and zero oracle nodes, under the 120-proposal/500,000-combination/10-CPU-second plus 1,000,000-node/5-CPU-second oracle limits. No paid inference, remote request, solver invocation, new proof, or holdout evaluation occurred ($0 charged to this step; paid allowance $0).
+
+The ledger's `transfer_cpu_seconds` on each attempt is **cumulative since the transfer-loop clock started**, not the per-attempt CPU requested in the frozen protocol. The summary uses the same cumulative clock. The clock also starts **after** fixture validation and ranking; preprocessing/selection cost was not measured separately. These missing per-attempt and preparation measurements cannot be reconstructed as instrumented timings after the run. The recorded CPU therefore **is not total end-to-end cost** and cannot support a speed claim. The earlier baseline measurement is recorded separately. All 120 failures consumed the candidate allowance; do not rerun them under a fresh folder. The selected rule has failed its prespecified `>=1` newly excluded target acceptance criterion. Zero false exclusions on adversarial controls does not turn this null result into a correctness review of a successful proof. Another rule or an unseen-family, all-cost solver comparison needs a new frozen protocol and separate authority.
+
+## Reproduce and limitations
+
+From the repository root with Python 3.10+:
+
+```sh
+python3 -B -m unittest discover -s research/spikes/moonshot-r310/demand_certificates -p 'test_transfer.py' -v
+python3 -B -m unittest discover -s research/spikes/moonshot-r310/demand_certificates -p 'test_verify_sample.py' -v
+python3 -B research/spikes/moonshot-r310/demand_certificates/verify_sample.py
+python3 -B research/spikes/moonshot-r310/demand_certificates/transfer.py --ledger runs/NEW-PRIVATE-LEDGER.jsonl
+```
+
+The final line is a **recomputation**, not an invitation to spend the consumed campaign allocation; run it only for independent replication with a separately labelled receipt. The program refuses to overwrite a ledger. [The fixed-remainder SAT study](../fixed_remainder/README.md) uses different premises; its historical solver times are not a matched comparator for this development result. No external source-priority or practical-value claim is made. Independent code/mathematical review and the repository's aggregate gate are required before delivery; neither has been represented by the direct oracle alone.
