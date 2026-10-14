@@ -99,13 +99,13 @@ test("cancellation rejection overrides prior safe failure and stops the run", as
   });
 });
 
-test("aggregate exhaustion before a remaining row writes no next attempt or report", async () => {
+test("oversized whole chunk exhausts aggregate and fail-stops before another row", async () => {
   await temporary(async directory => {
     let calls = 0;
     await expect(runSyntheticSize32(directory, refs, async () => {
       calls++;
       return body(Buffer.alloc(SIZE32.maxAggregateBytes));
-    })).rejects.toThrow("aggregate-exhausted-unresolved");
+    })).rejects.toThrow("cleanup-uncertain");
     expect(calls).toBe(1);
     expect(await failure(directory)).toMatchObject({ code: "blob-too-large", observedBytes: SIZE32.maxAggregateBytes });
     expect((await readdir(directory)).includes("02.attempt.json")).toBe(false);

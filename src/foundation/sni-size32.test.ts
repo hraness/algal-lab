@@ -168,37 +168,47 @@ test("missing body, redirect/transport failure and no upstream error text are sa
   });
 });
 
-test("content-length is only a bound; exactly-at-body-cap passes stream bound, over-cap chunk counted", async () => {
+test("declared over-limit body fails closed, while a complete exactly-at-cap body is bounded", async () => {
   await temporary(async directory => {
-    const requests: string[] = [];
-    const atLimit = Buffer.alloc(SIZE32.maxBlobBytes);
-    const overLimit = Buffer.alloc(SIZE32.maxBlobBytes + 1);
-    const report = await runSyntheticSize32(directory, [first, second, ref("task1146_country_capital")], async (url) => {
-      requests.push(url);
-      if (requests.length === 1) return new Response(body(privateBlob).body, { headers: { "content-length": String(SIZE32.maxBlobBytes + 1) } });
-      if (requests.length === 2) return body(atLimit);
-      return body(overLimit);
-    });
-    expect((await file(directory, "01.failure.json")).observedBytes).toBe(0);
-    expect((await file(directory, "01.failure.json")).code).toBe("blob-too-large");
-    expect((await file(directory, "02.failure.json")).code).toBe("size-mismatch");
-    expect((await file(directory, "02.failure.json")).observedBytes).toBe(SIZE32.maxBlobBytes);
-    expect((await file(directory, "03.failure.json")).observedBytes).toBe(SIZE32.maxBlobBytes + 1);
-    expect(report.observedResponseBytes).toBe(2 * SIZE32.maxBlobBytes + 1);
+    let requests = 0;
+    await expect(runSyntheticSize32(directory, [first, second], async () => {
+      requests++;
+      return new Response(body(privateBlob).body, { headers: { "content-length": String(SIZE32.maxBlobBytes + 1) } });
+    })).rejects.toThrow("cleanup-uncertain");
+    expect(requests).toBe(1);
+    expect((await file(directory, "01.failure.json"))).toMatchObject({ code: "blob-too-large", observedBytes: 0 });
+    expect((await readdir(directory)).sort()).toEqual([".size32-custody", "01.attempt.json", "01.failure.json"]);
+  });
+  await temporary(async directory => {
+    const report = await runSyntheticSize32(directory, [first], async () => body(Buffer.alloc(SIZE32.maxBlobBytes)));
+    expect((await file(directory, "01.failure.json"))).toMatchObject({ code: "size-mismatch", observedBytes: SIZE32.maxBlobBytes });
+    expect(report.observedResponseBytes).toBe(SIZE32.maxBlobBytes);
+    expect(report.statuses).toEqual({ extracted: 0, failed: 1 });
+  });
+  await temporary(async directory => {
+    let requests = 0;
+    await expect(runSyntheticSize32(directory, [first, second], async () => {
+      requests++;
+      return body(Buffer.alloc(SIZE32.maxBlobBytes + 1));
+    })).rejects.toThrow("cleanup-uncertain");
+    expect(requests).toBe(1);
+    expect((await file(directory, "01.failure.json"))).toMatchObject({ code: "blob-too-large", observedBytes: SIZE32.maxBlobBytes + 1 });
+    expect((await readdir(directory)).sort()).toEqual([".size32-custody", "01.attempt.json", "01.failure.json"]);
   });
 });
 
-test("whole-chunk aggregate crossing is recorded, not silently truncated or retried", async () => {
+test("32 complete one-megabyte responses reach the aggregate cap without crossing it", async () => {
   await temporary(async directory => {
-    const refs = Array.from({ length: 32 }, (_, i) => ref(`task${String(i + 100).padStart(3, "0")}_synthetic`));
-    const tooLarge = Buffer.alloc(SIZE32.maxBlobBytes + 1);
-    const exact = Buffer.alloc(SIZE32.maxBlobBytes);
+    const refs = Array.from({ length: SIZE32.count }, (_, i) => ref(`task${String(i + 100).padStart(3, "0")}_synthetic`));
+    expect(SIZE32.count * SIZE32.maxBlobBytes).toBe(SIZE32.maxAggregateBytes);
     let requests = 0;
-    const report = await runSyntheticSize32(directory, refs, async () => body(++requests < 32 ? tooLarge : exact));
-    expect(requests).toBe(32);
-    expect((await file(directory, "32.failure.json")).code).toBe("aggregate-limit");
-    expect((await file(directory, "32.failure.json")).observedBytes).toBe(SIZE32.maxBlobBytes);
-    expect(report.observedResponseBytes).toBe(32 * SIZE32.maxBlobBytes + 31);
-    expect(report.statuses).toEqual({ extracted: 0, failed: 32 });
+    const report = await runSyntheticSize32(directory, refs, async () => {
+      requests++;
+      return body(Buffer.alloc(SIZE32.maxBlobBytes));
+    });
+    expect(requests).toBe(SIZE32.count);
+    expect((await file(directory, "32.failure.json"))).toMatchObject({ code: "size-mismatch", observedBytes: SIZE32.maxBlobBytes });
+    expect(report.observedResponseBytes).toBe(SIZE32.maxAggregateBytes);
+    expect(report.statuses).toEqual({ extracted: 0, failed: SIZE32.count });
   });
 });

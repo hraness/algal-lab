@@ -159,13 +159,15 @@ async function fetchOne(ref: Size32Ref, used: number, fetcher: Fetcher, timeoutM
     if (performance.now() > deadline) fail("timeout");
     result.metadata = extractSize32(ref, Buffer.concat(chunks, accepted));
   } catch (error) { result = { code: code(error) }; }
-  // A settled stream needs no cancellation; otherwise confirm cleanup before another request.
+  // A fulfilled cancel is not evidence that an incomplete remote body has stopped.
+  const incompleteBody = !completed && (reader !== undefined || response?.body != null);
   try {
     if (reader) {
       if (!completed) await within(reader.cancel());
       reader.releaseLock();
     } else if (response?.body) await within(response.body.cancel());
   } catch { uncertain = true; result = { code: "cleanup-error" }; }
+  if (incompleteBody) uncertain = true;
   if (uncertain) { controller.abort(); result = { code: result.code ?? "timeout" }; }
   return { ...result, observedBytes, uncertain };
 }
