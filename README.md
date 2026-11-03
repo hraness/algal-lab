@@ -1,5 +1,8 @@
 # algal-lab
 
+**Retirement notice · 2026-11-03:** Work on ALGAL Lab is ending. This
+repository’s source and research records are kept for historical reference.
+
 Reproducible research environments built on [ALGAL](https://github.com/hraness/algal).
 
 Read the results and their methods in [Discoveries](https://hraness.com/discoveries).
